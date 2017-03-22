@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 794f87c3d4b8378d7aeca63791a8fbfd03e44ceb
-ms.openlocfilehash: c226d43e8cc24af7c86ae13b3752bfd6fb53b1c8
+ms.sourcegitcommit: e34a2bfbf5f1ae544a729c994d91c485d48bb440
+ms.openlocfilehash: 1027f9c73a45b7d148643f5ec217683f71c4e899
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,21 +30,18 @@ Neste artigo, vamos falar sobre os diferentes usos dos discos e discutir os dife
 
 ## <a name="disks-used-by-vms"></a>Discos usados por VMs
 
-Vamos dar uma olhada em como os discos são usados pelas VMs.
+Vamos dar uma olhada em como os discos são usados pelas máquinas virtuais.
 
 ### <a name="operating-system-disk"></a>Disco do sistema operacional
 Cada máquina virtual tem um disco de sistema operacional anexado. Ele é registrado como uma unidade SATA e rotulado como a unidade C: por padrão. Este disco tem uma capacidade máxima de 1023 GB (Gigabytes). 
 
 ### <a name="temporary-disk"></a>Disco temporário
-O disco temporário é criado automaticamente para você. O disco temporário é rotulado como a unidade D: por padrão e é usado para armazenar o arquivo pagefile.sys. 
+Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) ou durante a [nova implantação de uma VM](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante a reinicialização padrão da VM, os dados na unidade temporária devem persistir.
 
-O tamanho do disco temporário varia com base no tamanho da máquina virtual. Para obter mais informações, consulte [Tamanhos de máquinas virtuais do Windows](../virtual-machines/virtual-machines-windows-sizes.md).
-
-> [!WARNING]
-> Não armazene dados no disco temporário. Ele fornece armazenamento temporário para aplicativos e processos e destina-se apenas armazenar dados como arquivos de paginação ou de permuta. Para remapear este disco para uma letra de unidade diferente, consulte [Alterar a letra da unidade de disco temporário do Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
-> 
+O disco temporário é rotulado como a unidade D: por padrão e é usado para armazenar o arquivo pagefile.sys. Para remapear este disco para uma letra de unidade diferente, consulte [Alterar a letra da unidade de disco temporário do Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md). O tamanho do disco temporário varia com base no tamanho da máquina virtual. Para obter mais informações, consulte [Tamanhos de máquinas virtuais do Windows](../virtual-machines/virtual-machines-windows-sizes.md).
 
 Para obter mais informações sobre como o Azure usa o disco temporário, consulte [Noções básicas sobre a unidade temporária nas Máquinas Virtuais do Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+
 
 ### <a name="data-disk"></a>Disco de dados
 Um disco de dados é um VHD anexado a uma máquina virtual para armazenar dados de aplicativo ou outros dados que você precisa manter. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 1023 GB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
@@ -80,10 +78,5 @@ fsutil behavior set DisableDeleteNotify 0
 * [Anexar um disco](../virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para adicionar mais armazenamento à sua VM.
 * [Carregue uma imagem de VM do Windows no Azure](../virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para utilização durante a criação de uma nova VM.
 * [Altere a letra da unidade do disco temporário do Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para que seu aplicativo possa usar a unidade D: para dados.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

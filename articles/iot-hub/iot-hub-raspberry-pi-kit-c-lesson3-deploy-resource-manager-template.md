@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 402a5dac4e77f64576acb968b67df92167f54f27
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -73,10 +74,5 @@ Você criou o aplicativo de funções do Azure para processar as mensagens de hu
 
 ## <a name="next-steps"></a>Próximas etapas
 [Executar um aplicativo de exemplo para enviar mensagens do dispositivo para a nuvem](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

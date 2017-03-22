@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2eba5ecc41342b62601750c19e4bffd8b6e78b51
-ms.openlocfilehash: 7ff2d29b52848f21534b5d540fb3908710534f69
+ms.sourcegitcommit: 64b6447608ecdd9bdd2b307f4bff2cae43a4b13f
+ms.openlocfilehash: cff066ff2943443749ee8eb2ef71c7ca93bb829c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -135,135 +136,9 @@ Para referência, a captura mostra como deve ser a aparência:
 Para obter informações sobre segurança e FIPS, veja [Sincronização de senha do AAD, criptografia e conformidade FIPS](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
 ## <a name="troubleshooting-password-synchronization"></a>Solução de problemas de sincronização de senha
-Se as senhas não estiverem sincronizando conforme o esperado, pode ser para um subconjunto de usuários ou todos os usuários.
-
-* Se você tiver um problema com objetos individuais, veja [Solucionar problemas de um objeto que não está sincronizando senhas](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
-* Se você tiver um problema em que nenhuma senha é sincronizada, confira [Solucionar problemas em que nenhuma senha é sincronizada](#troubleshoot-issues-where-no-passwords-are-synchronized).
-
-### <a name="troubleshoot-one-object-that-is-not-synchronizing-passwords"></a>Solucionar problemas de um objeto que não está sincronizando senhas
-Você pode solucionar problemas de sincronização de senha problemas facilmente analisando o status de um objeto.
-
-Comece em **Usuários e Computadores do Active Directory**. Localize o usuário e verifique se **O usuário deve alterar a senha no próximo logon** está desmarcada.
-
-![Senhas produtivas do Active Directory](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
-
-Se essa opção estiver selecionada, peça ao usuário para entrar e alterar a senha. As senhas temporárias não são sincronizadas com o Azure AD.
-
-Se elas parecerem corretas no Active Directory, a próxima etapa será seguir o usuário no mecanismo de sincronização. Ao seguir o usuário do Active Directory local para o Azure AD, você pode ver se há um erro descritivo no objeto.
-
-1. Abra o **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
-2. Clique em **Conectores**.
-3. Escolha o **Conector do Active Directory** em que o usuário está localizado.
-4. Escolha **Pesquisar Espaço Conector**.
-5. Localize o usuário que você está procurando.
-6. Escolha a guia **linhagem** e verifique se pelo menos uma **Regra de Sincronização** mostra Sincronização de Senha como **Verdadeiro**. Na configuração padrão, o nome da Regra de Sincronização é **Entrada do AD – Conta do Usuário Habilitada**.  
-    ![Informações de linhagem sobre um usuário](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)  
-7. Em seguida [siga o usuário](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) por meio do metaverso até o espaço Conector do Azure AD. O objeto do espaço conector deve ter uma regra de saída com **Sincronização de Senha** definida como **Verdadeiro**. Na configuração padrão, o nome da regra de sincronização é **Saída para AAD – Ingresso do Usuário**.  
-    ![Propriedades de espaço do conector de um usuário](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
-8. Para ver os detalhes da sincronização de senha do objeto da última semana, clique em **Log...**.  
-    ![Detalhes de log do objeto](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
-    Se o log do objeto estiver vazio, o Azure AD Connect não conseguiu ler o hash da senha no Active Directory. Procure por erros no log de eventos.
-
-A coluna de status pode ter os seguintes valores:
-
-| Status | Descrição |
-| --- | --- |
-| Sucesso |A senha foi sincronizada com êxito. |
-| FilteredByTarget |A senha está definida para **O usuário deve alterar a senha no próximo logon**. A senha não foi sincronizada. |
-| NoTargetConnection |Nenhum objeto no metaverso ou no espaço conector do AD do Azure. |
-| SourceConnectorNotPresent |Nenhum objeto encontrado no espaço conector do Active Directory local. |
-| TargetNotExportedToDirectory |O objeto no espaço conector do AD do Azure ainda não foi exportado. |
-| MigratedCheckDetailsForMoreInfo |A entrada de log foi criada antes da versão 1.0.9125.0 e é mostrada em seu estado herdado. |
-
-### <a name="troubleshoot-issues-where-no-passwords-are-synchronized"></a>Solucionar problemas em que nenhuma senha é sincronizada
-Comece a executar o script na seção [Obter o status das configurações da sincronização de senha](#get-the-status-of-password-sync-settings). Ele fornece uma visão geral da configuração da sincronização de senha.  
-![Saída do script do PowerShell de configurações da sincronização de senha](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png)  
-Se o recurso não estiver habilitado no Azure AD ou se o status do canal de sincronização não estiver habilitado, execute o assistente de instalação de conexão. Escolha **Personalizar opções de sincronização** e desmarque a sincronização de senha. Essa mudança desabilita o recurso temporariamente. Em seguida, execute o assistente novamente e reabilite a sincronização de senha. Execute o script novamente para verificar se a configuração está correta.
-
-Se o script mostrar que não há nenhuma pulsação, execute o script em [Disparar uma sincronização completa de todas as senhas](#trigger-a-full-sync-of-all-passwords). Esse script também pode ser usado para outros cenários em que a configuração está correta, mas as senhas não são sincronizadas.
-
-Se você instalou o Azure AD Connect com configurações personalizadas, certifique-se de ter concedido à conta usada pelo AD Connector as permissões "Replicar alterações de diretório" e "Replicar todas as alterações de diretório". Veja [contas e permissões](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) para conhecer todas as permissões necessárias para essa conta. Sem essas permissões, a conta não terá permissões para ler os hashes de senha no Active Directory.
-
-Depois, examine o log de eventos do aplicativo. Se houver um problema global com a sincronização de senha e o serviço estiver funcionando, conforme verificado pelas etapas anteriores, deve haver um erro com mais detalhes.
-
-#### <a name="get-the-status-of-password-sync-settings"></a>Obter o status das configurações da sincronização de senha
-```
-Import-Module ADSync
-$connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
-$adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
-if ($aadConnectors -ne $null -and $adConnectors -ne $null)
-{
-    if ($aadConnectors.Count -eq 1)
-    {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
-        Write-Host
-        Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
-        foreach ($adConnector in $adConnectors)
-        {
-            Write-Host
-            Write-Host "Password sync channel status BEGIN ------------------------------------------------------- "
-            Write-Host
-            Get-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector.Name
-            Write-Host
-            $pingEvents =
-                Get-EventLog -LogName "Application" -Source "Directory Synchronization" -InstanceId 654  -After (Get-Date).AddHours(-3) |
-                    Where-Object { $_.Message.ToUpperInvariant().Contains($adConnector.Identifier.ToString("D").ToUpperInvariant()) } |
-                    Sort-Object { $_.Time } -Descending
-            if ($pingEvents -ne $null)
-            {
-                Write-Host "Latest heart beat event (within last 3 hours). Time " $pingEvents[0].TimeWritten
-            }
-            else
-            {
-                Write-Warning "No ping event found within last 3 hours."
-            }
-            Write-Host
-            Write-Host "Password sync channel status END ------------------------------------------------------- "
-            Write-Host
-        }
-    }
-    else
-    {
-        Write-Warning "More than one Azure AD Connectors found. Please update the script to use the appropriate Connector."
-    }
-}
-Write-Host
-if ($aadConnectors -eq $null)
-{
-    Write-Warning "No Azure AD Connector was found."
-}
-if ($adConnectors -eq $null)
-{
-    Write-Warning "No AD DS Connector was found."
-}
-Write-Host
-```
-
-#### <a name="trigger-a-full-sync-of-all-passwords"></a>Disparar uma sincronização completa de todas as senhas
-Você pode disparar uma sincronização completa de todas as senhas usando o seguinte script:
-
-```
-$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
-$aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
-Import-Module adsync
-$c = Get-ADSyncConnector -Name $adConnector
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-$p.Value = 1
-$c.GlobalParameters.Remove($p.Name)
-$c.GlobalParameters.Add($p)
-$c = Add-ADSyncConnector -Connector $c
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
-```
-
+Caso tenha problemas com a sincronização de senha, consulte [Solucionar problemas de sincronização de senha](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

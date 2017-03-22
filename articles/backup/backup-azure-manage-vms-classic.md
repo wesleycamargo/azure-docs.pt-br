@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
 ms.author: trinadhk;markgal;
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: bea1012fcd63b15ebfb5137dcfbd7e868c4e060f
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: d00235d788dbe1674eac219a7c708a8ecd53ccc5
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="manage-and-monitor-azure-virtual-machine-backups"></a>Gerenciar e monitorar backups de máquinas virtuais do Azure
+# <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Gerenciar trabalhos comuns do Backup do Azure e disparar alertas no portal clássico
 > [!div class="op_single_selector"]
 > * [Gerenciar backups da VM do Azure](backup-azure-manage-vms.md)
 > * [Gerenciar backups de VMs clássicas](backup-azure-manage-vms-classic.md)
@@ -239,7 +240,7 @@ Os alertas baseados em eventos estão sujeitos às seguintes limitações:
 
 1. Os alertas são disparados em todas as máquinas virtuais no cofre de backup. Você não pode personalizá-lo para obter alertas de um conjunto específico de máquinas virtuais em um cofre de backup.
 2. Esse recurso está em Preview. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
-3. Você receberá alertas de "alerts-noreply@mail.windowsazure.com". No momento, você não pode modificar o remetente do email.
+3. Você receberá alertas de “alerts-noreply@mail.windowsazure.com”. No momento, você não pode modificar o remetente do email.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)

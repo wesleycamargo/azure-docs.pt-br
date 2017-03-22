@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2d5ea8109f5fde5f2b480ceeea34c365b619fab5
-ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c979e6328f09618642aa7a432c873c7ce20c072b
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -47,6 +47,7 @@ Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa ter
   | 9091 |Habilitar a renovação automática de certificados de confiança do Conector |
   
     Se o firewall reforça o tráfego de acordo com os usuários de origem, abra essas portas para o tráfego proveniente de serviços do Windows em execução como um serviço de rede. Além disso, certifique-se de habilitar a porta 8080 para Autoridade NT\Sistema.
+* Use a [Ferramenta de Teste de Portas do Conector de Proxy de Aplicativo do Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para verificar se o conector pode alcançar o serviço Proxy de Aplicativo. No mínimo, verifique se a região EUA Central e a região mais próxima de você tem todas as marcas de seleção verdes. Além disso, um número maior de marcas de seleção verdes significa maior resiliência. 
 * Se a sua organização usa servidores proxy para se conectar à Internet, confira a postagem do blog [Trabalhar com servidores proxy locais existentes](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) para obter detalhes sobre como configurá-los.
 
 ## <a name="step-1-enable-application-proxy-in-azure-ad"></a>Etapa 1: habilite o Proxy de aplicativo no AD do Azure

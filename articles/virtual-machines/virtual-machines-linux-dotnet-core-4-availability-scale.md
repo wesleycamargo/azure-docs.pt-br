@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 6f352b000ce4e284a1f1cc9ba9b384827ee62003
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 1c8f8a958a6ea6ea096d4a55479879aab7c7e96d
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="availability-and-scale-in-azure-resource-manager-templates"></a>Disponibilidade e escala em modelos do Azure Resource Manager
+# <a name="availability-and-scale-in-azure-resource-manager-templates-for-linux-vms"></a>Disponibilidade e escala em modelos do Azure Resource Manager para VMs Linux
+
 Disponibilidade e escala referem-se ao tempo de atividade e à capacidade de atender à demanda. Se um aplicativo deve estar ativo 99,9% do tempo, ele precisa ter uma arquitetura que permite vários recursos de computação simultâneos. Por exemplo, em vez de ter um único site, uma configuração com um nível mais alto de disponibilidade inclui várias instâncias do mesmo site, com tecnologia de balanceamento na frente delas. Nessa configuração, uma instância do aplicativo pode ser desativada para manutenção, enquanto o restante continua a funcionar. Por outro lado, a escala se refere à capacidade de aplicativos para atender à demanda. Com um aplicativo de balanceamento de carga, adicionar ou remover instâncias do pool permite que um aplicativo seja dimensionado para atender à demanda.
 
 Este documento detalha como a implantação de exemplo de Loja de Música é configurada para disponibilidade e escala. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -261,10 +264,5 @@ Para obter mais informações sobre a função de cópia, consulte [Criar vária
 <hr>
 
 [Etapa 4 – Implantação de aplicativos com modelos do Azure Resource Manager](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
-ms.openlocfilehash: 882157d2cb544e5bb59caf7d64de579e23b12480
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 3fd731d83ca32359193534f043b3eb3e0333e0aa
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,6 +58,9 @@ Readapte o serviço Web:
 * Usar o código Serviço de Execução em Lotes para readaptar o modelo
 
 Para ver uma passo a passo das etapas anteriores, confira [Readaptar os modelos do Machine Learning de forma programática](machine-learning-retrain-models-programmatically.md).
+
+> [!NOTE] 
+> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 Se você implantou um Serviço Web Clássico:
 

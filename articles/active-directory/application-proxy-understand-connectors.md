@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 36e737ebc3451a190e99dc2bc91ef4242d2f573e
-ms.openlocfilehash: e9dfe8ad62dfa0eec810ecdeeddadbecc25b9163
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 41d6f678dba769cf7f949751da8cacf3df7f88c1
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -26,8 +27,6 @@ Este artigo aborda os conectores, que são o ingrediente secreto do Proxy de Apl
 
 > [!NOTE]
 > O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
-> 
-> 
 
 ## <a name="what-are-azure-ad-application-proxy-connectors"></a>O que são os conectores do Proxy de Aplicativo do Azure AD?
 O Proxy de Aplicativo funciona depois que você instala o serviço do Windows Server, chamado de conector, em sua rede. Você pode instalar os conectores com base em suas necessidades de escalabilidade e alta disponibilidade. Comece com um e adicione mais conforme a necessidade. Toda vez que um conector é instalado, ele é adicionado ao pool de conectores que atende ao seu locatário.
@@ -51,11 +50,13 @@ Eles também sondam o servidor para saber se há uma versão mais recente do con
 ## <a name="all-networking-is-outbound"></a>Toda a rede é de saída
 Os conectores enviam somente solicitações de saída. Portanto, a conexão sempre é iniciada pelo(s) conector(es). Não é necessário abrir portas de entrada, pois assim que uma sessão for estabelecida, o tráfego fluirá de ambos os lados.
 
-O tráfego de saída é enviado ao serviço de Proxy de Aplicativo e aos aplicativos publicados. O tráfego para o serviço é enviado aos datacenters do Azure para vários números de porta diferentes. Para saber mais, confira [Habilitar o Proxy de Aplicativo no Portal do Azure](active-directory-application-proxy-enable.md).
+O tráfego de saída é enviado ao serviço de Proxy de Aplicativo e aos aplicativos publicados. O tráfego para o serviço é enviado aos datacenters do Azure para vários números de porta diferentes. Para obter mais informações, consulte [Habilitar o Proxy de Aplicativo no portal do Azure](active-directory-application-proxy-enable.md).
 
 Como consequência de ter apenas o tráfego de saída, não há a necessidade de configurar o balanceamento de carga entre os conectores nem de configurar o acesso de entrada por meio dos firewalls.
 
 Para saber mais sobre como configurar regras de firewall de saída, confira [Work with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md) (Trabalhar com servidores proxy locais existentes).
+
+Use a [Ferramenta de Teste de Portas do Conector de Proxy de Aplicativo do Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para verificar se o conector pode alcançar o serviço Proxy de Aplicativo. No mínimo, verifique se a região EUA Central e a região mais próxima de você tem todas as marcas de seleção verdes. Além disso, um número maior de marcas de seleção verdes significa maior resiliência. 
 
 ## <a name="network-security"></a>Segurança de rede
 
@@ -114,7 +115,7 @@ Outro fator sobre o desempenho é a qualidade da rede entre os conectores, inclu
 * _Os aplicativos de back-end:_ em alguns casos, há outros proxies entre o conector e os aplicativos de back-end. É fácil solucionar esse problema abrindo um navegador no computador do conector e acessando esses aplicativos. Se você executar os conectores no Azure, e os aplicativos forem locais, a experiência pode não ser como esperada pelos usuários.
 * _Os controladores de domínio:_ se os conectores estiverem executando o SSO usando a KCD (Delegação Restrita de Kerberos), eles contatarão os controladores de domínio antes de enviarem a solicitação ao back-end. Os conectores têm um cache de tíquetes Kerberos, mas em ambientes ocupados, a capacidade de resposta dos controladores de domínio pode retardar a experiência. Isso é mais comum para conectores que são executados no Azure, enquanto os controladores de domínio são locais.
 
-##<a name="automatic-updates-to-the-connector"></a>Atualizações automáticas para o conector
+## <a name="automatic-updates-to-the-connector"></a>Atualizações automáticas para o conector
 
 Com o serviço de Atualizador do Conector, oferecemos uma maneira automatizada de manter-se atualizado. Dessa forma, você tem a vantagem contínua de todos os recursos novos, bem como de aprimoramentos de segurança e desempenho.
 
@@ -152,13 +153,9 @@ Você pode examinar o estado do serviço na janela Serviços. O conector é comp
 
 Para saber mais sobre como resolver erros do Conector do Proxy de Aplicativo, confira [Solucionar problemas de Proxy de Aplicativo](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
 
-##<a name="next-steps"></a>Próximas etapas
-[Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md)<br>
-[Como instalar silenciosamente o Conector de Proxy de Aplicativo do Azure AD](active-directory-application-proxy-silent-installation.md)
+## <a name="next-steps"></a>Próximas etapas
+[Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md)
 
-
-
-
-<!--HONumber=Feb17_HO1-->
+[Como instalar silenciosamente o Conector de Proxy de Aplicativo do Azure AD ](active-directory-application-proxy-silent-installation.md)
 
 

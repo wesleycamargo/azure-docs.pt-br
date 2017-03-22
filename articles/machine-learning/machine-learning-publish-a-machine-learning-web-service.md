@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
-ms.openlocfilehash: df8aebc78969ac6ceb00ee8b20a60cb153e8891b
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: fa62c0883b8230e514f60626b59fa3b3b20a6784
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -62,6 +63,9 @@ Você pode implantar o teste preditivo como um serviço Web Novo ou Clássico.
 Agora que o teste preditivo foi preparado, você pode implantá-lo como um novo serviço Web do Azure. Usando o serviço Web, os usuários podem enviar dados para seu modelo e o modelo retornará suas previsões.
 
 Para implantar o teste preditivo, clique em **Executar** na parte inferior da tela do teste. Após a conclusão do teste, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [novo]**.  A página de implantação do portal do serviço Web do Machine Learning será aberta.
+
+> [!NOTE] 
+> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 #### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Página de teste de implantação do portal de Serviços Web do Machine Learning
 Na página de teste de implantação, insira um nome para o serviço Web.
@@ -116,7 +120,7 @@ A página **Consumo** fornece todas as informações necessárias para acessar o
 Para obter mais informações sobre como acessar um serviço Web do Aprendizado de Máquina, veja [Como consumir um serviço Web implantado do Aprendizado de Máquina do Azure](machine-learning-consume-web-services.md).
 
 #### <a name="manage-your-new-web-service"></a>Gerenciar seu Novo serviço Web
-Você pode gerenciar seu portal de serviços Web de Aprendizado de Máquina de serviços Web clássicos. Na [página principal do portal](https://services.azureml-test.net/) clique em **serviços Web**. Na página de serviços Web, você pode excluir ou copiar um serviço. Para monitorar um serviço específico, clique no serviço e, em seguida, clique em **Painel**. Para monitorar trabalhos em lotes associados ao serviço Web, clique em **Log de solicitações em lote**.
+É possível gerenciar o Novo serviço Web no portal dos Serviços Web do Machine Learning. Na [página principal do portal](https://services.azureml-test.net/) clique em **serviços Web**. Na página de serviços Web, você pode excluir ou copiar um serviço. Para monitorar um serviço específico, clique no serviço e, em seguida, clique em **Painel**. Para monitorar trabalhos em lotes associados ao serviço Web, clique em **Log de solicitações em lote**.
 
 ### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Implantar o teste preditivo como um serviço Web clássico
 
@@ -187,9 +191,4 @@ Uma opção para atualizar seu serviço Web é treinar novamente o modelo de for
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

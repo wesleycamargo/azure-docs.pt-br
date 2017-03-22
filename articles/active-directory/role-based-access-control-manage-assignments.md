@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 3/01/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -24,8 +25,6 @@ ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
 > [!div class="op_single_selector"]
 > * [Gerenciar o acesso por usuário ou grupo](role-based-access-control-manage-assignments.md)
 > * [Gerenciar o acesso por recurso](role-based-access-control-configure.md)
-> 
-> 
 
 Com RBAC (controle de acesso baseado em função) na visualização do Azure Active Directory, você pode gerenciar o acesso aos recursos do Azure. [O que há na visualização?](active-directory-preview-explainer.md)
 
@@ -48,7 +47,7 @@ Para pesquisar as atribuições de acesso para um único usuário ou grupo, come
 4. Selecione **Recursos do Azure** na folha do usuário. Todas as atribuições de acesso para esse usuário são exibidas.
 
 ### <a name="read-permissions-to-view-assignments"></a>Permissões de leitura para exibir atribuições
-Essa página mostra apenas as atribuições de acesso que você tem permissão para ler. Por exemplo, você tem acesso de leitura para a assinatura A e vai para a folha de recursos do Azure a fim de verificar as atribuições do usuário. Você pode ver as atribuições de acesso dele para a assinatura A, mas não vê que ele também tem acesso a atribuições da assinatura B.
+Essa página mostra apenas as atribuições de acesso que você tem permissão para ler. Por exemplo, você tem acesso de leitura para a assinatura A e vai para a folha de recursos do Azure a fim de verificar as atribuições do usuário. É possível ver as atribuições de acesso dele para a assinatura A, mas não é possível ver que ele também tem acesso a atribuições na assinatura B.
 
 ## <a name="delete-access-assignments"></a>Excluir atribuições de acesso
 Nessa folha, você pode excluir atribuições de acesso que foram atribuídas diretamente a um usuário ou grupo. Se a atribuição de acesso foi herdada de um grupo pai, você precisará ir até o recurso ou a assinatura e gerenciar a atribuição lá.
@@ -57,13 +56,9 @@ Nessa folha, você pode excluir atribuições de acesso que foram atribuídas di
 2. Selecione **Remover** e **Sim** para confirmar.
     ![Remover atribuição de acesso – captura de tela](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
-## <a name="related-topics"></a>Tópicos relacionados
+## <a name="next-steps"></a>Próximas etapas
+
 * Introdução ao Controle de Acesso Baseado em Função a fim de [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](role-based-access-control-configure.md)
 * Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 03/05/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71cfd2ea327cad22cdb1085558658934804c15f1
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: e0de3b12b98bf9bf361607dac4b087e4eacabf1e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -41,13 +42,10 @@ O Azure Search é um serviço de pesquisa baseado em nuvem, totalmente gerenciad
 
 *desempenho de consulta* também está além do escopo deste artigo. Para obter mais informações, confira [Monitorar as métricas de uso e consulta](search-monitor-usage.md) e [Desempenho e otimização](search-performance-optimization.md).
 
-A Pesquisa do Azure realizará failover para outros clusters e data centers se houver uma interrupção, mas não fornecerá soluções internas para operações manuais de backup e restauração se o índice ou o serviço for excluído de forma mal-intencionada ou acidental. Para clientes que enviam objetos e dados por push e dados para o seu serviço, o código-fonte para criar e preencher um índice é a opção de restauração de fato, se você excluir um índice por engano. 
-
-A Pesquisa do Azure não fornece replicação geográfica de índices entre serviços. Se sua solução tem alcance global, considere adicionar redundância por meio de um serviço adicional em um datacenter regional diferente para que todos os componentes do aplicativo sejam hospedados em um único lugar. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
-## <a name="administrator-rights-in-azure-search"></a>Direitos de administrador no Azure Search
+## <a name="administrator-rights"></a>Direitos de administrador
 O provisionamento ou encerramento do serviço em si podem ser feitos por um administrador ou coadministrador de assinatura do Azure.
 
 Em um serviço, qualquer pessoa com acesso à URL do serviço e uma chave de api de administração tem acesso de leitura e gravação para o serviço, com capacidade proporcional para adicionar, excluir ou modificar objetos de servidor, como chaves de api, índices, indexadores, fontes de dados, agendas e atribuições de função, conforme implementado por meio de [funções definidas pelo RBAC](#rbac).
@@ -56,7 +54,21 @@ Todas as interações do usuário com o Azure Search se enquadram em um destes m
 
 <a id="sys-info"></a>
 
-## <a name="logging-in-azure-search-and-system-information"></a>Registro no Azure Search e informações do sistema
+## <a name="set-rbac-roles-for-administrative-access"></a>Definir funções RBAC para acesso administrativo
+O Azure fornece um [modelo global de autorização baseado em funções](../active-directory/role-based-access-control-configure.md) para todos os serviços gerenciados por meio do portal ou nas APIs do Gerenciador de Recursos. Funções de Leitor, Colaborador e Proprietário determinam o nível de administração do serviço para usuários, grupos e entidades de segurança do Active Directory, que você atribui a cada função. 
+
+Para o Azure Search, as permissões de RBAC determinam as seguintes tarefas administrativas:
+
+| Função | Tarefa |
+| --- | --- |
+| Proprietário |Criar ou excluir o serviço ou qualquer objeto no serviço, incluindo chaves de api, índices, indexadores, fontes de dados do indexador e agendas do indexador.<p>Exibir o status do serviço, incluindo o tamanho de armazenamento e contagens.<p>Adicionar ou excluir a associação de função (somente um Proprietário pode gerenciar a associação de função).<p>Os administradores de assinatura e proprietários de serviço possuem associação automática na função Proprietários. |
+| Colaborador |Mesmo nível de acesso como Proprietário, menos gerenciamento de funções RBAC. Por exemplo, um Colaborador pode exibir e gerar novamente a `api-key`, mas não pode modificar as associações de função. |
+| Leitor |Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem alterar a configuração do serviço, nem exibir chaves admin. |
+
+Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Para mais informações, consulte "Autorização para gerenciamento versus operações de dados" em [O que é controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md).
+
+<a id="secure-keys"></a>
+## <a name="logging-and-system-information"></a>Log e informações do sistema
 O Azure Search não expõe os arquivos de log para um serviço individual por meio do portal ou interfaces programáticas. Na camada Básica e acima, a Microsoft monitora todos os serviços do Azure Search para disponibilidade de 99,9% por contratos de nível de serviço (SLA). Se o serviço estiver lento ou a taxa de transferência de solicitação estiver abaixo dos limites de SLA, as equipes de suporte analisam os arquivos de log disponíveis para resolver o problema.
 
 Em termos de informações gerais sobre o serviço, você pode obter informações das seguintes maneiras:
@@ -67,7 +79,7 @@ Em termos de informações gerais sobre o serviço, você pode obter informaçõ
 
 <a id="manage-keys"></a>
 
-## <a name="manage-the-api-keys"></a>Gerenciar as chaves de api
+## <a name="manage-api-keys"></a>Gerenciar api-keys
 Todas as solicitações para um serviço de pesquisa precisam de uma chave de api gerada especificamente para o seu serviço. Esta chave de API é o único mecanismo para autenticar o acesso ao ponto de extremidade do seu serviço de pesquisa. 
 
 Uma chave de api é uma cadeia de caracteres composta de letras e números gerados aleatoriamente. Ela é gerado exclusivamente pelo seu serviço. Por meio de [permissões RBAC](#rbac), você pode excluir ou ler as chaves, mas você não pode substituir uma chave gerada por uma cadeia de caracteres definida pelo usuário (especificamente, se você tiver as senhas que costuma usar, você não pode substituir uma chave de api por uma senha definida pelo usuário). 
@@ -87,22 +99,7 @@ Para obter ou gerar chaves de API novamente, abra o painel do serviço. Clique e
 
 <a id="rbac"></a>
 
-## <a name="set-rbac-roles-on-administrative-access-for-azure-search"></a>Definir funções RBAC com acesso administrativo para o Azure Search
-O Azure fornece um [modelo global de autorização baseado em funções](../active-directory/role-based-access-control-configure.md) para todos os serviços gerenciados por meio do portal ou nas APIs do Gerenciador de Recursos. Funções de Leitor, Colaborador e Proprietário determinam o nível de administração do serviço para usuários, grupos e entidades de segurança do Active Directory, que você atribui a cada função. 
-
-Para o Azure Search, as permissões de RBAC determinam as seguintes tarefas administrativas:
-
-| Função | Tarefa |
-| --- | --- |
-| Proprietário |Criar ou excluir o serviço ou qualquer objeto no serviço, incluindo chaves de api, índices, indexadores, fontes de dados do indexador e agendas do indexador.<p>Exibir o status do serviço, incluindo o tamanho de armazenamento e contagens.<p>Adicionar ou excluir a associação de função (somente um Proprietário pode gerenciar a associação de função).<p>Os administradores de assinatura e proprietários de serviço possuem associação automática na função Proprietários. |
-| Colaborador |Mesmo nível de acesso como Proprietário, menos gerenciamento de funções RBAC. Por exemplo, um Colaborador pode exibir e gerar novamente a `api-key`, mas não pode modificar as associações de função. |
-| Leitor |Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem alterar a configuração do serviço, nem exibir chaves admin. |
-
-Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Para mais informações, consulte "Autorização para gerenciamento versus operações de dados" em [O que é controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
-
-## <a name="secure-the-api-keys"></a>Proteger as chaves de api
+## <a name="secure-api-keys"></a>Proteger api-keys
 A chave de segurança é protegida restringindo o acesso por meio do portal ou interfaces do Gerenciador de Recursos (PowerShell ou interface de linha de comando). Conforme observado, os administradores de assinatura podem exibir e gerar novamente todas as chaves de api. Como precaução, revise as atribuições de função para entender quem tem acesso às chaves admin.
 
 1. No painel de serviço, clique no ícone de acesso para abrir a folha de Usuários.
@@ -126,6 +123,21 @@ Usando a API do serviço de pesquisa, você pode obter uma contagem dos document
 > Os comportamentos de cache podem aumentar um limite temporariamente. Por exemplo, ao usar o serviço compartilhado, você pode ver uma contagem de documentos que ultrapassa o limite de 10.000. O aumento é temporário e será detectado na próxima verificação de aplicação do limite. 
 > 
 > 
+
+## <a name="disaster-recovery-and-service-outages"></a>Recuperação de desastre e interrupções de serviço
+
+Embora possamos recuperar seus dados, o Azure Search não fornece failover instantâneo do serviço se há uma interrupção no cluster ou no nível do datacenter. Se um cluster falhar no datacenter, a equipe de operações detectará e trabalhará para restaurar o serviço. Haverá tempo de inatividade durante a restauração do serviço. É possível solicitar créditos de serviço para compensar a indisponibilidade do serviço de acordo com o [SLA (Contrato de Nível de Serviço)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+
+Para garantir o serviço contínuo, incluindo falhas catastróficas fora do controle da Microsoft, é necessário [provisionar um serviço adicional](search-create-service-portal.md) em outra região e implementar uma estratégia de replicação geográfica para garantir que os índices são totalmente redundantes em todos os serviços.
+
+Os clientes que usam indexadores para popular e atualizar índices lidam com a recuperação de desastre por meio de indexadores específicos à geografia utilizando a mesma fonte de dados. Em vez de indexadores, você usará o código do aplicativo para enviar objetos e dados por push para diferentes serviços em paralelo. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
+
+## <a name="backup-and-restore"></a>Backup e restauração
+
+Como o Azure Search não é uma solução de armazenamento de dados primário, não fornecemos um mecanismo formal de backup e restauração de autoatendimento. O código do aplicativo usado para criar e popular um índice é a opção de restauração de fato, caso você exclua um índice por engano. 
+
+Para recompilar um índice, exclua-o (supondo que ele exista), recrie o índice no serviço e recarregue-o recuperando dados do armazenamento de dados primário. Como alternativa, você poderá contatar o [atendimento ao cliente]() para recuperar índices, caso haja uma interrupção regional.
+
 
 <a id="scale"></a>
 
@@ -162,7 +174,7 @@ Para se planejar para o futuro, talvez você queira conferir o armazenamento (us
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment-video"></a>Práticas recomendadas em escala e implantação (vídeo)
+## <a name="best-practices-on-scale-and-deployment"></a>Melhores práticas para escala e implantação
 Este vídeo de 30 minutos examina as práticas recomendadas para cenários de implantação avançados, incluindo cargas de trabalho distribuídas geograficamente. Você também pode consultar [Desempenho e otimização no Azure Search](search-performance-optimization.md) para páginas de ajuda que abrangem os mesmos pontos.
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
@@ -186,10 +198,5 @@ Além disso, se você ainda não fez isso, examine o [artigo de desempenho e oti
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

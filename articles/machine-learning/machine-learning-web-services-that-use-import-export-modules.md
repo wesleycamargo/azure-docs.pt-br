@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 0dc02034ea1f3c4f8413aca1ff693838ad1e49bd
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 30a3a6c438bae191605e35c352cf03fd8eaddf0f
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -108,7 +108,7 @@ Para implantar como um serviço Web Clássico e criar um aplicativo para consumi
 9. Localize a declaração de solicitação e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usará a consulta original, mas definirá um novo nome de tabela.
    
         var request = new BatchExecutionRequest() 
-        {           
+        {            
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
@@ -119,6 +119,10 @@ Para implantar como um serviço Web Clássico e criar um aplicativo para consumi
 Após a conclusão da execução, uma nova tabela será adicionada ao banco de dados que contém os resultados da pontuação.
 
 ### <a name="deploy-a-new-web-service"></a>Implantar um serviço Web Novo
+
+> [!NOTE] 
+> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
 Para implantar como um serviço Web Novo e criar um aplicativo para consumi-lo:
 
 1. Na parte inferior da tela do experimento, clique em **Executar**.
@@ -132,7 +136,7 @@ Para implantar como um serviço Web Novo e criar um aplicativo para consumi-lo:
 9. Localize a declaração *scoreRequest* e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usará a consulta original, mas definirá um novo nome de tabela.
    
         var scoreRequest = new
-        {       
+        {        
             Inputs = new Dictionary<string, StringTable>()
             {
             },

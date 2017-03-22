@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/21/2017
 ms.author: manayar
 translationtype: Human Translation
 ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
 ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -29,9 +30,9 @@ Observe que este guia usa intensamente a documentação existente para replicar 
 ## <a name="multi-tenant-environments"></a>Ambientes multilocatário
 Há três modelos principais de multilocatários:
 
-1.  **Provedor de Serviços de Hospedagem (HSP) Compartilhado** – Aqui, o parceiro possui a infraestrutura física e usa os recursos compartilhados (vCenter, datacenters, armazenamento físico etc.) para hospedar VMs de vários locatários na mesma infraestrutura. O gerenciamento de recuperação de desastres pode ser fornecido pelo parceiro como um serviço gerenciado ou pertencer ao locatário como uma solução de recuperação de desastres de autoatendimento.
-2.  **Provedor de Serviços de Hospedagem Dedicado** – Aqui, o parceiro possui a infraestrutura física, mas usa recursos dedicados (vários vCenters, armazenamentos de dados físicos etc) para hospedar VMs de cada locatário em uma infraestrutura separada. Novamente, o gerenciamento de recuperação de desastres pode ser gerenciado por parceiro ou autoatendimento pelo locatário.
-3.  **Provedor de Serviços Gerenciado (MSP)** – Aqui, o cliente possui a infraestrutura física que hospeda as VMs, e os parceiros fornecem habilitação e gerenciamento de recuperação de desastres.
+1.    **Provedor de Serviços de Hospedagem (HSP) Compartilhado** – Aqui, o parceiro possui a infraestrutura física e usa os recursos compartilhados (vCenter, datacenters, armazenamento físico etc.) para hospedar VMs de vários locatários na mesma infraestrutura. O gerenciamento de recuperação de desastres pode ser fornecido pelo parceiro como um serviço gerenciado ou pertencer ao locatário como uma solução de recuperação de desastres de autoatendimento.
+2.    **Provedor de Serviços de Hospedagem Dedicado** – Aqui, o parceiro possui a infraestrutura física, mas usa recursos dedicados (vários vCenters, armazenamentos de dados físicos etc) para hospedar VMs de cada locatário em uma infraestrutura separada. Novamente, o gerenciamento de recuperação de desastres pode ser gerenciado por parceiro ou autoatendimento pelo locatário.
+3.    **Provedor de Serviços Gerenciado (MSP)** – Aqui, o cliente possui a infraestrutura física que hospeda as VMs, e os parceiros fornecem habilitação e gerenciamento de recuperação de desastres.
 
 ## <a name="shared-hosting-multi-tenant-guidance"></a>Diretriz de multilocatário de hospedagem compartilhada
 Este guia aborda com detalhes o cenário de hospedagem compartilhado. Os outros dois cenários são subconjuntos do cenário de hospedagem compartilhado e usam os mesmos princípios. As diferenças são descritas ao final do guia de hospedagem compartilhado.
@@ -63,21 +64,21 @@ A alternativa é atribuir a conta de usuário e a função no objeto do Datacent
 
 O procedimento de acesso da conta do vCenter é o seguinte:
 
-1.  Crie uma nova função clonando a função 'Somente leitura' predefinida e dê a ela um nome conveniente (como Azure_Site_Recovery usado neste exemplo).
-2.  Atribua as seguintes permissões a essa função:
- *  Armazenamento de dados -> alocar espaço, procurar armazenamento de dados, operações de arquivo de baixo nível, remover arquivo, atualizar arquivos de máquina virtual
- *  Rede -> Atribuição de rede
- *  Recurso -> Atribuir VM ao pool de recursos, migrar VM desligada, migrar VM ligada
- *  Tarefas -> Criar tarefa, atualizar tarefa
- *  Máquina virtual -> Configuração
- *  Máquina virtual -> Interagir -> Responder pergunta, conexão de dispositivo, configurar mídia de CD, configurar mídia de disquete, desligar, ligar, instalação de ferramentas de VMware
- *  Máquina virtual -> Inventário -> Criar, registrar, cancelar registro
- *  Máquina virtual -> Provisionamento -> Permitir download de máquina virtual, permitir upload de arquivos de máquina virtual
- *  Máquina virtual -> Instantâneos -> Remover instantâneos.
+1.    Crie uma nova função clonando a função 'Somente leitura' predefinida e dê a ela um nome conveniente (como Azure_Site_Recovery usado neste exemplo).
+2.    Atribua as seguintes permissões a essa função:
+ *    Armazenamento de dados -> alocar espaço, procurar armazenamento de dados, operações de arquivo de baixo nível, remover arquivo, atualizar arquivos de máquina virtual
+ *    Rede -> Atribuição de rede
+ *    Recurso -> Atribuir VM ao pool de recursos, migrar VM desligada, migrar VM ligada
+ *    Tarefas -> Criar tarefa, atualizar tarefa
+ *    Máquina virtual -> Configuração
+ *    Máquina virtual -> Interagir -> Responder pergunta, conexão de dispositivo, configurar mídia de CD, configurar mídia de disquete, desligar, ligar, instalação de ferramentas de VMware
+ *    Máquina virtual -> Inventário -> Criar, registrar, cancelar registro
+ *    Máquina virtual -> Provisionamento -> Permitir download de máquina virtual, permitir upload de arquivos de máquina virtual
+ *    Máquina virtual -> Instantâneos -> Remover instantâneos.
 
     ![permissões de função](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
 
-3.  Atribua o nível de acesso à conta do vCenter (usada no CS do locatário) para objetos diferentes da seguinte maneira:
+3.    Atribua o nível de acesso à conta do vCenter (usada no CS do locatário) para objetos diferentes da seguinte maneira:
 
 | **Objeto** | **Função** | **Comentários** |
 | --- | --- | --- |
@@ -127,52 +128,52 @@ Os pré-requisitos de VM são iguais aos descritos na [documentação](site-reco
 
 ### <a name="step-1-create-tenant-account"></a>Etapa 1: Criar a conta de locatário
 
-1.  Por meio do [Centro de parceiros](https://partnercenter.microsoft.com/) faça logon em sua conta do CSP. No menu Painel à esquerda, selecione a opção 'Clientes'.
+1.    Por meio do [Centro de parceiros](https://partnercenter.microsoft.com/) faça logon em sua conta do CSP. No menu Painel à esquerda, selecione a opção 'Clientes'.
 
     ![csp-dashboard](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
 
-2.  Na página aberta, clique no botão 'Adicionar cliente'.
+2.    Na página aberta, clique no botão 'Adicionar cliente'.
 
     ![add-customer](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
 
-3.  Na página Novo Cliente, preencha todos os detalhes de informações da conta para o locatário e clique em 'Avançar: Assinaturas'.
+3.    Na página Novo Cliente, preencha todos os detalhes de informações da conta para o locatário e clique em 'Avançar: Assinaturas'.
 
     ![fill-details](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
 
-4.  Na página de seleção de assinaturas, role a tela para baixo para adicionar a assinatura 'Microsoft Azure'. Outras assinaturas podem ser adicionadas agora ou a qualquer outro momento posterior.
+4.    Na página de seleção de assinaturas, role a tela para baixo para adicionar a assinatura 'Microsoft Azure'. Outras assinaturas podem ser adicionadas agora ou a qualquer outro momento posterior.
 
     ![add-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
 
-5.  Continue em frente e, na próxima página, revise todos os detalhes do locatário e clique no botão Enviar.
+5.    Continue em frente e, na próxima página, revise todos os detalhes do locatário e clique no botão Enviar.
 
     ![customer-summary](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)
 
-6.  Após a criação do cliente, você obtém uma página de confirmação com os detalhes da conta e senha padrão dessa assinatura. Salve as informações e altere a senha posteriormente, conforme necessário, por meio do logon no Portal do Azure. Essas informações podem ser compartilhadas como estão com o locatário, ou também é possível criar e compartilhar uma conta separada, se for necessário.
+6.    Após a criação do cliente, você obtém uma página de confirmação com os detalhes da conta e senha padrão dessa assinatura. Salve as informações e altere a senha posteriormente, conforme necessário, por meio do logon no Portal do Azure. Essas informações podem ser compartilhadas como estão com o locatário, ou também é possível criar e compartilhar uma conta separada, se for necessário.
 
 ### <a name="step-2-access-tenant-account"></a>Etapa 2: Acessar a conta de locatário
 
-1.  Você pode acessar a assinatura do locatário na página 'Clientes' em seu Painel, conforme descrito na etapa 1. Navegue até aqui e clique no nome da conta de locatário que você acabou de criar.
-2.  Isso abrirá a seção Assinaturas da conta de locatário e, a partir daqui, você pode monitorar as assinaturas existentes da conta e adicionar outras assinaturas conforme o necessário. Para gerenciar as operações de recuperação de desastres do locatário, selecione a opção Todos os recursos (Portal do Azure), no lado direito da página.
+1.    Você pode acessar a assinatura do locatário na página 'Clientes' em seu Painel, conforme descrito na etapa 1. Navegue até aqui e clique no nome da conta de locatário que você acabou de criar.
+2.    Isso abrirá a seção Assinaturas da conta de locatário e, a partir daqui, você pode monitorar as assinaturas existentes da conta e adicionar outras assinaturas conforme o necessário. Para gerenciar as operações de recuperação de desastres do locatário, selecione a opção Todos os recursos (Portal do Azure), no lado direito da página.
 
     ![all-resources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
 
-3.  Clicar no botão 'Todos os recursos' concede a você acesso às assinaturas do Azure do locatário, e você poderá confirmar verificar o mesmo verificando o AAD exibido no canto superior direito do Portal do Azure.
+3.    Clicar no botão 'Todos os recursos' concede a você acesso às assinaturas do Azure do locatário, e você poderá confirmar verificar o mesmo verificando o AAD exibido no canto superior direito do Portal do Azure.
 
     ![aad-admin](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
 
 Agora você pode executar todas as operações do Site Recovery do locatário por meio do Portal do Azure e gerenciar as operações de recuperação de desastres. O processo detalhado acima deve ser seguido sempre para acessar a assinatura do locatário por meio do CSP para recuperação de desastres gerenciada.
 
 ### <a name="step-3-deploy-resources-to-tenant-subscription"></a>Etapa 3: Implantar recursos na assinatura de locatário
-1.  No Portal do Azure, crie um grupo de recursos e implante um cofre dos Serviços de Recuperação de acordo com o processo normal. Baixe a chave do registro do cofre.
-2.  Registre o CS para o locatário usando a chave de registro do cofre.
-3.  Insira as credenciais das duas contas de acesso – conta de acesso do vCenter e conta de acesso da VM.
+1.    No Portal do Azure, crie um grupo de recursos e implante um cofre dos Serviços de Recuperação de acordo com o processo normal. Baixe a chave do registro do cofre.
+2.    Registre o CS para o locatário usando a chave de registro do cofre.
+3.    Insira as credenciais das duas contas de acesso – conta de acesso do vCenter e conta de acesso da VM.
 
     ![config-accounts](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
 
 ### <a name="step-4-register-site-recovery-infrastructure-to-recovery-services-vault"></a>Etapa 4: Registrar a infraestrutura de recuperação de site no cofre dos Serviços de Recuperação
-1.  Abra o Portal do Azure e, no cofre criado anteriormente, registre o servidor do vCenter no CS registrado na etapa anterior. Use a conta de acesso do vCenter para essa finalidade.
-2.  Conclua o processo de 'Preparação da infraestrutura' para o Site Recovery de acordo com o processo normal.
-3.  Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário estão visíveis na folha de seleção da VM, sob a opção Replicar.
+1.    Abra o Portal do Azure e, no cofre criado anteriormente, registre o servidor do vCenter no CS registrado na etapa anterior. Use a conta de acesso do vCenter para essa finalidade.
+2.    Conclua o processo de 'Preparação da infraestrutura' para o Site Recovery de acordo com o processo normal.
+3.    Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário estão visíveis na folha de seleção da VM, sob a opção Replicar.
 
     ![tenant-vms](./media/site-recovery-multi-tenant-support-vmware-using-csp/tenant-vm-display.png)
 
@@ -182,20 +183,15 @@ No caso de recuperação de desastres de autoatendimento, os detalhes da conta d
 
 Um parceiro também pode adicionar um novo usuário à assinatura de locatário por meio do portal do CSP da seguinte maneira:
 
-1.  Acesse a página de inscrição do CSP do locatário específico e selecione a opção 'Usuários e licenças'.
+1.    Acesse a página de inscrição do CSP do locatário específico e selecione a opção 'Usuários e licenças'.
 
     ![user-licenses](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
 
     Agora, você pode criar um novo usuário inserindo os detalhes relevantes e selecionando as permissões ou, como alternativa, carregando a lista de usuários por um arquivo CSV.
-2.  Após a criação dos usuários, volte para o Portal do Azure e na folha Assinatura, selecione a assinatura relevante.
-3.  Na nova folha que é aberta, selecione o IAM (Controle de Acesso) e clique em +Adicionar para adicionar um usuário com o nível de acesso relevante. Os usuários criados por meio do Portal do CSP aparecerão automaticamente na folha que abre após você clicar em um nível de acesso.
+2.    Após a criação dos usuários, volte para o Portal do Azure e na folha Assinatura, selecione a assinatura relevante.
+3.    Na nova folha que é aberta, selecione o IAM (Controle de Acesso) e clique em +Adicionar para adicionar um usuário com o nível de acesso relevante. Os usuários criados por meio do Portal do CSP aparecerão automaticamente na folha que abre após você clicar em um nível de acesso.
 
     ![user-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
     Para a maioria das operações de gerenciamento, a função de Colaborador é suficiente. Um usuário com esse nível de acesso pode fazer tudo em uma assinatura, exceto alterar níveis de acesso (para o qual um nível de acesso Proprietário é necessário). Você também pode ajustar os níveis de acesso conforme o necessário.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Dimensionar o cluster do Serviço de Contêiner do Azure | Microsoft Docs"
-description: "Como dimensionar o cluster do Serviço de Contêiner do Azure usando a CLI do Azure ou o Portal do Azure."
+description: "Como escalar nós de agente em um cluster DC/OS, Docker Swarm ou Kubernetes no Serviço de Contêiner do Azure usando a CLI do Azure ou o portal do Azure."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 773eba80715cb990b23ecec548a18c112ba73a42
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: 022e34811de9d2023d113c43d6f85842812dfee3
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Dimensionar um cluster do Serviço de Contêiner do Azure
+# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Escalar nós de agente em um cluster do Serviço de Contêiner
 Depois de [implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md), talvez você precise alterar o número de nós do agente. Por exemplo, mais agentes podem ser necessários para que você possa executar mais aplicativos ou instâncias de contêiner. 
 
-É possível alterar o número de nós de agente em um cluster DC/OS, Docker Swarm ou Kubernetes usando o Portal do Azure ou a CLI 2.0 do Azure. A CLI 2.0 do Azure é a [CLI de última geração](/cli/azure/old-and-new-clis) para o modelo de implantação do Resource Manager.
+É possível alterar o número de nós de agente em um cluster DC/OS, Docker Swarm ou Kubernetes usando o Portal do Azure ou a CLI 2.0 do Azure. 
 
 ## <a name="scale-with-the-azure-portal"></a>Dimensionar com o Portal do Azure
 

@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar aplicativos lógicos do Azure do Gerenciador de nuvem do Visual Studio | Microsoft Docs"
-description: "Gerencie aplicativos lógicos do Azure do Gerenciador de nuvem do Visual Studio."
+title: "Gerenciar aplicativos lógicos no Visual Studio – Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Gerenciar aplicativos lógicos e outros ativos do Azure com o Visual Studio Cloud Explorer"
 author: klam
 manager: anneta
 editor: 
@@ -12,68 +12,77 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: a9f786259676a1bc9aa616f2db2935dff45475e2
-ms.openlocfilehash: dcb0512b4f9e6c94262a3f39ef59f82fcfbf313e
-
+ms.sourcegitcommit: 2fafb3c127183c4903ed7ee0da5811988db9116c
+ms.openlocfilehash: 9a542f83eb35b159de04f0395cd850376da498de
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="manage-logic-apps-with-the-visual-studio-cloud-explorer"></a>Gerenciar aplicativos lógicos com o Gerenciador de nuvem do Visual Studio
-Embora o [portal do Azure](https://portal.azure.com) oferece uma ótima maneira de criar e gerenciar seus aplicativos lógicos, o Gerenciador de nuvem do Visual Studio permite que você gerencie muitos de seus ativos do Azure no Visual Studio, incluindo aplicativos lógicos.  Com o Gerenciador de nuvem, você pode procurar os Aplicativos Lógicos publicados, executar ações como habilitar, desabilitar, editar e exibir o histórico de execução. 
+
+# <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Gerenciar os aplicativos lógicos com o Visual Studio Cloud Explorer
+
+Embora o [portal do Azure](https://portal.azure.com/) ofereça uma excelente maneira para criar e gerenciar Aplicativo Lógico do Azure, é possível gerenciar vários ativos do Azure, incluindo aplicativos lógicos, no Visual Studio, ao usar o Visual Studio Cloud Explorer. É possível procurar os aplicativos lógicos publicados e realizar tarefas como habilitar e desabilitar os aplicativos lógicos ou editar e exibir os históricos de execução. 
 
 ## <a name="installation-steps"></a>Etapas de instalação
-Veja a seguir as etapas para instalação e configuração das ferramentas do Visual Studio para Aplicativos Lógicos.
+
+Para instalar e configurar as ferramentas do Visual Studio para Aplicativos Lógicos do Azure, siga estas etapas.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+
+* [Visual Studio 2015 ou Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [SDK mais recente do Azure](https://azure.microsoft.com/downloads/) (2.9.1 ou superior)
 * [Gerenciador de Nuvem do Visual Studio](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)
 * Acesso à Web ao usar o designer incorporado
 
 ### <a name="install-visual-studio-tools-for-logic-apps"></a>Instalar ferramentas do Visual Studio para Aplicativos Lógicos
-Quando os pré-requisitos estiverem instalados, 
 
-1. Abra o Visual Studio 2015 no menu **Ferramentas** e selecione **Extensões e Atualizações**
-2. Selecione a categoria **Online** para pesquisar online
-3. Procure **Aplicativos Lógicos** para exibir as **Ferramentas de Aplicativos Lógicos do Azure para Visual Studio**
-4. Clique no botão **Baixar** para baixar e instalar a extensão
-5. Reinicie o Visual Studio após a instalação
+Após instalar os pré-requisitos:
+
+1. Abra o Visual Studio. No menu **Ferramentas**, selecione **Extensões e Atualizações**.
+2. Expanda a categoria **Online** para que você possa pesquisar online.
+3. Procure por **Aplicativos Lógicos** até encontrar as **Ferramentas de Aplicativos Lógicos do Azure para Visual Studio**.
+4. Clique em **Baixar** para baixar e instalar a extensão.
+5. Reinicie o Visual Studio após a instalação.
 
 > [!NOTE]
-> Você também pode baixar a extensão diretamente [deste link](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9)
-> 
-> 
+> Você também pode baixar Ferramentas de Aplicativos Lógicos do Azure para Visual Studio diretamente no [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
 
-## <a name="browsing-logic-apps"></a>Procurando Aplicativos Lógicos
-Para procurar os Aplicativos Lógicos no Gerenciador de nuvem abra o Gerenciador de nuvem em modo de exibição > Gerenciador de nuvem e você pode a procurar por grupo de recursos ou tipo de recurso.  Se procurar por tipo de recurso, selecione uma assinatura e, em seguida, expanda a seção de aplicativos lógicos e selecione um aplicativo lógico.  Você pode clique em um dos seus Aplicativos Lógicos ou use o menu Ações na parte inferior do Gerenciador de nuvem para executar a ação desejada.
+## <a name="browse-for-logic-apps-in-cloud-explorer"></a>Procurar aplicativos lógicos no Cloud Explorer
 
-![Procurar](./media/logic-apps-manage-from-vs/browse.png)
+1.    Para abrir o Cloud Explorer, no menu **Exibir**, escolha **Cloud Explorer**.
+2.    Navegue para o aplicativo lógico, por grupo de recursos ou tipo de recurso. 
 
-## <a name="edit-logic-app-with-the-designer"></a>Editar aplicativo lógico com o designer
-Para abrir o aplicativo lógico atualmente implantados no designer mesmo que seja no portal do Azure, clique no aplicativo lógico e selecione "Abrir com lógica de aplicativo Editor".  Com o designer, você pode editar o aplicativo lógico e salvá-lo na nuvem e iniciar uma nova execução com o botão de "Gatilho execute".
+    Se você procurar por tipo de recurso, selecione sua assinatura do Azure e, em seguida, expanda a seção Aplicativos Lógicos e selecione um Aplicativo Lógico. 
+    É possível clicar com o botão direito do mouse em um aplicativo lógico ou escolher no menu **Ações** na parte inferior do Cloud Explorer.
 
-![Designer](./media/logic-apps-manage-from-vs/designer.png)
+    ![Navegar para o aplicativo lógico](./media/logic-apps-manage-from-vs/browse.png)
 
-## <a name="browse-logic-app-run-history"></a>Procure pelo aplicativo lógico histórico de execução
-Para listar o histórico de execução para um aplicativo lógico, clique no aplicativo lógico e selecione "Abrir histórico de execução".  Nessa exibição, você pode solicitar por qualquer uma das propriedades mostradas selecionando o cabeçalho de coluna.  
+## <a name="edit-your-logic-app-with-logic-app-designer"></a>Editar o aplicativo lógico com o Designer de Aplicativos Lógicos
 
-![Execuções](media/logic-apps-manage-from-vs/runs.png)
+Para abrir um aplicativo lógico atualmente implantado no mesmo designer usado no portal do Azure, clique com o botão direito do mouse no aplicativo lógico e selecione **Abrir com Editor de Aplicativo Lógico**. 
 
-Clique duas vezes em uma das instâncias de execução mostra o histórico de execução para a instância onde você pode ver os resultados da execução, incluindo as entradas e saídas de cada etapa.
+No designer, é possível editar o aplicativo lógico, salvar as atualizações na nuvem e iniciar uma nova execução escolhendo **Executar Gatilho**.
 
-![Histórico](./media/logic-apps-manage-from-vs/history.png)
+![Designer de Aplicativos Lógicos](./media/logic-apps-manage-from-vs/designer.png)
+
+## <a name="browse-your-logic-app-run-history"></a>Procurar o histórico de execução do aplicativo lógico
+
+Para exibir o histórico de execução do aplicativo lógico, clique com o botão direito do mouse no aplicativo lógico e selecione **Abrir histórico de execução**. Para reordenar o histórico de execução de acordo com uma das propriedades mostradas, selecione o cabeçalho de coluna.
+
+![Histórico da execução](media/logic-apps-manage-from-vs/runs.png)
+
+Para mostrar o histórico de execução de uma instância para poder ver os resultados da execução, incluindo as entradas e saídas de cada etapa, clique duas vezes em uma das instâncias de execução.
+
+![Resultados do histórico de execução, entradas e saídas de etapas](./media/logic-apps-manage-from-vs/history.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para começar com aplicativos lógicos, siga o tutorial [Criar um aplicativo lógico](logic-apps-create-a-logic-app.md) .  
+
+*    Para começar a usar os Aplicativo Lógico do Azure, saiba [como criar seu primeiro aplicativo lógico no portal do Azure](logic-apps-create-a-logic-app.md)
+* [Criar, compilar e implantar aplicativos lógicos no Visual Studio](logic-apps-deploy-from-vs.md)
 * [Veja exemplos e cenários comuns](logic-apps-examples-and-scenarios.md)
-* [Você pode automatizar processos de negócios com Aplicativos Lógicos](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Aprenda a integrar seus sistemas com Aplicativos Lógicos](http://channel9.msdn.com/Events/Build/2016/P462)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+* [Saiba como automatizar processos de negócios com os Aplicativos Lógicos do Azure](http://channel9.msdn.com/Events/Build/2016/T694)
+* [Saiba como integrar seus sistemas com os Aplicativos Lógicos do Azure](http://channel9.msdn.com/Events/Build/2016/P462)
 

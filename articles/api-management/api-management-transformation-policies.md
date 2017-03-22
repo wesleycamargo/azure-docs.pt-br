@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
-ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
+ms.lasthandoff: 03/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nametransformationpoliciesa-transformation-policies"></a><a name="TransformationPolicies"></a> Políticas de transformação  
+##  <a name="TransformationPolicies"></a> Políticas de transformação  
   
 -   [Converter JSON para XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converte o corpo da solicitação ou da resposta de JSON para XML.  
   
@@ -44,7 +45,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   [Transformar XML usando um XSLT](api-management-transformation-policies.md#XSLTransform) – aplica uma transformação XSL para XML no corpo da solicitação ou resposta.  
   
-##  <a name="a-nameconvertjsontoxmla-convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Converter JSON para XML  
+##  <a name="ConvertJSONtoXML"></a> Converter JSON para XML  
  A política `json-to-xml` converte o corpo da solicitação ou da resposta de JSON para XML.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -87,7 +88,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-nameconvertxmltojsona-convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Converter XML para JSON  
+##  <a name="ConvertXMLtoJSON"></a> Converter XML para JSON  
  A política `xml-to-json` converte o corpo da solicitação ou da resposta de XML para JSON. Esta política pode ser usada para modernizar APIs baseadas em serviços Web de back-end somente XML.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -131,7 +132,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namefindandreplacestringinbodya-find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Localizar e substituir cadeia de caracteres no corpo  
+##  <a name="Findandreplacestringinbody"></a> Localizar e substituir cadeia de caracteres no corpo  
  A política `find-and-replace` Encontra uma subcadeia de caracteres de uma solicitação ou resposta e a substitui por outra subcadeia de caracteres.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -166,7 +167,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namemaskurlscontenta-mask-urls-in-content"></a><a name="MaskURLSContent"></a> Mascarar URLs no conteúdo  
+##  <a name="MaskURLSContent"></a> Mascarar URLs no conteúdo  
  A política `redirect-content-urls` reescreve (mascara) os links no corpo da resposta para que eles apontem para o link equivalente por meio do gateway. Use na seção de saída para regravar links de corpo da resposta para que apontem para o gateway. Use na seção de entrada para obter um efeito oposto.  
   
 > [!NOTE]
@@ -197,7 +198,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namesetbackendservicea-set-backend-service"></a><a name="SetBackendService"></a> Definir o serviço de back-end  
+##  <a name="SetBackendService"></a> Definir o serviço de back-end  
  Use a política `set-backend-service` para redirecionar uma solicitação de entrada para um back-end diferente daquele especificado nas configurações de API para essa operação. Essa política altera a URL base do serviço de back-end da solicitação de entrada para aquele especificado na política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -254,7 +255,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namesetbodya-set-body"></a><a name="SetBody"></a> Definir corpo  
+##  <a name="SetBody"></a> Definir corpo  
  Use a política `set-body` para definir o corpo da mensagem para solicitações de entrada e saída. Para acessar o corpo da mensagem, você pode usar a propriedade `context.Request.Body` ou a `context.Response.Body`, dependendo da seção em que a política está: de entrada ou de saída.  
   
 > [!IMPORTANT]
@@ -330,13 +331,71 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   </when>  
 </choose>  
 ```  
-  
+
+### <a name="using-liquid-templates-with-set-body"></a>Usando modelos Líquidos com o corpo definido 
+A política `set-body` pode ser configurada para usar a linguagem de modelagem [Líquida](https://shopify.github.io/liquid/basics/introduction/) para transformar o corpo de uma solicitação ou resposta. Isso poderá ser muito eficaz se você precisar remodelar por completo o formato da mensagem.
+
+> [!IMPORTANT]
+> A implementação de Líquido usado na política `set-body` é configurada no “modo C#”. Isso é particularmente importante ao executar ações como filtragem. Por exemplo, o uso de um filtro de data exige o uso de maiúsculas Pascal e da formatação das datas do C#, por exemplo:
+>
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+
+> [!IMPORTANT]
+> Para associar corretamente a um corpo XML usando o modelo Líquido, use uma política `set-header` para definir Content-Type como application/xml, text/xml (ou qualquer tipo que termina com +xml); para um corpo JSON, ele deve ser application/json, text/json (ou qualquer tipo que termina com +json).
+
+#### <a name="convert-json-to-soap-using-a-liquid-template"></a>Converter JSON em SOAP usando um modelo Líquido
+```xml
+<set-body template="liquid">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Body>
+            <GetOpenOrders>
+                <cust>{{body.getOpenOrders.cust}}</cust>
+            </GetOpenOrders>
+        </soap:Body>
+    </soap:Envelope>
+</set-body>
+```
+
+#### <a name="tranform-json-using-a-liquid-template"></a>Transformar JSON usando um modelo Líquido
+```xml
+{
+"order": {
+    "id": "{{body.customer.purchase.identifier}}",
+    "summary": "{{body.customer.purchase.orderShortDesc}}"
+    }
+}
+```
+
 ### <a name="elements"></a>Elementos  
   
 |Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
 |set-body|Elemento raiz. Contém o texto do corpo ou expressões que retornam um corpo.|Sim|  
+
+### <a name="properties"></a>Propriedades  
   
+|Nome|Descrição|Obrigatório|Padrão|  
+|----------|-----------------|--------------|-------------|  
+|template|Usado para alterar o modo de modelagem no qual a política de corpo definida será executada. Atualmente, o único valor aceito é:<br /><br />- liquid – a política de corpo definida usará o mecanismo de modelagem líquida |Não|liquid|  
+
+Para acessar informações sobre a solicitação e a resposta, o modelo Líquido pode ser associado a um objeto de contexto com as seguintes propriedades: <br />
+<pre>context.
+Request.
+Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+
+    Response.
+        StatusCode
+        Method
+        Headers
+Url.
+Scheme Host Port Path Query QueryString ToUri ToString
+
+OriginalUrl.
+Scheme Host Port Path Query QueryString ToUri ToString
+</pre>
+
+
+
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
@@ -344,7 +403,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namesethttpheadera-set-http-header"></a><a name="SetHTTPheader"></a> Definir cabeçalho HTTP  
+##  <a name="SetHTTPheader"></a> Definir cabeçalho HTTP  
  A política `set-header` atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.  
   
  Insere uma lista de cabeçalhos HTTP em uma mensagem HTTP. Quando colocada em um pipeline de entrada, esta política define os cabeçalhos HTTP para a solicitação que está sendo passada para o serviço alvo. Quando colocada em um pipeline de saída, esta política define os cabeçalhos HTTP para a resposta que está sendo passada para o cliente do gateway.  
@@ -401,7 +460,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namesetquerystringparametera-set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Definir parâmetro de cadeia de consulta  
+##  <a name="SetQueryStringParameter"></a> Definir parâmetro de cadeia de consulta  
  A política `set-query-parameter` adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação. Pode ser usada para transmitir parâmetros de consulta esperados pelo serviço de back-end que são opcionais ou nunca estão presentes na solicitação.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -461,7 +520,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namerewriteurla-rewrite-url"></a><a name="RewriteURL"></a> Reescrever URL  
+##  <a name="RewriteURL"></a> Reescrever URL  
  A política `rewrite-uri` converte a URL de uma solicitação de sua forma pública para a forma esperada pelo serviço Web, conforme mostrado no exemplo a seguir.  
   
 -   URL pública – `http://api.example.com/storenumber/ordernumber`  
@@ -539,7 +598,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** produto, API, operação  
   
-##  <a name="a-namexsltransforma-transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Transformar XML usando um XSLT  
+##  <a name="XSLTransform"></a> Transformar XML usando um XSLT  
  A política `Transform XML using an XSLT` aplica uma transformação XSL para XML no corpo da solicitação ou da resposta.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -574,7 +633,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   <outbound>  
       <base />  
       <xsl-transform>  
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -582,7 +641,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-        </xsl:stylesheet>  
+          </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  
@@ -605,9 +664,4 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
