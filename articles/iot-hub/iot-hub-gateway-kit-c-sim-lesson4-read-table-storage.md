@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: b12e16a5a532448cf2e939cfcad322225b9ee811
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -99,9 +100,4 @@ As mensagens que estão sendo enviadas e recebidas são todas exibidas instantan
 ## <a name="summary"></a>Resumo
 
 Você executou o código de exemplo para ler as mensagens no Armazenamento de Tabelas do Azure salvas pelo aplicativo de Funções do Azure.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
