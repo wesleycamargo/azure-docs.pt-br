@@ -1,25 +1,28 @@
-
-
 ---
-title: Usar os modelos do Azure Resource Manager para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
-description: Você pode usar os modelos do Azure Resource Manager para criar e configurar espaços de trabalho do Log Analytics.
+title: "Usar modelos do Azure Resource Manager para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs"
+description: "Você pode usar os modelos do Azure Resource Manager para criar e configurar espaços de trabalho do Log Analytics."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/01/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f392b3c0ab6b4d2e133d59766732188ce97c2f3e
+ms.lasthandoff: 03/03/2017
+
 
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics usando modelos do Azure Resource Manager
-Você pode usar [Azure Resource Manager templates](../resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
+Você pode usar os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
 
 * Criar um espaço de trabalho
 * Adicionar uma solução
@@ -38,7 +41,7 @@ Este artigo fornece exemplos de código que ilustram algumas das configurações
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho de Log Analytics
 O exemplo de modelo a seguir ilustra como:
 
-1. Criar um espaço de trabalho
+1. Criar um espaço de trabalho, incluindo a retenção de dados de configuração
 2. Adicionar soluções ao espaço de trabalho
 3. Criar pesquisas salvas
 4. Criar um grupo de computadores
@@ -65,11 +68,20 @@ O exemplo de modelo a seguir ilustra como:
       "type": "string",
       "allowedValues": [
         "Free",
-        "Standard",
-        "Premium"
+        "Standalone",
+        "PerNode"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standard, or Premium"
+        "description": "Service Tier: Free, Standalone, or PerNode"
+    }
+      },
+    "dataRetention": {
+      "type": "int",
+      "defaultValue": 30,
+      "minValue": 7,
+      "maxValue": 730,
+      "metadata": {
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
       }
     },
     "location": {
@@ -118,7 +130,8 @@ O exemplo de modelo a seguir ilustra como:
       "properties": {
         "sku": {
           "Name": "[parameters('serviceTier')]"
-        }
+        },
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {
@@ -444,7 +457,5 @@ A Galeria de modelos de início rápido do Azure inclui vários modelos para Log
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Implantar agentes em VMs do Azure usando modelos do Gerenciador de Recursos](log-analytics-azure-vm-extension.md)
-
-<!--HONumber=Oct16_HO2-->
 
 

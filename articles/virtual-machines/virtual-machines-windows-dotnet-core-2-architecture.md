@@ -15,14 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
-ms.openlocfilehash: 4489cf32a5aa5cfaf29e6e8aa6cf71bf6076ee84
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: b6904df752ad02831ddfa3da07fd40a46103da99
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-architecture-with-azure-resource-manager-templates"></a>Arquitetura de aplicativos com modelos do Azure Resource Manager
+# <a name="application-architecture-with-azure-resource-manager-templates-for-windows-vms"></a>Arquitetura de aplicativos com modelos do Azure Resource Manager para VMs Windows
+
 Ao desenvolver uma implantação do Azure Resource Manager, os requisitos de computação precisam ser mapeados para os serviços e recursos do Azure. Se um aplicativo consistir em vários pontos de extremidade http, um banco de dados e um serviço de cache de dados, os recursos do Azure que hospedam cada desses componentes precisarão ser racionalizados. Por exemplo, o aplicativo de Loja de Música de exemplo inclui um aplicativo Web hospedado em uma máquina virtual e um banco de dados SQL, hospedado no banco de dados SQL do Azure. 
 
 Este documento fornece detalhes sobre como os recursos de computação da Loja de Música são configurados no modelo do Azure Resource Manager de exemplo. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).

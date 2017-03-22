@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
-ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
+ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -48,17 +48,6 @@ Não é possível converter uma VM não gerenciada criada no modelo de implanta�
 2.    Copie o VHD do sistema operacional para uma conta de armazenamento que nunca foi habilitada para o SSE. Para copiar o disco para outra conta de armazenamento, use [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.    Crie uma VM que utiliza discos gerenciados e anexar o arquivo VHD do disco do sistema operacional durante a criação.
 
-
-## <a name="before-you-begin"></a>Antes de começar
-Caso use o PowerShell, verifique se você tem a versão mais recente do módulo AzureRM.Compute do PowerShell. Execute o comando a seguir para instalá-lo.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Para saber mais, confira [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Controle de versão do Azure PowerShell).
-
-
-
 ## <a name="convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set"></a>Converter máquinas virtuais em um conjunto de discos gerenciados em um conjunto de disponibilidade gerenciada de disponibilidade
 
 Se as VMs que você deseja converter em discos gerenciados estão em um conjunto de disponibilidade, converta primeiro o conjunto de disponibilidade em um conjunto de disponibilidade gerenciado.
@@ -87,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Converter as VMs do Azure existentes para discos gerenciados do mesmo tipo de armazenamento
 
 > [!IMPORTANT]
-> Depois de executar o procedimento a seguir, há um único blob de blocos que permanece no contêiner /vhds padrão. O nome do arquivo é "VMName.xxxxxxx.status". Não exclua esse objeto de status restante. Um trabalho futuro deverá resolver esse problema.
+> Depois de executar o procedimento a seguir, há um único blob que permanece no contêiner /vhds padrão. O nome do arquivo é "VMName.xxxxxxx.status". Esse arquivo é criado pelo Azure apenas quando você instalou [extensões de VM](virtual-machines-windows-classic-agents-and-extensions.md) na VM. Não exclua esse objeto de status restante. Um trabalho futuro deverá resolver esse problema.
 
 Esta seção aborda como converter suas VMs do Azure existente de discos não gerenciados nas contas de armazenamento para discos gerenciados quando estiver usando o mesmo tipo de armazenamento. Você pode usar este processo para ir de discos (SSD) não gerenciados Premium para discos gerenciados Premium, ou de discos (HDD) não gerenciados standard para discos gerenciados standard. 
 
@@ -149,7 +138,7 @@ Esta seção mostra como converter suas VMs do Azure existentes em discos não g
 1. Pare (desaloque) a VM.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
     ```
 2.  Atualize todos os discos para armazenamento Premium.
 
@@ -168,7 +157,7 @@ Esta seção mostra como converter suas VMs do Azure existentes em discos não g
 1. Inicie a VM.
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName
+    Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     ```
     
 Você também pode ter uma combinação de discos que usam o armazenamento standard e Premium.

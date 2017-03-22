@@ -1,5 +1,5 @@
 ---
-title: "Usar Análise de Armazenamento para coletar dados de logs e métricas| Microsoft Docs"
+title: "Usar a Análise de Armazenamento do Azure para coletar dados de logs e métricas | Microsoft Docs"
 description: "A Análise de Armazenamento permite que você para acompanhe dados de métricas de todos os serviços de armazenamento e para coletar logs para o armazenamento de Tabelas, Blobs e Filas."
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
-## <a name="overview"></a>Visão geral
+
 A análise de armazenamento do Azure executa registro em log e fornece dados de métrica para uma conta de armazenamento. Você pode usar esses dados para rastrear solicitações, analisar tendências de uso e diagnosticar problemas com sua conta de armazenamento.
 
 Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](https://portal.azure.com). Para obter detalhes, consulte [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações [Obter propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452239.aspx), [Obter propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452243.aspx), [Obter propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452238.aspx) e [Obter propriedades do serviço Arquivo](https://msdn.microsoft.com/library/mt427369.aspx) para habilitar a Análise de Armazenamento para cada serviço.
@@ -150,7 +151,7 @@ Todos os dados de métricas para cada um dos serviços de armazenamento são arm
 
 | Nível de métricas | Nomes da tabela | Versões com suporte |
 | --- | --- | --- |
-| Métricas por hora, local principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Versões anteriores a 15-08-2013 apenas. Embora esses nomes ainda ter suporte, é recomendável que você alterne para usar as tabelas listadas abaixo. |
+| Métricas por hora, local principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versões anteriores a 15-08-2013 apenas. Embora esses nomes ainda ter suporte, é recomendável que você alterne para usar as tabelas listadas abaixo. |
 | Métricas por hora, local principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Todas as versões, incluindo 15-08-2013. |
 | Métricas por minuto, local principal |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Todas as versões, incluindo 15-08-2013. |
 | Métricas por hora, local secundário |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Todas as versões, incluindo 15-08-2013. A replicação de redundância geográfica com acesso de leitura deve estar habilitada. |
@@ -163,7 +164,7 @@ Essas tabelas são criadas automaticamente quando a análise de armazenamento é
 Todos os dados nas tabelas de métricas podem ser acessados usando as APIs do serviço de tabela, incluindo as APIs do .NET fornecidas pela biblioteca gerenciada do Azure. O administrador da conta de armazenamento pode ler e excluir entidades de tabela, mas não pode criá-las ou atualizá-las.
 
 ## <a name="billing-for-storage-analytics"></a>Cobrança da análise de armazenamento
-A análise de armazenamento é habilitada por um proprietário de conta de armazenamento; ela não é habilitada por padrão. Todos os dados de métricas são gravados pelos serviços de uma conta de armazenamento. Como resultado, cada operação de gravação executada pela análise de armazenamento é faturável. Além disso, a quantidade de armazenamento usado por dados de métrica também é faturável.
+Todos os dados de métricas são gravados pelos serviços de uma conta de armazenamento. Como resultado, cada operação de gravação executada pela análise de armazenamento é faturável. Além disso, a quantidade de armazenamento usado por dados de métrica também é faturável.
 
 As seguintes ações executadas pela análise de armazenamento são faturáveis:
 
@@ -191,10 +192,5 @@ Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no
 * [Sobre as métricas de análise de armazenamento](https://msdn.microsoft.com/library/hh343258.aspx)
 * [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/hh343264.aspx)
 * [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 96747e898b2d84cbce9251758a90941f85112dd0
-ms.openlocfilehash: 7aa3844b9bdc2c5372c6e54b05296dcde6b1c05f
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: dc8c7beaf5b8e8d4f5467ffe22390c41f446d787
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -55,7 +56,7 @@ Observe o ponto de interrogação ao lado do tipo de dados no campo **Duração*
 
 No script, você encontrará os conceitos e as palavras-chave a seguir:
 
-* Variáveis de conjunto de linhas: cada expressão de consulta que produz um conjunto de linhas pode ser atribuído a uma variável. O U-SQL segue o padrão de nomenclatura variável do T-SQL (por exemplo, (@searchlog,) no script.
+* Variáveis de conjunto de linhas: cada expressão de consulta que produz um conjunto de linhas pode ser atribuído a uma variável. O U-SQL segue o padrão de nomenclatura de variável do T-SQL (@searchlog, por exemplo) no script.
 
  >[!NOTE]
  >A atribuição não força a execução. Ela simplesmente nomeia a expressão de modo que você possa criar expressões mais complexas.
@@ -64,9 +65,9 @@ No script, você encontrará os conceitos e as palavras-chave a seguir:
 
  >[!NOTE]
  >Os dois caminhos são caminhos relativos. Você também pode usar caminhos absolutos. Por exemplo:    
- >     adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+ >     adl://\<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
  >
- >Você deve usar um caminho absoluto para acessar os arquivos nas contas de armazenamento vinculadas.  A sintaxe para os arquivos armazenados na conta de armazenamento do Azure vinculada é: wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+ >Você deve usar um caminho absoluto para acessar os arquivos nas contas de armazenamento vinculadas.  A sintaxe dos arquivos armazenados na conta de armazenamento vinculada do Azure é: wasb://\<BlobContainerName>@\<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
  >[!NOTE]
  >Atualmente, não há suporte para contêineres de Armazenamento de Blobs do Azure com permissões de acesso para blobs públicos ou contêineres públicos.
@@ -410,9 +411,4 @@ Este tutorial aborda apenas uma pequena parte do U-SQL. Devido a seu escopo limi
 * [Enviar uma solicitação de recurso](http://aka.ms/adlafeedback)
 * [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
 * [Fornecer comentários sobre o U-SQL](http://aka.ms/usqldiscuss)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

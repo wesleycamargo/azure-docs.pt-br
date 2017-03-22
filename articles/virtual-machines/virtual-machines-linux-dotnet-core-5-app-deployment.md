@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b4ddeb091c2c6d2fdfd32d0094567f9e9d8914a7
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 031943c4d7b7736d249b507e2e59f0cc9896a54e
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-deployment-with-azure-resource-manager-templates"></a>Implantação de aplicativos com modelos do Azure Resource Manager
+# <a name="application-deployment-with-azure-resource-manager-templates-for-linux-vms"></a>Implantação de aplicativos com modelos do Azure Resource Manager para VMs Linux
+
 Depois que todos os requisitos de infraestrutura do Azure foram identificados e convertidos em um modelo de implantação, a implantação real do aplicativo precisa ser resolvida. Implantação de aplicativo aqui se refere a instalar os binários do aplicativo real nos recursos do Azure. Para o exemplo de Loja de Música, .Net Core, NGINX e Supervisor precisam ser instalados e configurados em cada máquina virtual. Os binários da Loja de Música precisam ser instalados na máquina virtual e o banco de dados da Loja de Música criado previamente.
 
 Este documento detalha como extensões de Máquina Virtual podem automatizar a implantação de aplicativos e configuração de máquinas virtuais do Azure. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -119,10 +122,5 @@ Para obter mais informações sobre como usar a extensão de script personalizad
 <hr>
 
 [Explorar mais modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

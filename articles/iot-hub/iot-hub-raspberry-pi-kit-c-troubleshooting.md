@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 52d76bb967471ae49b55b0fcb930c223984b39e3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -120,9 +121,4 @@ Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recurs
 
 ## <a name="azure-storage-issues"></a>Problemas de Armazenamento do Azure
 [O Gerenciador de Armazenamento do Microsoft Azure (Preview)](http://storageexplorer.com) é um aplicativo autônomo da Microsoft que pode ser usado para trabalhar com dados do Armazenamento do Azure no Windows, macOS e Linux. Com essa ferramenta você pode se conectar à sua tabela e ver os dados contidos nela. Você pode usar essa ferramenta para solucionar seus problemas de Armazenamento do Azure.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

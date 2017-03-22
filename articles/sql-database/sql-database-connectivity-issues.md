@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 7ca726f5dc67feae7eeccfdcc00b41aa95c38348
+ms.sourcegitcommit: a6489fd5ff5e60bc3a1c06485d330556250c21cd
+ms.openlocfilehash: eddbdda847d7d0cc12f3e1c6128ce76d15f6f39f
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -117,7 +118,7 @@ Para que isso seja prático, seu programa poderá reconhecer um parâmetro de te
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parâmetros SqlConnection .NET para repetição de conexão
-Se o programa cliente se conectar ao Banco de Dados SQL do Azure usando a classe **System.Data.SqlClient.SqlConnection**do .NET Framework, você deverá usar o .NET 4.6.1 ou posterior para poder aproveitar o recurso de repetição de conexão. Os detalhes do recurso estão [aqui](http://go.microsoft.com/fwlink/?linkid=393996).
+Se o programa cliente se conectar ao Banco de Dados SQL do Azure usando a classe **System.Data.SqlClient.SqlConnection** do .NET Framework, você deverá usar o .NET 4.6.1 ou posterior (ou o .NET Core) para poder aproveitar o recurso de repetição de conexão. Os detalhes do recurso estão [aqui](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -446,10 +447,5 @@ public bool IsTransient(Exception ex)
 * Para solucionar outros problemas comuns de conexão de Banco de Dados SQL, visite [Solucionar problemas de conexão no Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
 * [Pool de conexões do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Retrying* é uma biblioteca de novas tentativas para fins gerais licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de nova tentativa a quase tudo.](https://pypi.python.org/pypi/retrying)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

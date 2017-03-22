@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f87aedd989ab091efeac5f99e198fb60b6781ab2
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -25,7 +26,7 @@ Se você oferecer um aplicativo Software como Serviço para muitas organizaçõe
 
 Caso você tenha um aplicativo existente que tem seu próprio sistema de conta ou dê suporte a outros tipos de entrada de outros provedores de nuvem, adicionar a entrada do Azure AD de qualquer locatário é tão simples quanto registrar seu aplicativo, adicionar o código de entrada por meio de OAuth2, OpenID Connect ou SAML e colocar um botão Entrar com a Microsoft no aplicativo. Clique no botão abaixo para saber mais sobre a identidade visual do seu aplicativo.
 
-[![botão Entrar][AAD-Entrar]][AAD-App-Branding]
+[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
 
 Este artigo pressupõe que você já está familiarizado com a criação de um aplicativo de locatário único do Azure AD.  Se não estiver, retorne à [home page do guia do desenvolvedor][AAD-Dev-Guide] e experimente um de nossos inícios rápidos!
 
@@ -60,7 +61,7 @@ A resposta de entrada no aplicativo contém um token representando o usuário.  
 
 Como mencionado anteriormente, os aplicativos multilocatário também devem fornecer uma experiência de entrada consistente para usuários, seguindo as diretrizes de identidade visual do aplicativo do Azure AD. Clique no botão abaixo para saber mais sobre a identidade visual do seu aplicativo.
 
-[![botão Entrar][AAD-Entrar]][AAD-App-Branding]
+[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
 
 Vamos examinar o uso do ponto de extremidade /common e a sua implementação de código em mais detalhes.
 
@@ -163,6 +164,10 @@ O consentimento tem suporte no Azure AD por meio dos protocolos OAuth, OpenID Co
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Aplicativos multilocatários e caching de tokens de acesso
 Os aplicativos multilocatários também podem obter tokens de acesso para chamar APIs que são protegidas pelo Azure AD.  Um erro comum ao usar a ADAL (Biblioteca de Autenticação do Active Directory) com um aplicativo multilocatário é solicitar inicialmente um token para um usuário usando /common, receber uma resposta e solicitar um token subsequente para o mesmo usuário também usando /common.  Uma vez que a resposta do Azure AD vem de um locatário, não de /common, a ADAL armazena em cache o token como sendo do locatário. A chamada subsequente para /common para obter um token de acesso para o usuário perde a entrada de cache e o usuário é solicitado a entrar novamente.  Para evitar a perda de cache, certifique-se de que as chamadas subsequentes para um usuário já conectado sejam feitas para o ponto de extremidade do locatário.
 
+## <a name="next-steps"></a>Próximas etapas
+Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário de qualquer locatário do Azure Active Directory. Depois de habilitar o logon único entre o aplicativo e o Azure Active Directory, você também pode atualizar o aplicativo para acessar as APIs expostas por recursos da Microsoft, como o Office 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas à API para serviços do Azure Active Directory e do Office 365, como o Exchange, SharePoint, OneDrive, OneNote, Planner, Excel e muitos outros, acesse [API do Microsoft Graph][MSFT-Graph-overview].
+
+
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Exemplos de aplicativos multilocatários][AAD-Samples-MT]
 * [Diretrizes de identidade visual para aplicativos][AAD-App-Branding]
@@ -170,7 +175,7 @@ Os aplicativos multilocatários também podem obter tokens de acesso para chamar
 * [Objetos de Aplicativo e de Entidade de Serviço][AAD-App-SP-Objects]
 * [Integrando aplicativos com o Azure Active Directory][AAD-Integrating-Apps]
 * [Visão geral da estrutura de consentimento][AAD-Consent-Overview]
-* [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-AAD]
+* [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-permision-scopes]
 * [Escopos de permissão da API do Graph do Azure AD][AAD-Graph-Perm-Scopes]
 
 Use a seção de comentários abaixo para nos dar sua opinião e ajudar a refinar e moldar nosso conteúdo.
@@ -189,7 +194,8 @@ Use a seção de comentários abaixo para nos dar sua opinião e ajudar a refina
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
@@ -235,10 +241,5 @@ Use a seção de comentários abaixo para nos dar sua opinião e ajudar a refina
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

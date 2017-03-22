@@ -15,9 +15,9 @@ ms.workload: azure-government
 ms.date: 02/13/2017
 ms.author: stemi
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3991f68bbd255ff6f4ffedbd6638f32897d1a
-ms.openlocfilehash: 914870f59b488716bb283162078535849f732018
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 21c2a0faad87b84058093f02c831b374a644b4b6
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -25,13 +25,13 @@ ms.lasthandoff: 02/21/2017
 O Azure Governamental está se expandindo continuamente os serviços disponíveis.  Esses serviços são implantados usando o mesmo código usado no Azure Público.  Esta seção documenta os serviços disponíveis atualmente no Azure Governamental, incluindo dois tipos principais de informação:
 
 * **Variações:** variações que ocorrem devido a funcionalidades que ainda não foram implantadas ou propriedades (por exemplo URLs) exclusivas do ambiente governamental.  
-* **Considerações:** detalhes de implementação específicos do governo para garantir que os dados permaneça no limite de conformidade.
+* **Considerações:** detalhes de implementação específicos ao governo para garantir que os dados permanecem no limite de conformidade.
 
 Tudo o mais que você precisa saber sobre esses serviços pode ser encontrado em sua documentação geral.
 
 Para obter a lista mais atual dos serviços, consulte [Produtos por região](https://azure.microsoft.com/regions/services/). 
 
-Nas tabelas abaixo, os serviços especificados como compatíveis com o Resource Manager têm provedores de recursos e podem ser gerenciados usando o PowerShell. Para obter informações detalhadas sobre provedores do Resource Manager, as versões de API e esquemas, clique [aqui](../azure-resource-manager/resource-manager-supported-services.md). Os serviços especificados como disponíveis no Portal, podem ser gerenciados no [Portal do Azure Governamental](https://portal.azure.us/). 
+Nas tabelas a seguir, os serviços especificados como habilitados o Resource Manager têm provedores de recursos e podem ser gerenciados com o PowerShell. Para obter informações detalhadas sobre provedores do Resource Manager, versões de API e esquemas, clique [aqui](../azure-resource-manager/resource-manager-supported-services.md). Os serviços especificados como disponíveis no Portal, podem ser gerenciados no [Portal do Azure Governamental](https://portal.azure.us/). 
 
 
 ## <a name="computedocumentation-government-computemd"></a>[Computação](documentation-government-compute.md)
@@ -95,6 +95,12 @@ Nas tabelas abaixo, os serviços especificados como compatíveis com o Resource 
 | [Cache Redis](documentation-government-services-database.md#azure-redis-cache) | Sim | Sim |
 
 
+## <a name="intelligence--analyticsdocumentation-government-services-intelligenceandanalyticsmd"></a>[Inteligência + Análise](documentation-government-services-intelligenceandanalytics.md)
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| [HDInsights](documentation-government-services-intelligenceandanalytics.md#hdinsight) | Sim | Sim |
+| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | Não | Não (Portal de administração do Office 365) |
 
 
 ## <a name="internet-of-things-iot"></a>Internet das coisas (IoT)
@@ -122,7 +128,6 @@ Nas tabelas abaixo, os serviços especificados como compatíveis com o Resource 
 | Azure Active Directory | Sim | Sim |
 | [Cofre de Chaves](documentation-government-services-securityandidentity.md#key-vault) | Sim | Não (em breve) |
 | Autenticação Multifator | Sim | Sim |
-| Intune | Sim | Não |
 
 
 ## <a name="intelligence--analytics"></a>Inteligência + Análises

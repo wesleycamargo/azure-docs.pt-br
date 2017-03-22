@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/07/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 6f2db3b411069b31424627f50336f1ba9750a9f5
-ms.openlocfilehash: 060f684cee6a8f98e5e8fb4a49f0bab92bd4df9c
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 9f513cfb976848960c2164165994dd5b9fcc4fc1
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -39,7 +39,9 @@ As seguintes funções de administrador estão disponíveis:
   > Na API do Graph da Microsoft, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador da Empresa". É "Administrador Global" no [portal do Azure](https://portal.azure.com).
   >
   >
-* **Administrador de conformidade**:
+
+* **Administrador de conformidade**: os usuários com essa função têm permissões de gerenciamento no Centro de Conformidade e Segurança do Office 365 e no Centro de Administração do Exchange, bem como o acesso de leitura a logs de auditoria no Centro de Administração do Office 365. Mais informações em “[Sobre funções de administrador do Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)”.
+
 * **Administrador de Serviços do CRM**: os usuários com essa função têm permissões globais no Microsoft CRM Online, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Aprovador de acesso do Sistema de Proteção de Dados do Cliente**: quando o Sistema Proteção está habilitado, os usuários com essa função podem aprovar solicitações de engenheiros da Microsoft para acessar as informações da empresa. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administradores do dispositivo**: os usuários com essa função se tornam Administradores em todos os dispositivos Windows 10 associados ao Azure Active Directory.
@@ -50,12 +52,16 @@ As seguintes funções de administrador estão disponíveis:
 * **Administrador de serviços do Intune**: os usuários com essa função têm permissões globais no Microsoft Intune Online, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administrador de serviços do Skype for Business**: os usuários com essa função têm permissões globais no Microsoft Skype for Business, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). Esta função era conhecida anteriormente como função de **Administrador de serviço do Lync** .
 * **Emissor do convite**: os usuários nessa função podem gerenciar convites. Ela não inclui nenhuma outra permissão.
+* **Administrador de Caixa de Correio**: essa função é usada somente para o suporte por email do Exchange Online em dispositivos RIM Blackberry. Se sua organização não usar o email do Exchange Online em dispositivos RIM Blackberry, não use essa função.
+* **Suporte ao parceiro de Nível 1**: não use. Essa função foi substituída e será removida do Azure AD no futuro. Essa função é destinada a um pequeno número de parceiros de revenda da Microsoft e não se destina ao uso geral.
+* **Suporte ao parceiro de Nível 2**: não use. Essa função foi substituída e será removida do Azure AD no futuro. Essa função é destinada a um pequeno número de parceiros de revenda da Microsoft e não se destina ao uso geral.
 * **Administrador de senha/Administrador de assistência técnica**: redefine as senhas, gerencia as solicitações de serviço e monitora a integridade do serviço. Administradores de senha podem redefinir senhas somente para os usuários e outros administradores de senha.
 
   > [!NOTE]
   > Na API do Graph da Microsoft, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador da Assistência Técnica".
   >
   >
+
 * **Administrador de serviços do Power BI**: os usuários com essa função têm permissões globais no Microsoft Power BI, quando o serviço estiver presente. Mais informações em [Facilitar a administração do Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/).
 * **Administrador da função com privilégios**: os usuários com essa função podem gerenciar o Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md) e atualizar atribuições de função para outros usuários.
 * **Administrador do serviço SharePoint**: os usuários com essa função têm permissões globais no Microsoft SharePoint Online, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).

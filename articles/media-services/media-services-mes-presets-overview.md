@@ -12,27 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 42acc73e1c97f5570e674d95627a760a7fc88154
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: e9018ffa74c2895560adbd4c0d2b83ee67e9eb1c
+ms.lasthandoff: 03/03/2017
 
 
 ---
 
 # <a name="task-presets-for-mes-media-encoder-standard"></a>Predefinições de tarefa para MES (Media Encoder Standard)
 
-`Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação  
-  
- As cadeias de caracteres XML ou JSON predefinidas devem ter base nas predefinições mostradas nos arquivos a seguir. Você pode passar predefinições com valores personalizados para o codificador (os valores devem ser válidos). Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
+O **Media Encoder Standard** define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Será recomendável usar a predefinição “Transmissão Adaptável” se você desejar codificar um vídeo para transmissão com os Serviços de Mídia. Ao especificar essa predefinição, o Media Encoder Standard [gerará uma escada de taxa de bits automaticamente](media-services-autogen-bitrate-ladder-with-mes.md). 
+
+No entanto, se precisar personalizar uma predefinição de codificação, use uma das predefinições de codificação definidas nesta seção como um modelo para a configuração personalizada. Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
 >  Ao usar uma predefinição para codificações 4k, você deverá adquirir o tipo de unidade reservada `S3`. Para saber mais, confira [Como dimensionar a codificação](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
   
- Ao trabalhar com o Media Encoder Standard, a rotação é habilitada por padrão. Se o vídeo foi gravado em um smartphone ou em outro dispositivo móvel no modo Retrato, essas predefinições o girarão por padrão para modo Paisagem antes da codificação (ao contrário de quando você trabalha com o Codificador de Mídia do Azure, no qual a rotação do vídeo é uma operação manual, conforme documentado [neste](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/) blog, em "Video Rotation" [Rotação do vídeo]).  
+Ao trabalhar com o Media Encoder Standard, a rotação é habilitada por padrão. Se o vídeo foi gravado em um smartphone ou em outro dispositivo móvel no modo Retrato, essas predefinições o girarão por padrão para modo Paisagem antes da codificação (ao contrário de quando você trabalha com o Codificador de Mídia do Azure, no qual a rotação do vídeo é uma operação manual, conforme documentado [neste](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/) blog, em "Video Rotation" [Rotação do vídeo]).  
   
- Os nomes de predefinição são mapeados para predefinições mostradas nos tópicos a seguir.  
+Predefinições disponíveis:  
   
  [H264 Taxas de Bits Múltiplas 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) produz um conjunto de 8 arquivos MP4 alinhados a GOP, variando de 6000 kbps a 400 kbps, e áudio AAC 5.1.  
   
@@ -85,9 +86,4 @@ ms.openlocfilehash: 42acc73e1c97f5570e674d95627a760a7fc88154
  [H264 Taxa de Bits Única SD de Baixa Qualidade para Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) produz um único arquivo MP4 com uma taxa de bits de 56 kbps e áudio AAC estéreo.  
   
  Para saber mais sobre os codificadores dos Serviços de Mídia, veja [Codificação sob demanda com os Serviços de Mídia do Azure](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

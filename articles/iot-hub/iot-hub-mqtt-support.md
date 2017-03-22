@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2016
+ms.date: 03/01/2017
 ms.author: kdotchko
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 47e1d5172dabac18c1b355d8514ae492cd973d32
-ms.openlocfilehash: 5c362af149afd4a204c2705ae3d7f67361d8d528
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: c09caf68b4acf90b5a76d2d715e07fc3a522f18c
+ms.openlocfilehash: 7b9b7e558a95de88dedcb744e2a4b3c18cde35cc
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="iot-hub-mqtt-support"></a>Suporte ao MQTT do Hub IoT
+# <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o hub IoT usando o protocolo MQTT
 O Hub IoT permite que dispositivos se comuniquem com os pontos de extremidade do dispositivo do Hub IoT usando o protocolo [MQTT v3.1.1][lnk-mqtt-org] na porta 8883 ou MQTT v3.1.1 sobre protocolo WebSocket na porta 443. Hub IoT exige que todas as comunicações de dispositivo a sejam protegidas usando o TLS/SSL (portanto, Hub IoT não oferece suporte a conexões não seguras pela porta 1883).
 
 ## <a name="connecting-to-iot-hub"></a>Conectando-se ao Hub IoT
@@ -92,12 +93,12 @@ O aplicativo do dispositivo também pode usar `devices/{device_id}/messages/even
 - O Hub IoT não persiste mensagens de retenção. Se um dispositivo envia uma mensagem com o sinalizador **RETAIN** definido como 1, o Hub IoT adiciona a propriedade de aplicativo **x-opt-retain** à mensagem. Nesse caso, em vez de persistir a mensagem de retenção, o Hub IoT a transmite ao aplicativo de back-end.
 - O Hub IoT oferece suporte apenas a uma conexão MQTT ativa por dispositivo. Qualquer nova conexão MQTT em nome da mesma ID de dispositivo faz com que o Hub IoT descarte a conexão existente.
 
-Consulte [Guia do desenvolvedor do sistema de mensagens][lnk-messaging] para saber mais.
+Para obter mais informações, consulte [Guia do desenvolvedor do sistema de mensagens][lnk-messaging].
 
 ### <a name="receiving-cloud-to-device-messages"></a>Recebendo mensagens da nuvem para o dispositivo
 Para receber mensagens do Hub IoT, um dispositivo deve fazer uma assinatura usando `devices/{device_id}/messages/devicebound/#` como um **Filtro do Tópico**. O curinga de vários níveis **#** no filtro de tópico é usado apenas para permitir que o dispositivo receba propriedades adicionais no nome do tópico. O Hub IoT não permite o uso de caracteres curinga **#** ou **?** para filtragem de subtópicos. Como o Hub IoT Hub não é um agente de mensagens pub-sub de finalidade geral, ele suporta apenas os nomes de tópico e filtros de tópico documentados.
 
-Observe que o dispositivo não receberá todas as mensagens do Hub IoT, antes de ter assinado com sucesso o ponto de extremidade específico do seu dispositivo, representado pelo filtro de tópico `devices/{device_id}/messages/devicebound/#`. Depois que a assinatura tiver sido estabelecida com êxito, o dispositivo começará a receber apenas as mensagens de nuvem para dispositivos que foram enviadas para ele após o momento da assinatura. Se o dispositivo se conectar com o sinalizador **CleanSession** definido como **0**, a assinatura será persistida entre as diferentes sessões. Nesse caso, na próxima vez que ele se conectar com **CleanSession 0**, o dispositivo receberá mensagens pendentes que foram enviadas a ele enquanto ele estava desconectado. Se o dispositivo usar o sinalizador **CleanSession** definido como **1**, não receberá todas as mensagens do Hub IoT até que ele se inscreva no ponto de extremidade do seu dispositivo.
+Observe que o dispositivo só receberá mensagens do Hub IoT depois de assinar com êxito o ponto de extremidade específico ao dispositivo, representado pelo filtro de tópico `devices/{device_id}/messages/devicebound/#`. Depois que a assinatura tiver sido estabelecida com êxito, o dispositivo começará a receber apenas as mensagens de nuvem para dispositivos que foram enviadas para ele após o momento da assinatura. Se o dispositivo se conectar com o sinalizador **CleanSession** definido como **0**, a assinatura será persistida entre as diferentes sessões. Nesse caso, na próxima vez que ele se conectar com **CleanSession 0**, o dispositivo receberá mensagens pendentes que foram enviadas a ele enquanto ele estava desconectado. Se o dispositivo usar o sinalizador **CleanSession** definido como **1**, não receberá todas as mensagens do Hub IoT até que ele se inscreva no ponto de extremidade do seu dispositivo.
 
 IoT Hub entrega mensagens com o **Nome do Tópico** `devices/{device_id}/messages/devicebound/` ou `devices/{device_id}/messages/devicebound/{property_bag}` se houver propriedades de mensagem. `{property_bag}` contém pares de chave/valor codificados de URL das propriedades da mensagem. Somente propriedades de aplicativo e propriedades do sistema definível pelo usuário (como **messageId** ou **correlationId**) estão incluídas no recipiente de propriedades. Os nomes de propriedade do sistema têm o prefixo **$**; as propriedades de aplicativo usam o nome da propriedade original sem prefixo.
 
@@ -105,12 +106,12 @@ Quando um aplicativo do dispositivo assina um tópico com o **QoS 2**, o Hub IoT
 
 ### <a name="retrieving-a-device-twins-properties"></a>Recuperando as propriedades de um dispositivo gêmeo
 
-Primeiro, um dispositivo assina `$iothub/twin/res/#` para receber respostas da operação. Em seguida, ele envia uma mensagem vazia ao tópico `$iothub/twin/GET/?$rid={request id}`, com um valor preenchido como a **ID da solicitação**. O serviço enviará uma mensagem de resposta aos dados do dispositivo gêmeo no tópico `$iothub/twin/res/{status}/?$rid={request id}` usando a mesma **ID da solicitação** como solicitação.
+Primeiro, um dispositivo assina `$iothub/twin/res/#` para receber respostas da operação. Em seguida, ele envia uma mensagem vazia ao tópico `$iothub/twin/GET/?$rid={request id}`, com um valor preenchido como a **ID da solicitação**. O serviço então enviará uma mensagem de resposta que contém os dados do dispositivo gêmeo no tópico `$iothub/twin/res/{status}/?$rid={request id}`, usando a mesma **ID de solicitação** da solicitação.
 
-A ID da solicitação pode ser qualquer valor válido para um valor de propriedade de mensagem de acordo com o [Guia do desenvolvedor do sistema de mensagens do Hub IoT][lnk-messaging], e o status é validado como um número inteiro.
+A ID da solicitação pode ser qualquer valor válido de um valor da propriedade de mensagem, de acordo com o [Guia do desenvolvedor do sistema de mensagens do Hub IoT][lnk-messaging] e o status é validado como um inteiro.
 O corpo da resposta conterá a seção Propriedades do dispositivo gêmeo:
 
-O corpo da entrada do registro de identidade limitado ao membro "propriedades", por exemplo,
+O corpo da entrada do Registro de identidade limitado ao membro “propriedades”, por exemplo:
 
         {
             "properties": {
@@ -134,7 +135,7 @@ Os códigos de status possíveis são:
 | 429 | Número excessivo de solicitações (limitado), de acordo com a [Limitação do Hub IoT][lnk-quotas] |
 | 5** | Erros do servidor |
 
-Consulte o [Guia do desenvolvedor dos dispositivos gêmeos][lnk-devguide-twin] para saber mais.
+Para obter mais informações, consulte [Guia do desenvolvedor de dispositivos gêmeos][lnk-devguide-twin].
 
 ### <a name="update-device-twins-reported-properties"></a>Atualizar as propriedades relatadas do dispositivo gêmeo
 
@@ -146,7 +147,7 @@ A sequência a seguir descreve como um dispositivo atualiza as propriedades rela
 
 1. Em seguida, o serviço envia uma mensagem de resposta que contém o novo valor de ETag para a coleção de propriedades relatadas no tópico `$iothub/twin/res/{status}/?$rid={request id}`. Essa mensagem de resposta usa a mesma **id de solicitação** da solicitação.
 
-O corpo da mensagem de solicitação contém um documento JSON que fornece novos valores para as propriedades relatadas (nenhuma outra propriedade ou metadados podem ser modificados).
+O corpo da mensagem de solicitação contém um documento JSON, que fornece novos valores para as propriedades relatadas (nenhuma outra propriedade ou metadados podem ser modificados).
 Cada membro no documento JSON atualiza ou adiciona o membro correspondente no documento do dispositivo gêmeo. Um membro definido como `null` exclui o membro do objeto recipiente. Por exemplo:
 
         {
@@ -163,7 +164,7 @@ Os códigos de status possíveis são:
 | 429 | Número excessivo de solicitações (limitado), de acordo com a [Limitação do Hub IoT][lnk-quotas] |
 | 5** | Erros do servidor |
 
-Consulte o [Guia do desenvolvedor dos dispositivos gêmeos][lnk-devguide-twin] para saber mais.
+Para obter mais informações, consulte [Guia do desenvolvedor de dispositivos gêmeos][lnk-devguide-twin].
 
 ### <a name="receiving-desired-properties-update-notifications"></a>Recebendo notificações de atualização de propriedades desejadas
 
@@ -178,9 +179,9 @@ Em relação às atualizações de propriedade, valores `null` significam que o 
 
 
 > [!IMPORTANT] 
-> O Hub IoT só gera notificações de alteração quando os dispositivos estão conectados; não deixe de implementar o [fluxo de reconexão do dispositivo][lnk-devguide-twin-reconnection] para manter as propriedades desejadas sincronizadas entre o Hub IoT e o aplicativo do dispositivo.
+> O Hub IoT gera notificações de alteração somente quando os dispositivos estão conectados. Lembre-se de implementar o [fluxo de reconexão do dispositivo][lnk-devguide-twin-reconnection] para manter as propriedades desejadas sincronizadas entre o Hub IoT e o aplicativo do dispositivo.
 
-Consulte o [Guia do desenvolvedor dos dispositivos gêmeos][lnk-devguide-twin] para saber mais.
+Para obter mais informações, consulte [Guia do desenvolvedor de dispositivos gêmeos][lnk-devguide-twin].
 
 ### <a name="respond-to-a-direct-method"></a>Responder a um método direto
 
@@ -188,7 +189,7 @@ Primeiro, um dispositivo precisa assinar `$iothub/methods/POST/#`. O Hub IoT env
 
 Para responder, o dispositivo enviará uma mensagem com um corpo vazio ou um JSON válido para o tópico `$iothub/methods/res/{status}/?$rid={request id}`, onde a **ID da solicitação** tem que corresponder à que está na mensagem de solicitação, e o **status** deverá ser um número inteiro.
 
-Consulte o [Guia do desenvolvedor do método direto][lnk-methods] para saber mais.
+Para obter mais informações, consulte [Guia do desenvolvedor do método direto][lnk-methods].
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 Como uma consideração final, se você precisar personalizar o comportamento do protocolo MQTT no lado da nuvem, deverá examinar o [Gateway de protocolo IoT do Azure][lnk-azure-protocol-gateway], que permite que você implante um gateway de protocolo personalizado de alto desempenho que interage diretamente com o Hub IoT. O gateway do protocolo IoT do Azure permite que você personalize o protocolo de dispositivo para acomodar as implantações de MQTT de nível industrial ou outros protocolos personalizados. Essa abordagem exige, no entanto, que você execute e opere um gateway de protocolo personalizado.

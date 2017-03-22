@@ -12,24 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 522496ddcd3cc21501f2390e8cdc158798b6289d
-ms.openlocfilehash: 35d33625badeb0b32079f0487b8bf2a3dd97e141
-ms.lasthandoff: 02/04/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 7680aafcefbe6f1e6e3b55137da2e46b42df5a9b
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Corrigir as vulnerabilidades do sistema operacional na Central de Segurança do Azure
-Diariamente, a Central de Segurança do Azure analisa as configurações do sistema operacional (SO) da sua máquina virtual (VM) que podem tornar a VM mais vulnerável a ataques e recomenda as alterações de configuração para corrigir essas vulnerabilidades. Para obter mais informações sobre configurações específicas que estão sendo monitoradas, consulte a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança recomenda que você resolva as vulnerabilidades quando a configuração do SO da VM não seguir as regras de configuração recomendadas.
+Diariamente, a Central de Segurança do Azure analisa as configurações do sistema operacional (SO) da sua máquina virtual (VM) que podem tornar a VM mais vulnerável a ataques e recomenda as alterações de configuração para corrigir essas vulnerabilidades. A Central de Segurança recomenda que você resolva as vulnerabilidades quando a configuração do SO da VM não seguir as regras de configuração recomendadas.
+
+> [!NOTE]
+> Para obter mais informações sobre configurações específicas que estão sendo monitoradas, consulte a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). No momento, não há suporte completo para o Windows Server 2016.
+>
+>
+
+## <a name="implement-the-recommendation"></a>Implementar a recomendação
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo.  Ela não é um guia passo a passo.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Implementar a recomendação
 1. Na folha **Recomendações**, selecione **Corrigir vulnerabilidades do SO**.
    ![Corrigir as vulnerabilidades do sistema operacional][1]
 

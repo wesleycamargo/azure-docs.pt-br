@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 02/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: ef24162006c508134db3f385e791306495ac4614
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: ad1314aa4b504bd2cb3285789073d4f1de1f545d
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -32,6 +33,19 @@ No portal de Serviços Web do Azure Machine Learning você pode:
 * Adicionar e excluir pontos de extremidade (somente Clássico)
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permissões para gerenciar os Novos serviços Web baseados no Resource Manager
+
+Os Novos serviços Web são implantados como recursos do Azure. Assim, você deve ter as permissões corretas para implantar e gerenciar Novos serviços Web.  Para implantar ou gerenciar Novos serviços Web, você deverá ser atribuído a uma função colaborador ou administrador na assinatura na qual o serviço Web é implantado. Se você convidar outro usuário para um espaço de trabalho do Machine Learning, deverá atribuí-lo a uma função colaborador ou administrador na assinatura antes de implantar ou gerenciar os serviços Web. 
+
+Se o usuário não tiver as permissões corretas para acessar os recursos no portal dos Serviços Web do Azure Machine Learning, ele receberá o seguinte erro ao tentar implantar um serviço Web:
+
+*A implantação de serviço Web falhou. Essa conta não tem acesso suficiente à assinatura do Azure que contém o Espaço de Trabalho. Para implantar um serviço Web no Azure, a mesma conta deve ser convidada para o Espaço de Trabalho e receber acesso à assinatura do Azure que contém o Espaço de Trabalho.*
+
+Para obter mais informações sobre como criar um espaço de trabalho, consulte [Criar e compartilhar um espaço de trabalho do Azure Machine Learning](machine-learning-create-workspace.md).
+
+Para obter mais informações sobre como configurar permissões de acesso, consulte [Exibir atribuições de acesso para usuários e grupos no portal do Azure – Visualização pública](../active-directory/role-based-access-control-manage-assignments.md).
+
 
 ## <a name="manage-new-web-services"></a>Gerenciar novos serviços Web
 Para gerenciar seus novos serviços Web:
@@ -174,10 +188,5 @@ Para gerenciar as contas adicionais quem têm acesso ao espaço de trabalho no M
 > O link **Entrar no Estúdio AM** abre o Estúdio de Aprendizado de Máquina usando a conta da Microsoft com a qual você está conectado no momento. A Conta da Microsoft que você usou para entrar no Portal Clássico do Azure para criar um espaço de trabalho não tem automaticamente permissão para abrir esse espaço de trabalho. Para abrir um espaço de trabalho, você deve estar conectado à Conta da Microsoft que foi definido como proprietária do espaço de trabalho ou você precisa receber um convite do proprietário para ingressar no espaço de trabalho.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

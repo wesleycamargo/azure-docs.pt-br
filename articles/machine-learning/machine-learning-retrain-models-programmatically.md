@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
-ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
+ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
+ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -56,6 +57,9 @@ Em seguida, crie um Experimento Predicativo.
 1. Na parte inferior da tela do experimento, clique em **Configurar o Serviço Web** e selecione **Serviço Web Preditivo**. Isso salva o modelo como um Modelo Treinado e adiciona os módulos de Entrada e Saída do serviço Web. 
 2. Clique em **Executar**. 
 3. Após o teste em execução ter terminado, clique em **Implantar Serviço Web [Clássico]** ou **Implantar Serviço Web [Novo]**.
+
+> [!NOTE] 
+> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Implantar o Teste de Treinamento como um serviço Web de Treinamento
 Para readaptar o modelo treinado, você deve implantar o Teste de Treinamento criado como um Serviço Web de Readaptação. Este serviço Web precisa um módulo *Saída do Serviço Web* conectado ao módulo *[Modelo de Treino][train-model]* para poder produzir novos modelos treinados.
@@ -183,9 +187,4 @@ Se você tiver implantado um Novo serviço Web clicando em **Implantar o Serviç
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

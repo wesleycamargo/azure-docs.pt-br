@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/19/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ef0bd33cb37474573cd136b882ca5141f365476
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 664a1bd9df9ace4993a8389dbeb049e721932082
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -35,12 +36,12 @@ Para configurar a recuperação de banco de dados entre dois pontos locais, é p
 ![Implantação de site do Virtual Machine Manager para a replicação entre sites locais](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### <a name="virtual-machine-manager-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Implantação de site do Virtual Machine Manager para replicação entre localizações locais e o Azure
-Ao configurar a recuperação de banco de dados entre pontos locais e o Azure, é preciso baixar o provedor Azure Site Recovery e instalá-lo no servidor do Virtual Machine Manager. Também é preciso instalar o Agente de Serviços de Recuperação do Azure, que deve ser instalado em cada host Hyper-V. Consulte [Noções básicas sobre a proteção do site para o Azure](site-recovery-understanding-site-to-azure-protection.md) para saber mais.
+Ao configurar a recuperação de banco de dados entre pontos locais e o Azure, é preciso baixar o provedor Azure Site Recovery e instalá-lo no servidor do Virtual Machine Manager. Também é preciso instalar o Agente de Serviços de Recuperação do Azure, que deve ser instalado em cada host Hyper-V. [Saiba mais](site-recovery-hyper-v-azure-architecture.md) para obter mais informações.
 
 ![Implantação de site do Virtual Machine Manager para replicação entre localizações locais e o Azure](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### <a name="hyper-v-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Implantação de site do Hyper-V para replicação entre pontos locais e o Azure
-Esse processo é semelhante à implantação do Virtual Machine Manager. A única diferença é que o provedor do Azure Site Recovery e o Agente de Serviços de Recuperação do Azure são instalados no próprio host Hyper-V. Consulte [Noções básicas sobre a proteção do site para o Azure](site-recovery-understanding-site-to-azure-protection.md) para saber mais.
+Esse processo é semelhante à implantação do Virtual Machine Manager. A única diferença é que o provedor do Azure Site Recovery e o Agente de Serviços de Recuperação do Azure são instalados no próprio host Hyper-V. [Saiba mais](site-recovery-hyper-v-azure-architecture.md). .
 
 ## <a name="monitor-configuration-protection-and-recovery-operations"></a>Monitorar as operações de configuração, proteção e recuperação
 Cada operação no Azure Site Recovery é auditada e rastreada na guia **TRABALHOS**. Para qualquer erro de configuração, proteção ou recuperação, vá para a guia **TRABALHOS** e procure falhas.
@@ -80,8 +81,8 @@ Como mostrado na captura de tela anterior, a integridade da máquina virtual é 
 
 > [!NOTE]
 > Se quaisquer operações ativas estiverem em andamento ou falharem, vá para a exibição **TRABALHOS**, como mencionado anteriormente, para exibir o erro para um trabalho específico.
-> 
-> 
+>
+>
 
 ## <a name="troubleshoot-on-premises-hyper-v-issues"></a>Solucionar problemas do Hyper-V no local
 Conecte-se ao console do gerenciador do Hyper-V local, selecione a máquina virtual e veja a integridade da replicação.
@@ -194,10 +195,4 @@ A seguir estão os erros comuns e suas resoluções. Cada erro é documentado em
 Se o botão **Conectar** no portal estiver esmaecido e você não estiver conectado ao Azure por meio do ExpressRoute ou de uma conexão VPN Site a Site, será necessário criar e atribuir à sua máquina virtual um endereço IP público antes de usar Área de Trabalho Remota/Shell Compartilhado. Então é possível adicionar um IP Público na interface de rede da máquina virtual.  
 
 ![Adicionando um IP Público no adaptador de rede da máquina virtual com failover](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

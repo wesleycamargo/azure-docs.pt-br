@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e95d00d0ff9bcb825bfe3fcc787386c8c8133c69
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: caeb0569de89b1af7b87f393601c7aa1a1e293dc
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -45,7 +46,7 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 ## <a name="account-for-growth"></a>Pense no crescimento
 Pode ser uma boa ideia calcular o número de nós com base no tamanho de BD que você espera atingir com seu serviço, além do tamanho de BD inicial. Em seguida, aumente o número de nós conforme seu serviço dor crescendo para não provisionar excessivamente o número de nós. Porém, o número de partições deve ter base no número de nós que são necessários durante a execução do seu serviço no crescimento máximo.
 
-É bom ter algumas máquinas adicionais disponíveis a qualquer momento, para que você possa manipular picos inesperados ou falha (por exemplo, se algumas VMs ficarem inativas).  Embora a capacidade extra deva ser determinada usando seus picos esperados, um bom ponto de partida seria reservar algumas VMs adicionais (5 a 10% extra).
+É bom ter algumas máquinas adicionais disponíveis a qualquer momento, para que você possa manipular picos inesperados ou falha (por exemplo, se algumas VMs ficarem inativas).  Embora a capacidade extra deva ser determinada usando seus picos esperados, um bom ponto de partida seria reservar algumas VMs adicionais (5 a&10;% extra).
 
 O ponto anterior pressupõe um único serviço com estado. Se você tiver mais de um serviço com estado, precisará adicionar o tamanho de BD associado aos outros serviços na equação. Como alternativa, você pode calcular o número de nós separadamente para cada serviço com estado.  O serviço pode ter réplicas ou partições que não são equilibradas. Tenha em mente que as partições também podem ter mais dados do que outras. Para obter mais informações sobre particionamento, consulte [Particionamento de artigo nas práticas recomendadas](service-fabric-concepts-partitioning.md). No entanto, a equação anterior independe do número de partições ou réplicas, pois o Service Fabric garante que as réplicas sejam distribuídas entre os nós de uma forma otimizada.
 
@@ -59,16 +60,11 @@ Agora, com base em todas essas informações, a planilha mostra que você pode o
 ![Planilha para cálculo de custo][Image1]
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira [Particionamento de serviços do Service Fabric][10] para saber mais sobre como particionar o seu serviço.
+Confira [Particionando serviços do Service Fabric][10] para saber mais sobre como particionar o serviço.
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

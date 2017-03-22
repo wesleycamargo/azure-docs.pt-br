@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: c70793c707252582d4ba77ac8b04c39521b245f8
-ms.openlocfilehash: a9b2cf638f52a6b7c371e443d9b5a104a57f910c
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: a0fca1e2a1d354be9ad34fb3a36714d0bdf393d2
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -40,13 +41,13 @@ Verifique se as funções de servidor em execução no computador são suportada
     ![Inicie o Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 6. Quando o Sysprep for concluído, desligará a máquina virtual. 
 
+> [!IMPORTANT]
+> Só reinicie a VM quando concluir o carregamento do VHD no Azure ou a criação de uma imagem da VM. Se a VM for reiniciada acidentalmente, execute o Sysprep para generalizá-la novamente.
+> 
+> 
+
 ## <a name="next-steps"></a>Próximas etapas
 * Se a VM for local, você pode agora [carregar o VHD no Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Se a VM já está no Azure, você pode agora [criar uma imagem da VM generalizada](virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
