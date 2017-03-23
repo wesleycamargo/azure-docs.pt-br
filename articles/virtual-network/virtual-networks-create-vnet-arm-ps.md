@@ -32,13 +32,13 @@ O Azure tem dois modelos de implantação: Azure Resource Manager e clássico. A
 Este artigo explica como criar uma rede virtual por meio do modelo de implantação do Gerenciador de Recursos usando o PowerShell. Você também pode criar uma rede virtual por meio do Gerenciador de Recursos usando outras ferramentas ou criar uma rede virtual por meio do modelo de implantação clássico, selecionando uma opção diferente na seguinte lista:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
-- [Modelo](virtual-networks-create-vnet-arm-template-click.md)
-- [Portal (clássico)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (Clássico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [CLI (Clássica)](virtual-networks-create-vnet-classic-cli.md)
+> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [CLI](virtual-networks-create-vnet-arm-cli.md)
+> * [Modelo](virtual-networks-create-vnet-arm-template-click.md)
+> * [Portal (clássico)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (Clássico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [CLI (Clássica)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 

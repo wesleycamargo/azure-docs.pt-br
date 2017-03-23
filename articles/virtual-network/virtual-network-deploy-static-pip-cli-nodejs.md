@@ -26,12 +26,12 @@ ms.lasthandoff: 02/28/2017
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-10"></a>Criar uma VM com um IP público estático usando a CLI do Azure 1.0
 
 > [!div class="op_single_selector"]
-- [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [CLI 2.0 do Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [CLI 1.0 do Azure](virtual-network-deploy-static-pip-cli-nodejs.md)
-- [Modelo](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
+> * [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [CLI 2.0 do Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [CLI 1.0 do Azure](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Modelo](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
