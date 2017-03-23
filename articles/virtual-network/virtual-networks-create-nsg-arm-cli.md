@@ -74,7 +74,7 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cená
    Saída:
 
         Access    Desc                                                    DestPortRange    Direction      Priority
-        --------  ------------------------------------------------------  ---------------  -----------  ----------
+        
         Allow     Allow inbound traffic from all VMs in VNET              *                Inbound           65000
         Allow     Allow inbound traffic from azure load balancer          *                Inbound           65001
         Deny      Deny all inbound traffic                                *                Inbound           65500
@@ -183,10 +183,10 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cená
         
     ```azurecli
     az network vnet subnet update \
-    > --vnet-name TestVNET \
-    > --name FrontEnd \
-    > --resource-group testrg \
-    > --network-security-group NSG-FrontEnd
+    --vnet-name TestVNET \
+    --name FrontEnd \
+    --resource-group testrg \
+    --network-security-group NSG-FrontEnd
     ```
    
     Saída esperada:
