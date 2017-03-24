@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 0e919171-03e6-4f5a-ab4e-3eec3e34c347
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: 6971e3d36629640d3a550539b29ba7cc4c0da6b7
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -30,7 +32,7 @@ Neste artigo, você aprenderá a usar o SSH (Secure Shell) para se conectar a um
 > Embora o comando Hive esteja disponível em clusters HDInsight, considere o uso do Beeline. Beeline é um cliente mais novo para trabalhar com o Hive e está incluído em seu cluster HDInsight. Para saber mais sobre como usar isso, consulte [Usar o Hive com Hadoop no HDInsight com Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
+## <a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um cluster do Hadoop no HDInsight baseado em Linux.
@@ -40,7 +42,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Conexão com o SSH
+## <a id="ssh"></a>Conexão com o SSH
 Conecte-se com o FQDN (nome de domínio totalmente qualificado) do cluster HDInsight usando o comando SSH. O FQDN será o nome que você atribuiu ao cluster, depois será **.azurehdinsight.net**. Por exemplo, o exibido a seguir se conectaria a um cluster chamado **myhdinsight**:
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
@@ -58,7 +60,7 @@ O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY
 
 Para obter mais informações sobre o uso de PuTTY, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-## <a name="a-idhiveause-the-hive-command"></a><a id="hive"></a>Usar o comando do Hive
+## <a id="hive"></a>Usar o comando do Hive
 1. Uma vez conectado, inicie a CLI do Hive usando o seguinte comando:
    
         hive
@@ -107,10 +109,10 @@ Para obter mais informações sobre o uso de PuTTY, confira [Usar SSH com Hadoop
      > 
      > 
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumo
+## <a id="summary"></a>Resumo
 Como você pode ver, o comando do Hive fornece uma maneira fácil de executar consultas Hive interativamente em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 Para informações gerais sobre o Hive no HDInsight:
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
@@ -153,10 +155,5 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: f6bc08230384b637f6b7b83fe32915ab09647d37
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -183,10 +185,5 @@ Neste documento, você aprendeu a usar componentes do Python de uma topologia do
 
 * [Como usar o Python para trabalhos de MapReduce de streaming](hdinsight-hadoop-streaming-python.md)
 * [Como usar UDF (Funções Definidas pelo Usuário) do Python no Pig e Hive](hdinsight-python.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

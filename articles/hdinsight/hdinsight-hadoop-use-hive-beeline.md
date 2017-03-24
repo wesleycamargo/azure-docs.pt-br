@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -30,7 +31,7 @@ Neste artigo, você aprenderá a usar o SSH (Secure Shell) para se conectar a um
 > [!NOTE]
 > A Beeline usa JDBC para se conectar ao Hive. Para saber mais sobre como usar o JDBC com o Hive, confira [Conectar ao Hive no Azure HDInsight usando o driver JDBC do Hive](hdinsight-connect-hive-jdbc-driver.md).
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
+## <a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um cluster do Hadoop no HDInsight baseado em Linux.
@@ -40,7 +41,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Conexão com o SSH
+## <a id="ssh"></a>Conexão com o SSH
 Conecte-se com o FQDN (nome de domínio totalmente qualificado) do cluster HDInsight usando o comando SSH. O FQDN será o nome que você atribuiu ao cluster, depois será **.azurehdinsight.net**. Por exemplo, o exibido a seguir se conectaria a um cluster chamado **myhdinsight**:
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
@@ -58,7 +59,7 @@ O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY
 
 Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop baseado em Linux no HDInsight no Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-## <a name="a-idbeelineause-the-beeline-command"></a><a id="beeline"></a>Usar o comando Beeline
+## <a id="beeline"></a>Usar o comando Beeline
 1. Uma vez conectado, use o seguinte para iniciar a Beeline:
    
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
@@ -148,7 +149,7 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
      ```
 5. Para sair do Beeline, use `!quit`.
 
-## <a name="a-idfilearun-a-hiveql-file"></a><a id="file"></a>Executar um arquivo HiveQL
+## <a id="file"></a>Executar um arquivo HiveQL
 O Beeline também pode ser usado para executar um arquivo com instruções HiveQL. Use as etapas a seguir para criar um arquivo e  executá-lo usando o Beeline.
 
 1. Use o comando a seguir para criar um novo arquivo chamado **query.hql**:
@@ -204,7 +205,7 @@ Se você tiver o Beeline instalado em um cliente fora do cluster, é possível s
 
 Observe que os parâmetros/URI são diferentes de quando a execução ocorre diretamente em um nó principal ou em um nó de borda no cluster. Isso ocorre porque a conexão com o cluster da internet usa um gateway público que encaminha o tráfego pela porta 443. Além disso, vários outros serviços são expostos por meio do gateway público na porta 443, portanto o URI é diferente de quando a conexão ocorre de forma direta. Ao conectar-se pela internet, que você também deve autenticar a sessão fornecendo a senha.
 
-## <a name="a-idsummaryaa-idnextstepsanext-steps"></a><a id="summary"></a><a id="nextsteps"></a>Próximas etapas
+## <a id="summary"></a><a id="nextsteps"></a>Próximas etapas
 Como você pode ver, o comando do Beeline fornece uma maneira fácil de executar consultas Hive interativamente em um cluster HDInsight.
 
 Para informações gerais sobre o Hive no HDInsight:
