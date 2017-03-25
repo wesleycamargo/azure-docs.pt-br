@@ -14,12 +14,12 @@
 ## Configurar uma conexão Site a Site
 ### [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Portal do Azure (clássico)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Portal clássico (clássico)](vpn-gateway-site-to-site-create.md)
 ## Configurar uma conexão Ponto a Site
 ### [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Portal do Azure (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Portal clássico (clássico)](vpn-gateway-point-to-site-create.md)
 ## Configurar uma conexão de rede virtual a rede virtual
 ### [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -41,7 +41,9 @@
 ## [Modificar as configurações de gateway de rede local usando o PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Verificar uma conexão de gateway de VPN](vpn-gateway-verify-connection-resource-manager.md)
 ## [Redefinir um gateway de VPN](vpn-gateway-resetgw-classic.md)
-## [Excluir um gateway de VPN](vpn-gateway-delete-vnet-gateway-powershell.md)
+## Excluir um gateway de VPN
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (clássico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Criar certificados raiz autoassinados para conexões P2S](vpn-gateway-certificates-point-to-site.md)
 ## [Configurar um gateway de VPN (clássico)](vpn-gateway-configure-vpn-gateway-mp.md)
 

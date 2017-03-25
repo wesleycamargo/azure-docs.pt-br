@@ -7,9 +7,6 @@
 ## Endereçamento IP
 ### [Gerenciador de Recursos](virtual-network-ip-addresses-overview-arm.md)
 ### [Clássico](virtual-network-ip-addresses-overview-classic.md)
-## Máquinas virtuais
-### [Interfaces de rede](virtual-network-network-interface-overview.md)
-### [Resolução de nomes](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Introdução
 ## [Criar sua primeira rede virtual](virtual-network-get-started-vnet-subnet.md)
@@ -107,6 +104,7 @@
 ### Listas de controle de acesso
 #### [Portal clássico](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [Resolução de nomes de máquinas virtuais e serviços de nuvem](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Gerenciar
 ### Grupos de segurança de rede
