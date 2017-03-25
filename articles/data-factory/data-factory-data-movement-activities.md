@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 03/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 91a2ac08f6daac8cba195454e09bb07afe265046
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: f4c225c97ac997c412704b278c033c519d4424ed
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -83,27 +83,27 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | Geografia do repositório de dados de destino | Região do armazenamento de dados de destino | Região usada para movimentação de dados |
 |:--- |:--- |:--- |
 | Estados Unidos | Leste dos EUA | Leste dos EUA |
-| . | Leste dos EUA 2 | Leste dos EUA 2 |
-| . | Centro dos EUA | Centro dos EUA |
-| . | Centro-Norte dos EUA | Centro-Norte dos EUA |
-| . | Centro-Sul dos Estados Unidos | Centro-Sul dos Estados Unidos |
-| . | Centro-Oeste dos EUA | Centro-Oeste dos EUA |
-| . | Oeste dos EUA | Oeste dos EUA |
-| . | Oeste dos EUA 2 | Oeste dos EUA |
+| &nbsp; | Leste dos EUA 2 | Leste dos EUA 2 |
+| &nbsp; | Centro dos EUA | Centro dos EUA |
+| &nbsp; | Centro-Norte dos EUA | Centro-Norte dos EUA |
+| &nbsp; | Centro-Sul dos Estados Unidos | Centro-Sul dos Estados Unidos |
+| &nbsp; | Centro-Oeste dos EUA | Centro-Oeste dos EUA |
+| &nbsp; | Oeste dos EUA | Oeste dos EUA |
+| &nbsp; | Oeste dos EUA 2 | Oeste dos EUA |
 | Canadá | Leste do Canadá | Canadá Central |
-| . | Canadá Central | Canadá Central |
+| &nbsp; | Canadá Central | Canadá Central |
 | Brasil | Sul do Brasil | Sul do Brasil |
 | Europa | Norte da Europa | Norte da Europa |
-| . | Europa Ocidental | Europa Ocidental |
+| &nbsp; | Europa Ocidental | Europa Ocidental |
 | Pacífico Asiático | Sudeste Asiático | Sudeste Asiático |
-| . | Ásia Oriental | Sudeste Asiático |
+| &nbsp; | Ásia Oriental | Sudeste Asiático |
 | Austrália | Leste da Austrália | Leste da Austrália |
-| . | Sudeste da Austrália | Sudeste da Austrália |
+| &nbsp; | Sudeste da Austrália | Sudeste da Austrália |
 | Japão | Leste do Japão | Leste do Japão |
-| . | Oeste do Japão | Leste do Japão |
+| &nbsp; | Oeste do Japão | Leste do Japão |
 | Índia | Índia Central | Índia Central |
-| . | Índia Ocidental | Índia Central |
-| . | Sul da Índia | Índia Central |
+| &nbsp; | Índia Ocidental | Índia Central |
+| &nbsp; | Sul da Índia | Índia Central |
 
 Como alternativa, você pode indicar explicitamente a região do serviço Data Factory a ser usada para realizar a cópia especificando a propriedade `executionLocation` em Atividade de Cópia `typeProperties`. Os valores com suporte para essa propriedade estão listados acima da coluna **Região usada para movimentação de dados**. Observe que seus dados passarão para essa região durante a cópia. Por exemplo, para copiar entre os repositórios do Azure no Reino Unido, especifique `"executionLocation": "North Europe"` para rotear pelo Norte da Europa (consulte [exemplo de JSON](#by-using-json-scripts) como referência).
 

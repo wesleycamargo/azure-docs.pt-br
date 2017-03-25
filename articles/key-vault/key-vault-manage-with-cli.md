@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: bruceper
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c52d41bbac22c6a20b1632b529b061ed7e640ea1
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: eec68b1cbfbddf0b72b55376ee11451b25898b68
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -41,7 +42,7 @@ Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Interface de Linha de Comando versão 0.9.1 ou posterior. Para instalar a versão mais recente e conectá-la à sua assinatura do Azure, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](../xplat-cli-install.md).
+* Interface de Linha de Comando versão 0.9.1 ou posterior. Para instalar a versão mais recente e conectá-la à sua assinatura do Azure, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](../cli-install-nodejs.md).
 * Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível no [Centro de Download da Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
 
 ## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtendo ajuda com a interface de linha de comando de plataforma cruzada do Azure
@@ -59,7 +60,7 @@ Em caso de dúvida sobre os parâmetros necessários para um comando, consulte a
 
 Você pode ler também os tutoriais a seguir para se familiarizar com o Gerenciador de Recursos do Azure na interface de linha de comando da plataforma cruzada do Azure:
 
-* [Como Instalar e configurar a interface de linha de comando de plataforma cruzada do Azure](../xplat-cli-install.md)
+* [Como Instalar e configurar a interface de linha de comando de plataforma cruzada do Azure](../cli-install-nodejs.md)
 * [Usando a interface de linha de comando de plataforma cruzada do Azure com o Gerenciador de Recursos do Azure](../xplat-cli-azure-resource-manager.md)
 
 ## <a name="connect-to-your-subscriptions"></a>Conectar-se às suas assinaturas
@@ -94,7 +95,7 @@ Depois, para especificar a assinatura a ser usada, digite:
 
     azure account set <subscription name>
 
-Para obter mais informações sobre como configurar a interface de linha de comando de plataforma cruzada do Azure, consulte [Como instalar e configurar a interface de linha de comando entre plataformas do Azure](../xplat-cli-install.md).
+Para obter mais informações sobre como configurar a interface de linha de comando de plataforma cruzada do Azure, consulte [Como instalar e configurar a interface de linha de comando entre plataformas do Azure](../cli-install-nodejs.md).
 
 ## <a name="switch-to-using-azure-resource-manager"></a>Alternar para o Gerenciador de Recursos do Azure
 O Cofre da Chave requer o Gerenciador de Recursos do Azure. Por isso, digite o seguinte para alternar para o modo do Gerenciador de Recursos do Azure:
@@ -166,7 +167,7 @@ Aplicativos que usam um cofre de chave devem ser autenticados usando um token do
 Para registrar seu aplicativo com o Active Directory do Azure:
 
 1. Entre no Portal do Azure.
-2. À esquerda, clique em **Active Directory**e selecione o diretório no qual você registrará o aplicativo. <br> <br>  Observação: você deve selecionar o mesmo diretório que contém a assinatura do Azure com a qual você criou o cofre de chave. Se você não souber qual é o diretório, clique em **Configurações**, identifique a assinatura com a qual você criou o cofre de chave e anote o nome do diretório exibido na última coluna.
+2. À esquerda, clique em **Active Directory**e selecione o diretório no qual você registrará o aplicativo. <br> <br> Observação: você deve selecionar o mesmo diretório que contém a assinatura do Azure com a qual você criou o cofre de chave. Se você não souber qual é o diretório, clique em **Configurações**, identifique a assinatura com a qual você criou o cofre de chave e anote o nome do diretório exibido na última coluna.
 3. Clique em **APLICATIVOS**. Se nenhum aplicativo tiver sido adicionado ao seu diretório, essa página mostrará somente o link **Adicionar um Aplicativo** . Clique no link ou em **ADICIONAR** na barra de comandos.
 4. No assistente **ADICIONAR APLICATIVO** na página **O que você deseja fazer?**, clique em **Adicionar um aplicativo que minha organização está desenvolvendo**.
 5. Na página **Conte-nos sobre seu aplicativo**, especifique um nome para seu aplicativo e selecione **APLICATIVO WEB E/OU API WEB** (o padrão). Clique no ícone Avançar.
@@ -251,10 +252,5 @@ Aqui está um exemplo de como remover um segredo específica:
 
 ## <a name="next-steps"></a>Próximas etapas
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

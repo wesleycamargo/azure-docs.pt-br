@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 27bf5b15ebeed13733df2ddd9dbda5d5cfe4e49d
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 6a000e84f38e7e2b56f1d79d5c88f1704b6789a0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Este artigo usa o [Portal do Azure](https://portal.azure.com), o Azure PowerShel
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-namewhatisdiagaweb-server-diagnostics-and-application-diagnostics"></a><a name="whatisdiag"></a>Diagnóstico de servidor Web e diagnóstico de aplicativos
+## <a name="whatisdiag"></a>Diagnóstico de servidor Web e diagnóstico de aplicativos
 Os aplicativos Web do Serviço de Aplicativo oferecem funcionalidade de diagnóstico para registro em log tanto de informações do servidor Web quanto do aplicativo Web. Estes estão logicamente separados em **diagnóstico de servidor Web** e **diagnóstico de aplicativos**.
 
 ### <a name="web-server-diagnostics"></a>Diagnóstico de servidor Web
@@ -48,7 +48,7 @@ Em tempo de execução, você pode recuperar esses logs para ajudar na solução
 
 Os aplicativos Web do Serviço de Aplicativo também registram informações de implantação quando você publica o conteúdo em um aplicativo Web. Isto acontece automaticamente e não há definições de configuração para log de implantação. O log de implantação permite que você determine por que uma implantação falhou. Por exemplo, se está usando um script de implantação personalizado, você poderá usar o log de implantação para determinar por que o script está falhando.
 
-## <a name="a-nameenablediagahow-to-enable-diagnostics"></a><a name="enablediag"></a>Como habilitar o diagnóstico
+## <a name="enablediag"></a>Como habilitar o diagnóstico
 Para habilitar o diagnóstico no [Portal do Azure](https://portal.azure.com), vá até a folha de seu aplicativo Web e clique em **Configurações > Logs de diagnóstico**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
@@ -90,7 +90,7 @@ Enquanto todos os três locais de armazenamento fornecem as mesmas informações
 >
 >
 
-## <a name="a-namedownloada-how-to-download-logs"></a><a name="download"></a> Como baixar logs
+## <a name="download"></a> Como baixar logs
 Informações de diagnóstico armazenadas no sistema de arquivos do aplicativo Web podem ser diretamente acessadas usando FTP. Também podem ser baixadas como um arquivo Zip com o PowerShell do Azure ou a interface de linha de comando do Azure.
 
 A estrutura de diretórios onde os logs estão armazenados é a seguinte:
@@ -129,7 +129,7 @@ Para baixar os arquivos de log usando a Interface da Linha de Comando do Azure, 
 Isto salvará os logs para o aplicativo Web chamado 'webappname' em um arquivo chamado **diagnostics.zip** no diretório atual.
 
 > [!NOTE]
-> Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](../xplat-cli-install.md).
+> Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](../cli-install-nodejs.md).
 >
 >
 
@@ -145,7 +145,7 @@ O Application Insights do Visual Studio fornece ferramentas para filtrar e pesqu
 
 [Saiba mais sobre desempenho de rastreamento com o Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="a-namestreamlogsa-how-to-stream-logs"></a><a name="streamlogs"></a> Como transmitir logs
+## <a name="streamlogs"></a> Como transmitir logs
 Ao desenvolver um aplicativo, é sempre útil visualizar informações de registro em log realizado em tempo quase real. Isto pode ser feito ao transmitir informações de log para seu ambiente de desenvolvimento usando o PowerShell do Azure ou a Interface de Linha de Comando do Azure.
 
 > [!NOTE]
@@ -194,11 +194,11 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** 
     azure site log tail webappname --path http
 
 > [!NOTE]
-> Se você não instalou a Interface de Linha de Comando ou não a configurou para usar a sua Assinatura do Azure, consulte [Como usar a Interface da linha de comando do Azure](../xplat-cli-install.md).
+> Se você não instalou a Interface de Linha de Comando ou não a configurou para usar a sua Assinatura do Azure, consulte [Como usar a Interface da linha de comando do Azure](../cli-install-nodejs.md).
 >
 >
 
-## <a name="a-nameunderstandlogsa-how-to-understand-diagnostics-logs"></a><a name="understandlogs"></a> Como compreender os logs de diagnóstico
+## <a name="understandlogs"></a> Como compreender os logs de diagnóstico
 ### <a name="application-diagnostics-logs"></a>Logs de diagnóstico de aplicativo
 O diagnóstico de aplicativo armazenará informações em um formato específico para aplicativos .NET, dependendo se você armazenar os logs no sistema de arquivos, no armazenamento de tabela ou no armazenamento de blob. O conjunto de dados de base armazenados é o mesmo em todos os três tipos de armazenamento - a data e hora em que o evento ocorreu, a ID do processo que produziu o evento, o tipo de evento (informação, aviso ou erro) e a mensagem do evento.
 
@@ -274,7 +274,7 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 >
 >
 
-## <a name="a-namenextstepsa-next-steps"></a><a name="nextsteps"></a> Próximas etapas
+## <a name="nextsteps"></a> Próximas etapas
 * [Como monitorar aplicativos Web](/manage/services/web-sites/how-to-monitor-websites/)
 * [Solucionando problemas de aplicativos Web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analisar logs de aplicativos Web no HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

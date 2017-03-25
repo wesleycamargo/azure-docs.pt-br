@@ -17,9 +17,9 @@ ms.date: 06/24/2015
 ms.author: hbai
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: a972ab1671e55a94fa1dc2060f220d2e85787e35
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cb631a1bcbe73c18b06e247b29056a83cfa61a46
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ Para executar as etapas a seguir, você precisará de:
 
 * Uma assinatura ativa do Azure. Se você não tiver uma, é possível obter uma avaliação gratuita em [azure.com](https://azure.microsoft.com/).
 * Uma ID de trabalho ou escolar para usar os grupos de recursos do Azure. Se você tiver uma conta pessoal e fizer logon com uma ID da Microsoft, você precisará [criar uma ID corporativa por meio da ID pessoal](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* O [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md), dependendo do sistema operacional cliente.
+* O [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [CLI do Azure para Mac, Linux e Windows](../cli-install-nodejs.md), dependendo do sistema operacional cliente.
 * [OpenSSL](https://www.openssl.org/). O OpenSSL é usado para gerar os certificados necessários.
 * Um cliente Git como o [Git Bash](https://git-scm.com/).
 * Para testar o aplicativo de exemplo,você precisará também de um servidor DNS. Você pode usar quaisquer servidores DNS ou serviços que dão suporte a registros de curinga A.
@@ -250,7 +250,7 @@ Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no A
 [Como usar a CLI do Azure][azure-command-line-tools]  
 [Usando o Azure PowerShell com o Azure Resource Manager][powershell-azure-resource-manager]  
 
-[azure-command-line-tools]: ../xplat-cli-install.md
+[azure-command-line-tools]: ../cli-install-nodejs.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 

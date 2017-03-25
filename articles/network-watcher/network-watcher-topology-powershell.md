@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: af1bb9618492827bfae5f55a30fd165dbd5be11e
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c8d5fe6177b36aa73febe308b47b1fc330181924
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -137,7 +137,7 @@ Resources       : [
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como visualizar os logs do fluxo NSG com o Power BI visitando [Visualizar logs de fluxos NSG com o Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Para saber como visualizar os logs de fluxo NSG com o Power BI, veja [Como visualizar logs de fluxos NSG com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 
 

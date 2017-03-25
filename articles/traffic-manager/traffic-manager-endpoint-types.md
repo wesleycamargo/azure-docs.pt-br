@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 2ced9e73a65160f4f3c8ba92affc143ca554d07c
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: c27b6ed05faa5d9c408e6812d4ecbb8e0e2bbbab
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -89,49 +90,11 @@ Para obter detalhes, consulte [Monitoramento do ponto de extremidade do Gerencia
 
 Se todos os pontos de extremidade em um perfil estiverem desabilitados ou se o próprio perfil estiver desabilitado, o Gerenciador de Tráfego enviará uma resposta “NXDOMAIN” para uma nova consulta DNS.
 
-## <a name="faq"></a>Perguntas frequentes
-
-### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>Posso usar o Gerenciador de Tráfego com pontos de extremidade de várias assinaturas?
-
-Não é possível usar pontos de extremidade de várias assinaturas com Aplicativos Web do Azure. Os Aplicativos Web do Azure exigem que qualquer nome de domínio personalizado usado com Aplicativos Web seja usado somente em uma única assinatura. Não é possível usar Aplicativos Web de várias assinaturas com o mesmo nome de domínio.
-
-Para outros tipos de ponto de extremidade, é possível usar o Gerenciador de Tráfego com pontos de extremidade de mais de uma assinatura. O modo de configurar o Gerenciador de Tráfego depende de se você está usando o modelo de implantação clássico ou a experiência do Resource Manager.
-
-* No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura podem ser adicionados ao Gerenciador de Tráfego, desde que a pessoa que configura o perfil do Gerenciador de Tráfego tenha o acesso de leitura ao ponto de extremidade. Essas permissões podem ser concedidas usando o [RBAC (controle de acesso baseado em função) do Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
-* Na interface do modelo de implantação clássico, o Gerenciador de Tráfego requer que os Serviços de Nuvem ou os Aplicativos Web configurados como pontos de extremidade do Azure residam na mesma assinatura que o perfil do Gerenciador de Tráfego. Pontos de extremidade de Serviço de Nuvem em outras assinaturas podem ser adicionados ao Gerenciador de Tráfego como pontos de extremidade “externos”. Esses pontos de extremidade externos são cobrados como pontos de extremidade do Azure, em vez de à taxa externa.
-
-### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Posso usar o Gerenciador de Tráfego com os slots de “Preparo” do Serviço de Nuvem?
-
-Sim. Os slots de “preparo” do Serviço de Nuvem podem ser configurados no Gerenciador de Tráfego como pontos de extremidade Externos. Verificações de integridade ainda são cobradas à taxa de Pontos de Extremidade do Azure. Como o tipo do ponto de extremidade externo está em uso, as alterações no serviço subjacente não serão selecionadas automaticamente. Com pontos de extremidade externos, o Gerenciador de Tráfego não consegue detectar quando o Serviço de Nuvem é parado ou excluído. Portanto, o Gerenciador de Tráfego continua cobrando por verificações de integridade até que o ponto de extremidade seja desabilitado ou excluído.
-
-### <a name="does-traffic-manager-support-ipv6-endpoints"></a>O Gerenciador de Tráfego dá suporte aos pontos de extremidade IPv6?
-
-No momento, o Gerenciador de Tráfego não oferece servidores de nome endereçáveis por IPv6. No entanto, o Gerenciador de Tráfego ainda pode ser usado por clientes IPv6 que se conectem a pontos de extremidade IPv6. Um cliente não faz solicitações DNS diretamente ao Gerenciador de tráfego. Em vez disso, o cliente usa um serviço DNS recursivo. Um cliente somente IPv6 envia solicitações para o serviço DNS recursivo via IPv6. Então o serviço recursivo deve conseguir contatar os servidores de nome do Gerenciador de Tráfego usando IPv4.
-
-O Gerenciador de Tráfego responde com o nome DNS do ponto de extremidade. Para dar suporte a um ponto de extremidade IPv6, deve haver um registro DNS AAAA apontando o nome DNS do ponto de extremidade para o endereço IPv6. Verificações de integridade do Gerenciador de Tráfego dão suporte apenas a endereços IPv4. O serviço deve expor um ponto de extremidade IPv4 no mesmo nome DNS.
-
-### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Posso usar o Gerenciador de Tráfego com mais de um Aplicativo Web na mesma região?
-
-Normalmente, o Gerenciador de Tráfego é usado para direcionar o tráfego para os aplicativos implantados em regiões diferentes. No entanto, ele também pode ser usado onde um aplicativo tem mais de uma implantação na mesma região. Os pontos de extremidade do Gerenciador de Tráfego do Azure não permitem adicionar mais de um ponto de extremidade do Aplicativo Web da mesma região do Azure ao mesmo perfil do Gerenciador de Tráfego.
-
-As etapas a seguir fornecem uma solução alternativa para essa restrição:
-
-1. Verifique se seus pontos de extremidade estão em diferentes “unidades de escala” do aplicativo Web'. Um nome de domínio deve mapear para um único site em uma unidade de escala. Portanto, dois aplicativos Web na mesma unidade de escala não podem compartilhar um perfil do Gerenciador de Tráfego.
-2. Adicione seu nome de domínio intuitivo como um nome de host personalizado a cada Aplicativo Web. Cada Aplicativo Web deve estar em uma unidade de escala diferente. Todos os Aplicativos Web devem pertencer à mesma assinatura.
-3. Adicione um (e somente um) ponto de extremidade do Aplicativo Web ao perfil do Gerenciador de Tráfego, como um ponto de extremidade do Azure.
-4. Adicione cada ponto de extremidade do Aplicativo Web extra ao seu perfil do Gerenciador de Tráfego como um ponto de extremidade externo. Pontos de extremidade externos só podem ser adicionados usando o modelo de implantação do Gerenciador de Recursos.
-5. Crie um registro DNS CNAME em seu domínio intuitivo que aponte para o seu nome DNS de perfil do Gerenciador de Tráfego (<...>.trafficmanager.net).
-6. Acesse seu site usando o nome de domínio intuitivo, não o nome DNS do perfil do Gerenciador de Tráfego.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-how-traffic-manager-works.md).
 * Saiba mais sobre [o monitoramento de ponto de extremidade e failover automático](traffic-manager-monitoring.md)do Gerenciador de Tráfego.
 * Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)do Gerenciador de Tráfego.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

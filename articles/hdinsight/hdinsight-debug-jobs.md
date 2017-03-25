@@ -9,6 +9,7 @@ author: mumian
 documentationcenter: 
 ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
 ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -143,183 +145,183 @@ As mensagens de erro detalhadas nesta seção são fornecidas para ajudar os usu
 
 Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao gerenciar clusters HDInsight. Mas outras mensagens de erro que você pode encontrar são menos granulares devido às restrições nas ações corretivas possíveis neste contexto. Outras mensagens de erro são fornecidas nos contextos onde a atenuação é óbvia. 
 
-### <a name="a-idatleastonesqlmetastoremustbeprovidedaatleastonesqlmetastoremustbeprovided"></a><a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 * **Descrição**: forneça os detalhes do Banco de Dados SQL do Azure para pelo menos um componente para usar as configurações personalizadas para as metastores do Hive e do Oozie.
 * **Atenuação**: o usuário precisa fornecer um metastore válido do SQL Azure e repetir a solicitação.  
 
-### <a name="a-idazureregionnotsupportedaazureregionnotsupported"></a><a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
+### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
 * **Descrição**: não foi possível criar o cluster na região *nameOfYourRegion*. Use uma região do HDInsight válida e repita a solicitação.
 * **Atenuação**: o cliente deve criar a região do cluster que atualmente dá suporte a ele: Sudeste da Ásia, Europa Ocidental, Norte da Europa, Leste dos EUA ou Oeste dos EUA.  
 
-### <a name="a-idclustercontainerrecordnotfoundaclustercontainerrecordnotfound"></a><a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
+### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
 * **Descrição**: o servidor não pôde localizar o registro do cluster solicitado.  
 * **Atenuação**: repita a operação.
 
-### <a name="a-idclusterdnsnameinvalidreservedwordaclusterdnsnameinvalidreservedword"></a><a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
+### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
 * **Descrição**: o nome DNS do cluster *yourDnsName* é inválido. O nome deve começar e terminar com caracteres alfanuméricos e pode conter apenas o caractere especial '-'  
 * **Atenuação**: verifique se você usou um nome DNS válido para seu cluster que comece e termine com alfanuméricos e que não contenha caracteres especiais além do traço '-' e, em seguida, repita a operação.
 
-### <a name="a-idclusternameunavailableaclusternameunavailable"></a><a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
+### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 * **Descrição**: o nome do Cluster *yourClusterName* não está disponível. Escolha outro nome.  
 * **Atenuação**: o usuário deve especificar um clustername exclusivo e que não exista e repetir. Se o usuário estiver usando o Portal, a interface do usuário irá notificá-lo se um nome de cluster já estiver sendo usado durante as etapas de criação.
 
-### <a name="a-idclusterpasswordinvalidaclusterpasswordinvalid"></a><a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
+### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
 * **Descrição**: a senha do cluster é inválida. A senha deve ter, pelo menos, 10 caracteres e deve conter, no mínimo, um número, uma letra maiúscula, uma letra minúscula e um caractere especial sem espaços e não pode contar o nome do usuário.  
 * **Atenuação**: forneça uma senha válida do cluster e repita a operação.
 
-### <a name="a-idclusterusernameinvalidaclusterusernameinvalid"></a><a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
+### <a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
 * **Description**: o nome de usuário do cluster é inválido. Verifique se o nome do usuário não contém caracteres especiais ou espaços.  
 * **Atenuação**: forneça um nome de usuário válido e repita a operação.
 
-### <a name="a-idclusterusernameinvalidreservedwordaclusterusernameinvalidreservedword"></a><a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
+### <a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
 * **Descrição**: o nome DNS do cluster *yourDnsClusterName é inválido* . O nome deve começar e terminar com caracteres alfanuméricos e pode conter apenas o caractere especial '-'  
 * **Atenuação**: forneça um nome de usuário DNS do cluster válido e repita a operação.
 
-### <a name="a-idcontainernamemismatchwithdnsnameacontainernamemismatchwithdnsname"></a><a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
+### <a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
 * **Descrição**: o nome do contêiner no URI *seuURIcontêiner* e o nome DNS *seuNomeDns* no corpo da solicitação devem ser iguais.  
 * **Atenuação**: verifique se o nome do contêiner e o seu nome DNS são os mesmos e repita a operação.
 
-### <a name="a-iddatanodedefinitionnotfoundadatanodedefinitionnotfound"></a><a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
+### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
 * **Descrição**: a configuração do cluster é inválida. Não é possível encontrar nenhuma definição de nó de dados no tamanho do nó.  
 * **Atenuação**: repita a operação.
 
-### <a name="a-iddeploymentdeletionfailureadeploymentdeletionfailure"></a><a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
+### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
 * **Descrição**: falha na exclusão da implantação do cluster  
 * **Atenuação**: repita a operação de exclusão.
 
-### <a name="a-iddnsmappingnotfoundadnsmappingnotfound"></a><a id="DnsMappingNotFound"></a>DnsMappingNotFound
+### <a id="DnsMappingNotFound"></a>DnsMappingNotFound
 * **Descrição**: erro de configuração de serviço. Informações de mapeamento de DNS necessárias não encontradas.  
 * **Atenuação**: exclua e crie um novo cluster.
 
-### <a name="a-idduplicateclustercontainerrequestaduplicateclustercontainerrequest"></a><a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
+### <a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
 * **Descrição**: tentativa de criação de contêiner de cluster duplicado. Existe um registro para *nameOfYourContainer* mas as Etags não coincidem.
 * **Atenuação**: forneça um nome exclusivo para o contêiner e repita a operação de criação.
 
-### <a name="a-idduplicateclusterinhostedserviceaduplicateclusterinhostedservice"></a><a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
+### <a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
 * **Descrição**: o serviço hospedado *nameOfYourHostedService* já contém um cluster. Um serviço hospedado não pode conter vários clusters  
 * **Atenuação**: hospede o cluster em outro serviço hospedado.
 
-### <a name="a-idfailuretoupdatedeploymentstatusafailuretoupdatedeploymentstatus"></a><a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
+### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
 * **Descrição**: o servidor não pôde atualizar o estado da implantação do cluster.  
 * **Atenuação**: repita a operação. Se isso acontecer várias vezes, entre em contato com o CSS.
 
-### <a name="a-idhdirestoreclusteralteredahdirestoreclusteraltered"></a><a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
+### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
 * **Descrição**: o cluster *yourClusterName* foi excluído como parte da manutenção. Recrie o cluster.
 * **Atenuação**: recrie o cluster.
 
-### <a name="a-idheadnodeconfignotfoundaheadnodeconfignotfound"></a><a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
+### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
 * **Descrição**: a configuração do cluster é inválida. Configuração de nó de cabeçalho necessária não encontrada nos tamanhos de nós.
 * **Atenuação**: repita a operação.
 
-### <a name="a-idhostedservicecreationfailureahostedservicecreationfailure"></a><a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
+### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
 * **Descrição**: não é possível criar o serviço hospedado *nameOfYourHostedService*. Tente novamente a solicitação.  
 * **Atenuação**: repita a solicitação.
 
-### <a name="a-idhostedservicehasproductiondeploymentahostedservicehasproductiondeployment"></a><a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
+### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
 * **Descrição**: o serviço hospedado *nameOfYourHostedService* já contém uma implantação em produção. Um serviço hospedado não pode conter várias implantações em produção. Tente novamente a solicitação com um nome de cluster diferente.
 * **Atenuação**: use outro nome de cluster e repita a solicitação.
 
-### <a name="a-idhostedservicenotfoundahostedservicenotfound"></a><a id="HostedServiceNotFound"></a>HostedServiceNotFound
+### <a id="HostedServiceNotFound"></a>HostedServiceNotFound
 * **Descrição**: o serviço hospedado *nameOfYourHostedService* do cluster não pôde ser encontrado.  
 * **Atenuação**: se o cluster estiver em estado de erro, exclua-o e tente novamente.
 
-### <a name="a-idhostedservicewithnodeploymentahostedservicewithnodeployment"></a><a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
+### <a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
 * **Descrição**: o serviço hospedado *nameOfYourHostedService* não tem uma implantação associada.  
 * **Atenuação**: se o cluster estiver em estado de erro, exclua-o e tente novamente.
 
-### <a name="a-idinsufficientresourcescoresainsufficientresourcescores"></a><a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
+### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
 * **Descrição**: uma SubscriptionId *suaIdAssinatura* não tem núcleos restantes para criar o cluster *seuNnomeCluster*. Obrigatório: *resourcesRequired*, Disponível: *resourcesAvailable*.  
 * **Atenuação**: libere recursos em sua assinatura ou aumente os recursos disponíveis para a assinatura e tente criar o cluster novamente.
 
-### <a name="a-idinsufficientresourceshostedservicesainsufficientresourceshostedservices"></a><a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
+### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
 * **Descrição**: ID da Assinatura *suaIdAssinatura* não tem uma cota para um novo HostedService criar o cluster *seuNomeCluster*.  
 * **Atenuação**: libere recursos em sua assinatura ou aumente os recursos disponíveis para a assinatura e tente criar o cluster novamente.
 
-### <a name="a-idinternalerrorretryrequestainternalerrorretryrequest"></a><a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
+### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
 * **Descrição**: o servidor encontrou um erro interno. Tente novamente a solicitação.  
 * **Atenuação**: repita a solicitação.
 
-### <a name="a-idinvalidazurestoragelocationainvalidazurestoragelocation"></a><a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
+### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
 * **Descrição**: o local de armazenamento do Azure *dataRegionName* não é um local válido. Verifique se a região está correta e tente novamente a solicitação.
 * **Atenuação**: selecione um local de armazenamento que dê suporte ao HDInsight, verifique se o cluster está colocalizado e repita a operação.
 
-### <a name="a-idinvalidnodesizefordatanodeainvalidnodesizefordatanode"></a><a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
+### <a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
 * **Descrição**: o tamanho da VM é inválido para os nós de dados. Somente o tamanho 'VM Grande' tem suporte para todos os nós de dados.  
 * **Atenuação**: especifique o tamanho de nó com suporte para o nó de dados e repita a operação.
 
-### <a name="a-idinvalidnodesizeforheadnodeainvalidnodesizeforheadnode"></a><a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
+### <a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
 * **Descrição**: o tamanho da VM é inválido para o nó de cabeçalho. Apenas o tamanho 'VM Extragrande' tem suporte para o nó de cabeçalho.  
 * **Atenuação**: especifique o tamanho de nó com suporte para o nó de cabeçalho e repita a operação.
 
-### <a name="a-idinvalidrightsfordeploymentdeletionainvalidrightsfordeploymentdeletion"></a><a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
+### <a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
 * **Descrição**: ID da Assinatura *suaIdAssinatura* sendo usada não tem permissões suficientes para executar a operação de exclusão do cluster *seuNomeCluster*.  
 * **Atenuação**: se o cluster estiver em estado de erro, remova-o e tente novamente.  
 
-### <a name="a-idinvalidstorageaccountblobcontainernameainvalidstorageaccountblobcontainername"></a><a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
+### <a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
 * **Descrição**: o nome do contêiner de blob da conta de armazenamento externa *yourContainerName* é inválido. Verifique se o nome começa com uma letra e contém somente letras minúsculas, números e hífen.  
 * **Atenuação**: especifique um nome de contêiner de blob da conta de armazenamento válido e repita a operação.
 
-### <a name="a-idinvalidstorageaccountconfigurationsecretkeyainvalidstorageaccountconfigurationsecretkey"></a><a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
+### <a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
 * **Descrição**: a configuração da conta de armazenamento externa *yourStorageAccountName* é necessária para que os detalhes da chave secreta sejam definidos.  
 * **Atenuação**: especifique uma chave secreta válida para a conta de armazenamento e repita a operação.
 
-### <a name="a-idinvalidversionheaderformatainvalidversionheaderformat"></a><a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
+### <a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
 * **Descrição**: a versão do cabeçalho *yourVersionHeader* não está no formato válido de aaaa-mm-dd.  
 * **Atenuação**: especifique um formato válido para a versão do cabeçalho e repita a solicitação.
 
-### <a name="a-idmorethanoneheadnodeamorethanoneheadnode"></a><a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
+### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
 * **Descrição**: a configuração do cluster é inválida. Encontrada mais de uma configuração de nó de cabeçalho.  
 * **Mitigação**: edite a configuração para que apenas um nó de cabeçalho seja especificado.
 
-### <a name="a-idoperationtimedoutretryrequestaoperationtimedoutretryrequest"></a><a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
+### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
 * **Descrição**: a operação não pôde ser concluída dentro do tempo permitido ou do número máximo de tentativas possível. Tente novamente a solicitação.  
 * **Atenuação**: repita a solicitação.
 
-### <a name="a-idparameternulloremptyaparameternullorempty"></a><a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
+### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
 * **Descrição**: o parâmetro *yourParameterName* não pode ser nulo ou vazio.  
 * **Atenuação**: especifique um valor válido para o parâmetro.
 
-### <a name="a-idpreclustercreationvalidationfailureapreclustercreationvalidationfailure"></a><a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
+### <a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
 * **Descrição**: uma ou mais das entradas se solicitação de criação de cluster não são válidas. Verifique se os valores de entrada estão corretos e tente novamente a solicitação.  
 * **Atenuação**: verifique se os valores de entrada estão corretos e repita a solicitação.
 
-### <a name="a-idregioncapabilitynotavailablearegioncapabilitynotavailable"></a><a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
+### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
 * **Descrição**: a capacidade da região não está disponível para a região *seuNomeRegião* e a ID da Assinatura *suaIdAssinatura*.  
 * **Atenuação**: especifique uma região que dê suporte a clusters HDInsight. As regiões com suporte público: Sudeste da Ásia, Europa Ocidental, Norte da Europa, Leste dos EUA ou oeste dos EUA.
 
-### <a name="a-idstorageaccountnotcolocatedastorageaccountnotcolocated"></a><a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
+### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 * **Descrição**: a conta de armazenamento *seuNomeContaArmazenamento* está na região *nomeRegiãoAtual*. Deveria ser igual à região do cluster *yourClusterRegionName*.  
 * **Atenuação**: especifique uma conta de armazenamento na mesma região em que seu cluster está ou, se os seus dados já estiverem na conta de armazenamento, crie um novo cluster na mesma região da conta de armazenamento existente. Se você estiver usando o Portal, a interface do usuário irá notificá-lo sobre esse problema com antecedência.
 
-### <a name="a-idsubscriptionidnotactiveasubscriptionidnotactive"></a><a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
+### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 * **Descrição**: a ID da assinatura *yourSubscriptionId* fornecida não está ativa.  
 * **Atenuação**: reative sua assinatura ou obtenha uma nova assinatura válida.
 
-### <a name="a-idsubscriptionidnotfoundasubscriptionidnotfound"></a><a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
+### <a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
 * **Descrição**: a ID da assinatura *yourSubscriptionId* não pôde ser encontrada.  
 * **Atenuação**: verifique se sua ID de assinatura é válida e repita a operação.
 
-### <a name="a-idunabletoresolvednsaunabletoresolvedns"></a><a id="UnableToResolveDNS"></a>UnableToResolveDNS
+### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 * **Descrição**: não é possível resolver o *yourDnsUrl*do DNS. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
 * **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, inclusive começando com *http://* e terminando em *.com*.
 
-### <a name="a-idunabletoverifylocationofresourceaunabletoverifylocationofresource"></a><a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
+### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 * **Descrição**: não é possível verificar a localização do recurso *yourDnsUrl*. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
 * **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, inclusive começando com *http://* e terminando em *.com*.
 
-### <a name="a-idversioncapabilitynotavailableaversioncapabilitynotavailable"></a><a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
+### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 * **Descrição**: a capacidade de versão não está disponível para a versão *versãoEspecificada* e a ID da Assinatura *suaIdAssinatura*.  
 * **Atenuação**: escolha uma versão que esteja disponível e repita a operação.
 
-### <a name="a-idversionnotsupportedaversionnotsupported"></a><a id="VersionNotSupported"></a>VersionNotSupported
+### <a id="VersionNotSupported"></a>VersionNotSupported
 * **Descrição**: não há suporte para a versão *specifiedVersion* .
 * **Atenuação**: escolha uma versão que tenha suporte e repita a operação.
 
-### <a name="a-idversionnotsupportedinregionaversionnotsupportedinregion"></a><a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
+### <a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
 * **Descrição**: a versão *versãoEspecificada* não está disponível na região do Azure *regiãoEspecificada*.  
 * **Atenuação**: escolha uma versão que tenha suporte na região especificada e repita a operação.
 
-### <a name="a-idwasbaccountconfignotfoundawasbaccountconfignotfound"></a><a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
+### <a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
 * **Descrição**: a configuração do cluster é inválida. Configuração da conta WASB necessária não encontrada em contas externas.  
 * **Atenuação**: verifique se a conta existe e está corretamente especificada na configuração e repita a operação.
 
@@ -327,10 +329,5 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 * [Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight](hdinsight-debug-ambari-tez-view.md)
 * [Habilitar despejos heap para serviços do Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

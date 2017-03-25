@@ -1,9 +1,9 @@
 ---
 title: Migrar para o Resource Manager com o PowerShell | Microsoft Docs
-description: "Este artigo apresenta a migração de recursos IaaS com suporte da plataforma do clássico ao Azure Resource Manager usando os comandos do Azure PowerShell"
+description: "Este artigo apresenta a migração de recursos IaaS com suporte da plataforma como VMs (máquinas virtuais), VNETs (redes virtuais) e contas de armazenamento do clássico ao ARM (Azure Resource Manager) usando os comandos do Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: singhkays
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
-ms.author: cynthn
+ms.date: 03/14/2017
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
-ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: f5ef5242a565358fb4af90cf10bb332b9c942fce
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -49,7 +49,10 @@ Para obter instruções de instalação, consulte [Como instalar e configurar o 
 
 <br>
 
-## <a name="step-3-set-your-subscription-and-sign-up-for-migration"></a>Etapa 3: Definir sua assinatura e se inscrever para a migração
+## <a name="step-3-ensure-that-you-are-co-administrator-for-the-subscription-in-azure-classic-portal"></a>Etapa 3: Verificar se você é o coadministrador da assinatura no portal Clássico do Azure
+Para executar essa migração, você deve ser adicionado como coadministrador da assinatura no [portal Clássico do Azure](https://manage.windowsazure.com/). Isso será necessário mesmo se você já tiver sido adicionado como proprietário no [portal do Azure](https://portal.azure.com). Tente [adicionar um coadministrador da assinatura no portal Clássico do Azure](../billing/billing-add-change-azure-subscription-administrator.md) para descobrir se você é o coadministrador da assinatura. Se você não conseguir adicionar um coadministrador, contate um administrador de serviços ou o coadministrador da assinatura para ser adicionado.   
+
+## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>Etapa 4: Definir a assinatura e se inscrever para a migração
 Primeiro, inicie um prompt do PowerShell. Para migração, é necessário instalar seu ambiente tanto para o modelo clássico quanto para o Resource Manager.
 
 Entre em sua conta para o modelo do Gerenciador de Recursos.
@@ -111,7 +114,7 @@ Defina sua assinatura do Azure para a sessão atual. Este exemplo define a assin
 
 <br>
 
-## <a name="step-4-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Etapa 4: Verificar se você tem uma quantidade suficiente de núcleos de Máquina Virtual do Azure Resource Manager na região do Azure de sua implantação atual ou VNET
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Etapa 5: Verificar se você tem uma quantidade suficiente de núcleos de Máquina Virtual do Azure Resource Manager na região do Azure de sua implantação atual ou da VNET
 Você pode usar o seguinte comando do PowerShell para verificar a quantidade atual de núcleos no Azure Resource Manager. Para saber mais sobre cotas de núcleos, veja [Limites e o Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager). 
 
 Este exemplo verifica a disponibilidade na região **Oeste dos EUA**. Substitua o nome da região de exemplo pelo nome da sua própria região. 
@@ -120,7 +123,7 @@ Este exemplo verifica a disponibilidade na região **Oeste dos EUA**. Substitua 
 Get-AzureRmVMUsage -Location "West US"
 ```
 
-## <a name="step-5-run-commands-to-migrate-your-iaas-resources"></a>Etapa 5: Executar comandos para migrar os recursos de IaaS
+## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Etapa 6: Executar comandos para migrar os recursos de IaaS
 > [!NOTE]
 > Todas as operações descritas aqui são idempotentes. Caso você tenha algum problema que não seja um recurso sem suporte ou um erro de configuração, recomendamos que repita a operação de preparação, anulação ou confirmação. Em seguida, a plataforma tentará novamente a ação.
 > 
@@ -208,7 +211,9 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 ```
 
 ### <a name="migrate-virtual-machines-in-a-virtual-network"></a>Migrar máquinas virtuais em uma rede virtual
-Para migrar máquinas virtuais em uma rede virtual, migre a rede. As máquinas virtuais são migradas automaticamente com a rede. Selecione a rede virtual que você deseja migrar. 
+Para migrar máquinas virtuais em uma rede virtual, migre a rede virtual. As máquinas virtuais são migradas automaticamente com a rede virtual. Selecione a rede virtual que você deseja migrar. 
+> [!NOTE]
+> [Migre uma máquina virtual clássica individual](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md) criando uma nova máquina virtual do Resource Manager com Managed Disks usando os arquivos VHD (sistema operacional e dados) da máquina virtual. 
 
 Este exemplo define o nome de rede virtual como **myVnet**. Substitua o nome de exemplo pelo nome da sua própria rede virtual. 
 
@@ -248,6 +253,50 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 ### <a name="migrate-a-storage-account"></a>Migrar uma conta de armazenamento
 Depois de concluir a migração das máquinas virtuais, recomendamos a migração da conta de armazenamento.
 
+Antes de migrar a conta de armazenamento, execute as verificações de pré-requisito precedentes:
+
+* **Migrar máquinas virtuais clássicas cujos discos estão armazenados na conta de armazenamento**
+
+    O comando precedente retorna as propriedades RoleName e DiskName de todos os discos de VM clássicos na conta de armazenamento. RoleName é o nome da máquina virtual à qual um disco está anexado. Se o comando precedente retornar discos, certifique-se de que as máquinas virtuais às quais esses discos estão anexados sejam migradas antes de migrar a conta de armazenamento.
+    ```powershell
+     $storageAccountName = 'yourStorageAccountName'
+      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+      DiskName | Format-List -Property RoleName, DiskName 
+
+    ```
+* **Excluir discos de VM clássica não anexados armazenados na conta de armazenamento**
+ 
+    Localize discos de VM clássica não anexados na conta de armazenamento usando comando a seguir: 
+
+    ```powershell
+        $storageAccountName = 'yourStorageAccountName'
+        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+
+    ```
+    Se o comando acima retornar discos, exclua-os usando o seguinte comando:
+
+    ```powershell
+       Remove-AzureDisk -DiskName 'yourDiskName'
+    ```
+* **Excluir imagens da VM armazenadas na conta de armazenamento**
+
+    O comando precedente retorna todas as imagens de VM com o disco de SO armazenado na conta de armazenamento.
+     ```powershell
+        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                } | Select-Object -Property ImageName, ImageLabel
+     ```
+     O comando precedente retorna todas as imagens de VM com o disco de dados armazenado na conta de armazenamento.
+     ```powershell
+
+        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                        } | Select-Object -Property ImageName, ImageLabel
+     ```
+    Exclua todas as imagens de VM retornadas pelos comandos acima usando o comando precedente:
+    ```powershell
+    Remove-AzureVMImage -ImageName 'yourImageName'
+    ```
+    
 Prepare cada conta de armazenamento para migração usando o comando a seguir. Neste exemplo, o nome da conta de armazenamento é **myStorageAccount**. Substitua o nome de exemplo pelo nome da sua própria conta de armazenamento. 
 
 ```powershell

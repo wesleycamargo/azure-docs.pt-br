@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 2/21/2017
 ms.author: juluk
 translationtype: Human Translation
-ms.sourcegitcommit: 59af3469a5b2d5cca68bf18dca1aa1e3ab684adb
-ms.openlocfilehash: 0675b6471e37e89e426df85e2fb696fcff2927fd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c216b573e91894f2b9e17bf870c03b7d2a0f7161
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="deploy-lamp-stack-with-the-azure-cli-10"></a>Implantar a pilha LAMP com a CLI do Azure 1.0
-Este artigo explica como implantar um servidor Web Apache, MySQL e PHP (a pilha LAMP) no Azure. Você precisa de uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e da [CLI do Azure](../xplat-cli-install.md) que esteja [conectada à sua conta do Azure](../xplat-cli-connect.md).
+Este artigo explica como implantar um servidor Web Apache, MySQL e PHP (a pilha LAMP) no Azure. Você precisa de uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e da [CLI do Azure](../cli-install-nodejs.md) que esteja [conectada à sua conta do Azure](../xplat-cli-connect.md).
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
@@ -98,10 +98,10 @@ Você deverá ver uma resposta solicitando mais algumas entradas:
     data:    ubuntuOSVersion           String        14.04.2-LTS
     info:    group deployment create command OK
 
-Agora você criou uma VM Linux com LAMP já instalada. Se quiser, você pode verificar a instalação indo até [Verificar se a LAMP foi instalada com êxito](#verify-lamp-successfully-installed).
+Agora você criou uma VM Linux com LAMP já instalada. Se quiser, você poderá verificar a instalação indo até [Verificar se a LAMP foi instalada com êxito](#verify-lamp-successfully-installed).
 
-## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>Passo a passo da implantação da LAMP na VM existente
-Se você precisar de ajuda para criar uma VM Linux, clique [aqui para saber como criar uma VM Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Você precisa usar SSH na VM Linux. Se você precisar de ajuda com a criação de uma chave SSH clique [aqui para saber como criar uma chave SSH no Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>Passo a passo da implantação da LAMP em uma VM existente
+Se você precisar de ajuda para criar uma VM Linux, clique [aqui para saber como criá-la](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Em seguida, você precisará usar o SSH na VM Linux. Se você precisar de ajuda para criar uma chave SSH, clique [aqui para saber como criá-la no Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 Se você já tiver uma chave SSH, prossiga e use o SSH na linha de comando da sua VM Linux com `ssh exampleUsername@exampleDNS`.
 
 Agora que você está trabalhando na VM Linux, podemos detalhar a instalação da pilha LAMP em distribuições baseadas em Debian. Os comandos exatos podem ser diferentes para outras distribuições de Linux.
@@ -151,8 +151,8 @@ Reinicie o Apache com este comando para que todas as novas instalações entrem 
 
     user@ubuntu$ sudo service apache2 restart
 
-## <a name="verify-lamp-successfully-installed"></a>Verificar se a LAMP foi instalada com êxito
-Agora você pode verificar a página de informações do PHP que criou abrindo um navegador e acessando http://youruniqueDNS/info.php. A página deve ser semelhante a esta imagem.
+## <a name="verify-lamp-successfully-installed"></a>Verifique se a LAMP foi instalada com êxito
+Agora é possível verificar a página de informações do PHP que você criou abrindo um navegador e acessando http://youruniqueDNS/info.php. A página deve ser semelhante a esta imagem.
 
 ![][2]
 
