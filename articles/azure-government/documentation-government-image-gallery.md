@@ -15,14 +15,18 @@ ms.workload: azure-government
 ms.date: 10/20/2016
 ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: f245bf964664a0817ba26580aea9990b1767da82
-ms.openlocfilehash: 9b2fee2e98c11ef0468cef3f2bdc81e15698a6fe
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: e2d82497c2ceaa9a6c0a1592b5785449f095f85c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="azure-government-marketplace-images"></a>Imagens do Marketplace do Azure Governamental
 ## <a name="overview"></a>Visão geral
 O Marketplace do Microsoft Azure Governamental é uma experiência semelhante ao Portal do Azure público.  Os clientes pode selecionar implantar imagens pré-integradas da Microsoft e nossos parceiros ou carregar suas próprias VHDs.  Isso fornece flexibilidade para implantar suas próprias imagens padronizadas, se necessário.
+
+## <a name="variations"></a>Variações
+* No momento, imagens do Marketplace não têm suporte em DoD
 
 A seguir está uma lista de imagens disponíveis no Marketplace do Azure Governamental.  Algumas imagens predefinidas incluem licenciamento pré-pago para software específico.  Examine a página <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Preços da Máquina Virtual</a> para obter mais orientações e trabalhar com sua equipe de conta da Microsoft ou revendedor para obter preços específicos do Governo do Azure.
 
@@ -251,9 +255,4 @@ O recursos abaixo devem fornecer mais informações sobre como implantar da gale
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

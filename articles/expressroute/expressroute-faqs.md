@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 03/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 239702c8b099dd422e6b67a267b1185a27a21807
-ms.openlocfilehash: 52d9194920019291696d5ace3ac24751fde674ab
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0df7bba472daf2c499f3ccff1296b8a9ee8ab89d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,9 +27,6 @@ Rota Expressa é um serviço do Azure que permite a criação de conexões priva
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>Quais são os benefícios do uso de Rota Expressa e conexões de rede privada?
 As conexões de ExpressRoute não passam pela Internet pública e oferecem mais segurança, confiabilidade e velocidades maiores com latências consistentes e menores do que conexões típicas pela Internet. Em alguns casos, o uso de conexões da Rota Expressa para transferir dados entre dispositivos locais e o Azure pode proporcionar relações custo/benefício significativas.
-
-### <a name="what-microsoft-cloud-services-are-supported-over-expressroute"></a>Quais serviços em nuvem da Microsoft têm suporte na Rota Expressa?
-A Rota Expressa dá suporte à maioria dos serviços do Microsoft Azure atualmente, incluindo o Office 365.  Procure por atualizações com disponibilidade geral, em breve.
 
 ### <a name="where-is-the-service-available"></a>Onde o serviço está disponível?
 Consulte esta página para localização de serviço e disponibilidade: [Locais e Parceiros da Rota Expressa](expressroute-locations.md).
@@ -99,7 +96,7 @@ Sim. Cada circuito da Rota Expressa tem um par redundante de conexões cruzadas 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Eu perderei a conectividade se um dos meus links de Rota Expressa falhar?
 Você não perderá conectividade se uma das conexões cruzadas falhar. Uma conexão redundante estará disponível para dar suporte à carga de sua rede. Além disso, você pode criar vários circuitos em um local de emparelhamento diferente para obter resiliência a falhas.
 
-### <a name="a-nameonep2plinkaif-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft?
+### <a name="onep2plink"></a>Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft?
 Não, você só precisará de uma conexão física se seu provedor de serviços puder estabelecer dois circuitos virtuais de Ethernet por meio da conexão física. A conexão física (por exemplo, uma fibra óptica) será encerrada em um dispositivo de camada 1 (L1) (confira a imagem abaixo). Os dois circuitos virtuais de Ethernet estão marcados com IDs de VLAN diferentes, uma para o circuito primário e outra para o secundário. As IDs de VLAN estão no cabeçalho de Ethernet 802.1Q exterior. O cabeçalho de Ethernet 802.1Q interior (não mostrado) é mapeado para um [domínio de roteamento de Rota Expressa](expressroute-circuit-peerings.md)específico. 
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
@@ -111,7 +108,10 @@ Não. Não há suporte para extensões de conectividade de camada 2 ao Azure.
 Sim. Você pode ter mais de um circuito de Rota Expressa em sua assinatura. O limite padrão para o número de circuitos dedicados está definido como 10. Você pode contatar Suporte da Microsoft para aumentar o limite, se necessário.
 
 ### <a name="can-i-have-expressroute-circuits-from-different-service-providers"></a>Posso ter circuitos de Rota Expressa de diferentes provedores de serviços?
-Sim. Você pode ter circuitos de Rota Expressa de muitos provedores de serviços. Cada circuito de Rota Expressa será associado apenas a um provedor de serviços.
+Sim. Você pode ter circuitos de Rota Expressa de muitos provedores de serviços. Cada circuito de Rota Expressa será associado apenas a um provedor de serviços. 
+
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Posso ter vários circuitos de ExpressRoute no mesmo local?
+Sim. Você pode ter vários circuitos de ExpressRoute, com os mesmos provedores de serviço ou com provedores diferentes no mesmo local. No entanto, não será possível vincular mais de um circuito de ExpressRoute na mesma rede virtual.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como conectar minhas redes virtuais a um circuito da Rota Expressa
 As etapas básicas são descritas a seguir.
@@ -126,7 +126,7 @@ Consulte [Fluxos de trabalho da Rota Expressa para provisionamento e estados do 
 Sim. [Locais e Parceiros da Rota Expressa](expressroute-locations.md) fornece uma visão geral dos limites de conectividade para um circuito de Rota Expressa. A conectividade de um circuito de Rota Expressa é limitada a uma única região geopolítica. A conectividade pode ser expandida para várias regiões geopolíticas habilitando o recurso premium da Rota Expressa.
 
 ### <a name="can-i-link-to-more-than-one-virtual-network-to-an-expressroute-circuit"></a>Posso vincular mais de uma Rede Virtual a um circuito de Rota Expressa?
-Sim. Você pode vincular até 10 redes virtuais a um circuito de Rota Expressa.
+Sim. Você pode ter até 10 conexões de redes virtuais em um circuito de ExpressRoute padrão, e até 100 em um [circuito de ExpressRoute premium](#expressroute-premium). 
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Tenho várias assinaturas do Azure que contêm redes virtuais. Posso conectar redes virtuais pertencentes a assinaturas separadas a um circuito da Rota Expressa?
 Sim. Você pode autorizar até 10 outras assinaturas do Azure para usar um único circuito de Rota Expressa. Esse limite pode ser aumentado habilitando o recurso premium da Rota Expressa.
@@ -154,6 +154,9 @@ Sim. A Rota Expressa pode coexistir com VPN dos tipos site a site.
 ### <a name="can-i-move-a-virtual-network-from-site-to-site--point-to-site-configuration-to-use-expressroute"></a>Posso alterar uma rede virtual usando configuração site a site / ponto a site para que ela passe a usar Rota Expressa?
 Sim. Você terá que criar um gateway de Rota Expressa em sua rede virtual. Haverá um pequeno tempo de inatividade associado ao processo.
 
+### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Por que há um endereço IP público associado ao Gateway de ExpressRoute em uma rede virtual?
+Isso é usado somente para gerenciamento interno. Esse endereço IP público não é exposto à internet e não constitui uma exposição de segurança de sua rede virtual.
+
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>O que é necessário para conexão ao armazenamento do Azure por meio de Rota Expressa?
 Você deve estabelecer um circuito de Rota Expressa e configurar rotas para emparelhamento público.
 
@@ -179,7 +182,7 @@ As etapas a seguir ajudarão o Azure a reconhecer a solicitação de ativação:
    * Faça com que seu provedor NSP envie o tráfego por loop “hairpin” de volta ao Azure, via emparelhamento público.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Posso alterar a largura de banda de um circuito de Rota Expressa?
-Sim. Você pode aumentar a largura de banda de um circuito de Rota Expressa sem precisar subdividi-lo. Você terá de fazer o acompanhamento junto ao seu provedor de conectividade para garantir que eles atualizem os gargalos em suas redes, para dar suporte ao aumento de largura de banda. Você não poderá, todavia, reduzir a largura de banda de um circuito de Rota Expressa. Precisar reduzir a largura de banda significa uma desmontagem e recriação de um circuito de Rota Expressa.
+Sim, você pode tentar aumentar a largura de banda do circuito de ExpressRoute no Portal do Azure ou usando o PowerShell. Se houver capacidade disponível na porta física na qual o circuito foi criado, a alteração terá êxito. Se sua alteração falhar, isso significa que não há capacidade suficiente na porta atual e que você precisa criar um novo circuito de ExpressRoute com largura de banda maior, OU, que não há capacidade adicional nesse local, e nesse caso não é possível aumentar a largura de banda. Você também terá de fazer o acompanhamento junto ao seu provedor de conectividade para garantir que eles atualizem os gargalos em suas redes, para dar suporte ao aumento de largura de banda. No entanto, não é possível reduzir a largura de banda de seu circuito de ExpressRoute. Você precisará criar um novo circuito de ExpressRoute com menos largura de banda e excluir o circuito antigo.
 
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Como posso alterar a largura de banda de um circuito de Rota Expressa?
 Você pode atualizar a largura de banda do circuito de Rota Expressa usando o cmdlet do PowerShell e API de circuito dedicado de atualização.
@@ -190,7 +193,7 @@ Rota Expressa premium é uma coleção de recursos listados abaixo.
 
 * Limite maior na tabela de roteamento, de 4000 rotas para 10.000 rotas, para emparelhamento privado.
 * Maior número de VNets que podem ser conectadas ao circuito de Rota Expressa (o padrão é 10). Consulte a tabela seguir para obter mais detalhes.
-* Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício.
+* Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício. **Outro exemplo:** no emparelhamento público, prefixos de outras regiões geopolíticas são anunciados de uma forma que você pode se conectar, por exemplo, ao SQL Azure no Oeste da Europa de um circuito no Vale do Silício.
 * Conectividade com serviços do Office 365 e CRM Online.
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a>Quantas VNets posso vincular a um circuito de Rota Expressa se eu habilitei a Rota Expressa premium?

@@ -16,14 +16,15 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
-ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ffcf0f0aa80f0a6b65cbef65e361e4830fcca3ff
+ms.lasthandoff: 03/10/2017
 
 
 ---
 
 # <a name="create-and-manage-an-elastic-pool-with-powershell"></a>Criar e gerenciar um pool elástico com o PowerShell
-Este tópico mostra como criar e gerenciar [pools elásticos](sql-database-elastic-pool.md) escalonáveis com o PowerShell.  Você também pode criar e gerenciar um pool elástico do Azure, o [portal do Azure](https://portal.azure.com/), a API REST ou [C#][Criar e gerenciar um pool elástico com C#](sql-database-elastic-pool-manage-csharp.md). Você também pode criar e mover bancos de dados de e para os pools elásticos usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+Este tópico mostra como criar e gerenciar [pools elásticos](sql-database-elastic-pool.md) escalonáveis com o PowerShell.  Você também pode criar e gerenciar um pool elástico do Azure com o [Portal do Azure](https://portal.azure.com/), a API REST ou [C#](sql-database-elastic-pool-manage-csharp.md). Você também pode criar e mover bancos de dados de e para os pools elásticos usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -275,9 +276,4 @@ O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atua
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados no pool.
 * Confira [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use ferramentas elásticas para escalar horizontalmente, mover os dados, consultar ou criar transações.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: a42dbefe6805cff5fb2df604265f0e62e2c25f69
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7faa27220bcc07fff0bb2a77e7b90c386cc5ae1e
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenado do SQL Server
-
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md)
-> * [Procedimento armazenado](data-factory-stored-proc-activity.md)
-> * [U-SQL da Análise Data Lake](data-factory-usql-activity.md)
-> * [.NET personalizado](data-factory-use-custom-activities.md)
->
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Atividade de Hive](data-factory-hive-activity.md) 
+> * [Atividade Pig](data-factory-pig-activity.md)
+> * [Atividade MapReduce](data-factory-map-reduce.md)
+> * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade do Spark](data-factory-spark.md)
+> * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade do Recurso de Atualização do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
+> * [Atividade do U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
+> * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 Use atividades de transformação de dados em um [pipeline](data-factory-create-pipelines.md) do Data Factory para transformar e processar dados brutos em previsões e informações. A Atividade de Procedimento Armazenado é uma das atividades de transformação que o Data Factory dá suporte. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 
@@ -142,7 +142,7 @@ Depois de criar a data factory, você deve criar um serviço do SQL Azure vincul
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>Criar um pipeline com atividade de SqlServerStoredProcedure
 AGora, crie um pipeline com atividade de SqlServerStoredProcedure.
 
-1. Clique em **... Mais ** na barra de comandos e clique em **Novo pipeline**.
+1. Clique em **... Mais** na barra de comandos e clique em **Novo pipeline**.
 2. Copie/cole o seguinte trecho de código JSON:   
 
     ```JSON

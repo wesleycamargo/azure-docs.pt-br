@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 354292f51d07bff00e7a6811e4d1d7beb7844920
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -68,7 +68,7 @@ Para começar a usar o Storm, consulte [Introdução ao uso do Storm no HDInsigh
 Você pode provisionar um novo Storm no cluster HDInsight em minutos. Especifique o nome do cluster, o tamanho, a conta de administrador e a conta de armazenamento. O Azure cria o cluster com topologias de exemplo e um painel de gerenciamento da Web.
 
 > [!NOTE]
-> Você também pode provisionar os clusters Storm usando a [CLI do Azure](../xplat-cli-install.md) ou o [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> Você também pode provisionar os clusters Storm usando a [CLI do Azure](../cli-install-nodejs.md) ou o [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Após 15 minutos do envio da solicitação, você terá um novo cluster Storm em execução e pronto para o primeiro pipeline de análise em tempo real.
 
@@ -177,7 +177,7 @@ Para obter mais informações sobre o Trident, consulte o [Tutorial do Trident](
 
 Para obter exemplos de topologias Java e Trident, consulte o [lista de exemplo de topologias Storm](hdinsight-storm-example-topology.md) ou os exemplos Storm-Starter no seu cluster HDInsight.
 
-Os exemplos de storm-starter estão localizados no diretório ** /usr/hdp/current/storm-client/contrib/storm-starter** no cluster HDInsight.
+Os exemplos de storm-starter estão localizados no diretório **/usr/hdp/current/storm-client/contrib/storm-starter** no cluster HDInsight.
 
 ### <a name="python"></a>Python
 

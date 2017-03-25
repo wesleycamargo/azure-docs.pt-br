@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: bdd7f1410906a46c66c1fd33949b30cc669e5a6b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 09be891b5385871554f45bc1f824b4351ffd3bc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -60,7 +60,7 @@ Após a criação da conta, você poderá abrir a **folha Conta do Lote** para a
 
 ![Folha Conta do Lote no portal do Azure][account_blade]
 
-* **URL de conta do Lote**: ao desenvolver um aplicativo com as [APIs do Lote](batch-technical-overview.md#batch-development-apis), você precisará de uma URL de conta para acessar os recursos do Lote. Uma URL de conta do Lote tem o seguinte formato:
+* **URL de conta do Lote**: ao desenvolver um aplicativo com as [APIs do Lote](batch-apis-tools.md#batch-development-apis), você precisará de uma URL de conta para acessar os recursos do Lote. Uma URL de conta do Lote tem o seguinte formato:
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -107,7 +107,7 @@ Adicionalmente, muitas dessas cotas podem ser aumentadas com uma solicitação d
 Além de usar o portal do Azure, você também pode criar e gerenciar contas do Lote com o seguinte:
 
 * [Cmdlets do PowerShell do Lote](batch-powershell-cmdlets-get-started.md)
-* [CLI do Azure](../xplat-cli-install.md)
+* [CLI do Azure](../cli-install-nodejs.md)
 * [.NET de Gerenciamento do Lote](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Próximas etapas

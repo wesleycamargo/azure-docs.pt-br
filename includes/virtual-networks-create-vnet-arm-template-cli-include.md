@@ -1,7 +1,7 @@
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Implantar o modelo ARM usando a CLI do Azure
 Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](../articles/xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](../articles/cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute a opção de comando **`azure config mode`** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
    
         azure config mode arm
@@ -84,9 +84,4 @@ Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

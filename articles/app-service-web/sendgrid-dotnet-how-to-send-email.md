@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 10f07b5eb649739ff1288ebb2703186fd75930cc
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 534397378a4d83414bfe62f2dd2c57678f09c429
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -50,7 +50,7 @@ O [pacote NuGet do SendGrid](https://www.nuget.org/packages/Sendgrid) é a manei
 
 Para instalar o pacote NuGet do SendGrid no seu aplicativo, faça o seguinte:
 
-1. Crie um **Novo projeto** e selecione um **Modelo**.
+1. Clique em **Novo projeto** e selecione um **Modelo**.
 
    ![Criar um novo projeto][create-new-project]
 2. No **Gerenciador de Soluções**, clique com botão direito em **Referências**, em seguida, clique em **Gerenciar Pacotes NuGet**.
@@ -83,9 +83,9 @@ O exemplo a seguir demonstra como criar um objeto de email totalmente preenchido
 
     var recipients = new List<EmailAddress>
     {
-        new EmailAddress(){ "jeff@example.com", "Jeff Smith" },
-        new EmailAddress(){ "anna@example.com", "Anna Lidman" },
-        new EmailAddress(){ "peter@example.com", "Peter Saddow" }
+        new EmailAddress("jeff@example.com", "Jeff Smith"),
+        new EmailAddress("anna@example.com", "Anna Lidman"),
+        new EmailAddress("peter@example.com", "Peter Saddow")
     };
     msg.AddTos(recipients);
 

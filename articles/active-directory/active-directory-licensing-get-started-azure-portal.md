@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
-ms.openlocfilehash: a798de49ed08eedaf27267c6bac12f8b0b64739f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 3bad24f35cf7867f1e02e8470c602a7f6a9ce8fb
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -59,7 +59,9 @@ Cada assinatura consiste em um ou mais planos de serviço, cada um mapeando o n�
 
 Ao passo que adquirir uma assinatura é tudo o que você precisa para configurar recursos pagos, o uso de recursos pagos do Azure AD requer a distribuição de licenças para os indivíduos certos. Em geral, qualquer usuário que deve ter acesso ou é gerenciado por meio de um recurso pago do AD do Azure deve ter uma licença atribuída. Uma atribuição de licença é um mapeamento entre um usuário e um serviço comprado, como o AD Premium, Basic do Azure ou o Enterprise Mobility Suite.
 
-O gerenciamento de usuários em seu diretório deve ter uma licença e é simples. Ele pode ser realizado atribuindo licenças para grupos no portal do Azure ou atribuindo licenças diretamente aos indivíduos certos por meio do portal, PowerShell ou APIs. Ao atribuir licenças a um grupo, uma licença é atribuída a todos os membros do grupo. Se usuários forem adicionados ou removidos do grupo, a licença apropriada será atribuída ou removida. A atribuição de grupo pode usar qualquer gerenciamento de grupo disponível e é consistente com a atribuição baseada em grupo a aplicativos. Usando essa abordagem, você pode configurar regras, de modo que todos os usuários no diretório recebam atribuição automaticamente, garantir que qualquer pessoa com o cargo apropriado tenha uma licença ou até mesmo delegar a decisão a outros gerentes na organização. Para obter uma discussão detalhada sobre a atribuição de licenças para grupos, incluindo cenários avançados e cenários de licenciamento do Office 365, veja este artigo.
+O gerenciamento de usuários em seu diretório deve ter uma licença e é simples. Ele pode ser realizado atribuindo licenças para grupos no portal do Azure ou atribuindo licenças diretamente aos indivíduos certos por meio do portal, PowerShell ou APIs. Ao atribuir licenças a um grupo, uma licença é atribuída a todos os membros do grupo. Se usuários forem adicionados ou removidos do grupo, a licença apropriada será atribuída ou removida. A atribuição de grupo pode usar qualquer gerenciamento de grupo disponível e é consistente com a atribuição baseada em grupo a aplicativos. Usando essa abordagem, você pode configurar regras, de modo que todos os usuários no diretório recebam atribuição automaticamente, garantir que qualquer pessoa com o cargo apropriado tenha uma licença ou até mesmo delegar a decisão a outros gerentes na organização. 
+
+Para obter uma discussão detalhada sobre a atribuição de licenças para grupos, incluindo cenários avançados e cenários de licenciamento do Office 365, veja [este artigo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 
 ## <a name="getting-started-with-azure-ad-licensing"></a>Introdução ao licenciamento do AD do Azure
 
@@ -152,6 +154,7 @@ Agora você pode estar pronto para configurar e usar alguns recursos do AD Premi
 * [Gerenciamento de grupo de autoatendimento](active-directory-accessmanagement-self-service-group-management.md)
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Atribuição de grupo a aplicativos](active-directory-manage-groups.md)
+* [Atribuindo licenças a um grupo](active-directory-licensing-group-assignment-azure-portal.md)
 * [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md)
 * [Compra direta de licenças do AD Premium do Azure](http://aka.ms/buyaadp)
 

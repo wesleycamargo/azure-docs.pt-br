@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2687011c449715d2ce5f491c3da501f38035d631
-ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 756c9fa079782f8f0cb194ca07c637d083f9ebd7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -69,7 +70,7 @@ Antes de publicar seu aplicativo, você precisa definir as configurações de m�
 2. Quando a caixa de diálogo Estrutura do Projeto aparece:
 
    a. Clique em **Artefatos** na lista de **Configurações do Projeto**.
-   b. Altere o nome do artefato na caixa **Nome** de modo que ele contenha caracteres especiais ou espaços em branco. Isso é necessário porque o nome será usado no URI (Uniform Resource Identifier).
+   b. Altere o nome do artefato na caixa **Nome** de modo que ele não contenha caracteres especiais ou espaços em branco. Isso é necessário porque o nome será usado no URI (Uniform Resource Identifier).
    c. Altere o **Tipo** para **Aplicativo Web: arquivo**.
    d. Clique em **OK** para fechar a caixa de diálogo Estrutura de Projeto.
 
@@ -254,9 +255,4 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 [16]: ./media/app-service-web-intellij-create-hello-world-web-app/16-Progress-Indicator.png
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

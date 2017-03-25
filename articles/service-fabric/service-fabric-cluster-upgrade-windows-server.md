@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: df15775f8e93c1dfad82c69ee4caa7838a39a545
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: eedaefeed1a704f7816e71ef7b2dddda2268a90f
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -28,30 +28,24 @@ ms.lasthandoff: 03/07/2017
 >
 >
 
-Para qualquer sistema moderno, oferecer a possibilidade de atualização é fundamental para o sucesso duradouro de seu produto. Um cluster do Azure Service Fabric é um recurso que pertence a você. Este artigo descreve como garantir que o cluster sempre execute versões com suporte do código e de configurações do Service Fabric.
+Para qualquer sistema moderno, a capacidade de atualização é uma chave para o sucesso de seu produto a longo prazo. Um cluster do Azure Service Fabric é um recurso que pertence a você. Este artigo descreve como garantir que o cluster sempre execute versões com suporte do código do Service Fabric e de configurações.
 
-## <a name="control-the-fabric-version-that-runs-on-your-cluster"></a>Controlar a versão do Fabric em execução no Cluster
-Você pode configurar o cluster para baixar as atualizações do Service Fabric quando a Microsoft lança uma nova versão. A outra opção é selecionar uma versão do Fabric com suporte para seu cluster.
-
-Para controlar a versão do Fabric, defina a configuração "fabricClusterAutoupgradeEnabled" do cluster como true ou false.
+## <a name="control-the-service-fabric-version-that-runs-on-your-cluster"></a>Controlar a versão do Service Fabric em execução no cluster
+Para configurar o cluster para baixar atualizações do Service Fabric quando a Microsoft lançar uma nova versão, defina a configuração **fabricClusterAutoupgradeEnabled** do cluster para true. Para selecionar uma versão com suporte do Service Fabric em que você deseja que o seu cluster esteja, defina a configuração **fabricClusterAutoupgradeEnabled** do cluster para false.
 
 > [!NOTE]
-> Certifique-se de que o cluster sempre esteja executando uma versão do Service Fabric com suporte. Quando o lançamento uma nova versão do Service Fabric é anunciado, a versão anterior é programada para encerrar sua vida útil após um mínimo de 60 dias a partir da data desse anúncio. As novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+> Certifique-se de que o cluster sempre esteja executando uma versão do Service Fabric com suporte. Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar sua vida útil após um mínimo de 60 dias a partir da data do comunicado. Novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Nesse momento, a nova versão está disponível para escolha.
 >
 >
 
-Será possível atualizar o cluster para a nova versão apenas se você estiver usando uma configuração de nó de estilo de produção, em que cada nó do Service Fabric será alocado em uma máquina virtual ou física separada. Se você tiver um cluster de desenvolvimento no qual exista mais de um nó do Service Fabric em uma única máquina virtual ou física, você deverá destruir o cluster e recriá-lo com a nova versão.
+Será possível atualizar o cluster para a nova versão apenas se você estiver usando uma configuração de nó de estilo de produção, em que cada nó do Service Fabric é alocado em uma máquina virtual ou física separada. Se você tiver um cluster de desenvolvimento no qual exista mais de um nó do Service Fabric em uma única máquina virtual ou física, você deverá recriar o cluster com a nova versão.
 
-Os dois fluxos de trabalho a seguir estão disponíveis para atualizar seu cluster para a versão mais recente ou para uma versão do Service Fabric com suporte:
+Dois fluxos de trabalho distintos podem atualizar o cluster para a versão mais recente ou uma versão do Service Fabric com suporte. Um fluxo de trabalho é para clusters com conectividade para baixar a versão mais recente automaticamente. O outro fluxo de trabalho é para clusters sem conectividade para baixar a versão mais recente do Service Fabric automaticamente.
 
+### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Atualizar os clusters com conectividade para baixar o código e a configuração mais recentes
+Use estas etapas para atualizar seu cluster para uma versão com suporte se os nós de cluster tiverem conectividade com a Internet para [http://download.microsoft.com](http://download.microsoft.com).
 
-*   Clusters com conectividade para baixar a versão mais recente automaticamente
-*   Clusters sem conectividade para baixar a versão mais recente do Service Fabric
-
-### <a name="upgrade-the-clusters-with-connectivity-to-download-the-latest-code-and-configuration"></a>Atualizar os clusters com conectividade para baixar o código e a configuração mais recentes
-Use estas etapas para atualizar seu cluster para uma versão com suporte se os nós de cluster tiverem conectividade com a Internet para acesso ao [Centro de Download da Microsoft](http://download.microsoft.com).
-
-Para clusters que tenham conectividade com o [Centro de Download da Microsoft](http://download.microsoft.com), verificamos periodicamente a disponibilidade de novas versões do Service Fabric.
+Para clusters que tenham conectividade com [http://download.microsoft.com](http://download.microsoft.com), a Microsoft verifica periodicamente a disponibilidade de novas versões do Service Fabric.
 
 Quando uma nova versão do Service Fabric estiver disponível, o pacote será baixado localmente para o cluster e provisionado para atualização. Além de informar o cliente sobre essa nova versão, o sistema colocará um aviso explícito de integridade do cluster semelhante ao seguinte:
 
@@ -62,11 +56,11 @@ Depois que o cluster estiver executando a versão mais recente, o aviso será re
 #### <a name="cluster-upgrade-workflow"></a>Fluxo de trabalho de atualização do cluster
 Ao ver o aviso de integridade do cluster, você deve fazer o seguinte:
 
-1. Conecte-se ao cluster de qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no cluster. O computador no qual o script a seguir é executado não precisa fazer parte do cluster.
+1. Conecte-se ao cluster de qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no cluster. O computador no qual este script é executado não precisa fazer parte do cluster.
 
     ```powershell
 
-    ###### Connect to the secure cluster using certs
+    ###### connect to the secure cluster using certs
     $ClusterName= "mysecurecluster.something.com:19000"
     $CertThumbprint= "70EF5E22ADB649799DA3C8B6A6BF7FG2D630F8F3"
     Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
@@ -88,15 +82,14 @@ Ao ver o aviso de integridade do cluster, você deve fazer o seguinte:
 
     Você deverá receber uma saída semelhante a esta:
 
-    ![Obter versões do Service Fabric][getfabversions]
+    ![obter versões de malha][getfabversions]
+3. Inicie uma atualização de cluster para uma versão disponível usando o comando [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx) do PowerShell.
 
-3. Inicie uma atualização de cluster para uma das versões disponíveis usando o comando [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx) do Windows PowerShell.
-
-    ```powershell
+    ```Powershell
 
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <codeversion#> -Monitored -FailureAction Rollback
 
-    ###### Cluster upgrade example
+    ###### Here is a filled-out example
 
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
 
@@ -108,23 +101,23 @@ Ao ver o aviso de integridade do cluster, você deve fazer o seguinte:
     Get-ServiceFabricClusterUpgrade
     ```
 
-Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Você pode especificar as políticas de integridade personalizadas para o comando Start-ServiceFabricClusterUpgrade. Para obter mais informações, consulte [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Para especificar as políticas de integridade personalizadas para o comando **Start-ServiceFabricClusterUpgrade**, consulte a documentação para [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
 
-Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas de antes.
+Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas descritas anteriormente.
 
-### <a name="upgrade-the-clusters-with-no-connectivity-to-download-the-latest-code-and-configuration"></a>Atualizar os clusters sem conectividade para baixar o código e a configuração mais recentes
-Use os procedimentos nesta seção para atualizar seu cluster para uma versão com suporte se os nós de cluster não tiverem conectividade com a Internet para acesso ao [Centro de Download da Microsoft](http://download.microsoft.com).
+### <a name="upgrade-clusters-that-have-uno-connectivityu-to-download-the-latest-code-and-configuration"></a>Atualizar os clusters <U>sem conectividade</u> para baixar o código e a configuração mais recentes
+Use estas etapas para atualizar seu cluster para uma versão com suporte se os nós de cluster não tiverem conectividade com a Internet para [http://download.microsoft.com](http://download.microsoft.com).
 
 > [!NOTE]
-> Se estiver executando um cluster que não esteja conectado à Internet, você precisará monitorar o [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para notificações sobre uma nova versão. O sistema *não* coloca um aviso de integridade do cluster para alertar você sobre a nova versão.  
+> Se estiver executando um cluster que não esteja conectado à Internet, você precisará monitorar o blog da equipe do Service Fabric para saber sobre uma novo lançamento. O sistema não mostra nenhum aviso de integridade do cluster para alertá-lo a respeito.  
 >
 >
 
-1. Modificar a configuração do cluster para definir a seguinte propriedade como false
+Modifique a configuração do cluster para definir a propriedade a seguir como false antes de iniciar uma atualização de configuração.
 
         "fabricClusterAutoupgradeEnabled": false,
 
-2.      Inicie uma atualização de configuração. Para obter mais informações, consulte [Start-ServiceFabricClusterConfigurationUpgrade](https://msdn.microsoft.com/en-us/library/mt788302.aspx). Antes de iniciar a atualização de configuração, atualize o valor de clusterConfigurationVersion em seu arquivo JSON (JavaScript Object Notation).
+Consulte [cmd do PS Start-ServiceFabricClusterConfigurationUpgrade](https://msdn.microsoft.com/en-us/library/mt788302.aspx) para obter detalhes de uso. Certifique-se de atualizar “clusterConfigurationVersion” no JSON antes de iniciar a atualização de configuração.
 
 ```powershell
 
@@ -133,6 +126,7 @@ Use os procedimentos nesta seção para atualizar seu cluster para uma versão c
 ```
 
 #### <a name="cluster-upgrade-workflow"></a>Fluxo de trabalho de atualização do cluster
+
 1. Baixe a versão mais recente do pacote do documento [Criar cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md).
 2. Conecte-se ao cluster de qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no cluster. O computador no qual este script é executado não precisa fazer parte do cluster.
 
@@ -149,14 +143,15 @@ Use os procedimentos nesta seção para atualizar seu cluster para uma versão c
         -StoreLocation CurrentUser `
         -StoreName My
     ```
-3. Copie o pacote baixado para o repositório de imagens do cluster.
+
+3. Copie o pacote baixado no repositório de imagens do cluster.
 
     ```powershell
 
    ###### Get the list of available Service Fabric versions
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file including the path to it> -ImageStoreConnectionString "fabric:ImageStore"
 
-   ###### Code example
+   ###### Here is a filled-out example
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
 
     ```
@@ -168,34 +163,34 @@ Use os procedimentos nesta seção para atualizar seu cluster para uma versão c
     ###### Get the list of available Service Fabric versions
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
-    ###### Code example
+    ###### Here is a filled-out example
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
-5. Iniciar uma atualização de cluster para uma das versões disponíveis.
+5. Inicie uma atualização do cluster para uma versão disponível.
 
     ```Powershell
 
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <codeversion#> -Monitored -FailureAction Rollback
 
-    ###### Code example
+    ###### Here is a filled-out example
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
 
     ```
-   Você pode monitorar o progresso da atualização no Service Fabric Explorer ou executando o comando do Windows PowerShell a seguir.
+   Você pode monitorar o progresso da atualização no Service Fabric Explorer ou executando o comando do PowerShell a seguir.
 
     ```powershell
 
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Você pode especificar as políticas de integridade personalizadas para o comando start-serviceFabricClusterUpgrade. Para obter mais informações, consulte [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Para especificar as políticas de integridade personalizadas para o comando **Start-ServiceFabricClusterUpgrade**, consulte a documentação para [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
 
-Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas de antes.
+Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas descritas anteriormente.
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>Atualizar a configuração do cluster
-Para atualizar a configuração do cluster, execute o comando Start-ServiceFabricClusterConfigurationUpgrade. A atualização de configuração é processada por domínio de atualização.
+Para atualizar a configuração do cluster, execute o comando **Start-ServiceFabricClusterConfigurationUpgrade**. A atualização de configuração é processada domínio de atualização por domínio de atualização.
 
 ```powershell
 
@@ -205,7 +200,7 @@ Para atualizar a configuração do cluster, execute o comando Start-ServiceFabri
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como personalizar algumas das [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
+* Saiba como personalizar algumas das [configurações de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
 * Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md).
 * Saiba mais sobre [atualizações de aplicativo](service-fabric-application-upgrade.md).
 

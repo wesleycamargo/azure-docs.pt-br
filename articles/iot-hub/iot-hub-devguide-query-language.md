@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
-ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -96,7 +96,7 @@ recupera todos os dispositivos gêmeos localizados nos Estados Unidos configurad
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
 
-recupera todos os dispositivos gêmeos que relataram conectividade wi-fi ou com fio. Normalmente, é necessário identificar todos os dispositivos gêmeos que contêm uma propriedade específica. O Hub IoT oferece suporte à função `is_defined()` para essa finalidade. Por exemplo,
+recupera todos os dispositivos gêmeos que relataram conectividade WiFi ou com fio. Normalmente, é necessário identificar todos os dispositivos gêmeos que contêm uma propriedade específica. O Hub IoT oferece suporte à função `is_defined()` para essa finalidade. Por exemplo,
 
         SELECT * FROM devices
         WHERE is_defined(property.reported.connectivity)
@@ -421,7 +421,7 @@ Em condições de rotas, há suporte para as seguintes funções matemáticas:
 | ABS(x) | Retorna o valor absoluto (positivo) da expressão numérica especificada. |
 | EXP(x) | Retorna o valor exponencial da expressão numérica especificada (e^x). |
 | POWER(x,y) | Retorna o valor da expressão especificada para a potência indicada (x^y).|
-| SQUARE(x) | Retorna o quadrado do valor numérico especificado. |
+| SQUARE(x)    | Retorna o quadrado do valor numérico especificado. |
 | CEILING(x) | Retorna o menor valor de número inteiro maior ou igual à expressão numérica especificada. |
 | FLOOR(x) | Retorna o maior inteiro menor ou igual à expressão numérica especificada. |
 | SIGN(x) | Retorna o sinal positivo (+1), zero (0) ou negativo (-1) da expressão numérica especificada.|

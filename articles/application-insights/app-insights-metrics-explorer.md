@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
-ms.openlocfilehash: 1f8083e095ee3c207d3d6d9178017e2dc1670fde
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ee759149df038ac08f0d5987c3577454a81999db
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +29,7 @@ Aqui está um exemplo de conjunto de gráficos:
 
 ![](./media/app-insights-metrics-explorer/01-overview.png)
 
-No portal do Application Insights, você encontra gráficos de métricas em todos os lugares. Na maioria dos casos, eles podem ser personalizados e você pode adicionar mais gráficos à folha. Na folha visão geral, clique para gráficos mais detalhados (que têm títulos como "Respostas do servidor") ou clique em **Metrics Explorer** para abrir uma nova folha em que você possa criar gráficos personalizados.
+No portal do Application Insights, você encontra gráficos de métricas em todos os lugares. Na maioria dos casos, eles podem ser personalizados e você pode adicionar mais gráficos à folha. Na folha visão geral, clique para gráficos mais detalhados (que têm títulos como "Servidor") ou clique em **Metrics Explorer** para abrir uma nova folha em que você possa criar gráficos personalizados.
 
 ## <a name="time-range"></a>Intervalo de tempo
 Você pode alterar o intervalo de tempo coberto pelos gráficos ou grades em qualquer folha.
@@ -175,16 +175,6 @@ Para ser notificado por email sobre valores incomuns de qualquer métrica, adici
 
 [Saiba mais sobre alertas][alerts].
 
-## <a name="export-to-excel"></a>Exportar para o Excel
-Você pode exportar dados da métrica que são exibidos no Gerenciador de Métrica para um arquivo do Excel. Os dados exportados incluem dados de todos os gráficos e tabelas, como visto no portal.
-
-![No Metrics Explorer, escolher Regras de Alerta, Adicionar Alerta](./media/app-insights-metrics-explorer/31-export.png)
-
-Os dados para cada tabela ou gráfico são exportados para uma planilha separada no arquivo do Excel.
-
-O que você vê é o que é exportado. Altere o intervalo de tempo ou os filtros se quiser alterar o intervalo de dados exportados. Para tabelas, se o comando **carregar mais** estiver visível, você poderá clicar nele antes de clicar em Exportar para exportar mais dados.
-
-*Exportação funciona somente para Internet Explorer e Chrome no momento. Estamos trabalhando para adicionar suporte a outros navegadores.*
 
 ## <a name="continuous-export"></a>Exportação Contínua
 Se desejar que os dados sejam exportados de forma contínua para que você possa processá-los externamente, considere usar a [Exportação contínua](app-insights-export-telemetry.md).
@@ -193,7 +183,9 @@ Se desejar que os dados sejam exportados de forma contínua para que você possa
 Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá [exportar para o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Análise
-[Análise](app-insights-analytics.md) é uma maneira mais versátil de analisar a telemetria usando uma linguagem de consulta eficiente. Use-a se quiser combinar ou calcular resultados de métricas ou executar uma exploração detalhada do desempenho recente de seu aplicativo. Por outro lado, use o Metrics Explorer se desejar a atualização automática, gráficos no painel e alertas.
+[Análise](app-insights-analytics.md) é uma maneira mais versátil de analisar a telemetria usando uma linguagem de consulta eficiente. Use-a se quiser combinar ou calcular resultados de métricas ou executar uma exploração detalhada do desempenho recente de seu aplicativo. 
+
+Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente à consulta do Analytics equivalente.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 *Não vejo dados no gráfico.*

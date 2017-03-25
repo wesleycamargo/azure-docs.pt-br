@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/07/2017
 ms.author: vturecek;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 7a79b19bf51c89e19ad67421978dacccddeb5119
-ms.openlocfilehash: 95cb29e3a7fe59fb29189c7e62b5c6c8e77e6a20
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6167f3edd3e99522a8997382d6569c82ea387d5c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 95cb29e3a7fe59fb29189c7e62b5c6c8e77e6a20
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>Depurar um aplicativo local do Service Fabric
-Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do Service Fabric do Azure no cluster de desenvolvimento de um computador local. O Visual Studio pode implantar o aplicativo no cluster local e conectar o depurador automaticamente a todas as instâncias do seu aplicativo.
+Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do Service Fabric do Azure no cluster de desenvolvimento de um computador local. O Visual Studio 2015 ou 2017 pode implantar o aplicativo no cluster local e conectar o depurador automaticamente a todas as instâncias do seu aplicativo.
 
 1. Inicie um cluster de desenvolvimento local seguindo as etapas em [Configurando o ambiente de desenvolvimento do Service Fabric](service-fabric-get-started.md).
 2. Pressione **F5** ou clique em **Depurar** > **Iniciar Depuração**.
@@ -159,9 +160,4 @@ Você também pode transmitir rastreamentos diretamente de um nó de cluster rem
 [viewingstreamingtraces]: ./media/service-fabric-debugging-your-application/viewingstreamingtraces.png
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

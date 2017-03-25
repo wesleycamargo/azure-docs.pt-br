@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
-ms.openlocfilehash: 441e2adf6a222a0fc2e7e06c9b0140548655d542
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8ebc1aa663f298d1f3f495523d85bda8777d5d29
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -59,7 +59,7 @@ Não há limite para a quantidade total de dados que uma coleção pode armazena
 Não há limite para a quantidade total de produtividade à qual uma coleção pode dar suporte no DocumentDB, se sua carga de trabalho puder ser distribuída quase que de maneira uniforme entre um número suficientemente grande de chaves de partição.
 
 ### <a name="how-much-does-microsoft-azure-documentdb-cost"></a>Quanto custa o Banco de Dados de Documentos do Microsoft Azure?
-Consulte a página [Detalhes de preços do DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/) para obter detalhes. Os encargos pelo do uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, pelo número de horas que as coleções estiveram online e pelo armazenamento consumido e produtividade provisionada para cada coleção.
+Consulte a página [Detalhes de preços do DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/) para obter detalhes. Os encargos pelo uso do DocumentDB são determinados pelo número de coleções provisionadas, pelo número de horas que as coleções estiveram online e pela produtividade provisionada para cada coleção.
 
 ### <a name="is-there-a-free-account-available"></a>Existe uma conta gratuita disponível?
 Se for novo no Azure, você poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/free/), que dá 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$&150; em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.  
@@ -122,6 +122,26 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 
 ### <a name="is-a-local-instance-of-documentdb-available"></a>Uma instância local do Banco de Dados de Documentos está disponível?
 Sim. O [Emulador do Azure DocumentDB](documentdb-nosql-local-emulator.md) fornece uma emulação de alta fidelidade do serviço DocumentDB. Oferece suporte à funcionalidade idêntica ao Azure DocumentDB, incluindo suporte para criar e consultar documentos JSON, provisionamento e dimensionamento de coleções e execução de procedimentos armazenados e gatilhos. Você pode desenvolver e testar aplicativos usando o Emulador do DocumentDB e implantá-los no Azure em escala global, simplesmente fazendo uma única mudança de configuração no ponto de extremidade de conexão do DocumentDB.
+
+## <a name="database-questions-about-developing-against-api-for-mongodb"></a>Perguntas de banco de dados sobre como desenvolver na API para MongoDB
+### <a name="what-is-documentdbs-api-for-mongodb"></a>O que é a API para MongoDB do DocumentDB?
+A API para MongoDB do Microsoft Azure DocumentDB é uma camada de compatibilidade que permite aos aplicativos se comunicar com facilidade e transparência com o mecanismo de banco de dados do DocumentDB nativo usando APIs e drivers do Apache MongoDB existentes e com suporte da comunidade. Agora, os desenvolvedores podem usar cadeias de ferramentas e habilidades existentes do MongoDB para criar aplicativos que aproveitam o DocumentDB, beneficiando-se dos recursos exclusivos do DocumentDB, entre eles indexação automática, manutenção de backup, SLAs (contratos de nível de serviço) com suporte financeiro etc.
+
+### <a name="how-to-do-i-connect-to-my-api-for-mongodb-database"></a>Como posso me conectar ao meu banco de dados da API para MongoDB?
+A maneira mais rápida de se conectar à API para MongoDB do DocumentDB é acessar o [Portal do Azure](https://portal.azure.com). Navegue até sua conta. Na *navegação esquerda* da conta, clique em *Início Rápido*. *Início Rápido* é a melhor maneira de obter trechos de código para se conectar ao banco de dados. 
+
+O DocumentDB impõe padrões e requisitos de segurança rígidos. As contas do DocumentDB exigem autenticação e comunicação segura via *SSL*, portanto use TLSv1.2.
+
+Para obter mais detalhes, veja [Conectar-se ao banco de dados da API para MongoDB](documentdb-connect-mongodb-account.md).
+
+### <a name="are-there-additional-error-codes-for-an-api-for-mongodb-database"></a>Há códigos de erro adicionais para um banco de dados da API para MongoDB?
+A API para o MongoDB tem seus próprios códigos de erro específicos, além dos códigos de erro comuns do MongoDB.
+
+
+| Erro               | Código  | Descrição  | Solução  |
+|---------------------|-------|--------------|-----------|
+| TooManyRequests     | 16500 | O número total de unidades de solicitação consumidas excedeu a taxa de unidades de solicitação provisionada para a coleção e foi limitado. | Considere expandir a taxa de transferência da coleção no Portal do Azure ou tente novamente. |
+| ExceededMemoryLimit | 16501 | Como um serviço multilocatário, a operação excedeu a alocação de memória do cliente. | Reduza o escopo da operação por meio de um critério de consulta mais restritivo ou contate o suporte no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Ex:  &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Davi"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

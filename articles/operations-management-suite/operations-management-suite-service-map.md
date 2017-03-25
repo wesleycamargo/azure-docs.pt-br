@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 48a0060edf30b53f685f25efebcb896af2c6122b
-ms.openlocfilehash: ee69cc8402cd9321d1f47ceb4be045274376f440
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d616a8574d2087be66bc10dfdf3bf6f5a14c11fd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,10 +55,26 @@ Máquinas podem ser expandidas no mapa para mostrar os processos em execução c
 
 Por padrão, os mapas do Mapa do Serviço mostram os últimos 10 minutos de informações de dependência.  Usando os controles de tempo na parte superior esquerda, os mapas podem ser consultados com relação a intervalos históricos, até uma hora, a fim de mostrar como eram as dependências no passado, por exemplo, durante um incidente ou antes de uma alteração.    Os dados do Mapa do Serviço são armazenados por 30 dias em espaços de trabalho pagos, e por sete dias em espaços de trabalho gratuitos.
 
-## <a name="status-badges"></a>Notificações de status
+## <a name="status-badges-and-border-coloring"></a>Notificações de status e a cor de borda
 Na parte inferior de cada servidor no mapa pode haver uma lista de notificações de status que passam informações sobre o status do servidor.  As notificações indicam que há algumas informações relevantes para o servidor de uma das integrações de solução do OMS.  Clicar em uma notificação levará você diretamente até os detalhes do status no painel à direita.  As notificações de status disponíveis atualmente incluem Alertas, Alterações, Segurança e Atualizações.
 
-![Conexões com falha](media/oms-service-map/status-badges.png)
+Com base na gravidade das notificações de status, as bordas do nó da máquina podem ser vermelho (Crítico), amarelo (Aviso) ou azul (Informativo).  A cor representa o status mais grave de qualquer uma das notificações de status.  Uma borda cinza indica um nó com nenhum indicador de status atual.
+
+![Notificações de status](media/oms-service-map/status-badges.png)
+
+## <a name="role-icons"></a>Ícones de função
+Alguns processos possuem funções específicas em máquinas: servidores Web, servidores de aplicativos, banco de dados, etc.  O mapa do serviço adicionará ao processo e às caixas da máquina ícones de função para ajudar a identificar rapidamente a função de um processo ou servidor.
+
+| Ícone de Função | Descrição |
+|:--|:--|
+| ![Servidor Web](media/oms-service-map/role-web-server.png) | Servidor Web |
+| ![Servidor de aplicativos](media/oms-service-map/role-application-server.png) | Servidor de Aplicativos |
+| ![Servidor de banco de dados](media/oms-service-map/role-database.png) | Servidor de Banco de Dados |
+| ![Servidor LDAP](media/oms-service-map/role-ldap.png) | Servidor LDAP |
+| ![Servidor SMB](media/oms-service-map/role-smb.png) | Servidor SMB |
+
+![Ícones de função](media/oms-service-map/role-icons.png)
+
 
 ## <a name="failed-connections"></a>Conexões com falha
 As Conexões com falha são mostradas em mapas do Mapa do Serviço para processos e computadores, com uma linha vermelha tracejada mostrando se um sistema cliente não puder acessar um processo ou uma porta.  Conexões com falha são reportadas de qualquer sistema com um agente do Mapa do Serviço implantado, se esse sistema estiver tentando a conexão com falha.  O Mapa do Serviço mede isso observando os soquetes TCP que falham ao estabelecer uma conexão.  Isso pode ocorrer devido a um firewall, uma configuração errada no cliente ou servidor ou um serviço remoto não disponível.

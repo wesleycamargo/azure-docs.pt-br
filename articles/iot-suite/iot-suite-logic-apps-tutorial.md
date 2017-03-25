@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 03/09/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
-ms.openlocfilehash: 609de3ff0fb14aa98b28572dce1eaeb8a4412d93
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -31,6 +31,8 @@ Antes de iniciar este tutorial, você deve:
 
 * Provisionar a solução pré-configurada de monitoramento remoto na sua assinatura do Azure.
 * Criar uma conta SendGrid para que você possa enviar um email que dispare o processo empresarial. Você pode se inscrever para uma conta de avaliação gratuita no [SendGrid](https://sendgrid.com/) clicando em **Teste gratuitamente**. Depois de fazer o registro para sua conta de avaliação gratuita, você precisa criar uma [chave de API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) no SendGrid, que concede permissões para enviar email. Você precisa dessa chave de API mais tarde no tutorial.
+
+Para concluir este tutorial, você precisa do Visual Studio 2015 ou Visual Studio 2017 para modificar as ações no back-end da solução pré-configurada.
 
 Supondo que você já tenha provisionado a solução pré-configurada de monitoramento remoto, navegue até o grupo de recursos dessa solução no [Portal do Azure][lnk-azureportal]. O grupo de recursos tem o mesmo nome que o nome da solução que você escolheu quando provisionou sua solução de monitoramento remoto. No grupo de recursos, você pode ver todos os recursos do Azure provisionados para sua solução, com exceção do aplicativo do Azure Active Directory, que você pode encontrar no Portal Clássico do Azure. A captura de tela a seguir mostra uma folha **Grupo de recursos** de exemplo para uma solução pré-configurada de monitoramento remoto:
 
@@ -117,8 +119,8 @@ Nesta seção, você conecta sua solução pré-configurada ao Aplicativo Lógic
     ```
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
-        { "Send Message", "<Http Post to this UR>" },
-        { "Raise Alarm", "<Http Post to this UR> }
+        { "Send Message", "<Http Post to this URL>" },
+        { "Raise Alarm", "<Http Post to this URL>" }
     };
     ```
 5. Salve as alterações na solução e saia do Visual Studio.

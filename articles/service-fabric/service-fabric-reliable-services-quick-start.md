@@ -1,5 +1,5 @@
 ---
-title: "Criar seu primeiro microsserviço confiável do Azure em C# | Microsoft Docs"
+title: Criar seu primeiro aplicativo do Service Fabric em C# | Microsoft Docs
 description: "Introdução à criação de um aplicativo do Service Fabric do Microsoft Azure com serviços com e sem estado."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/06/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 41823b962caf25e1826fc06bc49887fd99876fc4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 813021d6239ae3cf79bb84b78f77e39c9e0783f6
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,14 +36,14 @@ Um aplicativo do Service Fabric do Azure contém um ou mais serviços que execut
 Para começar a usar os Reliable Services, você só precisa entender alguns conceitos básicos:
 
 * **Tipo de serviço**: esta é sua implementação de serviço. Ele é definido pela classe que você escreve que estende `StatelessService` e qualquer outro código ou dependências usadas nele, juntamente com um nome e um número de versão.
-* **Instância de serviço nomeada**: para executar seu serviço, criar instâncias nomeadas do tipo de serviço, bem como criar instâncias de objeto de um tipo de classe. Instâncias de serviço são, na verdade, as instâncias de objeto de sua classe de serviço que você escreve. 
-* **Host de serviço**: as instâncias de serviço nomeado que você cria precisam executar dentro de um host. O host de serviço é apenas um processo em que instâncias do serviço podem ser executadas.
+* **Instância de serviço nomeada**: para executar seu serviço, criar instâncias nomeadas do tipo de serviço, bem como criar instâncias de objeto de um tipo de classe. Uma instância de serviço tem um nome na forma de um URI usando o esquema "fabric: /", por exemplo, "fabric:/MyApp/MyService".
+* **Host de serviço**: as instâncias de serviço nomeado que você cria precisam executar dentro de um processo de host. O host de serviço é apenas um processo em que instâncias do serviço podem ser executadas.
 * **Registro de serviço**: o registro reúne tudo. O tipo de serviço deve ser registrado com o tempo de execução do Service Fabric em um host de serviço para permitir que o Service Fabric crie instâncias para executar.  
 
 ## <a name="create-a-stateless-service"></a>Criar um serviço sem estado
 Um serviço sem estado é um tipo de serviço que atualmente está na norma dos aplicativos em nuvem. Ele é considerado sem estado porque o serviço em si não contém dados que precisam ser armazenados de modo confiável nem altamente disponibilizados. Se uma instância de um serviço sem estado for desligada, todo seu estado interno será perdido. Nesse tipo de serviço, o estado deve ser mantido em um repositório externo, como em Tabelas do Azure ou um banco de dados SQL, para que ele se torne altamente disponível e confiável.
 
-Inicie o Visual Studio 2015 como administrador e crie um novo projeto de aplicativo do Service Fabric chamado *HelloWorld*:
+Inicie o Visual Studio 2015 ou 2017 como administrador e crie um novo projeto de aplicativo do Service Fabric chamado *HelloWorld*:
 
 ![Usar a caixa de diálogo Novo Projeto para criar um novo aplicativo do Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -67,7 +68,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-* Um ponto de entrada de comunicação em que você pode conectar a pilha de comunicação de sua escolha, como API Web ASP.NET. É onde você pode começar a receber solicitações de usuários e outros serviços.
+* Um ponto de entrada de comunicação em que você pode conectar a pilha de comunicação de sua escolha como o ASP.NET Core. É onde você pode começar a receber solicitações de usuários e outros serviços.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -113,7 +114,7 @@ A plataforma chama esse método quando uma instância de um serviço é estabele
 
 Essa orquestração é gerenciada pelo sistema a fim de manter o serviço altamente disponível e devidamente balanceado.
 
-`RunAsync()` não deve bloquear sincronicamente. Sua implementação de RunAsync deve retornar uma tarefa ou esperar operações de execução longa ou de bloqueio para permitir que o tempo de execução continue – observe no loop `while(true)` no exemplo anterior, um retorno de tarefa `await Task.Delay()` é usado. Se sua carga de trabalho deve bloquear sincronicamente, agende uma nova tarefa com `Task.Run()` na sua implementação `RunAsync`.
+`RunAsync()` não deve bloquear sincronicamente. Sua implementação de RunAsync deve retornar uma tarefa ou esperar operações de execução longa ou de bloqueio para permitir que o tempo de execução continue. Observe que no loop `while(true)` no exemplo anterior, um retorno de tarefa `await Task.Delay()` é usado. Se sua carga de trabalho deve bloquear sincronicamente, agende uma nova tarefa com `Task.Run()` na sua implementação `RunAsync`.
 
 O cancelamento da sua carga de trabalho é um esforço cooperativo orquestrado pelo token de cancelamento fornecido. O sistema aguardará o encerramento da tarefa (por conclusão bem-sucedida, cancelamento ou falha) antes de prosseguir. É importante honrar o token de cancelamento, concluir qualquer trabalho e sair do `RunAsync()` o mais rapidamente possível quando o sistema solicita o cancelamento.
 
@@ -227,10 +228,5 @@ Depois que os serviços começaram a ser executados, você poderá exibir os eve
 [Atualização de aplicativo](service-fabric-application-upgrade.md)
 
 [Referência do desenvolvedor para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

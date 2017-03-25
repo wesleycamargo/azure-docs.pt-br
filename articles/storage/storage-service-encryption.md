@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
-ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: cd727a02716323c54d1c54a23cd4edd8f4940da1
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -42,8 +42,9 @@ Criptografia do serviço de armazenamento: a SSE de visualização de arquivos a
 Entre em contato com ssediscussions@microsoft.com para participar da visualização de arquivos da SSE.
 
 Para saber mais, veja as perguntas frequentes.
+
 ### <a name="availability-for-file-storage"></a>Disponibilidade para o Armazenamento de Arquivos
-A Criptografia de Serviço de Armazenamento para o Armazenamento de Arquivos está disponível atualmente nas regiões da Ásia Oriental, Europa Setentrional e Leste dos EUA 2.
+A Criptografia do Serviço de Armazenamento para Armazenamento de Arquivos está disponível atualmente no Leste dos EUA, Leste dos EUA&2;, Centro dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Centro-Oeste dos EUA, Oeste dos EUA, Oeste dos EUA&2;, Ásia Oriental, Europa Setentrional, Europa Ocidental, Leste da Austrália e regiões do Sudeste da Austrália.
 
 
 Para habilitar ou desabilitar a Criptografia do Serviço de Armazenamento para uma conta de armazenamento, faça logon no [Portal do Azure](https://azure.portal.com) e selecione uma conta de armazenamento. Na folha Configurações, procure a seção de Serviço Blob, conforme mostrado nesta captura de tela, e clique em Criptografia.
@@ -174,7 +175,7 @@ R: Não no momento; as chaves são totalmente gerenciadas pela Microsoft.
 
 R: O SSE não está habilitado por padrão. Você pode usar o portal do Azure para habilitá-lo. Você também pode habilitar esse recurso por meio de programação usando a API REST do Provedor de Recursos de Armazenamento.
 
-**P: Qual é a diferença para a Criptografia de Unidade do Azure?**
+**P: Qual é a diferença para o Azure Disk Encryption?**
 
 R: Esse recurso é usado para criptografar dados no Armazenamento de Blobs do Azure. A Azure Disk Encryption é usada para criptografar o sistema operacional e discos de dados em VMs de IaaS. Para obter mais detalhes, visite nosso [Guia de segurança do armazenamento](storage-security-guide.md).
 

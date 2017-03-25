@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 76e9706051e4f8ab2c7becffed98a41f48968411
-ms.openlocfilehash: 8b50e7c434c6cee0906b7cfad0d3174e164c777c
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: dfb33a30cac74875281645e74339be152d8ef476
+ms.lasthandoff: 03/14/2017
 
 ---
 
@@ -78,7 +78,7 @@ O visual dos principais locutores mostra os IPs que iniciaram a maioria das cone
 
 ![toptalkers][6]
 
-Os gráficos de série de tempo a seguir mostram o número de fluxos durante o período. O gráfico superior é segmentado pelo sentido do fluxo, enquanto o inferior é segmentado pela decisão de madd (permitir ou negar). Com este visual, você pode examinar tráfego de tendências ao longo do tempo, e identificar quaisquer picos anormais ou recusar o tráfego ou segmentação de tráfego.
+Os gráficos de série de tempo a seguir mostram o número de fluxos durante o período. O gráfico superior é segmentado pelo sentido do fluxo, enquanto o inferior é segmentado pela decisão tomada (permitir ou negar). Com este visual, você pode examinar tráfego de tendências ao longo do tempo, e identificar quaisquer picos anormais ou recusar o tráfego ou segmentação de tráfego.
 
 ![flowsoverperiod][7]
 
@@ -137,3 +137,4 @@ Para saber como visualizar os logs de fluxo NSG com a pilha elástica, confira: 
 [11]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure11.png
 [12]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure12.png
 [13]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure13.png
+

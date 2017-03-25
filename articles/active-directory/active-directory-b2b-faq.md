@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/07/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 0abe257f3c1c2f35c92fa5f382e9778217f01159
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -72,8 +72,6 @@ Você pode bloquear o acesso ao [Portal do Azure](https://portal.azure.com) por 
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
-  Se o vídeo não aparecer incorporado, acesse-o [aqui](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
-
 ### <a name="what-is-the-timeline-by-which-azure-ad-b2b-collaboration-will-start-support-for-mfa-and-consumer-email-accounts"></a>Qual é o cronograma para início do suporte para MFA e para contas de email do consumidor na colaboração B2B do Azure AD?
 A MFA e as contas de email do consumidor já têm suporte nesta atualização da visualização pública.
 
@@ -89,8 +87,16 @@ Não atualmente.
 ### <a name="does-microsoft-crm-provide-online-support-to-azure-ad-b2b-collaboration"></a>O Microsoft CRM fornece suporte online para colaboração B2B do Azure AD?
 CRM fornecerá suporte à colaboração B2B do Azure AD depois que estiver totalmente disponível.
 
+### <a name="are-b2b-collaboration-guest-users-visible-in-sharepoint-onlineonedrive-people-picker"></a>Os usuários convidados de colaboração do B2B são visíveis no seletor de pessoas SharePoint Online/OneDrive?
+ 
+Sim! Entretanto, a capacidade de pesquisar por usuários convidados existentes no seletor de pessoas do SharePoint Online está desativada por padrão para coincidir com o comportamento herdado. Isso pode ser habilitado usando a configuração 'ShowPeoplePickerSuggestionsForGuestUsers' na coleta do site e do locatário. Isso pode ser definido usando os cmdlets Set-SPOTenant e SPOSite, que permite que os membros pesquisem todos os usuários convidados existentes no diretório. Alterações no escopo de locatário não afetam sites do SharePoint Online já provisionados.
+
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Qual é o tempo de vida de uma senha inicial para um usuário de colaboração B2B recém-criado?
 O Azure AD tem um conjunto fixo de requisitos de caracteres, de força da senha e bloqueio de conta que é aplicado igualmente a todas as contas de usuário de nuvem do Azure AD. Contas de usuário de nuvem são as contas que não são federadas com outro provedor de identidade, como a conta da Microsoft, Facebook, ADFS ou até mesmo de outro locatário de nuvem (no caso da colaboração B2B). Para contas federadas, a política de senha depende da política no locatário local nas e configurações de conta do usuário da Microsoft.
+
+### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>Os aplicativos desejam diferenciar a experiência entre um usuário de locatário e um usuário convidado. Existem diretrizes padrão para isso? A presença da declaração do provedor de identidade é o modelo certo para isso?
+ 
+Um usuário convidado pode usar qualquer provedor de identidade para autenticar conforme abordamos nas [Propriedades de um usuário de colaboração B2B](active-directory-b2b-user-properties.md). Portanto, o UserType é a propriedade certa para determinar isso. A declaração UserType atualmente não está incluída no token. Aplicativos devem usar a API gráfica para consultar o diretório para o usuário e obter seu UserType.
 
 ### <a name="next-steps"></a>Próximas etapas
 

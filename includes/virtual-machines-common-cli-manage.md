@@ -1,6 +1,6 @@
 Antes de usar a CLI do Azure com modelos e comandos do Gerenciador de Recursos para implantar recursos do Azure e cargas de trabalho usando grupos de recursos, será necessário ter uma conta com o Azure. Se você não tiver uma conta, você pode obter uma [avaliação gratuita do Azure aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-Se você ainda não tiver instalado a CLI do Azure e a conectado à sua assinatura, consulte [Instalar a CLI do Azure](../articles/xplat-cli-install.md) defina o modo como `arm` com `azure config mode arm` e conecte-se ao Azure com o comando `azure login`.
+Se você ainda não tiver instalado a CLI do Azure e a conectado à sua assinatura, consulte [Instalar a CLI do Azure](../articles/cli-install-nodejs.md) defina o modo como `arm` com `azure config mode arm` e conecte-se ao Azure com o comando `azure login`.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos do Azure Resource Manager na CLI do Azure
 Este artigo aborda os comandos básicos que você desejará usar com a CLI do Azure para gerenciar e interagir com os recursos do ARM (principalmente as VMs) em sua assinatura do Azure.  Para obter ajuda mais detalhada com opções específicas de linha de comando, você pode usar as opções e a ajuda online sobre os comandos digitando `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
@@ -36,9 +36,4 @@ Este artigo aborda os comandos básicos que você desejará usar com a CLI do Az
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter exemplos adicionais dos comandos da CLI que vão além do gerenciamento básico de VMs, consulte [Usando a CLI do Azure com o Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
