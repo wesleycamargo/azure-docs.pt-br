@@ -10,6 +10,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,9 +18,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 18131c083a0dc24eaa6f58445aa61d5872210417
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2f37c2d635920dd286bf0cb5f9a74a01259a786a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 02/17/2017
 
 Neste tutorial, você vai aprender a usar o Apache Hive no Hadoop no HDInsight e a escolher como executar seu trabalho do Hive. Você também aprenderá sobre o HiveQL e sobre como analisar um arquivo log4j do Apache.
 
-## <a name="a-idwhyawhat-is-hive-and-why-use-it"></a><a id="why"></a>O que é o Hive e por que usá-lo?
+## <a id="why"></a>O que é o Hive e por que usá-lo?
 [Apache Hive](http://hive.apache.org/) é um sistema de armazenamento de dados para Hadoop, que permite o resumo, consulta e análise de grandes volumes de dados usando o HiveQL (linguagem de consulta semelhante a SQL). O Hive pode ser usado para explorar os dados interativamente ou para criar trabalhos de processamento de lote reutilizáveis.
 
 O Hive permite que você projete estrutura em grandes volumes de dados sem estrutura. Depois de definir a estrutura, você pode usar o Hive para consultar os dados sem conhecimento de Java ou de MapReduce. **HiveQL** (a linguagem de consulta Hive) permite escrever consultas com declarações que são semelhantes a T-SQL.
@@ -55,7 +56,7 @@ Existem algumas coisas que você precisa saber sobre a tabela interna e a tabela
 
 Para obter mais informações, consulte [HDInsight: introdução às tabelas internas e externas do Hive][cindygross-hive-tables].
 
-## <a name="a-iddataaabout-the-sample-data-an-apache-log4j-file"></a><a id="data"></a>Sobre os dados de exemplo, um arquivo log4j do Apache
+## <a id="data"></a>Sobre os dados de exemplo, um arquivo log4j do Apache
 Este exemplo usa um arquivo de exemplo *log4j* , que fica armazenado em **/example/data/sample.log** no seu contêiner de armazenamento de blob. Cada log dentro do arquivo consiste em uma linha de campos que contém um campo `[LOG LEVEL]` para mostrar o tipo e a gravidade, por exemplo:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
@@ -78,7 +79,7 @@ Como o armazenamento de blob do Azure é o armazenamento padrão para HDInsight,
 > 
 > 
 
-## <a name="a-idjobasample-job-project-columns-onto-delimited-data"></a><a id="job"></a>Trabalho de exemplo: projetar colunas em dados delimitados
+## <a id="job"></a>Trabalho de exemplo: projetar colunas em dados delimitados
 As seguintes instruções HiveQL irá projetar colunas nos dados delimitados armazenados no diretório **wasbs:///example/data**:
 
     set hive.execution.engine=tez;
@@ -129,7 +130,7 @@ As instruções executam as seguintes ações:
 > 
 > 
 
-## <a name="a-idusetezause-apache-tez-for-improved-performance"></a><a id="usetez"></a>Usar o Apache Tez para desempenho aprimorado
+## <a id="usetez"></a>Usar o Apache Tez para desempenho aprimorado
 [Apache Tez](http://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. Na versão mais recente do HDInsight, o Hive tem suporte para a execução no Tez. O Tez está habilitado por padrão para clusters HDInsight baseados em Linux.
 
 > [!NOTE]
@@ -137,7 +138,7 @@ As instruções executam as seguintes ações:
 > 
 > ```set hive.execution.engine=tez;```
 > 
-> Isso pode ser enviado por consulta colocando-o no início da sua consulta. Também é possível definir esse recurso para estar ativado por padrão definindo o valor de configuração no momento da criação do cluster. Você pode encontrar mais detalhes em [Provisionamento de clusters do HDInsight](hdinsight-provision-clusters.md).
+> Isso pode ser enviado por consulta colocando-o no início da sua consulta. Também é possível definir esse recurso para estar ativado por padrão definindo o valor de configuração no momento da criação do cluster. Você pode encontrar mais detalhes em [Provisionamento de clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 > 
 > 
 
@@ -148,7 +149,7 @@ Para ajudar na depuração de trabalhos executados usando Tez, o HDInsight forne
 * [Usar a interface de usuário do Tez no HDInsight baseado em Windows](hdinsight-debug-tez-ui.md)
 * [Usar a exibição de Ambari Tez no HDInsight baseado em Linux](hdinsight-debug-ambari-tez-view.md)
 
-## <a name="a-idrunachoose-how-to-run-the-hiveql-job"></a><a id="run"></a>Escolha como executar o trabalho do HiveQL
+## <a id="run"></a>Escolha como executar o trabalho do HiveQL
 O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tabela a seguir para decidir qual método é o melhor para você e siga o link para obter o passo-a-passo.
 
 | **Use** se quiser... | ...um shell **interativo** | ...Processamento em**lotes** | ... com esse **sistema operacional de cluster** | ... desse **sistema operacional cliente** |
@@ -173,13 +174,11 @@ Também é possível usar o SQL Server Integration Services (SSIS) para executar
 
 Saiba mais sobre o Feature Pack do Azure para SSIS [aqui][ssispack].
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o HDInsight, use os links abaixo para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
 * [Carregar dados no HDInsight][hdinsight-upload-data]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
-* [Use o Sqoop com o HDInsight](hdinsight-use-sqoop.md)
-* [Usar o Oozie com o HDInsight](hdinsight-use-oozie.md)
 * [Usar trabalhos do MapReduce com o HDInsight][hdinsight-use-mapreduce]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx

@@ -12,16 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
-ms.openlocfilehash: 0a8b53f7860548a2a013bfc7813cdf798b6a4910
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 67d817c04672979ec8af8a540c5a63eb4df9bf6a
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="partitioning-and-scaling-in-azure-documentdb"></a>Particionamento e dimensionamento no Banco de Dados de Documentos do Azure
+# <a name="partitioning-partition-keys-and-scaling-in-documentdb"></a>Particionamento, chaves de partição e o dimensionamento no DocumentDB
+
 [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) foi criado para ajudá-lo a obter um desempenho rápido e previsível e para escalar continuamente com seu aplicativo conforme ele cresce. Este artigo fornece uma visão geral de como o particionamento funciona no Banco de Dados de Documentos e descreve como você pode configurar as coleções do Banco de Dados de Documentos para escalar seus aplicativos com eficiência.
 
 Depois de ler este artigo, você poderá responder as seguintes perguntas:   
@@ -50,6 +52,10 @@ O DocumentDB cria um pequeno número de partições físicas por trás de cada c
 
 Por exemplo, digamos que você crie uma coleção com taxa de transferência de 25.000 solicitações por segundo, e o DocumentDB possa dar suporte a 10.000 solicitações por segundo por partição física única. O DocumentDB criaria três partições físicas para a coleção, P1, P2 e P3. Durante a inserção ou a leitura de um documento, o serviço do DocumentDB executa o hash do valor `Department` correspondente para mapear dados para as três partições, P1, P2 e P3. Por exemplo, se o hash de "Marketing" e de "Vendas" for 1, eles serão armazenados em P1. Se P1 ficar cheio, o DocumentDB dividirá P1 em duas novas partições, P4 e P5. O serviço pode mover "Marketing" para P4 e "Vendas" para P5 depois da divisão e descartar P1. Essas movimentações de chaves de partição entre partições são transparentes para o aplicativo e não têm impacto sobre a disponibilidade da coleção.
 
+## <a name="sharding-in-api-for-mongodb"></a>Fragmentação na API para MongoDB
+As coleções fragmentadas na API para MongoDB estão usando a mesma infraestrutura que as coleções particionadas do DocumentDB. Assim como as coleções particionadas, as coleções fragmentadas podem ter qualquer quantidade de fragmentos, e cada fragmento tem uma quantidade fixa de armazenamento com suporte de SSD associado. As coleções fragmentadas são praticamente ilimitadas em termos de armazenamento e produtividade. A chave de fragmento da API para MongoDB é equivalente à chave de partição do DocumentDB e, ao decidir sobre uma chave de fragmento, leia as seções [Chaves de partição](#partition-keys) e [Design para particionamento](#designing-for-partitioning).
+
+<a name="partition-keys"></a>
 ## <a name="partition-keys"></a>Chaves de partição
 A escolha da chave de partição é uma decisão importante que você precisará fazer no momento do design. Você deve escolher um nome de propriedade JSON que tenha uma ampla variedade de valores e provavelmente tenha padrões de acesso distribuídos uniformemente. 
 
@@ -158,7 +164,7 @@ A tabela a seguir lista as diferenças entre trabalhar com coleções de partiç
     </tbody>
 </table>
 
-## <a name="working-with-the-sdks"></a>Trabalhando com os SDKs
+## <a name="working-with-the-documentdb-sdks"></a>Como trabalhar com os SDKs do DocumentDB
 O Banco de Dados de Documentos do Azure adicionou suporte para particionamento automático com a [API REST versão 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). Para criar coleções particionadas, você deve baixar versões do SDK 1.6.0 ou mais recentes em uma das plataformas do SDK com suporte (.NET, Node.js, Java, Python). 
 
 ### <a name="creating-partitioned-collections"></a>Criando coleções particionadas
@@ -274,7 +280,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-O DocumentDB dá suporte a [funções agregadas] ([funções agregadas](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` e `AVG` em coleções particionadas usando SQL, a partir dos SDKs 1.12.0 e posteriores. As consultas devem incluir um único operador de agregação e um único valor na projeção.
+O DocumentDB dá suporte a [funções agregadas](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` e `AVG` em coleções particionadas usando SQL, a partir dos SDKs 1.12.0 e posteriores. As consultas devem incluir um único operador de agregação e um único valor na projeção.
 
 ### <a name="parallel-query-execution"></a>Execução de consulta paralela
 Os SDKs do Banco de Dados de Documentos 1.9.0 e superiores são compatíveis com execução de consulta paralela, que permite realizar consultas de baixa latência em coleções particionadas, mesmo quando elas precisam tocar um grande número de partições. Por exemplo, a consulta a seguir é configurada para ser executada paralelamente entre partições.
@@ -307,9 +313,34 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     
 Na próxima seção, examinaremos como é possível passar de coleções de partição única para coleções particionadas.
 
+## <a name="creating-an-api-for-mongodb-sharded-collection"></a>Criar uma API para a coleção fragmentada do MongoDB
+A maneira mais simples de criar uma coleção fragmentada da API para MongoDB é por meio de sua ferramenta, driver ou SDK favorito. Neste exemplo, usaremos o Shell do Mongo para a criação da coleção.
+
+No Shell do Mongo:
+
+```
+db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+```
+    
+Resultados:
+
+```JSON
+{
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "admin.people"
+}
+```
+
 <a name="migrating-from-single-partition"></a>
 
-## <a name="migrating-from-single-partition-to-partitioned-collections"></a>Migração de coleções de partição única para coleções particionadas
+## <a name="migrating-from-single-partition-to-partitioned-collections-in-documentdb"></a>Migração de coleções de partição única para coleções particionadas no DocumentDB
+
+> [!IMPORTANT]
+> Se você estiver importando para a API para MongoDB, siga estas [instruções](documentdb-mongodb-migrate.md).
+> 
+> 
+
 Quando um aplicativo usando uma coleção de partição única precisar de maior produtividade (mais de&10;.000 RU/s) ou maior armazenamento de dados (mais de&10; GB), você poderá usar a [Ferramenta de Migração de Dados do DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar os dados da coleção de partição única para uma coleção particionada. 
 
 Para migrar de uma coleção de partição única para uma coleção particionada
@@ -326,6 +357,7 @@ Para migrar de uma coleção de partição única para uma coleção particionad
 
 Agora que concluímos as noções básicas, vejamos algumas considerações de design importantes ao trabalhar com chaves de partição no Banco de Dados de Documentos.
 
+<a name="designing-for-partitioning"></a>
 ## <a name="designing-for-partitioning"></a>Design de particionamento
 A escolha da chave de partição é uma decisão importante que você precisará fazer no momento do design. Esta seção descreve algumas das compensações envolvidas na seleção de uma chave de partição para a coleção.
 

@@ -3,7 +3,7 @@ title: "Visão geral das VMs do Linux no Azure | Microsoft Docs"
 description: "Descreve os serviços de Computação, Armazenamento e Rede do Azure com máquinas virtuais Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: rickstercdn
 manager: timlt
 editor: 
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
-ms.author: squillace
+ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
-ms.openlocfilehash: e46490a75b0b759e94ba8b090f394d0ba3366dc4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: dbafa7ab292d634d7bd2427803e5a7f78963d7ff
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -27,12 +27,12 @@ O Microsoft Azure é uma coleção crescente de serviços de nuvem pública inte
 Se você estiver familiarizado com os diversos recursos do AWS da Amazon, examine o [documento de mapeamento de definição do Azure versus AWS](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
 ## <a name="regions"></a>Regiões
-Os recursos do Microsoft Azure são distribuídos em várias regiões geográficas em todo o mundo.  Uma "região" representa vários datacenters em uma única área geográfica.  A partir de 1º de janeiro de 2016, isso inclui: oito na América, dois na Europa, seis no Pacífico Asiático, dois na China continental e três na Índia.  Se você quiser uma lista completa de todas as regiões do Azure, manteremos uma lista de regiões existentes e anunciadas recentemente.
+Os recursos do Microsoft Azure são distribuídos em várias regiões geográficas em todo o mundo.  Uma "região" representa vários datacenters em uma única área geográfica.  Temos 34 regiões disponíveis em todo o mundo com 4 regiões adicionais anunciadas. Como continuamos a expandir nossa cobertura global - mantemos uma lista atualizada de regiões existentes e recentemente anunciadas.
 
 * [Regiões do Azure](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Disponibilidade
-Para sua implantação se qualificar para nosso Contrato de Nível de Serviço de 99,95 de VM, você precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um conjunto de disponibilidade. Isso garantirá que suas VMs sejam distribuídas entre vários domínios de falha em nossos datacenters, além de serem implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explica a disponibilidade garantida do Azure como um todo. 
+Anunciamos um Contrato de Nível de Serviço de máquina virtual de única instância 99,9%, o melhor que há no mercado, desde que você implante a VM com armazenamento premium para todos os discos.  Para sua implantação se qualificar para nosso Contrato de Nível de Serviço de 99,95% padrão de VM, você ainda precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um conjunto de disponibilidade. Isso garantirá que suas VMs sejam distribuídas entre vários domínios de falha em nossos datacenters, além de serem implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explica a disponibilidade garantida do Azure como um todo. 
 
 ## <a name="managed-disks"></a>Managed Disks
 
@@ -73,7 +73,7 @@ O Azure está implementando o suporte para [cloud-init](http://cloud-init.io/) n
 * [Como usar o cloud-init em VMs Linux do Azure](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quotas"></a>Cotas
-Cada assinatura do Azure tem limites de cota padrão que podem afetar a implantação de um grande número de VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região.  Os limites de cota podem ser aumentados com a emissão de um tíquete de suporte para solicitar um aumento de limite.  Para obter mais detalhes sobre os limites de cota:
+Cada assinatura do Azure tem limites de cota padrão que podem afetar a implantação de um grande número de VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região.  Os limites de cota podem ser aumentados de forma rápida e fácil com a emissão de um tíquete de suporte para solicitar um aumento de limite.  Para obter mais detalhes sobre os limites de cota:
 
 * [Limites de Serviço da assinatura do Azure](../azure-subscription-service-limits.md)
 
@@ -104,7 +104,6 @@ Com sua nova conta do Azure, você pode começar a usar imediatamente o Portal d
 
 ### <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 Agora você tem uma conta do Azure, o Portal da Web do Azure e a CLI do Azure.  A próxima etapa é criar um par de chaves SSH que será usado para SSH no Linux sem usar uma senha.  [Crie chaves SSH no Linux e Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para habilitar logons sem senha e obter mais segurança.
-
 
 ### <a name="create-a-vm-using-the-cli"></a>Criar uma VM usando a CLI
 Criar uma VM do Linux usando a CLI é uma maneira rápida de implantar uma VM sem sair do terminal no qual você está trabalhando.  Tudo o que você pode especificar no portal da Web está disponível por meio de um sinalizador ou opção de linha de comando.  
@@ -141,6 +140,5 @@ Agora, a VM está em execução no Azure e você está pronto para fazer logon. 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você tem uma visão geral do Linux no Azure.  A próxima etapa é mergulhar de cabeça e criar algumas VMs!
 
-* [Criar uma VM do Linux no Azure usando o Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Criar uma VM do Linux no Azure usando a CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Explore nossa lista crescente de Scripts de Exemplo para tarefas comuns via AzureCLI](virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

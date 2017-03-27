@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fe38c16f94faa3e7a5a2622ff4eb8a1ae93fba20
-ms.openlocfilehash: 1bf1e323798a702029663953d3a30de174aefc4c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a673044269016f5d216fa62a3bcc6f3b106838c0
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -65,6 +65,7 @@ Ao usar um endereço IP público como um ponto de extremidade, essas informaçõ
 **P. O IP ou DNS muda durante o tempo de vida do Gateway de Aplicativo?**
 
 O VIP pode mudar se o gateway for interrompido e iniciado pelo cliente. O DNS associado ao Gateway de Aplicativo não muda durante o ciclo de vida do gateway. Por esse motivo, recomendamos o uso um alias do CNAME e apontá-lo para o endereço DNS do Gateway de Aplicativo.
+
 
 **P. O Gateway de Aplicativo oferece suporte a IP estático?**
 
@@ -123,6 +124,10 @@ As investigações personalizadas não têm suporte para curingas/regex nos dado
 **P. O que significa o campo Host para investigações personalizadas?**
 
 O campo Host especifica o nome ao qual enviar a investigação. Aplicável somente quando vários sites são configurados no Application Gateway; do contrário, use '127.0.0.1'. Esse valor é diferente do nome de host da VM e está no formato \<protocolo\>://\<host\>:\<porta\>\<caminho\>. 
+
+**P. O Gateway de Aplicativo também oferece suporte a back-ends com vários locatários?**
+
+Não, atualmente o Gateway de Aplicativo preserva o cabeçalho de host de entrada e envia o mesmo cabeçalho ao back-end. Se o back-end exigir um cabeçalho diferente, isso não funcionará. Da mesma forma, se o back-end tiver vários locatários, e o SSL ponta a ponta estiver habilitado, o back-end esperaria o nome do servidor na extensão SNI. No momento, o Gateway de Aplicativo não envia um cabeçalho SNI nas solicitações de back-end em cenários SSL de ponta a ponta que causariam problemas de investigação e caminho de dados. 
 
 ## <a name="performance"></a>Desempenho
 
@@ -283,3 +288,4 @@ O motivo mais comum é o bloqueio ao acesso do back-end por um NSG ou DNS person
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o Gateway de Aplicativo, visite [Introdução ao Gateway de Aplicativo](application-gateway-introduction.md).
+

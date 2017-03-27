@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 1c071390fd6cd9bb5889cb225696b7782fe2bd6b
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 590cb831ad265d9b83713f573c92d8675e64db3d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -100,7 +100,7 @@ As chaves são caracteres especiais nos padrões de nome. Para especificar nomes
 
 Esse caminho encontraria um blob denominado *{20140101}-soundfile.mp3* no contêiner *imagens* e o `name` valor da variável no código da função seria *soundfile.mp3*. 
 
-<um nome"recebimentos"></a>
+<a name="receipts"></a>
 
 ### <a name="blob-receipts"></a>Recebimentos de blob
 O tempo de execução do Azure Functions garante que nenhuma função de gatilho de blob seja chamada mais de uma vez para o mesmo blob novo ou atualizado. Ele faz isso mantendo *recebimentos de blob* para determinar se uma versão de determinado blob foi processada.

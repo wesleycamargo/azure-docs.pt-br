@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
-ms.openlocfilehash: e77a3ba82e7620e23441d9296ebed46d41cb525c
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: ca15248d7ac5232e6308d8188332975f1d21c09b
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -27,7 +28,7 @@ Este artigo fornece instruções para criar um Banco de Dados SQL do Azure por m
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para importar um Banco de Dados SQL de um BACPAC, você precisará do seguinte:
+Para importar um banco de dados SQL de um BACPAC, você precisará de:
 
 * Uma assinatura do Azure. 
 * Um servidor do Banco de Dados SQL V12 do Azure. Se você não tiver um servidor V12, crie um seguindo as etapas neste artigo: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
@@ -83,9 +84,4 @@ Clicar em **Criar** envia para o serviço uma solicitação para importar o banc
 [4]: ./media/sql-database-import/create.png
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

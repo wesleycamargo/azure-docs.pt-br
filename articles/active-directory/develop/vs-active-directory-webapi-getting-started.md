@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/19/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
-ms.openlocfilehash: b42bd57c8a7dde854208c65f4477327fbf1108a4
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 333db54fe01aad42cfcd050995b64f3725b31ae9
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,14 +28,10 @@ ms.openlocfilehash: b42bd57c8a7dde854208c65f4477327fbf1108a4
 > 
 > 
 
-### <a name="requiring-authentication-to-access-controllers"></a>Exigir autenticação para acessar os controladores
+## <a name="requiring-authentication-to-access-controllers"></a>Exigir autenticação para acessar os controladores
 Todos os controladores em seu projeto foram marcados com o atributo **Autorizar** . Este atributo exige que o usuário seja autenticado antes de acessar as APIs definidas por esses controladores. Para permitir que o controlador seja acessado anonimamente, remova este atributo do controlador. Se desejar definir as permissões em um nível mais granular, aplique o atributo a cada método que necessita de autorização em vez de aplicá-lo à classe do controlador.
 
+## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

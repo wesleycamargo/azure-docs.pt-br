@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: aaff4a7aa717f42dedb96eceeb4315b31a6e7b17
-ms.openlocfilehash: 1ea77289ead60af067a0d07bac6c2e40a1684a04
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 31821203c18f1310c6a781bd28022efd3da7f03d
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -156,29 +157,29 @@ Com os clusters HDInsight, você pode configurar duas contas de usuário durante
   >
 
 ### <a name="data-source"></a>Fonte de dados
-O HDFS (sistema de arquivos distribuído Hadoop) original usa muitos discos locais no cluster. O HDInsight usa o armazenamento de blob do Azure para o armazenamento de dados. O armazenamento de blobs do Azure é uma solução de armazenamento de uso geral que se integra perfeitamente com o HDInsight. Ao usar uma interface HDFS, o conjunto completo de componentes em HDInsight pode operar diretamente sobre os dados não estruturados do armazenamento de Blobs. Armazenar dados no armazenamento de blobs permite que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
 
-Durante a configuração, você deve especificar uma conta de armazenamento do Azure e um contêiner de armazenamento de Blobs do Azure na conta de armazenamento do Azure. Alguns processos de criação exigem que a conta de armazenamento do Azure e o contêiner de armazenamento de Blobs sejam criados anteriormente. O contêiner de armazenamento de Blobs é usado como o local de armazenamento padrão pelo cluster. Opcionalmente, você pode especificar contas de armazenamento do Azure adicionais (armazenamento vinculado) que o cluster possa acessar. O cluster também pode acessar quaisquer contêineres de armazenamento de Blobs configurados com acesso de leitura público completo ou acesso de leitura público somente para blobs.  Para saber mais, confira [Gerenciar o acesso aos recursos de armazenamento do Azure](../storage/storage-manage-access-to-resources.md).
+O HDFS (sistema de arquivos distribuído Hadoop) original usa muitos discos locais no cluster. O HDInsight usa blobs do Azure Storage. O Azure Storage é uma solução de armazenamento de uso geral que se integra perfeitamente com o HDInsight. Ao usar uma interface HDFS, o conjunto completo de componentes em HDInsight pode operar diretamente sobre dados estruturados ou não estruturados armazenados em blobs. Armazenar dados no Azure Storage permite que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
+
+> [!WARNING]
+> O HDInsight só dá suporte a contas do Azure Storage de __Uso geral__. Atualmente ele não dá suporte ao tipo de conta __Armazenamento de blobs__.
+
+Durante a configuração, você deve especificar uma conta do Azure Storage e um contêiner de blobs do Azure na conta do Azure Storage. Alguns processos de criação exigem que a conta do Azure Storage e o contêiner de blobs sejam criados anteriormente. O contêiner blobs é usado como o local de armazenamento padrão pelo cluster. Opcionalmente, você pode especificar contas adicionais do Azure Storage (armazenamento vinculado) que o cluster possa acessar. Além disso, o cluster também pode acessar contêineres de Blob configurados com acesso de leitura público completo ou acesso de leitura público somente para blobs.  Para saber mais, confira [Gerenciar o acesso aos recursos de armazenamento do Azure](../storage/storage-manage-access-to-resources.md).
 
 ![Armazenamento do HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
 > [!NOTE]
-> Um contêiner de armazenamento de Blobs oferece o agrupamento de um conjunto de blobs, conforme mostrado na imagem a seguir.
->
->
+> Um contêiner de blobs oferece o agrupamento de um conjunto de blobs, conforme mostrado na imagem a seguir.
 
-![Armazenamento do blob do Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
+![Blob do Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-Não recomendamos o contêiner de armazenamento de blobs padrão para armazenar dados corporativos. É uma prática recomendada excluir o contêiner de armazenamento de Blobs padrão após cada uso para reduzir o custo de armazenamento. Observe que o contêiner padrão contém os logs do aplicativo e do sistema. Certifique-se de recuperar os logs antes de excluir o contêiner.
+Não recomendamos o contêiner de blobs padrão para armazenar dados corporativos. É uma prática recomendada excluir o contêiner de blobs padrão após cada uso para reduzir o custo de armazenamento. Observe que o contêiner padrão contém os logs do aplicativo e do sistema. Certifique-se de recuperar os logs antes de excluir o contêiner.
 
 > [!WARNING]
-> Não há suporte para o compartilhamento de um contêiner do armazenamento de Blobs para vários clusters.
->
->
+> Não há suporte para o compartilhamento de um contêiner de blobs para vários clusters.
 
-Para saber mais sobre o uso de armazenamento de Blobs secundário, confira [Uso do armazenamento de blobs do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
+Para saber mais sobre o uso de uma conta do Azure Storage secundária, confira [Uso do Azure Storage com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-Além do armazenamento de Blobs do Azure, você pode usar o [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) como a conta de armazenamento padrão do cluster HBase no HDInsight e como um armazenamento vinculado para todos os quatro tipos de cluster HDInsight. Para saber mais, veja [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Além do Azure Storage, você pode usar o [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) como a conta de armazenamento padrão do cluster HBase no HDInsight e como um armazenamento vinculado para todos os quatro tipos de cluster HDInsight. Para saber mais, veja [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ### <a name="location-region"></a>Local (região)
 O cluster HDInsight e sua conta de armazenamento padrão devem estar localizados no mesmo local do Azure.
@@ -250,7 +251,7 @@ Em alguns casos, você pode adicionar mais armazenamento ao cluster. Por exemplo
 
 Você pode adicionar contas de armazenamento ao criar um cluster do HDInsight ou depois de um cluster ter sido criado.  Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Para saber mais sobre o armazenamento de Blobs secundário, veja [Usar o armazenamento de Blobs do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para saber mais sobre repositórios Data Lake secundários, veja [Criar clusters HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Para saber mais sobre a conta do Azure Storage secundária, confira [Uso do Azure Storage com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para saber mais sobre repositórios Data Lake secundários, veja [Criar clusters HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="use-hiveoozie-metastore"></a>Usar o Hive/Oozie metastore
 Recomendamos que você use um metastore personalizado se quiser manter suas tabelas Hive depois de excluir o cluster HDInsight. Você poderá anexar esse metastore a outro cluster HDInsight.
@@ -314,7 +315,7 @@ Para manter as alterações durante o tempo de vida dos clusters, é possível u
 ## <a name="customize-clusters-using-script-action"></a>Personalizar clusters usando a Ação de Script
 Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante a criação. Tais scripts são chamados usando a **Ação de Script**, que é uma opção de configuração que pode ser usada no portal do Azure, cmdlets do Windows PowerShell do HDInsight ou SDK do .NET do HDInsight. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Alguns componentes nativos do Java, como Mahout e Cascading, podem ser executados no cluster como arquivos Java Archive (JAR). Esses arquivos JAR podem ser distribuídos para o armazenamento de Blobs do Azure e enviados aos clusters HDInsight por meio de mecanismos de envio de trabalho do Hadoop. Para obter mais informações, consulte [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md).
+Alguns componentes nativos do Java, como Mahout e Cascading, podem ser executados no cluster como arquivos Java Archive (JAR). Esses arquivos JAR podem ser distribuídos para o Azure Storage e enviados aos clusters HDInsight por meio de mecanismos de envio de trabalho do Hadoop. Para obter mais informações, consulte [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > Se você tiver problemas para implantar arquivos JAR nos clusters do HDInsight ou ao chamar arquivos JAR nesses clusters, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).

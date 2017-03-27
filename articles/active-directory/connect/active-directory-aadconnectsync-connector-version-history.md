@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 731dd999e053b98c93c374530599232d4dc5bb92
-ms.openlocfilehash: 9c7a8dc5204a799a8b79fa88b243d981bcd54c74
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3051ed0385b81892b8495e83817ed8255dbce8cd
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -31,11 +32,66 @@ Este tópico lista todas as versões dos conectores que foram lançadas.
 Links relacionados:
 
 * [Baixar os Conectores mais recentes](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [Conector LDAP Genérico](active-directory-aadconnectsync-connector-genericldap.md) 
-* [Conector do SQL Genérico](active-directory-aadconnectsync-connector-genericsql.md) 
-* [Conector dos Serviços Web](http://go.microsoft.com/fwlink/?LinkID=226245) 
-* [Conector do PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
-* [Conector do Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
+* [Conector LDAP Genérico](active-directory-aadconnectsync-connector-genericldap.md)
+* [Conector do SQL Genérico](active-directory-aadconnectsync-connector-genericsql.md)
+* [Conector dos Serviços Web](http://go.microsoft.com/fwlink/?LinkID=226245)
+* [Conector do PowerShell](active-directory-aadconnectsync-connector-powershell.md)
+* [Conector do Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
+
+## <a name="114430"></a>1.1.443.0
+
+Lançamento: março de 2017
+
+### <a name="enhancements"></a>Melhorias
+* SQL genérico:</br>
+  **Sintomas de cenário:** são uma limitação conhecida com o conector do SQL onde podemos permitir somente uma referência a um tipo de objeto e exigir uma referência cruzada com membros. </br>
+  **Descrição da solução:** na etapa de processamento de referências onde a opção "*" é escolhida, todas as combinações de tipos de objeto são retornadas para o mecanismo de sincronização.
+
+>[!Important]
+- Isso cria vários espaços reservados
+- Isso é necessário para garantir que o nome seja exclusivo entre tipos de objetos cruzados.
+
+
+* LDAP genérico:</br>
+ **Cenário:** quando apenas alguns contêineres são selecionados na partição específica e a pesquisa ainda será realizada na partição inteira. O específico será filtrado pelo serviço de sincronização, mas não pelo MA que pode causar degradação do desempenho. </br>
+
+ **Descrição de solução:** o código do conector GLDAP é modificado para passar por todos os contêineres e objetos de pesquisa em cada um deles, em vez de pesquisar na partição inteira.
+
+
+* Lotus Domino:
+
+  **Cenário:** o suporte para exclusão de email Domino para a remoção de pessoa durante uma exportação. </br>
+  **Solução:** suporte para exclusão de email configurável para a remoção de pessoa durante uma exportação.
+
+### <a name="fixed-issues"></a>Problemas corrigidos:
+* Serviços Web genéricos:
+ * Ao alterar a URL do serviço nos projetos wsconfig SAP padrão usando a ferramenta de configuração do serviço da Web, aparece o seguinte erro: não foi possível localizar uma parte do caminho
+
+      ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
+
+* LDAP genérico:
+ * Fixo para bug de atributo com multivalores de importação Delta de marca d'água de SQL não importado
+ * O conector de GLDAP não verá todos os atributos no AD LDS
+ * Quebra de assistente quando não é detectado nenhum atributo UPN do esquema de diretório LDAP
+ * Quando o atributo de "objectclass" não está selecionado, há falha na importação Delta com erros de descoberta não presentes durante a importação completa
+ * Uma página de configuração "Configurar partições e hierarquias", não exibe todos os objetos cujos tipos são iguais à partição para servidores Novel no Genérico  
+LDAP MA. Eles exibem apenas objetos de partição RootDSE.
+
+
+* SQL genérico:
+ * Ao exportar valores excluídos/adicionados de atributo com multivalores, eles não são excluídos/adicionados na fonte de dados.  
+
+
+* Lotus Notes:
+ * Um campo específico "Nome completo" é mostrado corretamente no metaverso, no entanto, o valor do atributo se torna nulo ou vazio quando exportado para notas.
+ * Fixo para o erro de certificador de duplicata
+ * Quando o objeto sem dados é selecionado no conector Lotus Domino com outros objetos e, em seguida, recebemos o erro de descoberta ao executar a importação completa.
+ * Às vezes, no final da execução da importação Delta no conector Lotus Domino, o serviço Microsoft.IdentityManagement.MA.LotusDomino.Service.exe retorna uma mensagem de erro de aplicativo.
+ * O geral da associação do grupo funciona bem e é mantido, exceto ao executar a exportação para tentar remover um usuário da associação, apesar de exibir mensagem de êxito com uma atualização, o usuário não é removido da associação no Lotus Notes.
+ * A oportunidade de escolher o modo de exportação como "Acrescentar item no final" foi adicionada na configuração de GUI do Lotus MA para acrescentar itens novos no final durante a exportação de atributos com multivalores.
+ * O conector adicionará a lógica necessária para excluir o arquivo da pasta de email e o cofre de ID.
+ * Exclua a associação que não estiver funcionando para membro NAB cruzado.
+ * Os valores devem ser excluídos com êxito do atributo de multivalores
 
 ## <a name="111170"></a>1.1.117.0
 Lançamento: março de 2016
@@ -98,9 +154,4 @@ Antes de março de 2016, os Conectores foram liberados como tópicos de suporte.
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

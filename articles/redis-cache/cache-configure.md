@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 296a842157e4ecae1b3700e1d22c56852ffc06a2
-ms.openlocfilehash: ad88d998302d264b2a0f607d8408cd12bf833a68
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d5633ffdaba2fa881c2c42361860048cd478a502
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -52,6 +52,7 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Persistência de dados do Redis](#redis-data-persistence)
     * [Agendar atualizações](#schedule-updates)
     * [Rede Virtual](#virtual-network)
+    * [Firewall](#firewall)
     * [Propriedades](#properties)
     * [Bloqueios](#locks)
     * [Script de automação](#automation-script)
@@ -104,6 +105,7 @@ A seção **Configurações** permite acessar e definir as seguintes configuraç
 * [Persistência de dados do Redis](#redis-data-persistence)
 * [Agendar atualizações](#schedule-updates)
 * [Rede Virtual](#virtual-network)
+* [Firewall](#firewall)
 * [Propriedades](#properties)
 * [Bloqueios](#locks)
 * [Script de automação](#automation-script)
@@ -262,7 +264,7 @@ Para especificar uma janela de manutenção, marque os dias desejados, especifiq
 
 
 
-## <a name="virtual-network"></a>Rede Virtual
+### <a name="virtual-network"></a>Rede Virtual
 A seção **Rede Virtual** permite que você defina as configurações de rede virtual para o cache. Para saber mais sobre como criar um cache premium com suporte de rede virtual e atualizar suas configurações, confira [Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -270,6 +272,20 @@ A seção **Rede Virtual** permite que você defina as configurações de rede v
 > 
 > 
 
+### <a name="firewall"></a>Firewall
+
+Clique em **Firewall** para exibir e configurar regras de firewall para o Cache Redis do Azure Premium.
+
+![Firewall](./media/cache-configure/redis-firewall-rules.png)
+
+É possível especificar regras de firewall com um intervalo de endereços IP inicial e final. Quando regras de firewall são configuradas, apenas as conexões de cliente de intervalos de endereços IP especificados podem se conectar ao cache. Quando uma regra de firewall é salva, há um pequeno atraso antes que a regra entre em vigor. Normalmente, esse atraso é inferior a um minuto.
+
+> [!IMPORTANT]
+> Conexões dos sistemas de monitoramento do Cache Redis do Azure serão sempre permitidas, mesmo se regras de firewall forem configuradas.
+> 
+> As regras de firewall estão disponíveis apenas para os caches da camada Premium.
+> 
+> 
 
 ### <a name="properties"></a>Propriedades
 Clique em **Propriedades** para exibir informações sobre o cache, incluindo o ponto de extremidade e as portas do cache.
@@ -412,6 +428,8 @@ Novas instâncias de Cache Redis do Azure são configuradas com os seguintes val
   * P3 (26 GB - 260 GB) - até 48 bancos de dados
   * P4 (53 - 530 GB) - até 64 bancos de dados
   * Todos os caches premium com cluster Redis habilitado – o cluster Redis permite apenas o uso do banco de dados 0 para que o limite `databases` de qualquer cache premium com o cluster Redis habilitado seja efetivamente 1 e o comando [Select](http://redis.io/commands/select) não seja permitido. Para saber mais, confira [Preciso fazer alguma alteração no meu aplicativo cliente para usar clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+
+Para saber mais sobre bancos de dados, veja [O que são bancos de dados Redis?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
 > As configurações `databases` pode ser definida somente durante a criação do cache e apenas usando PowerShell, CLI ou outros clientes de gerenciamento. Para obter um exemplo de configuração `databases` durante a criação de cache usando o PowerShell, confira [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).

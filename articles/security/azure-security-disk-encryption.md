@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f52b9064d4771c714b829a409037ef6f03c54161
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -177,7 +177,7 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
   > Não há suporte para o Azure Disk Encryption no [SDK do Azure PowerShell versão 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se estiver recebendo um erro relacionado ao uso do PowerShell 1.1.0, confira [Erro do Azure Disk Encryption relacionado ao Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx).
 
 * Para executar qualquer comando da CLI do Azure e associá-lo à sua assinatura do Azure, primeiro você deve instalar a CLI do Azure:
-  * Para instalar a CLI do Azure e associá-la à sua assinatura do Azure, confira [Como instalar e configurar a CLI do Azure](../xplat-cli-install.md).
+  * Para instalar a CLI do Azure e associá-la à sua assinatura do Azure, confira [Como instalar e configurar a CLI do Azure](../cli-install-nodejs.md).
   * Para usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager, confira [Comandos da CLI do Azure no modo do Gerenciador de Recursos](../virtual-machines/azure-cli-arm-commands.md).
 * A solução de Azure Disk Encryption usa o protetor de chave externa BitLocker para VMs IaaS do Windows. Se suas VMs estão ingressadas no mesmo domínio, não use políticas de grupo que imponham protetores TPM. Para obter informações sobre a política de grupo "Permitir BitLocker sem um TPM compatível", confira [Referência de política de grupo do BitLocker](https://technet.microsoft.com/library/ee706521).
 * Para criar um aplicativo do Azure AD, criar um cofre de chaves ou configurar um cofre de chaves existente e habilitar a criptografia, confira o [script do PowerShell de pré-requisito de Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
@@ -338,7 +338,7 @@ Para entender alguns dos termos comuns usados por essa tecnologia, use a seguint
 | ARM | Gerenciador de Recursos do Azure |
 | BitLocker |O [BitLocker](https://technet.microsoft.com/library/hh831713.aspx) é uma tecnologia de criptografia de volume do Windows reconhecida pela indústria e usada para habilitar a criptografia de disco em VMs de IaaS do Windows. |
 | BEK | As chaves de criptografia do BitLocker são usadas para criptografar o volume de inicialização do sistema operacional e os volumes de dados. As chaves do BitLocker são protegidas em um cofre de chaves como segredos. |
-| CLI | Confira [Interface de linha de comando do Azure](../xplat-cli-install.md). |
+| CLI | Confira [Interface de linha de comando do Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) é o subsistema de criptografia de disco transparente baseado em Linux usado para habilitar a criptografia de disco nas VMs de IaaS do Linux. |
 | KEK | A criptografia de chave é a chave assimétrica (RSA 2048) que pode ser usada para proteger ou encapsular o segredo. Você pode fornecer uma chave protegida por HSM (módulos de segurança de hardware) ou uma chave protegida por software. Para obter mais detalhes, confira a [documentação do Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
 | Cmdlets de DNS | Confira [Cmdlets do Azure PowerShell](/powershell/azureps-cmdlets-docs). |
@@ -560,7 +560,7 @@ A tabela a seguir lista os parâmetros de modelo do Gerenciador de Recursos exis
 > _KeyEncryptionKeyURL_ é um parâmetro opcional. Você pode usar seu próprio KEK para proteger ainda mais a chave de criptografia de dados (senha secreta) no cofre de chaves.
 
 #### <a name="cli-commands"></a>Comandos de CLI
-Você pode habilitar a criptografia de disco em seu VHD criptografado instalando e usando o [comando da CLI](../xplat-cli-install.md). Para habilitar a criptografia em VMs IaaS Linux existentes ou em execução no Azure usando os comandos da CLI, faça o seguinte:
+Você pode habilitar a criptografia de disco em seu VHD criptografado instalando e usando o [comando da CLI](../cli-install-nodejs.md). Para habilitar a criptografia em VMs IaaS Linux existentes ou em execução no Azure usando os comandos da CLI, faça o seguinte:
 
 1. Definir políticas de acesso no cofre de chaves:
 
@@ -1087,7 +1087,7 @@ O segredo de criptografia de disco que você obteve anteriormente deve ser carre
 
 
 #### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Segredo de criptografia de disco não criptografado com uma KEK
-Para configurar o segredo no cofre de chaves, use [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx).. Se você tem uma máquina virtual do Windows, o arquivo bek é codificado como uma cadeia de caracteres em base64 e carregado no cofre de chaves usando o cmdlet `Set-AzureKeyVaultSecret`. Para o Linux, a senha é codificada como uma cadeia de caracteres base64 e carregada para o cofre de chaves. Além disso, verifique se as seguintes marcas estão definidas ao criar o segredo no cofre de chaves.
+Para configurar o segredo no cofre de chaves, use [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx). Se você tem uma máquina virtual do Windows, o arquivo bek é codificado como uma cadeia de caracteres em base64 e carregado no cofre de chaves usando o cmdlet `Set-AzureKeyVaultSecret`. Para o Linux, a senha é codificada como uma cadeia de caracteres base64 e carregada para o cofre de chaves. Além disso, verifique se as seguintes marcas estão definidas ao criar o segredo no cofre de chaves.
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"

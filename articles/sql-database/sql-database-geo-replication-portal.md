@@ -1,6 +1,6 @@
 ---
-title: "Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o portal do Azure | Microsoft Docs"
-description: "Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o portal do Azure"
+title: "Portal do Azure: replicação geográfica do Banco de Dados SQL | Microsoft Docs"
+description: "Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o Portal do Azure e inicializar o failover"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2016
+ms.date: 03/062/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 6f646b3776f0aa0bbfba227c81ac5fc4fde9265f
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure com o Portal do Azure
+# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure usando o Portal do Azure e inicializar o failover
 
-Este artigo mostra como configurar a replicação geográfica ativa para o Banco de Dados SQL com o [portal do Azure](http://portal.azure.com).
+Este artigo mostra como configurar a replicação geográfica ativa para o Banco de Dados SQL no [portal do Azure](http://portal.azure.com) e para inicializar o failover.
 
 Para iniciar um failover com o portal do Azure, veja [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o portal do Azure](sql-database-geo-replication-failover-portal.md).
 
@@ -51,9 +51,7 @@ Depois que o banco de dados secundário for criado e propagado, os dados começa
 > [!NOTE]
 > O comando falhará se o banco de dados do parceiro já existir (por exemplo, como resultado do término de uma relação de replicação geográfica anterior).
 > 
-> 
 
-### <a name="add-secondary"></a>Adicionar secundário
 1. No [portal do Azure](http://portal.azure.com), navegue até o banco de dados que você deseja configurar para a replicação geográfica.
 2. Na página de banco de dados SQL, selecione **Replicação Geográfica** e, em seguida, selecione a região para criar o banco de dados secundário. É possível selecionar qualquer região além da região que hospeda o banco de dados primário, mas recomendamos a [região emparelhada](../best-practices-availability-paired-regions.md).
    
@@ -69,6 +67,26 @@ Depois que o banco de dados secundário for criado e propagado, os dados começa
 7. Quando o processo de propagação for concluído, o banco de dados secundário exibirá seu status.
    
     ![Propagação concluída](./media/sql-database-geo-replication-portal/seeding-complete.png)
+
+## <a name="initiate-a-failover"></a>Iniciar um failover
+
+O banco de dados secundário pode ser alternado para se tornar primário.  
+
+1. No [Portal do Azure](http://portal.azure.com), navegue até o banco de dados primário na parceria de Replicação Geográfica.
+2. Na folha Banco de Dados SQL, selecione **Todas as configurações** > **Replicação Geográfica**.
+3. Na lista **SECUNDÁRIOS**, selecione o banco de dados que deverá se tornar o novo primário e clique em **Failover**.
+   
+    ![Failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+4. Clique em **Sim** para iniciar o failover.
+
+O comando mudará imediatamente o banco de dados secundário para a função primária. 
+
+Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. Se o banco de dados primário tiver vários bancos de dados secundários, o comando reconfigurará automaticamente os outros secundários para se conectarem ao novo primário. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. 
+
+> [!NOTE]
+> Se o primário estiver online e realizando transações quando o comando for emitido, alguma perda de dados poderá ocorrer.
+> 
+> 
 
 ## <a name="remove-secondary-database"></a>Remover banco de dados secundário
 Essa operação termina permanentemente a replicação para o banco de dados secundário e altera a função do secundário para um banco de dados de leitura/gravação normal. Se a conectividade com o banco de dados secundário for desfeita, o comando terá êxito, mas o secundário só se tornará de leitura/gravação quando a conectividade for restaurada.  

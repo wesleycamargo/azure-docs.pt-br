@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
-ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d3cd3ea3823c2aefcaaad7cdfdf25c6bd91644d2
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="virtual-networks"></a>Redes virtuais
-Uma rede virtual do Azure (VNet) é uma representação da sua própria rede na nuvem.  É um isolamento lógico da nuvem do Azure dedicada à sua assinatura. Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas na rede. Você pode também segmentar a Rede Virtual em sub-redes e iniciar as máquinas virtuais (VMs) de IaaS do Azure e/ou os [serviços de Nuvem (instâncias de função de PaaS)](../cloud-services/cloud-services-choose-me.md). Além disso, você pode conectar a rede virtual à sua rede local usando uma das [opções de conectividade](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) disponíveis no Azure. Em linhas gerais, você pode expandir sua rede no Azure, com controle total sobre os blocos de endereços IP, com benefícios de escala empresarial proporcionados pelo Azure.
+Uma rede virtual do Azure (VNet) é uma representação da sua própria rede na nuvem.  É um isolamento lógico da nuvem do Azure dedicada à sua assinatura. Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas na rede. Você pode também segmentar a Rede Virtual em sub-redes e iniciar as máquinas virtuais (VMs) de IaaS do Azure e/ou os [serviços de Nuvem (instâncias de função de PaaS)](../cloud-services/cloud-services-choose-me.md). Além disso, você pode conectar a rede virtual à sua rede local usando uma das [opções de conectividade](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) disponíveis no Azure. Em linhas gerais, você pode expandir sua rede no Azure, com controle total sobre os blocos de endereços IP, com benefícios de escala empresarial proporcionados pelo Azure.
 
 Para entender melhor as VNets, dê uma olhada na figura abaixo, que mostra uma rede local simplificada.
 
@@ -46,7 +46,7 @@ Observe como a infraestrutura do Azure assume a função do roteador, permitindo
 * **Acesso às VMs na VNet**. As VMs de IaaS e as instâncias de função de PaaS podem ser iniciadas e podem se conectar entre si na mesma rede virtual usando endereços IP privados, mesmo que estejam em sub-redes diferentes, sem a necessidade de configurar um gateway ou de usar endereços IP públicos.
 * **Resolução de nomes**. O Azure fornece [resolução de nomes interna](virtual-networks-name-resolution-for-vms-and-role-instances.md) para VMs de IaaS e instâncias de função de PaaS implantadas na sua VNet. Você também pode implantar seus próprios servidores DNS e configurar a VNet para usá-los.
 * **Segurança**. O tráfego de entrada e de saída das máquinas virtuais e das instâncias de função de PaaS em uma Rede Virtual pode ser controlado com grupos de Segurança de Rede.
-* **Conectividade**. As redes virtuais podem ser conectadas usando gateways de rede ou o emparelhamento de VNet. As redes virtuais podem ser conectadas a datacenters locais por meio de redes VPN site a site ou do Azure ExpressRoute. Para saber mais sobre a conectividade VPN site a site, visite [Sobre gateways de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections). Para saber mais sobre a Rota Expressa, acesse [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md). Para saber mais sobre o emparelhamento de rede virtual, visite [Emparelhamento de VNet](virtual-network-peering-overview.md).
+* **Conectividade**. As redes virtuais podem ser conectadas usando gateways de rede ou o emparelhamento de VNet. As redes virtuais podem ser conectadas a datacenters locais por meio de redes VPN site a site ou do Azure ExpressRoute. Para saber mais sobre a conectividade VPN site a site, visite [Sobre gateways de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para saber mais sobre a Rota Expressa, acesse [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md). Para saber mais sobre o emparelhamento de rede virtual, visite [Emparelhamento de VNet](virtual-network-peering-overview.md).
 
   > [!NOTE]
   > Certifique-se de criar uma VNet antes de implantar qualquer VMs de IaaS ou instâncias de função de PaaS em seu ambiente do Azure. VMs baseadas em ARM exigem uma VNet e se você não especificar uma VNet existente, o Azure cria uma VNet padrão que pode ter conflito de bloco de endereços CIDR com sua rede local. Impossibilitando a conexão da Rede Virtual à sua rede local.

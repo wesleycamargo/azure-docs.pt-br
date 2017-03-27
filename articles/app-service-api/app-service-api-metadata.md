@@ -3,7 +3,7 @@ title: "Metadados de Aplicativos de API do Serviço de Aplicativo para geração
 description: "Saiba como os Aplicativos de API no Serviço de Aplicativo do Azure usam metadados do Swagger para facilitar a geração de códigos e a descoberta de API."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: c7f8e33a-61cc-486f-89df-4a97dc3c71d4
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
-ms.lasthandoff: 12/21/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 92057ef0c40bfc79a66265d2d369d7abf72adc8e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -35,7 +35,7 @@ No [portal do Azure](https://portal.azure.com/) , a URL do ponto de extremidade 
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### <a name="azure-resource-manager-property"></a>Propriedade do Gerenciador de Recursos do Azure
-Você também pode configurar a URL de definição da API para um aplicativo de API usando o [Gerenciador de Recursos](https://resources.azure.com/) ou os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) nas ferramentas da linha de comando, como o [Azure PowerShell](/powershell/azureps-cmdlets-docs) e a [CLI do Azure](../xplat-cli-install.md). 
+Você também pode configurar a URL de definição da API para um aplicativo de API usando o [Gerenciador de Recursos](https://resources.azure.com/) ou os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) nas ferramentas da linha de comando, como o [Azure PowerShell](/powershell/azureps-cmdlets-docs) e a [CLI do Azure](../cli-install-nodejs.md). 
 
 No **Gerenciador de Recursos**, acesse **assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Web > sites > {seu site} > configuração > Web** e você verá a propriedade `apiDefinition`:
 

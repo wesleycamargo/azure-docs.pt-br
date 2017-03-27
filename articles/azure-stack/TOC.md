@@ -32,6 +32,7 @@
 ### [Monitorar integridade e alertas](azure-stack-monitor-health.md)
 ### [Gerenciar recursos de rede](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Gerenciar recursos de armazenamento](azure-stack-manage-storage-accounts.md)
+### [Gerenciar VMs do Microsoft Azure Pack](azure-stack-manage-windows-azure-pack.md)
 
 # Segurança e conformidade
 ## Como
@@ -86,7 +87,6 @@
 #### [Gerenciar com o portal](azure-stack-kv-manage-portal.md)
 #### [Gerenciar com o PowerShell](azure-stack-kv-manage-powershell.md)
 ### Como
-#### [Implantar VM com uma senha](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Criar uma VM com um certificado](azure-stack-kv-push-secret-into-vm.md)
 #### [Aplicativo de exemplo do Cofre de Chaves](azure-stack-kv-sample-app.md)
 

@@ -13,15 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1cde5b9ee4c716af07d427d4d0eb3f0775d456ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Segurança de nível de linha com o Power BI Embedded
+
 A RLS (segurança em nível de linha) pode ser usada para restringir o acesso do usuário a dados específicos em um relatório ou conjunto de dados, permitindo que vários usuários diferentes usem o mesmo relatório, mas vendo dados diferentes. O Power BI Embedded agora dá suporte a conjuntos de dados configurados com RLS.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
@@ -35,6 +37,7 @@ Para tirar proveito da RLS, é importante compreender os três conceitos princip
 **Regras** – funções têm regras e essas regras são os filtros reais aplicados aos dados. Isso pode ser tão simples quanto "País = EUA" ou algo muito mais dinâmico.
 
 ### <a name="example"></a>Exemplo
+
 Para o restante deste artigo, forneceremos um exemplo de criação de RLS e o usaremos em um aplicativo incorporado. Nosso exemplo usa o arquivo PBIX [exemplo de análise de varejo](http://go.microsoft.com/fwlink/?LinkID=780547) .
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
@@ -81,7 +84,8 @@ Agora, os filtros também podem fluir da tabela Vendas para a tabela **Item** :
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
-**Observação** Se você estiver usando o modo DirectQuery para seus dados, precisará habilitar a filtragem bidirecional selecionando estas duas opções:
+> [!NOTE]
+> Se você estiver usando o modo DirectQuery para seus dados, precisará habilitar a filtragem bidirecional selecionando estas duas opções:
 
 1. **Arquivo** -> **Opções e Configurações** -> **Recursos de Visualização** -> **Habilitar filtragem cruzada em ambas as direções para DirectQuery**.
 2. **Arquivo** -> **Opções e Configurações** -> **DirectQuery** -> **Permitir medidas irrestritas no modo DirectQuery**.
@@ -112,11 +116,11 @@ Agora, com todas as partes juntas, quando alguém entrar em nosso aplicativo par
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## <a name="see-also"></a>Confira também
-[RLS (segurança no nível da linha) com Power](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
 
-
-
-
-<!--HONumber=Jan17_HO1-->
+[RLS (segurança no nível da linha) com Power](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)  
+[Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
 
 

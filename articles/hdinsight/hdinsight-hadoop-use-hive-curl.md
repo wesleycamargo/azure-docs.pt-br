@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: 0842cbcceb7ac96d4283efdd6c178b08dd728254
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a8058d8a2af2836b9e1ac611b272408b10804f24
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,14 +34,14 @@ O Curl é usado para demonstrar como você pode interagir com o HDInsight usando
 > Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte [O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-linux-information.md).
 
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
+## <a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um Hadoop no cluster HDInsight
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
-## <a name="a-idcurlarun-hive-queries-by-using-curl"></a><a id="curl"></a>Executar consultas Hive usando o Curl
+## <a id="curl"></a>Executar consultas Hive usando o Curl
 > [!NOTE]
 > Ao usar o Curl ou qualquer outra comunicação do REST com WebHCat, você deve autenticar as solicitações, fornecendo o nome de usuário e a senha para o administrador do cluster HDInsight. Você também deve usar o nome do cluster como parte do URI (Uniform Resource Identifier) usado para enviar as solicitações ao servidor.
 > 
@@ -121,7 +123,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
    > 
 4. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída; nesse caso, **wasb:///example/curl**. Esse endereço armazena a saída do trabalho no diretório **example/curl** do contêiner de armazenamento padrão usado pelo cluster HDInsight.
    
-    Você pode listar e baixar esses arquivos usando a [CLI do Azure](../xplat-cli-install.md). Por exemplo, para listar arquivos em **example/curl**, use o seguinte comando:
+    Você pode listar e baixar esses arquivos usando a [CLI do Azure](../cli-install-nodejs.md). Por exemplo, para listar arquivos em **example/curl**, use o seguinte comando:
    
         azure storage blob list <container-name> example/curl
    
@@ -151,13 +153,13 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 6. Use a ID de trabalho retornada para verificar o status do trabalho. Assim que tiver êxito, use a CLI do Azure, conforme descrito anteriormente, para baixar e exibir os resultados. A saída deve conter três linhas, todos os quais contêm **[ERROR]**.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumo
+## <a id="summary"></a>Resumo
 
 Conforme demonstrado nesse documento, você pode usar uma solicitação HTTP bruta para executar, monitorar e exibir os resultados de trabalhos do Hive no cluster do HDInsight.
 
 Para obter mais informações sobre a interface REST usada nesse artigo, consulte a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">Referência de WebHCat</a>.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 
 Para obter informações gerais sobre o Hive com HDInsight:
 
@@ -197,10 +199,5 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

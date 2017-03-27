@@ -1,0 +1,60 @@
+---
+title: "Script do Azure PowerShell – Importar de um bacpac em um Banco de Dados SQL | Microsoft Docs"
+description: "Amostra de script do Azure PowerShell – Importar de um bacpac para um banco de dados SQL usando o PowerShell"
+services: sql-database
+documentationcenter: sql-database
+author: janeng
+manager: jstrauss
+editor: carlrab
+tags: azure-service-management
+ms.assetid: 
+ms.service: sql-database
+ms.custom: sample
+ms.devlang: PowerShell
+ms.topic: article
+ms.tgt_pltfrm: sql-database
+ms.workload: database
+ms.date: 03/07/2017
+ms.author: janeng
+translationtype: Human Translation
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 6ca1560d6d3fa313bd24cb6226cf1e78992af257
+ms.lasthandoff: 03/10/2017
+
+---
+
+# <a name="import-from-a-bacpac-into-a-sql-database-using-powershell"></a>Importar de um bacpac para um Banco de Dados SQL usando o PowerShell
+
+Este script do PowerShell de exemplo importa um banco de dados de um bacpac.  
+
+Antes de executar esse script, certifique-se de que uma conexão com o Azure foi criada usando o cmdlet `Add-AzureRmAccount`.
+
+## <a name="sample-script"></a>Script de exemplo
+
+[!code-powershell[principal](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1 "Criar Banco de Dados SQL")]
+
+## <a name="clean-up-deployment"></a>Limpar implantação
+
+Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+```
+
+## <a name="script-explanation"></a>Explicação sobre o script
+
+Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+
+| Comando | Observações |
+|---|---|
+| [New-AzureRmResourceGroup]() | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzureRmSqlServer]() | Cria um servidor lógico que hospeda o Banco de Dados SQL. |
+| [New-AzureRmSqlServerFirewallRule]() | Cria uma regra de firewall para permitir o acesso a todos os bancos de dados SQL no servidor do intervalo de endereços IP inserido. |
+| [New-AzureRmSqlDatabase]() | Cria o Banco de Dados SQL no servidor lógico. |
+| [Remove-AzureRmResourceGroup]() | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+
+Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser encontrados nos [scripts do PowerShell do Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).

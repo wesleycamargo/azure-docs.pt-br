@@ -16,9 +16,9 @@ ms.date: 05/16/2016
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: a70f30f380bf110271cb597d8755611da5d2d78c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b1fb88277f6da86c023cd63af0d7c2c5681f8be0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,9 +32,9 @@ O Azure já tem muitos recursos internos de plataforma que oferecem suporte a ap
 Este artigo aborda um cenário real de recuperação de desastre, quando uma região inteira sofre uma interrupção devido a um grande desastre natural ou a uma interrupção do serviço generalizada. Essas ocorrências são raras, mas você deve se preparar para a possibilidade de uma interrupção em toda uma região. Se toda a região sofrer uma interrupção de serviço, as cópias localmente redundantes dos dados poderão estar temporariamente indisponíveis. Se você tiver habilitado a replicação geográfica, haverá três cópias adicionais dos blobs de Armazenamento do Azure e tabelas armazenadas em uma região diferente. No caso de uma interrupção regional completa ou de um desastre no qual a região primária não seja recuperável, o Azure remapeia todas as entradas de DNS para a região geográfica replicada.
 
 > [!NOTE]
-> Lembre-se de que você não tem nenhum controle sobre esse processo e de que ele ocorrerá apenas em caso de interrupção do serviço em toda uma região. Por isso, você também deve contar com outras estratégias de backup específicas ao aplicativo para chegar ao nível mais alto de disponibilidade. Para obter mais informações, consulte a seção sobre [Estratégias de Dados para Recuperação de Desastre](../resiliency/resiliency-disaster-recovery-azure-applications.md#data-strategies-for-disaster-recovery).
-> 
-> 
+> Lembre-se de que você não tem nenhum controle sobre esse processo e de que ele ocorrerá apenas em caso de interrupção do serviço em toda uma região. Por isso, você também deve contar com outras estratégias de backup específicas ao aplicativo para chegar ao nível mais alto de disponibilidade. Para obter mais informações, consulte a seção sobre [Estratégias de Dados para Recuperação de Desastre](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#data-strategies-for-disaster-recovery).
+>
+>
 
 Para ajudar você a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes para a máquina virtual do Azure no caso de uma interrupção de serviço de toda a região em que seu aplicativo da máquina virtual do Azure é implantado.
 
@@ -43,15 +43,15 @@ Nesse caso, nenhuma ação sua é necessária. Saiba que estamos trabalhando cui
 
 > [!NOTE]
 > Essa será a melhor opção se você não tiver instalado o Azure Site Recovery, o backup de máquina virtual, o armazenamento com redundância geográfica de acesso de leitura ou o armazenamento com redundância geográfica antes da interrupção. Se você configurou o armazenamento com redundância geográfica de acesso de leitura ou o armazenamento com redundância geográfica para a conta de armazenamento na qual os VHDs (discos rígidos virtuais) de sua VM estão armazenados, você poderá recuperar o VHD da imagem base e tentar provisionar uma nova VM por meio dele. Essa não é uma opção preferencial, pois não há nenhuma garantia de sincronização de dados, a menos que o backup da VM do Azure ou o Azure Site Recovery seja usado. Consequentemente, não há garantia de funcionamento dessa opção.
-> 
-> 
+>
+>
 
 Para clientes que desejam acesso imediato às máquinas virtuais, as duas opções abaixo estão disponíveis.  
 
 > [!NOTE]
 > Lembre-se de que as duas opções abaixo têm a possibilidade de perda parcial de dados.     
-> 
-> 
+>
+>
 
 ## <a name="option-2-restore-a-vm-from-a-backup"></a>Opção 2: Restaurar uma VM de um backup
 Para os clientes que configuraram um backup de VM, você pode restaurar a VM de seu ponto de backup e recuperação.
@@ -65,8 +65,8 @@ Se tiver configurado o Azure Site Recovery para trabalhar com suas máquinas vir
 
 > [!NOTE]
 > Embora o sistema operacional de máquina virtual do Azure e os discos de dados sejam replicados em um VHD secundário, se eles estiverem em uma conta de armazenamento com redundância geográfica ou de armazenamento com redundância geográfica de acesso de leitura, cada VHD será replicado independentemente. Esse nível de replicação não garante a consistência entre os VHDs replicados. Se o seu aplicativo e/ou bancos de dados que usam esses discos de dados tiverem dependências entre si, não haverá garantia de que todos os VHDs serão replicados como um único instantâneo. Também não há garantia de que a réplica de VHD do armazenamento com redundância geográfica ou do armazenamento com redundância geográfica de acesso de leitura resultará em um instantâneo consistente de aplicativo para inicializar a VM.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como implementar uma estratégia de alta disponibilidade e recuperação de desastres, consulte [Recuperação de desastres e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
@@ -78,5 +78,4 @@ Para saber como fazer backup de VMs, confira [Fazer backup de máquinas virtuais
 Saiba como usar o Azure Site Recovery para orquestrar e automatizar a proteção de suas máquinas físicas (e virtuais) com Windows e Linux que serão executadas em VMs Hyper-V e VMWare, confira [Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/).
 
 Se as instruções não estiverem claras ou se você desejar que a Microsoft faça as operações em seu nome, entre em contato com o [Atendimento ao Cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
 

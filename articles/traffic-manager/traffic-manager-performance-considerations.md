@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 680c3dd7bbc5ac86d021e119b31352cbfb3451f7
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f686685138625a53971f1fc5fc754fd22c9d67b2
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -26,13 +27,13 @@ Esta página explica as considerações de desempenho usando o Gerenciador de Tr
 
 Você tem instâncias do seu site nas regiões WestUS e EastAsia. Uma das instâncias está falhando na verificação de integridade para a investigação do gerenciador de tráfego. O tráfego de aplicativo é direcionado para a região íntegra. Esse failover é esperado, mas o desempenho pode ser um problema com base na latência do tráfego que agora viaja para uma região distante.
 
-## <a name="how-traffic-manager-works"></a>Como funciona o Gerenciador de Tráfego
+## <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho sobre Gerenciador de Tráfego
 
 O único impacto sobre o desempenho que o Gerenciador de Tráfego pode no seu site é na pesquisa de DNS inicial. Uma solicitação DNS para o nome do seu perfil do Gerenciador de Tráfego é tratada pelo servidor raiz DNS da Microsoft que hospeda a zona trafficmanager.net. O Gerenciador de Tráfego preenche e atualiza regularmente os servidores raiz DNS da Microsoft com base na política do Gerenciador de Tráfego e nos resultados da investigação. Portanto, mesmo durante a pesquisa de DNS inicial, nenhuma consulta DNS é enviada ao Gerenciador de Tráfego.
 
 O Gerenciador de Tráfego é composto por vários componentes: servidores de nome DNS, um serviço de API, a camada de armazenamento e um serviço de monitoramento de ponto de extremidade. Se um componente de serviço do Gerenciador de Tráfego falhar, não haverá nenhum efeito sobre o nome DNS associado ao perfil do Gerenciador de Tráfego. Os registros nos servidores DNS da Microsoft permanecem inalterados. No entanto, o monitoramento de ponto de extremidade e a atualização de DNS não acontecem. Portanto, o Gerenciador de Tráfego não consegue atualizar o DNS para apontar para seu site de failover quando seu site primário fica inativo.
 
-A resolução de nome DNS é rápida e os resultados são armazenados em cache. A velocidade da pesquisa DNS inicial depende dos servidores DNS que o cliente usa para resolução de nomes. Normalmente, um cliente pode concluir uma pesquisa de DNS em cerca de 50 ms. Os resultados da pesquisa são armazenados em cache durante a TTL (vida útil) do DNS. A TTL padrão para o Gerenciador de Tráfego é de 300 segundos.
+A resolução de nome DNS é rápida e os resultados são armazenados em cache. A velocidade da pesquisa DNS inicial depende dos servidores DNS que o cliente usa para resolução de nomes. Normalmente, um cliente pode concluir uma pesquisa de DNS em cerca de&50; ms. Os resultados da pesquisa são armazenados em cache durante a TTL (vida útil) do DNS. A TTL padrão para o Gerenciador de Tráfego é de 300 segundos.
 
 O tráfego NÃO flui pelo Gerenciador de Tráfego. Uma vez concluída a pesquisa DNS, o cliente tem um endereço IP para uma instância do seu site. O cliente conecta-se diretamente ao endereço e não passa pelo Gerenciador de Tráfego. A política do Gerenciador de Tráfego que você escolhe não tem nenhuma influência sobre o desempenho do DNS. No entanto, um método de roteamento de Desempenho pode afetar negativamente a experiência do aplicativo. Por exemplo, se sua política redirecionar tráfego da América do Norte para uma instância hospedada na Ásia, a latência de rede para essas sessões poderá causar um problema de desempenho.
 
@@ -85,10 +86,5 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

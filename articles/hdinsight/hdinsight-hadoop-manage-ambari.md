@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
 ms.openlocfilehash: 34f5c92dc565e644bd8c569bfbea65e92ace5a19
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -29,7 +31,7 @@ O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop,
 
 Neste documento, você aprenderá a usar a interface de usuário do Ambari Web com um cluster HDInsight.
 
-## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a>O que é o Ambari?
+## <a id="whatis"></a>O que é o Ambari?
 
 O [Apache Ambari](http://ambari.apache.org) simplifica o gerenciamento do Hadoop, fornecendo uma IU da Web fácil de usar que pode ser utilizada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -196,7 +198,7 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
      > [!NOTE]
      > Não use esta ação em clusters HDInsight.
 
-### <a name="a-idserviceaservices"></a><a id="service"></a>Serviços
+### <a id="service"></a>Serviços
 
 Na página **Painel** ou **Serviços**, use o botão **Ações** na parte inferior da lista de serviços para interromper e iniciar todos os serviços.
 
@@ -240,10 +242,5 @@ As Exibições do Ambari permitem que os desenvolvedores conectem elementos de i
 * Exibição do Hive: a Exibição do Hive permite executar consultas de Hive diretamente do seu navegador da Web. Você pode salvar consultas, exibir os resultados, salvar os resultados no armazenamento de cluster ou baixar os resultados no sistema local. Para obter mais informações sobre como usar Exibições do Hive, consulte [Usar Exibições do Hive com o HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 * Exibição do Tez: a Exibição do Tez permite que você entenda melhor e otimize trabalhos exibindo informações sobre como trabalhos do Tez são executados e quais recursos são usados pelo trabalho.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

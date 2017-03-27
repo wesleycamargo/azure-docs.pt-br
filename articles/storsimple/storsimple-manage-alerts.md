@@ -4,7 +4,7 @@ description: "Descreve as condições de alerta e a gravidade do StorSimple, com
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bee49253-9ac7-4131-95f6-6bf0e72b8438
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/08/2017
 ms.author: anbacker
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c09a105bd321ec29f4331d2ba4c8cf80a796da45
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2a1e44920581771af77fb46984b1cea31a957d67
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -155,6 +156,7 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 |:--- |:--- |:--- |
 | O componente de hardware <*ID do componente*> relata o status como <*status*>. | |Condições temporárias, às vezes, podem causar esses alertas. Nesse caso, esse alerta será automaticamente removido após algum tempo. Se o problema persistir, contate o Suporte da Microsoft. |
 | Controlador passivo funcionando incorretamente. |O controlador (secundário) passivo não está funcionando. |O dispositivo está funcionando, mas um dos controladores está funcionando incorretamente. Tente reiniciar o controlador em questão. Se o problema não for resolvido, contate o Suporte da Microsoft. |
+| Falha de unidade iminente detectada. | Falha de unidade iminente detectada. |Detectamos uma falha iminente do disco para o componente de hardware 'Unidade no slot <*ID de slot*>, Compartimento <*ID do compartimento*>'. Considere trocar a unidade. <br> Antes de começar a substituição do disco, revise as informações a seguir.<br><br>Se o seu sistema tiver mais de um disco com falha, nunca remova mais de um SSD ou HDD do sistema. Isso pode resultar em perda de dados.<br><br>Lembre-se de colocar um SSD de reposição em um slot que continha anteriormente um SSD. O mesmo vale para um HDD.<br><br>Slots são numerados de 0 a 11. Um disco com falha no slot 2 é mapeado para um disco com falha no slot 3 do dispositivo (na parte superior esquerda).<br><br>Para obter mais informações sobre a substituição do disco, vá para https://go.microsoft.com/fwlink/?linkid=838653. Se o problema persistir, entre em contato com o suporte da Microsoft por meio de https://go.microsoft.com/fwlink/?linkid=838654. |
 
 ### <a name="job-failure-alerts"></a>Alertas de falha nos trabalhos
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
@@ -213,10 +215,5 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Erros do StorSimple e solução de problemas de um dispositivo operacional](storsimple-troubleshoot-operational-device.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

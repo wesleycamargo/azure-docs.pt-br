@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/08/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fe0bff84a5316628d9e465da0d4e62162f1ea4f2
-ms.openlocfilehash: cb67631dbbfb53a0de9b07bc3918bd70751ec41b
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62ecd4cc2eed8623cab75777605d621e16b99977
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -232,7 +232,7 @@ Você pode modificar certas propriedades de um circuito da Rota Expressa sem afe
 Você pode fazer o seguinte sem tempo de inatividade:
 
 * Como habilitar ou desabilitar o complemento premium da Rota Expressa para seu circuito da Rota Expressa.
-* Aumente a largura de banda de seu circuito da Rota Expressa. Observe que não há suporte para o downgrade da largura de banda de um circuito.
+* Aumente a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Observe que não há suporte para o downgrade da largura de banda de um circuito. 
 * Altere o plano de medição de Dados Limitados para Dados Ilimitados. Observe que a alteração do plano de medição de Dados Ilimitados para Dados Limitados não tem suporte.
 * Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
 
@@ -286,7 +286,9 @@ Você pode desabilitar o complemento premium da Rota Expressa para o circuito ex
 Confira as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter opções de largura de banda com suporte para seu provedor. Você pode escolher um tamanho maior do que o tamanho do circuito existente, desde que a porta física (na qual o circuito foi criado) permita.
 
 > [!IMPORTANT]
-> Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um novo provisionamento de um novo circuito da Rota Expressa.
+> Talvez seja necessário recriar o circuito de ExpressRoute se não houver capacidade adequada na porta existente. Você não pode atualizar o circuito não se houver capacidade adicional disponível nesse local.
+>
+> Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um reprovisionamento de um novo circuito da Rota Expressa.
 > 
 > 
 

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: dd7c67bf83e4b95b978b793c8169b7e9c98bc939
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,7 +55,7 @@ Conforme mostrado no diagrama a seguir, um trabalho de computação que usa esse
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar os modelos do Lote, você precisará do seguinte:
 
-* Um computador com Visual Studio 2015, ou mais recente, já instalado.
+* Um computador com Visual Studio 2015, ou mais recente, instalado.
 * Os modelos do Lote, disponíveis na [Galeria do Visual Studio][vs_gallery] como extensões do Visual Studio. Há duas maneiras de obter os modelos:
   
   * Instalar os modelos usando a caixa de diálogo **Extensões e Atualizações** no Visual Studio (para saber mais, confira [Localizando e usando extensões do Visual Studio][vs_find_use_ext]). Na caixa de diálogo **Extensões e Atualizações** , procure e baixe as duas extensões a seguir:
@@ -68,7 +68,7 @@ Para usar os modelos do Lote, você precisará do seguinte:
 ## <a name="preparation"></a>Preparação
 Recomendamos a criação de uma solução que pode conter seu Gerenciador de trabalho, bem como o processador de tarefas, pois isso pode facilitar o compartilhamento do código entre os programas Gerenciador de trabalho e Processador de tarefas. Para criar essa solução, execute estas etapas:
 
-1. Abra o Visual Studio 2015 e selecione **Arquivo** > **Novo** > **Projeto**.
+1. Abra o Visual Studio e selecione **Arquivo** > **Novo** > **Projeto**.
 2. Em **Modelos**, expanda **Outros Tipos de Projeto**, clique em **Soluções do Visual Studio** e, em seguida, selecione **Solução em Branco**.
 3. Digite um nome que descreva seu aplicativo e a finalidade dessa solução (por exemplo, "ProgramasDeTarefasdoLoteLitware").
 4. Para criar a nova solução, clique em **OK**.
@@ -87,7 +87,7 @@ O modelo do Gerenciador de trabalho ajuda você a implementar uma tarefa do Gere
 ### <a name="create-a-job-manager-using-the-template"></a>Criar um Gerenciador de trabalho usando o modelo
 Para adicionar um Gerenciador de trabalho à solução que você criou anteriormente, execute estas etapas:
 
-1. Abra sua solução existente no Visual Studio 2015.
+1. Abra sua solução existente no Visual Studio.
 2. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e clique em **Adicionar** > **Novo Projeto**.
 3. No **Visual C#**, clique em **Nuvem** e em **Gerenciador de trabalho do Lote do Azure com o Divisor de trabalho**.
 4. Digite um nome que descreva o aplicativo e identifique esse projeto como o Gerenciador de trabalho (por exemplo, "GerenciadorDeTrabalhoLitware").
@@ -256,7 +256,7 @@ As ações executadas pelo Processador de tarefas podem simples ou complexas, e 
 ### <a name="create-a-task-processor-using-the-template"></a>Criar um Processador de tarefas usando o modelo
 Para adicionar um Processador de tarefas à solução que você criou anteriormente, execute estas etapas:
 
-1. Abra sua solução existente no Visual Studio 2015.
+1. Abra sua solução existente no Visual Studio.
 2. No Gerenciador de Soluções, clique com o botão direito na solução, clique em **Adicionar** e em **Novo Projeto**.
 3. No **Visual C#**, clique em **Nuvem** e em **Processador de Tarefas do Lote do Azure**.
 4. Digite um nome que descreva o aplicativo e identifique esse projeto como o Processador de tarefas (por exemplo, "ProcessadorDeTarefasLitware").

@@ -15,22 +15,24 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
-ms.openlocfilehash: 7a26b44f1c2c97174fb98ffdf0cb74a71d27710a
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: b41d906d6948f0f9e3cdb38b4a478b39f55ce219
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Procedimento armazenado](data-factory-stored-proc-activity.md)
-> * [U-SQL da Análise Data Lake](data-factory-usql-activity.md)
-> * [Personalizado do .NET](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Atividade de Hive](data-factory-hive-activity.md) 
+> * [Atividade Pig](data-factory-pig-activity.md)
+> * [Atividade MapReduce](data-factory-map-reduce.md)
+> * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade do Spark](data-factory-spark.md)
+> * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade do Recurso de Atualização do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
+> * [Atividade do U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
+> * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de armazenamento vinculados utilizando serviços de computação vinculados. Ela contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve a **Atividade do U-SQL do Data Lake Analytics** que executa um script **U-SQL** em um serviço vinculado de computação do **Azure Data Lake Analytics**. 
 
@@ -79,7 +81,7 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
 
 | Tipo de usuário | Expira após |
 |:--- |:--- |
-| Contas de usuário NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com,, etc.) |12 horas |
+| Contas de usuário NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com etc.) |12 horas |
 | Contas de usuários gerenciadas pelo AAD (Azure Active Directory) |14 dias após a última execução da fatia. <br/><br/>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias. |
 
 Para evitar/resolver este erro, reautorize usando o botão **Autorizar** quando o **token expirar** e reimplante o serviço vinculado. Gere também valores para as propriedades **sessionId** e **authorization** de forma programática, usando o código na seção a seguir. 

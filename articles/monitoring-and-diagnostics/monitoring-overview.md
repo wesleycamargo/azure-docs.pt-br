@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/02/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 3693b90509646fd7292861979cd7c2d1c0100d68
-ms.openlocfilehash: 30e92d17a99a0c751397e448108d488aefdd557a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ca55f1c295d99ff92abaef1a919d4c90d3c33b8a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,13 +32,13 @@ Os aplicativos em nuvem são complexos com muitas partes móveis. O monitorament
 
 O diagrama a seguir mostra uma exibição conceitual do monitoramento do Azure, incluindo o tipo de logs que você pode coletar e o que você pode fazer com os dados.   
 
-![Modelo Lógico para o monitoramento e diagnóstico dos recursos não de computação](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
+![Modelo para o monitoramento e diagnóstico dos recursos não de computação](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
 Figura 1: modelo conceitual para o monitoramento e diagnóstico dos recursos que não são de computação
 
 <br/>
 
-![Modelo Lógico para o monitoramento e diagnóstico dos recursos de computação](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
+![Modelo para o monitoramento e diagnóstico dos recursos de computação](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
 Figura 2: modelo conceitual para o monitoramento e diagnóstico dos recursos de computação
 
@@ -114,7 +114,8 @@ Os exemplos incluem:
 * Envie para os Hubs de Eventos para que você possa rotear para as ferramentas de terceiros para executar a análise em tempo real.
 
 ### <a name="automate"></a>Automatizar
-Você pode usar os dados de monitoramento para disparar alertas ou até processos inteiros. Os exemplos incluem:
+Você pode usar os dados de monitoramento para disparar alertas ou até processos inteiros.
+Os exemplos incluem:
 
 * Use os dados para dimensionar automaticamente as instâncias de computação com base na carga do aplicativo.
 * Envie emails quando uma métrica passar de um limite predeterminado.

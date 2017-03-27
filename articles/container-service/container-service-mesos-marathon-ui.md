@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f26b191d9d98768d766e4c974138c9d191340027
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -41,7 +41,7 @@ Com um túnel SSH (Secure Shell) [estabelecido](container-service-connect.md), n
 ![Interface do usuário do DC/OS](./media/dcos/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Explorar a interface do usuário do Marathon
-Para ver a Interface do usuário do Marathon, navegue até http://localhost/Marathon. Nessa tela, você pode iniciar um novo contêiner ou outro aplicativo no cluster DC/OS do Serviço de Contêiner do Azure. Você também pode ver informações sobre a execução de aplicativos e de contêineres.  
+Para ver a Interface do usuário do Marathon, navegue até http://localhost/marathon. Nessa tela, você pode iniciar um novo contêiner ou outro aplicativo no cluster DC/OS do Serviço de Contêiner do Azure. Você também pode ver informações sobre a execução de aplicativos e de contêineres.  
 
 ![Interface do usuário do Marathon](./media/dcos/dcos3.png)
 

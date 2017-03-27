@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 03/08/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 102be620e8812cc551aebafe7c8df4e4eac0ae90
-ms.openlocfilehash: 2ad3bd7b846693c637fd843383802651a619b128
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -42,6 +43,16 @@ O desafio com as atualizações do sistema operacional é que elas normalmente e
 No futuro, daremos suporte a uma política de atualização do sistema operacional coordenada e totalmente atualizada entre domínios de atualização, garantindo que a disponibilidade seja mantida apesar das reinicializações e outras falhas inesperadas.
 
 Enquanto isso, [fornecemos um script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) que pode ser usado por um administrador de cluster para iniciar manualmente patches em cada nó de maneira segura.
+
+### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>Posso usar grandes conjuntos de dimensionamento Virtual no meu cluster do SF? 
+
+**Resposta curta** – Não. 
+
+**Resposta longa** – Embora os grandes VMSS (conjuntos de dimensionamento virtuais) permitam que você dimensione um VMSS até 1.000 instâncias de VM, isso é feito pelo uso de PGs (Grupos de Posicionamento). FDs (domínios de falha) e UDs (domínios de atualização) só são consistentes dentro de um grupo de posicionamento. O Service Fabric usa UDs e FDs para tomar decisões de posicionamento de suas instâncias de serviço/réplicas de serviço. Já que UDs e FDs são comparáveis somente dentro de um grupo de posicionamento, o SF não pode usá-los. Por exemplo, se VM1 no PG1 tem uma topologia de FD=0 e VM9 em PG2 tem uma topologia de FD=4, isso não significa que VM1 e VM2 estejam em dois Racks de hardwares diferentes, portanto, os SFs não podem usar os valores de FD nesse caso para tomar decisões de posicionamento.
+
+Atualmente, há outros problemas com VMSS grande, assim como a falta de suporte para balanceamento de carga de nível&4;. Consulte para obter [detalhes sobre VMSS grande](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+
+
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Qual o tamanho mínimo de um cluster do Service Fabric? Por que ele não pode ser menor?
 
@@ -118,9 +129,4 @@ No momento, não há planos para abrir o código do tempo de execução do Servi
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais sobre os principais conceitos do Service Fabric e práticas recomendadas](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
-ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 7427a5740dd7fe32aeb4d8396568706399c66bd7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,13 +35,13 @@ Esses são os limites para uma única solicitação e/ou chamada de conector HTT
 
 |Nome|Limite|Observações|
 |----|----|----|
-|Tempo Limite da Solicitação|90 Segundos|Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [loop until](logic-apps-loops-and-scopes.md) pode compensar, conforme necessário|
+|Tempo Limite da Solicitação|120 segundos|Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [loop until](logic-apps-loops-and-scopes.md) pode compensar, conforme necessário|
 
 #### <a name="message-size"></a>Tamanho da mensagem
 
 |Nome|Limite|Observações|
 |----|----|----|
-|Tamanho da mensagem|50 MB|Talvez alguns conectores e APIs não ofereçam suporte a 50 MB |
+|Tamanho da mensagem|100 MB|Talvez alguns conectores e APIs não ofereçam suporte para 100 MB |
 |Limite de avaliação da expressão|131.072 caracteres|`@concat()`, `@base64()`, `string` não pode ser maior do que isso|
 
 #### <a name="retry-policy"></a>Política de repetição
@@ -50,7 +50,7 @@ Esses são os limites para uma única solicitação e/ou chamada de conector HTT
 |----|----|----|
 |Tentativas de repetição|4|Pode configurar com o [parâmetro de política de repetição](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Atraso máximo de nova tentativa|1 hora|Pode configurar com o [parâmetro de política de repetição](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Atraso mínimo de nova tentativa|20 s|Pode configurar com o [parâmetro de política de repetição](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Atraso mínimo de nova tentativa|5 segundos|Pode configurar com o [parâmetro de política de repetição](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
 ### <a name="run-duration-and-retention"></a>Retenção e duração da execução
 
@@ -93,7 +93,7 @@ Estes são os limites de definição de um único aplicativo lógico.
 |----|----|----|
 |Ações por fluxo de trabalho|250|Você pode adicionar fluxos de trabalho aninhados para estendê-lo conforme necessário|
 |Profundidade de aninhamento de ação permitida|5|Você pode adicionar fluxos de trabalho aninhados para estendê-lo conforme necessário|
-|Fluxos por região e assinatura|1000||
+|Fluxos de trabalho por região e assinatura|1000||
 |Gatilhos por fluxo de trabalho|10||
 |Máximo de caracteres por expressão|8.192||
 |Tamanho máximo de `trackedProperties` em caracteres|16.000|
@@ -134,6 +134,8 @@ Chamadas feitas diretamente de um aplicativo lógico (por exemplo, via [HTTP](..
 |Leste da Austrália|13.75.153.66, 104.210.89.222, 104.210.89.244, 13.75.149.4, 104.210.91.55, 104.210.90.241|
 |Sudeste da Austrália|13.73.115.153, 40.115.78.70, 40.115.78.237, 13.73.114.207, 13.77.3.139, 13.70.159.205|
 |Sul do Brasil|191.235.86.199, 191.235.95.229, 191.235.94.220, 191.235.82.221, 191.235.91.7, 191.234.182.26|
+|Canadá Central|52.233.29.92,52.228.39.241,52.228.39.244|
+|Leste do Canadá|52.232.128.155,52.229.120.45,52.229.126.25|
 |Índia Central|52.172.157.194, 52.172.184.192, 52.172.191.194, 52.172.154.168, 52.172.186.159, 52.172.185.79|
 |Centro dos EUA|13.67.236.76, 40.77.111.254, 40.77.31.87, 13.67.236.125, 104.208.25.27, 40.122.170.198|
 |Ásia Oriental|168.63.200.173, 13.75.89.159, 23.97.68.172, 13.75.94.173, 40.83.127.19, 52.175.33.254|
@@ -159,6 +161,8 @@ Chamadas feitas a partir de um [conector](../connectors/apis-list.md) virão do 
 |Leste da Austrália|40.126.251.213|
 |Sudeste da Austrália|40.127.80.34|
 |Sul do Brasil|191.232.38.129|
+|Canadá Central|52.233.31.197,52.228.42.205,52.228.33.76,52.228.34.13|
+|Leste do Canadá|52.229.123.98,52.229.120.178,52.229.126.202,52.229.120.52|
 |Índia Central|104.211.98.164|
 |Centro dos EUA|40.122.49.51|
 |Ásia Oriental|23.99.116.181|

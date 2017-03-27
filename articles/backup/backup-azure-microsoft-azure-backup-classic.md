@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: 2d32e8bb650d682684be0e093a9f5dfd9d536a8f
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2b278b5c512d3ea0ff045869487d4551118c0e5c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -52,31 +53,19 @@ A primeira etapa para colocar o Servidor de Backup do Azure em execução é ter
 >
 >
 
-Se você planeja associar este servidor a um domínio em algum momento, é recomendável que a atividade de ingressão no domínio seja concluída antes da instalação do Servidor de Backup do Azure. Mover uma máquina do Servidor de Backup do Azure existente para um novo domínio após a implantação *não tem suporte*.
+Se você planeja ingressar o Servidor de Backup do Azure em um domínio, recomendamos que você ingresse o servidor físico ou máquina virtual no domínio antes de instalar o software do Servidor de Backup do Azure. *Não há suporte* para a movimentação de um Servidor de Backup do Azure para um novo domínio após a implantação.
 
 ## <a name="2-backup-vault"></a>2. Cofre de backup
 ![etapa2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Se você enviar os dados de backup para o Azure ou se os mantiver localmente, o software precisará estar conectado ao Azure. Para ser mais específico, o computador do Servidor de Backup do Azure precisa ser registrado em um cofre de backup.
+Se você envia os dados de backup para o Azure ou os mantêm localmente, o Servidor de Backup do Azure deve ser registrado em um cofre.
 
-Para criar um cofre de backup:
+> [!IMPORTANT]
+> A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup. Ainda há suporte para os cofres de Backup existentes, e é possível [usar o Azure PowerShell para criar os Cofres de Backup](./backup-client-automation-classic.md#create-a-backup-vault). No entanto, a Microsoft recomenda a criação de cofres dos Serviços de Recuperação para todas as implantações, pois aperfeiçoamentos futuros só se aplicam aos cofres dos Serviços de Recuperação.
+>
+>
 
-1. Entre no [Portal de Gerenciamento](http://manage.windowsazure.com/).
-2. Clique em **Novo** > **Serviços de Dados** > **Serviços de Recuperação** > **Cofre de Backup** > **Criação Rápida**. Se você tem várias assinaturas associadas à sua conta organizacional, escolha a assinatura correta a ser associada ao cofre de backup.
-3. Em **Nome**, digite um nome amigável para identificar o cofre. Ele precisa ser exclusivo para cada assinatura.
-4. Em **Região**, selecione a região geográfica para o cofre. Normalmente, a região do cofre é escolhida com base na soberania dos dados ou nas restrições de latência de rede.
 
-    ![Criar cofre de backup](./media/backup-azure-microsoft-azure-backup/backup_vaultcreate.png)
-5. Clique em **Criar cofre**. Pode levar algum tempo para que o cofre de backup seja criado. Monitore as notificações de status na parte inferior do portal.
-
-    ![Criar notificação de cofre](./media/backup-azure-microsoft-azure-backup/creating-vault.png)
-6. Uma mensagem confirmará que o cofre foi criado com êxito e ele será listado na página de Serviços de Recuperação como Ativo.
-    ![Lista de cofres de backup](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
-
-   > [!IMPORTANT]
-   > Certifique-se de que a opção apropriada de redundância de armazenamento esteja marcada logo depois que o cofre for criado. Leia mais sobre as opções da [redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [localmente redundante](../storage/storage-redundancy.md#locally-redundant-storage) nesta [visão geral](../storage/storage-redundancy.md).
-   >
-   >
 
 ## <a name="3-software-package"></a>3. Pacote de software
 ![etapa3](./media/backup-azure-microsoft-azure-backup/step3.png)
@@ -124,6 +113,7 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
    > O Servidor de Backup do Azure não funcionará com uma instância remota do SQL Server. A instância que está sendo usada pelo Servidor de Backup do Azure precisa ser local.
    >
    >
+
 4. Forneça um local para a instalação dos arquivos do servidor de Backup do Microsoft Azure e clique em **Avançar**.
 
     ![Pré-requisito&2; do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
@@ -209,9 +199,4 @@ Você pode usar estes artigos para obter um entendimento mais profundo sobre a p
 * [Backup do SQL Server](backup-azure-backup-sql.md)
 * [Backup do servidor do SharePoint](backup-azure-backup-sharepoint.md)
 * [Backup do servidor alternativo](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

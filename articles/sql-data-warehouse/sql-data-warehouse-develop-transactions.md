@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dde5397405b64d394cdff9c69c05a565c5427f56
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -51,7 +52,7 @@ Na tabela abaixo, foram feitas as seguintes suposições:
 
 O limite de tamanho de transação é aplicado por transação ou operação. Ele não é aplicado em todas as transações simultâneas. Portanto, cada transação tem permissão para gravar essa quantidade de dados no log. 
 
-Para otimizar e minimizar a quantidade de dados gravados no log, confira o artigo [Práticas recomendadas das transações][Práticas recomendadas das transações].
+Para otimizar e minimizar a quantidade de dados gravados no log, confira o artigo [Práticas recomendadas das transações][Transactions best practices].
 
 > [!WARNING]
 > O tamanho máximo de transações só pode ser obtido para tabelas distribuídas HASH ou ROUND_ROBIN nas quais o espalhamento de dados é uniforme. Se a transação estiver gravando dados de maneira distorcida nas distribuições, provavelmente, o limite será alcançado antes do tamanho máximo de transações.
@@ -153,7 +154,7 @@ O comportamento esperado é observado agora. O erro na transação é gerenciado
 Tudo o que mudou é que a `ROLLBACK` da transação deve ocorrer antes da leitura das informações de erro no bloco `CATCH`.
 
 ## <a name="errorline-function"></a>Função Error_line()
-Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR_LINE(). Se você tiver isso em seu código, você precisará removê-lo para que seja compatível com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Confira o artigo [LABEL][LABEL] para obter mais detalhes sobre esse recurso.
+Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR_LINE(). Se você tiver isso em seu código, você precisará removê-lo para que seja compatível com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Confira o artigo [LABEL][LABEL] para obter mais detalhes sobre este recurso.
 
 ## <a name="using-throw-and-raiserror"></a>Uso de THROW e RAISERROR
 THROW é a implementação mais moderna para lançar exceções no SQL Data Warehouse, mas também há suporte para RAISERROR. No entanto, existem algumas diferenças que valem a pena prestar atenção.
@@ -175,23 +176,18 @@ Elas são as seguintes:
 * Não há suporte para DDL, como `CREATE TABLE` , em uma transação definida pelo usuário
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a otimização de transações, consulte [Práticas recomendadas das transações][Práticas recomendadas das transações].  Para saber mais sobre outras práticas recomendadas do SQL Data Warehouse, consulte [Práticas recomendadas do SQL Data Warehouse][Práticas recomendadas do SQL Data Warehouse].
+Para saber mais sobre a otimização das transações, confira [Práticas recomendadas das transações][Transactions best practices].  Para saber mais sobre outras práticas recomendadas do SQL Data Warehouse, confira [Práticas recomendadas do SQL Data Warehouse][SQL Data Warehouse best practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[visão geral sobre desenvolvimento]: ./sql-data-warehouse-overview-develop.md
-[Práticas recomendadas das transações]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[Práticas recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

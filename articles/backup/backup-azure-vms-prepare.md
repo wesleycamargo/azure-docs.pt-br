@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 3/10/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: f517a649a6c6aa65b350767bc66cf4d60c7988b5
-ms.openlocfilehash: 9a114e954d59dcecaf3310e024428770bc4a2349
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9d9c56697a022fac2ad84b7688445cad3e489658
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,33 +64,13 @@ Se você souber que essas condições já existem em seu ambiente, prossiga para
 ## <a name="create-a-backup-vault-for-a-vm"></a>Criar um cofre de backup para uma VM
 O cofre de backup é uma entidade que armazena todos os pontos de backups e recuperação que foram criados ao longo do tempo. O cofre de backup também contém as políticas de backup que serão aplicadas às máquinas virtuais que passarão pelo backup.
 
+> [!IMPORTANT]
+> A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup. Ainda há suporte para os cofres de Backup existentes, e é possível [usar o Azure PowerShell para criar os Cofres de Backup](./backup-client-automation-classic.md#create-a-backup-vault). No entanto, a Microsoft recomenda a criação de cofres dos Serviços de Recuperação para todas as implantações, pois aperfeiçoamentos futuros só se aplicam aos cofres dos Serviços de Recuperação.
+
+
 Esta imagem mostra os relacionamentos entre as várias entidades do Backup do Azure:     ![Entidades e relacionamentos do Backup do Azure](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
-Para criar um cofre de backup:
 
-1. Entre no [Portal do Azure](http://manage.windowsazure.com/).
-2. No portal do Azure clique em **Novo** > **Integração Híbrida** > **Backup**. Ao clicar em **Backup**, você alternará automaticamente para o portal clássico (mostrado após a Observação).
-
-    ![Portal do Ibiza](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
-
-   > [!NOTE]
-   > Se sua assinatura foi usada pela última vez no portal clássico, ela poderá ser aberta no portal clássico. Neste caso, para criar um cofre de backup, clique em **Novo** > **Serviços de Dados** > **Serviços de Recuperação** > **Cofre de Backup** > **Criação Rápida** (veja a imagem abaixo).
-   >
-   >
-
-    ![Criar cofre de backup](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
-3. Para **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
-4. Em **Região**, selecione a região geográfica para o cofre. O cofre deve estar na mesma região que as máquinas virtuais que você deseja proteger. Se tiver máquinas virtuais em várias regiões, será necessário criar um cofre de backup em cada região. Não é necessário especificar contas de armazenamento para armazenar os dados de backup; o cofre de backup e o serviço de Backup do Azure cuidarão disso automaticamente.
-5. Em **Assinatura** , selecione a assinatura que deseja associar ao cofre de backup. Haverá várias opções somente se sua conta organizacional estiver associada a várias assinaturas do Azure.
-6. Clique em **Criar cofre**. Pode levar algum tempo para que o cofre de backup seja criado. Monitore as notificações de status na parte inferior do portal.
-
-    ![Criar notificação de cofre](./media/backup-azure-vms-prepare/creating-vault.png)
-7. Uma mensagem confirmará que o cofre foi criado com êxito. Ele será listado na página de **serviços de recuperação** como **Ativo**. Verifique se a opção apropriada de redundância de armazenamento está marcada logo depois que o cofre for criado. Leia mais sobre [como definir a opção de redundância de armazenamento no cofre de backup](backup-configure-vault.md#create-a-recovery-services-vault).
-
-    ![Lista de cofres de backup](./media/backup-azure-vms-prepare/backup_vaultslist.png)
-8. Clique no cofre de backup para abrir a página de **Início Rápido** na qual são exibidas as instruções para fazer o backup de máquinas virtuais do Azure.
-
-    ![Instruções de backup de máquina virtual na página Painel](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 Para gerenciar os instantâneos de VM, a extensão de backup precisa de conectividade com os endereços IP públicos do Azure. Sem a conexão correta com a Internet, as solicitações HTTP da máquina virtual atingirão o tempo limite e a operação de backup falhará. Se sua implantação possui restrições de acesso em vigor (por meio de um NSG, Grupo de Segurança de Rede, por exemplo), escolha uma destas opções para fornecer um caminho livre para o tráfego de backup:

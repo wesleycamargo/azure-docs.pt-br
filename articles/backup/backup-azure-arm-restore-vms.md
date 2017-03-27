@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/26/2017
+ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
-ms.openlocfilehash: 6f55bdbb97ead96edf7ca41562b1c4b5a712d6e8
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b64978da0513ac5daf8e7c4699cf6e3501d63fd9
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -29,14 +29,21 @@ ms.lasthandoff: 02/17/2017
 >
 >
 
-Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados no cofre de serviços de recuperação. Se ou quando é necessário reparar ou recriar uma VM, você pode restaurar a máquina virtual de qualquer um dos pontos de recuperação salvos. Quando você restaura um ponto de recuperação, você retorna ou reverte a VM ao estado quando o ponto de recuperação foi feito. Esse artigo explica como restaurar uma VM.
+Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados no cofre de serviços de recuperação. Se ou quando é necessário reparar ou recriar uma VM, você pode restaurar a máquina virtual de qualquer um dos pontos de recuperação salvos. Ao restaurar um ponto de recuperação, você pode criar uma nova VM, que é uma representação pontual de sua VM de backup, ou restaurar discos e usar o modelo fornecido junto para personalizar a VM restaurada ou realizar uma recuperação de arquivo individual. Este artigo explica como restaurar uma VM em uma nova VM, ou restaurar todos os discos de backup. Para recuperação de arquivo individual, consulte [Recuperar arquivos do backup de VM do Azure](backup-azure-restore-files-from-vm.md)
+
+![3-ways-restore-from-vm-backup](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
 > [!NOTE]
 > O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece informações e procedimentos para a restauração de VMs implantadas usando o modelo do Gerenciador de Recursos.
 >
 >
 
-## <a name="restore-a-recovery-point"></a>Restaurar um ponto de recuperação
+A restauração de uma VM ou de todos os discos do backup de VM envolve duas etapas:
+
+1. Selecionar um ponto de restauração para restauração
+2. Selecionar um tipo de restauração - crie uma nova VM ou restaure discos e especifique os parâmetros necessários. 
+
+## <a name="select-restore-point-for-restore"></a>Selecionar ponto de restauração para restauração
 1. Entre no [Portal do Azure](http://portal.azure.com/)
 2. No menu do Azure, clique em **Procurar** e, na lista de serviços, digite **Serviços de Recuperação**. A lista de serviços é ajustada de acordo com o que você digitar. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
 
@@ -85,46 +92,48 @@ Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses
     ![ponto de restauração definido](./media/backup-azure-arm-restore-vms/recovery-point-set.png)
 9. Na folha **Restaurar**, **Restaurar configuração** abre automaticamente após o ponto de restauração estar definido.
 
-    ![assistente de configuração de restauração definido](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
-
 ## <a name="choosing-a-vm-restore-configuration"></a>Escolhendo uma configuração de restauração de VM
 Agora que você selecionou o ponto de restauração, escolha uma configuração para a sua VM de restauração. As opções para configurar a VM restaurada são usar o portal do Azure ou o PowerShell.
 
-> [!NOTE]
-> O portal fornece uma opção de criação rápida para a VM restaurada. Se você personalizar a configuração da VM que será restaurada, use o PowerShell ou o portal para restaurar os discos com backup e use comandos do PowerShell para anexá-los à configuração da VM de sua escolha. Confira [Restaurar uma VM com configurações de rede especiais](#restoring-vms-with-special-network-configurations).
->
->
+1. Se você ainda não estiver nesse item, vá até a folha **Restaurar** . Certifique-se de que um [Ponto de restauração](#select-restore-point-for-restore) tenha sido selecionado e clique em **Restaurar configuração** para abrir a folha **Configuração de recuperação**.
 
-1. Se você ainda não estiver nesse item, vá até a folha **Restaurar** . Certifique-se de que um **Ponto de restauração** foi selecionado e clique em **Restaurar configuração** para abrir a folha **Configuração de recuperação**.
-
-    ![o assistente de configuração de recuperação está definido](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
+    ![o assistente de configuração de recuperação está definido](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. Na folha **Restaurar configuração**, você tem duas opções:
-
    * Restaurar a máquina virtual completa
    * Restaurar discos com backup
 
-   ### <a name="restore-full-virtual-machine"></a>Restaurar a máquina virtual completa
-   Na folha **Restaurar configuração** , insira ou selecione valores para cada um dos seguintes campos:
+O portal fornece uma opção de criação rápida para a VM restaurada. Se você quiser personalizar a configuração da VM, ou os nomes dos recursos criados como parte da criação de uma nova opção de VM, use o PowerShell ou o portal para restaurar discos armazenados em backup e use comandos do PowerShell para anexá-los à escolha de configuração da VM, ou use modelos que acompanham os discos de restauração para personalizar a VM restaurada. Veja [Restaurar uma VM com configurações de rede especiais](#restoring-vms-with-special-network-configurations) para obter detalhes sobre como restaurar a VM que tem vários NICs ou sob um balanceador de carga. 
+ 
+## <a name="create-a-new-vm-from-restore-point"></a>Criar uma nova VM a partir do ponto de restauração
+Se você não ainda estiver lá, [selecione um ponto de restauração](#restoring-vms-with-special-network-configurations) antes de prosseguir para a criação de uma nova VM a partir do ponto de restauração. Após a seleção do ponto de restauração, na folha **Restaurar configuração**, insira ou selecione valores para cada um dos campos a seguir:
 
-   * **Tipo de Restauração** – Criar máquina virtual.
-   * **Nome da máquina virtual** - Forneça um nome para a VM. O nome deve ser exclusivo para o grupo de recursos (para uma VM implantada pelo Gerenciador de Recursos) ou serviço de nuvem (para uma VM clássica). Não é possível substituir a máquina virtual se ela já existe na assinatura.
-   * **Grupo de recursos** – use um grupo de recursos existente ou crie um novo. Se você estiver restaurando uma VM Clássica, use este campo para especificar o nome de um novo serviço de nuvem. Se você estiver criando um novo grupo de recursos/serviço de nuvem, o nome deverá ser exclusivo globalmente. Normalmente, o nome do serviço de nuvem está associado a uma URL para o público, por exemplo: [cloudservice].cloudapp.net. Se você tentar usar um nome para o serviço de nuvem/grupo de recursos de nuvem que já tenha sido usado, o Azure atribuirá ao serviço de nuvem/grupo de recursos o mesmo nome que a VM. O Azure exibe serviços de nuvem/grupos de recursos e VMs não associadas a nenhum grupo de afinidades. Para saber mais, confira [Como migrar de Grupos de Afinidades para uma Rede Virtual Regional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-   * **Rede virtual** - selecione a rede virtual (VNET) ao criar a VM. O campo fornece todas as redes virtuais associadas à assinatura. O grupo de recursos da VM é exibido entre parênteses.
-   * **Sub-rede** - se a rede virtual tiver sub-redes, a primeira sub-rede será selecionada por padrão. Se houver sub-redes adicionais, selecione a sub-rede desejada.
-   * **Conta de armazenamento** - esse menu lista as contas de armazenamento no mesmo local que o cofre de Serviços de Recuperação. Ao escolher uma conta de armazenamento, selecione uma conta que compartilhe o mesmo local que o cofre de Serviços de Recuperação. Não há suporte para as contas de armazenamento com Zona redundante. Se não houver nenhuma conta de armazenamento no mesmo local que o cofre de Serviços de Recuperação, você deverá criar um antes de iniciar a operação de restauração. O tipo de replicação da conta de armazenamento é mencionado entre parênteses.
+* **Tipo de Restauração** – Criar máquina virtual.
+* **Nome da máquina virtual** - Forneça um nome para a VM. O nome deve ser exclusivo para o grupo de recursos (para uma VM implantada pelo Gerenciador de Recursos) ou serviço de nuvem (para uma VM clássica). Não é possível substituir a máquina virtual se ela já existe na assinatura.
+* **Grupo de recursos** – use um grupo de recursos existente ou crie um novo. Se você estiver restaurando uma VM Clássica, use este campo para especificar o nome de um novo serviço de nuvem. Se você estiver criando um novo grupo de recursos/serviço de nuvem, o nome deverá ser exclusivo globalmente. Normalmente, o nome do serviço de nuvem está associado a uma URL para o público, por exemplo: [cloudservice].cloudapp.net. Se você tentar usar um nome para o serviço de nuvem/grupo de recursos de nuvem que já tenha sido usado, o Azure atribuirá ao serviço de nuvem/grupo de recursos o mesmo nome que a VM. O Azure exibe serviços de nuvem/grupos de recursos e VMs não associadas a nenhum grupo de afinidades. Para saber mais, confira [Como migrar de Grupos de Afinidades para uma Rede Virtual Regional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+* **Rede virtual** - selecione a rede virtual (VNET) ao criar a VM. O campo fornece todas as redes virtuais associadas à assinatura. O grupo de recursos da VM é exibido entre parênteses.
+* **Sub-rede** - se a rede virtual tiver sub-redes, a primeira sub-rede será selecionada por padrão. Se houver sub-redes adicionais, selecione a sub-rede desejada.
+* **Conta de armazenamento** - esse menu lista as contas de armazenamento no mesmo local que o cofre de Serviços de Recuperação. Não há suporte para as contas de armazenamento com Zona redundante. Se não houver nenhuma conta de armazenamento no mesmo local que o cofre de Serviços de Recuperação, você deverá criar um antes de iniciar a operação de restauração. O tipo de replicação da conta de armazenamento é mencionado entre parênteses.
 
-     > [!NOTE]
-     > Se você estiver restaurando uma VM implantada pelo Gerenciador de Recursos, deverá identificar uma VNET (rede virtual). Uma VNET (rede virtual) é opcional para uma VM Clássica.
-     >
-     >
+![assistente de configuração de restauração definido](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
-   ### <a name="restore-backed-up-disks"></a>Restaurar discos com backup
-   Se quiser personalizar a máquina virtual que você gostaria de criar nos discos com backup, de forma diferente do que está presente na folha de configuração de restauração, selecione **Restaurar discos** como valor para **Tipo de Restauração**. Essa opção solicita uma conta de armazenamento (as mesmas restrições de Restaurar conta de armazenamento de máquina virtual completa se aplicam) para a qual os discos de backup serão copiados. Você pode [usar os discos restaurados para anexar a uma máquina virtual existente](../virtual-machines/virtual-machines-windows-attach-disk-portal.md) ou [criar uma nova máquina virtual de discos restaurados](./backup-azure-vms-automation.md#restore-an-azure-vm).
+> [!NOTE]
+> Se você estiver restaurando uma VM implantada pelo Gerenciador de Recursos, deverá identificar uma VNET (rede virtual). Uma VNET (rede virtual) é opcional para uma VM Clássica.
+>
+>
 
-3. Na folha **Restaurar configuração** folha, clique em **OK** para finalizar a configuração da restauração.
-4. Na folha **Restaurar**, clique em **Restaurar** para disparar a operação de restauração.
+Na folha **Restaurar configuração** folha, clique em **OK** para finalizar a configuração da restauração. Na folha **Restaurar**, clique em **Restaurar** para disparar a operação de restauração.
 
-    ![Configuração de recuperação concluída](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
+## <a name="restore-backed-up-disks"></a>Restaurar discos com backup
+Se quiser personalizar a máquina virtual que você gostaria de criar nos discos com backup, de forma diferente do que está presente na folha de configuração de restauração, selecione **Restaurar discos** como valor para **Tipo de Restauração**. Essa opção solicita uma conta de armazenamento na qual os discos de backups são copiados. Ao escolher uma conta de armazenamento, selecione uma conta que compartilhe o mesmo local que o cofre de Serviços de Recuperação. Não há suporte para as contas de armazenamento com Zona redundante. Se não houver nenhuma conta de armazenamento no mesmo local que o cofre de Serviços de Recuperação, você deverá criar um antes de iniciar a operação de restauração. O tipo de replicação da conta de armazenamento é mencionado entre parênteses.
+
+Após a conclusão da operação de restauração, você pode:
+* [Usar o modelo para personalizar a VM restaurada](#use-templates-to-customize-restore-vm)
+* [Usar os discos restaurados para anexar a uma máquina virtual existente](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)
+* [Criar uma nova máquina virtual usando o PowerShell de discos restaurados.](./backup-azure-vms-automation.md#restore-an-azure-vm)
+
+Na folha **Restaurar configuração** folha, clique em **OK** para finalizar a configuração da restauração. Na folha **Restaurar**, clique em **Restaurar** para disparar a operação de restauração.
+
+![Configuração de recuperação concluída](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
 
 ## <a name="track-the-restore-operation"></a>Acompanhar a operação de restauração
 Depois de disparar a operação de restauração, o serviço de Backup cria um trabalho para acompanhar a operação de restauração. O serviço de Backup também cria e exibe a notificação temporariamente na área de Notificações do portal. Se você não vir a notificação, você sempre poderá clicar no ícone de Notificações para exibir as notificações.
@@ -148,12 +157,43 @@ Para exibir a operação durante o processamento ou para exibir quando for concl
     A folha **Trabalhos de Backup** é aberta e exibe a lista de trabalhos.
 
     ![lista de VMs no cofre](./media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
+    
+## <a name="use-templates-to-customize-restore-vm"></a>Usar modelos para personalizar a vm de restauração
+Após a [conclusão da operação de restauração dos discos](#Track-the-restore-operation), você pode usar o modelo gerado como parte da operação de restauração para criar uma nova VM com uma configuração diferente da configuração de backup ou para personalizar os nomes de recursos criados, como criar uma nova VM do ponto de restauração. 
+
+> [!NOTE]
+> Os modelos serão adicionados como parte da Restauração de Discos para pontos de recuperação feitos após 1º de março de 2017. Eles são aplicáveis para VMs de disco não criptografado e não gerenciados. O suporte para VMs criptografadas e VMs de disco gerenciado estará disponível em versões futuras. 
+>
+>
+
+Para obter o modelo gerado como parte da opção de discos de restauração,
+
+1. Acesse os detalhes do trabalho de restauração correspondente ao trabalho. 
+2. Isso listará o uri do modelo do qual você pode baixar o modelo. Anote os valores de nome do contêiner. 
+
+     ![restaurar detalhamento de trabalho](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
+     
+3. Anote os valores de nome da conta de armazenamento de destino, nome do contêiner, uri do blob de modelo. Acesse *conta de armazenamento de destino > selecione Blobs > Contêineres* e vá até o arquivo e baixe o arquivo que começa com o nome *azuredeploy*.
+
+    ![download-template-storage-account](./media/backup-azure-arm-restore-vms/download-template.png)
+    
+   Como alternativa, você pode usar o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) para ir até a assinatura > conta de armazenamento de destino > Contêineres de Blob correspondente e selecionar o nome do contêiner anotado na etapa acima. No painel à direita que mostra os arquivos dentro do contêiner, baixe o arquivo que começa com o nome *azuredeploy*. 
+   
+   ![download-template-storage-explorer](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
+     
+Depois de baixar o modelo, use a implantação de modelo para [editar e implantar o modelo](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) ou acrescentar mais personalizações [criando um modelo](../azure-resource-manager/resource-group-authoring-templates.md) antes de implantar. Use a opção Carregar arquivo para implantar o modelo baixado acima. 
+
+   ![implantação por carregamento de modelo](./media/backup-azure-arm-restore-vms/loading-template.png)
+   
+Depois de inserir os valores necessários, aceite o *termos e Condições* e clique em **Compra**.
+
+   ![implantação por envio de modelo](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Etapas de pós-restauração
 * Se você estiver usando uma distribuição do Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/virtual-machines-linux-classic-reset-access.md). Recomendamos o uso de chaves SSH nessas distribuições para evitar a redefinição de senha após a restauração.
 * As extensões presentes durante a configuração do backup serão instaladas, mas não serão habilitadas. Se você vir qualquer problema, reinstale as extensões. 
 * Se, após a restauração, a VM de backup tiver IP estático, a VM restaurada terá um IP dinâmico para evitar conflitos ao criar uma VM restaurada. Saiba mais sobre como [adicionar um endereço IP estático à VM restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* A VM restaurada não terá o valor de disponibilidade definido. Recomendamos o uso da opção de discos de restauração e [adição do conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set) ao criar uma VM do PowerShell usando discos restaurados. 
+* A VM restaurada não terá o valor de disponibilidade definido. Recomendamos o uso da opção de discos de restauração e [adição do conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set) ao criar uma VM do PowerShell ou modelos usando discos restaurados. 
 
 ## <a name="backup-for-restored-vms"></a>Backup de VMs restauradas
 Se você tiver restaurado a VM no mesmo Grupo de recursos e com o mesmo nome que o backup original da VM, o backup continuará na VM após a restauração. Se você tiver restaurado a VM para um Grupo de recursos diferente ou especificado um nome diferente para a VM restaurada, ela será tratada como uma nova VM e você precisará configurar o backup para a VM restaurada.

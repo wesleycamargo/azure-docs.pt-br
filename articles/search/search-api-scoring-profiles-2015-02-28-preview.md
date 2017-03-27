@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 076e97d1a264216d7f51914ed53dc70450aa2677
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 960880e44ad4de74339df7d0786dd8aa34962e3f
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -244,7 +245,7 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 
 | Propriedade | Descrição |
 | --- | --- |
-| `name` |Obrigatório. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. Ele deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @, e não pode iniciar com a frase 'azureSearch' (diferencia maiúsculas de minúsculas). |
+| `name` |Obrigatório. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. Ele deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @ e não pode se iniciar com a frase 'azureSearch' (diferencia maiúsculas de minúsculas). |
 | `text` |Contém a propriedade Pesos. |
 | `weights` |Opcional. Um par de nome-valor que especifica um nome de campo e o peso relativo. O peso relativo deve ser um inteiro positivo ou o número de ponto flutuante. Você pode especificar o nome do campo sem um peso correspondente. Os pesos são usados para indicar a importância de um campo em relação aos outros. |
 | `functions` |Opcional. Observe que uma função de pontuação só pode ser aplicada a campos filtráveis. |
@@ -257,7 +258,7 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 | `magnitude:boostingRangeEnd` |Define o valor final do intervalo em que a magnitude é pontuada. O valor deve ser um inteiro ou um número de ponto flutuante. Para classificações por estrelas de 1 a 4, isso seria 4. |
 | `magnitude:constantBoostBeyondRange` |Os valores válidos são true ou false (padrão). Quando definido como true, o aumento completo continuará a ser aplicado a documentos que tenham um valor para o campo de destino maior do que a extremidade superior do intervalo. Se for false, o aumento dessa função não será aplicado a documentos com um valor para o campo de destino que esteja fora do intervalo. |
 | `freshness` |A função de pontuação atualização é usada para alterar as pontuações de classificação para os itens com base nos valores nos campos DateTimeOffset. Por exemplo, um item com uma data mais recente pode ter classificação mais alta do que itens mais antigos. (Observe que também é possível classificar itens, como os eventos de calendário, com datas futuras, de modo que os itens mais próximos à data atual possam ter uma classificação superior do que itens com data mais distantes.) Na versão atual do serviço, uma extremidade do intervalo será corrigida para a hora atual. A outra extremidade é um momento no passado com base no `boostingDuration`. Para aumentar um intervalo de horários no futuro, use um `boostingDuration` com valor negativo. A taxa à qual o aumento é alterado em um intervalo máximo e mínimo é determinada pela Interpolação é aplicada ao perfil de pontuação (consulte a figura abaixo). Para inverter o fator de aumento aplicado, escolha um fator de aumento que seja inferior a 1. |
-| `freshness:boostingDuration` |Define um período de expiração após o qual o aumento será interrompido para um documento específico. Consulte [Definir boostingDuration][#bkmk_boostdur] na próxima seção para obter a sintaxe e exemplos. |
+| `freshness:boostingDuration` |Define um período de expiração após o qual o aumento será interrompido para um documento específico. Consulte [Definir boostingDuration](#bkmk_boostdur) na próxima seção para obter a sintaxe e exemplos. |
 | `distance` |A função de pontuação distância é usada para afetar a pontuação de documentos com base em sua distância ou proximidade em relação a um local geográfico de referência. O local de referência é fornecido como parte da consulta em um parâmetro (usando o parâmetro de consulta `scoringParameter` ) como um argumento lon,lat. |
 | `distance:referencePointParameter` |Um parâmetro a ser passado em consultas para usar como local de referência. scoringParameter é um parâmetro de consulta. Consulte [Pesquisar documentos](search-api-2015-02-28-preview.md#SearchDocs) para obter descrições dos parâmetros de consulta. |
 | `distance:boostingDistance` |Um número que indica a distância em quilômetros do local de referência em que o intervalo de aumento termina. |
@@ -304,9 +305,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

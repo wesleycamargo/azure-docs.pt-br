@@ -12,47 +12,61 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 03/02/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 97edd5eaa3cfa4a122556583dff28c4a9b6f5adc
-ms.openlocfilehash: 18035fe2a30707f701098cef4b1391b1d5ab2012
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4ec026a5b95170d0eba244123c37cd3c8fab150a
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Visão geral do Log de Atividades do Azure
 O **Log de Atividades do Azure** é um log que fornece informações sobre as operações executadas em recursos em sua assinatura. O Log de Atividades era conhecido como "Logs de Auditoria" ou "Logs Operacionais", pois ele relata eventos de plano de controle de suas assinaturas. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de gravação (PUT, POST, DELETE) executadas nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de Atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo Clássico/"RDFE".
 
-O Log de Atividades difere dos [Logs de Diagnóstico](monitoring-overview-of-diagnostic-logs.md), que são todos os logs emitidos por um recurso. Esses logs fornecem dados sobre a operação desse recurso, em vez de operações nesse recurso.
+![Logs de Atividade X outros tipos de logs ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
+
+Figura 1: Logs de Atividade X outros tipos de logs
+
+O Log de Atividades difere dos [Logs de Diagnóstico](monitoring-overview-of-diagnostic-logs.md). Os Logs de Atividade fornecem dados externos sobre as operações em um recurso. Os Logs de Diagnóstico são emitidos por um recurso e fornecem informações sobre a operação do recurso.
 
 Você pode recuperar os eventos de seu Log de Atividade usando o Portal do Azure, a CLI, cmdlets do PowerShell e a API REST do Azure Monitor.
 
-Veja este [vídeo de introdução ao Log de Atividades](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
 
 > [!WARNING]
-> O Log de Atividades do Azure serve principalmente para atividades que ocorrem no Azure Resource Manager, não para as que usam o modelo Clássico/RDFE. Observe que alguns tipos de recursos Clássicos têm um provedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft.ClassicCompute). Se um usuário interagir com um tipo de recurso Clássico por meio do Azure Resource Manager usando esses provedores de recursos de proxy, as operações aparecerão no Log de Atividades. Se um usuário interagir com um tipo de recurso Clássico no portal clássico ou de fora dos proxies do Azure Resource Manager, as ações do usuário serão registradas somente no Log de Operações, que é acessível apenas no Portal do Clássico.
+> O Log de Atividades do Azure é usado principalmente para atividades que ocorrem no Azure Resource Manager. Ele não controla os recursos usando o modelo Clássico/RDFE. Alguns tipos de recursos Clássicos têm um provedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft.ClassicCompute). Se você interagir com um tipo de recurso Clássico por meio do Azure Resource Manager usando esses provedores de recursos de proxy, as operações aparecerão no Log de Atividades. Se você interagir com um tipo de recurso clássico no portal Clássico ou fora dos proxies do Azure Resource Manager, suas ações somente serão registradas no Log de Operação. O Log de Operação só pode ser acessado no portal Clássico.
 >
 >
+
+Exiba o vídeo de introdução do Log de Atividades a seguir.
+[! VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>O que você pode fazer com o Log de Atividades
 Veja algumas coisas que você pode fazer com o Log de Atividades:
 
-* Consultar e exibi-lo no **Portal do Azure**.
-* Consultá-lo por meio da API REST, do Cmdlet do PowerShell ou da CLI.
-* [Criar um alerta de email ou webhook que dispara um evento do Log de Atividades.](insights-auditlog-to-webhook-email.md)
-* [Salvá-lo em uma **Conta de Armazenamento** para inspeção manual ou arquivamento](monitoring-archive-activity-log.md). Você pode especificar o tempo de retenção (em dias) usando os **Perfis de Log**.
-* Analisá-lo no PowerBI usando o [**Pacote de conteúdo do PowerBI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Transmiti-lo para um **Hub de Eventos**](monitoring-stream-activity-logs-event-hubs.md) para ingestão por um serviço de terceiro ou solução de análise personalizada, como o PowerBI.
+![Log de Atividades do Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
-O namespace da conta de armazenamento ou do hub de eventos não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+
+* [Criar um alerta de email ou webhook que dispara um evento do Log de Atividades.](insights-auditlog-to-webhook-email.md)
+* [Transmiti-lo para um **Hub de Eventos**](monitoring-stream-activity-logs-event-hubs.md) para ingestão por um serviço de terceiro ou solução de análise personalizada, como o PowerBI.
+* Analisá-lo no PowerBI usando o [**Pacote de conteúdo do PowerBI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Salvá-lo em uma **Conta de Armazenamento** para inspeção manual ou arquivamento](monitoring-archive-activity-log.md). Você pode especificar o tempo de retenção (em dias) usando os **Perfis de Log**.
+* Consultar e exibi-lo no **Portal do Azure**.
+* Consultar por meio de Cmdlet do PowerShell, da CLI ou da API REST.
+
+
+Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que não esteja na mesma assinatura para emitir logs. O usuário que define a configuração deve ter o devido acesso RBAC para ambas as assinaturas.
 
 ## <a name="export-the-activity-log-with-log-profiles"></a>Exportar o Log de Atividades com Perfis de Log
 Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. Com um Perfil de Log, você pode configurar:
 
 * Aonde o Log de Atividades deve ser enviado (Conta de Armazenamento ou Hubs de Eventos)
-* Quais categorias de evento (Gravação, Exclusão, Ação) devem ser enviadas. *Observe que o significado de "category" no contexto do Log de perfil é diferente do significado da propriedade "category" em um evento de Log de atividades. Embora "category" no Log de perfil represente o tipo de operação (Gravação, Exclusão, Ação), a propriedade "category" em um evento de Log de atividade representa a origem ou o tipo de evento (Administração, ServiceHealth, Alerta etc.).*
+* Quais categorias de evento (Gravação, Exclusão, Ação) devem ser enviadas. *O significado de "categoria" em Perfis de Log e eventos de Log de Atividades é diferente. No Perfil de Log, "Category" representa o tipo de operação (Gravar, Excluir, Ação). Em um evento do Log de Atividades, a propriedade "category" representa a origem ou o tipo de evento (por exemplo, Administração, Serviço de Integridade, Alerta e muito mais).*
 * Quais regiões (locais) devem ser exportados
-* Por quanto tempo o Log de Atividades deve ser mantido em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs serão mantidos para sempre. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito. As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
+* Quanto tempo o Log de Atividades deve ser mantido em uma Conta de Armazenamento.
+    - Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
+    - Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
+    - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
 
 Essas configurações podem ser definidas por meio da opção "Exportar" na folha do Log de Atividades no portal. Elas também podem ser definidas por meio de programação [usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), de cmdlets do PowerShell ou da CLI. Uma assinatura pode ter somente um perfil de log.
 
@@ -60,18 +74,18 @@ Essas configurações podem ser definidas por meio da opção "Exportar" na folh
 Você pode transmitir o Log de Atividades para um Hub de Eventos ou armazená-lo em uma Conta de Armazenamento usando a opção "Exportar" no Portal do Azure.
 
 1. Navegue até a folha **Log de Atividades** usando o menu no lado esquerdo do portal.
-   
+
     ![Navegue até o Log de Atividades no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Clique no botão **Exportar** na parte superior da folha.
-   
+
     ![Botão Exportar no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. Na folha que aparece, você pode selecionar:  
-   
+
    * regiões para as quais você deseja exportar eventos
    * a conta de armazenamento na qual você deseja salvar os eventos
    * o número de dias para manter esses eventos no armazenamento. Uma configuração de 0 dias retém os logs para sempre.
    * o namespace do Barramento de Serviço no qual você deseja que um Hub de Eventos seja criado para transmitir esses eventos.
-     
+
      ![Folha Exportar Log de Atividades](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Clique em **Salvar** para salvar as configurações. As configurações serão aplicadas imediatamente à sua assinatura.
 
@@ -240,10 +254,4 @@ Cada evento no Log de Atividades tem um blob JSON semelhante a este exemplo:
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../azure-resource-manager/resource-group-audit.md)
 * [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

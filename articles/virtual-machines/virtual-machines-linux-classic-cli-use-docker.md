@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f79f6fb82a74d6195491f243dc79db0c6753a894
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ O processo completo para usar o Docker no Azure é simples:
 * Use os comandos do Docker local para gerenciar os contêineres do seu Docker na sua VM do Docker no Azure.
 
 ### <a name="install-the-azure-command-line-interface-azure-cli"></a>Instalar a interface de linha de comando do Azure (CLI do Azure)
-Para instalar e configurar a CLI do Azure, confira [Como instalar a Interface de Linha de Comando do Azure](../xplat-cli-install.md). Para confirmar a instalação, digite `azure` no prompt de comando e, após um breve momento, você deverá ver a arte ASCII da CLI do Azure, que lista os comandos básicos disponíveis. Se a instalação for bem-sucedida, você deverá poder digitar `azure help vm` e ver que um dos comandos listados é “docker”.
+Para instalar e configurar a CLI do Azure, confira [Como instalar a Interface de Linha de Comando do Azure](../cli-install-nodejs.md). Para confirmar a instalação, digite `azure` no prompt de comando e, após um breve momento, você deverá ver a arte ASCII da CLI do Azure, que lista os comandos básicos disponíveis. Se a instalação for bem-sucedida, você deverá poder digitar `azure help vm` e ver que um dos comandos listados é “docker”.
 
 > [!NOTE]
 > O Docker tem ferramentas para Windows, o [Computador do Docker](https://docs.docker.com/installation/windows/), que também pode ser usado para automatizar a criação de um cliente docker que você pode usar para trabalhar com VMs do Azure como hosts do docker.
@@ -181,9 +182,4 @@ O daemon do Docker no host é configurado para escutar e autenticar conexões cl
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
 
 [Introdução ao Docker e Redigir para definir e executar um aplicativo de contêiner múltiplos em uma máquina virtual do Azure]:virtual-machines-linux-docker-compose-quickstart.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

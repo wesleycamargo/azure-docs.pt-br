@@ -19,8 +19,3 @@ Execute o cmdlet em ambos os controladores.
 
 Se você verificou que há conectividade e o problema continuar, contate o Suporte da Microsoft para saber das próximas etapas.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

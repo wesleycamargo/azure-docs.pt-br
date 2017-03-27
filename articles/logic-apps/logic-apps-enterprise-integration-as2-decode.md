@@ -1,6 +1,6 @@
 ---
-title: "Decodificar mensagens AS2 nos Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Como usar o decodificador AS2 incluído com o Enterprise Integration Pack e Aplicativos lógicos"
+title: "Decodificar mensagens AS2 – Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Como usar o decodificador AS2 no Enterprise Integration Pack para o Aplicativo Lógico do Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -15,46 +15,61 @@ ms.topic: article
 ms.date: 01/27/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 37562ff385305088590c793147b8ad268148c40b
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: da3fc08cc5c506dba02ccda16940a28a4600a288
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="get-started-with-decoding-as2-message-in-your-logic-apps"></a>Introdução à decodificação de mensagem AS2 em seus aplicativos lógicos
-Conecte-se à opção Decodificar Mensagem AS2 para estabelecer confiabilidade e segurança ao transmitir mensagens. Ele fornece a assinatura digital, descriptografia e confirmações por meio de MDN (notificações de disposição de mensagem).
+# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens AS2 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack 
 
-## <a name="prereqs"></a>Pré-requisitos
+Para estabelecer confiabilidade e segurança ao transmitir mensagens, use o conector Decodificar mensagens AS2. Esse conector fornece a assinatura digital, descriptografia e confirmações por meio de MDN (notificações de disposição de mensagem).
+
+## <a name="before-you-start"></a>Antes de começar
+
+Veja os itens necessários:
+
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma Conta de Integração é necessária para usar o conector de Decodificar Mensagem AS2. Confira detalhes sobre como criar uma [Conta de Integração](logic-apps-enterprise-integration-create-integration-account.md), [parceiros](logic-apps-enterprise-integration-partners.md) e um [contrato AS2](../logic-apps/logic-apps-enterprise-integration-as2.md)
+* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já esteja definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector Decodificar mensagem AS2.
+* Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
+* Um [contrato AS2](logic-apps-enterprise-integration-as2.md) que já está definido em sua conta de integração
 
 ## <a name="decode-as2-messages"></a>Decodificar mensagens AS2
-1. [Crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
-2. Esse conector não tem gatilhos. Use outros gatilhos para iniciar o Aplicativo Lógico, como um gatilho de solicitação.  No designer do Aplicativo Lógico, adicione um gatilho e uma ação.  Selecione Mostrar APIs gerenciadas da Microsoft na lista suspensa e digite “AS2” na caixa de pesquisa.  Selecione AS2 – Decodificar Mensagem AS2:
+
+1. [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+
+2. O conector Decodificar AS2 não possui gatilhos. Você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
+
+3.    Na caixa de pesquisa, digite "AS2" como filtro. Selecione **AS2 – Decodificar Mensagem AS2**.
    
-    ![Pesquisar AS2](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
-3. Se ainda não tiver criado conexões com a Conta de Integração, você deverá fornecer os detalhes de conexão:
+    ![Procure "AS2"](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
+
+4. Se você não criou conexões à sua conta de integração previamente, terá que criá-las agora. Nomeie sua conexão e selecione a conta de integração que você deseja conectar.
    
     ![Criar conexão de integração](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
-4. Insira os detalhes da Conta de Integração.  As propriedades com um asterisco são obrigatórias:
-   
-   | Propriedade | Detalhes |
-   | --- | --- |
-   | Nome da Conexão * |Digite um nome para a conexão |
-   | Uma conta de integração * |Insira o nome da Conta de Integração. Certifique-se de que sua Conta de Integração e que o Aplicativo Lógico estejam na mesma localização do Azure |
-   
-      Uma vez concluída, os detalhes da conexão se parecerão com estes
-   
-      ![conexão de integração](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
-5. Selecione **Criar**.
-6. Observe que a conexão foi criada.  Agora, continue com as outras etapas no seu Aplicativo Lógico:
+
+    As propriedades com um asterisco são obrigatórias.
+
+    | Propriedade | Detalhes |
+    | --- | --- |
+    | Nome da Conexão * |Digite um nome para a conexão. |
+    | Uma conta de integração * |Insira um nome para sua conta de integração. Verifique se sua conta de integração e o aplicativo lógico estão no mesmo local do Azure. |
+
+5.    Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
+
+    ![detalhes de conexão de integração](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
+
+6. Depois que a conexão é criada conforme mostrado neste exemplo, selecione **Corpo** e **Cabeçalhos** da saídas Solicitação.
    
     ![conexão de integração criada](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
-7. Selecione Corpo e Cabeçalhos de saídas de Solicitação:
-   
-    ![fornecer campos obrigatórios](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
+
+    Por exemplo:
+
+    ![Selecione Corpo e Cabeçalhos de saídas de Solicitação](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
 ## <a name="as2-decoder-details"></a>Detalhes do decodificador AS2
-O conector de Decodificação AS2 faz o seguinte: 
+
+O conector Decodificar AS2 executa estas tarefas: 
 
 * Processa cabeçalhos HTTP/AS2
 * Verifica a assinatura (se configurado)
@@ -68,15 +83,11 @@ O conector de Decodificação AS2 faz o seguinte:
 * Gera um MDN síncrono ou assíncrono (com base nas configurações do contrato)
 * Define as propriedades e os tokens de correlação no MDN
 
-## <a name="try-it-yourself"></a>Experimente por conta própria
-Experimente. Use o [cenário e o modelo de aplicativo de lógica do AS2](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) para implantar um aplicativo lógico totalmente operacional.
+## <a name="try-this-sample"></a>Experimente este exemplo
+
+Para tentar implantar um aplicativo lógico totalmente operacional e o cenário de AS2 de exemplo, confira o[modelo e cenário de aplicativo lógico AS2](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

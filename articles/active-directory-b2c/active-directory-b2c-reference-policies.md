@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
-ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 7ad7dce6fc7025a6a6e7935d74b3b71a7bfee097
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -74,7 +75,7 @@ Para habilitar a inscrição no seu aplicativo, você precisará criar uma polí
 5. Clique em **Provedores de identidade** e selecione "Inscrição de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
 6. Clique em **Atributos de inscrição**. Escolha aqui os atributos do consumidor que você deseja coletar durante a inscrição. Por exemplo, selecione "Cidade/região", "Nome de exibição" e "CEP". Clique em **OK**.
 7. Clique em **Declarações do aplicativo**. Escolha aqui as declarações que você deseja que sejam retornadas nos tokens enviados ao aplicativo após uma experiência de inscrição bem-sucedida. Por exemplo, selecione "Nome de exibição", "Provedor de identidade", "CEP", "Novo usuário" e "ID de objeto do usuário".
-8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C_1_SiUp**" (o fragmento** B2C\_1\_** é adicionado automaticamente) na folha **Políticas de inscrição**.
+8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C_1_SiUp**" (o fragmento**B2C\_1\_** é adicionado automaticamente) na folha **Políticas de inscrição**.
 9. Abra a política clicando em "**B2C_1_SiUp**".
 10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
 11. Clique em **Executar agora**. Uma nova guia do navegador se abre e você poderá percorrer a experiência do consumidor de inscrição no aplicativo.
@@ -130,7 +131,7 @@ Para habilitar a edição de perfil no aplicativo, você precisará criar uma po
 2. Clique em **Políticas de edição de perfil**.
 3. Clique em **+Adicionar** , na parte superior da folha.
 4. O **Nome** determina o nome da política de edição de perfil usado pelo seu aplicativo. Por exemplo, insira "SiPe".
-5. Clique em **Provedores de identidade** e selecione "Endereço de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
+5. Clique em **Provedores de identidade** e selecione "Entrada na conta local". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
 6. Clique em **Atributos do perfil**. Aqui você escolhe os atributos que o consumidor pode exibir e editar. Por exemplo, selecione "País/Região", "Nome de Exibição" e "CEP". Clique em **OK**.
 7. Clique em **Declarações do aplicativo**. Aqui você escolhe as declarações que quer retornar dos tokens de volta ao aplicativo após uma experiência de edição de perfil bem-sucedida. Por exemplo, selecione "Nome de exibição" e "CEP".
 8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C_1_SiPe**" (o fragmento **B2C\_1\_** é adicionado automaticamente) na folha **Políticas de edição de perfil**.
@@ -168,10 +169,5 @@ Quando você cria uma política de inscrição ou entrada (com contas locais), o
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
 * [Desabilitar a verificação de email durante a inscrição do consumidor](active-directory-b2c-reference-disable-ev.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

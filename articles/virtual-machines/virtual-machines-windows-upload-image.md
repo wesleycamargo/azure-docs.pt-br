@@ -13,17 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
-ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 28a6858729adbef439625864abc2fd7aa77fab35
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="upload-a-windows-vhd-from-an-on-premises-vm-to-azure"></a>Carregar no Azure um VHD do Windows de uma VM local
 Este artigo mostra como criar e carregar um VHD (disco rígido virtual) do Windows para ser usado na criação de uma VM do Azure. Você pode carregar um VHD de uma VM generalizada ou de uma VM especializada. 
+
+Para uma explicação completa de como preparar, carregar e criar uma nova VM usando discos gerenciados, consulte [Criar uma nova VM de um VHD carregado no Azure usando Managed Disks](virtual-machines-windows-upload-generalized-managed.md) ou [Carregar um VHD especializado para criar uma VM no Azure](virtual-machines-windows-upload-specialized.md).
 
 Para obter mais detalhes sobre discos e VHDs no Azure, confira a seção [Sobre discos e VHDs para máquinas virtuais](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

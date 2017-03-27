@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2017
+ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 72d9c639a6747b0600c5ce3a1276f3c1d2da64b2
-ms.openlocfilehash: 8c3ced706c26e09d709d7cfb4d81534c362e1628
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 8e1fccf953579beb138d47d1897bf702461fc39a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -91,8 +91,31 @@ O DocumentDB dá suporte ao failover automático no caso de uma ou mais falhas r
 ### <a id="GranularFailover"></a>Projetado para diferentes granularidades de failover
 Atualmente, os recursos de failover automático e manual são expostos na granularidade da conta do banco de dados. Observe que, internamente, o DocumentDB é projetado para oferecer failover *automático* com uma granularidade maior de um banco de dados, coleção ou até mesmo partição (de uma coleção que possui um intervalo de chaves). 
 
-### <a id="MultiHomingAPIs"></a>APIs de hospedagem múltipla
+### <a id="MultiHomingAPIs"></a>APIs de hospedagem múltipla no DocumentDB
 O DocumentDB permite que você interaja com o banco de dados usando pontos de extremidade lógicos (independentes de regiões) ou físicos (específicos de regiões). Usar pontos de extremidade lógicos garante que o aplicativo possa ser multihomed de forma transparente no caso de failover. Os pontos de extremidade físicos fornecem controle refinado para que o aplicativo redirecione leituras e gravações para regiões específicas.
+
+### <a id="ReadPreferencesAPIforMongoDB"></a> Preferências de leitura configurável na API para MongoDB
+A API para MongoDB permite que você especifique a preferência de leitura de sua coleção para um banco de dados distribuído globalmente. Para leituras de baixa latência e alta disponibilidade global, recomendamos a definição de sua preferência de leitura da coleção como *mais próximo*. Uma preferência de leitura de *mais próximo* está configurada para ler a região mais próxima.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
+```
+
+Para aplicativos com uma região de leitura/gravação primária e uma região secundária para cenários de DR (recuperação de desastres), recomendamos a definição da preferência de leitura da coleção como *secundário preferido*. Uma preferência de leitura de *secundário preferido* é configurada para ler a região secundária quando a região primária não está disponível.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
+```
+
+Por fim, se você quiser especificar manualmente suas regiões de leitura. Defina a marca region dentro de sua preferência de leitura.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+var tag = new Tag("region", "Southeast Asia");
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
+```
 
 ### <a id="TransparentSchemaMigration"></a>Migração de esquema e de índice de banco de dados transparente e consistente 
 O DocumentDB é totalmente [independente de esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). O design exclusivo de seu mecanismo de banco de dados permite que ele indexe de forma automática e síncrona todos os dados que consome, sem a necessidade de esquema ou índices secundários de sua parte. Isso permite que você itere o aplicativo distribuído globalmente com rapidez, sem se preocupar com a migração de esquema e de índice de banco de dados ou a coordenação da implantação de aplicativos de várias fases de alterações de esquema. O DocumentDB garante que quaisquer alterações feitas explicitamente por você nas políticas de indexação não resultem em degradação de desempenho ou disponibilidade.  
@@ -237,3 +260,4 @@ O DocumentDB expõe de forma transparente as métricas de taxa de transferência
 7. Naor e Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) (Carga, capacidade e disponibilidade em sistemas de quorum)
 8. Herlihy e Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) (Linearidade: uma condição de correção para objetos simultâneos)
 9. SLA do DocumentDB do Azure (última atualização em dezembro de 2016)
+

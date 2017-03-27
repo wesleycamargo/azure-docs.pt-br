@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
-ms.openlocfilehash: 70614f7d97466fb7e8a2f325d744f5e1632640a6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 19ba92fae63cadef20cd5414fa23bf4821ab6d56
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ No momento, as contas de banco de dados do DocumentDB são o único recurso do D
 
 ## <a name="getting-ready"></a>Preparando-se
 
-Para usar a CLI do Azure 1.0 com grupos de recursos do Azure, você precisará ter a versão correta da CLI do Azure 1.0 e uma conta do Azure. Se você não tiver a CLI do Azure 1.0, [instale-a](../xplat-cli-install.md).
+Para usar a CLI do Azure 1.0 com grupos de recursos do Azure, você precisará ter a versão correta da CLI do Azure 1.0 e uma conta do Azure. Se você não tiver a CLI do Azure 1.0, [instale-a](../cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-10-version"></a>Atualizar sua versão da CLI do Azure 1.0
 
@@ -39,7 +39,7 @@ No prompt de comando, digite `azure --version` para ver se você já tem a vers�
     azure --version
     0.10.4 (node: 4.2.4)
 
-Se a sua versão não for a 0.10.4 ou posterior, será necessário [instalar a CLI do Azure 1.0](../xplat-cli-install.md) ou atualizá-la usando um dos instaladores nativos, ou por meio do **npm** digitando `npm update -g azure-cli` para atualizar ou `npm install -g azure-cli` para instalar.
+Se a sua versão não for a 0.10.4 ou posterior, será necessário [instalar a CLI do Azure 1.0](../cli-install-nodejs.md) ou atualizá-la usando um dos instaladores nativos, ou por meio do **npm** digitando `npm update -g azure-cli` para atualizar ou `npm install -g azure-cli` para instalar.
 
 ### <a name="set-your-azure-account-and-subscription"></a>Definir sua conta e assinatura do Azure
 

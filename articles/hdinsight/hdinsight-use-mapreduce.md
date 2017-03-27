@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: ab40eb8b53e2e685be52d24ecf2c32b193b12b85
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 8be0f2f30f815277c4953c223d91c2571c2521a5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 02/16/2017
 
 Neste documento, você aprenderá como executar trabalhos do MapReduce no Hadoop em clusters HDInsight. Podemos executar uma operação básica de contagem de palavras implementada como um trabalho do MapReduce em Java.
 
-## <a name="a-idwhatisawhat-is-mapreduce"></a><a id="whatis"></a>O que é o MapReduce?
+## <a id="whatis"></a>O que é o MapReduce?
 
 O MapReduce do Hadoop é uma estrutura de software para escrever trabalhos que processam grandes quantidades de dados. Os dados de entrada são divididos em partes independentes e processados em paralelo em todos os nós no cluster. Um trabalho do MapReduce consiste em duas funções:
 
@@ -61,7 +62,7 @@ Para obter exemplos do uso de streaming com o HDInsight do Hadoop, confira o seg
 
 * [Desenvolver trabalhos do MapReduce Python](hdinsight-hadoop-streaming-python.md)
 
-## <a name="a-iddataaabout-the-sample-data"></a><a id="data"></a>Sobre o aplicativo de amostra
+## <a id="data"></a>Sobre o aplicativo de amostra
 
 Neste caso, para dados de exemplo, você usará os blocos de anotações do Leonardo Da Vinci, que são fornecidos como um documento de texto em seu cluster HDInsight.
 
@@ -75,7 +76,7 @@ Como o armazenamento de blob do Azure é o armazenamento padrão para HDInsight,
 > Na sintaxe acima, **wasbs:///** é usada para acessar arquivos armazenados no contêiner de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster, e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento. Por exemplo, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
 
 
-## <a name="a-idjobaabout-the-example-mapreduce"></a><a id="job"></a>Sobre o MapReduce de exemplo
+## <a id="job"></a>Sobre o MapReduce de exemplo
 
 O trabalho do MapReduce usado neste exemplo está localizado em **wasbs://example/jars/hadoop-mapreduce-examples.jar** e vem com o cluster HDInsight. Ele contém um exemplo de contagem de palavras que você executará em **davinci.txt**.
 
@@ -158,7 +159,7 @@ public class WordCount {
 
 Para saber mais sobre como escrever o seu próprio trabalho MapReduce, confira [Desenvolver programas Java MapReduce para HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
 
-## <a name="a-idrunarun-the-mapreduce"></a><a id="run"></a>Executar o MapReduce
+## <a id="run"></a>Executar o MapReduce
 
 O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tabela a seguir para decidir qual método é o melhor para você e siga o link para obter o passo-a-passo.
 
@@ -172,7 +173,7 @@ O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tab
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 
 Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser um pouco difícil de dominar. Há várias estruturas baseadas em Java que tornam mais fácil definir aplicativos MapReduce, assim como tecnologias como o Pig e o Hive, que facilitam o trabalho com dados no HDInsight. Para saber mais, consulte os seguintes artigos:
 
@@ -181,15 +182,14 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 * [Desenvolver trabalhos de MapReduce do Scalding com o Apache Hadoop no HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
 * [Usar o Hive com o HDInsight][hdinsight-use-hive]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
-* [Executar os exemplos do HDInsight][hdinsight-samples]
+
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-samples]: hdinsight-run-samples.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

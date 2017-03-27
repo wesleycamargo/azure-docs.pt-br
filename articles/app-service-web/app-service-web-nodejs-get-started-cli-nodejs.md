@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 9482315aba089f3f00e114b835963c247a4f5007
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9be7aec6d66c625be83b93bb840ad137d3c786d2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -35,7 +35,7 @@ Este tutorial mostra como criar um aplicativo [Node.js] simples e implantá-lo n
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI do Azure 1.0](app-service-web-nodejs-get-started-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI do Azure 2.0](app-service-web-nodejs-get-started.md) – nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI 2.0 do Azure](app-service-web-nodejs-get-started.md) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Node.js]
@@ -247,7 +247,7 @@ Para habilitar o Node-Inspector, siga estas etapas:
 
 <!-- URL List -->
 
-[CLI do Azure]: ../xplat-cli-install.md
+[CLI do Azure]:../cli-install-nodejs.md
 [Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
 [ativar seus benefícios de assinante do Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/

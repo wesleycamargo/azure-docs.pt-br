@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/13/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 8b0266a86221b379a105b87f130cd0a4f97385f7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4f8ff754858dfb12a7c1fb6e11b1ea99d99d4aeb
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -203,7 +204,7 @@ Saiba mais:
 ## <a name="logging"></a>Registro em log
 O log em um nível de rede é uma função essencial em qualquer cenário de segurança de rede. No Azure, é possível registrar as informações obtidas dos Grupos de Segurança de Rede para obter informações de log no nível de rede. Com o log do NSG, você obtém informações dos seguintes:
 
-* Logs de auditoria – usados para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure.
+* [Logs de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – usados para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure. Eles eram anteriormente conhecidos como "Logs de auditoria" ou "Logs operacionais".
 * Logs de eventos – esses logs fornecem informações sobre quais regras do NSG foram aplicadas.
 * Logs do contador – permitem saber quantas vezes cada regra NSG foi aplicada para negar ou permitir o tráfego.
 
@@ -267,9 +268,4 @@ A Central de Segurança do Azure ajuda a otimizar e a monitorar a segurança da 
 Saiba mais:
 
 * [Introdução à Central de Segurança do Azure](../security-center/security-center-intro.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

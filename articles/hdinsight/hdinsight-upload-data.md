@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 6e6f7793e03930cc002183172ccfbed6305378bd
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 74fe2d241dfcd6e572f0f20714f91c6aff970f34
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -58,12 +60,12 @@ A Microsoft fornece os seguintes utilitários para trabalhar com armazenamento d
 >
 >
 
-### <a name="a-idxplatcliaazure-cli"></a><a id="xplatcli"></a>Azure CLI
+### <a id="xplatcli"></a>Azure CLI
 O Azure CLI é uma ferramenta de plataforma cruzada que permite que você gerencie os serviços do Azure. Use as seguintes etapas para carregar dados no armazenamento de Blob do Azure:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Instalar e configurar o Azure CLI para Mac, Linux e Windows](../xplat-cli-install.md).
+1. [Instalar e configurar o Azure CLI para Mac, Linux e Windows](../cli-install-nodejs.md).
 2. Abra um prompt de comando, bash ou outro shell e use os dados a seguir para autenticar a sua assinatura do Azure.
 
         azure login
@@ -97,7 +99,7 @@ O Azure CLI é uma ferramenta de plataforma cruzada que permite que você gerenc
 >
 >
 
-### <a name="a-idpowershellaazure-powershell"></a><a id="powershell"></a>PowerShell do Azure
+### <a id="powershell"></a>PowerShell do Azure
 O Azure PowerShell é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Para saber mais sobre como configurar sua estação de trabalho para executar o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
@@ -125,7 +127,7 @@ O Azure PowerShell é um ambiente de script que você pode usar para controlar e
 
 Por exemplo, os scripts do PowerShell criados para funcionar com o HDInsight, consulte [Ferramentas HDInsight](https://github.com/blackmist/hdinsight-tools).
 
-### <a name="a-idazcopyaazcopy"></a><a id="azcopy"></a>AzCopy
+### <a id="azcopy"></a>AzCopy
 O AzCopy é uma ferramenta de linha de comando destinada a simplificar a tarefa de transferir dados de e para uma conta de Armazenamento do Azure. Você pode usá-lo como uma ferramenta independente ou incorporar essa ferramenta em um aplicativo existente. [Baixar o AzCopy][azure-azcopy-download].
 
 A sintaxe do AzCopy é:
@@ -134,7 +136,7 @@ A sintaxe do AzCopy é:
 
 Para saber mais, consulte [AzCopy – Carregando/baixando arquivos para Blobs do Azure][azure-azcopy].
 
-### <a name="a-idcommandlineahadoop-command-line"></a><a id="commandline"></a>Linha de comando do Hadoop
+### <a id="commandline"></a>Linha de comando do Hadoop
 A linha de comando do Hadoop só é útil para armazenar dados no armazenamento de blob quando os dados já estão presentes no nó principal do cluster.
 
 Para usar o comando Hadoop, primeiro você deve se conectar ao nó de cabeçalho usando um dos seguintes métodos:
@@ -159,7 +161,7 @@ ou o
 Para obter uma lista dos outros comandos Hadoop que trabalham com os arquivos, consulte [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
-> Em clusters HBase, o tamanho do bloco padrão usado na gravação de dados é de 256 KB. Embora isso funcione bem com APIs HBase ou APIs REST, usar os comandos `hadoop` ou `hdfs dfs` para gravar dados com mais de, aproximadamente, 12 GB resulta em um erro. Confira a seção abaixo [Exceção de armazenamento para gravar no blob](#storageexception) para obter mais informações.
+> Em clusters HBase, o tamanho do bloco padrão usado na gravação de dados é de 256 KB. Embora isso funcione bem com APIs HBase ou APIs REST, usar os comandos `hadoop` ou `hdfs dfs` para gravar dados com mais de, aproximadamente,&12; GB resulta em um erro. Confira a seção abaixo [Exceção de armazenamento para gravar no blob](#storageexception) para obter mais informações.
 >
 >
 
@@ -178,7 +180,7 @@ Também há vários aplicativos que fornecem uma interface gráfica para trabalh
 ### <a name="visual-studio-tools-for-hdinsight"></a>Ferramentas do Visual Studio para HDInsight
 Para saber mais, veja [Navegar nos recursos vinculados](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
-### <a name="a-idstorageexploreraazure-storage-explorer"></a><a id="storageexplorer"></a>Gerenciador de Armazenamento do Azure
+### <a id="storageexplorer"></a>Gerenciador de Armazenamento do Azure
 *Gerenciador de Armazenamento do Azure* é uma ferramenta útil para inspecionar e alterar os dados nos blobs. É uma ferramenta de software livre que pode ser baixada em [http://storageexplorer.com/](http://storageexplorer.com/). O código-fonte está disponível também neste link.
 
 Para usar a ferramenta, conheça sua chave e seu nome da conta de armazenamento do Azure. Para saber mais sobre como obter essas informações, confira a seção “Como exibir, copiar e regenerar chaves de acesso de armazenamento” em [Criar, gerenciar ou excluir uma conta de armazenamento][azure-create-storage-account].
@@ -209,7 +211,7 @@ O Azure Data Factory pode ser usado para mover dados para o Armazenamento de Blo
 
 Para obter mais informações, consulte a [Documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
-### <a name="a-idsqoopaapache-sqoop"></a><a id="sqoop"></a>Apache Sqoop
+### <a id="sqoop"></a>Apache Sqoop
 O Sqoop é uma ferramenta desenvolvida para transferir dados entre bancos de dados relacionais e o Hadoop. Você pode usá-lo para importar dados de um RDBMS (sistema de gerenciamento de banco de dados relacional), como SQL Server, MySQL ou Oracle para o HDFS (Sistema de Arquivos Distribuído) do Hadoop, transformar os dados no Hadoop com o MapReduce ou o Hive e, em seguida, exportar os dados de volta para um RDBMS.
 
 Para obter mais informações, consulte [Usar Sqoop com HDInsight][hdinsight-use-sqoop].
@@ -227,8 +229,8 @@ O Armazenamento de Blob do Azure também pode ser acessado usando um SDK do Azur
 Para obter mais informações sobre como instalar os SDKs do Azure, consulte [Downloads do Azure](https://azure.microsoft.com/downloads/)
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-### <a name="a-idstorageexceptionastorage-exception-for-write-on-blob"></a><a id="storageexception"></a>Exceção de armazenamento para gravar no blob
-**Sintomas**: ao usar os comandos `hadoop` ou `hdfs dfs` para gravar arquivos que tenham aproximadamente 12 GB ou mais em um cluster HBase, você pode encontrar o seguinte erro:
+### <a id="storageexception"></a>Exceção de armazenamento para gravar no blob
+**Sintomas**: ao usar os comandos `hadoop` ou `hdfs dfs` para gravar arquivos que tenham aproximadamente&12; GB ou mais em um cluster HBase, você pode encontrar o seguinte erro:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
     copyFromLocal: java.io.IOException
@@ -301,15 +303,10 @@ Agora que você compreende como obter dados no HDInsight, leia os seguintes arti
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[azurecli]: ../xplat-cli-install.md
+[azurecli]: ../cli-install-nodejs.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

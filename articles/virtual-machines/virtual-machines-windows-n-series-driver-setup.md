@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/30/2016
+ms.date: 03/10/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4bf470737f961219250c37d890ed81eb62409626
-ms.openlocfilehash: feb9370f0241fd860749d32f5db5842cb18463f1
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2dbd88a2a83643130c336253d2c7a5a21d73671e
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms"></a>Configurar drivers GPU para VMs da série N
-Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows Server, é necessário instalar os drivers gráficos NVIDIA em cada VM após a implantação. Este artigo também está disponível para [VMs Linux](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Configurar drivers GPU para VMs da série N executando o Windows Server
+Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows Server 2016 ou o Windows Server 2012 R2, é necessário instalar os drivers gráficos NVIDIA em cada VM após a implantação. Também há informações de instalação de driver disponíveis para [VMs Linux](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Para obter as especificações básicas, as capacidades de armazenamento e os detalhes de disco, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
+Para obter as especificações básicas, as capacidades de armazenamento e os detalhes de disco, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Consulte também [Considerações gerais sobre as VMs da Série N](#general-considerations-for-n-series-vms).
 
 
 
@@ -33,25 +34,32 @@ Para obter as especificações básicas, as capacidades de armazenamento e os de
 
 Conecte-se pela Área de Trabalho Remota a cada VM da série N. Baixe, extraia e instale o driver com suporte para o sistema operacional Windows. 
 
-### <a name="nvidia-grid-drivers-for-nv-vms"></a>Drivers NVIDIA GRID para VMs NV
-
-* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836843) (.zip)
-
-* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)
-
-### <a name="nvidia-tesla-drivers-for-nc-vms"></a>Drivers NVIDIA Tesla para VMs NC
-
-* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836841) (.zip)
-
-* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836842) (.zip)
+### <a name="nvidia-tesla-drivers-for-nc-vms-tesla-k80"></a>Drivers NVIDIA Tesla para VMs NC (Tesla K80)
 
 
 
-## <a name="verify-driver-installation"></a>Verificar a instalação de drivers
+| SO | Versão do driver |
+| -------- |------------- |
+| Windows Server 2016 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (.exe) |
+| Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
+
+
+### <a name="nvidia-grid-drivers-for-nv-vms-tesla-m60"></a>Drivers NVIDIA GRID para VMs NV (Tesla M60)
+
+| SO | Versão do driver |
+| -------- |------------- |
+| Windows Server 2016 | [369.71](https://go.microsoft.com/fwlink/?linkid=836842) (.zip) |
+| Windows Server 2012 R2 | [369.30](https://go.microsoft.com/fwlink/?linkid=836841) (.zip)  |
+
+> [!NOTE]
+> Links de download do driver fornecidos aqui estão atualmente no momento da publicação. Para os drivers mais recentes, visite o site da [NVIDIA](http://www.nvidia.com/).
+>
+
+## <a name="verify-gpu-driver-installation"></a>Verificar a instalação de drivers de GPU
 
 Em VMs NV do Azure, uma reinicialização é necessária após a instalação de drivers. Em VMs NC, uma reinicialização não é necessária.
 
-É possível verificar a instalação de drivers no Gerenciador de Dispositivos. O exemplo a seguir mostra uma configuração bem-sucedida da placa K80 em uma VM NC do Azure.
+É possível verificar a instalação de drivers no Gerenciador de Dispositivos. O exemplo a seguir mostra uma configuração bem-sucedida da placa Tesla K80 em uma VM NC do Azure.
 
 ![Propriedades do driver GPU](./media/virtual-machines-windows-n-series-driver-setup/GPU_driver_properties.png)
 
@@ -59,18 +67,31 @@ Para consultar o estado do dispositivo GPU, execute o utilitário de linha de co
 
 ![Status do dispositivo NVIDIA](./media/virtual-machines-windows-n-series-driver-setup/smi.png)  
 
+## <a name="rdma-network-for-nc24r-vms"></a>Rede RDMA para VMs NC24r
+
+A conectividade de rede RDMA pode ser habilitada em VMs NC24r implantadas no mesmo conjunto de disponibilidade. A extensão HpcVmDrivers deve ser adicionada para instalar drivers de dispositivo de rede do Windows que habilitam a conectividade RDMA. Para adicionar a extensão de VM a uma VM NC24r, use cmdlets do [Azure PowerShell](/powershell/azureps-cmdlets-docs) para o Azure Resource Manager.
+
+> [!NOTE]
+> Atualmente, apenas o Windows Server 2012 R2 dá suporte à rede RDMA em VMs NC24r.
+> 
+
+Para instalar a última extensão HpcVMDrivers versão 1.1 em uma VM compatível com RDMA existente chamada myVM na região Oeste dos EUA:
+  ```PowerShell
+  Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
+  ```
+  Para obter mais informações, consulte [Recursos e extensões da máquina virtual para Windows](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+
+A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (MPI) para aplicativos executados com [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) ou Intel MPI 5.x. 
+
+[!INCLUDE [virtual-machines-n-series-considerations](../../includes/virtual-machines-n-series-considerations.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre as GPUs NVIDIA nas VMs da série N, consulte:
     * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (para VMs NC do Azure)
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (para VMs NV do Azure)
 
-* Os desenvolvedores que criam aplicativos com aceleração de GPU para GPUs NVIDIA Tesla também podem baixar e instalar o [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
+* Os desenvolvedores que criam aplicativos com aceleração de GPU para GPUs NVIDIA Tesla também podem baixar e instalar o CUDA Toolkit 8 para [Windows Server 2016](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_win10-exe) ou [Windows Server 2012 R2](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_windows-exe). Para obter mais informações, consulte o [Guia de instalação do CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
