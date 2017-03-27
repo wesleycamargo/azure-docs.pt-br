@@ -1,5 +1,5 @@
 ---
-title: API do .NET e Recursos do SDK - Azure DocumentDB | Microsoft Docs
+title: SDK e recursos do .NET no Azure DocumentDB | Microsoft Docs
 description: "Saiba tudo sobre o SDK e a API .NET, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do .NET para o Banco de Dados de Documentos."
 services: documentdb
 documentationcenter: .net
@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e37416268802b849f6be350a8d7e0e6b284e830b
-ms.openlocfilehash: c92a54c40c329e519832f2f8de71aa5d8e15a090
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2de833df26de9a9e160dd0cfcc1589eb0ebb7d34
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>SDKs e APIs de Banco de Dados de Documentos
+# <a name="documentdb-net-sdk-download-and-release-notes"></a>SDK de .NET do DocumentDB: download e notas de versão
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/22/2017
 > 
 > 
 
-## <a name="documentdb-net-api-and-sdk"></a>SDK e API .NET para o Banco de Dados de Documentos
 <table>
 
 <tr><td>**Baixe o SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -51,6 +51,12 @@ ms.lasthandoff: 02/22/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name11211121httpswwwnugetorgpackagesmicrosoftazuredocumentdb1121"></a><a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
+* Adicionado suporte ao LINQ para consultas de agregação (CONT.NÚM, MÍNIMO, MÁXIMO, SOMA e MÉDIA).
+* Correção de um problema de vazamento de memória do objeto ConnectionPolicy causado pelo uso do manipulador de eventos.
+* Correção de um problema no qual UpsertAttachmentAsync não estava funcionando quando ETag era usada.
+* Correção de um problema no qual a continuação da consulta order-by entre partições não estava funcionando ao classificar no campo de cadeia de caracteres.
 
 ### <a name="a-name11201120httpswwwnugetorgpackagesmicrosoftazuredocumentdb1120"></a><a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
 * Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG). Veja [Suporte de agregação](documentdb-sql-query.md#Aggregates).
@@ -206,6 +212,7 @@ Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsol
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.12.1](#1.12.1) |14 de março de 2017 |--- |
 | [1.12.0](#1.12.0) |15 de fevereiro de 2017 |--- |
 | [1.11.4](#1.11.4) |06 de fevereiro de 2017 |--- |
 | [1.11.3](#1.11.3) |26 de janeiro de 2017 |--- |

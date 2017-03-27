@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f2de2b3f4deb702f6cdc4e36b988ef6ea2697787
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f803b44172b068b7ba65047c769421e39445ce10
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -137,9 +138,9 @@ Use os [adaptadores de log Java](app-insights-java-trace-logs.md).
 ### <a name="no-log-adapter-option-in-the-configuration-tool"></a>Não há nenhuma opção de adaptador de log na ferramenta de configuração
 * Você precisa instalar primeiro a estrutura de registros.
 * Se estiver usando System.Diagnostics.Trace, verifique se você o [configurou no `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Você tem a versão mais recente das ferramentas do Application Insights? No menu **Ferramentas** do Visual Studio, escolha **Extensões e Atualizações** e abra a guia **Atualizações**. Se as ferramentas do Application Insights estiver presente, clique para atualizá-las.
+* Você tem a versão mais recente do Application Insights? No menu **Ferramentas** do Visual Studio, escolha **Extensões e Atualizações** e abra a guia **Atualizações**. Se as ferramentas de Análise do Desenvolvedor estiverem presentes, clique para atualizá-las.
 
-### <a name="a-nameemptykeyai-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
+### <a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
 Parece que você instalou o pacote de Nuget de adaptador para registro em log sem instalar o Application Insights.
 
 No Gerenciador de Soluções, clique com o botão direito do mouse em `ApplicationInsights.config` e escolha **Atualizar o Application Insights**. Você obterá uma caixa de diálogo que solicita que você entre no Azure e crie um recurso de Application Insights, ou então reutilize um recurso existente. Isso deve corrigir o erro.
@@ -147,13 +148,13 @@ No Gerenciador de Soluções, clique com o botão direito do mouse em `Applicati
 ### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>Posso ver rastreamentos na pesquisa de diagnóstico, mas não os outros eventos
 Às vezes, pode levar algum tempo para que todos os eventos e solicitações percorram o pipeline.
 
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Que quantidade de dados é mantida?
+### <a name="limits"></a>Que quantidade de dados é mantida?
 Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por sete dias.
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Não estou vendo algumas das entradas de log que eu esperava
 Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>Próximas etapas
+## <a name="add"></a>Próximas etapas
 * [Configurar testes de disponibilidade e capacidade de resposta][availability]
 * [Solução de problemas][qna]
 
@@ -165,9 +166,4 @@ Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Applicati
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

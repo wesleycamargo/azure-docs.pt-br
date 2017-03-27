@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
-ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2a7f2cb27cb4ed2d23fee09d53f85283a8592b3a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -44,7 +45,7 @@ O aplicativo Web que acessará o cofre da chave é aquele que está registrado n
 
 Esse tutorial foi projetado para desenvolvedores da Web que compreendem os fundamentos da criação de aplicativos Web no Azure. Para obter mais informações sobre aplicativos Web do Azure, consulte [Visão geral de aplicativos Web](../app-service-web/app-service-web-overview.md).
 
-## <a name="a-idpackagesaadd-nuget-packages"></a><a id="packages"></a>Adicionar pacotes NuGet
+## <a id="packages"></a>Adicionar pacotes NuGet
 Há dois pacotes que precisam estar instalados para o seu aplicativo Web.
 
 * Biblioteca de autenticação do Active Directory - contém métodos para interagir com o Active Directory do Azure e gerenciar a identidade do usuário
@@ -58,7 +59,7 @@ Ambos os pacotes podem ser instalados usando o console do Gerenciador de Pacotes
     Install-Package Microsoft.Azure.KeyVault
 
 
-## <a name="a-idwebconfigamodify-webconfig"></a><a id="webconfig"></a>Modificar o Web.config
+## <a id="webconfig"></a>Modificar o Web.config
 Há três configurações de aplicativo que precisam ser adicionadas ao arquivo web.config da forma a seguir.
 
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
@@ -71,7 +72,7 @@ Há três configurações de aplicativo que precisam ser adicionadas ao arquivo 
 
 Se você não for hospedar seu aplicativo como um aplicativo Web do Azure, deve adicionar os valores reais ClientId, Segredo do Cliente e URI de Segredo no web.config. Caso contrário, deixe esses valores fictícios porque vamos adicionar os valores reais no Portal do Azure para um nível adicional de segurança.
 
-## <a name="a-idgettokenaadd-method-to-get-an-access-token"></a><a id="gettoken"></a>Adicionar método para obter um token de acesso
+## <a id="gettoken"></a>Adicionar método para obter um token de acesso
 Para usar a API de cofre da chave é necessário um token de acesso. O cliente do cofre da chave lida com chamadas para a API de cofre da chave, mas você precisa fornecer uma função que obtém o token de acesso.  
 
 A seguir, o código para obter um token de acesso do Active Directory do Azure. Esse código pode ir em qualquer lugar do aplicativo. Gosto de adicionar uma classe Utils ou EncryptionHelper.  
@@ -103,7 +104,7 @@ A seguir, o código para obter um token de acesso do Active Directory do Azure. 
 > 
 > 
 
-## <a name="a-idappstartaretrieve-the-secret-on-application-start"></a><a id="appstart"></a>Recuperar o segredo ao iniciar o aplicativo
+## <a id="appstart"></a>Recuperar o segredo ao iniciar o aplicativo
 Agora precisamos de código para chamar a API do cofre da chave e recuperar o segredo. O código a seguir pode ser colocado em qualquer lugar, desde que seja chamado antes de ser usado. Coloquei esse código no evento Iniciar Aplicativo no Global.asax para que ele seja executado uma vez na inicialização e disponibilize o segredo para o aplicativo.
 
     //add these using statements
@@ -120,7 +121,7 @@ Agora precisamos de código para chamar a API do cofre da chave e recuperar o se
 
 
 
-## <a name="a-idportalsettingsaadd-app-settings-in-the-azure-portal-optional"></a><a id="portalsettings"></a>Adicionar configurações de aplicativo no Portal do Azure (opcional)
+## <a id="portalsettings"></a>Adicionar configurações de aplicativo no Portal do Azure (opcional)
 Se você tiver um aplicativo Web do Azure pode agora adicionar valores reais ao AppSettings no Portal do Azure. Fazendo isso, os valores reais não estarão no web.config, mas protegidos pelo Portal onde você tem recursos de controle de acesso separados. Esses valores serão substituídos pelos valores inseridos no web.config. Certifique-se de que os nomes sejam os mesmos.
 
 ![Configurações do aplicativo exibidas no Portal do Azure][1]
@@ -133,10 +134,8 @@ Outra maneira de autenticar um aplicativo do AD do Azure é usar uma ID do Clien
 3. Adicionar código ao seu Aplicativo Web para usar o Certificado
 4. Adicionar um certificado ao seu aplicativo Web
 
-**Obter ou Criar um Certificado** Para os nossos objetivos, definiremos um certificado de teste. Veja alguns comandos que você pode usar em um Prompt de Comando do Desenvolvedor para criar um certificado. Altere o diretório em que você deseja que os arquivos de certificado sejam criados.
-
-    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2015 -e 07/31/2016 -r
-    pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+**Obter ou Criar um Certificado** Para os nossos objetivos, definiremos um certificado de teste. Veja alguns comandos que você pode usar em um Prompt de Comando do Desenvolvedor para criar um certificado. Altere o diretório em que você deseja que os arquivos de certificado sejam criados.  Além disso, para a data inicial e a data final do certificado, use a data atual mais 1 ano.
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 Anote a data de término e a senha para o .pfx (neste exemplo: 31/07/2016 e test123). Você precisará delas mais tarde.
 
@@ -147,12 +146,12 @@ Para saber mais sobre a criação de um certificado de teste, confira [Como cria
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
     $x509.Import("C:\data\KVWebApp.cer")
     $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+
+    # If you used different dates for makecert then adjust these values
     $now = [System.DateTime]::Now
+    $yearfromnow = $now.AddYears(1)
 
-    # this is where the end date from the cert above is used
-    $yearfromnow = [System.DateTime]::Parse("2016-07-31")
-
-    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
+    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
 
     $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
@@ -231,15 +230,10 @@ Para saber mais sobre como adicionar um certificado a um Aplicativo Web, consult
 
 **Adicione um Certificado ao Cofre de Chaves como um segredo** em vez de carregar o certificado diretamente para o serviço de Aplicativo Web. Você pode armazená-lo no Cofre de Chaves como um segredo e implantá-lo de lá. Esse é um processo em duas etapas que é descrito na postagem de blog [Implantação do certificado do Azure do aplicativo Web por meio do Cofre de Chaves](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Próximas etapas
+## <a id="next"></a>Próximas etapas
 Para referências de programação, consulte [Referência de API do cliente C# do cofre da chave do Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

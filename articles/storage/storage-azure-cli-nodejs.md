@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 289bf7ab1ba91bd9edc6288af93e06170d8f2def
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b246d8813a41d353a9c0fa31fe838e025fc93046
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/27/2017
 
 A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com a Plataforma Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no [Portal do Azure](https://portal.azure.com) , bem como funcionalidades avançadas de acesso a dados.
 
-Neste guia, exploraremos como usar a [CLI (Interface de Linha de Comando) do Azure](../xplat-cli-install.md) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a CLI mais recente do Azure antes usar este guia.
+Neste guia, exploraremos como usar a [CLI (Interface de Linha de Comando) do Azure](../cli-install-nodejs.md) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a CLI mais recente do Azure antes usar este guia.
 
 Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Este guia fornece vários scripts que demonstram o uso da CLI do Azure com o Armazenamento do Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
 
@@ -47,7 +47,7 @@ Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Direct
 
 **Depois de criar uma assinatura e conta do Microsoft Azure:**
 
-1. Baixe e instale a CLI do Azure seguindo as instruções descritas em [Instalar a CLI do Azure](../xplat-cli-install.md).
+1. Baixe e instale a CLI do Azure seguindo as instruções descritas em [Instalar a CLI do Azure](../cli-install-nodejs.md).
 2. Quando a CLI do Azure estiver instalada, você poderá usar o comando azure na sua interface de linha de comando (Bash, Terminal, Prompt de comando) para acessar os comandos da CLI do Azure. Digite o comando _azure_ e você deverá ver a saída a seguir.
 
     ![Saída de comando do Azure][Image1]
@@ -239,7 +239,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 Você pode encontrar a referência de comandos da CLI 1.0 do Azure para trabalhar com recursos de Armazenamento aqui:
 
 * [Comandos da CLI do Azure no modo Resource Manager](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](../xplat-cli-install.md)
+* [Comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](../cli-install-nodejs.md)
 
 Talvez você também queira testar a [CLI do Azure 2.0](storage-azure-cli.md), nossa CLI de próxima geração escrita em Python para uso com o modelo de implantação do Resource Manager.
 

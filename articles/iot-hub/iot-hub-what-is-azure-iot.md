@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/24/2017
 ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
@@ -24,6 +24,7 @@ ms.lasthandoff: 01/24/2017
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
+
 O Hub IoT do Azure é um serviço do Azure que permite comunicações bidirecionais confiáveis e seguras entre a sua solução e milhões de dispositivos. Ele permite que a solução back-end:
 
 * Receba telemetria em escala de seus dispositivos.

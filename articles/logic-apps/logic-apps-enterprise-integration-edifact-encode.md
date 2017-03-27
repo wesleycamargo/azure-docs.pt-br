@@ -1,6 +1,6 @@
 ---
-title: "Codificar mensagens EDIFACT nos Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Como usar o codificador EDIFACT no Enterprise Integration Pack com seus aplicativos lógicos"
+title: "Codificar mensagens EDIFACT - Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Validar EDI e gerar o XML com o codificador de mensagem EDIFACT no Enterprise Integration Pack para Aplicativo Lógico do Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -15,52 +15,70 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 5bc7011d7b0d22a7f8c11a2fee8d002c24d3467c
-ms.openlocfilehash: 94d120cd8a5e33733ecc39af96d2719ad59ab090
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 75eeca842cc31be6807dd6071de6d9a5c327fad3
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="get-started-with-encode-edifact-message"></a>Introdução para Codificar Mensagem EDIFACT
-Valida o EDI e as propriedades específicas de parceiro 
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
-## <a name="prereqs"></a>Pré-requisitos
+Com o conector de mensagem EDIFACT de codificação, você pode validar o EDI e as propriedades específicas de parceiro, gerar um documento XML para cada conjunto de transações e gerar uma Confirmação Técnica, Confirmação Funcional, ou ambas.
+Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
+
+## <a name="before-you-start"></a>Antes de começar
+
+Veja os itens necessários:
+
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma Conta de Integração é necessária para usar o conector de Codificar Mensagem EDIFACT. Veja os detalhes de como criar uma [Conta de Integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [parceiros](logic-apps-enterprise-integration-partners.md) e um [contrato EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)
+* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já esteja definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem EDIFACT de codificação. 
+* Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
+* Um [contrato EDIFACT](logic-apps-enterprise-integration-edifact.md) que já está definido em sua conta de integração
 
 ## <a name="encode-edifact-messages"></a>Codificar mensagens EDIFACT
-1. [Crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
-2. Esse conector não tem gatilhos. Use outros gatilhos para iniciar o Aplicativo Lógico, como um gatilho de solicitação.  No designer do Aplicativo Lógico, adicione um gatilho e uma ação.  Escolha Mostrar APIs gerenciadas da Microsoft na lista suspensa e digite "EDIFACT" na caixa de pesquisa.  Selecione Codificar Mensagem EDIFACT pelo nome do contrato ou Codificar Mensagem EDIFACT por identidades:
+
+1. [Criar um aplicativo lógico](logic-apps-create-a-logic-app.md).
+
+2. O conector de mensagem EDIFACT de codificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
+
+3.    Na caixa de pesquisa, digite "EDIFACT" como filtro. Selecione **Codificar Mensagem EDIFACT pelo nome do contrato** ou **Codificar mensagem EDIFACT por identidades**.
    
     ![pesquisar EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
-3. Se ainda não tiver criado conexões com a Conta de Integração, você deverá fornecer os detalhes de conexão:
-   
+
+3. Se você não criou conexões à sua conta de integração previamente, terá que criá-las agora. Nomeie sua conexão e selecione a conta de integração que você deseja conectar.
+
     ![criar conexão com a conta de integração](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage1.png)  
-4. Insira os detalhes da Conta de Integração.  As propriedades com um asterisco são obrigatórias:
-   
-   | Propriedade | Detalhes |
-   | --- | --- |
-   | Nome da Conexão * |Digite um nome para a conexão |
-   | Uma conta de integração * |Insira o nome da Conta de Integração. Certifique-se de que sua Conta de Integração e que o Aplicativo Lógico estejam na mesma localização do Azure |
-   
-    Uma vez concluída, os detalhes da conexão se parecerão com estes:
-   
-    ![conexão com a conta de integração](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
-5. Selecione **Criar**.
-6. Observe que a conexão foi criada:
-   
-    ![detalhes da conexão com a conta de integração](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage4.png)
+
+    As propriedades com um asterisco são obrigatórias.
+
+    | Propriedade | Detalhes |
+    | --- | --- |
+    | Nome da Conexão * |Digite um nome para a conexão. |
+    | Uma conta de integração * |Insira um nome para sua conta de integração. Verifique se sua conta de integração e o aplicativo lógico estão no mesmo local do Azure. |
+
+5.    Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
+
+    ![detalhes da conexão com a conta de integração](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
+
+    A conexão foi criada.
+
+    ![conexão com a conta de integração criada](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage4.png)
 
 #### <a name="encode-edifact-message-by-agreement-name"></a>Codificar Mensagem EDIFACT pelo nome do contrato
-Insira o nome do contrato de EDIFACT e a mensagem XML para codificar:
-   
-   ![fornecer campos obrigatórios](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
+
+Se você optar por codificar mensagens EDIFACT por nome do contrato, abra a lista **Nome do contrato X12**, insira ou selecione o contrato EDIFACT existente. Insira a mensagem XML para codificar.
+
+![Insira o nome do contrato EDIFACT e a mensagem XML para codificar](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 
 #### <a name="encode-edifact-message-by-identities"></a>Codificar Mensagem EDIFACT por identidades
-Insira o identificador do remetente, o qualificador de remetente, o identificador do destinatário e o qualificador do destinatário conforme configurado no contrato de EDIFACT. Selecione a mensagem XML para codificar:  
-    ![fornecer campos obrigatórios](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
+
+Caso você opte por codificar as mensagens EDIFACT por identidades, insira o identificador do remetente, o qualificador de remetente, o identificador do destinatário e o qualificador do destinatário conforme configurado no contrato EDIFACT. Selecione a mensagem XML para codificar.
+
+![Forneça as identidades para o remetente e o destinatário, selecione a mensagem XML para codificar](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
 
 ## <a name="edifact-encode-details"></a>Detalhes de codificação do EDIFACT
-O conector de codificação do EDIFACT faz o seguinte: 
+
+O conector EDIFACT de codificação executa as seguintes tarefas: 
 
 * Resolver o contrato, correspondendo o qualificador de remetente e o identificador e o qualificador do destinatário e o identificador
 * Serializa o intercâmbio de EDI, convertendo mensagens codificadas em XML em conjuntos de transação EDI no intercâmbio.
@@ -78,10 +96,5 @@ O conector de codificação do EDIFACT faz o seguinte:
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

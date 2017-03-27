@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: eb77dd2aaaeced8c71c2c89937f7f1cc10c7b292
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -47,7 +47,16 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 * Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, suas tarefas de codificação terão o mesmo desempenho do que com unidades reservadas S1. No entanto, não há nenhum limite superior para o tempo que as Tarefas podem gastar no estado na fila e, a qualquer momento específico, no máximo, apenas uma Tarefa será executada.
 * Os data centers a seguir não oferecem o tipo de unidade reservada **S2**: Sul do Brasil e Índia Ocidental.
 * Os data centers a seguir não oferecem o tipo de unidade reservada **S3**: Índia Ocidental.
-* O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
+
+## <a name="billing"></a>Cobrança
+
+A cobrança é realizada com base no número real de minutos de uso das Unidades Reservadas de Mídia. Veja um exemplo mais detalhado. Suponha que Julio tinha zero Unidades Reservadas (RU) de Mídia ao começar e que, às 10h daquele mesmo dia, definiu sua conta para usar duas RUs S1. Mais filmes chegam à tarde, então Julio altera sua conta para usar quatro RUs S3 às 13h15. Todos os seus vídeos são processados até 16h, então Julio desliga as RUs em sua conta (define o número de RUs para zero). O uso por Julio é calculado conforme demonstrado a seguir.
+
+Unidades Reservadas de Mídia S1: 2 unidades x 3,25 hours (10h às 13h15) x $0,02/h = $0,13 Unidades Reservadas de Mídia S3: 4 unidades x 2,75 horas (13h15 às 16h) x $0,08/h = $0,88
+
+Então o custo total de Julio para usar as Unidades Reservadas de Mídia nesse dia seriam $0,13 + $0,88 = $1,01 Ao contrário do que ocorre com as Unidades Reservadas de Mídia, a cobrança das Unidades de Streaming é baseada no número mais alto de Unidades de Streaming que são provisionadas a cada dia (marca d'água alta).
+
+Para obter mais informações, consulte a página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/). A seção de perguntas frequentes apresenta explicações detalhadas.  
 
 ## <a name="quotas-and-limitations"></a>Cotas e limitações
 Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de suporte, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).

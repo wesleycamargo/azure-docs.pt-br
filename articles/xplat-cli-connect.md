@@ -17,8 +17,9 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ O Azure CLI é um conjunto de comandos de plataforma cruzada de software livre p
 * Execute o comando CLI `azure login` para autenticar por meio do Azure Active Directory. Este método fornece acesso a comandos CLI em ambos os [modos de comando](#cli-command-modes). Quando você executa o comando sem opções adicionais, o `azure login` solicitará que você continue efetuando logon interativamente por meio de um portal da Web. Para mais opções de comando do `azure login`, consulte os cenários neste artigo ou digite `azure login --help`.
 * Se você precisar usar comandos CLI do modo do gerenciamento de serviços do Azure (não recomendado para a maioria das implantações novas), é possível baixar e instalar um arquivo de configurações de publicação no seu computador.
 
-Se você ainda não tiver instalado a CLI, consulte [Instalar a CLI do Azure](xplat-cli-install.md). Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](http://azure.microsoft.com/free/) em apenas alguns minutos.
+Se você ainda não tiver instalado a CLI, consulte [Instalar a CLI do Azure](cli-install-nodejs.md). Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](http://azure.microsoft.com/free/) em apenas alguns minutos.
 
 Para obter informações sobre identidades de outra conta e sobre as assinaturas do Azure, confira [Como as assinaturas do Azure como são associadas ao Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
@@ -165,9 +166,4 @@ Se as assinaturas associadas à conta forem autenticadas apenas com o Active Dir
 * Para usar os comandos da CLI do Azure, confira [Comandos da CLI do Azure no modo do Gerenciador de Recursos](virtual-machines/azure-cli-arm-commands.md) e [comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Para saber mais sobre a CLI do Azure, baixar o código-fonte, relatar problemas ou colaborar com o projeto, visite o [Repositório GitHub para a CLI do Azure](https://github.com/azure/azure-xplat-cli).
 * Se tiver problemas ao usar a CLI do Azure ou o Azure, visite os [Fóruns do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

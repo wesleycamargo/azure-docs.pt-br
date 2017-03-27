@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7064f4749f4be100b6155ea219284c1ed8fe7eee
-ms.openlocfilehash: 8a225858cc738a8bc04404b0cbf788e77975aa51
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 96da506c8545a1b863e62133706a2687c2498bbd
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -109,7 +109,7 @@ Saiba mais sobre como configurar o Balanceador de Carga para oferecer alta dispo
                     <div class="cardText">
                         <h3>Linha de comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/lb">CLI do Azure 2.0 (Visualização)</a></p>
+                        <p><a href="/cli/azure/network/lb">CLI 2.0 do Azure</a></p>
                     </div>
                 </div>
             </div>

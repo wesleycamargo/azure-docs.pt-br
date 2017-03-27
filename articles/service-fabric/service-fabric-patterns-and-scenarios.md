@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/30/2016
+ms.date: 03/08/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e96941bebe07553f8575be4f5dd4ead3271225c9
-ms.openlocfilehash: 924f3287a2b34103eba56310e8e4c4e3e063a44b
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: df7c127f4ab140cb26c82e723964f1d99f03131a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -94,14 +95,9 @@ Conheça a resposta para a pergunta "Por que contêineres?" Saiba mais sobre a v
 <table><tr><th>Vídeo</th><th>Área do PowerPoint</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=V1ERJhSGD_305167344">
 <img src="./media/service-fabric-patterns-and-scenarios/containers.png" WIDTH="360" HEIGHT="244">
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Suporte para Linux e Contêineres</a></td></tr>
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Suporte para Linux e contêineres</a></td></tr>
 </table>
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu sobre padrões e cenários do Service Fabric, leia mais sobre como [criar e gerenciar clusters](service-fabric-deploy-anywhere.md), [migrar aplicativos de Serviços de Nuvem para o Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [configurar a entrega contínua](service-fabric-set-up-continuous-integration.md) e [implantar contêineres](service-fabric-containers-overview.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

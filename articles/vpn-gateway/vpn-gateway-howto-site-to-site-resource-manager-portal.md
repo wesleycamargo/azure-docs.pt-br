@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: c99788aded849933289555dd133b8146d6b2bdf2
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 37311ea17004d8c5cfe9bfc9360c3972e39fb7f5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: c99788aded849933289555dd133b8146d6b2bdf2
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Portal do Azure - Clássico](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Clássico - Portal Clássico](vpn-gateway-site-to-site-create.md)
-> 
-> 
+>
+>
 
 Este artigo mostra como criar uma rede virtual e uma conexão de gateway de VPN Site a Site com sua rede local usando o modelo de implantação do Azure Resource Manager e o Portal do Azure. As conexões Site a Site podem ser usadas para configurações híbridas e entre instalações.
 
@@ -50,7 +52,7 @@ Antes de começar a configurar, verifique se você tem os seguintes itens:
 * Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
 * Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se para obter uma [conta gratuita](http://azure.microsoft.com/pricing/free-trial).
 
-### <a name="a-namevaluesasample-configuration-values-for-this-exercise"></a><a name="values"></a>Exemplo de valores de configuração para este exercício
+### <a name="values"></a>Exemplo de valores de configuração para este exercício
 Ao usar estas etapas como um exercício, você poderá usar os valores de configuração de exemplo:
 
 * **Nome da rede virtual:** TestVNet1
@@ -70,22 +72,22 @@ Ao usar estas etapas como um exercício, você poderá usar os valores de config
 * **Nome do Gateway de Rede Local:** Site2
 * **Nome da conexão:** VNet1toSite2
 
-## <a name="a-namecreatvneta1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. Criar uma rede virtual
+## <a name="CreatVNet"></a>1. Criar uma rede virtual
 Se você já tiver uma rede virtual, verifique se as configurações são compatíveis com seu design de gateway de VPN. Preste atenção especial em todas as sub-redes que possam se sobrepor a outras redes. Se você tiver uma sobreposição de sub-redes, a conexão não funcionará corretamente. Se a sua Rede Virtual estiver configurada com as definições corretas, poderá começar as etapas na seção [Especificar um servidor DNS](#dns) .
 
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="a-namesubnetsa2-add-additional-address-space-and-subnets"></a><a name="subnets"></a>2. Adicionar espaço de endereço e sub-redes adicionais
+## <a name="subnets"></a>2. Adicionar espaço de endereço e sub-redes adicionais
 Você pode adicionar um espaço de endereço e sub-redes adicionais para sua rede virtual após sua criação.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="a-namednsa3-specify-a-dns-server"></a><a name="dns"></a>3. Especificar um servidor DNS
+## <a name="dns"></a>3. Especificar um servidor DNS
 ### <a name="to-specify-a-dns-server"></a>Para especificar um servidor DNS
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namegatewaysubneta4-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>4. Criar uma sub-rede de gateway
+## <a name="gatewaysubnet"></a>4. Criar uma sub-rede de gateway
 Antes de conectar sua Rede Virtual a um gateway, você precisará criar a sub-rede de gateway para a Rede Virtual à qual você deseja se conectar. Se possível, é melhor criar uma sub-rede de gateway usando um bloco CIDR de /28 ou /27, a fim de fornecer endereços IP suficientes para acomodar requisitos futuros de configuração.
 
 Se a criação dessa configuração fizer parte de um exercício, confira esses [valores](#values) ao criar sua sub-rede de gateway.
@@ -93,13 +95,13 @@ Se a criação dessa configuração fizer parte de um exercício, confira esses 
 ### <a name="to-create-a-gateway-subnet"></a>Para criar uma sub-rede de gateway
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="a-namevnetgatewaya5-create-a-virtual-network-gateway"></a><a name="VNetGateway"></a>5. Criar um gateway de rede virtual
+## <a name="VNetGateway"></a>5. Criar um gateway de rede virtual
 Se você estiver criando esta configuração como um exercício, consulte estes [valores de exemplo de configuração](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Para criar um gateway da rede virtual
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namelocalnetworkgatewaya6-create-a-local-network-gateway"></a><a name="LocalNetworkGateway"></a>6. Criar um gateway de rede local
+## <a name="LocalNetworkGateway"></a>6. Criar um gateway de rede local
 O 'gateway de rede local' se refere ao seu local. Dê um nome ao gateway de rede local ao qual o Azure possa fazer referência. 
 
 Se você estiver criando esta configuração como um exercício, consulte estes [valores de exemplo de configuração](#values).
@@ -107,10 +109,10 @@ Se você estiver criando esta configuração como um exercício, consulte estes 
 ### <a name="to-create-a-local-network-gateway"></a>Para criar um gateway de rede local
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
-## <a name="a-namevpndevicea7-configure-your-vpn-device"></a><a name="VPNDevice"></a>7. Configurar o dispositivo de VPN
+## <a name="VPNDevice"></a>7. Configurar o dispositivo de VPN
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="a-namecreateconnectiona8-create-a-site-to-site-vpn-connection"></a><a name="CreateConnection"></a>8. Criar uma conexão VPN site a site
+## <a name="CreateConnection"></a>8. Criar uma conexão VPN site a site
 Crie a conexão VPN site a site entre o gateway de rede virtual e o dispositivo VPN. Substitua os valores pelos seus próprios. A chave compartilhada deve corresponder ao valor usado para a configuração do dispositivo VPN. 
 
 Antes de iniciar esta seção, verifique se a criação do gateway de rede virtual e dos gateways de rede local foram concluídas. Se você estiver criando essa configuração como um exercício, consulte esses [valores](#values) ao criar sua conexão.
@@ -118,7 +120,7 @@ Antes de iniciar esta seção, verifique se a criação do gateway de rede virtu
 ### <a name="to-create-the-vpn-connection"></a>Para criar a conexão VPN
 [!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
-## <a name="a-nameverifyconnectiona9-verify-the-vpn-connection"></a><a name="VerifyConnection"></a>9. Verificar a conexão VPN
+## <a name="VerifyConnection"></a>9. Verificar a conexão VPN
 Você pode verificar a conexão VPN no portal ou usando o PowerShell.
 
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
@@ -126,10 +128,5 @@ Você pode verificar a conexão VPN no portal ou usando o PowerShell.
 ## <a name="next-steps"></a>Próximas etapas
 *  Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 *  Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

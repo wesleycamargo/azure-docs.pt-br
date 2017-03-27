@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
-ms.author: sethm;jotaub
+ms.date: 03/13/2017
+ms.author: sethm;jotaub;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 8e483b17e453dedf17a21c673d3b2231b9bfba3a
-ms.openlocfilehash: 3c04f0225ec36f700fff59d87c6d0939ab74355c
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7bae4ae6d41e6dc6515a3fcdf574ffd193ae1aa3
+ms.lasthandoff: 03/14/2017
 
 ---
 
@@ -26,7 +26,13 @@ ms.lasthandoff: 02/21/2017
 ## <a name="general"></a>Geral
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Qual é a diferença entre os níveis Basic e Standard dos Hubs de Eventos?
-O nível Standard dos Hubs de Eventos fornecem recursos adicionais aos disponíveis nos Hubs de Eventos Basic e em alguns sistemas concorrentes. Esses recursos incluem períodos de retenção de mais de 24 horas e a capacidade de usar uma única conexão AMQP para enviar comandos para um grande número de dispositivos com latências inferiores a um segundo, bem como para enviar telemetria desses dispositivos para os Hubs de Eventos. Para obter a lista de recursos, confira os [detalhes do preço dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
+A camada Standard dos Hubs de Evento do Azure fornece recursos além daqueles disponíveis na camada Básica. Os recursos abaixo estão incluídos na camada Standard:
+* Maior retenção de evento
+* Conexões agenciadas adicionais, com uma taxa excedente para além do número incluído
+* Mais de um único Grupo de consumidores
+* [Arquivar](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+
+Para obter mais detalhes sobre tipos de preço, incluindo Hubs de Eventos Dedicados, veja os [Detalhes de preços dos Hubs de Evento](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="what-are-event-hubs-throughput-units"></a>O que são unidades de produtividade dos Hubs de Eventos?
 Você seleciona unidades de taxa de transferência de Hubs de Eventos de forma explícita, por meio do Portal do Azure ou de modelos do gerenciador de recursos de Hubs de Eventos. Unidades de produtividade se aplicam a todos os Hubs de Eventos em um namespace de Hubs de Eventos, e cada unidade de produtividade proporciona ao namespace os seguintes recursos:
@@ -49,7 +55,7 @@ Há uma cota padrão de 20 unidades de produtividade por namespace. Você pode s
 Sim, contanto que todos os Hubs de Eventos estejam no mesmo namespace.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Qual é o período de retenção máximo para eventos?
-O nível Standard dos Hubs de Eventos atualmente dão suporte a um período de retenção máximo de 7 dias. Os Hubs de Eventos não servem como um armazenamento de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente repetir um fluxo de eventos nos mesmos sistemas; por exemplo, para treinar ou verificar um novo modelo de aprendizado de máquina nos dados existentes.
+O nível Standard dos Hubs de Eventos atualmente dão suporte a um período de retenção máximo de 7 dias. Os Hubs de Eventos não servem como um armazenamento de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente repetir um fluxo de eventos nos mesmos sistemas; por exemplo, para treinar ou verificar um novo modelo de aprendizado de máquina nos dados existentes. Se você precisar de retenção de mensagens além de 7 dias, a habilitação do [Arquivo Morto](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) no Hub de Eventos efetuará pull dos dados do Hub de Eventos para o armazenamento de sua escolha. A habilitação do Arquivo Morto incorrerá em uma cobrança de acordo com a Unidade de Taxa de Transferência adquirida.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Onde os Hubs de Eventos do Azure estão disponíveis?
 Os Hubs de Eventos do Azure está disponível em todas as regiões do Azure com suporte. Para obter uma lista, visite a página [Regiões do Azure](https://azure.microsoft.com/regions/).  
@@ -69,7 +75,7 @@ No entanto, se você tiver um modelo no qual seu aplicativo tem uma afinidade co
 Para obter todas as informações sobre os preços dos Hubs de Eventos, consulte os [detalhes de preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>Há um custo para a retenção de eventos de Hubs de Eventos por mais de 24 horas?
-O nível Standard dos Hubs de Eventos permite a retenção de mensagens por períodos de mais de 24 horas, por um máximo de 30 dias. Se o número total de eventos armazenados exceder o limite de armazenamento para o número de unidades de produtividade selecionadas (84 GB por unidade de produtividade), o tamanho que exceder o limite será cobrado com base na taxa de armazenamento de Blobs do Azure publicada. O limite de armazenamento em cada unidade de produtividade cobre todos os custos de armazenamento para períodos de retenção de 24 horas (o padrão) mesmo que a unidade de produtividade seja usada até o limite máximo de entrada.
+A camada Standard dos Hubs de Eventos permite a retenção de mensagens por períodos superiores a 24 horas, por um máximo de 7 dias. Se o número total de eventos armazenados exceder o limite de armazenamento para o número de unidades de produtividade selecionadas (84 GB por unidade de produtividade), o tamanho que exceder o limite será cobrado com base na taxa de armazenamento de Blobs do Azure publicada. O limite de armazenamento em cada unidade de produtividade cobre todos os custos de armazenamento para períodos de retenção de 24 horas (o padrão) mesmo que a unidade de produtividade seja usada até o limite máximo de entrada.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Como o tamanho do armazenamento de Hubs de Eventos é calculado e cobrado?
 O tamanho total de todos os eventos armazenados, incluindo eventuais sobrecargas internas para cabeçalhos de eventos ou estruturas de armazenamento em disco em todos os Hubs de Eventos, é medido durante todo o dia. No final do dia, o tamanho do armazenamento de pico é calculado. O limite de armazenamento diário é calculado com base no número mínimo de unidades de produtividade que foram selecionadas durante o dia (cada unidade de produtividade fornece um limite de 84 GB). Se o tamanho total exceder o limite de armazenamento diário calculado, o armazenamento em excesso será cobrado usando as taxas de armazenamento de Blob do Azure (com base na taxa de **armazenamento com redundância local** ).
@@ -80,7 +86,14 @@ Cada evento enviado a um Hub de Eventos conta como uma mensagem faturável. Um *
 Eventos consumidos a partir de um Hub de Eventos, bem como operações de gerenciamento e chamadas de controle, como pontos de verificação, não são contadas como eventos de entrada faturáveis, mas se acumulam no limite de unidade de produtividade.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Cobranças por conexões agenciadas são aplicadas aos Hubs de Eventos?
-Cobranças de conexão são aplicadas somente quando o protocolo AMQP é usado. Não há cobranças de conexão para enviar eventos usando HTTP, independentemente do número de sistemas ou dispositivos remetentes. Se você planeja usar o AMQP (por exemplo, para obter transmissões de eventos mais eficientes ou para habilitar a comunicação bidirecional em cenários de comando e controle da IoT), confira a página [Informações sobre preço de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/) para obter detalhes sobre quantas conexões estão incluídas em cada camada de serviço.
+Cobranças de conexão são aplicadas somente quando o protocolo AMQP é usado. Não há cobranças de conexão para enviar eventos usando HTTP, independentemente do número de sistemas ou dispositivos remetentes. Se você pretende usar o AMQP (por exemplo, para obter transmissões de eventos mais eficientes ou para habilitar a comunicação bidirecional em cenários de comando e controle da IoT), consulte a página [Informações sobre preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/) para obter detalhes sobre quantas conexões estão incluídas em cada camada de serviço.
+
+### <a name="how-is-event-hubs-archive-billed"></a>Como o Arquivo Morto dos Hubs de Eventos é cobrado?
+O Arquivo Morto é habilitado quando um Hub de Eventos no namespace tem o recurso Arquivo Morto habilitado. O Arquivo Morto é cobrado por hora, por Unidade de Taxa de Transferência adquirida. Como a contagem de Unidades de Taxa de Transferência aumenta ou diminui, a cobrança do Arquivo Morto dos Hubs de Eventos refletirá essas alterações em incrementos de hora completa.
+Consulte a página [Informações sobre preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/) para obter detalhes sobre a cobrança do Arquivo Morto dos Hubs de Eventos.
+
+### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-archive"></a>Serei cobrado pela conta de armazenamento selecionada para o Arquivo Morto dos Hubs de Eventos?
+O Arquivo Morto usa uma conta de armazenamento fornecida quando habilitado em um Hub de Eventos. Como essa é sua conta de armazenamento, todas as alterações nela serão cobradas em sua assinatura do Azure.
 
 ## <a name="quotas"></a>Cotas
 

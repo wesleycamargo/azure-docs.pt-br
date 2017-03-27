@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0240ecede4afc937972f81ca8536b3b05e905deb
-ms.openlocfilehash: 8389b743dec50e3de0e13e023ef43e4f706eb477
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +65,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 Quando esse comando retornar `Succeeded`, a implantação terá sido concluída e você poderá usar SSH na VM na etapa a seguir.
 
 ### <a name="azure-cli-10"></a>CLI 1.0 do Azure
-Instale a versão mais recente da [CLI do Azure 1.0](../xplat-cli-install.md) e faça logon em uma conta do Azure. Certifique-se de que você esteja usando o modo Resource Manager para criar a VM (`azure config mode arm`).
+Instale a versão mais recente da [CLI do Azure 1.0](../cli-install-nodejs.md) e faça logon em uma conta do Azure. Certifique-se de que você esteja usando o modo Resource Manager para criar a VM (`azure config mode arm`).
 
 O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `West US` e implanta uma VM com a extensão de VM do Docker do Azure. Um [modelo do Azure Resource Manager do Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) é usado para implantar o ambiente:
 

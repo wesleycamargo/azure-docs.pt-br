@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ecb848efd8516ae43d07f8c6ebbf3868b8e20757
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: dc4a28b64620ecc4829d614b9a3c9e1939fd0063
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -38,6 +38,12 @@ As soluções de gerenciamento permitem análises mais profundas em relação ao
 Usando este artigo, você adiciona soluções de gerenciamento a um espaço de trabalho usando o portal do Azure Marketplace. Depois de adicionar uma solução, os dados são coletados dos servidores em sua infraestrutura e enviados para o serviço do OMS. O processamento do serviço do OMS normalmente leva de alguns minutos a uma hora. Depois que o serviço processar os dados, será possível exibi-los no OMS.
 
 Você pode facilmente remover uma solução de gerenciamento quando ela não for mais necessária. Quando você remove uma solução de gerenciamento, seus dados não são enviados para o OMS. Se você estiver no Tipo de preço grátis, a remoção de uma solução pode reduzir a quantidade de dados usados, ajudando você a permanecer na cota diária de dados.
+
+## <a name="view-available-management-solutions"></a>Exiba as soluções de gerenciamento disponíveis
+
+O Azure marketplace contém a lista de [soluções de gerenciamento do Log Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+
+Você pode instalar as soluções de gerenciamento do Azure marketplace clicando no link **Obtenha agora** na parte inferior de cada solução.
 
 ## <a name="add-a-management-solution"></a>Adicionar uma solução de gerenciamento
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com) usando a sua assinatura do Azure.
@@ -172,7 +178,7 @@ O agente do Log Analytics do Windows e o agente do System Center Operations Mana
 | Avaliação antimalware |Windows |![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Não](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Não](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png) |por hora |
 | Segurança e Auditoria<sup>1</sup> | Windows e Linux | ![Alguns](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Alguns](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Alguns](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Não](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Alguns](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | vários |
 
-<sup>1</sup>A solução de Segurança e Auditoria pode coletar logs de agentes do Windows, Operations Manager e Linux. Confira [Fontes de dados](#data-sources) para obter informações de coleta de dados sobre:
+<sup>1</sup> A solução de Segurança e Auditoria pode coletar logs de agentes do Windows, Operations Manager e Linux. Confira [Fontes de dados](#data-sources) para obter informações de coleta de dados sobre:
 
 - syslog
 - Logs de eventos de segurança do Windows

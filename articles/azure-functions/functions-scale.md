@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 03/14/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1c740ac1f98a07b08bdf922dde99ce54bac23ee5
-ms.openlocfilehash: e41e246b081efbdf5edf70ee5de86cd2a68043b2
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9b5dabe5e27e68a4a9f140d4f07131caf7306e32
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -48,11 +48,17 @@ No **Plano do Serviço de Aplicativo**, seus aplicativos de funções são execu
 
 O plano de Consumo escala automaticamente recursos de CPU e memória adicionando mais instâncias de processamento com base nos requisitos de tempo de execução das funções em um aplicativo de funções. Cada instância de processamento do aplicativo de funções pode alocar até 1,5 GB de recursos de memória.
 
-Durante a execução em um plano de Consumo, se uma Função de Aplicativo tiver ficado ociosa, poderá haver até 10 minutos por dia de processamento de novos blobs. Quando a Função de Aplicativo está em execução, os blobs são processados mais rapidamente. Para evitar esse atraso inicial, use um Plano do Serviço de Aplicativo regular com Always On habilitado ou use outro mecanismo para disparar o processamento de blob, como uma mensagem da fila que contém o nome do blob. 
+Durante a execução em um plano de Consumo, se uma Função de Aplicativo tiver ficado ociosa, poderá haver até 10 minutos por dia de processamento de novos blobs. Quando a Função de Aplicativo está em execução, os blobs são processados mais rapidamente. Para evitar esse atraso inicial, use um Plano de Serviço de Aplicativo regular com Always On habilitado ou use outro mecanismo para disparar o processamento de blob, como uma mensagem da fila que contém o nome do blob. 
+
+Ao criar um Aplicativo de funções, é necessário criar ou vincular uma conta de armazenamento do Azure de uso geral que dá suporte ao armazenamento de Tabelas, Blobs e Filas. Internamente, o Azure Functions usa o Armazenamento do Azure para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob (incluindo o armazenamento premium) e contas de armazenamento de uso geral com a replicação ZRS. Essas contas são filtradas na folha Conta de Armazenamento durante a criação de um novo Aplicativo de Funções.
+
+Ao usar o plano de hospedagem de Consumo, o conteúdo do Aplicativo de Funções (como arquivos de código de função e configuração de associação) é armazenado em compartilhamentos dos Arquivos do Azure na conta de armazenamento principal. Se você excluir a conta de armazenamento principal, esse conteúdo será excluído e não poderá ser recuperado.
+
+Para saber mais sobre tipos de conta de armazenamento, consulte [Introduzindo os Serviços de Armazenamento do Azure] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
 
 ### <a name="runtime-scaling"></a>Escalonamento de tempo de execução
 
-O Azure Functions usa um ouvinte central para avaliar as necessidades de computação com base nos gatilhos configurados e para decidir quando escalar e reduzir horizontalmente. O ouvinte central processa dicas continuamente para requisitos de memória e pontos de dados específicos de gatilho. Por exemplo, no caso de um gatilho de Armazenamento de Filas do Azure, os pontos de dados incluem comprimento da fila e tempo de fila da entrada mais antiga.
+O Functions usa um controlador de escala para avaliar as necessidades de computação com base nos gatilhos configurados e para decidir quando escalar e reduzir horizontalmente. O controlador de escala processa dicas continuamente para requisitos de memória e pontos de dados específicos de gatilho. Por exemplo, no caso de um gatilho de Armazenamento de Filas do Azure, os pontos de dados incluem comprimento da fila e tempo de fila da entrada mais antiga.
 
 ![](./media/functions-scale/central-listener.png)
 

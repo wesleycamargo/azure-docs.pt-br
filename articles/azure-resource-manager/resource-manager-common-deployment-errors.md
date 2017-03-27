@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5aa0677e6028c58b7a639f0aee87b04e7bd233a0
-ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -48,6 +49,7 @@ Os seguintes códigos de erro estão descritos neste tópico:
 * [Falha na autorização](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
+* [DisallowedOperation](#disallowedoperation)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -122,6 +124,40 @@ Você recebe esse erro quando o recurso SKU selecionado (como o tamanho da VM) n
   ```
 
 Se não for possível encontrar um SKU adequado nessa região, ou em uma região alternativa que atenda às suas necessidades de negócios, entre em contato com o [Suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+### <a name="disallowedoperation"></a>DisallowedOperation
+
+```
+Code: DisallowedOperation
+Message: The current subscription type is not permitted to perform operations on any provider 
+namespace. Please use a different subscription.
+```
+
+Se você receber esse erro, você estará usando uma assinatura que não tem permissão para acessar nenhum serviço do Azure com a exceção do Azure Active Directory. Você pode ter esse tipo de assinatura quando você precisa acessar o portal clássico, mas não tem permissão para implantar recursos. Para resolver esse problema, você deve usar uma assinatura que tenha permissão para implantar recursos.  
+
+Para exibir suas assinaturas disponíveis com o PowerShell, use:
+
+```powershell
+Get-AzureRmSubscription
+```
+
+E para definir a assinatura atual, use:
+
+```powershell
+Set-AzureRmContext -SubscriptionName {subscription-name}
+```
+
+Para exibir suas assinaturas disponíveis com a CLI do Azure 2.0, use:
+
+```azurecli
+az account list
+```
+
+E para definir a assinatura atual, use:
+
+```azurecli
+az account set --subscription {subscription-name}
+```
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Esse erro pode resultar de vários tipos diferentes de erros.
@@ -387,19 +423,19 @@ Para obter as versões da API com suporte para um determinado tipo de recurso, u
 Para ver se o provedor está registrado, use o comando `azure provider list` .
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 Para registrar um provedor de recursos, use o comando `azure provider register` e especifique o *namespace* para registrar.
 
 ```azurecli
-azure provider register Microsoft.Cdn
+az provider register --namespace Microsoft.Cdn
 ```
 
-Para ver os locais com suporte e as versões da API para um provedor de recursos, use:
+Para ver os locais com suporte e as versões da API para um tipo de recurso, use:
 
 ```azurecli
-azure provider show -n Microsoft.Compute --json > compute.json
+az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
 <a id="quotaexceeded" />
@@ -410,18 +446,23 @@ Para obter informações completas sobre cotas, consulte [Limites, cotas e restr
 Para examinar as cotas de núcleos da assinatura, você deve usar o comando `azure vm list-usage` na CLI do Azure. O exemplo a seguir ilustra que a cota de núcleo de uma conta de avaliação gratuita é 4:
 
 ```azurecli
-azure vm list-usage
+az vm list-usage --location "South Central US"
 ```
 
 Que retorna:
 
 ```azurecli
-info:    Executing command vm list-usage
-Location: westus
-data:    Name   Unit   CurrentValue  Limit
-data:    -----  -----  ------------  -----
-data:    Cores  Count  0             4
-info:    vm list-usage command OK
+[
+  {
+    "currentValue": 0,
+    "limit": 2000,
+    "name": {
+      "localizedValue": "Availability Sets",
+      "value": "availabilitySets"
+    }
+  },
+  ...
+]
 ```
 
 Se implantar um modelo que cria mais de quatro núcleos na região Oeste dos EUA, você receberá um erro de implantação que se parece com:
@@ -479,13 +520,13 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 No **PowerShell**, forneça o identificador de política como o parâmetro **Id** para recuperar detalhes sobre a política que bloqueou a sua implantação.
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-Na **CLI do Azure**, forneça o nome da definição da política:
+Na **CLI do Azure 2.0**, forneça o nome da definição da política:
 
 ```azurecli
-azure policy definition show regionPolicyDefinition --json
+az policy definition show --name regionPolicyAssignment
 ```
 
 Para obter mais informações sobre as políticas, consulte [Usar a política para gerenciar os recursos e controlar o acesso](resource-manager-policy.md).
@@ -522,21 +563,13 @@ Você pode descobrir informações valiosas sobre o processamento da sua implant
 
    Essas informações podem ajudá-lo a determinar se um valor no modelo está sendo definido incorretamente.
 
-- CLI do Azure
+- CLI 2.0 do Azure
 
-   Na CLI do Azure, defina o parâmetro **--debug-setting** como All, ResponseContent ou RequestContent.
-
-  ```azurecli
-  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-  ```
-
-   Examine o conteúdo de solicitação e resposta registrado com o seguinte comando:
+   Examine as operações de implantação, com o comando a seguir:
 
   ```azurecli
-  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
   ```
-
-   Essas informações podem ajudá-lo a determinar se um valor no modelo está sendo definido incorretamente.
 
 - Modelo aninhado
 
@@ -662,7 +695,7 @@ A tabela a seguir lista os tópicos de solução de problemas para outros servi�
 | Automação |[Dicas de solução de problemas para erros comuns na Automação do Azure](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Solução de problemas do Microsoft Azure Stack](../azure-stack/azure-stack-troubleshooting.md) |
 | Data Factory |[Solucionar problemas da Data Factory](../data-factory/data-factory-troubleshoot.md) |
-| Service Fabric |[Solucionar problemas comuns quando você implanta serviços no Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
+| Service Fabric |[Monitorar e diagnosticar aplicativos do Azure Service Fabric](../service-fabric/service-fabric-diagnostics-overview.md) |
 | Recuperação de Site |[Monitorar e solucionar problemas de proteção para máquinas virtuais e sites físicos](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | Armazenamento |[Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
 | StorSimple |[Solucionar problemas de implantação do dispositivo StorSimple](../storsimple/storsimple-troubleshoot-deployment.md) |
@@ -672,9 +705,4 @@ A tabela a seguir lista os tópicos de solução de problemas para outros servi�
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](resource-group-audit.md).
 * Para saber sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](resource-manager-deployment-operations.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -2,7 +2,6 @@
 title: Solucionar problemas do Gateway de Gerenciamento de Dados | Microsoft Docs
 description: Fornece dicas para solucionar problemas relacionados ao Gateway de Gerenciamento de Dados.
 services: data-factory
-documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
@@ -14,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: jingwang
+published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 03e15660e04e192d9035c25f1a8030310413c118
-ms.openlocfilehash: 738fcd1e2b33bf072f004eb95265ed87e6e931c0
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4bc78bdf71c6de0c35197e84f4bb800d13bda6c0
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solucionar problemas usando o Gateway de Gerenciamento de Dados
@@ -91,10 +91,12 @@ A seguinte mensagem de erro poderá ser exibida ao registrar um gateway.
 ![A chave do gateway é inválida ou está vazia](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Causa
-A chave do gateway foi regenerada ou o gateway foi excluído do portal.
+A chave do gateway foi regenerada ou o gateway foi excluído do portal do Azure. Isso também pode ocorrer se a configuração do Gateway de Gerenciamento de Dados não for a mais recente.
 
 #### <a name="resolution"></a>Resolução
-Se a chave do gateway ainda existe, regenere a chave de gateway no portal e use o botão para copiar a chave completa. Cole-a nessa janela para registrar o gateway. Caso contrário, recrie o gateway e comece novamente.
+Verifique se a configuração do Gateway de Gerenciamento de Dados é a versão mais recente. Encontre a versão mais recente no [Centro de Download da Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=271260).
+
+Se a configuração for a atual/mais recente e o gateway ainda existir no Portal, gere novamente a chave do gateway no Portal do Azure e use o botão Copiar para copiar a chave inteira, e cole-a nesta janela para registrar o gateway. Caso contrário, recrie o gateway e comece novamente.
 
 ### <a name="6-problem"></a>6. Problema
 A seguinte mensagem de erro poderá ser exibida ao registrar um gateway.
@@ -284,9 +286,4 @@ Você pode encontrar informações detalhadas sobre os logs de gateway nos logs 
  Ao solucionar problemas relacionados ao gateway, procure eventos no nível de erro no visualizador.
 
 ![Gateway de Gerenciamento de Dados – Logs no visualizador de eventos](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

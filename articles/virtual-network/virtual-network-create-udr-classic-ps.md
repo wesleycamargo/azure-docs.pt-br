@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 39dafb04f2b155790d58db524a3ff52960891e16
-ms.openlocfilehash: fdce1c32d7c538a29328f0e1f0c847af2e731e17
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controlar o roteamento e usar dispositivos virtuais (clássico) usando o PowerShell
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [CLI do Azure](virtual-network-create-udr-arm-cli.md)
-- [Modelo](virtual-network-create-udr-arm-template.md)
-- [PowerShell (Clássico)](virtual-network-create-udr-classic-ps.md)
-- [CLI (Clássica)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [CLI do Azure](virtual-network-create-udr-arm-cli.md)
+> * [Modelo](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (Clássico)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (Clássica)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
@@ -52,11 +53,6 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
     -Label "Route table for front end subnet"
     ```
 
-    Saída:
-   
-        Name         Location   Label                          
-        ----         --------   -----                          
-        UDR-FrontEnd West US    Route table for front end subnet
 2. Execute o comando a seguir para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para a VM **FW1** (192.168.0.4):
 
     ```powershell
@@ -65,16 +61,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
     -NextHopType VirtualAppliance `
     -NextHopIpAddress 192.168.0.4
     ```
-   
-    Saída:
-   
-        Name     : UDR-FrontEnd
-        Location : West US
-        Label    : Route table for frontend subnet
-        Routes   : 
-                   Name                 Address Prefix    Next hop type        Next hop IP address
-                   ----                 --------------    -------------        -------------------
-                   RouteToBackEnd       192.168.2.0/24    VirtualAppliance     192.168.0.4  
+
 3. Execute o comando a seguir para associar a tabela de rotas à sub-rede de **FrontEnd**:
 
     ```powershell
@@ -97,8 +84,10 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
 2. Execute o comando a seguir para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de front-end (192.168.1.0/24) para a VM **FW1** (192.168.0.4):
 
     ```powershell
-    Get-AzureRouteTable UDR-BackEnd `
-    |Set-AzureRoute -RouteName RouteToFrontEnd -AddressPrefix 192.168.1.0/24 `
+    Get-AzureRouteTable UDR-BackEnd
+    | Set-AzureRoute `
+    -RouteName RouteToFrontEnd `
+    -AddressPrefix 192.168.1.0/24 `
     -NextHopType VirtualAppliance `
     -NextHopIpAddress 192.168.0.4
     ```
@@ -122,18 +111,10 @@ Para habilitar o encaminhamento de IP na VM FW1, siga as seguintes etapas:
     | Get-AzureIPForwarding
     ```
 
-    Saída:
-   
-        Disabled
 2. Execute o comando a seguir para habilitar o encaminhamento de IP para a VM *FW1*:
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `
     | Set-AzureIPForwarding -Enable
     ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

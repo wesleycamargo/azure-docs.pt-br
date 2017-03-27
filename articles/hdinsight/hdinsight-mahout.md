@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
 ms.openlocfilehash: fdca3ed832dc0895a04dc3fda2dcf863d8938d8a
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -42,7 +44,7 @@ O Mahout é uma biblioteca de [aprendizado de máquina][ml] para o Apache Hadoop
     >
     > Siga as etapas em [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar a versão mais recente do Azure PowerShell. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets que funcionam com o Azure Resource Manager, confira [Migrando para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) para obter mais informações.
 
-## <a name="a-namerecommendationsagenerate-recommendations-by-using-azure-powershell"></a><a name="recommendations"></a>Gerar recomendações usando o Azure PowerShell
+## <a name="recommendations"></a>Gerar recomendações usando o Azure PowerShell
 
 > [!NOTE]
 > Embora o trabalho usado nesta seção funcione com o Azure PowerShell, muitas das classes fornecidas com o Mahout, atualmente, não funcionam com o Azure PowerShell e devem ser executadas usando a linha de comando do Hadoop. Para obter uma lista de classes que não funcionam com o Azure PowerShell, confira a seção [Solucionar problemas](#troubleshooting).
@@ -312,7 +314,7 @@ A saída deve ter aparência similar à exibida a seguir:
     Donnie Brasco (1997)                     4.6792455
     Lone Star (1996)                         4.7099237
 
-## <a name="a-nametroubleshootingatroubleshooting"></a><a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 
 ### <a name="cannot-overwrite-files"></a>Não foi possível sobrescrever arquivos
 
@@ -363,7 +365,7 @@ foreach($blob in $blobs)
 }
 ```
 
-### <a name="a-namenopowershellaclasses-that-do-not-work-with-azure-powershell"></a><a name="nopowershell"></a>Classes que não funcionam com o Azure PowerShell
+### <a name="nopowershell"></a>Classes que não funcionam com o Azure PowerShell
 
 Os trabalhos do Mahout que usam as classes a seguir retornarão uma série de erros, se utilizados por meio do Windows PowerShell:
 
@@ -407,9 +409,4 @@ Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalh
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

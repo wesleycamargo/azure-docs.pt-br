@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,6 +28,7 @@ Obtenha diretrizes ao escolher uma plataforma de análise de nuvem, usando a com
 As duas plataformas de análise fornecem benefícios de uma solução PaaS, mas há alguns recursos importantes que as diferenciam. Os recursos, bem como as limitações desses serviços, estão listados abaixo para ajudar você a chegar à solução de que precisa para alcançar seus objetivos.
 
 ## <a name="storm-comparison-to-stream-analytics-general-features"></a>Comparação com o Stream Analytics: recursos gerais
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -137,7 +139,9 @@ Para Apache Storm no HDInsight, a unidade de compra é baseada em cluster e é c
         </tr>
     </tbody>
 </table>
-## Criação em cada plataforma de análise ##
+
+## <a name="authoring-on-each-analytics-platform"></a>Criação em cada plataforma de análise ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -261,7 +265,9 @@ Sim, há disponibilidade para escrever código personalizado em C#, Java ou outr
         </tr>
     </tbody>
 </table>
-## Saídas e fontes de dados ##
+
+## <a name="data-sources-and-outputs"></a>Saídas e fontes de dados ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -350,7 +356,9 @@ Qualquer formato de codificação de dados pode ser implementado por meio de có
         </tr>
     </tbody>
 </table>
-## Gerenciamento e operações ##
+
+## <a name="management-and-operations"></a>Gerenciamento e operações ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -509,7 +517,9 @@ SLA de 99,9% de tempo de atividade de cluster do Storm. Apache Storm é uma plat
         </tr>
     </tbody>
 </table>
-## Recursos avançados ##
+
+## <a name="advanced-features"></a>Recursos avançados ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -585,9 +595,4 @@ Disponível por meio de bolts do Storm.
         </tr>
     </tbody>
 </table>
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

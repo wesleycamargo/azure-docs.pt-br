@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 138c1182ea173ff2f14672e692ff79ae1015dcfc
-ms.openlocfilehash: 52319ff75817e75b31388aa03030a4f0e63c182d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cfab4ea7491d15321d54cd9482e35a89fe7c7275
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -30,7 +30,7 @@ Este tópico mostra como operacionalizar um modelo de aprendizado de máquina (A
 As etapas de instalação e o código para operacionalizar um modelo de AM são fornecidos neste passo a passo para usar um cluster do HDInsight Spark 1.6 e um cluster do Spark 2.0. O código para esses procedimentos também é fornecido em notebooks Jupyter.
 
 ### <a name="notebook-for-spark-16"></a>Notebook para Spark 1.6
-O notebook Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) mostra como operacionalizar um modelo salvo usando o Python no cluster do HDInsight. 
+O notebook Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) mostra como operacionalizar um modelo salvo usando o Python no cluster do HDInsight. 
 
 ### <a name="notebook-for-spark-20"></a>Notebook para Spark 2.0
 Para modificar o notebook Jupyter para o Spark 1.6 para usar com um cluster do HDInsight Spark 2.0, substitua o arquivo de código Python por [este arquivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Este código mostra como utilizar os modelos criados no Spark 2.0.

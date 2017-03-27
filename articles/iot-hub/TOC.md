@@ -227,10 +227,11 @@
 ## Gerenciar
 ### Crie um hub IoT 
 #### [Usar o portal](iot-hub-create-through-portal.md)
+#### [Usar o PowerShell](iot-hub-create-using-powershell.md)
 #### [Usar a CLI 2.0](iot-hub-create-using-cli.md)
 #### [Usar a CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Usar a API REST](iot-hub-rm-rest.md)
-#### [Usar o PowerShell](iot-hub-rm-template-powershell.md)
+#### [Usar um modelo do PowerShell](iot-hub-rm-template-powershell.md)
 #### [Usar um modelo do .NET](iot-hub-rm-template.md)
 ### [Configurar o upload de arquivo](iot-hub-configure-file-upload.md)
 ### [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)

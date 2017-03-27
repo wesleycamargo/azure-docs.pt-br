@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/18/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4232c27926c2d48adb91eedd15884e44cc004ac2
-ms.openlocfilehash: 2fad0a4e7c4ac282802c2bc0dd10c7d86b651e08
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -40,7 +40,7 @@ A grande maioria das violações de segurança ocorre quando os invasores conseg
 
 Como consequência, você precisa:
 
-- Proteger todas as identidades, independentemente do nível de privilégio 
+- Proteger todas as identidades, independentemente do nível de privilégio
 
 - Agir proativamente para evitar o uso de identidades comprometidas
 
@@ -75,12 +75,12 @@ O Azure Active Directory Identity Protection é mais do que apenas uma ferrament
 
 ### <a name="vulnerabilities"></a>Vulnerabilidades
 
-O Azure Active Directory Identity Protection analisa sua configuração e detecta vulnerabilidades que podem ter impacto nas identidades do usuário. Para saber mais, confira [Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md). 
+O Azure Active Directory Identity Protection analisa sua configuração e detecta vulnerabilidades que podem ter impacto nas identidades do usuário. Para saber mais, confira [Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
 
 ### <a name="risk-events"></a>Eventos de risco
 
 O Azure Active Directory usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas a identidades do usuário. O sistema cria um registro para cada ação suspeita detectada. Esses registros também são conhecidos como eventos de risco.  
-Para obter mais detalhes, veja [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+Para obter mais detalhes, veja [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md).
 
 
 ## <a name="investigation"></a>Investigação
@@ -102,11 +102,11 @@ As seções a seguir fornecerão mais detalhes e as etapas que estão relacionad
 
 ## <a name="risky-sign-ins"></a>Entradas de risco
 
-O Azure Active Directory detecta alguns [tipos de evento de risco](active-directory-identity-protection-risk-events.md#risk-event-types) em tempo real. Todos os eventos de risco em tempo real que foram detectados durante a entrada de um usuário contribuem para um conceito lógico chamado *entrada de risco*. Uma entrada de risco é um indicador de uma tentativa de logon que pode não ter sido realizada pelo proprietário legítimo de uma conta de usuário. O ciclo de vida de uma entrada de risco termina quando um usuário sai.
+O Azure Active Directory detecta alguns [tipos de evento de risco](active-directory-reporting-risk-events.md#risk-event-types) em tempo real. Todos os eventos de risco em tempo real que foram detectados durante a entrada de um usuário contribuem para um conceito lógico chamado *entrada de risco*. Uma entrada de risco é um indicador de uma tentativa de logon que pode não ter sido realizada pelo proprietário legítimo de uma conta de usuário. O ciclo de vida de uma entrada de risco termina quando um usuário sai.
 
 ### <a name="sign-in-risk-level"></a>Nível de risco de entrada
 
-Um nível de risco de entrada é uma indicação (alta, média ou baixa) da probabilidade de uma tentativa de logon não ter sido executada pelo proprietário legítimo de uma conta de usuário. 
+Um nível de risco de entrada é uma indicação (alta, média ou baixa) da probabilidade de uma tentativa de logon não ter sido executada pelo proprietário legítimo de uma conta de usuário.
 
 ### <a name="mitigating-sign-in-risk-events"></a>Mitigação de eventos de risco de entrada
 

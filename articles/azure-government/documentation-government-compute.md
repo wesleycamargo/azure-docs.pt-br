@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/18/2016
+ms.date: 3/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
-ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 146fcd9788bab55e4abd9e70dcfe25741f041d34
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,16 +28,18 @@ Para obter detalhes sobre esse serviço e como usá-lo, consulte [Tamanhos de m�
 ### <a name="variations"></a>Variações
 Os produtos (VMs) estão disponíveis no Azure Governamental:
 
-| Produtos (VMs) | Gov do VA nos EUA | Gov do IA nos EUA |
-| --- | --- | --- |
-| A0-A7 |S |S |
-| Série D |S |N |
-| Série Dv2 |S |S |
-| Série DS |S |N |
-| Série F |S |S |
-| Série FS |N |N |
-| Série G |S |N |
-| Série GS |S |N |
+| Produtos (VMs) | Gov do VA nos EUA | Gov do IA nos EUA | EUA DOD Leste | EUA DOD Oeste
+| --- | --- | --- |--- |--- |
+| A0-A7 |S |S |S |S |S |
+| Av2 |S |S |S |S |S |
+| Série D |S |N |N |N |
+| Série Dv2 |S |S |S |S |
+| Série DS |S |N |N |N |
+| Série DSv2 |S |N |S |S |
+| Série F |S |S |S |S |
+| Série FS |S |N |S |S |
+| Série G |S |N |N |N |
+| Série GS |S |N |N |N |
 
 ### <a name="data-considerations"></a>Considerações de dados
 As informações a seguir identificam o limite do Azure Governamental para o máquinas virtuais do Azure:
@@ -47,10 +50,5 @@ As informações a seguir identificam o limite do Azure Governamental para o má
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

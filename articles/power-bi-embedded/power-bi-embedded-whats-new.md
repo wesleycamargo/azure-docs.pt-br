@@ -13,16 +13,42 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: fd2649f9936da9f86d4fe24b4fa87ca1733d1f3c
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 07c53a5d6b1881a4c207a2aefed9fcede0fa069e
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="whats-new-in-power-bi-embedded"></a>Novidades no Power BI Embedded
+
 Atualizações do **Power BI Embedded** são lançadas regularmente. No entanto, nem todas as versões incluem novos recursos voltados para o usuário; algumas versões se concentram em recursos de serviço de back-end. Destacaremos novos recursos voltados para o usuário aqui. Passe aqui para conferir regularmente.
+
+## <a name="march-2017"></a>Março de 2017
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/ibuN4DzCl5c?showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+**Recursos de autoatendimento**
+
+* [Criar novo relatório](power-bi-embedded-create-report-from-dataset.md)
+* [Relatório SaveAs](power-bi-embedded-save-reports.md)
+* Inserir o relatório no modo de Leitura/Editar/Criar novo 
+* [Alternar entre os modos de edição/leitura do relatório](power-bi-embedded-toggle-mode.md)
+
+**Conectividade de dados com APIs REST**
+
+* [Criar conjunto de dados](https://msdn.microsoft.com/library/azure/mt778875.aspx)
+* Enviar dados por push 
+
+**APIs de gerenciamento**
+
+* Clonar relatório e conjunto de dados
+* Associar um relatório a um conjunto de dados diferente
+
+**Exemplos**
+
+* [Amostra de inserção de relatório JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo) atualizada
 
 ## <a name="december-2016"></a>Dezembro de 2016
 
@@ -50,10 +76,5 @@ Incluído nesta versão:
 * O Power BI Embedded dá suporte a SDK do Azure, PowerShell e CLI.
 * Os usuários podem exportar dados de visualização para um **.csv**.
 * O Power BI Embedded agora tem suporte em todos os mesmos idiomas/localidades que o Microsoft Azure. Para saber mais, confira [Azure – Idiomas](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

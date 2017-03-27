@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a99b55c98f29356fb78e053434f6f3fc5c9d0efc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,13 +29,13 @@ ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
 > 
 > 
 
-Quando houver um aplicativo ou script que precisa acessar os recursos, você poderá configurar uma identidade para o aplicativo e autenticá-la com suas próprias credenciais. Esta abordagem é preferencial para executar o aplicativo com suas próprias credenciais porque:
+Quando você tiver um aplicativo ou script que precisa acessar recursos, poderá configurar uma identidade para o aplicativo e autenticá-la com suas próprias credenciais. Esta abordagem é preferencial para executar o aplicativo com suas próprias credenciais porque:
 
 * Você pode atribuir permissões para a identidade do aplicativo que são diferentes de suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
 * Você não precisa alterar as credenciais do aplicativo se alterar suas responsabilidades. 
 * Você pode usar um certificado para automatizar a autenticação ao executar um script autônomo.
 
-Este tópico mostra como usar a [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md) para configurar um aplicativo a ser executado com suas próprias credenciais e identidade.
+Este tópico mostra como usar a [CLI do Azure para Mac, Linux e Windows](../cli-install-nodejs.md) para configurar um aplicativo a ser executado com suas próprias credenciais e identidade.
 
 Com a CLI do Azure, você tem duas opções para autenticar seu aplicativo do AD:
 
@@ -372,10 +373,5 @@ Os aplicativos de exemplo a seguir mostram como fazer logon como a entidade de s
 ## <a name="next-steps"></a>Próximas etapas
 * Para ver as etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar os recursos, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obter mais informações sobre como usar os certificados e a CLI do Azure, consulte [Autenticação baseada em certificados com as Entidades de Serviço do Azure a partir da linha de comando do Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 03/16/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 4f512601cebcfce7bfac47ed440c96fcb2c91b5f
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6fe5ed03611d68a1201e4fe48580a3499811abeb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -61,18 +61,6 @@ Entre em sua conta do Azure e configure a CLI do Azure para trabalhar com recurs
 
     ```azurecli
     az account set --subscription {your subscription name or id}
-    ```
-
-3. Instalar a CLI do Azure _componente do iot_. Execute o seguinte [comando para adicionar o componente d IoT][lnk-az-addcomponent-command]:
-    
-    ```azurecli
-    az component update --add iot
-    ```
-
-4. Registre o provedor de IoT antes de implantar recursos de IoT. Execute o seguinte [comando para registrar o provedor de IoT][lnk-az-register-command]:
-    
-    ```azurecli
-    az provider register -namespace Microsoft.Devices
     ```
 
 ## <a name="create-an-iot-hub"></a>Crie um Hub IoT

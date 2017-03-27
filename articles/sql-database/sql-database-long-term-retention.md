@@ -17,22 +17,23 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 6abc5c10f6116886ac5d6cbc11f251f083ee2b29
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 0cb96f97358378a723d7528e53f5c5a771e2000b
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="storing-azure-sql-database-backups-for-up-to-10-years"></a>Armazenando backups do Banco de Dados SQL do Azure por um período de até 10 anos
-Muitos aplicativos têm fins regulamentares, de conformidade ou outros fins comerciais que exigem a retenção dos backups automáticos de banco de dados completo, além dos 7-35 dias fornecidos pelos [backups automáticos](sql-database-automated-backups.md) do Banco de Dados SQL.
+Muitos aplicativos têm fins regulamentares, de conformidade ou outros fins comerciais que exigem a retenção dos backups automáticos de banco de dados completo, além dos 7-35 dias fornecidos pelos [backups automáticos](sql-database-automated-backups.md) do Banco de Dados SQL. O recurso **Retenção de Backup de Longo Prazo** permite armazenar seus backups do Banco de Dados SQL do Azure em um cofre dos Serviços de Recuperação do Azure por um período de até 10 anos. Armazene até mil bancos de dados por cofre. Selecione qualquer backup no cofre para restaurá-lo como um novo banco de dados.
 
-O recurso **Retenção de Backup de Longo Prazo** permite armazenar seus backups do Banco de Dados SQL do Azure em um cofre dos Serviços de Recuperação do Azure por um período de até 10 anos. Armazene até mil bancos de dados por cofre. Selecione qualquer backup no cofre para restaurá-lo como um novo banco de dados.
+> [!IMPORTANT]
+> A retenção de Backup de longo prazo está atualmente em visualização e está disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, EUA Central, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Índia Central, Sul da Índia, Leste do Japão, Oeste do Japão, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Europa Ocidental e Oeste dos EUA.
+>
 
 > [!NOTE]
 > Habilite até 200 bancos de dados por cofre durante um período de 24 horas. Portanto, recomendamos o uso de um cofre separado para cada servidor, a fim de minimizar o impacto desse limite. 
 > 
 > 
-
 ## <a name="how-does-sql-database-long-term-backup-retention-work"></a>Como funciona a retenção de backup de longo prazo do Banco de Dados SQL?
 
 A retenção de longo prazo de backups permite que você associe um servidor de Banco de Dados SQL do Azure a um cofre dos Serviços de Recuperação do Azure. 
@@ -40,7 +41,6 @@ A retenção de longo prazo de backups permite que você associe um servidor de 
 * O cofre deve ser criado na mesma assinatura do Azure que criou o SQL Server e na mesma região geográfica e grupo de recursos. 
 * Em seguida, você configura uma política de retenção para qualquer banco de dados. A política faz com que os backups semanais de banco de dados completo sejam copiados no cofre dos Serviços de Recuperação e retidos durante o período de retenção especificado (até 10 anos). 
 * Em seguida, é possível fazer a restauração de qualquer um destes backups para um novo banco de dados em qualquer servidor na assinatura. A cópia é executada pelo armazenamento do Azure com base em backups existentes e não afeta o desempenho do banco de dados existente.
-
 
 > [!TIP]
 > Para ver um tutorial, confira [Introdução ao Backup e Restauração para Proteção e Recuperação dos Dados usando o Portal do Azure](sql-database-get-started-backup-recovery-portal.md) ou [Introdução ao Backup e Restauração para Proteção e Recuperação dos Dados usando o PowerShell](sql-database-get-started-backup-recovery-powershell.md)

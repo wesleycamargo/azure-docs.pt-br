@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: e85094fbb63b5cf0c5f3b080e047dbc3b8561a26
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e1fa4ab140c553cab4dc535f750398d633bbb8d2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -35,7 +35,7 @@ Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 ## <a name="before-you-begin"></a>Antes de começar
 Verifique se você atende os seguintes pré-requisitos antes de iniciar as etapas:
 
-* Você tem a [CLI do Azure](../xplat-cli-install.md) baixada e instalada em seu computador. 
+* Você tem a [CLI do Azure](../cli-install-nodejs.md) baixada e instalada em seu computador. 
 * Você também precisa de algumas informações sobre sua VM Linux do Azure existente:
 
 | Informações sobre a VM de origem | Onde obter |

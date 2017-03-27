@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 138560f4bc8e400f7b3ca2d5a1b80ea0c25ec4da
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: cdf233c2b141f4c73abcabc199b5fc583f14962c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -35,6 +35,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 * [**Perguntas sobre o registro de redefinição de senha**](#password-reset-registration)
 * [**Perguntas sobre a redefinição de senha**](#password-reset)
+* [**Perguntas sobre alteração de senha**](#password-change)
 * [**Perguntas sobre relatórios de gerenciamento de senha**](#password-management-reports)
 * [**Perguntas sobre o write-back de senha**](#password-writeback)
 
@@ -169,6 +170,18 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
   >
 
+## <a name="password-change"></a>Alteração de senha
+* **P: onde os usuários devem ir para alterar suas senhas?**
+
+  > **R:** os usuários podem alterar suas senhas em qualquer lugar em que veem seus ícones ou imagens de perfil (como no canto superior direito das experiências [Office 365](https://portal.office.com) ou [Painel de Acesso](https://myapps.microsoft.com). Os usuários podem alterar suas senhas na [página de perfil do Painel de Acesso](https://account.activedirectory.windowsazure.com/r#/profile). Os usuários também poderão ser solicitados a alterar suas senhas automaticamente na tela de entrada do Azure AD se elas expirarem. Por fim, os usuários podem navegar até o [Portal de alteração de senha do Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) diretamente se desejarem alterar suas senhas.
+  >
+  >
+* **P: meus usuários podem ser notificados no Portal do Office quando uma senha local expirar?**
+
+  > **R:** isso é possível no momento se você está usando o ADFS, seguindo as instruções aqui: [Enviando declarações de política de senha com o ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se você está usando a sincronização de hash de senha, isso não é possível atualmente. Isso ocorre porque nós não sincronizamos políticas de senha locais e, portanto, não é possível postar as notificações de expiração para experiências de nuvem. Em ambos os casos, também é possível [notificar os usuários cujas senhas estejam prestes a expirar usando o PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+  
 ## <a name="password-management-reports"></a>Relatórios de gerenciamento de senha
 * **P: quanto tempo leva para que os dados sejam exibidos nos relatórios de gerenciamento de senha?**
 
@@ -184,7 +197,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   ![][002]
 * **P: Qual é o número máximo de eventos armazenados nos relatórios de gerenciamento de senha?**
 
-  > **R:** até 1.000 redefinições de senha ou eventos de registro de redefinição de senha são armazenados nos relatórios de gerenciamento de senha.  Estamos trabalhando para expandir esse número e incluir mais eventos.
+  > **R:** até 75 mil redefinições de senha ou eventos de registro de redefinição de senha são armazenados nos relatórios de gerenciamento de senha relativo ao período de 30 dias anteriores.  Estamos trabalhando para expandir esse número e incluir mais eventos.
   >
   >
 * **P: qual o período mais antigo coberto pelos relatórios de gerenciamento de senha?**
@@ -194,7 +207,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: existe um número máximo de linhas que podem ser exibidas nos relatórios de gerenciamento de senha?**
 
-  > **R:** sim, um máximo de 1.000 linhas pode aparecer nos relatórios de gerenciamento de senha, quer seja mostrado na interface do usuário ou baixado. Estamos investigando como aumentar esse limite.
+  > **R:** sim, um máximo de 75 mil linhas pode aparecer nos relatórios de gerenciamento de senha, quer seja mostrado na interface do usuário ou baixado. Estamos investigando como aumentar esse limite.
   >
   >
 * **P: Existe uma API para acessar os dados do relatório de redefinição de senha ou de registro de redefinição de senha?**
@@ -233,10 +246,10 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 ## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
-* [**Personalizar **](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Personalizar**](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
 * [**Obter percepções**](active-directory-passwords-get-insights.md) – saiba mais sobre nossos recursos integrados de relatórios
 * [**Solução de problemas**](active-directory-passwords-troubleshoot.md) – aprenda a solucionar rapidamente os problemas com o serviço

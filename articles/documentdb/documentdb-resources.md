@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -161,7 +161,7 @@ Um banco de dados do Banco de Dados de Documentos é um contêiner lógico de um
 ![Modelo hierárquico de coleções e conta de banco de dados][2]  
 **Um banco de dados é um contêiner lógico de usuários e coleções**
 
-Um banco de dados pode conter praticamente um armazenamento de documentos ilimitado, particionado por coleções, que formam os domínios de transação para os documentos contidos neles. 
+Um banco de dados pode conter armazenamento de documentos praticamente ilimitado dividido nas coleções.
 
 ### <a name="elastic-scale-of-a-documentdb-database"></a>Dimensionamento elástico de um banco de dados do Banco de Dados de Documentos
 Um banco de dados do Banco de Dados de Documentos é elástico por padrão, indo de alguns GB a petabytes de armazenamento de documento com suporte de SSD e produtividade provisionada. 
@@ -175,7 +175,7 @@ Um banco de dados do Banco de Dados de Documentos também é um contêiner de us
 Assim como com outros recursos do modelo de recursos do DocumentDB, os bancos de dados podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as [APIs REST do DocumentDB do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou qualquer [SDK do cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). O Banco de Dados de Documentos garante uma forte consistência para a leitura ou consulta de metadados de um recurso do banco de dados. Excluir um banco de dados automaticamente garante que você não possa acessar qualquer uma das coleções ou usuários contidos nele.   
 
 ## <a name="collections"></a>Coleções
-Uma coleção do Banco de Dados de Documentos é um contêiner para seus documentos JSON. Uma coleção também é uma unidade de dimensionamento para transações e consulta. 
+Uma coleção do Banco de Dados de Documentos é um contêiner para seus documentos JSON. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Armazenamento de documentos com suporte de SSD elástico
 Uma coleção é intrinsicamente elástica; ela cresce e é reduzida automaticamente conforme você adiciona ou remove documentos. Coleções são recursos lógicos e podem abranger um ou mais servidores ou partições físicas. O número de partições dentro de uma coleção é determinado pelo Banco de Dados de Documentos com base no tamanho do armazenamento e na produtividade provisionada da coleção. Cada partição no Banco de Dados de Documentos tem uma quantidade fixa de armazenamento com suporte de SSD associado a ela e é replicada para alta disponibilidade. O gerenciamento de partição é totalmente gerenciado pelo Banco de Dados de Documentos do Azure e você não precisa escrever um código complexo ou gerenciar suas partições. As coleções do DocumentDB são **praticamente ilimitadas** em termos de armazenamento e produtividade. 
@@ -206,7 +206,7 @@ O modelo de consulta do Banco de Dados de Documentos tenta criar um equilíbrio 
 > 
 > 
 
-### <a name="multi-document-transactions"></a>Transações entre vários documentos
+## <a name="multi-document-transactions"></a>Transações entre vários documentos
 As transações do banco de dados oferecem um modelo de programação seguro e previsível para lidar com alterações simultâneas aos dados. No RDBMS, a maneira tradicional de gravar a lógica de negócios é gravar **procedimentos armazenados** e/ou **gatilhos** e enviá-los ao servidor do banco de dados para execução transacional. No RDBMS, o programador do aplicativo precisa lidar com duas linguagens de programação diferentes: 
 
 * A linguagem de programação (não transacional) do aplicativo (como JavaScript, Python, C#, Java etc.)

@@ -12,35 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/12/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 2e011fbde0ee1b070d51a38b23193a4b48a3a154
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="overview-of-azure-diagnostic-logs"></a>Visão Geral dos Logs de Diagnóstico
-**Os Logs de Diagnóstico do Azure** são logs emitidos por um recurso que fornece dados avançados e frequentes sobre a operação do recurso. O conteúdo desses logs varia por tipo de recurso (por exemplo, os logs de eventos do sistema Windows são uma categoria de Log de Diagnóstico para as VMs, blob e tabela, e os logs da fila são categorias de Logs de Diagnóstico para as contas de armazenamento) e difere do [Log de Atividades (anteriormente conhecido como Log de Auditoria ou Operacional)](monitoring-overview-activity-logs.md), que fornece informações sobre as operações que foram executadas nos recursos em sua assinatura. Nem todos os recursos suportam o novo tipo de Logs de Diagnóstico descrito aqui. A lista de Serviços com Suporte abaixo mostra quais tipos de recursos oferecem suporte aos novos Logs de Diagnóstico.
+# <a name="collect-and-consume-diagnostic-data-from-your-azure-resources"></a>Coletar e consumir dados de diagnóstico dos recursos do Azure
 
-![Posicionamento lógico dos Logs de Diagnóstico](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
+## <a name="what-are-azure-diagnostic-logs"></a>O que são os Logs de Diagnóstico do Azure
+**Os Logs de Diagnóstico do Azure** são logs emitidos por um recurso que fornece dados avançados e frequentes sobre a operação do recurso. O conteúdo desses logs varia de acordo com o tipo de recurso. Por exemplo, os logs de eventos do sistema Windows são uma categoria de Log de Diagnóstico para VMs, e logs de blobs, tabelas e filas são categorias de Logs de Diagnóstico para contas de armazenamento.
+
+Os logs de diagnóstico diferem do [Log de Atividades (anteriormente conhecido como Log de Auditoria ou Log Operacional)](monitoring-overview-activity-logs.md). O Log de Atividades fornece informações sobre as operações executadas em recursos em sua assinatura. Os Logs de Diagnóstico fornecem informações em operações que o recurso realizou por conta própria.
+
+Nem todos os recursos suportam o novo tipo de Logs de Diagnóstico descrito aqui. Este artigo contém uma seção que lista os tipos de recursos que dão suporte a novos Logs de Diagnóstico.
+
+![Logs de Diagnóstico X outros tipos de logs ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+
+Figura 1: Logs de Diagnóstico X outros tipos de logs
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>O que você pode fazer com os Logs de Diagnóstico
 Aqui estão algumas coisas que você pode fazer com os Logs de Diagnóstico:
+
+![Posicionamento lógico dos Logs de Diagnóstico](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+
 
 * Salve-os em uma [**Conta de Armazenamento**](monitoring-archive-diagnostic-logs.md) para auditoria ou inspeção manual. Você pode especificar o tempo (em dias) de retenção usando as **Configurações de Diagnóstico**.
 * [Transmita-os para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md) para o consumo por um serviço de terceiros ou uma solução de análises personalizadas, como o PowerBI.
 * Analise-os com o [Log Analytics do OMS](../log-analytics/log-analytics-azure-storage.md)
 
-O namespace da conta de armazenamento ou do hub de eventos não precisa estar na mesma assinatura em que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que não esteja na mesma assinatura para emitir logs. O usuário que define a configuração deve ter o devido acesso RBAC para ambas as assinaturas.
 
 ## <a name="diagnostic-settings"></a>Configurações de Diagnóstico
 Os Logs de Diagnóstico para os recursos de Não Computação são configurados usando as Configurações de Diagnóstico. **Configurações de Diagnóstico** para um controle de recursos:
 
 * Para onde os Logs de Diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos e/ou Log Analytics do OMS).
 * Quais Categorias de Log são enviadas.
-* Quanto tempo cada categoria de log deve ser mantida em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs são mantidos para sempre. Esse valor pode variar de 1 a 2147483647. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito. As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
+* Quanto tempo cada categoria de log deve ser mantida em uma conta de armazenamento
+    - Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
+    - Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
+    - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
 
 Essas configurações são facilmente definidas via folha Diagnóstico para um recurso no Portal do Azure, via Azure PowerShell e comandos da CLI ou via [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -141,13 +155,13 @@ Você pode combinar esses parâmetros para permitir várias opções de saída.
 Para alterar as Configurações de Diagnóstico usando a API REST do Azure Monitor, confira [este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## <a name="manage-diagnostic-settings-in-the-portal"></a>Gerenciar Configurações de Diagnóstico no portal
-Para verificar se todos os seus recursos estão corretamente definidos com as configurações de diagnóstico, você poderá navegar para a folha **Monitoramento** no portal e abrir a folha **Logs de Diagnóstico**.
+Verifique se todos os seus recursos estão definidos com as configurações de diagnóstico. Navegue até a folha **Monitoramento** no portal e abra a folha **Logs de Diagnóstico**.
 
 ![Folha Logs de Diagnóstico no portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
 
 Você talvez tenha que clicar em "Mais serviços" para localizar a folha Monitoramento.
 
-Nessa folha, você pode exibir e filtrar todos os recursos que oferecem suporte aos Logs de Diagnóstico para ver se eles habilitaram o diagnóstico e para qual conta de armazenamento, hub de eventos e/ou espaço de trabalho do Log Analytics esses logs estão fluindo.
+Nessa folha, você pode exibir e filtrar todos os recursos que dão suporte a Logs de Diagnóstico para ver se eles têm o diagnóstico habilitado. Você também pode verificar para qual conta de armazenamento, hub de eventos e/ou espaço de trabalho do Log Analytics esses logs estão fluindo.
 
 ![Resultados da folha Logs de Diagnóstico no portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
 
@@ -156,18 +170,18 @@ Clicar em um recurso mostrará todos os logs que foram colocados na conta de arm
 ![Folha Logs de Diagnóstico com um recurso](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
 
 > [!NOTE]
-> Os logs de diagnóstico aparecerão apenas nesta exibição e estarão disponíveis para download se você definiu as configurações de diagnóstico para salvá-los em uma conta de armazenamento.
+> Os logs de diagnóstico aparecem apenas nesta exibição e ficam disponíveis para download se você definiu as configurações de diagnóstico para salvá-los em uma conta de armazenamento.
 >
 >
 
-Clique no link de **Configurações de diagnóstico** para abrir a folha de configurações de diagnóstico, onde você pode habilitar, desabilitar ou modificar as configurações de diagnóstico para o recurso selecionado.
+Clique no link de **Configurações de diagnóstico** para mostrar a folha de configurações de diagnóstico, onde você pode habilitar, desabilitar ou modificar as configurações de diagnóstico para o recurso selecionado.
 
 ## <a name="supported-services-and-schema-for-diagnostic-logs"></a>Serviços e esquema com suporte para os Logs de Diagnóstico
-O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categoria do log. Abaixo estão os serviços com suporte e seu esquema.
+O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categoria do log.   
 
 | O Barramento de | Esquema e Documentos |
 | --- | --- |
-| Balanceador de carga |[Análise de log para o Balanceador de Carga do Azure (Preview)](../load-balancer/load-balancer-monitor-log.md) |
+| Balanceador de carga |[Log Analytics para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Grupos de segurança de rede |[Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Gateways do Aplicativo |[Log de diagnóstico do Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Cofre da Chave |[Logs do Cofre da Chave do Azure](../key-vault/key-vault-logging.md) |
@@ -211,7 +225,8 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 |Microsoft.StreamAnalytics/streamingjobs|Criação|Criação|
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Transmitir Logs de Diagnóstico para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Alterar as configurações de diagnóstico usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analise os logs com o Log Analytics do OMS](../log-analytics/log-analytics-azure-storage.md)
+* [Analisar logs do Armazenamento do Azure com o Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

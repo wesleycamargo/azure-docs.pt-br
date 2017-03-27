@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d4f5d9dbe60e549d270e190e626a87a66696f07c
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 82bc44b20158a22dfae0d6c8fbf5f1c1f4577c91
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -50,8 +51,8 @@ Dependendo de como você tiver respondido às perguntas em [Determinar requisito
 > [!NOTE]
 > Leia [Conformidade por recurso](https://azure.microsoft.com/support/trust-center/services/) na [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/) para saber mais sobre as certificações com as quais o serviço do Azure está em conformidade.
 > Como as opções de proteção de dados usam uma abordagem multicamada, a comparação entre essas opções não é aplicável para esta tarefa. Certifique-se de que você esteja aproveitando todas as opções disponíveis para cada estado em que os dados estarão.
-> 
-> 
+>
+>
 
 ## <a name="define-content-management-options"></a>Definir opções de gerenciamento de conteúdo
 Uma vantagem de usar o AD do Azure para gerenciar uma infraestrutura de identidade híbrida é a total transparência do processo da perspectiva do usuário final. O usuário tentará acessar um recurso compartilhado, o recurso exigirá autenticação, o usuário terá que enviar uma solicitação de autenticação ao AD do Azure para obter o token e acessar o recurso. Todo esse processo ocorre em segundo plano, sem interação do usuário. Também é possível conceder permissão a um [grupo](active-directory-manage-groups.md#getting-started-with-access-management) de usuários para permitir que eles realizem determinadas ações comuns.
@@ -72,8 +73,8 @@ Uma parte essencial do gerenciamento de conteúdo é entender quem está acessan
 > [!NOTE]
 > Leia [Gerenciamento de logs de auditoria e segurança do Microsoft Azure](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) para saber mais sobre como registrar em log recursos no Azure.
 > Dependendo de como você tiver respondido às perguntas em [Determinar requisitos de gerenciamento de conteúdo](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md), deverá ser capaz de determinar como deseja que o conteúdo seja gerenciado na sua solução de identidade híbrida. Embora todas as opções expostas na Tabela 6 sejam capazes de se integrar ao AD do Azure, é importante definir qual é mais apropriada para suas necessidades de negócios.
-> 
-> 
+>
+>
 
 | Opções de gerenciamento de conteúdo | Vantagens | Desvantagens |
 | --- | --- | --- |
@@ -98,15 +99,15 @@ O Active Directory do Azure fornece logon único a milhares de aplicativos SaaS 
 
 > [!NOTE]
 > Leia [Protocolos de autenticação do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) para saber mais detalhes sobre cada protocolo e suas funcionalidades no Azure.
-> 
-> 
+>
+>
 
 Usando o suporte do AD do Azure, os aplicativos de negócios móveis podem usar a mesma experiência fácil de autenticação dos Serviços Móveis para permitir que os funcionários entrem em seus aplicativos móveis com as respectivas credenciais corporativas do Active Directory. Com esse recurso, o AD do Azure tem suporte como um provedor de identidade nos Serviços Móveis ao lado de outros provedores de identidade aos quais já oferecemos suporte (que incluem Contas da Microsoft, ID do Facebook, ID do Google e ID do Twitter). Se os aplicativos locais usarem a credencial do usuário localizada no AD DS da empresa, o acesso de parceiros e usuários pela nuvem deverá ser transparente. Você pode gerenciar o controle de acesso condicional do usuário para aplicativos Web (baseados em nuvem), API da Web, serviços de nuvem da Microsoft, aplicativos SaaS de terceiros e aplicativos cliente (móveis) nativos, e ter os benefícios de segurança, auditoria, relatórios, em um só lugar. No entanto, é recomendável validar isso em um ambiente que não seja de produção ou com uma quantidade limitada de usuários.
 
 > [!TIP]
 > É importante mencionar que o Azure AD não tem uma Política de Grupo como o AD DS. Para aplicar a política de dispositivos, você precisará de uma solução de gerenciamento de dispositivo móvel, como o [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
-> 
-> 
+>
+>
 
 Quando o usuário é autenticado usando o AD do Azure, é importante avaliar o nível de acesso que ele terá. O nível de acesso que o usuário terá em um recurso pode variar. Embora o AD do Azure possa incluir uma camada adicional de segurança controlando o acesso a alguns recursos, você também deve se lembrar de que o recurso em si também pode ter sua própria lista de controle de acesso separadamente, como o controle de acesso para arquivos localizados em um Servidor de Arquivos. A figura abaixo resume os níveis de controle de acesso que você pode ter em um cenário híbrido:
 
@@ -114,7 +115,7 @@ Quando o usuário é autenticado usando o AD do Azure, é importante avaliar o n
 
 Cada interação no diagrama mostrado na Figura X representa um cenário de controle de acesso que pode ser coberto pelo AD do Azure. Abaixo, você tem uma descrição de cada cenário:
 
-1. Acesso Condicional a aplicativos que são hospedados localmente: é possível usar dispositivos registrados com políticas de acesso para aplicativos configurados para usar o AD FS com o Windows Server 2012 R2. Para obter mais informações sobre como configurar o acesso condicional para local, consulte [Configurando o acesso condicional local usando o registro do dispositivo do Active Directory do Azure](active-directory-conditional-access-on-premises-setup.md).
+1. Acesso Condicional a aplicativos que são hospedados localmente: é possível usar dispositivos registrados com políticas de acesso para aplicativos configurados para usar o AD FS com o Windows Server 2012 R2. Para obter mais informações sobre como configurar o acesso condicional para local, consulte [Configurando o acesso condicional local usando o registro do dispositivo do Active Directory do Azure](active-directory-conditional-access.md).
 2. Controle de Acesso ao Portal de Gerenciamento do Azure: o Azure também tem a capacidade de controlar o acesso ao Portal de Gerenciamento usando o RBAC (Controle de Acesso Baseado em Função). Esse método permite à empresa restringir a quantidade de operações que um indivíduo pode realizar depois que tem acesso ao Portal de Gerenciamento do Azure. Ao usar o RBAC para controlar o acesso ao portal, os administradores de TI podem delegar o acesso usando as seguintes abordagens de gerenciamento de acesso:
 
 * Atribuição de função com base em grupo: você pode atribuir acesso a grupos do AD do Azure que podem ser sincronizados do seu Active Directory local. Isso permite aproveitar os investimentos existentes que sua organização já fez em ferramentas e processos para gerenciar os grupos. Também é possível usar o recurso de gerenciamento de grupos delegado do Azure AD Premium.
@@ -123,8 +124,8 @@ Cada interação no diagrama mostrado na Figura X representa um cenário de cont
 
 > [!NOTE]
 > Leia [Controle de acesso baseado em função no Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) para saber mais detalhes sobre essa funcionalidade. Para desenvolvedores que estão criando aplicativos e querem personalizar o controle de acesso para eles, também é possível usar as Funções de Aplicativo do AD do Azure para autorização. Examine este [exemplo de WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) em como criar aplicativo para usar esse recurso.
-> 
-> 
+>
+>
 
 3.Acesso condicional para aplicativos do Office 365 com o Microsoft Intune: os administradores de TI podem provisionar políticas de dispositivo de acesso condicional para proteger recursos corporativos e, simultaneamente, permitir que os trabalhadores de informações em dispositivos compatíveis acessem os serviços. Para mais informações, consulte [Políticas de dispositivo de acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md).
 
@@ -143,8 +144,8 @@ O AD do Azure pode ajudar a TI a identificar possíveis riscos à segurança no 
 
 > [!TIP]
 > Outro relatório que também pode ajudar a equipe de Resposta a Incidentes a trabalhar em um caso é o relatório [Usuário com credenciais vazadas](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) .  Esse relatório revela as correspondências entre essa lista de credenciais vazadas e seu locatário.
-> 
-> 
+>
+>
 
 Outros relatórios internos importantes no AD do Azure que podem ser usados durante uma investigação de resposta a incidentes são:
 
@@ -168,10 +169,4 @@ Como as opções de reposta a incidentes usam uma abordagem multicamada, a compa
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

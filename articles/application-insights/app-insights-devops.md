@@ -4,18 +4,19 @@ description: Como o Application Insights se encaixa no ciclo do devOps
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e5652353d658a5de197d71231f649c75fe3b245b
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9f837ea815fdd3ea47608dc36029c35e92eda0ae
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -156,7 +157,7 @@ Se você usar o Visual Studio Team Services para compilar e implantar seu aplica
 ![Anotações do build](./media/app-insights-devops/070.png)
 
 ### <a name="work-items"></a>Itens de trabalho
-Quando um alerta é gerado, o Application Insights pode criar automaticamente um item de trabalho no seu sistema de controle de trabalho (somente Visual Studio Team Services no momento).
+Quando um alerta é gerado, o Application Insights pode criar automaticamente um item de trabalho no seu sistema de controle de trabalho.
 
 ## <a name="but-what-about"></a>Mas e...?
 * [Privacidade e armazenamento](app-insights-data-retention-privacy.md) : sua telemetria é mantida em servidores seguros do Azure.
@@ -170,10 +171,5 @@ Quando um alerta é gerado, o Application Insights pode criar automaticamente um
 * Instrumentar um aplicativo Web já em execução. Isso lhe fornece toda a telemetria de desempenho interna. Isso está disponível para [Java](app-insights-java-live.md) e [servidores IIS](app-insights-monitor-performance-live-website-now.md) e também para [aplicativos Web do Azure](app-insights-azure.md).
 * Instrumentar seu projeto durante o desenvolvimento. Você pode fazer isso para aplicativos [ASP.NET](app-insights-asp-net.md) ou [Java](app-insights-java-get-started.md), bem como [Node.js](app-insights-nodejs.md) e um host de [outros tipos](app-insights-platforms.md). 
 * Instrumentar [qualquer página da Web](app-insights-javascript.md) adicionando um trecho de código curto.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

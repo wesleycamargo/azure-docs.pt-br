@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,7 +33,7 @@ Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os
 > [!IMPORTANT]
 > As etapas neste documento funcionam somente com clusters HDInsight que usam Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Serviços
+## <a name="whichServices"></a>Serviços
 Você pode habilitar o despejo de heap para os seguintes serviços:
 
 * **hcatalog** - tempelton
@@ -42,7 +44,7 @@ Você pode habilitar o despejo de heap para os seguintes serviços:
 
 Você também pode habilitar despejos de heap para os processos de mapeamento e redução executados pelo HDInsight.
 
-## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Compreendendo a configuração do despejo de heap
+## <a name="configuration"></a>Compreendendo a configuração do despejo de heap
 Despejos de heap são habilitados transmitindo opções (às vezes conhecidas como opts, ou parâmetros) para a JVM quando um serviço é iniciado. Para a maioria dos serviços do Hadoop, isso pode ser feito modificando o script de shell usado para iniciar o serviço.
 
 Em cada script, há uma exportação para **\*\_OPTS**, que contém as opções passadas para a JVM. Por exemplo, no script **hadoop-env.sh**, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
@@ -130,10 +132,5 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
    > 
    > 
 8. Após os serviços serem reiniciados, use o botão **Ações de Serviço** para **Desativar o Modo de Manutenção**. Use este Ambari para retomar o monitoramento dos alertas do serviço.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

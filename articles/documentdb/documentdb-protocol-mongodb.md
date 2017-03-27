@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 03/14/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6c143a18883c99a24264d3174df7ec214d696fb5
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f173fa709f2a7a21042752ba4b5ac936d01fe300
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/08/2017
 Os bancos de dados do Banco de Dados de Documentos agora podem ser usados como o repositório de dados para aplicativos escritos para o MongoDB. Isso significa que ao usar [drivers](https://docs.mongodb.org/ecosystem/drivers/) existentes para bancos de dados do MongoDB, seu aplicativo escrito para MongoDB agora pode se comunicar com o DocumentDB e usar os bancos de dados do DocumentDB em vez dos bancos de dados do MongoDB. Em muitos casos, é possível alternar o uso do MongoDB para DocumentDB, bastando alterar uma cadeia de conexão. Usando essa funcionalidade, os clientes podem criar e executar aplicativos de banco de dados do MongoDB facilmente na nuvem do Azure (aproveitando os bancos de dados NoSQL totalmente gerenciados e escalonáveis do DocumentDB) enquanto continuam usando habilidades e ferramentas conhecidas para MongoDB.
 
 ## <a name="what-is-the-benefit-of-using-documentdb-api-for-mongodb"></a>Qual é o benefício de usar a API para MongoDB do DocumentDB?
-**Sem Gerenciamento de Servidor**: o DocumentDB é um serviço totalmente gerenciado, o que significa que você não precisa gerenciar infraestruturas ou Máquinas Virtuais. O DocumentDB está disponível em mais de 20 [Regiões do Azure](https://azure.microsoft.com/regions/services/).
+**Sem Gerenciamento de Servidor**: o DocumentDB é um serviço totalmente gerenciado, o que significa que você não precisa gerenciar infraestruturas ou Máquinas Virtuais. O DocumentDB está disponível em mais de 30 [Regiões do Azure](https://azure.microsoft.com/regions/services/).
 
 **Escala ilimitada**: você pode escalar a produtividade e o armazenamento, de modo independente e elástica. É possível adicionar capacidade para atender a milhões de solicitações por segundo com facilidade.
 
@@ -49,8 +49,15 @@ Crie uma conta da API para MongoDB do DocumentDB no [Portal do Azure](https://po
 Para obter instruções detalhadas, siga [criar conta](documentdb-create-mongodb-account.md) e [conectar-se à sua conta](documentdb-connect-mongodb-account.md).
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Informações sobre o DocumentDB: a API para MongoDB está integrada à documentação geral do DocumentDB, mas veja aqui algumas orientações para começar:
 * Siga o tutorial [Conectar-se a uma conta do MongoDB](documentdb-connect-mongodb-account.md) para saber como obter informações sobre a cadeia de conexão da sua conta.
 * Siga o tutorial [Usar o MongoChef com o DocumentDB](documentdb-mongodb-mongochef.md) para saber como criar uma conexão entre o banco de dados do DocumentDB e o aplicativo MongoDB no MongoChef.
-* Explore [amostras](documentdb-mongodb-samples.md) da API para MongoDB do DocumentDB.
+* Siga o tutorial [Migrar dados para o DocumentDB com suporte de protocolo para o MongoDB](documentdb-mongodb-migrate.md) para importar seus dados em um banco de dados da API para MongoDB.
+* Criar seu primeiro aplicativo da API para MongoDB usando [Node.js](documentdb-mongodb-samples.md).
+* Criar seu primeiro aplicativo Web da API para MongoDB usando [.NET](documentdb-mongodb-application.md).
+* Conectar-se a uma conta da API para MongoDB usando o [Robomongo](documentdb-mongodb-robomongo.md).
+* Saiba quantos RUs suas operações estão usando com o [comando GetLastRequestStatistics e as métricas do Portal do Azure](documentdb-request-units.md#GetLastRequestStatistics).
+* Saiba como [configurar preferências de leitura para aplicativos distribuídos globalmente](documentdb-distribute-data-globally.md#ReadPreferencesAPIforMongoDB).
 
 

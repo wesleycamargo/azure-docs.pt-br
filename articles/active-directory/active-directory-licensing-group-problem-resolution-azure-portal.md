@@ -1,7 +1,7 @@
 ---
 
 title: "Resolver problemas de licença para um grupo no Azure Active Directory | Microsoft Docs"
-description: "Como identificar e resolver problemas de atribuição de licença usando o licenciamento baseado em grupo do Azure Active Directory"
+description: "Como identificar e resolver problemas de atribuição de licença quando você estiver usando o licenciamento baseado em grupo do Azure Active Directory"
 services: active-directory
 keywords: Licenciamento do AD do Azure
 documentationcenter: 
@@ -18,74 +18,78 @@ ms.date: 02/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
-ms.openlocfilehash: 4ed83a1af1c31d41860931d363d93c7d61df9c98
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 40042fd5ca2671cc26a67736b1c7a1e907c004d8
+ms.lasthandoff: 03/10/2017
 
 
 ---
 
-# <a name="identifying-and-resolving-license-assignment-problems-when-using-groups-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças ao usar grupos no Azure Active Directory
+# <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Active Directory
 
+O licenciamento baseado em grupo no Azure Active Directory (Azure AD) introduz o conceito de usuários em um estado de erro de licenciamento. Neste artigo, explicaremos os motivos pelos quais os usuários podem acabar tendo esse estado.
 
-O licenciamento baseado em grupo no Azure Active Directory (Azure AD) introduz o conceito de usuários em estado de erro de licenciamento. Neste artigo, vamos explicar por que os usuários podem acabar nesse estado. Quando as licenças são atribuídas diretamente a usuários individuais, sem o uso de licenciamento baseado em grupo, a operação de atribuição pode falhar. Por exemplo, quando o administrador executa o cmdlet `Set-MsolUserLicense` do PowerShell em um usuário, o cmdlet pode falhar por vários motivos relacionados à lógica de negócios, como um número insuficiente de licenças ou um conflito entre dois planos de serviço que não podem ser atribuídos ao mesmo tempo. O problema é relatado imediatamente ao usuário que está executando o comando.
+Quando você atribui licenças diretamente a usuários individuais, sem usar o licenciamento baseado em grupo, a operação de atribuição pode falhar. Por exemplo, quando você executa o cmdlet do PowerShell `Set-MsolUserLicense` em um usuário, o cmdlet pode falhar por vários motivos relacionados à lógica de negócios. Por exemplo, pode haver um número insuficiente de licenças ou um conflito entre dois planos de serviço que não podem ser atribuídos ao mesmo tempo. O problema é relatado imediatamente para você.
 
-Ao usar o licenciamento baseado em grupo, os mesmos erros podem ocorrer, mas eles ocorrem em segundo plano quando o serviço do Azure AD é atribuir licenças. Por esse motivo que eles não podem ser comunicados imediatamente para o administrador. Em vez disso, eles são registrados no objeto do usuário e relatados por meio do portal administrativo. A intenção original para licenciar o usuário nunca é perdida, mas pode ser aplicada no estado ativo ou gravado em estado de erro para investigação futura e resolução.
+Quando você está usando o licenciamento com base em grupo, o mesmo erro pode ocorrer, mas ocorre em segundo plano quando o serviço do Azure AD está atribuindo licenças. Por esse motivo, os erros não podem ser comunicados a você imediatamente. Em vez disso, eles são registrados no objeto do usuário e relatados por meio do portal administrativo. Observe que a intenção original para licenciar o usuário nunca é perdida, mas é registrada em um estado de erro para investigação futura e resolução.
 
-Para localizar usuários no estado de erro para cada grupo, abra a folha de cada grupo e, em **licenças** haverá uma notificação exibida se houver usuários em estado de erro. Selecione a notificação para abrir um modo de exibição lista afetados todos os usuários que podem ser exibidas individualmente para entender o problema subjacente. Neste artigo, descreveremos cada problema e como resolvê-lo.
+Para localizar os usuários que estão em um estado de erro para cada grupo, abra a folha de cada grupo. Em **Licenças**, uma notificação será exibida se houver usuários em um estado de erro. Selecione a notificação para abrir uma lista de todos os usuários afetados. Você pode exibir os usuários individualmente para entender o problema subjacente. Neste artigo, descrevemos cada problema e a maneira de resolvê-lo.
 
 ## <a name="not-enough-licenses"></a>Não há licenças suficientes
 
-Não há licenças suficientes disponíveis para um dos produtos especificados no grupo. Você precisa adquirir mais licenças para o produto ou liberar as licenças não utilizadas de outros usuários ou grupos.
+**Problema:** não há licenças suficientes disponíveis para um dos produtos especificados no grupo. Você precisa adquirir mais licenças para o produto ou liberar as licenças não utilizadas de outros usuários ou grupos.
 
-Para ver quantas licenças estão disponíveis, vá para **Azure Active Directory &gt; licenças &gt; todos os produtos**.
+Para ver quantas licenças estão disponíveis, acesse **Azure Active Directory** > **Licenças** > **Todos os produtos**.
 
-Para ver quais usuários e grupos estão consumindo licenças, clique em um produto. Em **licenciado a usuários** você verá todos os usuários para quem os licenças foram atribuídas diretamente ou por meio de um ou mais grupos. Em **licenciado grupos** você verá todos os grupos que têm esse produto atribuído.
+Para ver quais usuários e grupos estão consumindo licenças, clique em um produto. Em **Usuários licenciados**, você verá todos os usuários que tiveram licenças atribuídas diretamente ou por meio de um ou mais grupos. Em **Grupos licenciados**, você verá todos os grupos que têm esse produto atribuído.
 
 ## <a name="conflicting-service-plans"></a>Planos de serviço conflitante
 
-Um dos produtos especificados no grupo contém um plano de serviço que está em conflito com outro plano de serviço já está atribuído ao usuário por meio de um produto diferente. Alguns planos de serviço são configurados de forma para que eles não sejam atribuídos ao mesmo usuário como outro plano de serviço relacionado.
+**Problema:** um dos produtos especificados no grupo contém um plano de serviço que está em conflito com outro plano de serviço já está atribuído ao usuário por meio de um produto diferente. Alguns planos de serviço são configurados de forma para que eles não sejam atribuídos ao mesmo usuário como outro plano de serviço relacionado.
 
-Considere o seguinte exemplo: um usuário tem uma licença para o Office 365 Enterprise **E1** atribuído diretamente, com todos os planos habilitados. O usuário foi adicionado a um grupo que tem o Office 365 Enterprise **E3** produto atribuído a ele. Este produto contém serviço planos que não podem se sobrepor entre E1 e E3, então a atribuição de licença de grupo irá falhar com o erro "Planos de serviço em conflito". Neste exemplo, os planos de serviço conflitantes são:
+Considere o exemplo a seguir. Um usuário tem uma licença para o Office 365 Enterprise **E1** atribuída diretamente, com todos os planos habilitados. O usuário foi adicionado a um grupo que tem o Office 365 Enterprise **E3** produto atribuído a ele. Este produto contém planos de serviço que não podem se sobrepor aos planos incluídos em E1. Portanto, a atribuição de licença de grupo falhará com o erro "Planos de serviço conflitantes". Neste exemplo, os planos de serviço conflitantes são:
 
--   SharePoint Online (plano 2) está em conflito com o SharePoint Online (plano 1)
+-   SharePoint Online (plano 2) está em conflito com o SharePoint Online (plano 1).
+-   O Exchange Online (plano 2) está em conflito com o Exchange Online (plano 1).
 
--   O Exchange Online (plano 2) está em conflito com o Exchange Online (plano 1)
+Para resolver esse conflito, você deverá desabilitar esses dois planos na licença E1 que está diretamente atribuída ao usuário. Ou você precisa modificar a atribuição de licença do grupo inteiro e desabilitar os planos na licença E3. Como alternativa, você pode decidir remover a licença de E1 do usuário se ela é redundante no contexto da licença E3.
 
-Para resolver esse conflito, você precisará desabilitar esses dois planos em licença E1 diretamente atribuídas ao usuário, ou modificar a atribuição de licença do grupo inteiro e desabilitar os planos na licença E3. Como alternativa, você pode decidir remover a licença de E1 do usuário se ela é redundante no contexto da licença E3.
-
-A decisão de como resolver conflitantes licenças de produtos sempre pertence ao administrador. Azure AD não será resolvido automaticamente conflitos de licença.
+A decisão de como resolver conflitantes licenças de produtos sempre pertence ao administrador. O Azure AD não resolve conflitos de licença automaticamente.
 
 ## <a name="other-products-depend-on-this-license"></a>Outros produtos dependem desta licença
 
-Um dos produtos especificados no grupo contém um plano de serviço deve ser habilitado para outro plano de serviço em outro produto, a função. Esse erro ocorre quando o Azure AD tenta remover o plano de serviço subjacente, por exemplo, como resultado o usuário que está sendo removido do grupo.
+**Problema:** um dos produtos especificados no grupo contém um plano de serviço deve ser habilitado para outro plano de serviço em outro produto, a função. Esse erro ocorre quando o Azure AD tenta remover o plano de serviço subjacente. Por exemplo, isso pode acontecer porque o usuário foi removido do grupo.
 
-## <a name="usage-location-not-allowed"></a>Local de uso não permitido
+Para resolver esse problema, você precisará garantir que o plano necessário ainda esteja atribuído aos usuários por meio de algum outro método ou que os serviços dependentes sejam desabilitados para esses usuários. Depois de fazer isso, você pode remover corretamente a licença de grupo dos usuários.
 
-Alguns serviços da Microsoft não estão disponíveis em todos os locais devido às leis e regulamentações locais. Antes de uma licença pode ser atribuída a um usuário, o administrador precisa especificar a propriedade "Local de uso" para o usuário. Isso pode ser feito na seção **Usuário &gt; Perfil &gt; Configurações** no portal do Azure.
+## <a name="usage-location-isnt-allowed"></a>O local de uso não é permitido
 
-Ao usar a atribuição de grupo de licenças, qualquer usuário sem um local de uso especificado herdará o local do diretório. Se você tiver usuários em locais onde os planos não estão disponíveis, considere modificar a atribuição de licença no nível de grupo para desabilitar os planos afetados. Como alternativa, você pode mover os usuários para um grupo diferente cujas atribuições de licença não entrem em conflito com o local.
+**Problema:** alguns serviços da Microsoft não estão disponíveis em todos os locais devido a leis e regulamentações locais. Para poder atribuir uma licença a um usuário, você precisa especificar a propriedade "Local de uso" para o usuário. Você pode fazer isso na seção **Usuário** > **Perfil** > **Configurações** no portal do Azure.
 
-Se você tiver usuários em locais diferentes, certifique-se de refletir isso corretamente nos objetos do usuário antes de adicionar usuários a grupos de licenças.
+Quando o Azure AD tentar atribuir uma licença de grupo a um usuário cujo local de uso não tenha suporte, ele falhará e registrará esse erro no usuário.
 
-## <a name="what-happens-when-there-is-more-than-1-product-license-on-a-group"></a>O que acontece quando há mais de 1 licença do produto em um grupo?
+Para resolver esse problema, remova os usuários locais sem suporte do grupo licenciado. Como alternativa, se os valores atuais de local de uso não representarem o local real do usuário, você poderá modificá-los para que as licenças sejam atribuídas corretamente na próxima vez (se houver suporte para o novo local).
 
-Você pode atribuir mais de 1 licença do produto a um grupo. Por exemplo, você poderia atribuir Office 365 Enterprise E3 e mobilidade corporativa + segurança a um grupo para habilitar facilmente incluídos todos os serviços para os usuários.
+> [!NOTE]
+> Quando o Azure AD atribui licenças de grupo, quaisquer usuários sem um local de uso especificado herdam o local do diretório. É recomendável que os administradores definam os valores de local de uso corretos nos usuários antes de usar o licenciamento baseado em grupo para cumprir as leis e regulamentações locais.
 
-Azure AD tenta atribuir todas as licenças especificadas no grupo para cada usuário. Se, não é possível atribuir um dos produtos devido a problemas de lógica de negócios (por exemplo, não há licenças todos os conflitos com outros serviços habilitados no usuário), não atribuirá as outras licenças do grupo, ou.
+## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>O que acontece quando há mais de uma licença de produto em um grupo?
 
-Você poderá ver os usuários para quem atribuição falhou e verificar quais produtos foram afetados por isso.
+Você pode atribuir mais de uma licença de produto a um grupo. Por exemplo, você pode atribuir o Office 365 Enterprise E3 e o Enterprise Mobility + Security a um grupo para habilitar facilmente todos os serviços incluídos para os usuários.
 
-## <a name="how-to-force-processing-of-licenses-in-a-group-to-resolve-errors"></a>Como forçar o processamento de licenças em um grupo para resolver erros?
+O Azure AD tenta atribuir todas as licenças que são especificadas no grupo para cada usuário. Se o Azure AD não puder atribuir um dos produtos devido a problemas de lógica de negócios (por exemplo, se não houver licenças suficientes para todos ou se houver conflitos com outros serviços que estão habilitados no usuário), ele também não atribuirá outras licenças no grupo.
 
-Dependendo de quais etapas foram executadas para resolver erros, pode ser necessário acionar o processamento de um grupo para atualizar o estado do usuário manualmente.
+Você poderá ver os usuários que não foram atribuídos e verificar quais produtos foram afetados por isso.
 
-Por exemplo, se você adquiriu mais licenças para cobrir todos os usuários, você precisará acionar o processamento de grupos que falharam anteriormente totalmente licenciar todos os membros de usuário. Para fazer isso, localize a folha de grupo, abra **licenças** e selecione o **reprocessar** na barra de ferramentas.
+## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Como forçar o processamento de licença em um grupo para resolver erros?
 
+Dependendo de quais etapas você executou para resolver erros, pode ser necessário disparar manualmente o processamento de um grupo para atualizar o estado do usuário.
+
+Por exemplo, se liberou algumas licenças removendo atribuições de licença diretas dos usuários, você precisará disparar o processamento de grupos que falharam anteriormente para licenciar totalmente todos os membros usuários. Para fazer isso, localize a folha do grupo, abra **Licenças** e selecione o botão **Reprocessar** na barra de ferramentas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre outros cenários de gerenciamento de licença por meio de grupos, leia
+Para saber mais sobre outros cenários de gerenciamento de licenças por meio de grupos, leia o seguinte:
 
 * [Atribuição de licenças a um grupo no Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [O que é o licenciamento baseado em grupo no Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)

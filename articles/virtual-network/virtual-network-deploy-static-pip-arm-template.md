@@ -17,20 +17,20 @@ ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 0aa12ea5fd7df7bee57aa7bcacd4c1fe4d6542b8
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Criar uma VM com um endereço IP público estático usando um modelo do Azure Resource Manager
 
 > [!div class="op_single_selector"]
-- [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Modelo](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
+> * [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Modelo](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -171,7 +171,7 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Implantar o modelo usando a CLI do Microsoft Azure
 Para implantar o modelo usando a CLI do Azure, siga as etapas a seguir:
 
-1. Caso você nunca tenha usado a CLI do Azure siga as etapas do artigo [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para instalá-la e configurá-la.
+1. Caso você nunca tenha usado a CLI do Azure siga as etapas do artigo [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) para instalá-la e configurá-la.
 2. Execute a opção de comando `azure config mode` para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
     ```azurecli
