@@ -1,6 +1,6 @@
 ---
-title: "Decodificar mensagens EDIFACT nos Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Como usar o decodificador EDIFACT no Enterprise Integration Pack com seus aplicativos lógicos"
+title: "Decodificar mensagens EDIFACT - Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Validar EDI e gerar o XML de conjuntos de transações com o decodificador de mensagem EDIFACT no Enterprise Integration Pack para Aplicativo Lógico do Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -15,47 +15,62 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 430a3add46053b5969597aa625df899f4d2e83f6
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 176963837f4f3fc8b89e31000ef8722ef3258b11
+ms.lasthandoff: 03/10/2017
 
 
 ---
 
-# <a name="get-started-with-decode-edifact-message"></a>Introdução à decodificação de mensagem EDIFACT
-O conector de Decodificação EDIFACT valida o EDI e as propriedades específicas de parceiro, gera um documento XML para cada conjunto de transação e gera a confirmação de transação processada.
+# <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
-## <a name="prereqs"></a>Pré-requisitos
+Com o conector de mensagem EDIFACT de decodificação, você pode validar o EDI e as propriedades específicas de parceiro, gerar um documento XML para cada conjunto de transações e gerar uma confirmação das transações processadas. Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
+
+## <a name="before-you-start"></a>Antes de começar
+
+Veja os itens necessários:
+
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma Conta de Integração é necessária para usar o conector de Decodificar mensagem EDIFACT. Veja os detalhes de como criar uma [Conta de Integração](logic-apps-enterprise-integration-create-integration-account.md), [parceiros](logic-apps-enterprise-integration-partners.md) e um [contrato EDIFACT](logic-apps-enterprise-integration-edifact.md).
+* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já esteja definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem EDIFACT de decodificação. 
+* Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
+* Um [contrato EDIFACT](logic-apps-enterprise-integration-edifact.md) que já está definido em sua conta de integração
 
 ## <a name="decode-edifact-messages"></a>Decodificar mensagens EDIFACT
-1. [Crie um aplicativo lógico](logic-apps-create-a-logic-app.md).
-2. Esse conector não tem gatilhos. Use outros gatilhos para iniciar o Aplicativo Lógico, como um gatilho de solicitação.  No designer do Aplicativo Lógico, adicione um gatilho e uma ação.  Escolha Mostrar APIs gerenciadas da Microsoft na lista suspensa e digite "EDIFACT" na caixa de pesquisa.  Escolha Decodificar Mensagem EDIFACT:
+
+1. [Criar um aplicativo lógico](logic-apps-create-a-logic-app.md).
+
+2. O conector de mensagem EDIFACT de decodificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
+
+3.    Na caixa de pesquisa, digite "EDIFACT" como filtro. Escolha **Decodificar Mensagem EDIFACT**.
    
     ![pesquisar EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
-3. Se ainda não tiver criado conexões com a Conta de Integração, você deverá fornecer os detalhes de conexão:
+
+3. Se você não criou conexões à sua conta de integração previamente, terá que criá-las agora. Nomeie sua conexão e selecione a conta de integração que você deseja conectar.
    
-    ![criar uma conta de integração](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)  
-4. Insira os detalhes da Conta de Integração.  As propriedades com um asterisco são obrigatórias:
-   
-   | Propriedade | Detalhes |
-   | --- | --- |
-   | Nome da Conexão * |Digite um nome para a conexão |
-   | Uma conta de integração * |Insira o nome da Conta de Integração. Certifique-se de que sua Conta de Integração e que o Aplicativo Lógico estejam na mesma localização do Azure |
-   
-    Uma vez concluída, os detalhes da conexão se parecerão com estes:
-   
-    ![conta de integração criada](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
-5. Selecione **Criar**.
-6. Observe que a conexão foi criada:
-   
-    ![detalhes da conexão com a conta de integração](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
-7. Escolha a mensagem do arquivo simples EDIFACT para decodificar:
-   
-    ![fornecer campos obrigatórios](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
+    ![criar uma conta de integração](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)
+
+    As propriedades com um asterisco são obrigatórias.
+
+    | Propriedade | Detalhes |
+    | --- | --- |
+    | Nome da Conexão * |Digite um nome para a conexão. |
+    | Uma conta de integração * |Insira um nome para sua conta de integração. Verifique se sua conta de integração e o aplicativo lógico estão no mesmo local do Azure. |
+
+4.    Ao concluir a criação da sua conexão, escolha **Criar**. Os detalhes de conexão devem ser semelhantes a este exemplo:
+
+    ![detalhes da conta de integração](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
+
+5. Após a conexão ter sido criada, conforme mostrado neste exemplo, selecione a mensagem de arquivo simples EDIFACT para decodificação.
+
+    ![conexão com a conta de integração criada](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
+
+    Por exemplo:
+
+    ![Escolha a mensagem de arquivo simples EDIFACT para decodificação](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
 ## <a name="edifact-decoder-details"></a>Detalhes de decodificador EDIFACT
-O conector de Decodificação EDIFACT faz o seguinte: 
+
+O conector EDIFACT de decodificação executa as seguintes tarefas: 
 
 * Resolve o contrato correspondendo o qualificador e o identificador do remetente com o qualificador e o identificador do receptor
 * Divide diversos intercâmbios em uma única mensagem em mensagens separadas.
@@ -82,10 +97,5 @@ O conector de Decodificação EDIFACT faz o seguinte:
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

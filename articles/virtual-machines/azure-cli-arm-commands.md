@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 940c762a00dc0efcaedff266cce82e5353c227f6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdf9d576b6a7d3afcfb0839ce8bab2103fba14ed
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ Este artigo fornece a sintaxe e as opções de comandos da CLI (interface de lin
 >Saiba mais sobre as [CLIs novas e antigas do Azure](/cli/azure/old-and-new-clis).
 >
 
-Para começar, primeiro [instale a CLI do Azure](../xplat-cli-install.md) e [conecte-se à sua assinatura do Azure](../xplat-cli-connect.md).
+Para começar, primeiro [instale a CLI do Azure](../cli-install-nodejs.md) e [conecte-se à sua assinatura do Azure](../xplat-cli-connect.md).
 
 Para ver as atuais opções e a sintaxe de comandos na linha de comando no modo do Gerenciador de Recursos, digite `azure help` ou, para exibir a ajuda para um comando específico, `azure help [command]`. Também é possível encontrar exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
 

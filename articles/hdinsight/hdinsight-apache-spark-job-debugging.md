@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 59af05a7-2bd9-44b0-b55f-2438d294198b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: d6d7c0d112778172633fa068a119ba075c0fd900
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -105,7 +107,7 @@ Quando um trabalho é concluído, as informações sobre ele são mantidas no Se
    
     ![Iniciar o Servidor de Histórico do Spark](./media/hdinsight-apache-spark-job-debugging/view-completed-applications.png)
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Consulte também
+## <a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
@@ -129,10 +131,5 @@ Quando um trabalho é concluído, as informações sobre ele são mantidas no Se
 
 ### <a name="manage-resources"></a>Gerenciar recursos
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

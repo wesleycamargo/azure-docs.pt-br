@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/07/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 38c7ea11091bb65432589df4d72e5efef3cb7ea3
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 612b58db48e160cb1b4cfef1f8f4c2b203061064
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/03/2017
 
 Este tópico discute como começar a desenvolver aplicativos de serviços de mídia usando o .NET.
 
-A biblioteca do **SDK do .NET dos Serviços de Mídia** permite que você programe em relação aos serviços de mídia usando o .NET. Para facilitar ainda mais o desenvolvimento com o .NET, a biblioteca de **Extensões do SDK do .NET dos Serviços de Mídia** é fornecida. Esta biblioteca contém um conjunto de métodos de extensão e funções auxiliares que simplificarão seu código .NET. As duas bibliotecas estão disponíveis por meio do **NuGet** e **GitHub**.
+A biblioteca do **SDK do .NET dos Serviços de Mídia** permite que você programe em relação aos serviços de mídia usando o .NET. Para facilitar ainda mais o desenvolvimento com o .NET, a biblioteca de **Extensões do SDK do .NET dos Serviços de Mídia** é fornecida. Esta biblioteca contém um conjunto de métodos de extensão e funções auxiliares simplificam o seu código .NET. As duas bibliotecas estão disponíveis por meio do **NuGet** e **GitHub**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma conta de Serviços de Mídia em uma assinatura nova ou existente do Azure. Confira o tópico [Criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
@@ -39,14 +39,14 @@ Esta seção mostra como criar um projeto no Visual Studio e configurá-lo para 
 
 Esta seção mostra como usar **NuGet** para adicionar o SDK do .NET dos Serviços de Mídia e outras bibliotecas dependentes.
 
-Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serviços de Mídia no GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) e [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), criar a solução e adicionar as referências ao projeto do cliente. Observe que todas as dependências necessárias obtém por download e são extraídas automaticamente.
+Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serviços de Mídia no GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) ou [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), criar a solução e adicionar as referências ao projeto do cliente. Todas as dependências necessárias são baixadas e extraídas automaticamente.
 
 1. No Visual Studio, crie um novo aplicativo de console C#. Digite o **Nome**, o **Local** e o **Nome da solução** e clique em OK.
 2. Compilar a solução.
 3. Use o **NuGet** para instalar e adicionar **extensões do SDK do .NET dos Serviços de Mídia do Azure**. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
    
     Certifique-se de que você tenha a versão mais recente do NuGet instalada. Para obter mais informações e instruções de instalação, consulte [NuGet](http://nuget.codeplex.com/).
-4. No Gerenciador de Solução, clique o nome do projeto e escolha gerenciar pacotes NuGet...
+4. No Gerenciador de Soluções, clique com o botão direito no nome do projeto e escolha Gerenciar pacotes NuGet.
    
     A caixa de diálogo Gerenciar Pacotes NuGet será exibida.
 5. Na Galeria Online, procure por extensões de serviços de mídia do Azure, escolha extensões do SDK do .NET dos Serviços de Mídia e, em seguida, clique no botão Instalar.
@@ -62,7 +62,7 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 9. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo.     
    Defina os valores para o nome e chave de conta de seus Serviços de Mídia do Azure, conforme mostrado no exemplo a seguir.
    
-    Para localizar os valores de Nome e Chave, vá para o Portal do Azure e selecione sua conta. A janela Configurações aparece à direita. Na janela Configurações, selecione Chaves. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
+    Para localizar os valores de Nome e Chave, vá para o Portal do Azure e selecione sua conta. A janela Configurações aparece à direita. Na janela Configurações, selecione Chaves. Ao clicar no ícone ao lado de cada caixa de texto o valor é copiado para a área de transferência do sistema.
 
         <configuration>
         ...

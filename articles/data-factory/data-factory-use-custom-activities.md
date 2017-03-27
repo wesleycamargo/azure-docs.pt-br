@@ -15,23 +15,25 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b8a54b6ca0b13c161a35595af7f09e6c5ab203c0
-ms.openlocfilehash: 21190b985860a79e4bebf7bf4845e5954c657b9f
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3893c98ed72ee7b4ed5aa879047293285e9af071
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md)
-> * [Procedimento armazenado](data-factory-stored-proc-activity.md)
-> * [U-SQL da Análise Data Lake](data-factory-usql-activity.md)
-> * [Personalizado do .NET](data-factory-use-custom-activities.md)
+> * [Atividade de Hive](data-factory-hive-activity.md) 
+> * [Atividade Pig](data-factory-pig-activity.md)
+> * [Atividade MapReduce](data-factory-map-reduce.md)
+> * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade do Spark](data-factory-spark.md)
+> * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade do Recurso de Atualização do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
+> * [Atividade do U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
+> * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 
 Há dois tipos de atividades que você pode usar em um pipeline do Azure Data Factory.
@@ -253,7 +255,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path   
+        // log the output folder path    
         logger.Write("Writing blob to the folder: {0}", folderPath);
     
         // create a storage object for the output blob.
@@ -289,7 +291,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
             return null;
         }
 
-        // get type properties of the dataset   
+        // get type properties of the dataset    
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {

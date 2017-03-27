@@ -1,6 +1,6 @@
 ---
-title: "Use kernels diferentes com blocos de anotações do Jupyter em clusters Spark do Azure | Microsoft Docs"
-description: "Saiba mais sobre os kernels PySpark e Spark, que você pode usar com o bloco de anotações do Jupyter disponível com clusters do Spark no HDInsight em Linux."
+title: Usar kernels diferentes com notebooks Jupyter em clusters Azure HDInsight Spark | Microsoft Docs
+description: "Saiba mais sobre os kernels PySpark, PySpark3 e Spark, que você pode usar com o notebook Jupyter disponível com clusters Spark no HDInsight em Linux."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,38 +9,42 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/14/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: fc39933ac8d9f3c46023a5852df036b87e559647
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: bb5d6f5f9d500a133a6594e440f8db91f757f710
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>Kernels de blocos de anotações do Jupyter com clusters do Apache Spark no HDInsight 
 
-Os clusters HDInsight Spark fornecem dois kernels que você pode usar com o notebook Jupyter para testar seus aplicativos Spark. Um kernel é um programa que é executado e que interpreta seu código. Os dois kernels são:
+Os clusters HDInsight Spark fornecem kernels que você pode usar com o notebook Jupyter para testar seus aplicativos Spark. Um kernel é um programa que é executado e que interpreta seu código. Os dois kernels são:
 
-- **PySpark** (para aplicativos escritos em Python)
-- **Spark** (para aplicativos escritos em Scala)
+- **PySpark** - para aplicativos escritos em Python2
+- **PySpark3** - para aplicativos escritos em Python3
+- **Spark** - para aplicativos escritos em Scala
 
 Neste artigo, você aprenderá como usar esses kernels e os benefícios de usá-los.
 
-**Pré-requisitos:**
-
-Você deve ter o seguinte:
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Criar um notebook Jupyter
+
 1. Do [portal do Azure](https://portal.azure.com/), abra o seu cluster.  Consulte [lista e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) para obter instruções. O cluster é aberto em uma nova folha de portal.
+
 2. Do **links rápidos** seção, clique em **Painéis do cluster** para abrir a folha **Painéis do cluster** folha.  Se você não vir **Links rápidos**, clique em **visão geral** no menu à esquerda na folha.
 
     ![Painéis do cluster](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Painéis do cluster") 
+
 3. Clique em **Notebook Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
    
    > [!NOTE]
@@ -49,37 +53,40 @@ Você deve ter o seguinte:
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
    > 
-3. Clique em **novo**e, em seguida, clique em **Pyspark** ou **Spark** para criar um novo bloco de anotações. Você deve usar o kernel Spark para aplicativos Scala e o kernel PySpark para aplicativos Python.
+
+3. Clique em **novo**e, em seguida, clique em **Pyspark**, **PySpark3** ou **Spark** para criar um notebook. Use o kernel Spark para aplicativos em Scala, o kernel PySpark para aplicativos em Python2 e o kernel PySpark3 para aplicativos em Python3.
    
-    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Criar um novo bloco de anotações do Jupyter") 
+    ![Criar um notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Criar um notebook Jupyter") 
 
-4. Isso deve abrir um novo notebook com o kernel selecionado.
+4. Um notebook é aberto com o kernel selecionado.
 
-## <a name="choose-between-the-kernels"></a>Escolha entre os kernels
+## <a name="benefits-of-using-these-kernels"></a>Benefícios de usar esses kernels
+
 Há alguns benefícios em usar os novos kernels.
 
-- **Contextos de predefinição**. Utilizando o **PySpark** ou **Spark** kernels, você não precisa definir Spark ou contextos de Hive explicitamente antes de começar a trabalhar com seus aplicativos; elas estão disponíveis para você por padrão. Esses contextos são:
+- **Contextos de predefinição**. Com os kernels **PySpark**, **PySpark3** ou **Spark**, não é necessário definir os contextos Spark ou Hive explicitamente antes de começar a trabalhar com seus aplicativos. Eles estão disponíveis para você por padrão. Esses contextos são:
    
    * **sc** - para o contexto do Spark
    * **sqlContext** : para o contexto Hive
 
     Portanto, você não precisa executar instruções como as seguintes para definir os contextos:
 
-      sc = SparkContext('yarn-client')  sqlContext = HiveContext(sc)
+          sc = SparkContext('yarn-client')
+          sqlContext = HiveContext(sc)
 
     Em vez disso, pode usar os contextos predefinidos diretamente em seu aplicativo.
 
-- **A mágica da célula**. O kernel PySpark fornece algumas “mágicas” predefinidas, que são comandos especiais que podem ser chamados com `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causará um erro.     Para saber mais sobre palavras mágicas, clique [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **A mágica da célula**. O kernel PySpark fornece algumas “mágicas” predefinidas, que são comandos especiais que podem ser chamados com `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causa um erro.     Para saber mais sobre palavras mágicas, clique [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
-    A tabela a seguir lista os diferentes comandos mágicos disponíveis por meio dos kernels.
+    A tabela a seguir lista as diferentes palavras mágicas disponíveis por meio dos kernels.
 
    | Mágica | Exemplo | Descrição |
    | --- | --- | --- |
    | ajuda |`%%help` |Gera uma tabela de todos os comandos mágicos disponíveis com exemplo e descrição |
    | informações |`%%info` |Envia informações de sessão para o ponto de extremidade Livy atual |
-   | CONFIGURAR |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) será obrigatório se uma sessão já tiver sido criada, e a sessão será descartada e recriada. Veja o [Corpo da Solicitação POST /sessions da Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na linha seguinte, logo após a mágica, conforme mostrado na coluna de exemplo. |
+   | CONFIGURAR |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) será obrigatório se uma sessão já tiver sido criada, o que garante que a sessão será descartada e recriada. Veja o [Corpo da Solicitação POST /sessions da Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na linha seguinte, logo após a mágica, conforme mostrado na coluna de exemplo. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive no dqlContext. Se o parâmetro `-o` for passado, o resultado da consulta será persistido no contexto %%local do Python como um dataframe do [Pandas](http://pandas.pydata.org/) . |
-   | local |`%%local`<br>`a=1` |Todo o código nas linhas subsequentes será executado localmente. O código deve ser um código Python válido. |
+   | local |`%%local`<br>`a=1` |Todo o código nas linhas subsequentes é executado localmente. O código deve ser um código Python2 válido, independentemente do kernel que você está usando. Portanto, mesmo se você selecionou os kernels **PySpark3** ou **Spark** ao criar o notebook, se você usar a palavra mágica `%%local` em uma célula, essa célula só poderá ter um código Python2 válido... |
    | logs |`%%logs` |Gera os logs da sessão atual do Livy. |
    | excluir |`%%delete -f -s <session number>` |Exclui uma sessão específica do ponto de extremidade atual do Livy. Observe que você não pode excluir a sessão iniciada para o próprio kernel. |
    | limpeza |`%%cleanup -f` |Exclui todas as sessões do ponto de extremidade atual do Livy, incluindo a sessão deste notebook. O sinalizador de força -f é obrigatório. |
@@ -88,18 +95,18 @@ Há alguns benefícios em usar os novos kernels.
    > Além das mágicas adicionados pelo kernel PySpark, você também pode usar as [mágicas internas do IPython](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), incluindo `%%sh`. Você pode usar a mágica `%%sh` para executar scripts e bloco de código no nó principal do cluster.
    >
    >
-2. **Visualização automática**. O kernel **Pyspark** visualiza automaticamente a saída das consultas Hive e SQL. Você tem a opção de escolher entre vários tipos diferentes de visualização, incluindo Tabela, Pizza, Linha, Área, Barra.
+2. **Visualização automática**. O kernel **Pyspark** visualiza automaticamente a saída das consultas Hive e SQL. Escolha entre vários tipos diferentes de visualização, incluindo Tabela, Pizza, Linha, Área, Barra.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parâmetros compatíveis com a mágica de %%sql
-A mágica %%sql é compatível com diversos parâmetros que podem ser usados para controlar o tipo de saída que você recebe ao executar consultas. A tabela a seguir lista as saídas.
+A palavra mágica `%%sql` é compatível com diversos parâmetros que podem ser usados para controlar o tipo de saída que você recebe ao executar consultas. A tabela a seguir lista as saídas.
 
 | Parâmetro | Exemplo | Descrição |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Use esse parâmetro para manter o resultado da consulta, no contexto Python %%local, como um dataframe [Pandas](http://pandas.pydata.org/) . O nome da variável dataframe é o nome da variável que você especificar. |
-| -q |`-q` |Use esta opção para desativar visualizações da célula. Se não desejar visualizar o conteúdo de uma célula automaticamente, mas apenas capturá-la como um dataframe, use `-q -o <VARIABLE>`. Se desejar desativar as visualizações sem capturar os resultados (por exemplo, para executar uma consulta SQL com efeitos colaterais, como uma instrução `CREATE TABLE`), basta usar `-q` sem especificar um argumento `-o`. |
-| -m |`-m <METHOD>` |Onde **METHOD** é **take** ou **sample** (o padrão é **take**). Se o método for **take**, o kernel selecionará elementos da parte superior do conjunto de dados de resultados especificado por MAXROWS (descrito posteriormente nesta tabela). Se o método for **sample**, o kernel irá experimentar aleatoriamente os elementos do conjunto de dados segundo o parâmetro `-r`, descrito a seguir nesta tabela. |
-| -r |`-r <FRACTION>` |Aqui **FRACTION** é um número de ponto flutuante entre 0.0 e 1.0. Se o método de exemplo para a consulta SQL for `sample`, o kernel recolherá exemplos aleatórios da fração especificada dos elementos do conjunto de resultados para você. Por exemplo, se você executar uma consulta SQL com os argumentos `-m sample -r 0.01`, 1% das linhas de resultado será amostrado aleatoriamente. |
-| -n |`-n <MAXROWS>` |**MAXROWS** é um valor inteiro. O kernel limitará o número de linhas de saída para **MAXROWS**. Se **MAXROWS** for um número negativo como **-1**, então, o número de linhas no conjunto de resultados não será limitado. |
+| -q |`-q` |Use esta opção para desativar visualizações da célula. Se não desejar visualizar o conteúdo de uma célula automaticamente, mas apenas capturá-la como um dataframe, use `-q -o <VARIABLE>`. Se desejar desativar as visualizações sem capturar os resultados (por exemplo, para executar uma consulta SQL, como uma instrução `CREATE TABLE`), use `-q` sem especificar um argumento `-o`. |
+| -m |`-m <METHOD>` |Onde **METHOD** é **take** ou **sample** (o padrão é **take**). Se o método for **take**, o kernel selecionará elementos da parte superior do conjunto de dados de resultados especificado por MAXROWS (descrito posteriormente nesta tabela). Se o método for **sample**, o kernel experimentará aleatoriamente os elementos do conjunto de dados segundo o parâmetro `-r`, descrito a seguir nesta tabela. |
+| -r |`-r <FRACTION>` |Aqui **FRACTION** é um número de ponto flutuante entre 0.0 e 1.0. Se o método de amostragem para a consulta SQL for `sample`, o kernel experimentará aleatoriamente a fração especificada dos elementos do conjunto de resultados. Por exemplo, se você executar uma consulta SQL com os argumentos `-m sample -r 0.01`, 1% das linhas resultantes serão amostradas aleatoriamente. |
+| -n |`-n <MAXROWS>` |**MAXROWS** é um valor inteiro. O kernel limita o número de linhas de saída para **MAXROWS**. Se **MAXROWS** for um número negativo como **-1**, o número de linhas no conjunto de resultados não será limitado. |
 
 **Exemplo:**
 
@@ -114,9 +121,11 @@ A instrução acima faz o seguinte:
 * Por fim, como usamos `-o query2` , ele também salva a saída em um dataframe chamado **query2**.
 
 ## <a name="considerations-while-using-the-new-kernels"></a>Considerações ao usar os novos kernels
-Seja qual for o kernel que você use (PySpark ou Spark), deixar os notebooks em execução consumirá os recursos de cluster.  Com esses kernels, como os contextos são predefinidos, simplesmente sair dos notebooks não elimina o contexto e, portanto, os recursos do cluster continuarão em uso. Uma boa prática com os kernels PySpark e Spark seria usar a opção **Fechar e Interromper** no menu **Arquivo** do notebook. Isso elimina o contexto e encerra o notebook.     
+
+Seja qual for o kernel usado, deixar os notebooks em execução consumirá os recursos de cluster.  Com esses kernels, como os contextos são predefinidos, simplesmente sair dos notebooks não elimina o contexto e, portanto, os recursos do cluster continuam em uso. Uma prática recomendada é usar a opção **Fechar e Interromper** do menu **Arquivo** do notebook quando você terminar de usar o notebook, o que elimina o contexto e sai do notebook.     
 
 ## <a name="show-me-some-examples"></a>Mostre-me alguns exemplos
+
 Quando você abrir um notebook Jupyter, verá duas pastas disponíveis no nível raiz.
 
 * A pasta **PySpark** tem notebooks de amostra que usam o novo kernel do **Python**.
@@ -125,9 +134,10 @@ Quando você abrir um notebook Jupyter, verá duas pastas disponíveis no nível
 Você pode abrir o notebook **00 - [READ ME FIRST] Spark Magic Kernel Features** na pasta **PySpark** ou **Spark** para saber mais sobre as diferentes mágicas disponíveis. Você também pode usar outros notebooks de exemplo disponíveis nas duas pastas para saber como obter diferentes cenários usando notebooks Jupyter com clusters Spark HDInsight.
 
 ## <a name="where-are-the-notebooks-stored"></a>Onde os blocos de anotações são armazenados?
-Os notebooks Jupyter são salvos na conta de armazenamento associada ao cluster na pasta **/HdiNotebooks** .  Os blocos de anotações, arquivos de texto e pastas que você criar no Jupyter poderão ser acessados no WASB.  Por exemplo, se você usar o Jupyter para criar uma pasta **myfolder** e um notebook **myfolder/mynotebook.ipynb**, poderá acessar esse notebook em `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`.  O inverso também é possível, ou seja, se você carregar um notebook diretamente em sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, ele também ficará visível no Jupyter.  Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
 
-A forma como os blocos de anotações são salvos na conta de armazenamento é compatível com HDFS. Portanto, se você se conectar por SSH ao cluster, poderá usar comandos de gerenciamento de arquivos como o seguinte:
+Os notebooks Jupyter são salvos na conta de armazenamento associada ao cluster na pasta **/HdiNotebooks** .  Os notebooks, arquivos de texto e pastas que você cria no Jupyter podem ser acessados na conta de armazenamento.  Por exemplo, se você usar o Jupyter para criar uma pasta **myfolder** e um notebook **myfolder/mynotebook.ipynb**, poderá acessar esse notebook em `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro da conta de armazenamento.  O inverso também é possível, ou seja, se você carregar um notebook diretamente em sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, ele também ficará visível no Jupyter.  Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
+
+A forma como os blocos de anotações são salvos na conta de armazenamento é compatível com HDFS. Portanto, se você se conectar por SSH ao cluster, poderá usar comandos de gerenciamento de arquivos, como mostra o trecho a seguir:
 
     hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
@@ -137,12 +147,13 @@ A forma como os blocos de anotações são salvos na conta de armazenamento é c
 Caso haja problemas para acessar a conta de armazenamento do cluster, os notebooks também são salvos no `/var/lib/jupyter`do nó principal.
 
 ## <a name="supported-browser"></a>Navegador com suporte
+
 Os blocos de anotações do Jupyter em execução em clusters HDInsight Spark só têm suporte no Google Chrome.
 
 ## <a name="feedback"></a>Comentários
-Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode significar que as APIs podem mudar à medida que esses kernels amadurecem. Agradecemos o envio quaisquer comentários que você tenha ao usar esses novos kernels. Isso será muito útil na formação da versão final desses kernels. Você pode deixar seus comentários/feedback na seção **Comentários** no final deste artigo.
+Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode significar que as APIs podem mudar à medida que esses kernels amadurecem. Agradecemos o envio quaisquer comentários que você tenha ao usar esses novos kernels. Isso é muito útil na formação da versão final desses kernels. Você pode deixar seus comentários/feedback na seção **Comentários** no final deste artigo.
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Consulte também
+## <a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
@@ -166,9 +177,4 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 ### <a name="manage-resources"></a>Gerenciar recursos
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

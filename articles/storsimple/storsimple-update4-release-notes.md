@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/16/2017
+ms.date: 03/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: a87a4a8b290318bb9fdd1ae0b5fdce00085f59df
-ms.openlocfilehash: 3fe19196ce6af2aeb52bf941ced1892a9a172d87
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ec49b8784eb9b18135c5f7ec7242a2468ac87e50
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,7 +39,7 @@ Examine as informações contidas nas notas de versão antes de implantar a atua
 
 Veja a seguir as principais melhorias e correções de bugs feitas na Atualização 4.
 
-* **Algoritmos de reclamação de espaço automatizados mais inteligentes** – na Atualização 4, os algoritmos de reclamação de espaço automatizados foram aprimorados para ajustar os ciclos de reclamação de espaço baseados no espaço reclamado esperado disponível na nuvem. 
+* **Algoritmos de reclamação de espaço automatizados mais inteligentes** - Na Atualização 4, os algoritmos de reclamação de espaço automatizados foram aprimorados para ajustar os ciclos de reclamação de espaço baseados no espaço reclamado esperado disponível na nuvem. 
 
 * **Aprimoramentos de desempenho para volumes localmente fixados** – a Atualização 4 melhorou o desempenho de volumes localmente fixados em cenários com alta ingestão de dados (comparável ao tamanho do volume de dados).
 
@@ -57,9 +57,9 @@ Veja a seguir as principais melhorias e correções de bugs feitas na Atualizaç
 
 * **Alterações relacionadas a FIPS** – essa versão em diante, FIPS está habilitada por padrão em todos os dispositivos da série StorSimple 8000 para contas de nuvem pública do Microsoft Azure Governmental e o Azure.
 
-* **Atualizar alterações** – essa versão em diante, FIPS está habilitada por padrão em todos os dispositivos da série StorSimple 8000 para contas de nuvem pública do Microsoft Azure Governmental e o Azure.
+* **Atualizar alterações** - Nesta versão, bugs relacionados a falhas de atualização foram corrigidos.
 
-* **Alerta para falhas de disco** -um novo alerta que avisa o usuário sobre falhas iminentes de disco é adicionado nesta versão.
+* **Alerta para falhas de disco** -um novo alerta que avisa o usuário sobre falhas iminentes de disco é adicionado nesta versão. Se você encontrar este alerta, entre em contato com o Suporte da Microsoft para enviar um disco de substituição.
 
 * **Alterações de substituição de controlador** -um cmdlet que permite ao usuário consultar o status do processo de substituição de controlador é adicionado nesta versão. Para obter mais informações, vá para o [cmdlet ao status de substituição de controlador de consulta](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -75,6 +75,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos na Atuali
 | 3 |Pacote de suporte |Na versão anterior, havia problemas relacionados ao pacote de suporte que resultaria em uma exceção de System.OutOfMemory ou outros erros, resultando em uma falha de criação do pacote de suporte. Esses bugs foram corrigidos nesta versão. |Sim |Sim |
 | 4 |Monitoramento |Na versão anterior, existe um problema relacionado ao monitoramento de gráficos para localmente fixada volumes onde consumo foi mostrado na Web. Esse bug foi corrigido nesta versão. |Sim |Sim |
 | 5 |Migração |Na versão anterior, havia vários problemas relacionados à confiabilidade da migração da série 5000-7000 para dispositivos 8000 série. Esses problemas foram resolvidos nesta versão. |Sim |Sim |
+| 6 |Atualização |Em versões anteriores, se houvesse uma falha na atualização, os controladores entravam no modo de recuperação e, portanto, o usuário não podia continuar com a atualização e precisaria contatar o Suporte da Microsoft. <br> Esse comportamento foi alterado nesta versão. Se o usuário receber uma falha de atualização depois que os dois controladores estiverem executando a mesma versão (Atualização 4), os controladores não entrarão no modo de recuperação. Se o usuário encontrar essa falha, recomendamos que ele aguarde um pouco e tente a atualização novamente. A repetição foi bem-sucedida. Se a repetição falhar, ele deverá contatar o Suporte da Microsoft. |Sim |Sim |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problemas conhecidos na atualização 4 de versões anteriores

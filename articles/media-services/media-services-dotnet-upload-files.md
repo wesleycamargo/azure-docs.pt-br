@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 03/12/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 9cd4fa1c5927fb85a406a99bf5d2dacbb0fcbb2f
-ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 08dfdb54db0655bc025f8c268988804b069f70c6
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -38,7 +39,7 @@ Os arquivos no ativo são chamados **Arquivos de Ativo**. A instância de **Asse
 > * Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 > * O comprimento do nome não deve ser maior do que 260 caracteres.
 > * Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre a limitação de tamanho de arquivo.
->
+> * Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 > 
 
 Quando você cria ativos, você pode especificar as seguintes opções de criptografia. 
@@ -60,13 +61,8 @@ Se você especificar que o ativo deve ser criptografado com uma opção **Storag
 Este tópico mostra como usar o SDK do .NET dos Serviços de Mídia, bem como extensões do SDK do .NET dos Serviços de Mídia para carregar arquivos em um ativo dos Serviços de Mídia.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Carregar um único arquivo com o SDK do .NET dos Serviços de Mídia
-O código de exemplo abaixo usa o SDK do .NET para executar as seguintes tarefas: 
+O código de exemplo abaixo usa o SDK do .NET para carregar um único arquivo. O AccessPolicy e Localizador são criados e destruídos pela função de Carregamento. 
 
-* Cria um ativo vazio.
-* Cria uma instância de AssetFile que desejamos associar ao ativo.
-* Cria uma instância de AccessPolicy que define as permissões e a duração do acesso ao ativo.
-* Cria uma instância de localizador que fornece acesso ao ativo.
-* Carrega um único arquivo de mídia nos Serviços de Mídia. 
 
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
@@ -77,29 +73,18 @@ O código de exemplo abaixo usa o SDK do .NET para executar as seguintes tarefas
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions); 
+            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions);
 
             var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-
-            Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-            var policy = _context.AccessPolicies.Create(
-                                    assetName,
-                                    TimeSpan.FromDays(30),
-                                    AccessPermissions.Write | AccessPermissions.List);
-
-            var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
             Console.WriteLine("Upload {0}", assetFile.Name);
 
             assetFile.Upload(singleFilePath);
             Console.WriteLine("Done uploading {0}", assetFile.Name);
 
-            locator.Delete();
-            policy.Delete();
-
             return inputAsset;
         }
+
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Carregar vários arquivos com o SDK do .NET dos Serviços de Mídia
 O código a seguir mostra como criar um ativo e carregar vários arquivos.
@@ -182,7 +167,7 @@ Ao carregar um grande número de ativos, considere o seguinte.
 * Aumente NumberOfConcurrentTransfers do valor padrão de 2 para um valor maior como 5. Configurar essa propriedade afeta todas as instâncias de **CloudMediaContext**. 
 * Mantenha ParallelTransferThreadCount no valor padrão de 10.
 
-## <a name="a-idingestinbulkaingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Ingestão de ativos em massa usando o SDK do .NET dos Serviços de Mídia
+## <a id="ingest_in_bulk"></a>Ingestão de ativos em massa usando o SDK do .NET dos Serviços de Mídia
 O carregamento de grandes arquivos de ativo pode ser um afunilamento durante a criação do ativo. A ingestão de ativos em massa, ou "Ingestão em massa", envolve a dissociação da criação do ativo do processo de carregamento. Para usar uma abordagem de ingestão em massa, crie um manifesto (IngestManifest) que descreve o ativo e seus arquivos associados. Em seguida, use o método de carregamento de sua escolha para carregar os arquivos associados ao contêiner de blob do manifesto. Os serviços de mídia do Microsoft Azure observa o contêiner de blob associado ao manifesto. Depois que um arquivo é carregado para o contêiner de blob, os serviços de mídia do Microsoft Azure concluem a criação do ativo com base na configuração do ativo no manifesto (IngestManifestAsset).
 
 Para criar um novo IngestManifest chame o método Criar exposto pela coleção IngestManifests no CloudMediaContext. Esse método criará um novo IngestManifest com o nome manifesto fornecido.
@@ -314,10 +299,5 @@ Você também pode usar as Azure Functions para disparar um trabalho de codifica
 Agora que você carregou um ativo nos Serviços de Mídia, acesse o tópico [Como obter um processador de mídia][How to Get a Media Processor].
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

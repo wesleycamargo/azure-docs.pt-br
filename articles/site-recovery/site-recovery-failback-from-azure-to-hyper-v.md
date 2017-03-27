@@ -15,13 +15,17 @@ ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 88a09929582e69941101e884697592c91c0f5cfa
-ms.openlocfilehash: 862b80bdb00efcbf8863699df12aacdbab60bcef
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: a1769a522d13926e887e82b8d26b36afb4c80b08
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="failback-in-site-recovery"></a>Failback no Site Recovery
+> [!div class="op_single_selector"]
+> * [Máquinas de VMware/computadores físicos do Azure](site-recovery-failback-azure-to-vmware.md)
+> * [VMs do Hyper-V do Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
 Este artigo descreve como executar o failback para máquinas virtuais protegidas pela Recuperação de Site. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -40,7 +44,7 @@ O Azure é um ambiente altamente disponível, e as máquinas virtuais estarão s
 Depois do failover do local primário no secundário, as máquinas virtuais replicadas não são protegidas pela Recuperação de Site, e o local secundário agora atuará como local ativo. Siga estes procedimentos para fazer failback no site primário original. Este procedimento descreve como executar um failover planejado para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual na guia **Máquinas Virtuais** .
 
 1. Selecione **Planos de Recuperação** > *recoveryplan_name*. Clique em **Failover** > **Planned Failover**.
-2. Na página **Confirmar Failover Planejado **, escolha os locais de origem e de destino. Observe a direção do failover. Se o failover do local primário funcionar conforme esperado e todas as máquinas virtuais estiverem no local secundário, isso servirá apenas para fins informativos.
+2. Na página **Confirmar Failover Planejado**, escolha os locais de origem e de destino. Observe a direção do failover. Se o failover do local primário funcionar conforme esperado e todas as máquinas virtuais estiverem no local secundário, isso servirá apenas para fins informativos.
 3. Se estiver fazendo failback do Azure, selecione as configurações em **Sincronização de Dados**:
 
    * **Sincronizar os dados antes do failover (sincronizar apenas alterações delta)**: essa opção minimiza o tempo de inatividade das máquinas virtuais, pois elas não são desligadas durante a sincronização. Ele faz o seguinte:

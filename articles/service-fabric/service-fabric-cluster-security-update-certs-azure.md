@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 03/09/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 45225c4250539dfeb9f3b4654615acbdd162191b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -54,19 +54,19 @@ Se sua intenção for remover o certificado que está marcado como primário, vo
 Estas etapas presumem que você esteja familiarizado com o funcionamento do Resource Manager e tenha implantado, pelo menos, um cluster do Service Fabric usando um modelo do Resource Manager e que o modelo usado para configurar o cluster para uso. Presume-se também que você esteja familiarizado com o uso do JSON.
 
 > [!NOTE]
-> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o deste [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o deste [repositório Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Editar o modelo do Resource Manager
 
-Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contém todas as edições que faremos. o exemplo está disponível em [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contém todas as edições que faremos. o exemplo está disponível no [repositório Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
 
 **Certifique-se de seguir todas as etapas**
 
-**Etapa 1:** Abra o modelo do Resource Manager que foi usado para implantar o cluster.  (Se você baixou o exemplo do repositório acima, usar 5-VM-1-NodeTypes-Secure_Step1.JSON para implantar um cluster seguro e, em seguida, abra o modelo).
+**Etapa 1:** Abra o modelo do Resource Manager que foi usado para implantar o cluster. (Se você baixou o exemplo do repositório acima, usar 5-VM-1-NodeTypes-Secure_Step1.JSON para implantar um cluster seguro e, em seguida, abra o modelo).
 
-**Etapa 2:** adicione **dois novos parâmetros** "secCertificateThumbprint" e "secCertificateUrlValue" do tipo "string" para a seção de parâmetro do modelo. Você pode copiar o seguinte trecho de código e adicionar ao modelo. Dependendo da fonte do seu modelo, você talvez já tenha esses definido, se assim mover para a próxima etapa. 
+**Etapa 2:** adicione **dois novos parâmetros** "secCertificateThumbprint" e "secCertificateUrlValue" do tipo "string" para a seção de parâmetro do modelo. Você pode copiar o trecho de código a seguir e adicioná-lo ao modelo. Dependendo da fonte do seu modelo, você talvez já tenha esses definido, se assim mover para a próxima etapa. 
  
 ```JSON
    "secCertificateThumbprint": {
@@ -84,7 +84,7 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
 
 ```
 
-**Etapa 3:** faça alterações no recurso **Microsoft.ServiceFabric/clusters** - localize a definição do recurso "Microsoft.ServiceFabric/clusters" em seu modelo. Nas propriedades dessa definição, você encontrará a marcação do JSON “Certificate”, que deve ser parecida com o trecho do JSON a seguir.
+**Etapa 3:** faça alterações no recurso **Microsoft.ServiceFabric/clusters** - localize a definição do recurso "Microsoft.ServiceFabric/clusters" em seu modelo. Nas propriedades dessa definição, você encontrará a marcação do JSON “Certificate”, que deve ser parecida com o trecho do JSON a seguir:
 
    
 ```JSON
@@ -108,7 +108,7 @@ Agora a definição de recurso deve ser parecida com a seguinte (dependendo da f
      }
 ``` 
 
-Se você quiser **substituir o certificado**, especifique o novo certificado como primário e mover a réplica primária atual como secundário.  Isso resulta na substituição do certificado primário atual pelo novo certificado em uma etapa de implantação.
+Se você quiser **substituir o certificado**, especifique o novo certificado como primário e mover a réplica primária atual como secundário. Isso resulta na substituição do certificado primário atual pelo novo certificado em uma etapa de implantação.
 
 ```JSON
       "properties": {
@@ -120,7 +120,7 @@ Se você quiser **substituir o certificado**, especifique o novo certificado com
 ``` 
 
 
-**Etapa 4:** faça alterações em **todas as** definições de recurso **Microsoft.Compute/virtualMachineScaleSets** - localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Role até "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
+**Etapa 4:** faça alterações em **todas as** definições de recurso **Microsoft.Compute/virtualMachineScaleSets** – localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Role até "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
 
 Nas configurações de editor do Service Fabric, você verá algo assim.
 

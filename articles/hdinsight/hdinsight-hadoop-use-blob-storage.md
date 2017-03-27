@@ -10,6 +10,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,9 +18,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: f739459681b0941a3dde6ec615ee468444d92c36
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f85f6484db177285e0fd64a15991a7eb227cd29b
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -109,7 +110,7 @@ Ao criar um cluster HDInsight no Portal, você tem as opções (como mostrado ab
 #### <a name="using-azure-cli"></a>Usando a CLI do Azure
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-Se você tiver [instalado e configurado a CLI do Azure](../xplat-cli-install.md), o comando a seguir pode ser usado para uma conta de armazenamento e o contêiner.
+Se você tiver [instalado e configurado a CLI do Azure](../cli-install-nodejs.md), o comando a seguir pode ser usado para uma conta de armazenamento e o contêiner.
 
     azure storage account create <storageaccountname> --type LRS
 

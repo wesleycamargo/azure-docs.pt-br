@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -144,10 +145,25 @@ Nesta página você configura todos os atributos de referência a cuja partiçã
 
 Se você usar **DN é âncora**, deverá usar o mesmo tipo de objeto do qual está fazendo referência. Não é possível referenciar outro tipo de objeto.
 
+>[!NOTE]
+A partir da atualização de março de 2017 há uma opção para "*" e quando essa opção é escolhida todos os tipos de membro possíveis serão importados.
+
+![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
+
+
+Após a importação você verá algo semelhante à imagem a seguir:
+
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
+
+
+
 ### <a name="global-parameters"></a>Parâmetros Globais
 A página Parâmetros Globais é usada para configurar importação Delta, formato de data/hora e método de senha.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
+
+>[!IMPORTANT]
+ "*" também conhecido como* *qualquer opção** não pode ser usado durante as operações de exportação/exclusão.
 
 O conector SQL genérico dá suporte aos seguintes métodos de importação Delta:
 
@@ -284,9 +300,4 @@ Se você escolher a opção de consulta SQL, a Exportação exigirá três consu
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

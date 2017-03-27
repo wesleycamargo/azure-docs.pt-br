@@ -1,6 +1,6 @@
 ---
-title: "Codificar mensagens do X12 nos aplicativos lógicos do Azure | Microsoft Docs"
-description: "Como usar o codificador X12 no Enterprise Integration Pack com seus aplicativos lógicos"
+title: "Codificar mensagens X12 - Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Validar EDI e converter mensagens codificadas XML com o codificador de mensagem X12 no Enterprise Integration Pack para Aplicativo Lógico do Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -15,54 +15,70 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: bd339e60aff1edca7f86e0ae82746f55eb67b296
-ms.openlocfilehash: 9f7b53cfafa8c14ab46cf80015afc8da4e0fda2b
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: b319970e0fd744b21bd0362f1de500a0f182d52e
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="get-started-with-encode-x12-message"></a>Introdução para Codificar Mensagem X12
-Valida o EDI e as propriedades específicas de parceiro, converte as mensagens codificadas em XML em conjuntos de transações de EDI no intercâmbio e solicita uma confirmação técnica e/ou funcional
+# <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar mensagens X12 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
-## <a name="prereqs"></a>Pré-requisitos
+Com o conector de mensagem X12 de codificação você pode validar o EDI e as propriedades específicas de parceiro, converter as mensagens codificadas em XML em conjuntos de transações de EDI no intercâmbio e solicita uma Confirmação Técnica, Confirmação Funcional, ou ambas.
+Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
+
+## <a name="before-you-start"></a>Antes de começar
+
+Veja os itens necessários:
+
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma Conta de Integração é necessária para usar o conector de Codificar Mensagem x12. Confira os detalhes sobre como criar uma [Conta de Integração](logic-apps-enterprise-integration-create-integration-account.md), [parceiros](logic-apps-enterprise-integration-partners.md) e um [contrato X12](logic-apps-enterprise-integration-x12.md)
+* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já esteja definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem X12 de codificação.
+* Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
+* Pelo menos dois [contratos X12](logic-apps-enterprise-integration-x12.md) que já estão definidos em sua conta de integração
 
 ## <a name="encode-x12-messages"></a>Codificar mensagens do X12
 
 1. [Criar um aplicativo lógico](logic-apps-create-a-logic-app.md).
-2. Esse conector não tem gatilhos. Use outros gatilhos para iniciar o Aplicativo Lógico, como um gatilho de solicitação.  No designer do Aplicativo Lógico, adicione um gatilho e uma ação.  Selecione Mostrar APIs gerenciadas da Microsoft na lista suspensa e digite “x12” na caixa de pesquisa.  Selecione X12 – Codificar mensagem do X12 pelo nome do contrato ou X12 – Codificar mensagem do X12 por identidades:  
+
+2. O conector de mensagem X12 de codificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
+
+3.    Na caixa de pesquisa, digite "x12" como filtro. Selecione **X12 - Codificar mensagem do X12 pelo nome do contrato** ou **X12 - Codificar mensagem do X12 por identidades**.
    
-    ![pesquisar x12](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
-3. Se ainda não tiver criado conexões com a Conta de Integração, você deverá fornecer os detalhes de conexão:
+    ![Procure por “x12”](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
+
+3. Se você não criou conexões à sua conta de integração previamente, terá que criá-las agora. Nomeie sua conexão e selecione a conta de integração que você deseja conectar. 
    
-    ![conexão com a conta de integração](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage1.png) 
-4. Insira os detalhes da Conta de Integração.  As propriedades com um asterisco são obrigatórias:
-   
-   | Propriedade | Detalhes |
-   | --- | --- |
-   | Nome da Conexão * |Digite um nome para a conexão |
-   | Uma conta de integração * |Insira o nome da Conta de Integração. Certifique-se de que sua Conta de Integração e que o Aplicativo Lógico estejam na mesma localização do Azure |
-   
-    Uma vez concluída, os detalhes da conexão se parecerão com estes:
-   
-    ![conexão com a conta de integração criada](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png) 
-5. Selecione **Criar**.
-6. Observe que a conexão foi criada.
-   
+    ![conexão com a conta de integração](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage1.png)
+
+    As propriedades com um asterisco são obrigatórias.
+
+    | Propriedade | Detalhes |
+    | --- | --- |
+    | Nome da Conexão * |Digite um nome para a conexão. |
+    | Uma conta de integração * |Insira um nome para sua conta de integração. Verifique se sua conta de integração e o aplicativo lógico estão no mesmo local do Azure. |
+
+5.    Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
+
+    ![conexão com a conta de integração criada](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png)
+
+    A conexão foi criada.
+
     ![detalhes da conexão com a conta de integração](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
 
 #### <a name="encode-x12-messages-by-agreement-name"></a>Codificar mensagens do X12 pelo nome do contrato
-Selecione o contrato do X12 do menu suspenso e a mensagem XML para codificar:     
-    ![fornecer campos obrigatórios](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage4.png) 
+
+Se você optar por codificar mensagens X12 por nome do contrato, abra a lista **Nome do contrato X12**, insira ou selecione o contrato X12 existente. Insira a mensagem XML para codificar.
+
+![Insira a mensagem XML e o nome do contrato X12 para codificar](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage4.png)
 
 #### <a name="encode-x12-messages-by-identities"></a>Codificar mensagens do X12 por identidades
-Forneça o identificador do remetente, o qualificador de remetente, o identificador do destinatário e o qualificador do destinatário conforme configurado no contrato de X12.  Selecione a mensagem XML para codificar:
+
+Caso você opte por codificar as mensagens X12 por identidades, insira o identificador do remetente, o qualificador de remetente, o identificador do destinatário e o qualificador do destinatário conforme configurado no contrato X12. Selecione a mensagem XML para codificar.
    
-   ![fornecer campos obrigatórios](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage5.png) 
+![Forneça as identidades para o remetente e o destinatário, selecione a mensagem XML para codificar](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage5.png) 
 
 ## <a name="x12-encode-details"></a>Detalhes de codificação do X12
 
-O conector de Codificação X12 faz o seguinte:
+O conector de Codificação X12 executa as seguintes tarefas:
 
 * Resolução de contrato ao corresponder as propriedades de contexto do remetente e destinatário.
 * Serializa o intercâmbio de EDI, convertendo mensagens codificadas em XML em conjuntos de transação EDI no intercâmbio.
@@ -79,10 +95,5 @@ O conector de Codificação X12 faz o seguinte:
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

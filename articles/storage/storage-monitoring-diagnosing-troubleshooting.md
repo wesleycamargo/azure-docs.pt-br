@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 2e2978f6e81b3f584eb73ce10fb373b62f7b85ff
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a5193cb222fab1f3ed3e700d45c4a51676707d5a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -227,7 +227,7 @@ Você pode capturar o tráfego entre o cliente e o servidor para dar informaçõ
 * [Fiddler](http://www.telerik.com/fiddler) é um proxy de depuração Web gratuito que permite que você examine os cabeçalhos e dados de conteúdo das solicitações HTTP e HTTPS e as mensagens de resposta. Para saber mais, consulte [Anexo 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS](#appendix-1).
 * [Monitor de Rede da Microsoft (Netmon)](http://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](http://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que permitem que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[Anexo 2: Usando o Wireshark para capturar o tráfego de rede](#appendix-2)".
 * O Microsoft Message Analyzer é uma ferramenta da Microsoft que substitui o Netmon e que além de capturar os dados de pacote de rede, a ajuda a exibir e analisar os dados de log capturados das outras ferramentas. Para saber mais, consulte "[Anexo 3: Usando o Microsoft Message Analyzer para capturar o tráfego de rede](#appendix-3)".
-* Se você quer realizar um teste de conectividade básico para verificar que a máquina do cliente pode se conectar ao serviço de armazenamento do Azure pela rede, você não pode fazer isso usando a ferramenta padrão **ping** no cliente. Entretanto, você pode usar a [**ferramenta **tcping](http://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
+* Se você quer realizar um teste de conectividade básico para verificar que a máquina do cliente pode se conectar ao serviço de armazenamento do Azure pela rede, você não pode fazer isso usando a ferramenta padrão **ping** no cliente. Entretanto, você pode usar a [**ferramenta**tcping](http://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
 
 Em muitos casos, os dados de log a partir do log de armazenamento e da biblioteca do cliente serão suficientes para diagnosticar um problema, porém, em alguns cenários, você poderá precisar de informações mais detalhadas que podem ser providas por essas ferramentas de log de rede. Por exemplo, usando o Fiddler para ver as mensagens HTTP e HTTPS permitem que você exiba o cabeçalho e os dados de carga enviados para e a partir dos serviços de armazenamento, o qual permite que você examine como o aplicativo do cliente repete as operações de armazenamento. Analisadores de protocolo, tais como Wireshark opera em nível de pacote permitindo que você exiba os dados TCP, os quais permitem que você solucione problemas de pacotes perdidos e problemas de conectividade. O Message Analyzer pode operar tanto em camadas HTTP como TCP.
 
@@ -305,7 +305,7 @@ Essa seção irá ajudá-lo com o diagnóstico e com a solução de alguns dos p
 
 **Árvore de decisão de solução de problemas**
 
-- - -
+---
 O seu problema está relacionado ao desempenho de um dos serviços de armazenamento?
 
 * [As métricas mostram alta AverageE2ELatency e baixa AverageServerLatency]
@@ -313,39 +313,39 @@ O seu problema está relacionado ao desempenho de um dos serviços de armazename
 * [As métricas mostram alta AverageServerLatency]
 * [Você está sofrendo atrasos inesperados na entrega de mensagens na fila]
 
-- - -
+---
 O seu problema está relacionado à disponibilidade de um dos serviços de armazenamento?
 
 * [As métricas mostram um aumento em PercentThrottlingError]
 * [As métricas mostram um aumento em PercentTimeoutError]
 * [As métricas mostram um aumento em PercentNetworkError]
 
-- - -
-O seu aplicativo do cliente está recebendo uma resposta HTTP 4XX (tal como 404) de um serviço de armazenamento?
+---
+ O seu aplicativo do cliente está recebendo uma resposta HTTP 4XX (tal como 404) de um serviço de armazenamento?
 
 * [O cliente está recebendo mensagens HTTP 403 (Proibido)]
 * [O cliente está recebendo mensagens HTTP 404 (Não encontrado)]
 * [O cliente está recebendo mensagens HTTP 409 (Conflito)]
 
-- - -
-[As métricas mostram uma baixa PercentSuccess ou as entradas de log analíticas têm operações com status de transação de ClientOtherErrors]
+---
+[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-- - -
+---
 [As métricas de capacidade mostram um aumento inesperado em uso de capacidade de armazenamento]
 
-- - -
-[Você está enfrentando reinicializações inesperadas das máquinas virtuais que contêm um grande número de VHDs anexados]
+---
+[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-- - -
+---
 [Seu problema apareceu por usar o emulador de armazenamento para desenvolvimento ou teste]
 
-- - -
-[Você encontrou problemas ao instalar o SDK do Azure para .NET]
+---
+[You are encountering problems installing the Azure SDK for .NET]
 
-- - -
+---
 [Você tem um problema diferente com um serviço de armazenamento]
 
-- - -
+---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>As métricas mostram alta AverageE2ELatency e baixa AverageServerLatency
 A figura abaixo da ferramenta de monitoramento do [portal do Azure](https://portal.azure.com) mostra um exemplo em que a **AverageE2ELatency** é significantemente mais alta que a **AverageServerLatency**.
 

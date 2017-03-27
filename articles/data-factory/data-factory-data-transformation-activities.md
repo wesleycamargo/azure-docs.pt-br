@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: 2714bfbf2bf35b11ca1ba6ab8b7e4e6bf5431f45
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 36c245b98868682c24a87bba6628de492e620012
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -51,10 +52,11 @@ A atividade de Pig do HDInsight em um pipeline de Data Factory executa consultas
 ## <a name="hdinsight-mapreduce-activity"></a>Atividade de MapReduce do HDInsight
 A atividade de MapReduce do HDInsight em um pipeline do Data Factory executa programas MapReduce no seu próprio cluster HDInsight baseado em Windows/Linux, ou em um sob demanda. Confira o artigo [Atividade de MapReduce](data-factory-map-reduce.md) para obter detalhes sobre essa atividade.
 
-Você pode usar a atividade MapReduce para executar programas Spark no cluster HDInsight Spark. Consulte [Invoke Spark programs from Azure Data Factory (Invocar programas Spark da Azure Data Factory)](data-factory-spark.md) para obter detalhes.
-
 ## <a name="hdinsight-streaming-activity"></a>Atividade de Streaming do HDInsight
 A Atividade de Streaming do HDInsight em um pipeline do Data Factory executa programas de Transmissão do Hadoop em seu próprio ou cluster HDInsight sob demanda baseado no Windows/Linux. Confira [Atividade de HDInsight Streaming](data-factory-hadoop-streaming-activity.md) para obter detalhes sobre essa atividade.
+
+## <a name="hdinsight-spark-activity"></a>Atividade do HDInsight Spark
+A atividade do HDInsight Spark em um pipeline do Data Factory executa programas do Spark em seu próprio cluster HDInsight. Para obter detalhes, consulte [Invocar programas Spark do Azure Data Factory](data-factory-spark.md) para obter detalhes. 
 
 ## <a name="machine-learning-activities"></a>Atividades de Machine Learning
 O Azure Data Factory permite que você crie facilmente pipelines que usam o serviço Web do Azure Machine Learning publicado para a análise preditiva. Usando a [Atividade de Execução em Lote](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) em um pipeline do Azure Data Factory, você pode invocar um serviço Web do Machine Learning para fazer previsões sobre dados em lote.
@@ -95,10 +97,5 @@ O Azure Data Factory dá suporte às atividades de transformação de dados e am
 | [Procedimento armazenado](data-factory-stored-proc-activity.md) |SQL Azure, Azure SQL Data Warehouse ou SQL Server |
 | [U-SQL da Análise Data Lake](data-factory-usql-activity.md) |Análise Azure Data Lake |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] ou Lote do Azure |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

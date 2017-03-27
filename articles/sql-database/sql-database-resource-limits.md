@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/24/2017
+ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
-ms.openlocfilehash: 15fd64f21eb20ae412f4d0cf1930e99e2e9fc62b
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 15692a155cdb55d8dc6eeeb68df264411e46b662
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -51,6 +51,10 @@ Para um banco de dados individual, os limites são definidos pelo nível de serv
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
+> [!IMPORTANT]
+> Os clientes que usam os níveis de desempenho P11 e P15 podem usar até 4 TB de armazenamento incluído sem custo adicional. Essa opção de 4 TB está atualmente em visualização pública nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Europa Ocidental, Sudeste Asiático, Leste do Japão, Leste da Austrália, Central do Canadá e Leste do Canadá. Para ver as limitações atuais, consulte [Limitações atuais de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+>
+
 ### <a name="elastic-pools"></a>Pools elásticos
 [Pools elásticos](sql-database-elastic-pool.md) compartilham recursos entre bancos de dados no pool. A tabela a seguir descreve as características dos pools elásticos Basic, Standard e Premium.
 
@@ -62,8 +66,8 @@ Para obter uma definição expandida de cada recurso listado nas tabelas anterio
 | Área | Limite | Descrição |
 | --- | --- | --- |
 | Bancos de dados usando a exportação Automatizada por assinatura |10 |A exportação automatizada permite que você crie uma agenda personalizada para realização do backup de seus bancos de dados SQL. A visualização desse recurso será encerrada em 1º de março de 2017.  |
-| Banco de dados por servidor |Até 5.000 |Até 5.000 bancos de dados são permitidos por servidor em servidores V12. |
-| DTUs por servidor |45000 |Estão disponíveis&45;.000 DTUs por servidor em servidores V12 para o provisionamento de bancos de dados, pools elásticos e data warehouses. |
+| Bancos de dados por servidor |Até 5.000 |Até 5.000 bancos de dados são permitidos por servidor em servidores V12. |
+| DTUs por servidor |45000 |São permitidas&45;.000 DTUs por servidor em servidores V12 para o provisionamento de bancos de dados independentes e pools elásticos. O número total de bancos de dados independentes e pools permitidos por servidor é limitado somente pelo número de DTUs do servidor.  
 
 > [!IMPORTANT]
 > A Exportação Automatizada do Banco de Dados SQL do Azure está agora em visualização e será desativada em 1º de março de 2017. A partir de 1º de dezembro de 2016, não será mais possível configurar a exportação automatizada em um banco de dados SQL. Todos os trabalhos de exportação automatizada existentes continuarão funcionando até 1º de março de 2017. Após 1º de dezembro de 2016, você poderá usar a [retenção de backup de longo prazo](sql-database-long-term-retention.md) ou a [Automação do Azure](../automation/automation-intro.md) para arquivar bancos de dados SQL periodicamente, usando o PowerShell periodicamente de acordo com um agendamento de sua escolha. Para obter um script de exemplo, baixe o [script de exemplo no GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 

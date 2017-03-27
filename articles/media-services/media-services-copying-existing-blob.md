@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: b74fbba254f73c1df388b2b0ff9134cc7b8a31e8
-ms.openlocfilehash: acc4780ea16f5a5ef0b87788b72595f29f6dcd89
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14bdbe593d8c6ec5297ce37ce57b759deb533cec
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -149,7 +150,10 @@ O código a seguir usa o método da extensão **IAsset.Copy** para copiar todos 
 
 ### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-a-ams-account"></a>Copiar blobs de alguma conta de armazenamento para um novo ativo na conta do AMS
 
-O código a seguir usa blobs de cópia de uma conta de armazenamento para um ativo dos Serviços de Mídia. 
+O código a seguir copia blobs de uma conta de armazenamento para um ativo dos Serviços de Mídia. 
+
+>[!NOTE]
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
     using System;
     using System.Configuration;
@@ -289,10 +293,5 @@ Você também pode usar as Azure Functions para disparar um trabalho de codifica
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

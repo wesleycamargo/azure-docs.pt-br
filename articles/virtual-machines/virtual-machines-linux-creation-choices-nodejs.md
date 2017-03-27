@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: e038515302acc4871687ad592c44fcf9a352bfe6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c3959babbfa6d7d512248e262060d44390de28a4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,7 +31,7 @@ Você pode criar VMs no Azure usando uma das seguintes versões da CLI:
 - CLI 1.0 do Azure – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
 - [CLI do Azure 2.0](virtual-machines-linux-creation-choices.md) – nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
 
-A CLI 1.0 do Azure está disponível entre plataformas por meio de um pacote npm, pacotes de distribuição fornecida ou contêineres de Docker. Você pode ler mais sobre [como instalar e configurar a CLI do Azure](../xplat-cli-install.md). Os tutoriais a seguir fornecem exemplos sobre como usar a CLI 1.0 do Azure. Leia cada artigo para obter mais detalhes sobre os comandos de início rápido da CLI mostrados:
+A CLI 1.0 do Azure está disponível entre plataformas por meio de um pacote npm, pacotes de distribuição fornecida ou contêineres de Docker. Você pode ler mais sobre [como instalar e configurar a CLI do Azure](../cli-install-nodejs.md). Os tutoriais a seguir fornecem exemplos sobre como usar a CLI 1.0 do Azure. Leia cada artigo para obter mais detalhes sobre os comandos de início rápido da CLI mostrados:
 
 * [Criar uma VM do Linux na CLI do Azure para desenvolvimento e teste](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   

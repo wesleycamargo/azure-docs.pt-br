@@ -17,9 +17,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: 03356c0499c595f73221d05d941233de5f01f357
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e8ee93cacba552bc7a6ec559dd8aa1fb773fadc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,20 +36,20 @@ O ambiente contém:
 
 ![Visão geral do ambiente básico](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-Para criar esse ambiente personalizado, é necessário ter a última [CLI 1.0 do Azure](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) no modo Resource Manager (`azure config mode arm`). Você também precisará de uma ferramenta de análise de JSON. Este exemplo usa [jq](https://stedolan.github.io/jq/).
+Para criar esse ambiente personalizado, é necessário ter a última [CLI 1.0 do Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) no modo Resource Manager (`azure config mode arm`). Você também precisará de uma ferramenta de análise de JSON. Este exemplo usa [jq](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI 1.0 do Azure](#quick-commands) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI do Azure 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa próxima geração de CLI para o modelo de implantação do resource manager
+- [CLI 2.0 do Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
 Se você precisar realizar rapidamente a tarefa, a seção a seguir detalha a base de dados de comandos para carregar uma VM no Azure. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#detailed-walkthrough).
 
-Verifique se [a CLI 1.0 do Azure](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) está conectada e usando o modo Resource Manager:
+Verifique se [a CLI 1.0 do Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) está conectada e usando o modo Resource Manager:
 
 ```azurecli
 azure config mode arm
@@ -273,7 +273,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>Passo a passo detalhado
 As etapas detalhadas a seguir explicam o que cada comando faz enquanto você cria seu ambiente. Esses conceitos são úteis durante a criação de seus próprios ambientes personalizados para desenvolvimento ou produção.
 
-Verifique se [a CLI 1.0 do Azure](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) está conectada e usando o modo Resource Manager:
+Verifique se [a CLI 1.0 do Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) está conectada e usando o modo Resource Manager:
 
 ```azurecli
 azure config mode arm

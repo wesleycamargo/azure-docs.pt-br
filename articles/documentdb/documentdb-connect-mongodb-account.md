@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: fc917c9c9a92bf944d922a9418e065fa661c69df
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 6d376b9db07a46c467bd772959de3f7acf9c123d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 
-# <a name="connect-a-mongodb-app-to-a-documentdb-account-using-a-mongodb-connection-string"></a>Conectar um aplicativo MongoDB a uma conta do DocumentDB usando a cadeia de conexão do MongoDB
+# <a name="connect-an-application-to-documentdb-api-for-mongodb"></a>Conectar um aplicativo ao DocumentDB: API para MongoDB
 Saiba como conectar seu aplicativo MongoDB a uma conta do Azure DocumentDB usando uma cadeia de conexão do MongoDB. Ao conectar seu aplicativo MongoDB a um banco de dados do Azure DocumentDB, você pode usar um banco de dados do DocumentDB como o repositório de dados do seu aplicativo MongoDB. 
 
 Este tutorial fornece duas maneiras de recuperar informações da cadeia de conexão:
 
-- [O método de Início rápido](#QuickStartConnection), para uso com os drivers do .NET, Node.js, Shell do MongoDB, Java e Python.
+- [O método de Início rápido](#QuickstartConnection), para uso com os drivers do .NET, Node.js, Shell do MongoDB, Java e Python.
 - [O método de cadeia de conexão personalizada](#GetCustomConnection), para uso com outros drivers.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -36,7 +36,7 @@ Este tutorial fornece duas maneiras de recuperar informações da cadeia de cone
 - Uma conta do Azure. Se você ainda não tiver uma, crie agora mesmo uma [conta gratuita do Azure](https://azure.microsoft.com/free/). 
 - Uma conta do DocumentDB. Para obter instruções, veja [Criar uma conta do DocumentDB para uso com aplicativos MongoDB](documentdb-create-mongodb-account.md).
 
-## <a id="QuickStartConnection"></a>Obter a cadeia de conexão do MongoDB usando o Início rápido
+## <a id="QuickstartConnection"></a>Obter a cadeia de conexão do MongoDB usando o Início rápido
 1. Em um navegador da Internet, entre no [Portal do Azure](https://portal.azure.com).
 2. Na folha **NoSQL (DocumentDB)**, selecione a conta da API para MongoDB do DocumentDB. 
 3. Na barra **Navegação Esquerda** da folha da conta, clique em **Início rápido**. 

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 2c80f9d2bc788c60c5a7b3a5fd0d38cb86cbf838
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 3b3aa18eb52993843be1feeb8e0b2a43339413c3
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -210,9 +210,9 @@ Para exibir logs e saídas de tarefas no portal do Azure, navegue até a tarefa 
 ![Folha de saídas de tarefa no portal do Azure][2]
 
 ## <a name="code-sample"></a>Exemplo de código
-O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos de código do Lote do Azure][github_samples] no GitHub. Essa solução do Visual Studio 2015 demonstra como usar a biblioteca de Convenções de Arquivo de Lote do Azure para persistir a saída da tarefa para o armazenamento durável. Para executar o exemplo, siga estas etapas:
+O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos de código do Lote do Azure][github_samples] no GitHub. Essa solução do Visual Studio demonstra como usar a biblioteca de Convenções de Arquivo de Lote do Azure para persistir a saída da tarefa para o armazenamento durável. Para executar o exemplo, siga estas etapas:
 
-1. Abra o projeto no **Visual Studio 2015**.
+1. Abra o projeto no **Visual Studio 2015 ou mais recente**.
 2. Adicione suas **credenciais de conta** do Lote e do Armazenamento a **AccountSettings.settings** no projeto Microsoft.Azure.Batch.Samples.Common.
 3. **Compile** (mas não execute) a solução. Restaure todos os pacotes NuGet, se solicitado.
 4. Use o portal do Azure para carregar um [pacote de aplicativos](batch-application-packages.md) para **PersistOutputsTask**. Inclua o `PersistOutputsTask.exe` e seus assemblies dependentes no pacote .zip, defina a ID do aplicativo como "PersistOutputsTask" e a versão do pacote de aplicativos como "1.0".

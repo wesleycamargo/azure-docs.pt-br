@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 802086b95b949cf4aa14af044f69e500b31def44
-ms.openlocfilehash: 5241a36fbc7008baad5369452d3332d84335a661
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 651918ba5d1bad4fcec78123a0b09a48b1223906
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -32,9 +32,9 @@ Fontes de informações adicionais:
  
 
 ## <a name="index"></a>Índice
-**Permitir** [let](#let-clause)
+**Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Consultas e operadores** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Consultas e operadores** [as](#as-operator) | [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Agregações** [qualquer](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [contagem](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentil](#percentile) | [percentuais](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [soma](#sum) | [variação](#variance)
 
@@ -108,17 +108,74 @@ requests
 | summarize count() by client_City;
 ```
 
-Self-join:
+### <a name="materialize"></a>materialize
 
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
+Use materialize() para melhorar o desempenho quando o resultado de uma cláusula let for usado mais de uma vez downstream. Materialize() avalia e armazena em cache o resultado de uma cláusula let tabular no momento da execução da consulta, garantindo que a consulta não seja executada mais de uma vez.
 
+**Sintaxe**
+
+    materialize(expression)
+
+**Argumentos**
+
+* `expresion`: expressão tabular a ser avaliada e armazenada em cache durante a execução da consulta.
+
+**Dicas**
+
+* Use materialize quando houver join/union em que seus operandos têm subconsultas mútuas que podem ser executadas uma vez (veja os exemplos a seguir).
+* Útil também em cenários quando é necessário ingressar/unir trechos de bifurcação.
+* Materialize pode ser usado somente em declarações let dando um nome para o resultado em cache.
+* Materialize tem um limite de tamanho de cache de 5 GB. Esse limite ocorre por nó de cluster e é comum para todas as consultas.
+
+**Exemplo: self-join**
+
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let materializedScope = pageViews
+| summarize by name, Day = startofday(timestamp);
+let cachedResult = materialize(materializedScope);
+cachedResult
+| project name, Day1 = Day
+| join kind = inner
+(
+    cachedResult
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
+
+A versão sem cache usa o resultado `scope` duas vezes:
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let scope = pageViews
+| summarize by name, Day = startofday(timestamp);
+scope      // First use of this table.
+| project name, Day1 = Day
+| join kind = inner
+(
+    scope  // Second use can cause evaluation twice.
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
 
 ## <a name="queries-and-operators"></a>Consultas e operadores
 Uma consulta sobre a telemetria é composta de uma referência a um fluxo de origem, seguida de um pipeline de filtros. Por exemplo:
@@ -149,6 +206,30 @@ Uma consulta pode ser prefixada por uma ou mais [cláusulas let](#let-clause), q
 > `T` é usado nos exemplos de consulta a seguir para indicar a tabela de origem ou o pipeline anterior.
 > 
 > 
+
+### <a name="as-operator"></a>Operador as
+
+Associa temporariamente um nome à expressão de tabela de entrada.
+
+**Sintaxe**
+
+    T | as name
+
+**Argumentos**
+
+* *name:* um nome temporário para a tabela
+
+**Observações**
+
+* Use [let](#let-clause) em vez de *as* se você quiser usar o nome em uma subexpressão posterior.
+* Use *as* para especificar o nome da tabela como ele aparece no resultado de um [union](#union-operator), [Find](#find-operator) ou [search](#search-operator).
+
+**Exemplo**
+
+```AIQL
+range x from 1 to 10 step 1 | as T1
+| union withsource=TableName (requests | take 10 | as T2)
+```
 
 ### <a name="count-operator"></a>operador count
 O operador `count` retorna o número de registros (linhas) no conjunto de registros de entrada.
@@ -464,7 +545,7 @@ Localize linhas que correspondem a um predicado em um conjunto de tabelas.
 
 Por padrão, a tabela de saída contém:
 
-* `source_`-Um indicador da tabela de origem para cada linha.
+* `source_`-Um indicador da tabela de origem para cada linha. Use [as](#as-operator) ao final de cada expressão de tabela, se você quiser especificar o nome que aparece nessa coluna.
 * Colunas explicitamente mencionadas no predicado
 * Colunas não-vazia comuns a todas as tabelas de entrada.
 * `pack_`-Um conjunto de propriedades contendo os dados de outras colunas.
@@ -505,7 +586,19 @@ Encontre mais recente telemetria onde qualquer campo que contém o termo 'test':
 * Adicionar termos de tempo para o `where` predicado.
 * Use `let` cláusulas em vez de escrever consultas embutido.
 
+### <a name="getschema-operator"></a>operador getschema
 
+   T | getschema
+   
+Gera uma tabela que mostra os nomes de coluna e os tipos de tabela de entrada.
+
+```AIQL
+requests
+| project appId, appName, customDimensions, duration, iKey, itemCount, success, timestamp 
+| getschema 
+```
+
+![Resultados de getschema](./media/app-insights-analytics-reference/getschema.png)
 
 ### <a name="join-operator"></a>operador join
     Table1 | join (Table2) on CommonColumn
@@ -593,6 +686,37 @@ Retorna até o número especificado de linhas da tabela de entrada. Não há gar
 `Take` é uma maneira simples e eficiente de ver um exemplo dos resultados quando você trabalha de forma interativa. Lembre-se de que não há garantia quanto à produção de linhas específicas ou de sua produção em uma ordem específica.
 
 Há um limite implícito quanto ao número de linhas retornadas ao cliente, mesmo que você não use `take`. Para aumentar o limite, use a opção de solicitação do cliente `notruncation` .
+
+### <a name="make-series-operator"></a>operador make-series
+
+Executa uma agregação. Ao contrário de [summarize](#summarize-operator), há uma linha de saída para cada grupo. Nas colunas de resultado, os valores em cada grupo são incluídos em matrizes. 
+
+**Sintaxe**
+
+    T | 
+    make-series [Column =] Aggregation default = DefaultValue [, ...] 
+    on AxisColumn in range(start, stop, step) 
+    by [Column =] GroupExpression [, ...]
+
+
+**Argumentos**
+
+* *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão.
+* *DefaultValue:* se não houver uma linha com valores específicos de AxisColumn e GroupExpression, o elemento correspondente da matriz será atribuído nos resultados com um DefaultValue. 
+* *Aggregation:* uma expressão numérica usando uma [função de agregação](#aggregations). 
+* *AxisColumn:* uma coluna na qual a série é ordenada. Pode ser considerada uma linha do tempo, mas qualquer tipo numérico será aceito.
+*start, stop, step:* define a lista de valores de AxisColumn para cada linha. Todas as outras colunas de agregação de resultado têm uma matriz do mesmo tamanho. 
+* *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Há uma linha na saída de cada valor da GroupExpression. Geralmente é um nome de coluna que já fornece um conjunto restrito de valores. 
+
+**Dica**
+
+As matrizes de resultados são renderizadas em um gráfico de análise da mesma forma que a operação summarize correspondente.
+
+**Exemplo**
+
+requests | make-series sum(itemCount) default=0, avg(duration) default=0 on timestamp in range (ago(7d), now(), 1d) by client_City
+
+![Resultados de make-series](./media/app-insights-analytics-reference/make-series.png)
 
 ### <a name="mvexpand-operator"></a>operador mvexpand
     T | mvexpand listColumn 
@@ -695,7 +819,7 @@ Os elementos na cláusula `with` são comparados ao texto de origem sucessivamen
 * Em uma análise de regex, uma expressão regular pode usar o operador de minimização '?' para passar assim que possível para a correspondência seguinte.
 * Um nome de coluna com um tipo analisa o texto como o tipo especificado. A menos que kind=relaxed, uma análise malsucedida invalida a correspondência do padrão inteiro.
 * Um nome de coluna sem um tipo ou com o tipo 'string' copia o número mínimo de caracteres para obter a correspondência seguinte.
-* ' * ' Ignora o número mínimo de caracteres para obter a correspondência seguinte. Você pode usar '*' no início e no final do padrão, ou depois de um tipo diferente de ‘string’ ou entre as correspondências de cadeia de caracteres.
+* ' *' Ignora o número mínimo de caracteres para obter a correspondência seguinte. Você pode usar '*' no início e no final do padrão, ou depois de um tipo diferente de ‘string’ ou entre as correspondências de cadeia de caracteres.
 
 Todos os elementos em um padrão de análise devem corresponder corretamente. Caso contrário, nenhum resultado será produzido. A exceção a essa regra é que, quando kind=relaxed, se uma análise de uma variável com tipo falhar, o restante da análise continuará.
 
@@ -888,7 +1012,8 @@ Tenta agrupar registros semelhantes. Para cada grupo, o operador envia o `Patter
 **Argumentos**
 
 * *ColumnName:* a coluna a ser examinada. Deve ser do tipo cadeia de caracteres.
-* *Threshold:* um valor no intervalo {0..1}. O padrão é 0,001. Para entradas grandes, o limite deve ser pequeno. 
+* <seg>
+  *Threshold:* um valor no intervalo {0..1}.</seg> O padrão é 0,001. Para entradas grandes, o limite deve ser pequeno. 
 
 **Retorna**
 
@@ -961,6 +1086,45 @@ Faça a amostragem de uma população e outros cálculos sabendo que o resumo n�
 let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
 requests | where OperationName in (sampleops) | summarize total=count() by OperationName
 ```
+### <a name="search-operator"></a>operador search
+
+Procure cadeias de caracteres em várias tabelas e colunas.
+
+**Sintaxe**
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchToken
+
+    T | search [kind=case_sensitive] SearchToken
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchPredicate
+
+    T | search [kind=case_sensitive] SearchPredicate
+
+Localiza as ocorrências de determinada cadeia de caracteres de token em qualquer coluna de qualquer tabela.
+ 
+* *TableName* Nome de uma tabela que está definida globalmente (solicitações, exceções...) ou por uma [cláusula let](#let-clause). Use caracteres curinga como r*.
+* *SearchToken:* uma cadeia de caracteres de token que deve corresponder a uma palavra inteira. Use caracteres curinga à direita. "Amster*" corresponde a "Amsterdã", mas "Amster" não.
+* *SearchPredicate:* uma expressão booliana sobre as colunas nas tabelas. Use "*" como um caractere curinga em nomes de coluna.
+
+**Exemplos**
+
+```AIQL
+search "Amster*"  //All columns, all tables
+
+search name has "home"  // one column
+
+search * has "home"     // all columns
+
+search in (requests, exceptions) "Amster*"  // two tables
+
+requests | search "Amster*"
+
+requests | search name has "home"
+
+```
+
+
+
 
 ### <a name="sort-operator"></a>operador sort
     T | sort by country asc, price desc
@@ -1027,6 +1191,32 @@ O resultado tem a mesma quantidade de linhas que diferentes combinações de val
 > [!NOTE]
 > Embora você possa fornecer expressões aleatórias para as expressões de agregação e de agrupamento, é mais eficiente usar nomes de coluna simples ou aplicar `bin()` a uma coluna numérica.
 
+### <a name="table-operator"></a>operador table
+
+    table('pageViews')
+
+A tabela nomeada na cadeia de caracteres do argumento.
+
+**Sintaxe**
+
+    table(tableName)
+
+**Argumentos**
+
+* *tableName:* uma cadeia de caracteres. O nome de uma tabela, que pode ser estática, ou o resultado de uma cláusula let.
+
+**Exemplos**
+
+    table('requests');
+
+
+    let size = (tableName: string) {
+        table(tableName) | summarize sum(itemCount)
+    };
+    size('pageViews');
+
+
+
 ### <a name="take-operator"></a>operador take
 Alias de [limit](#limit-operator)
 
@@ -1089,7 +1279,7 @@ Usa duas ou mais tabelas e retorna as linhas de todas elas.
 * `kind`: 
   * `inner` - o resultado tem o subconjunto de colunas que são comuns a todas as tabelas de entrada.
   * `outer` - o resultado tem todas as colunas que ocorrem em qualquer uma das entradas. As células que não foram definidas por uma linha de entrada são definidas como `null`.
-* `withsource=`*ColumnName:* se especificado, a saída incluirá uma coluna chamada *ColumnName* cujo valor indicará qual tabela de origem contribuiu com cada linha.
+* `withsource=`*ColumnName:* se especificado, a saída incluirá uma coluna chamada *ColumnName* cujo valor indicará qual tabela de origem contribuiu com cada linha. Use [as](#as-operator) ao final de cada expressão de tabela, se você quiser especificar o nome que aparece nessa coluna.
 
 **Retorna**
 
@@ -1097,38 +1287,28 @@ Uma tabela com tantas linhas quanto houver em todas as tabelas de entrada e tant
 
 Não há ordem garantida nas linhas.
 
-**Exemplo**
-
-União de todas as tabelas cujos nomes começam por "tt":
-
-```AIQL
-
-    let ttrr = requests | where timestamp > ago(1h);
-    let ttee = exceptions | where timestamp > ago(1h);
-    union tt* | count
-```
 
 **Exemplo**
 
-O número de usuários distintos que produziram um evento `exceptions` ou um evento `traces` no dia anterior. No resultado, a coluna "SourceTable" indicará "Query" ou "Command":
+O número de usuários distintos que produziram um evento `exceptions` ou um evento `traces` nas últimas 12 horas. No resultado, a coluna "SourceTable" indicará "exceções" ou "rastreamentos":
 
 ```AIQL
-
-    union withsource=SourceTable kind=outer Query, Command
-    | where Timestamp > ago(1d)
-    | summarize dcount(UserId)
+    
+    union withsource=SourceTable kind=outer exceptions, traces
+    | where timestamp > ago(12h)
+    | summarize dcount(user_Id) by SourceTable
 ```
 
 Esta versão mais eficiente produz o mesmo resultado. Ela filtra cada tabela antes de criar a união:
 
 ```AIQL
-
     exceptions
-    | where Timestamp > ago(12h)
-    | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(12h))
-    | summarize dcount(UserId)
+    | where timestamp > ago(24h) | as exceptions
+    | union withsource=SourceTable kind=outer (requests | where timestamp > ago(12h) | as traces)
+    | summarize dcount(user_Id) by SourceTable 
 ```
+
+Use [as](#as-operator) para especificar o nome que será exibido na coluna de origem.
 
 #### <a name="forcing-an-order-of-results"></a>Forçando uma ordem de resultados
 

@@ -1,6 +1,6 @@
 ---
-title: "Integração corporativa com o EDIFACT | Microsoft Docs"
-description: "Saiba como usar contratos EDIFACT para criar Aplicativos lógicos"
+title: "Mensagens EDIFACT para integração de empresas B2B – Aplicativos Lógicos do Azure | Microsoft Docs"
+description: "Troca de mensagens EDIFACT no formato EDI para integração de empresas B2B com aplicativos lógicos do Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,74 +12,107 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: jonfan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 30c26d1fb2dfb7c458789e70f4f8d1a6c39cd0ca
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: e067ea1a800dbcbc1c95ec03c7437ab3c8a610d7
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="enterprise-integration-with-edifact"></a>Integração corporativa com o EDIFACT
-> [!NOTE]
-> Esta página cobre os recursos de EDIFACT dos Aplicativos Lógicos. Confira [X12](logic-apps-enterprise-integration-x12.md) para obter mais informações.
-> 
-> 
+# <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens EDIFACT para integração de empresas com aplicativos lógicos
 
-## <a name="create-an-edifact-agreement"></a>Criar um contrato EDIFACT
-Para poder trocar mensagens EDIFACT, você precisará criar um contrato EDIFACT e armazená-lo em sua conta de integração. As etapas a seguir orientarão você pelo processo de criação de um contrato EDIFACT.
-
-### <a name="heres-what-you-need-before-you-get-started"></a>Veja o que você precisa antes de começar
-* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) definida em sua assinatura do Azure  
-* Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) já definidos em sua conta de integração  
+Antes de trocar mensagens EDIFACT para aplicativos lógicos do Azure, você deve criar um contrato EDIFACT e armazenar esse contrato em sua conta de integração. Aqui estão as etapas sobre como criar um contrato EDIFACT.
 
 > [!NOTE]
-> Ao criar um contrato, o conteúdo das mensagens trocadas com o parceiro deve corresponder ao tipo de contrato.    
-> 
-> 
+> Esta página abrange os recursos de EDIFACT dos aplicativos lógicos do Azure. Para obter mais informações, consulte [X12](logic-apps-enterprise-integration-x12.md).
 
-Depois de você [criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) e [adicionar os parceiros](logic-apps-enterprise-integration-partners.md), poderá criar um contrato EDIFACT executando estas etapas:  
+## <a name="before-you-start"></a>Antes de começar
 
-### <a name="from-the-azure-portal-home-page"></a>Na página inicial do Portal do Azure
-Depois de fazer logon no [Portal do Azure](http://portal.azure.com "Portal do Azure"):  
+Veja os itens necessários:
 
-1. Selecione **Procurar** no menu à esquerda.  
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) que já esteja definida e associada à sua assinatura do Azure  
+* Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
 
-> [!TIP]
-> Se você não vir o link **Procurar** , talvez seja necessário expandir o menu primeiro. Faça isso selecionando o link **Mostrar menu** que está localizado na parte superior esquerda do menu recolhido.  
-> 
-> 
+> [!NOTE]
+> Ao criar um contrato, o conteúdo das mensagens trocadas com o parceiro devem corresponder ao tipo de contrato.
 
-![](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)    
+Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) e [adicionar os parceiros](logic-apps-enterprise-integration-partners.md), você poderá criar um contrato EDIFACT executando as seguintes etapas:
 
-1. Digite *integração* na caixa de pesquisa do filtro, em seguida, selecione **Contas de Integração** na lista de resultados.       
-   ![](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)    
-2. Na folha **Contas de Integração** que é aberta, selecione a conta de integração na qual você criará o contrato. Se você não vir nenhuma lista de contas de integração, [crie uma primeiro](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
-   ![](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)  
-3. Selecione o bloco **Contratos** . Se você não vir o bloco de contratos, adicione-o primeiro.   
-   ![](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)     
-4. Selecione o botão **Adicionar** na folha Contratos que se abre.  
-   ![](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)  
-5. Insira um **Nome** para seu contrato, selecione **Tipo de contrato** para EDIFACT, **Parceiro Host**, **Identidade do Host** e **Parceiro Convidado**, **Identidade do Convidado** na folha Contratos que se abre.  
-   ![](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)  
-6. Depois de definir as propriedades do contrato, selecione **Configurações de Recebimento** para configurar como as mensagens recebidas por este contrato devem ser manipuladas.  
-7. O controle de Configurações de Recebimento é dividido nas seções a seguir, incluindo Identificadores, Confirmação, Esquemas, Números de Controle, Validações, Configurações Internas e Processamento em lote. Configure essas propriedades com base no seu contrato com o parceiro com o qual você trocará mensagens. Veja a seguir uma exibição desses controles e configure-os com base em como você deseja que este contrato identifique e manipule as mensagens recebidas:   
-   ![](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
-8. Selecione o botão **OK** para salvar suas configurações.  
+## <a name="create-an-edifact-agreement"></a>Criar um contrato EDIFACT 
+
+1.    Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **Mais serviços**.
+
+    > [!TIP]
+    > Se você não encontrar a opção **Mais serviços**, talvez seja necessário expandir o menu primeiro. Na parte superior do menu recolhido, selecione **Mostrar menu**.
+
+    ![No menu à esquerda, selecione "Mais serviços"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+
+2. Na caixa de pesquisa, digite "Integração" como filtro. Na lista de resultados, selecione **Contas de Integração**.
+
+    ![Filtre por "integração", selecione "Contas de Integração"](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+
+3. Quando a folha **Contas de integração** abrir, selecione a conta de integração onde você deseja criar o contrato.
+Caso não encontre nenhuma conta de integração, [crie uma primeiro](../logic-apps/logic-apps-enterprise-integration-accounts.md "O que é uma conta de integração?").  
+
+    ![Selecione a conta de integração onde deseja criar o contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+
+4. Escolha o bloco **Contratos**. Se não tiver um bloco de Contratos, primeiro adicione o bloco.   
+
+    ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+
+5. Quando a folha "Contratos" abrir, selecione **Adicionar**.
+
+    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+
+6. Em **Adicionar**, insira um **Nome** para o seu contrato. No **Tipo de contrato**, selecione **EDIFACT**. Selecione o **Parceiro Host**, a **Identidade do Host**, o **Parceiro Convidado** e a **Identidade do Convidado** para o contrato.
+
+    ![Fornecer detalhes de contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+
+    | Propriedade | Descrição |
+    | --- | --- |
+    | Nome |Nome do contrato |
+    | Tipo de contrato | Deve ser EDIFACT |
+    | Parceiro de Host |Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato. |
+    | Identidade do Host |Um identificador para o parceiro host |
+    | Parceiro Convidado |Um contrato precisa dos parceiros host e convidado. O parceiro convidado representa a organização que está fazendo negócios com o parceiro host. |
+    | Identidade do Convidado |Um identificador para o parceiro convidado |
+    | Configurações de Recebimento |Essas propriedades se aplicam a todas as mensagens recebidas por um contrato. |
+    | Configurações de Envio |Essas propriedades se aplicam a todas as mensagens enviadas por um contrato. |
+
+## <a name="configure-how-your-agreement-handles-received-messages"></a>Configurar como seu contrato lida com mensagens recebidas
+
+Depois de configurar as propriedades do contrato, você pode configurar como este contrato identifica e manipula mensagens de entrada recebidas do seu parceiro por meio deste contrato.
+
+1.    Em **Adicionar**, selecione **Configurações de recebimento**.
+Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você. Para obter as descrições da propriedade, confira as tabelas nesta seção.
+
+    As **configurações de recebimento** são organizadas nas seguintes seções: Identificadores, Confirmação, Esquemas, Envelopes, Números de controle, Validação e Configurações internas.
+
+    ![Configure "Configurações de recebimento"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+
+2. Após terminar, salve suas configurações, escolhendo **OK**.
+
+Agora o contrato está pronto para lidar com mensagens de entrada de acordo com as configurações selecionadas.
 
 ### <a name="identifiers"></a>Identificadores
+
 | Propriedade | Descrição |
 | --- | --- |
 | UNB&6;.1 (Senha de Referência do Destinatário) |Insira um valor alfanumérico entre 1 e 14 caracteres. |
 | UNB&6;.2 (Qualificador de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um caractere e no máximo dois caracteres. |
 
 ### <a name="acknowledgments"></a>Agradecimentos
+
 | Propriedade | Descrição |
 | --- | --- |
 | Recebimento de Mensagem (CONTRL) |Marque essa caixa de seleção para retornar uma confirmação técnica (CONTRL) ao remetente do intercâmbio. A confirmação é enviada ao remetente do intercâmbio com base nas Configurações de Envio do contrato. |
 | Confirmação (CONTRL) |Marque essa caixa de seleção para retornar uma confirmação funcional (CONTRL) ao emissor de intercâmbio. A confirmação é enviada ao emissor de intercâmbio com base nas Configurações de Envio do contrato. |
 
 ### <a name="schemas"></a>Esquemas
+
 | Propriedade | Descrição |
 | --- | --- |
 | UNH2.1 (TIPO) |Selecione um tipo de conjunto de transação. |
@@ -93,42 +126,52 @@ Depois de fazer logon no [Portal do Azure](http://portal.azure.com "Portal do Az
 ### <a name="control-numbers"></a>Números de Controle
 | Propriedade | Descrição |
 | --- | --- |
-| Recusar duplicatas de Números de Controle de Intercâmbio |Marque essa caixa de seleção para bloquear intercâmbios duplicados. Se essa opção for selecionada, a Ação de Decodificação do EDIFACT verificará se o número de controle de intercâmbio (UNB5) do intercâmbio recebido não corresponde ao número de controle de intercâmbio processado anteriormente. Se houver uma correspondência, o intercâmbio não será processado. |
-| Verificar UNB5 duplicado a cada (dias) |Se você optou por não permitir números de controle de intercâmbio duplicados, poderá especificar o número de dias em que a verificação é executada, fornecendo o valor apropriado para **Verificar UNB5 duplicados a cada (dias)** . |
-| Recusar duplicatas de Números de controle de grupo |Marque essa caixa de seleção para bloquear intercâmbios com números de controle de grupo duplicados (UNG5). |
-| Recusar duplicatas de Números de controle de Conjuntos de transações |Marque essa caixa de seleção para bloquear intercâmbios com números de controle de conjunto de transação duplicados (UNH1). |
-| Número de controle da confirmação EDIFACT |Para designar os números de referência do conjunto de transação a serem usados em uma confirmação, insira um valor para o prefixo, um intervalo de números de referência e um sufixo. |
+| Recusar duplicatas de Números de Controle de Intercâmbio |Para bloquear intercâmbios de duplicatas, selecione essa propriedade. Se essa opção for selecionada, a Ação de Decodificação do EDIFACT verificará se o número de controle de intercâmbio (UNB5) do intercâmbio recebido não corresponde ao número de controle de intercâmbio processado anteriormente. Se houver uma correspondência, o intercâmbio não será processado. |
+| Verificar UNB5 duplicado a cada (dias) |Se optou por não permitir números de controle de intercâmbio de duplicatas, você pode especificar o número de dias quando executar a verificação, fornecendo o valor apropriado para esta configuração. |
+| Recusar duplicatas de Números de controle de grupo |Marque essa propriedade para bloquear intercâmbios com números de controle de grupo duplicados (UNG5). |
+| Recusar duplicatas de Números de controle de Conjuntos de transações |Marque essa propriedade para bloquear intercâmbios com números de controle de conjunto de transações duplicados (UNH1). |
+| Número de controle da confirmação EDIFACT |Para designar os números de referência do conjunto de transações a serem usados em uma confirmação, insira um valor para o prefixo, um intervalo de números de referência e um sufixo. |
 
 ### <a name="validations"></a>Validações
+
+Quando você conclui cada linha de validação, outra é adicionada automaticamente. Se você não especificar regras, a validação usa a linha "Padrão".
+
 | Propriedade | Descrição |
 | --- | --- |
-| Tipo de Mensagem |Especifique o tipo de mensagem. À medida que cada linha de validação é concluída, outra é adicionada automaticamente. Se nenhuma regra for especificada, a linha marcada como padrão será usada para validação. |
-| Validação de EDI |Marque essa caixa de seleção para executar a validação de EDI nos tipos de dados conforme a definição das propriedades de EDI do esquema, restrições de comprimento, elementos de dados vazios e separadores à direita. |
-| Validação Estendida |Marque essa caixa de seleção para permitir a validação estendida (XSD) de intercâmbios recebidos do remetente de intercâmbio. Isso inclui validação de comprimento do campo, campos opcionais e contagem repetida, além da validação de tipo de dados XSD. |
-| Permitir Zeros à Esquerda/Direita |Selecione **Permitir** para permitir zeros à direita/à esquerda; **Não Permitir** para não permitir zeros à direita/à esquerda, ou **Cortar** para cortar os zeros à esquerda/à direita. |
-| Cortar Zeros à Esquerda/Direita |Marque esta caixa de seleção para cortar quaisquer zeros à esquerda ou à direita |
-| Política de Separador à Direita |Marque **Não Permitido** se você não quiser permitir delimitadores e separadores à direita em um intercâmbio recebido do emissor de intercâmbio. Se o intercâmbio tiver delimitadores e separadores à direita, ele será declarado inválido. Escolha **Opcional** para aceitar intercâmbios com ou sem delimitadores e separadores à direita. Escolha **Obrigatório** se o intercâmbio recebido precisar conter delimitadores e separadores à direita. |
+| Tipo de Mensagem |Seleciona o tipo de mensagem EDI. |
+| Validação de EDI |Executa a validação de EDI nos tipos de dados conforme a definição das propriedades de EDI do esquema, restrições de comprimento, elementos de dados vazios e separadores à direita. |
+| Validação Estendida |Se o tipo de dados não for EDI, a validação será realizada nos requisitos de elementos de dados e na permissão de repetições, enumerações e validação de tamanho de elementos de dados (mín./máx.). |
+| Permitir Zeros à Esquerda/Direita |Retém zeros à esquerda ou à direita adicionais e caracteres de espaço. Não remova esses caracteres. |
+| Cortar Zeros à Esquerda/Direita |Remove zeros à esquerda ou à direita e caracteres de espaço. |
+| Política de Separador à Direita |Gera separadores à direita. <p>Selecione **Não permitido** para proibir delimitadores e separadores à direita no intercâmbio recebido. Se o intercâmbio tiver delimitadores e separadores à direita, o intercâmbio é declarado não válido. <p>Escolha **Opcional** para aceitar intercâmbios com ou sem delimitadores e separadores à direita. <p>Escolha **Obrigatório** se o intercâmbio recebido precisar conter delimitadores e separadores à direita. |
 
 ### <a name="internal-settings"></a>Configurações Internas
+
 | Propriedade | Descrição |
 | --- | --- |
 | Criar marcas XML vazias se forem permitidos separadores à direita |Marque essa caixa de seleção para que o remetente do intercâmbio inclua marcas XML vazias para separadores à direita. |
-| Processamento em lote de entrada |As opções incluem:</br></br>**Dividir o intercâmbio em Conjuntos de Transações – suspender Conjuntos de Transações com Erro**: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado ao conjunto de transação. Com essa opção, se um ou mais conjuntos de transações do intercâmbio falharem na validação, somente esses conjuntos de transação serão suspensos. Dividir o Intercâmbio em Conjuntos de Transações – suspender Intercâmbios com Erro: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado. Com essa opção, se um ou mais conjuntos de transações do intercâmbio falharem na validação, o intercâmbio inteiro será suspenso.</br></br>**Preservar Intercâmbio – suspender Conjuntos de Transação com Erro**: deixa o intercâmbio intacto, criando um documento XML para o intercâmbio em lote inteiro. Com essa opção, se um ou mais conjuntos de transações do intercâmbio falharem na validação, somente esses conjuntos de transação serão suspensos, continuando o processamento dos demais.</br></br>**Preservar Intercâmbio - suspender Intercâmbios com Erro**: deixa o intercâmbio intacto, criando um documento XML para o intercâmbio em lote inteiro. Com essa opção, se um ou mais conjuntos de transações do intercâmbio falharem na validação, o intercâmbio inteiro será suspenso. |
+| Dividir Intercâmbio como conjuntos de transação – suspender conjuntos de transação com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado ao conjunto de transações. Suspenda somente os conjuntos de transações com falha na validação. |
+| Dividir Intercâmbio como conjuntos de transação – suspender intercâmbio com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado. Suspende o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação. | 
+| Preservar Intercâmbio – suspender conjuntos transação com erro |Mantém o intercâmbio intacto, cria um documento XML para o intercâmbio em lote inteiro. Suspenda somente os conjuntos de transações com falha na validação, enquanto continua a processar todos os outros conjuntos de transações. |
+| Preservar Intercâmbio – suspender intercâmbio com erro |Mantém o intercâmbio intacto, cria um documento XML para o intercâmbio em lote inteiro. Suspende o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação. |
 
-O contrato está pronto para manipular mensagens recebidas que estão em conformidade com as configurações selecionadas.
+## <a name="configure-how-your-agreement-sends-messages"></a>Configurar como seu contrato envia mensagens
 
-Para definir as configurações que manipulam as mensagens enviadas aos parceiros:  
+Você pode configurar como este contrato identifica e manipula mensagens de saída enviadas aos seus parceiros por meio deste contrato.
 
-1. Selecione **Configurações de Envio** para configurar como as mensagens enviadas por este contrato devem ser manipuladas.  
+1.    Em **Adicionar**, selecione **Configurações de Envio**.
+Configure essas propriedades com base no seu contrato com seu parceiro que troca mensagens com você. Para obter as descrições da propriedade, confira as tabelas nesta seção.
 
-O controle de Configurações de Envio é dividido nas seções a seguir, incluindo Identificadores, Confirmação, Esquemas, Envelopes, Conjuntos de Caracteres e Separadores, Números de Controle e Validação. 
+    **Configurações de envio** é organizado nas seguintes seções: Identificadores, Confirmação, Esquemas, Envelopes, Conjuntos de caracteres e separadores, Números de controle e Validações.
 
-Veja a seguir uma exibição desses controles. Faça as seleções com base em como você deseja manipular as mensagens enviadas aos parceiros por meio deste contrato:    
-![](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
+    ![Configurar "Configurações de Envio"](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 
-1. Selecione o botão **OK** para salvar suas configurações.  
+2. Após terminar, salve suas configurações, escolhendo **OK**.
+
+Agora o contrato está pronto para lidar com mensagens de saída de acordo com as configurações selecionadas.
 
 ### <a name="identifiers"></a>Identificadores
+
 | Propriedade | Descrição |
 | --- | --- |
 | UNB1.2 (Versão de sintaxe) |Selecione um valor entre **1** e **4**. |
@@ -160,15 +203,21 @@ Veja a seguir uma exibição desses controles. Faça as seleções com base em c
 | UNB10 (Contrato de Comunicação) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 40 caracteres. |
 | UNB11 (Indicador de Teste) |Marque essa caixa de seleção para indicar que o intercâmbio gerado são dados de teste |
 | Aplicar o Segmento UNA (Aviso de Cadeia de Caracteres de Serviço) |Marque essa caixa de seleção para gerar um segmento UNA para o intercâmbio a ser enviado. |
-| Aplicar os segmentos UNG (Cabeçalho de Grupo de Função) |Marque essa caixa de seleção para criar segmentos de agrupamento no cabeçalho de grupo funcional nas mensagens enviadas ao parceiro convidado. Os seguintes valores são usados para criar os segmentos UNG:</br></br>Para **UNG1**, insira um valor alfanumérico com no mínimo um e no máximo seis caracteres.</br></br>Para **UNG2.1**, insira um valor alfanumérico com no mínimo um e no máximo 35 caracteres.</br></br>Para **UNG2.2**, insira um valor alfanumérico, com no máximo quatro caracteres.</br></br>Para **UNG3.1**, insira um valor alfanumérico com no mínimo um e no máximo 35 caracteres.</br></br>Para **UNG3.2**, insira um valor alfanumérico, com no máximo quatro caracteres.</br></br>Para **UNG6**, insira um valor alfanumérico com no mínimo um e no máximo três caracteres.</br></br>Para **UNG7.1**, insira um valor alfanumérico com no mínimo um e no máximo três caracteres.</br></br>Para **UNG7.2**, insira um valor alfanumérico com no mínimo um e no máximo três caracteres.</br></br>Para **UNG7.3**, insira um valor alfanumérico com no mínimo um e no máximo seis caracteres.</br></br>Para **UNG8**, insira um valor alfanumérico com no mínimo um e no máximo 14 caracteres. |
+| Aplicar os segmentos UNG (Cabeçalho de Grupo de Função) |Marque essa caixa de seleção para criar segmentos de agrupamento no cabeçalho de grupo funcional nas mensagens enviadas ao parceiro convidado. Os seguintes valores são usados para criar os segmentos UNG: <p>Para **UNG1**, insira um valor alfanumérico com no mínimo um e no máximo seis caracteres. <p>Para **UNG2.1**, insira um valor alfanumérico com no mínimo um e no máximo 35 caracteres. <p>Para **UNG2.2**, insira um valor alfanumérico, com no máximo quatro caracteres. <p>Para **UNG3.1**, insira um valor alfanumérico com no mínimo um e no máximo 35 caracteres. <p>Para **UNG3.2**, insira um valor alfanumérico, com no máximo quatro caracteres. <p>Para **UNG6**, insira um valor alfanumérico com no mínimo um e no máximo três caracteres. <p>Para **UNG7.1**, insira um valor alfanumérico com no mínimo um e no máximo três caracteres. <p>Para **UNG7.2**, insira um valor alfanumérico com no mínimo um e no máximo três caracteres. <p>Para **UNG7.3**, insira um valor alfanumérico com no mínimo um e no máximo seis caracteres. <p>Para **UNG8**, insira um valor alfanumérico com no mínimo um e no máximo 14 caracteres. |
 
 ### <a name="character-sets-and-separators"></a>Conjuntos de Caracteres e Separadores
+
 Além do conjunto de caracteres, você pode inserir um conjunto diferente de delimitadores a serem usados para cada tipo de mensagem. Se um conjunto de caracteres não for especificado para um determinado esquema de mensagem, o conjunto de caracteres padrão será usado.
 
 | Propriedade | Descrição |
 | --- | --- |
 | UNB1.1 (Identificador do Sistema) |Selecione o conjunto de caracteres EDIFACT a ser aplicado no intercâmbio de saída. |
-| Esquema |Selecione um esquema na lista suspensa. À medida que cada linha é concluída, uma nova linha é adicionada. Para o esquema selecionado, selecione o conjunto de separadores a ser usado:</br></br>**Separador do elemento do componente** – insira um único caractere para separar os elementos de dados compostos.</br></br>**Separador do Elemento de Dados** – insira um único caractere para separar os elementos de dados simples nos elementos de dados compostos.</br></br></br></br>**Caractere de substituição** – marque essa caixa de seleção se a carga de dados contém caracteres que também são usados como separadores de componentes, de dados ou de segmentos. Em seguida,você pode inserir um caractere de substituição. Ao gerar a mensagem de saída EDIFACT, todas as instâncias de caracteres de separador na carga de dados são substituídas pelo caractere especificado.</br></br>**Terminador de Segmento** – insira um único caractere para indicar o final de um segmento EDI.</br></br>**Sufixo** – selecione o caractere a ser usado com o identificador de segmento. Se você designar um sufixo, o elemento de dados de terminador de segmento poderá ficar vazio. Se o terminador de segmento ficar vazio, você deverá designar um sufixo. |
+| Esquema |Selecione um esquema na lista suspensa. Depois de concluir cada linha, uma nova linha é adicionada automaticamente. Para o esquema selecionado, selecione o conjunto de separadores que deseja usar, com base nas seguintes descrições do separador. |
+| Tipo de entrada |Selecione um tipo de entrada na lista suspensa. |
+| Separador de componente |Insira um único caractere para separar os elementos de dados compostos. |
+| Separador de elemento de dados |Insira um único caractere para separar os elementos de dados simples dentro dos elementos de dados compostos. |
+| Terminador de segmento |Insira um único caractere para indicar o final de um segmento EDI. |
+| Suffix |Selecionar o caractere a ser usado com o identificador de segmento. Se você designar um sufixo, o elemento de dados de terminador de segmento poderá ficar vazio. Se o terminador de segmento ficar vazio, você deverá designar um sufixo. |
 
 ### <a name="control-numbers"></a>Números de Controle
 | Propriedade | Descrição |
@@ -178,26 +227,29 @@ Além do conjunto de caracteres, você pode inserir um conjunto diferente de del
 | UNH1 (Número de Referência do Cabeçalho da Mensagem) |Insira um prefixo, um intervalo de valores para o número de controle de intercâmbio e um sufixo. Esses valores são usados para gerar o número de referência de cabeçalho da mensagem. O prefixo e sufixo são opcionais; o número de referência é obrigatório. O número de referência é incrementado para cada nova mensagem; o prefixo e sufixo permanecem os mesmos. |
 
 ### <a name="validations"></a>Validações
+
+Quando você conclui cada linha de validação, outra é adicionada automaticamente. Se você não especificar regras, a validação usa a linha "Padrão".
+
 | Propriedade | Descrição |
 | --- | --- |
-| Tipo de Mensagem |Essa opção habilita a validação no destinatário do intercâmbio. Essa validação realiza a validação de EDI em elementos de dados do conjunto de transação, validando tipos de dados, restrições de comprimento, elementos de dados vazios e separadores. |
-| Validação de EDI |Marque essa caixa de seleção para executar a validação de EDI nos tipos de dados conforme a definição das propriedades de EDI do esquema, restrições de comprimento, elementos de dados vazios e separadores à direita. |
-| Validação Estendida |Essa opção permite a validação estendida de intercâmbios recebidos do remetente de intercâmbio. Isso inclui validação de comprimento do campo, campos opcionais e contagem repetida, além da validação de tipo de dados XSD. Você pode habilitar a validação estendida sem habilitar a validação de EDI ou vice-versa. |
-| Permitir Zeros à Esquerda/Direita |Essa opção especifica que um intercâmbio de EDI recebido não falhará na validação se um elemento de dados em um intercâmbio EDI não atender ao requisito de comprimento devido a espaços à direita, mas estiver de acordo com esse requisito quando os espaços são removidos. |
-| Cortar Zeros à Esquerda/Direita |A seleção dessa opção cortará os zeros à esquerda e à direita. |
-| Separador à direita |Essa opção especifica que um intercâmbio de EDI recebido não falhará na validação se um elemento de dados em um intercâmbio de EDI não estiver atender ao requisito de comprimento devido a zeros à esquerda (ou direita) ou espaços à direita,mas estiver de acordo com esse requisito quando os espaços ou zeros são removidos.</br></br>Marque **Não Permitido** se você não quiser permitir delimitadores e separadores à direita em um intercâmbio recebido do emissor de intercâmbio. Se o intercâmbio tiver delimitadores e separadores à direita, ele será declarado inválido.</br></br>Escolha **Opcional** para aceitar intercâmbios com ou sem delimitadores e separadores à direita.</br></br>Escolha **Obrigatório** se o intercâmbio recebido precisar conter delimitadores e separadores à direita. |
+| Tipo de Mensagem |Seleciona o tipo de mensagem EDI. |
+| Validação de EDI |Executa a validação de EDI nos tipos de dados conforme a definição das propriedades de EDI do esquema, restrições de comprimento, elementos de dados vazios e separadores à direita. |
+| Validação Estendida |Se o tipo de dados não for EDI, a validação será realizada nos requisitos de elementos de dados e na permissão de repetições, enumerações e validação de tamanho de elementos de dados (mín./máx.). |
+| Permitir Zeros à Esquerda/Direita |Retém zeros à esquerda ou à direita adicionais e caracteres de espaço. Não remova esses caracteres. |
+| Cortar Zeros à Esquerda/Direita |Remove zeros à esquerda ou à direita adicionais. |
+| Política de Separador à Direita |Gera separadores à direita. <p>Selecione **Não permitido** para proibir delimitadores e separadores à direita no intercâmbio enviado. Se o intercâmbio tiver delimitadores e separadores à direita, o intercâmbio é declarado não válido. <p>Escolha **Opcional** para enviar intercâmbios com ou sem delimitadores e separadores à direita. <p>Selecione **Obrigatório** se o intercâmbio enviado deve ter delimitadores e separadores à direita. |
 
-Depois de selecionar **OK** na folha aberta:  
+## <a name="find-your-created-agreement"></a>Como localizar seu contrato criado
 
-1. Selecione o bloco **Contratos** na folha da Conta de Integração e você verá o contrato recém-adicionado listado.  
-   ![](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+1.    Depois que você terminar de definir todas as suas propriedades de contrato, na folha **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a folha da conta de integração.
+
+    Agora, seu contrato recém-adicionado é exibido na sua lista de **Contratos**.
+
+2.    Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
+
+    ![Escolha o bloco de "Contratos" para exibir todos os contratos](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

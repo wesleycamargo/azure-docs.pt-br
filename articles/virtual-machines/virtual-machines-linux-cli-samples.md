@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ea9ee62b28069f87404b665151a51c5b73edf353
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 59dfe13e70a5a20da4965f8a698380dc78b21028
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,7 +38,7 @@ A tabela a seguir inclui links para bash scripts criados usando a CLI do Azure.
 |**Máquinas virtuais de rede**||
 | [Proteger o tráfego de rede entre as máquinas virtuais](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria duas máquinas virtuais, todos os recursos relacionados e grupos de segurança de rede (NSG) internos e externos. |
 |**Monitorar máquinas virtuais**||
-| [Monitorar uma VM com o Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria uma máquina virtual, instala o agente do Operations Management Suite e registra a VM em um espaço de trabalho do OMS.  |
+| [Monitorar uma VM com o Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma máquina virtual, instala o agente do Operations Management Suite e registra a VM em um espaço de trabalho do OMS.  |
 |**Solucionar problemas de máquinas virtuais**||
 | [Solucionar problemas de um disco de sistema operacional de VMs](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Monta o disco do sistema operacional de uma máquina virtual como um disco de dados em uma segunda máquina virtual. |
 | | |

@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 03/10/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e7d7065513f69bac5f759bfd5f4b3965b26bab5d
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="use-direct-methods-netnode"></a>Usar métodos diretos para (.NET/Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-No fim deste tutorial, você terá dois aplicativos de console, um .NET e um Node.js:
+Neste tutorial, vamos desenvolver um .NET e um aplicativo de console do Node.js:
 
 * **CallMethodOnDevice.sln**, um aplicativo de back-end .NET que chama um método no aplicativo do dispositivo simulado e exibe a resposta.
 * **SimulatedDevice.js**, um aplicativo Node.js que simula um dispositivo que se conecta ao seu Hub IoT com a identidade do dispositivo criada anteriormente e responde ao método chamado pela nuvem.
@@ -33,9 +34,9 @@ No fim deste tutorial, você terá dois aplicativos de console, um .NET e um Nod
 > 
 > 
 
-Para concluir este tutorial, você precisará do seguinte:
+Para concluir este tutorial, você precisará:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 ou Visual Studio 2017.
 * Node.js versão 0.10.x ou posterior.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
@@ -56,7 +57,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que responde a um 
     ```
         npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Usando um editor de texto, crie um novo arquivo **SimulatedDevice.js** na pasta **simulateddevice**.
+3. Usando um editor de texto, crie um arquivo na pasta **simulateddevice** e coloque o nome **SimulatedDevice.js**.
 4. Adicione as seguintes instruções `require` no início do arquivo **SimulatedDevice.js** :
    
     ```
@@ -111,7 +112,7 @@ Nesta seção, você cria um aplicativo de console do .NET que chama um método 
 1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console** . Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Nomeie o projeto como **CallMethodOnDevice**.
    
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][10]
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CallMethodOnDevice** e clique em **Gerenciar Pacotes NuGet**.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CallMethodOnDevice** e clique em **Gerenciar Pacotes NuGet...**.
 3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
    
     ![Janela do Gerenciador de Pacotes NuGet][11]
@@ -148,17 +149,18 @@ Nesta seção, você cria um aplicativo de console do .NET que chama um método 
 ## <a name="run-the-applications"></a>Executar os aplicativos
 Agora você está pronto para executar os aplicativos.
 
-1. Em um prompt de comando, na pasta **simulateddevice**, execute o seguinte comando para iniciar a escuta de chamadas de método de seu Hub IoT:
+1. No Visual Studio, no Gerenciador de Soluções, clique com o botão direito na solução e clique em **Definir Projetos de Inicialização...**. Selecione **Único projeto de inicialização**e, em seguida, selecione o projeto **CallMethodOnDevice** no menu suspenso.
+
+2. Em um prompt de comando, na pasta **simulateddevice**, execute o seguinte comando para iniciar a escuta de chamadas de método de seu Hub IoT:
    
     ```
     node SimulatedDevice.js
     ```
-   
-    ![][7]
-2. Agora que o dispositivo está conectado e aguardando chamadas de método, execute o aplicativo **CallMethodOnDevice** .NET para chamar o método no aplicativo do dispositivo simulado. Você deve ver a resposta do dispositivo escrita no console.
+   Aguarde o dispositivo simulado abrir:  ![][7]
+3. Agora que o dispositivo está conectado e aguardando chamadas de método, execute o aplicativo **CallMethodOnDevice** .NET para chamar o método no aplicativo do dispositivo simulado. Você deve ver a resposta do dispositivo escrita no console.
    
     ![][8]
-3. Você verá o dispositivo reagir ao método imprimindo a mensagem e o aplicativo que chamou o método exibindo a resposta do dispositivo:
+4. O dispositivo reage ao método imprimindo esta mensagem:
    
     ![][9]
 
@@ -177,8 +179,8 @@ Para saber como estender sua solução de IoT e agendar chamadas de método em v
 [8]: ./media/iot-hub-csharp-node-direct-methods/netserviceapp.png
 [9]: ./media/iot-hub-csharp-node-direct-methods/methods-output.png
 
-[10]: ./media/iot-hub-csharp-node-direct-methods/create-identity-csharp1.png
-[11]: ./media/iot-hub-csharp-node-direct-methods/create-identity-csharp2.png
+[10]: ./media/iot-hub-csharp-node-direct-methods/direct-methods-csharp1.png
+[11]: ./media/iot-hub-csharp-node-direct-methods/direct-methods-csharp2.png
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
@@ -198,9 +200,4 @@ Para saber como estender sua solução de IoT e agendar chamadas de método em v
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Introdução ao Hub IoT]: iot-hub-node-node-getstarted.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

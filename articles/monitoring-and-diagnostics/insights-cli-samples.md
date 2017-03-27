@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/08/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 981056249213c53bb8198fd792b815c5d9b091f5
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0e629dac553f576f2dd3059453b00d6b10e48fd7
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="azure-monitor-cross-platform-cli-quick-start-samples"></a>Exemplos de início rápido da CLI entre plataformas do Azure Monitor
+# <a name="azure-monitor--cross-platform-cli-quick-start-samples"></a>Exemplos de início rápido da CLI entre plataformas do Azure Monitor
 Este artigo mostra um exemplo de CLI (interface de linha de comando) que ajudará você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
 
 > [!NOTE]
@@ -29,7 +30,7 @@ Este artigo mostra um exemplo de CLI (interface de linha de comando) que ajudar�
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se você ainda não tiver instalado a CLI do Azure, confira [Instalar a CLI do Azure](../xplat-cli-install.md). Se não estiver familiarizado com a CLI do Azure, você poderá ler mais sobre ela em [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+Se você ainda não tiver instalado a CLI do Azure, confira [Instalar a CLI do Azure](../cli-install-nodejs.md). Se não estiver familiarizado com a CLI do Azure, você poderá ler mais sobre ela em [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 No Windows, instale o npm do [site do Node.js](https://nodejs.org/). Após concluir a instalação, usando o CMD.exe com os privilégios de Executar como Administrador, execute o seguinte na pasta em que o npm está instalado:
 
@@ -206,9 +207,4 @@ azure insights autoscale setting list montest2 -n setting2
 ```console
 azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

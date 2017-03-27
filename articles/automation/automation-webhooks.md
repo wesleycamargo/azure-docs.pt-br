@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: deb32f98bbfc0032ffbdcf168a2b4c42f1c4ae76
-ms.openlocfilehash: 4cf402877d5ddee8f4944a104163a55025013cc0
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6c65427fcd18e41a90dfb872aa9525f758b17b87
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -74,7 +74,7 @@ Em seguida, você transmitiria o seguinte valor JSON na interface do usuário pa
 
 > [!NOTE]
 > Os valores de todos os parâmetros de entrada são registrados com o trabalho de runbook.  Isso significa que qualquer entrada fornecida pelo cliente na solicitação webhook será conectada e estará disponível para qualquer pessoa com acesso ao trabalho de automação.  Por esse motivo, você deve ter cuidado ao incluir informações confidenciais em chamadas webhook.
-> 
+>
 
 ## <a name="security"></a>Segurança
 A segurança de um webhook conta com a privacidade da sua URL que contém um token de segurança que permite que ele seja invocado. A Automação do Azure não executa nenhuma autenticação na solicitação desde que ela seja feita para a URL correta. Por esse motivo, os webhooks não devem ser usados para runbooks que executam funções altamente confidenciais sem usar um meio alternativo de validar a solicitação.
@@ -267,6 +267,4 @@ O seguinte exemplo de runbook é acionado quando a regra de alerta é ativada e 
 * Para obter detalhes sobre diferentes maneiras de iniciar um runbook, confira [Iniciar um runbook](automation-starting-a-runbook.md).
 * Para saber mais sobre como exibir o Status de um Trabalho de Runbook, consulte [Execução de runbook na Automação do Azure](automation-runbook-execution.md).
 * Para saber como usar a Automação do Azure para agir em Alertas do Azure, veja [Corrigir alertas de VM do Azure com runbooks da Automação](automation-azure-vm-alert-integration.md).
-* Para saber como chamar um runbook de um alerta do OMS Log Analytics, consulte [Ações de runbook com alertas do Log Analytics](../log-analytics/log-analytics-alerts.md#runbook-actions).
-
 

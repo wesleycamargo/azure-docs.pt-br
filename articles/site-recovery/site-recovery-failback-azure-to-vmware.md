@@ -15,18 +15,21 @@ ms.workload: required
 ms.date: 10/05/2016
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
-ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ba801c69cf2d0d542bebf54e99ef981854284ab0
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Realizar o failback de máquinas virtuais VMware e servidores físicos para o site local
 > [!div class="op_single_selector"]
-> * [Portal do Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Portal Clássico do Azure](site-recovery-failback-azure-to-vmware-classic.md)
-> * [Portal Clássico do Azure (Herdado)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+> * [Máquinas de VMware/computadores físicos do Azure](site-recovery-failback-azure-to-vmware.md)
+> * [VMs do Hyper-V do Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
-Este artigo descreve como realizar o failback de máquinas virtuais do Azure para o site local. Siga as instruções encontradas aqui quando estiver pronto para realizar o failback de suas máquinas virtuais VMware ou de servidores físicos Windows ou Linux após a realização do failover do site local para o Azure usando este [tutorial](site-recovery-vmware-to-azure-classic.md).
+Este artigo descreve como realizar o failback de máquinas virtuais do Azure para o site local. Siga as instruções encontradas aqui quando estiver pronto para realizar o failback de suas máquinas virtuais VMware ou de servidores físicos Windows ou Linux após ter protegido novamente suas máquinas usando esta [referência](site-recovery-how-to-reprotect.md).
+
+>[!NOTE]
+>Se você estiver usando o Portal Clássico do Azure, consulte as instruções mencionadas [aqui](site-recovery-failback-azure-to-vmware-classic.md) para VMware aprimorado para arquitetura do Azure e [aqui](site-recovery-failback-azure-to-vmware-classic-legacy.md) para a arquitetura herdada
 
 ## <a name="overview"></a>Visão geral
 Os diagramas desta seção mostram a arquitetura de failback para esse cenário.
@@ -148,7 +151,7 @@ Para configurar o servidor de gerenciamento executando o servidor de destino mes
 #### <a name="install-centos-66"></a>Instalar o CentOS 6.6
 
 1. Instale o sistema operacional mínimo CentOS 6.6 na VM do servidor de gerenciamento. Mantenha o ISO em uma unidade de DVD e inicialize o sistema. Ignore o teste de mídia. Escolha **Português (Brasil)** como idioma, escolha **Dispositivos de Armazenamento Básico**, verifique se o disco rígido não tem dados importantes, clique em **Sim** e descarte quaisquer dados. Insira o nome do host do servidor de gerenciamento e escolha o adaptador de rede do servidor.  Na caixa de diálogo **Sistema de Edição**, escolha **Conectar automaticamente** e, em seguida, adicione um endereço IP estático, a rede e as configurações de DNS. Especifique um fuso horário. Para acessar o servidor de gerenciamento, digite a senha raiz.
-2. Quando receber uma solicitação do tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Clique em **Próximo**. Selecione **Gratuito** e, em seguida, clique em **Criar**. Crie partições **/**, **/var/crash** e **/home** com Tipo **FS: ** **ext4**. Crie a partição de troca como **Tipo FS: troca**.
+2. Quando receber uma solicitação do tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Clique em **Próximo**. Selecione **Gratuito** e, em seguida, clique em **Criar**. Crie partições **/**, **/var/crash** e **/home** com Tipo **FS:** **ext4**. Crie a partição de troca como **Tipo FS: troca**.
 3. Se algum dispositivo pré-existente for encontrado, uma mensagem de aviso é exibida. Clique em **Formatar** para formatar a unidade com as configurações de partição. Clique em **Gravar alteração no disco** para aplicar as alterações à partição.
 4. Escolha **Instalar carregador de inicialização** > **Avançar** para instalar o carregador de inicialização na partição raiz.
 5. Quando a instalação estiver concluída, clique em **Reiniciar**.
@@ -243,9 +246,4 @@ Você pode realizar o failback em uma conexão VPN ou usando uma conexão Expres
 
 * A conexão ExpressRoute deve ser configurada na rede virtual do Azure em que as máquinas de origem realizam failover e onde as VMs do Azure ficam após o failover.
 * Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Para usar uma conexão ExpressRoute, configure o emparelhamento público no ExpressRoute com o data center de destino para replicação do Site Recovery.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/23/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
-ms.openlocfilehash: e739bb129ea2b280803380f3f9c20ca052b3f122
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: af5e181ce254fefe55c847d9988dd8245c75e864
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -43,7 +44,7 @@ Serviço de Cache Gerenciado do e Cache Redis do Azure são semelhantes, mas imp
 
 | Recurso do Serviço de Cache Gerenciado | Suporte do Serviço de Cache Gerenciado | Suporte do Cache Redis do Azure |
 | --- | --- | --- |
-| Caches nomeados |Um cache padrão está configurado e nas ofertas de cache Standard e Premium, até nove caches nomeados adicionais podem ser configuradas se desejado. |Os Caches Redis do Azure possuem um número configurável de bancos de dados (padrão de 16) que podem ser usados para implementar uma funcionalidade semelhante em caches nomeados. Para obter mais informações, confira [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration). |
+| Caches nomeados |Um cache padrão está configurado e nas ofertas de cache Standard e Premium, até nove caches nomeados adicionais podem ser configuradas se desejado. |Os Caches Redis do Azure possuem um número configurável de bancos de dados (padrão de 16) que podem ser usados para implementar uma funcionalidade semelhante em caches nomeados. Para saber mais, veja [O que são os bancos de dados do Redis?](cache-faq.md#what-are-redis-databases) e [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration). |
 | Alta disponibilidade |Fornece alta disponibilidade para itens no cache nas ofertas de cache Standard e Premium. Se os itens são perdidos devido a uma falha, cópias de backup dos itens no cache ainda ficam disponíveis. Gravações no cache secundário são feitas de forma síncrona. |Alta disponibilidade nas ofertas de cache Standard e Premium, que possuem uma configuração Principal/Réplica de dois nós (cada fragmento em um cache Premium tem um par de principal/réplica). Gravações de réplica são feitas de forma assíncrona. Para obter mais informações, confira [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/). |
 | Notificações |Permite que os clientes recebam notificações assíncronas quando várias operações de cache ocorrem em um cache nomeado. |Aplicativos cliente podem usar o Redis pub/sub ou [Notificações de keyspace](cache-configure.md#keyspace-notifications-advanced-settings) para obter uma funcionalidade semelhante para notificações. |
 | Cache local |Armazena uma cópia dos objetos armazenados em cache localmente no cliente para acesso extremamente rápido. |Os aplicativos cliente precisariam implementar essa funcionalidade usando um dicionário ou uma estrutura de dados semelhantes. |
@@ -186,10 +187,5 @@ O Cache Redis do Azure possui provedores de Estado da Sessão ASP.NET e o cachin
 
 ## <a name="next-steps"></a>Próximas etapas
 Explore a [documentação do Cache Redis do Azure](https://azure.microsoft.com/documentation/services/cache/) e veja os tutoriais, exemplos, vídeos e muito mais.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

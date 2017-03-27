@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: f349dea2ba1a080312cf07f19eded201775c9cd1
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 831b7cc21ee34f900f7e35885a36f6e0faf38211
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -78,7 +79,7 @@ Você pode transmitir arquivos de log para uma sessão de linha de comando em um
 
 ### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Monitoramento de arquivos de log do aplicativo de funções com a CLI do Azure
 
-Para começar, [instale a CLI do Azure](../xplat-cli-install.md)
+Para começar, [instale a CLI do Azure](../cli-install-nodejs.md)
 
 Faça logon na sua conta do Azure usando o comando a seguir, ou qualquer uma das outras opções abordadas em [Fazer logon no Azure usando a CLI do Azure](../xplat-cli-connect.md).
 
@@ -124,10 +125,5 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Testando uma função](functions-test-a-function.md)
 * [Dimensionar uma função](functions-scale.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

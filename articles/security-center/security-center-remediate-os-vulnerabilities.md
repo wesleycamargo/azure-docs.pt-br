@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 7680aafcefbe6f1e6e3b55137da2e46b42df5a9b
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c88dc19cdacc94b9b81adcdbf69f22aac8f6eabe
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -70,7 +70,7 @@ Diariamente, a Central de Segurança do Azure analisa as configurações do sist
   - RESULTADO DA AVALIAÇÃO -- o resultado da análise: Aprovado, Falha
 
 ## <a name="see-also"></a>Consulte também
-Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir vulnerabilidades do sistema operacional". Você pode conferir o conjunto de regras de configuração [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração. Visite o site da [CCE](http://cce.mitre.org) para obter mais informações.
+Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir vulnerabilidades do sistema operacional". Você pode conferir o conjunto de regras de configuração [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração. Visite o site da [CCE](https://nvd.nist.gov/cce/index.cfm) para obter mais informações.
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 

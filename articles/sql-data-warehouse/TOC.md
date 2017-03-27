@@ -102,7 +102,7 @@
 ### [Migrar dados](sql-data-warehouse-migrate-data.md)
 ### [Migrar para o Armazenamento Premium](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pausar e dimensionar
+## Gerenciar a computação
 
 ### [Visão geral](sql-data-warehouse-manage-compute-overview.md)
 ### [Portal do Azure](sql-data-warehouse-manage-compute-portal.md)

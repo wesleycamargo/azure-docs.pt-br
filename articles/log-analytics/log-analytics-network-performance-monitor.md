@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 2b427d37a144b947d8d905e8f310ea35785ddf61
-ms.openlocfilehash: f397266afa269831d3791c625342454054b86ff2
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 7e9ca0c15c29fb670b742d939107bb5d4a48245c
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -61,7 +61,19 @@ Os agentes monitoram a conectividade de rede (links) entre os hosts, não os pr�
 
 ### <a name="configure-agents"></a>Configurar agentes
 
-Se você pretende usar o protocolo ICMP para transações sintéticas, não precisará configurar os agentes. Em seguida, você pode iniciar a configuração da solução. No entanto, se você pretende usar o protocolo TCP, precisará abrir portas de firewall para esses computadores para garantir que os agentes possam se comunicar. Você precisa baixar e executar o [script do PowerShell EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) sem parâmetros em uma janela do PowerShell com privilégios administrativos
+Se você pretende usar o protocolo ICMP para transações sintéticas, você precisa habilitar regras de firewall de forma confiável utilizando o ICMP:
+
+```
+netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow
+```
+
+
+Se você pretende usar o protocolo TCP, precisará abrir portas de firewall para esses computadores para garantir que os agentes possam se comunicar. Você precisa baixar e executar o [script do PowerShell EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) sem parâmetros em uma janela do PowerShell com privilégios administrativos.
 
 O script cria chaves do Registro necessárias para o Monitor de Desempenho de Rede e cria regras de firewall do Windows para permitir que os agentes criem conexões TCP entre si. As chaves do Registro criadas pelo script também podem especificar se é preciso registrar os logs de depuração e o caminho para o arquivo de log. Também é definida a porta TCP de agente usada para comunicação. Os valores dessas chaves são definidos automaticamente pelo script. Portanto, você não deve alterar manualmente as chaves.
 
@@ -76,7 +88,10 @@ A porta aberta por padrão é 8084. Você pode usar uma porta personalizada forn
 Use as informações a seguir para instalar e configurar a solução.
 
 1. A solução de Monitor de Desempenho de Rede obtém dados de computadores que executam o Windows Server 2008 SP 1 ou posterior ou o Windows 7 SP1 ou posterior, que são os mesmos requisitos do MMA (Microsoft Monitoring Agent). Agentes NPM também podem executar na área de trabalho/sistemas operacionais Windows (Windows 10, Windows 8.1, Windows 8 e Windows 7).
-2. Adicione a solução de Monitor de Desempenho de Rede a seu espaço de trabalho usando o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md).  
+    >[!NOTE]
+    >Os agentes para sistemas operacionais Windows Server oferecem suporte a TCP e ICMP como os protocolos para transação sintética. No entanto, os agentes para sistemas operacionais Windows oferecem suporte somente a ICMP como o protocolo para transação sintética.
+
+2. Adicione a solução de Monitor de Desempenho de Rede ao seu espaço de trabalho do [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  
    ![Símbolo do Monitor de Desempenho de Rede](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 3. No portal do OMS, você verá um novo bloco intitulado **Monitor de Desempenho de Rede** com a mensagem *A solução requer configuração adicional*. Você precisará configurar a solução para adicionar redes com base em sub-redes e nós que são detectados pelos agentes. Clique em **Monitor de Desempenho de Rede** para começar a configurar a rede padrão.  
    ![A solução requer configuração adicional](./media/log-analytics-network-performance-monitor/npm-config.png)
@@ -290,6 +305,11 @@ Agora que você leu sobre o Monitor de Desempenho de Rede, vejamos uma investiga
 
    Na imagem abaixo, você pode ver claramente a causa das áreas problemáticas da seção específica da rede, observando os caminhos e saltos na cor vermelha. Clicar em um nó no mapa de topologia revela as propriedades do nó, incluindo o FQDN e o endereço IP. Clicar em um salto mostra o endereço IP do nó.  
    ![topologia não íntegra - exemplo de detalhes do caminho](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+
+## <a name="provide-feedback"></a>Fornecer comentários
+
+- **UserVoice** - Você pode postar suas ideias para recursos do Monitor de Desempenho de Rede nas quais você deseja trabalhar. Visite nossa [página UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring).
+- **Junte-se ao nosso coorte** - Estamos sempre interessados em novos clientes para o nosso coorte. Como parte do coorte, você consegue acesso antecipado a novos recursos e ajuda a melhorar o Monitor de Desempenho de Rede. Se estiver interessado em participar, preencha essa [pesquisa rápida](https://aka.ms/npmcohort).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquisar logs](log-analytics-log-searches.md) para exibir registros de dados de desempenho de rede detalhados.

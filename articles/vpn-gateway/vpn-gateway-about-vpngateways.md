@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 44b393a2316825fd335bca2a1a7bb7033c10a565
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 3be72ac862650d2381a56c4ab682e41a8aaa8a27
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -41,8 +41,6 @@ Você pode começar criando e configurando os recursos usando uma ferramenta de 
 ###<a name="deployment-model"></a>Modelo de implantação
 Quando você configura um gateway de VPN, as etapas efetuadas dependem do modelo de implantação utilizado para criar sua rede virtual. Por exemplo, se tiver criado a rede virtual usando o modelo de implantação clássico, você usará as diretrizes e instruções do modelo de implantação clássico para criar e configurar o gateway de VPN. Para obter mais informações sobre os modelos de implantação, consulte [Noções básicas sobre o Resource Manager e os modelos de implantação clássicos](../azure-resource-manager/resource-manager-deployment-model.md).
 
-
-
 ## <a name="diagrams"></a>Diagramas de topologia de conexão
 É importante saber que há diferentes configurações disponíveis para conexões de gateway de VPN. Você precisa determinar qual configuração melhor atende às suas necessidades. Nas seções a seguir, você pode exibir diagramas de topologia e informações sobre as conexões de gateway de VPN a seguir: as seções a seguir contêm tabelas que listam:
 
@@ -51,7 +49,6 @@ Quando você configura um gateway de VPN, as etapas efetuadas dependem do modelo
 * Links que levam você diretamente a um artigo, se disponível
 
 Use os diagramas e as descrições para ajudar a selecionar a topologia de conexão adequada a seus requisitos. Os diagramas mostram as principais topologias de linha de base, mas é possível criar topologias mais complexas usando os diagramas como uma diretriz.
-
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site a Site e Multissite (túnel VPN IPsec/IKE)
 ### <a name="S2S"></a>Site a site
@@ -96,7 +93,9 @@ Talvez você possa usar o emparelhamento VNet para criar sua conexão, desde que
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 ## <a name="ExpressRoute"></a>ExpressRoute (conexão privada dedicada)
-[!INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+A Rota Expressa do Microsoft Azure permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade. Com a Rota Expressa, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização.
+
+As conexões da Rota Expressa não passam pela Internet pública. Isso permite que as conexões da Rota Expressa ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet.
 
 Uma conexão ExpressRoute não usa um gateway de VPN, embora ela use um gateway de rede virtual como parte de sua configuração necessária. Em uma conexão ExpressRoute, um gateway de rede virtual é configurado com o tipo de gateway 'ExpressRoute', em vez de 'Vpn'. Para obter mais informações sobre a Rota Expressa, consulte [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md).
 

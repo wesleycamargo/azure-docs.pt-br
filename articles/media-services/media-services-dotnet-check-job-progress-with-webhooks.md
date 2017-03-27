@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c3a7c0196b3ff1a7bd939f4224cb109ce71872f2
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,8 +30,6 @@ Os itens a seguir são necessários para concluir o tutorial:
 
 * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
-* .NET Framework 4.0 ou posterior.
-* Visual Studio.
 * Compreensão de [como usar o Azure Functions](../azure-functions/functions-overview.md). Além disso, examine as [Associações HTTP e de webhook do Azure Functions](../azure-functions/functions-bindings-http-webhook.md).
 
 Este tópico mostra como
@@ -54,9 +52,9 @@ O webhook espera uma chave de autenticação (credencial) para corresponder àqu
 
 No código a seguir, o método **VerifyWebHookRequestSignature** faz a verificação na mensagem de notificação. A finalidade dessa validação é assegurar que a mensagem tenha sido enviada pelos Serviços de Mídia do Azure e não tenha sido adulterada. A assinatura é opcional para o Azure Functions, pois ela tem o valor **Code** como um parâmetro de consulta por protocolo TLS. 
 
-Você pode encontrar [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function) a definição de função do Azure .NET de Serviços de Mídia a seguir.
+Você pode encontrar a definição de várias funções do Azure Functions .NET dos Serviços de Mídia (incluindo a mostrada neste tópico) [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-A listagem de códigos a seguir mostra as definições dos parâmetros de função do Azure e três arquivos que estão associados ao Azure Function: function.json, project.json e run.csx.
+A listagem de códigos a seguir mostra as definições dos parâmetros de função do Azure e três arquivos que estão associados à função do Azure: function.json, project.json e run.csx.
 
 ### <a name="application-settings"></a>Configurações do aplicativo 
 
@@ -115,6 +113,10 @@ O arquivo project.json contém dependências.
 ### <a name="runcsx"></a>run.csx
 
 O código C# a seguir mostra uma definição de uma função do Azure que é um webhook. A função escuta em busca do retorno de chamada do webhook das notificações de Serviços de Mídia e publica o ativo de saída após o trabalho ser concluído. 
+
+
+>[!NOTE]
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"
@@ -348,7 +350,7 @@ Nesta seção, é mostrado o código que adiciona uma notificação webhook a um
 2. Use o [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) para instalar os Serviços de Mídia do Azure.
 3. Atualize o arquivo App.config com valores apropriados: 
     
-    * O nome e a chave dos Serviços de Mídia do Azure que estarão enviando notificações, 
+    * O nome e a chave dos Serviços de Mídia do Azure que enviarão notificações, 
     * a URL de webhook que espera receber as notificações, 
     * a chave de assinatura que corresponde à chave que o webhook espera. A chave de assinatura é o valor com codificação Base64 de 64 bytes que é usado para proteger seus retornos de chamada de WebHooks de Serviços de Mídia do Azure. 
 

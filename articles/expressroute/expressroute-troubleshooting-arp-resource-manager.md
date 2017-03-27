@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
-ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -49,8 +50,8 @@ Exemplo de tabela ARP:
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 A seção a seguir fornece informações sobre como você pode exibir as tabelas de ARP vistas pelos roteadores de borda de Rota Expressa. 
@@ -83,8 +84,8 @@ Veja abaixo um exemplo de saída para um dos caminhos
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-azure-public-peering"></a>Tabelas ARP para emparelhamento público do Azure
@@ -105,8 +106,8 @@ Veja abaixo um exemplo de saída para um dos caminhos
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           64.0.0.1 ffff.eeee.dddd
-          0 Microsoft         64.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           64.0.0.1   ffff.eeee.dddd
+          0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-microsoft-peering"></a>Tabelas ARP para emparelhamento da Microsoft
@@ -127,8 +128,8 @@ Veja abaixo um exemplo de saída para um dos caminhos
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 
 ## <a name="how-to-use-this-information"></a>Como usar essas informações
@@ -142,19 +143,29 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabela de ARP quando o lado do provedor de conectividade/local tiver problemas
-* Apenas uma entrada será exibida na tabela ARP. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
+Se houver problemas com o local ou com o provedor de conectividade, você verá que apenas uma entrada aparecerá na tabela ARP, ou o endereço MAC local aparecerá incompleto. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
-         0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
+ou o
+       
+       Age InterfaceProperty IpAddress  MacAddress    
+       --- ----------------- ---------  ----------   
+         0 On-Prem           65.0.0.1   Incomplete
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
 
 > [!NOTE]
-> Abra uma solicitação de suporte com seu provedor de conectividade para depurar esses problemas. 
+> Abra uma solicitação de suporte com seu provedor de conectividade para depurar esses problemas. Se a tabela ARP não tiver endereços IP das interfaces mapeados para endereços MAC, examine as seguintes informações:
 > 
+> 1. Se o primeiro endereço IP da sub-rede /30 atribuído para o link entre o MSEE-PR e MSEE é usado na interface do MSEE-PR. O Azure sempre usa o segundo endereço IP para MSEEs.
+> 2. Verifique se as marcações de VLAN do cliente (C-Tag) e de serviços (S-Tag) correspondem às duas no par MSEE-PR e MSEE.
 > 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>Tabela ARP quando o lado da Microsoft apresentar problemas
@@ -167,10 +178,5 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
   * Obter a tabela de rota para determinar quais prefixos são anunciados pela Rota Expressa
 * Validar a transferência de dados examinando os bytes de entrada/saída
 * Abra um tíquete de suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se você ainda estiver enfrentando problemas.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

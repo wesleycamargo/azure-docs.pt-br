@@ -1,5 +1,5 @@
 ---
-title: "Conecte o Raspberry Pi (Nó) ao IoT do Azure - Lição 1: obter ferramentas (Ubuntu) | Microsoft Docs"
+title: "Conecte o Raspberry Pi (Nó) ao IoT do Azure - Lição 2: Obter ferramentas (Ubuntu) | Microsoft Docs"
 description: Instale o Python e a interface de linha de comando do Azure (CLI do Azure) no Ubuntu.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 9cdf4331b136abc7804460fd99a4defcbbc94e7b
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b9557037bcaec02b4cc8e61418bd194b7a869033
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -70,10 +71,5 @@ Você instalou a CLI do Azure. Sua próxima tarefa é criar sua identidade de di
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar seu Hub IoT e registrar seu Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -13,23 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2016
+ms.date: 03/23/2017
 ms.author: igalf
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: 54b15a13d29eb1921cc1264456c5f746b550386c
+ms.lasthandoff: 01/26/2017
 
 
 ---
 # <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Como agendar a manutenção planejada em VMs do Azure
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre a manutenção planejada no modelo do Resource Manager, consulte [aqui](virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+ 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

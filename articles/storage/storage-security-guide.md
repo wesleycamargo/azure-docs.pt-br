@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
-ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f9d15570aeeb398b34198918b78590948020f256
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -55,7 +56,7 @@ Ao criar uma nova conta de armazenamento, você seleciona um modelo de implanta�
 Este guia se concentra no modelo Resource Manager, que é o meio recomendado para a criação de contas de armazenamento. Com as contas de armazenamento do Gerenciador de Recursos, em vez de fornecer acesso à toda a assinatura, você pode controlar o acesso em um nível mais limitado no plano de gerenciamento usando o RBAC (Controle de Acesso Baseado em Função).
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Como proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função)
-Vamos falar sobre o que é o RBAC e como você pode usá-lo. Cada assinatura do Azure tem um Azure Active Directory. Os usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure que usam o modelo de implantação Resource Manager. Esse acesso é chamado de RBAC (Controle de Acesso Baseado em Função). Para gerenciar esse acesso, é possível usar o [Portal do Azure](https://portal.azure.com/), as [ferramentas da CLI do Azure](../xplat-cli-install.md), o [PowerShell](/powershell/azureps-cmdlets-docs) ou as [APIs REST do Provedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Vamos falar sobre o que é o RBAC e como você pode usá-lo. Cada assinatura do Azure tem um Azure Active Directory. Os usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure que usam o modelo de implantação Resource Manager. Esse acesso é chamado de RBAC (Controle de Acesso Baseado em Função). Para gerenciar esse acesso, é possível usar o [Portal do Azure](https://portal.azure.com/), as [ferramentas da CLI do Azure](../cli-install-nodejs.md), o [PowerShell](/powershell/azureps-cmdlets-docs) ou as [APIs REST do Provedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Com o modelo Resource Manager, você coloca a conta de armazenamento em um grupo de recursos e controla o acesso ao plano de gerenciamento dessa conta de armazenamento específica usando o Azure Active Directory. Por exemplo, é possível permitir que usuários específicos acessem as chaves da conta de armazenamento, enquanto outros usuários podem exibir informações sobre a conta de armazenamento, mas não podem acessar suas chaves.
 
@@ -533,8 +534,3 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 * ["Criptografia de sistema: usar algoritmos em conformidade com o FIPS para criptografia, hash e assinatura", efeitos das configurações de segurança no Windows XP e em versões posteriores do Windows](https://support.microsoft.com/kb/811833)
   
   Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

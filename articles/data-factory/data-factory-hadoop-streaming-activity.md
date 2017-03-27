@@ -15,22 +15,24 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
-ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2748838279462a493983c397454cbcf13b2a82e6
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Streaming do Hadoop no Azure Data Factory
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Procedimento armazenado](data-factory-stored-proc-activity.md)
-> * [U-SQL da Análise Data Lake](data-factory-usql-activity.md)
-> * [Personalizado do .NET](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Atividade de Hive](data-factory-hive-activity.md) 
+> * [Atividade Pig](data-factory-pig-activity.md)
+> * [Atividade MapReduce](data-factory-map-reduce.md)
+> * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade do Spark](data-factory-spark.md)
+> * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade do Recurso de Atualização do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
+> * [Atividade do U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
+> * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 Você pode usar a atividade HDInsightStreamingActivity para invocar um trabalho de Transmissão do Hadoop de um pipeline do Azure Data Factory. O trecho de código JSON a seguir mostra a sintaxe para usar HDInsightStreamingActivity em um arquivo JSON do pipeline. 
 

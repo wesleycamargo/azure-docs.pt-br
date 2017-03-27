@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 59be15f2d17bbcbc4db6dd9d291cb1ea5991db2e
-ms.openlocfilehash: a753ac16e3329c85656682314824eb14ad8a4e52
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 86ba122b406d8a3d633184982fbacab078d7c0d1
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/01/2017
 
 Provavelmente você chegou a esta página porque houve um problema ao usar o portal do MyApps. Embora haja casos que exijam que você entre em contato com a assistência técnica ou o administrador para solucionar um problema, capturamos neste tópico etapas para perguntas comuns que você pode experimentar sozinho primeiro. 
 
-Se você estiver procurando ajuda relacionada ao gerenciamento de senha, tente [isso](active-directory-passwords-update-your-own-password.md).
+Se você estiver procurando ajuda relacionada ao gerenciamento de senha, tente [isto](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)#how-to-reset-your-password).
   
 
 ## <a name="what-is-the-myapps-portal"></a>O que é o portal do MyApps?
@@ -49,7 +49,7 @@ MyApps é um portal da Web que permite que você:
 3.    Digite a sua senha antiga, digite uma nova senha e confirme.
 4.    Clique em **Enviar**.
 
-Para obter mais detalhes, confira [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md).
+Para obter mais detalhes, confira [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>Como posso configurar a redefinição de senha?

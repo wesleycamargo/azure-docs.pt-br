@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 71116ade676677c5b6d14b07a038d043fba46032
-ms.openlocfilehash: 02a1aae805aa36aa68f341197e44b19bc6236b7b
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 161d36f0bef4b3cd1ac1ad85d0844a3dd8e51e16
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -24,26 +25,26 @@ ms.openlocfilehash: 02a1aae805aa36aa68f341197e44b19bc6236b7b
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-known-networks-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-known-networks.md)
-> 
-> 
+>
+>
 
 
 Azure Active Directory cria um registro para cada detectado [evento de risco](active-directory-identity-protection-risk-events.md). Com as informações de evento de risco disponíveis por meio dos relatórios de segurança do Azure Active Directory, você pode obter informações sobre a probabilidade de contas de usuário comprometidas em seu ambiente.   
 
-É possível que o Azure Active Directory detecta falsos positivos do *viagem impossível a localizações atípicas* e *entradas de endereços IP com atividade suspeita* [tipos de evento de risco](active-directory-identity-protection-risk-events.md#risk-event-types) para endereços IP que realmente pertencem a sua organização. 
+É possível que o Azure Active Directory detecta falsos positivos do *viagem impossível a localizações atípicas* e *entradas de endereços IP com atividade suspeita* [tipos de evento de risco](active-directory-reporting-risk-events.md#risk-event-types) para endereços IP que realmente pertencem a sua organização. 
 
-Por exemplo, isso pode ocorrer quando: 
+Por exemplo, isso pode ocorrer quando:
 
-- Um usuário em um escritório em Boston ao conectar-se remotamente a um data center em San Francisco gera um evento de risco *entradas de várias regiões geográficas* 
+- Um usuário em um escritório em Boston ao conectar-se remotamente a um data center em San Francisco gera um evento de risco *entradas de várias regiões geográficas*
 
-- Um usuário de sua organização que tenta entrar diversas vezes com uma senha incorreta gera um evento de risco *entradas de endereços IP com atividade suspeita* 
+- Um usuário de sua organização que tenta entrar diversas vezes com uma senha incorreta gera um evento de risco *entradas de endereços IP com atividade suspeita*
 
 Para impedir que esses casos gerem eventos de risco enganadores, você deverá adicionar intervalos de endereços IP nomeados à lista de endereços IP públicos de sua organização.    
 
 ### <a name="to-add-your-organizations-public-ip-address-ranges-perform-the-following-steps"></a>Para adicionar os intervalos de endereços IP públicos da sua organização, execute as seguintes etapas:
 
 1. Entre no portal de gerenciamento do Azure.
- 
+
 2. No painel esquerdo, clique em **Active Directory**.
 
     ![Redes conhecidas](./media/active-directory-known-networks-azure-portal/01.png)
@@ -73,10 +74,4 @@ Para impedir que esses casos gerem eventos de risco enganadores, você deverá a
 * [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 * [Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

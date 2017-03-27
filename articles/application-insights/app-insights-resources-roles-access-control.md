@@ -14,13 +14,14 @@ ms.topic: article
 ms.date: 05/07/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1520fde6b60546e408772e04488e8a530a9c1344
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 89e3cb3a7e9185d4a2944c1aa9aaf5aee4bd2b24
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controle de acesso no Application Insights
-Você pode controlar quem tem acesso de leitura e atualização aos seus dados no [Application Insights][iniciar] do Visual Studio usando o [Controle de acesso baseado em função no Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+Você pode controlar quem tem acesso de leitura e atualização a seus dados no [Application Insights do Azure][start] usando o [Controle de acesso baseado em função no Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!IMPORTANT]
 > Atribua acesso aos usuários no **grupo de recursos ou assinatura** ao qual o recurso do aplicativo pertence, não no próprio recurso. Atribua a função **Colaborador de componente do Application Insights** . Isso garante o controle uniforme de acesso a testes na Web e alertas, juntamente com o recurso do aplicativo. [Saiba mais](#access).
@@ -32,20 +33,20 @@ Primeiro, algumas definições:
 
 * **Recurso** ‒ uma instância de um serviço do Microsoft Azure. O recurso do Application Insights coleta, analisa e exibe os dados de telemetria enviados de seu aplicativo.  Outros tipos de recursos do Azure incluem aplicativos Web, bancos de dados e VMs.
   
-    Para ver todos os seus recursos, vá para o [Portal do Azure][portal], entre e clique em Procurar.
+    Para ver todos os seus recursos, acesse o [Portal do Azure][portal], entre e clique em Procurar.
   
     ![Escolha Procurar e, depois, Tudo ou Filtrar pelo Application Insights](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [**Grupo de recursos**][grupo] ‒ cada recurso pertence a um grupo. Um grupo é uma maneira conveniente de gerenciar recursos relacionados, particularmente para controle de acesso. Por exemplo, em um grupo de recursos, você pode colocar um aplicativo Web, um recurso do Application Insights para monitorar o aplicativo e um Recurso de armazenamento para manter os dados exportados.
+* [**Grupo de recursos**][group] ‒ cada recurso pertence a um grupo. Um grupo é uma maneira conveniente de gerenciar recursos relacionados, particularmente para controle de acesso. Por exemplo, em um grupo de recursos, você pode colocar um aplicativo Web, um recurso do Application Insights para monitorar o aplicativo e um Recurso de armazenamento para manter os dados exportados.
 
     ![Escolha Procurar e Grupos de recursos e, em seguida, escolha um grupo](./media/app-insights-resources-roles-access-control/11-group.png)
 
 * [**Assinatura**](https://manage.windowsazure.com) - para usar o Application Insights ou outros recursos do Azure, entre em uma assinatura do Azure. Cada grupo de recursos pertence a uma assinatura do Azure, em que você escolhe o pacote de preços e, se for uma assinatura de organização, escolhe os membros e suas permissões de acesso.
-* [**Conta da Microsoft**][conta] -o nome de usuário e a senha que você usa para entrar nas assinaturas do Microsoft Azure, no XBox Live, no Outlook.com e em outros serviços da Microsoft.
+* [**Conta da Microsoft**][account] - o nome de usuário e a senha que você usa para entrar nas assinaturas do Microsoft Azure, no XBox Live, no Outlook.com e em outros serviços da Microsoft.
 
-## <a name="a-nameaccessa-control-access-in-the-resource-group"></a><a name="access"></a> Controlar o acesso no grupo de recursos
+## <a name="access"></a> Controlar o acesso no grupo de recursos
 É importante entender que, além do recurso criado para seu aplicativo, também há recursos ocultos separados para alertas e testes na Web. Eles estão conectados ao mesmo [grupo de recursos](#resource-group) do seu aplicativo. Você também pode colocar outros serviços do Azure nele, como sites ou armazenamento.
 
 ![Recursos no Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
@@ -58,7 +59,7 @@ Portanto, para controlar o acesso a esses recursos, é recomendável:
 ## <a name="to-provide-access-to-another-user"></a>Para fornecer acesso a outro usuário
 Você deve ter direitos de Proprietário para a assinatura ou o grupo de recursos.
 
-O usuário deve ter uma [Conta da Microsoft][conta] ou acesso à sua [Conta da Microsoft organizacional](../active-directory/sign-up-organization.md). Você pode fornecer acesso a indivíduos e também a grupos de usuários definidos no Azure Active Directory.
+O usuário deve ter uma [conta da Microsoft][account] ou acesso à sua [conta organizacional da Microsoft](../active-directory/sign-up-organization.md). Você pode fornecer acesso a indivíduos e também a grupos de usuários definidos no Azure Active Directory.
 
 #### <a name="navigate-to-the-resource-group"></a>Navegue até o grupo de recursos
 Adicione o usuário a ele.
@@ -95,13 +96,8 @@ Se o usuário desejado não estiver no diretório, você poderá convidar qualqu
 
 <!--Link references-->
 
-[conta]: https://account.microsoft.com
-[grupo]: ../azure-resource-manager/resource-group-overview.md
+[account]: https://account.microsoft.com
+[group]: ../azure-resource-manager/resource-group-overview.md
 [portal]: https://portal.azure.com/
-[iniciar]: app-insights-overview.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[start]: app-insights-overview.md
 

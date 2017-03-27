@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
-ms.openlocfilehash: 7c32d69f3d6d2cc60f830db96b6aea47ce8712ca
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b098e3087cb08528c5fbdc2d0d768ce40e7ffe0d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -41,7 +41,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 * O que acontecerá se eu exceder a capacidade da unidade de solicitação de uma coleção?
 
 ## <a name="request-units-and-request-charges"></a>Unidades de solicitação e solicitações de encargos
-O Banco de Dados de Documentos fornece desempenho rápido e previsível *reservando* recursos para atender às necessidades de produtividade do aplicativo.  Como os padrões de carga e acesso do aplicativo mudam com o tempo, o Banco de Dados de Documentos permite que você aumente ou diminua facilmente a quantidade da taxa de transferência reservada disponível para o aplicativo.
+O DocumentDB e a API para MongoDB fornecem desempenho rápido e previsível *reservando* recursos para atender às necessidades de produtividade do aplicativo.  Como os padrões de carga e acesso do aplicativo mudam com o tempo, o Banco de Dados de Documentos permite que você aumente ou diminua facilmente a quantidade da taxa de transferência reservada disponível para o aplicativo.
 
 Com o Banco de Dados de Documentos, a taxa de transferência reservada é especificada em termos de unidades de solicitação processadas por segundo.  Você pode considerar as unidades de solicitação como a moeda de produtividade, com as quais você *reserva* uma quantidade de unidades de solicitação garantidas disponíveis para o aplicativo por segundo.  Cada operação no Banco de Dados de Documentos (gravar um documento, fazer uma consulta, atualizar um documento) consome CPU, memória e IOPS.  Ou seja, cada operação resulta em um *encargo de solicitação*, que é expressa em *unidades de solicitação*.  Ao entender os fatores que afetam os encargos de unidade de solicitação e os requisitos de taxa de transferência do aplicativo, você pode executar o aplicativo da maneira mais econômica possível. 
 
@@ -51,7 +51,7 @@ Com o Banco de Dados de Documentos, a taxa de transferência reservada é especi
 > 
 > 
 
-## <a name="specifying-request-unit-capacity"></a>Especificação da capacidade da unidade de solicitação
+## <a name="specifying-request-unit-capacity-in-documentdb"></a>Especificação da capacidade da unidade de solicitação no DocumentDB
 Ao criar uma coleção no DocumentDB, você pode especificar o número de unidades de solicitação por segundo (RU por segundo) que deseja reservar para a coleção. Com base na taxa de transferência provisionada, o DocumentDB aloca partições físicas para hospedar sua coleção e, em seguida, divide e redistribui dados em partições conforme a demanda.
 
 O DocumentDB requer uma chave de partição a ser especificada quando uma coleção é provisionada com 10.000 unidades de solicitação ou superior. Uma chave de partição também é necessária para dimensionar a taxa de transferência da coleção superior a 10.000 unidades de solicitação no futuro. Portanto, é altamente recomendável configurar uma [chave de partição](documentdb-partition-data.md) durante a criação de uma coleção, independentemente da taxa de transferência inicial. Como os dados podem estar divididos em várias partições, é necessário escolher uma chave de partição que tem uma cardinalidade alta (100s para milhões de valores distintos) para que a coleção e solicitações podem ser dimensionadas uniformemente com DocumentDB. 
@@ -61,7 +61,7 @@ O DocumentDB requer uma chave de partição a ser especificada quando uma coleç
 
 Segue um trecho de código para criar uma coleção com 3.000 unidades de solicitação por segundo usando o SDK do .NET:
 
-```C#
+```csharp
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "coll";
 myCollection.PartitionKey.Paths.Add("/deviceId");
@@ -76,7 +76,7 @@ O DocumentDB opera em um modelo de reserva na taxa de transferência. Ou seja, v
 
 Cada coleção é mapeada para um recurso `Offer` no DocumentDB, que tem metadados sobre a taxa de transferência provisionada da coleção. Para alterar a taxa de transferência alocada, procure o recurso de oferta correspondente para uma coleção e, em seguida, atualize-o com o novo valor de taxa de transferência. Aqui está um trecho de código para alterar a taxa de transferência de uma coleção para 5.000 unidades de solicitação por segundo usando o SDK do .NET:
 
-```C#
+```csharp
 // Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -89,6 +89,13 @@ offer = new OfferV2(offer, 5000);
 // Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
 ```
+
+Não há nenhum impacto sobre a disponibilidade de sua coleção quando você altera a taxa de transferência. Normalmente, a nova taxa de transferência reservada se torna eficaz em segundos no aplicativo da nova taxa de transferência.
+
+## <a name="specifying-request-unit-capacity-in-api-for-mongodb"></a>Especificação da capacidade da unidade de solicitação na API para MongoDB
+A API para MongoDB permite que você especifique o número de unidades de solicitação por segundo (RU por segundo) que deseja reservar para a coleção.
+
+A API para o MongoDB opera no mesmo modelo de reserva com base em taxa de transferência que o DocumentDB. Ou seja, você será cobrado pela quantidade de taxa de transferência *reservada* da coleção, independentemente do quanto da taxa de transferência estiver em *uso*. No entanto, à medida que a carga, os dados e os padrões de uso do aplicativo forem alterados, você poderá escalar para mais e menos a quantidade de RUs reservadas por meio do [Portal do Azure](https://portal.azure.com).
 
 Não há nenhum impacto sobre a disponibilidade de sua coleção quando você altera a taxa de transferência. Normalmente, a nova taxa de transferência reservada se torna eficaz em segundos no aplicativo da nova taxa de transferência.
 
@@ -125,37 +132,37 @@ Por exemplo, veja uma tabela que mostra quantas unidades de solicitação provis
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1) + (100 * 5) = 1.000 RU/s</p></td>
+            <td valign="top"><p>(500 *1) + (100* 5) = 1.000 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 5) + (100 * 5) = 3.000 RU/s</p></td>
+            <td valign="top"><p>(500 *5) + (100* 5) = 3.000 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1.350 RU/s</p></td>
+            <td valign="top"><p>(500 *1,3) + (100* 7) = 1.350 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4.150 RU/s</p></td>
+            <td valign="top"><p>(500 *1,3) + (500* 7) = 4.150 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 10) + (100 * 48) = 9.800 RU/s</p></td>
+            <td valign="top"><p>(500 *10) + (100* 48) = 9.800 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 10) + (500 * 48) = 29.000 RU/s</p></td>
+            <td valign="top"><p>(500 *10) + (500* 48) = 29.000 RU/s</p></td>
         </tr>
     </tbody>
 </table>
@@ -209,10 +216,42 @@ Por exemplo:
 5. Registre o encargo de unidade de solicitação de quaisquer scripts personalizados (procedimentos armazenados, gatilhos, funções definidas pelo usuário) utilizados pelo aplicativo
 6. Calcule as unidades de solicitação necessárias, dado o número estimado de operações que você prevê que executará por segundo.
 
+### <a id="GetLastRequestStatistics"></a>Usar o comando GetLastRequestStatistics da API para MongoDB
+A API para MongoDB dá suporte a um comando personalizado, *getLastRequestStatistics*, para recuperar a carga de solicitação de operações especificadas.
+
+Por exemplo, no Shell do Mongo, execute a operação para a qual você deseja verificar a carga de solicitação.
+```
+> db.sample.find()
+```
+
+Em seguida, execute o comando *getLastRequestStatistics*.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+Tendo isso em mente, um método para estimar a quantidade de taxa de transferência reservada exigida pelo aplicativo é registrar o encargo de unidade de solicitação associado à execução de operações típicas em relação a um documento representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo.
+
+> [!NOTE]
+> Se você tiver tipos de documento que sejam muito diferentes em termos de tamanho e número de propriedades indexadas, registre o encargo de unidade de solicitação de operação aplicável associado a cada *tipo* de documento típico.
+> 
+> 
+
+## <a name="use-api-for-mongodbs-portal-metrics"></a>Usar as métricas de portal da API para MongoDB
+A maneira mais simples de obter uma boa estimativa dos encargos da unidade de solicitação para seu banco de dados da API para MongoDB é usar as métricas do [Portal do Azure](https://portal.azure.com). Com os gráficos *Número de solicitações* e *Custo da Solicitação*, você pode obter uma estimativa de quantas unidades de solicitação cada operação está consumindo, e quantas unidades de solicitação elas consomem com relação às outras operações.
+
+![Métricas do portal da API para MongoDB][6]
+
 ## <a name="a-request-unit-estimation-example"></a>Um exemplo de estimativa de unidade de solicitação
 Considere o seguinte documento de aproximadamente&1; KB:
 
-```JSON
+```json
 {
  "id": "08259",
   "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
@@ -301,7 +340,7 @@ Com essas informações, podemos estimar os requisitos de RU para o aplicativo, 
 
 Nesse caso, esperamos um requisito de taxa de transferência médio de 1.275 RUs/s.  Arredondando para a centena mais próxima, vamos provisionar 1.300 RUs/s para a coleção desse aplicativo.
 
-## <a id="RequestRateTooLarge"></a> Exceder os limites de taxa de transferência reservada
+## <a id="RequestRateTooLarge"></a> Exceder os limites de taxa de transferência reservada no DocumentDB
 Lembre-se de que o consumo de unidades de solicitação é avaliado como uma taxa por segundo. Para aplicativos que ultrapassam a taxa de unidades solicitação provisionada para uma coleção, as solicitações a essa coleção são limitadas até que a taxa caia para baixo do nível reservado. Quando ocorre uma restrição, o servidor encerra preventivamente a solicitação com RequestRateTooLargeException (código de status HTTP 429) e retorna o cabeçalho x-ms-retry-after-ms, indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
 
     HTTP Status 429
@@ -311,6 +350,9 @@ Lembre-se de que o consumo de unidades de solicitação é avaliado como uma tax
 Se estiver usando as consultas do SDK do cliente .NET e LINQ, em seguida, na maioria das vezes, você nunca precisará lidar com essa exceção, pois a versão atual do SDK do Cliente .NET captura implicitamente essa resposta, respeita o cabeçalho retry-after especificado pelo servidor e tenta novamente a solicitação. A menos que sua conta esteja sendo acessada simultaneamente por vários clientes, a próxima tentativa será bem-sucedida.
 
 Se você tiver mais de um cliente operando cumulativamente acima da taxa de solicitação, o comportamento de repetição padrão poderá não ser suficiente e o cliente lançará uma DocumentClientException com o código de status 429 para o aplicativo. Em casos como esse, você pode considerar a manipulação do comportamento de repetição e a lógica nas rotinas de tratamento de erro do aplicativo ou o aumento da taxa de transferência reservada para a coleção.
+
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de taxa de transferência reservada na API para MongoDB
+Os aplicativos que ultrapassarem as unidades de solicitação provisionadas para uma coleção serão limitados até que a taxa caia para baixo do nível reservado. Quando ocorrer uma limitação, o back-end terminará preventivamente a solicitação com um código de erro *16500* - *Muitas Solicitações*. Por padrão, a API para MongoDB repetirá automaticamente até 10 vezes antes de retornar um código de erro *Muitas Solicitações*. Se você estiver recebendo códigos de erro *Muitas Solicitações*, considere a repetição nas rotinas de manipulação de erro de seu aplicativo ou [aumentar a taxa de transferência reservada para a coleção](documentdb-set-throughput.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a produtividade reservada com os bancos de dados do Banco de Dados de Documentos do Azure, explore estes recursos:
@@ -328,4 +370,5 @@ Para começar com os testes de desempenho e escala com o DocumentDB, confira [Te
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
+[6]: ./media/documentdb-request-units/api-for-mongodb-metrics.png
 

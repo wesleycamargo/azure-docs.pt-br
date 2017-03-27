@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da949459f734ea08527fe2380ab2a6a06e6976e7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -146,6 +147,11 @@ Na página Parâmetros Globais, defina o fuso horário, bem como a opção de op
 O parâmetro **Fuso Horário do Servidor Domino** define o local do seu servidor Domino.
 
 Essa opção de configuração é necessária para oferecer suporte às operações **importação delta** , pois ela permite que o serviço de sincronização determine as alterações entre as duas últimas importações.
+
+>[!Note]
+A partir da atualização de março de 2017 a tela de parâmetros globais inclui a opção de excluir o banco de dados de email do usuário durante a exclusão do usuário.
+
+![Excluir a caixa de correio de um usuário](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
 
 #### <a name="import-settings-method"></a>Configurações de importação, método
 O recurso **Executar Importação Completa por** possui as seguintes opções:
@@ -320,7 +326,7 @@ Os Recursos podem ser importados e exportados no serviço de sincronização, as
 ### <a name="mail-in-databases"></a>Bancos de dados de Entrada de Email
 O banco de dados de Entrada de Email é um banco de dados que foi desenvolvido para receber emails. Trata-se de uma caixa de correio do Lotus Domino que não está associada a qualquer conta de usuário específica do Lotus Domino (isto é, não tem seu próprio arquivo de ID e senha). Um banco de dados de Entrada de Email tem um UserID exclusivo (“nome curto”) associado a ele e seu próprio endereço de email.
 
-Se houver a necessidade de uma caixa de correio separada com seu próprio endereço de email que possa ser compartilhada entre usuários diferentes (por exemplo, group@contoso.com), um banco de dados de entrada de email será criado. O acesso a essa caixa de correio é controlado por meio de sua ACL (Lista de Controle de Acesso), que contém os nomes dos usuários do Notes que têm permissão para abrir a caixa de correio.
+Se houver a necessidade de uma caixa de correio separada com seu próprio endereço de email que possa ser compartilhada entre usuários diferentes (por exemplo: group@contoso.com), um banco de dados de entrada de email será criado. O acesso a essa caixa de correio é controlado por meio de sua ACL (Lista de Controle de Acesso), que contém os nomes dos usuários do Notes que têm permissão para abrir a caixa de correio.
 
 Para obter uma lista dos atributos necessários, veja a seção [Atributos obrigatórios](#mandatory-attributes) , mais adiante neste artigo.
 
@@ -489,9 +495,4 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parece um 
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

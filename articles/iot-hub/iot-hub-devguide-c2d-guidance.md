@@ -12,32 +12,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2016
+ms.date: 03/09/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: dea438c8b1bd3d6331f84de01def989f66b6f387
-ms.openlocfilehash: 88ae905708a421052666316eb81c1dd97d6c9635
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 65a9815525c612bdfac569e5ec56a1db53d82c78
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Diretrizes de comunicações da nuvem para o dispositivo
 O Hub IoT fornece três opções para os aplicativos de dispositivos exporem funcionalidades a um aplicativo de back-end:
 
-* [Métodos diretos][lnk-methods], para as comunicações que exigem a confirmação imediata de seus resultados, normalmente controles interativos do dispositivo, por exemplo, ligar um ventilador;
-* [Propriedades desejadas do gêmeo][lnk-twins], para comandos de longa duração que têm o objetivo de colocar o dispositivo em um determinado estado desejado. Por exemplo, defina o intervalo de envio de telemetria como 30 minutos;
-* [Mensagens da nuvem para o dispositivo (C2D)][lnk-c2d], para receber notificações unidirecionais para o aplicativo do dispositivo.
+* [Direcionar métodos] [ lnk-methods] para comunicações que exigem confirmação imediata do resultado. Direcionar métodos é muitas vezes usado para controle interativo de dispositivos, como ativar um ventilador.
+* [Propriedades desejadas do gêmeo][lnk-twins], para comandos de longa duração que têm o objetivo de colocar o dispositivo em um determinado estado desejado. Por exemplo, defina o intervalo de envio de telemetria como 30 minutos.
+* [Mensagens da nuvem para o dispositivo ][lnk-c2d], para receber notificações unidirecionais para o aplicativo do dispositivo.
 
 Aqui está uma comparação detalhada das várias opções de comunicação da nuvem para o dispositivo.
 
-|  | Métodos diretos | Propriedades desejadas do gêmeo | Mensagens C2D |
+|  | Métodos diretos | Propriedades desejadas do gêmeo | Mensagens da nuvem para o dispositivo |
 | ---- | ------- | ---------- | ---- |
 | Cenário | Comandos que exigem confirmação imediata, por exemplo, ligar um ventilador. | Comandos de longa duração que têm o objetivo de colocar o dispositivo em um determinado estado desejado. Por exemplo, defina o intervalo de envio de telemetria como 30 minutos. | Notificações unidirecionais para o aplicativo do dispositivo. |
 | Fluxo de dados | Bidirecional. O aplicativo do dispositivo pode responder imediatamente ao método. O back-end da solução recebe o resultado de acordo com o contexto da solicitação. | Unidirecional. O aplicativo do dispositivo recebe uma notificação com a alteração da propriedade. | Unidirecional. O aplicativo do dispositivo recebe a mensagem
-| Durabilidade | Dispositivos desconectados não são contatados. Back-end é notificado de que o dispositivo não está conectado. | Os valores de propriedade são preservados no dispositivo gêmeo. O dispositivo lerá na próxima reconexão. Valores de propriedade são recuperáveis com a [linguagem de consulta do Hub IoT][lnk-query]. | As mensagens podem ser mantidas pelo Hub IoT por até 48 horas. |
+| Durabilidade | Dispositivos desconectados não são contatados. O back-end da solução é notificado de que o dispositivo não está conectado. | Os valores de propriedade são preservados no dispositivo gêmeo. O dispositivo lerá na próxima reconexão. Valores de propriedade são recuperáveis com a [linguagem de consulta do Hub IoT][lnk-query]. | As mensagens podem ser mantidas pelo Hub IoT por até 48 horas. |
 | Destinos | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs][lnk-jobs]. | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs][lnk-jobs]. | Dispositivo único por **deviceId**. |
 | Tamanho | Até 8 KB de solicitações e 8 KB de respostas. | O tamanho máximo desejado das propriedades é de 8 KB. | Mensagens de até 64 KB. |
-| Frequência | Alta. Consulte [Limites do Hub IoT][lnk-quotas] para saber mais. | Média. Consulte [Limites do Hub IoT][lnk-quotas] para saber mais. | Baixa. Consulte [Limites do Hub IoT][lnk-quotas] para saber mais. |
+| Frequência | Alta. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Média. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Baixa. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. |
 | Protocolo | Disponível atualmente somente ao usar MQTT. | Disponível atualmente somente ao usar MQTT. | Disponível em todos os protocolos. O dispositivo deve sondar ao usar HTTP. |
 
 Saiba como usar métodos diretos, propriedades desejadas e mensagens da nuvem para o dispositivo nos seguintes tutoriais:

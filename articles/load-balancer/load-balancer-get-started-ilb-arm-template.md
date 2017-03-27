@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: da1a0bb7982b02daa89144c3f5c3f257f14c06c9
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0cee0950055012cef7324f97e1b8a8f3fbd0112c
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -59,7 +59,7 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
 Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
-1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
     ```azurecli

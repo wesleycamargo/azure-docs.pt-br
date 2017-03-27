@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
-ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a773e43b28b144dd8341b276eee3fa504d4f1080
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +37,7 @@ O vídeo de quatro minutos a seguir fornece uma breve explicação de como o Ser
 Veja alguns recursos importantes do Serviço de Aplicativo:
 
 * **Várias linguagens e estruturas** -o Serviço de Aplicativo tem suporte de primeira classe para ASP.NET, Node.js, Java, PHP e Python. Você também pode executar [o Windows PowerShell e outros scripts ou executáveis](../app-service-web/web-sites-create-web-jobs.md) nas VMs do Serviço de Aplicativo.
-* **Otimização de DevOps** - configure a [implantação e integração contínua](../app-service-web/app-service-continuous-deployment.md) com o Visual Studio Team Services, o GitHub ou BitBucket. Promova atualizações por meio de [ambientes de preparo e teste](../app-service-web/web-sites-staged-publishing.md). Execute [testes A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Gerencie aplicativos no Serviço de Aplicativo usando o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [CLI (interface de linha de comando de plataforma cruzada)](../xplat-cli-install.md).
+* **Otimização de DevOps** - configure a [implantação e integração contínua](../app-service-web/app-service-continuous-deployment.md) com o Visual Studio Team Services, o GitHub ou BitBucket. Promova atualizações por meio de [ambientes de preparo e teste](../app-service-web/web-sites-staged-publishing.md). Execute [testes A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Gerencie aplicativos no Serviço de Aplicativo usando o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [CLI (interface de linha de comando de plataforma cruzada)](../cli-install-nodejs.md).
 * **Escala global com alta disponibilidade** - escale [verticalmente](../app-service-web/web-sites-scale.md) ou [horizontalmente](../monitoring-and-diagnostics/insights-how-to-scale.md) de forma manual ou automática. Hospede os aplicativos em qualquer lugar na infraestrutura de datacenter global da Microsoft, e o [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) do Serviço de Aplicativo promete alta disponibilidade.
 * **Conexões com plataformas SaaS e dados locais** - escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas corporativos (como SAP, Siebel e Oracle), serviços de SaaS (como Salesforce e Office 365) e serviços de Internet (como Facebook e Twitter). Acesse dados locais usando [Conexões Híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [Redes Virtuais do Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 * **Segurança e conformidade** - o Serviço de Aplicativo está em [conformidade com ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/).
@@ -90,10 +91,5 @@ Ou abra uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-t
 * [Tutorial: criar um aplicativo móvel](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Tutorial: criar um aplicativo de API](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Tutorial: criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

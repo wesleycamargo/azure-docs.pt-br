@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 116344308a1173994ec85bcb8a7112ce158f4f60
-ms.openlocfilehash: d4cb0ad3ad88aad6cabc67b32d048da9ed797d07
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 711407f7dd9e6d442e3f04a23962487f4808e8e2
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -47,27 +47,27 @@ As etapas de modelagem também contêm código que mostra como treinar, avaliar 
 Você precisara de uma conta do Azure e de um cluster HDInsight do Spark 1.6 (ou Spark 2.0) para concluir este passo a passo. Confira o [Visão geral de Ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md) para obter instruções sobre como atender a esses requisitos. Esse tópico também contém uma descrição dos dados de Táxi NYC 2013 usados aqui e instruções sobre como executar código a partir de um notebook Jupyter no cluster Spark. 
 
 ## <a name="spark-clusters-and-notebooks"></a>Blocos de notas e clusters do Spark
-As etapas de configuração e o código são fornecidos neste passo a passo para usar um HDInsight Spark 1.6. Porém, blocos de notas Jupyter são fornecidos tanto para o HDInsight Spark 1.6 quanto para os clusters Spark 2.0. Uma descrição de blocos de notas e links são fornecidos em [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub que os contém. No entanto, o código mostrado aqui e nos notebooks vinculados é genérico e funcionarão em qualquer cluster Spark. Se você não estiver usando o HDInsight Spark, as etapas de configuração e gerenciamento do cluster poderão ser ligeiramente diferentes do que é mostrado aqui. Para sua conveniência, aqui estão os links para os notebooks Jupyter para Spark 1.6 (para execução no kernel do pySpark do servidor Jupyter Notebook) e Spark 2.0 (para execução no kernel pySpark3 do servidor Jupyter Notebook):
+As etapas de configuração e o código são fornecidos neste passo a passo para usar um HDInsight Spark 1.6. Porém, notebooks Jupyter são fornecidos tanto para o HDInsight Spark 1.6 quanto para os clusters Spark 2.0. Uma descrição de notebooks e links são fornecidos em [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub que os contém. No entanto, o código mostrado aqui e nos notebooks vinculados é genérico e funcionarão em qualquer cluster Spark. Se você não estiver usando o HDInsight Spark, as etapas de configuração e gerenciamento do cluster poderão ser ligeiramente diferentes do que é mostrado aqui. Para sua conveniência, aqui estão os links para os notebooks Jupyter para Spark 1.6 (para execução no kernel do pySpark do servidor Jupyter Notebook) e Spark 2.0 (para execução no kernel pySpark3 do servidor Jupyter Notebook):
 
 ### <a name="spark-16-notebooks"></a>Blocos de notas Spark 1.6
 
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): fornece informações sobre como executar a exploração, a modelagem e a pontuação de dados com vários algoritmos diferentes.
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): fornece informações sobre como executar a exploração, a modelagem e a pontuação de dados com vários algoritmos diferentes.
 
 ### <a name="spark-20-notebooks"></a>Blocos de notas Spark 2.0
 As tarefas de regressão e classificação que são implementadas usando um cluster Spark 2.0 estão em notebooks separados e o notebook de classificação usa um conjunto de dados diferente:
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este arquivo fornece informações sobre como realizar a exploração, modelagem e classificação de dados nos clusters do Spark 2.0 usando o conjunto de dados de tarifas e viagens de Táxi de Nova York descrito [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este notebook pode ser um bom ponto de partida para explorar rapidamente o código que fornecemos para o Spark 2.0. Para uma análise mais detalhada do notebook dos dados de Táxi de Nova York, veja o próximo notebook nesta lista. Veja as anotações após esta lista que comparam esses notebooks. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): esse arquivo mostra como executar disputa de dados (operações SQL Spark e dataframe), exploração, modelagem e pontuação, utilizando as viagens de táxi de NYC e conjunto de dados de tarifas descritas [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): esse arquivo mostra como executar disputa de dados (operações SQL Spark e dataframe), exploração, modelagem e pontuação, utilizando um conjunto de dados de partidas no horário de uma companhia aérea conhecida de 2011 e 2012. Integramos o conjunto de dados da companhia aérea com os dados meteorológicos do aeroporto (por exemplo, velocidade do vento, temperatura, altitude etc.) antes da modelagem, para que esses recursos de tempo pudessem ser incluídos no modelo.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este arquivo fornece informações sobre como realizar a exploração, modelagem e classificação de dados nos clusters do Spark 2.0 usando o conjunto de dados de tarifas e viagens de Táxi de Nova York descrito [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este notebook pode ser um bom ponto de partida para explorar rapidamente o código que fornecemos para o Spark 2.0. Para uma análise mais detalhada do notebook dos dados de Táxi de Nova York, veja o próximo notebook nesta lista. Veja as anotações após esta lista que comparam esses notebooks. 
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): esse arquivo mostra como executar disputa de dados (operações SQL Spark e dataframe), exploração, modelagem e pontuação, utilizando as viagens de táxi de NYC e conjunto de dados de tarifas descritas [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): esse arquivo mostra como executar disputa de dados (operações SQL Spark e dataframe), exploração, modelagem e pontuação, utilizando um conjunto de dados de partidas no horário de uma companhia aérea conhecida de 2011 e 2012. Integramos o conjunto de dados da companhia aérea com os dados de clima do aeroporto (por exemplo, velocidade do vento, temperatura, altitude etc.) antes da modelagem, para que esses recursos de tempo pudessem ser incluídos no modelo.
 
 <!-- -->
 
 > [!NOTE]
-> O conjunto de dados da companhia aérea foi adicionado ao notebook Spark 2.0 para melhor ilustrar os algoritmos de classificação. Consulte os links a seguir para obter informações sobre um conjunto de dados de partidas no horário e um conjunto de dados meteorológicos:
+> O conjunto de dados da companhia aérea foi adicionado ao notebook Spark 2.0 para melhor ilustrar os algoritmos de classificação. Consulte os links a seguir para obter informações sobre um conjunto de dados de partidas no horário e de clima:
 
 >- Dados de partidas no horário em aeroportos: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
->- Dados meteorológicos do aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+>- Dados de clima aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
 > 
 
@@ -76,7 +76,7 @@ As tarefas de regressão e classificação que são implementadas usando um clus
 <!-- -->
 
 > [!NOTE]
-Os notebooks do Spark 2.0 dos conjuntos de dados de atrasos de voo e táxi de Nova York podem levar 10 minutos ou mais para serem executados (dependendo do tamanho do seu cluster de HDI). O primeiro notebook da lista acima mostra muitos aspectos da exploração, visualização e treinamento de modelo AM de dados em um notebook que leva menos tempo para ser executado com um conjunto de dados de Nova York do exemplo abaixo, em que os arquivos de tarifas e táxi foram previamente integrados: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) Este notebook leva menos tempo para concluir (2 a 3 minutos) e pode ser um bom ponto de partida para a exploração rápida do código que fornecemos para o Spark 2.0. 
+Os notebooks do Spark 2.0 dos conjuntos de dados de atrasos de voo e táxi de Nova York podem levar 10 minutos ou mais para serem executados (dependendo do tamanho do seu cluster de HDI). O primeiro notebook da lista acima mostra muitos aspectos da exploração, visualização e treinamento de modelo AM de dados em um notebook que leva menos tempo para ser executado com um conjunto de dados de Nova York do exemplo abaixo, em que os arquivos de tarifas e táxi foram previamente integrados: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) Este notebook leva menos tempo para concluir (2 a 3 minutos) e pode ser um bom ponto de partida para a exploração rápida do código que fornecemos para o Spark 2.0. 
 
 <!-- -->
 
@@ -970,7 +970,7 @@ Tempo necessário para executar a célula acima: 49,21 segundos
 ### <a name="gradient-boosting-trees-regression"></a>Regressão de árvores de ampliação de gradiente
 O código nesta seção mostra como treinar, avaliar e salvar um modelo de árvores de ampliação de gradiente que prevê o valor da gorjeta para os dados de corridas de táxi de Nova York.
 
-**Treinar e avaliar **
+**Treinar e avaliar**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

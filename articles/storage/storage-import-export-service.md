@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 787f54ca2c19d87866ede452ea1cce0b1c37f263
-ms.openlocfilehash: 50f66d229b80489e429b5db3f2c6cc5787b6884c
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c30203120a155fd3fc431009baa3e8b318e1330f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -249,8 +250,8 @@ A primeira etapa ao importar os dados usando o serviço de Importação/Exporta�
 1. Identifique os dados a serem importados. Isso pode ser diretórios e arquivos autônomos no servidor local ou em um compartilhamento de rede.  
 2. Determine o número de unidades que você precisará, dependendo do tamanho total dos dados. Adquira o número necessário de unidades de disco rígido SSD 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas.
 3. Identifique a conta de armazenamento de destino, contêiner, diretórios virtuais e blobs.
-4.  Determine os diretórios e/ou os arquivos independentes que serão copiados para cada unidade de disco rígido.
-5.  Crie os arquivos CSV para o conjunto de dados e driveset.
+4.    Determine os diretórios e/ou os arquivos independentes que serão copiados para cada unidade de disco rígido.
+5.    Crie os arquivos CSV para o conjunto de dados e driveset.
     
     **Arquivo CSV do conjunto de dados**
     
@@ -284,8 +285,8 @@ A primeira etapa ao importar os dados usando o serviço de Importação/Exporta�
 
     Saiba mais sobre [como preparar o arquivo CSV de driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.  Use a [ferramenta WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) para copiar seus dados para um ou mais discos rígidos.
-7.  Você pode especificar "Encrypt" no campo Criptografia para habilitar a criptografia do Bitlocker no disco rígido. Como alternativa, você também pode habilitar manualmente a criptografia do Bitlocker no disco rígido, especificar "AlreadyEncrypted" e fornecer a chave no CSV do driveset durante a execução da ferramenta.
+6.    Use a [ferramenta WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) para copiar seus dados para um ou mais discos rígidos.
+7.    Você pode especificar "Encrypt" no campo Criptografia para habilitar a criptografia do Bitlocker no disco rígido. Como alternativa, você também pode habilitar manualmente a criptografia do Bitlocker no disco rígido, especificar "AlreadyEncrypted" e fornecer a chave no CSV do driveset durante a execução da ferramenta.
 
 8. Não modifique os dados em unidades de disco rígido ou o arquivo de diário depois de concluir a preparação do disco.
 
@@ -422,7 +423,7 @@ Não, o serviço de Importação/Exportação do Azure só dá suporte a Blobs d
 
 **O serviço de Importação/Exportação do Azure está disponível para as assinaturas de CSP?**
 
-Não, o serviço de Importação/Exportação do Azure não dá suporte a assinaturas de CSP. O suporte será adicionado no futuro.
+Não, o serviço de Importação/Exportação do Azure não dá suporte a assinaturas de CSP.
 
 **Posso ignorar a etapa de preparação da unidade para um trabalho de importação ou posso me preparar uma unidade sem copiar?**
 
@@ -499,10 +500,5 @@ Confira o [Fluxo de trabalho de backup offline no Backup do Azure](../backup/bac
 * [Configuração da ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 * [Exemplo de API REST de importação e exportação do Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
-ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ee0cee5e653cb8900936e12e87c56cfee5639bc5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -425,7 +425,7 @@ A tabela a seguir fornece uma descrição para elementos JSON específicas para 
 Para usar autenticação de entidade de serviço, primeiramente é necessário registrar uma entidade de aplicativo no Azure Active Directory (AAD) e conceder acesso no Data Lake Store. Posteriormente, você pode especificar abaixo propriedades no Azure Data Factory com a ID de aplicativo correspondente, informações de locatário e a chave de aplicativo para copiar dados de/para o Data Lake Store. Consulte [autenticação de serviços](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) sobre como configurá-lo e recuperar as informações necessárias.
 
 > [!IMPORTANT]
-> Ao usar o assistente de cópia, certifique-se de fornecer à entidade de serviço pelo menos a permissão de Leitura para a raiz do ADLS ("/") ou a função de Leitor para a conta ADLS, a fim de navegar com êxito entre as pastas. Caso contrário, você poderá ver o erro "As credenciais fornecidas são inválidas".
+> Ao usar o assistente de cópia para criar, conceda à entidade de serviço pelo menos a função de Leitura no Controle de Acesso (IAM) para a conta do ADLS E pelo menos a permissão Leitura+Execução para sua raiz ADLS ("/") e seus filhos, a fim de navegar com êxito entre as pastas. Caso contrário, você poderá ver o erro "As credenciais fornecidas são inválidas".
 >
 > Se você acabou de criar/atualizar uma entidade de serviço do AAD, pode levar alguns minutos para ela realmente entrar em vigor. Verifique a entidade de serviço e a configuração de ACL ADLS primeiro, se continuar encontrando o erro "As credenciais fornecidas são inválidas", aguarde alguns instantes e tente novamente.
 >
@@ -484,7 +484,7 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
 
 | Tipo de usuário | Expira após |
 |:--- |:--- |
-| Contas de usuário NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com,, etc.). |12 horas |
+| Contas de usuário NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com etc.). |12 horas |
 | Contas de usuários gerenciadas pelo AAD (Azure Active Directory) |14 dias após a última execução da fatia. <br/><br/>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias. |
 
 Se você alterar sua senha antes do momento de expiração do token, o token expirará imediatamente e você verá o erro mencionado nesta seção.
@@ -527,7 +527,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | folderPath |Caminho para o contêiner e a pasta no repositório do Azure Data Lake. |Sim |
-| fileName |O nome do arquivo no repositório Azure Data Lake. fileName é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um nome de arquivo, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando fileName não for especificado, a Cópia incluirá todos os arquivos do folderPath para o conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileName |O nome do arquivo no repositório Azure Data Lake. fileName é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um nome de arquivo, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando fileName não for especificado, a Cópia incluirá todos os arquivos do folderPath para o conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato: Data<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | partitionedBy |partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. Confira a seção [Usando a propriedade partitionedBy](#using-partitionedby-property) para obter detalhes e exemplos. |Não |
 | formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](#specifying-textformat), [Formato Json](#specifying-jsonformat), [Formato Avro](#specifying-avroformat), [Formato Orc](#specifying-orcformat), e [Formato Parquet](#specifying-parquetformat). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**; e os níveis permitidos são: **Ideal** e **Mais rápido**. Para saber mais, veja a seção [Especificação de compactação](#specifying-compression). |Não |

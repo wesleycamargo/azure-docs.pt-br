@@ -3,7 +3,7 @@ title: "Autenticação de usuário para Aplicativos de API no Serviço de Aplica
 description: "Saiba como proteger um aplicativo de API no Serviço de Aplicativo do Azure, permitindo acesso apenas a usuários autenticados."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: 3896760d-46ff-4b67-b98a-edd233f24758
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
 ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
@@ -35,7 +35,7 @@ O artigo contém duas seções:
 * A seção [Como configurar a autenticação de usuário no Serviço de Aplicativo do Azure](#authconfig) explica em termos gerais como configurar a autenticação de usuário para qualquer aplicativo de API e aplica-se igualmente a todas as estruturas às quais o Serviço de Aplicativo dá suporte, incluindo .NET, Node.js e Java.
 * Começando com a seção [Continuando os tutoriais de introdução aos Aplicativos de API .NET](#tutorialstart) , o artigo orienta você pela configuração de um aplicativo de exemplo com um back-end do .NET e um front-end do AngularJS, para usar o Azure Active Directory como autenticação do usuário. 
 
-## <a name="a-idauthconfiga-how-to-configure-user-authentication-in-azure-app-service"></a><a id="authconfig"></a> Como configurar a autenticação de usuário no Serviço de Aplicativo do Azure
+## <a id="authconfig"></a> Como configurar a autenticação de usuário no Serviço de Aplicativo do Azure
 Esta seção fornece instruções gerais que se aplicam a qualquer aplicativo de API. Para obter etapas específicas para o aplicativo de exemplo .NET da Lista de Tarefas Pendentes, vá para [Continuação dos tutoriais de introdução do .NET](#tutorialstart).
 
 1. No [portal do Azure](https://portal.azure.com/), navegue até a folha **Configurações** do aplicativo de API que você deseja proteger, localize a seção **Recursos** e clique em **Autenticação/Autorização**.
@@ -64,7 +64,7 @@ Quando isso for feito, o Serviço de Aplicativo autenticará todas as chamadas d
 
 Para fazer chamadas de API autenticadas, o chamador inclui o token de portador OAuth 2.0 do provedor de autenticação no cabeçalho de Autorização de solicitações HTTP. O token pode ser adquirido usando o SDK do provedor de autenticação.
 
-## <a name="a-idtutorialstarta-continuing-the-net-api-apps-tutorials"></a><a id="tutorialstart"></a> Continuar os tutoriais de Aplicativos de API do .NET
+## <a id="tutorialstart"></a> Continuar os tutoriais de Aplicativos de API do .NET
 Se você estiver seguindo os tutoriais do Node.js ou Java para aplicativos de API, vá para o próximo artigo, [autenticação principal do serviço para aplicativos de API](app-service-api-dotnet-service-principal-auth.md). 
 
 Se você estiver seguindo a série de tutoriais do .NET para os aplicativos de API e já implantou o aplicativo de exemplo, conforme indicado nos [primeiro](app-service-api-dotnet-get-started.md) e [segundo](app-service-api-cors-consume-javascript.md) tutoriais, vá para a seção [Configurar a autenticação no Serviço de Aplicativo e o Azure AD](#azureauth).
@@ -80,7 +80,7 @@ Se você desejar acompanhar este tutorial sem passar pelo primeiro e segundo tut
 2. Clique no botão **Implantar no Azure** no [arquivo Leiame do repositório de exemplo da Lista de tarefas pendentes](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) para implantar aplicativos de API e o aplicativo Web. Anote o grupo de recursos do Azure que é criado, pois você pode usar isso posteriormente para procurar o aplicativo Web e nomes de aplicativos de API.
 3. Baixe ou clone o [repositório de exemplo da Lista de Tarefas Pendentes](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) para obter o código com o qual você trabalhará localmente no Visual Studio.
 
-## <a name="a-idazureautha-set-up-authentication-in-app-service-and-azure-ad"></a><a id="azureauth"></a> Configurar a autenticação no Serviço de Aplicativo e no Azure AD
+## <a id="azureauth"></a> Configurar a autenticação no Serviço de Aplicativo e no Azure AD
 Agora você tem o aplicativo em execução no Serviço de Aplicativo do Azure sem exigir que os usuários sejam autenticados. Nesta seção, você pode adicionar a autenticação realizando as seguintes tarefas:
 
 * Configurar o Serviço de Aplicativo para exigir autenticação do Active Directory do Azure (Azure AD) para chamar o aplicativo de API de camada intermediária.

@@ -53,7 +53,7 @@ Execute esses comandos para criar o grupo de recursos e a implantação depois d
 Ao executar o comando **New-AzureRmResourceGroupDeployment** , será solicitado que você insira os valores para os parâmetros no modelo. Dependendo do modelo, pode levar algum tempo para que o Azure implante os recursos.
 
 ## <a name="azure-cli"></a>CLI do Azure
-[Instale a CLI do Azure](../articles/xplat-cli-install.md), faça logon e verifique se você habilitou os comandos do Resource Manager. Para obter mais informações sobre como fazer isso, veja [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
+[Instale a CLI do Azure](../articles/cli-install-nodejs.md), faça logon e verifique se você habilitou os comandos do Resource Manager. Para obter mais informações sobre como fazer isso, veja [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Execute esses comandos para criar o grupo de recursos e a implantação depois de substituir o texto entre colchetes pelo nome do grupo de recursos, pelo local, pelo nome da implantação e pelo nome do modelo:
 
@@ -66,9 +66,4 @@ Ao executar o comando **azure group deployment create** , será solicitado que v
 Descubra todos os modelos à sua disposição no [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Saiba mais sobre o [Gerenciador de Recursos do Azure](../articles/resource-group-template-deploy.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

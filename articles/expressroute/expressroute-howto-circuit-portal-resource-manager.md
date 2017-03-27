@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/07/2017
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
-ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e74ebd1d18aa3c5d278557940a765fe02c7182ff
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -122,16 +123,31 @@ Você pode exibir o status de um circuito selecionando-o.
 ![Status de um circuito da Rota Expressa](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## <a name="modifying-an-expressroute-circuit"></a>Modificando um circuito da Rota Expressa
-Você pode modificar certas propriedades de um circuito da Rota Expressa sem afetar a conectividade. Neste momento, você não pode modificar propriedades de circuito da Rota Expressa usando o portal do Azure. No entanto, você pode usar o PowerShell para modificar as propriedades do circuito. Para saber mais, confira a seção [Modificar um circuito da Rota Expressa usando o PowerShell](expressroute-howto-circuit-arm.md#modify).
+Você pode modificar certas propriedades de um circuito da Rota Expressa sem afetar a conectividade.
 
 Você pode fazer o seguinte sem tempo de inatividade:
 
 * Como habilitar ou desabilitar o complemento premium da Rota Expressa para seu circuito da Rota Expressa.
-* Aumente a largura de banda de seu circuito da Rota Expressa. Observe que não há suporte para o downgrade da largura de banda de um circuito. 
+* Aumente a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Observe que não há suporte para o downgrade da largura de banda de um circuito. 
 * Altere o plano de medição de Dados Limitados para Dados Ilimitados. Observe que a alteração do plano de medição de Dados Ilimitados para Dados Limitados não tem suporte.
-* Você pode habilitar e desabilitar **Permitir Operações Clássicas**.
+* Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
 
 Para saber mais sobre limites e limitações, confira as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md).
+
+Para modificar um circuito do ExpressRoute, clique na **Configuração**, conforme mostrado na figura abaixo.
+
+![Modificar o circuito](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+É possível modificar a largura de banda, o SKU, o modelo de cobrança e permitir operações clássicas na folha de configuração.
+
+> [!IMPORTANT]
+> Talvez seja necessário recriar o circuito de ExpressRoute se não houver capacidade adequada na porta existente. Você não pode atualizar o circuito não se houver capacidade adicional disponível nesse local.
+>
+> Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um reprovisionamento de um novo circuito da Rota Expressa.
+> 
+> A desabilitação da operação de complemento premium poderá falhar se você estiver usando recursos que ultrapassam o que é permitido para o circuito padrão.
+> 
+> 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
 Você pode excluir seu circuito da Rota Expressa selecionando o ícone **Excluir** . Observe o seguinte:
@@ -145,10 +161,5 @@ Depois de criar seu circuito, faça o seguinte:
 
 * [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-portal-resource-manager.md)
 * [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

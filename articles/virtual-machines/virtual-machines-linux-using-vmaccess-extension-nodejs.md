@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
-ms.openlocfilehash: 3f5a5f908106adab72f7e8ba5a15af58f8e1175d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5574f726d90ff804ae40852ee20850150a179a00
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2017
 Este artigo mostra como usar a extensão VMAcesss do Azure para verificar ou reparar um disco, redefinir o acesso do usuário, gerenciar contas de usuário ou redefinir a configuração do SSHD no Linux. O artigo exige:
 
 * uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)).
-* a [CLI do Azure](../xplat-cli-install.md) conectada com o `azure login`.
+* a [CLI do Azure](../cli-install-nodejs.md) conectada com o `azure login`.
 * A CLI do Azure *deve estar no* modo Azure Resource Manager `azure config mode arm`.
 
 

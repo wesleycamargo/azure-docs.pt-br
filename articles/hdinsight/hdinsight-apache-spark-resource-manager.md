@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 9da7d4e3-458e-4296-a628-77b14643f7e4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 68972d9422dd0861318b0f26a4543f7596d9a680
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -150,7 +152,7 @@ Uma vez que usamos a alocação dinâmica do Spark, os únicos recursos que são
 
     ![Eliminar App2](./media/hdinsight-apache-spark-resource-manager/kill-app2.png "Eliminar App2")
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Consulte também
+## <a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
@@ -185,9 +187,4 @@ Uma vez que usamos a alocação dinâmica do Spark, os únicos recursos que são
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

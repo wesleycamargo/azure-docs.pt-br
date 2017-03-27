@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 5eacb832ba2a20eae35c58704296c9d03e94ef0e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -228,10 +229,18 @@ Para cada namespace também é possível definir as configurações de conectivi
 
 Também é possível selecionar quais contêineres e UOs o Conector deve importar e exportar.
 
+Ao executar uma pesquisa, isso é feito em todos os contêineres na partição. Em casos onde há grandes números de contêineres esse comportamento leva à degradação do desempenho.
+
+>[!NOTE]
+A partir da atualização de março de 2017 ao LDAP Genérico as pesquisas do conector podem ser limitadas em escopo para incluir somente os contêineres selecionados. Isso pode ser feito selecionando a caixa de seleção 'Pesquisar apenas nos contêineres selecionados', conforme mostrado na imagem abaixo.
+
+![Pesquisar apenas os contêineres selecionados](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
+
 ### <a name="configure-anchors"></a>Configurar Âncoras
 Essa página sempre têm um valor pré-configurado e não pode ser alterada. Se o fornecedor do servidor tiver sido identificado, a âncora poderá ser populada com um atributo imutável, por exemplo, o GUID de um objeto. Se não tiver sido detectado ou não tiver um atributo imutável conhecido, o conector usará o dn (nome distinto) como a âncora.
 
 ![âncoras](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
+
 
 Veja a seguir uma lista de servidores LDAP e a âncora usada:
 
@@ -261,9 +270,4 @@ Para diretórios com um log de alterações de delta com base na data/hora, é a
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
