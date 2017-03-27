@@ -65,7 +65,7 @@ Os usuários que criarem um cofre dos serviços de recuperação poderiam avalia
    Como parte dos Recursos de Segurança, quando operações críticas forem executadas no Backup do Azure, você precisará inserir o PIN de Segurança disponível no portal do Azure. Habilitar a Autenticação Multifator Azure adiciona uma camada de segurança, garantindo que somente os usuários autorizados com credenciais válidas do Azure e autenticados de um segundo dispositivo possam acessar o portal do Azure e executem tais operações críticas.
 6. Use o botão de alternância para **Habilitar** e clique no botão **Salvar** na parte superior para salvar as Configurações de Segurança, conforme mostrado na figura. Você só poderá selecionar **Habilitar** depois de selecionar um valor da lista suspensa "Você configurou a Autenticação Multifator do Azure?" .
 
-    ![Habilitar configurações de segurança](./media/backup-azure-security-feature/enable-security-settings.png)
+    ![Habilitar configurações de segurança](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recovering-deleted-backup-data"></a>Recuperação de dados de backup excluídos
 Como uma medida de segurança, o Backup do Azure retém os dados de backup excluídos por mais de 14 dias e não os exclui imediatamente se Parar backup coma operação excluir dados de backup for executado. Para restaurar esses dados no período de 14 dias, use as seguintes etapas:
