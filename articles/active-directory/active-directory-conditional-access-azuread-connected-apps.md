@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -85,10 +86,5 @@ Além de definir esse sinalizador, a instância do AD FS do locatário federado 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Active Directory do Azure](active-directory-conditional-access.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 
