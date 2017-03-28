@@ -18,6 +18,7 @@ ms.author: arramac
 translationtype: Human Translation
 ms.sourcegitcommit: ddd676df429c20d1c07cfe64abc9ab69ef11bd8c
 ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -62,7 +63,7 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tiver uma co
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idgitcloneastep-2-clone-the-github-project"></a><a id="GitClone"></a>Etapa 2: Clonar o projeto do Github
+## <a id="GitClone"></a>Etapa 2: Clonar o projeto do Github
 Você pode começar pela clonagem de repositório Github para [Introdução ao DocumentDB e Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Por exemplo, de um diretório local, execute o seguinte para recuperar o projeto de exemplo localmente.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
@@ -77,7 +78,7 @@ O diretório contém um `pom.xml` para o projeto e uma pasta `src` que contém o
         <version>LATEST</version>
     </dependency>
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Etapa 3: conectar-se a uma conta do Banco de Dados de Documentos
+## <a id="Connect"></a>Etapa 3: conectar-se a uma conta do Banco de Dados de Documentos
 Em seguida, retorne ao [Portal do Azure](https://portal.azure.com) para recuperar o ponto de extremidade e a chave mestra primária. O ponto de extremidade e a chave primária do DocumentDB são necessários para que seu aplicativo entenda onde deve se conectar e para que o DocumentDB confie na conexão do seu aplicativo.
 
 No Portal do Azure, navegue até sua conta do Banco de Dados de Documentos e clique em **Chaves**. Copie o URI do portal e cole-o em `<your endpoint URI>` no arquivo Program.java. Em seguida, copie a CHAVE PRIMÁRIA do portal e cole-a em `<your key>`.
@@ -97,7 +98,7 @@ Seu [banco de dados](documentdb-resources.md#databases) do DocumentDB pode ser c
     database.setId("familydb");
     this.client.createDatabase(database, null);
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Etapa 5: Criar uma coleção
+## <a id="CreateColl"></a>Etapa 5: Criar uma coleção
 > [!WARNING]
 > **createCollection** criará uma nova coleção com uma taxa de transferência reservada, que tem implicações de preço. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -116,7 +117,7 @@ Uma [coleção](documentdb-resources.md#collections) pode ser criada usando o m�
 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Etapa 6: Criar documentos JSON
+## <a id="CreateDoc"></a>Etapa 6: Criar documentos JSON
 Um [documento](documentdb-resources.md#documents) pode ser criado usando o método [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. Agora podemos inserir um ou mais documentos. Se já tiver dados que deseja armazenar no banco de dados, você poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do Document DB para importar os dados para um banco de dados.
 
     // Insert your Java objects as documents 
@@ -139,7 +140,7 @@ Um [documento](documentdb-resources.md#documents) pode ser criado usando o méto
 
 ![Diagrama que ilustra a relação hierárquica entre a conta, o banco de dados online, a coleção e os documentos usados pelo tutorial do NoSQL para criar um aplicativo de console em Java](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Etapa 7: Recursos de consulta do Banco de Dados de Documentos
+## <a id="Query"></a>Etapa 7: Recursos de consulta do Banco de Dados de Documentos
 O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query.md) avançadas de documentos JSON armazenados em cada coleção.  O código de exemplo a seguir mostra como consultar documentos no DocumentDB usando a sintaxe SQL com o método [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
@@ -152,7 +153,7 @@ O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Etapa 8: substituir o documento JSON
+## <a id="ReplaceDocument"></a>Etapa 8: substituir o documento JSON
 O DocumentDB dá suporte à atualização de documentos JSON usando o método [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
 
     // Update a property
@@ -163,17 +164,17 @@ O DocumentDB dá suporte à atualização de documentos JSON usando o método [r
         andersenFamily,
         null);
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Etapa 9: excluir o documento JSON
+## <a id="DeleteDocument"></a>Etapa 9: excluir o documento JSON
 Da mesma forma, o DocumentDB dá suporte à exclusão de documentos JSON usando o método [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Etapa 10: excluir o banco de dados
+## <a id="DeleteDatabase"></a>Etapa 10: excluir o banco de dados
 Excluir o banco de dados criado remove o banco de dados e todos os recursos filhos (coleções, documentos etc.).
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a name="a-idrunastep-11-run-your-java-console-application-all-together"></a><a id="Run"></a>Etapa 11: Executar o aplicativo de console Java inteiro!
+## <a id="Run"></a>Etapa 11: Executar o aplicativo de console Java inteiro!
 Para executar o aplicativo do console, primeiro compile usando o Maven:
     
     mvn package
@@ -192,9 +193,4 @@ Parabéns! Você concluiu este tutorial do NoSQL e tem um aplicativo de console 
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

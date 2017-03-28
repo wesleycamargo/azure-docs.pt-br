@@ -17,6 +17,7 @@ ms.author: dhanyahk;markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -180,10 +181,5 @@ Há duas opções para o loginStatus: 0 – êxito, 1 – Falha
 ## <a name="next-steps"></a>Próximas etapas
 * Quer ver exemplos para atividades de entrada filtradas? Confira [Exemplos de API de relatório de atividade de entrada do Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Quer saber mais sobre a API de relatório do Azure AD? Confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

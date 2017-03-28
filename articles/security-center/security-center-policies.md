@@ -17,6 +17,7 @@ ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
 ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -107,10 +108,5 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 * [Monitoramento das soluções de parceiros na Central de Segurança do Azure](security-center-partner-solutions.md). Saiba como monitorar o status da integridade das soluções dos parceiros.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre postagens no blog sobre a conformidade e segurança do Azure.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

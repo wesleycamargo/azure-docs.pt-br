@@ -17,6 +17,7 @@ ms.author: aasthan
 translationtype: Human Translation
 ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
 ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -64,7 +65,7 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tiver uma co
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupcastep-2-set-up-your-c-application"></a><a id="SetupC++"></a>Etapa 2: configurar o aplicativo C++
+## <a id="SetupC++"></a>Etapa 2: configurar o aplicativo C++
 1. Abra o Visual Studio e, no menu **Arquivo**, clique em **Novo** e clique em **Projeto**. 
 2. Na janela **Novo Projeto**, no painel **Instalado**, expanda **Visual C++**, clique em **Win32** e em **Aplicativo de Console Win32**. Nomeie o projeto como hellodocumentdb e clique em **OK**. 
    
@@ -79,12 +80,12 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tiver uma co
    
     Depois que os pacotes forem adicionados ao projeto, estaremos prontos para começar a escrever código.   
 
-## <a name="a-idconfigastep-3-copy-connection-details-from-azure-portal-for-your-documentdb-database"></a><a id="Config"></a>Etapa 3: copiar detalhes da conexão do portal do Azure para o banco de dados do DocumentDB
+## <a id="Config"></a>Etapa 3: copiar detalhes da conexão do portal do Azure para o banco de dados do DocumentDB
 Exiba o [portal do Azure](https://portal.azure.com) e vá para a conta de banco de dados NoSQL (DocumentDB) que você criou. Serão necessários o URI e a chave primária no portal do Azure na próxima etapa para estabelecer uma conexão do trecho de código C++. 
 
 ![URI do DocumentDB e chaves no portal do Azure](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a name="a-idconnectastep-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>Etapa 4: conectar-se a uma conta do DocumentDB
+## <a id="Connect"></a>Etapa 4: conectar-se a uma conta do DocumentDB
 1. Adicione os cabeçalhos e os namespaces a seguir ao código-fonte após `#include "stdafx.h"`.
    
         #include <cpprest/json.h>
@@ -102,7 +103,7 @@ Exiba o [portal do Azure](https://portal.azure.com) e vá para a conta de banco 
    
     Agora que você tem o código para inicializar o cliente do banco de dados de documentos, veremos como trabalhar com os recursos do Banco de Dados de Documentos.
 
-## <a name="a-idcreatedbcollastep-5-create-a-c-database-and-collection"></a><a id="CreateDBColl"></a>Etapa 5: criar um banco de dados em C++ e uma coleção
+## <a id="CreateDBColl"></a>Etapa 5: criar um banco de dados em C++ e uma coleção
 Antes de executar esta etapa, vamos ver como um banco de dados, uma coleção e documentos interagem para aqueles que são iniciantes no DocumentDB. Um [banco de dados](documentdb-resources.md#databases) é um contêiner lógico de armazenamento de documentos particionado em coleções. Uma [coleção](documentdb-resources.md#collections) é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. Você pode aprender mais sobre conceitos e o modelo de recurso hierárquico do DocumentDB em [Conceitos e modelo de recurso hierárquico do DocumentDB](documentdb-resources.md).
 
 Para criar um banco de dados e uma coleção correspondente, adicione o código a seguir ao fim da função principal. Isso cria um banco de dados chamado 'FamilyRegistry' e uma coleção chamada 'FamilyCollection' usando a configuração do cliente declarada na etapa anterior.
@@ -115,7 +116,7 @@ Para criar um banco de dados e uma coleção correspondente, adicione o código 
     }
 
 
-## <a name="a-idcreatedocastep-6-create-a-document"></a><a id="CreateDoc"></a>Etapa 6: Criar um documento
+## <a id="CreateDoc"></a>Etapa 6: Criar um documento
 Os [documentos](documentdb-resources.md#documents) são conteúdo JSON (arbitrário) definido pelo usuário. Agora você pode inserir um documento no Banco de Dados de Documentos. Você pode criar um documento copiando o código a seguir para o fim da função principal. 
 
     try {
@@ -137,7 +138,7 @@ Para resumir, esse código cria um banco de dados do DocumentDB, uma coleção e
 
 ![Tutorial do C++ - diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a name="a-idquerydbastep-7-query-documentdb-resources"></a><a id="QueryDB"></a>Etapa 7: Recursos de consulta do Banco de Dados de Documentos
+## <a id="QueryDB"></a>Etapa 7: Recursos de consulta do Banco de Dados de Documentos
 O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query.md) avançadas de documentos JSON armazenados em cada coleção. O código de exemplo a seguir mostra uma consulta feita usando a sintaxe SQL do DocumentDB que pode ser executada em relação aos documentos criado na etapa anterior.
 
 A função usa como argumentos a identificação exclusiva ou a id do recurso do banco de dados e a coleção, juntamente com o cliente do documento. Adicione esse código antes da função principal.
@@ -168,7 +169,7 @@ A função usa como argumentos a identificação exclusiva ou a id do recurso do
       }
     }
 
-## <a name="a-idreplaceastep-8-replace-a-document"></a><a id="Replace"></a>Etapa 8: substituir um documento
+## <a id="Replace"></a>Etapa 8: substituir um documento
 O DocumentDB dá suporte à substituição de documentos JSON, conforme demonstrado no código a seguir. Adicione este código após a função executesimplequery.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -188,7 +189,7 @@ O DocumentDB dá suporte à substituição de documentos JSON, conforme demonstr
       }
     }
 
-## <a name="a-iddeleteastep-9-delete-a-document"></a><a id="Delete"></a>Etapa 9: excluir um documento
+## <a id="Delete"></a>Etapa 9: excluir um documento
 O DocumentDB dá suporte à exclusão de documentos JSON. Você pode fazer isso copiando e colando o código a seguir após a função replacedocument. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -203,7 +204,7 @@ O DocumentDB dá suporte à exclusão de documentos JSON. Você pode fazer isso 
       }
     }
 
-## <a name="a-iddeletedbastep-10-delete-a-database"></a><a id="DeleteDB"></a>Etapa 10: excluir um banco de dados
+## <a id="DeleteDB"></a>Etapa 10: excluir um banco de dados
 Excluir o banco de dados criado remove o banco de dados e todos os recursos filho (coleções, documentos etc.).
 
 Copie e cole o trecho de código a seguir (função cleanup) após a função deletedocument para remover o banco de dados e todos os recursos filho.
@@ -216,7 +217,7 @@ Copie e cole o trecho de código a seguir (função cleanup) após a função de
       }
     }
 
-## <a name="a-idrunastep-11-run-your-c-application-all-together"></a><a id="Run"></a>Etapa 11: executar o aplicativo C++ em conjunto!
+## <a id="Run"></a>Etapa 11: executar o aplicativo C++ em conjunto!
 Agora adicionamos código para criar, consultar, modificar e excluir recursos diferentes do DocumentDB.  Agora vamos conectar tudo isso adicionando chamadas para essas diferentes funções da função principal em hellodocumentdb.cpp, juntamente com algumas mensagens de diagnóstico.
 
 Você pode fazer isso substituindo a função principal do aplicativo pelo código a seguir. Isso substitui account_configuration_uri e primary_key que você copiou para o código na etapa 3. Então, salve essa linha ou copie os valores novamente do portal. 
@@ -276,7 +277,7 @@ Você deverá ver a saída do aplicativo iniciado. A saída deve corresponder à
 
 Parabéns! Você concluiu o tutorial do C++ e tem seu primeiro aplicativo de console do DocumentDB!
 
-## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a>Obter a solução completa do tutorial de C++
+## <a id="GetSolution"></a>Obter a solução completa do tutorial de C++
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisa do seguinte:
 
 * [Conta de DocumentDB][documentdb-create-account].
@@ -289,10 +290,5 @@ Para criar a solução de Introdução que contém todos os exemplos neste artig
 
 [documentdb-create-account]: documentdb-create-account.md
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 
