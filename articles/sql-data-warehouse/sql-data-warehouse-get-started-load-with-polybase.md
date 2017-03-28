@@ -17,6 +17,7 @@ ms.author: cakarst;barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 4ca929b2be7fe17e140a9daca01a25ac903e8c76
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -275,9 +276,4 @@ Confira o [Guia do PolyBase][PolyBase guide] para saber mais sobre como desenvol
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
