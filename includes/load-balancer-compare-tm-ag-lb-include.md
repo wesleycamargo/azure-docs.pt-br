@@ -11,8 +11,8 @@ A tabela a seguir resume os recursos oferecidos por cada serviço:
 | O Barramento de | Azure Load Balancer | Gateway de Aplicativo | Gerenciador de Tráfego |
 | --- | --- | --- | --- |
 | Tecnologia |Nível de transporte (Camada 4) |Nível de aplicativo (Camada 7) |Nível de DNS |
-| Protocolos de aplicativo com suporte |Qualquer |HTTP e HTTPS |Qualquer um (um ponto de extremidade HTTP é exigido para monitoramento do ponto de extremidade) |
-| Pontos de extremidade |VMs do Azure e instâncias de função dos Serviços de Nuvem |Qualquer endereço IP interno do Azure ou endereço IP público de Internet |VMs do Azure, Serviços de Nuvem, Aplicativos Web do Azure e pontos de extremidade externos |
+| Protocolos de aplicativo com suporte |Qualquer |HTTP, HTTPS e WebSockets |Qualquer um (um ponto de extremidade HTTP é exigido para monitoramento do ponto de extremidade) |
+| Pontos de extremidade |VMs do Azure e instâncias de função dos Serviços de Nuvem |Qualquer endereço IP interno do Azure, endereço IP de internet pública, VM do Azure ou Serviço de Nuvem do Azure |VMs do Azure, Serviços de Nuvem, Aplicativos Web do Azure e pontos de extremidade externos |
 | Suporte à rede virtual |Pode ser usado para aplicativos voltados para a Internet e internos (rede virtual) |Pode ser usado para aplicativos voltados para a Internet e internos (rede virtual) |Suporte apenas para aplicativos voltados para a Internet |
 | Monitoramento do ponto de extremidade |Tem suporte por meio de investigações |Tem suporte por meio de investigações |Tem suporte por meio de HTTP/HTTPS GET |
 
@@ -20,14 +20,11 @@ O Azure Load Balancer e o Gateway de Aplicativo direcionam o tráfego de rede pa
 
 | Tipo | Azure Load Balancer | Gateway de Aplicativo |
 | --- | --- | --- |
-| Protocolos |UDP/TCP |HTTP/HTTPS |
+| Protocolos |UDP/TCP |HTTP, HTTPS e WebSockets |
 | Reserva de IP |Suportado |Sem suporte |
 | Modo de balanceamento de carga |5 tuplas (IP de origem, porta de origem, IP de destino, porta de destino, tipo de protocolo) |Round Robin<br>Roteamento com base na URL |
 | Modo de balanceamento de carga (IP de origem/sessões complexas) |Duas tuplas (IP de origem e IP de destino), 3 tuplas (IP de origem, IP de destino e porta). Pode ser escalonado vertical ou horizontalmente com base no número de máquinas virtuais |Afinidade baseada em cookie<br>Roteamento com base na URL |
 | Investigações de integridade |Padrão: intervalo de investigação - 15 segundos. Retirada da rotação: 2 falhas contínuas. Oferece suporte a investigações definidas pelo usuário |Intervalo de investigação ociosa de 30 segundos. Retirado após 5 falhas consecutivas do tráfego ativo ou uma única falha de investigação no modo ocioso. Oferece suporte a investigações definidas pelo usuário |
 | Descarregamento de SSL |Sem suporte |Suportado |
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+| Roteamento baseado em URL | Sem suporte | Suportado|
+| Política SSL | Sem suporte | Suportado|

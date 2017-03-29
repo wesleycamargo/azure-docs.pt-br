@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 23a65319fe1825e2ba51f2fd5a2d0b65ca499472
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 3e12b8c988b8971574352e976ad88e2e47f47660
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="create-a-webhook-or-api-azure-function"></a>Criar um webhook ou um Azure Function de API
-O Azure Functions é uma experiência de computação sob demanda controlada por evento que permite que você crie unidades de código agendadas ou disparadas, que serão implementadas em diversas linguagens de programação. Para saber mais sobre o Azure Functions, veja a [Visão geral do Azure Functions](functions-overview.md).
+O Azure Functions é uma experiência de computação sob demanda acionada por evento que permite criar unidades de código agendadas ou disparadas, que serão implementadas em diversas linguagens de programação. Para saber mais sobre o Azure Functions, veja a [Visão geral do Azure Functions](functions-overview.md).
 
 Este tópico mostra como criar uma função do JavaScript que é invocada por um webhook do GitHub. A nova função é criada com base em um modelo predefinido no portal do Azure Functions. Você também pode assistir a um vídeo curto para ver como essas etapas são executadas no portal.
 

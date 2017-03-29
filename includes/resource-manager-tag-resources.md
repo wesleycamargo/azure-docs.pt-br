@@ -7,7 +7,7 @@
 3. Para adicionar uma marca, digite uma chave e valor, ou selecione um existente no menu suspenso. Selecione **Salvar**.
 
      ![Adicionar nova marca](./media/resource-manager-tag-resources/tag-resources.png)
-3. Para exibir todos os recursos com um valor de marca, selecione **>** (Mais serviços) e filtre por **Marcas**. Selecione **Marcas** entre as opções disponíveis.
+3. Para exibir todos os recursos com valor de marca, selecione **>** (Mais serviços) e insira a palavra **Marcas** na caixa de texto de filtro. Selecione **Marcas** entre as opções disponíveis.
    
      ![Localizar marcas pelo hub Procurar](./media/resource-manager-tag-resources/browse-tags.png)
 4. Você verá um resumo das marcas em sua assinatura.
@@ -22,8 +22,3 @@
 7. Você pode selecionar a marca fixada do painel para ver os recursos com essa marca.
 
      ![Fixar marcas ao Painel](./media/resource-manager-tag-resources/show-pinned-tag.png)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

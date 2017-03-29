@@ -25,8 +25,8 @@ Os downloads de pacote NuGet acrescentam as referências de assembly necessária
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+Também é possível instalar o pacote do StackExchange.Redis NuGet clicando-se em **NuGet Package Manager**, **Package Manager Console** no menu **Ferramentas** e executando-se o seguinte comando na `Package Manager Console` janela.
+    
+```
+Install-Package StackExchange.Redis
+```

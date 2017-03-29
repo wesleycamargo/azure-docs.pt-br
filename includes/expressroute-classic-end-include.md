@@ -1,16 +1,4 @@
 > [!IMPORTANT] 
-> Você não poderá criar novos circuitos do ExpressRoute no modelo de implantação clássico a partir de 1º de março de 2017. Use os links a seguir para criar e gerenciar circuitos do ExpressRoute no modelo de implantação do Resource Manager.
-
-> - [Criar e gerenciar circuitos de ExpressRoute](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md) 
-
-> - [Configurar o roteamento para circuitos de ExpressRoute](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md) 
-
-> Você pode mover um circuito do ExpressRoute existente do modelo de implantação clássico para o modelo de implantação do Resource Manager sem experimentar qualquer tempo de inatividade na conectividade. Para saber mais, veja [Mover um circuito existente](../articles/expressroute/expressroute-move.md).
-
-> Você pode se conectar às redes virtuais no modelo de implantação clássico definindo **allowClassicOperations** como TRUE.
+> Você não poderá criar novos circuitos do ExpressRoute no modelo de implantação clássico a partir de 1º de março de 2017. Você pode mover um circuito do ExpressRoute existente do modelo de implantação clássico para o modelo de implantação do Resource Manager sem experimentar qualquer tempo de inatividade na conectividade. Para saber mais, veja [Mover um circuito existente](../articles/expressroute/expressroute-move.md). Você pode se conectar às redes virtuais no modelo de implantação clássico definindo **allowClassicOperations** como TRUE.<br>Use os links a seguir para criar e gerenciar circuitos do ExpressRoute no modelo de implantação do Resource Manager.<br>[Criar e gerenciar circuitos de ExpressRoute](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md)<br>[Configurar o roteamento (emparelhamento) para circuitos ExpressRoute](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)<br>
 >     
 >
-
-<!--HONumber=Feb17_HO2-->
-
-

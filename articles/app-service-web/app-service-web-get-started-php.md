@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9a756618549cafc41c4f09683fd710748bf7b411
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: afecc8997631bf507c797e56a9e3fc0d1df27614
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,54 +26,58 @@ ms.lasthandoff: 03/15/2017
 
 Este Início Rápido ajuda a implantar seu primeiro aplicativo Web PHP para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) em apenas alguns minutos.
 
-Antes de começar o Início Rápido, verifique se [a CLI do Azure está instalada](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) em seu computador.
+Antes de começar, certifique-se de que a CLI do Azure foi instalada. Para obter mais informações, consulte o [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="create-a-php-web-app-in-azure"></a>Criar um aplicativo Web do PHP no Azure
+## <a name="log-in-to-azure"></a>Fazer logon no Azure
+Faça logon no Azure ao executar `az login` e acompanha as instruções na tela.
    
-2. Faça logon no Azure ao executar `az login` e acompanha as instruções na tela.
+```azurecli
+az login
+```
    
-    ```azurecli
-    az login
-    ```
-   
-3. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). Isso é onde você coloca todos os recursos do Azure que deseja gerenciar, como o aplicativo Web e seu back-end do Banco de Dados SQL.
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos   
+Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). Isso é onde você coloca todos os recursos do Azure que deseja gerenciar, como o aplicativo Web e seu back-end do Banco de Dados SQL.
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    Para ver quais são os valores possíveis para `---location`, use o comando `az appservice list-locations` da CLI do Azure.
+Para ver quais são os valores possíveis para `---location`, use o comando `az appservice list-locations` da CLI do Azure.
 
-3. Criar um [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) “Standard”. A camada Standard é necessária para executar contêineres do Linux.
+## <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
+Crie um [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "Standard" que execute um contêiner do Linux. 
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku S1 --is-linux 
-    ```
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --is-linux --sku S1
+```
 
-4. Crie um aplicativo Web com um nome exclusivo no `<app_name>`.
+## <a name="create-a-web-app"></a>Criar um aplicativo Web
+Crie um aplicativo Web com um nome exclusivo no `<app_name>`.
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-4. Configurar o contêiner do Linux para usar a imagem PHP 7.0.6 padrão.
+## <a name="configure-the-linux-container"></a>Configure o contêiner do Linux
+Configurar o contêiner do Linux para usar a imagem PHP 7.0.6 padrão.
 
-    ```azurecli
-    az appservice web config update --php-version 7.0.6 --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web config update --php-version 7.0.6 --name <app_name> --resource-group myResourceGroup
+```
+## <a name="deploy-sample-application"></a>Implantar um aplicativo de exemplo
+Implante um aplicativo PHP de exemplo do GitHub.
 
-4. Implante um aplicativo PHP de exemplo do GitHub.
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-php-get-started.git" --branch master --manual-integration 
+```
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-php-get-started.git" --branch master --manual-integration 
-    ```
+## <a name="browse-to-web-app"></a>Navegar até o aplicativo Web
+Para ver o aplicativo em execução no Azure, execute este comando.
 
-5. Para ver o aplicativo em execução no Azure, execute este comando.
-
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Parabéns, seu primeiro aplicativo Web PHP está em execução no Serviço de Aplicativo do Azure.
 
