@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: a4658f1eee3cdd24b3da47b4c7319c61ea39cb34
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -126,7 +126,7 @@ Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService**
 4. Confirme que você vê **AzureSqlLinkedService** na exibição de árvore. 
 
 > [!NOTE]
-> Confira [Mover dados de/para Banco de Dados SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obter detalhes sobre as propriedades JSON.
+> Confira [Mover dados de/para Banco de Dados SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre as propriedades JSON.
 > 
 > 
 
@@ -202,7 +202,7 @@ Nesta etapa, você criará um conjunto de dados denominado **InputDataset** que 
 3. Clique em **Implantar** na barra de ferramentas para criar e implantar o conjunto de dados **InputDataset**. Confirme que você vê o **InputDataset** na exibição de árvore.
 
 > [!NOTE]
-> Confira [Mover dados de/para Blobs do Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para obter detalhes sobre as propriedades JSON.
+> Confira [Mover dados de/para Blobs do Azure](data-factory-azure-blob-connector.md#dataset-properties) para obter detalhes sobre as propriedades JSON.
 > 
 > 
 
@@ -248,7 +248,7 @@ Nesta parte da etapa, você cria um conjunto de dados de saída denominado **Out
 3. Clique em **Implantar** na barra de ferramentas para criar e implantar o conjunto de dados **OutputDataset**. Confirme que você vê o **OutputDataset** na exibição de árvore. 
 
 > [!NOTE]
-> Confira [Mover dados de/para Banco de Dados SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obter detalhes sobre as propriedades JSON.
+> Confira [Mover dados de/para Banco de Dados SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre as propriedades JSON.
 > 
 > 
 
