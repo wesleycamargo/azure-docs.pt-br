@@ -17,6 +17,7 @@ ms.author: jrj;mausher;kevin;barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: 6241eb0e7ea091dffcb0ae770f8d89f24a19eb67
 ms.openlocfilehash: ff2f688d42924edb1596cb2db474a58748f2b44c
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -164,9 +165,4 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um S
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Contratos de Nível de Serviço]: https://azure.microsoft.com/en-us/support/legal/sla/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

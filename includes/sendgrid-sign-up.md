@@ -59,7 +59,7 @@ Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.
     ![chave][key]
 2. A senha é a que você escolheu durante a instalação. Você pode selecionar **Alterar senha** ou **Redefinir senha** para fazer alterações.
 
-Para gerenciar suas configurações de entrega de email, clique no **botão Gerenciar**. Você será redirecionado para o [painel do SendGrid][SendGrid dashboard]
+Para gerenciar suas configurações de entrega de email, clique no **botão Gerenciar**. Você será redirecionado para o painel do SendGrid.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@ Para gerenciar suas configurações de entrega de email, clique no **botão Gere
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@ Para gerenciar suas configurações de entrega de email, clique no **botão Gere
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-

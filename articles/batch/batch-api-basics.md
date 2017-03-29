@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0682a048429d8e980da529975a24dde28a9812fe
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
 ms.lasthandoff: 03/15/2017
 
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 
 Nesta visão geral dos componentes principais do serviço de Lote do Azure, vamos abordar os recursos do serviço primário que os desenvolvedores do Lote podem usar para criar soluções de computação paralela em grande escala.
 
-Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST][batch_rest_api] ou estiver usando um dos [SDKs de Lote](batch-technical-overview.md#batch-development-apis), usará muitos dos recursos analisados neste artigo.
+Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST][batch_rest_api] ou estiver usando um dos [SDKs de Lote](batch-apis-tools.md#batch-development-apis), usará muitos dos recursos analisados neste artigo.
 
 > [!TIP]
 > Para obter uma introdução de nível superior do serviço de Lote, consulte os [Fundamentos do Lote do Azure](batch-technical-overview.md).
@@ -129,7 +129,7 @@ Ao criar um pool, você pode especificar os seguintes atributos:
 
     Na maioria dos cenários, as tarefas operam de forma independente e não precisam comunicar-se umas com as outras. No entanto, há alguns aplicativos em que as tarefas precisam se comunicar, como os [cenários MPI](batch-mpi.md).
 
-    Você pode configurar um pool para permitir a ** comunicação entre os nós**, de modo que os nós em um pool possam comunicar-se durante a execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
+    Você pode configurar um pool para permitir a **comunicação entre os nós**, de modo que os nós em um pool possam comunicar-se durante a execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
 
     Observe que habilitar a comunicação entre nós também afeta a colocação dos nós nos clusters e pode limitar o número máximo de nós em um pool devido às restrições da implantação. Se seu aplicativo não precisar da comunicação entre os nós, o serviço de Lote poderá alocar um número potencialmente grande de nós para o pool a partir de vários clusters e data centers diferentes para permitir uma capacidade maior do processamento paralelo.
 * **Tarefa inicial** para nós de computação
@@ -427,6 +427,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 >
 
 ## <a name="next-steps"></a>Próximas etapas
+* Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
 * Veja o passo a passo do aplicativo de exemplo do Lote em [Introdução à Biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md). Também há uma [versão em Python](batch-python-tutorial.md) do tutorial que executa uma carga de trabalho nos nós de computação do Linux.
 * Baixe e compile o projeto de exemplo [Gerenciador do Lote][github_batchexplorer] para usar durante o desenvolvimento de suas soluções de Lote. Usando o Gerenciador do Lote, você pode executar o seguinte e muito mais:
 

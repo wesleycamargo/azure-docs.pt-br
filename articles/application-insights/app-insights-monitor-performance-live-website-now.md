@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
-ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicativos Web no tempo de execução com o Application Insights
 
 
-Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. Se seus aplicativos são hospedados por um servidor IIS local, instale o Monitor de Status. Se eles são aplicativos Web do Azure ou são executados em uma VM do Azure, você pode instalar a extensão do Application Insights. (Também há artigos separados sobre como instrumentar os [aplicativos Web J2EE dinâmicos](app-insights-java-live.md) e os [Serviços de Nuvem do Azure](app-insights-cloudservices.md).) É necessário ter uma assinatura do [Microsoft Azure](http://azure.com) .
+Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. Se os seus aplicativos forem hospedados por um servidor IIS local, instale o Monitor de Status. Se forem aplicativos Web do Azure ou estiverem sendo executados em uma VM do Azure, ative o monitoramento do Application Insights no painel de controle do Azure. (Também há artigos separados sobre como instrumentar os [aplicativos Web J2EE dinâmicos](app-insights-java-live.md) e os [Serviços de Nuvem do Azure](app-insights-cloudservices.md).) É necessário ter uma assinatura do [Microsoft Azure](http://azure.com) .
 
 ![gráficos de exemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -39,7 +39,7 @@ Aqui está um resumo do que você tem com cada rota:
 | --- | --- | --- |
 | Solicitações e exceções |Sim |Sim |
 | [Exceções mais detalhadas](app-insights-asp-net-exceptions.md) | |Sim |
-| [Diagnóstico de dependência](app-insights-asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, Verbo HTTP|
+| [Diagnóstico de dependência](app-insights-asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
 | [Contadores de desempenho do sistema](app-insights-performance-counters.md) |Sim |Sim |
 | [API de telemetria personalizada][api] |Sim | |
 | [Integração do log de rastreamento](app-insights-asp-net-trace-logs.md) |Sim | |
@@ -65,7 +65,7 @@ Se seu aplicativo for executado como um serviço Web do Azure, veja como ativar 
 Se seu aplicativo estiver hospedado em um servidor do IIS, habilite o Application Insights usando o Monitor de Status.
 
 1. No servidor Web IIS, entre com as credenciais de administrador.
-2. Se o Application Insights Status Monitor ainda não estiver instalado, baixe e execute o [instalador do Monitor de Status](http://go.microsoft.com/fwlink/?LinkId=506648).
+2. Se Application Insights Status Monitor ainda não estiver instalado, baixe e execute o [instalador do Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) (ou execute o [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) e procure nele o Application Insights Status Monitor).
 3. No Monitor de Status, selecione o aplicativo Web ou o site que você deseja monitorar. Entre com suas credenciais do Azure.
 
     Configure o recurso onde você deseja ver os resultados no portal do Application Insights. (Normalmente, é melhor criar um novo recurso. Selecione um recurso existente se você já tiver [testes da web][availability] ou [monitoramento de cliente][client] para esse aplicativo). 
@@ -76,7 +76,7 @@ Se seu aplicativo estiver hospedado em um servidor do IIS, habilite o Applicatio
 
     ![Escolha Reiniciar na parte superior da caixa de diálogo.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
-    O serviço Web será interrompido por um período curto.
+    O serviço Web é interrompido por um período curto.
 
 ## <a name="customize-monitoring-options"></a>Personalizar opções de monitoramento
 
@@ -98,7 +98,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 
 ### <a name="cant-connect-no-telemetry"></a>Não consegue se conectar? Sem telemetria?
 
-* Você precisa abrir [algumas portas de saída](app-insights-ip-addresses.md#outgoing-ports) no firewall do servidor para permitir que o Monitor de Status funcione.
+* Abra [as portas de saída necessárias](app-insights-ip-addresses.md#outgoing-ports) no firewall de seu servidor para permitir o funcionamento do Status Monitor.
 
 * Abra o Monitor de Status e selecione seu aplicativo no painel esquerdo. Verifique se há mensagens de diagnóstico para este aplicativo na seção "Configuração de notificações":
 
@@ -106,7 +106,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 * No servidor, se você encontrar uma mensagem sobre "permissões insuficientes", tente fazer o seguinte:
   * No Gerenciador do IIS, selecione o pool de aplicativos, abra **Configurações Avançadas** e no **Modelo de Processo**, anote a identidade.
   * No painel de controle de gerenciamento do computador, adicione essa identidade ao grupo Usuários do Monitor de Desempenho.
-* Se você tiver o MMA/SCOM instalado em seu servidor, algumas versões poderão entrar em conflito. Desinstale o SCOM e o Monitor de Status e reinstale as versões mais recentes.
+* Se você tiver o MMA/SCOM (Systems Center Operations Manager) instalado em seu servidor, algumas versões poderão entrar em conflito. Desinstale o SCOM e o Monitor de Status e reinstale as versões mais recentes.
 * Consulte [Solução de problemas][qna].
 
 ## <a name="system-requirements"></a>Requisitos do Sistema
@@ -151,7 +151,7 @@ Saiba quais aplicativos estão sendo monitorados:
 * `-InstrumentationKey` O ikey do recurso Application Insights em que você deseja que os resultados sejam exibidos.
 * Este cmdlet afeta apenas os aplicativos que ainda não estão instrumentados - ou seja, SdkState==NotInstrumented.
 
-    O cmdlet não afeta um aplicativo que já esteja instrumentado, em tempo de compilação por meio da adição do SDK ao código, ou em tempo de execução por meio de um uso anterior desse cmdlet.
+    O cmdlet não afeta um aplicativo que já é instrumentado. Não importa se o aplicativo tiver sido instrumentado no momento da compilação por meio da adição do SDK ao código, ou em tempo de execução por meio de um uso anterior desse cmdlet.
 
     A versão do SDK usada para instrumentar o aplicativo é a versão baixada mais recentemente para este servidor.
 
@@ -183,6 +183,10 @@ Saiba quais aplicativos estão sendo monitorados:
 `Update-ApplicationInsightsVersion`
 
 * Baixa o SDK mais recente do Application Insights para o servidor.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next"></a>Próximas etapas
 

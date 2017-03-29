@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,14 +29,16 @@ Este artigo explica como começar a usar a autenticação multifator do Azure na
 
 ![MFA na Nuvem](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
-Os seguintes pré-requisitos são necessários antes de habilitar a Autenticação Multifator do Azure para seus usuários.
+## <a name="prerequisite"></a>Pré-requisito
+[Inscreva-se para ter uma assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) - se você ainda não tem uma assinatura do Azure, precisará inscrever-se para ter uma. Se você estiver apenas começando a usar o Azure MFA, poderá usar uma assinatura de avaliação.
 
-1. [Inscreva-se para ter uma assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) - se você ainda não tem uma assinatura do Azure, precisará inscrever-se para ter uma. Se você estiver apenas começando a usar o Azure MFA, poderá usar uma assinatura de avaliação.
-2. [Crie um Provedor de Autenticação Multifator](multi-factor-authentication-get-started-auth-provider.md) e atribua-o a seu diretório ou [atribua licenças aos usuários](multi-factor-authentication-get-started-assign-licenses.md)
+## <a name="enable-azure-multi-factor-authentication"></a>Habilitar a Autenticação Multifator do Microsoft Azure
+Se os usuários tiverem licenças que incluam a Autenticação Multifator do Microsoft Azure, nada precisa ser feito para ativar o Azure MFA. Você pode começar solicitando uma verificação em duas etapas em base de usuário individual. As licenças que habilitam o Azure MFA são:
+- Autenticação Multifator do Azure
+- Azure Active Directory Premium
+- Enterprise Mobility + Security
 
-> [!NOTE]
-> As licenças estão disponíveis para os usuários que têm o Azure MFA, Azure AD Premium ou EMS (Enterprise Mobility Suite).  O MFA está incluído no Azure AD Premium e no EMS. Se você possui licenças suficientes, não precisa criar um provedor de autenticação.
+Se você não tiver uma dessas três licenças, ou se não possuir licenças suficientes para cobrir todos os seus usuários, também não há problema. Você só precisa cumprir uma etapa extra e [Criar um Provedor de Autenticação Multifator](multi-factor-authentication-get-started-auth-provider.md) em seu diretório.
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Ativar a verificação em duas etapas para usuários
 Para começar a exigir uma verificação inicial em duas etapas para um usuário, altere o estado do usuário de desabilitado para habilitado.  Para obter mais informações sobre os estados do usuário, confira [Estados do Usuário na Autenticação Multifator do Azure](multi-factor-authentication-get-started-user-states.md)
@@ -97,10 +100,5 @@ Para obter mais informações, confira [Estados do usuário na autenticação mu
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você configurou a Autenticação Multifator do Azure na nuvem, poderá configurar e instalar sua implantação. Confira [Configurr a autenticação multifator do Azure](multi-factor-authentication-whats-next.md) para obter mais detalhes.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

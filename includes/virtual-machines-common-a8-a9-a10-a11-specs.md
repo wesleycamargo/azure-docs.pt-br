@@ -9,9 +9,9 @@
     Essa interface permite que instâncias compatíveis com RDMA se comuniquem entre si em uma rede InfiniBand, operando em taxas FDR para máquinas virtuais H16r e H16mr e taxas QDR para máquinas virtuais A8 e A9. Os recursos RDMA expostos nessas máquinas virtuais podem melhorar a escalabilidade e o desempenho de determinados aplicativos MPI (Interface de Transmissão de Mensagens) do Linux e do Windows. Veja [Acesso à rede RDMA](#access-to-the-rdma-network) neste artigo para obter os requisitos.
 
 ## <a name="deployment-considerations"></a>Considerações de implantação
-* **Assinatura do Azure** – Se desejar implantar mais do que um pequeno número de instâncias de computação intensiva, considere uma assinatura pré-paga ou outras opções de compra. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
+* **Assinatura do Azure** – Para implantar um número maior de instâncias de computação intensiva, considere uma assinatura pré-paga ou outras opções de compra. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
 * **Preço e disponibilidade** – Os tamanhos de VM de computação intensiva são oferecidos apenas no tipo de preço Standard. Confira [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/) para ver a disponibilidade nas regiões do Azure. 
-* **Cota de núcleos** – Talvez você precise aumentar a cota de núcleos em sua assinatura do Azure do padrão de 20 núcleos por assinatura (se usar o modelo de implantação clássica) ou 20 núcleos por região (se usar o modelo de implantação do Gerenciador de Recursos). Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho de VM, incluindo a série de H. Para solicitar um aumento de cota, [abra uma solicitação de atendimento ao cliente online](../articles/azure-supportability/how-to-create-azure-support-request.md) gratuitamente. (Os limites padrão podem variar dependendo de sua categoria de assinatura.)
+* **Cota de núcleos** – Talvez seja preciso aumentar a cota de núcleos em sua assinatura do Azure, saindo do valor padrão. Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho de VM, incluindo a série de H. Para solicitar um aumento de cota, [abra uma solicitação de atendimento ao cliente online](../articles/azure-supportability/how-to-create-azure-support-request.md) gratuitamente. (Os limites padrão podem variar dependendo de sua categoria de assinatura.)
   
   > [!NOTE]
   > Entre em contato com o Suporte do Azure se precisar de capacidade em larga escala. Cotas do Azure são limites de crédito, não garantias de capacidade. Independentemente de sua cota, você é cobrado apenas pelo núcleos utilizados.
@@ -21,9 +21,4 @@
 * **Serviço de nuvem ou conjunto de disponibilidade** – Para usar a rede RDMA do Azure, implante VMs compatíveis com RDMA no mesmo serviço de nuvem (se usar o modelo de implantação clássica) ou no mesmo conjunto de disponibilidade (se usar o modelo de implantação do Azure Resource Manager). Se você usar o Lote do Azure, as VMs compatíveis com RDMA deverão estar no mesmo pool.
 * **Redimensionamento** – Devido ao hardware especializado usado nas instâncias de computação intensiva, você só pode redimensionar instâncias de computação intensiva dentro da mesma família de tamanho (série H ou série A de computação intensiva). Por exemplo, somente é possível redimensionar uma VM da série H de um tamanho da série H para outro. Além disso, não há suporte para o redimensionamento de um tamanho sem computação intensiva para um tamanho de computação intensiva.  
 * **Espaço de endereço de rede RDMA** - A rede RDMA no Azure reserva o espaço de endereço 172.16.0.0/16. Para executar aplicativos MPI em instâncias implantadas em uma rede virtual do Azure, verifique se o espaço do endereço de rede virtual não se sobrepõe à rede RDMA.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

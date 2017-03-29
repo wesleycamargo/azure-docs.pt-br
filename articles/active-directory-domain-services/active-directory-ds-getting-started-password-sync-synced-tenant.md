@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 03/17/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4969b43831a3813a4e76c6447c252a9c458f371a
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -37,7 +37,14 @@ As etapas envolvidas são diferentes dependendo de sua organização ser um loca
 <br>
 
 ## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-synced-azure-ad-tenant"></a>Tarefa 5: Habilitar a sincronização de senhas para os Serviços de Domínio do AAD para um locatário do AD do Azure sincronizado
-Um locatário do Azure AD sincronizado é configurado para ser sincronizado com o diretório do local de sua organização usando o Azure AD Connect. O Azure AD Connect não sincroniza hashes de credenciais NTLM e Kerberos com o Azure AD por padrão. Para usar os serviços de domínio do Azure AD, você precisa configurar o Azure AD Connect para sincronizar os hashes de credenciais necessários para a autenticação NTLM e Kerberos. As etapas a seguir habilitam a sincronização dos hashes de credenciais necessários para seu locatário do Azure AD.
+Um locatário do Azure AD sincronizado é configurado para ser sincronizado com o diretório do local de sua organização usando o Azure AD Connect. O Azure AD Connect não sincroniza hashes de credenciais NTLM e Kerberos com o Azure AD por padrão. Para usar os serviços de domínio do Azure AD, você precisa configurar o Azure AD Connect para sincronizar os hashes de credenciais necessários para a autenticação NTLM e Kerberos. 
+
+> [!WARNING]
+> É OBRIGATÓRIO habilitar a sincronização de senha com os Serviços de Domínio do AAD sempre que você habilitar os Azure AD Domain Services. Talvez você tenha ativado e desativado os Azure AD Domain Services para o seu diretório do Azure AD. No entanto, continua sendo preciso habilitar a sincronização de senha na próxima vez que você habilitar os Azure AD Domain Services para o diretório.
+>
+>
+
+As etapas a seguir habilitam a sincronização dos hashes de credenciais necessários para seu locatário do Azure AD.
 
 ### <a name="install-or-update-azure-ad-connect"></a>Instalar ou atualizar o Azure AD Connect
 Você precisa instalar a versão mais recente do Azure AD Connect recomendada em um computador ingressado no domínio associado. Se tiver uma instância existente do programa de instalação do Azure AD Connect, você precisará atualizá-lo para usar a última versão do Azure AD Connect. Para evitar problemas/erros conhecidos que talvez já tenham sido corrigidos, use sempre a versão mais recente do Azure AD Connect.

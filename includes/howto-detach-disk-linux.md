@@ -29,7 +29,7 @@ Antes de poder desanexar um disco de uma VM, você precisa descobrir o número L
 3. Observe o LUN ou o **número de unidade lógica** para o disco que você deseja desanexar.
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>Remover as referências do sistema operacional no disco
-Antes de desanexar o disco do convidado do Linux, você deve se certificar de que nenhuma das partições no disco está em uso. Certifique-se de que o sistema operacional não tente remontá-los após uma reinicialização. Essas etapas desfazem a configuração que você provavelmente criou ao [anexar](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) o disco.
+Antes de desanexar o disco do convidado do Linux, você deve se certificar de que nenhuma das partições no disco está em uso. Certifique-se de que o sistema operacional não tente remontá-los após uma reinicialização. Essas etapas desfazem a configuração que você provavelmente criou ao [anexar](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) o disco.
 
 1. Use o comando `lsscsi` para descobrir o identificador do disco. O `lsscsi` pode ser instalado pelo `yum install lsscsi` (distribuições baseadas no Red Hat) ou pelo `apt-get install lsscsi` (distribuições baseadas no Debian). Você pode encontrar o identificador de disco que está procurando usando o número de LUN. O último número na tupla em cada linha é o LUN. No exemplo a seguir do `lsscsi`, LUN 0 mapeia para */dev/sdc*
 
