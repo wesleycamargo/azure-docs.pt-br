@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 12df603e22c8c735bf5c3f892575e79725f7313e
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9fc96d70592bd55685ebbf1b80f6017b74f58925
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -45,7 +46,7 @@ Esta é uma lista de recomendações de segurança que deve ser considerada ao c
 ## <a name="considerations-for-securing-connections-to-azure-virtual-machine"></a>Considerações sobre conexões seguras à máquina Virtual do Azure:
 * Considere o uso da [Rede Virtual do Azure](../../../virtual-network/virtual-networks-overview.md) para administrar máquinas virtuais, em vez de portas RDP públicas.
 * Use um [NSG](../../../virtual-network/virtual-networks-nsg.md) (grupo de segurança de rede) para permitir ou negar tráfego de rede à sua máquina virtual. Se você quiser usar um NSG e já tiver uma ACL de ponto de extremidade à disposição, primeiro remova a ACL de ponto de extremidade. Para saber mais sobre como fazer isso, confira [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
-* Se você está usando pontos de extremidade, remova quaisquer pontos de extremidade da máquina virtual, se não for usá-los. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](../../virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
+* Se você está usando pontos de extremidade, remova quaisquer pontos de extremidade da máquina virtual, se não for usá-los. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
 * Habilite uma opção de conexão criptografada para uma instância do mecanismo de banco de dados do SQL Server em máquinas virtuais do Azure. Configure a instância do SQL Server com um certificado assinado. Para saber mais, veja [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192.aspx) (Habilitar conexões criptografadas para o mecanismo de banco de dados) e [Sintaxe da cadeia de conexão](https://msdn.microsoft.com/library/ms254500.aspx).
 * Se as máquinas virtuais forem acessadas somente de uma rede específica, use o Firewall do Windows para restringir o acesso a determinados endereços IP ou sub-redes da rede.
 
@@ -53,10 +54,5 @@ Esta é uma lista de recomendações de segurança que deve ser considerada ao c
 Se você também estiver interessado em práticas recomendadas sobre desempenho, veja [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md).
 
 Para ver outros tópicos relacionados à execução do SQL Server em VMs do Azure, confira [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: eabba7daa746a836592f775858782aa77fcebd9b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8a6b48437eecd9f2f5c3fe8447b31192d8318149
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -102,7 +102,7 @@ Há duas opções principais para configurar o ouvinte: externo (público) ou in
 Se o Grupo de disponibilidade abranger várias sub-redes do Azure (como uma implantação que cruza regiões do Azure), a cadeia de conexão do cliente deve incluir "**MultisubnetFailover=True**". Isso resulta em tentativas de conexão em paralelo às réplicas nas diferentes sub-redes. Para obter instruções sobre como configurar um ouvinte, consulte
 
 * [Configurar um ouvinte de ILB para grupos de disponibilidade AlwaysOn no Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
-* [Configurar um ouvinte externo para grupos de disponibilidade AlwaysOn no Azure](../sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
+* [Configurar um ouvinte externo para grupos de disponibilidade AlwaysOn no Azure](../classic/ps-sql-ext-listener.md).
 
 Você pode ainda se conectar a cada réplica de disponibilidade separadamente conectando-se diretamente à instância do serviço. Além disso, como os grupos de disponibilidade AlwaysOn são compatíveis com versões anteriores com clientes de espelhamento de banco de dados, você pode se conectar a réplicas de disponibilidade, como parceiros de espelhamento, desde que as réplicas sejam configuradas de forma semelhante ao espelhamento do banco de dados:
 

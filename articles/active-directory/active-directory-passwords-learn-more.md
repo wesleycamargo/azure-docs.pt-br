@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 0de0590c1cf5c71a7174fdcca84847b378aa40f8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: dca6f5189693fc98cec4f92eac81b6985e691889
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>Saiba mais sobre Gerenciamento de Senha
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -120,7 +120,7 @@ A seção a seguir descreve quais os cenários com suporte para quais versões d
 ### <a name="supported-clients"></a>Clientes com suporte
 É recomendável usar o recurso de atualização automática do Azure AD Connect ou instalar a versão mais recente do [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) se você quer usar o write-back de senha.
 
-* **DirSync (qualquer versão > 1.0.6862)** - _SEM SUPORTE_ - dá suporte somente Aos recursos básicos de write-back e não tem mais suporte no grupo de produtos 
+* **DirSync (qualquer versão > 1.0.6862)** - _SEM SUPORTE_ - dá suporte somente Aos recursos básicos de write-back e não tem mais suporte no grupo de produtos
 * **Azure AD Sync** - _PRETERIDO_ - dá suporte somente aos recursos básicos de write-back e não tem recursos de desbloqueio de conta, registro em log avançado e melhorias de confiabilidade feitas no Azure AD Connect. Assim, é **altamente** recomendável fazer a atualização.
 * **Azure AD Connect** - _SUPORTE TOTAL_ - dá suporte a todos os recursos de write-back - atualize para a versão mais recente para obter os melhores recursos novos e a maior estabilidade/confiabilidade possível
 
@@ -132,7 +132,7 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 * **Enterprise Moblity Suite** - não há limitações quanto ao uso de write-back de senha
 * **Enterprise Cloud Suite** - não há limitações quanto ao uso de write-back de senha
 
-Você não pode usar o write-back de senha com qualquer plano de licenciamento do Office 365, seja ele de avaliação ou pago. Você deve atualizar para um dos planos acima para usar esse recurso. 
+Você não pode usar o write-back de senha com qualquer plano de licenciamento do Office 365, seja ele de avaliação ou pago. Você deve atualizar para um dos planos acima para usar esse recurso.
 
 Não temos planos para habilitar o write-back de senha para nenhuma SKU do Office 365.
 
@@ -166,7 +166,7 @@ As senhas não são gravadas em nenhuma das seguintes situações:
 * **Operações do administrador sem suporte**
  * Qualquer redefinição de senha do usuário final iniciada pelo administrador do [Portal de Gerenciamento do Office](https://portal.office.com)
  * Qualquer redefinição de senha do usuário final iniciada pelo administrador do PowerShell v1, v2 ou da API do Graph do Azure AD
- 
+
 Embora estejamos trabalhando para remover essas limitações, não temos ainda uma linha do tempo específica que possamos divulgar.
 
 ## <a name="password-writeback-security-model"></a>Modelo de segurança de write-back de senha
@@ -180,9 +180,9 @@ O write-back de senha é um serviço altamente seguro e sólido.  Para garantir 
 ### <a name="password-writeback-encryption-details"></a>Detalhes de criptografia de write-back de senha
 A seguir são descritas as etapas de criptografia pelas quais uma solicitação de redefinição de senha passa depois que um usuário a envia, mas antes que ela chegue a seu ambiente local, para garantir a segurança e a confiabilidade máximas do serviço.
 
-* **Etapa 1 - criptografia de senha com chave RSA de 2048 bits** - depois que um usuário envia uma senha para ser gravada no local, primeiro, a senha enviada em si é criptografada com uma chave RSA de 2048 bits. 
+* **Etapa 1 - criptografia de senha com chave RSA de 2048 bits** - depois que um usuário envia uma senha para ser gravada no local, primeiro, a senha enviada em si é criptografada com uma chave RSA de 2048 bits.
 
-* **Etapa 2 - criptografia em nível de pacote com AES-GCM** - em seguida, todo o pacote (senha + metadados necessários) é criptografado usando AES-GCM. Isso impede que qualquer pessoa com acesso direto ao canal do Barramento de Serviço subjacente exiba/viole o conteúdo. 
+* **Etapa 2 - criptografia em nível de pacote com AES-GCM** - em seguida, todo o pacote (senha + metadados necessários) é criptografado usando AES-GCM. Isso impede que qualquer pessoa com acesso direto ao canal do Barramento de Serviço subjacente exiba/viole o conteúdo.
 
 * **Etapa 3 - toda a comunicação ocorre via TLS/SSL** – além disso, toda a comunicação com o ServiceBus ocorre em um canal SSL/TLS. Isso protege o conteúdo de terceiros não autorizados.
 
@@ -623,13 +623,13 @@ A redefinição e a alteração de senhas têm suporte completo em todas as conf
 1. **Usuários de uma organização parceira com um locatário existente do Azure AD** - se a organização com a qual você está fazendo uma parceria tiver um locatário existente do Azure AD, **respeitaremos quaisquer políticas de redefinição de senha habilitadas no locatário**. Para que a redefinição de senha funcione, a organização parceira só precisa garantie que o Azure AD SSPR esteja habilitado, o que não acarreta custo adicional para os clientes do O365 e pode ser habilitado seguindo as etapas em nosso guia de [Introdução ao gerenciamento de senhas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
 2. **Usuários que se inscreveram usando a [assinatura de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)** - se a organização com a qual você está fazendo uma parcerias tiver usado o recurso de [assinatura de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) para obter um locatário, permitiremos que eles redefinam desde o início com o email com o qual se registraram.
 3. **Usuários B2B** - novos usuários B2B criados usando os novos [recursos do Azure AD B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) também poderão redefinir suas senhas desde o início com o email com o qual se registraram durante o processo de convite.
- 
+
 Para testar isso, acesse http://passwordreset.microsoftonline.com com um desses usuários parceiros.  Contanto que eles tenham um email alternativo ou um email de autenticação definido, a redefinição de senha funcionará conforme o esperado.  Mais informações sobre os dados usados por sspr aqui podem ser encontradas na visão geral [Quais dados são usados pela redefinição de senha](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset).
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar**](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização

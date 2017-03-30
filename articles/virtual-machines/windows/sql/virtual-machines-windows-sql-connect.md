@@ -15,16 +15,16 @@ ms.workload: iaas-sql-server
 ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 699d0c37adb9618827b6b39d74d09c2f9ba92913
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 37b0abfa38282d7e8789ba5687f0937a60262464
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Conectar-se a uma Máquina Virtual do SQL Server no Azure (Gerenciador de Recursos)
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](virtual-machines-windows-sql-connect.md)
-> * [Clássico](../sqlclassic/virtual-machines-windows-classic-sql-connect.md)
+> * [Clássico](../classic/sql-connect.md)
 > 
 > 
 
@@ -33,7 +33,7 @@ Este tópico descreve como se conectar à instância do SQL Server em execução
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para exibir a versão clássica deste artigo, veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure Clássico](../sqlclassic/virtual-machines-windows-classic-sql-connect.md).
+Para exibir a versão clássica deste artigo, veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure Clássico](../classic/sql-connect.md).
 
 Para ver uma apresentação completa sobre provisionamento e conectividade, veja [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 

@@ -10,16 +10,16 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: CLI
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/16/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 46c5ec2a546bc475551f2922facb8cf7c568a1fb
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 15d8f075a21c335de862dc004fc4e6a47d8bc38b
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -27,9 +27,7 @@ ms.lasthandoff: 03/17/2017
 
 Este exemplo de script CLI cria dois pools elásticos e move um banco de dados de um pool elástico para outro pool elástico, depois move um banco de dados fora de um pool elástico para um nível de desempenho de banco de dados individual. 
 
-Se necessário, instale a CLI do Azure usando as instruções encontradas no [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e, em seguida, execute `az login` para criar uma conexão com o Azure.
-
-Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no Windows, veja [Execução da CLI do Azure no Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 

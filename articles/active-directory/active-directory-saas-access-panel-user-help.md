@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 86ba122b406d8a3d633184982fbacab078d7c0d1
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 6195b80037762a7f71eee9138c765e4d342acd5f
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="do-you-need-help-with-myapps"></a>Você precisa de ajuda com MyApps?
 
-Provavelmente você chegou a esta página porque houve um problema ao usar o portal do MyApps. Embora haja casos que exijam que você entre em contato com a assistência técnica ou o administrador para solucionar um problema, capturamos neste tópico etapas para perguntas comuns que você pode experimentar sozinho primeiro. 
+Provavelmente você chegou a esta página porque houve um problema ao usar o portal do MyApps. Embora haja casos que exijam que você entre em contato com a assistência técnica ou o administrador para solucionar um problema, capturamos neste tópico etapas para perguntas comuns que você pode experimentar sozinho primeiro.
 
-Se você estiver procurando ajuda relacionada ao gerenciamento de senha, tente [isto](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)#how-to-reset-your-password).
-  
+Se você estiver procurando ajuda relacionada ao gerenciamento de senha, tente [isso](active-directory-passwords-update-your-own-password.md#reset-your-password).
+
 
 ## <a name="what-is-the-myapps-portal"></a>O que é o portal do MyApps?
 
@@ -35,9 +35,9 @@ MyApps é um portal da Web que permite que você:
 
 - Gerenciar e iniciar aplicativos baseados em nuvem
 - Gerenciar suas associações de grupo
-- Gerenciar suas configurações de perfil 
+- Gerenciar suas configurações de perfil
 
-![Painel de acesso][1] 
+![Painel de acesso][1]
 
 
 
@@ -49,7 +49,7 @@ MyApps é um portal da Web que permite que você:
 3.    Digite a sua senha antiga, digite uma nova senha e confirme.
 4.    Clique em **Enviar**.
 
-Para obter mais detalhes, confira [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+Para obter mais detalhes, confira [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>Como posso configurar a redefinição de senha?
@@ -58,7 +58,7 @@ Para obter mais detalhes, confira [Como atualizar sua própria senha](active-dir
 2.    Em **Gerenciar Conta**, clique em **Configurar autoatendimento de redefinição de senha**.
 3.    Execute as etapas da caixa de diálogo e envie.
 
-Para obter mais detalhes, consulte [Como redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+Para obter mais detalhes, consulte [Como redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>Como posso adicionar um novo aplicativo?
