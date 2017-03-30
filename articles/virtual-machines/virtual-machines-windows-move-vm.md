@@ -13,19 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
-ms.openlocfilehash: cccbddd6993e3011e3e76bc84ffc212f3f8b1d55
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 2aaf9bfaade060817fa7e42299ad20a2e8f78eaf
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Mover uma VM Windows para outra assinatura ou outro grupo de recursos do Azure
 Este artigo explica como mover uma VM Windows entre grupos de recursos ou assinaturas. A movimentação entre assinaturas poderá ser útil se você tiver originalmente criado uma VM em uma assinatura pessoal e agora deseja movê-la para a assinatura da sua empresa a fim de continuar seu trabalho.
 
-> [!NOTE]
-> Novas IDs de recurso serão criadas como parte da mudança. Após a mudança da VM, você precisará atualizar suas ferramentas e scripts para usar as novas IDs de recurso. 
+> [!IMPORTANT]
+>No momento, não é possível mover o Managed Disks. 
+>
+>Novas IDs de recurso são criadas como parte da mudança. Após a mudança da VM, você precisa atualizar ferramentas e scripts para usar as novas IDs de recurso. 
 > 
 > 
 
@@ -62,10 +65,5 @@ Será solicitado que você confirme se deseja mover os recursos especificados. D
 
 ## <a name="next-steps"></a>Próximas etapas
 Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).    
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e5bacb7ce32845b97e06cb0d35cc62935a3c86f6
-ms.openlocfilehash: 79b597fb1d76ec0dd7bdfca701a16f885d245b94
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9fa8835003b1d8a0dbc56bf9ff8996e48fc41acf
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -93,14 +94,9 @@ Elapsed time:            00.00:13:07
 ```
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-* Ao usar o AZCopy, se ver o erro Falha do servidor na autenticação da solicitação, assegure-se de que o valor do cabeçalho Autorização esteja formado corretamente, incluindo a assinatura, e de que esteja usando a Chave 2 ou a chave de armazenamento secundária, tente usar a primeira chave de armazenamento ou a chave primária.
+* Ao usar o AZCopy, se você receber o erro “Falha do servidor em autenticar a solicitação”, verifique se o valor do cabeçalho Authorization está formado corretamente, incluindo a assinatura. Se estiver usando a Chave 2 ou a chave de armazenamento secundária, tente usar a chave primária ou a primeira chave de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Você pode criar uma nova VM ao [anexar a cópia do VHD a uma VM como um disco do SO](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: edc6b5f7a90babaa1f50b14f40eaed1e8582cd2e
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: f550ec9a8d254378d165f0c842459fd50ade7945
+ms.openlocfilehash: 9ea999ea483543beda8d258f58dc8fba479aa603
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -38,7 +38,7 @@ O Azure Application Gateway é um balanceador de carga de camada&7;. Ele fornece
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: instalar a CLI do Azure
 
-Para executar as etapas deste artigo, será necessário [instalar a Interface de Linha de Comando do Azure para Mac, Linux e Windows (CLI do Azure)](../cli-install-nodejs.md) e você precisará fazer [logon no Azure](../xplat-cli-connect.md). 
+Para executar as etapas deste artigo, será necessário [instalar a Interface de Linha de Comando do Azure para Mac, Linux e Windows (CLI do Azure)](../xplat-cli-install.md) e você precisará fazer [logon no Azure](../xplat-cli-connect.md). 
 
 > [!NOTE]
 > Se você não tiver uma conta do Azure, crie uma. Inscreva-se em uma [avaliação gratuita aqui](../active-directory/sign-up-organization.md).

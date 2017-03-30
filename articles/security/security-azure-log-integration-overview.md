@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/03/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 6859f2f0c627c9c23703875d04b4893b58775a26
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 434961f7d25195eee3310461a3a97e03ffdd8917
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,7 +27,7 @@ Saiba mais sobre a integração de log do Azure, seus principais recursos e como
 ## <a name="overview"></a>Visão geral
 PaaS (plataforma como serviço) e IaaS (infraestrutura como serviço) hospedadas no Azure geram uma grande quantidade de dados em logs de segurança. Esses logs contêm informações importantes que podem fornecer inteligência e entendimentos significativos sobre as violações de política, as ameaças internas e externas, os problemas de conformidade normativa e as anomalias na rede, no host e na atividade do usuário.
 
-A integração do log do Azure permite que você integre registros brutos de recursos do Azure em seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. A integração do log do Azure coleta o Diagnóstico do Azure nas máquinas virtuais do Windows *(WAD)*, nos Logs de Atividade do Azure, nos alertas da central de segurança do Azure e nos logs do Provedor de Recursos do Azure. Esta integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança.
+A integração do log do Azure é uma solução gratuita que permite integrar logs brutos dos recursos do Azure a sistemas SIEM (Gerenciamento de Informações e Eventos de Segurança) locais. A integração do log do Azure coleta o Diagnóstico do Azure nas máquinas virtuais do Windows *(WAD)*, nos Logs de Atividade do Azure, nos alertas da central de segurança do Azure e nos logs do Provedor de Recursos do Azure. Esta integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança.
 
 ![Integração de log do Azure][1]
 
@@ -50,6 +50,7 @@ A tabela a seguir explica a categoria de log e os detalhes de integração do SI
 | Logs de diagnóstico (logs de recurso) | Sim | Precisa que o usuário final crie o arquivo do analisador JSON FlexConnector. Consulte a documentação do ArcSight para saber como fazer isso. | Você deve criar uma extensão de origem do log. Consulte a documentação do QRadar para obter mais informações |
 | Logs da VM | Sim, por meio de eventos encaminhados e não por meio do JSON | Sim, por meio de eventos encaminhados | Sim, por meio de eventos encaminhados |
 
+Integração de Log do Azure é uma solução gratuita – você não precisa pagar pelos binários da Integração de Log do Azure. No entanto, haverá custos relacionados ao armazenamento do Azure necessários para as informações de arquivo de log.
 
 Se você tiver dúvidas sobre a integração do Log do Azure, envie um email para [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
 

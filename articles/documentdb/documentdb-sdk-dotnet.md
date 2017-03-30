@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/20/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 2de833df26de9a9e160dd0cfcc1589eb0ebb7d34
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5bded9c15ef6ec5464952d533c6681801f137749
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -51,6 +51,10 @@ ms.lasthandoff: 03/15/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name11221122httpswwwnugetorgpackagesmicrosoftazuredocumentdb1122"></a><a name="1.12.2"/>[1.12.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.2)
+* Correção de um problema que eventualmente causa uma WebException: O nome remoto não pôde ser resolvido.
+* Adição do suporte para ler um documento digitado diretamente com a adição de novas sobrecargas à API ReadDocumentAsync.
 
 ### <a name="a-name11211121httpswwwnugetorgpackagesmicrosoftazuredocumentdb1121"></a><a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
 * Adicionado suporte ao LINQ para consultas de agregação (CONT.NÚM, MÍNIMO, MÁXIMO, SOMA e MÉDIA).
@@ -147,7 +151,7 @@ ms.lasthandoff: 03/15/2017
 * **[Corrigido]** ArgumentOutOfRangeException ao combinar a projeção do Modelo com o Where-In na consulta linq.  [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151httpswwwnugetorgpackagesmicrosoftazuredocumentdb151"></a><a name="1.5.1"/>[1.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
-* **[Corrigido]** Se Select não for a última expressão, o Provedor LINQ presumiu que não havia projeção e produziu SELECT * incorretamente.  [Nº&58;](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
+* **[Corrigido]** Se Select não for a última expressão, o Provedor LINQ presumiu que não havia projeção e produziu SELECT * incorretamente.  [Nº 58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
 
 ### <a name="a-name150150httpswwwnugetorgpackagesmicrosoftazuredocumentdb150"></a><a name="1.5.0"/>[1.5.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.0)
 * Implementação de Upsert, adição de métodos UpsertXXXAsync
@@ -179,7 +183,7 @@ ms.lasthandoff: 03/15/2017
 * Suporte adicionado para consulta e indexação espacial
   * Novo namespace Microsoft.Azure.Documents.Spatial para serializar/desserializar tipos espaciais, como Ponto e Polígono
   * Nova classe  SpatialIndex para indexação de dados GeoJSON armazenados no Banco de Dados de Documentos
-* **[Corrigido]** : consulta SQL incorreta gerada usando a expressão LINQ [Nº&38;](https://github.com/Azure/azure-documentdb-net/issues/38)
+* **[Corrigido]** : consulta SQL incorreta gerada usando a expressão LINQ [Nº 38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="a-name120120httpswwwnugetorgpackagesmicrosoftazuredocumentdb120"></a><a name="1.2.0"/>[1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
 * Dependência de Newtonsoft.Json v5.0.7 
@@ -212,6 +216,7 @@ Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsol
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |20 de março de 2017 |--- |
 | [1.12.1](#1.12.1) |14 de março de 2017 |--- |
 | [1.12.0](#1.12.0) |15 de fevereiro de 2017 |--- |
 | [1.11.4](#1.11.4) |06 de fevereiro de 2017 |--- |

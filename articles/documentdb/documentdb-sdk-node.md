@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/16/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 36b3eab758d006710467d23a30f889b605df1583
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: dd6e6184dd755ea356cae1c4d50a2b7ba39da9fb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -56,6 +56,14 @@ ms.lasthandoff: 03/07/2017
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="1.11.0"/>1.11.0</a>
+* Adição do suporte para consultas de agregação (COUNT, MIN, MAX, SUM e AVG).
+* Adição da opção para controlar o grau de paralelismo em consultas de partição cruzada.
+* Adição da opção para desabilitar a verificação do SSL quando executada no Emulador do DocumentDB.
+* Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
+* Correção do bug de token de continuação para a coleta de partição única (GitHub nº 107).
+* Correção do bug executeStoredProcedure na manipulação de 0 como parâmetro único (GitHub nº 155).
+
 ### <a name="1.10.2"/>1.10.2</a>
 * Cabeçalho de agente do usuário fixo para incluir a versão do SDK.
 * Limpeza de código secundária.
@@ -89,16 +97,16 @@ ms.lasthandoff: 03/07/2017
 * hashPartitionResolver resolveForRead() corrigido: quando nenhuma chave de partição fornecida estava emitindo exceção, em vez de retornar uma lista de todos os links registrados.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Corrige o problema [nº&100;](https://github.com/Azure/azure-documentdb-node/issues/100) — Agente HTTPS Dedicado: evite modificar o agente global para os fins do Banco de Dados de Documentos. Use um agente dedicado para todas as solicitações da biblioteca.
+* Corrige o problema [nº 100](https://github.com/Azure/azure-documentdb-node/issues/100) — Agente HTTPS Dedicado: evite modificar o agente global para os fins do Banco de Dados de Documentos. Use um agente dedicado para todas as solicitações da biblioteca.
 
 ### <a name="1.5.3"/>1.5.3</a>
-* Corrige o problema [nº&81;](https://github.com/Azure/azure-documentdb-node/issues/81) — trate corretamente os traços em IDs de mídia.
+* Corrige o problema [nº 81](https://github.com/Azure/azure-documentdb-node/issues/81) — trate corretamente os traços em IDs de mídia.
 
 ### <a name="1.5.2"/>1.5.2</a>
-* Corrige o problema [nº&95;](https://github.com/Azure/azure-documentdb-node/issues/95) — aviso de perda do ouvinte EventEmitter.
+* Corrige o problema [nº 95](https://github.com/Azure/azure-documentdb-node/issues/95) — aviso de perda do ouvinte EventEmitter.
 
 ### <a name="1.5.1"/>1.5.1</a>
-* Corrige o problema [nº&92;](https://github.com/Azure/azure-documentdb-node/issues/90) — renomeie a pasta Hash para hash nos sistemas que diferenciam maiúsculas de minúsculas.
+* Corrige o problema [nº 92](https://github.com/Azure/azure-documentdb-node/issues/90) — renomeie a pasta Hash para hash nos sistemas que diferenciam maiúsculas de minúsculas.
 
 ### <a name="1.5.0"/>1.5.0</a>
 * Implemente o suporte a fragmentação ao adicionar os resolvedores de partição de hash e de intervalo.
@@ -115,7 +123,7 @@ ms.lasthandoff: 03/07/2017
 
 ### <a name="1.2.1"/>1.2.1</a>
 * Implementa o roteamento com base em ID.
-* Corrige o problema [nº&49;](https://github.com/Azure/azure-documentdb-node/issues/49) - a propriedade atual está em conflito com o método atual().
+* Corrige o problema [nº 49](https://github.com/Azure/azure-documentdb-node/issues/49) - a propriedade atual está em conflito com o método atual().
 
 ### <a name="1.2.0"/>1.2.0</a>
 * Suporte adicionado para índice geoespaciais.
@@ -126,15 +134,15 @@ ms.lasthandoff: 03/07/2017
 * Implementa a política de indexação V2.
 
 ### <a name="1.0.3"/>1.0.3</a>
-* Problema [nº&40;](https://github.com/Azure/azure-documentdb-node/issues/40) - Configurações eslint e grunt implementadas no núcleo e SDK de promessa.
+* Problema [nº 40](https://github.com/Azure/azure-documentdb-node/issues/40) - Configurações eslint e grunt implementadas no núcleo e SDK de promessa.
 
 ### <a name="1.0.2"/>1.0.2</a>
-* Problema [nº&45;](https://github.com/Azure/azure-documentdb-node/issues/45) - Promessa de wrapper não inclui o cabeçalho com erro.
+* Problema [nº 45](https://github.com/Azure/azure-documentdb-node/issues/45) - Promessa de wrapper não inclui o cabeçalho com erro.
 
 ### <a name="1.0.1"/>1.0.1</a>
 * Habilidade implementada de consultar conflitos por meio da adição de readConflicts, readConflictAsync e queryConflicts.
 * Documentação da API atualizada.
-* Problema [nº&41;](https://github.com/Azure/azure-documentdb-node/issues/41) - Erro client.createDocumentAsync.
+* Problema [nº 41](https://github.com/Azure/azure-documentdb-node/issues/41) - Erro client.createDocumentAsync.
 
 ### <a name="1.0.0"/>1.0.0</a>
 * SDK DO GA.
@@ -150,6 +158,7 @@ Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsol
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |16 de março de 2017 |--- |
 | [1.10.2](#1.10.2) |27 de janeiro de 2017 |--- |
 | [1.10.1](#1.10.1) |22 de dezembro de 2016 |--- |
 | [1.10.0](#1.10.0) |3 de outubro de 2016 |--- |

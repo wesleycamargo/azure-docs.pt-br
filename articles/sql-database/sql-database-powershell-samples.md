@@ -1,6 +1,6 @@
 ---
 title: Amostras do Azure PowerShell para o Banco de Dados SQL | Microsoft Docs
-description: "Exemplos de CLI do Azure - Criar e gerenciar servidores do Banco de Dados SQL, pools Elásticos, bancos de dados e firewalls."
+description: "Amostras do Azure PowerShell – scripts para ajudá-lo a criar e gerenciar servidores do Banco de Dados SQL do Azure, pools elásticos, bancos de dados e firewalls."
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: f8e11c348da1d783b691a60c68055f2d394e6a94
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: abcccabbfc56102c97ef2408fb812755e21b467c
+ms.lasthandoff: 03/22/2017
 
 ---
 

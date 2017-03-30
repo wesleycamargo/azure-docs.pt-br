@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
-ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: cd4de75743ee46bb07aec2cf23fa7687f4f20f43
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -119,6 +119,8 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 > [!NOTE] 
 > Atualmente, uma Rede Virtual contendo um Gateway de VPN não pode ser movido até que o Gateway tenha sido removido temporariamente. Uma vez removido, a Rede Virtual pode ser movida com êxito e o Gateway pode ser criado.
 >
+> Atualmente, uma Rede Virtual emparelhada só poderá ser movida quando o emparelhamento VNet for desabilitado. Depois de desabilitado, a Rede Virtual pode ser movida com êxito e o emparelhamento VNet pode ser habilitado.
+>
  
 ## <a name="services-that-do-not-enable-move"></a>Serviços que não permitem mover
 Os serviços que atualmente não permitem mover um recurso são:
@@ -134,6 +136,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Cofre de Serviços de Recuperação – não mova os recursos de Computação, Rede e Armazenamento associados ao cofre dos Serviços de Recuperação. Consulte [Limitações dos Serviços de Recuperação](#recovery-services-limitations).
 * Segurança
 * Máquinas Virtuais com certificado armazenado no Cofre de Chaves
+* Máquinas virtuais com o Managed Disks
 * Conjuntos de Escala de Máquinas Virtuais
 * Redes Virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 * Gateway de VPN

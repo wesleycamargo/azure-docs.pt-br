@@ -17,16 +17,16 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 8d4823576fe0d44fa565fdb72e8b229d31dff609
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 2d72731304aee0952abbb1f3b2c24b620118fc6c
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migração de banco de dados do SQL Server para o Banco de Dados SQL na nuvem
 Neste artigo, você aprenderá sobre os dois principais métodos para migrar um banco de dados SQL Server 2005 ou posterior para o Banco de Dados SQL. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.
 
-Em ambos os casos, você precisa garantir que o banco de dados de origem seja compatível com o Banco de Dados Azure SQL. Com o Banco de Dados SQL V12, estamos abordando a [paridade de recursos](sql-database-features.md) com o SQL Server, além dos problemas relacionados às operações de nível de servidor e banco de dados. Os bancos de dados e os aplicativos que dependem de [funções com suporte parcial ou sem suporte](sql-database-transact-sql-information.md) precisarão de alguma [reengenharia que corrija essas incompatibilidades](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) para que o banco de dados SQL Server possa ser migrado.
+Em ambos os casos, você precisa garantir que o banco de dados de origem seja compatível com o Banco de Dados SQL do Azure usando o [DMA (Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595). O Banco de Dados SQL V12 está se aproximando da [paridade de recursos](sql-database-features.md) com o SQL Server, além dos problemas relacionados às operações em nível do servidor e entre bancos de dados. Os bancos de dados e os aplicativos que dependem de [funções com suporte parcial ou sem suporte](sql-database-transact-sql-information.md) precisarão de alguma [reengenharia que corrija essas incompatibilidades](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) para que o banco de dados SQL Server possa ser migrado.
 
 > [!NOTE]
 > Para migrar um banco de dados não SQL Server, incluindo Microsoft Access, Sybase, MySQL Oracle e DB2 para o Banco de Dados SQL do Azure, confira [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).

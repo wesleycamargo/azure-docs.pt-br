@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a74872f308624028016ffb30ead3c056b1fa69ce
-ms.openlocfilehash: fbab411a22d3d1e140bc3ea8f56b113de79f204c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43618268aa0b234d271dcee7f95dfad2f2a1bb2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,8 +28,8 @@ O Gerenciamento de API do Azure pode ser implantado na VNET (rede virtual) para 
 
 > [!NOTE]
 > O Gerenciamento de API do Azure oferece suporte às VNets clássicas e do Azure Resource Manager.
-> 
-> 
+>
+>
 
 ## <a name="enable-vpn"> </a>Habilitar conexão de VNET
 > [!NOTE]
@@ -59,20 +59,20 @@ Agora você verá uma lista de todas as regiões em que o serviço de Gerenciame
 
 > [!IMPORTANT]
 > Ao implantar uma instância do Gerenciamento de API do Azure a uma VNET do Resource Manager, o serviço deve estar em uma sub-rede dedicada que não contém outros recursos, exceto as instâncias do Gerenciamento de API do Azure. Se for feita uma tentativa de implantar uma instância do Gerenciamento de API do Azure em uma VNET do Resource Manager que contém outros recursos, a implantação falhará.
-> 
-> 
+>
+>
 
 ![Selecionar VPN][api-management-setup-vpn-select]
 
-Clique em **Salvar** na parte superior da tela. 
+Clique em **Salvar** na parte superior da tela.
 
 > [!NOTE]
 > O endereço VIP da instância do Gerenciamento de API mudará sempre que a VNET for habilitada ou desabilitada.  
 > O endereço VIP também será alterado quando o Gerenciamento de API for movido de **Externo** para **Interno** ou vice-versa
-> 
+>
 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Se você remover o Gerenciamento de API de uma rede virtual ou alterar uma em que ele esteja implantado, a rede virtual usada anteriormente poderá permanecer bloqueada por até 4 horas. Durante esse período, não será possível excluir a rede virtual nem implantar um novo recurso nela.
 
 ## <a name="enable-vnet-powershell"> </a>Habilitar a conexão de VNET usando cmdlets do PowerShell
@@ -94,7 +94,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 
 > [!IMPORTANT]
 > Se estiver usando um Servidor DNS personalizado para a rede virtual, é aconselhável que você o configure **antes** de implantar um serviço Gerenciamento de API nele. Caso contrário, precisaremos reiniciar o CloudService que hospeda o serviço para que ele aceite as configurações do novo Servidor DNS.
-> 
+>
 
 * **Portas necessárias para o Gerenciamento de API**: o tráfego de entrada e saída para a sub-rede na qual o Gerenciamento de API foi implantado pode ser controlado usando o [Grupo de Segurança de Rede][Network Security Group]. Se qualquer uma dessas portas estiver indisponível, o Gerenciamento de API poderá não funcionar corretamente e poderá se tornar inacessível. A existência de uma ou mais dessas portas bloqueadas é outro problema de configuração incorreta no uso do Gerenciamento de API em uma VNET.
 
@@ -134,7 +134,7 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 
 
 ## <a name="related-content"> </a>Conteúdo relacionado
-* [Conectar uma rede virtual ao back-end usando o Gateway de VPN][Different topologies to connect to Vpn Gateway]
+* [Conectando uma rede virtual ao back-end usando o Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
 * [Conectar uma rede virtual de diferentes modelos de implantação](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure](api-management-howto-api-inspector.md)
 
@@ -149,7 +149,6 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
 

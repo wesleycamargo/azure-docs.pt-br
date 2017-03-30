@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 3d78af41bbe13bcec9336452110a857d114ad006
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -119,7 +119,7 @@ Os escopos de política são avaliados na ordem a seguir.
 3. Escopo de API
 4. Escopo de operação
 
-As declarações dentro deles são avaliadas de acordo com o posicionamento do elemento `base` , se ele estiver presente.
+As declarações dentro deles são avaliadas de acordo com o posicionamento do elemento `base` , se ele estiver presente. Uma política global não tem nenhuma política pai e usar o elemento `<base>` nela não terá nenhum efeito.
 
 Por exemplo, se você tiver uma política a nível global e uma política configurada para uma API, então, sempre que essa API em particular for usado, ambas as políticas serão aplicadas. O Gerenciamento de API permite uma ordenação determinista de instruções de política combinadas por meio do elemento base. 
 
@@ -133,11 +133,9 @@ Por exemplo, se você tiver uma política a nível global e uma política config
 </policies>
 ```
 
-No exemplo de definição de política acima, a instrução `cross-domain` seria executada antes de quaisquer políticas maiores que, por sua vez, seriam seguidas da política `find-and-replace`.
+No exemplo de definição de política acima, a instrução `cross-domain` seria executada antes de quaisquer políticas maiores que, por sua vez, seriam seguidas da política `find-and-replace`. 
 
-Se a mesma política aparece duas vezes na declaração de política, a política avaliada mais recentemente é aplicada. Você pode usar isso para substituir políticas que são definidas em um escopo maior. Para ver as políticas no escopo atual no editor de política, clique em **Recalcular a política efetiva para o escopo selecionado**.
-
-Observe que uma política global não tem nenhuma política pai e que usar o elemento `<base>` nela não tem nenhum efeito. 
+Para ver as políticas no escopo atual no editor de política, clique em **Recalcular a política efetiva para o escopo selecionado**.
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira o vídeo a seguir sobre expressões de política.

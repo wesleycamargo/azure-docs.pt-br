@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -33,6 +34,9 @@ Após a configuração de um Application Gateway do Azure, um dos erros que os u
 * VMs de back-end ou instâncias do Conjunto de Escala de VM não estão respondendo à investigação de integridade padrão.
 * Configuração inválida ou incorreta de investigações de integridade personalizadas.
 * Tempo limite de solicitação ou problemas de conectividade com solicitações de usuário.
+
+> [!note]
+> O Gateway de Aplicativo preserva o cabeçalho de host de entrada e envia o mesmo cabeçalho ao back-end. Se o back-end exigir um cabeçalho diferente, isso não funcionará. Da mesma forma, se o back-end tiver vários locatários, e o SSL ponta a ponta estiver habilitado, o back-end esperaria o nome do servidor na extensão SNI. No momento, o Gateway de Aplicativo não envia um cabeçalho SNI nas solicitações de back-end em cenários SSL de ponta a ponta que causariam problemas de investigação e caminho de dados.
 
 ## <a name="empty-backendaddresspool"></a>BackendAddressPool vazio
 
@@ -150,10 +154,5 @@ O Application Gateway permite aos usuários definir essa configuração por meio
 ## <a name="next-steps"></a>Próximas etapas
 
 Se as etapas anteriores não resolverem o problema, abra um [tíquete de suporte](https://azure.microsoft.com/support/options/).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

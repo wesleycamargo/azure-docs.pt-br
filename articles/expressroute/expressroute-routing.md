@@ -17,6 +17,7 @@ ms.author: osamam
 translationtype: Human Translation
 ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
 ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -212,10 +213,5 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
   * [Criar um circuito do ExpressRoute para o modelo de implantação clássico](expressroute-howto-circuit-classic.md) ou [Criar e modificar um circuito do ExpressRoute usando o Azure Resource Manager](expressroute-howto-circuit-arm.md)
   * [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Resource Manager](expressroute-howto-routing-arm.md)
   * [Vincular uma VNet clássica a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Vincular uma VNet do Resource Manager a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

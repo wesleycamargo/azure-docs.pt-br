@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar endereços IP reservados (Clássico) usando o PowerShell | Microsoft Docs"
+title: "Gerenciar endereços IP reservados do Azure (Clássico) – PowerShell | Microsoft Docs"
 description: "Entender os endereços IP reservados (Clássico) e como gerenciá-los usando o PowerShell."
 services: virtual-network
 documentationcenter: na
@@ -15,19 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: 55071ffe1bcc17b2181b4c52f51d28571a2f0eff
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 276b1bcebbe3c32d6fead8ee240dd1ddfb01c872
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="reserved-ip-addresses-classic"></a>Endereços IP reservados (Clássico)
 
 > [!div class="op_single_selector"]
-- [portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Modelo](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
+> * [portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Modelo](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
 
 Os endereços IP no Azure recaem em duas categorias: dinâmicos e reservados. Os endereços IP públicos gerenciados pelo Azure são dinâmicos por padrão. Isso significa que o endereço IP usado para um determinado serviço de nuvem (VIP) ou para acessar uma VM ou instância de função diretamente (ILPIP) pode mudar de tempos em tempos, quando recursos forem desligados ou desalocados.
 
@@ -164,10 +165,5 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 * Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.
 * Saiba mais sobre [endereços IP privados reservados](virtual-networks-reserved-private-ip.md).
 * Saiba mais sobre [endereços ILPIP (IP Público de Nível de Instância)](virtual-networks-instance-level-public-ip.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

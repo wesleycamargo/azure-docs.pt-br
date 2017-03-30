@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/20/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: f2586eae5ef0437b7665f9e229b0cc2749bff659
-ms.openlocfilehash: 894856c6386b26610ca5078238a88adcdd2d9a03
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 5ad5c688bae7b20ce6e5830e8c7b8dfa9c6df701
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -66,9 +67,9 @@ O Feed de Alteração do DocumentDB está habilitado por padrão para todas as c
 
 ![Processamento distribuído de feed de alteração do DocumentDB](./media/documentdb-change-feed/changefeedvisual.png)
 
-Na seção a seguir, descrevemos como acessar o feed de alteração usando a API de REST e os SDKs do DocumentDB.
+Na seção a seguir, descrevemos como acessar o feed de alteração usando a API de REST e os SDKs do DocumentDB. Para aplicativos .NET, recomendamos o uso da [Biblioteca do processador de feed de alterações]() para processar eventos do feed de alterações.
 
-## <a name="working-with-the-rest-api-and-sdk"></a>Como trabalhar com a API REST e o SDK
+## <a id="rest-apis"></a>Trabalhando com a API REST e o SDK
 O DocumentDB fornece contêineres elásticos de armazenamento e produtividade chamados **coleções**. Os dados em coleções são logicamente agrupados usando [chaves de partição](documentdb-partition-data.md) para obtenção de escalabilidade e desempenho. O DocumentDB fornece várias APIs para acessar esses dados, incluindo pesquisa por ID (Read/Get), consulta e feeds de leitura (verificações). O feed de alteração pode ser obtido por meio da população de dois novos cabeçalhos de solicitação na API `ReadDocumentFeed` do DocumentDB e pode ser processado em paralelo em intervalos de chaves de partição.
 
 ### <a name="readdocumentfeed-api"></a>API do ReadDocumentFeed
@@ -88,8 +89,6 @@ Os resultados podem ser limitados por meio do cabeçalho `x-ms-max-item-count` e
 
 **Feed de Documento de Leitura Serial**
 
-![Execução serial do ReadDocumentFeed do DocumentDB](./media/documentdb-change-feed/readfeedserial.png)
-
 Você também pode recuperar o feed de documentos usando um dos [SDKs do DocumentDB](documentdb-sdk-dotnet.md) com suporte. Por exemplo, o trecho a seguir mostra como executar ReadDocumentFeed no .NET.
 
     FeedResponse<dynamic> feedResponse = null;
@@ -99,15 +98,10 @@ Você também pode recuperar o feed de documentos usando um dos [SDKs do Documen
     }
     while (feedResponse.ResponseContinuation != null);
 
-> [!NOTE]
-> O Feed de Alteração exige as versões 1.11.0 e acima do SDK (disponível atualmente no modo de visualização particular)
-
 ### <a name="distributed-execution-of-readdocumentfeed"></a>Execução distribuída do ReadDocumentFeed
 Para coleções que contêm terabytes de dados ou mais, ou um grande volume de atualizações de ingestão, a execução serial de feed de leitura de um único computador cliente pode não ser prática. Para oferecer suporte a esses cenários de big data, o DocumentDB fornece APIs para distribuir chamadas `ReadDocumentFeed` de forma transparente entre vários leitores/consumidores de cliente. 
 
 **Feed de Documento de Leitura Distribuída**
-
-![Execução distribuída do ReadDocumentFeed do DocumentDB](./media/documentdb-change-feed/readfeedparallel.png)
 
 Para fornecer processamento dimensionável das alterações incrementais, o DocumentDB oferece suporte a um modelo de expansão para a API do feed de alteração com base em intervalos de chaves de partição.
 
@@ -337,15 +331,27 @@ Você também pode filtrar o feed de alteração usando lógica de cliente para 
         // trigger an action, like call an API
     }
 
+## <a id="change-feed-processor"></a>Biblioteca do processador de feed de alterações
+A [biblioteca do processador de feed de alterações do DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor) pode ser usada para distribuir o processamento de eventos do feed de alterações entre vários consumidores. É necessário usar essa implementação ao criar os leitores do feed de alterações na plataforma .NET. A classe `ChangeFeedProcessorHost` fornece um ambiente de tempo de execução seguro, thread-safe e de vários processos para implementações do processador de eventos, que também fornece gerenciamento de concessão de ponto de verificação e partição.
+
+Para usar a classe [`ChangeFeedProcessorHost`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/ChangeFeedEventHost.cs), é possível implementar [`IChangeFeedObserver`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/IChangeFeedObserver.cs). Essa interface contém três métodos:
+
+* OpenAsync
+* CloseAsync
+* ProcessEventsAsync
+
+Para iniciar o processamento de eventos, crie uma instância do ChangeFeedProcessorHost, fornecendo os parâmetros apropriados para a coleção do DocumentDB. Em seguida, chame `RegisterObserverAsync` para registrar a implementação `IChangeFeedObserver` no tempo de execução. Neste ponto, o host tentará adquirir uma concessão em todos os intervalos de chaves de partição na coleção do DocumentDB usando um algoritmo “greedy”. Essas concessões vão durar por determinado período e, em seguida, devem ser renovadas. Como novos nós, as instâncias de trabalho, nesse caso, ficam online, colocam reservas de concessão e com o tempo, a carga é trocada entre os nós, à medida que cada uma tenta adquirir mais concessões.
+
+![Usando o host do processador de feed de alterações do DocumentDB](./media/documentdb-change-feed/changefeedprocessor.png)
+
+Ao longo do tempo, é estabelecido um equilíbrio. Essa funcionalidade dinâmica permite que o dimensionamento automático com base em CPU seja aplicado aos consumidores de ampliação e redução de escala. Se as alterações estiverem disponíveis no DocumentDB a uma taxa mais rápida do que os consumidores puderem processar, o aumento de CPU nos consumidores poderá ser usado para causar uma escala automática na contagem de instâncias de trabalho.
+
+A classe ChangeFeedProcessorHost também implementa um mecanismo de ponto de verificação usando uma coleção separada de concessões do DocumentDB. Esse mecanismo armazena o deslocamento por base de partição, de forma que cada consumidor pode determinar qual foi o último ponto de verificação do consumidor anterior. Conforme as partições fazem transição entre os nós por meio de concessões, esse é o mecanismo de sincronização que facilita a alternância de carga.
+
 Neste artigo, fornecemos um passo a passo de suporte do Feed de Alteração do DocumentDB e como controlar as alterações feitas nos dados do DocumentDB usando a API REST e/ou os SDKs do DocumentDB. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Experimente os [exemplos de código do Feed de Alteração do DocumentDB no Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
 * Saiba mais sobre o [modelo e a hierarquia de recursos do DocumentDB](documentdb-resources.md)
 * Introdução à codificação com os [SDKs do DocumentDB](documentdb-sdk-dotnet.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

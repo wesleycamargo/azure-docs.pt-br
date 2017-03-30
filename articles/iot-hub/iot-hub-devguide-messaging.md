@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2fb6f4d8330eb62e01af318277bc0e90aee039e0
-ms.openlocfilehash: d3c4d1a91615957764552a985e0dfeba7c10a927
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: e9e1649e4329d10ca8b87c730ad8c6beb3be818f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -191,7 +191,7 @@ O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes
 | --- | --- |
 | EnqueuedTimeUtc |Carimbo de data e hora que indica quando ocorreu a saída da mensagem. Por exemplo, o dispositivo foi concluído ou a mensagem expirou. |
 | OriginalMessageId |**MessageId** da mensagem da nuvem para o dispositivo a qual essas informações de comentários pertencem. |
-| StatusCode |Inteiro necessário. Usado em mensagens de comentários geradas pelo Hub IoT. <br/> 0 = sucesso <br/> 1 = mensagem expirou <br/> 2 = contagem máxima de entregas excedida <br/> &3; = mensagem rejeitada |
+| StatusCode |Inteiro necessário. Usado em mensagens de comentários geradas pelo Hub IoT. <br/> 0 = sucesso <br/> 1 = mensagem expirou <br/> 2 = contagem máxima de entregas excedida <br/> 3 = mensagem rejeitada |
 | Descrição |Valores de cadeia de caracteres para **StatusCode**. |
 | deviceId |**DeviceId** do dispositivo de destino da mensagem da nuvem para o dispositivo a qual pertence esses comentários. |
 | DeviceGenerationId |**DeviceGenerationId** do dispositivo de destino da mensagem da nuvem para o dispositivo a qual pertence esses comentários. |
@@ -292,7 +292,7 @@ A tabela a seguir lista o conjunto de propriedades do sistema em mensagens do Hu
 | Número de sequência |Um número (exclusivo por fila de dispositivos) atribuído pelo Hub IoT a cada mensagem da nuvem para o dispositivo. |
 | Para |Um destino especificado em mensagens [Da nuvem para o dispositivo][lnk-c2d]. |
 | ExpiryTimeUtc |Data e hora de expiração da mensagem. |
-| EnqueuedTime |Data e hora do recebimento da mensagem pelo Hub IoT. |
+| EnqueuedTime |Data e hora do recebimento da mensagem [Nuvem para o Dispositivo][lnk-c2d] pelo Hub IoT. |
 | CorrelationId |Uma cadeia de propriedade em uma mensagem de resposta que geralmente contém a MessageId da solicitação em padrões de solicitação-resposta. |
 | UserId |Uma ID usada para especificar a origem das mensagens. Quando as mensagens são geradas pelo Hub IoT, são definidas como `{iot hub name}`. |
 | Ack |Um gerador de mensagem de comentários. Essa propriedade é usada em mensagens da nuvem para o dispositivo para solicitar ao Hub IoT a geração de mensagens de comentários como resultado do consumo da mensagem pelo dispositivo. Valores possíveis: **nenhum** (padrão): nenhuma mensagem de comentários é gerada, **positivo**: ocorrerá o recebimento de uma mensagem de comentários se a mensagem estiver completa, **negativo**: ocorrerá o recebimento de uma mensagem de comentários se a mensagem expirar (ou se a contagem máxima de entrega tiver sido atingida) sem ser concluída pelo dispositivo ou **total**: positivos e negativos. Para saber mais, consulte [Comentários sobre a mensagem][lnk-feedback]. |
@@ -436,3 +436,4 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions
+

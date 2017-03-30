@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 710307b01fe64852771c071c070f5fcee59c9579
-ms.openlocfilehash: 494dbaf23de22efa79cfe65aa22bb7c948b3da80
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 1ada403a502972ee0d8cd96af2d62d923d43f6cf
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -30,13 +30,13 @@ As VMs do Azure agora estão disponíveis usando [Azure Managed Disks](../storag
 
 - Suporte de dimensionamento automático. O Azure cria os discos e gerencia o armazenamento subjacente para dar suporte a até 10.000 discos por assinatura.
 - Maior confiabilidade com Conjuntos de Disponibilidade. O Azure garante que os discos de VM sejam isolados automaticamente uns dos outros em Conjuntos de Disponibilidade.
-- Maior controle de acesso. Os Managed Disks expõem uma variedade de operações controladas pelo [RBAC (Controle de Acesso Baseado em Função do Azure)](../active-directory/role-based-access-control-what-is.md). 
+- Maior controle de acesso. Os Managed Disks expõem uma variedade de operações controladas pelo [RBAC (Controle de Acesso Baseado em Função do Azure)](../active-directory/role-based-access-control-what-is.md).
 
-Os preços dos Managed Disks são diferentes dos discos não gerenciados. Para obter essas informações, veja [Preços e cobrança para Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing). 
+Os preços dos Managed Disks são diferentes dos discos não gerenciados. Para obter essas informações, veja [Preços e cobrança para Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing).
 
 Você pode converter máquinas virtuais existentes que usam discos não gerenciados para usar discos gerenciados com [az vm convert](/cli/azure/vm#convert). Para saber mais, veja [Como converter uma VM Linux de discos não gerenciados em Azure Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Você não pode converter um disco não gerenciado em um disco gerenciado se o disco não gerenciado está em uma conta de armazenamento que está, ou esteve, [criptografada usando criptografia de serviço de armazenamento (SSE) do Azure](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). As etapas a seguir especificam como converter discos não gerenciados que estão, ou estiveram, em uma conta de armazenamento criptografada:
 
-- [Copie o disco rígido virtual (VHD)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) com [az storage blob copy start](/cli/azure/storage/blob/copy#start) para uma conta de armazenamento que nunca tenha sido habilitada para criptografia de serviço de armazenamento do Azure.
+- Copie o VHD (disco rígido virtual) com [az storage blob copy start](/cli/azure/storage/blob/copy#start) para uma conta de armazenamento que nunca foi habilitada para a Criptografia do Serviço de Armazenamento do Azure.
 - Crie uma VM que usa discos gerenciados e especifique este arquivo VHD durante a criação com [az vm create](/cli/azure/vm#create), ou
 - Anexe o VHD copiado com [az vm disk attach](/cli/azure/vm/disk#attach) a uma VM em execução com discos gerenciados.
 
@@ -62,7 +62,7 @@ Em seguida, crie a VM com o comando `az vm create`, como no exemplo a seguir; le
 az vm create \
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -76,7 +76,7 @@ az vm create \
 --storage-sku Premium_LRS
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -246,5 +246,4 @@ Para obter mais informações sobre como o Azure usa o disco temporário, consul
 
 ## <a name="storage-limits"></a>Limites de armazenamento
 * [Limites de Serviço de Armazenamento](../azure-subscription-service-limits.md#storage-limits)
-
 

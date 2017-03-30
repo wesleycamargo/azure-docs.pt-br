@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: fee6c375f93e1e669c031d8ca63470f7f48fadf2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 4fc454a8c7974b8f53cd6621639dd5b575cc66f7
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -65,16 +65,17 @@ Este artigo responde algumas das perguntas mais comuns sobre o Azure DevTest Lab
 * [Meu artefato falhou durante a criação da VM. Como solucionar isso?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [Por que a minha rede virtual existente não está salvando corretamente?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [Por que recebo um erro "Recurso pai não encontrado" ao provisionar do PowerShell?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
+* [Onde posso encontrar mais informações sobre erros quando há falha na implantação de uma VM?](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
 
 ### <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
-Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta.
+Caso sua pergunta não esteja listada aqui, fale conosco e nós o ajudaremos a encontrar uma resposta.
 
 * Poste uma pergunta sobre este artigo no [Thread do Disqus](#comments) no final desta seção de perguntas frequentes e entre em contato com a equipe do Cache do Azure e outros membros da comunidade.
 * Para atingir um público mais amplo, poste uma pergunta no [Fórum do Azure DevTest Labs no MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)e entre em contato com a equipe do Azure DevTest Labs e outros membros da comunidade.
 * Para fazer uma solicitação de recurso, envie solicitações e ideias para o [User Voice do Azure DevTest Labs](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### <a name="why-should-i-use-azure-devtest-labs"></a>Por que devo usar o Azure DevTest Labs?
-O Azure DevTest Labs pode economizar dinheiro e tempo da equipe. Os desenvolvedores podem criar seus próprios ambientes usando várias bases diferentes e usar artefatos para implantar e configurar aplicativos rapidamente. Usando fórmulas e imagens personalizadas, as máquinas virtuais pode ser salvas como modelos e reproduzidas facilmente. Além disso, os laboratórios oferecem várias políticas configuráveis que permitem aos administradores do laboratório reduzir o desperdício e gerenciar os ambientes da equipe. Essas políticas incluem desligamento automático, limite de custo, máximo de VMs por usuário e tamanhos máximos de VM. Para obter uma explicação mais detalhada sobre o Azure DevTest Labs, leia a [visão geral](devtest-lab-overview.md) ou confira o [vídeo introdutório](/documentation/videos/videos/what-is-azure-devtest-labs).
+O Azure DevTest Labs pode economizar dinheiro e tempo da equipe. Os desenvolvedores podem criar seus próprios ambientes usando várias bases diferentes e usar artefatos para implantar e configurar aplicativos rapidamente. Usando fórmulas e imagens personalizadas, as máquinas virtuais pode ser salvas como modelos e reproduzidas facilmente. Além disso, os laboratórios oferecem várias políticas configuráveis que permitem aos administradores do laboratório reduzir o desperdício e gerenciar os ambientes da equipe. Essas políticas incluem desligamento automático, limite de custo, máximo de VMs por usuário e tamanhos máximos de VM. Para obter uma explicação mais detalhada sobre o Azure DevTest Labs, leia a [visão geral](devtest-lab-overview.md) ou assista ao [vídeo introdutório](/documentation/videos/videos/what-is-azure-devtest-labs).
 
 ### <a name="what-does-worry-free-self-service-mean"></a>O que significa "autoatendimento sem preocupação"?
 "Autoatendimento sem preocupação" significa que os desenvolvedores e testadores podem criar seus próprios ambientes conforme a necessidade, e os administradores têm a segurança de saber que o Azure DevTest Labs ajudará a minimizar o desperdício e a controlar os custos. Os administradores podem especificar quais tamanhos de VM são permitidos, o número máximo de VMs e quando as VMs são inicializadas e desligadas. O Azure DevTest Labs também torna mais fácil monitorar os custos e definir alertas para se saber como os recursos do laboratório estão sendo usados.
@@ -157,7 +158,12 @@ Estamos criando uma solução para mover VMs diretamente para o Azure DevTest La
 Há suporte para anexar vários discos a máquinas virtuais.  
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do sistema operacional Windows para o meu teste, preciso comprar uma assinatura do MSDN?
-Sim, você deve [adquirir uma assinatura MSDN](https://www.visualstudio.com/products/how-to-buy-vs) se você precisa usar imagens do sistema operacional do cliente (Windows 7 e posterior) para seus testes. O [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) mostra os créditos para cada oferta do MSDN e fornece mais detalhes.
+Se você precisar usar imagens do sistema operacional cliente Windows (Windows 7 ou posterior) para o desenvolvimento ou teste no Azure, deverá:
+
+- [Comprar uma assinatura do MSDN](https://www.visualstudio.com/products/how-to-buy-vs). 
+- Se você tiver um Contrato Enterprise, crie uma assinatura do Azure com a [oferta de Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+
+Para obter mais informações sobre os créditos Azure para cada oferta do MSDN, consulte [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
 
 ### <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Como automatizar o processo de carregamento de arquivos VHD para criar imagens personalizadas?
 Há duas opções:
@@ -176,7 +182,7 @@ Para localizar a conta de armazenamento de destino associada a seu laboratório,
 7. Use a **URL** como seu destino no comando AzCopy.
 
 ### <a name="how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Como é possível automatizar o processo de exclusão de todas as VMs em meu laboratório?
-Além de excluir as VMs do seu laboratório no portal do Azure, você pode excluir todas as VMs em seu laboratório usando um script do PowerShell. No exemplo a seguir, apenas modifique os valores de parâmetro no comentário **Valores a alterar** . Você pode recuperar os valores `subscriptionId`, `labResourceGroup` e `labName` da folha do laboratório no portal do Azure.
+Além de excluir as VMs do laboratório no portal do Azure, é possível excluir todas as VMs no laboratório usando um script do PowerShell. No exemplo a seguir, modifique os valores de parâmetro no comentário **Valores a serem alterados**. Você pode recuperar os valores `subscriptionId`, `labResourceGroup` e `labName` da folha do laboratório no portal do Azure.
 
     # Delete all the VMs in a lab
 
@@ -225,18 +231,18 @@ Não há nenhum limite específico quanto ao número de laboratórios que podem 
 Não há nenhum limite específico quanto ao número de VMs que podem ser criadas por laboratório. No entanto, atualmente o laboratório dá suporte apenas para cerca de 40 VMs em execução ao mesmo tempo no armazenamento padrão e 25 VMs em execução simultânea no armazenamento premium. Estamos trabalhando para aumentar esses limites.
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Como faço para compartilhar um link direto para o meu laboratório?
-Para compartilhar um link direto para o laboratório, os usuários podem realizar o procedimento a seguir.
+Para compartilhar um link direto para os usuários do laboratório, realize o seguinte procedimento:
 
 1. Navegue até o laboratório no portal do Azure.
 2. Copie a URL do laboratório do navegador e compartilhe-a com os usuários do laboratório.
 
 > [!NOTE]
-> Se os usuários do laboratório forem usuários externos com uma [conta MSA](#what-is-a-microsoft-account) e não pertencerem ao Active Directory da sua empresa, talvez recebam um erro ao navegar para o link fornecido. Se receberem um erro, instrua-os a clicar no próprio nome no canto superior direito do portal do Azure e selecionar o diretório em que existe o laboratório na seção **Diretório** do menu.
+> Se os usuários do laboratório forem usuários externos com uma [conta da Microsoft](#what-is-a-microsoft-account) e não pertencerem ao Active Directory de sua empresa, talvez eles recebam um erro ao navegar para o link fornecido. Se receberem um erro, instrua-os a clicar no próprio nome no canto superior direito do portal do Azure e selecionar o diretório em que existe o laboratório na seção **Diretório** do menu.
 >
 >
 
 ### <a name="what-is-a-microsoft-account"></a>O que é uma conta da Microsoft?
-Uma conta da Microsoft é o que você utiliza para quase tudo o que faz com os serviços e dispositivos da Microsoft. É um endereço de email e a senha que você usa para entrar no Skype, Outlook.com, OneDrive, Windows Phone e Xbox LIVE – e isso significa que arquivos, fotos, contatos e configurações podem acompanhar você em qualquer dispositivo.
+Uma conta da Microsoft é o que você utiliza para quase tudo o que faz com os serviços e dispositivos da Microsoft. É um endereço de email e a senha que você usa para entrar no Skype, Outlook.com, OneDrive, Windows Phone e Xbox LIVE – e isso significa que seus arquivos, fotos, contatos e configurações podem acompanhar você em qualquer dispositivo.
 
 > [!NOTE]
 > A conta da Microsoft usada será chamada de "Windows Live ID".
@@ -244,7 +250,7 @@ Uma conta da Microsoft é o que você utiliza para quase tudo o que faz com os s
 >
 
 ### <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>Meu artefato falhou durante a criação da VM. Como solucionar isso?
-Consulte a postagem do blog [Como solucionar problemas de falha de Artefatos no AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs), escrita por um de nossos MVPs, para saber como obter logs sobre o artefato com falha.
+Consulte a postagem no blog [Como solucionar Artefatos com falha no Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) – escrita por um de nossos MVPs – para saber como obter logs sobre o artefato com falha.
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Por que a minha rede virtual existente não está salvando corretamente?
 Uma das possibilidades é que o nome da rede virtual contém pontos. Nesse caso, tente remover os pontos ou substituí-los por hifens e tente salvar a rede virtual novamente.
@@ -252,5 +258,10 @@ Uma das possibilidades é que o nome da rede virtual contém pontos. Nesse caso,
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell"></a>Por que recebo um erro "Recurso pai não encontrado" ao provisionar uma VM do PowerShell?
 Quando um recurso é pai de outro recurso, o recurso pai deve existir antes da criação do recurso filho. Se ele não existir, você receberá um erro **ParentResourceNotFound**. Se você não especificar uma dependência no recurso pai, o recurso filho poderá obter implantado antes do pai.
 
-As VMs são recursos filhos em um laboratório em um grupo de recursos. Quando você usa modelos do ARM para implantar por meio do PowerShell, o nome do grupo de recursos fornecido no script do PowerShell deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [Solução de erros comuns de implantação do Azure ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+As VMs são recursos filhos em um laboratório em um grupo de recursos. Quando você usa modelos do Azure Resource Manager para implantar por meio do PowerShell, o nome do grupo de recursos fornecido no script do PowerShell deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [Solução de erros comuns de implantação do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+
+### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Onde posso encontrar mais informações sobre erros se há falha na implantação de uma VM?
+Os erros de implantação de VM são capturados nos logs de atividades. É possível encontrar os logs de atividades de VMs do laboratório por meio dos **Logs de auditoria** ou do **Diagnóstico de máquina virtual** no menu de recursos da folha de VMs do laboratório (a folha é exibida após a seleção da VM na lista **Minhas máquinas virtuais**). 
+
+Às vezes, o erro de implantação ocorre antes do início da implantação da VM – por exemplo, quando o limite da assinatura de um recurso criado com a VM é excedido. Nesse caso, os detalhes do erro são capturados nos **Logs de atividades** em nível de laboratório, que podem ser encontrados na parte inferior das configurações **Configuração e políticas**. Para obter mais informações sobre como usar os logs de atividades no Azure, consulte [Exibir logs de atividades para auditar ações em recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 

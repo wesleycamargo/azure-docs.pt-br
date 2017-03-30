@@ -1,21 +1,22 @@
 ---
-title: "Rastreamento de dependências no Application Insights"
+title: "Acompanhamento de dependência no Azure Application Insights | Microsoft Docs"
 description: Analise o uso, disponibilidade e desempenho de seu local ou um aplicativo Web do Microsoft Azure com o Application Insights.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -33,6 +34,8 @@ O monitor de dependência pronto para uso atualmente relata chamadas para esses 
   * Banco de Dados de Documentos, tabela, o armazenamento de blob e fila do Azure
 * Páginas da Web
   * Chamadas AJAX
+
+O monitoramento funciona com o uso da [instrumentação de código de byte](https://msdn.microsoft.com/library/z9z62c29.aspx) nos métodos selecionados. A sobrecarga de desempenho é mínima.
 
 Você também pode escrever suas próprias chamadas SDK para monitorar outras dependências, no código do cliente e servidor, usando o [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
@@ -74,14 +77,14 @@ Clickthrough nos gráficos de resumo ou os itens de tabela para pesquisar ocorr�
 As **contagens de falhas** são mostrados na folha **Falhas**. Uma falha é qualquer código de retorno que não esteja no intervalo 200-399, ou que seja desconhecido.
 
 > [!NOTE]
-> **Falhas de&100;%?** - Isso provavelmente indica que você está apenas obtendo dados de dependência parcial. Você precisa [configurar o monitoramento de dependência apropriado para sua plataforma](#set-up-dependency-monitoring).
+> **Falhas de 100%?** - Isso provavelmente indica que você está apenas obtendo dados de dependência parcial. Você precisa [configurar o monitoramento de dependência apropriado para sua plataforma](#set-up-dependency-monitoring).
 >
 >
 
 ## <a name="ajax-calls"></a>Chamadas AJAX
 A folha Navegadores mostra a taxa de falha e a duração de chamadas AJAX de [JavaScript nas páginas da Web](app-insights-javascript.md). Elas são mostradas como Dependências.
 
-## <a name="a-namediagnosisa-diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnosticar solicitações lentas
+## <a name="diagnosis"></a> Diagnosticar solicitações lentas
 Cada evento de solicitação está associado às chamadas de dependência, exceções e outros eventos que são rastreados enquanto seu aplicativo está processando a solicitação. Então se algumas solicitações são com baixo desempenho, você pode descobrir seja devido à lentidão nas respostas de uma dependência.
 
 Vamos examinar um exemplo disso.
@@ -202,13 +205,12 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
   * Host IIS: instale o [Application Insights Agent](app-insights-monitor-performance-live-website-now.md) nos servidores de host.
   * Aplicativo Web do Azure: abra a guia Application Insights no painel de controle do aplicativo Web e instale o Application Insights.
 
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Exceções](app-insights-asp-net-exceptions.md)
 * [Dados do usuário e da página](app-insights-javascript.md)
 * [Disponibilidade](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

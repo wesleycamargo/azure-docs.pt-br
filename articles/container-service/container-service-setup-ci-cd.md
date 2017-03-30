@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -288,6 +288,7 @@ Se abrir a definição de build no VSTS, você verá algo assim:
     ```
 
     * Para o valor de rótulo, você pode especificar a URL do FQDN (nome de domínio totalmente qualificado) do seu agente de ACS ou domínio personalizado (por exemplo, app.contoso.com). Para localizar o FQDN do agente do ACS, execute o comando `az acs list` e verifique a propriedade para `agentPoolProfiles.fqdn`. Por exemplo: `myacsagents.westus.cloudapp.azure.com`.
+    * Por padrão, o aplicativo de exemplo escuta a porta 80. Para aqueles cujos aplicativos do Docker ouvem outras portas, por exemplo `port 8080` ou `443`, anexe o número da porta ao FQDN. Por exemplo: `myacsagents.westus.cloudapp.azure.com:8080`. No entanto quando você tentar acessar o aplicativo externamente, precisará consultá-lo na porta 80.
     * Seguindo a convenção de nome de arquivo docker-compose.env.*environment-name*.yml, essas configurações afetam apenas o ambiente nomeado (nesse caso, o ambiente chamado *Produção*). Inspecione a definição de versão no VSTS. Cada tarefa de implantação do ambiente é configurada para ler um arquivo composto pelo Docker nomeado de acordo com essa convenção.
 
 1. Confirme e envie por push o arquivo para o repositório de origem mestre para iniciar outra build.

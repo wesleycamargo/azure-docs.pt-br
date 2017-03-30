@@ -10,12 +10,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
-ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4f10e5a8200af870e0adb8977b9c68b9998a6de7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Você pode importar arquivos JSON ou DSV (valores separados por delimitador - v�
 
 Há três situações em que a importação para o Analytics é útil:
 
-* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as&10; páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
+* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as 10 páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
 * **Correlacione a telemetria de aplicativo** com outras fontes, como tráfego de rede, dados de servidor ou arquivos de log da CDN.
 * **Aplique o Analytics a um fluxo de dados separado.** O Analytics do Application Insights é uma ferramenta poderosa, que funciona bem com fluxos esparsos com carimbo de data e hora, muito melhor do que com o SQL em muitos casos. Se você tiver tal fluxo de outra origem, pode analisá-lo com o Analytics.
 
@@ -68,24 +68,34 @@ Você precisa de:
 ## <a name="define-your-schema"></a>Definir seu esquema
 
 Antes de importar dados, você deve definir uma *fonte de dados*, que especifica o esquema de seus dados.
+É possível ter até 50 fontes de dados em um único recurso do Application Insights
 
-1. Iniciar o Assistente de fonte de dados
+1. Inicie o assistente de fonte de dados.
 
     ![Adicionar uma nova fonte de dados](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Carregar um arquivo de dados de exemplo. (Opcional, se você carregar uma definição de esquema).
+    Forneça um nome para a nova fonte de dados.
 
-    A primeira linha do exemplo pode ser de cabeçalhos de coluna. (Você pode alterar os nomes dos campos na próxima etapa.)
+2. Defina o formato dos arquivos que serão carregados.
 
-    O exemplo deve incluir pelo menos 10 linhas de dados.
+    É possível definir o formato manualmente ou carregar um arquivo de exemplo.
 
-3. Examine o esquema obtido pelo assistente. Se ele inferiu os tipos a partir de um exemplo, provavelmente será necessário ajustar os tipos inferidos das colunas.
+    Se os dados estiverem no formato CSV, a primeira linha da amostra poderá ser cabeçalhos de coluna. É possível alterar os nomes dos campos na próxima etapa.
 
-   (Opcional). Carregue uma definição de esquema. Veja o formato a seguir.
+    A amostra deve incluir, pelo menos, 10 linhas ou registros de dados.
 
-4. Selecione um carimbo de data/hora. Todos os dados no Analytics devem ter um campo de carimbo de data/hora. Ele deve ter o tipo `datetime`, mas não precisa ser chamado de ‘carimbo de data/hora’. Se os dados tiverem uma coluna com data e hora no formato ISO, escolha esta opção como a coluna de carimbo de data/hora. Caso contrário, escolha "conforme os dados chegarem", e o processo de importação adicionará um campo de carimbo de data/hora.
+    Os nomes de coluna ou de campo devem ter nomes alfanuméricos (sem espaços nem sinais de pontuação).
 
-    ![Examinar o esquema](./media/app-insights-analytics-import/data-source-review-schema.png)
+    ![Carregar um arquivo de exemplo](./media/app-insights-analytics-import/sample-data-file.png)
+
+
+3. Examine o esquema obtido pelo assistente. Se ele inferiu os tipos com base em uma amostra, provavelmente, será necessário ajustar os tipos inferidos das colunas.
+
+    ![Examinar o esquema inferido](./media/app-insights-analytics-import/data-source-review-schema.png)
+
+ * (Opcional). Carregue uma definição de esquema. Veja o formato a seguir.
+
+ * Selecione um carimbo de data/hora. Todos os dados no Analytics devem ter um campo de carimbo de data/hora. Ele deve ter o tipo `datetime`, mas não precisa ser chamado de ‘carimbo de data/hora’. Se os dados tiverem uma coluna com data e hora no formato ISO, escolha esta opção como a coluna de carimbo de data/hora. Caso contrário, escolha "conforme os dados chegarem", e o processo de importação adicionará um campo de carimbo de data/hora.
 
 5. Crie a fonte de dados.
 
@@ -133,6 +143,9 @@ Você pode realizar o seguinte processo manualmente ou configurar um sistema aut
 
  * Blobs podem ter um tamanho de até 1 GB descompactados. Os blobs grandes, com centenas de MB, são ideais da perspectiva do desempenho.
  * Você pode compactá-los com Gzip para melhorar o tempo de carregamento e a latência, para que os dados fiquem disponíveis para consulta. Use a extensão de nome de arquivo `.gz`.
+ * É melhor usar uma conta de armazenamento separada para essa finalidade, para evitar chamadas de serviços diferentes que reduzem o desempenho.
+ * Ao enviar dados em alta frequência, em intervalos de segundos, é recomendável usar mais de uma conta de armazenamento, por motivos de desempenho.
+
  
 2. [Crie uma Assinatura de Acesso Compartilhado para o blob](../storage/storage-dotnet-shared-access-signature-part-2.md). A chave deve ter um período de validade de um dia e fornecer acesso de leitura.
 3. Faça uma chamada REST para notificar o Application Insights que os dados estão em espera.
@@ -181,6 +194,7 @@ Os dados ficam disponíveis no Analytics depois de alguns minutos.
  * O nome da fonte de dados está errado.
 
 Informações mais detalhadas estão disponíveis na mensagem de erro de resposta.
+
 
 ## <a name="sample-code"></a>Exemplo de código
 

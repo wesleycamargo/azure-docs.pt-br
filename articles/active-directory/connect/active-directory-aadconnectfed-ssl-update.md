@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/07/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: d8f4181d7b51109cc5a2e205a40225a7763d0be4
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
+ms.lasthandoff: 03/21/2017
 
 
 ---    
@@ -25,84 +25,85 @@ ms.lasthandoff: 03/07/2017
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado SSL para um farm dos Serviços de Federação do Active Directory (AD FS)
 
 ## <a name="overview"></a>Visão geral
-Este artigo descreve como o Azure AD Connect pode ser usado para atualizar o certificado SSL para o farm dos Suporte para os Serviços de Federação do Active Directory (AD FS).  Se o método de logon no Azure AD Connect é definido como o AD FS, a ferramenta Azure AD Connect pode ser usada para atualizar o certificado SSL para o farm do AD FS, entre todos os servidores WAP em 3 etapas simples e federação facilmente:
+Este artigo descreve como usar o Azure AD Connect para atualizar o certificado SSL para um farm do AD FS (Serviços de Federação do Active Directory). Se o método de entrada no Azure AD Connect é definido como o AD FS, use a ferramenta Azure AD Connect para atualizar o certificado SSL para o farm do AD FS. Faça isso em todos os servidores WAP (Proxy de aplicativo da Web) e de federação em três etapas simples:
 
 ![Três etapas](./media/active-directory-aadconnectfed-ssl-update/threesteps.png)
 
 
 >[!NOTE]
->Para saber mais sobre os certificados usados pelo AD FS, consulte o artigo [Noções básicas sobre os certificados usados pelo AD FS](https://technet.microsoft.com/library/cc730660.aspx)
+>Para saber mais sobre os certificados usados pelo AD FS, confira [Noções básicas sobre os certificados usados pelo AD FS](https://technet.microsoft.com/library/cc730660.aspx).
 
-##<a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* **Farm do AD FS**: o farm do AD FS deve ser 2012R2 ou superior
-* **Azure AD Connect**: certifique-se de que a versão do Azure AD Connect é 1.1.443.0 ou mais recente. Você encontrará a tarefa "Atualizar certificado SSL do AD FS"
+* **Farm do AD FS**: certifique-se de que seu farm do AD FS seja baseado no Windows Server 2012 R2 ou posterior.
+* **Azure AD Connect**: certifique-se de que a versão do Azure AD Connect seja 1.1.443.0 ou posterior. Você usará a tarefa **Atualizar certificado SSL do AD FS**.
 
-![Atualizar tarefa SSL](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
+![Atualizar a tarefa SSL](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
 
-##<a name="step-1-provide-ad-fs-farm-information"></a>Etapa 1: fornecer informações do farm do AD FS
+## <a name="step-1-provide-ad-fs-farm-information"></a>Etapa 1: fornecer informações do farm do AD FS
 
-O AAD Connect tentará obter as informações sobre o farm do AD FS automaticamente por:
-1. Consulta das informações do farm do AD FS (2016 ou superior)
-2. Referência às informações de execuções anteriores (armazenadas localmente com o Azure AD Connect). 
+O Azure AD Connect tenta obter as informações sobre o farm do AD FS automaticamente por:
+1. Consulta das informações do farm do AD FS (Windows Server 2016 ou superior).
+2. Referência às informações de execuções anteriores, armazenadas localmente com o Azure AD Connect.
 
-A lista de servidores exibida pode ser modificada, adicionando ou removendo os servidores para refletir a configuração atual do farm do AD FS. Assim que as informações do servidor são fornecidas, o Azure AD Connect exibe a conectividade e o status atual do certificado SSL.
+Modifique a lista de servidores exibida adicionando ou removendo os servidores para refletir a configuração atual do farm do AD FS. Assim que as informações do servidor são fornecidas, o Azure AD Connect exibe a conectividade e o status atual do certificado SSL.
 
 ![Informações do servidor AD FS](./media/active-directory-aadconnectfed-ssl-update/adfsserverinfo.png)
 
-Se a lista contém um servidor que não faz parte do farm do AD FS, clique em Remover para excluir o servidor da lista de servidores no farm do AD FS. 
+Se a lista contiver um servidor que não faz mais parte do farm do AD FS, clique em **Remover** para excluir o servidor da lista de servidores no farm do AD FS.
 
 ![Servidor offline na lista](./media/active-directory-aadconnectfed-ssl-update/offlineserverlist.png)
- 
->[!NOTE] 
-> A remoção da lista de servidores do farm do AD FS no Azure AD Connect é uma operação local e atualiza as informações para o farm do AD FS que o Azure AD Connect mantém localmente. O Azure AD Connect não fará nenhuma modificação à configuração no AD FS para refletir a alteração.    
 
-##<a name="step-2-provide-new-ssl-certificate"></a>Etapa 2: fornecer o novo certificado SSL
+>[!NOTE]
+> A remoção de um servidor da lista de servidores do farm do AD FS no Azure AD Connect é uma operação local e atualiza as informações para o farm do AD FS que o Azure AD Connect mantém localmente. O Azure AD Connect não modificará à configuração no AD FS para refletir a alteração.    
 
-Depois que as informações sobre os servidores do farm do AD FS são confirmadas, o Azure AD Connect solicita o novo certificado SSL. Forneça um certificado PFX protegido por senha para continuar a instalação. 
+## <a name="step-2-provide-a-new-ssl-certificate"></a>Etapa 2: Fornecer um novo certificado SSL
+
+Depois de confirmar as informações sobre os servidores do farm do AD FS, o Azure AD Connect solicitará o novo certificado SSL. Forneça um certificado PFX protegido por senha para continuar a instalação.
 
 ![Certificado SSL](./media/active-directory-aadconnectfed-ssl-update/certificate.png)
- 
-Depois que o certificado é fornecido, o Azure AD Connect faz uma série de verificações de pré-requisitos do certificado para assegurar que o certificado é correto para o farm do AD FS:
-1.    O SN (nome da entidade)/SAN (nome alternativo da entidade) para o certificado é o mesmo que o nome do serviço de federação ou é um certificado curinga.
-2.    O certificado é válido por mais de 30 dias
-3.    A cadeia confiável de certificado é válida 
-4.    O certificado é protegido por senha
 
-##<a name="step-3-select-servers-for-update"></a>Etapa 3: selecionar servidores para atualização
+Depois de fornecer o certificado, o Azure AD Connect passará por uma série de pré-requisitos. Verifique o certificado para garantir que esteja correto para o farm do AD FS:
 
-Na próxima etapa, selecione os servidores nos quais o certificado SSL precisa ser atualizado. Servidores offline não podem ser selecionados para a atualização. 
+-    O nome da entidade/nome alternativo da entidade do certificado é o mesmo que o nome do serviço de federação, ou é um certificado curinga.
+-    O certificado é válido por mais de 30 dias.
+-    A cadeia confiável de certificado é válida.
+-    O certificado é protegido por senha.
+
+## <a name="step-3-select-servers-for-the-update"></a>Etapa 3: Selecionar servidores para atualização
+
+Na próxima etapa, selecione os servidores que precisam do certificado SSL atualizado. Servidores offline não podem ser selecionados para a atualização.
 
 ![Selecionar servidores para atualizar](./media/active-directory-aadconnectfed-ssl-update/selectservers.png)
 
-Após a conclusão da configuração, o Azure AD Connect exibe a mensagem que indica o status da atualização e fornece uma opção para verificar o logon do AD FS.
+Após a conclusão da configuração, o Azure AD Connect exibirá a mensagem que indica o status da atualização e fornece uma opção para verificar a entrada do AD FS.
 
 ![Configuração concluída](./media/active-directory-aadconnectfed-ssl-update/configurecomplete.png)   
 
-##<a name="faqs"></a>Perguntas frequentes
+## <a name="faqs"></a>Perguntas frequentes
 
 * **Qual deve ser o nome da entidade do certificado para o novo certificado SSL do AD FS?**
 
-    O Azure AD Connect verificará se o nome da entidade do certificado/nome da entidade alternativo contém o nome do serviço de federação. Por exemplo, se o nome do seu serviço de Federação for fs.contoso.com, o nome da entidade alternativo/nome da entidade deverá ser fs.contoso.com.  Certificados curinga também são aceitos. 
+    O Azure AD Connect verifica se o nome da entidade/nome da entidade alternativo do certificado contém o nome do serviço de federação. Por exemplo, se o nome do seu serviço de Federação for fs.contoso.com, o nome da entidade alternativo/nome da entidade deverá ser fs.contoso.com.  Certificados curinga também são aceitos.
 
 * **Por que as credenciais estão sendo solicitadas novamente na página do servidor WAP?**
 
-    Se as credenciais fornecidas para conexão com servidores do AD FS não tiverem o privilégio para gerenciar também os servidores WAP, o Azure AD Connect solicitará credenciais que tenham privilégio administrativo nos servidores WAP.
+    Se as credenciais fornecidas para conexão com servidores do AD FS também não tiverem o privilégio para gerenciar os servidores WAP, o Azure AD Connect solicitará credenciais que tenham privilégio administrativo nos servidores WAP.
 
-* **O servidor é mostrado como offline, o que devo fazer?**
+* **O servidor é mostrado como offline. O que devo fazer?**
 
-    O Azure AD Connect não poderá executar nenhuma operação se o servidor estiver offline. Se o servidor é parte do farm do AD FS, verifique a conectividade ao servidor e depois de ter resolvido o problema selecione o ícone de atualização para atualizar o status no assistente. Se o servidor fazia parte do farm anteriormente mas agora não existe mais, clique em Remover para excluí-lo da lista de servidores que o Azure AD Connect mantém.  Remover o servidor da lista no Azure AD Connect não altera a configuração do AD FS em si e, se você estiver usando o AD FS 2016 ou superior, o servidor permanecerá nas definições de configuração e será mostrado novamente na próxima execução da tarefa.
+    O Azure AD Connect não poderá executar nenhuma operação se o servidor estiver offline. Se o servidor fizer parte do farm do AD FS, verifique a conectividade com o servidor. Depois de resolver o problema, pressione o ícone de atualização para atualizar o status no assistente. Se o servidor fazia parte do farm, mas agora não existe mais, clique em **Remover** para excluí-lo da lista de servidores que o Azure AD Connect mantém. Remover o servidor da lista no Azure AD Connect não altera a própria configuração do AD FS. Se você estiver usando o AD FS no Windows Server 2016 ou posterior, o servidor permanecerá nas definições de configuração e será exibido na próxima vez em que a tarefa for executada.
 
 * **Posso atualizar um subconjunto dos meus servidores do farm com o novo certificado SSL?**
 
-    Sim. Você também pode executar a tarefa "Atualizar certificado SSL" novamente para atualizar os servidores restantes. Na página "Selecionar servidores para atualização de certificado SSL", você pode classificar a lista de servidores na "Data de expiração do SSL" para acessar facilmente os servidores que ainda não foram atualizados. 
+    Sim. Você também pode executar a tarefa **Atualizar certificado SSL** novamente para atualizar os servidores restantes. Na página **Selecionar servidores para atualização de certificado SSL**, você pode classificar a lista de servidores na **Data de expiração do SSL** para acessar facilmente os servidores que ainda não foram atualizados.
 
 * **Eu removi o servidor na execução anterior, mas ele ainda está sendo mostrado como offline e listado na página de servidores do AD FS. Por que o servidor offline ainda está lá mesmo após a remoção?**
 
-    Remover o servidor da lista no Azure AD Connect não o remove na configuração do AD FS. O Azure AD Connect faz referência ao AD FS (2016 ou superior) também para quaisquer informações sobre o farm e se o servidor ainda estiver presente na configuração do AD FS, ele será colocado novamente na lista.  
+    Remover o servidor da lista no Azure AD Connect não o remove na configuração do AD FS. O Azure AD Connect consulta o AD FS (Windows Server 2016 ou posterior) para saber quaisquer informações sobre o farm. Se o servidor ainda estiver presente na configuração do AD FS, ele será relacionado novamente na lista.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Azure AD Connect e federação](active-directory-aadconnectfed-whatis.md)
-[Gerenciamento e personalização dos Serviços de Federação do Active Directory com o Azure AD Connect](active-directory-aadconnect-federation-management.md)
+- [Azure AD Connect e federação](active-directory-aadconnectfed-whatis.md)
+- [Gerenciamento e personalização dos Serviços de Federação do Active Directory (AD FS) com o Azure AD Connect](active-directory-aadconnect-federation-management.md)
 

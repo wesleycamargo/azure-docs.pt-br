@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: ramankum
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: c9e43df37784999036c6cf250f27a808f79ebe2f
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 26e78f559fa9a82183a26034580148e39331a214
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -59,7 +59,7 @@ Qualquer objeto colocado em uma conta de Armazenamento Premium será um blob de 
 
 **Conta de Armazenamento Premium**: para começar a usar o Armazenamento Premium, crie uma conta de Armazenamento Premium para discos não gerenciados. Se você preferir usar o [Portal do Azure](https://portal.azure.com), você poderá criar uma conta de Armazenamento Premium, especificando o nível de desempenho "Premium" e "LRS (Armazenamento com redundância Local)" como a opção de replicação. Também é possível cria uma conta de Armazenamento Premium ao especificar o do tipo "Premium_LRS" usando a [API REST de Armazenamento](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) versão 2014-02-14 ou posterior; a [API REST do Gerenciamento de Serviço](http://msdn.microsoft.com/library/azure/ee460799.aspx) versão 2014-10-01 ou posterior (implantações Clássicas); a [Referência de API REST do Provedor de Recursos de Armazenamento do Azure](/rest/api/storagerp) (implantações do Resource Manager); e [Azure PowerShell](../powershell-install-configure.md) versão 0.8.10 ou posterior. Saiba mais sobre limites de conta de armazenamento premium na seção a seguir sobre [Metas de Desempenho e Escalabilidade do Armazenamento Premium](#premium-storage-scalability-and-performance-targets.md).
 
-**Armazenamento com Redundância Local Premium**: uma conta de Armazenamento Premium só dá suporte ao LRS (Armazenamento com Redundância Local) como a opção de replicação; ou seja, mantém três cópias dos dados em uma única região. Para obter considerações sobre replicação geográfica ao usar o Armazenamento Premium, confira a seção [Instantâneos e cópia de Blob](#snapshots-and-copy-blob) neste artigo.
+**Armazenamento com Redundância Local Premium**: uma conta de Armazenamento Premium só dá suporte ao LRS (Armazenamento com Redundância Local) como a opção de replicação; ou seja, mantém três cópias dos dados em uma única região. Para a recuperação de desastre regional, é necessário fazer backup dos discos da VM em outra região usando o [serviço de Backup do Azure](../backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o cofre de backup. 
 
 O Azure usa a conta de armazenamento como contêiner para seus discos não gerenciados. Quando você cria uma VM DS, DSv2, GS ou Fs do Azure com discos não gerenciados e seleciona uma conta de Armazenamento Premium, o sistema operacional e os discos de dados são armazenados nessa conta de armazenamento.
 
@@ -257,13 +257,13 @@ Para obter detalhes dos preços do Armazenamento Premium, VMs com suporte do Arm
 
 * [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)
 * [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* [Preço do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/)
+* [Preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ## <a name="azure-backup-service-support"></a>Suporte de serviço do Backup do Azure 
 
-O backup das máquinas virtuais com discos não gerenciados pode ser feito usando o Backup do Azure. [Mais detalhes](../backup/backup-azure-vms-first-look-arm.md).
+Para a recuperação de desastre regional, é necessário fazer backup dos discos da VM em outra região usando o [serviço de Backup do Azure](../backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o cofre de backup.
 
-Você também pode usar o serviço de Backup do Azure com o Managed Disks para criar um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. Você pode ler mais sobre isso em [Usando o serviço de backup do Azure para VMs com Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+Use o serviço de Backup do Azure com o Managed Disks e discos não gerenciados para criar um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. Leia mais sobre isso em [Usando o serviço de Backup do Azure em VMs com o Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) e [Usando o serviço de Backup do Azure em VMs com discos não gerenciados](../backup/backup-azure-vms-first-look-arm.md) 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o Armazenamento Premium do Azure, confira os artigos a seguir.
@@ -278,3 +278,4 @@ Para obter mais informações sobre o Armazenamento Premium do Azure, confira os
 ### <a name="blog-posts"></a>Postagens de blog
 * [Armazenamento Premium do Azure com disponibilidade geral](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Anúncio da série GS: como adicionar suporte ao Armazenamento Premium para as maiores VMs na nuvem pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+

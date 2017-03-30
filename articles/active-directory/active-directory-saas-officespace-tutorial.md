@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b8f354b34e1a3a581dd2e41df4b80cbdbcd9a705
-ms.openlocfilehash: 3033df7c69a1c4211c906c6f3bdcd7868dedde13
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: fb61a2d622b0d829a134b6ce5dfef6e9fb44fa1e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -148,43 +148,31 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenci
     
     d. Clique em **Ok**
 
-6. Sobre o **certificado de autenticação SAML** seção, clique em **criar novo certificado**.
-
-    ![Configurar Logon Único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png)     
-
-7. Sobre o **criar um novo certificado** caixa de diálogo, clique no ícone de calendário e selecione um **data de expiração**. Em seguida, clique no botão **Salvar**.
-
-    ![Configurar o logon único](./media/active-directory-saas-officespace-tutorial/tutorial_general_300.png)
-
-8. Sobre o **certificado de autenticação SAML** seção, selecione **ativar o novo certificado** e clique em **salvar** botão.
-
-    ![Configurar Logon Único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_07.png)
-
-9. No pop-up **certificado de substituição** janela, clique em **OK**.
-
-    ![Configurar o logon único](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
-
-10. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+6. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar Logon Único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_08.png) 
 
-11. Na seção **Configuração do OfficeSpace Software**, clique em **Configurar o OfficeSpace Software** para abrir a janela **Configurar logon**.
+7. Clique em **Salvar**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
+
+8. Na seção **Configuração do OfficeSpace Software**, clique em **Configurar o OfficeSpace Software** para abrir a janela **Configurar logon**.
 
     ![Configurar Logon Único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_09.png) 
 
     ![Configurar Logon Único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_10.png)
 
-12. Em outra janela do navegador da Web, faça logon no locatário do OfficeSpace Software como administrador.
+9. Em outra janela do navegador da Web, faça logon no locatário do OfficeSpace Software como administrador.
 
-13. Acesse **Configurações** e clique em **Conectores**.
+10. Acesse **Configurações** e clique em **Conectores**.
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-14. Clique em **Autorização do SAML**.
+11. Clique em **Autenticação SAML**.
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-15. Na seção **Autorização do SAML** , realize as seguintes etapas:
+12. Na seção **Autenticação SAML** , realize as seguintes etapas:
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 

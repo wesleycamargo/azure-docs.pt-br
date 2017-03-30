@@ -15,49 +15,49 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0ddac6ef30439e6bea04d63c41662bc49309de2c
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usar o Armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia com .NET
-Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode verificar o andamento usando o Armazenamento de Filas do Azure para monitorar as notificações de trabalho dos Serviços de Mídia (conforme descrito neste tópico) ou definindo um evento StateChanged (conforme descrito [neste](media-services-check-job-progress.md) tópico).  
+Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. É possível verificar o andamento usando o Armazenamento de filas do Azure para monitorar notificações de trabalho dos Serviços de Mídia do Azure (conforme descrito neste artigo). Você também pode definir um manipulador de eventos **StateChanged**, conforme descrito em [Monitorar o andamento do trabalho usando o .NET](media-services-check-job-progress.md).  
 
-## <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications"></a>Usar o Armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia
-Os Serviços de Mídia do Microsoft Azure têm a capacidade de entregar mensagens de notificação ao [Armazenamento de Filas do Azure](../storage/storage-dotnet-how-to-use-queues.md) ao processar trabalhos de mídia. Este tópico mostra como obter essas mensagens de notificação do Armazenamento de Fila.
+## <a name="use-queue-storage-to-monitor-media-services-job-notifications"></a>Usar o armazenamento de Filas para monitorar notificações de trabalho dos Serviços de Mídia
+Ao processar trabalhos de mídia, os Serviços de Mídia podem fornecer notificações para o [Armazenamento de filas](../storage/storage-dotnet-how-to-use-queues.md). Este tópico mostra como obter essas mensagens de notificação do Armazenamento de Fila.
 
-As mensagens entregues ao Armazenamento de Fila podem ser acessadas de qualquer lugar no mundo. A arquitetura de mensagens da Fila do Azure é confiável e altamente escalonável. A sondagem do armazenamento de fila é recomendável, em vez do uso de outros métodos.
+As mensagens entregues ao Armazenamento de Fila podem ser acessadas de qualquer lugar no mundo. A arquitetura do sistema de mensagens do armazenamento de Filas é confiável e altamente escalonável. É recomendável sondar o armazenamento de Filas em busca de mensagens, em vez de usar outros métodos.
 
-Um cenário comum para escutar as notificações dos Serviços de Mídia é se você estiver desenvolvendo um sistema de gerenciamento de conteúdo que precise realizar alguma tarefa adicional após a conclusão de um trabalho de codificação (por exemplo, disparar a próxima etapa em um fluxo de trabalho ou publicar conteúdo).
+Um cenário comum para escutar as notificações dos Serviços de Mídia é se você está desenvolvendo um sistema de gerenciamento de conteúdo que precisa executar alguma tarefa adicional após a conclusão de um trabalho de codificação (por exemplo, disparar a próxima etapa em um fluxo de trabalho ou publicar conteúdo).
 
 ### <a name="considerations"></a>Considerações
-Considere o seguinte ao desenvolver aplicativos dos Serviços de Mídia que usam a fila de armazenamento do Azure.
+Considere o seguinte ao desenvolver aplicativos dos Serviços de Mídia que usam o armazenamento de Filas:
 
-* O serviço de Filas não fornece uma garantia de entrega ordenada FIFO (primeiro a entrar, primeiro a sair). Para obter mais informações, consulte [Filas do Azure e Filas do Barramento de Serviço do Azure comparadas e contrastadas](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-* As Filas de Armazenamento do Azure não são um serviço de envio por push. Você deve fazer a sondagem da fila.
+* O Armazenamento de filas não fornece uma garantia de entrega ordenada PEPS (primeiro a entrar, primeiro a sair). Para obter mais informações, consulte [Filas do Azure e Filas do Barramento de Serviço do Azure comparadas e contrastadas](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* O Armazenamento de filas não é um serviço de envio por push. Você precisa sondar a fila.
 * Você pode ter qualquer número de filas. Para obter mais informações, consulte [API REST do Serviço de Fila](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
-* As Filas de Armazenamento do Azure têm algumas limitações e características específicas que são descritas no seguinte artigo: [Filas do Azure e filas do Barramento de Serviço do Azure comparadas e contrastadas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+* O Armazenamento de filas tem algumas limitações e especificações a serem consideradas. Elas são descritas em [Filas do Azure e Filas do Barramento de Serviço do Azure – semelhanças e diferenças](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### <a name="code-example"></a>Exemplo de código
 O exemplo de código nesta seção faz o seguinte:
 
 1. Define a classe **EncodingJobMessage** que mapeia para o formato de mensagem de notificação. O código desserializa mensagens recebidas da fila em objetos do tipo **EncodingJobMessage** .
-2. Carrega as informações de conta dos Serviços de Mídia e Armazenamento do arquivo app.config. Usa essas informações para criar os objetos **CloudMediaContext** e **CloudQueue**.
+2. Carrega as informações de conta dos Serviços de Mídia e Armazenamento do arquivo app.config. O exemplo de código usa essas informações para criar os objetos **CloudMediaContext** e **CloudQueue**.
 3. Cria a fila que recebe mensagens de notificação sobre o trabalho de codificação.
 4. Cria o ponto de extremidade de notificação que é mapeado para a fila.
 5. Anexa o ponto de extremidade de notificação ao trabalho e envia o trabalho de codificação. Você pode ter vários pontos de extremidade de notificação anexados a um trabalho.
-6. Neste exemplo, só estamos interessados nos estados finais do processamento do trabalho. Portanto, passamos **NotificationJobState.FinalStatesOnly** para o método **AddNew**.
+6. Passa **NotificationJobState.FinalStatesOnly** para o método **AddNew**. (Neste exemplo, estamos interessados apenas nos estados finais do processamento do trabalho.)
 
         job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-7. Se passar NotificationJobState.All, você deverá esperar obter todas as notificações de alteração de estado: Enfileirado -> Agendado -> Em processamento -> Concluído. No entanto, conforme observado anteriormente, o serviço de Filas de Armazenamento do Azure não garante a entrega ordenada. Você pode usar a propriedade de Carimbo de data/hora (definida no tipo EncodingJobMessage no exemplo a seguir) para ordenar mensagens. É possível que você receba mensagens de notificação duplicadas. Use a propriedade ETag (definida no tipo EncodingJobMessage) para verificar se há duplicatas. Observe que também é possível que algumas notificações de alteração de estado sejam ignoradas.
-8. Aguarda até o trabalho chegar ao estado Concluído, verificando a cada 10 segundos. Exclui as mensagens depois que elas são processadas.
+7. Se você passar **NotificationJobState.All**, obterá todas estas notificações de alteração de estado: na fila, agendado, em processamento e concluído. No entanto, conforme observado anteriormente, o Armazenamento de filas não garante a entrega ordenada. Para ordenar mensagens, use a propriedade **Timestamp** (definida no tipo **EncodingJobMessage** no exemplo abaixo). Há a possibilidade de mensagens duplicadas. Para verificar se há duplicatas, use a **propriedade ETag** (definida no tipo **EncodingJobMessage**). Também é possível que algumas notificações de alteração de estado sejam ignoradas.
+8. Aguarda até o trabalho chegar ao estado Concluído, verificando a fila a cada 10 segundos. Exclui as mensagens depois que elas são processadas.
 9. Exclui a fila e o ponto de extremidade de notificação.
 
 > [!NOTE]
 > A maneira recomendada de monitorar o estado de um trabalho é ouvir mensagens de notificação, conforme mostrado no exemplo a seguir.
 >
-> Como alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State** .  Uma mensagem de notificação sobre a conclusão de um trabalho pode chegar antes que o estado em **IJob** seja definido como **Concluído**. A propriedade **IJob.State** reflete o estado preciso com um pequeno atraso.
+> Como alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State** .  Uma mensagem de notificação sobre a conclusão de um trabalho poderá chegar antes que o estado em **IJob** seja definido como **Concluído**. A propriedade **IJob.State** reflete o estado preciso com um pequeno atraso.
 >
 >
 
@@ -317,7 +317,7 @@ O exemplo de código nesta seção faz o seguinte:
         }
     }
 
-O exemplo acima produziu a saída a seguir. Os valores variarão.
+O exemplo anterior produziu a saída a seguir. Os valores variarão.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4
@@ -346,7 +346,7 @@ O exemplo acima produziu a saída a seguir. Os valores variarão.
 
 
 ## <a name="next-step"></a>Próxima etapa
-Revise os roteiros de aprendizagem dos Serviços de Mídia
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

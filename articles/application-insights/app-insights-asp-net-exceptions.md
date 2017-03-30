@@ -1,21 +1,22 @@
 ---
-title: "Diagnosticar falhas e exceções em aplicativos Web com o Azure Application Insights | Microsoft Docs | Microsoft Docs"
+title: "Diagnosticar falhas e exceções em aplicativos Web com o Azure Application Insights | Microsoft Docs"
 description: "Capture exceções de aplicativos do ASP.NET junto com a telemetria de solicitação."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: c4a20fe310d9a70bb3a954bd936daf6f3d432db9
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -49,31 +50,25 @@ Observe que você pode filtrar o relatório para mostrar apenas as exceções.
 *Nenhuma exceção mostrando? Consulte [Capturar exceções](#exceptions).*
 
 Clique em um relatório de exceções para mostrar o rastreamento de pilha.
+Clique em uma referência de linha no rastreamento de pilha para abrir o arquivo de código relevante.  
 
-![Clique em uma exceção.](./media/app-insights-asp-net-exceptions/35.png)
+No código, observe que o CodeLens mostra dados sobre as exceções:
 
-Clique em uma referência de linha no rastreamento de pilha para abrir o arquivo relevante.  
+![Notificação de exceções do CodeLens.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Como diagnosticar falhas usando o Portal do Azure
 Na visão geral do Application Insights de seu aplicativo, o bloco Falhas mostra gráficos de exceções e solicitações HTTP, juntamente com uma lista da solicitação com falha URLs que causam as falhas mais frequentes.
 
 ![Escolha Configurações, Falhas.](./media/app-insights-asp-net-exceptions/012-start.png)
 
-Clique em um dos tipos de solicitação com falha na lista para obter a ocorrências individuais da falha. A partir daí, clique para as exceções ou para os dados de rastreamento associados:
+Clique em um dos tipos de exceção com falha na lista para obter as ocorrências individuais da exceção, em que é possível ver os detalhes e o rastreamento de pilha:
 
 ![Selecione uma instância de uma solicitação com falha e, em detalhes da exceção, obtenha a instâncias da exceção.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-**Como alternativa** , você pode iniciar na lista de exceções que encontrará mais adiante na folha Falhas. Continue clicando até finalmente chegar às exceções individuais.
-
-![Drill-through](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
+**Como alternativa,** você pode começar na lista de solicitações e encontrar exceções relacionadas a ela.
 
 *Nenhuma exceção mostrando? Consulte [Capturar exceções](#exceptions).*
 
-A partir daí, você pode examinar o rastreamento de pilha e as propriedades detalhadas de cada exceção e localizar outros eventos ou rastreamento de log relacionados.
-
-![Drill-through](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
-
-[Saber mais sobre a Pesquisa de Diagnóstico](app-insights-diagnostic-search.md).
 
 ## <a name="custom-tracing-and-log-data"></a>Dados personalizados de rastreamento e log
 Para obter dados de diagnóstico específicos do aplicativo, você pode inserir código para enviar seus próprios dados de telemetria. Eles são exibidos na pesquisa de diagnóstico junto com a solicitação, exibição de página e outros dados coletados automaticamente.
@@ -103,7 +98,7 @@ Os detalhes da solicitação não incluem os dados enviados ao seu aplicativo em
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-## <a name="a-nameexceptionsa-capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Capturando exceções e dados de diagnóstico relacionados
+## <a name="exceptions"></a> Capturando exceções e dados de diagnóstico relacionados
 No início você não verá no portal todas as exceções que causam falhas em seu aplicativo. Você verá quaisquer exceções do navegador (se você estiver usando o [SDK do JavaScript](app-insights-javascript.md) nas páginas da Web). Mas a maioria das exceções de servidor são capturados pelo IIS e é preciso escrever um pouco de código para vê-los.
 
 Você pode:
@@ -437,13 +432,12 @@ O .NET Framework calcula a taxa contando o número de exceções em um intervalo
 
 Observe que ela será diferente da contagem 'Exceções' calculada pelo portal do Application Insights contando relatórios TrackException. Os intervalos de amostragem são diferentes, e o SDK não envia relatórios TrackException a todas as exceções tratadas e sem tratamento.
 
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Monitorar REST, SQL e outras chamadas para dependências](app-insights-asp-net-dependencies.md)
 * [Monitorar tempos de carregamento de página, exceções de navegador e chamadas AJAX](app-insights-javascript.md)
 * [Monitorar contadores de desempenho](app-insights-performance-counters.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

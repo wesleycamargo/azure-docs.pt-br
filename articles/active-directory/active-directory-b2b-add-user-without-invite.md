@@ -1,7 +1,7 @@
 ---
 
 title: "Adicionar usuários de colaboração B2B ao Azure Active Directory sem um convite | Microsoft Docs"
-description: "A colaboração B2B do Azure Active Directory permite que os operadores de informações adicionem usuários da respectiva organização ao Azure AD para acessar seus aplicativos corporativos"
+description: "É possível permitir que um usuário convidado adicione outros usuários convidados ao Azure AD sem resgatar um convite na colaboração B2B do Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -14,24 +14,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0eef684115f9c21ea61502a10576f74cac0ace8e
-ms.openlocfilehash: 8fa8ba169ca85c33e52eee4a7cd5b84aa4012673
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 91b9477cdb679851e7d8d2942c06999a05f64e46
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
-# <a name="add-b2b-collaboration-users-without-an-invitation"></a>Adicionar usuários de colaboração B2B sem um convite
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Adicionar usuários convidados da colaboração B2B sem um convite
 
-Se o emissor do convite pertencer a uma função que tem privilégios de enumeração no diretório da organização parceira, do qual ele está adicionando usuários, os usuários convidados serão adicionados à organização que convida sem a necessidade de convites.
+É possível permitir que um usuário, como um representante do parceiro, adicione usuários do parceiro à organização sem a necessidade de resgatar convites. Basta conceder a esse usuário privilégios de enumeração no diretório que está sendo usado para a organização do parceiro. 
 
-Este é o cenário no qual isso é mais útil:
+Conceda esses privilégios quando:
 
 1. Um usuário na organização host (por exemplo, WoodGrove) convida um usuário da organização parceira (por exemplo, Sam@litware.com) como Convidado.
 2. O administrador da organização host define as políticas que permitem ao Sam identificar e adicionar outros usuários da organização parceira (Litware).
-3. Agora, Sam pode adicionar outros usuários da Litware ao diretório, grupos ou aplicativos da WoodGrove sem a necessidade de resgate de convites. Se Sam tiver os privilégios apropriados de enumeração na Litware, isso ocorrerá automaticamente.
+3. Agora, Davi pode adicionar outros usuários da Litware ao diretório, grupos ou aplicativos da WoodGrove sem a necessidade de resgatar os convites. Se Davi tiver os privilégios apropriados de enumeração na Litware, isso ocorrerá automaticamente.
 
 ### <a name="next-steps"></a>Próximas etapas
 
@@ -44,13 +45,7 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
 * [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)
 * [Solução de problemas de colaboração B2B do Azure Active Directory](active-directory-b2b-troubleshooting.md)
-* [Perguntas frequentes sobre colaboração B2B do Azure Active Directory](active-directory-b2b-faq.md)
+* [Perguntas frequentes sobre a colaboração B2B do Azure Active Directory](active-directory-b2b-faq.md)
 * [API e personalização da colaboração B2B do Azure Active Directory](active-directory-b2b-api.md)
 * [Autenticação Multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

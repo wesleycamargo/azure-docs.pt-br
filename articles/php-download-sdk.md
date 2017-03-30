@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7bd6eddcdb20e3ea49cd29d46bb4f98d73ee9cc8
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: fd3d28b133ef8e646f5c2f1c1127f654daa61b95
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,7 +32,7 @@ O SDK do Azure para o Python inclui componentes que permitem que você desenvolv
 
 As seções a seguir descrevem como baixar e instalar os componentes descritos acima.
 
-As instruções neste tópico pressupõem que você tenha o [PHP][install-php] instalado.
+As instruções descritas neste tópico pressupõem que você tenha o [PHP][install-php] instalado.
 
 > [!NOTE]
 > Você deve ter o PHP 5.5 ou superior para usar as bibliotecas de cliente PHP para Azure.
@@ -41,10 +42,10 @@ As instruções neste tópico pressupõem que você tenha o [PHP][install-php] i
 ## <a name="php-client-libraries-for-azure"></a>As bibliotecas de cliente PHP para Azure.
 As Bibliotecas de Cliente PHP para Azure fornecem uma interface para acessar recursos do Azure, como serviços de gerenciamento de dados e serviços de nuvem, de qualquer sistema operacional. Essas bibliotecas podem ser instaladas por meio do Compositor.
 
-Para saber mais sobre como usar as bibliotecas Cliente PHP do Azure, confira [Como usar o serviço Blob][blob-service], [Como usar o serviço de tabela][table-service] e [Como usar o serviço de fila][queue-service].
+Para obter informações sobre como usar as Bibliotecas de Cliente do PHP para Azure, consulte [Como usar o serviço Blob][blob-service], [Como usar o serviço Tabela][table-service] e [Como usar o serviço Fila][queue-service].
 
 ### <a name="install-via-composer"></a>Instalar por meio do Composer
-1. [Instalar o Git][install-git].
+1. [Instale o Git][install-git].
 
     > [AZURE.NOTE] No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
 
@@ -55,7 +56,7 @@ Para saber mais sobre como usar as bibliotecas Cliente PHP do Azure, confira [Co
                 "microsoft/windowsazure": "^0.4"
             }
         }
-2. Baixe o **[composer.phar][composer-phar]** na raiz do seu projeto.
+2. Baixe **[composer.phar][composer-phar]** na raiz do projeto.
 3. Abra um prompt de comando e execute esta função na raiz do projeto
    
         php composer.phar install
@@ -65,10 +66,10 @@ O PowerShell do Azure é um conjunto de cmdlets do PowerShell para implantar e g
 
 A maneira recomendada de instalar o Azure PowerShell e os Emuladores do Azure é usar o [Microsoft Web Platform Installer][download-wpi]. Observe que você também pode optar por instalar outros componentes de desenvolvimento, como PHP, SQL Server, os Drivers da Microsoft do SQL Server para PHP e WebMatrix.
 
-Para saber mais sobre como usar o Azure PowerShell, confira [How to Use Azure PowerShell][powershell-tools] (Como usar o Azure PowerShell).
+Para obter informações sobre como usar o Azure PowerShell, consulte [Como usar o Azure PowerShell][powershell-tools].
 
 ## <a name="azure-cli"></a>CLI do Azure
-O CLI do Azure é um conjunto de ferramentas de linha de comando para implantar e gerenciar serviços do Azure, como os Sites do Azure e Máquinas Virtuais do Azure. Para obter informações sobre como instalar a CLI do Azure, consulte [Instalar a CLI do Azure](xplat-cli-install.md).
+O CLI do Azure é um conjunto de ferramentas de linha de comando para implantar e gerenciar serviços do Azure, como os Sites do Azure e Máquinas Virtuais do Azure. Para obter informações sobre como instalar a CLI do Azure, consulte [Instalar a CLI do Azure](cli-install-nodejs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
@@ -87,9 +88,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

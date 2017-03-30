@@ -4,7 +4,7 @@ description: "Descreve as práticas recomendadas para implantar e gerenciar o St
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/15/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 242951777b80d249cb2e0ef4ec497c3447246c19
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f04cf73d9cb651bf97aff855bf7d19e296796e50
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -48,7 +49,7 @@ Ao dimensionar seu StorSimple Virtual Array, considere os seguintes fatores:
 
 * Reserva de local de volumes ou de compartilhamentos. Aproximadamente 12% do espaço é reservado na camada local para cada volume ou compartilhamento em camadas provisionado. Aproximadamente 10% do espaço também é reservado para um volume fixado localmente para o sistema de arquivos.
 * Sobrecarga de instantâneo. Aproximadamente 15% do espaço na camada local é reservado para instantâneos.
-* Necessidade de restaurações. Se a restauração for feita como uma nova operação, o dimensionamento deverá considerar o espaço necessário para a restauração. A restauração é feita para um compartilhamento ou um volume do mesmo tamanho ou maior.
+* Necessidade de restaurações. Se a restauração for feita como uma nova operação, o dimensionamento deverá considerar o espaço necessário para a restauração. A restauração é feita em um compartilhamento ou um volume do mesmo tamanho.
 * Parte do buffer deve ser alocada para qualquer crescimento inesperado.
 
 Com base nos fatores citados, os requisitos de dimensionamento podem ser representados pela seguinte equação:
@@ -156,10 +157,10 @@ Em sua matriz virtual, você pode provisionar compartilhamentos quando ele estiv
 Tenha em mente as seguintes práticas recomendadas ao provisionar compartilhamentos ou volumes em seu dispositivo virtual.
 
 * Os tamanhos de arquivo relativos ao tamanho provisionado de um compartilhamento em camadas pode afetar o desempenho em camadas. Trabalhar com arquivos grandes pode resultar em uma divisão lenta em camadas. Ao trabalhar com arquivos grandes, recomendamos que o maior arquivo seja inferior a 3% do tamanho do compartilhamento.
-* Um máximo de 16 volumes/compartilhamentos pode ser criado na matriz virtual. Se fixados localmente, os volumes/compartilhamentos poderão ter entre 50 GB a 2 TB. Se estiverem em camadas, os volumes/compartilhamentos deverão ter entre 500 GB e 20 TB. 
-* Ao criar um volume, inclua o consumo de dados esperado, bem como o crescimento futuro. Embora o volume não possa ser expandido posteriormente, você sempre pode restaurar para um volume maior.
+* Um máximo de 16 volumes/compartilhamentos pode ser criado na matriz virtual. Para obter os limites de tamanho dos volumes/compartilhamentos localmente fixados e em camadas, sempre consulte [Limites da Matriz Virtual StorSimple](storsimple-ova-limits.md).
+* Ao criar um volume, inclua o consumo de dados esperado, bem como o crescimento futuro. O volume não pode ser expandido posteriormente.
 * Assim que o volume tiver sido criado, não será possível reduzir o tamanho do volume no StorSimple.
-* Ao gravar em um volume em camadas no StorSimple, quando os dados do volume atingirem um certo limite (em relação ao espaço local reservado para o volume), a E/S será restringida. Continuar gravando nesse volume reduz significativamente a E/S. Embora seja possível gravar em um volume em camadas além da sua capacidade provisionada (nós não impedimos ativamente o usuário de gravar além da capacidade provisionada), você verá uma notificação de alerta informando que há um excesso de assinaturas. Quando você vir o alerta, será imperativo que você tome medidas corretivas, como excluir dados do volume ou restaurar o volume em um volume maior (atualmente, a expansão de volume não tem suporte).
+* Ao gravar em um volume em camadas no StorSimple, quando os dados do volume atingirem um certo limite (em relação ao espaço local reservado para o volume), a E/S será restringida. Continuar gravando nesse volume reduz significativamente a E/S. Embora seja possível gravar em um volume em camadas além da sua capacidade provisionada (nós não impedimos ativamente o usuário de gravar além da capacidade provisionada), você verá uma notificação de alerta informando que há um excesso de assinaturas. Quando receber o alerta, é fundamental que você tome medidas corretivas, como excluir dados do volume (atualmente, não há suporte para a expansão do volume).
 * Para casos de uso da recuperação de desastre, como o número de compartilhamentos/volumes permitidos é 16 e o número máximo de compartilhamentos/volumes que podem ser processados em paralelo também é 16, o número de compartilhamentos/volumes não influenciará o RPO e os RTOs. 
 
 #### <a name="volumeshare-type"></a>Tipo de volume/compartilhamento
@@ -285,10 +286,5 @@ Talvez seja necessário implantar várias matrizes virtuais para responder por u
 
 ## <a name="see-also"></a>Confira também
 Saiba como [administrar o StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) por meio do serviço StorSimple Manager.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
