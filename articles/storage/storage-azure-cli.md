@@ -10,20 +10,18 @@ ms.assetid:
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/18/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 5008bb0292bc7513a6264ff1768976fd5ba11bfa
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: be44ca9d14d6dbb7a50d5c42c163bc66531bb90f
+ms.lasthandoff: 03/30/2017
 
 
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso da CLI do Azure 2.0 com o Armazenamento do Azure
-
-## <a name="overview"></a>Visão geral
 
 A CLI do Azure 2.0 de software livre e plataforma cruzada fornece um conjunto de comandos para trabalhar com a Plataforma Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no [Portal do Azure](https://portal.azure.com), incluindo acesso a dados avançado.
 

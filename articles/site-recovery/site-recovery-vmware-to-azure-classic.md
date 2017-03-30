@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 37291b16a966c17b684a4622f15d0393a5a5ce6d
-ms.openlocfilehash: 0984ccc8163c94f56517e65919f8ea089a3e8b5f
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 03178e1b933f5681caf6efbeb5a89d56727ae743
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -66,12 +66,12 @@ A implantação avançada é uma atualização importante. Veja um resumo dos ap
 * Você pode configurar planos de recuperação que agrupem cargas de trabalho de aplicativos que estão organizadas em camadas em vários computadores. Se fizer failover desses planos, o Site Recovery assegura a consistência de várias VMs para que computadores que estejam executando as mesmas cargas de trabalho possam ser recuperados juntos em um ponto de dados consistente.
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
-### <a name="windows-64-bit-only"></a>Windows (somente&64; bits)
+### <a name="windows-64-bit-only"></a>Windows (somente 64 bits)
 * Windows Server 2008 R2 SP1+
 * Windows Server 2012
 * Windows Server 2012 R2
 
-### <a name="linux-64-bit-only"></a>Linux (somente&64; bits)
+### <a name="linux-64-bit-only"></a>Linux (somente 64 bits)
 * Red Hat Enterprise Linux 6.7, 7.1, e 7.2
 * CentOS 6.5, 6.6, 6.7, 7.0, 7.1 e 7.2
 * Oracle Enterprise Linux 6.4 e 6.5 que executa o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel Versão 3)
@@ -454,7 +454,7 @@ Os instaladores estão disponíveis em C:\Program Files (x86) \Microsoft Azure S
 
 | Sistema operacional de origem | Arquivo de instalação do Serviço de mobilidade |
 | --- | --- |
-| Windows Server (somente&64; bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
+| Windows Server (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
 | CentOS 6.4, 6.5, 6.6 (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz |
 | SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz |
 | Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz |
@@ -567,7 +567,7 @@ Você pode monitorar o status na página **Trabalhos** .
 
 ![Monitorar status na página Trabalhos](./media/site-recovery-vmware-to-azure-classic/enable-protection5.png)
 
-O status da proteção também pode ser monitorado em **Itens Protegidos** > *nome do grupo de proteção* > **Máquinas Virtuais**. Depois da conclusão da replicação e da sincronização dos dados, o status do computador é alterado para** Protegido**.
+O status da proteção também pode ser monitorado em **Itens Protegidos** > *nome do grupo de proteção* > **Máquinas Virtuais**. Depois da conclusão da replicação e da sincronização dos dados, o status do computador é alterado para**Protegido**.
 
 ![Monitorar o status em Itens Protegidos](./media/site-recovery-vmware-to-azure-classic/enable-protection6.png)
 
@@ -579,7 +579,7 @@ O status da proteção também pode ser monitorado em **Itens Protegidos** > *no
 3. Você pode alterar essas configurações:
 
    * **Nome da VM do Azure**: esse é o nome que será dado ao computador no Azure após o failover. O nome deve atender aos requisitos do Azure.
-   * **Tamanho da VM do Azure**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Para obter mais informações sobre tamanhos e adaptadores, confira as [tabelas de tamanhos](../virtual-machines/virtual-machines-linux-sizes.md#size-tables). Observe que:
+   * **Tamanho da VM do Azure**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Para obter mais informações sobre tamanhos e adaptadores, confira as [tabelas de tamanhos](../virtual-machines/virtual-machines-linux-sizes.md). Observe que:
 
      * Quando você modificar o tamanho de uma máquina virtual e salvar as configurações, o número de adaptadores de rede será alterado na próxima vez em que você abrir a guia **Configurar**. O número mínimo de adaptadores de rede em máquinas virtuais de destino é igual ao número mínimo de adaptadores de rede em uma máquina virtual de origem. O número máximo de adaptadores de rede é determinado pelo tamanho da máquina virtual.
        * Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.

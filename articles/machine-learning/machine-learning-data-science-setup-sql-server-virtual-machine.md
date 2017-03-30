@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 777dc11be139b20363e2060776ac0227883591ff
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 497b683b1058e134c3c79dbc8c8a119ff20e330b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -33,7 +34,7 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
   > 
   > 
 
-## <a name="a-nameprovisionaconnect-to-the-azure-classic-portal-and-provision-an-sql-server-virtual-machine"></a><a name="Provision"></a>Conectar-se ao Portal Clássico do Azure e fornecer uma máquina virtual do SQL Server
+## <a name="Provision"></a>Conectar-se ao Portal Clássico do Azure e fornecer uma máquina virtual do SQL Server
 1. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando sua conta.
    Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 2. No Portal Clássico do Azure, na parte inferior esquerda da página da Web, clique em **+ NOVO**, clique em **COMPUTAÇÃO**, em **MÁQUINA VIRTUAL** e, em seguida, em **DA GALERIA**.
@@ -83,7 +84,7 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
    * Executando (Provisionamento)
    * Executando
 
-## <a name="a-nameremotedesktopaopen-the-virtual-machine-using-remote-desktop-and-complete-setup"></a><a name="RemoteDesktop"></a>Abrir a máquina virtual usando a Área de Trabalho Remota e concluir a instalação
+## <a name="RemoteDesktop"></a>Abrir a máquina virtual usando a Área de Trabalho Remota e concluir a instalação
 1. Quando o provisionamento for concluído, clique no nome da sua máquina virtual para ir para a página PAINEL. Na parte inferior da página, clique em **Conectar**.
 2. Escolha abrir o arquivo .rpd usando o programa Área de Trabalho Remota do Windows (`%windir%\system32\mstsc.exe`).
 3. Na caixa de diálogo **Segurança do Windows** , forneça a senha da conta do administrador local que você especificou em uma etapa anterior.
@@ -92,7 +93,7 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
 
 Quando você está conectado à máquina virtual com a Área de Trabalho Remota do Windows, a máquina virtual funciona de maneira muito semelhante à qualquer outro computador. Conecte-se à instância padrão do SQL Server com o SQL Server Management Studio (em execução na máquina virtual) da maneira normal.
 
-## <a name="a-nameinstallipythonainstall-ipython-notebook-and-other-supporting-tools"></a><a name="InstallIPython"></a>Instalar o IPython Notebook e outras ferramentas de suporte
+## <a name="InstallIPython"></a>Instalar o IPython Notebook e outras ferramentas de suporte
 Para configurar a nova VM do SQL Server para servir como um servidor do IPython Notebook e instalar as ferramentas de suporte adicionais, como AzCopy, Azure Storage Explorer, pacotes de Python de ciência de dados úteis e outros, um script de personalização especial é fornecido para você. Para instalar:
 
 * Clique com o botão direito do mouse no ícone **Iniciar do Windows** e clique em **Prompt de comando (Admin)**
@@ -113,7 +114,7 @@ Para configurar a nova VM do SQL Server para servir como um servidor do IPython 
 * Você pode acessar e executar o IPython Notebook em qualquer navegador local ou remoto usando uma URL no formato `https://<virtual_machine_DNS_name>:<port>`, em que a porta é a porta pública do IPython que você selecionou ao provisionar a máquina virtual.
 * O servidor do IPython Notebook é executado como um serviço em segundo plano e será reiniciado automaticamente quando você reiniciar a máquina virtual.
 
-## <a name="a-nameoptionalaattach-data-disk-as-needed"></a><a name="Optional"></a>Anexe um disco de dados conforme necessário
+## <a name="Optional"></a>Anexe um disco de dados conforme necessário
 Se a sua imagem de VM não incluir discos de dados, ou seja, discos que não sejam a unidade C (disco do sistema operacional) e a unidade D (disco temporário), você precisa adicionar um ou mais discos de dados para armazenar dados. A imagem VM para SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads vem pré-configurada com discos adicionais para arquivos de log e de dados do SQL Server.
 
 > [!NOTE]
@@ -121,12 +122,12 @@ Se a sua imagem de VM não incluir discos de dados, ou seja, discos que não sej
 > 
 > 
 
-Para anexar discos de dados adicionais, execute as etapas descritas em [Como anexar um disco de dados a uma Máquina Virtual do Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), que vai orientá-lo para:
+Para anexar discos de dados adicionais, execute as etapas descritas em [Como anexar um disco de dados a uma Máquina Virtual do Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), que vai orientá-lo para:
 
 1. Anexar discos vazios à máquina virtual fornecida em etapas anteriores
 2. Inicialização dos novos discos na máquina virtual
 
-## <a name="a-namessmsaconnect-to-sql-server-management-studio-and-enable-mixed-mode-authentication"></a><a name="SSMS"></a>Conectar-se ao SQL Server Management Studio e habilitar a autenticação de modo misto
+## <a name="SSMS"></a>Conectar-se ao SQL Server Management Studio e habilitar a autenticação de modo misto
 O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do Windows sem um ambiente de domínio. Para conectar-se ao Mecanismo de Banco de Dados de outro computador, configure o SQL Server para a autenticação de modo misto. A autenticação de modo misto permite a Autenticação do SQL Server e a Autenticação do Windows. O modo de autenticação do SQL é necessário para receber dados diretamente de seus bancos de dados de VM do SQL Server no [Estúdio de Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net) usando o módulo Importar Dados.
 
 1. Enquanto estiver conectado à máquina virtual usando a Área de Trabalho Remota, use o painel **Pesquisar** do Windows e digite **SQL Server Management Studio** (SMSS). Clique para iniciar o SQL Server Management Studio (SSMS). Convém adicionar um atalho para o SSMS em sua área de trabalho para uso futuro.
@@ -166,7 +167,7 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
    ![Reiniciar][9]
 5. Na caixa de diálogo do **SQL Server Management Studio**, clique em **Sim** para concordar que você quer reiniciar o SQL Server.
 
-## <a name="a-nameloginsacreate-sql-server-authentication-logins"></a><a name="Logins"></a>Criar logons de autenticação do SQL Server
+## <a name="Logins"></a>Criar logons de autenticação do SQL Server
 Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve criar pelo menos um logon de autenticação do SQL Server.  
 
 Você pode criar novos logons do SQL Server programaticamente ou usando o SQL Server Management Studio. Para criar um novo usuário sysadmin com autenticação do SQL de forma programática, inicie uma **Nova consulta** e execute o script a seguir. Substitua <novo nome do usuário\> e <nova senha\> pelo *nome de usuário* e pela *senha* de sua escolha. 
@@ -209,7 +210,7 @@ Para criar novos logons do SQL Server usando o SQL Server Management Studio:
     ![sysadmin][12]
 12. Clique em OK.
 
-## <a name="a-namednsadetermine-the-dns-name-of-the-virtual-machine"></a><a name="DNS"></a>Determinar o nome DNS da máquina virtual
+## <a name="DNS"></a>Determinar o nome DNS da máquina virtual
 Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computador, você deve saber o nome DNS (Sistema de Nome de Domínio) da máquina virtual.
 
 (Esse é o nome que a Internet usa para identificar a máquina virtual. Você pode usar o endereço IP, mas o endereço IP pode ser alterado quando o Azure mover os recursos para redundância ou manutenção. O nome DNS será estável porque pode ser redirecionado para um novo endereço IP.)
@@ -217,7 +218,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 1. No Portal Clássico do Azure (ou na etapa anterior), selecione **MÁQUINAS VIRTUAIS**.
 2. Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por **http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
 
-## <a name="a-namecdeaconnect-to-the-database-engine-from-another-computer"></a><a name="cde"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
+## <a name="cde"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
 1. Em um computador conectado à Internet, abra o SQL Server Management Studio.
 2. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, na caixa **Nome do servidor**, digite o nome DNS da máquina virtual (determinado na tarefa anterior) e um número de porta pública de ponto de extremidade no formato *NomeDNS, númerodaporta*, como **tutorialtestVM.cloudapp.net,57500**.
 3. Na caixa **Autenticação**, selecione **Autenticação do SQL Server**.
@@ -225,7 +226,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 5. Na caixa **Senha** , digite a senha do logon que você criou em uma tarefa anterior.
 6. Clique em **Conectar**.
 
-## <a name="a-nameamlconnectaconnect-to-the-database-engine-from-azure-machine-learning"></a><a name="amlconnect"></a>Conectar-se ao mecanismo de banco de dados de Aprendizado de Máquina do Azure
+## <a name="amlconnect"></a>Conectar-se ao mecanismo de banco de dados de Aprendizado de Máquina do Azure
 Nos estágios posteriores do Processo de Ciência de Dados de Equipe, você usará o [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para criar e implantar modelos de aprendizado de máquina. Para incluir dados dos bancos de dados da VM do SQL Server diretamente no Aprendizado de Máquina do Azure para treinamento ou pontuação, use o módulo **Importar Dados** em um novo experimento do [Estúdio de Aprendizado de Máquina](https://studio.azureml.net) do Azure. Esse tópico é abordado mais detalhadamente por meio dos links de guia do Processo de Ciência de Dados de Equipe. Para obter uma introdução, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md).
 
 1. No painel **Propriedades** do [módulo Importar Dados](https://msdn.microsoft.com/library/azure/dn905997.aspx), selecione **Banco de Dados SQL do Azure** na lista suspensa **Fonte de Dados**.
@@ -235,7 +236,7 @@ Nos estágios posteriores do Processo de Ciência de Dados de Equipe, você usar
    
    ![Importar Dados no Azure Machine Learning][13]
 
-## <a name="a-nameshutdownashutdown-and-deallocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Desligar e desalocar a máquina virtual quando ela não estiver em uso
+## <a name="shutdown"></a>Desligar e desalocar a máquina virtual quando ela não estiver em uso
 A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não esteja sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** .
 
 > [!NOTE]
@@ -273,10 +274,5 @@ As próximas etapas no processo de ciência de dados são mapeadas no [Processo 
 [12]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/25sysadmin.png
 [13]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/amlreader.png
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

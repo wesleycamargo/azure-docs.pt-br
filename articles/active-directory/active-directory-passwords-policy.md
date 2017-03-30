@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 52c58c5c8ea35bf29f8b847e5b7d119d6ab85da4
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 9f6c36011941510d2da7f6a043128e493c13d47b
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/10/2017
 Este artigo descreve as políticas de senha e requisitos de complexidade associados a contas de usuário armazenadas no diretório do Azure AD.
 
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -54,7 +54,7 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 | Bloqueio de conta |Após 10 tentativas malsucedidas de entrar (senha incorreta), o usuário será bloqueado por um minuto. Mais tentativas de entrar incorretas farão com que o usuário seja bloqueado por durações cada vez maiores. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [Gerenciar suas senhas de qualquer lugar](active-directory-passwords.md)
 * [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
 * [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)

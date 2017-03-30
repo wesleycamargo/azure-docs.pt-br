@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: 450bf3c23eecc356ad21c7f8ed07ca99619c17b7
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 722fc88763fb5c9b79008706c9352a9bc8c8eaa7
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -48,11 +48,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
     Para obter informações sobre como instalar o Azure PowerShell, consulte [Começar com o Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-    Para obter mais informações sobre como usar SSH e SCP com o HDInsight, confira os seguintes documentos:
-  
-    * [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, OS X, Unix e Bash no Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Usar SSH (PuTTY) com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-the-project"></a>Criar o projeto
 

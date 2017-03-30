@@ -16,16 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1390a0caf4e9cfe2af8bd6171a4d07f58da4bc43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 0d58355bf4d9cef0a84a6a192dbf019ee5238904
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-classic"></a>Configurar os grupos de disponibilidade Always On na VM do Azure (Clássica)
 > [!div class="op_single_selector"]
-> * [Clássico: Interface de usuário](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [Clássico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+> * [Clássico: Interface de usuário](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Clássico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 > [!IMPORTANT] 
@@ -387,7 +387,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 7. Na página **Selecionar Sincronização de Dados Inicial**, selecione **Somente ingressar** e clique em **Avançar**. Você já executou a sincronização de dados manualmente quando obteve os backups completos e de transações em **ContosoSQL1** e os restaurou em **ContosoSQL2**. Você pode preferir não realizar as operações de backup e restauração no seu banco de dados e selecionar **Completo** para permitir que o Assistente de Novo Grupo de Disponibilidade execute a sincronização de dados para você. No entanto, isso não é recomendado para grandes bancos de dados que se encontram em algumas empresas.
    
     ![Novo assistente de AG, selecionar sincronização de dados inicial](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665529.gif)
-8. Na página **Validação**, clique em **Avançar**. Esta página deve ser semelhante ao que é mostrado abaixo. Há um aviso para a configuração de ouvinte porque você não configurou um ouvinte de grupo de disponibilidade. Você pode ignorar esse aviso, pois este tutorial não configura um ouvinte. Para configurar o ouvinte após a conclusão deste tutorial, veja [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+8. Na página **Validação**, clique em **Avançar**. Esta página deve ser semelhante ao que é mostrado abaixo. Há um aviso para a configuração de ouvinte porque você não configurou um ouvinte de grupo de disponibilidade. Você pode ignorar esse aviso, pois este tutorial não configura um ouvinte. Para configurar o ouvinte após a conclusão deste tutorial, veja [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](../classic/ps-sql-int-listener.md).
    
     ![Novo assistente AG, Validação](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665530.gif)
 9. Na página **Resumo**, clique em **Concluir** e aguarde enquanto o assistente configura o novo grupo de disponibilidade. Na página **Progresso**, você pode clicar em **Mais detalhes** para exibir o progresso detalhado. Quando o assistente for concluído, inspecione a página **Resultados** para verificar se o grupo de disponibilidade foi criado com êxito, conforme mostrado abaixo, e clique em **Fechar** para sair do assistente.
@@ -410,7 +410,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, veja [Configurar um ouvinte de ILB para Grupos de Disponibilidade Always On no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, veja [Configurar um ouvinte de ILB para Grupos de Disponibilidade Always On no Azure](../classic/ps-sql-int-listener.md).
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

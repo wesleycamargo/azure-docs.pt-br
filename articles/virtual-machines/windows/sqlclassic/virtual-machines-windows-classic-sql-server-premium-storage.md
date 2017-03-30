@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 67ee949acaed274a3a1522008e833d86c8442a23
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d055a859ec89ef7fec23db9bf1d574dd8cb76293
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -270,7 +271,7 @@ Este cenário demonstra onde você tem imagens personalizadas existentes que res
 
 
 #### <a name="step-3-use-existing-image"></a>Etapa 3: Usar a imagem existente
-Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem de uma máquina existente](../../virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observe que a máquina cuja imagem você capturar não precisa ser uma máquina DS*. Assim que tiver a imagem, as etapas a seguir mostrarão como copiá-la para a conta de Armazenamento Premium com o commandlet **Start-AzureStorageBlobCopy** do PowerShell.
+Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem de uma máquina existente](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observe que a máquina cuja imagem você capturar não precisa ser uma máquina DS*. Assim que tiver a imagem, as etapas a seguir mostrarão como copiá-la para a conta de Armazenamento Premium com o commandlet**Start-AzureStorageBlobCopy** do PowerShell.
 
     #Get storage account keys:
     #Standard Storage account
@@ -1126,9 +1127,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [23]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

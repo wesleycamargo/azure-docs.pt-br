@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: bd0768b9d46c12c38ecd530ccef8397d1b595d8d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d011223dbb1ad7b5752875e94a4822be1b6cbe6e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -45,7 +45,7 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 6. Importe o certificado (arquivo .pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado. Certifique-se de importar para o `CurrentUser\My` repositório de certificados; caso contrário, a anexação do depurador do Visual Studio falhará.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>Habilitando a depuração remota para máquinas virtuais
-1. Crie uma máquina virtual do Azure. Consulte [Criar uma Máquina Virtual Executando o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Criar e Gerenciar Máquinas Virtuais do Azure no Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+1. Crie uma máquina virtual do Azure. Consulte [Criar uma Máquina Virtual Executando o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Criar e Gerenciar Máquinas Virtuais do Azure no Visual Studio](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 2. Na [página do portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), exiba o painel da máquina virtual para conferir a **IMPRESSÃO DIGITAL DO CERTIFICADO RDP**da máquina virtual. Esse valor é usado como o valor de `ServerThumbprint` na configuração da extensão.
 3. Crie um certificado cliente conforme descrito em [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md) (mantenha o .pfx e a impressão digital do certificado RDP).
 4. Instale e configure o Azure PowerShell (versão 0.7.4 ou posterior) conforme descrito em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs)

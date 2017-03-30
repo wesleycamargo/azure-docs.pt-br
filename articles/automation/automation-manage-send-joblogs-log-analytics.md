@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 3e166b82e547975a5d44465231da057a9465f81c
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 5cfbd39d2f66fb6632495eb7cd789ed39b0cc309
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -34,7 +34,7 @@ A Automação pode enviar o status do trabalho de runbook e fluxos de trabalho p
 Para começar a enviar seus logs de Automação para Log Analytics, você precisará do seguinte:
 
 1. Versão de novembro 2016 ou posterior do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) ( versão 2.3.0).
-2. Um espaço de trabalho do Log Analytics. Para saber mais, confira [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md). 
+2. Um espaço de trabalho do Log Analytics. Para saber mais, confira [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md).
 3. O ResourceId para sua conta da Automação do Azure
 
 Para localizar o ResourceId da sua conta da Automação do Azure e o espaço de trabalho do Log Analytics, execute o seguinte PowerShell:
@@ -68,13 +68,13 @@ Se precisar encontrar o *Nome* da sua Conta de automação, no portal do Azure, 
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
-       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment}
    }
 
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO"
 
 Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
 
@@ -100,12 +100,12 @@ Para confirmar que sua conta de automação está enviando logs para o seu espa�
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
-       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment}
    }
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO"
 
 Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
@@ -116,7 +116,7 @@ Na saída, verifique se:
 
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
-O diagnóstico da Automação do Azure cria dois tipos de registros no Log Analytics. 
+O diagnóstico da Automação do Azure cria dois tipos de registros no Log Analytics.
 
 ### <a name="job-logs"></a>Logs de trabalho
 | Propriedade | Descrição |
@@ -176,7 +176,7 @@ Para criar uma regra de alerta, você começa criando uma pesquisa de log para o
 2. Crie uma consulta de pesquisa de logs para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)` Você também pode agrupar pelo RunbookName usando: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
 
    Se você tiver configurado logs de mais de uma Conta de automação ou assinatura para o espaço de trabalho, também poderá agrupar os alertas por assinatura e por conta de Automação.  O nome da conta de Automação pode ser derivado do campo de Recurso na pesquisa de JobLogs.  
-3. Para abrir a tela **Adicionar Regra de Alerta**, clique em **Alerta** na parte superior da página. Para obter mais detalhes sobre as opções de configuração de alerta, confira [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules).
+3. Para abrir a tela **Adicionar Regra de Alerta**, clique em **Alerta** na parte superior da página. Para obter mais detalhes sobre as opções de configuração de alerta, confira [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Localizar todos os trabalhos que foram concluídos com erros
 Além de alertas de falhas, você pode descobrir quando um trabalho de runbook tem um erro não fatal. Nesses casos, o PowerShell produz um fluxo de erro, mas os erros não fatais fazem com que seu trabalho seja suspenso ou falhe.    

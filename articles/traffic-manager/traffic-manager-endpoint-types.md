@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
+ms.date: 03/29/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c27b6ed05faa5d9c408e6812d4ecbb8e0e2bbbab
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 6d048b73528d1812f1be9585d30812ca4aeaa397
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -25,7 +25,6 @@ ms.lasthandoff: 03/17/2017
 O Gerenciador de Tráfego do Microsoft Azure permite controlar como o tráfego de rede é distribuído para implantações de aplicativos executados em diferentes datacenters. Você configurar cada implantação de aplicativo como um “ponto de extremidade” no Gerenciador de Tráfego. Quando o Gerenciador de Tráfego recebe uma solicitação DNS, ele escolhe um ponto de extremidade disponível para retornar na resposta DNS. O Gerenciador de Tráfego baseia a escolha no status atual do ponto de extremidade e o método de roteamento de tráfego. Para obter mais informações, consulte [Como o Gerenciador de Tráfego Funciona](traffic-manager-how-traffic-manager-works.md).
 
 Há três tipos de ponto de extremidade suportados pelo Gerenciador de Tráfego:
-
 * **pontos de extremidade do Azure** são usados para os serviços hospedados no Azure.
 * **pontos de extremidade externos** são usados para os serviços hospedados fora do Azure, no local ou com um provedor de hospedagem diferente.
 * **pontos de extremidade aninhados** são usados para combinar os perfis do Gerenciador de Tráfego para criar esquemas de roteamento de tráfego mais flexíveis para suportar as necessidades de implantações maiores e mais complexas.
@@ -54,7 +53,7 @@ Pontos de extremidade externos são usados para serviços fora do Azure. Por exe
 * Para reduzir a latência de aplicativo para os usuários em todo o mundo, estenda um aplicativo local existente para locais geográficos adicionais no Azure. Para obter mais informações, consulte [Roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 * Usando o Azure para fornecer capacidade adicional para um aplicativo local existente, seja continuamente ou como uma solução “intermitência para a nuvem” para atender um pico de demanda.
 
-Em alguns casos, pode ser útil usar pontos de extremidade externos para fazer referência aos serviços do Azure (consulte exemplos em [	Perguntas Frequentes](#faq)). Neste caso, as verificações de integridade são cobradas à taxa dos pontos de extremidade do Azure, não à taxa dos pontos de extremidade Externos. No entanto, diferentemente dos pontos de extremidade do Azure, se você parar ou excluir o serviço subjacente, a cobrança da verificação de integridade continuará até você desabilitar ou excluir o ponto de extremidade no Gerenciador de tráfego.
+Em alguns casos, pode ser útil usar pontos de extremidade externos para fazer referência aos serviços do Azure (consulte exemplos em [	Perguntas Frequentes](traffic-manager-faqs.md#traffic-manager-endpoints)). Neste caso, as verificações de integridade são cobradas à taxa dos pontos de extremidade do Azure, não à taxa dos pontos de extremidade Externos. No entanto, diferentemente dos pontos de extremidade do Azure, se você parar ou excluir o serviço subjacente, a cobrança da verificação de integridade continuará até você desabilitar ou excluir o ponto de extremidade no Gerenciador de tráfego.
 
 ## <a name="nested-endpoints"></a>pontos de extremidade aninhados
 
@@ -66,7 +65,7 @@ Algumas considerações adicionais se aplicam ao configurar os Aplicativos Web c
 
 1. Somente Aplicativos Web na SKU “Standard” ou superior estão qualificados para o uso com o Gerenciador de Tráfego. Falha nas tentativas de adicionar um Aplicativo Web de uma SKU inferior. Fazer o downgrade da SKU de um aplicativo Web existente resulta em o Gerenciador de tráfego não enviar mais tráfego para esse Aplicativo Web.
 2. Quando um ponto de extremidade recebe uma solicitação HTTP, ele usa o cabeçalho “host” na solicitação para determinar qual aplicativo Web deve atender à solicitação. O cabeçalho de host contém o nome DNS usado para iniciar a solicitação, por exemplo, “contosoapp.azurewebsites.net”. Para usar um nome DNS diferente com seu Aplicativo Web, o nome DNS deve ser registrado como um nome de domínio personalizado para o Aplicativo. Ao adicionar um ponto de extremidade do Aplicativo Web como um ponto de extremidade do Azure, o nome DNS do perfil do Gerenciador de Tráfego é registrado automaticamente para o Aplicativo. Esse registro é removido automaticamente quando o ponto de extremidade é excluído.
-3. Cada perfil do Gerenciador de Tráfego pode ter, no máximo, um ponto de extremidade do aplicativo Web de cada região do Azure. Para contornar essa restrição, você pode configurar um Aplicativo Web como um ponto de extremidade Externo. Consulte mais informações em [Perguntas Frequentes](#faq).
+3. Cada perfil do Gerenciador de Tráfego pode ter, no máximo, um ponto de extremidade do aplicativo Web de cada região do Azure. Para contornar essa restrição, você pode configurar um Aplicativo Web como um ponto de extremidade Externo. Consulte mais informações em [Perguntas Frequentes](traffic-manager-faqs.md#traffic-manager-endpoints).
 
 ## <a name="enabling-and-disabling-endpoints"></a>Habilitando e desabilitando os pontos de extremidade
 
