@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: e44199dec6de1e89545f3d122481aa81e97d75ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -155,7 +155,7 @@ Os seguintes recursos foram adicionados na versão 1.1:
 * Um padrão de estratégia `MessageProcessor` permite que você especifique um processador por fila/tópico.
 * A simultaneidade de processamento de mensagem tem suporte por padrão. 
 * Personalização fácil de `OnMessageOptions` via `ServiceBusConfiguration.MessageOptions`.
-* Permita que [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) seja especificado em `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (para cenários em que você talvez não precise gerenciar direitos). 
+* Permita que [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) seja especificado em `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (para cenários em que você talvez não precise gerenciar direitos). Observe que o Azure WebJobs não pode provisionar automaticamente filas e tópicos inexistentes sem AccessRights Gerenciar.
 
 ## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções de filas de armazenamento
 Para obter informações sobre cenários do SDK de Trabalhos Web não específicos para o barramento de serviço, consulte [Como usar armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 

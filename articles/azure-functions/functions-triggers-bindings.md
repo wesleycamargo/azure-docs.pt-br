@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
-ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a56d71d437814ed08b2e0a05d9acc8448f6b9ae5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -32,7 +33,7 @@ Para obter informações detalhadas sobre como trabalhar com um tipo específico
 | --- | --- | --- | --- |  
 | [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [Aplicativos Móveis](functions-bindings-mobile-apps.md) | [Barramento de Serviço](functions-bindings-service-bus.md)  |  
 | [DocumentDB](functions-bindings-documentdb.md) |  [Armazenamento de Blobs](functions-bindings-storage-blob.md) | [Storage Queue](functions-bindings-storage-queue.md) |  [Tabela de Armazenamento](functions-bindings-storage-table.md) |  
-| [Hubs de Evento](functions-bindings-event-hubs.md) | [Hubs de Notificação](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| [Hubs de Evento](functions-bindings-event-hubs.md) | [Hubs de Notificação](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
 | | | | |  
 
 Este artigos pressupõem que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md) e os artigos de referência do [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) ou [Node.js](functions-reference-node.md) para desenvolvedores.
@@ -385,10 +386,5 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Testando uma função](functions-test-a-function.md)
 * [Dimensionar uma função](functions-scale.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

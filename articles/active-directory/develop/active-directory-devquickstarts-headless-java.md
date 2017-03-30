@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 51913b5e0d43514f50f2d51500f2149438d87045
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4e6d859ee621a730e0d2c1062d3a31e7c053e798
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -50,8 +51,8 @@ Para habilitar seu aplicativo a autenticar usuários, primeiro você precisará 
 5. Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.
   * O **nome** do aplicativo descreverá seu aplicativo para os usuários finais
   * A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é `http://localhost:8080/adal4jsample/`.
-  * O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo.  A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `http://localhost:8080/adal4jsample/`
 6. Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única.  Você precisará desse valor nas próximas seções, portanto, copie-o da guia do aplicativo.
+7. Na página **Configurações** -> **Propriedades** do aplicativo, atualize o URI da ID do Aplicativo. O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo.  A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `http://localhost:8080/adal4jsample/`.
 
 Quando estiver no portal de seu aplicativo, crie uma **Chave** na página **Configurações** para seu aplicativo e copie-a.  Você precisará dele em breve.
 
@@ -267,10 +268,5 @@ Parabéns! Agora você tem um aplicativo Java com a capacidade de autenticar usu
 Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

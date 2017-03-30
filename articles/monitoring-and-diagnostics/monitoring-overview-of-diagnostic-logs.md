@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 03/17/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: be27a3541caa1620af432dcff438f70cb9b1074b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -199,8 +199,10 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
 |Tipo de recurso|Categoria|Nome de exibição da categoria|
 |---|---|---|
+|Microsoft.ApiManagement/service|GatewayLogs|Logs relacionados ao Gateway ApiManagement|
 |Microsoft.Automation/automationAccounts|JobLogs|Logs de trabalho|
 |Microsoft.Automation/automationAccounts|JobStreams|Transmissões de trabalho|
+|Microsoft.Automation/automationAccounts|DscNodeStatus|Status do nó DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Logs de Auditoria|
 |Microsoft.DataLakeAnalytics/accounts|Solicitações|Logs de solicitação|
@@ -208,16 +210,19 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 |Microsoft.DataLakeStore/accounts|Solicitações|Logs de solicitação|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Logs de arquivo|
 |Microsoft.EventHub/namespaces|OperationalLogs|Logs operacionais|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|Logs de Escala Automática|
 |Microsoft.KeyVault/vaults|AuditEvent|Logs de Auditoria|
 |Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico de tempo de execução do fluxo de trabalho|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Acompanhar os eventos da Conta de Integração|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de regras de grupo de segurança de rede|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra de grupo de segurança de rede|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta do Load Balancer|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Status de integridade da investigação do Load Balancer|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log de desempenho do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabela de contadores GWM|
 |Microsoft.Search/searchServices|OperationLogs|Logs de operação|
 |Microsoft.ServerManagement/nodes|RequestLogs|Logs de solicitação|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Logs operacionais|

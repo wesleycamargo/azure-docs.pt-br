@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 3a618e4dfed5e941fb0200f4f21a6a45e33d948e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 472353a2d099db869f43649cd46c8b004ebd53cc
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -26,47 +26,53 @@ ms.lasthandoff: 03/15/2017
 
 Este Início Rápido ajuda a implantar um site HTML + CSS simples para [o Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) em apenas alguns minutos.
 
-Antes de começar o Início Rápido, verifique se [a CLI do Azure está instalada](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) em seu computador.
+Antes de começar, certifique-se de que a CLI do Azure foi instalada. Para obter mais informações, consulte o [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="create-a-static-html-site-in-azure"></a>Criar um site HTML estático no Azure
-2. Faça logon no Azure ao executar `az login` e acompanha as instruções na tela.
+## <a name="log-in-to-azure"></a>Fazer logon no Azure
+Faça logon no Azure ao executar `az login` e acompanha as instruções na tela.
    
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
 
-3. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). Isso é onde você coloca todos os recursos do Azure que deseja gerenciar, como o aplicativo Web e seu back-end do Banco de Dados SQL.
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos   
+Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). Isso é onde você coloca todos os recursos do Azure que deseja gerenciar, como o aplicativo Web e seu back-end do Banco de Dados SQL.
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    Para ver quais são os valores possíveis para `---location`, use o comando `az appservice list-locations` da CLI do Azure.
+Para ver quais são os valores possíveis para `---location`, use o comando `az appservice list-locations` da CLI do Azure.
 
-3. Criar um [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "GRATUITO". 
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-    ```
+## <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
+Criar um [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "GRATUITO". 
 
-4. Crie um novo aplicativo Web com um nome exclusivo no `<app_name>`.
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
+```
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+## <a name="create-a-web-app"></a>Criar um aplicativo Web
+Crie um aplicativo Web com um nome exclusivo no `<app_name>`.
 
-4. Implante um site HTML de exemplo do GitHub.
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-html-get-started.git" --branch master --manual-integration 
-    ```
+## <a name="deploy-sample-application"></a>Implantar um aplicativo de exemplo
+Implante um site HTML de exemplo do GitHub.
 
-5. Para ver o aplicativo em execução no Azure, execute este comando.
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-html-get-started.git" --branch master --manual-integration 
+```
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+## <a name="browse-to-web-app"></a>Navegar até o aplicativo Web
+Para ver o aplicativo em execução no Azure, execute este comando.
+
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Parabéns, seu primeiro site HTML estático está em execução no Serviço de Aplicativo do Azure.
 

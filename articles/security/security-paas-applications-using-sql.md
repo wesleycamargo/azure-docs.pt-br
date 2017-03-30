@@ -1,9 +1,9 @@
 ---
 title: "Protegendo aplicativos Web e móveis de PaaS usando o Banco de Dados SQL e o SQL Data Warehouse | Microsoft Docs"
-description: " Saiba mais sobre as práticas recomendadas de segurança do SQL Data Warehouse e do Banco de Dados SQL do Azure para proteger seus aplicativos Web e móveis de PaaS. "
+description: " Saiba mais sobre as melhores práticas de segurança do Banco de Dados SQL do Azure e do SQL Data Warehouse para proteger aplicativos Web e móveis PaaS. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
 editor: 
 ms.assetid: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b3db1281bbd37fcfbec54bdeb998e6338bb08369
-ms.openlocfilehash: 39f841c0f3c8bed1bd640dfd644a58a764422aff
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: be00c1427d57b96506ec8b0ac881b7c1bd09e4de
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -91,9 +92,4 @@ Este artigo apresentou uma coleção de práticas recomendadas de segurança do 
 
 - [Proteção de implantações de PaaS](security-paas-deployments.md)
 - [Securing PaaS web and mobile applications using Azure App Services](security-paas-applications-using-app-services.md) (Proteção dos aplicativos Web e móveis de PaaS usando os Serviços de Aplicativos do Azure)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

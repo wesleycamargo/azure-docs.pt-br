@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 46ffa25ff6f90c898b958ee6c5b2c47219c468ab
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/20/2017
 
 Este artigo mostra como habilitar HTTPS para um aplicativo Web, back-end de aplicativo móvel ou aplicativo de API no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) usando um nome de domínio personalizado. O artigo aborda a autenticação somente de servidor. Se você precisar de informações sobre autenticação mútua (incluindo autenticação de cliente), consulte [Como configurar a autenticação mútua TLS para o Serviço de Aplicativo](app-service-web-configure-tls-mutual-auth.md).
 
-Para proteger com HTTPS um aplicativo com nome de domínio personalizado, adicione um certificado para esse nome de domínio. Por padrão, o Azure protege o domínio curinga **\*. azurewebsites.net** com um único certificado SSL, de modo que seus clientes possam acessar o aplicativo em **https://*&lt;appname>*.azurewebsites.net**. Mas se você quiser usar um domínio personalizado, como **contoso.com**, **www.contoso.com** e **\*.contoso.com**, o certificado padrão não poderá protegê-lo. Além disso, assim como todos os [certificados curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), o certificado padrão não é tão seguro quanto usar um domínio personalizado e um certificado para esse domínio personalizado.   
+Para proteger com HTTPS um aplicativo com nome de domínio personalizado, adicione um certificado para esse nome de domínio. Por padrão, o Azure protege o domínio curinga **\*. azurewebsites.net** com um único certificado SSL, de modo que seus clientes possam acessar o aplicativo em **https://*&lt;appname>*.azurewebsites.net**. Mas se você quiser usar um domínio personalizado, como**contoso.com**, **www.contoso.com**e**\*.contoso.com**, o certificado padrão não poderá protegê-lo. Além disso, assim como todos os [certificados curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), o certificado padrão não é tão seguro quanto usar um domínio personalizado e um certificado para esse domínio personalizado.   
 
 > [!NOTE]
 > Obtenha ajuda dos especialistas do Azure a qualquer momento nos [fóruns do Azure](https://azure.microsoft.com/support/forums/). Para obter um suporte mais personalizado, vá até [Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
@@ -439,8 +439,12 @@ Antes de prosseguir, consulte a seção [Do que você precisa](#bkmk_domainname)
    
     ![inserir imagem de Associações SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
    
-       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
-       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
+    > [!NOTE] 
+    > O **SSL baseado em IP** associa um certificado a um nome de domínio mapeando um endereço IP público dedicado do servidor para o nome de domínio. Isso exige que cada nome de domínio (contoso.com, fabricam.com etc.), associado ao seu serviço tenha um endereço IP dedicado. Esse é o método tradicional de associar certificados SSL a um servidor web.  
+    >
+    > O **SSL baseado em SNI** é uma extensão do SSL e do **[protocolo TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security)** que permite que vários domínios compartilhem o mesmo endereço IP, com certificados de segurança separados para cada domínio. Os navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) dão suporte ao SNI. No entanto, navegadores mais antigos podem não dar esse suporte. Para obter mais informações sobre o SNI, consulte o artigo **[Indicação de Nome de Servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** no Wikipédia.
+    > 
+
 9. Clique em **Adicionar Associação** para salvar as alterações e habilitar o SSL.
 
 ## <a name="step-3-change-your-domain-name-mapping-ip-based-ssl-only"></a>Etapa 3. Alterar o mapeamento do nome de domínio (somente para SSL baseado em IP)

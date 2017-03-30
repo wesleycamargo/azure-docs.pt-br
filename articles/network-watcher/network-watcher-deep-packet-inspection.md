@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 78f367de862e4fa9203cc794549abb935f117848
-ms.openlocfilehash: f7e4f1832a8edd029fcef08e295b6c79c033b664
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 62fa6a6d0cccc5545b94d4ae167f2fcc7e4cd0de
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -55,7 +55,7 @@ Carregue o arquivo **.cap** da captura de pacotes. Esse arquivo pode ser encontr
 
 ### <a name="step-3"></a>Etapa 3
 
-Para exibir o Tempo Resposta inicial (RTT) nas conversas TCP, veremos apenas os dois primeiros pacotes envolvidos no handshake TCP. Usaremos os dois primeiros pacotes no handshake de três vias, que são os pacotes [SYN], [SYN, ACK]. Eles são chamados de sinalizadores definidos no cabeçalho TCP. O último pacote no handshake, o pacote [ACK], não será usado neste cenário. O pacote [SYN] é enviado pelo cliente. Após ser recebido, o servidor envia o pacote [ACK] como uma confirmação de recebimento do SYN a partir do cliente. Aproveitando o fato de que a resposta do servidor requer muito pouca sobrecarga, calculamos o RTT subtraindo o tempo que o pacote [SYN, ACK] foi recebido pelo cliente do tempo que o pacote [SYN] foi enviado pelo cliente.
+Para exibir o Tempo Resposta inicial (RTT) nas conversas TCP, veremos apenas os dois primeiros pacotes envolvidos no handshake TCP. Usaremos os dois primeiros pacotes no handshake de três vias, que são os pacotes [SYN], [SYN, ACK]. Eles são chamados de sinalizadores definidos no cabeçalho TCP. O último pacote no handshake, o pacote [ACK], não será usado neste cenário. O pacote [SYN] é enviado pelo cliente. Após ser recebido, o servidor envia o pacote [ACK] como uma confirmação de recebimento do SYN a partir do cliente. Aproveitando o fato de que a resposta do servidor exige muito pouca sobrecarga, calculamos o RTT subtraindo a hora em que o pacote [SYN, ACK] foi recebido pelo cliente da hora em que o pacote [SYN] foi enviado pelo cliente.
 
 Usando o WireShark, esse valor é calculado.
 

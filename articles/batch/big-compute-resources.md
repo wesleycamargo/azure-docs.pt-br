@@ -1,5 +1,5 @@
 ---
-title: Recursos para lote e cargas de trabalho de HPC na nuvem | Microsoft Docs
+title: Recursos para lote e HPC na nuvem do Azure | Microsoft Docs
 description: "Lista os recursos técnicos que podem ajudá-lo a executar suas cargas de trabalho paralelas de grande escala, de lote e de HPC (computação de alto desempenho) no Azure."
 services: batch, cloud-services, virtual-machines
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 03/17/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
-ms.openlocfilehash: edcf34610e7517f9ca16f8c239e4080c475933f4
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5e605c8c509c93feb822781257ad979a0dea00aa
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -59,7 +59,15 @@ Use esses modelos do Azure para implantar clusters HPC do Linux.
 
 * [Crie um cluster SLURM](https://azure.microsoft.com/documentation/templates/slurm/) e uma [postagem de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 * [Crie um cluster de Torque](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+* [Modelos de grade de computação com o PBS Professional](https://github.com/xpillons/azure-hpc/tree/master/Compute-Grid-Infra)
+
+## <a name="hpc-storage"></a>Armazenamento HPC
+* [Sistemas de arquivos paralelos para o armazenamento HPC no Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
 * [Intel Cloud Edition for Software Lustre - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
+* [BeeGFS no modelo do CentOS 7.2](https://github.com/smith1511/hpc/tree/master/beegfs-shared-on-centos7.2)
+
+
+
 
 ## <a name="microsoft-mpi"></a>Microsoft MPI
 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) é uma implementação da Microsoft do padrão Message Passing Interface para desenvolver e executar aplicativos paralelos na plataforma Windows.
@@ -69,14 +77,17 @@ Use esses modelos do Azure para implantar clusters HPC do Linux.
 * [Fórum do MPI](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
 ## <a name="compute-intensive-instances"></a>Instâncias com uso computacional intensivo
-O Azure oferece [diversos tamanhos de VM](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), inclusive instâncias de [computação intensiva da série H](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) capazes de se conectar a uma rede RDMA de back-end, a fim de executar cargas de trabalho de HPC para Linux e Windows.
+O Azure oferece [diversos tamanhos de VM](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), inclusive instâncias de [computação intensiva da série H](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) capazes de se conectar a uma rede RDMA de back-end, a fim de executar cargas de trabalho de HPC para Linux e Windows. 
 
 * [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configurar um cluster de RDMA do Windows com o Microsoft HPC Pack para executar aplicativos MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
+Para cargas de trabalho com uso intensivo de GPU, confira [Tamanhos de NC e NV](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/).
+
 ## <a name="samples-and-demos"></a>Exemplos e scripts
 * [Exemplos de código do C# e Python para o Lote do Azure](https://github.com/Azure/azure-batch-samples)
 * [Shipyard de Lote](https://azure.github.io/batch-shipyard/) , que facilita a implantação de cargas de trabalho do Docker no estilo do Lote do Azure
+* Pacote R [doAzureParallel](http://www.github.com/Azure/doAzureParallel), criado com base no Lote do Azure
 * [Testar o SUSE Linux Enterprise Server para HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
 ## <a name="related-azure-services"></a>Serviços do Azure relacionados

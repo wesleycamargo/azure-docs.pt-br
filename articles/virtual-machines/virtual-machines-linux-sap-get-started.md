@@ -338,7 +338,7 @@ Resumo: este é o documento que você deverá ler primeiro se estiver pensando e
 
 Atualização: março de 2016
 
-[Este guia pode ser encontrado aqui] [guia de planejamento]
+[Este guia pode ser encontrado aqui][guia de planejamento]
 
 ## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Implantação
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Implantação

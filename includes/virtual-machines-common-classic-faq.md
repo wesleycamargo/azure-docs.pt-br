@@ -33,8 +33,8 @@ Uma conta de armazenamento do Azure fornece armazenamento para o disco do sistem
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Quais tipos de disco rígido virtual eu posso usar?
 O Azure dá suporte apenas a discos rígidos virtuais fixos no formato VHD. Se tiver um VHDX que deseja usar no Azure, você precisará primeiro convertê-lo usando o Gerenciador do Hyper-V ou o cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) . Depois de fazer isso, use o cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (no modo de Gerenciamento de Serviços) para carregar o VHD em uma conta de armazenamento do Azure para que você possa usá-lo com máquinas virtuais.
 
-* Para obter instruções sobre o Linux, veja [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* Para obter instruções sobre o Windows, veja [Criar e carregar um VHD do Windows Server no Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Para obter instruções sobre o Linux, veja [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Para obter instruções sobre o Windows, veja [Criar e carregar um VHD do Windows Server no Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Essas máquinas virtuais são iguais às máquinas virtuais Hyper-V?
 De muitas formas, elas são semelhantes às VMs Hyper-V da "Geração 1", mas não são exatamente iguais. Os dois tipos oferecem hardware virtualizado e os discos rígidos virtuais em formato VHD são compatíveis. Isso significa que você pode movê-los entre o Hyper-V e o Azure. Três diferenças principais que às vezes surpreendem os usuários do Hyper-V são:
@@ -51,7 +51,7 @@ Você precisará especificar a rede à qual deseja que a máquina virtual perten
 ## <a name="how-can-i-access--my-virtual-machine"></a>Como posso acessar minha máquina virtual?
 Você precisa estabelecer uma conexão remota para fazer logon na máquina virtual, usando a Conexão de Área de Trabalho Remota para uma VM do Windows ou um SSH (Secure Shell) para uma VM Linux. Para obter instruções, consulte:
 
-* [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.  
+* [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.  
 * [Como fazer logon em uma máquina virtual executando o Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
 
 Se tiver problemas com a Área de Trabalho Remota ou o SSH, instale e use a extensão [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ajudar a corrigir o problema.
@@ -60,7 +60,7 @@ Para VMs Windows, as opções adicionais incluem:
 
 * No portal clássico do Azure, localize a VM e clique em **Redefinir Acesso Remoto** na barra de comandos.
 * Examine [Solucionar problemas de conexões da Área de Trabalho Remota a uma Máquina Virtual do Azure baseada em Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Use a Comunicação Remota do Windows PowerShell para conectar-se à VM ou crie pontos de extremidade adicionais para outros recursos se conectarem à VM. Para obter detalhes, confira [Como instalar pontos de extremidade em uma máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Use a Comunicação Remota do Windows PowerShell para conectar-se à VM ou crie pontos de extremidade adicionais para outros recursos se conectarem à VM. Para obter detalhes, confira [Como instalar pontos de extremidade em uma máquina virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Se estiver familiarizado com o Hyper-V, você pode estar em busca de uma ferramenta semelhante ao VMConnect. O Azure não oferece uma ferramenta semelhante porque não há suporte para o acesso de console a uma máquina virtual.
 
@@ -68,7 +68,7 @@ Se estiver familiarizado com o Hyper-V, você pode estar em busca de uma ferrame
 Você não deve usar o disco temporário (a unidade D: por padrão para Windows ou /dev/sdb1 para Linux) para armazenar dados. Elas são apenas um armazenamento temporário, você se arriscaria a perder dados que não podem ser recuperados. Isso pode ocorrer quando a máquina virtual é movida para um host diferente. O redimensionamento de uma máquina virtual, atualização do host ou uma falha de hardware no host são algumas das razões que podem levar à mudança de uma máquina virtual.
 
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>Como eu posso alterar a letra da unidade do disco temporário?
-Em uma máquina virtual do Windows, você pode alterar a letra da unidade movendo o arquivo de paginação e reatribuindo as letras de unidade, mas você precisará certificar-se de seguir as etapas em uma ordem específica. Para obter instruções, veja [Alterar a letra da unidade do disco temporário do Windows](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Em uma máquina virtual do Windows, você pode alterar a letra da unidade movendo o arquivo de paginação e reatribuindo as letras de unidade, mas você precisará certificar-se de seguir as etapas em uma ordem específica. Para obter instruções, veja [Alterar a letra da unidade do disco temporário do Windows](../articles/virtual-machines/virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="how-can-i-upgrade-the-guest-operating-system"></a>Como eu posso atualizar o sistema operacional convidado?
 O termo atualizar geralmente significa passar para uma versão mais recente do sistema operacional, mantendo o mesmo hardware. Para VMs do Azure, o processo de mudança para uma versão mais recente é diferente para o Linux e o Windows:
@@ -128,9 +128,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 [Diferentes maneiras de criar uma máquina virtual Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Diferentes maneiras de criar uma máquina virtual Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

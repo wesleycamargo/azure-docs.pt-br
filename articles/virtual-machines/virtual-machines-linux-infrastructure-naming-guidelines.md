@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 87a3d4fc849cee5d9abed1e4c32a9da583ea9516
-ms.openlocfilehash: 1ccde46c7adafdaa4a9efca450a3dd2efde8413a
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 997a5e5db9abdd92c3717d9eb10ff01b2bb40a9f
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="azure-infrastructure-naming-guidelines"></a>Diretrizes de nomenclatura de infraestrutura do Azure
+# <a name="azure-infrastructure-naming-guidelines-for-linux-vms"></a>Diretrizes de nomenclatura de infraestrutura do Azure para VMs Linux 
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Este artigo destaca as noções básicas sobre como abordar as convenções de nomenclatura para todos os vários recursos do Azure para compilar um conjunto de recursos lógico e facilmente identificável em seu ambiente.
@@ -95,7 +98,7 @@ Se uma VM for criada por meio de um arquivo de imagem .vhd que já contenha um s
 Recomendamos que o nome da VM do Azure seja igual ao nome do computador do sistema operacional subjacente.
 
 ## <a name="storage-account-names"></a>Nomes de contas de armazenamento
-As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). Além disso, o nome da conta de armazenamento com core.windows.net deve ser um nome DNS exclusivo e globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
+Esta seção não se aplica ao [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), pois você não cria uma conta de armazenamento separada. Para discos não gerenciados, as contas de armazenamento têm regras especiais que regem seus nomes. Você pode usar apenas letras minúsculas e números. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). Além disso, o nome da conta de armazenamento com core.windows.net deve ser um nome DNS exclusivo e globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
 
 * minhacontadearmazenamento.blob.core.windows.net
 * minhacontadearmazenamento.table.core.windows.net
@@ -103,10 +106,5 @@ As contas de armazenamento têm regras especiais para os nomes. Você pode usar 
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

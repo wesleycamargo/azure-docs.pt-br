@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/03/2017
+ms.date: 03/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 78ed4e170c4c296ae78b79c553228d8ea11c0f49
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9716975994d1ab3b7cf63efc6480efcd48eb67bb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o Banco de Dados SQL   
-Quando [migrar seu banco de dados](sql-database-cloud-migrate.md) do SQL Server para o SQL Server do Azure, você poderá descobrir que seu banco de dados requer alguma reengenharia antes que o SQL Server possa ser migrado. Este tópico fornece diretrizes para ajudá-lo tanto a realizar essa reengenharia quanto a entender os motivos subjacentes pelos quais a reengenharia é necessária. 
+Quando [migrar seu banco de dados](sql-database-cloud-migrate.md) do SQL Server para o SQL Server do Azure, você poderá descobrir que seu banco de dados requer alguma reengenharia antes que o SQL Server possa ser migrado. Este tópico fornece diretrizes para ajudá-lo tanto a realizar essa reengenharia quanto a entender os motivos subjacentes pelos quais a reengenharia é necessária. Para detectar incompatibilidades, use o [DMA (Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Visão geral
 Há suporte total, tanto no Microsoft SQL Server quanto no Banco de Dados SQL do Azure, para a maioria dos aplicativos e recursos Transact-SQL. Por exemplo, os componentes principais do SQL como tipos de dados, operadores, cadeia de caracteres, funções aritméticas, lógicas e de cursor funcionam da mesma maneira no SQL Server e no Banco de Dados SQL. No entanto, existem algumas diferenças de T-SQL em DDL (linguagem de definição de dados) e elementos DML (linguagem de manipulação de dados), resultando em instruções T-SQL e consultas que têm suporte apenas parcial (o que discutiremos posteriormente neste tópico).

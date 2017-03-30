@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/20/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 4e37d976ab7616674ff4b41111bfe7000444ca54
-ms.openlocfilehash: 2ff41f4a93b0cc7f104fe4703f5b031cfb3252e1
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 8b4818ccea1ac5025e93fa0939735b3ed606f47c
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
 
-Visite [Visão geral de preços do Azure](https://azure.microsoft.com/pricing/) para saber mais sobre preços do Azure. Lá, você pode estimar os custos usando a [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/) ou visitando a página de detalhes de preços para um serviço (por exemplo, [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)).
+Visite [Visão geral de preços do Azure](https://azure.microsoft.com/pricing/) para saber mais sobre preços do Azure. Lá, você pode estimar os custos usando a [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/) ou visitando a página de detalhes de preços para um serviço (por exemplo, [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Para obter dicas sobre como ajudar a gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](billing/billing-getting-started.md).
 
 > [!NOTE]
 > Se você deseja aumentar o limite ou a cota acima do **Limite Padrão**, [abra uma solicitação no suporte ao cliente online sem custo](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Os limites não podem ser aumentados acima do valor **Limite Máximo** mostrado nas tabelas a seguir. Se não houver nenhuma coluna **Limite Máximo**, o recurso não terá limites ajustáveis. 

@@ -12,33 +12,23 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: ab4be9d9a03001789bed90e58d62fe1891608823
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8d9e90cc43df74968c7b9dc30d268f3e6228adcc
+ms.lasthandoff: 03/21/2017
 
 ---
 
 
 # <a name="create-a-web-app-with-deployment-from-github"></a>Criar um aplicativo Web com a implantação do GitHub
 
-Este script de exemplo faz o seguinte usando a CLI do Azure 2.0:
+Este script de exemplo cria um aplicativo Web no serviço de aplicativo com seus recursos relacionados e, em seguida, implanta seu código de aplicativo Web de um repositório GitHub público (sem a implantação contínua). Para implantação do GitHub com implantação contínua, confira [Como criar um aplicativo Web com implantação contínua do GitHub](app-service-cli-continuous-deployment-github.md).
 
-* Crie um aplicativo Web no Serviço de Aplicativo do Azure na região Europa Ocidental do Azure.
-* Implante o código do aplicativo Web do GitHub.
-* Exiba o aplicativo Web do Azure implantado no navegador.
+Se necessário, instale a CLI do Azure usando a instrução encontrada no [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e, em seguida, execute `az login` para criar uma conexão com o Azure. Além disso, você precisa de um link para o repositório GitHub que contém o código do aplicativo Web.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Execute `az login` para efetuar logon no Azure.
-* Coloque o código de seu aplicativo Web em um repositório do GitHub.
-
-> [!NOTE]
-> Se você usar um repositório GitHub público que não seja de sua propriedade, o serviço de aplicativo implantará código por meio desse repositório GitHub, mas não poderá configurar a chave SSH e os webhooks necessário à implantação contínua.
->
->
+Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## <a name="create-app-sample"></a>Criar aplicativo de exemplo
 
@@ -50,7 +40,7 @@ Este script de exemplo faz o seguinte usando a CLI do Azure 2.0:
 
 Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Comando | Observações |
+| Command | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Cria um Plano do Serviço de Aplicativo. |

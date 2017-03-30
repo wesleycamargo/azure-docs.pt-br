@@ -13,28 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: c1a1c7d2fd56e20d30cf0468de2d7d6c2935ef3e
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1390a0caf4e9cfe2af8bd6171a4d07f58da4bc43
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-classic"></a>Configurar os grupos de disponibilidade Always On na VM do Azure (Clássica)
 > [!div class="op_single_selector"]
-> * [Resource Manager: Modelo](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Resource Manager: Manual](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 > * [Clássico: Interface de usuário](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 > * [Clássico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
-> 
-> 
-
 <br/>
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. 
+
+Para concluir essa tarefa com o modelo do Azure Resource Manager, consulte [Grupos de disponibilidade AlwaysOn do SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 Este tutorial completo mostra como implementar os grupos de disponibilidade usando o SQL Server AlwaysOn em execução em máquinas virtuais do Azure.
 
@@ -43,14 +40,14 @@ Ao final do tutorial, sua solução SQL Server AlwaysOn no Azure consistirá nos
 * Uma rede virtual que contém várias sub-redes, incluindo uma de front-end e uma de back-end
 * Um controlador de domínio com um domínio do AD (Active Directory)
 * Duas VMs do SQL Server implantadas na sub-rede de back-end e ingressadas no domínio do AD
-* Um cluster WSFC de três nós com o modelo de quórum de Nó Principal
+* Um cluster de failover de 3 nós com o modelo de quorum Maioria dos Nós
 * Um grupo de disponibilidade com duas réplicas de confirmação síncrona de um banco de dados de disponibilidade
 
 A figura abaixo é uma representação gráfica da solução.
 
 ![Arquitetura de laboratório de teste para o AG no Azure](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC791912.png)
 
-Observe que se trata de uma das configurações possíveis. Por exemplo, você pode minimizar o número de VMs para um grupo de disponibilidade de duas réplicas para economizar horas de computação no Azure usando o controlador de domínio como a testemunha de compartilhamento de arquivo de quórum em um cluster do WSFC de dois nós. Esse método reduz a contagem de VMs em uma em comparação com a configuração acima.
+Observe que se trata de uma das configurações possíveis. Por exemplo, é possível minimizar o número de VMs de um grupo de disponibilidade de duas réplicas para economizar horas de computação no Azure usando o controlador de domínio como a testemunha de compartilhamento de arquivos de quorum em um cluster de 2 nós. Esse método reduz a contagem de VMs em uma em comparação com a configuração acima.
 
 Este tutorial pressupõe o seguinte:
 
@@ -151,7 +148,7 @@ As próximas etapas configuram as contas do AD (Active Directory) para uso poste
    | **Outras opções de senha** |Selecionado |
    | **A senha nunca expira** |Verificado |
 5. Clique em **OK** para criar o usuário de **Instalação**. Essa conta será usada para configurar o cluster de failover e o grupo de disponibilidade.
-6. Crie dois usuários adicionais com as mesmas etapas: **CORP\SQLSvc1** e **CORP\SQLSvc2**. Essas contas serão usadas para instâncias do SQL Server. Em seguida, você precisa conceder a **CORP\Install** as permissões necessárias para configurar o WSFC (Windows Service Failover Clustering).
+6. Crie dois usuários adicionais com as mesmas etapas: **CORP\SQLSvc1** e **CORP\SQLSvc2**. Essas contas serão usadas para as instâncias do SQL Server. Em seguida, você precisa conceder a **CORP\Install** as permissões necessárias para configurar o clustering de failover do Windows.
 7. No **Centro Administrativo do Active Directory**, selecione **corp (local)** no painel esquerdo. Em seguida, no painel **Tarefas** à direita, clique em **Propriedades**.
    
     ![Propriedades do usuário CORP](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784627.png)
@@ -166,7 +163,7 @@ As próximas etapas configuram as contas do AD (Active Directory) para uso poste
 Agora que você concluiu a configuração do Active Directory e dos objetos de usuário, você criará três VMs do SQL Server e vai associá-las a esse domínio.
 
 ## <a name="create-the-sql-server-vms"></a>Criar VMs do SQL Server
-Em seguida, crie três VMs, incluindo um nó de cluster WSFC e duas VMs do SQL Server. Para criar cada uma das VMs, volte ao portal clássico do Azure, clique em **Novo**, **Computação**, **Máquina Virtual** e **Da Galeria**. Em seguida, use os modelos na tabela a seguir para ajudá-lo a criar as VMs.
+Em seguida, crie três VMs, incluindo um nó de cluster e duas VMs do SQL Server. Para criar cada uma das VMs, volte ao portal clássico do Azure, clique em **Novo**, **Computação**, **Máquina Virtual** e **Da Galeria**. Em seguida, use os modelos na tabela a seguir para ajudá-lo a criar as VMs.
 
 | Página | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
@@ -231,15 +228,15 @@ Depois que as três VMs forem totalmente provisionadas, você precisará ingress
 
 As VMs do SQL Server agora estão provisionadas e em execução, mas estão instaladas com o SQL Server com as opções padrão.
 
-## <a name="create-the-wsfc-cluster"></a>Criar o Cluster WSFC
-Nesta seção, você deve criar o cluster WSFC que hospedará o grupo de disponibilidade que você criará posteriormente. Agora, você deve ter feito o seguinte para cada uma das três VMs que serão usadas no cluster WSFC:
+## <a name="create-the-failover-cluster"></a>Criar o cluster de failover
+Nesta seção, você cria o cluster de failover que hospedará o grupo de disponibilidade que será criado posteriormente. Por enquanto, é necessário ter feito o seguinte para cada uma das três VMs que serão usadas no cluster de failover:
 
 * Totalmente provisionado no Azure
 * Ingressou a VM no domínio
 * **CORP\Install** adicionado ao grupo de administradores local
 * Recurso de Clustering de Failover adicionado
 
-Todos são pré-requisitos em cada VM para poder ingressá-la no cluster WSFC.
+Todos são pré-requisitos em cada VM para poder ingressá-la no cluster de failover.
 
 Além disso, observe que a rede virtual do Azure não se comporta da mesma forma que uma rede local. Você precisa criar o cluster na seguinte ordem:
 
@@ -342,7 +339,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 ### <a name="create-the-mydb1-database-on-contososql1"></a>Crie o banco de dados MyDB1 no ContosoSQL1:
 1. Se você ainda não tiver saído das sessões de área de trabalho remota para **ContosoSQL1** e **ContosoSQL2**, faça isso agora.
 2. Inicie o arquivo RDP para **ContosoSQL1** e faça logon como **CORP\Install**.
-3. No **Explorador de Arquivos**, em **C:\**, crie um diretório chamado **backup**. Você usará esse uso de diretório para fazer backup e restaurar o banco de dados.
+3. No **Explorador de Arquivos**, em **C:\**, crie um diretório chamado**backup**. Você usará esse uso de diretório para fazer backup e restaurar o banco de dados.
 4. Clique com o botão direito do mouse no novo diretório, aponte o mouse para **Compartilhar com**, e clique em **Pessoas específicas**, como mostrado abaixo.
    
     ![Criar uma pasta de Backup](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665521.gif)
@@ -408,7 +405,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
      ![AG no Gerenciador de Cluster de Failover](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665534.gif)
 
 > [!WARNING]
-> Não tente fazer failover do grupo de disponibilidade no Gerenciador de Cluster de Failover. Todas as operações de failover devem ser executadas no **Painel do AlwaysOn** no SSMS. Para obter mais informações, consulte [Restrições do uso do Gerenciador de Cluster de Failover WSFC com Grupos de Disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
+> Não tente fazer failover do grupo de disponibilidade no Gerenciador de Cluster de Failover. Todas as operações de failover devem ser executadas no **Painel do AlwaysOn** no SSMS. Para obter mais informações, consulte [Restrições do uso do Gerenciador de Cluster de Failover com Grupos de Disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
 > 
 > 
 

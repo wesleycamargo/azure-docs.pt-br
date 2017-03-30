@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: e4c1dd67dce33c2cb30f6fd3e7163c68c7084e67
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f692f98beaee16bef24bb7fbf716a9b4b8edeb6c
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="azure-storage-infrastructure-guidelines"></a>Diretrizes de infraestrutura de armazenamento do Azure
+# <a name="azure-storage-infrastructure-guidelines-for-windows-vms"></a>Diretrizes de infraestrutura de armazenamento do Azure para VMs Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo destaca as noções básicas sobre as necessidades de armazenamento e considerações de design para atingir o desempenho de VM (máquina virtual) ideal.
@@ -29,6 +32,7 @@ Este artigo destaca as noções básicas sobre as necessidades de armazenamento 
 ## <a name="implementation-guidelines-for-storage"></a>Diretrizes de implementação de armazenamento
 Decisões:
 
+* Você pretende usar o Azure Managed Disks ou discos não gerenciados?
 * Você precisa usar o armazenamento Standard ou Premium para sua carga de trabalho?
 * Você precisa da distribuição de discos para criar discos com mais de 1.023 GB?
 * Você precisa da distribuição de discos para obter o desempenho de E/S ideal para sua carga de trabalho?
@@ -41,6 +45,8 @@ Tarefas:
 
 ## <a name="storage"></a>Armazenamento
 O Armazenamento do Azure é uma parte fundamental de implantação e gerenciamento de aplicativos e VMs (máquinas virtuais). O Armazenamento do Azure fornece serviços para armazenar dados de arquivo, dados não estruturados e mensagens, além de fazer parte da infraestrutura que dá suporte às VMs.
+
+O [Azure Managed Disks](../storage/storage-managed-disks-overview.md) lida com o armazenamento para você nos bastidores. Com discos não gerenciados, você cria contas de armazenamento para armazenar os discos (arquivos VHD) para as VMs do Azure. Ao aumentar, é necessário verificar se você criou contas de armazenamento adicionais para não exceder o limite de IOPS de armazenamento com um dos discos. Com o Managed Disks lidando com o armazenamento, não há mais os limites de conta de armazenamento (como 20.000 IOPS/conta). Também não é mais necessário copiar as imagens personalizadas (arquivos VHD) em várias contas de armazenamento. Você pode gerenciá-las em um local central, uma conta de armazenamento por região do Azure, e usá-las para criar centenas de VMs em uma assinatura. Recomendamos o uso do Managed Disks para novas implantações.
 
 Há dois tipos de conta de armazenamento disponíveis para dar suporte às VMs:
 
@@ -78,16 +84,13 @@ Se você estiver usando a distribuição de disco para os discos de dados do Azu
 Para saber mais, consulte [Espaços de armazenamento: design para desempenho](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 ## <a name="multiple-storage-accounts"></a>Várias contas de armazenamento
-Durante a criação do ambiente do Armazenamento do Azure, você poderá usar várias contas de armazenamento conforme o número de VMs implantadas aumentar. Essa abordagem ajuda a distribuir a E/S em toda a infraestrutura subjacente do Armazenamento do Azure, para manter o desempenho ideal para suas VMs e aplicativos. Ao projetar os aplicativos que serão implantados, considere os requisitos de E/S que cada VM terá e faça um balanceamento dessas VMs entre as contas do Armazenamento do Azure. Tente evitar agrupar todas as VMs que exigem E/S alta em apenas uma ou duas contas de armazenamento.
+Esta seção não se aplica ao [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), pois você não cria contas de armazenamento separadas. 
+
+Durante a criação do ambiente do Armazenamento do Azure para discos não gerenciados, você poderá usar várias contas de armazenamento conforme o número de VMs implantadas aumentar. Essa abordagem ajuda a distribuir a E/S em toda a infraestrutura subjacente do Armazenamento do Azure, para manter o desempenho ideal para suas VMs e aplicativos. Ao projetar os aplicativos que serão implantados, considere os requisitos de E/S que cada VM terá e faça um balanceamento dessas VMs entre as contas do Armazenamento do Azure. Tente evitar agrupar todas as VMs que exigem E/S alta em apenas uma ou duas contas de armazenamento.
 
 Para saber mais sobre as funcionalidades de E/S das diferentes opções do Armazenamento do Azure e de alguns limites máximos recomendáveis, veja [Metas de desempenho e escalabilidade do armazenamento do Azure](../storage/storage-scalability-targets.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

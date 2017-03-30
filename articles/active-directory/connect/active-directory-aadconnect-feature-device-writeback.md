@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
 ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -45,7 +46,7 @@ Use as etapas a seguir para preparar para o uso de write-back do dispositivo.
 1. No computador no qual o Azure AD Connect está instalado, inicie o PowerShell no modo elevado.
 2. Se o módulo do PowerShell do Active Directory NÃO estiver instalado, instale-o usando o comando a seguir:
    
-   `Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools`
+   `Add-WindowsFeature RSAT-AD-PowerShell`
 3. Se o módulo do PowerShell do Active Directory do Azure NÃO estiver instalado, baixe-o e instale-o de [Módulo do Active Directory do Azure para o Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente depende do assistente de conexão, que é instalado com o Azure AD Connect.
 4. Com credenciais de administrador corporativo, execute os seguintes comandos e, em seguida, saia do PowerShell.
    
@@ -138,10 +139,5 @@ Verifique a configuração no Active Directory:
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

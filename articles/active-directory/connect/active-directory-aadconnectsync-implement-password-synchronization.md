@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 03/21/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 64b6447608ecdd9bdd2b307f4bff2cae43a4b13f
-ms.openlocfilehash: cff066ff2943443749ee8eb2ef71c7ca93bb829c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 946f135e832667ad6e32743be2b07b4f86cd1cae
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -67,10 +67,29 @@ O recurso de sincronização de senha repete automaticamente tentativas de sincr
 A sincronização de uma senha não afeta um usuário conectado atualmente.
 Sua sessão de serviço de nuvem atual não será afetada imediatamente por uma alteração de senha sincronizada que ocorre enquanto você está logado em um serviço de nuvem. No entanto, quando o serviço de nuvem exigir que você se autentique novamente, será necessário fornecer a nova senha.
 
+Uma limitação é que o usuário deve inserir suas credenciais corporativas uma segunda vez para autenticar no Azure AD, independentemente se ele está conectado à rede corporativa. Porém, esse padrão pode ser minimizado se o usuário marcar a caixa de seleção "Manter-me conectado" (KMSI) durante o logon. Isso define um cookie de sessão que ignora a autenticação por um curto período. O comportamento KMSI pode ser habilitado ou desabilitado pelo administrador do Azure Active Directory.
+
 > [!NOTE]
 > Somente há suporte para a sincronização de senha para o usuário do tipo de objeto no Active Directory. Não há suporte para o tipo de objeto iNetOrgPerson.
->
->
+
+### <a name="detailed-description-of-how-password-synchronization-works"></a>Descrição detalhada de como funciona a sincronização de senha
+Veja a seguir uma descrição detalhada de como funciona a sincronização de senha entre o Active Directory e o Azure Active Directory.
+
+![Fluxo da senha detalhado](./media/active-directory-aadconnectsync-implement-password-synchronization/arch3.png)
+
+
+1. A cada dois minutos, o agente de sincronização de senha no servidor do AD Connect solicita hashes de senha armazenados (o atributo unicodePwd) de um controlador de domínio por meio do protocolo de replicação padrão [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) usado para sincronizar dados entre controladores de domínio. A conta do serviço deve ter as permissões do AD Replicar Alterações de Diretório e Replicar Todas as Alterações de Diretório (concedidas por padrão na instalação) para obter os hashes de senha.
+2. Antes de enviar, o controlador de domínio criptografa o hash de senha MD4 usando uma chave que é um hash [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) da chave de sessão RPC e um valor de sal. Em seguida, ele envia o resultado para o agente de sincronização de senha por RPC. O controlador de domínio também passa o sal para o agente de sincronização usando o protocolo de replicação do controlador de domínio, para que o agente possa descriptografar o envelope.
+3.    Quando o agente de sincronização de senha tiver o envelope criptografado, ele usará [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) e o sal para gerar uma chave para descriptografar os dados recebidos de volta para seu formato original de MD4. Em nenhum momento, o agente de sincronização de senha tem acesso à senha de texto não criptografado. Uso que o agente de sincronização de senha faz do MD5 é estritamente para compatibilidade de protocolo de replicação com o controlador de domínio, e é usado somente no local entre o controlador de domínio e o agente de sincronização de senha.
+4.    O agente de sincronização de senha expande o hash de senha binária de 16 bits para 64 bytes convertendo primeiro o hash em uma cadeia hexadecimal de 32 bytes, depois convertendo essa cadeia de caracteres de volta para o binário com a codificação UTF-16.
+5.    O agente de sincronização de senha adiciona um sal, composto por um sal de 10 bytes, para o binário de 64 bits a fim de proteger ainda mais o hash original.
+6.    Depois, o agente de sincronização de senha combina o hash MD4 e o sal com entradas na função [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt), usando 1000 iterações do algoritmo de hash com chave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx).
+AD do Azure 
+7.    O agente de sincronização de senha usa o hash resultante de 32 bytes, concatena o sal e o número de iterações SHA256 a ele (para ser usado pelo Azure AD) e transmite a cadeia de caracteres do AD Connect para o Azure AD por SSL.</br> 
+8.    Quando um usuário tenta fazer logon no Azure AD e insere sua senha, a senha é executada por meio do mesmo processo de MD4 + sal + PBKDF2 + HMAC-SHA256. Se o hash resultante corresponder ao hash armazenado no Azure AD, isso significa que o usuário digitou a senha correta e será autenticado. 
+
+>[!Note] 
+>O hash MD4 original não é transmitido ao Azure AD; em vez disso, o hash SHA256 do hash MD4 original é transmitido. Como resultado, se o hash armazenado no Azure AD for obtido, ele não poderá ser usada em um ataque de passagem de hash no local.
 
 ### <a name="how-password-synchronization-works-with-azure-ad-domain-services"></a>Como a sincronização de senha funciona com os Serviços de Domínio do AD do Azure
 Você também pode usar o recurso de sincronização de senha para sincronizar suas senhas locais para os [Serviços de Domínio do Azure AD](../../active-directory-domain-services/active-directory-ds-overview.md). Esse cenário permite que os Serviços de Domínio do Azure AD autentiquem os usuários na nuvem com todos os métodos disponíveis no AD local. A experiência desse cenário é semelhante a usar a ADMT (Ferramenta de Migração do Active Directory) em um ambiente local.
@@ -78,7 +97,11 @@ Você também pode usar o recurso de sincronização de senha para sincronizar s
 ### <a name="security-considerations"></a>Considerações de segurança
 Ao sincronizar senhas, a versão da sua senha em texto sem formatação não é exposta ao recurso de sincronização de senha, nem ao Azure AD ou qualquer um dos serviços associados.
 
-Além disso, não há nenhum requisito no Active Directory local para armazenar a senha em um formato criptografado de modo reversível. Um resumo do hash da senha do Active Directory é usado para a transmissão entre o AD local e o Active Directory do Azure. O resumo do hash da senha não pode ser usado para acessar recursos no seu ambiente do local.
+A autenticação do usuário ocorre no Azure AD e não no próprio Active Directory da organização. Se sua organização se preocupar com a saída de dados de senha da empresa, considere o fato de que os dados de senha SHA256 armazenados no Azure AD - um hash do hash MD4 original - são consideravelmente mais seguros do que o que está armazenado no Active Directory. Além disso, como não é possível descriptografar esse hash SHA256, ele não pode ser levado de volta ao ambiente do Active Directory da organização e apresentado como uma senha de usuário válida em um ataque de passagem de hash.
+
+
+
+
 
 ### <a name="password-policy-considerations"></a>Considerações sobre política de senha
 Há dois tipos de políticas de senha que são afetadas ao habilitar a sincronização de senha:
@@ -91,12 +114,13 @@ Ao habilitar a sincronização de senha, as políticas de complexidade de senha 
 
 > [!NOTE]
 > Senhas de usuários criadas diretamente na nuvem ainda estão sujeitas a políticas de senha, conforme definido na nuvem.
->
->
 
 **Password expiration policy**  
 Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem será definida como "*Nunca Expirar*".
+
 Você pode continuar entrando nos serviços de nuvem usando uma senha sincronizada que expirou no seu ambiente local. A senha de nuvem será atualizada na próxima vez que você alterar a senha no ambiente local.
+
+**Expiração da conta** Se sua organização usar o atributo accountExpires como parte do gerenciamento de contas de usuário, lembre-se de que esse atributo não está sincronizado no Azure AD. Como resultado, uma conta expirada do AD em um ambiente configurado para sincronização de senha ainda estará ativa no Azure AD. Recomendamos que, se a conta expirar, uma ação de fluxo de trabalho deverá disparar um script do PowerShell que desabilita a conta de usuário do Azure AD. Por outro lado, quando a conta estiver habilitada, o Azure AD deverá estar habilitado.
 
 ### <a name="overwriting-synchronized-passwords"></a>Substituindo senhas sincronizadas
 Um administrador pode redefinir sua senha manualmente usando o Windows PowerShell.
@@ -104,6 +128,24 @@ Um administrador pode redefinir sua senha manualmente usando o Windows PowerShel
 Nesse caso, a nova senha substitui a senha sincronizada e todas as políticas de senha definidas na nuvem se aplicam à nova senha.
 
 Se você alterar a senha local novamente, a nova senha será sincronizada com a nuvem e substituirá a senha atualizada manualmente.
+
+A sincronização de uma senha não afeta um usuário conectado atualmente no Azure. Sua sessão de serviço de nuvem atual não será afetada imediatamente por uma alteração de senha sincronizada que ocorre enquanto você está logado em um serviço de nuvem. KMSI ampliará a duração dessa diferença. Quando o serviço de nuvem exigir que você se autentique novamente, será necessário fornecer a nova senha.
+
+### <a name="additional-advantages"></a>Vantagens adicionais
+
+- Em geral, a sincronização de senha é mais simples de implementar do que um serviço de federação. Ela não exige quaisquer servidores adicionais e elimina a dependência de um serviço de federação altamente disponível para autenticar usuários. 
+- A sincronização de senha também pode ser habilitada, além da federação, para que seja usada como um fallback se o seu serviço de federação sofrer uma interrupção.
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name="enabling-password-synchronization"></a>Habilitando a sincronização de senha
 A sincronização de senha é habilitada automaticamente quando você instala o Azure AD Connect usando as **Configurações Expressas**. Para obter mais detalhes, confira [Introdução ao Azure AD Connect usando configurações expressas](active-directory-aadconnect-get-started-express.md).

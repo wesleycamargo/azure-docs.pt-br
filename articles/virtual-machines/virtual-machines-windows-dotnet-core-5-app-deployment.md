@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b4fb534cf18fd17f636e88cc31d6c997a9f09e45
-ms.openlocfilehash: e72afd857025773b3aadc3de124b4e79ec6cd512
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 2d60af167b8d7805e6f01264de84fb1351d85f98
+ms.lasthandoff: 03/16/2017
 
 
 ---
-# <a name="application-deployment-with-azure-resource-manager-templates"></a>Implantação de aplicativos com modelos do Azure Resource Manager
+# <a name="application-deployment-with-azure-resource-manager-templates-for-windows-vms"></a>Implantação de aplicativos com modelos do Azure Resource Manager para VMs Windows
+
 Depois que todos os requisitos de infraestrutura do Azure foram identificados e convertidos em um modelo de implantação, a implantação real do aplicativo precisa ser resolvida. Implantação de aplicativo aqui se refere a instalar os binários do aplicativo real nos recursos do Azure. Para o exemplo de Loja de Música, o .Net Core e o IIS precisam ser instalados e configurados em cada máquina virtual. Os binários da Loja de Música precisam ser instalados na máquina virtual e o banco de dados da Loja de Música criado previamente.
 
 Este documento detalha como extensões de Máquina Virtual podem automatizar a implantação de aplicativos e configuração de máquinas virtuais do Azure. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -118,16 +121,51 @@ Observe que no JSON a seguir o script é armazenado no GitHub. Esse script tamb�
 }
 ```
 
+Conforme mencionado acima, também é possível armazenar os scripts personalizados no armazenamento de Blobs do Azure. Há duas opções para armazenar os recursos de script no armazenamento de blobs: torne o contêiner/script público e siga a mesma abordagem acima ou mantenha-o no armazenamento de blobs privado, o que exige que você forneça o storageAccountName e a storageAccountKey para a definição de recurso CustomScriptExtension.
+
+No exemplo abaixo, avançamos um pouco. Embora seja possível fornecer o nome da conta de armazenamento e a chave como um parâmetro ou uma variável durante a implantação, os modelos do Resource Manager fornecem a função `listKeys`, que pode obter a chave da conta de armazenamento de forma programática e inseri-la no modelo para você no momento da implantação.
+
+Na definição de recurso CustomScriptExtension de exemplo abaixo, nosso script personalizado já foi carregado em uma conta de armazenamento do Azure chamada `mystorageaccount9999`, que existe em outro Grupo de Recursos chamado `mysa999rgname`. Quando implantamos um modelo que contém esse recurso, a função `listKeys` obtém de forma programática a chave da conta de armazenamento `mystorageaccount9999` no Grupo de Recursos `mysa999rgname` e a insere no modelo para nós.
+
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://mystorageaccount9999.blob.core.windows.net/container/configure-music-app.ps1"
+      ]
+    },
+    "protectedSettings": {
+      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]",
+      "storageAccountName": "mystorageaccount9999",
+      "storageAccountKey": "[listKeys(resourceId('mysa999rgname','Microsoft.Storage/storageAccounts', mystorageaccount9999), '2015-06-15').key1]"
+    }
+  }
+}
+```
+
+A principal vantagem dessa abordagem é que ela não exige a alteração do modelo nem dos parâmetros de implantação, em caso de alteração na chave da conta de armazenamento.
+
 Para obter mais informações sobre como usar a extensão de script personalizado, consulte [Extensões de script personalizado com modelos do Resource Manager](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-step"></a>Próxima etapa
 <hr>
 
 [Explorar mais modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

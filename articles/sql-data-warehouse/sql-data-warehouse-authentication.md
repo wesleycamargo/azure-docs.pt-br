@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/24/2016
+ms.date: 03/21/2017
 ms.author: rickbyh;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b08b48713e98eedfd93b290491fee59729d2dcc
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 9f38d57029e962d1bbe8adae68232baa8a4c575d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 2b08b48713e98eedfd93b290491fee59729d2dcc
 
 Para se conectar ao SQL Data Warehouse, você precisa inserir credenciais de segurança para fins de autenticação. Após estabelecer uma conexão, determinadas configurações de conexão são definidas como parte do estabelecimento de sua sessão de consulta.  
 
-Para saber mais sobre segurança e como habilitar conexões com seu data warehouse, confira [Proteger um banco de dados no SQL Data Warehouse][Proteger um banco de dados no SQL Data Warehouse].
+Para obter mais informações sobre segurança e como habilitar conexões ao data warehouse, consulte [Proteger um banco de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse].
 
 ## <a name="sql-authentication"></a>Autenticação do SQL
 Para se conectar ao SQL Data Warehouse, deve fornecer as seguintes informações:
@@ -49,12 +50,12 @@ Por padrão, a conexão se conecta ao banco de dados *mestre* e não ao banco de
 * Destaque o banco de dados do usuário antes de criar uma sessão no SSDT.
 
 > [!NOTE]
-> A instrução Transact-SQL **USE MyDatabase;** não tem suporte para alterar o banco de dados para uma conexão. Para saber as diretrizes de conexão do SQL Data Warehouse com SSDT, consulte o artigo [Consulta com o Visual Studio][Consulta com o Visual Studio].
+> A instrução Transact-SQL **USE MyDatabase;** não tem suporte para alterar o banco de dados para uma conexão. Para obter as diretrizes de conexão ao SQL Data Warehouse com o SSDT, consulte o artigo [Consultar com o Visual Studio][Query with Visual Studio].
 > 
 > 
 
 ## <a name="azure-active-directory-aad-authentication"></a>Autenticação do AAD (Azure Active Directory)
-[Azure Active Directory][O que é o Azure Active Directory] É um mecanismo de conexão com o SQL Data Warehouse do Microsoft Azure usando identidades no Azure Active Directory (Azure AD). Com a autenticação do Azure Active Directory, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de ID fornece um único local para gerenciar usuários do SQL Data Warehouse e simplifica o gerenciamento de permissões. 
+A autenticação do [Azure Active Directory][What is Azure Active Directory] é um mecanismo de conexão ao SQL Data Warehouse do Microsoft Azure usando identidades no Azure AD (Azure Active Directory). Com a autenticação do Azure Active Directory, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de ID fornece um único local para gerenciar usuários do SQL Data Warehouse e simplifica o gerenciamento de permissões. 
 
 ### <a name="benefits"></a>Benefícios
 Os benefícios do Azure Active Directory incluem:
@@ -69,7 +70,7 @@ Os benefícios do Azure Active Directory incluem:
 * Dá suporte ao Multi-Factor Authentication por meio de Autenticação Universal do Active Directory para SQL Server Management Studio. Para obter uma descrição de Multi-Factor Authentication, consulte [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 > [!NOTE]
-> O Azure Active Directory ainda é relativamente novo e tem algumas limitações. Para garantir que o Azure Active Directory seja uma boa opção para seu ambiente, confira [Limitações e recursos do Azure AD][Limitações e recursos do Azure AD], especialmente as considerações adicionais.
+> O Azure Active Directory ainda é relativamente novo e tem algumas limitações. Para garantir que o Azure Active Directory é uma boa opção para seu ambiente, consulte [Limitações e recursos do Azure AD][Azure AD features and limitations], especificamente, as Considerações adicionais.
 > 
 > 
 
@@ -90,16 +91,11 @@ Atualmente, os usuários do Azure Active Directory não são mostrados no Pesqui
 * Crie funções de banco de dados personalizadas e adicione usuários às funções. Em seguida, conceda permissões granulares para as funções. Para obter mais informações, consulte o [Guia de introdução às Permissões do Mecanismo do Banco de Dados](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para começar a consultar seu data warehouse com o Visual Studio e outros aplicativos, veja [Consulta com o Visual Studio][Consulta com o Visual Studio].
+Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, consulte [Consultar com o Visual Studio][Query with Visual Studio].
 
 <!-- Article references -->
-[Proteger um banco de dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Consulta com o Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[O que é o Azure Active Directory]: ../active-directory/active-directory-whatis.md
-[Limitações e recursos do Azure AD]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
+[Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
 

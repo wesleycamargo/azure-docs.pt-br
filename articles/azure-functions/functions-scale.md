@@ -18,9 +18,9 @@ ms.date: 03/14/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9b5dabe5e27e68a4a9f140d4f07131caf7306e32
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 4eb138348686e9d7befe4d5433d174374977c2a1
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -38,7 +38,7 @@ Ao criar um aplicativo de funções, você deve configurar um plano de hospedage
 
 ### <a name="consumption-plan"></a>Plano de consumo
 
-No **Plano de consumo**, seus aplicativos de funções são atribuídos a uma instância de processamento de computação. Quando necessário, mais instâncias são adicionadas ou removidas dinamicamente. Além disso, as funções são executadas em paralelo, minimizando o tempo total necessário para processar solicitações. O tempo de execução para cada função é agregado pelo aplicativo de funções que a contém. O custo é orientado pelo tamanho da memória e tempo de execução total em todas as funções em um aplicativo de funções, conforme medido em gigabyte-segundos. Essa é uma excelente opção se suas necessidades de computação são intermitentes ou os horários de trabalho tendem a ser muito curtos, pois permite que você pague pelos recursos de computação apenas quando estão realmente em uso. A próxima seção fornece detalhes sobre como funciona o plano de consumo.
+No **Plano de consumo**, seus aplicativos de funções são atribuídos a uma instância de processamento de computação. Quando necessário, mais instâncias são adicionadas ou removidas dinamicamente. Além disso, as funções são executadas em paralelo, minimizando o tempo total necessário para processar solicitações. O tempo de execução para cada função é agregado pelo aplicativo de funções que a contém. O custo é orientado pelo tamanho da memória e pelo tempo de execução total de todas as funções em um aplicativo de funções. Use um plano de consumo quando suas necessidades de computação forem intermitentes ou quando os tempos de execução de trabalhos forem curtos. Esse plano permite que você pague apenas pelos recursos de computação quando eles estiverem sendo usados. A próxima seção fornece detalhes sobre como funciona o plano de consumo.
 
 ### <a name="app-service-plan"></a>Plano do Serviço de Aplicativo
 
@@ -46,23 +46,23 @@ No **Plano do Serviço de Aplicativo**, seus aplicativos de funções são execu
 
 ## <a name="how-the-consumption-plan-works"></a>Como funciona o plano de consumo
 
-O plano de Consumo escala automaticamente recursos de CPU e memória adicionando mais instâncias de processamento com base nos requisitos de tempo de execução das funções em um aplicativo de funções. Cada instância de processamento do aplicativo de funções pode alocar até 1,5 GB de recursos de memória.
+O plano de Consumo dimensiona automaticamente os recursos da CPU e de memória adicionando outras instâncias de processamento, de acordo com as necessidades das funções em execução no aplicativo de funções. Cada instância de processamento do aplicativo de funções pode alocar até 1,5 GB de recursos de memória.
 
 Durante a execução em um plano de Consumo, se uma Função de Aplicativo tiver ficado ociosa, poderá haver até 10 minutos por dia de processamento de novos blobs. Quando a Função de Aplicativo está em execução, os blobs são processados mais rapidamente. Para evitar esse atraso inicial, use um Plano de Serviço de Aplicativo regular com Always On habilitado ou use outro mecanismo para disparar o processamento de blob, como uma mensagem da fila que contém o nome do blob. 
 
-Ao criar um Aplicativo de funções, é necessário criar ou vincular uma conta de armazenamento do Azure de uso geral que dá suporte ao armazenamento de Tabelas, Blobs e Filas. Internamente, o Azure Functions usa o Armazenamento do Azure para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob (incluindo o armazenamento premium) e contas de armazenamento de uso geral com a replicação ZRS. Essas contas são filtradas na folha Conta de Armazenamento durante a criação de um novo Aplicativo de Funções.
+Ao criar um Aplicativo de funções, é necessário criar ou vincular uma conta de armazenamento do Azure de uso geral que dá suporte ao armazenamento de Tabelas, Blobs e Filas. Internamente, o Azure Functions usa o Armazenamento do Azure para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob (incluindo o armazenamento premium) e contas de armazenamento de uso geral com a replicação ZRS. Essas contas são filtradas na folha Conta de Armazenamento durante a criação de um Aplicativo de Funções.
 
-Ao usar o plano de hospedagem de Consumo, o conteúdo do Aplicativo de Funções (como arquivos de código de função e configuração de associação) é armazenado em compartilhamentos dos Arquivos do Azure na conta de armazenamento principal. Se você excluir a conta de armazenamento principal, esse conteúdo será excluído e não poderá ser recuperado.
+Ao usar o plano de hospedagem de Consumo, o conteúdo do Aplicativo de Funções (como arquivos de código de função e configuração de associação) é armazenado em compartilhamentos dos Arquivos do Azure na conta de armazenamento principal. Ao excluir a conta de armazenamento principal, esse conteúdo será excluído e não poderá ser recuperado.
 
 Para saber mais sobre tipos de conta de armazenamento, consulte [Introduzindo os Serviços de Armazenamento do Azure] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
 
 ### <a name="runtime-scaling"></a>Escalonamento de tempo de execução
 
-O Functions usa um controlador de escala para avaliar as necessidades de computação com base nos gatilhos configurados e para decidir quando escalar e reduzir horizontalmente. O controlador de escala processa dicas continuamente para requisitos de memória e pontos de dados específicos de gatilho. Por exemplo, no caso de um gatilho de Armazenamento de Filas do Azure, os pontos de dados incluem comprimento da fila e tempo de fila da entrada mais antiga.
+O Functions usa um controlador de escala para avaliar as necessidades de computação com base nos gatilhos configurados e para decidir quando escalar e reduzir horizontalmente. O controlador de escala processa dicas continuamente para requisitos de memória e pontos de dados específicos de gatilho. Por exemplo, ao usar um gatilho do Armazenamento de Filas do Azure, os pontos de dados incluem o tamanho da fila e o tempo de fila da entrada mais antiga.
 
 ![](./media/functions-scale/central-listener.png)
 
-A unidade de escalonamento é o aplicativo de funções. Escalar horizontalmente, nesse caso, significa adicionar mais instâncias de um aplicativo de funções. Inversamente, quando a demanda de computação é reduzida, as instâncias do aplicativo de função são removidas. O número de instâncias é eventualmente reduzido a zero quando nenhuma estância está em execução. 
+A unidade de escalonamento é o aplicativo de funções. Escalar horizontalmente, nesse caso, significa adicionar mais instâncias de um aplicativo de funções. Inversamente, quando a demanda de computação é reduzida, as instâncias do aplicativo de função são removidas. O número de instâncias é eventualmente reduzido a zero quando nenhuma função está em execução. 
 
 ### <a name="billing-model"></a>Modelo de cobrança
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: eb77dd2aaaeced8c71c2c89937f7f1cc10c7b292
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 165e4394d21a0202a320a8697360b715517bc7a2
 ms.lasthandoff: 03/15/2017
 
 
@@ -50,13 +50,7 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 
 ## <a name="billing"></a>Cobrança
 
-A cobrança é realizada com base no número real de minutos de uso das Unidades Reservadas de Mídia. Veja um exemplo mais detalhado. Suponha que Julio tinha zero Unidades Reservadas (RU) de Mídia ao começar e que, às 10h daquele mesmo dia, definiu sua conta para usar duas RUs S1. Mais filmes chegam à tarde, então Julio altera sua conta para usar quatro RUs S3 às 13h15. Todos os seus vídeos são processados até 16h, então Julio desliga as RUs em sua conta (define o número de RUs para zero). O uso por Julio é calculado conforme demonstrado a seguir.
-
-Unidades Reservadas de Mídia S1: 2 unidades x 3,25 hours (10h às 13h15) x $0,02/h = $0,13 Unidades Reservadas de Mídia S3: 4 unidades x 2,75 horas (13h15 às 16h) x $0,08/h = $0,88
-
-Então o custo total de Julio para usar as Unidades Reservadas de Mídia nesse dia seriam $0,13 + $0,88 = $1,01 Ao contrário do que ocorre com as Unidades Reservadas de Mídia, a cobrança das Unidades de Streaming é baseada no número mais alto de Unidades de Streaming que são provisionadas a cada dia (marca d'água alta).
-
-Para obter mais informações, consulte a página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/). A seção de perguntas frequentes apresenta explicações detalhadas.  
+A cobrança é realizada com base no número real de minutos de uso das Unidades Reservadas de Mídia. Para obter uma explicação detalhada, consulte a seção Perguntas frequentes da página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="quotas-and-limitations"></a>Cotas e limitações
 Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de suporte, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).

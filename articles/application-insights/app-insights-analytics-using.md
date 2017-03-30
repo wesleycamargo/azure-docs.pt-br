@@ -1,21 +1,22 @@
 ---
-title: "Usando a Análise, a ferramenta de pesquisa avançada do Application Insights | Microsoft Docs"
+title: "Usando o Analytics – a ferramenta de pesquisa avançada do Azure Application Insights | Microsoft Docs"
 description: "Usando a Análise, a ferramenta de pesquisa e diagnóstico avançada do Application Insights. "
 services: application-insights
 documentationcenter: 
 author: danhadari
-manager: douge
+manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2389f1d785abc750dd165303f737a883b3f788d0
-ms.openlocfilehash: 6232a80417cf4581f6c6cbe6c11418dc8d0c3407
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -171,7 +172,7 @@ Com o Power BI, você pode criar painéis que reúnem dados de uma grande varied
 
 Obtenha um link em **Exportar, Compartilhar link** que você possa enviar a outro usuário. Desde que o usuário tenha [acesso ao seu grupo de recursos](app-insights-resources-roles-access-control.md), a consulta será aberta na interface do usuário do Analytics.
 
-(No link, o texto da consulta aparece após "?q=", gzip compactado e codificado em base&64;. Você pode escrever código para gerar links profundos que fornece aos usuários. No entanto, a maneira recomendada para executar o Analytics com código é usando a [API REST](https://dev.applicationinsights.io/).)
+(No link, o texto da consulta aparece após "?q=", gzip compactado e codificado em base 64. Você pode escrever código para gerar links profundos que fornece aos usuários. No entanto, a maneira recomendada para executar o Analytics com código é usando a [API REST](https://dev.applicationinsights.io/).)
 
 
 ## <a name="automation"></a>Automação
@@ -222,13 +223,10 @@ A tabela resultante de solicitações tem uma coluna adicional, `realName`.
 
 Se você usar [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), você poderá usar a análise para consultar seus logs. Use o [plug-in que redireciona os dados para análise](https://github.com/Microsoft/logstash-output-application-insights). 
 
+## <a name="video"></a>Vídeo
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

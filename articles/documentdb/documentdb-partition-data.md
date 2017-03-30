@@ -16,9 +16,9 @@ ms.date: 03/14/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 67d817c04672979ec8af8a540c5a63eb4df9bf6a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: ed0910e4843ab8ab80dae1c16b15487d92017e24
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -60,7 +60,7 @@ As coleções fragmentadas na API para MongoDB estão usando a mesma infraestrut
 A escolha da chave de partição é uma decisão importante que você precisará fazer no momento do design. Você deve escolher um nome de propriedade JSON que tenha uma ampla variedade de valores e provavelmente tenha padrões de acesso distribuídos uniformemente. 
 
 > [!NOTE]
-> É uma prática recomendada ter uma chave de partição com um grande número de valores distintos (100s-1000s, no mínimo). Muitos clientes usam o DocumentDB efetivamente como um repositório de valores de chaves, em que a "id" exclusiva é a chave de partição; portanto, há bilhões de milhões de chaves de partições.
+> É uma prática recomendada ter uma chave de partição com um grande número de valores distintos (100s-1000s, no mínimo). Muitos clientes usam o DocumentDB efetivamente como um repositório de valores de chave, em que a “ID” exclusiva é a chave de partição de bilhões de milhões de chaves de partição.
 >
 
 A tabela a seguir mostra exemplos de definições de chave de partição e os valores JSON correspondentes a cada uma. A chave de partição é especificada como um caminho JSON, por exemplo, `/department` representa o departamento de propriedade. 
@@ -341,7 +341,7 @@ Resultados:
 > 
 > 
 
-Quando um aplicativo usando uma coleção de partição única precisar de maior produtividade (mais de&10;.000 RU/s) ou maior armazenamento de dados (mais de&10; GB), você poderá usar a [Ferramenta de Migração de Dados do DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar os dados da coleção de partição única para uma coleção particionada. 
+Quando um aplicativo usando uma coleção de partição única precisar de maior produtividade (mais de 10.000 RU/s) ou maior armazenamento de dados (mais de 10 GB), você poderá usar a [Ferramenta de Migração de Dados do DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar os dados da coleção de partição única para uma coleção particionada. 
 
 Para migrar de uma coleção de partição única para uma coleção particionada
 

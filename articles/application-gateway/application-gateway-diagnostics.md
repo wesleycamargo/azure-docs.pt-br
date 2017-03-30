@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
-ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 2c4b3e23c478a006b081929269ae066d00af20cd
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2017
 
 O Azure oferece a capacidade de monitorar recursos com métricas e registro em log. O Gateway de Aplicativo fornece esses recursos com integridade do back-end, registro em log e métricas.
 
-[**Integridade do back-end** ](#backend-health) - o gateway de aplicativo oferece a capacidade de monitorar a integridade dos servidores nos pools de back-end por meio do portal e por meio do PowerShell. A integridade dos pools de back-end também pode ser verificada usando os logs de diagnóstico de desempenho.
+[**Integridade do back-end** ](#backend-health) – o gateway de aplicativo fornece a capacidade de monitorar a integridade dos servidores nos pools de back-end por meio do portal e do PowerShell. A integridade dos pools de back-end também pode ser verificada usando os logs de diagnóstico de desempenho.
 
 [**Registro em log**](#enable-logging-with-powershell) – o registro em log permite que os logs de desempenho, acesso e outros sejam salvos ou consumidos de um recurso para fins de monitoramento.
 
@@ -34,10 +34,10 @@ O Azure oferece a capacidade de monitorar recursos com métricas e registro em l
 
 ## <a name="backend-health"></a>Integridade do back-end
 
-O gateway de aplicativo fornece a capacidade de monitorar a integridade dos membros individuais dos pools de back-end por meio do portal, do PowerShell e da CLI. Um resumo de integridade agregada dos pools de back-end também pode ser encontrado nos logs de diagnóstico de desempenho. O relatório de integridade do back-end reflete a saída do teste de integridade do Gateway de Aplicativo para as instâncias de back-end. Quando a investigação for bem-sucedida e o back-end puder ser atendido pelo tráfego, ele será considerado íntegro. Caso contrário, ele é considerado não íntegro.
+O gateway de aplicativo fornece a capacidade de monitorar a integridade de membros individuais dos pools de back-end por meio do portal, do PowerShell e da CLI. Um resumo de integridade agregada dos pools de back-end também pode ser encontrado nos logs de diagnóstico de desempenho. O relatório de integridade do back-end reflete a saída do teste de integridade do Gateway de Aplicativo para as instâncias de back-end. Quando a investigação for bem-sucedida e o back-end puder ser atendido pelo tráfego, ele será considerado íntegro. Caso contrário, ele é considerado não íntegro.
 
 > [!important]
-> Se houver um NSG na sub-rede do Gateway de Aplicativo, os intervalos de porta 65503-65534 deverão ser abertos em instâncias de Gateway de Aplicativo.
+> Se houver um NSG na sub-rede do Gateway de Aplicativo, os intervalos de porta 65503 a 65534 deverão ser abertos na sub-rede do Gateway de Aplicativo para os membros do pool de back-end. Essas portas são necessárias para que a integridade do back-end funcione corretamente.
 
 ### <a name="view-backend-health-through-the-portal"></a>Exibir a integridade do back-end no portal
 
@@ -316,3 +316,4 @@ Para entender mais sobre webhooks e como usá-los com alertas, visite [Configura
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
+

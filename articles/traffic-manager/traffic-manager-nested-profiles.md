@@ -1,5 +1,5 @@
 ---
-title: "Perfis aninhados do Gerenciador de Tráfego | Microsoft Docs"
+title: "Perfil aninhados do Gerenciador de Tráfego | Microsoft Docs"
 description: "Este artigo explica o recurso “Perfis Aninhados” do Gerenciador de Tráfego do Azure"
 services: traffic-manager
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 3e48a28aa1ecda6792e79646a33875c8f01a878f
-ms.openlocfilehash: fdf22a3f8d0ba6f1838af4f5e6924c8c0a18ef64
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: e274d10b59c6f198962974fda0a804f4d993c324
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -32,7 +33,7 @@ Os exemplos a seguir ilustram como usar os perfis aninhados do Gerenciador de Tr
 
 Suponha que você implantou um aplicativo nas seguintes regiões do Azure: Oeste dos EUA, Europa Ocidental e Ásia Oriental. Você usa o método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego para distribuir o tráfego para a região mais próxima do usuário.
 
-![Perfil único do Gerenciador de Tráfego][1]
+![Perfil único do Gerenciador de Tráfego][4]
 
 Agora, suponha que você deseja testar uma atualização ao serviço antes de distribuí-la mais amplamente. Você deseja usar o método de roteamento de tráfego “ponderado” para direcionar um pequeno percentual do tráfego para a implantação de teste. Você configura a implantação de teste junto com a implantação de produção existente na Europa Ocidental.
 
@@ -48,7 +49,7 @@ Quando o perfil pai usa o método de roteamento de tráfego por “Desempenho”
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exemplo 2: monitoramento de ponto de extremidade em Perfis Aninhados
 
-O Gerenciador de Tráfego monitora ativamente a integridade de cada ponto de extremidade de serviço. Se um ponto de extremidade não estiver íntegro, o Gerenciador de Tráfego direcionará os usuários para pontos de extremidade alternativos a fim de preservar a disponibilidade do serviço. Esse comportamento de failover e monitoramento do ponto de extremidade se aplica a todos os métodos de roteamento de tráfego. Para obter mais informações, consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md). O monitoramento de ponto de extremidade funciona de forma diferente para perfis aninhados. Com perfis aninhados, o perfil pai não executa verificações de integridade no filho diretamente. Em vez disso, a integridade dos pontos de extremidade do perfil filho é usada para calcular a integridade geral do perfil filho. Essas informações de integridade são propagadas até a hierarquia do perfil aninhado. O perfil pai usa essa integridade agregada para determinar se o tráfego será direcionado ao perfil filho. Consulte a seção [Perguntas frequentes](#faq) deste artigo para obter detalhes completos sobre o monitoramento de integridade dos perfis aninhados.
+O Gerenciador de Tráfego monitora ativamente a integridade de cada ponto de extremidade de serviço. Se um ponto de extremidade não estiver íntegro, o Gerenciador de Tráfego direcionará os usuários para pontos de extremidade alternativos a fim de preservar a disponibilidade do serviço. Esse comportamento de failover e monitoramento do ponto de extremidade se aplica a todos os métodos de roteamento de tráfego. Para obter mais informações, consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md). O monitoramento de ponto de extremidade funciona de forma diferente para perfis aninhados. Com perfis aninhados, o perfil pai não executa verificações de integridade no filho diretamente. Em vez disso, a integridade dos pontos de extremidade do perfil filho é usada para calcular a integridade geral do perfil filho. Essas informações de integridade são propagadas até a hierarquia do perfil aninhado. O perfil pai usa essa integridade agregada para determinar se o tráfego será direcionado ao perfil filho. Consulte as [Perguntas frequentes](traffic-manager-FAQs.md#traffic-manager-nested-profiles) para obter detalhes completos sobre o monitoramento de integridade de perfis aninhados.
 
 Voltando ao exemplo anterior, suponha que a implantação de produção na Europa Ocidental falhe. Por padrão, o perfil “filho” direciona todo o tráfego para a implantação de teste. Se a implantação de teste também falhar, o perfil pai determinará que o perfil filho não deve receber o tráfego, pois nenhum ponto de extremidade filho está íntegro. Em seguida, o perfil pai distribui o tráfego para as outras regiões.
 
@@ -97,56 +98,11 @@ As configurações de monitoramento em um perfil do Gerenciador de Tráfego se a
 
 ![Monitoramento do ponto de extremidade do Gerenciador de Tráfego com definições por ponto de extremidade][10]
 
-## <a name="faq"></a>Perguntas frequentes
-
-### <a name="how-do-i-configure-nested-profiles"></a>Como posso configurar perfis aninhados?
-
-Os perfis aninhados do Gerenciador de Tráfego podem ser configurados usando o Azure Resource Manager e as APIs REST clássicas do Azure, cmdlets do Azure PowerShell e comandos da CLI do Azure de plataforma cruzada. Também há suporte para eles no novo portal do Azure. Não há suporte para eles no portal clássico.
-
-### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>A quantas camadas de aninhamento o Gerenciador de Tráfego dá suporte?
-
-Você pode aninhar perfis em até 10 níveis de profundidade. “Loops” não são permitidos.
-
-### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>Posso combinar outros tipos de ponto de extremidade com perfis filho aninhados no mesmo perfil do Gerenciador de Tráfego?
-
-Sim. Não há nenhuma restrição sobre como combinar os pontos de extremidade de diferentes tipos em um perfil.
-
-### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>Como o modelo de cobrança se aplica a perfis aninhados?
-
-Há não impacto negativo sobre os preços ao usar perfis aninhados.
-
-A cobrança do Gerenciador de Tráfego tem dois componentes: verificações de integridade do ponto de extremidade e milhões de consultas DNS
-
-* Verificações de integridade de ponto de extremidade: não há nenhum encargo para um perfil filho quando configurado como um ponto de extremidade em um perfil pai. O monitoramento dos pontos de extremidade no perfil filho é cobrado como de costume.
-* Consultas DNS: cada consulta é contada apenas uma vez. Uma consulta em um perfil pai que retorna um ponto de extremidade de um perfil filho é contada apenas no perfil pai.
-
-Para obter detalhes completos, consulte a [página de preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager/).
-
-### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Há impacto no desempenho para perfis aninhados?
-
-Nº Não há nenhum impacto no desempenho ao usar perfis aninhados.
-
-Os servidores de nomes do Gerenciador de Tráfego atravessam a hierarquia de perfil internamente durante o processamento de cada consulta DNS. Uma consulta DNS a um perfil pai pode receber uma resposta DNS com um ponto de extremidade de um perfil filho. Um único registro CNAME é usado se você está usando um único perfil ou perfis aninhados. Não é necessário criar um registro CNAME para cada perfil na hierarquia.
-
-### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile"></a>Como o Gerenciador de Tráfego calcula a integridade de um ponto de extremidade aninhado em um perfil pai?
-
-O perfil pai não executa verificações de integridade no filho diretamente. Em vez disso, a integridade dos pontos de extremidade do perfil filho é usada para calcular a integridade geral do perfil filho. Essas informações são propagadas até a hierarquia do perfil aninhado para determinar a integridade do ponto de extremidade aninhado. O perfil pai usa essa integridade agregada para determinar se o tráfego pode ser direcionado para o filho.
-
-A tabela a seguir descreve o comportamento das verificações de integridade do Gerenciador de Tráfego de um ponto de extremidade aninhado.
-
-| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Observações |
-| --- | --- | --- |
-| Desabilitado. O perfil filho foi desabilitado. |Parada |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
-| Degradado. Pelo menos um ponto de extremidade do perfil filho está no estado Degradado. |Online: o número de pontos de extremidade Online no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos de extremidade Online mais CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints estiver definido com um valor muito alto, o ponto de extremidade estará sempre degradado. |
-| Online. Pelo menos, um ponto de extremidade do perfil filho está em um estado Online. Nenhum ponto de extremidade está no estado Degradado. |Veja acima. | |
-| CheckingEndpoints. Pelo menos, um ponto de extremidade do perfil filho é um 'CheckingEndpoint'. Nenhum ponto de extremidade está ‘Online’ ou ‘Degradado’ |Mesmo que acima. | |
-| Inativo. Todos os pontos de extremidade de perfil filho estão com status Desabilitado ou Parado ou esse é um perfil que não tem nenhum ponto de extremidade. |Parada | |
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [como o Gerenciador de Tráfego funciona](traffic-manager-how-traffic-manager-works.md)
+Saiba mais sobre [perfis do Gerenciador de Tráfego](traffic-manager-overview.md)
 
-Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-profiles.md)
+Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
@@ -159,9 +115,4 @@ Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-pr
 [8]: ./media/traffic-manager-nested-profiles/figure-8.png
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

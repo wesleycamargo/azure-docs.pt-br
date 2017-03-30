@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 68b3d858bc268eb8b93e4968d9fb1e587ebaa1e6
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5269bd54e2dc9604c855cc9ff061cca26db1bf44
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-an-iis-vm-with-powershell"></a>Criar uma VM IIS com o PowerShell
 
-Esse script cria uma Máquina Virtual do Azure e, em seguida, usa a Máquina Virtual do Azure extensão do Script personalizado para instalar o IIS. Após a execução do script, um site de demonstração pode ser contatado no endereço IP público da máquina virtual.
+Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016 e, em seguida, usa a Extensão de Script Personalizado da Máquina Virtual do Azure para instalar o IIS. Após a execução do script, é possível acessar o site do IIS padrão no endereço IP público da máquina virtual.
 
-Antes de executar esse script, certifique-se de que uma conexão com o Azure foi criada usando o comando `Login-AzureRmAccount`.
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -34,7 +34,7 @@ Antes de executar esse script, certifique-se de que uma conexão com o Azure foi
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Após a execução do exemplo de script, o comando a seguir pode ser usado para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
+Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

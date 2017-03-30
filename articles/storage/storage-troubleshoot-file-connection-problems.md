@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -47,7 +47,7 @@ Este artigo lista os problemas comuns relacionados ao Armazenamento de Arquivos 
 * [Erro de E/S intermitente – erro de "Host inativo (Erro 112)" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem](#errorhold)
 * [Erro de montagem 115 ao tentar montar os Arquivos do Azure na VM Linux](#error15)
 * [Compartilhamento de arquivos do Azure montado na VM Linux apresentando um desempenho lento](#delayproblem)
-
+* [Erro de montagem (11): Recurso temporariamente indisponível durante a montagem no kernel do Ubuntu 4.8+](#ubuntumounterror)
 
 <a id="quotaerror"></a>
 
@@ -271,6 +271,14 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 Se as opções o cache=strict ou serverino não estão presentes, desmonte e monte arquivos do Azure novamente executando o comando mount da [documentação](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) e verifique novamente se a entrada "/etc/fstab" tem as opções corretas.
 
+<a id="ubuntumounterror"></a>
+## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>Erro de montagem (11): Recurso temporariamente indisponível durante a montagem no kernel do Ubuntu 4.8+
+
+### <a name="cause"></a>Causa
+Problema conhecido no kernel do Ubuntu 16.10 (v.4.8) quando o cliente declara dar suporte à criptografia, mas isso não ocorre. 
+
+### <a name="solution"></a>Solução
+Até a correção do Ubuntu 16.10, especifique a opção de montagem “vers=2.1” ou use o Ubuntu 16.04.
 ## <a name="learn-more"></a>Saiba mais
 * [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 * [Introdução ao Armazenamento de Arquivos do Azure no Linux](storage-how-to-use-files-linux.md)

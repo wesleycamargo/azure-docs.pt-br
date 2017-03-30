@@ -12,26 +12,20 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 5f3bf8087fa6601ae410d6db907471fd6faa2742
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f4729e9daf788220358e7cca2508c820a1f2006a
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="upload-files-to-a-web-app-using-ftp"></a>Carregar arquivos para um aplicativo Web usando FTP
 
-Este script de exemplo faz o seguinte usando o Azure PowerShell: 
+Esse script de exemplo cria um aplicativo Web no Serviço de Aplicativo com recursos relacionados e, em seguida, implanta o código do aplicativo Web usando o FTP (por meio de [WebClient.UploadFile()](https://msdn.microsoft.com/library/ms144229.aspx)).
 
-* Crie um aplicativo Web no Serviço de Aplicativo do Azure na região Europa Ocidental do Azure.
-* Obter informações de conexão de FTP do aplicativo Web
-* Implantar o código do aplicativo Web usando FTP (via [WebClient.UploadFile()](https://msdn.microsoft.com/library/ms144229.aspx)).
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Execute `Login-AzureRmAccount` para efetuar logon no Azure.
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -39,7 +33,7 @@ Este script de exemplo faz o seguinte usando o Azure PowerShell:
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Após a execução do exemplo de script, o comando a seguir pode ser usado para remover o Grupo de Recursos, o aplicativo Web e todos os recursos relacionados.
+Após a execução da amostra de script, o comando a seguir pode ser usado para remover o grupo de recursos, o aplicativo Web e todos os recursos relacionados.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $webappname -Force
@@ -49,7 +43,7 @@ Remove-AzureRmResourceGroup -Name $webappname -Force
 
 Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Comando | Observações |
+| Command | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v3.5.0/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermappserviceplan) | Cria um Plano do Serviço de Aplicativo. |

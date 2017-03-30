@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 72e7e57185d882a5f3243e2705aed54ee8347798
-ms.openlocfilehash: 5d157a936317bbf66cfc3634d4d08ea3483d137b
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -30,10 +31,10 @@ As duas colaborações B2B e B2C do Azure Active Directory (AD do Azure) permite
 
 Recursos de colaboração B2B |     Oferta autônoma do B2C do AD do Azure
 -------- | --------
-Finalidade: as organizações que desejam fornecer acesso a dados corporativos, recursos e aplicativos para usuários de qualquer outra organização usando qualquer identidade de sua escolha. | Finalidade: voltado para os clientes usuários de dados móveis e aplicativos web voltados para os clientes individuais: cidadãos e os clientes institucionais ou organizacionais (não para os funcionários nem colaboradores externos), usando qualquer identidade de sua escolha.
+Destinado a: organizações que desejam poder autenticar usuários de uma organização de parceiros, independentemente do provedor de identidade. | Destinado a: convidar clientes dos aplicativos Web e móveis, sejam indivíduos, clientes institucionais ou organizacionais, para o Azure AD.
 Identidades suportadas: funcionários com contas corporativas ou escolares, parceiros com contas corporativas ou escolares ou qualquer email. Em breve com suporte à federação direta.  | Identidades suportadas: os usuários do consumidor com contas de aplicativo local (qualquer nome de usuário ou email) ou identidades sociais suportadas com federação direta.
-Qual diretório são os usuários do parceiro encontram-se: usuários de parceiros da organização externa são gerenciados no mesmo diretório que os funcionários, mas anotados especialmente. Esses usuários externos podem ser gerenciados da mesma forma que os funcionários, podem ser adicionados aos mesmos grupos e assim por diante  | Qual diretório as entidades de usuário do cliente estão: no diretório do aplicativo. Gerenciado separadamente do diretório dos parceiros e funcionários da organização (se houver).
-Inscrição única (SSO) para todos os aplicativos conectados do AD do Azure (incluindo aplicativos locais) é suportada (por exemplo, Office 365) e outros aplicativos da Microsoft e SaaS que não sejam da Microsoft (como a Salesforce, Box, Workday e assim por diante).  |  Há suporte para SSO para aplicativos de clientes dentro dos locatários do B2C do AD do Azure. Não há suporte para SSO para Office 365 nem para outros aplicativos SaaS da Microsoft SaaS que não sejam da Microsoft.
+Qual diretório são os usuários do parceiro encontram-se: usuários de parceiros da organização externa são gerenciados no mesmo diretório que os funcionários, mas anotados especialmente. Eles podem ser gerenciados da mesma forma que os funcionários, podem ser adicionados aos mesmos grupos e assim por diante  | Qual diretório as entidades de usuário do cliente estão: no diretório do aplicativo. Gerenciado separadamente do diretório de parceiros e funcionários da organização (se houver).
+Há suporte para SSO (logon único) em todos os aplicativos conectados ao Azure AD. Por exemplo, é possível fornecer acesso ao Office 365 ou a aplicativos locais, além de outros aplicativos SaaS, como o Salesforce ou Workday.  |  Há suporte para SSO para aplicativos de clientes dentro dos locatários do B2C do AD do Azure. Não há suporte para SSO para Office 365 nem para outros aplicativos SaaS da Microsoft SaaS que não sejam da Microsoft.
 Ciclo de vida do parceiro: gerenciado pela organização convidada/host.  | Ciclo de vida do cliente: autoatendido ou gerenciado pelo aplicativo.
 Política de segurança e conformidade: gerenciada pela organização convidada/host.  | Política de segurança e conformidade: gerenciada pelo aplicativo.
 Identidade visual: uso da marca da organização convidada/host.  |    Identidade visual: gerenciada pelo aplicativo. Geralmente, tende a ser da marca do produto com o esmaecimento da organização na tela de fundo.
@@ -55,9 +56,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
 * [Como obter suporte para colaboração B2B](active-directory-b2b-support.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

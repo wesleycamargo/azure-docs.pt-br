@@ -14,11 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/10/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4326cc342088ff16a72b8c460245bda1f2cd17c9
-ms.openlocfilehash: 3e0c58af3566ea443efaa012495e5b736fafb46d
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 96f42929c3f4d0ccf4f2f1fbc206dddd90d6d3d1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -296,7 +297,7 @@ Após a reinicialização do controlador de domínio primário, você pode confi
 
 Depois que o servidor concluir as alterações de configuração, reinicie-o. 
 
-### <a name="a-namedomainaccountsa-configure-domain-accounts"></a><a name=DomainAccounts></a> Configurar Contas de Domínio
+### <a name=DomainAccounts></a> Configurar Contas de Domínio
 
 As próximas etapas configuram as contas do AD (Active Directory). A tabela abaixo mostra as contas:
 
@@ -337,7 +338,7 @@ Agora que você concluiu a configuração do Active Directory e dos objetos de u
 
 ## <a name="create-sql-servers"></a>Criar Servidores SQL
 ### <a name="create-and-configure-the-sql-server-vms"></a>Criar e configurar as VMs do SQL Server
-Em seguida, crie três VMs, incluindo duas VMs do SQL Server e um nó de cluster do WSFC. Para criar cada uma das VMs, volte para o grupo de recursos **SQL-HA-RG**, clique em **Adicionar**, pesquise pelo item da galeria apropriado, **Máquina Virtual** e, em seguida, **Da Galeria**. Use as informações na tabela a seguir para ajudar a criar as VMs:
+Em seguida, crie três VMs, incluindo duas VMs do SQL Server e uma VM para um nó de cluster adicional. Para criar cada uma das VMs, volte para o grupo de recursos **SQL-HA-RG**, clique em **Adicionar**, pesquise pelo item da galeria apropriado, **Máquina Virtual** e, em seguida, **Da Galeria**. Use as informações na tabela a seguir para ajudar a criar as VMs:
 
 | Página | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
@@ -377,7 +378,7 @@ Primeiro, altere o endereço do servidor DNS preferencial para cada servidor mem
 
 Repita essas etapas para todos os servidores.
 
-### <a name="a-namejoindomainajoin-the-servers-to-the-domain"></a><a name="joinDomain"></a>Ingressar os servidores no domínio.
+### <a name="joinDomain"></a>Ingressar os servidores no domínio.
 
 Agora é possível ingressar a VM em **corp.contoso.com**. Execute o seguinte para os SQL Servers e para o servidor testemunha do compartilhamento de arquivos: 
 
@@ -408,7 +409,7 @@ Depois de reiniciar cada máquina virtual como um membro do domínio, adicione *
 7. Clique em **OK** para fechar a caixa do diálogo **Propriedades do Administrador**.
 8. Repita as etapas acima em **sqlserver-1**, e **cluster-fsw**.
 
-### <a name="a-namesetserviceaccountaset-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Defina as contas de serviço do SQL Server
+### <a name="setServiceAccount"></a>Defina as contas de serviço do SQL Server
 
 Em cada SQL Server, defina a conta de serviço do SQL Server. Use as contas que você criou quando [configurou as contas de domínio](#DomainAccounts).
 
@@ -506,9 +507,4 @@ Repita essas etapas no segundo SQL Server da mesma maneira.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um Grupo de Disponibilidade AlwaysOn do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

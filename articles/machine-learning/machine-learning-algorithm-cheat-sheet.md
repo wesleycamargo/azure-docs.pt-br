@@ -13,22 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/14/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 18bb55a638b998dec0182a61a95c4bbde80bb0d3
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2cf4f498a107b8c6085489723ae946b119bb6244
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Página de dicas úteis do algoritmo para Aprendizado de Máquina para o Estúdio de Aprendizado de Máquina do Microsoft Azure
 A **Folha de Consulta do Algoritmo de Aprendizado de Máquina do Microsoft Azure** ajuda a escolher o algoritmo certo para o seu modelo de análise preditiva.
 
-O [Azure Machine Learning Studio](https://studio.azureml.net/) tem uma ampla biblioteca de algoritmos das famílias ***regressão***, ***classificação***, ***clustering***, e ***detecção de anomalias***. Cada um foi projetado para atender a um tipo diferente de problema de aprendizado de máquina.
+O [Azure Machine Learning Studio](https://studio.azureml.net/) tem uma ampla biblioteca de algoritmos das famílias ***regressão***, ***classificação***, ***clustering*** e ***detecção de anomalias***. Cada um foi projetado para atender a um tipo diferente de problema de aprendizado de máquina.
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Baixe: Folha de Consulta do algoritmo de Aprendizado de Máquina
-**Baixe a folha de consulta daqui: [Folha de consulta de algoritmos do Machine Learning (11 x&17; pol.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+**Baixe a folha de consulta daqui: [Folha de consulta de algoritmos do Machine Learning (11 x 17 pol.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Página de dicas úteis de algoritmo de Aprendizado de Máquina: Saiba como escolher um algoritmo de Aprendizado de Máquina.][cheat-sheet]
 
@@ -43,7 +43,7 @@ Baixar e imprimir a folha de consulta do algoritmo do Aprendizado de Máquina em
 
 ## <a name="more-help-with-algorithms"></a>Obter ajuda com algoritmos
 * Para obter ajuda com o uso deste roteiro na escolha do algoritmo correto e ver uma discussão mais aprofundada sobre os diferentes tipos de algoritmos para aprendizado de máquina e como eles são usados, consulte [Como escolher algoritmos para o Machine Learning do Microsoft Azure](machine-learning-algorithm-choice.md).
-* Para obter um infográfico para download que descreve algoritmos e fornece exemplos, consulte [Infográfico para download: conceitos básicos com exemplos de algoritmo de aprendizado de máquina ](machine-learning-basics-infographic-with-algorithm-examples.md).
+* Para obter um infográfico para baixar que descreve algoritmos e fornece exemplos, consulte [Infográfico para baixar: conceitos básicos do aprendizado de máquina com exemplos de algoritmo](machine-learning-basics-infographic-with-algorithm-examples.md).
 * Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Machine Learning Studio, consulte [Inicializar Modelo][initialize-model] na Ajuda de Algoritmo e Módulo do Machine Learning Studio.
 * Para obter uma lista completa em ordem alfabética dos algoritmos e módulos no Machine Learning Studio, consulte a [Lista de A-Z de módulos do Machine Learning Studio][a-z-list] na Ajuda de módulo e algoritmo do Machine Learning Studio.
 * Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
@@ -54,11 +54,11 @@ Baixar e imprimir a folha de consulta do algoritmo do Aprendizado de Máquina em
 
 * As sugestões oferecidas nessa página de dicas úteis de algoritmo são aproximadas às regras de bolso. Algumas podem ser ajustadas e algumas podem ser flagrantemente violadas. Isso serve para sugerir um ponto de partida. Não tenha medo de comparar vários algoritmos em seus dados. Simplesmente não existe substituto para entender os princípios de cada algoritmo e o sistema que gerou seus dados.
 
-* Cada algoritmo de aprendizado de máquina tem seu próprio estilo ou *tendência indutiva*. Para um problema específico, vários algoritmos podem ser apropriados e um algoritmo pode ser mais adequado do que outros. No entanto, saber antecipadamente qual será a opção mais adequada nem sempre é possível. Em casos como esse, vários algoritmos estão listados juntos na folha de consulta. Uma estratégia apropriada seria um algoritmo e se os resultados ainda não estiverem satisfatórios, tentar os outros. Veja o exemplo da [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) de um experimento que testa vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Cada algoritmo de aprendizado de máquina tem seu próprio estilo ou *tendência indutiva*. Para um problema específico, vários algoritmos podem ser apropriados e um algoritmo pode ser mais adequado do que outros. Mas nem sempre é possível saber com antecedência qual é a melhor opção. Em casos como esse, vários algoritmos estão listados juntos na folha de consulta. Uma estratégia apropriada seria um algoritmo e se os resultados ainda não estiverem satisfatórios, tentar os outros. Veja o exemplo da [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) de um experimento que testa vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * Há três categorias principais de aprendizado de máquina: **aprendizado supervisionado**, **aprendizado sem supervisão** e **aprendizado de reforço**.
 
-  * Em **aprendizado supervisionado**, cada ponto de dados é rotulado ou associado a uma categoria ou um valor de interesse.  Um exemplo de um rótulo categórico é atribuir uma imagem como, por exemplo, um gato ou um cão.  Um exemplo de um rótulo de valor é o preço de venda associado a um carro usado. A meta do aprendizado supervisionado é estudar muitos exemplos de rótulos como esses e poder fazer previsões sobre pontos de dados futuros - por exemplo, identificar novas fotos com o animal correto ou atribuir preços de venda precisos a outros carros usados. Este é um tipo popular e útil de aprendizado de máquina. Todos os módulos do Azure Machine Learning são algoritmos de aprendizado supervisionados, exceto [Cluster K-means][k-means-clustering].
+  * Em **aprendizado supervisionado**, cada ponto de dados é rotulado ou associado a uma categoria ou um valor de interesse.  Um exemplo de um rótulo categórico é atribuir uma imagem como, por exemplo, um gato ou um cão.  Um exemplo de um rótulo de valor é o preço de venda associado a um carro usado. O objetivo do aprendizado supervisionado é estudar vários exemplos rotulados como esses e, em seguida, conseguir fazer previsões sobre os pontos de dados futuros. Por exemplo, identificar novas fotos com o animal correto ou atribuir preços de vendas precisos a outros carros usados. Este é um tipo popular e útil de aprendizado de máquina. Todos os módulos do Azure Machine Learning são algoritmos de aprendizado supervisionados, exceto [Cluster K-means][k-means-clustering].
 
   * No **aprendizado não supervisionado**, os pontos de dados não têm rótulos associados a eles. Em vez disso, a meta de um algoritmo de aprendizado sem supervisão é organizar os dados de alguma forma ou descrever sua estrutura. Isso pode significar agrupá-los em clusters, como faz o K-means, ou encontrar diferentes maneiras de consultar dados complexos para que eles pareçam mais simples.
 
@@ -70,9 +70,9 @@ Baixar e imprimir a folha de consulta do algoritmo do Aprendizado de Máquina em
 
 * A classificação de dados em mais de duas categorias pode ser feita usando-se um classificador inerentemente multiclasse ou pela combinação de um conjunto de classificadores de duas classes em um **conjunto**. Na abordagem de conjunto, há um classificador de duas classes separado para cada classe; cada uma separa os dados em duas categorias: "esta classe" e "não é esta classe". Em seguida, os classificadores votam na atribuição correta do ponto de dados. Esse é o princípio operacional de [Uma vs todas as multiclasses][one-vs-all-multiclass].
 
-* Vários métodos, inclusive a regressão logística e o computador de ponto Bayes, presumem **limites de classe linear**, ou seja, que os limites entre classes são aproximadamente linhas retas (ou hiperplanos, no caso mais geral). Geralmente, essa é uma característica dos dados que você não conhece até depois de tentar separá-los, mas é algo que normalmente pode ser aprendido visualizando com antecedência. Se os limites de classe parecerem muito irregulares, fique com as árvores de decisão, selvas de decisão, computadores de vetor de suporte ou redes neurais.
+* Vários métodos, incluindo a regressão logística e o computador de ponto de Bayes, assumem **limites de classe linear**. Ou seja, eles supõem que os limites entre classes sejam aproximadamente linhas retas (ou hiperplanos, no caso mais geral). Geralmente, essa é uma característica dos dados que você não conhece até depois de tentar separá-los, mas é algo que normalmente pode ser aprendido visualizando com antecedência. Se os limites de classe parecerem muito irregulares, fique com as árvores de decisão, selvas de decisão, computadores de vetor de suporte ou redes neurais.
 
-* Redes neurais podem ser usadas com variáveis categóricas, criando-se uma **variável fictícia** para cada categoria e configurando-a como 1 nos casos em que a categoria se aplica, e 0 naqueles em que não se aplica.
+* Redes neurais podem ser usadas com variáveis categóricas criando uma **variável fictícia** para cada categoria e configurando-a como 1 nos casos em que a categoria se aplica e 0 naqueles em que ela não se aplica.
 
 
 <!-- This is how you can embed a link in an image in HTML. Don't know how to do this in markdown.

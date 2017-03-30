@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 41486d80c05af92c1eb4e00f1cf3ed4f1490c9bf
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 69c2666aeb51107db2d0c7a3155e2ae6fa891a38
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-an-nginx-vm-with-powershell"></a>Criar uma VM NGINX com o PowerShell
 
-Esse script cria uma Máquina Virtual do Azure e, em seguida, usa a Máquina Virtual do Azure extensão do Script personalizado para instalar o NGINX. Após a execução do script, um site de demonstração pode ser contatado no endereço IP público da máquina virtual.
+Esse script cria uma Máquina Virtual do Azure e, em seguida, usa a Máquina Virtual do Azure extensão do Script personalizado para instalar o NGINX. Após a execução do script, é possível acessar um site de demonstração no endereço IP público da máquina virtual.
 
-Antes de executar esse script, certifique-se de que uma conexão com o Azure foi criada usando o comando `Login-AzureRmAccount`. Além disso, uma chave pública SSH com o nome `id_rsa.pub` deve ser armazenada no diretório .ssh do seu perfil do usuário.
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure. Além disso, você precisará ter uma chave pública SSH chamada `id_rsa.pub` no diretório .ssh do perfil do usuário.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -34,7 +34,7 @@ Antes de executar esse script, certifique-se de que uma conexão com o Azure foi
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Após a execução do exemplo de script, o comando a seguir pode ser usado para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
+Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

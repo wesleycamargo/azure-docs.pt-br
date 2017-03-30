@@ -1,6 +1,6 @@
 ---
 title: Usar imagens do cliente do Windows no Azure | Microsoft Docs
-description: "Como usar os benefícios da assinatura do Visual Studio para implantar o Windows 7/8/10 no Azure em cenários de desenvolvimento/teste"
+description: "Como usar os benefícios da assinatura do Visual Studio para implantar o Windows 7, Windows 8 ou Windows 10 no Azure em cenários de desenvolvimento/teste"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 568bd06d1dfd0e253b960dcf2fb5409a390da91b
-ms.openlocfilehash: 2116abf974974c285d94d673b6a614360edbc593
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f0ca7996e52a9b295fff571a270c60520f58101e
+ms.lasthandoff: 03/16/2017
 
 
 ---
-# <a name="using-windows-client-in-azure-for-devtest-scenarios"></a>Usando o cliente do Windows no Azure para cenários de desenvolvimento/teste
+# <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Usar o cliente do Windows no Azure para cenários de desenvolvimento/teste
 Você pode usar o Windows 7, Windows 8 ou Windows 10 no Azure para cenários de desenvolvimento + teste, desde que você tenha uma assinatura apropriada do Visual Studio (anteriormente conhecido como MSDN). Este artigo descreve os requisitos de qualificação para execução do cliente do Windows no Azure e uso das imagens da Galeria do Azure.
 
 ## <a name="subscription-eligibility"></a>Qualificação de assinatura
@@ -55,10 +56,5 @@ Você também pode exibir a ID de oferta na [guia “Assinaturas”](http://acco
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode implantar suas VMs usando o [PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), os [modelos do Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou o [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

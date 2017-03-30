@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e00d453e9ae34cafb5ce753f63c253e954d6b09a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -64,6 +65,7 @@ Habilitar o Cache Local com base em cada aplicativo Web usando esta configuraç�
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```
+
 ...
 
 {
@@ -73,7 +75,8 @@ Habilitar o Cache Local com base em cada aplicativo Web usando esta configuraç�
     "dependsOn": [
         "[resourceId('Microsoft.Web/sites/', variables('siteName'))]"
     ],
-    "properties": {
+
+"properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
         "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
     }
@@ -88,7 +91,7 @@ Por padrão, o tamanho do cache local é de **300 MB**. Isso inclui as pastas /s
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Práticas recomendadas para usar o Cache Local do Serviço de Aplicativo
 Recomendamos que você use o Cache Local em conjunto com o recurso [Ambientes de Preparo](../app-service-web/web-sites-staged-publishing.md) .
 
-* Adicione a configuração de aplicativo *temporária * `WEBSITE_LOCAL_CACHE_OPTION` com o valor `Always` ao seu slot de **Produção**. Se estiver usando `WEBSITE_LOCAL_CACHE_SIZEINMB`, adicione-o também como uma configuração temporária ao slot de produção.
+* Adicione a configuração de aplicativo *temporária* `WEBSITE_LOCAL_CACHE_OPTION` com o valor `Always` ao seu slot de **Produção**. Se estiver usando `WEBSITE_LOCAL_CACHE_SIZEINMB`, adicione-o também como uma configuração temporária ao slot de produção.
 * Crie um slot de **preparo** e publique em seu slot de preparo. Normalmente, você não deve definir o slot de preparo para usar o cache local para habilitar um ciclo de vida contínuo de compilação-implantação-teste para preparo se tem os benefícios do Cache Local para o slot de produção.
 * Teste seu site no Slot de preparo.  
 * Quando estiver pronto, execute uma [operação de permuta](../app-service-web/web-sites-staged-publishing.md#Swap) entre seus slots de Preparo e de Produção.  
@@ -110,8 +113,6 @@ Com o cache local, as pastas de logs e de dados são um pouco diferentes. No ent
 ### <a name="i-have-local-cache-enabled-but-my-web-app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>Meu Cache Local está habilitado, mas meu aplicativo Web ainda é reiniciado. Por que isso acontece? Pensei que o Cache Local ajudasse com reinicializações frequentes do aplicativo.
 O Cache Local ajuda a evitar reinicializações de aplicativo Web relacionadas ao armazenamento. No entanto, seu aplicativo Web ainda pode sofrer reinicializações durante atualizações de infraestrutura planejadas da VM. A quantidade de reinicializações de aplicativo gerais que você enfrenta com o Cache Local habilitado deve ser menor.
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>O Cache Local exclui os diretórios de serem copiados para a unidade local mais rápida?
+Como parte da etapa que copia o conteúdo do armazenamento, qualquer pasta nomeada repositório será excluída. Isso ajuda com cenários em que o conteúdo do site pode conter um repositório de controle do código-fonte que pode não ser necessário na operação diária do aplicativo Web. 
 

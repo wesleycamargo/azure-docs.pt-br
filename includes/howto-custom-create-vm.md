@@ -35,7 +35,7 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 14. Se você quiser que a máquina virtual pertença a um conjunto de disponibilidade, em **Conjunto de Disponibilidade**, selecione **criar conjunto de disponibilidade** ou a adicione a um conjunto de disponibilidade existente.
     
     **Observação**: as máquinas virtuais contidas um conjunto de disponibilidade são implantadas em domínios de falha diferentes. Saiba como usar várias máquinas virtuais no Microsoft Azure para que seus aplicativos permaneçam disponíveis durante falhas de rede locais, falhas de hardware de disco local e tempo de inatividade planejado.
-15. Em **pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões para a máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las posteriormente, veja [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+15. Em **pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões para a máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las posteriormente, veja [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 16. Em **Agente de VM**, decida se deseja instalar o agente de VM. Este agente fornece o ambiente para a instalação de extensões que podem ajudá-lo a interagir com a máquina virtual. Para obter detalhes, consulte [Gerenciar extensões](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 17. Clique na seta para criar a máquina virtual.
     
@@ -45,10 +45,5 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando o portal mostra o status como Executando, você poderá fazer logon na máquina virtual. Para obter instruções, consulte um dos seguintes artigos:
 
 * [Como fazer logon em uma máquina virtual que executa o Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Como fazer logon em uma máquina virtual que executa o Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+* [Como fazer logon em uma máquina virtual que executa o Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

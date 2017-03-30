@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4ebd5dc2da50db93061e92660c97dcca3866c713
-ms.openlocfilehash: c4adae8125a6780ddb4c7c64baf4df6aae139104
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: dd4a672d419a0f5140ffc006bcf58a9bf1e752f4
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -56,7 +57,7 @@ Códigos de aeroporto dos EUA.<p> </p>Este conjunto de dados contém uma linha p
 <tr>
   <td valign=top>Dados de preço de automóvel (Brutos)</td>
   <td valign=top>
-Informações sobre automóveis por marca e modelo, incluindo o preço, recursos como número de cilindradas e MPG, bem como uma pontuação de risco de seguro.<p> </p>A pontuação de risco é inicialmente associada ao preço do automóvel e depois é ajustada quanto ao risco real em um processo conhecido pelos atuários como valor simbólico. Um valor de +3 indica que o automóvel apresenta risco e um valor de -3 indica que ele provavelmente é seguro.<p> </p><b>Uso:</b> prever a pontuação de risco por recursos, usando regressão ou classificação de múltiplas variáveis. <p> </p><b>Pesquisa relacionada:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Informações sobre automóveis por marca e modelo, incluindo o preço, recursos como número de cilindradas e MPG, bem como uma pontuação de risco de seguro.<p> </p>A pontuação de risco é inicialmente associada ao preço do automóvel e depois é ajustada quanto ao risco real em um processo conhecido pelos atuários como valor simbólico. Um valor de +3 indica que o automóvel apresenta risco e um valor de -3 indica que ele provavelmente é seguro.<p> </p><b>Uso:</b> prever a pontuação de risco por recursos, usando a regressão ou a classificação multivariada. <p> </p><b>Pesquisa relacionada:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
@@ -138,7 +139,7 @@ Rótulos do desafio de previsão de relacionamento do cliente KDD Cup 2009 (<a h
 <tr>
   <td valign=top>Dados de regressão de eficiência de energia</td>
   <td valign=top>
-Uma coleção de perfis de energia simulados, com base em 12 formatos de construções diferentes. As construções diferem com relação a oito recursos, como área envidraçada, distribuição da área envidraçada e orientação.<p> </p><b>Uso:</b> usar a regressão ou classificação para prever a classificação de eficiência de energia com base em uma das duas respostas de valor real. Para classificação de multiclasse, a variável da resposta é arredondada para o número inteiro mais próximo. <p> </p><b>Pesquisa relacionada:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Uma coleção de perfis de energia simulados, com base em 12 formatos de construções diferentes. As construções diferem com relação a oito recursos, como área envidraçada, distribuição da área envidraçada e orientação.<p> </p><b>Uso:</b> usar a regressão ou a classificação para prever a classificação de eficiência de energia com base em uma das duas respostas de valor real. Para classificação de multiclasse, a variável da resposta é arredondada para o número inteiro mais próximo. <p> </p><b>Pesquisa relacionada:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=flight-delays-data>
@@ -204,21 +205,21 @@ Um subconjunto de dados do Instituto Nacional de Diabetes e o banco de dados de 
 <tr>
   <td valign=top>Dados de consumidores de restaurantes</td>
   <td valign=top>
-Um conjunto de metadados sobre consumidores, incluindo demografia e preferências.<p> </p><b>Uso:</b> use este conjunto de dados, em combinação com outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Um conjunto de metadados sobre consumidores, incluindo demografia e preferências.<p> </p><b>Uso:</b> use esse conjunto de dados, em combinação com os outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Dados de recurso de restaurante</td>
   <td valign=top>
-Um conjunto de metadados sobre restaurantes e seus recursos, como tipo de comida, estilo de jantar e localização.<p> </p><b>Uso:</b> use este conjunto de dados, em combinação com outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Um conjunto de metadados sobre restaurantes e seus recursos, como tipo de comida, estilo de jantar e localização.<p> </p><b>Uso:</b> use esse conjunto de dados, em combinação com os outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Classificação de restaurantes</td>
   <td valign=top>
-Contém a classificação fornecida por usuários de restaurantes em uma escala de 0 a 2.<p> </p><b>Uso:</b> use este conjunto de dados, em combinação com outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Contém a classificação fornecida por usuários de restaurantes em uma escala de 0 a 2.<p> </p><b>Uso:</b> use esse conjunto de dados, em combinação com os outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -232,7 +233,7 @@ Esse conjunto de dados contém uma série de registros das avaliações de recoz
 <tr>
   <td valign=top>Dados de telescópio</td>
   <td valign=top>
-Registros de explosões de partículas gama de alta energia com ruídos de fundo, ambos simulados usando o processo de Monte Carlo.<p> </p>O objetivo da simulação era melhorar a precisão dos telescópios gama de Cherenkov atmosféricos e em terra, usando métodos estatísticos para diferenciar entre o sinal desejado (expositores de radiação de Cherenkov) e o ruído de fundo (expositores hadrônicos iniciados por raios cósmicos na atmosfera superior).<p> </p>Os dados foram pré-processados para criar um conjunto elíptico com o eixo longo direcionado para o centro da câmera. As características dessa elipse, geralmente chamada de parâmetros de Hillas, estão entre os parâmetros de imagem que podem ser usados para discriminação.<p> </p><b>Uso:</b> prever se a imagem de um chuveiro representa ruído de fundo ou sinal.<p> </p><b>Observações:</b> a precisão da classificação simples não é significativa para esses dados, já que classificar um evento da tela de fundo como sinal é pior do que classificar um evento de sinal como de tela de fundo. Para obter uma comparação dos diferentes classificadores, o gráfico ROC deve ser usado. A probabilidade de aceitar um evento de fundo como sinal deve estar abaixo de um dos seguinte limites: 0,01; 0,02; 0,05; 0,1 ou 0,2.<p> </p>Também, observe que o número de eventos de fundo (h, para expositores hadrônicos) é subestimado, ao passo que nas medições reais, o h ou a classe de ruído representa a maioria dos eventos. <p> </p><b>Pesquisa relacionada:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
+Registros de explosões de partículas gama de alta energia com ruídos de fundo, ambos simulados usando o processo de Monte Carlo.<p> </p>O objetivo da simulação era melhorar a precisão dos telescópios gama de Cherenkov atmosféricos e em terra, usando métodos estatísticos para diferenciar entre o sinal desejado (expositores de radiação de Cherenkov) e o ruído de fundo (expositores hadrônicos iniciados por raios cósmicos na atmosfera superior).<p> </p>Os dados foram pré-processados para criar um conjunto elíptico com o eixo longo direcionado para o centro da câmera. As características dessa elipse, geralmente chamada de parâmetros de Hillas, estão entre os parâmetros de imagem que podem ser usados para discriminação.<p> </p><b>Uso:</b> prever se a imagem de um chuveiro representa ruído de fundo ou sinal.<p> </p><b>Observações:</b> a precisão da classificação simples não é significativa para esses dados, já que classificar um evento de fundo como sinal é pior do que classificar um evento de sinal como de fundo. Para obter uma comparação dos diferentes classificadores, o gráfico ROC deve ser usado. A probabilidade de aceitar um evento de fundo como sinal deve estar abaixo de um dos seguinte limites: 0,01; 0,02; 0,05; 0,1 ou 0,2.<p> </p>Também, observe que o número de eventos de fundo (h, para expositores hadrônicos) é subestimado, ao passo que nas medições reais, o h ou a classe de ruído representa a maioria dos eventos. <p> </p><b>Pesquisa relacionada:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
 </tr>
 
 <tr ID=weather-dataset>
@@ -305,9 +306,4 @@ Estes dados vêm do desafio de avaliação de desempenho de aluno do KDD Cup 201
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

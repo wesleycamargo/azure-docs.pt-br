@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 03/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73b5a52b143d17283f677ce3181d8381db41d3c4
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 60f1ec092635910ae8c98cc0197fdfbf358f01be
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -55,7 +56,7 @@ Você também precisa estar ciente dos serviços de nuvem que sua empresa pode t
 * Atualmente, essa integração está em produção ou é um piloto?
 
 > [!NOTE]
-> Se você não tiver um mapeamento preciso de todos os seus aplicativos e serviços de nuvem, pode usar a ferramenta Cloud App Discovery. Essa ferramenta pode fornecer a seu departamento de TI visibilidade de todos os negócios da organização e aplicativos de nuvem do consumidor. Isso facilita ainda mais a descoberta de TI de sombra em sua organização, incluindo detalhes sobre padrões de uso e todos os usuários que acessam seus aplicativos na nuvem. Para acessar essa ferramenta, visite [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+> Se você não tiver um mapeamento preciso de todos os seus aplicativos e serviços de nuvem, pode usar a ferramenta Cloud App Discovery. Essa ferramenta pode fornecer a seu departamento de TI visibilidade de todos os negócios da organização e aplicativos de nuvem do consumidor. Isso facilita ainda mais a descoberta de TI de sombra em sua organização, incluindo detalhes sobre padrões de uso e todos os usuários que acessam seus aplicativos na nuvem. Para começar, consulte [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 > 
 > 
 
@@ -108,10 +109,5 @@ Você também precisa avaliar os requisitos do usuário. Essa avaliação é imp
 
 ## <a name="see-also"></a>Confira também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

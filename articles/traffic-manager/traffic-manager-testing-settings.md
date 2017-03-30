@@ -1,6 +1,6 @@
 ---
-title: "Como testar as configurações do Gerenciador de Tráfego | Microsoft Docs"
-description: "Este artigo o ajudará a testar as configurações do Gerenciador de Tráfego"
+title: "Verificar as configurações do Gerenciador de Tráfego do Azure | Microsoft Docs"
+description: "Este artigo ajudará você a verificar as configurações do Gerenciador de Tráfego"
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 713c01f1a15791ad19792bc58a2c32f8ce787720
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="test-your-traffic-manager-settings"></a>Testar as configurações do Gerenciador de Tráfego
+# <a name="verify-traffic-manager-settings"></a>Verificar as configurações do Gerenciador de Tráfego
 
 Para testar as configurações do Gerenciador de Tráfego, você precisa ter vários clientes, em diversos locais a partir dos quais você pode executar os testes. Em seguida, coloque os pontos de extremidade no perfil do Gerenciador de Tráfego, um de cada vez.
 
@@ -74,9 +75,4 @@ Como alternativa, há serviços gratuitos e disponíveis de dig e pesquisa de DN
 * [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 * [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
 * [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
