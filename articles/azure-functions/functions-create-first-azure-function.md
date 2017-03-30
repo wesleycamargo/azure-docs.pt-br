@@ -34,7 +34,7 @@ Antes de começar, você deve ter uma conta do Azure. [Contas gratuitas](https:/
  
 2. Digite um **Nome** exclusivo para seu novo aplicativo de função ou aceite o que foi gerado automaticamente, selecione sua **Região** preferencial e clique em **Criar + introdução**. Um nome válido só pode conter letras, números e hifens. Sublinhado (**_**) não é um caractere permitido.
 
-3. Na guia **Início Rápido**, clique em **Webhook + API**, escolha um idioma para a função e clique em **Criar uma função**. Uma nova função predefinida será criada no idioma escolhido. 
+3. Na guia **Início Rápido**, clique em **Webhook + API**, escolha uma linguagem de programação para a função e clique em **Criar uma função**. Uma nova função predefinida será criada no idioma escolhido. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
