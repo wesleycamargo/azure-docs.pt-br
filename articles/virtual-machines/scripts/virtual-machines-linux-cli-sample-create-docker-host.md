@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: e5362b32a0f93433c77c27a6fc116960c45404f9
-ms.openlocfilehash: 3693e6f78541caeca8fd1c276028c0f64ca71ddc
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a82b96bd0a669d9798467c837bf34133b3f9cd0c
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-vm-with-docker"></a>Criar uma máquina virtual com o Docker
 
-Este script de exemplo cria uma máquina virtual e, em seguida, usa a extensão de VM do Docker do Azure para configurar um host do Docker. A extensão de VM do Docker, em seguida, cria um contêiner executando NGINX. Por fim, o script configura um grupo de segurança de rede do Azure para todo o tráfego de entrada na porta 80. Após a execução do script com êxito, o servidor de web NGINX pode ser acessado por meio do FQDN da máquina virtual do Azure. 
+Esse script cria uma máquina virtual com o Docker habilitado e inicia um contêiner do Docker que executa o NGINX. Após a execução do script, é possível acessar o servidor Web NGINX por meio do FQDN da máquina virtual do Azure. 
 
-Antes de executar esse script, certifique-se de que uma conexão com o Azure foi criada usando o comando `az login`.
+Se necessário, instale a CLI do Azure usando a instrução encontrada no [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e, em seguida, execute `az login` para criar uma conexão com o Azure.
 
 Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../virtual-machines-windows-cli-options.md).
 
@@ -36,7 +36,7 @@ Este exemplo funciona em um shell Bash. Para opções sobre como executar script
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Após a execução do exemplo de script, o comando a seguir pode ser usado para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
+Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 17de66693661e56e9b456581c97a47cfb91cd886
-ms.openlocfilehash: bf08cc7ebb56aaf77c1718545ed4374f47933975
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 2dc56240894666b2fa24baf4902c3097e97d656e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +31,7 @@ Saiba como configurar um cluster de RDMA do Linux no Azure com [VMs da séria H 
 ## <a name="cluster-deployment-options"></a>Opções de implantação de cluster
 Estes são métodos que você pode usar para criar um cluster de RDMA do Linux com ou sem um agendador de trabalhos.
 
-* **Scripts de CLI do Azure**: conforme mostrado mais adiante neste artigo, use a CLI [(Interface de linha de comando) do Azure](../xplat-cli-install.md) para o script de implantação de um cluster de VMs compatíveis com RDMA. A CLI no modo Gerenciamento de Serviços cria os nós do cluster em série no modelo de implantação clássico, então implantar muitos nós de computação pode demorar vários minutos. Para habilitar a conexão de rede RDMA ao usar o modelo de implantação clássico, implante as VMs no mesmo serviço de nuvem.
+* **Scripts de CLI do Azure**: conforme mostrado mais adiante neste artigo, use a CLI [(Interface de linha de comando) do Azure](../cli-install-nodejs.md) para o script de implantação de um cluster de VMs compatíveis com RDMA. A CLI no modo Gerenciamento de Serviços cria os nós do cluster em série no modelo de implantação clássico, então implantar muitos nós de computação pode demorar vários minutos. Para habilitar a conexão de rede RDMA ao usar o modelo de implantação clássico, implante as VMs no mesmo serviço de nuvem.
 * **Modelos do Azure Resource Manager**: você também pode usar o modelo de implantação do Resource Manager para implantar um cluster de VMs compatíveis com RDMA que se conecte à rede RDMA. É possível [criar seu próprio modelo](../resource-group-authoring-templates.md) ou verificar os [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) para obter modelos com os quais a Microsoft ou a comunidade contribuíram para implantar a solução desejada. Os modelos do Gerenciador de Recursos podem fornecer uma maneira rápida e confiável para implantar um cluster do Linux. Para habilitar a conexão de rede RDMA ao usar o modelo de implantação do Resource Manager, implante as VMs no mesmo conjunto de disponibilidade.
 * **HPC Pack**: crie um cluster Microsoft HPC Pack no Azure e adicione nós de computação compatíveis com RDMA que executem uma distribuição Linux com suporte para acesso à rede RDMA. Para saber mais, confira [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
@@ -38,7 +39,7 @@ Estes são métodos que você pode usar para criar um cluster de RDMA do Linux c
 As etapas a seguir ajudarão você a usar a CLI do Azure para implantar uma VM do HPC do SLES (SUSE Linux Enterprise Server) 12 SP1 do Azure Marketplace, personalizá-la e criar uma imagem de máquina virtual personalizada. Em seguida, você pode usar a imagem para o script de implantação de um cluster de VMs compatíveis com RDMA.
 
 > [!TIP]
-> Use etapas semelhantes para implantar um cluster de VMs compatíveis com RDMA baseado em outras imagens do HPC com suporte no Azure Marketplace. Algumas etapas podem ser ligeiramente diferentes, conforme observado. Por exemplo, o Intel MPI está incluído e configurado em apenas algumas dessas imagens. E, se você implantar uma VM do HPC do SLES 12 em vez de uma VM do HPC do SLES 12 SP1, precisará atualizar os drivers RDMA. Para saber mais, confira [Sobre as instâncias que consomem muita computação A8, A9, A10 e A11](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
+> Use etapas semelhantes para implantar um cluster de VMs compatíveis com RDMA baseado em imagens do HPC baseadas em CentOS no Azure Marketplace. Algumas etapas são ligeiramente diferentes, conforme observado. 
 >
 >
 
@@ -47,7 +48,7 @@ As etapas a seguir ajudarão você a usar a CLI do Azure para implantar uma VM d
 * **Assinatura do Azure**: se não tiver uma assinatura, você poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos. Para clusters maiores, considere uma assinatura pré-paga ou outras opções de compra.
 * **Disponibilidade de tamanho da VM**: os seguintes tamanhos de instância são compatíveis com RDMA: H16r, H16mr, A8 e A9. Confira [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/) para ver a disponibilidade nas regiões do Azure.
 * **Cota de núcleos**: talvez seja necessário aumentar a cota de núcleos para implantar um cluster de VMs que consome muita computação. Por exemplo, você precisa de pelo menos 128 núcleos para implantar 8 VMs A9, conforme mostrado neste artigo. Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho de VM, incluindo a série de H. Para solicitar um aumento de cota, [abra uma solicitação de atendimento ao cliente online](../azure-supportability/how-to-create-azure-support-request.md) gratuitamente.
-* **CLI do Azure**: [instale](../xplat-cli-install.md) a CLI do Azure e [conecte-se à sua assinatura do Azure](../xplat-cli-connect.md) no computador cliente.
+* **CLI do Azure**: [instale](../cli-install-nodejs.md) a CLI do Azure e [conecte-se à sua assinatura do Azure](../xplat-cli-connect.md) no computador cliente.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Provisionar uma VM do HPC para SLES 12 SP1
 Depois de entrar no Azure com a CLI do Azure, execute `azure config list` para confirmar que a saída mostra o modo Gerenciamento de Serviços do Azure. Se não mostrar, defina o modo executando este comando:
@@ -122,7 +123,7 @@ Depois que a VM concluir o provisionamento, faça SSH nela usando o endereço IP
 
         cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-    No diretório ~/.ssh, edite ou crie o arquivo config. Forneça o intervalo de endereços IP da rede privada que você pretende usar no Azure (neste exemplo,&10;.32.0.0/16):
+    No diretório ~/.ssh, edite ou crie o arquivo config. Forneça o intervalo de endereços IP da rede privada que você pretende usar no Azure (neste exemplo, 10.32.0.0/16):
 
         host 10.32.0.*
         StrictHostKeyChecking no
@@ -379,9 +380,4 @@ Em um cluster ativo com dois nós, você verá uma saída semelhante ao que se s
 * Implantar e executar os aplicativos MPI do Linux no cluster do Linux.
 * Consulte a [Documentação do Intel MPI Library](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) para obter diretrizes sobre o Intel MPI.
 * Experimente um [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para criar um cluster Intel Lustre usando uma imagem HPC baseado em CentOS. Para obter detalhes, confira [Deploying Intel Cloud Edition for Lustre on Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/) (Implantando o Intel Cloud Edition for Lustre no Microsoft Azure).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

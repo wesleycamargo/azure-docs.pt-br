@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 4e5d915d474d7ea161f467def931e3013255f843
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 202684a1ae1106d79b9cee4e4ebf20ffa283f41b
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,6 +45,13 @@ Confira no [Github](https://github.com/mingaliu/DocumentDBStudio).
 DoQmentDB é um cliente com base em promessa do Node.js que fornece uma camada parecida com MongoDB sobre o Banco de Dados de Documentos.
 
 Confira no [Github](https://github.com/a8m/doqmentdb) e no [npm](https://www.npmjs.com/package/doqmentdb).
+
+### <a name="typescript-api"></a>API do TypeScript
+*de Jelmer Cormont*
+
+Um wrapper em torno do cliente Node.js escrito em TypeScript (também funciona em JavaScript sem formatação). Dá suporte a `async/await` e a uma API simplificada.
+
+Confira no [Github](https://github.com/jcormont/documentdb-typescript) e no [npm](https://www.npmjs.com/package/documentdb-typescript).
 
 ### <a name="swagger-rest-api-for-documentdb"></a>API REST do Swagger para Banco de Dados de Documentos
 *por Howard Edidin*

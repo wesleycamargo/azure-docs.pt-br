@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 14627391a5df562a70737a71f41fe7cb934c9062
-ms.openlocfilehash: 54f579e5806a2fa5bd4ceace8a8ab46509b4be1e
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a06d97216373ddc6a35160e6226b8eee8df52d27
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,22 +27,22 @@ Usar a exportação contínua pode incorrer em um custo adicional. Verifique o [
 
 Antes de configurar a exportação contínua, há algumas alternativas que você talvez queira considerar:
 
-* [O botão Exportar](app-insights-metrics-explorer.md#export-to-excel) na parte superior de uma métrica ou folha de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel. 
+* O botão Exportar na parte superior de uma métrica ou da folha de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel.
 
 * O [Analytics](app-insights-analytics.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
 * Se desejar [explorar seus dados no Power BI](app-insights-export-power-bi.md), é possível fazer isso sem usar a Exportação Contínua.
-* A [API REST de acesso a dados](https://dev.applicationinsights.io/) permite que você acesse a telemetria programaticamente. 
+* A [API REST de acesso a dados](https://dev.applicationinsights.io/) permite que você acesse a telemetria programaticamente.
 
-Depois que a exportação contínua copia os dados para o armazenamento (onde eles podem permanecer pelo tempo desejado), eles ainda ficam disponíveis no Application Insights pelo [período de retenção](app-insights-data-retention-privacy.md) normal. 
+Depois que a exportação contínua copia os dados para o armazenamento (onde eles podem permanecer pelo tempo desejado), eles ainda ficam disponíveis no Application Insights pelo [período de retenção](app-insights-data-retention-privacy.md) normal.
 
 ## <a name="setup"></a> Criar uma Exportação Contínua
-1. No recurso Application Insights do seu aplicativo, abra Exportação Contínua e selecione **Adicionar**: 
+1. No recurso Application Insights do seu aplicativo, abra Exportação Contínua e selecione **Adicionar**:
 
     ![Role para baixo e clique em Exportação contínua](./media/app-insights-export-telemetry/01-export.png)
 
 2. Escolha a telemetria de tipos de dados que você deseja exportar.
 
-3. Crie ou selecione uma [Conta de armazenamento do Azure](../storage/storage-introduction.md) onde você deseja armazenar os dados. 
+3. Crie ou selecione uma [Conta de armazenamento do Azure](../storage/storage-introduction.md) onde você deseja armazenar os dados.
 
     > [!Warning]
     > Por padrão, o local de armazenamento será definido como a mesma região geográfica que seu recurso Application Insights. Armazenar em uma região diferente poderá incorrer em encargos de transferência.
@@ -53,7 +53,7 @@ Depois que a exportação contínua copia os dados para o armazenamento (onde el
 
     ![Clique em Escolher tipos de evento](./media/app-insights-export-telemetry/create-container.png)
 
-Depois de criar sua exportação, ela começa a ser realizada. Você só obtém os dados que chegam após a criação da exportação. 
+Depois de criar sua exportação, ela começa a ser realizada. Você só obtém os dados que chegam após a criação da exportação.
 
 Pode haver um atraso de aproximadamente uma hora antes de os dados aparecem no armazenamento.
 
@@ -73,18 +73,18 @@ Para interromper a exportação permanentemente, basta excluí-la. Isso não exc
 * Para adicionar ou alterar exportações, você precisa de direitos de acesso de Proprietário, Colaborador ou Colaborador do Application Insights. [Saiba mais sobre as funções][roles].
 
 ## <a name="analyze"></a> Quais eventos você recebe?
-Os dados exportados são a telemetria bruta que recebemos de seu aplicativo, exceto que adicionamos dados de localização que calculamos por meio do endereço IP do cliente. 
+Os dados exportados são a telemetria bruta que recebemos de seu aplicativo, exceto que adicionamos dados de localização que calculamos por meio do endereço IP do cliente.
 
 Dados que foram descartados por [amostragem](app-insights-sampling.md) não são incluídos nos dados exportados.
 
 Outras métricas calculadas não são incluídas. Por exemplo, nós não exportamos a utilização média de CPU, mas exportamos a telemetria bruta por meio da qual a média é computada.
 
-Os dados também incluem os resultados de todos os [testes da Web de disponibilidade](app-insights-monitor-web-app-availability.md) que você configurou. 
+Os dados também incluem os resultados de todos os [testes da Web de disponibilidade](app-insights-monitor-web-app-availability.md) que você configurou.
 
 > [!NOTE]
 > **Amostragem.** Se seu aplicativo enviar muitos dados, a funcionalidade de amostragem poderá operar e enviar apenas uma parte da telemetria gerada. [Saiba mais sobre amostragem.](app-insights-sampling.md)
-> 
-> 
+>
+>
 
 ## <a name="get"></a> Inspecionar os dados
 Você pode inspecionar o armazenamento diretamente no portal. Clique em **Procurar**, selecione sua conta de armazenamento e abra **Contêineres**.
@@ -101,7 +101,7 @@ Veja o formato do caminho:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-Where 
+Where
 
 * `blobCreationTimeUtc` é a hora em que o blob foi criado no armazenamento de preparo interno
 * `blobDeliveryTimeUtc` é a hora em que o blob foi copiado para o armazenamento de destino de exportação
@@ -144,10 +144,10 @@ Em pequena escala, você pode escrever um código para extrair e separar seus da
 Para obter um exemplo de código maior, consulte [usando uma função de trabalho][exportasa].
 
 ## <a name="delete"></a>Excluir dados antigos
-Observe que você é responsável por gerenciar a capacidade de armazenamento e excluir dados antigos, se necessário. 
+Observe que você é responsável por gerenciar a capacidade de armazenamento e excluir dados antigos, se necessário.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se você regenerar sua chave de armazenamento...
-Se você alterar a chave para seu armazenamento, a exportação contínua deixará de funcionar. Você verá uma notificação em sua conta do Azure. 
+Se você alterar a chave para seu armazenamento, a exportação contínua deixará de funcionar. Você verá uma notificação em sua conta do Azure.
 
 Abrir a folha Exportação Contínua e edite sua exportação. Edite o destino de exportação, mas mantenha o mesmo armazenamento selecionado. Clique em OK para confirmar.
 
@@ -164,29 +164,29 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
 ## <a name="q--a"></a>Perguntas e respostas
 * *Mas tudo o que eu quero é um download único de um gráfico.*  
-  
-    Sim, você pode fazer isso. Na parte superior da folha, clique [Exportar dados](app-insights-metrics-explorer.md#export-to-excel).
+
+    Sim, você pode fazer isso. Na parte superior da folha, clique **Exportar dados**.
 * *Eu configuro uma exportação, mas não há nenhum dado no meu repositório.*
-  
+
     O Application Insights recebeu qualquer telemetria do seu aplicativo desde que você configurou a exportação? Você receberá apenas novos dados.
 * *Eu tentei configurar uma exportação, mas o acesso foi negado*
-  
+
     Se a conta pertence à sua organização, você precisa ser membro do grupo de proprietários ou do grupo de colaboradores.
-* *Eu posso exportar diretamente para meu próprio repositório local?* 
-  
+* *Eu posso exportar diretamente para meu próprio repositório local?*
+
     Não, infelizmente. Nosso mecanismo de exportação funciona apenas com o armazenamento do Azure no momento.  
-* *Há qualquer limite para a quantidade de dados que você coloca em meu repositório?* 
-  
+* *Há qualquer limite para a quantidade de dados que você coloca em meu repositório?*
+
     Não. Continuaremos a enviar dados por push até que você exclua a exportação. Interromperemos o envio se atingirmos os limites externos para o armazenamento de blob, mas são limites enormes. Cabe a você controlar a quantidade de armazenamento que usa.  
 * *Quantos blobs devo ver no armazenamento?*
-  
-  * Para cada tipo de dados selecionado para exportação, um novo blob é criado a cada minuto (se os dados estiverem disponíveis). 
+
+  * Para cada tipo de dados selecionado para exportação, um novo blob é criado a cada minuto (se os dados estiverem disponíveis).
   * Além disso, para aplicativos com tráfego intenso, são alocadas unidades de partição adicionais. Nesse caso, cada unidade cria um blob a cada minuto.
 * *Eu regenerei a chave para o meu armazenamento ou alterei o nome do contêiner, e agora a exportação não funciona.*
-  
+
     Edite a exportação e abra a folha Destino de exportação. Deixe o mesmo armazenamento de antes selecionado e clique em OK para confirmar. A exportação será reiniciada. Se a alteração foi realizada nos últimos dias, você não perderá dados.
 * *Posso pausar a exportação?*
-  
+
     Sim. Clique em Desabilitar.
 
 ## <a name="code-samples"></a>Exemplos de código
@@ -200,6 +200,4 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
 

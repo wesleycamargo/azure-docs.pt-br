@@ -15,29 +15,30 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: deed3fbd7cd27f54767ae9b26c27c1e1a0106208
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Exibições nas soluções de gerenciamento do OMS (Operations Management Suite) (Preview)
 > [!NOTE]
 > Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.    
-> 
-> 
+>
+>
 
 As [soluções de gerenciamento no OMS (Operations Management Suite)](operations-management-suite-solutions.md) normalmente incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar uma exibição criada pelo [Designer de Exibição](../log-analytics/log-analytics-view-designer.md) e incluí-la em uma solução de gerenciamento.  
 
 > [!NOTE]
-> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para as soluções de gerenciamento e estão descritos em [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) (Criando soluções de gerenciamento no OMS (Operations Management Suite)) 
-> 
-> 
+> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para as soluções de gerenciamento e estão descritos em [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) (Criando soluções de gerenciamento no OMS (Operations Management Suite))
+>
+>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você já esteja familiarizado com o modo para [criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md) e com a estrutura de um arquivo de solução.
 
 ## <a name="overview"></a>Visão geral
-Para incluir uma exibição em uma solução de gerenciamento, crie um **recurso** no [arquivo de solução](operations-management-suite-solutions-creating.md).  O JSON que descreve a configuração detalhada da exibição geralmente é complexo e não algo que um autor típico de solução seria capaz de criar manualmente.  O método mais comum é criar a exibição usando o [Designer de Exibição](../log-analytics/log-analytics-view-designer.md), exportá-la e, em seguida, adicionar sua configuração detalhada na solução. 
+Para incluir uma exibição em uma solução de gerenciamento, crie um **recurso** no [arquivo de solução](operations-management-suite-solutions-creating.md).  O JSON que descreve a configuração detalhada da exibição geralmente é complexo e não algo que um autor típico de solução seria capaz de criar manualmente.  O método mais comum é criar a exibição usando o [Designer de Exibição](../log-analytics/log-analytics-view-designer.md), exportá-la e, em seguida, adicionar sua configuração detalhada na solução.
 
 As etapas básicas para adicionar uma exibição a uma solução são da seguinte maneira.  Cada etapa é descrita mais detalhadamente nas seções a seguir.
 
@@ -46,7 +47,7 @@ As etapas básicas para adicionar uma exibição a uma solução são da seguint
 3. Adicionar os detalhes da exibição.
 
 ## <a name="export-the-view-to-a-file"></a>Exportar a exibição para um arquivo
-Siga as instruções em [Log Analytics View Designer](../log-analytics/log-analytics-view-designer.md) (Designer de exibição do Log Analytics) para exportar uma exibição para um arquivo.  O arquivo exportado será no formato JSON com os mesmos [elementos do arquivo de solução](operations-management-suite-solutions-creating.md#management-solution-files).  
+Siga as instruções em [Log Analytics View Designer](../log-analytics/log-analytics-view-designer.md) (Designer de exibição do Log Analytics) para exportar uma exibição para um arquivo.  O arquivo exportado será no formato JSON com os mesmos [elementos do arquivo de solução](operations-management-suite-solutions-solution-file.md).  
 
 O elemento **resources** do arquivo de exibição terá um recurso com um tipo de **Microsoft.OperationalInsights/workspaces**, que representa o espaço de trabalho do OMS.  Esse elemento terá um subelemento com um tipo de **views**, que representa a exibição e contém a configuração detalhada.  Você copiará os detalhes desse elemento e, em seguida, vai copiá-lo em sua solução.
 
@@ -69,11 +70,11 @@ Adicione o seguinte recurso de exibição ao elemento **resources** do seu arqui
             "Author": "[variables('ViewAuthor')]",
             "Source": "Local",
             "Dashboard": ,
-            "OverviewTile": 
+            "OverviewTile":
         }
     }
 
-Adicione as seguintes variáveis ao elemento [variables](operations-management-suite-solutions-creating.md#variables) do arquivo de solução e substitua os valores pelos da sua solução.
+Adicione as variáveis a seguir ao elemento de variáveis do arquivo de solução e substitua os valores pelos da solução.
 
     "LogAnalyticsApiVersion": "2015-11-01-preview",
     "ViewAuthor": "Your name."
@@ -91,7 +92,7 @@ Observe que você poderá copiar todo o recurso de exibição do arquivo de exib
 * As variáveis devem ser definidas na solução e usadas nas propriedades adequadas.
 
 ## <a name="add-the-view-details"></a>Adicionar os detalhes de exibição
-O recurso de exibição no arquivo de exibição exportado terá dois elementos no elemento **properties** chamados **Dashboard** e **OverviewTile**, que terão a configuração detalhada da exibição.  Copie esses dois elementos e seus conteúdos no elemento **properties** do recurso de exibição em seu arquivo de solução. 
+O recurso de exibição no arquivo de exibição exportado terá dois elementos no elemento **properties** chamados **Dashboard** e **OverviewTile**, que terão a configuração detalhada da exibição.  Copie esses dois elementos e seus conteúdos no elemento **properties** do recurso de exibição em seu arquivo de solução.
 
 ## <a name="example"></a>Exemplo
 Por exemplo, a amostra a seguir apresenta um arquivo de solução simples com uma exibição.  As reticências (...) são mostradas para os conteúdos de **Dashboard** e **OverviewTile** por motivos de espaço.
@@ -179,10 +180,4 @@ Por exemplo, a amostra a seguir apresenta um arquivo de solução simples com um
 ## <a name="next-steps"></a>Próximas etapas
 * Conheça os detalhes completos de criação das [soluções de gerenciamento](operations-management-suite-solutions-creating.md).
 * Incluir os [runbooks de automação na solução de gerenciamento](operations-management-suite-solutions-resources-automation.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

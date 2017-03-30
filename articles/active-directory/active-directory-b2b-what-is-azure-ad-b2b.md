@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 1f6ce516629fd32b5efabce8682b45a3e575eaab
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4bfd76a00ba694096ef0b045b14beb757ba0809f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -89,6 +89,12 @@ Com base nos comentários do usuário, a atualização da visualização públic
 * Suporte do PowerShell para colaboração B2B.
 
 * Forneça recursos de auditoria e relatório.
+
+## <a name="help-us-shape-your-features"></a>Ajude-nos a moldar seus recursos
+ 
+Estamos constantemente ouvindo seus comentários sobre as maneiras de melhorar a colaboração B2B. Convidamos você para participar da discussão, compartilhar cenários de usuário, melhores práticas e o que você gosta da colaboração B2B do Azure AD na [Comunidade de Tecnologia da Microsoft](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)
+ 
+Também convidamos você para enviar ideias e votar em recursos futuros no site [Ideias de colaboração B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ## <a name="next-steps"></a>Próximas etapas
 

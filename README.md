@@ -1,3 +1,8 @@
+## <a name="microsoft-open-source-code-of-conduct"></a>Código de Conduta de Software Livre da Microsoft
+
+Este projeto adotou o [Código de Conduta Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/).
+Para obter mais informações, confira as [Perguntas frequentes sobre o código de conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou entre em contato com [opencode@microsoft.com](mailto:opencode@microsoft.com) para enviar outras perguntas ou comentários.
+
 # <a name="azure-technical-documentation-contributor-guide"></a>Guia do colaborador da documentação técnica do Azure
 Você encontrou o repositório do GitHub que hospeda a fonte da documentação técnica do Azure publicada em [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
@@ -20,9 +25,6 @@ Você pode enviar atualizações para a [documentação do Azure](https://docs.m
 
 * Você pode contribuir facilmente com artigos técnicos na interface do usuário do GitHub. Localize o artigo neste repositório ou acesse o site [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) e clique no link do artigo para ir para a fonte do GitHub do artigo.
 * Se você estiver fazendo alterações importantes em um artigo existente, adicionando ou alterando imagens ou contribuindo com um novo artigo, precisará bifurcar esse repositório, instalar o Git Bash, o Markdown Pad e aprender alguns comandos git.
-
-## <a name="code-of-conduct"></a>Código de conduta
-Este projeto adotou o [Código de Conduta Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/). Para obter mais informações, confira as [Perguntas frequentes sobre o código de conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou entre em contato com [opencode@microsoft.com](mailto:opencode@microsoft.com) para enviar outras perguntas ou comentários.
 
 ## <a name="about-your-contributions-to-azure-content"></a>Sobre as suas contribuições ao conteúdo do Azure
 ### <a name="minor-corrections"></a>Correções secundárias
@@ -83,9 +85,4 @@ Rótulos automatizados são atribuídos a solicitações pull para nos ajudar a 
 
 ## <a name="more-resources"></a>Mais recursos
 Acesse o [índice do nosso guia do colaborador](contributor-guide/contributor-guide-index.md) para conferir todos os tópicos de orientação.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

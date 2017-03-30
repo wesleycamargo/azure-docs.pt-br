@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/15/2016
-ms.author: jgao
+ms.author: yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: c43fb7b513136bb3ea964419d68f58585bba48fd
-ms.openlocfilehash: 348971e07169ae9c155753c7943124e96e6e9597
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7e8aed4f56471bb2946c610ca63b0ec50ee1b57e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -80,270 +81,35 @@ Você pode também clicar na conta **(Local)** na parte superior da janela do sc
 
     ![Enviar trabalhos de execução local das Ferramentas do Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
+### <a name="debug-scripts-and-c-assemblies-locally"></a>Depurar scripts e assemblies do C# localmente
 
+É possível depurar assemblies do C# sem os enviar nem os registrar para o Serviço Azure Data Lake Analytics. Você pode definir pontos de interrupção no arquivo code-behind e em um projeto do C# referenciado.
+
+#### <a name="to-debug-local-code-in-code-behind-file"></a>Para depurar o código local no arquivo code-behind
+
+1. Definir pontos de interrupção no arquivo code-behind.
+2. Pressione F5 para depurar o script localmente.
+
+> [!NOTE]
+   > O procedimento a seguir só funciona no Visual Studio 2015. No Visual Studio mais antigo, talvez seja necessário adicionar manualmente os arquivos pdb.  
+   >
+   >
+
+#### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Para depurar o código local em um projeto do C# referenciado
+
+1. Crie um projeto de Assembly do C# e compile-o para gerar o dll de saída.
+2. Registre o dll usando uma instrução U-SQL:
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+        
+3. Definir pontos de interrupção no código C#.
+4. Pressione F5 para depurar o script referenciando a dll do C# localmente.
 
 ## <a name="use-local-run-from-the-data-lake-u-sql-sdk"></a>Usar execução local no SDK para U-SQL do Data Lake
 
 Além de executar scripts U-SQL localmente usando o Visual Studio, você pode usar o SDK para U-SQL do Azure Data Lake para executá-los localmente com interfaces de programação e linha de comando. Você pode dimensionar seu teste local U-SQL com eles.
 
-### <a name="install-the-sdk"></a>Instalar o SDK
-
-O SDK para U-SQL do Data Lake exige as seguintes dependências:
-
-- [Microsoft .NET Framework 4.6 ou mais recente](https://www.microsoft.com/en-us/download/details.aspx?id=17851).
-- Microsoft Visual C++ 14 e Windows SDK 10.0.10240.0 ou mais recente. Há duas maneiras de obter isso:
-
-    - Instalar o [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Você terá uma pasta \Windows Kits\10 na pasta de arquivos de programas, por exemplo, C:\Arquivos de Programas (x86)\Windows Kits\10\.. Você também deve encontrar a versão do SDK para Windows 10 em \Windows Kits\10\Lib. Se você não vir essas pastas, reinstale o Visual Studio e selecione o SDK do Windows 10 durante a instalação. Dessa forma, o script do compilador local do U-SQL encontrará essas dependências automaticamente.
-
-    ![SDK para Windows 10 da execução local das Ferramentas do Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
-
-    - Instalar [Ferramentas do Data Lake para Visual Studio](http://aka.ms/adltoolsvs). Você pode encontrar os arquivos pré-empacotados do SDK do Windows e Visual C++ em C:\Arquivos de Programas (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Nesse caso, o compilador local U-SQL não pode localizar as dependências automaticamente. Você precisa especificar o caminho CppSDK para ele. Você pode copiar os arquivos para outro local ou usá-los como estão. Em seguida, você pode optar por definir a variável de ambiente **SCOPE_CPP_SDK** como o diretório ou especificar o argumento **-CppSDK** com esse diretório na linha de comando do aplicativo auxiliar da execução local.
-
-Depois de instalar o SDK, você deve executar as seguintes etapas de configuração:
-
-- Defina a variável de ambiente **SCOPE_CPP_SDK**.
-
-    Se obtiver o SDK do Windows e Microsoft Visual C++ instalando as Ferramentas do Data Lake para Visual Studio, verifique se você tem a seguinte pasta:
-
-        C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK
-
-    Defina uma nova variável de ambiente chamada **SCOPE_CPP_SDK** para pontar para esse diretório. Ou copie a pasta para outro local e especifique **SCOPE_CPP_SDK** dessa forma.
-
-    Além de definir a variável de ambiente, você também pode especificar o argumento **-CppSDK** ao usar a linha de comando. Esse argumento substitui a variável de ambiente CppSDK padrão.
-
-- Defina a variável de ambiente **LOCALRUN_DATAROOT**.
-
-    Defina uma nova variável de ambiente chamada **LOCALRUN_DATAROOT** que aponta para a raiz de dados.
-
-    Além de definir a variável de ambiente, você pode especificar o argumento **-DataRoot** com o caminho raiz de dados ao usar a linha de comando. Esse argumento substitui a variável de ambiente de raiz de dados padrão. Você precisa adicionar esse argumento para cada linha de comando em execução para que você possa substituir a variável de ambiente de raiz de dados padrão em todas as operações.
-
-### <a name="use-the-sdk-from-the-command-line"></a>Usar o SDK da linha de comando
-
-#### <a name="command-line-interface-of-the-helper-application"></a>Interface de linha de comando do aplicativo auxiliar
-
-No SDK, LocalRunHelper.exe é o aplicativo auxiliar de linha de comando que fornece interfaces para a maioria das funções de execução local frequentemente usadas. Observe que as opções de argumentos e de comando diferenciam maiúsculas de minúsculas. Para invocá-lo:
-
-    LocalRunHelper.exe <command> <Required-Command-Arguments> [Optional-Command-Arguments]
-
-Execute LocalRunHelper.exe sem argumentos ou com a opção **help** para mostrar as informações de ajuda:
-
-    > LocalRunHelper.exe help
-
-        Command 'help' :  Show usage information
-        Command 'compile' :  Compile the script
-        Required Arguments :
-            -Script param
-                    Script File Path
-        Optional Arguments :
-            -Shallow [default value 'False']
-                    Shallow compile
-
-Nas informações de ajuda:
-
--  **Command** fornece o nome do comando.  
--  **Required Argument** lista argumentos que devem ser fornecidos.  
--  **Optional Argument** lista argumentos que são opcionais e com valores padrão.  Os argumentos boolianos opcionais não têm parâmetros e as respectivas aparências são negativas para o respectivo valor padrão.
-
-#### <a name="return-value-and-logging"></a>Valor de retorno e registro em log
-
-O aplicativo auxiliar retorna **0** em caso de sucesso e **-1** em caso de falha. Por padrão, o auxiliar enviará todas as mensagens para o console atual. No entanto, a maioria dos comandos dá suporte ao argumento opcional **-MessageOut path_to_log_file**, que redireciona as saídas para um arquivo de log.
-
-
-### <a name="sdk-usage-samples"></a>Exemplos de uso do SDK
-
-#### <a name="compile-and-run"></a>Compilar e executar
-
-O comando **run** é usado para compilar o script e executar resultados compilados. Seus argumentos de linha de comando são uma combinação de **compile** e **run**.
-
-    LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
-
-Aqui está um exemplo:
-
-    LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
-
-Além de combinar **compile** e **run**, você pode compilar e executar os executáveis compilados separadamente.
-
-#### <a name="compile-a-u-sql-script"></a>Compilar um script U-SQL
-
-O comando **compile** é usado para compilar um script U-SQL para executáveis.
-
-    LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
-
-Estes são os argumentos opcionais para compilação:
-
-|Argumento|Descrição|
-|--------|-----------|
-|-CppSDK [valor padrão '']|Diretório do CppSDK.|
-|-DataRoot [valor padrão '']|Raiz de dados para dados e metadados. A variável de ambiente **LOCALRUN_DATAROOT** passa a ser o padrão.|
-|-MessageOut [valor padrão '']|Despeje as mensagens do console em um arquivo.|
-|-Shallow [valor padrão 'False']|Compilação superficial. Faz apenas uma verificação de sintaxe do script e retorno.|
-|-WorkDir [valor padrão 'D:\localrun\t\ScopeWorkDir']|Diretório de uso do compilador e saídas. Para saber mais, confira "Diretório de trabalho" no apêndice.|
-
-Abaixo temos argumentos opcionais para assemblies e code-behind:
-
-|Argumento|Descrição|
-|--------|-----------|
-|-CodeBehind [valor padrão 'False']|Indicador de que o script tem um code-behind .cs, que será compilado e registrado automaticamente como um UDO (objeto definido pelo usuário)|
-|-References [valor padrão '']|Lista de caminhos para os assemblies de referência extra ou arquivos de dados de um code-behind, separados por ';'|
-|-UseDatabase [valor padrão 'master']|Banco de dados a ser usado para registro do assembly temporário do code-behind|
-|-UdoRedirect [valor padrão 'False']|Configuração de redirecionamento do assembly UDO que informa ao tempo de execução do .NET para investigar assemblies dependentes do diretório de saída compilado primeiro quando UDO é chamado|
-
-Veja alguns exemplos de uso.
-
-Compilar um script U-SQL:
-
-    LocalRunHelper compile -Script d:\test\test1.usql
-
-Compilar um script U-SQL e definir a pasta raiz de dados. Observe que isso substituirá a variável de ambiente do conjunto.
-
-    LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
-
-Compilar um script U-SQL e definir um diretório de trabalho, o assembly de referência e o banco de dados:
-
-    LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
-
-#### <a name="execute-compiled-results"></a>Executar resultados compilados
-
-O comando **execute** é usado para executar os resultados compilados.   
-
-    LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_arguments]
-
-Estes são os argumentos opcionais:
-
-|Argumento|Descrição|
-|--------|-----------|
-|-DataRoot [valor padrão '']|Raiz de dados para a execução de metadados. A variável de ambiente **LOCALRUN_DATAROOT** passa a ser o padrão.|
-|-MessageOut [valor padrão '']|Despeje as mensagens do console em um arquivo.|
-|-Parallel [valor padrão '1']|Indicador para executar as etapas de execução local geradas com o nível de paralelismo especificado.|
-|-Verbose [valor padrão 'False']|Indicador para mostrar saídas detalhadas do tempo de execução.|
-
-Aqui está um exemplo de uso:
-
-    LocalRunHelper execute -Algebra d:\test\workdir\C6A101DDCB470506\Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
-
-## <a name="use-the-sdk-with-programming-interfaces"></a>Usar o SDK com interfaces de programação
-
-As interfaces de programação estão todas localizadas no assembly "Microsoft.Analytics.LocalRun". Você pode usá-los para integrar a funcionalidade do SDK para U-SQL e a estrutura de teste C# a fim de dimensionar o teste local do script U-SQL. Para saber mais sobre as interfaces, confira o apêndice.
-
-## <a name="appendix"></a>Apêndice
-
-### <a name="working-directory"></a>Diretório de trabalho
-
-Ao executar o script U-SQL localmente, um diretório de trabalho será criado durante a compilação. Além das saídas de compilação, os arquivos de tempo de execução necessários para execução local são copiados em sombra para esse diretório de trabalho. Se o argumento **-WorkDir** não for fornecido na linha de comando, o diretório de trabalho padrão ScopeWorkDir será criado sob o diretório atual. Os arquivos no diretório de trabalho são os seguintes:
-
-|Diretório/arquivo|Definição|Descrição|
-|--------------|----------|-----------|
-|ScopeWorkDir|Diretório de trabalho|Pasta raiz|
-|C6A101DDCB470506|Cadeia de caracteres de hash da versão do tempo de execução|Cópia de sombra dos arquivos de tempo de execução necessários para execução local|
-|\.\Script_66AE4909AA0ED06C|Nome do script mais cadeia de caracteres de hash do caminho do script|Saídas da compilação e log das etapas de execução|
-|\.\.\\_\_script\_\_.abr|Saída do compilador|Arquivo de álgebra|
-|\.\.\\_\_ScopeCodeGen\_\_.*|Saída do compilador|Código gerenciado gerado|
-|\.\.\\_\_ScopeCodeGenEngine\_\_.*|Saída do compilador|Código nativo gerado|
-|\.\.\referenced_assemblies|Referência de assembly|Arquivos do assembly de referência|
-|\.\.\deployed_resources|Implantação de recursos|Arquivos da implantação de recursos|
-|\.\.\xxxxxxxx.xxx[1..n]_*.*|Log de execução|Log das etapas de execução|
-
-### <a name="programming-interfaces-for-the-azure-data-lake-u-sql-sdk"></a>Interfaces de programação do SDK para U-SQL do Azure Data Lake
-
-As interfaces de programação estão todas localizadas no assembly "Microsoft.Analytics.LocalRun".
-
-#### <a name="microsoftanalyticslocalrunconfiguration"></a>Microsoft.Analytics.LocalRun.Configuration
-Microsoft.Analytics.LocalRun.Configuration é a classe do parâmetro de configuração da compilação.
-
-**Construtor**
-
-public Configuration(string rootPath)
-
-|Parâmetro|Tipo|Descrição|
-|---------|----|-----------|
-|rootPath|System.String|Caminho para o diretório atual do contexto de trabalho. Se WorkingDirectory não estiver definido, a pasta de trabalho padrão será rootPath mais ScopeWorkDir.|
-
-**Propriedades**
-
-|Nome|Descrição|
-|----|-----------|
-|CppSDK|Local do CppSDK. se não for a configuração padrão do sistema. |
-|DataDirectory|Local onde dados de entrada/saída, assemblies e tabelas são salvos. O padrão é ScopeWorkDir\DataDir. |
-|GenerateUdoRedirect|Indicador do nosso desejo de gerar a configuração de substituição do redirecionamento de carregamento do assembly.|
-|WorkingDirectory|Diretório de trabalho do compilador. O padrão é ScopeWorkDir.|
-
-
-#### <a name="microsoftanalyticslocalrunlocalcompiler"></a>Microsoft.Analytics.LocalRun.LocalCompiler
-Microsoft.Analytics.LocalRun.LocalCompiler é a classe do compilador local do U-SQL.
-
-**Construtor**
-
-public LocalCompiler(Configuration configuration)
-
-|Parâmetro|Tipo|Descrição|
-|---------|----|-----------|
-|configuração|Microsoft.Analytics.LocalRun.Configuration||
-
-**Método**
-
-public bool Compile( string script, string filePath, bool shallow, out CommonCompileResult result )
-
-|Parâmetro|Tipo|Descrição|
-|---------|----|-----------|
-|script|System.String|Cadeia de caracteres do script de entrada.|
-|filePath|System.String|Caminho do arquivo de script. Ele foi definido como nulo para usar o padrão.|
-|shallow|System.Boolean|Compilação superficial (apenas verificação de sintaxe) ou compilação completa.|
-|result|Microsoft.Cosmos.ClientTools.Shared.CommonCompileResult|Resultados detalhados da compilação.|
-|Valor de retorno|System.Boolean|True: nenhum erro crítico na compilação. <br>False: erro crítico na compilação.|
-
-#### <a name="microsoftanalyticslocalrunlocalrunner--idisposable"></a>Microsoft.Analytics.LocalRun.LocalRunner : IDisposable
-Microsoft.Analytics.LocalRun.LocalRunner: IDisposable é a classe do executor U-SQL local.
-
-**Construtor**
-
-public LocalRunner( string algebraFilePath, string dataRoot, Action<string> postMessage = null )
-
-|Parâmetro|Tipo|Descrição|
-|---------|----|-----------|
-|algebraFilePath|System.String|Caminho para o arquivo de álgebra|
-|dataRoot|System.String|Caminho para DataRoot|
-|postMessage (Optional)|System.Action<String>|Manipulador de registro em log para andamento|
-
-public LocalRunner( string algebraFilePath, string dataRoot, string cachePath, string runtimePath, string tempPath, string logPath, Action<Object, ExecutionStatusBase. ExecutionEventArgs> execEventHandler, Object eventContext, Action<string> postMessage = null )
-
-|Parâmetro|Tipo|Descrição|
-|---------|----|-----------|
-|algebraFilePath|System.String|Caminho para o arquivo de álgebra.|
-|dataRoot|System.String|Caminho para DataRoot.|
-|cachePath|System.String|Caminho para o diretório de resultado da compilação. Ele foi definido como nulo para usar o padrão, onde se encontra o arquivo de álgebra.|
-|runtimePath|System.String|Caminho para o diretório do tempo de execução da cópia de sombra. Ele foi definido como nulo para usar o padrão, onde se encontra o diretório pai do cachePath.|
-|tempPath|System.String|Caminho de armazenamento temporário, somente para uso interno. É definido como nulo.|
-|logPath|System.String|Caminho onde os logs de execução serão gravados. Ele foi definido como nulo para usar cachePath como padrão.|
-|execEventHandler|System. Action<Object, ExecutionStatusBase.ExecutionEventArgs>|Manipulador de notificação de eventos para alteração do status da execução.|
-|eventContext|System. Objeto|Contexto para o manipulador de eventos.|
-|postMessage (Optional)|System.Action<String>|Manipulador de log para andamento.|
-
-**Propriedades**
-
-|Nome|Descrição|
-|----|-----------|
-|AlgebraPath|Caminho para o arquivo de álgebra.|
-|CachePath|Caminho do cache de resultados do compilador onde binários gerados estão localizados.|
-|CompletedSteps|Número etapas concluídas.|
-|DataRoot|DataRoot de metadados.|
-|LastErrorMessage|(Herdada de ExecutionStatusBase.)|
-|LogPath|Local de armazenamento de arquivos de log. O setter criará o diretório se ele não existir. O caminho do log criado anteriormente não será limpo.|
-|OutputHeader|Cabeçalho de esquema de despejo nas saídas textuais.|
-|Paralelismo|Paralelismo. Processadores lógicos por padrão: 1. A alteração desse item após a inicialização resultará em uma exceção.|
-|Andamento|Andamento da execução na escala de 0 a 100%.|
-|RuntimePath|Local dos arquivos de tempo de execução. Ele deve estar um diretório acima de CachePath quando é a cópia de sombra feita pelo compilador.|
-|Status|Status da execução. <br><br>enum ExecutionStatusBase.ExecutionStatus <br>{ <br>Initialized, // Inicializou. <br>Running,     // Está executando.  WaitOne verifica somente os eventos nesse estado. <br>Success,     // Terminou com sucesso. <br>Error,       // Falhou. <br>}|
-|TotalSteps|Número total de etapas a serem executadas. Um valor válido fica disponível apenas depois que o vértice DAG é criado.|
-|Detalhado|Detalhamento durante a execução.|
-
-**Método**
-
-|Método|Descrição|
-|------|-----------|
-|Cancel()|Cancelar a álgebra em execução. <br><br>O tipo de valor de retorno é booliano. <br><br>false: falha ao cancelar devido a erro; verifique LastErrorMessage para obter detalhes.|
-|Start()|Começar a execução de álgebra. <br><br>O tipo de valor de retorno é booliano. <br><br>Valor de retorno false: falha ao iniciar devido a erro, verifique LastErrorMessage para obter detalhes.|
-|WaitOne() <br>WaitOne(Int32) <br>WaitOne(TimeSpan) <br>WaitOne(Int32, Boolean) <br>WaitOne(TimeSpan, Boolean)|Aguarde a conclusão. Consulte WaitHandle.WaitOne.|
-|Dispose()||
+Saiba mais sobre o [SDK do U-SQL do Azure Data Lake](data-lake-analytics-u-sql-sdk.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -356,9 +122,4 @@ public LocalRunner( string algebraFilePath, string dataRoot, string cachePath, s
 * Para ver uma consulta mais complexa, consulte [Analisar logs de site usando o Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Para ver detalhes do trabalho, confira [Usar o Navegador de Trabalhos e o Modo de Exibição de Trabalho para trabalhos do Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
 * Para usar o modo de exibição de execução de vértice, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

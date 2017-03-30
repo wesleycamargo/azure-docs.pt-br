@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 762fb06cad3a03aa6b0c19bd277e13ffd4c03a3b
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: dfaa9e49d5c58b701cb62b0ebb06699368db0982
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/11/2017
 
 Neste cenário você criará um grupo de recursos, o Plano do Serviço de Aplicativo, o aplicativo Web e configurar o aplicativo Web para habilitar logs de servidor web. Em seguida, você baixará os arquivos de log para análise.
 
-Antes de executar esse script, certifique-se de que uma conexão com o Azure foi criada usando o comando `az login`.
+Se necessário, instale a CLI do Azure usando a instrução encontrada no [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e, em seguida, execute `az login` para criar uma conexão com o Azure.
 
 Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
@@ -40,7 +40,7 @@ Este exemplo funciona em um shell Bash. Para opções sobre como executar script
 
 Este script usa os seguintes comandos para criar um grupo de recursos, um aplicativo Web e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Comando | Observações |
+| Command | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Cria um Plano do Serviço de Aplicativo. Isso é como um farm de servidores para seu aplicativo Web do Azure. |

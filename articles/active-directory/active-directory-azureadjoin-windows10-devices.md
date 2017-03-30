@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 053c04ed222eb9c9203a25153e45e31ba842b223
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 71e8944fc56420ddd7fd42bbfbfdf6d145a1cf3b
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -94,7 +95,7 @@ Nos últimos 15 anos, muitas organizações têm usado o ingresso no domínio pa
 Para saber mais sobre o Ingresso no Azure AD, confira [Estendendo recursos de nuvem para dispositivos com Windows 10 usando o Ingresso no Azure Active Directory](active-directory-azureadjoin-overview.md).
 
 ## <a name="enable-joining-of-personally-owned-devices-for-work-or-school"></a>Habilitar o ingresso de dispositivos pessoais para o trabalho ou a escola
-Para dar suporte a BYOD na empresa, o Windows 10 fornece ao usuário a capacidade de "adicionar uma conta corporativa ou de estudante" a seu computador, tablet ou telefone. Depois que o usuário adiciona uma conta corporativa ou de estudante, o dispositivo é registrado no Azure AD e, opcionalmente, é registrado no sistema de gerenciamento de dispositivos móveis que a organização configurou. O diretório mostrará esses dispositivos com o status 'Registrado' vs. 'Ingressado no AD do Azure'. Os administradores de TI podem aplicar políticas diferentes com base nessas informações, com mais informalidade em dispositivos pessoais do que em dispositivos corporativos, se desejarem.
+Para dar suporte a BYOD na empresa, o Windows 10 fornece ao usuário a capacidade de "adicionar uma conta corporativa ou de estudante" a seu computador, tablet ou telefone. Depois que o usuário adiciona uma conta corporativa ou de estudante, o dispositivo é registrado no Azure AD e, opcionalmente, é registrado no sistema de gerenciamento de dispositivos móveis que a organização configurou. O diretório mostrará esses dispositivos com o status 'Registrado' vs. 'Ingressado no AD do Azure'. Os administradores de TI podem aplicar políticas diferentes de acordo com essas informações, oferecendo um toque mais informal em dispositivos pessoais do que em dispositivos corporativos, caso desejem.
 
 Os usuários podem adicionar uma conta corporativa ou de estudante para seus dispositivos pessoais de forma muito conveniente. Eles podem fazer isso ao acessar um aplicativo de trabalho pela primeira vez ou podem fazê-lo manualmente, por meio do menu Configurações. Essa conta fornecerá SSO para os recursos organizacionais.
 
@@ -168,10 +169,5 @@ Os usuários que estão atualizando de dispositivos que ingressaram no domínio 
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

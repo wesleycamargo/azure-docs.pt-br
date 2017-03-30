@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 30248b5f00aaf2d81db79b5a690760f816384723
-ms.lasthandoff: 12/29/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -129,7 +129,7 @@ Para resolver esse erro, habilite esse aplicativo e tente habilitar os Serviços
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Os usuários não conseguem entrar no domínio gerenciado pelos Serviços de Domínio do AD do Azure
 Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no domínio gerenciado recém-criado, execute as seguintes etapas de solução de problemas:
 
-* **Entrar usando o formato UPN:** Tente entrar usando o formato UPN (por exemplo, 'joeuser@contoso.com') em vez do formato SAMAccountName ('CONTOSO\paulousuario'). O SAMAccountName pode ser gerado automaticamente para usuários cujo prefixo UPN é muito longo ou é o mesmo de outro usuário no domínio gerenciado. O formato UPN é exclusivo, de forma garantida, dentro de um locatário do Azure AD.
+* **Conectar-se usando o formato UPN:** tente se conectar usando o formato UPN (por exemplo, “joeuser@contoso.com”), em vez do formato SAMAccountName (“CONTOSO\paulousuario”). O SAMAccountName pode ser gerado automaticamente para usuários cujo prefixo UPN é muito longo ou é o mesmo de outro usuário no domínio gerenciado. O formato UPN é exclusivo, de forma garantida, dentro de um locatário do Azure AD.
 
 > [!NOTE]
 > Recomendamos usar o formato UPN para entrar no domínio gerenciado do Azure AD Domain Services.
@@ -137,7 +137,7 @@ Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no
 >
 
 * Verifique se você [habilitou a sincronização de senhas](active-directory-ds-getting-started-password-sync.md) de acordo com as etapas descritas no Guia de Introdução.
-* **Contas externas:** verifique se a conta de usuário afetada não é uma conta externa no locatário do Azure AD. Os exemplos de contas externas incluem as contas da Microsoft (por exemplo, 'joe@live.com')) ou as contas de usuário de um diretório externo do Azure AD. Como os Serviços de Domínio do AD do Azure não têm credenciais para tais contas de usuário, esses usuários não podem entrar no domínio gerenciado.
+* **Contas externas:** verifique se a conta de usuário afetada não é uma conta externa no locatário do Azure AD. Exemplos de contas externas incluem as contas da Microsoft (por exemplo, “joe@live.com”) ou as contas de usuário de um diretório externo do Azure AD. Como os Serviços de Domínio do AD do Azure não têm credenciais para tais contas de usuário, esses usuários não podem entrar no domínio gerenciado.
 * **Contas sincronizadas:** se as contas de usuário afetadas forem sincronizadas de um diretório local, verifique se:
 
   * Você implantou ou atualizou para a [versão recomendada mais recente do Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
@@ -151,6 +151,8 @@ Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Os usuários removidos do seu locatário do Azure AD não são removidos do seu domínio gerenciado
 O Azure AD protege você contra a exclusão acidental de objetos de usuário. Quando você excluir uma conta de usuário de seu locatário do Azure AD, o objeto de usuário correspondente será movido para a Lixeira. Quando essa operação de exclusão for sincronizada para seu domínio gerenciado, isso fará com que a conta de usuário correspondente seja marcada como desabilitada. Esse recurso ajuda a recuperar ou a cancelar a exclusão da conta de usuário mais tarde.
+
+A conta de usuário permanecerá no estado desabilitado no domínio gerenciado, mesmo se você recriar uma conta de usuário com o mesmo UPN no diretório do Azure AD. Para remover a conta de usuário do domínio gerenciado, você precisa forçar sua exclusão do locatário do Azure AD.
 
 Para remover completamente a conta de usuário de seu domínio gerenciado, exclua permanentemente o usuário do seu locatário do Azure AD. Use o cmdlet Remove-MsolUser PowerShell com a opção '-RemoveFromRecycleBin', como descrito neste [artigo MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 

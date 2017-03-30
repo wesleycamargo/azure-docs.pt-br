@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 02b758b06332abe190b322c83da7c4135d358fa4
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: f550ec9a8d254378d165f0c842459fd50ade7945
+ms.openlocfilehash: 5cdd26529ed06b7903ae232ab8da4527e79a8a68
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -165,7 +165,7 @@ Para implantar o modelo do Azure Resource Manager baixado usando a CLI do Azure,
 
 ### <a name="step-1"></a>Etapa 1
 
-Se você nunca usou a CLI do Azure, confira [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+Se você nunca usou a CLI do Azure, confira [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 
 ### <a name="step-2"></a>Etapa 2
 

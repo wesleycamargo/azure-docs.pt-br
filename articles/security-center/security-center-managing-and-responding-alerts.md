@@ -17,6 +17,7 @@ ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
 ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -91,9 +92,4 @@ Neste documento, você aprendeu a configurar políticas de segurança na Central
 * [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 9b8d26edbdd983eed521e4e1737077bd639532d9
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f5c9f7a37fe2fddaeccf483debff5d51e872449e
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/10/2017
 
 Este exemplo de script cria um aplicativo Web no Serviço de Aplicativo com seus recursos relacionados e associa o certificado SSL de um nome de domínio personalizado a ele. 
 
-Antes de executar este script, verifique se:
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/). Além disso, verifique se:
 
 - Uma conexão com o Azure foi criado usando o comando `az login`.
 - Você tem acesso à página de configuração do DNS do registrador de seu domínio.
@@ -37,7 +37,7 @@ Antes de executar este script, verifique se:
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Após a execução do exemplo de script, o comando a seguir pode ser usado para remover o Grupo de Recursos, o aplicativo Web e todos os recursos relacionados.
+Após a execução da amostra de script, o comando a seguir pode ser usado para remover o grupo de recursos, o aplicativo Web e todos os recursos relacionados.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -47,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Comando | Observações |
+| Command | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v3.5.0/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermappserviceplan) | Cria um Plano do Serviço de Aplicativo. |

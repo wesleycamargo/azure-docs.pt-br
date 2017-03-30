@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 10/25/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9cc4fcb68148ef64829fff6135449a3c0efb75d0
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f5f611ce6944d37e0afcc9a14fa79d0356d55347
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -47,10 +48,10 @@ Quando você cria uma VM (máquina virtual) no portal do Azure usando o modelo d
 
 * [Criar um nome de domínio totalmente qualificado no portal do Azure](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="virtual-nics"></a>NICs virtuais
+## <a name="network-interfaces"></a>Interfaces de rede
 Uma NIC (adaptador de rede) é a interconexão entre uma VM (máquina virtual) e a rede do software subjacente. Este artigo explica o que é um adaptador de rede e como ele é usado no modelo de implantação do Azure Resource Manager.
 
-* [Visão geral de Interfaces de Rede Virtual](../virtual-network/virtual-network-network-interface-overview.md)
+* [Interfaces de Rede Virtual](../virtual-network/virtual-network-network-interface.md)
 
 ## <a name="virtual-nics-and-dns-labeling"></a>NICs virtuais o rotulação de DNS
 Se você tiver um servidor que precisa que seja persistente, mas esse servidor é tratado como burro e é interrompido e implantado com frequência, você vai querer usar rotulação de DNS no seu NIC para manter o nome na VNET.  Com a seguinte explicação passo a passo, você configurará uma NIC persistentemente nomeada com um IP estático.
@@ -66,10 +67,5 @@ Um gateway de rede virtual é usado para enviar o tráfego de rede entre as rede
 Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
 * [Criar um balanceador de carga interno usando a CLI do Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

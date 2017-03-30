@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c05cd490ee9125f7e5182cb502db6f4e9390094
-ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 51c0f98e3d3ad09e3e6675b2692bc2a8888db9a7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Exemplos de código e do PowerShell para colaboração B2B do Azure Active Directory
 
 ## <a name="code-sample"></a>Exemplo de código
-Este exemplo ilustra como chamar a API de convite, no modo "somente app", para obter a URL de resgate do recurso ao qual você está convidando o usuário B2B. O objetivo é enviar um email de convite personalizado. Você verá como o email pode ser composto com um cliente HTTP, para você poder personalizar a aparência e enviá-lo por meio da API do Graph.
+Aqui, ilustramos como chamar a API de convite, no modo “somente do aplicativo”, para obter a URL de resgate do recurso ao qual você está convidando o usuário B2B. O objetivo é enviar um email de convite personalizado. O email pode ser composto com um cliente HTTP, para que seja possível personalizar a aparência e enviá-lo por meio da API do Graph.
 
 ```
 namespace SampleInviteApp
@@ -162,9 +163,9 @@ namespace SampleInviteApp
 ```
 
 ## <a name="powershell-example"></a>Exemplo de PowerShell
-O exemplo a seguir explica como você pode convidar usuários externos em massa a uma organização a partir dos endereços de email armazenados em um arquivo .CSV.
+É possível convidar usuários externos em massa para uma organização com base em endereços de email que você armazenou em um arquivo .CSV.
 
-1. Prepare o arquivo .CSV, crie um novo arquivo .CSV e nomeie-o invitations.csv. Neste exemplo, o arquivo está salvo em C:\data. Seu arquivo CSV deverá ter a seguinte aparência:
+1. Prepare o arquivo .CSV, crie um novo arquivo .CSV e nomeie-o invitations.csv. Neste exemplo, o arquivo está salvo em C:\data. O arquivo CSV poderá ser parecido com este:
 
   ```
     InvitedUserEmailAddress
@@ -182,14 +183,17 @@ O exemplo a seguir explica como você pode convidar usuários externos em massa 
     Connect-AzureAd and login
     ```
 
-4. Execute o cmdlet do PowerShell
+4. Executar o cmdlet do PowerShell
 
     ```
     $Invitations = import-csv C:\data\invitations.csv
     foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://microsoft.com -SendInvitationMessage $true}
   ```
 
-Isso enviará um convite para o endereço de email em invitations.csv. Os recursos adicionais desse cmdlet incluem texto personalizado na mensagem de email, um nome de exibição para o usuário convidado, envio de mensagens para CCs ou supressão total de mensagens de email.
+Esse cmdlet envia um convite para os endereços de email em invitations.csv. Os recursos adicionais desse cmdlet incluem:
+- Texto personalizado na mensagem de email
+- Inclusão de um nome de exibição para o usuário convidado
+- Envio de mensagens para CCs ou supressão completa de mensagens de email
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -197,17 +201,12 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
 * [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriedades de usuário de colaboração B2B](active-directory-b2b-user-properties.md)
-* [Adicionar um usuário de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
-* [Delegar convites de colaboração B2B](active-directory-b2b-delegate-invitations.md)
+* [Como adicionar um usuário de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
+* [Delegação de convites de colaboração B2B](active-directory-b2b-delegate-invitations.md)
 * [Grupos dinâmicos e colaboração B2B](active-directory-b2b-dynamic-groups.md)
-* [Configurar aplicativos SaaS para colaboração B2B](active-directory-b2b-configure-saas-apps.md)
+* [Configuração de aplicativos SaaS para colaboração B2B](active-directory-b2b-configure-saas-apps.md)
 * [Tokens de usuário de colaboração B2B](active-directory-b2b-user-token.md)
-* [Mapeamento de declarações do usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
+* [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

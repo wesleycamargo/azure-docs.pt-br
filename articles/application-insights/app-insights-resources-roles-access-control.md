@@ -1,22 +1,22 @@
 ---
-title: "Recursos, funções e controle de acesso no Application Insights"
+title: "Recursos, funções e controle de acesso no Azure Application Insights | Microsoft Docs"
 description: "Proprietários, colaboradores e leitores de percepções de sua organização."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2016
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 89e3cb3a7e9185d4a2944c1aa9aaf5aee4bd2b24
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 50a3cb726646c46d1f46767b51428eb751e6d3fe
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,9 +33,9 @@ Primeiro, algumas definições:
 
 * **Recurso** ‒ uma instância de um serviço do Microsoft Azure. O recurso do Application Insights coleta, analisa e exibe os dados de telemetria enviados de seu aplicativo.  Outros tipos de recursos do Azure incluem aplicativos Web, bancos de dados e VMs.
   
-    Para ver todos os seus recursos, acesse o [Portal do Azure][portal], entre e clique em Procurar.
+    Para ver seus recursos, abra o [portal do Azure][portal], conecte-se e clique em Todos os Recursos. Para encontrar um recurso, digite uma parte de seu nome no campo de filtro.
   
-    ![Escolha Procurar e, depois, Tudo ou Filtrar pelo Application Insights](./media/app-insights-resources-roles-access-control/10-browse.png)
+    ![Lista de recursos do Azure](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
@@ -86,12 +86,12 @@ A 'edição' inclui a criação, a exclusão e a atualização:
 * Exportação contínua
 
 #### <a name="select-the-user"></a>Selecione o usuário
-![Digite o endereço de email de um novo usuário. Selecione o usuário](./media/app-insights-resources-roles-access-control/04-user.png)
 
 Se o usuário desejado não estiver no diretório, você poderá convidar qualquer pessoa com uma conta da Microsoft.
 (Se ela usa serviços como Outlook.com, OneDrive, Windows Phone ou XBox Live, já tem uma conta da Microsoft.)
 
-## <a name="users-and-roles"></a>Usuários e funções
+## <a name="related-content"></a>Conteúdo relacionado
+
 * [Controle de acesso baseado em função no Azure](../active-directory/role-based-access-control-configure.md)
 
 <!--Link references-->

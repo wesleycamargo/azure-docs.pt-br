@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: ade6b7d9fa195ebea8f8587b01e4cc0ba71a0a83
-ms.openlocfilehash: fa5c367d7b8f46349b4bdc1de2af35050329a650
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -49,8 +49,8 @@ Para configurar o aplicativo para autenticar usuários, primeiro registre-o em s
 5. Siga os prompts para criar um **Aplicativo Web** e/ou uma WebAPI.
   * **Nome** descreve o aplicativo para os usuários.
   * A **URL de logon** é a URL base do aplicativo. A URL padrão do esqueleto é http://localhost:8080/adal4jsample/.
-  * O **URI da ID do aplicativo** é um identificador exclusivo para o aplicativo. A convenção de nomenclatura é `https://<tenant-domain>/<app-name>` (por exemplo, `http://localhost:8080/adal4jsample/`).
 6. Depois de você concluir o registro, o Azure AD atribui uma ID do aplicativo exclusiva ao aplicativo. Copie o valor da página do aplicativo para usar nas próximas seções.
+7. Na página **Configurações** -> **Propriedades** do aplicativo, atualize o URI da ID do Aplicativo. O **URI da ID do Aplicativo** é um identificador exclusivo do aplicativo. A convenção de nomenclatura é `https://<tenant-domain>/<app-name>` (por exemplo, `http://localhost:8080/adal4jsample/`).
 
 Quando você estiver no portal para o aplicativo, crie e copie uma chave para o aplicativo na página **Configurações**. Em breve, você precisará da chave.
 

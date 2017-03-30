@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 5f6d8a5bb0209f1dbc0de682b185089e87a1574b
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6e84a567e8875a8db3f66bc19340557cff75cf1d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -29,7 +29,7 @@ Este artigo trata de algumas das perguntas mais comuns sobre as máquinas virtua
 ## <a name="what-can-i-run-on-an-azure-vm"></a>O que eu posso executar em uma VM do Azure?
 Todos os assinantes podem executar software para servidores em uma máquina virtual do Azure. Para saber mais sobre a política de suporte para software de servidor Microsoft em execução no Azure, veja [Suporte a software de servidor Microsoft para Máquinas Virtuais do Azure](https://support.microsoft.com/kb/2721672)
 
-Determinadas versões do Windows 7 e Windows 8.1 estão disponíveis para assinantes de benefícios do Azure na MSDN e assinantes do modelo "pré-pago" do Desenvolvimento e Teste da MSDN, para tarefas de teste e desenvolvimento. Para obter detalhes, incluindo instruções e limitações, veja [Imagens do Windows Client para assinantes do MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
+Algumas versões do Windows 7, Windows 8.1 e Windows 10 estão disponíveis para assinantes dos benefícios do Azure no MSDN e para assinantes do modelo “pré-pago” de Desenvolvimento e Teste no MSDN, para tarefas de desenvolvimento e teste. Para obter detalhes, incluindo instruções e limitações, veja [Imagens do Windows Client para assinantes do MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento eu posso usar com uma máquina virtual?
 Cada disco de dados pode ter até 1 TB. O número de discos de dados que você pode usar depende do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -69,8 +69,9 @@ As duas novas regiões, Central do Canadá e Leste do Canadá, não são registr
 
 ## <a name="does-azure-support-linux-vms"></a>O Azure oferece suporte a VMs Linux?
 Sim. Para criar rapidamente uma VM Linux para experimentá-la, veja [Criar uma VM Linux no Azure usando o Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>Posso adicionar um NIC à minha VM depois que ela é criada?
-Não. A adição de uma NIC só pode ser feita no momento da criação.
+Sim, agora isso é possível. Primeiro, a VM precisa ser parada e desalocada. Em seguida, é possível adicionar ou remover uma NIC (a menos que ela seja a última NIC na VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome do computador?
 Sim. O nome do computador pode ter, no máximo, 15 caracteres. Consulte [Diretrizes de nomenclatura de infraestrutura](virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais informações sobre como nomear seus recursos.

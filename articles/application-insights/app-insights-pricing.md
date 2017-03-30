@@ -1,22 +1,22 @@
 ---
-title: "Gerenciar preços e volume de dados do Application Insights | Microsoft Docs"
+title: "Gerenciar preços e volume de dados do Azure Application Insights | Microsoft Docs"
 description: Gerencie volumes de telemetria e monitore custos no Application Insights.
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
-ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -31,7 +31,7 @@ Há dois planos de preço. O plano padrão é o Básico. Você pode optar pelo p
 
 Se tiver dúvidas sobre como os preços são aplicados ao Application Insights, fique à vontade para postar uma pergunta em nosso [fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-## <a name="the-pricing-plans"></a>Os planos de preços
+## <a name="the-price-plans"></a>Os planos de preço
 
 Consulte a [página de preços do Application Insights][pricing] para preços atuais em sua moeda.
 
@@ -157,10 +157,9 @@ Para descobrir a taxa de amostragem real, independentemente de onde ela tiver si
 Em cada registro retido, o `itemCount` indica o número de registros originais que ele representa, igual a 1 + o número de registros descartados anteriormente. 
 
 
-## <a name="transition-from-the-old-pricing-tiers"></a>Transição dos tipos de preço antigos
+## <a name="automation"></a>Automação
 
-Aplicativos existentes podem continuar a usar os tipos de preço antigos até de fevereiro de 2017. Chegado esse momento, a maioria dos aplicativos serão movidos automaticamente para o plano Básico. Aqueles que usarem a exportação contínua ou o conector para o OMS Log Analytics serão movidos para o plano Enterprise.
-
+É possível escrever um script para definir o plano de preço, usando o Gerenciamento de Recursos do Azure. [Saiba como](app-insights-powershell.md#price).
 
 ## <a name="limits-summary"></a>Resumo de limites
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

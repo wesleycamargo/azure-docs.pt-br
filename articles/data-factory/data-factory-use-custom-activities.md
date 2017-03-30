@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 3893c98ed72ee7b4ed5aa879047293285e9af071
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: b4b0a8139b69a31e4af40e1f8231d4d7772fee0b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -498,7 +498,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
     }
     ```
 
-   Você cria um pipeline posteriormente neste passo a passo com hora de início: 2016-11-16T00:00:00Z e final: 2016-11-16T05:00:00Z. Ele fica agendado para gerar dados de hora em hora, então há cinco fatias de entrada/saída (entre **00**:00:00 -> **05**:00:00).
+   Você cria um pipeline posteriormente neste passo a passo com hora de início: 2016-11-16T00:00:00Z e final: 2016-11-16T05:00:00Z. Ele fica agendado para gerar dados de hora em hora; portanto, há cinco fatias de entrada/saída (entre **00**:00:00 -> **05**:00:00).
 
    A **frequência** e o **intervalo** do conjunto de dados de entrada são definidos como **Hora** e **1**, o que significa que a fatia de entrada está disponível por hora. Neste exemplo, é o mesmo arquivo (file.txt) na intputfolder.
 

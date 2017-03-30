@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
-ms.openlocfilehash: 944eafeb67df4baefa99172c1082259a95e84afe
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5560b22f3f92a8e0a7cb8b973ef2e4c66bc32c06
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +97,7 @@ Inclua um corpo de solicitação semelhante ao exemplo a seguir:
     "displayName":"West US only policy assignment on the subscription ",
     "description":"Resources can only be provisioned in West US regions",
     "parameters": {
-      "listOfAllowedLocations": { "value": ["West US", "West US 2"] }
+      "allowedLocations": { "value": ["northeurope", "westus"] }
      },
     "policyDefinitionId":"/subscriptions/{subscription-id}/providers/Microsoft.Authorization/policyDefinitions/{definition-name}",
       "scope":"/subscriptions/{subscription-id}"
@@ -146,17 +146,26 @@ O exemplo a seguir mostra uma definição de um alias. Como é possível ver, um
 Você pode criar uma definição de política usando o cmdlet `New-AzureRmPolicyDefinition`. O exemplo a seguir cria uma definição de política para permitir recursos somente na Europa Setentrional e Ocidental.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}'
+$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{
+   "if": {
+     "not": {
+       "field": "location",
+       "in": "[parameters(''allowedLocations'')]"
+     }
+   },
+   "then": {
+     "effect": "deny"
+   }
+ }' -Parameter '{
+     "allowedLocations": {
+       "type": "array",
+       "metadata": {
+         "description": "An array of permitted locations for resources.",
+         "strongType": "location",
+         "displayName": "List of locations"
+       }
+     }
+ }'
 ```            
 
 A saída é armazenada em um objeto `$policy`, que é usado durante a atribuição da política. 
@@ -172,18 +181,32 @@ $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description 
 Aplique a política no escopo desejado usando o cmdlet `New-AzureRmPolicyAssignment`:
 
 ```powershell
-New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$array = @("West US", "West US 2")
+$param = @{"allowedLocations"=$array}
+New-AzureRMPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
 ```
 
-### <a name="view-policy-assignment"></a>Exibir atribuição de política
+### <a name="view-policies"></a>Exibir políticas
 
-Para obter uma política, use o seguinte cmdlet:
+Para obter todas as atribuições de política, use:
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/{definition-name}").Properties.policyRule | ConvertTo-Json
+Get-AzureRmPolicyAssignment
 ```
 
-Ele retorna o JSON para a definição de política.
+Para obter uma política específica, use:
+
+```powershell
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+(Get-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId
+```
+
+Para exibir a regra de política de uma definição de política, use:
+
+```powershell
+(Get-AzureRmPolicyDefinition -Name regionPolicyDefinition).Properties.policyRule | ConvertTo-Json
+```
 
 ### <a name="remove-policy-assignment"></a>Remover atribuição de política 
 

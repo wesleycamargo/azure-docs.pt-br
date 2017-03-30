@@ -13,19 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0a4ac164a3896d47613e4491a5e4c81c1b660dea
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 86ae353e3bad83ec25060bab8b3df25d3a0ad881
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Mover uma VM Linux para outro grupo de recursos ou outra assinatura
 Este artigo explica como mover uma VM Linux entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas poderá ser útil se você tiver criado uma VM em uma assinatura pessoal e agora quiser movê-la para a assinatura da sua empresa.
 
-> [!NOTE]
-> Novas IDs de recurso são criadas como parte da mudança. Após a mudança da VM, você precisa atualizar ferramentas e scripts para usar as novas IDs de recurso. 
+> [!IMPORTANT]
+>No momento, não é possível mover o Managed Disks. 
+>
+>Novas IDs de recurso são criadas como parte da mudança. Após a mudança da VM, você precisa atualizar ferramentas e scripts para usar as novas IDs de recurso. 
 > 
 > 
 
@@ -56,10 +59,5 @@ Será solicitado que você confirme que deseja mover o recurso especificado. Dig
 
 ## <a name="next-steps"></a>Próximas etapas
 Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).    
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

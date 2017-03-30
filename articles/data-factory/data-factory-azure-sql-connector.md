@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5b8144b0a65c18fb98cb410cfd83ad9812c6ed2a
-ms.openlocfilehash: 5cb04849a3346777a124fc3c0d3464843efaca52
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 90f8a2c0a30c9cce411215e1b98954de0ed9b787
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -350,7 +351,7 @@ Consulte a seção [Propriedades do tipo de conjunto de dados do Blog do Azure](
 
 **Conjunto de dados de saída do SQL Azure**
 
-O exemplo copia dados para uma tabela chamada "MyTable" no SQL Azure. Crie a tabela no SQL Azure com o mesmo número de colunas que você espera que o arquivo CSV de Blob contenha. Novas linhas são adicionadas à tabela a cada hora.
+A amostra copia dados para uma tabela chamada “MyOutputTable” no SQL do Azure. Crie a tabela no SQL Azure com o mesmo número de colunas que você espera que o arquivo CSV de Blob contenha. Novas linhas são adicionadas à tabela a cada hora.
 
 ```JSON
 {
@@ -512,7 +513,7 @@ GO
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |timespan<br/><br/>  Exemplo: "00:30:00" (30 minutos). |Não |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
 | sqlWriterCleanupScript |Especifique uma consulta da Atividade de Cópia a executar para que os dados de uma fatia específica sejam removidos. Para obter mais informações, consulte a [seção de repetição](#repeatability-during-copy). |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifique um nome de coluna para a Atividade de Cópia a preencher com o identificador de fatias gerado automaticamente, que é usado para limpar os dados de uma fatia específica ao executar novamente. Para obter mais informações, consulte a [seção de repetição](#repeatability-during-copy). |Nome de uma coluna com tipo de dados de binário (32). |Não |
@@ -666,9 +667,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

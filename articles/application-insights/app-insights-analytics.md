@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 70f77fd155627ef1d06cf466d19768a0eaad6856
-ms.openlocfilehash: 4d3393b935d2ebd24bccd0fe040f1948402f6e5b
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 4fbd80f7e9775fe3c12a54302be4a162d2102e2f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -71,16 +72,15 @@ Abra o Analytics na [folha de visão geral](app-insights-dashboards.md) de seu a
 ![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics/001.png)
 
 
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * É recomendável começar com o [tour de linguagem](app-insights-analytics-tour.md).
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9c181935e7ba897087d286bea22ebf500ef36e52
-ms.openlocfilehash: 307bfae0e7161782a9ddb97f4ca0d510fc772ab7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c920627e11e801bde88b47fc7c7e128e06f59ea8
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -62,7 +62,7 @@ Se você não receber um email depois de seguir as etapas, verifique se seu ende
 
 5. Você pode exibir seu uso diário clicando no período de cobrança. 
 
-Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
+Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda sobre como gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](billing-getting-started.md).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Baixar uso do Centro de Contas (.csv)
 1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions) como o Administrador da Conta.
@@ -85,7 +85,7 @@ Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](
 
     ![Captura de tela que mostra a opção de Baixar Uso](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-Para saber mais sobre o uso diário, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
+Para saber mais sobre o uso diário, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda sobre como gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](billing-getting-started.md).
 
 ## <a name="noinvoice"></a> Por que não encontro uma fatura do último período de cobrança?
 Pode haver vários motivos pelos quais você não vê uma fatura:

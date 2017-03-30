@@ -15,20 +15,23 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: bfadac7b34eca2ef1f9bcabc6e267ca9572990b8
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameadvancedpoliciesa-advanced-policies"></a><a name="AdvancedPolicies"></a> Políticas avançadas  
+##  <a name="AdvancedPolicies"></a> Políticas avançadas  
   
 -   [Controlar fluxo](api-management-advanced-policies.md#choose) - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions](api-management-policy-expressions.md).  
   
 -   [Encaminhar solicitação](#ForwardRequest) -Encaminha a solicitação ao serviço de back-end.  
   
--   [Registrar no Hub de Eventos](#log-to-eventhub) – envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger.  
+-   [Registrar no Hub de Eventos](#log-to-eventhub) – envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger. 
+
+-   [Resposta fictícia](#mock-response) – anula a execução de pipeline e retorna uma resposta fictícia diretamente para o chamador.
   
 -   [Repetir](#Retry) - repete a execução das instruções de política, se e até que a condição seja atendida. A execução será repetida em intervalos de tempo especificados até e a contagem de repetições especificada.  
   
@@ -48,10 +51,10 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   [Aguardar](#Wait) – aguarda a conclusão das políticas [Enviar solicitação](api-management-advanced-policies.md#SendRequest), [Obter valor do cache](api-management-caching-policies.md#GetFromCacheByKey) ou [Controlar fluxo](api-management-advanced-policies.md#choose) antes de continuar.  
   
-##  <a name="a-namechoosea-control-flow"></a><a name="choose"></a> Controlar fluxo  
+##  <a name="choose"></a> Controlar fluxo  
  A política `choose` aplica declarações de política embutidas com base no resultado da avaliação de expressões boolianas, semelhantes a um if-then-else ou a um constructo de opção em uma linguagem de programação.  
   
-###  <a name="a-namechoosepolicystatementa-policy-statement"></a><a name="ChoosePolicyStatement"></a> Declaração de política  
+###  <a name="ChoosePolicyStatement"></a> Declaração de política  
   
 ```xml  
 <choose>   
@@ -71,7 +74,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ### <a name="examples"></a>Exemplos  
   
-####  <a name="a-namechooseexamplea-example"></a><a name="ChooseExample"></a> Exemplo  
+####  <a name="ChooseExample"></a> Exemplo  
  O exemplo a seguir demonstra uma política [set-variable](api-management-advanced-policies.md#set-variable) e duas políticas de fluxo de controle.  
   
  A política de definir variável está na seção de entrada e cria uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) booliana `isMobile` que será definida como true se o cabeçalho da solicitação `User-Agent` contiver o texto `iPad` ou `iPhone`.  
@@ -142,14 +145,14 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |---------------|-----------------|--------------|  
 |condition="Boolean expression &#124; Boolean constant"|A constante ou expressão booliana a ser avaliada quando a declaração de política contendo `when` é avaliada.|Sim|  
   
-###  <a name="a-namechooseusagea-usage"></a><a name="ChooseUsage"></a> Uso  
+###  <a name="ChooseUsage"></a> Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções da política:** entrada, saída, back-end, em caso de erro  
   
 -   **Escopos da política:** todos os escopos  
   
-##  <a name="a-nameforwardrequesta-forward-request"></a><a name="ForwardRequest"></a> Encaminhar solicitação  
+##  <a name="ForwardRequest"></a> Encaminhar solicitação  
  A política `forward-request` encaminha a solicitação de entrada para o serviço de back-end especificado na variável de [contexto](api-management-policy-expressions.md#ContextVariables) de solicitação. A URL do serviço de back-end é especificada nas [configurações](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) de API e pode ser alterada usando a política [definir o serviço de back-end](api-management-transformation-policies.md).  
   
 > [!NOTE]
@@ -260,7 +263,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
-##  <a name="a-namelog-to-eventhuba-log-to-event-hub"></a><a name="log-to-eventhub"></a> Registrar no Hub de Eventos  
+##  <a name="log-to-eventhub"></a> Registrar no Hub de Eventos  
  A política `log-to-eventhub` envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger. Como o nome sugere, a política é usada para salvar informações de contexto de solicitação ou de resposta solicitadas para a análise online ou offline.  
   
 > [!NOTE]
@@ -310,8 +313,50 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro  
   
 -   **Escopos da política:** todos os escopos  
+
+##  <a name="mock-response"></a> Resposta fictícia  
+O `mock-response`, como o nome indica, é usado para simular APIs e operações. Ele anula a execução normal de pipeline e retorna uma resposta fictícia ao chamador. A política sempre tenta retornar respostas da mais alta fidelidade. Ela prefere exemplos de conteúdo de resposta, sempre que disponíveis. Ela gera respostas de exemplo com base em esquemas, quando esquemas são fornecidos e exemplos não são fornecidos. Se não forem encontrados exemplos nem esquemas, serão retornadas respostas sem conteúdo.
   
-##  <a name="a-nameretrya-retry"></a><a name="Retry"></a> Repetir  
+### <a name="policy-statement"></a>Declaração de política  
+  
+```xml  
+<mock-response status-code="code" content-type="media type"/>  
+  
+```  
+  
+### <a name="examples"></a>Exemplos  
+  
+```xml  
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code. First found content type is used. If no example or schema is found, the content is empty. -->
+<mock-response/>
+
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code and media type. If no example or schema found, the content is empty. -->
+<mock-response status-code='200' content-type='application/json'/>  
+```  
+  
+### <a name="elements"></a>Elementos  
+  
+|Elemento|Descrição|Obrigatório|  
+|-------------|-----------------|--------------|  
+|mock-response|Elemento raiz.|Sim|  
+  
+### <a name="attributes"></a>Atributos  
+  
+|Atributo|Descrição|Obrigatório|Padrão|  
+|---------------|-----------------|--------------|--------------|  
+|status-code|Especifica o código de status da resposta e é usado para selecionar o exemplo ou o esquema correspondente.|Não|200|  
+|content-type|Especifica o valor de cabeçalho da resposta `Content-Type` e é usado para selecionar o exemplo ou o esquema correspondente.|Não|Nenhum|  
+  
+### <a name="usage"></a>Uso  
+ Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+  
+-   **Seções de política:** de entrada, de saída, em caso de erro  
+  
+-   **Escopos da política:** todos os escopos
+
+##  <a name="Retry"></a> Repetir  
  A política `retry` executa suas políticas filho uma vez e tenta realizar sua execução novamente até `condition` da nova tentativa se tornar `false` ou `count` da nova tentativa ser esgotada.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -376,7 +421,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
-##  <a name="a-namereturnresponsea-return-response"></a><a name="ReturnResponse"></a> Retornar resposta  
+##  <a name="ReturnResponse"></a> Retornar resposta  
  A política `return-response` anula a execução do pipeline e retorna uma resposta padrão ou personalizada para o chamador. A resposta padrão é `200 OK` sem corpo. A resposta personalizada pode ser especificada por meio de declarações de política ou variável de contexto. Quando ambas são fornecidas, a resposta contida na variável de contexto é modificada pelas instruções de política antes de ser retornada para o chamador.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -424,7 +469,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
-##  <a name="a-namesendonewayrequesta-send-one-way-request"></a><a name="SendOneWayRequest"></a> Enviar solicitação unidirecional  
+##  <a name="SendOneWayRequest"></a> Enviar solicitação unidirecional  
  A política `send-one-way-request` envia a solicitação fornecida para a URL especificada sem aguardar uma resposta.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -493,7 +538,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
-##  <a name="a-namesendrequesta-send-request"></a><a name="SendRequest"></a> Enviar solicitação  
+##  <a name="SendRequest"></a> Enviar solicitação  
  A política `send-request` envia a solicitação fornecida para a URL especificada, aguardando não mais do que o valor de tempo limite definido.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -575,16 +620,16 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
-##  <a name="a-nameset-variablea-set-variable"></a><a name="set-variable"></a> Definir variável  
+##  <a name="set-variable"></a> Definir variável  
  A política `set-variable` declara uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) e atribui a ela um valor especificado por meio de uma [expressão](api-management-policy-expressions.md) ou literal de cadeia de caracteres. Se a expressão contiver um literal ele será convertido em uma cadeia de caracteres e o tipo do valor será `System.String`.  
   
-###  <a name="a-nameset-variablepolicystatementa-policy-statement"></a><a name="set-variablePolicyStatement"></a> Declaração de política  
+###  <a name="set-variablePolicyStatement"></a> Declaração de política  
   
 ```xml  
 <set-variable name="variable name" value="Expression | String literal" />  
 ```  
   
-###  <a name="a-nameset-variableexamplea-example"></a><a name="set-variableExample"></a> Exemplo  
+###  <a name="set-variableExample"></a> Exemplo  
  O exemplo a seguir demonstra uma política de definir a variável na seção de entrada. Essa política de definir variável cria uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) booliana `isMobile` que será definida como true se o cabeçalho da solicitação `User-Agent` contiver o texto `iPad` ou `iPhone`.  
   
 ```xml  
@@ -611,7 +656,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
-###  <a name="a-nameset-variableallowedtypesa-allowed-types"></a><a name="set-variableAllowedTypes"></a> Tipos permitidos  
+###  <a name="set-variableAllowedTypes"></a> Tipos permitidos  
  As expressões usadas na política `set-variable` devem retornar um dos seguintes tipos básicos.  
   
 -   System.Boolean  
@@ -676,7 +721,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   System.DateTime?  
   
-##  <a name="a-namesetrequestmethoda-set-request-method"></a><a name="SetRequestMethod"></a> Definir método de solicitação  
+##  <a name="SetRequestMethod"></a> Definir método de solicitação  
  A política `set-method` permite alterar o método de solicitação HTTP de uma solicitação.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -728,7 +773,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
-##  <a name="a-namesetstatusa-set-status-code"></a><a name="SetStatus"></a> Definir código de status  
+##  <a name="SetStatus"></a> Definir código de status  
  A política `set-status` define o código de status HTTP para o valor especificado.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -775,7 +820,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
-##  <a name="a-nametracea-trace"></a><a name="Trace"></a> Rastreamento  
+##  <a name="Trace"></a> Rastreamento  
  A política `trace` adiciona uma cadeia de caracteres à saída do [Inspetor de API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/). A política será executada somente quando o rastreamento for disparado, ou seja, o cabeçalho de solicitação `Ocp-Apim-Trace` está presente e definido como `true` e o cabeçalho de solicitação `Ocp-Apim-Subscription-Key` está presente e contém uma chave válida associada à conta do administrador.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -807,7 +852,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
-##  <a name="a-namewaita-wait"></a><a name="Wait"></a> Aguardar  
+##  <a name="Wait"></a> Aguardar  
  A política `wait` executa suas políticas filho imediatas em paralelo e aguarda que todas ou uma das políticas filho imediatas sejam concluídas antes de ser concluída. A política de espera pode ter como suas políticas de filho imediatas as políticas de [Enviar solicitação](api-management-advanced-policies.md#SendRequest), [Obter valor do cache](api-management-caching-policies.md#GetFromCacheByKey) e [Controlar fluxo](api-management-advanced-policies.md#choose).  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -878,9 +923,4 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 Para obter mais informações sobre como trabalhar com políticas, consulte:
 -    [Políticas no Gerenciamento de API](api-management-howto-policies.md) 
 -    [Expressões de política](api-management-policy-expressions.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

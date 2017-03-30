@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
-ms.openlocfilehash: 298efeeedb6766952b16cc18f59d7e11a4dc440a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 72cd94ba16cb4fe234c898b093c7de6a08f71239
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -122,7 +123,7 @@ Referências extras foram adicionadas.
 Dois arquivos foram adicionados para dar suporte ao caching de token: **Models\ADALTokenCache.cs** e **Models\ApplicationDbContext.cs**.  Um controlador e uma exibição extras foram adicionados para ilustrar o acesso às informações de perfil do usuário usando as APIs de gráfico do Azure.  Esses arquivos são **Controllers\UserProfileController.cs** e**Views\UserProfile\Index.cshtml**.
 
 ### <a name="additional-startup-code-was-added-to-your-project"></a>Um código de inicialização extra foi adicionado ao seu projeto
-No arquivo **startup.auth.cs**, um novo objeto **OpenIdConnectAuthenticationNotifications** foi adicionado ao membro **Notifications** de **OpenIdConnectAuthenticationOptions**.  Isso é para habilitar o recebimento do código de OAuth e a troca dele por um token de acesso.
+No arquivo **startup.auth.cs**, um novo objeto **OpenIdConnectAuthenticationNotifications** foi adicionado ao membro **Notifications** de **OpenIdConnectAuthenticationOptions**.  Isso serve para habilitar o recebimento do código do OAuth e a troca dele por um token de acesso.
 
 ### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>Foram feitas alterações adicionais em sua app.config ou web.config
 As outras entradas de configuração a seguir foram adicionadas.
@@ -155,11 +156,7 @@ As seções de configuração e a cadeia de conexão a seguir foram adicionadas.
 ### <a name="your-azure-active-directory-app-was-updated"></a>Seu aplicativo Active Directory do Azure foi atualizado
 Seu Aplicativo do Azure Active Directory foi atualizado para incluir a permissão *Ler dados do diretório* e uma chave adicional foi criada, que foi então usada como o *ida:ClientSecret* no arquivo **web.config**.
 
-[Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+## <a name="next-steps"></a>Próximas etapas
+- [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
 
