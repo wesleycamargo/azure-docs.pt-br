@@ -160,6 +160,8 @@
 #### Publicar aplicativos
 ##### [Portal do Azure](application-proxy-publish-azure-portal.md)
 ##### [Portal clássico](active-directory-application-proxy-publish.md)
+
+#### [PingAccess para Azure AD](application-proxy-ping-access.md)
 #### [Segurança](application-proxy-security-considerations.md)
 #### [Redes](application-proxy-network-topology-considerations.md)
 #### [Área de Trabalho Remota](application-proxy-publish-remote-desktop.md)

@@ -36,8 +36,9 @@
 
 # Segurança e conformidade
 ## Como
-### [Gerenciar permissões de usuário](azure-stack-manage-permissions.md)
+### [Gerenciar o RBAC](azure-stack-manage-permissions.md)
 ### [Adicionar usuários do AD FS](azure-stack-add-users-adfs.md)
+### [Criar entidades de serviço](Azure-stack-create-service-principals.md)
 
 # Oferecer serviços
 ## Introdução
@@ -113,6 +114,9 @@
 # Solucionar problemas
 ## [Problemas conhecidos](azure-stack-troubleshooting.md)
 ## [Diagnósticos no Azure Stack](azure-stack-diagnostics.md)
+
+# Referência
+## [Gerenciar perfis de versão da API](azure-stack-version-profiles.md)
 
 # Recursos
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  
