@@ -84,7 +84,7 @@ Você pode baixar os dados para um experimento do Machine Learning Studio de tr�
 
 Para saber mais sobre formatos de arquivo com suporte, confira [Importar dados de treinamento para o Machine Learning Studio](machine-learning-data-science-import-data.md).
 
-#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>Que tamanho o conjunto de dados para os meus módulos pode ter?
+#### <a id="ModuleLimit"></a>Que tamanho o conjunto de dados para os meus módulos pode ter?
 Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo receber mais de uma entrada, o valor de 10 GB será o total dos tamanhos das entradas. Você também pode conjuntos de dados de exemplo maiores usando consultas do Hive ou de banco de dados Azure SQL ou pode usar o Learning por meio contagens de pré-processamento antes da ingestão.  
 
 Os seguintes tipos de dados podem ser expandidos para conjuntos de dados maiores durante a normalização de recursos e são limitados a menos de 10 GB:
@@ -102,7 +102,7 @@ Os seguintes módulos são limitados a conjuntos de dados com menos de 10 GB:
 * Módulos em que o tamanho dos dados de saída pode ser maior que o tamanho dos dados de entrada, como Join ou Feature Hashing
 * Validação cruzada, Hiperparâmetros de Modelo de Ajuste, Regressão Ordinal e Classes Múltiplas, um versos todos, quando o número de iterações é muito grande
 
-#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>Quais são os limites para o upload de dados?
+#### <a id="UploadLimit"></a>Quais são os limites para o upload de dados?
 Para conjuntos de dados maiores do que alguns GB, carregue dados no Armazenamento do Azure ou no banco de dados Azure SQL ou use o Azure HDInsight em vez de carregar diretamente de um arquivo local.
 
 **Eu posso ler dados da Amazon S3?**

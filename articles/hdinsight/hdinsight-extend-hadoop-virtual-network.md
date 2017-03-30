@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: 85fd87c1523eb2beb59e2ef36e604063a3f373aa
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: afd43fb536278d6aa76acaf7c9d18714bc5acd2b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -154,6 +155,12 @@ Essas etapas pressupõem que você já tenha criado uma Rede Virtual e a sub-red
 > Se você tiver regras personalizadas que bloqueiam amplamente o tráfego de entrada (como uma regra **negar tudo**), talvez seja necessário ajustar os valores de prioridade nesses exemplos. As regras nos exemplos precisam ocorrer antes das regras que bloqueiam o acesso. Caso contrário, a regra **negar tudo** será testada primeiro e as regras neste exemplo nunca serão aplicadas. Você não deve bloquear as regras padrão em uma Rede Virtual do Azure. Por exemplo, você não deve criar uma regra **negar tudo** que é aplicada antes da regra **ALLOW VNET INBOUND** padrão (que tem uma prioridade 65000.)
 > 
 > Para obter mais informações sobre as regras do Grupo de Segurança de Rede, confira [O que é um Grupo de Segurança de Rede?](../virtual-network/virtual-networks-nsg.md).
+
+**Usando o modelo do Azure Resource Manager**
+
+Usando o seguinte modelo do Gerenciamento de Recursos nos [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/) para criar um cluster HDInsight em uma VNet com as configurações de rede segura:
+
+[Implantar uma VNet segura do Azure e um cluster HDInsight Hadoop na VNet](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 **Usando o PowerShell do Azure**
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 58e8474a9cafdad06c2968a7317e0c30474b5069
-ms.openlocfilehash: 5021a0aa554978fbb5543024400986715227de0b
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 32045a9b6be130dca4680b1990808d2b22be4432
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-windows"></a>Sobre as VMs da série H e da série A de computação intensiva para Windows
-Apresentamos a seguir informações básicas e algumas considerações sobre o uso da série H mais recente e das instâncias A8, A9, A10 e A11 do Azure, também conhecidas como instâncias de *computação intensiva* . Este artigo se concentra no uso destas instâncias para VMs Windows. Este artigo também está disponível para [VMs Linux](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Apresentamos a seguir informações básicas e algumas considerações sobre o uso da série H mais recente e das instâncias A8, A9, A10 e A11 do Azure, também conhecidas como instâncias de *computação intensiva* . Este artigo se concentra no uso destas instâncias para VMs Windows. Você também pode usá-las para [VMs Linux](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para obter as especificações básicas, as capacidades de armazenamento e os detalhes de disco, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -37,22 +37,23 @@ Para acessar a rede RDMA do Azure para obter o tráfego de MPI do Windows, as in
   
   * **Máquinas virtuais** – Windows Server 2012 R2, Windows Server 2012
   * **Serviços de nuvem** – Família de SO convidado Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+
+    > [!NOTE]
+    > Atualmente, o Windows Server 2016 não dá suporte à conectividade RDMA no Azure.
+    >
+    
 * **MPI** – Microsoft MPI (MS-MPI) 2012 R2 ou posterior, Intel MPI Library 5.x
 
   Implementações de MPI com suporte usam a interface direta da rede Microsoft para comunicação entre instâncias. 
-* **Extensão de VM HpcVmDrivers** – em VMs compatíveis com RDMA, a extensão HpcVmDrivers deve ser adicionada para instalar drivers de dispositivo de rede do Windows que habilitam a conectividade RDMA. (Em algumas implantações das instâncias A8 e A9, a extensão HpcVmDrivers é adicionada automaticamente.) Se precisar adicionar a extensão de VM a uma VM, use cmdlets do [Azure PowerShell](/powershell/azureps-cmdlets-docs) para o Azure Resource Manager.
+* **Extensão de VM HpcVmDrivers** – em VMs compatíveis com RDMA, a extensão HpcVmDrivers deve ser adicionada para instalar drivers de dispositivo de rede do Windows que habilitam a conectividade RDMA. (Em algumas implantações das instâncias A8 e A9, a extensão HpcVmDrivers é adicionada automaticamente.) Se precisar adicionar a extensão de VM a uma VM, use cmdlets do [Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 
-  Para obter informações sobre a última extensão HpcVmDrivers:
+  
+  Por exemplo, para instalar a última versão 1.1 da extensão HpcVMDrivers em uma VM compatível com RDMA existente chamada myVM implantada no modelo de implantação do Resource Manager:
 
-  ```PowerShell
-  Get-AzureVMAvailableExtension -ExtensionName  "HpcVmDrivers"
-  ```
-
-  Para instalar a última extensão HpcVMDrivers versão 1.1 em uma VM compatível com RDMA existente chamada myVM:
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Para obter mais informações, consulte [Gerenciar extensões de VM](virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Também é possível trabalhar com extensões de VMs no [modelo de implantação clássico](virtual-machines-windows-classic-manage-extensions.md).
+  Para obter mais informações, consulte [Recursos e extensões da máquina virtual](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Também é possível trabalhar com extensões de VMs implantadas no [modelo de implantação clássico](virtual-machines-windows-classic-manage-extensions.md).
 
 
 ## <a name="considerations-for-hpc-pack-and-windows"></a>Considerações para HPC Pack e Windows

@@ -14,20 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: f0d8eaef0933a43d5eefb06b1444e74fa5f5b3eb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a usuários de organizações parceiras em seu locatário do Azure Active Directory
 
-Embora os usuários de colaboração B2B do Azure Active Directory (Azure AD) sejam adicionados como usuários convidados no diretório, e as permissões de convidado no diretório sejam restritas por padrão, sua empresa pode precisar de alguns usuários convidados para preencher as funções com mais privilégios em sua organização. Para dar suporte a isso, os usuários convidados podem ser adicionados a qualquer função desejada, com base nas necessidades da sua organização.
+Os usuários da colaboração B2B do Azure AD (Azure Active Directory) são adicionados como usuários convidados ao diretório e as permissões de convidado no diretório são restritas por padrão. Sua empresa pode precisar de alguns usuários convidados para preencher as funções de privilégio mais elevado na organização. Para dar suporte à definição de funções de privilégio mais elevado, os usuários convidados podem ser adicionados às funções desejadas, de acordo com as necessidades de sua organização.
 
 ## <a name="default-role"></a>Função padrão
 

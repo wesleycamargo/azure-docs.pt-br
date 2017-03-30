@@ -1,6 +1,6 @@
 ---
 title: "Entender a segurança de Hub IoT do Azure | Microsoft Docs"
-description: "Guia do desenvolvedor ‑ como controlar o acesso ao Hub IoT para aplicativos de dispositivos e de back-end. Inclui informações sobre tokens de segurança e suporte a certificados x.&509;."
+description: "Guia do desenvolvedor ‑ como controlar o acesso ao Hub IoT para aplicativos de dispositivos e de back-end. Inclui informações sobre tokens de segurança e suporte a certificados x. 509."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: efd7aab21a9899ed0f56ffeeda362a61d69ffdc9
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1345af54729f278229c98e596d0d213331c2faaf
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -293,7 +293,7 @@ Você pode usar qualquer certificado X.509 para autenticar um dispositivo com o 
 
 * **Um certificado X.509 existente**. Talvez um dispositivo já tenha um certificado X.509 associado a ele. O dispositivo pode usar este certificado para se autenticar no Hub IoT.
 * **Um certificado X-509 gerado automaticamente e autoassinado**. Um fabricante de dispositivos ou um implantador interno pode gerar esses certificados e armazenar a chave privada correspondente (e o certificado) no dispositivo. Você pode usar ferramentas como o [OpenSSL][lnk-openssl] e o utilitário [SelfSignedCertificate][lnk-selfsigned] do Windows para essa finalidade.
-* **Certificado X.509 assinado por autoridade de certificação**. Você também pode usar um certificado X.509 gerado e assinado por uma Autoridade de Certificação (CA) para identificar um dispositivo e autenticar um dispositivo no Hub IoT.
+* **Certificado X.509 assinado por autoridade de certificação**. Você também pode usar um certificado X.509 gerado e assinado por uma Autoridade de Certificação (CA) para identificar um dispositivo e autenticar um dispositivo no Hub IoT. O Hub IoT apenas verifica se a impressão digital apresentada corresponde à impressão digital configurada. Ele não valida a cadeia de certificados.
 
 Um dispositivo pode usar um certificado X.509 ou um token de segurança para autenticação, mas não ambos.
 

@@ -10,21 +10,23 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/14/2017
+ms.date: 03/21/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 56e9deea4e070a99e47b7de7c5686526a4528fb6
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a13ac5ab425ccbbe53d77cb9f5a8ebf02d009370
+ms.lasthandoff: 03/22/2017
 
 ---
 
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Criar uma máquina virtual do Windows com o Portal do Azure
 
-Máquinas virtuais do Azure podem ser criadas por meio do Portal do Azure. Esse método fornece uma interface do usuário baseada em navegador para a criação e configuração de VMs e todos os recursos do Azure relacionados.
+Máquinas virtuais do Azure podem ser criadas por meio do Portal do Azure. Esse método fornece uma interface do usuário baseada em navegador para a criação e configuração de máquinas virtuais e todos os recursos relacionados. Esse Início Rápido percorre a criação de uma máquina virtual usando o portal do Azure. 
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure 
 
@@ -36,7 +38,7 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
 3. Selecione **Computação** na folha **Novo**, selecione **Datacenter do Windows Server 2016** na folha **Computação** e, em seguida, clique no botão **Criar**.
 
-4. Preencha o formulário **Básico** da máquina virtual. Para **Grupo de Recursos**, crie um novo. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são criados e gerenciados coletivamente. Ao concluir, clique em **OK**.
+4. Preencha o formulário **Básico** da máquina virtual. O nome do usuário e a senha inseridos aqui são usados para fazer logon na máquina virtual. Para **Grupo de Recursos**, crie um novo. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são criados e gerenciados coletivamente. Ao concluir, clique em **OK**.
 
     ![Insira as informações básicas sobre sua VM na folha do portal](./media/virtual-machine-quick-start/create-windows-vm-portal-basic-blade.png)  
 
@@ -50,19 +52,17 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 
-Após a implantação, crie uma conexão de área de trabalho remota com a máquina virtual.
+Após concluir a implantação, crie uma conexão de área de trabalho remota com a máquina virtual.
 
-1. Clique no botão **Conectar** na folha da máquina virtual. Isso cria e baixa um arquivo .rdp (Protocolo de Área de Trabalho Remota) que é como um atalho para se conectar ao seu computador. Abra esse arquivo para conectar-se à sua VM.
+1. Clique no botão **Conectar** na folha da máquina virtual. Um arquivo do protocolo RDP (.rdp) é criado e baixado.
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-3. Clique em **Conectar** na janela de conexão de área de trabalho remota.
+2. Para se conectar à sua VM, abra o arquivo RDP baixado. Se solicitado, clique em **Conectar**. Em um Mac, você precisa de um cliente RDP, como este [Cliente de Área de Trabalho Remota](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) da Mac App Store.
 
-    ![Portal 10](./media/virtual-machine-quick-start/portal-quick-start-10.png) 
+3. Insira o nome de usuário e a senha especificados na criação da máquina virtual e clique em **Ok**.
 
-4. Insira o nome de usuário e a senha especificados na criação da máquina virtual e clique em **OK**.
-
-5. Você pode receber um aviso de certificado, clique em **Sim** para prosseguir com a conexão.
+4. Você pode receber um aviso do certificado durante o processo de logon. Clique em **Sim** ou em **Continuar** para prosseguir com o processo de conexão.
 
 ## <a name="delete-virtual-machine"></a>Excluir máquina virtual
 

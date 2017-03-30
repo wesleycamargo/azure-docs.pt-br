@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ee0cee5e653cb8900936e12e87c56cfee5639bc5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 582cb9dee06c6ec4b030ded866a0f92a575b93ed
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -29,7 +29,7 @@ Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Fa
 >
 
 ## <a name="supported-authentication-types"></a>Tipos de autenticação com suporte
-Suporte ao conector da autenticação de **entidade de serviço** e de **credencial do usuário** do Azure Data Lake Store. É recomendável usar o primeiro especialmente para cópia de dados agendada, para evitar comportamento de expiração do token com o último. Consulte [propriedades do serviço vinculado do Azure Data Lake Store](#azure-data-lake-store-linked-service-properties) seção com detalhes de configuração.
+Suporte ao conector da autenticação de **entidade de serviço** e de **credencial do usuário** do Azure Data Lake Store. É recomendável usar o primeiro, especialmente para cópia de dados agendada, para evitar o comportamento de expiração de token com o último. Consulte [propriedades do serviço vinculado do Azure Data Lake Store](#azure-data-lake-store-linked-service-properties) seção com detalhes de configuração.
 
 ## <a name="copy-data-wizard"></a>Assistente de cópia de dados
 A maneira mais fácil de criar um pipeline que copia dados para fora/dentro do Azure Data Lake Store é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
@@ -417,24 +417,23 @@ A tabela a seguir fornece uma descrição para elementos JSON específicas para 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **AzureDataLakeStore** | Sim |
-| dataLakeStoreUri | Especifica informações sobre a conta do Repositório Data Lake do Azure. Ele está no seguinte formato: **https://[accountname].azuredatalakestore.net/webhdfs/v1** ou **adl://[accountname].azuredatalakestore.net/**. | Sim |
+| dataLakeStoreUri | Especifica informações sobre a conta do Repositório Data Lake do Azure. Ele está no seguinte formato: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
 | subscriptionId | Id de assinatura do Azure ao qual pertence Data Lake Store. | Obrigatório para coletor |
 | resourceGroupName | Nome do grupo de recursos do Azure ao qual pertence Data Lake Store. | Obrigatório para coletor |
 
 ### <a name="using-service-principal-authentication-recommended"></a>Usando a autenticação de entidade de serviço (recomendada)
-Para usar autenticação de entidade de serviço, primeiramente é necessário registrar uma entidade de aplicativo no Azure Active Directory (AAD) e conceder acesso no Data Lake Store. Posteriormente, você pode especificar abaixo propriedades no Azure Data Factory com a ID de aplicativo correspondente, informações de locatário e a chave de aplicativo para copiar dados de/para o Data Lake Store. Consulte [autenticação de serviços](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) sobre como configurá-lo e recuperar as informações necessárias.
+Para usar a autenticação de entidade de serviço, registre uma entidade de aplicativo no AAD (Azure Active Directory) e conceda a ela o acesso ao Data Lake Store. Consulte [Autenticação serviço a serviço](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para obter etapas detalhadas. Anote os seguintes valores: **ID do aplicativo**, **chave do aplicativo** e **ID do locatário**. Essas informações são usadas na definição do serviço vinculado. 
 
 > [!IMPORTANT]
-> Ao usar o assistente de cópia para criar, conceda à entidade de serviço pelo menos a função de Leitura no Controle de Acesso (IAM) para a conta do ADLS E pelo menos a permissão Leitura+Execução para sua raiz ADLS ("/") e seus filhos, a fim de navegar com êxito entre as pastas. Caso contrário, você poderá ver o erro "As credenciais fornecidas são inválidas".
+> Se estiver usando o Assistente de Cópia para criar pipelines de dados, lembre-se de conceder à entidade de serviço, pelo menos, a função de Leitor no Controle de acesso (IAM) da conta do Data Lake Store e, pelo menos, a permissão de Leitura + Execução na raiz do Data Lake Store (“/”) e em seus filhos. Caso contrário, você poderá ver o erro "As credenciais fornecidas são inválidas".
 >
-> Se você acabou de criar/atualizar uma entidade de serviço do AAD, pode levar alguns minutos para ela realmente entrar em vigor. Verifique a entidade de serviço e a configuração de ACL ADLS primeiro, se continuar encontrando o erro "As credenciais fornecidas são inválidas", aguarde alguns instantes e tente novamente.
->
+> Depois de criar e atualizar uma entidade de serviço no AAD, poderá levar alguns minutos para que as alterações realmente entrem em vigor. Primeiro, verifique novamente a entidade de serviço e a configuração de ACL do Data Lake Store. Se você ainda ver o erro “As credenciais fornecidas são inválidas”, aguarde alguns instantes e tente novamente.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. | Sim |
-| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Você pode recuperá-lo passando o mouse sobre o canto superior direito do Portal do Azure. | Sim |
+| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-lo focalizando o canto superior direito do portal do Azure. | Sim |
 
 **Exemplo: usando a autenticação da entidade de serviço**
 ```json
@@ -455,7 +454,7 @@ Para usar autenticação de entidade de serviço, primeiramente é necessário r
 ```
 
 ### <a name="using-user-credential-authentication"></a>Usando a autenticação de credenciais de usuário
-Como alternativa, você pode usar a autenticação de credenciais de usuário para copiar de/para o Data Lake Store especificando abaixo propriedades.
+Como alternativa, você pode usar a autenticação de credenciais do usuário para copiar de/para o Data Lake Store especificando as propriedades a seguir.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -480,7 +479,11 @@ Como alternativa, você pode usar a autenticação de credenciais de usuário pa
 ```
 
 #### <a name="token-expiration"></a>Expiração do token
-O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Talvez você veja a mensagem de erro a seguir quando o **token de autenticação expirar**: "Erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21-09-31Z".
+O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Talvez você veja a seguinte mensagem de erro quando o **token de autenticação expirar**:
+ 
+```
+"Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
+```
 
 | Tipo de usuário | Expira após |
 |:--- |:--- |
@@ -530,7 +533,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | fileName |O nome do arquivo no repositório Azure Data Lake. fileName é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um nome de arquivo, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando fileName não for especificado, a Cópia incluirá todos os arquivos do folderPath para o conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato: Data<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | partitionedBy |partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. Confira a seção [Usando a propriedade partitionedBy](#using-partitionedby-property) para obter detalhes e exemplos. |Não |
 | formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](#specifying-textformat), [Formato Json](#specifying-jsonformat), [Formato Avro](#specifying-avroformat), [Formato Orc](#specifying-orcformat), e [Formato Parquet](#specifying-parquetformat). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**; e os níveis permitidos são: **Ideal** e **Mais rápido**. Para saber mais, veja a seção [Especificação de compactação](#specifying-compression). |Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, veja a seção [Especificação de compactação](#specifying-compression). |Não |
 
 ### <a name="using-partitionedby-property"></a>Usando a propriedade partitionedBy
 Você pode especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal com a seção **partitionedBy** , macros de Data Factory e variáveis do sistema: SliceStart e SliceEnd, que indicam as horas de início e término para uma fatia de dados determinada.
@@ -569,7 +572,7 @@ Neste exemplo, ano, mês, dia e hora do SliceStart são extraídos em variáveis
 ## <a name="azure-data-lake-copy-activity-type-properties"></a>Propriedades de tipo de Atividade de Cópia do Azure Data Lake
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
 
-As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de Cópia, elas variam de acordo com os tipos de fonte e coletor
+Por outro lado, as propriedades disponíveis na seção typeProperties da atividade variam de acordo com cada tipo de atividade. Para a atividade de Cópia, elas variam de acordo com os tipos de fonte e coletor
 
 **AzureDataLakeStoreSource** dá suporte à seção **typeProperties** das seguintes propriedades:
 
@@ -581,7 +584,7 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| copyBehavior |Especifica o comportamento da cópia. |**PreserveHierarchy:** preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/>**FlattenHierarchy:** todos os arquivos da pasta de origem são criados no primeiro nível da pasta de destino. Os arquivos de destino são criados com o nome gerado automaticamente.<br/><br/>**MergeFiles:** mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. |Não |
+| copyBehavior |Especifica o comportamento da cópia. |<b>PreserveHierarchy:</b> preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy:</b> todos os arquivos da pasta de origem são criados no primeiro nível da pasta de destino. Os arquivos de destino são criados com o nome gerado automaticamente.<br/><br/><b>MergeFiles:</b> mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. |Não |
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -590,8 +593,5 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
-
-Dependendo se a movimentação de dados inicial é planejada com um grande volume de dados históricos ou carregamento de dados de produção incremental, o Azure Data Factory tem opções para melhorar o desempenho dessas tarefas. O parâmetro de simultaneidade faz parte da **Atividade de Cópia** e define quantas janelas de atividade diferentes serão processadas em paralelo. O parâmetro **parallelCopies** define o paralelismo para a execução de uma única atividade. É importante considerar o uso desses parâmetros durante a criação de pipelines de movimentação de dados com o Azure Data Factory para obter a melhor taxa de transferência possível.
-
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 

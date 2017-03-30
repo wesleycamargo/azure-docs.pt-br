@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d616a8574d2087be66bc10dfdf3bf6f5a14c11fd
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aca6cd69647406d0140d8b0d0cba8e4690b04ae1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -271,7 +271,7 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 
 
 ## <a name="rest-api"></a>API REST
-Todos os dados do servidor, do processo e de dependência no Mapa de Serviço estão disponíveis por meio da [API REST do Mapa de Serviço](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+Todos os dados do servidor, do processo e de dependência no Mapa de Serviço estão disponíveis por meio da [API REST do Mapa de Serviço](https://docs.microsoft.com/rest/api/servicemap/).
 
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
@@ -282,6 +282,10 @@ Para saber mais sobre o uso e a coleta de dados, veja a [Declaração de Privaci
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [pesquisas de logs](../log-analytics/log-analytics-log-searches.md) no Log Analytics para recuperar os dados coletados pelo Mapa do Serviço.
+
+
+## <a name="troubleshooting"></a>Solucionar problemas
+- Consulte a [seção Solução de problemas do documento Configurando o mapa do serviço](operations-management-suite-service-map-configure.md#troubleshooting).
 
 
 ## <a name="feedback"></a>Comentários

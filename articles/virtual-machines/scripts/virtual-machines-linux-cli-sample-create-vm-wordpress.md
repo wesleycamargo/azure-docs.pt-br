@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: e5362b32a0f93433c77c27a6fc116960c45404f9
-ms.openlocfilehash: 8e4068428b814265140b76905bc7f90d9e88f94b
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: eb8b5b66b1cdb7bc7e588292ec714c30e3607bf6
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-vm-with-wordpress"></a>Criar uma máquina virtual com WordPress
 
-Esse script cria uma máquina virtual e, em seguida, usa a extensão de script personalizado de Máquina Virtual do Azure para instalar WordPress. Após a execução do script, o site de configuração do WordPress pode ser acessado em `http://<public IP of VM>/wordpress`. 
+Esse script cria uma máquina virtual e, em seguida, usa a extensão de script personalizado de Máquina Virtual do Azure para instalar WordPress. Após a execução do script, é possível acessar o site de configuração do WordPress em `http://<public IP of VM>/wordpress`. 
+
+Se necessário, instale a CLI do Azure usando a instrução encontrada no [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e, em seguida, execute `az login` para criar uma conexão com o Azure.
 
 Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../virtual-machines-windows-cli-options.md).
-
-Antes de executar esse script, certifique-se de que uma conexão com o Azure foi criada usando o comando `az login`.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -36,7 +36,7 @@ Antes de executar esse script, certifique-se de que uma conexão com o Azure foi
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Após a execução do exemplo de script, o comando a seguir pode ser usado para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
+Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup

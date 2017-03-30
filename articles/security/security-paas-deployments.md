@@ -1,22 +1,23 @@
 ---
 title: "Proteção de implantações de PaaS | Microsoft Docs"
-description: " Compreenda as vantagens de segurança de PaaS em comparação com outros modelos de serviço de nuvem e aprenda as práticas recomendadas para proteger a sua implantação do PaaS do Azure. "
+description: " Entenda as vantagens de segurança do PaaS em comparação com outros modelos de serviço de nuvem e saiba mais sobre as melhores práticas para proteger a implantação de PaaS do Azure. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
-editor: 
+editor: techlake
 ms.assetid: 
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b3db1281bbd37fcfbec54bdeb998e6338bb08369
-ms.openlocfilehash: c20e0187f7bf6247e4a685c642edfc62303d4ef5
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: f218fe7e59e46683b544fd83bfea505b7cbe2d59
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -110,9 +111,4 @@ Neste artigo, nos concentramos nas vantagens de segurança de uma implantação 
 [2]: ./media/security-paas-deployments/responsibility-zones.png
 [3]: ./media/security-paas-deployments/advantages-of-paas.png
 [4]: ./media/security-paas-deployments/identity-perimeter.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

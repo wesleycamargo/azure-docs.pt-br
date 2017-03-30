@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: dfb33a30cac74875281645e74339be152d8ef476
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7cac733717b4af048e58cf3d574c5743889100c1
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -70,7 +70,7 @@ Você também deve ter o cliente de desktop do Power BI instalado no seu computa
 
 ## <a name="understanding-the-visuals"></a>Noções básicas sobre os elementos visuais
 
-No modelo, é fornecido um conjunto de elementos visuais que ajuda a dar sentido aos dados de log e ao fluxo de NSG. As imagens a seguir mostram um exemplo da aparência de um painel populado com dados. Confira a seguir as informações detalhadas sobre cada visual 
+No modelo, é fornecido um conjunto de visuais que ajuda no entendimento dos dados do Log de Fluxo do NSG. As imagens a seguir mostram um exemplo da aparência de um painel populado com dados. Confira a seguir as informações detalhadas sobre cada visual 
 
 ![powerbi][5]
  
@@ -78,7 +78,7 @@ O visual dos principais locutores mostra os IPs que iniciaram a maioria das cone
 
 ![toptalkers][6]
 
-Os gráficos de série de tempo a seguir mostram o número de fluxos durante o período. O gráfico superior é segmentado pelo sentido do fluxo, enquanto o inferior é segmentado pela decisão tomada (permitir ou negar). Com este visual, você pode examinar tráfego de tendências ao longo do tempo, e identificar quaisquer picos anormais ou recusar o tráfego ou segmentação de tráfego.
+Os gráficos de série de tempo a seguir mostram o número de fluxos durante o período. O gráfico superior é segmentado pelo sentido do fluxo, enquanto o inferior é segmentado pela decisão tomada (permitir ou negar). Com esse visual, é possível examinar as tendências do tráfego ao longo do tempo e identificar picos anormais ou quedas no tráfego ou na segmentação de tráfego.
 
 ![flowsoverperiod][7]
 

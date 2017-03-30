@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: 937b22dd9ad26211b006326b39cafe9c5da4e8bd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 53f5eefd9223fecefa184c612633d7a455fe15bf
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -26,17 +26,17 @@ ms.lasthandoff: 02/27/2017
 
 Se você tiver VMs do Linux existentes no Azure que usam discos não gerenciados nas contas de armazenamento e quiser que essas VMs tenham capacidade de tirar proveito de discos gerenciados, você pode converter as VMs. Esse processo converte o disco do sistema operacional e os discos de dados anexados. O processo de conversão requer uma reinicialização da VM, programe então a migração de suas VMs durante uma janela de manutenção já existente. O processo de migração não é reversível. Faça uma migração de uma máquina virtual de teste antes de executar a migração.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Durante a conversão, você pode desalocar a VM. A VM recebe um endereço IP novo quando é iniciada após a conversão. Se você tiver uma dependência em um IP fixo, use um IP reservado.
 
 Você não pode converter um disco não gerenciado em um disco gerenciado se o disco não gerenciado está em uma conta de armazenamento que está, ou esteve, [criptografada usando criptografia de serviço de armazenamento (SSE) do Azure](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). As etapas a seguir especificam como converter discos não gerenciados que estão, ou estiveram, em uma conta de armazenamento criptografada:
 
-- [Copie o disco rígido virtual (VHD)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) com [az storage blob copy start](/cli/azure/storage/blob/copy#start) para uma conta de armazenamento que nunca tenha sido habilitada para criptografia de serviço de armazenamento do Azure.
+- Copie o VHD (disco rígido virtual) com [az storage blob copy start](/cli/azure/storage/blob/copy#start) para uma conta de armazenamento que nunca foi habilitada para a Criptografia do Serviço de Armazenamento do Azure.
 - Crie uma VM que usa discos gerenciados e especifique este arquivo VHD durante a criação com [az vm create](/cli/azure/vm#create), ou
 - Anexe o VHD copiado com [az vm disk attach](/cli/azure/vm/disk#attach) a uma VM em execução com discos gerenciados.
 
 ## <a name="convert-vm-to-azure-managed-disks"></a>Conversão de uma VM em Azure Managed Disks
-Esta seção aborda como converter suas VMs do Azure existentes de discos não gerenciados em discos gerenciados. Você pode usar este processo para converter discos (SSD) não gerenciados premium em discos gerenciados premium, ou discos (HDD) não gerenciados padrão em discos gerenciados padrão. 
+Esta seção aborda como converter suas VMs do Azure existentes de discos não gerenciados em discos gerenciados. Você pode usar este processo para converter discos (SSD) não gerenciados premium em discos gerenciados premium, ou discos (HDD) não gerenciados padrão em discos gerenciados padrão.
 
 > [!IMPORTANT]
 > Depois de executar o procedimento a seguir, há um único blob de blocos que permanece no contêiner de vhds padrão. O nome do arquivo é "VMName.xxxxxxx.status". Não exclua esse objeto de status restante. Um trabalho futuro deverá resolver esse problema.

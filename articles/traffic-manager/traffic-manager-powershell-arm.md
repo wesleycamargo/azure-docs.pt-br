@@ -1,5 +1,5 @@
 ---
-title: "Suporte do Azure Resource Manager para o Gerenciador de Tráfego | Microsoft Docs"
+title: "Usando o PowerShell para gerenciar o Gerenciador de Tráfego no Azure | Microsoft Docs"
 description: "Usando o PowerShell para o Gerenciador de Tráfego com o Azure Resource Manager"
 services: traffic-manager
 documentationcenter: na
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: f97ba8ebc940d4b3eec5d2610503f8a86af8dbe2
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c2fb44817f168eee8303d0c07473f043ae30d350
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="azure-resource-manager-support-for-azure-traffic-manager"></a>Suporte do Azure Resource Manager para o Gerenciador de Tráfego do Azure
+# <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerenciar o Gerenciador de Tráfego
 
 O Azure Resource Manager é a interface de gerenciamento preferida dos serviços no Azure. Os perfis do Gerenciador de Tráfego do Azure podem ser gerenciados usando ferramentas e APIs baseadas no Azure Resource Manager.
 
@@ -30,23 +31,6 @@ O Gerenciador de Tráfego do Azure é configurado usando um conjunto de configur
 Cada perfil do Gerenciador de Tráfego é representado por um recurso do tipo "TrafficManagerProfiles". No nível da API REST, o URI para cada perfil é:
 
     https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
-
-## <a name="comparison-with-the-azure-traffic-manager-classic-api"></a>Comparação com a API clássica do Gerenciador de Tráfego do Azure
-
-O suporte do Azure Resource Manager para o Gerenciador de Tráfego usa uma terminologia diferente do modelo de implantação clássico. A tabela a seguir mostra as diferenças entre os termos Clássicos e do Resource Manager:
-
-| Termo do Resource Manager | Termo clássico |
-| --- | --- |
-| Método de roteamento de tráfego |Método de balanceamento de carga |
-| Método de prioridade |Método de failover |
-| Método ponderado |Método round robin |
-| Método de desempenho |Método de desempenho |
-
-Com base nos comentários dos clientes, alteramos a terminologia para melhorar a clareza e reduzir equívocos comuns. Não diferenças na funcionalidade.
-
-## <a name="limitations"></a>Limitações
-
-Ao fazer referência a um ponto de extremidade do tipo “AzureEndpoints” para um aplicativo Web, os pontos de extremidade do Gerenciador de Tráfego podem fazer referência apenas ao [slot do Aplicativo Web](../app-service-web/web-sites-staged-publishing.md) padrão (produção). Os slots personalizados não são permitidos. Como alternativa, os slots personalizados podem ser configurados usando o tipo 'ExternalEndpoints'.
 
 ## <a name="setting-up-azure-powershell"></a>Configurando o PowerShell do Azure
 
@@ -127,11 +111,10 @@ Em todos os três casos, os pontos de extremidade podem ser adicionados de duas 
 
 ## <a name="adding-azure-endpoints"></a>Adicionando pontos de extremidade do Azure
 
-Os pontos de extremidade do Azure fazem referência a serviços hospedados no Azure. Há suporte para três tipos de pontos de extremidade do Azure:
+Os pontos de extremidade do Azure fazem referência a serviços hospedados no Azure. Há suporte para dois tipos de pontos de extremidade do Azure:
 
 1. Aplicativos Web do Azure 
-2. Serviços de Nuvem ‘clássicos’ (que podem conter um serviço PaaS ou máquinas virtuais IaaS)
-3. Recursos PublicIpAddress do Azure (que podem ser anexados ao balanceador de carga ou a uma NIC de máquina virtual). O PublicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
+2. Recursos PublicIpAddress do Azure (que podem ser anexados ao balanceador de carga ou a uma NIC de máquina virtual). O PublicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
 
 Em cada caso:
 
@@ -152,17 +135,7 @@ $webapp2 = Get-AzureRMWebApp -Name webapp2
 Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-
-### <a name="example-2-adding-a-classic-cloud-service-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: adicionar um ponto de extremidade de serviço de nuvem “clássico” usando `New-AzureRmTrafficManagerEndpoint`
-
-Neste exemplo, um ponto de extremidade de Serviço de Nuvem 'clássico' é adicionado a um perfil do Gerenciador de Tráfego. Neste exemplo, especificamos o perfil usando os nomes de grupo de recursos e de perfil, em vez de passar um objeto de perfil. As duas abordagens têm suporte.
-
-```powershell
-$cloudService = Get-AzureRmResource -ResourceName MyCloudService -ResourceType "Microsoft.ClassicCompute/domainNames" -ResourceGroupName MyCloudService
-New-AzureRmTrafficManagerEndpoint -Name MyCloudServiceEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $cloudService.Id -EndpointStatus Enabled
-```
-
-### <a name="example-3-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 3: adicionar um ponto de extremidade publicIpAddress usando `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: Adicionar um ponto de extremidade publicIpAddress usando `New-AzureRmTrafficManagerEndpoint`
 
 Neste exemplo, um recurso de endereço IP público é adicionado ao perfil do Gerenciador de Tráfego. O endereço IP público deve ter um nome DNS configurado e pode ser vinculado à NIC de uma VM ou a um balanceador de carga.
 
@@ -339,9 +312,4 @@ Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remov
 [Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 
 [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Gerenciando funções nos projetos de serviços de nuvem do Azure com o Visual Studio | Microsoft Docs"
-description: "Saiba como adicionar novas funções ao projeto de serviço de nuvem do Azure ou remover funções existentes usando o Visual Studio."
+title: "Gerenciando funções nos serviços de nuvem do Azure com o Visual Studio | Microsoft Docs"
+description: "Saiba como adicionar e remover funções nos serviços de nuvem do Azure com o Visual Studio."
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
@@ -12,30 +12,46 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 03/21/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8c805f9af3154e46f25a6d24c7df33f390189340
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d46c2b846f5790db1e1b0e06a12184fe7bed7c34
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="managing-roles-in-the-azure-cloud-services-projects-with-visual-studio"></a>Gerenciar funções nos projetos de serviços de nuvem do Azure com o Visual Studio
-Depois de criar o projeto de serviço de nuvem do Azure, você pode adicionar novas funções a ele ou remover funções existentes. Você também pode importar um projeto existente e convertê-lo em uma função. Por exemplo, você pode importar um aplicativo Web ASP.NET e designá-lo como uma função web.
+# <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Gerenciando funções nos serviços de nuvem do Azure com o Visual Studio
+Depois de criar o serviço de nuvem do Azure, é possível adicionar novas funções a ele ou remover funções existentes. Você também pode importar um projeto existente e convertê-lo em uma função. Por exemplo, você pode importar um aplicativo Web ASP.NET e designá-lo como uma função web.
 
-## <a name="adding-or-removing-roles"></a>Adicionando ou removendo funções
-**Para adicionar uma função**
+## <a name="adding-a-role-to-an-azure-cloud-service"></a>Adicionando uma função a um serviço de nuvem do Azure
+As etapas a seguir explicarão como adicionar uma função web ou de trabalho a um projeto de serviço de nuvem do Azure no Visual Studio.
 
-No **Gerenciador de Soluções**, abra o menu de atalho do nó **Funções** no seu projeto de serviço de nuvem e escolha **Adicionar**. Você pode selecionar uma função web existente ou uma função de trabalho da solução atual ou criar um novo projeto de função web ou de trabalho. Ou você pode selecionar um projeto apropriado, como um projeto de aplicativo Web ASP.NET e associá-lo a um projeto de função.
+1. Crie ou abra um projeto de serviço de nuvem do Azure no Visual Studio.
 
-**Para remover uma associação de função**
+1. Em **Gerenciador de Soluções**, expanda o nó do projeto
 
-No nó **Funções** do projeto de serviço de nuvem no Gerenciador de Soluções, abra o menu de atalho da função para remover e escolha **Remover**.
+1. Clique com o botão direito do mouse no nó **Funções** para exibir o menu de contexto. No menu de contexto, selecione **Adicionar** e, em seguida, selecione uma função web ou função de trabalho existente da solução atual ou crie um projeto de função web ou função de trabalho. Também é possível selecionar um projeto apropriado, como um projeto de aplicativo Web ASP.NET e associá-lo a um projeto de função.
 
-## <a name="removing-and-adding-roles-in-your-cloud-service"></a>Removendo e adicionando funções no serviço de nuvem
-Se você remove uma função de seu projeto de serviço de nuvem, mas decide posteriormente adicionar a função de volta ao projeto, somente a declaração de função e os atributos básicos, como informações de diagnóstico e pontos de extremidade são adicionados. Nenhuma referência ou recursos adicionais são adicionados ao arquivo ServiceDefinition.csdef ou ServiceConfiguration.cscfg. Se você quiser adicionar essas informações, você precisará adicioná-las manualmente nesses arquivos.
+    ![Opções do menu para adicionar uma função a um projeto de serviço de nuvem do Azure](media/vs-azure-tools-cloud-service-project-managing-roles/add-role.png)
 
-Por exemplo, você pode remover uma função de serviço Web e decidir posteriormente adicionar essa função de volta em sua solução. Se você fizer isso, ocorrerá um erro. Para evitar esse erro, você deve adicionar o elemento `<LocalResources>` mostrado no seguinte XML no arquivo ServiceDefinition.csdef. Use o nome da função de serviço Web que você adicionou novamente ao projeto como parte do atributo de nome para o elemento **<LocalStorage>** . Neste exemplo, o nome da função de serviço Web é **WCFServiceWebRole1**.
+## <a name="removing-a-role-from-an-azure-cloud-service"></a>Removendo uma função de um serviço de nuvem do Azure
+As etapas a seguir explicarão como remover uma função web ou de trabalho de um projeto de serviço de nuvem do Azure no Visual Studio.
+
+1. Crie ou abra um projeto de serviço de nuvem do Azure no Visual Studio.
+
+1. Em **Gerenciador de Soluções**, expanda o nó do projeto
+
+1. Expanda o nó **Funções**.
+
+1. Clique com o botão direito do mouse no nó que você deseja remover e, no menu de contexto, selecione **Remover**. 
+
+    ![Opções do menu para adicionar uma função a um serviço de nuvem do Azure](media/vs-azure-tools-cloud-service-project-managing-roles/remove-role.png)
+
+## <a name="readding-a-role-to-an-azure-cloud-service-project"></a>Lendo uma função de um projeto de serviço de nuvem do Azure
+Se você remove uma função de seu projeto de serviço de nuvem, mas decide posteriormente adicionar a função de volta ao projeto, somente a declaração de função e os atributos básicos, como informações de diagnóstico e pontos de extremidade são adicionados. Nenhum recurso ou referência adicional é adicionado ao `ServiceDefinition.csdef` arquivo ou ao arquivo `ServiceConfiguration.cscfg`. Se desejar adicionar essas informações, adicione-as manualmente nesses arquivos.
+
+Por exemplo, você pode remover uma função de serviço Web e decidir posteriormente adicionar essa função de volta em sua solução. Se você fizer isso, ocorrerá um erro. Para evitar esse erro, é necessário adicionar o elemento `<LocalResources>` mostrado no XML a seguir ao arquivo `ServiceDefinition.csdef`. Use o nome da função de serviço Web que você adicionou novamente ao projeto como parte do atributo de nome para o elemento **<LocalStorage>** . Neste exemplo, o nome da função de serviço Web é **WCFServiceWebRole1**.
 
     <WebRole name="WCFServiceWebRole1">
         <Sites>
@@ -57,11 +73,5 @@ Por exemplo, você pode remover uma função de serviço Web e decidir posterior
     </WebRole>
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como configurar funções no Visual Studio lendo [Configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md),
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+- [Configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md)
 

@@ -9,6 +9,7 @@ author: nitinme
 tags: azure-portal
 ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 2/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: de252e1d2945f236a4192c5737ed8ec88a6f7444
-ms.openlocfilehash: da5929df1e5db0acae41d757a7e7272014bf9dee
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7a9e23e8d06bc73855058242cdebd315c9d4d243
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -75,7 +76,7 @@ Os números completos da versão para clusters HDInsight baseados em Windows imp
 * R Server 8.0.5 – Uma versão basicamente de correção de bug. Consulte as [Notas de Versão do R Server](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) para obter mais informações.
 * Pacote do AzureML no nó de borda – [esse pacote R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) permite que os modelos R sejam publicados e consumidos como um serviço Web do Azure ML.  Confira a seção ["Operacionalizar um modelo"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) do nosso artigo ["Visão geral do R Server no HDInsight"](hdinsight-hadoop-r-server-overview.md) para obter mais informações.
 * Dependências do Linux dos [100 pacotes R mais populares](https://github.com/metacran/cranlogs) – essas dependências de pacote do Linux agora são pré-instalados.
-* Opção para usar o repositório CRAN ao adicionar pacotes R aos nós de dados. Confira a seção ["Instalar pacotes R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) do nosso artigo ["Introdução ao uso do R Server no HDInsight"](hdinsight-hadoop-r-server-get-started.md) para obter mais informações.
+* Opção para usar o repositório CRAN ao adicionar pacotes R aos nós de dados. Consulte o artigo [Introdução ao uso do R Server no HDInsight](hdinsight-hadoop-r-server-get-started.md) para obter mais informações.
 * Foi melhorada a confiabilidade de provisionamento do R Server quando os clusters são criados.
 
 ## <a name="notes-for-08012016-release-of-hdinsight"></a>Notas da versão de 01/08/2016 do HDInsight

@@ -44,8 +44,3 @@ A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com
 |S1    | 325|
 |S2    | 640|
 |S3    | 260|
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -13,22 +13,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 03/27/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 15cbf897f3f67b9d1bee0845b4d287fdabe63ba8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 6f2a3880c6cd307282020a689ddd4e22a95c17b0
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Autenticar runbooks com uma conta Executar como do Azure
-Este tópico mostra como configurar uma conta de Automação no Portal do Azure usando o recurso da conta Executar como para autenticar runbooks que gerenciam recursos no Azure Resource Manager ou no Gerenciamento de Serviços do Azure.
+Este tópico mostrará como configurar uma conta de Automação no portal do Azure usando o recurso de conta Executar como para autenticar runbooks que gerenciam recursos no Azure Resource Manager ou no Gerenciamento de Serviços do Azure.
 
-Quando você cria uma conta de Automação no Portal do Azure, ela cria automaticamente:
+Quando você cria uma nova conta de Automação no portal do Azure, ela cria automaticamente:
 
-* A conta Executar como, que cria uma entidade de serviço no Azure Active Directory, um certificado, e atribui o Controle de acesso baseado em função (RBAC) do Colaborador, que será usado para gerenciar os recursos do Resource Manager usando runbooks.   
-* A conta Executar como clássica, carregando um certificado de gerenciamento, que será usado para gerenciar o Gerenciamento de Serviços do Azure ou recursos clássicos usando runbooks.  
+* A conta Executar como, que cria uma nova entidade de serviço no Azure Active Directory, um certificado, e atribui o controle de acesso baseado em função de Colaborador (RBAC), que será usado para gerenciar os recursos do Resource Manager usando runbooks.   
+* A conta Executar como Clássica, ao carregar um certificado de gerenciamento, que será usado para gerenciar o Gerenciamento de Serviços do Azure ou recursos clássicos usando runbooks.  
 
 Isso simplifica o processo para você e o ajuda a começar a criar e a implantar rapidamente os runbooks para dar suporte às suas necessidades de automação.      
 
@@ -41,17 +41,14 @@ Usando uma conta Executar como e uma conta Executar como Clássica, você pode:
 > O [Recurso de integração de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) do Azure com os Runbooks Globais de Automação exige uma conta de Automação configurada com uma conta dos tipos Executar Como e Executar Como Clássica. Você pode selecionar uma conta de Automação que já tenha uma conta Executar como e uma conta Executar como Clássica definidas ou optar por criar uma nova.
 >  
 
-Mostraremos como criar a Conta de automação no Portal do Azure, atualizar uma Conta de automação usando o PowerShell, gerenciar a configuração da conta e demostrar como autenticar-se em seus runbooks.
+Nós mostraremos como criar a Conta de automação no Portal do Azure, atualizar uma Conta de automação usando o PowerShell, gerenciar a configuração da conta e demostrar como autenticar-se em seus runbooks.
 
 Antes de fazermos isso, há algumas coisas que você deve entender e considerar antes de continuar.
 
 1. Isso não afeta as contas de automação existentes já criadas no modelo de implantação clássico ou do Resource Manager.  
 2. Isso só funcionará para contas de Automação criadas por meio do portal do Azure.  A tentativa de criar uma conta no portal clássico não replicará a configuração da conta Executar como.
-3. Se você tiver runbooks e ativos (ou seja, agendas, variáveis etc.) criados anteriormente para gerenciar os recursos clássicos, e se quiser que esses runbooks sejam autenticados na nova conta Executar como clássica, crie uma conta Executar como clássica usando Gerenciar uma Conta Executar como ou atualize sua conta existente usando o script do PowerShell abaixo.  
-4. Para autenticar usando a nova conta Executar como e a conta Executar como clássica da Automação, será necessário modificar seus runbooks existentes com o código de exemplo fornecido na seção [Autenticar exemplos de código](#authentication-code-examples).  
-   
-    >[!NOTE] 
-    >A conta Executar como destina-se à autenticação com base nos recursos do Resource Manager usando a entidade de serviço baseada em certificado, e a conta Executar como Clássica destina-se à autenticação em recursos do Gerenciamento de Serviços com um certificado de gerenciamento.     
+3. Se você tiver runbooks e ativos (ou seja, agendas, variáveis etc.) criados anteriormente para gerenciar os recursos clássicos e se quiser que esses runbooks se autentiquem na nova conta Executar como Clássica, crie uma conta Executar como Clássica usando o Gerenciar uma Conta Executar como ou atualize sua conta existente usando o script do PowerShell abaixo.  
+4. Para se autenticar usando a nova conta Executar como e a conta Executar como Clássica da Automação, você precisará modificar seus runbooks existentes com o código de exemplo abaixo.  **Observe** que a conta Executar como destina-se à autenticação com base nos recursos do Resource Manager usando a entidade de serviço baseada em certificado, e a conta Executar como Clássica destina-se à autenticação em recursos do Gerenciamento de Serviços com o certificado de gerenciamento.     
 
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Criar uma nova Conta de automação no Portal do Azure
 Nesta seção, você executará as etapas a seguir para criar uma nova conta de Automação do Azure no portal do Azure.  Isso cria a conta Executar como e a conta Executar como clássica.  
@@ -88,7 +85,7 @@ Quando a criação da conta de Automação tiver sido criada com êxito, vários
 | --- | --- |
 | Runbook AzureAutomationTutorial |Um exemplo de runbook Gráfico que demonstra como autenticar usando a conta Executar como e que obtém todos os recursos do Resource Manager. |
 | Runbook do AzureAutomationTutorialScript |Um exemplo de runbook do PowerShell que demonstra como autenticar usando a conta Executar como e que obtém todos os recursos do Resource Manager. |
-| AzureRunAsCertificate |O ativo de certificado criado automaticamente durante a criação da conta de Automação ou usando o seguinte script do PowerShell abaixo para uma conta existente.  Ele permite autenticar com o Azure para que você possa gerenciar recursos do Azure Resource Manager de runbooks.  Esse certificado tem um tempo de vida de um ano. |
+| AzureRunAsCertificate |O ativo de certificado criado se você tiver optado pela criação da conta Executar como durante a criação da conta de Automação ou usando o script do PowerShell abaixo para uma conta existente.  Ele permite autenticar com o Azure para que você possa gerenciar recursos do Azure Resource Manager de runbooks.  Esse certificado tem um tempo de vida de um ano. |
 | AzureRunAsConnection |O ativo de conexão automaticamente criado durante a criação da conta de Automação ou usando o script do PowerShell abaixo para uma conta existente. |
 
 A tabela a seguir resume os recursos para a conta Executar como Clássica.<br>
@@ -148,10 +145,10 @@ As etapas a seguir descrevem como excluir e recriar a Conta Executar como ou Con
 1. No Portal do Azure, abra a Conta de automação.  
 2. Na folha da Conta de automação, no painel de propriedades da conta, selecione **Contas Executar como** na seção **Configurações de Conta**.
 3. Na folha de propriedades **Contas Executar como**, selecione a Conta Executar como ou a Conta Executar como Clássica que você deseja excluir e, na folha de propriedades da conta selecionada, clique em **Excluir**.<br><br> ![Excluir Conta Executar como](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  Você receberá uma solicitação perguntando se deseja prosseguir.
-4. Enquanto a conta está sendo excluída, você poderá acompanhar o andamento em **Notificações** no menu.  Após a conclusão da exclusão, você poderá recriá-la na folha de propriedades **Contas Executar como**, selecionando a opção de criação **Conta Executar como do Azure**.<br><br> ![Recriar a Conta de automação Executar como](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+4. Enquanto a conta está sendo excluída, você poderá acompanhar o andamento em **Notificações** no menu.  Quando a exclusão for concluída, você poderá recriá-la na folha de propriedades **Contas Executar como**, selecionando a opção criar **Conta Executar como do Azure**.<br><br> ![Recriar a Conta de automação Executar como](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
 
 ### <a name="misconfiguration"></a>Configuração incorreta
-Se qualquer um dos itens de configuração necessários para que a Conta Executar como ou a Conta Executar como clássica funcionem corretamente forem excluídos ou não forem criados corretamente durante a instalação inicial, como:
+Se qualquer um dos itens de configuração necessários para que a Conta Executar como ou a Conta Executar como Clássica funcionem corretamente forem excluídos ou não forem criados corretamente durante a instalação inicial, como:
 
 * Ativo de certificado 
 * Ativo de conexão 
@@ -335,9 +332,9 @@ Se você selecionar a opção para criar Executar como clássica, após a execu�
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId} 
 
         # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
+        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues  
 
-        if ($CreateClassicRunAsAccount) {
+        if ($CreateClassicRunAsAccount) {  
             # Create Run As Account using Service Principal
             $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
             $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
@@ -392,15 +389,9 @@ Se você selecionar a opção para criar Executar como clássica, após a execu�
     > 
     > 
 
-Após a conclusão do script, se você tiver criado uma conta Executar como clássica, execute as etapas para [carregar o certificado de API de gerenciamento](../azure-api-management-certs.md) no Portal Clássico do Azure.  Se você criou uma conta Executar como clássica com o certificado autoassinado público (formato .cer), encontre uma cópia do certificado criado na pasta de arquivos temporários em seu computador, no perfil de usuário usado para executar a sessão do PowerShell - *%USERPROFILE%\AppData\Local\Temp*.  Caso contrário, se você configurou a conta Executar como clássica a fim de usar um certificado gerado por seu CA corporativo (formato .cer), será necessário usar esse certificado.  Após o carregamento do certificado, consulte o [exemplo de código](#sample-code-to-authenticate-with-service-management-resources) para validar a configuração de credencial com os recursos do Gerenciamento de Serviço.  
+Após o script ser concluído com êxito, se você tiver criado uma conta Executar como Clássica com certificado público autoassinado (formato .cer), ela será criada e salva pelo script na pasta de arquivos temporários no computador, no perfil de usuário usado para executar a sessão do PowerShell - *%USERPROFILE%\AppData\Local\Temp*; se você tiver criado uma conta Executar como Clássica com certificado público de empresa (formato .cer), deverá usar esse certificado.  Siga as etapas para [carregar um certificado da API de gerenciamento](../azure-api-management-certs.md) para o portal clássico do Azure, em seguida, consulte o [código de exemplo](#sample-code-to-authenticate-with-service-management-resources) para validar a configuração das credenciais com os recursos do Gerenciamento de Serviços.  Se você não criou uma conta Executar como clássica, consulte o [exemplo de código](#sample-code-to-authenticate-with-resource-manager-resources) abaixo para se autenticar com os recursos do Resource Manager e validar a configuração de credenciais.
 
-Se você não criou uma conta Executar como clássica, consulte o [exemplo de código](#sample-code-to-authenticate-with-resource-manager-resources) abaixo para se autenticar com os recursos do Resource Manager e validar a configuração de credenciais.   
-
-##  <a name="authentication-code-examples"></a>Exemplos de código de autenticação
-
-Os exemplos a seguir mostram como autenticar seus runbooks nos recursos clássicos ou do Resource Manager usando uma conta Executar como.
-
-### <a name="authenticate-with-resource-manager-resources"></a>Autenticar com recursos do Resource Manager
+## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Código de exemplo para autenticação com recursos Resource Manager
 Você pode usar o código de exemplo atualizado abaixo, obtido do runbook **AzureAutomationTutorialScript** de exemplo, para autenticação usando a conta Executar como para gerenciar os recursos do Resource Manager com seus runbooks.   
 
     $connectionName = "AzureRunAsConnection"
@@ -435,7 +426,7 @@ O script inclui duas linhas adicionais de código para oferecer suporte à refer
 
 Observe que o cmdlet usado para autenticar o runbook - **Add-AzureRmAccount**, usa o conjunto de parâmetros *ServicePrincipalCertificate* .  Ele se autentica usando o certificado de entidade de serviço, não as credenciais.  
 
-### <a name="authenticate-with-service-management-resources"></a>Autenticar com recursos do Gerenciamento de Serviços
+## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Código de exemplo para autenticação em recursos do Gerenciamento de Serviços
 Você pode usar o código de exemplo atualizado abaixo, obtido do runbook **AzureClassicAutomationTutorialScript** de exemplo, para autenticação usando a conta Executar como Clássica para gerenciar os recursos clássicos com seus runbooks.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"

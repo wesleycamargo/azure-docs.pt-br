@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2289c99ddd08c1e7ba356e233180cf59d99de182
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 121be952ea49a8ff47f7e2528adbc87e05359a15
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -194,7 +194,7 @@ Com a conta de armazenamento, os dados de entrada e o script HiveQL preparados, 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Selecione a opção **Usar existente** para a configuração **Grupo de recursos** e selecione o nome do grupo de recursos que você criou na etapa anterior (usando o script do PowerShell). 
 3. Insira um nome para o data factory (**Nome do Data Factory**). Esse nome deve ser globalmente exclusivo.
-4. Insira o **nome da conta de armazenamento** e a **chave de conta de armazenamento** que você anotou na etapa anterior.
+4. Insira o **nome da conta de armazenamento** e a **chave da conta de armazenamento** que você anotou na etapa anterior.
 5. Selecione **Concordo com os termos e condições** indicado acima, após a leitura dos **termos e condições**.
 6. Selecione a opção **Fixar no painel**. 
 6. Clique em **Comprar/Criar**. Você verá um bloco no Painel chamado **Implantação do Modelo de implantação**. Aguarde até que a folha de **Grupo de recursos** para seu grupo de recursos seja aberta. Você também pode clicar no bloco intitulado como o nome do grupo de recursos para abrir a folha de grupo de recursos. 

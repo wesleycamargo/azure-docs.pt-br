@@ -1,5 +1,5 @@
 ---
-title: "Controle de Acesso baseado em função no Portal Clássico do Azure | Microsoft Docs"
+title: "Controle de acesso baseado em função no portal do Azure | Microsoft Docs"
 description: "Introdução ao gerenciamento de acesso com o Controle de Acesso Baseado em Função no Portal do Azure. Use as atribuições de função para atribuir permissões a seus recursos."
 services: active-directory
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
-ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c3e3e407eb6a05b208863443bb8ccf3cba701b23
+ms.lasthandoff: 03/22/2017
 
 
 ---

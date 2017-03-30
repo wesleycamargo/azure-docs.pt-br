@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
-ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 2c2d352a8aaf572612e64bd69e6e45616c15891d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -163,6 +164,8 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
+O nó deve ter um `package.json` na raiz do Aplicativo de Funções, para que o Functions possa compartilhar pacotes armazenados em cache. Se houver conflitos de versão, será possível adicionar um `package.json` no nível de Função. No entanto, deve-se evitar essa ação por motivos de desempenho. 
+
 ## <a name="environment-variables"></a>Variáveis de ambiente
 Para obter uma variável de ambiente ou um valor de configuração do aplicativo, use `process.env`, conforme mostrado no exemplo de código a seguir:
 
@@ -194,10 +197,5 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
 * [Referência do desenvolvedor em F# do Azure Functions](functions-reference-fsharp.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

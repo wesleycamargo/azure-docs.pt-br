@@ -1,7 +1,8 @@
 # Visão geral
 ## [O que são as mensagens do Barramento de Serviço?](service-bus-messaging-overview.md)
 ## [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
-## [PERGUNTAS FREQUENTES](service-bus-faq.md)
+## [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
+## [Perguntas frequentes](service-bus-faq.md)
 
 # Introdução
 ## [Criar um namespace](service-bus-create-namespace-portal.md)

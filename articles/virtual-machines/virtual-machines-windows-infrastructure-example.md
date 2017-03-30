@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
-ms.openlocfilehash: 851dd4a2a76eff0e2f95c9a0a7280986cfb3e26a
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 7471fa4c73c8aef11bf81cb652cd2bce77ac5420
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="example-azure-infrastructure-walkthrough"></a>Passo a passo de infraestrutura do Azure de exemplo
+# <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Passo a passo da infraestrutura do Azure de exemplo para VMs Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Fornecemos detalhes de como projetar uma infraestrutura para um repositório online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, bem como a implantação de fato das VMs (máquinas virtuais).
@@ -45,7 +48,7 @@ O projeto resultante deve incorporar:
 
 * Uma assinatura e uma conta do Azure
 * Um único grupo de recursos
-* Contas de armazenamento
+* Azure Managed Disks
 * Uma rede virtual com duas sub-redes
 * Conjuntos de disponibilidade para as VMs com funções semelhantes
 * Máquinas virtuais
@@ -54,8 +57,6 @@ Todos os itens acima seguem estas convenções de nomenclatura:
 
 * A Adventure Works Cycles usa **[carga de trabalho de TI]-[localização]-[recurso do Azure]** como prefixo
   * Neste exemplo, “**azos**” (Repositório Online do Azure) é o nome de carga de trabalho de TI e “**use**” (Leste dos EUA 2) é a localização
-* As contas de armazenamento usam adventureazosusesa**[descrição]**
-  * 'adventure' foi adicionado ao prefixo para garantir a exclusividade, e os nomes de conta de armazenamento não dão suporte ao uso de hifens.
 * As redes virtuais usam AZOS-USE-VN**[número]**
 * Os conjuntos de disponibilidade usam azos-use-as-**[função]**
 * Os nomes de máquina virtual usam azos-use-vm-**[nomevm]**
@@ -63,11 +64,11 @@ Todos os itens acima seguem estas convenções de nomenclatura:
 ## <a name="azure-subscriptions-and-accounts"></a>Assinaturas e contas do Azure
 A Adventure Works Cycles usa sua assinatura Enterprise, chamada Adventure Works Enterprise Subscription, para fornecer cobrança para essa carga de trabalho de TI.
 
-## <a name="storage-accounts"></a>Contas de armazenamento
-A Adventure Works Cycles determinou que precisava de duas contas de armazenamento:
+## <a name="storage"></a>Armazenamento
+A Adventure Works Cycles determinou que deverá usar o Azure Managed Disks. Ao criar VMs, ambas as camadas de armazenamento disponíveis para o armazenamento são usadas:
 
-* **adventureazosusesawebapp** para o armazenamento padrão dos servidores Web, servidores de aplicativos, controladores de domínio e seus discos de dados.
-* **adventureazosusesasql** para o Armazenamento Premium das VMs SQL Server e seus discos de dados.
+* **Armazenamento padrão** para os servidores Web, servidores de aplicativos, controladores de domínio e seus discos de dados.
+* **Armazenamento premium** para VMs do SQL Server e seus discos de dados.
 
 ## <a name="virtual-network-and-subnets"></a>Rede virtual e sub-redes
 Como a rede virtual não precisa de conectividade contínua com a rede local da Adventure Work Cycles, ela decidiu usar uma rede virtual somente em nuvem.
@@ -111,7 +112,7 @@ Veja abaixo a configuração resultante.
 Essa configuração inclui:
 
 * Uma rede virtual somente em nuvem com duas sub-redes (front-end e back-end)
-* Duas contas de armazenamento
+* Azure Managed Disks com discos Standard e Premium
 * Quatro conjuntos de disponibilidade, um para cada camada do repositório online
 * As máquinas virtuais das quatro camadas
 * Um conjunto de balanceamento de carga externo para tráfego da Web baseado em HTTPS da Internet para os servidores Web
@@ -120,10 +121,5 @@ Essa configuração inclui:
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

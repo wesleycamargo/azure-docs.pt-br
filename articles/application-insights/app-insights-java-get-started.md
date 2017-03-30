@@ -4,18 +4,18 @@ description: 'Monitoramento de desempenho de aplicativos usando o Application In
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d2f94ead2e5c7e60037e601ce65a03e809b66dd3
 
 
 ---
@@ -76,7 +76,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 ```
 
 * *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `<version>1.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos nossos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Precisa atualizar para um novo SDK?*  Atualize as dependências do seu projeto.
+* *Precisa atualizar para um novo SDK?* Atualize as dependências do seu projeto.
 
 #### <a name="if-youre-using-gradle"></a>Se você estiver usando o Gradle...
 Se o seu projeto já estiver configurado para usar o Gradle para compilação, realize a mesclagem do trecho de código a seguir ao seu arquivo build.gradle.
@@ -95,9 +95,9 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
     }
 ```
 
-* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: ** `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Para atualizar para um novo SDK*
-  *  Atualize as dependências do seu projeto.
+  * Atualize as dependências do seu projeto.
 
 #### <a name="otherwise-"></a>Caso contrário...
 Adicione manualmente o SDK:
@@ -375,6 +375,10 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 ## <a name="questions-problems"></a>Perguntas? Problemas?
 [Solucionar problemas de Java](app-insights-java-troubleshoot.md)
 
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Monitorar chamadas de dependência](app-insights-java-agent.md)
 * [Monitorar os contadores de desempenho do Unix](app-insights-java-collectd.md)
@@ -394,9 +398,4 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

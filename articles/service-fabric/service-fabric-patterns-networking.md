@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3021ebbe88705b0c5a1691a45ed0ba400af6dd34
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 0753fb3a4b08b3bda9da1f5a31c577b354197588
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ O Service Fabric é executado em um conjunto de dimensionamento de máquinas vir
 
 O Service Fabric é único entre outros recursos de rede em um aspecto. O [portal do Azure](https://portal.azure.com) usa internamente o provedor de recursos do Service Fabric para chamar um cluster para obter informações sobre nós e aplicativos. O provedor de recursos do Service Fabric exige acesso de entrada acessível publicamente à porta do Gateway HTTP (19080 por padrão) no ponto de extremidade de gerenciamento. O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) usa o ponto de extremidade de gerenciamento para gerenciar o cluster. Essa porta também é usada pelo provedor de recursos do Service Fabric para consultar informações sobre o cluster para exibição no Portal do Azure. 
 
-Se a porta 190980 não é acessível do provedor de recursos do Service Fabric, uma mensagem como *Nós não encontrados* aparece no portal e sua lista de nós e aplicativos aparece vazia. Se desejar ver o cluster por meio do Portal do Azure, o balanceador de carga deverá expor um endereço IP público e o grupo de segurança de rede deverá permitir o tráfego de entrada pela porta 19080. Se a sua configuração não atender a esses requisitos, o Portal do Azure não exibirá o status atual do cluster.
+Se a porta 19080 não estiver acessível no provedor de recursos do Service Fabric, uma mensagem como *Nós Não Encontrados* será exibida no portal e a lista de nós e aplicativos aparecerá vazia. Se desejar ver o cluster por meio do Portal do Azure, o balanceador de carga deverá expor um endereço IP público e o grupo de segurança de rede deverá permitir o tráfego de entrada pela porta 19080. Se a sua configuração não atender a esses requisitos, o Portal do Azure não exibirá o status atual do cluster.
 
 ## <a name="templates"></a>Modelos
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: bf1b8783ccbc3b3e3185eb10c7f772b58352aab7
-ms.openlocfilehash: 073940bb607b953af324d784a45958977e1af3a2
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 006ebbbc3f6f745f60c5fc6646649097e144beaf
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -35,7 +36,7 @@ Você pode usar o portal do Azure para registrar seu aplicativo em seu locatári
 
 ## <a name="update-application-settings-from-the-azure-portal"></a>Atualizar as configurações do aplicativo no portal do Azure
 
-Você pode facilmente modificar configurações do aplicativo existentes usando o portal do Azure. Por exemplo, você talvez queira configurar uma URL de resposta, que é de onde o Azure AD emite respostas de tokens. Talvez você queira configurar permissões para outros aplicativos, por exemplo, para permitir que seu aplicativo acesse a API do MS Graph. Você pode fazer tudo isso por meio da página de configurações do aplicativo.
+Você pode facilmente modificar configurações do aplicativo existentes usando o portal do Azure. Por exemplo, você talvez queira configurar uma URL de resposta, que é de onde o Azure AD emite respostas de tokens. Talvez você também deseje configurar permissões para outros aplicativos, por exemplo, para permitir que o aplicativo acesse a API do Microsoft Graph. Você pode fazer tudo isso por meio da página de configurações do aplicativo.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Escolha seu locatário do Azure AD ao selecionar sua conta no canto superior direito da página.
@@ -44,7 +45,7 @@ Você pode facilmente modificar configurações do aplicativo existentes usando 
   * A página **Propriedades** permite que você modifique as informações gerais do aplicativo. Isso inclui o nome do aplicativo, a URL de entrada e a URL de logoff.
   * A página **URLs de Resposta** permite que você adicione uma URL de resposta, que é para onde o Azure AD envia respostas de tokens.
   * A página **Proprietários** permite que você adicione os proprietários do aplicativo.
-  * A página **Permissões** permite que você configure as permissões para o aplicativo. Por exemplo, para acessar a API do MS Graph, clique em **Adicionar** e selecione **Microsoft Graph** no seletor de API; em seguida, escolha a permissão necessária, por exemplo, **Ler Dados do Diretório**.
+  * A página **Permissões** permite que você configure as permissões para o aplicativo. Por exemplo, para acessar a API do Microsoft Graph, clique em **Adicionar** e selecione **Microsoft Graph** no seletor de API; em seguida, escolha a permissão necessária, por exemplo, **Ler Dados do Diretório**.
   * A página **Chaves** permite que você adicione segredos do aplicativo. O segredo só será exibido uma vez imediatamente após a criação, portanto não deixe de copiá-lo para uso posterior.
 
 ## <a name="use-the-inline-manifest-editor"></a>Usar o editor de manifesto embutido
@@ -61,9 +62,4 @@ Você pode usar o editor de manifesto embutido para modificar determinadas propr
 
 1. Confira os [Inícios rápidos](active-directory-developers-guide.md) para obter instruções passo a passo detalhadas de aplicativos que executam a autenticação usando o Azure AD.
 2. Confira a lista completa de exemplos de código no [Github](https://github.com/azure-samples).
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

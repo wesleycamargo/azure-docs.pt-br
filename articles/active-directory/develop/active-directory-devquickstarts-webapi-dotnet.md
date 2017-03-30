@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: e2e1c68b83e9b9ec5a3865e89a98b80cf59cdfad
-ms.openlocfilehash: 038b862a355310d264dacb4c619fb6558a0edffc
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: b028a75836f7c762431bfb9e3fc30822b7dee885
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -54,9 +54,10 @@ Para proteger seu aplicativo, você primeiro precisará criar um aplicativo em s
 5. Siga os prompts e crie um novo **aplicativo Web e/ou API Web**.
   * **Nome** descreve seu aplicativo para os usuários. Digite **Serviço de Lista de Tarefas Pendentes**.
   * O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o Azure AD usa para retornar tokens solicitados pelo aplicativo. Digite `https://localhost:44321/` para esse valor.
-  * No campo **URI de AppID**, insira um identificador específico do locatário. Por exemplo, insira: `https://contoso.onmicrosoft.com/TodoListService`.
-  
-6. Salve a configuração. Deixe o portal aberto, pois você também precisará registrar seu aplicativo cliente em breve.
+
+6. Na página **Configurações** -> **Propriedades** do aplicativo, atualize o URI da ID do Aplicativo. Insira um identificador específico ao locatário. Por exemplo, insira: `https://contoso.onmicrosoft.com/TodoListService`.
+
+7. Salve a configuração. Deixe o portal aberto, pois você também precisará registrar seu aplicativo cliente em breve.
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Etapa 2: configurar o aplicativo para usar o pipeline de autenticação OWIN
 Para validar tokens e solicitações de entrada, você precisa configurar seu aplicativo para se comunicar com o Azure AD.

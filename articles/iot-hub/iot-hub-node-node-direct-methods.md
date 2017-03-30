@@ -144,7 +144,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que chama um méto
     ```
     var methodParams = {
         methodName: methodName,
-        payload: 'a line to be written',
+        payload: 'hello world',
         timeoutInSeconds: 30
     };
    

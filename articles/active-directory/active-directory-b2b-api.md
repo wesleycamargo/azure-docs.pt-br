@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 235b551a716b68c40cc4fe346cc5903d47e6ea74
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6f487e2e8f368240339ef5e0015c85591522e49a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -62,7 +63,7 @@ A API oferece os seguintes recursos:
     "sendInvitationMessage": false
     ```
 
-  Nesse caso, você obterá novamente uma URL de resgate da API, que pode ser inserida em um modelo de email, mensagem instantânea ou outro método de distribuição de sua escolha.
+  Nesse caso, você obtém novamente uma URL de resgate da API, que pode ser inserida em um modelo de email, mensagem instantânea ou outro método de distribuição de sua escolha.
 
 6. Por fim, se você for administrador, poderá convidar o usuário como membro.
 
@@ -71,32 +72,33 @@ A API oferece os seguintes recursos:
     ```
 
 
-## <a name="authorization-model"></a>Modelo de Autorização
+## <a name="authorization-model"></a>Modelo de autorização
 A API pode ser executada nos seguintes modos de autorização:
 
-### <a name="app--user-mode"></a>Aplicativo + Modo de Usuário
-Nesse modo, o usuário que está usando a API precisa ter as permissões para criar convites de B2B.
+### <a name="app--user-mode"></a>Modo Aplicativo + Usuário
+Nesse modo, a pessoa que está usando a API precisa ter as permissões para criar convites de B2B.
 
-### <a name="app-only-mode"></a>Modo somente para aplicativo
-No contexto exclusivo ao aplicativo, o aplicativo precisa dos escopos User.ReadWrite.All ou Directory.ReadWrite.All para que o convite tenha êxito.
-Para saber mais, confira: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+### <a name="app-only-mode"></a>Modo Somente aplicativo
+No contexto somente aplicativo, o aplicativo precisa dos escopos User.ReadWrite.All ou Directory.ReadWrite.All para que o convite tenha êxito.
+
+Para obter mais informações, consulte: https://graph.microsoft.io/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
-Agora é possível usar o PowerShell para adicionar e convidar facilmente usuários externos à organização. Basta criar um novo convite usando o cmdlet
+Agora é possível usar o PowerShell para adicionar e convidar facilmente usuários externos à organização. Crie um convite usando o cmdlet:
 
 ```
 New-AzureADMSInvitation
 ```
 
-com as seguintes opções
+É possível usar as seguintes opções:
 
 * -InvitedUserDisplayName
 * -InvitedUserEmailAddress
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-cujas descrições seguem a referência da API de convite em [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
+Confira também a referência da API de convite em [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -113,9 +115,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: d64ca980b82e279e446d2ea279124ae3f54b0f49
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f8cb0030290d200ab79e340b9b0fe8f5765d49f0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -95,7 +96,7 @@ No procedimento anterior, você abriu o painel do cofre. Para abrir o painel do 
    * interromper a proteção das máquinas virtuais <br\>
    * retomar a proteção de uma máquina virtual <br\>
    * excluir os dados do backup (ou ponto de recuperação) <br\>
-   * [restaurar um backup (ou o ponto de recuperação)](backup-azure-arm-restore-vms.md#restore-a-recovery-point) <br\>
+   * [restaurar discos de backup](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
 
 Para os procedimentos a seguir, o ponto de partida é o painel de itens do cofre.
 
@@ -220,9 +221,4 @@ Para excluir os dados de backup em uma máquina virtual com o *Backup desabilita
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre o monitoramento de eventos, confira [Monitorar alertas para backups de máquina virtual do Azure](backup-azure-monitor-vms.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

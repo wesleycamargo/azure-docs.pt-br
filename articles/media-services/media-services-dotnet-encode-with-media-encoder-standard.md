@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/21/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 452b6a541309736ee4bd7e1dbbf5288289e70922
-ms.openlocfilehash: 6a48bae7cd5c394f7b400f6870dba4da7f0d19f2
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 9acb23c679e4a8279c944a384d142b1cccf0f4d2
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -51,7 +51,7 @@ O ativo de saída também contém um arquivo com metadados sobre o ativo de saí
 Se desejar examinar qualquer um dos dois arquivos de metadados, você poderá criar um localizador SAS e baixe o arquivo em seu computador local. É possível encontrar um exemplo de como criar um localizador SAS e baixar um arquivo usando as Extensões do SDK do .NET para os Serviços de Mídia.
 
 ## <a name="download-sample"></a>Baixar exemplo
-Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+É possível obter e executar uma amostra que explica como codificar com o MES [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="example"></a>Exemplo
 O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:

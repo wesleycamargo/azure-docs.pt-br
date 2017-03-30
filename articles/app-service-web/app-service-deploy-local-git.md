@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 657554ee3929572632dc007d1a6500e59e2a6b97
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ Para concluir este tutorial, você precisará:
 > 
 > 
 
-## <a name="a-namestep1astep-1-create-a-local-repository"></a><a name="Step1"></a>Etapa 1: Criar um repositório local
+## <a name="Step1"></a>Etapa 1: Criar um repositório local
 Execute as seguintes tarefas para criar um novo repositório do Git.
 
 1. Inicie uma ferramenta da linha de comando, como **GitBash** (Windows) ou **Bash** (Unix Shell). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal** .
@@ -46,7 +46,7 @@ Execute as seguintes tarefas para criar um novo repositório do Git.
    
         git init
 
-## <a name="a-namestep2astep-2-commit-your-content"></a><a name="Step2"></a>Etapa 2: Confirmar seu conteúdo
+## <a name="Step2"></a>Etapa 2: Confirmar seu conteúdo
 O Serviço de Aplicativo dá suporte a aplicativos criados em uma variedade de linguagens de programação. 
 
 1. Se seu repositório já inclui conteúdo, ignore esse ponto e passe para o ponto 2 abaixo. Se seu repositório ainda não inclui conteúdo, simplesmente popule-o com um arquivo .html estático da seguinte maneira: 
@@ -60,7 +60,7 @@ O Serviço de Aplicativo dá suporte a aplicativos criados em uma variedade de l
    
         git commit -m "Hello Azure App Service"
 
-## <a name="a-namestep3astep-3-enable-the-app-service-app-repository"></a><a name="Step3"></a>Etapa 3: Habilitar o repositório de aplicativos do Serviço de Aplicativo
+## <a name="Step3"></a>Etapa 3: Habilitar o repositório de aplicativos do Serviço de Aplicativo
 Execute as seguintes etapas para habilitar um repositório do Git para seu aplicativo do Serviço de Aplicativo.
 
 1. Faça logon no [Portal do Azure].
@@ -71,7 +71,7 @@ Execute as seguintes etapas para habilitar um repositório do Git para seu aplic
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
-## <a name="a-namestep4astep-4-deploy-your-project"></a><a name="Step4"></a>Etapa 4: Implantar seu projeto
+## <a name="Step4"></a>Etapa 4: Implantar seu projeto
 Use as etapas a seguir para publicar seu aplicativo no Serviço de Aplicativo usando o Git Local.
 
 1. Na folha do aplicativo no Portal do Azure, clique em **Configurações > Propriedades** para a **URL do Git**.
@@ -97,7 +97,7 @@ Use as etapas a seguir para publicar seu aplicativo no Serviço de Aplicativo us
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 6. Clique no botão **Procurar** na parte superior da folha do aplicativo para verificar se o conteúdo foi implantado. 
 
-## <a name="a-namestep5atroubleshooting"></a><a name="Step5"></a>Solucionar problemas
+## <a name="Step5"></a>Solucionar problemas
 Estes são erros ou problemas comumente encontrados ao usar o Git para publicar em um aplicativo do Serviço de Aplicativo no Azure:
 
 - - -
@@ -133,6 +133,15 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
     git push azure master
 
 - - -
+**Sintoma**: falha de RPC; resultado = 22, código HTTP = 502.
+
+**Causa**: esse erro poderá ocorrer se você tentar enviar por push um repositório Git de grande porte por HTTPS.
+
+**Resolução**: altere a configuração do Git no computador local para aumentar o postBuffer
+
+    git config --global http.postBuffer 524288000
+
+- - -
 **Sintoma**: erro - alterações confirmadas no repositório remoto, mas o aplicativo Web não foi atualizado.
 
 **Causa**: esse erro poderá ocorrer se você estiver implantando um aplicativo do Node.js que contém um arquivo package.json que especifica os módulos adicionais necessários.
@@ -145,14 +154,14 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
   * npm ERR! \`cmd "/c" "node-gyp rebuild"\` falhou com 1
     
       OU
-  * npm ERR! [modulename@version] pré-instalar: \`make || gmake\`
+  * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Documentação do Git](http://git-scm.com/documentation)
 * [Documentação do projeto Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Implantação contínua no Serviço de Aplicativo do Azure](app-service-continuous-deployment.md)
 * [Como usar o PowerShell para o Azure](/powershell/azureps-cmdlets-docs)
-* [Como usar as ferramentas da interface de linha de comando do Azure](../xplat-cli-install.md)
+* [Como usar as ferramentas da interface de linha de comando do Azure](../cli-install-nodejs.md)
 
 [Serviço de Aplicativo do Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/

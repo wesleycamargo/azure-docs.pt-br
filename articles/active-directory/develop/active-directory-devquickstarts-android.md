@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: f9809095128d0069d076d18486cae05b65498fa8
-ms.openlocfilehash: bde8ef9c4f51c38f8e5b41857be02ade43260824
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9ae8852c02361ff11c302f86cb5c53e01a48068a
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -62,8 +63,9 @@ Vamos supor que você esteja registrando a API REST TODO mencionada anteriorment
 4. Clique em **Registros do aplicativo**e, em seguida, selecione **Adicionar**.
 5. Insira um nome amigável para o aplicativo (por exemplo, **TodoListService**, selecione **Aplicativo Web e/ou API da Web** e clique em **Avançar**.
 6. Para a URL de logon, insira a URL base para o exemplo. Por padrão, ela é `https://localhost:8080`.
-7. Para o URI da ID do aplicativo, insira `https://<your_tenant_name>/TodoListService`. Substitua `<your_tenant_name>` pelo nome de seu locatário do Azure AD. Clique em **OK** para concluir o registro.
+7. Clique em **OK** para concluir o registro.
 8. Ainda no Portal do Azure, acesse a página de aplicativo, encontre o valor da ID do aplicativo e copie-o. Você precisará dele mais tarde ao configurar o aplicativo.
+9. Na página **Configurações** -> **Propriedades**, atualize o URI da ID do aplicativo – insira `https://<your_tenant_name>/TodoListService`. Substitua `<your_tenant_name>` pelo nome de seu locatário do Azure AD.
 
 ## <a name="step-3-register-the-sample-android-native-client-application"></a>Etapa 3: Registre o aplicativo cliente nativo para Android de exemplo
 Registre seu aplicativo da Web neste exemplo. Isso permite que o aplicativo se comunique com a API da Web recém-registrada. O Azure AD não vai permitir que o aplicativo solicite a entrada a menos que ele esteja registrado. Isso faz parte da segurança do modelo.
@@ -384,9 +386,4 @@ A ADAL versão 1.1.0 dá suporte à caixa de diálogo NTLM, que é processada po
 Saiba [como habilitar o SSO entre aplicativos no Android usando a ADAL](active-directory-sso-android.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

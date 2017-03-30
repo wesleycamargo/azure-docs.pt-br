@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/08/2017
+ms.date: 03/21/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ec49b8784eb9b18135c5f7ec7242a2468ac87e50
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a545925bdade693f4db7db45228188dae7e5ff38
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -32,7 +32,7 @@ A Atualização 4 pode ser aplicada a qualquer dispositivo StorSimple que execut
 Examine as informações contidas nas notas de versão antes de implantar a atualização em sua solução do StorSimple.
 
 > [!IMPORTANT]
-> * A Atualização 4 tem o software de dispositivo, firmware USM, driver e firmware LSI, firmware de disco, Storport e Spaceport, segurança e outras atualizações do sistema operacional. São necessárias cerca de quatro horas para instalar essa atualização. É recomendável que você aplique essa atualização para manter o seu dispositivo atualizado. 
+> * A Atualização 4 tem o software de dispositivo, firmware USM, driver e firmware LSI, firmware de disco, Storport e Spaceport, segurança e outras atualizações do sistema operacional. São necessárias cerca de quatro horas para instalar essa atualização. A atualização de firmware de disco é uma atualização com tempo de inatividade e resulta em um tempo de inatividade para o dispositivo. Recomendamos a aplicação do Update 4 para manter o dispositivo atualizado. 
 > * Para novas versões, talvez você não veja atualizações imediatamente porque fazemos uma distribuição em fases das atualizações. Aguarde alguns dias e procure atualizações novamente, uma vez que elas serão disponibilizadas em breve.
 
 ## <a name="whats-new-in-update-4"></a>Novidades na Atualização 4
@@ -49,7 +49,7 @@ Veja a seguir as principais melhorias e correções de bugs feitas na Atualizaç
 
     Todas as restaurações agora são restaurações baseadas em mapas de dados. Para saber mais sobre como consultar e cancelar trabalhos de restauração e de reidratação baseados em mapa de dados, vá para [Referência de cmdlet do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-* **Ferramenta de diagnóstico de StorSimple** – na atualização 4, uma ferramenta de diagnóstico do StorSimple está sendo lançada para permitir a fácil de diagnóstico e solução de problemas relacionados à integridade de componentes do sistema, rede, desempenho e hardware. Essa ferramenta é executada por meio do Windows PowerShell para StorSimple. 
+* **Ferramenta de diagnóstico de StorSimple** – na atualização 4, uma ferramenta de diagnóstico do StorSimple está sendo lançada para permitir a fácil de diagnóstico e solução de problemas relacionados à integridade de componentes do sistema, rede, desempenho e hardware. Essa ferramenta é executada por meio do Windows PowerShell para StorSimple. Para obter mais informações, acesse [Solucionar problemas usando a ferramenta de Diagnóstico do StorSimple](storsimple-8000-diagnostics.md).
 
 * **Ferramenta de migração de StorSimple baseado na interface do usuário** - antes dessa versão, migração de dados da série 5000-7000 necessárias de usuários para executar uma parte do fluxo de trabalho de migração usando a interface do Azure PowerShell. Nesta versão, uma ferramenta de migração de StorSimple baseada em interface do usuário fácil de usar é disponibilizada para o suporte facilitar o mesmo fluxo de trabalho de migração. Essa ferramenta também permite a consolidação de recipientes de recuperação. 
 
@@ -59,7 +59,7 @@ Veja a seguir as principais melhorias e correções de bugs feitas na Atualizaç
 
 * **Atualizar alterações** - Nesta versão, bugs relacionados a falhas de atualização foram corrigidos.
 
-* **Alerta para falhas de disco** -um novo alerta que avisa o usuário sobre falhas iminentes de disco é adicionado nesta versão. Se você encontrar este alerta, entre em contato com o Suporte da Microsoft para enviar um disco de substituição.
+* **Alerta para falhas de disco** -um novo alerta que avisa o usuário sobre falhas iminentes de disco é adicionado nesta versão. Se você encontrar este alerta, entre em contato com o Suporte da Microsoft para enviar um disco de substituição. Para obter mais informações, acesse [Alertas de hardware no dispositivo StorSimple](storsimple-manage-alerts.md#hardware-alerts).
 
 * **Alterações de substituição de controlador** -um cmdlet que permite ao usuário consultar o status do processo de substituição de controlador é adicionado nesta versão. Para obter mais informações, vá para o [cmdlet ao status de substituição de controlador de consulta](https://technet.microsoft.com/library/dn688168.aspx).
 

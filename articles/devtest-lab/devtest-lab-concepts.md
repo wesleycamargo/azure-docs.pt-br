@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c81b83143afaab3acf625dc98269b35973185d77
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,9 +38,14 @@ A lista a seguir contém as principais definições e conceitos dos Laboratório
 Um laboratório é a infraestrutura que abrange um grupo de recursos, como VMs (máquinas virtuais), que permite melhor gerenciar esses recursos especificando limites e cotas.
 
 ## <a name="virtual-machine"></a>Máquina virtual
-Uma VM do Azure é um dos vários tipos de [recursos de computação sob demanda escalonáveis](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm) oferecidos pelo Azure. As VMs do Azure lhe oferecem a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que a executa, embora você ainda precise manter a VM executando determinadas tarefas como configurar, corrigir e instalar o software que será executado nela.
+Uma VM do Azure é um dos vários tipos de [recursos de computação sob demanda escalonáveis](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) oferecidos pelo Azure. As VMs do Azure lhe oferecem a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que a executa, embora você ainda precise manter a VM executando determinadas tarefas como configurar, corrigir e instalar o software que será executado nela.
 
-[Visão geral das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-overview) fornece informações sobre o que você deve considerar antes de criar uma VM, como criá-la e como gerenciá-la.
+[Visão geral das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) fornece informações sobre o que você deve considerar antes de criar uma VM, como criá-la e como gerenciá-la.
+
+## <a name="claimable-vm"></a>VM Declarável
+Uma VM Declarável do Azure é uma máquina virtual que está disponível para uso por qualquer usuário do laboratório com permissões. Um administrador de laboratório pode preparar VMs com artefatos e imagens base específicas e salvá-los em um pool compartilhado. Em seguida, um usuário de laboratório poderá declarar uma VM de trabalho do pool quando precisar de uma com essa configuração específica.
+
+Uma VM que não é declarável não é atribuída a nenhum usuário específico inicialmente, mas será mostrada na lista de todos os usuários em “Máquinas virtuais declaráveis”. Depois de uma VM é declarada por um usuário, ela é movida para cima em sua área “Minhas máquinas virtuais” e não é mais declarável por nenhum outro usuário.
 
 ## <a name="environment"></a>Ambiente
 No DevTest Labs, um ambiente refere-se a uma coleção de recursos do Azure em um laboratório. [Esta postagem de blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) discute como criar ambientes de várias VMs dos modelos do Azure Resource Manager.
@@ -89,7 +94,7 @@ Como os escopos são hierárquicos, quando um usuário tem permissões em um det
 ## <a name="arm-templates"></a>Modelos de ARM
 Todos os conceitos discutidos neste artigo podem ser configurados usando modelos do ARM (Azure Resource Manager). Os modelos do ARM permitem definir a infraestrutura/configuração de sua solução do Azure e implantá-la repetidamente em um estado consistente.
 
-[Modelos do ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descreve a estrutura de um modelo do Azure Resource Manager e as propriedades que estão disponíveis nas diferentes seções de um modelo.
+[Modelos do ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descreve a estrutura de um modelo do Azure Resource Manager e as propriedades que estão disponíveis nas diferentes seções de um modelo.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

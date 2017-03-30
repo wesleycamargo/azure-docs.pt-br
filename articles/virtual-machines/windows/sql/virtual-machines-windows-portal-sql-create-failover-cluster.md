@@ -14,11 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6f0fe474787efc15db5c75266cde369725832aab
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -33,10 +34,10 @@ O diagrama a seguir mostra a solução completa em máquinas virtuais do Azure:
 
 O diagrama acima mostra:
 
-- Duas máquinas virtuais do Azure em um WSFC (Cluster de Failover do Windows Server). Quando uma máquina virtual está em um WSFC, também é chamada de *nó de cluster* ou *nós*.
+- Duas máquinas virtuais do Azure em um Cluster de Failover do Windows. Quando uma máquina virtual está em um cluster de failover, ela também é chamada de *nó de cluster* ou *nós*.
 - Cada máquina virtual tem dois ou mais discos de dados.
 - O S2D sincroniza os dados no disco de dados e apresenta o armazenamento sincronizado como um pool de armazenamento. 
-- O pool de armazenamento apresenta um CSV (volume compartilhado do cluster) para o WSFC.
+- O pool de armazenamento apresenta um CSV (volume compartilhado clusterizado) para o cluster de failover.
 - A função de cluster FCI do SQL Server usa o CSV para as unidades de dados. 
 - Um balanceador de carga do Azure para manter o endereço IP para o FCI do SQL Server.
 - Um conjunto de disponibilidade do Azure mantém todos os recursos.
@@ -76,11 +77,11 @@ Antes de seguir as instruções neste artigo, você já deve ter:
 - Uma conta com permissão para criar objetos na máquina virtual do Azure.
 - Uma rede virtual do Azure e uma sub-rede com espaço de endereço IP suficiente para os seguintes componentes:
    - As duas máquinas virtuais.
-   - O endereço IP do WSFC.
+   - O endereço IP do cluster de failover.
    - Um endereço IP para cada FCI.
 - DNS configurado na Rede Azure, apontando para os controladores de domínio. 
 
-Com esses pré-requisitos, você pode prosseguir com a criação do WSFC. A primeira etapa é criar as máquinas virtuais. 
+Com esses pré-requisitos em vigor, é possível continuar com a criação do cluster de failover. A primeira etapa é criar as máquinas virtuais. 
 
 ## <a name="step-1-create-virtual-machines"></a>Etapa 1: criar máquinas virtuais
 
@@ -135,9 +136,9 @@ Com esses pré-requisitos, você pode prosseguir com a criação do WSFC. A prim
       - **{BYOL} SQL Server 2016 Standard no Windows Server Datacenter 2016** 
    
    >[!IMPORTANT]
-   >Após criar a máquina virtual, remova a instância do SQL Server autônomo pré-instalado. Você usará a mídia pré-instaladas do SQL Server para criar a FCI do SQL Server após a configuração de WSFC e S2D. 
+   >Após criar a máquina virtual, remova a instância do SQL Server autônomo pré-instalado. Você usará a mídia pré-instalada do SQL Server para criar a FCI do SQL Server depois de configurar o cluster de failover e o S2D. 
 
-   Como alternativa, você pode usar imagens do Azure Marketplace apenas com o sistema operacional. Escolha uma imagem de **Datacenter do Windows Server 2016** e instale o SQL Server FCI depois de configurar o WSFC e o S2D. Esta imagem não contém a mídia de instalação do SQL Server. Coloque a mídia de instalação em um local onde você possa executar a instalação do SQL Server para cada servidor.
+   Como alternativa, você pode usar imagens do Azure Marketplace apenas com o sistema operacional. Escolha uma imagem do **Datacenter do Windows Server 2016** e instale a FCI do SQL Server depois de configurar o cluster de failover e o S2D. Esta imagem não contém a mídia de instalação do SQL Server. Coloque a mídia de instalação em um local onde você possa executar a instalação do SQL Server para cada servidor.
 
 1. Depois que o Azure criar máquinas virtuais, conecte-se a cada máquina virtual com o RDP. 
 
@@ -179,15 +180,15 @@ Com esses pré-requisitos, você pode prosseguir com a criação do WSFC. A prim
 
 1. [Adicione as máquinas virtuais ao domínio pré-existente](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-Depois que as máquinas virtuais forem criadas e configuradas, você poderá configurar o WSFC.
+Depois que as máquinas virtuais forem criadas e configuradas, você poderá configurar o cluster de failover.
 
-## <a name="step-2-configure-the-windows-server-failover-cluster-wsfc-with-s2d"></a>Etapa 2: configurar o cluster de failover do Windows Server (WSFC) com S2D
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Etapa 2: Configurar o cluster de failover do Windows com o S2D
 
-A próxima etapa é configurar o WSFC com S2D. Nesta etapa, você executará as seguintes subetapas:
+A próxima etapa é configurar o cluster de failover com o S2D. Nesta etapa, você executará as seguintes subetapas:
 
 1. Adicionar o recurso Clustering de Failover do Windows
 1. Validar o cluster
-1. Criar WSFC
+1. Criar o cluster de failover
 1. Criar a testemunha de nuvem
 1. Adicionar armazenamento
 
@@ -240,34 +241,34 @@ Para validar o cluster com o PowerShell, execute o seguinte script em uma sessã
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
-Depois de validar o cluster, crie o WSFC.
+Depois de validar o cluster, crie o cluster de failover.
 
-### <a name="create-the-wsfc"></a>Criar WSFC
+### <a name="create-the-failover-cluster"></a>Criar o cluster de failover
 
-Este guia se refere a [criar o WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Este guia refere-se a [Criar o cluster de failover](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
-Para criar o WSFC, você precisa: 
+Para criar o cluster de failover, você precisa de: 
 - Os nomes das máquinas virtuais que se tornam os nós do cluster. 
-- Um nome para o WSFC. Use um válido 
-- Um endereço IP para o WSFC. Você pode usar um endereço IP que não seja usado na mesma sub-rede e rede virtual do Azure que os nós de cluster. 
+- Um nome para o cluster de failover
+- Um endereço IP do cluster de failover. Você pode usar um endereço IP que não seja usado na mesma sub-rede e rede virtual do Azure que os nós de cluster. 
 
-O PowerShell a seguir cria um WSFC. Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP da VNET do Azure: 
+O PowerShell a seguir cria um cluster de failover. Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP da VNET do Azure: 
 
 ```PowerShell
-New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
 ### <a name="create-a-cloud-witness"></a>Criar uma testemunha de nuvem
 
 A Testemunha de Nuvem é um novo tipo de testemunha de quorum de cluster armazenado em um Azure Storage Blob. Isso elimina a necessidade de uma VM separada que hospeda uma testemunha de compartilhamento.
 
-1. [Criar uma testemunha de nuvem para o WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
+1. [Crie uma testemunha de nuvem para o cluster de failover](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
 
 1. Criar um contêiner de blob. 
 
 1. Salve as chaves de acesso e a URL do contêiner.
 
-1. Configure a testemunha de quorum de cluster WSFC. Confira [Configurar a testemunha de quorum na interface do usuário].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) na interface do usuário.
+1. Configure a testemunha de quorum do cluster de failover. Confira [Configurar a testemunha de quorum na interface do usuário].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) na interface do usuário.
 
 ### <a name="add-storage"></a>Adicionar armazenamento
 
@@ -297,13 +298,13 @@ Os discos para S2D precisam estar vazios e sem partições ou outros dados. Para
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-wsfc-failover"></a>Etapa 3: testar failover de WSFC
+## <a name="step-3-test-failover-cluster-failover"></a>Etapa 3: Testar o failover do cluster de failover
 
-No Gerenciador de Cluster de Failover, verifique se você pode mover o recurso de armazenamento para outro nó do cluster. Se puder se conectar ao WSFC com o **Gerenciador de Cluster de Failover** e mover o armazenamento de um nó para outro, você estará pronto para configurar o FCI. 
+No Gerenciador de Cluster de Failover, verifique se você pode mover o recurso de armazenamento para outro nó do cluster. Se você conseguir se conectar ao cluster de failover com o **Gerenciador de Cluster de Failover** e mover o armazenamento de um nó para o outro, você estará pronto para configurar a FCI. 
 
 ## <a name="step-4-create-sql-server-fci"></a>Etapa 4: criar FCI do SQL Server
 
-Depois de configurar o WSFC e todos os componentes do cluster, incluindo o armazenamento, você pode criar o FCI do SQL Server. 
+Depois de configurar o cluster de failover e todos os componentes do cluster, incluindo o armazenamento, é possível criar a FCI do SQL Server. 
 
 1. Conecte-se à primeira máquina virtual com o RDP. 
 
@@ -473,10 +474,5 @@ Em máquinas virtuais do Azure, o DTC (Coordenador de Transações Distribuídas
 [Visão geral direta de espaço de armazenamento](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [Suporte do SQL Server para S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

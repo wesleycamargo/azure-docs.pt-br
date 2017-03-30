@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: 1ef09170f9d5dd28005f70913df2c945f8e4ac12
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -87,7 +87,7 @@ Não escolher nenhum valor para uma determinada propriedade tem o mesmo efeito q
 ### <a name="narrow-your-search"></a>Reduzir o escopo de sua pesquisa
 Observe que as contagens à direita dos valores de filtro mostram quantas ocorrências existem no atual conjunto filtrado. 
 
-Neste exemplo, está claro que a solicitação “Rpt/Employees” resulta na maioria dos&500; erros:
+Neste exemplo, está claro que a solicitação “Rpt/Employees” resulta na maioria dos 500 erros:
 
 ![Expanda uma propriedade e escolha um valor](./media/app-insights-diagnostic-search/04-failingReq.png)
 
@@ -167,15 +167,19 @@ Além de telemetria da caixa enviada pelo SDK do Application Insights, você pod
 
 [Saiba como enviar logs e telemetria personalizada para o Application Insights](app-insights-search-diagnostic-logs.md).
 
-## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Perguntas e respostas
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Que quantidade de dados é mantida?
+## <a name="questions"></a>Perguntas e respostas
+### <a name="limits"></a>Que quantidade de dados é mantida?
 
 Veja o [Resumo de limites](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Como consultar dados de POSTAGEM nas minhas solicitações de servidor?
 Nós não registramos os dados de POST automaticamente, mas você pode usar [chamadas de log ou TrackTrace](app-insights-search-diagnostic-logs.md). Coloque os dados de POSTAGEM no parâmetro de mensagem. Não é possível filtrar a mensagem da mesma maneira que as propriedades, mas o limite de tamanho é maior.
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>Próximas etapas
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="add"></a>Próximas etapas
 * [Escrever consultas complexas no Analytics](app-insights-analytics-tour.md)
 * [Enviar logs e telemetria personalizada para o Application Insights](app-insights-search-diagnostic-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](app-insights-monitor-web-app-availability.md)

@@ -13,28 +13,29 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d3f68340592d9032999ecb5cc16ac1fedcce4c33
-ms.openlocfilehash: 7fa5fc5e85268c908eb8b8c055837f41b36c4260
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 5f8559450b24effd40a38879aeae3a8dd03944a3
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mapeamento de declarações de usuário de colaboração B2B no Azure Active Directory
 
-O Azure AD oferece suporta à personalização de declarações emitidas no token SAML para usuários de colaboração B2B. Quando um usuário é autenticado no aplicativo, o Azure AD emite um token SAML para o aplicativo que contém informações (ou declarações) sobre o usuário que o identifica com exclusividade. Por padrão, isso inclui o nome de usuário, o endereço de email, o nome e sobrenome do usuário. Você pode exibir ou editar as declarações enviadas no token SAML para o aplicativo na guia Atributos.
+O Azure AD (Azure Active Directory) dá suporte à personalização das declarações emitidas no token SAML para usuários da colaboração B2B. Quando um usuário é autenticado no aplicativo, o Azure AD emite um token SAML para o aplicativo que contém informações (ou declarações) sobre o usuário que o identifica com exclusividade. Por padrão, isso inclui o nome de usuário, o endereço de email, o nome e sobrenome do usuário. Você pode exibir ou editar as declarações enviadas no token SAML para o aplicativo na guia Atributos.
 
 Há dois possíveis motivos para você precisar editar as declarações emitidas no token SAML.
 
 1. O aplicativo foi escrito para exigir um conjunto diferente de URIs de declaração ou valores de declaração
 
-2. O aplicativo foi implantado de uma forma que exige que a declaração NameIdentifier seja algo diferente do nome de usuário (UPN) armazenado no Azure Active Directory.
+2. O aplicativo exige que a declaração NameIdentifier seja algo diferente do nome UPN armazenado no Azure Active Directory.
 
   ![exibir declarações no token SAML](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
 
-Para saber mais sobre como adicionar e editar declarações para esses cenários, leia este artigo sobre a personalização de declarações, [Personalização de declarações emitidas no token SAML para aplicativos pré-integrados no Azure Active Directory](develop/active-directory-saml-claims-customization.md). Para usuários de B2B, por motivos de segurança, o mapeamento de NameID e UPN entre locatários é impedido.
+Para obter mais informações sobre como adicionar e editar declarações, confira este artigo sobre personalização de declarações, [Personalizando declarações emitidas no token SAML para aplicativos pré-integrados no Azure Active Directory](develop/active-directory-saml-claims-customization.md). Para usuários da colaboração B2B, o mapeamento de NameID e UPN entre locatários é impedido, por motivos de segurança.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -51,9 +52,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Tokens de usuário de colaboração B2B](active-directory-b2b-user-token.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
