@@ -17,6 +17,7 @@ ms.author: mfussell
 translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -172,7 +173,7 @@ No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambi
 ## <a name="use-console-redirection-for-local-debugging"></a>Use o redirecionamento de console para depuração local
 De vez em quando, é útil ver a saída do console da execução de um script para fins de depuração. Para fazer isso, você pode definir uma política de redirecionamento de console que grava a saída em um arquivo. A saída do arquivo é gravada na pasta de aplicativos chamada **log** no nó no qual o aplicativo é implantado e executado. (Consulte onde encontrá-lo no exemplo anterior.)
 
-> [!NOTE]
+> [!WARNING]
 > Nunca use a política de redirecionamento de console em um aplicativo implantado na produção, pois isso pode afetar o failover do aplicativo. *Só* use isso para fins de depuração e de desenvolvimento locais.  
 > 
 > 
@@ -379,9 +380,4 @@ O manifesto do aplicativo a seguir mostra várias configurações diferentes:
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

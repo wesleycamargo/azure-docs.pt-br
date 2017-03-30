@@ -11,15 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 03/20/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: aaf5c442ef85edbc498aa2fd7815171f4701f960
-ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
+ms.lasthandoff: 03/22/2017
+
 
 ---
 
-# <a name="log-analytics-saved-searches-and-alerts-in-oms-solutions-preview"></a>Pesquisas e alertas salvos do Log Analytics em soluções OMS (visualização)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Adicionando alertas e pesquisas salvas do Log Analytics à solução de gerenciamento do OMS (Versão prévia)
 
 > [!NOTE]
 > Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.   
@@ -35,7 +38,7 @@ Este artigo pressupõe que você já esteja familiarizado com o modo para [criar
 
 
 ## <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
-Todos os recursos de Log Analytics estão contidos em um [espaço](../log-analytics/log-analytics-manage-access.md).  Como descrito no [espaço de trabalho OMS e conta de automação](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account), o espaço de trabalho não está incluído na solução de gerenciamento, mas deve existir antes que a solução seja instalada.  Se ela não estiver disponível, a instalação da solução falhará.
+Todos os recursos de Log Analytics estão contidos em um [espaço](../log-analytics/log-analytics-manage-access.md).  Como descrito no [espaço de trabalho OMS e conta de automação](operations-management-suite-solutions.md#oms-workspace-and-automation-account), o espaço de trabalho não está incluído na solução de gerenciamento, mas deve existir antes que a solução seja instalada.  Se ela não estiver disponível, a instalação da solução falhará.
 
 O nome do espaço de trabalho é no nome de cada recurso de Log Analytics.  Isso é feito na solução com o parâmetro **workspace**, conforme descrito no exemplo a seguir de um recurso savedsearch.
 
@@ -90,7 +93,7 @@ Salvar pesquisa recursos descritos acima.  Outros recursos são descritos abaixo
 Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa uma regra de alerta separada. A agenda define a frequência com que a pesquisa é executada e o intervalo de tempo em que os dados são recuperados.  Os recursos de agendamento têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` e ter a seguinte estrutura. 
 
     {
-      "name": "<name-of-schedule>",
+      "name": "<name-of-schedule-resource>",
       "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
       "apiVersion": "<api-version-of-resource>",
       "dependsOn": [
@@ -100,7 +103,7 @@ Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa u
         "etag": "*",               
         "interval": <schedule-interval-in-minutes>,
         "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-interval-in-minutes>       
+        "enabled": <schedule-enabled>       
       }
     }
 
@@ -209,7 +212,7 @@ Esta seção é opcional.  Inclua esta seção se você desejar Suprimir alertas
 | Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | Destinatários | Sim | Lista delimitada por vírgulas de endereços de email para enviar notificações quando um alerta é criado, como no exemplo a seguir.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Assunto | Sim | Linha de assunto do email. |
+| Subject | Sim | Linha de assunto do email. |
 | Anexo | Não | Anexos não são atualmente suportados.  Se este elemento for incluído, ele deve ser **nenhum**. |
 
 
@@ -257,7 +260,7 @@ As propriedades de Recursos de ação de alerta são descritas nas tabelas a seg
 
 
 
-### <a name="sample"></a>Amostra
+## <a name="sample"></a>Amostra
 
 A seguir está um exemplo de uma solução que inclua que inclui os seguintes recursos:
 
@@ -266,7 +269,7 @@ A seguir está um exemplo de uma solução que inclua que inclui os seguintes re
 - Ação de alerta
 - Ações de webhook
 
-O exemplo usa [parâmetros de solução padrão](operations-management-suite-solutions-creating.md#parameters) variáveis que normalmente seriam usados em uma solução em vez de embutir valores nas definições de recurso.
+O exemplo usa [parâmetros de solução padrão](operations-management-suite-solutions-solution-file.md#parameters) variáveis que normalmente seriam usados em uma solução em vez de embutir valores nas definições de recurso.
 
     {
         "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
@@ -504,10 +507,5 @@ O arquivo de parâmetro a seguir fornece valores de amostras para esta solução
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar exibições](operations-management-suite-solutions-resources-views.md) à sua solução de gerenciamento.
 * [Adicionar runbooks de automação e outros recursos](operations-management-suite-solutions-resources-automation.md) à sua solução de gerenciamento.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

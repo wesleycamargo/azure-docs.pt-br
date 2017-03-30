@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/17/2017
 ms.author: sdanie
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: ec9e12667bc82043fbdc0b3f113533cf518f39be
-ms.openlocfilehash: 9593f49d98794e72728e0683e34a407e39144a5d
-ms.lasthandoff: 01/21/2017
-
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: e8347c21610118af4ebaa80b24edd0838bc58cf8
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="how-to-use-in-role-cache-for-azure-cache"></a>Como usar o Cache na Função para Cache do Azure
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/21/2017
 > 
 > 
 
-Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C\# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache ** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][Next Steps].
+Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C\# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][Next Steps].
 
 
 
@@ -85,23 +85,23 @@ Para usar o caching em instâncias de função, você precisa configurar um clus
 ## <a name="configure-the-cache-cluster"></a>Configurar o cluster de cache
 Para configurar um cluster de cache de **Função Colocalizada** , selecione a função na qual você deseja hospedar o cluster de cache. Clique com o botão direito do mouse nas propriedades da função no **Gerenciador de Soluções** e escolha **Propriedades**.
 
-![Cache de função&1;][RoleCache1]
+![Cache de função 1][RoleCache1]
 
 Alterne para a guia **Caching**, marque a caixa de seleção **Habilitar Caching** e especifique as opções de cache desejadas. Quando o caching está habilitado em uma **Função de Trabalho** ou **Função Web ASP.NET**, a configuração padrão é o caching de **Função Colocalizada** com 30% da memória das instâncias de função alocadas para o caching. Um cache padrão é configurado automaticamente, e os caches nomeados adicionais podem ser criados se desejados, e esses caches compartilharão a memória alocada.
 
-![Cache de função&2;][RoleCache2]
+![Cache de função 2][RoleCache2]
 
 Para configurar um cluster de cache de **Função dedicada**, adicione uma **Função de Trabalho do Cache** a seu projeto.
 
-![Cache de função&7;][RoleCache7]
+![Cache de função 7][RoleCache7]
 
 Quando uma **Função de Trabalho de Cache** é adicionada a um projeto, a configuração padrão é cache de **Função Dedicada**.
 
-![Cache de função&8;][RoleCache8]
+![Cache de função 8][RoleCache8]
 
 Quando o cache estiver habilitado, a conta de armazenamento do cluster de cache pode ser configurada. O Cache na Função requer uma conta de Armazenamento do Azure. Essa conta de armazenamento é usada para armazenar dados de configuração sobre o cluster de cache que é acessado de todas as máquinas virtuais que fazem parte do cluster de cache. Essa conta de armazenamento é especificada na guia **Caching** da página de propriedades da função de cluster de cache, acima de **Configurações de Cache Nomeado**.
 
-![Cache de função&10;][RoleCache10]
+![Cache de função 10][RoleCache10]
 
 > Se essa conta de armazenamento não estiver configurada, as funções não serão iniciadas. 
 > 
@@ -115,11 +115,11 @@ O tamanho do cache é determinado por uma combinação do tamanho da VM da funç
 
 Para configurar o tamanho da máquina virtual e o número de instâncias de função, clique com o botão direito do mouse nas propriedades da função no **Gerenciador de Soluções** e escolha **Propriedades**.
 
-![Cache de função&1;][RoleCache1]
+![Cache de função 1][RoleCache1]
 
 Alterne para a guia **Configuração** . A **Contagem de instâncias** padrão é 1, e o **Tamanho da VM** padrão é **Pequena**.
 
-![Cache de função&3;][RoleCache3]
+![Cache de função 3][RoleCache3]
 
 A memória total dos tamanhos de VM é a seguinte: 
 
@@ -141,7 +141,7 @@ Depois que o cluster de cache estiver configurado, você poderá configurar os c
 ## <a name="configure-the-cache-clients"></a>Configurar os clientes de cache
 Para acessar um cache de Cache na Função, os clientes devem estar na mesma implantação. Se o cluster de cache for um cluster de cache de função dedicado, os clientes serão outras funções na implantação. Se o cluster de cache for um cluster de cache de função colocalizado, os clientes poderão ser outras funções na implantação ou as próprias funções que hospedam o cluster de cache. É fornecido um pacote NuGet que pode ser usado para configurar cada função de cliente que acessa o cache. Para configurar uma função para acessar um cluster de cache usando o pacote NuGet de Caching, clique com o botão direito do mouse no projeto de função no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. 
 
-![Cache de função&4;][RoleCache4]
+![Cache de função 4][RoleCache4]
 
 Selecione **Cache na Função**, clique em **Instalar** e, em seguida, clique em **Aceito**.
 
@@ -149,7 +149,7 @@ Selecione **Cache na Função**, clique em **Instalar** e, em seguida, clique em
 > 
 > 
 
-![Cache de função&5;][RoleCache5]
+![Cache de função 5][RoleCache5]
 
 O pacote NuGet faz várias coisas: adiciona a configuração necessária ao arquivo de configuração da função, adiciona uma configuração em nível de diagnóstico do cliente do cache ao arquivo ServiceConfiguration.cscfg do aplicativo do Azure e adiciona as referências ao assembly necessárias.
 
@@ -298,7 +298,7 @@ O método **Put** adiciona o objeto com a chave especificada ao cache se ele nã
 ## <a name="how-to-specify-the-expiration-of-an-object-in-the-cache"></a>Como especificar a expiração de um objeto no cache
 Por padrão, os itens no cache expiram 10 minutos depois que são colocados no cache. Isso pode ser configurado na configuração **Vida Útil (min)** nas propriedades da função que hospeda o cluster de cache.
 
-![Cache de função&6;][RoleCache6]
+![Cache de função 6][RoleCache6]
 
 Existem três tipos de **Tipo de Expiração**: **Nenhum**, **Absoluto** e **Janela Deslizante**. Esses tipos configuram como a opção **Vida Útil (min)** é usada para determinar a expiração. O **Tipo de Expiração** padrão é **Absoluto**, o que significa que o temporizador da contagem regressiva de expiração de um item começa quando o item é colocado no cache. Depois que o período de tempo especificado tiver decorrido para um item, o item expira. Se **Janela Deslizante** for especificado, a contagem regressiva da expiração de um item será zerada cada vez que o item for acessado no cache, e o item não vai expirar até que o período de tempo especificado tiver decorrido desde o seu último acesso. Se **Nenhum** for especificado, a opção **Vida Útil (min)** deverá ser definida como **0**, e os itens não expirarão e permanecerão válidos enquanto estiverem no cache.
 

@@ -1,6 +1,6 @@
 ---
 title: "O que é o Backup do Azure? | Microsoft Docs"
-description: "Usando os Serviços de Recuperação e Backup do Azure, você poderá fazer backup e restaurar os dados e aplicativos em Servidores Windows e estações de trabalho, servidores do System Center DPM e cargas de trabalho e máquinas virtuais do Azure."
+description: "Use o Backup do Azure para fazer backup e restaurar dados e cargas de trabalho de Servidores Windows, estações de trabalho Windows, servidores System Center DPM e máquinas virtuais do Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,16 +13,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/23/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 39ad8e07659a228e4a4b861cc98e9f3e830aaab0
-ms.openlocfilehash: 63d3d95300f3d2353471b8ca4923f3bf682464bb
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
+# <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre do Backup no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
 
 [Assista a uma visão geral em vídeo do Backup do Azure](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
@@ -91,20 +92,18 @@ A tabela a seguir mostra os componentes do Backup do Azure com suporte para Linu
 | Agente de Backup do Azure (MARS) |Não (somente agente baseado no Windows) |
 | System Center DPM |Backup consistente com arquivos no Hyper-V somente<br/> (não disponível para a VM do Azure) |
 | Servidor de Backup do Azure |Backup consistente com arquivos no Hyper-V somente<br/> (não disponível para a VM do Azure) |
-| Backup de VM IaaS do Azure |Sim |
+| Backup de VM IaaS do Azure |Sim (backup consistente de aplicativo usando [framework de pré/pós-script ](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Usando máquinas virtuais de Armazenamento Premium com o Backup do Azure
 O Backup do Azure protege VMs de Armazenamento Premium. O Armazenamento Premium do Azure é um armazenamento baseado em SSD (unidade de estado sólido) desenvolvida para dar suporte a cargas de trabalho com E/S intenso. O Armazenamento Premium é uma opção interessante para cargas de trabalho de máquina virtual (VM). Para saber mais sobre o Armazenamento Premium, confira o artigo [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Backup de VMs de Armazenamento Premium
-Ao fazer backup de VMs de Armazenamento Premium, o serviço de Backup cria um local de preparo temporário na conta de Armazenamento Premium. O local de preparo, chamado de "AzureBackup-" é igual ao tamanho total dos dados dos discos premium conectados à VM. Verifique se há espaço livre suficiente para um local temporário de preparo na conta de armazenamento. Para obter mais informações, confira o artigo [Limitações do Armazenamento Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+Durante o backup de VMs do Armazenamento Premium, o serviço de Backup cria um local de preparo temporário, chamado "AzureBackup-", na conta do Armazenamento Premium. O local de preparo é igual ao tamanho do instantâneo de ponto de recuperação. Verifique se há espaço livre na conta de armazenamento para acomodar o local de preparo temporário. Para obter mais informações, confira o artigo [Limitações do Armazenamento Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets). Quando o trabalho de backup for concluído, o local de preparo será excluído. O preço do armazenamento usada para o local de preparo é consistente com todos os [preços de armazenamento Premium](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Não modifique nem edite o local de preparo.
 >
 >
-
-Quando o trabalho de backup for concluído, o local de preparo será excluído. O preço do armazenamento usada para o local de preparo é consistente com todos os [preços de armazenamento Premium](../storage/storage-premium-storage.md#pricing-and-billing).
 
 ### <a name="restore-premium-storage-vms"></a>Restaurar VMs de Armazenamento Premium
 As VMs de Armazenamento Premium podem ser restauradas para o Armazenamento Premium ou normal. A restauração de um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Premium é o processo típico de restauração. No entanto, pode ser econômico para restaurar um ponto de recuperação de VM de Armazenamento Premium para o armazenamento padrão. Esse tipo de restauração poderá ser usado se você precisar de um subconjunto de arquivos da VM.

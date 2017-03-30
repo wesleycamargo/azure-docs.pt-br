@@ -12,28 +12,26 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 5fce9171dc249445d78cee248fb2a7ec62a3dabb
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a2009cb07ae2ae7cf716d77a7d9eac7482138ab1
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Criar um aplicativo Web com a implantação contínua do Visual Studio Team Services
 
-Este script de exemplo faz o seguinte usando a CLI do Azure 2.0: 
+Esse script de exemplo cria um aplicativo Web no Serviço de Aplicativo com recursos relacionados e, em seguida, configura a implantação contínua por meio de um repositório do Visual Studio Team Services. 
 
-* Crie um aplicativo Web no Serviço de Aplicativo do Azure na região Europa Ocidental do Azure. 
-* Implante o código do aplicativo Web do Visual Studio Team Services.
-* Exiba o aplicativo Web do Azure implantado no navegador.
+Se necessário, instale a CLI do Azure usando a instrução encontrada no [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Além disso, verifique se:
 
-## <a name="prerequisites"></a>Pré-requisitos
+- Uma conexão com o Azure foi criado usando o comando `az login`.
+- O código do aplicativo está em um repositório do Visual Studio Team Services de sua propriedade.
+- Você [criou um token de acesso em sua conta do Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
 
-* Execute `az login` para efetuar logon no Azure.
-* Coloque o código de seu aplicativo Web em um repositório do Visual Studio Team Services.
-* Para um repositório do Visual Studio Team Services de sua propriedade, [crie um token de acesso](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## <a name="create-app-sample"></a>Criar aplicativo de exemplo
 
@@ -45,7 +43,7 @@ Este script de exemplo faz o seguinte usando a CLI do Azure 2.0:
 
 Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Comando | Observações |
+| Command | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Cria um Plano do Serviço de Aplicativo. |

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 339df6e5ff05c66e898254f2cd4bb5b596d0c537
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6ec77968a0f264b8bf1fa56a23e4cc7faef614da
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -48,6 +48,9 @@ O Managed Disks fornece mais confiabilidade para Conjuntos de disponibilidade, a
 ### <a name="granular-access-control"></a>Controle de acesso granular
 
 Use o [RBAC (Controle de acesso baseado em função do Azure)](../active-directory/role-based-access-control-what-is.md) para atribuir permissões específicas a um disco gerenciado a um ou mais usuários. O Managed Disks expõe uma variedade de operações, incluindo leitura, gravação (criar/atualizar), exclusão e recuperação de um [URI de assinatura de acesso compartilhado (SAS)](storage-dotnet-shared-access-signature-part-1.md) para o disco. Conceda acesso somente às operações que uma pessoa necessita para executar seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerenciado em uma conta de armazenamento, opte por não conceder acesso à ação de exportação para esse disco gerenciado. Da mesma forma, se não quiser que uma pessoa use um URI de SAS para copiar um disco gerenciado, opte por não conceder essa permissão ao disco gerenciado.
+
+### <a name="azure-backup-service-support"></a>Suporte de serviço do Backup do Azure 
+Use o serviço de Backup do Azure com o Managed Disks para criar um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. O Managed Disks dá suporte apenas ao LRS (Armazenamento com Redundância Local) como a opção de replicação; isso significa que ele mantém três cópias dos dados em uma única região. Para a recuperação de desastre regional, é necessário fazer backup dos discos da VM em outra região usando o [serviço de Backup do Azure](../backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o cofre de backup. Leia mais sobre isso em [Usando o serviço de Backup do Azure para VMs com o Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança 
 
@@ -114,19 +117,21 @@ Um instantâneo é uma cópia de um disco no momento exato em que é tirado. Ele
 
 E se uma VM tiver cinco discos e eles estiverem distribuídos? Você pode tirar um instantâneo de cada um dos discos, mas não há reconhecimento dentro da VM do estado dos discos – os instantâneos dizem respeito apenas àquele disco. Nesse caso, os instantâneos precisariam ser coordenados entre si, e não há suporte para isso no momento.
 
-## <a name="azure-backup-service-support"></a>Suporte de serviço do Backup do Azure 
+## <a name="managed-disks-and-encryption"></a>Managed Disks e criptografia
 
-O backup das máquinas virtuais com discos não gerenciados pode ser feito usando o Backup do Azure. [Mais detalhes](../backup/backup-azure-vms-first-look-arm.md).
+Há dois tipos de criptografia a serem abordados em referência a discos gerenciados. O primeiro é o SSE (Criptografia do Serviço de Armazenamento), que é executado pelo serviço de armazenamento. O segundo é o Azure Disk Encryption, que pode ser habilitado nos discos do sistema operacional e de dados das VMs. 
 
-Você também pode usar o serviço de Backup do Azure com o Managed Disks para criar um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. Você pode ler mais sobre isso em [Usando o serviço de backup do Azure para VMs com Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+### <a name="storage-service-encryption-sse"></a>SSE (Criptografia do Serviço de Armazenamento)
 
-## <a name="managed-disks-and-storage-service-encryption-sse"></a>Managed Disks e SSE (Criptografia de Serviço de Armazenamento)
-
-O Armazenamento do Azure dá suporte à criptografia automática dos dados gravados em uma conta de armazenamento. Para obter mais detalhes, confira [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](storage-service-encryption.md). E quanto aos dados nos discos gerenciados? Atualmente, não é possível habilitar a Criptografia do Serviço de Armazenamento para o Managed Disks, mas isso será liberado no futuro. Enquanto isso, você precisa estar ciente de como usar um arquivo VHD que reside em uma conta de armazenamento criptografada e que também foi criptografado. 
+O Armazenamento do Azure dá suporte à criptografia automática dos dados gravados em uma conta de armazenamento. Para obter mais detalhes, confira [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](storage-service-encryption.md). E quanto aos dados nos discos gerenciados? No momento, não é possível habilitar a Criptografia do Serviço de Armazenamento para o Managed Disks. No entanto, ela será liberada no futuro. Enquanto isso, você precisa estar ciente de como usar um arquivo VHD que reside em uma conta de armazenamento criptografada e que também foi criptografado. 
 
 A SSE criptografa os dados conforme eles são gravados na conta de armazenamento. Se você tiver um arquivo VHD que já foi criptografado com SSE, não será possível usar esse arquivo VHD para criar uma VM que utiliza Managed Disks. Também não é possível converter um disco não gerenciado criptografado em um disco gerenciado. E, por fim, se você desabilitar a criptografia nessa conta de armazenamento, ela não descriptografará o arquivo VHD. 
 
 Para usar um disco que foi criptografado, primeiro copie o arquivo VHD em uma conta de armazenamento que nunca foi criptografada. Em seguida, crie uma VM com o Managed Disks e especifique esse arquivo VHD durante a criação, ou anexe o arquivo VHD copiado a uma VM em execução com o Managed Disks. 
+
+### <a name="azure-disk-encryption-ade"></a>ADE (Azure Disk Encryption)
+
+O Azure Disk Encryption permite criptografar os discos do sistema operacional e os discos de dados usados por uma Máquina Virtual IaaS. Isso inclui discos gerenciados. No Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. No Linux, os discos são criptografados usando a tecnologia DM-Crypt. Esse recurso é integrado ao Cofre de Chaves do Azure para permitir que você controle e gerencie as chaves de criptografia de disco. Para obter mais informações, consulte [Azure Disk Encryption para VMs IaaS Windows e Linux](../security/azure-security-disk-encryption.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

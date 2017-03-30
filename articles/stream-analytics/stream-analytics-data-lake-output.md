@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
 ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -87,10 +88,5 @@ Atualmente, há uma limitação em que o token de autenticação deve ser atuali
 Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Repositório Data Lake. Clique no link "Renovar autorização" e por um curto período uma página será exibida indicando "Redirecionando para autorização...". A página será fechada automaticamente e, se for bem-sucedida, indicará "A autorização foi renovada com êxito". Em seguida, você precisa clicar em "Salvar" na parte inferior da página e poderá continuar reiniciando seu trabalho da última vez em que foi interrompido para evitar perda de dados.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

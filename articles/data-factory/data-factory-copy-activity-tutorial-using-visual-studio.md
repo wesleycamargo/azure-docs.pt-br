@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 01e1728d9658ac69659e31aca584cb574338a238
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/03/2017
 Este tutorial mostra como criar e monitorar um data factory do Azure usando o Visual Studio. O pipeline no data factory usa uma Atividade de Cópia para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL.
 
 > [!NOTE]
-> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Ele não transforma dados de entrada para gerar dados de saída. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar seu primeiro pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Ele não transforma dados de entrada para gerar dados de saída. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, confira [Tutorial: criar seu primeiro pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
 > 
 > É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Veja [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas.
 
@@ -97,7 +97,7 @@ Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService1*
 4. Salve o arquivo **AzureSqlLinkedService1.json** . 
 
 > [!NOTE]
-> Confira [Mover dados de/para Banco de Dados SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obter detalhes sobre as propriedades JSON.
+> Confira [Mover dados de/para Banco de Dados SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre as propriedades JSON.
 > 
 > 
 
@@ -153,7 +153,7 @@ Nesta etapa, você criará um conjunto de dados denominado **InputDataset** que 
    
    Se você não especificar um **fileName** para um conjunto de dados de **entrada**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn.
    
-   Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.&lt;Guid\&gt;.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.&lt;Guid&gt;.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
    Para definir **folderPath** e **fileName** dinamicamente com base no horário **SliceStart**, use a propriedade **partitionedBy**. No exemplo a seguir, folderPath usa o ano, mês e dia de SliceStart (hora de início da fatia que está sendo processada) e fileName usa a hora de SliceStart. Por exemplo, se uma fatia é produzida para 2016-09-20T08:00:00, o folderName é definido como wikidatagateway/wikisampledataout/2016/09/20 e o fileName é definido como 08.csv. 
   
@@ -169,7 +169,7 @@ Nesta etapa, você criará um conjunto de dados denominado **InputDataset** que 
     ```
             
 > [!NOTE]
-> Confira [Mover dados de/para Blobs do Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para obter detalhes sobre as propriedades JSON.
+> Confira [Mover dados de/para Blobs do Azure](data-factory-azure-blob-connector.md#dataset-properties) para obter detalhes sobre as propriedades JSON.
 > 
 > 
 
@@ -216,7 +216,7 @@ Nesta etapa, você cria um conjunto de dados de saída denominado **OutputDatase
    * A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1**).  O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
 
 > [!NOTE]
-> Confira [Mover dados de/para Banco de Dados SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obter detalhes sobre as propriedades JSON.
+> Confira [Mover dados de/para Banco de Dados SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre as propriedades JSON.
 > 
 > 
 

@@ -4,19 +4,19 @@ description: "Configure testes da web no Application Insights. Obtenha alertas s
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -101,7 +101,7 @@ Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo
 > Há uma cobrança para testes na Web de várias etapas. [Esquema de preços](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-Para criar um teste de várias etapas, grave o cenário usando o Visual Studio e, em seguida, carregue a gravação no Application Insights. O Application Insights reproduz o cenário em intervalos e verifica as respostas.
+Para criar um teste com várias etapas, grave o cenário usando o Visual Studio Enterprise e carregue a gravação no Application Insights. O Application Insights reproduz o cenário em intervalos e verifica as respostas.
 
 Observe que você não pode usar funções codificadas em seus testes: as etapas do cenário devem estar contidas como um script no arquivo .webtest.
 
@@ -110,7 +110,10 @@ Use o Visual Studio Enterprise para registrar uma sessão da Web.
 
 1. Crie um projeto de teste de desempenho na Web.
 
-    ![No Visual Studio, crie um projeto do modelo de teste de carga e desempenho na Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![No Visual Studio Enterprise Edition, crie um projeto do modelo de Teste de carga e desempenho na Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Não consegue ver o modelo de Teste de carga e desempenho na Web?* - Feche o Visual Studio Enterprise. Abra o **Instalador do Visual Studio** para modificar a instalação do Visual Studio Enterprise. Em **Componentes Individuais**, selecione **Ferramentas de teste de carga e desempenho na Web**.
+
 2. Abra o arquivo .webtest e inicie a gravação.
 
     ![Abra o arquivo .webtest e clique em Registrar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)

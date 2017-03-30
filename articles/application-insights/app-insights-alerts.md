@@ -1,33 +1,34 @@
 ---
-title: Definir Alertas no Application Insights | Microsoft Docs
+title: Definir alertas no Azure Application Insights | Microsoft Docs
 description: "Seja notificado sobre os tempos de resposta lentos, as exceções e outras alterações de desempenho ou de uso em seu aplicativo Web."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 2146030449c691af166d6a9b134d22d4504d7641
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 04965375fc94fc1aa8b1c48deb743bb1d0cf1c26
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
-O [Azure Application Insights][iniciar] pode alertá-lo sobre as alterações nas métricas do desempenho ou uso em seu aplicativo Web. 
+O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas métricas de desempenho ou de uso do aplicativo Web. 
 
-O Application Insights monitora seu aplicativo ativo em uma [ampla variedade de plataformas][plataformas] para ajudá-lo a diagnosticar problemas de desempenho e compreender padrões de uso.
+O Application Insights monitora o aplicativo ativo em um [ampla variedade de plataformas][platforms] para ajudá-lo a diagnosticar problemas de desempenho e compreender os padrões de uso.
 
 Há três tipos de alerta:
 
-* Os **alertas de métrica** informam quando qualquer métrica ultrapassa um valor limite durante determinado período, como tempos de resposta, contagens de exceção, uso de CPU ou exibições de página. 
-* Os [**testes da Web**][availability] informam quando seu site está indisponível na Internet ou está respondendo lentamente. [Saiba mais][availability].
+* Os **alertas de métrica** informam quando uma métrica ultrapassa um valor limite durante determinado período – como tempos de resposta, contagens de exceção, uso da CPU ou exibições de página. 
+* Os [**testes da Web**][availability] informam quando site está indisponível na Internet ou está respondendo com lentidão. [Saiba mais][availability].
 * Os [**diagnósticos proativos**](app-insights-proactive-diagnostics.md) são configurados automaticamente para notificar você sobre padrões de desempenho incomuns.
 
 Vamos nos concentrar nos alertas de métricas deste artigo.
@@ -84,7 +85,7 @@ Depende de seu aplicativo. Para começar, é melhor não definir um número exce
 
 Alguns alertas populares são:
 
-* As [métricas de navegador][client], principalmente os **tempos de carregamento de páginas** de navegador, são adequadas para aplicativos Web. Se sua página tem vários scripts, convém procurar **exceções de navegador**. Para obter essas métricas e alertas, você precisa configurar o [monitoramento de página da Web][client].
+* [Métricas de navegador][client], especificamente, **tempos de carregamento de página** do navegador, são adequados para aplicativos Web. Se sua página tem vários scripts, convém procurar **exceções de navegador**. Para obter essas métricas e esses alertas, você precisa configurar o [monitoramento de página da Web][client].
 * **Tempo de resposta do servidor** para o lado do servidor de aplicativos Web. Além de configurar alertas, confira essa métrica para ver se ela varia de forma desproporcional com altas taxas de solicitação: isso pode indicar que seu aplicativo está ficando sem recursos. 
 * **Exceções de servidor** - para vê-las, você precisa fazer algumas [configurações adicionais](app-insights-asp-net-exceptions.md).
 
@@ -93,6 +94,10 @@ Não se esqueça de que [diagnósticos de taxa de falha proativos](app-insights-
 ## <a name="automation"></a>Automação
 * [Usar o PowerShell para automatizar a configuração de alertas](app-insights-powershell-alerts.md)
 * [Usar webhooks para automatizar a resposta a alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="see-also"></a>Consulte também
 * [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
@@ -103,13 +108,8 @@ Não se esqueça de que [diagnósticos de taxa de falha proativos](app-insights-
 
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
-[plataformas]: app-insights-platforms.md
+[platforms]: app-insights-platforms.md
 [roles]: app-insights-resources-roles-access-control.md
-[iniciar]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[start]: app-insights-overview.md
 
 

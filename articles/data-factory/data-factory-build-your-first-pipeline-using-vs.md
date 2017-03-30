@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
 ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -523,9 +524,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 | [Atividades de transformação de dados](data-factory-data-transformation-activities.md) |Este artigo fornece uma lista de atividades de transformação de dados (como a transformação do Hive do HDInsight usado neste tutorial) com suporte do Azure Data Factory. |
 | [Agendamento e execução](data-factory-scheduling-and-execution.md) |Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) |Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

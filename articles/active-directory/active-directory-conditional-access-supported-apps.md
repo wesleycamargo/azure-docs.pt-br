@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 03/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b9605eb10f87f107dffd9f631d043bf550cf030b
-ms.openlocfilehash: 5e293d7d3fa6b0a763663a5428878944660fc03e
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 6dea1af021599eb530a4feb3257238e088191d5f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,9 +46,9 @@ Os aplicativos a seguir oferecem suporte ao acesso condicional para o Office 365
 | Office 365 SharePoint Online |Windows 8.1, Windows 7 |Aplicativos do Office 2016, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |Aplicativos móveis do Office |
 | Office 365 SharePoint Online |Mac OS X |Aplicativos do Office 2016 para autenticação multifator e somente localização; suporte a política baseada em dispositivo planejado para o futuro |
-| Office 365 Yammer |Windows 10, iOS e Android |Aplicativo Office Yammer |
+| Office 365 Yammer |Suporte para Windows 10, iOS e Android planejado para o futuro |Aplicativo Office Yammer |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS e Android |Aplicativo Dynamics CRM |
-| Serviço PowerBI |Windows 10, Windows 8.1, Windows 7, iOS e Android |Aplicativo PowerBI |
+| Serviço PowerBI |Windows 10, Windows 8.1, Windows 7 e iOS|Aplicativo do Power BI (aplicativos Android sem suporte) |
 | Serviço de Aplicativo Remoto do Azure |Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X |Aplicativo Remoto do Azure |
 | Qualquer serviço de aplicativo de Meus Aplicativos |Android e iOS |Qualquer serviço de aplicativo de Meus Aplicativos |
 
@@ -108,9 +109,4 @@ Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Co
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

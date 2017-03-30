@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: saeeda
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 84f5ba5b3836f8524aafd9ca5e30978cc2702c1f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 992bbf513ac87b0d955f9dc4b27984ef03050b83
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -40,18 +40,18 @@ Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um 
 ## <a name="create-an-application"></a>Criar um aplicativo
 Em seguida, você precisa criar um aplicativo em seu diretório B2C. O registro do aplicativo dá ao Azure AD as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Para criar um aplicativo móvel, siga [estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
 
-* Inclua um **dispositivo móvel** no aplicativo.
+* Inclua um **Cliente nativo** no aplicativo.
 * Copie a **ID de aplicativo** atribuída ao aplicativo. Você precisará desse GUID posteriormente.
 * Configure um **URI de redirecionamento** com um esquema personalizado (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Você precisará desse URI posteriormente.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Criar suas políticas
-No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Você deve criar esta política seguindo as instruções de [Artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar a política, não se esqueça de fazer o seguinte:
+No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Crie essa política conforme descrito no [artigo de referência da política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar a política, não se esqueça de fazer o seguinte:
 
-* Escolha o **Nome de exibição** e atributos de inscrição em sua política.
-* Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas. Você pode escolher outras declarações também.
-* Copie o **Nome** de cada política depois de criá-la. Ele deve ter o prefixo `b2c_1_`.  Posteriormente, você precisará do nome da política.
+* Em **Atributos de inscrição**, selecione o atributo **Nome de exibição**.  É possível selecionar outros atributos também.
+* Em **Declarações do aplicativo**, selecione as declarações **Nome de exibição** e **ID de Objeto do Usuário**. É possível selecionar outras declarações também.
+* Copie o **Nome** de cada política depois de criá-la. O nome da política é prefixado com `b2c_1_` quando a política é salva.  Posteriormente, você precisará do nome da política.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -128,12 +128,13 @@ appDelegate.currentAuthorizationFlow =
 
 Para configurar seu aplicativo a fim de manipular o redirecionamento para o URI com o esquema personalizado, você precisará atualizar a lista de 'Esquemas de URL' em seu Info.pList:
 * Abra Info.pList.
-* Passe o mouse sobre uma linha como ‘Bundle creator OS Type Code’ e clique no símbolo \+.
+* Focalize uma linha como 'Código do tipo do Sistema Operacional do Pacote' e clique no símbolo \+.
 * Renomeie a nova linha 'Tipos de URL'.
-* Clique na seta à esquerda de 'Tipos de URL'.
-* Renomeie o valor no Item 0 para 'Esquemas de URL'.
-* Edite o valor de esquema 'Item 0' abaixo de 'Esquemas de URL' e defina o valor como o esquema exclusivo de seu aplicativo.  Ele deve corresponder ao esquema no redirectURL ao criar o objeto OIDAuthorizationRequest.
-* Em nosso exemplo, usamos o esquema 'com.onmicrosoft.fabrikamb2c.exampleapp'.
+* Clique na seta à esquerda de 'Tipos de URL' para abrir a árvore.
+* Clique na seta à esquerda do 'Item 0' para abrir a árvore.
+* Renomeie o primeiro item sob o Item 0 como 'Esquemas de URL'.
+* Clique na seta à esquerda de 'Esquemas de URL' para abrir a árvore.
+* Na coluna 'Valor', há um campo em branco à esquerda do “Item 0”, abaixo de 'Esquemas de URL'.  Defina o valor com o esquema exclusivo do aplicativo.  O valor deve corresponder ao esquema usado na redirectURL ao criar o objeto OIDAuthorizationRequest.  Em nosso exemplo, usamos o esquema 'com.onmicrosoft.fabrikamb2c.exampleapp'.
 
 Consulte o [guia AppAuth](https://openid.github.io/AppAuth-iOS/) para concluir o processo. Se quiser trabalhar logo com o seu aplicativo, veja o [nosso exemplo](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Siga as etapas em [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) para inserir sua própria configuração do Azure AD B2C.
 

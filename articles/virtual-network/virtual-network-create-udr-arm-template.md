@@ -1,5 +1,5 @@
 ---
-title: Controlar o roteamento e os dispositivos virtuais usando um modelo|Microsoft Docs
+title: "Controlar o roteamento e as soluções de virtualização no Azure – modelo | Microsoft Docs"
 description: Saiba como controlar o roteamento e os dispositivos virtuais usando um modelo do Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 344391589a926cad5d06bf8dff095a97565ca123
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Criar UDR (Rotas Definidas pelo Usuário) usando um modelo
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [CLI do Azure](virtual-network-create-udr-arm-cli.md)
-- [Modelo](virtual-network-create-udr-arm-template.md)
-- [PowerShell (Clássico)](virtual-network-create-udr-classic-ps.md)
-- [CLI (Clássica)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [CLI do Azure](virtual-network-create-udr-arm-cli.md)
+> * [Modelo](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (Clássico)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (Clássica)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
 > Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Azure Resource Manager e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes clicando nas guias na parte superior deste artigo. Este artigo aborda o modelo de implantação do Gerenciador de Recursos. 
@@ -175,7 +176,7 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 
 Para implantar o modelo ARM usando a CLI do Azure, siga as etapas a seguir:
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando a seguir para alternar para o modo do Gerenciador de Recursos:
 
     ```azurecli
@@ -406,9 +407,4 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas a seguir:
 > [!TIP]
 > Se você não encontrar todos os recursos, execute o comando `azure group deployment show` para garantir que o estado de provisionamento da implantação seja *Êxito*.
 > 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

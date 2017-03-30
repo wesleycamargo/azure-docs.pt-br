@@ -11,45 +11,45 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: f2cd7f0882f31de5f4bb99f772c38a0fff28cd59
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f32f61824de6a0195fc57b8cb0d73a89c7a06067
+ms.lasthandoff: 03/16/2017
 
 
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando métricas de Armazenamento do Azure e registro em log, AzCopy e Analisador de Mensagem
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## <a name="overview"></a>Visão geral
 Diagnóstico e solução de problemas são habilidades chaves para a criação e o suporte a aplicativos de clientes com o Armazenamento do Microsoft Azure. Devido à natureza distribuída de um aplicativo do Azure, diagnosticar e solucionar problemas de desempenho e erros pode ser mais complexo do que em ambientes tradicionais.
 
-Neste tutorial, demonstraremos como identificar certos erros do cliente que podem afetar o desempenho e solucionar esses erros de ponta a ponta usando as ferramentas fornecidas pela Microsoft e o Armazenamento do Azure para otimizar o aplicativo cliente.
+Neste tutorial, demonstramos como identificar alguns erros do cliente que podem afetar o desempenho e solucionar esses erros de ponta a ponta usando as ferramentas fornecidas pela Microsoft e o Armazenamento do Azure, a fim de otimizar o aplicativo cliente.
 
 Este tutorial fornece uma exploração prática de um cenário de solução de problemas de ponta a ponta. Para obter um guia conceitual detalhado para solucionar problemas dos aplicativos de armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas de Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Ferramentas para solucionar problemas de aplicativos de armazenamento do Azure
 Para solucionar problemas de aplicativos cliente que usam o armazenamento do Microsoft Azure, você pode usar uma combinação de ferramentas para determinar quando um problema ocorreu e o que pode ser a causa do problema. Essas ferramentas incluem:
 
-* **Análise de Armazenamento do Azure**. [A Análise de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/hh343270.aspx) fornece métricas e registro em log para o Armazenamento do Azure.
+* **Análise de Armazenamento do Azure**. [A Análise de Armazenamento do Azure](/rest/api/storageservices/fileservices/Storage-Analytics) fornece métricas e registro em log para o Armazenamento do Azure.
   
-  * **A métrica de armazenamento** controla as métricas de transação e as métricas de capacidade para sua conta de armazenamento. Usando métricas, você pode determinar o desempenho do seu aplicativo de acordo com uma variedade de medidas diferentes. Consulte o [Esquema da Tabela de Métricas de Análise do Armazenamento](http://msdn.microsoft.com/library/azure/hh343264.aspx) para obter mais informações sobre os tipos de métricas controladas pela Análise de Armazenamento.
-  * **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343259.aspx) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
+  * **A métrica de armazenamento** controla as métricas de transação e as métricas de capacidade para sua conta de armazenamento. Usando métricas, você pode determinar o desempenho do seu aplicativo de acordo com uma variedade de medidas diferentes. Consulte o [Esquema da Tabela de Métricas de Análise do Armazenamento](/rest/api/storageservices/fileservices/Storage-Analytics-Metrics-Table-Schema) para obter mais informações sobre os tipos de métricas controladas pela Análise de Armazenamento.
+  * **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](/rest/api/storageservices/fileservices/Storage-Analytics-Log-Format) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
 
 > [!NOTE]
-> As contas de armazenamento com um tipo de replicação de ZRS (armazenamento com redundância de zona) não têm métricas ou funcionalidade de log habilitadas no momento. 
+> As contas de armazenamento com um tipo de replicação de armazenamento com redundância de zona (ZRS) não têm métricas ou funcionalidade de log habilitadas no momento. 
 > 
 > 
 
-* **Portal do Azure**. Você pode configurar log e métricas para sua conta de armazenamento no [Portal do Azure](https://portal.azure.com). Você também pode exibir gráficos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
+* **Portal do Azure**. É possível configurar o log e as métricas da conta de armazenamento no [portal do Azure](https://portal.azure.com). Você também pode exibir gráficos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
   
-    Confira [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md) (Monitorar uma conta de armazenamento no Portal do Azure) para obter informações sobre como configurar o monitoramento no Portal do Azure.
+    Consulte [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no portal do Azure.
 * **AzCopy**. Os logs do servidor do Armazenamento do Azure são armazenados como blobs, então você pode usar o AzCopy para copiar os blobs de log para um diretório local para análise usando o Analisador de Mensagem da Microsoft. Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
 * **Analisador de Mensagem da Microsoft**. O Analisador de Mensagem é uma ferramenta que consome os arquivos de log e exibe dados de log em um formato visual que torna mais fácil a filtragem, pesquisa e agrupamento de dados de log em conjuntos úteis que você pode usar para analisar erros e problemas de desempenho. Consulte o [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o Analisador de Mensagem.
 
 ## <a name="about-the-sample-scenario"></a>Sobre o cenário de exemplo
-Para este tutorial, vamos examinar um cenário onde as métricas de armazenamento do Azure indicam uma taxa de sucesso de porcentagem baixa de um aplicativo que chama o armazenamento do Azure. A métrica da taxa de sucesso de porcentagem baixa (mostrada como **PercentSuccess** no [Portal do Azure](https://portal.azure.com) e nas tabelas de métricas) controla as operações com êxito, mas que retornam um código de status HTTP maior que 299. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de sucesso de porcentagem baixa, consulte [As métricas mostram o PercentSuccess baixo ou as entradas do log de análise têm operações com status de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+Para este tutorial, vamos examinar um cenário onde as métricas de armazenamento do Azure indicam uma taxa de sucesso de porcentagem baixa de um aplicativo que chama o armazenamento do Azure. A métrica da taxa de sucesso de percentual baixo (mostrada como **PercentSuccess** no [portal do Azure](https://portal.azure.com) e nas tabelas de métricas) acompanha as operações com êxito, mas que retornam um código de status HTTP maior que 299. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de sucesso de porcentagem baixa, consulte [As métricas mostram o PercentSuccess baixo ou as entradas do log de análise têm operações com status de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Operações de armazenamento do Azure podem retornar códigos de status HTTP maior 299 como parte de sua funcionalidade normal. Porém esses erros em alguns casos indicam que você poderá otimizar o aplicativo cliente para melhorar o desempenho.
 
@@ -88,16 +88,16 @@ Neste tutorial, usaremos o Analisador de Mensagem para trabalhar com três tipos
 * O **log de rastreamento de rede HTTP**que coleta dados nos dados de solicitação e resposta HTTP/HTTPS, inclusive para as operações no Armazenamento do Azure. Neste tutorial, vamos gerar o rastreamento de rede por meio do Analisador de Mensagem.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar o log de servidor e métricas
-Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. Você pode configurar o registro em log e métricas de diversas maneiras, por meio do [Portal do Azure](https://portal.azure.com), usando o PowerShell ou com programação. Consulte [Habilitando as métricas de armazenamento e Exibindo os dados da métrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o registro em log de armazenamento e Acessando os dados de log](http://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
+Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. É possível configurar o log e as métricas de diversas maneiras, por meio do [portal do Azure](https://portal.azure.com), usando o PowerShell ou de forma programática. Consulte [Habilitando as métricas de armazenamento e Exibindo os dados da métrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o registro em log de armazenamento e Acessando os dados de log](http://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
 
-**Através do Portal do Azure**
+**Por meio do portal do Azure**
 
-Para configurar o registro em log e as métricas para sua conta de armazenamento usando o [Portal do Azure](https://portal.azure.com), siga as instruções em [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md).
+Para configurar o log e as métricas da conta de armazenamento usando o [portal do Azure](https://portal.azure.com), siga as instruções em [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md).
 
 > [!NOTE]
-> Não é possível definir a métrica de minutos usando o Portal do Azure. No entanto, é recomendável que você a defina para os fins deste tutorial e para investigar problemas de desempenho com seu aplicativo. Você pode definir a métrica de minutos usando o PowerShell como mostrado abaixo ou de forma pragmática usando a biblioteca do cliente de armazenamento.
+> Não é possível definir métricas por minuto usando o portal do Azure. No entanto, é recomendável que você a defina para os fins deste tutorial e para investigar problemas de desempenho com seu aplicativo. Você pode definir a métrica de minutos usando o PowerShell como mostrado abaixo ou de forma pragmática usando a biblioteca do cliente de armazenamento.
 > 
-> Observe que o Portal do Azure não consegue exibir métricas por minuto, apenas as métricas por hora.
+> Observe que o portal do Azure não consegue exibir métricas por minuto, apenas métricas por hora.
 > 
 > 
 
@@ -145,7 +145,7 @@ Você pode usar o Analisador de Mensagem para coletar um rastreamento de rede HT
 1. Instale o [Fiddler](http://www.telerik.com/download/fiddler).
 2. Inicie o Fiddler.
 3. Selecione **Ferramentas| Opções do Fiddler**.
-4. Na caixa de diálogo Opções, verifique se **Capturar CONEXÕES HTTPS ** e **Descriptografar Tráfego HTTPS** estão selecionadas, conforme mostrado abaixo.
+4. Na caixa de diálogo Opções, verifique se **Capturar CONEXÕES HTTPS** e **Descriptografar Tráfego HTTPS** estão selecionadas, conforme mostrado abaixo.
 
 ![Configurar Opções do Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
@@ -171,15 +171,17 @@ Para o tutorial, colete e salve um rastreamento de rede pela primeira vez no Ana
 
 Consulte [Usando os Recursos de Rastreamento de Rede](http://technet.microsoft.com/library/jj674819.aspx) no Technet para obter mais detalhes.
 
-## <a name="review-metrics-data-in-the-azure-portal"></a>Analisar dados de métricas no Portal do Azure
-Quando seu aplicativo já estiver sendo executado por algum tempo, você pode revisar os gráficos de métricas que aparecem no [Portal do Azure](https://portal.azure.com) para observar o desempenho do seu serviço. Primeiro, navegue até a conta de armazenamento no Portal do Azure e adicione um gráfico para a métrica **Porcentagem de Êxitos** .
+## <a name="review-metrics-data-in-the-azure-portal"></a>Examinar dados de métricas no portal do Azure
+Quando aplicativo já estiver sendo executado por algum tempo, é possível examinar os gráficos de métricas exibidos no [portal do Azure](https://portal.azure.com) para observar o desempenho do serviço.
 
-No portal, você verá agora a **Porcentagem de Êxitos** no gráfico de monitoramento, junto com quaisquer outras métricas adicionadas. No cenário que examinaremos em seguida analisando os logs no Analisador de Mensagem, a taxa de porcentagem de êxito é um pouco inferior a 100%.
+Primeiro, navegue para sua conta de armazenamento no portal do Azure. Por padrão, um gráfico de monitoramento com a métrica **Percentual de êxito** é exibido na folha da conta. Se você modificou o gráfico anteriormente para exibir métricas diferentes, adicione a métrica **Percentual de êxito**.
 
-Para obter mais detalhes sobre como adicionar métricas à página de Monitoramento, consulte [Como: adicionar métricas à tabela de métricas](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
+Agora você verá **Percentual de êxito** no gráfico de monitoramento, junto com as outras métricas adicionadas. No cenário que investigaremos a seguir analisando os logs do Analisador de Mensagem, a taxa de sucesso de percentual é um pouco inferior a 100%.
+
+Para obter mais detalhes sobre como adicionar e personalizar gráficos de métricas, consulte [Personalizar gráficos de métricas](storage-monitor-storage-account.md#customize-metrics-charts).
 
 > [!NOTE]
-> Pode levar algum tempo para que seus dados de métricas apareçam no Portal do Azure depois que você habilitar a métrica de armazenamento. Isso ocorre porque as métricas por hora da hora anterior não são exibidas no Portal do Azure até que a hora atual tenha decorrido. Além disso, métricas de minuto atualmente não são exibidas no Portal do Azure. Dessa forma, dependendo de quando você habilitar a métrica, pode levar até duas horas para ver os dados dela.
+> Pode levar algum tempo para que os dados de métricas sejam exibidos no portal do Azure depois que você habilitar a métrica de armazenamento. Isso ocorre porque as métricas por hora da hora anterior só serão exibidas no portal do Azure quando a hora atual tiver decorrido. Além disso, atualmente, as métricas por minuto não são exibidas no portal do Azure. Dessa forma, dependendo de quando você habilitar a métrica, pode levar até duas horas para ver os dados dela.
 > 
 > 
 
@@ -369,11 +371,6 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 
 * [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 * [Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-* [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md)
+* [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 * [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

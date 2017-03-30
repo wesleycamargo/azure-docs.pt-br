@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: db34a785cfe32f5b871af115aa621e34bf7ac60b
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 383929ee41e7d174b4534f988554ba28bb41b9bb
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -39,7 +39,7 @@ Este exemplo funciona em um shell Bash. Para opções sobre como executar script
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Após a execução do exemplo de script, o comando a seguir pode ser usado para remover os grupos de recursos, VMs e todos os recursos relacionados.
+Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```azurecli
 az group delete -n az-cli-vhd
@@ -49,7 +49,7 @@ az group delete -n az-cli-vhd
 
 Esse script usa os seguintes comandos para criar um grupo de recursos, uma máquina virtual, um conjunto de disponibilidade, um balanceador de carga e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Comando | Observações |
+| Command | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#list) | Lista contas de armazenamento |

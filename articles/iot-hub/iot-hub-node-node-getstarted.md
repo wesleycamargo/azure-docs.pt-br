@@ -12,15 +12,17 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 03/16/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 5d005e3259333f79b9b9852e325864745ee54b84
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e5cfa4c0a6964c3722ecaa6727336f5497565885
+ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-node"></a>Introdução ao Hub IoT do Azure (Node)
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Conectar o dispositivo simulado ao hub IoT usando o Node
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 No fim deste tutorial, você terá três aplicativos de console do Node.js:
@@ -44,7 +46,7 @@ Para concluir este tutorial, você precisará do seguinte:
 Você criou seu Hub IoT. Você tem o nome de host do Hub IoT e a cadeia de conexão do Hub IoT de que precisa para concluir o restante deste tutorial.
 
 ## <a name="create-a-device-identity"></a>Criar uma identidade do dispositivo
-Nesta seção, você cria um aplicativo de console do Node.js que cria uma identidade do dispositivo no registro de identidade em seu hub IoT. Um dispositivo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no Registro de identidade. Para obter mais informações, consulte a seção **"Registro de identidade"** do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity]. Quando você executar esse aplicativo de console, ele irá gerar uma ID e chave do dispositivo exclusivas com as quais seu dispositivo poderá identificar-se ao enviar mensagens entre o dispositivo e a nuvem para o Hub IoT.
+Nesta seção, você cria um aplicativo de console do Node.js que cria uma identidade do dispositivo no registro de identidade em seu hub IoT. Um dispositivo só pode se conectar ao hub IoT se tiver uma entrada no registro de identidade. Para obter mais informações, consulte a seção **"Registro de identidade"** do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity]. Quando você executar esse aplicativo de console, ele irá gerar uma ID e chave do dispositivo exclusivas com as quais seu dispositivo poderá identificar-se ao enviar mensagens entre o dispositivo e a nuvem para o Hub IoT.
 
 1. Crie uma nova pasta vazia denominada **createdeviceidentity**. Na pasta **createdeviceidentity** , crie um arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
    
@@ -293,9 +295,4 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 03/20/2017
 ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 186541bee40ada7fc9e6be31d6b989e9bd34e0d1
-ms.openlocfilehash: acc585d139e91b4954658fb061587a69e701bbe2
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d65d5292d51c58b92f68dd469bf1eb0ccdc47ca
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -86,7 +87,7 @@ Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], um 
 Um aplicativo cliente solicita [autorização](#authorization) de um proprietário de recurso para participar de um fluxo de [concessão de autorização OAuth2](#authorization-grant) e pode acessar APIs/dados em nome do proprietário do recurso. A estrutura de autorização OAuth2 [define dois tipos de clientes][OAuth2-Client-Types], "confidencial" e "público", com base na capacidade do cliente de manter a confidencialidade de suas credenciais. Os aplicativos podem implementar um [cliente Web (confidencial)](#web-client) que é executado em um servidor Web, um [cliente nativo (público)](#native-client) instalado em um dispositivo ou um [cliente baseado em agente de usuário (público)](#user-agent-based-client) que é executado no navegador do dispositivo.
 
 ## <a name="consent"></a>consentimento
-O processo para que um [proprietário do recurso](#resource-owner) conceda autorização a um [aplicativo cliente](#client-application) para [permissões](#permissions) específicas para acessar recursos protegidos em nome do proprietário do recurso. Dependendo das permissões solicitadas pelo cliente, um administrador ou usuário será solicitado a consentir o acesso aos dados de sua empresa ou dados individuais, respectivamente. Observe que, em um cenário de [multilocatário](#multi-tenant-application), a [entidade de serviço](#service-principal-object) do aplicativo também é registrada no locatário do usuário isso que fornece o consentimento.
+O processo para que um [proprietário do recurso](#resource-owner) conceda autorização a um [aplicativo cliente](#client-application), para acessar recursos protegidos em [permissões](#permissions) específicas, em nome do proprietário do recurso. Dependendo das permissões solicitadas pelo cliente, um administrador ou usuário deverá consentir o acesso a seus dados da empresa/individuais, respectivamente. Observe que, em um cenário de [multilocatário](#multi-tenant-application), a [entidade de serviço](#service-principal-object) do aplicativo também é registrada no locatário do usuário isso que fornece o consentimento.
 
 ## <a name="id-token"></a>token de ID
 Um [token de segurança](#security-token) [OpenID Connect][OpenIDConnect-ID-Token] fornecido por um [ponto de extremidade de autorização](#authorization-endpoint) do [servidor de autorização](#authorization-server), que contém [declarações](#claim) referentes à autenticação de um [proprietário de recurso](#resource-owner) de usuário final. Assim como um token de acesso, os tokens de ID também são representados como um [JWT (Token Web JSON)][JWT] assinado digitalmente. Diferentemente de um token de acesso, as declarações de um token de ID não são usadas para fins relacionados ao acesso a recursos e ao controle de acesso especificamente.
@@ -94,7 +95,7 @@ Um [token de segurança](#security-token) [OpenID Connect][OpenIDConnect-ID-Toke
 Veja [Referência de token do Azure AD][AAD-Tokens-Claims] para saber mais.
 
 ## <a name="multi-tenant-application"></a>Aplicativos multilocatários
-Uma classe de [aplicativo cliente](#client-application) que permite entrar e [consentir](#consent) por usuários provisionados em qualquer [locatário](#tenant) do Azure AD, incluindo locatários diferentes daquele em que o cliente está registrado. Por outro lado, um aplicativo registrado como locatário único só permitiria entradas de contas de usuário provisionadas no mesmo locatário que aquele em que o aplicativo está registrado. Aplicativos de [cliente nativo](#native-client) são multilocatários por padrão, enquanto aplicativos de [cliente Web](#web-client) têm a capacidade de selecionar entre único e multilocatário.
+Uma classe de aplicativo que permite se conectar e [consentir](#consent) por usuários provisionados em qualquer [locatário](#tenant) do Azure AD, incluindo locatários diferentes daquele em que o cliente está registrado. Aplicativos de [cliente nativo](#native-client) são multilocatários por padrão, enquanto aplicativos de [cliente Web](#web-client) e [recurso da Web/API](#resource-server) têm a capacidade de selecionar locatário único ou multilocatário. Por outro lado, um aplicativo Web registrado como locatário único só permitirá conexões de contas de usuário provisionadas no mesmo locatário que aquele em que o aplicativo está registrado.
 
 Veja [Como conectar qualquer usuário do Azure AD usando o padrão de aplicativo multilocatário][AAD-Multi-Tenant-Overview] para saber mais.
 
@@ -104,12 +105,12 @@ Um tipo de [aplicativo cliente](#client-application) que é instalado de forma n
 ## <a name="permissions"></a>permissões
 Um [aplicativo cliente](#client-application) obtém acesso a um [servidor de recursos](#resource-server) declarando solicitações de permissão. Dois tipos estão disponíveis:
 
-* Permissões "delegadas", que solicitam acesso [com base no escopo](#scopes) na autorização delegada do [proprietário de recurso](#resource-owner) conectado são apresentadas em tempo de execução como [declarações "scp"](#claim) no [token de acesso](#access-token) do cliente.
-* Permissões de "aplicativo", que solicitam acesso [baseado em função](#roles) com as credenciais/identidade do aplicativo cliente são apresentadas em tempo de execução como [declarações de "funções"](#claim) no token de acesso do cliente.
+* Permissões “delegadas”, que especificam o acesso [com base no escopo](#scopes) usando a autorização delegada do [proprietário do recurso](#resource-owner) conectado, são apresentadas para o recurso em tempo de execução como [declarações “scp”](#claim) no [token de acesso](#access-token) do cliente.
+* Permissões de “aplicativo”, que especificam o acesso [baseado em função](#roles) usando as credenciais/identidade do aplicativo cliente, são apresentadas para o recurso em tempo de execução como [declarações de “funções”](#claim) no token de acesso do cliente.
 
 Também surgem durante o processo de [consentimento](#consent) , oferecendo ao administrador ou ao proprietário do recurso a oportunidade de conceder/negar ao cliente o acesso aos recursos em seu locatário.
 
-As solicitações de permissão são configuradas na guia "Aplicativos"/"Configurações" do [Portal do Azure][AZURE-portal], em "Permissões Necessárias", selecionando as "Permissões Delegadas" e as "Permissões de Aplicativo" desejadas (a segunda opção requer associação na função de Administrador Global). Como um [cliente público](#client-application) não pode manter as credenciais, só pode solicitar permissões delegadas, enquanto um [cliente confidencial](#client-application) tem a capacidade de solicitar permissões delegadas e de aplicativo. O [objeto de aplicativo](#application-object) do cliente armazena as permissões declaradas em sua [propriedade requiredResourceAccess][AAD-Graph-App-Entity].
+As solicitações de permissão são configuradas na guia "Aplicativos"/"Configurações" do [Portal do Azure][AZURE-portal], em "Permissões Necessárias", selecionando as "Permissões Delegadas" e as "Permissões de Aplicativo" desejadas (a segunda opção requer associação na função de Administrador Global). Como um [cliente público](#client-application) não pode manter credenciais com segurança, ele só pode solicitar permissões delegadas, enquanto um [cliente confidencial](#client-application) tem a capacidade de solicitar permissões delegadas e de aplicativo. O [objeto de aplicativo](#application-object) do cliente armazena as permissões declaradas em sua [propriedade requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>proprietário do recurso
 Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], uma entidade com a capacidade de conceder acesso a um recurso protegido. Quando o proprietário do recurso é uma pessoa, é chamado de usuário final. Por exemplo, quando um [aplicativo cliente](#client-application) quer acessar a caixa de correio do usuário por meio da [API do Microsoft Graph][Microsoft-Graph], requer a permissão do proprietário do recurso da caixa de correio.
@@ -175,7 +176,7 @@ Um tipo de [aplicativo cliente](#client-application) que executa todo o código 
 ## <a name="next-steps"></a>Próximas etapas
 O [Guia do Desenvolvedor do Azure AD][AAD-Dev-Guide] é o portal a ser usado para todos os tópicos sobre desenvolvimento do Azure AD, incluindo uma visão geral da [integração de aplicativos][AAD-How-To-Integrate] e as noções básicas de [autenticação do Azure AD e cenários de autenticação com suporte][AAD-Auth-Scenarios].
 
-Use a seção de comentários do Disqus a seguir para fornecer seus comentários e ajudar a refinar e a moldar o nosso conteúdo.
+Use a seção de comentários a seguir para fornecer comentários e nos ajudar a refinar e moldar nosso conteúdo, incluindo solicitações de novas definições ou atualização das existentes.
 
 <!--Image references-->
 
@@ -208,9 +209,4 @@ Use a seção de comentários do Disqus a seguir para fornecer seus comentários
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

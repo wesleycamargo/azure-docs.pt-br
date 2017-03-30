@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 4094759caba015b9d609b616d5099a6e109bf1d4
-ms.openlocfilehash: 6ac0c3b2893b96f93bf2aeadd61b263654957477
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,7 +28,7 @@ O Azure AD (Azure Active Directory) torna simples e direto terceirizar o gerenci
 
 * Fazer com que usuários entrem em aplicativos Web usando o Azure AD como o provedor de identidade.
 * Exibir informações do usuário.
-* Realizar a saída dos usuários dos aplicativos.
+* Desconectar os usuários dos aplicativos.
 
 ## <a name="before-you-get-started"></a>Antes de começar
 * Baixe o [esqueleto do aplicativo](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) ou baixe a [amostra concluída](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
@@ -40,14 +40,14 @@ Quando estiver pronto, siga os procedimentos nas próximas quatro seções.
 Para configurar o aplicativo para autenticar usuários, primeiro registre-o em seu locatário, fazendo o seguinte:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra superior, clique em seu nome da conta. Na lista **Diretório**, selecione o locatário do Active Directory em que você deseja registrar seu aplicativo.
-3. Clique em **Mais Serviços** no painel esquerdo e selecione **Azure Active Directory**.
+2. Na barra superior, clique no nome da conta. Na lista **Diretório** , selecione o locatário do Active Directory em que você deseja registrar o aplicativo.
+3. Clique em **Mais serviços** no painel esquerdo e selecione **Azure Active Directory**.
 4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Siga os prompts para criar um **Aplicativo Web e/ou uma API Web**.
   * **Nome** descreve o aplicativo aos usuários.
   * A **URL de logon** é a URL base do aplicativo. URL de padrão do esqueleto é https://localhost:44320/.
-  * O **URI da ID do aplicativo** é um identificador exclusivo para o aplicativo. A convenção de nomenclatura é `https://<tenant-domain>/<app-name>` (por exemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 6. Depois de você concluir o registro, o Azure AD atribui uma ID do aplicativo exclusiva ao aplicativo. Copie o valor da página do aplicativo para usar nas próximas seções.
+7. Na página **Configurações** -> **Propriedades** do aplicativo, atualize o URI da ID do Aplicativo. O **URI da ID do Aplicativo** é um identificador exclusivo do aplicativo. A convenção de nomenclatura é `https://<tenant-domain>/<app-name>` (por exemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Etapa 2: configurar o aplicativo para usar o pipeline de autenticação OWIN
 Nesta etapa, você configurará o middleware OWIN para usar o protocolo de autenticação OpenID Connect. Você usa o OWIN para emitir solicitações de entrada e saída, gerenciar sessões de usuário, obter informações do usuário e assim por diante.
@@ -73,7 +73,7 @@ Nesta etapa, você configurará o middleware OWIN para usar o protocolo de auten
      }
      ```
 
-4. Abra o arquivo App_Start\Startup.Auth.cs e implemente o método **ConfigureAuth(...) **. Os parâmetros que você fornece em *OpenIDConnectAuthenticationOptions* servirão como coordenadas para seu aplicativo se comunicar com o Azure AD. Você também precisa configurar a autenticação de Cookies – o middleware OpenID Connect usa cookies em segundo plano.
+4. Abra o arquivo App_Start\Startup.Auth.cs e implemente o método **ConfigureAuth(...)**. Os parâmetros que você fornece em *OpenIDConnectAuthenticationOptions* servirão como coordenadas para seu aplicativo se comunicar com o Azure AD. Você também precisa configurar a autenticação de Cookies – o middleware OpenID Connect usa cookies em segundo plano.
 
      ```C#
      public void ConfigureAuth(IAppBuilder app)

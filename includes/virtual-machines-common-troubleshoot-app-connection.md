@@ -62,7 +62,7 @@ Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
 
 Em máquinas virtuais baseadas em Linux e Windows, use o comando **netstat -a** para mostrar as portas de escuta ativas. Examine a saída para as portas esperadas no qual seu aplicativo deve estar escutando. Reinicie o aplicativo ou configure-o para usar as portas esperadas, como necessário e tente acessar o aplicativo localmente outra vez.
 
-## <a name="a-idstep2astep-2-access-application-from-another-vm-in-the-same-virtual-network"></a><a id="step2"></a>Etapa 2: Acessar o aplicativo de outra VM na mesma rede virtual
+## <a id="step2"></a>Etapa 2: Acessar o aplicativo de outra VM na mesma rede virtual
 Tente acessar o aplicativo de uma VM diferente, mas na mesma rede virtual, usando o nome de host da VM ou seu endereço IP público, privado ou do provedor atribuído ao Azure. Em máquinas virtuais criadas usando o modelo de implantação clássica, não use o endereço IP público do serviço de nuvem.
 
 ![Iniciar o aplicativo de uma VM diferente](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -82,7 +82,7 @@ Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
 
 Em uma máquina virtual baseada no Windows, use o Firewall do Windows com Segurança avançada para determinar se as regras de firewall excluem o tráfego de entrada e de saída do seu aplicativo.
 
-## <a name="a-idstep3astep-3-access-application-from-outside-the-virtual-network"></a><a id="step3"></a>Etapa 3: Acessar o aplicativo de fora da rede virtual
+## <a id="step3"></a>Etapa 3: Acessar o aplicativo de fora da rede virtual
 Tente acessar o aplicativo em um computador fora da rede virtual em que está a VM na qual o aplicativo está sendo executado. Use uma rede diferente do computador cliente original.
 
 ![Iniciar o aplicativo em um computador fora da rede virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
@@ -95,7 +95,7 @@ Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
   
   * Verifique se a configuração do ponto de extremidade para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
   * Verifique se essas ACLs (listas de controle de acesso) no ponto de extremidade não estão impedindo o tráfego vindo da Internet.
-  * Para saber mais, consulte [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  * Para saber mais, consulte [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Para VMs criadas com o modelo de implantação do Resource Manager:
   
   * Verifique se a configuração da regra NAT de entrada para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
@@ -118,9 +118,4 @@ Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de bor
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada no Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

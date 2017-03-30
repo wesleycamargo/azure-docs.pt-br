@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 609f2a06b1091a61cd95c54ea9f62888e11f16c1
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 7cf81f2081e7927e4d68b7d0c8ca185f891fdc8d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -82,8 +83,8 @@ Para VMs da série D, série Dv2 e série G, a unidade temporária dessas VMs é
 Para VMs que têm suporte para Armazenamento Premium (séries DS, DSv2 e GS), é recomendável armazenar o TempDB em um disco que dê suporte ao Armazenamento Premium com o cache de leitura habilitado. Há uma exceção a essa recomendação. Se o uso do TempDB apresenta gravação intensa, obtenha um melhor desempenho armazenando o TempDB na unidade local **D**, que é também baseada em SSD nesses tamanhos de computador.
 
 ### <a name="data-disks"></a>Discos de dados
-* **Usar de discos de dados para arquivos de dados e de log**: no mínimo, use dois [discos P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) de Armazenamento Premium, um deles com os arquivos de log e o outro com os arquivos de dados e o TempDB.
-* **Distribuição de Discos**: para produtividade mais alta, você pode adicionar outros discos de dados e usar a Distribuição de Discos. Para determinar o número de discos de dados, você precisa analisar o número de IOPS disponível para seus discos de dados e de log. Para obter essas informações, consulte as tabelas sobre IOPS por [tamanho da VM](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e tamanho de disco no seguinte artigo: [Utilização do Armazenamento Premium para discos](../../../storage/storage-premium-storage.md). Use as seguintes diretrizes:
+* **Usar discos de dados para arquivos de dados e de log**: no mínimo, use dois [discos P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) do Armazenamento Premium: um deles com os arquivos de log e o outro com os arquivos de dados e do TempDB. Cada disco do Armazenamento Premium fornece um número de IOPs e largura de banda (MB/s), dependendo de seu tamanho, conforme descrito neste artigo: [Usando o Armazenamento Premium para discos](../../../storage/storage-premium-storage.md). 
+* **Distribuição de Discos**: para produtividade mais alta, você pode adicionar outros discos de dados e usar a Distribuição de Discos. Para determinar o número de discos de dados, você precisa analisar o número de IOPS e a largura de banda necessários para os arquivos de log e para os arquivos de dados e do TempDB. Observe que diferentes tamanhos de VM têm diferentes limites no número de IOPS e na largura de banda com suporte; consulte as tabelas sobre IOPS por [tamanho de VM](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use as seguintes diretrizes:
 
   * Para Windows 8/Windows Server 2012 ou posterior, use os [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739.aspx). Defina o tamanho da distribuição como 64 KB para cargas de trabalho OLTP, e 256 KB para cargas de trabalho de data warehouse, a fim de evitar o impacto no desempenho devido ao desalinhamento da partição. Além disso, defina a contagem de colunas = número de discos físicos. Para configurar um Espaço de Armazenamento com mais de oito discos é necessário usar o PowerShell (não a UI do Gerenciador de Servidores) para definir explicitamente o número de colunas, a fim de corresponder ao número de discos. Para saber mais sobre como configurar os [Espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx), consulte [Cmdlets de espaços de armazenamento no Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx)
   * Para o Windows 2008 R2 ou anterior, é possível usar discos dinâmicos (volumes de SO distribuídos) e o tamanho da faixa será sempre 64 KB. Observe que essa opção tornou-se obsoleta no Windows 8/Windows Server 2012. Para obter informações, veja a declaração de suporte em [O Serviço de Disco Virtual está em transição para a API de Gerenciamento de Armazenamento do Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
@@ -134,9 +135,4 @@ Se você estiver interessado em explorar com mais detalhes o SQL Server e o Arma
 Para conferir as práticas recomendadas de segurança, consulte [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-security.md).
 
 Examine outros tópicos sobre Máquinas Virtuais do SQL Server em [Visão geral do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -17,7 +17,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo
 | VIP (ILB) privado por implantação |1 |1 |
 | ACLs (Listas de Controle de Acesso de Pontos de Extremidade) |50 |50 |
 
-#### <a name="a-nameazure-resource-manager-virtual-networking-limitsanetworking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede – Azure Resource Manager
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede – Azure Resource Manager
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura.
 
 | Recurso | Limite padrão | Limite máximo |
@@ -25,7 +25,8 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Redes virtuais por assinatura |50 |500 |
 | Sub-redes por rede virtual |1.000 |entrar em contato com o suporte |
 | Servidores DNS por rede virtual |9 |25 |
-| Endereços IP privados por rede virtual |4096 |4096 |
+| Endereços IP privados por rede virtual |4096 |4.096 |
+| Endereços IP privados por interface de rede |50 |entrar em contato com o suporte |
 | Conexões TCP simultâneas para uma máquina virtual ou instância de função |500K |500K |
 | NIC (Interfaces de rede) |300 |10000 |
 | Grupos de segurança de rede (NSG) |100 |400 |
@@ -40,11 +41,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | IP privado front-end por balanceador de carga |10 |entre em contato com o suporte |
 | Emparelhamentos de VNets por rede virtual |10 |50 |
 | Certificados raiz de ponto a site por gateway de VPN |20 |20 |
+| Configurações de IP secundárias por rede virtual |1000 |entrar em contato com o suporte |
 
 Entre em contato com o suporte caso precise aumentar esses limites.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Application Insights para serviços do Windows e funções de trabalho | Microsoft Docs"
+title: "Application Insights do Azure para serviços e funções de trabalho do Windows | Microsoft Docs"
 description: Adicione manualmente o SDK do Application Insights ao aplicativo ASP.NET para analisar o uso, a disponibilidade e o desempenho.
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ Você precisa de:
 * Uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela, usando sua [Conta da Microsoft](http://live.com).
 * Visual Studio 2013 ou posterior.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Criar um recurso do Application Insights
+## <a name="add"></a>1. Criar um recurso do Application Insights
 Entre no [Portal do Azure](https://portal.azure.com/)e crie um novo recurso do Application Insights. Escolha ASP.NET como o tipo de aplicativo.
 
 ![Clique em Novo, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,7 +47,7 @@ A chave identifica o recurso, e você a instalará em breve no SDK para direcion
 
 As etapas que acabou de fazer para criar um novo recurso são uma boa maneira de iniciar o monitoramento de qualquer aplicativo. Agora você pode enviar dados para o recurso.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. Instale o SDK em seu aplicativo
+## <a name="sdk"></a>2. Instale o SDK em seu aplicativo
 Instalando e configurando o Application Insights SDK varia dependendo da plataforma em que você está trabalhando. Para aplicativos ASP.NET, é fácil.
 
 1. No Visual Studio, edite os pacotes NuGet de seu projeto de aplicativo Web.
@@ -84,14 +85,14 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
 A definição da chave de instrumentação no código será útil se você quiser [alternar a chave para configurações de compilação diferentes](app-insights-separate-resources.md). Se você definir a chave no código, não será necessário defini-la no arquivo `.config`.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Execute seu projeto
+## <a name="run"></a> Execute seu projeto
 Use a tecla **F5** para executar o aplicativo e experimente: abrir páginas diferentes para gerar telemetria.
 
 No Visual Studio, você verá uma contagem dos eventos que foram recebidos.
 
 ![Contagem de eventos no Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Exibir sua telemetria
+## <a name="monitor"></a> Exibir sua telemetria
 Volte para o [Portal do Azure](https://portal.azure.com/) e navegue até o seu recurso do Application Insights.
 
 Procure dados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
@@ -128,12 +129,11 @@ Consulte [este item de solução de problemas](app-insights-asp-net-troubleshoot
 > 
 > 
 
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicione mais telemetria](app-insights-asp-net-more.md) para obter uma visão de 360 graus completa de seu aplicativo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

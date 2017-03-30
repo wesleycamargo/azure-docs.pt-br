@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: c47e9263e1eefe8d1c3c0e164a186f095ca88a80
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f635bbd8652b97c1067473e56565bf7c6520a2ba
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -147,43 +147,20 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 > 
 > 
 
-## <a name="batch-management-net-azure-ad-and-resource-manager"></a>.NET de Gerenciamento do Lote, AD do Azure e Gerenciador de Recursos
-Quando trabalha com a biblioteca .NET de Gerenciamento do Lote, normalmente você também usa o [Azure Active Directory][aad_about] (Azure AD) e o [Azure Resource Manager][resman_overview]. O projeto de exemplo analisado abaixo usa o Azure Active Directory e o Gerenciador de Recursos ao demonstrar a API do .NET de Gerenciamento do Lote.
+## <a name="use-azure-ad-with-batch-management-net"></a>Usar o Azure AD com o .NET de Gerenciamento de Lote
 
-### <a name="azure-active-directory"></a>Azure Active Directory
-O Azure em si usa o AD do Azure (Active Directory do Azure) para a autenticação de seus clientes, administradores de serviços e usuários organizacionais. No contexto do .NET de Gerenciamento de Lotes, você usa o Azure AD para autenticar um administrador de assinatura ou coadministrador. Isso permitirá que a biblioteca de gerenciamento consulte o serviço de Lote e execute as operações descritas neste artigo.
-
-No projeto de exemplo analisado abaixo, a [ADAL][aad_adal] (Biblioteca de Autenticação do Active Directory) do Azure é usada para solicitar ao usuário suas credenciais da Microsoft. Quando as credenciais do administrador ou coadministrador do serviço são fornecidas, o aplicativo pode consultar o Azure para obter uma lista de assinaturas, criar e excluir os grupos de recursos e contas do Lote.
-
-### <a name="resource-manager"></a>Gerenciador de Recursos
-Ao criar contas do Lote com a biblioteca do .NET de Gerenciamento do Lote, geralmente, elas serão criadas em um [grupo de recursos][resman_overview]. É possível criar o grupo de recursos por meio de programação usando a classe [ResourceManagementClient][resman_client] na biblioteca do [.NET do Resource Manager][resman_api]. Outra opção é adicionar uma conta a um grupo de recursos existente criado anteriormente usando o [portal do Azure][azure_portal].
+A biblioteca do .NET de Gerenciamento de Lote é um cliente de provedor de recursos do Azure e é usada junto com o [Azure Resource Manager][resman_overview] para gerenciar recursos de conta de forma programática. O Azure AD é necessário para autenticar solicitações feitas por meio de qualquer cliente de provedor de recursos do Azure, incluindo a biblioteca do .NET de Gerenciamento de Lote e por meio do [Azure Resource Manager][resman_overview]. Para obter informações sobre como usar o Azure AD com a biblioteca do .NET de Gerenciamento de Lote, consulte [Usar o Azure Active Directory para autenticar soluções em Lote](batch-aad-auth.md). 
 
 ## <a name="sample-project-on-github"></a>Projeto de exemplo no GitHub
-Para ver o .NET de Gerenciamento do Lote em ação, confira o projeto de exemplo [AccountManagment][acct_mgmt_sample] no GitHub. Esse aplicativo de console mostra a criação e o uso de [BatchManagementClient][net_mgmt_client] e [ResourceManagementClient][resman_client]. Também demonstra o uso da [ADAL][aad_adal] (Biblioteca de Autenticação do Active Directory) do Azure, que é necessária para ambos os clientes.
 
-Para executar o aplicativo de exemplo com êxito, você deve registrá-lo no AD do Azure usando o portal do Azure. Siga as etapas descritas na seção [Adicionando um aplicativo](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) em [Integrando aplicativos ao Azure Active Directory][aad_integrate] e registre o aplicativo de exemplo no Diretório Padrão de sua própria conta. Não se esqueça de selecionar **Aplicativo Cliente Nativo** para o tipo de aplicativo; além disso, você poderá especificar qualquer URI válido (como `http://myaccountmanagementsample`) para o **URI de Redirecionamento** – ele não precisa ser um ponto de extremidade real.
-
-Depois de adicionar o aplicativo, delegue a permissão **Acessar Gerenciamento de Serviços do Azure como organização** para o aplicativo de *API de Gerenciamento de Serviços do Microsoft Azure* nas configurações do aplicativo no portal:
-
-![Permissões de aplicativo no portal do Azure][2]
-
-> [!TIP]
-> Se a opção **API de Gerenciamento de Serviços do Microsoft Azure** não for exibida em *permissões para outros aplicativos*, clique em **Adicionar aplicativo**, selecione **API de Gerenciamento de Serviços do Microsoft Azure** e clique no botão de marca de seleção. Em seguida, delegue permissões, como especificado acima.
-> 
-> 
-
-Assim que adicionar o aplicativo, conforme descrito acima, atualize `Program.cs` no projeto de exemplo [AccountManagment][acct_mgmt_sample] com o URI de Redirecionamento do aplicativo e a ID do Cliente. É possível encontrar esses valores na guia **Configurar** do aplicativo:
-
-![Configuração de aplicativo no portal do Azure][3]
-
-O aplicativo de exemplo [AccountManagment][acct_mgmt_sample] demonstra as seguintes operações:
+Para ver o .NET de Gerenciamento do Lote em ação, confira o projeto de exemplo [AccountManagment][acct_mgmt_sample] no GitHub. O aplicativo de exemplo AccountManagment demonstra as seguintes operações:
 
 1. Adquira um token de segurança no Azure AD usando a [ADAL][aad_adal]. Se o usuário ainda não estiver conectado, será solicitado que ele forneça suas credenciais do Azure.
-2. Ao usar o token de segurança obtido no Azure AD, crie um [SubscriptionClient][resman_subclient] para consultar o Azure e obter uma lista de assinaturas associadas à conta. Isso permite a seleção de uma assinatura se várias forem encontradas.
-3. Crie um objeto de credenciais associado à assinatura selecionada.
-4. Crie um [ResourceManagementClient][resman_client] usando as novas credenciais.
-5. Use [ResourceManagementClient][resman_client] para criar um novo grupo de recursos.
-6. Use [BatchManagementClient][net_mgmt_client] para executar várias operações de conta do Lote:
+2. Com o token de segurança obtido no Azure AD, crie um [SubscriptionClient][resman_subclient] para consultar o Azure e obter uma lista de assinaturas associadas à conta. O usuário poderá selecionar uma assinatura na lista se ela contiver mais de uma assinatura.
+3. Associe as credenciais à assinatura selecionada.
+4. Crie um objeto [ResourceManagementClient][resman_client] usando as credenciais.
+5. Use um objeto [ResourceManagementClient][resman_client] para criar um grupo de recursos.
+6. Use um objeto [BatchManagementClient][net_mgmt_client] para executar várias operações de conta do Lote:
    * Crie uma conta do Lote no novo grupo de recursos.
    * Obtenha a conta recém-criada no serviço do Lote.
    * Imprima as chaves de conta da nova conta.
@@ -194,11 +171,10 @@ O aplicativo de exemplo [AccountManagment][acct_mgmt_sample] demonstra as seguin
    * Exclua a conta recém-criada.
 7. Exclua o grupo de recursos.
 
-Antes de excluir o grupo de recursos e a conta do Lote, você pode inspecionar ambos no [Portal do Azure][azure_portal]:
+Antes de excluir o grupo de recursos e a conta do Lote recém-criada, é possível vê-los no [portal do Azure][azure_portal]:
 
-![Portal do Azure exibindo o grupo de recursos e a conta do Lote][1]
-<br />
-*Portal do Azure exibindo o novo grupo de recursos e a conta do Lote*
+Para executar o aplicativo de exemplo com êxito, primeiro é necessário registrá-lo no locatário do Azure AD no portal do Azure e conceder permissões à API do Azure Resource Manager. Siga as etapas fornecidas em [Autenticar aplicativos de gerenciamento de Lote com o Azure AD](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions).
+
 
 [aad_about]: ../active-directory/active-directory-whatis.md "O que é o Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
@@ -221,7 +197,7 @@ Antes de excluir o grupo de recursos e a conta do Lote, você pode inspecionar a
 [net_mgmt_subscriptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.subscriptions.aspx
 [net_mgmt_listaccounts]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.iaccountoperations.listasync.aspx
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
-[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspxs
+[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
 

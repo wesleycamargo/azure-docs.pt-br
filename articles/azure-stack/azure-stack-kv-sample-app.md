@@ -17,6 +17,7 @@ ms.author: ricardom
 translationtype: Human Translation
 ms.sourcegitcommit: a3a8b9ff522369ed0f03817585e1666507c95c6e
 ms.openlocfilehash: 9f2f6230ddd2ba303ad5be9f4691895e7828033d
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -52,10 +53,5 @@ That console application should run with no changes, except that the appropriate
 [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

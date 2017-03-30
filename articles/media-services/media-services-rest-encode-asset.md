@@ -1,6 +1,6 @@
 ---
-title: Como codificar um ativo usando o Media Encoder Standard | Microsoft Docs
-description: "Saiba como usar o Media Encoder Standard para codificar conteúdo de mídia nos Serviços de Mídia. Exemplos de código usam a API REST."
+title: Como codificar um ativo do Azure usando o Media Encoder Standard | Microsoft Docs
+description: "Saiba como usar o Media Encoder Standard para codificar conteúdo de mídia nos Serviços de Mídia do Azure. Exemplos de código usam a API REST."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,52 +15,52 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 6a0fcc28a3eadaba6bb28d23ab1f4632bea60652
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4e56b8d97a650813dcea1fde9d74ddc29154605d
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="how-to-encode-an-asset-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
+# <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
 > * [Portal](media-services-portal-encode.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Visão geral
-Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para entregar pela internet ou para dispositivos de seus clientes para exibir corretamente. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia.
+Para fornecer vídeo digital pela Internet, é necessário compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para serem fornecidos pela Internet ou exibidos corretamente nos dispositivos dos clientes. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia.
 
-Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, é possível usar o codificador interno dos Serviços de Mídia (Codificador de Mídia Padrão). Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres predefinidas para seu codificador ou usando arquivos de configuração predefinidos. Para ver os tipos de predefinições disponíveis, confira [Predefinições de tarefa para o Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
+Os trabalhos de codificação são uma das operações de processamento mais comuns nos Serviços de Mídia do Azure. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, é possível usar o codificador interno dos Serviços de Mídia (Codificador de Mídia Padrão). Você também pode usar um codificador fornecido por um parceiro dos Serviços de Mídia. Codificadores de terceiros estão disponíveis por meio do Azure Marketplace. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres predefinidas para seu codificador ou usando arquivos de configuração predefinidos. Para ver os tipos de predefinições disponíveis, confira [Predefinições de tarefa para o Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
-Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar trabalhos e as tarefas relacionadas em uma das duas maneiras:
+Cada trabalho pode ter uma ou mais tarefas, dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, é possível criar trabalhos e as tarefas relacionadas de uma destas duas maneiras:
 
-* As tarefas podem ser definidas embutidas por meio da propriedade de navegação de tarefas nas entidades de trabalho, ou
-* por meio do processamento do lote OData.
+* As tarefas podem ser definidas de forma embutida por meio da propriedade de navegação das Tarefas nas entidades de Trabalho.
+* Use o processamento em lotes OData.
 
-Convém sempre codificar arquivos de mezanino em uma conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
+Recomendamos sempre codificar os arquivos de mezanino em um conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto no formato desejado usando o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
-Se seu ativo de saída tiver o armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
+Se o ativo de saída tiver o armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
 
 > [!NOTE]
 > Antes de começar a fazer referência a processadores de mídia, verifique se você tem a ID do processador de mídia correta. Para obter mais informações, consulte [Obter processadores de mídia](media-services-rest-get-media-processor.md).
-> 
-> 
+>
+>
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Criar um trabalho com uma única tarefa de codificação
 > [!NOTE]
-> Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
-> 
+> Ao trabalhar com a API REST dos Serviços de Mídia, as seguintes considerações se aplicam:
+>
 > Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
-> 
-> Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md).
-> 
-> Ao usar o JSON e especificar o uso da palavra-chave **__metadata** na solicitação (por exemplo, para fazer referência a um objeto vinculado), é NECESSÁRIO definir o cabeçalho **Accept** como [formato JSON Detalhado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
-> 
-> 
+>
+> Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 que especifica outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md).
+>
+> Ao usar o JSON e especificar o uso da palavra-chave **__metadata** na solicitação (por exemplo, para referenciar um objeto vinculado), é necessário definir o cabeçalho **Accept** como [formato JSON Detalhado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
+>
+>
 
-O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. Quando estiver codificando com o Codificador de Mídia Padrão, você poderá usar as predefinições de configuração de tarefa especificadas [aqui](http://msdn.microsoft.com/library/mt269960).
+O exemplo a seguir mostra como criar e postar um trabalho com uma tarefa definida para codificar um vídeo em uma resolução e qualidade específicas. Quando estiver codificando com o Media Encoder Standard, você poderá usar as predefinições de configuração de tarefa especificadas [aqui](http://msdn.microsoft.com/library/mt269960).
 
 Solicitação:
 
@@ -80,7 +80,7 @@ Resposta:
 
     HTTP/1.1 201 Created
 
-    . . . 
+    . . .
 
 ### <a name="set-the-output-assets-name"></a>Definir nome do ativo de saída
 O exemplo a seguir mostra como definir o atributo assetName:
@@ -88,23 +88,23 @@ O exemplo a seguir mostra como definir o atributo assetName:
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Considerações
-* As propriedades TaskBody DEVEM usar XML literal para definir o número de entrada ou os ativos de saída que serão usados pela tarefa. O tópico Tarefa contém a Definição de Esquema XML para o XML.
+* As propriedades TaskBody devem usar o XML literal para definir o número de entradas ou os ativos de saída que são usados pela tarefa. O tópico da tarefa contém a Definição de Esquema XML para o XML.
 * Na definição de TaskBody, cada valor interno para <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(value) ou JobOutputAsset(value).
 * Uma tarefa pode ter vários ativos de saída. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa em um trabalho.
 * Você pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
 * As tarefas não devem formar um ciclo.
-* O parâmetro de valor passado para JobInputAsset ou JobOutputAsset representa o valor de índice para um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição de entidade de tarefa. 
-* Como os serviços de mídia são baseados no OData v3, os ativos individuais nas coleções de propriedade de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor "__metadata : uri".
-* Os InputMediaAssets mapeiam para um ou mais ativos que você criou nos serviços de mídia. Os OutputMediaAssets são criados pelo sistema. Eles não fazem referência a um ativo existente.
-* Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor do nome do trabalho ou o valor da ID de trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)_NewJob". 
+* O parâmetro de valor passado para JobInputAsset ou JobOutputAsset representa o valor de índice de um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição de entidade do trabalho.
+* Como os Serviços de Mídia se baseiam no OData v3, os ativos individuais nas coleções de propriedades de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor “__metadata : uri”.
+* InputMediaAssets são mapeados para um ou mais ativos criados nos Serviços de Mídia. Os OutputMediaAssets são criados pelo sistema. Eles não referenciam um ativo existente.
+* OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor do nome do trabalho ou o valor da ID de trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor para assetName como “Sample”, a propriedade Name de OutputMediaAsset deverá ser definida como “Sample”. No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como “NewJob”, o Nome do OutputMediaAsset poderá ser “JobOutputAsset(value)_NewJob”.
 
 ## <a name="create-a-job-with-chained-tasks"></a>Criar um trabalho com tarefas encadeadas
 Em muitos cenários de aplicativo, os desenvolvedores querem criar uma série de tarefas de processamento. Nos serviços de mídia, você pode criar uma série de tarefas encadeadas. Cada tarefa executa etapas de processamento diferentes e pode usar diferentes processadores de mídia. As tarefas encadeadas podem entregar um ativo de uma tarefa para outra, desempenhando uma sequência linear de tarefas no ativo. No entanto, as tarefas executadas em um trabalho não precisam estar em uma sequência. Quando você cria uma tarefa encadeada, os objetos **ITask** são criados em um único objeto **IJob**.
 
 > [!NOTE]
 > Atualmente, há um limite de 30 tarefas por trabalho. Se você precisa encadear mais de 30 tarefas, crie mais de um trabalho para conter as tarefas.
-> 
-> 
+>
+>
 
     POST https://media.windows.net/api/Jobs HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -142,8 +142,8 @@ Em muitos cenários de aplicativo, os desenvolvedores querem criar uma série de
 ### <a name="considerations"></a>Considerações
 Para habilitar o encadeamento de tarefas:
 
-* Um trabalho deve ter pelo menos 2 tarefas
-* Deve haver pelo menos uma tarefa cujas entradas são a saída de outra tarefa no trabalho.
+* Um trabalho deve ter, pelo menos, duas tarefas.
+* Deve haver, pelo menos, uma tarefa cuja entrada é a saída de outra tarefa no trabalho.
 
 ## <a name="use-odata-batch-processing"></a>Usar o processamento em lotes OData
 O exemplo a seguir mostra como usar o processamento em lotes OData para criar um trabalho e tarefas. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
@@ -206,10 +206,10 @@ O exemplo a seguir mostra como usar o processamento em lotes OData para criar um
 
 
 
-## <a name="create-a-job-using-a-jobtemplate"></a>Criar um Trabalho usando um JobTemplate
-Ao processar múltiplos Ativos usando um conjunto comum de Tarefas, os JobTemplates são úteis para especificar as predefinições padrão da Tarefa, a ordem das Tarefas e assim por diante.
+## <a name="create-a-job-by-using-a-jobtemplate"></a>Criar um trabalho usando um JobTemplate
+Ao processar vários ativos usando um conjunto comum de tarefas, use um JobTemplate para especificar as predefinições de tarefa padrão ou para definir a ordem das tarefas.
 
-O exemplo a seguir mostra como criar um JobTemplate com uma TaskTemplate definida de forma embutida. O TaskTemplate usa o Codificador de Mídia Padrão como o MediaProcessor para codificar o arquivo do Ativo; no entanto, outros MediaProcessors também podem ser usados. 
+O exemplo a seguir mostra como criar um JobTemplate com um TaskTemplate definido de forma embutida. O TaskTemplate usa o Media Encoder Standard como o MediaProcessor para codificar o arquivo de ativo. No entanto, outros MediaProcessors também podem ser usados.
 
     POST https://media.windows.net/API/JobTemplates HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -226,8 +226,8 @@ O exemplo a seguir mostra como criar um JobTemplate com uma TaskTemplate definid
 
 > [!NOTE]
 > Ao contrário de outras entidades de Serviços de Mídia, você deve definir um novo identificador GUID para cada TaskTemplate e colocá-lo na propriedade taskTemplateId e na propriedade ID no corpo da solicitação. O esquema de identificação de conteúdo deve seguir o esquema descrito em Identificar Entidades de Serviços de Mídia do Azure. Além disso, os JobTemplates não podem ser atualizados. Em vez disso, você deve criar um novo com as suas alterações atualizadas.
-> 
-> 
+>
+>
 
 Se for bem-sucedido, será retornada a seguinte resposta:
 
@@ -236,7 +236,7 @@ Se for bem-sucedido, será retornada a seguinte resposta:
     . . .
 
 
-O exemplo a seguir mostra como criar um Trabalho referenciando uma ID de JobTemplate:
+O seguinte exemplo mostra como criar um trabalho que referencia uma ID de JobTemplate:
 
     POST https://media.windows.net/API/Jobs HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -255,7 +255,7 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 
     HTTP/1.1 201 Created
 
-    . . . 
+    . . .
 
 
 
@@ -266,9 +266,8 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você sabe como criar um trabalho para codificar um ativo, vá para o tópico [Como verificar o andamento do trabalho com os Serviços de Mídia](media-services-rest-check-job-progress.md) .
+Agora que você sabe como criar um trabalho para codificar um ativo, consulte [Como verificar o andamento do trabalho com os Serviços de Mídia](media-services-rest-check-job-progress.md).
 
 ## <a name="see-also"></a>Consulte também
 [Obter processadores de mídia](media-services-rest-get-media-processor.md)
-
 

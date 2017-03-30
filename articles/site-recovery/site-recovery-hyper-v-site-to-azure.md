@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c7ef2a9535362a3dc352b92732abcdf6cd4836c2
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9da7a59ca5d544121dc9c540a25a3b975988e9a1
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/06/2017
 >
 >
 
-Este artigo descreve como replicar máquinas virtuais Hyper-V locais para o Azure usando o Azure Site Recovery[](site-recovery-overview.md) no portal do Azure.
+Este artigo descreve como replicar máquinas virtuais Hyper-V locais no Azure usando o [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
 
 Você replica VMs do Hyper-V para o armazenamento do Azure e realiza o failover de VMs para o Azure se seu site primário se torna não disponível. Você pode acessar as cargas de trabalho no Azure e executar failback para o local quando ele retornar às operações normais. Você também pode usar as instruções neste artigo para migrar VMs para o Azure. Em um cenário de migração, você executa a replicação e failover de VMs, mas não executa seu failback.
 
@@ -100,7 +100,7 @@ Configure uma rede do Azure. Você precisará dela para que as VMs do Azure cria
 
 ### <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Novo** > **Gerenciamento** > **Backup e Recuperação de Site (OMS)**. Como alternativa, você pode clicar em **Procurar** > **cofres dos **Serviços de Recuperação > **Adicionar**.
+2. Clique em **Novo** > **Gerenciamento** > **Backup e Recuperação de Site (OMS)**. Como alternativa, você pode clicar em **Procurar** > **cofres dos**Serviços de Recuperação > **Adicionar**.
 
     ![Novo cofre](./media/site-recovery-hyper-v-site-to-azure/new-vault3.png)
 3. Em **Nome** , especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione uma delas.
@@ -228,7 +228,7 @@ Se você quiser criar uma rede usando o modelo clássico, terá de fazer isso no
 2. Em **Criar e associar política** , especifique um nome de política.
 3. Em **Frequência de cópia** , especifique com que frequência você deseja replicar os dados delta após a replicação inicial (a cada 30 segundos, 5 ou 15 minutos).
 4. Em **Retenção do ponto de recuperação**, especifique, em horas, qual será a duração da janela de retenção para cada ponto de recuperação. Os computadores protegidos podem ser recuperados para qualquer ponto nessa janela.
-5. Em **Frequência do instantâneo consistente com aplicativo** , especifique com que frequência (1 a&12; horas) são criados os pontos de recuperação que incluam instantâneos consistentes com aplicativos. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Observe que, se você habilitar instantâneos consistentes com aplicativos, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
+5. Em **Frequência do instantâneo consistente com aplicativo** , especifique com que frequência (1 a 12 horas) são criados os pontos de recuperação que incluam instantâneos consistentes com aplicativos. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Observe que, se você habilitar instantâneos consistentes com aplicativos, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
 6. Em **Hora de início para replicação inicial** , especifique quando a replicação inicial deve começar. A replicação ocorre pela largura de banda da Internet, pois talvez você queira agendá-la fora dos horários de pico. Em seguida, clique em **OK**.
 
     ![Política de replicação](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
@@ -393,7 +393,7 @@ Isso deve ser escolhido para atender aos requisitos de conformidade ou durante u
 
 1. Selecione **Planos de Recuperação > nome_planoderecuperação**.
 2. Na folha Plano de recuperação, clique em **Failover Planejado**.
-3. Na página **Confirmar Failover Planejado **, escolha os locais de origem e de destino.
+3. Na página **Confirmar Failover Planejado**, escolha os locais de origem e de destino.
 4. Quando um failover planejado começa, a primeira etapa é desligar as máquinas virtuais para garantir que não haja perda de dados. Você pode acompanhar o progresso do failover na guia **Trabalhos** . Se um erro ocorrer no failover (ou em uma máquina virtual, ou em um script que está incluído no plano de recuperação), o failover planejado de um plano de recuperação será interrompido. Você pode iniciar o failover novamente.
 6. Depois que as máquinas virtuais de réplica são criadas, elas ficam em um estado de confirmação pendente. Clique em **Confirmar** para confirmar o failover.
 7. Depois que a replicação é concluída, as máquinas virtuais são iniciadas no local secundário.

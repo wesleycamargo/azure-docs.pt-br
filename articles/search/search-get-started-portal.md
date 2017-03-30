@@ -57,7 +57,7 @@ Muitos clientes começam com o serviço gratuito. Essa versão é limitada a tr�
 > ![Blocos de indexadores e fontes de dados][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> Criar um índice e carregar dados
+## <a name="create-index"></a> Criar um índice e carregar dados
 Consultas de pesquisa são iteradas em um *índice* que contém os dados pesquisáveis, metadados e construções usados para otimizar certos comportamentos de pesquisa.
 
 Para mantermos essa tarefa baseada no portal, utilizamos um conjunto de dados interno de exemplo que pode ser rastreado com um indexador via assistente **Importar dados**. 
@@ -100,7 +100,7 @@ Para monitorar a importação dos dados, volte para o painel do serviço, role p
 
    ![Mensagem de andamento do indexador][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Consultar o índice
+## <a name="query-index"></a> Consultar o índice
 Agora você tem um índice de pesquisa que está pronto para consulta. **Gerenciador de pesquisa** é uma ferramenta de consulta interna do portal. Ele fornece uma caixa de pesquisa para que você possa verificar se os resultados da pesquisa são os esperados. 
 
 > [!TIP]

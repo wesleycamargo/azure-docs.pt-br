@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/17/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: aada5b96eb9ee999c5b1f60b6e7b9840fd650fbe
-ms.openlocfilehash: 2831416bbb290905835396835db2eb6cb5e7b46f
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: e7d2d0063b1555e098c43b95272c78eaf4678af9
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -32,8 +32,7 @@ Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Fa
 A maneira mais fácil de criar um pipeline que copia dados de/para o Azure SQL Data Warehouse é usar o Assistente de cópia de dados. Consulte o [Tutorial: carregar dados no SQL Data Warehouse com o Data Factory](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) para ver uma rápida explicação passo a passo sobre como criar um pipeline usando o Assistente para cópia de dados.
 
 > [!TIP]
-> Ao copiar dados do Banco de Dados SQL do Azure ou do SQL Server no Azure SQL Data Warehouse, se a tabela não existir no repositório de destino, o suporte do Data Factory criará a tabela automaticamente usando o esquema da origem. Experimente usar o assistente de cópia e saiba mais em [criação automática de tabela](#auto-table-creation).
->
+> Ao copiar dados do SQL Server ou do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure, se a tabela não existir no repositório de destino, o Data Factory poderá criar a tabela automaticamente no SQL Data Warehouse usando o esquema da tabela no armazenamento de dados de origem. Consulte [Criação automática de tabela](#auto-table-creation) para obter detalhes. 
 
 Os exemplos a seguir fornecem amostras de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados entre o Azure SQL Data Warehouse e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
@@ -417,7 +416,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 ## <a name="dataset-type-properties"></a>Propriedades do tipo de conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
-A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **AzureSqlDWTable** tem as propriedades a seguir.
+A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** do conjunto de dados do tipo **AzureSqlDWTable** tem as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
@@ -507,7 +506,7 @@ GO
 Usar o **PolyBase** é uma maneira eficiente de carregar grandes quantidades de dados no Azure SQL Data Warehouse com alta taxa de transferência. Você pode notar um grande ganho na taxa de transferência usando PolyBase em vez do mecanismo BULKINSERT padrão. Veja [número de referência do desempenho de cópia](data-factory-copy-activity-performance.md#performance-reference) com comparação detalhada.
 
 * Se o formato de dados de origem for compatível com o PolyBase, você poderá copiar diretamente do armazenamento de dados de origem no SQL Data Warehouse do Azure usando o PolyBase. Veja **[Cópia direta usando o PolyBase](#direct-copy-using-polybase)** com detalhes. Para ver um passo a passo com um caso de uso, veja [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Azure Data Factory).
-* Se o formato da fonte de dados não for originalmente compatível com o PolyBase, você poderá aproveitar a **[Cópia de preparo usando o PolyBase](#staged-copy-using-polybase)**, que também fornece melhor produtividade primeiramente convertendo os dados de modo automático em um formato compatível com o PolyBase, armazenando-os no Armazenamento de Blobs do Azure e depois carregando no SQL Data Warehouse.
+* Se o formato de dados de origem não tiver suporte originalmente no PolyBase, em vez disso, você poderá usar o recurso **[Cópia de Preparo usando o PolyBase](#staged-copy-using-polybase)**. Ele também fornece uma melhor produtividade convertendo automaticamente os dados em um formato compatível com o PolyBase e armazenando os dados no armazenamento de Blobs do Azure. Em seguida, ele carrega os dados no SQL Data Warehouse.
 
 Defina a propriedade `allowPolyBase` como **true**, conforme mostrado no exemplo a seguir para o Azure Data Factory usar o PolyBase para copiar dados para o Azure SQL Data Warehouse. Quando você definir allowPolyBase para true, poderá especificar determinadas propriedades do PolyBase usando o grupo de propriedades `polyBaseSettings`. Consulte a seção [SqlDWSink](#SqlDWSink) para obter detalhes sobre as propriedades que você pode usar com polyBaseSettings.
 
@@ -535,8 +534,8 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
    1. `rowDelimiter` deve ser **\n**.
    2. `nullValue` é definido como **cadeia de caracteres vazia** ("") ou `treatEmptyAsNull` é definido como **true**.
    3. `encodingName` é definido como **utf-8**, que é o valor **padrão**.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` e `skipLineCount` não forem especificadas.
-   5. `compression`pode ser **nenhuma compactação**, **GZip** ou **Deflate**.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` e `skipLineCount` não foram especificados.
+   5. `compression` pode ser **sem compactação**, **GZip** ou **Deflate**.
 
     ```JSON
     "typeProperties": {
@@ -563,7 +562,7 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 Quando os dados de origem não atenderem aos critérios introduzidos na seção anterior, você poderá habilitar a cópia dos dados via Armazenamento de Blobs do Azure de preparo provisório (não pode ser Armazenamento Premium). Neste caso, o Azure Data Factory executa transformações nos dados para atender aos requisitos do formato de dados do PolyBase, em seguida, use o PolyBase para carregar os dados no SQL Data Warehouse. Confira [Cópia de Preparo](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre como copiar dados por meio de um trabalho de preparo do Blob do Azure em geral.
 
 > [!NOTE]
-> Ao copiar dados de um repositório de dados local no SQL Data Warehouse do Azure usando o PolyBase e o preparo, se a versão do seu Gateway de Gerenciamento de Dados for inferior a 2.4, o JRE (Java Runtime Environment) será exigido no computador do gateway que é usado para transformar sua fonte de dados em formato adequado. Sugerimos que você faça upgrade do gateway para a versão mais recente para evitar essa dependência.
+> Ao copiar dados de um armazenamento de dados local para o SQL Data Warehouse do Azure usando o PolyBase e o preparo, se a versão do Gateway de Gerenciamento de Dados for inferior a 2.4, o JRE (Java Runtime Environment) será necessário no computador do gateway que é usado para transformar os dados de origem em um formato adequado. Sugerimos que você faça upgrade do gateway para a versão mais recente para evitar essa dependência.
 >
 >
 
@@ -598,9 +597,9 @@ Para usar esse recurso, crie um [serviço vinculado de Armazenamento do Azure](d
 Para usar o PolyBase, é preciso que o usuário que está sendo usado para carregar dados no SQL Data Warehouse tenha a [permissão "CONTROLE"](https://msdn.microsoft.com/library/ms191291.aspx) no banco de dados de destino. Para isso, adicione esse usuário como um membro da função "db_owner". Saiba como fazer isso seguindo [esta seção](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 ### <a name="row-size-and-data-type-limitation"></a>Limitação de tamanho da linha e tipo de dados
-As cargas Polybase estão limitadas a carregar as duas linhas com menos de **1 MB** e não podem ser carregadas para VARCHR(MAX), NVARCHAR(MAX) nem VARBINARY(MAX). Confira [aqui](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+As cargas do Polybase estão limitadas a carregar linhas com menos de **1 MB** e que não podem ser carregadas para VARCHR(MAX), NVARCHAR(MAX) nem VARBINARY(MAX). Confira [aqui](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
-Caso você tenha dados de origem com linhas de tamanho maior que 1 MB, convém dividir as tabelas de origem verticalmente em várias pequenas, em que o maior tamanho de linha de cada um deles não excede o limite. As tabelas menores podem ser carregadas usando o PolyBase e mescladas no Azure SQL Data Warehouse.
+Caso você tenha dados de origem com linhas maiores que 1 MB, talvez você deseje dividir as tabelas de origem verticalmente em várias pequenas, em que o maior tamanho de linha de cada uma delas não excede o limite. As tabelas menores podem ser carregadas usando o PolyBase e mescladas no Azure SQL Data Warehouse.
 
 ### <a name="sql-data-warehouse-resource-class"></a>Classe de recursos do SQL Data Warehouse
 Para obter a melhor produtividade possível, considere atribuir a maior classe de recursos ao usuário que está sendo usado para carregar dados no SQL Data Warehouse por meio do PolyBase. Saiba como fazer isso seguindo [Alterar um exemplo de classe de recurso de usuário](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
@@ -610,8 +609,8 @@ A tabela a seguir fornece exemplos de como especificar a propriedade **tableName
 
 | Esquema do BD | Nome da tabela | Propriedade JSON tableName |
 | --- | --- | --- |
-| dbo |MyTable |MyTable  ou  dbo.MyTable  ou  [dbo].[MyTable] |
-| dbo1 |MyTable |dbo1.MyTable  ou  [dbo1].[MyTable] |
+| dbo |MyTable |MyTable ou dbo.MyTable ou [dbo].[MyTable] |
+| dbo1 |MyTable |dbo1.MyTable ou [dbo1].[MyTable] |
 | dbo |My.Table |[My.Table] ou [dbo].[My.Table] |
 | dbo1 |My.Table |[dbo1]. [My.Table] |
 
@@ -630,9 +629,9 @@ All columns of the table must be specified in the INSERT BULK statement.
 O valor NULL é uma forma especial do valor padrão. Se a coluna for anulável, os dados de entrada (no blob) para essa coluna poderão estar vazios (não poderão estar ausentes no conjunto de dados de entrada). O PolyBase insere NULL para eles no Azure SQL Data Warehouse.  
 
 ## <a name="auto-table-creation"></a>Criação automática de tabela
-Ao copiar dados do Banco de Dados SQL do Azure ou do SQL Server no Azure SQL Data Warehouse, se a tabela não existir no repositório de destino, o suporte do Data Factory criará a tabela automaticamente usando o esquema da origem quando você usar o assistente de cópia para criação.
+Se você estiver usando o Assistente de Cópia para copiar dados do SQL Server ou do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure e a tabela que corresponde à tabela de origem não existir no repositório de destino, o Data Factory poderá criar automaticamente a tabela no data warehouse usando o esquema da tabela de origem. 
 
-O Data Factory criará a tabela no destino usando o mesmo nome da origem, criará os tipos de dados da coluna com o mapeamento abaixo e usará a distribuição de tabela Round Robin. Observe que a conversão apropriada de tipo de dados poderá ocorrer se for necessário corrigir a incompatibilidade entre os repositórios de origem e destino.
+O Data Factory cria a tabela no repositório de destino com o mesmo nome de tabela no armazenamento de dados de origem. Os tipos de dados das colunas são escolhidos de acordo com o mapeamento de tipo a seguir. Se necessário, ele executa conversões de tipo para corrigir todas as incompatibilidades entre os repositórios de origem e de destino. Ele também usa a distribuição de tabelas em um Round Robin. 
 
 | Tipo de coluna do Banco de Dados SQL da origem | Tipo de coluna do SQL DW de destino (limitação de tamanho) |
 | --- | --- |

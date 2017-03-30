@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: f941f87019a667deba5ec3e5cd054d04318689db
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -37,7 +37,7 @@ Arquivos WSDL são usados para gerar as APIs de passagem SOAP ou servir como o b
 
 * **WSDL:Import** no momento, não oferecemos suporte à APIs usando este atributo. Os clientes devem mesclar os elementos importados em um documento.
 * No momento, não há suporte para **Mensagens com diversas partes**.
-* **WCF wsHttpBinding** serviços SOAP criados com o Windows Communication Foundation devem usar basicHttpBinding - wsHttpBinding.
+* **wsHttpBinding no WCF** Serviços SOAP criados com o Windows Communication Foundation devem usar basicHttpBinding – não há suporte para wsHttpBinding.
 * **MTOM** Serviços que usam MTOM <em>podem</em> funcionar. No momento, não oferecemos suporte oficial.
 * Não há suporte para tipos de **recursão** definidos recursivamente (por exemplo, referir-se a uma matriz de si mesmo).
 

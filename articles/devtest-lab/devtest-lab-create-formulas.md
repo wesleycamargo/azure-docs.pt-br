@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c18b0eefb2d8bb43416e15c5b91cf10827f90089
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 4f9f86c2cc106aa96f27293a43cd784e2fb6fe76
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -68,7 +68,7 @@ As etapas a seguir o orientarão no processo de criação de uma fórmula usando
     * **Configurações avançadas** - selecione para abrir a folha **Avançado** na qual é possível definir as configurações a seguir:
         * **Rede virtual** – especifique a rede virtual desejada.
         * **Sub-rede** – especifique a sub-rede desejada.    
-        * **Configuração de endereço IP** -especifique se você deseja os endereços de IP compartilhados, privados ou públicos. Para saber mais sobre endereços IP compartilhados, consulte Noções básicas dos endereços IP compartilhados no Azure DevTest Labs.
+        * **Configuração de endereço IP** -especifique se você deseja os endereços de IP compartilhados, privados ou públicos. Para obter mais informações sobre endereços IP compartilhados, consulte [Noções básicas dos endereços IP compartilhados no Azure DevTest Labs](./devtest-lab-shared-ip.md).
         * **Tornar essa máquina reivindicável** - tornar uma máquina "reivindicável" significa que ela não será propriedade de ninguém no momento da criação. Em vez disso, os usuários do laboratório poderão assumir a propriedade ("reivindicar") a máquina na folha do laboratório.     
     * **Imagem** – este campo exibe o nome da imagem de base que você selecionou na folha anterior. 
      

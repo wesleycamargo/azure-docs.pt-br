@@ -16,9 +16,9 @@ ms.date: 02/23/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: 804e811c0db5f72b6764b3cb120eb5ec8898baac
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9c587378bc8ffe43f6153c6424748e814c7a1d89
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Integrar sua infraestrutura existente do NPS à Autenticação Multifator do Azure - Visualização pública
@@ -88,7 +88,7 @@ Esta seção inclui considerações sobre o design e sugestões para implantaç�
 
 ### <a name="configurations-limitations"></a>Limitações de configurações
 
-- A extensão do NPS deve trabalhar com sua implantação existente e não é direcionada para novas implantações. Por esse motivo, a extensão do NPS para o Azure MFA não inclui ferramentas para migrar usuários e configurações do servidor MFA para a nuvem.
+- A extensão do NPS destina-se a novas implantações e não ao trabalho com a implantação existente. Por esse motivo, a extensão do NPS para o Azure MFA não inclui ferramentas para migrar usuários e configurações do servidor MFA para a nuvem.
 
 - A extensão do NPS usa o UPN do Active Directory local para identificar o usuário no Azure MFA para realizar a autenticação secundária. A extensão não pode ser configurada para usar um identificador diferente, como a ID de logon alternativa ou campo personalizado do AD que não seja o UPN.  
 
@@ -126,7 +126,7 @@ Abra um prompt de comando no PowerShell e execute os seguintes comandos:
 > Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
 ```
 
-Esses comandos imprimem todos os certificados associados ao seu locatário com a instância da extensão do NPS em sua sessão do PowerShell. Procure seu certificado exportando o certificado do cliente como um arquivo "codificado em Base&64; X.509(.cer)" sem a chave particular e compare-a com a lista do PowerShell.
+Esses comandos imprimem todos os certificados associados ao seu locatário com a instância da extensão do NPS em sua sessão do PowerShell. Procure seu certificado exportando o certificado do cliente como um arquivo "codificado em Base 64 X.509(.cer)" sem a chave particular e compare-a com a lista do PowerShell.
 
 Os carimbos de data/hora Válido-de e Válido-até, que estão em formato legível, poderão ser usados para filtrar desvios óbvios se o comando retornar mais de um certificado.
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d2a65104743d9497debdc85c134fd1a06114c514
-ms.openlocfilehash: 18227576b14fdf4bb8aa11a673f33075c3a380a8
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d716f11818bc0ad6dd9e5f93951b011dd6774c7b
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -66,7 +66,7 @@ Os Logs de fluxo são salvos em uma conta de armazenamento. Para exibir os logs 
 
 ### <a name="step-1"></a>Etapa 1
 
-Para baixar os Logs de fluxo, clique em **Baixar logs de fluxo das contas de armazenamento configuradas**.  Isso levará você até uma exibição da conta de armazenamento onde você poderá navegar até o log para download.
+Para baixar os Logs de fluxo, clique em **É possível baixar logs de fluxo nas contas de armazenamento configuradas**.  Isso levará você até uma exibição da conta de armazenamento onde você poderá navegar até o log para download.
 
 ![configurações dos logs do fluxo][4]
 
@@ -95,3 +95,4 @@ Saiba como [Visualizar seus logs de fluxo NSG com o PowerBI](network-watcher-vis
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
+

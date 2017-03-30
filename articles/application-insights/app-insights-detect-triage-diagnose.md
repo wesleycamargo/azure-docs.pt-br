@@ -4,18 +4,19 @@ description: Analise as falhas, detecte e diagnostique problemas de desempenho e
 author: alancameronwills
 services: application-insights
 documentationcenter: 
-manager: douge
+manager: carmonm
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 1af63c31a8cb7995f64813c12d32b283745c04ed
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 05fe4996a8a9c886f2f1b61471dc80550633ecf6
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -36,7 +37,7 @@ A equipe trabalha em um ciclo de devOps assim:
 
 ![Ciclo do DevOps](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
-Requisitos de feed em sua lista de pendências de desenvolvimento (lista de tarefas). Eles trabalham em impressões curtas, o que geralmente entrega software de trabalho, normalmente na forma de melhorias e extensões para o aplicativo existente. O aplicativo ativo é frequentemente atualizado com novos recursos. Enquanto estiver ativo, a equipe monitora-o para uso com a ajuda do Application Insights e desempenho. Esses dados do APM voltam para a lista de pendências de desenvolvimento.
+Requisitos de feed em sua lista de pendências de desenvolvimento (lista de tarefas). Eles trabalham em impressões curtas, o que geralmente entrega software de trabalho, normalmente na forma de melhorias e extensões para o aplicativo existente. O aplicativo ativo é frequentemente atualizado com novos recursos. Enquanto estiver ativo, a equipe monitora-o para uso com a ajuda do Application Insights e desempenho. Esses dados do APM voltam para sua lista de pendências de desenvolvimento.
 
 A equipe usa o Application Insights para monitorar o aplicativo Web ao vivo de perto em relação a/ao:
 
@@ -60,16 +61,16 @@ Falhas aparecem como pontos vermelhos no gráfico de teste da Web:
 
 ![Exibição de testes da Web que foram executados durante o período anterior](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Mas o mais importante, um alerta sobre qualquer falha será enviado por email à equipe de desenvolvimento. Desse modo, eles sabem a respeito antes de quase todos os clientes.
+Mas o mais importante, um alerta sobre qualquer falha será enviado por email à equipe de desenvolvimento. Desse modo, eles são informados sobre isso antes de quase todos os clientes.
 
 ## <a name="monitor-performance-metrics"></a>Monitorar métricas de desempenho
 Na mesma página de visão geral do Application Insights, há um gráfico que mostra as [principais métricas](app-insights-web-monitor-performance.md).
 
 ![Métricas diversas](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-O tempo de carregamento de página do navegador é derivado da telemetria enviada diretamente a partir de páginas da Web. Tempo de resposta do servidor, contagem de solicitação do servidor e contagem de solicitação com falha são todos medidos no servidor Web e enviadas ao Application Insights a partir daí.
+O tempo de carregamento de página do navegador é derivado da telemetria enviada diretamente a partir de páginas da Web. O tempo de resposta do servidor, a contagem de solicitações do servidor e a contagem de solicitações com falha são todos medidos no servidor Web e enviados para o Application Insights do servidor Web.
 
-Manuela está um pouco preocupada com o gráfico de resposta do servidor, que mostra o tempo médio entre o momento em que o servidor recebe uma solicitação HTTP do navegador de um usuário e o momento em que ele retorna a resposta. Não é incomum ver uma variação nesse gráfico, uma vez que a carga do sistema varia. Todavia, nesse caso, parece haver que uma correlação entre pequenos aumentos na contagem de solicitações e grandes aumentos no tempo de resposta. Isso poderia indicar que o sistema está funcionando exatamente nos limites.
+Marcela está um pouco preocupada com o gráfico de resposta do servidor. Esse gráfico mostra o tempo médio entre o tempo em que o servidor recebe uma solicitação HTTP do navegador de um usuário e o tempo em que ele retorna a resposta. Não é incomum ver uma variação nesse gráfico, uma vez que a carga do sistema varia. Todavia, nesse caso, parece haver que uma correlação entre pequenos aumentos na contagem de solicitações e grandes aumentos no tempo de resposta. Isso poderia indicar que o sistema está funcionando exatamente nos limites.
 
 Ela abre os gráficos de Servidores:
 
@@ -89,7 +90,7 @@ Alertas podem ser definidos em uma grande variedade de outras métricas. Por exe
 ## <a name="smart-detection-alerts"></a>Alertas de detecção inteligente
 No dia seguinte, chega um email de alerta do Application Insights. Mas quando ela o abre, descobre que não é o alerta de tempo de resposta que ela definiu. Em vez disso, ele informa que houve um aumento repentino de solicitações com falha – ou seja, solicitações que retornaram códigos de falha de 500 ou mais.
 
-As solicitações com falha indicam casos em que os usuários viram um erro – geralmente, após uma exceção lançada no código. Talvez eles vejam uma mensagem dizendo "Desculpe, não foi possível atualizar os detalhes agora" ou, na hipótese mais vergonhosa possível, um despejo de pilha na tela do usuário, cortesia do servidor Web.
+As solicitações com falha indicam casos em que os usuários viram um erro – geralmente, após uma exceção lançada no código. Talvez eles recebam uma mensagem informando “Desculpe, não foi possível atualizar os detalhes no momento”. Ou, na pior das situações constrangedoras, um despejo de pilha é exibido na tela do usuário, cortesia do servidor Web.
 
 Esse alerta é uma surpresa, pois a última vez que ela o examinou, a contagem de solicitações com falha felizmente era baixo. Um pequeno número de falhas é esperado em um servidor ocupado.
 
@@ -97,7 +98,7 @@ Isso também foi um pouco surpreendente para ela, pois ela não precisou configu
 
 ![email de diagnóstico proativo](./media/app-insights-detect-triage-diagnose/21.png)
 
-Este é um email muito útil. Ele não só emite um alarme, mas faz grande parte do trabalho de triagem e de diagnóstico também.
+Este é um email muito útil. Ele não apenas aciona um alarme. Ele faz grande parte da triagem e do trabalho de diagnóstico também.
 
 Mostra quantos clientes foram afetados e em quais páginas da Web ou operações. Manuela pode decidir se precisa convocar toda a equipe para trabalhar nisso como em um treinamento contra incêndio ou se isso pode ser ignorado até a semana seguinte.
 
@@ -145,22 +146,22 @@ Na verdade, a estratégia deles é ainda mais ampla do que isso: enviam telemetr
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException é usado para relatar exceções porque ele envia uma cópia da pilha; o TrackEvent é usado para relatar outros eventos. Você pode anexar as propriedades que podem ser úteis no diagnóstico.
+TrackException é usado para relatar exceções porque ele envia uma cópia da pilha. TrackEvent é usado para relatar outros eventos. Você pode anexar as propriedades que podem ser úteis no diagnóstico.
 
 Exceções e eventos aparecem na folha [Pesquisa de diagnóstico](app-insights-diagnostic-search.md). Você pode analisar para ver as propriedades adicionais e o rastreamento de pilha.
 
 ![Na Pesquisa de diagnóstico, use filtros para exibir tipos específicos de dados](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 ## <a name="monitoring-user-activity"></a>Monitorando a atividade do usuário
-Quando o tempo de resposta é constantemente bom com poucas exceções, a equipe de desenvolvimento pode pensar sobre como melhorar a experiência dos usuários e como encorajar mais usuários a atingir as metas desejadas.
+Quando o tempo de resposta é constantemente bom e há algumas exceções, a equipe de desenvolvimento pode passar a trabalhar na usabilidade. Ela pode pensar em como melhorar a experiência dos usuários e como incentivar mais usuários a atingir as metas desejadas.
 
-Por exemplo, uma jornada típica do usuário no site tem um 'funil' claro: muitos clientes examinam as taxas de diferentes tipos de empréstimos; alguns deles preenchem o formulário de cotação; e daqueles que conseguem uma cotação, alguns vão em frente e pegam o empréstimo.
+Por exemplo, uma jornada típica do usuário pelo site tem um “funil” claro. Muitos clientes examinam as taxas de diferentes tipos de empréstimo. Um número menor segue para o preenchimento do formulário de cotação. Dentre aqueles que recebem uma cotação, poucos seguem em frente e realizam o empréstimo.
 
 ![Contagens de exibição de página](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Considerando onde os números maiores de clientes caem, a empresa pode trabalhar em como conseguir mais usuários na parte inferior do funil. Em alguns casos pode haver uma falha de experiência (UX) do usuário - por exemplo, o botão "Avançar" é difícil de encontrar ou as instruções não são óbvias. Provavelmente, existem motivos de negócio mais significativos para transferências de depósito: talvez as taxas de empréstimo são muito altas.
+Considerando onde os números maiores de clientes caem, a empresa pode trabalhar em como conseguir mais usuários na parte inferior do funil. Em alguns casos, pode haver uma falha de experiência do usuário – por exemplo, o botão “Avançar” é difícil de ser encontrado ou as instruções não são óbvias. Provavelmente, existem motivos de negócio mais significativos para transferências de depósito: talvez as taxas de empréstimo são muito altas.
 
-Sejam quais forem as razões, os dados ajudam a equipe a descobrir o que os usuários estão fazendo. Mais chamadas de rastreamento podem ser inseridas para descobrir mais detalhes. TrackEvent() pode ser usado para a contagem de qualquer ação do usuário, dos muitos detalhes de cliques de botão individuais até realizações significativas como o pagamento de um empréstimo.
+Sejam quais forem as razões, os dados ajudam a equipe a descobrir o que os usuários estão fazendo. Mais chamadas de rastreamento podem ser inseridas para descobrir mais detalhes. TrackEvent() pode ser usado para a contagem de todas as ações do usuário, desde os detalhes de cliques de botão individuais até realizações significativas como o pagamento de um empréstimo.
 
 A equipe está acostumando-se a ter informações sobre a atividade do usuário. Hoje em dia, sempre que criam um novo recurso, eles pensam como irão receber comentários sobre seu uso. Eles criam chamadas de rastreamento para o recurso desde o início. Eles usam os comentários para melhorar o recurso em cada ciclo de desenvolvimento.
 
@@ -201,7 +202,7 @@ Alguns problemas de dependência de lentidão são problemas de localização ge
 
 **O que fizemos?** Se o problema não parece estar em uma dependência e se não esteve sempre lá, provavelmente é causado por uma alteração recente. A perspectiva histórica fornecida pelos gráficos de métrica e evento facilita correlacionar alterações repentinas com implantações. Isso reduz o escopo da busca pelo problema.
 
-**O que está acontecendo?** Alguns problemas ocorrem apenas raramente e podem ser difíceis de rastrear por testes offline. Tudo o que podemos fazer é tentar capturar o bug quando ele ocorre, em tempo real. Você pode inspecionar os despejos de pilha em relatórios de exceção. Além disso, você pode escrever chamadas de rastreamento, com sua estrutura de registros favorita, ou então com TrackTrace() ou TrackEvent().  
+**O que está acontecendo?** Alguns problemas ocorrem apenas raramente e podem ser difíceis de rastrear por testes offline. Tudo o que podemos fazer é tentar capturar o bug quando ele ocorre, em tempo real. Você pode inspecionar os despejos de pilha em relatórios de exceção. Além disso, é possível escrever chamadas de rastreamento, com sua estrutura de registros favorita ou com TrackTrace() ou TrackEvent().  
 
 A Fabrikam tinha um problema intermitente com transferências entre contas, mas apenas com determinados tipos de conta. Para entender melhor o que estava acontecendo, eles inseriram chamadas TrackTrace() em pontos-chave do código, anexando o tipo de conta como uma propriedade para cada chamada. Isso facilitou filtrar apenas esses rastreamentos na pesquisa de diagnóstico. Eles também anexaram valores de parâmetro, como propriedades e medidas, às chamadas de rastreamento.
 
@@ -219,6 +220,10 @@ O Application Insights também pode ser usado para saber o que os usuários faze
 ## <a name="your-applications"></a>Seus aplicativos
 Portanto, é assim que uma equipe usa o Application Insights não apenas para corrigir problemas individuais, mas para melhorar seu ciclo de vida de desenvolvimento. Espero que isso tenha dado a você algumas ideias sobre como o Application Insights pode lhe ajudar com o gerenciamento do desempenho dos seus próprios aplicativos.
 
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>Próximas etapas
 Você pode começar de diversas maneiras, dependendo das características do seu aplicativo. Escolha o que lhe convém:
 
@@ -228,9 +233,4 @@ Você pode começar de diversas maneiras, dependendo das características do seu
 * Aplicativos já implantados, hospedados em [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) ou [Azure](app-insights-azure.md).
 * [Páginas da Web](app-insights-javascript.md) - aplicativo de página única ou página da web comum - use isso por conta própria ou com uma das opções de servidor.
 * [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) para testar seu aplicativo da internet pública.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

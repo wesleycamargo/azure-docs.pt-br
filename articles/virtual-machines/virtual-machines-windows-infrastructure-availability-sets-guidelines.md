@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0d4a7f8d7f469c43c972a163651688796483f8fc
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: fef58c8f32eb42b8497615b7f3d2d63bad4804fb
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="azure-availability-sets-guidelines"></a>Diretrizes de conjuntos de disponibilidade do Azure
+# <a name="azure-availability-sets-guidelines-for-windows-vms"></a>Diretrizes de conjuntos de disponibilidade do Azure para VMs Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo concentra-se em compreender as etapas de planejamento necessárias para conjuntos de disponibilidade para garantir que seus aplicativos permaneçam acessíveis durante eventos planejados ou não planejados.
@@ -40,22 +43,19 @@ Tarefas:
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
 No Azure, VMs (máquinas virtuais) podem ser depositadas em um agrupamento lógico denominado um conjunto de disponibilidade. Quando você cria VMs em um conjunto de disponibilidade, a plataforma do Azure distribui o posicionamento dessas VMs na infraestrutura subjacente. Caso ocorra um evento de manutenção planejada para a plataforma do Azure ou uma falha de infraestrutura/hardware subjacente, o uso de conjuntos de disponibilidade garante que pelo menos uma VM permaneça em execução.
 
-Como prática recomendada, os aplicativos não devem residir em uma única VM. Um conjunto de disponibilidade que contém uma única VM não obtém nenhuma proteção contra eventos planejados ou não planejados na plataforma Azure. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) requer duas ou mais VMs em um conjunto de disponibilidade para permitir a distribuição de VMs na infraestrutura subjacente.
+Como prática recomendada, os aplicativos não devem residir em uma única VM. Um conjunto de disponibilidade que contém uma única VM não obtém nenhuma proteção contra eventos planejados ou não planejados na plataforma Azure. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) requer duas ou mais VMs em um conjunto de disponibilidade para permitir a distribuição de VMs na infraestrutura subjacente. Se estiver usando o [Armazenamento Premium do Azure](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), o SLA do Azure se aplicará a uma única VM.
 
-A infraestrutura subjacente no Azure é dividida em atualizar domínios e domínios de falha. Esses domínios são definidos pelos hosts que compartilham um ciclo de atualização comum ou uma infraestrutura física semelhante, como energia e rede. O Azure distribui automaticamente as VMs em um conjunto de disponibilidade entre domínios para manter a disponibilidade e a tolerância a falhas. Dependendo do tamanho do seu aplicativo e o número de VMs em um conjunto de disponibilidade, você pode ajustar o número de domínios que deseja usar. Você pode ler mais sobre [gerenciamento de disponibilidade e o uso dos domínios de atualização e de falha](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+A infraestrutura subjacente no Azure é dividida em vários clusters de hardware. Cada cluster de hardware pode dar suporte a uma variedade de tamanhos de VM. Um conjunto de disponibilidade só pode ser hospedado em um único cluster de hardware em qualquer ponto no tempo. Portanto, o intervalo de tamanhos de VM que pode existir em um único conjunto de disponibilidade é limitado ao intervalo de tamanhos de VM com suporte no cluster de hardware. O cluster de hardware do conjunto de disponibilidade é selecionado quando a primeira VM no conjunto de disponibilidade é implantada ou ao iniciar a primeira VM em um conjunto de disponibilidade em que todas as VMs estão no estado parado-desalocado. O seguinte comando do PowerShell pode ser usado para determinar o intervalo de tamanhos de VM disponíveis para um conjunto de disponibilidade: “Get-AzureRmVMSize -ResourceGroupName \<string\> -AvailabilitySetName \<string\>”
+
+Cada cluster de hardware é dividido em vários domínios de atualização e domínios de falha. Esses domínios são definidos pelos hosts que compartilham um ciclo de atualização comum ou uma infraestrutura física semelhante, como energia e rede. O Azure distribui automaticamente as VMs em um conjunto de disponibilidade entre domínios para manter a disponibilidade e a tolerância a falhas. Dependendo do tamanho do seu aplicativo e o número de VMs em um conjunto de disponibilidade, você pode ajustar o número de domínios que deseja usar. Você pode ler mais sobre [gerenciamento de disponibilidade e o uso dos domínios de atualização e de falha](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Ao projetar sua infraestrutura de aplicativos, planeje as camadas de aplicativo que serão usadas. Agrupe VMs que têm a mesma finalidade em conjuntos de disponibilidade, como um conjunto de disponibilidade para suas VMs de front-end executando IIS. Crie um conjunto de disponibilidade separado para suas VMs de back-end executando o SQL Server. O objetivo é garantir que cada componente do aplicativo seja protegido por um conjunto de disponibilidade e pelo menos uma instância sempre permaneça em execução.
 
-Balanceadores de carga podem ser utilizados antes de cada camada de aplicativo para trabalhar junto com um conjunto de disponibilidade e certificar-se de que o tráfego sempre possa ser roteado para uma instância em execução. Sem um balanceador de carga, suas VMs podem continuar em execução durante manutenções planejadas e não planejadas, mas os usuários finais não poderá resolvê-los se a VM primária não estiver disponível.
+Balanceadores de carga podem ser utilizados antes de cada camada de aplicativo para trabalhar junto com um conjunto de disponibilidade e certificar-se de que o tráfego sempre possa ser roteado para uma instância em execução. Sem um balanceador de carga, as VMs poderão continuar em execução durante eventos de manutenção planejada e não planejada, mas os usuários finais poderão não conseguir resolvê-los se a VM primária não estiver disponível.
 
-Projete o aplicativo para alta disponibilidade na camada de armazenamento. A prática recomendada é usar uma conta de armazenamento separada para cada VM em um Conjunto de Disponibilidade. Mantenha todos os discos (sistema operacional e dados) associados a uma VM na mesma conta de armazenamento. Considere os [limites](../storage/storage-scalability-targets.md) da conta de armazenamento ao adicionar mais VHDs a uma conta de armazenamento.
+Ao usar discos não gerenciados, crie seu aplicativo para alta disponibilidade na camada de armazenamento. A prática recomendada é usar uma conta de armazenamento separada para cada VM em um Conjunto de Disponibilidade. Mantenha todos os discos (sistema operacional e dados) associados a uma VM na mesma conta de armazenamento. Considere os [limites](../storage/storage-scalability-targets.md) da conta de armazenamento ao adicionar mais VHDs a uma conta de armazenamento. Para o [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), a distribuição dos discos subjacentes é feita para você.
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -1,21 +1,22 @@
 ---
-title: "Painéis e navegação no portal do Application Insights | Microsoft Docs"
+title: "Painéis e navegação no Azure Application Insights | Microsoft Docs"
 description: "Crie exibições de suas consultas e gráficos principais do APM."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
-ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 097a8aeecc783199b25d95dbc470dcabefa37ced
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -148,15 +149,15 @@ SUPORTE
 
 * **Solicitação de suporte** -requer uma assinatura paga. Veja também [Obtendo ajuda](app-insights-get-dev-support.md).
 
-## <a name="whats-next"></a>O que vem a seguir?
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="next-steps"></a>Próximas etapas
+
 |  |  |
 | --- | --- |
 | [Metrics explorer](app-insights-metrics-explorer.md)<br/>Métricas de filtro e de segmento |![Exemplo de pesquisa](./media/app-insights-dashboards/64.png) |
 | [Pesquisa de diagnóstico](app-insights-diagnostic-search.md)<br/>Localize e inspecione eventos, eventos relacionados e crie bugs |![Exemplo de pesquisa](./media/app-insights-dashboards/61.png) |
 | [Analytics](app-insights-analytics.md)<br/>Linguagem de consulta poderosa |![Exemplo de pesquisa](./media/app-insights-dashboards/63.png) |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

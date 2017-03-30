@@ -15,14 +15,15 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 6d40b998316652b7144e641c468e14a965c78a30
-ms.openlocfilehash: 84fc25424f2ca656a089e5f2cdf54e61d5c5868e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f9a5e7a4e25ce5e7f63fe5a09fafeb6b4a8166ad
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Active Directory do Azure
 > [!IMPORTANT]
-> A funcionalidade da API do Graph do Azure AD também está disponível por meio do [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que inclui APIs de outros serviços da Microsoft, como o Outlook, OneDrive, OneNote, Planner e Office Graph, e está acessível por meio de um único ponto de extremidade e com um token de acesso único.
+> É altamente recomendável usar o [Microsoft Graph](https://graph.microsoft.io/) em vez da API do Azure AD Graph para acessar recursos do Azure Active Directory. Nossos esforços de desenvolvimento agora estão concentrados no Microsoft Graph e não há planejamento de novas melhorias para a API do Azure AD Graph. Há um número muito limitado de cenários para os quais a API do Azure AD Graph ainda pode ser apropriada; para obter mais informações, consulte a postagem no blog [Microsoft Graph ou o Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) no Centro de Desenvolvimento do Office.
 > 
 > 
 
@@ -65,10 +66,5 @@ A Graph API habilita muitos cenários de aplicativos. A seguir, os cenários mai
 [Documentação do REST para a Graph AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -13,107 +13,107 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/16/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 7b621733e09a1ba4e21152d7670a8936e3944521
-ms.openlocfilehash: 4503610eb8ef2e690e028667ebbf64e865af7134
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 86c4569816ad713543ce31ab4f55dbf49d0fe5b8
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Como executar um servidor de aplicativos do Java em uma máquina virtual criada com o modelo de implantação clássico
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para um modelo do Resource Manager para implantar um aplicativo Web com o Java 8 e o Tomcat, veja [aqui](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
 
-Com o Azure, você pode usar uma máquina virtual para fornecer recursos de servidor. Como um exemplo, uma máquina virtual em execução no Azure pode ser configurada para hospedar um servidor de aplicativos Java, como o Apache Tomcat. Depois de concluir este guia, você saberá como criar uma máquina virtual em execução no Azure e configurá-la para executar um servidor de aplicativos Java.
+Com o Azure, você pode usar uma máquina virtual para fornecer recursos de servidor. Como um exemplo, uma máquina virtual em execução no Azure pode ser configurada para hospedar um servidor de aplicativos Java, como o Apache Tomcat.
 
-Você aprenderá:
+Depois de concluir este guia, você entenderá como criar uma máquina virtual em execução no Azure e configurá-la para executar um servidor de aplicativos Java. Você aprenderá e executará as seguintes tarefas:
 
 * Como criar uma máquina virtual que já tenha um JDK (Java Development Kit) instalado.
 * Entre remotamente na máquina virtual.
-* Instalar um servidor de aplicativos Java na máquina virtual.
+* Como instalar um servidor de aplicativos Java – Apache Tomcat – na máquina virtual.
 * Criar um ponto de extremidade para a máquina virtual.
 * Abrir uma porta no firewall para o servidor de aplicativos.
 
-Neste tutorial, um servidor de aplicativos Apache Tomcat será instalado em uma máquina virtual. A instalação concluída resultará em uma instalação do Tomcat, como a seguinte.
+A instalação completa resulta na execução do Tomcat em uma máquina virtual.
 
 ![Máquina virtual executando o Apache Tomcat][virtual_machine_tomcat]
 
 [!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Para criar uma máquina virtual
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
-3. Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012**.
-   É importante lembrar que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos herdados que ainda não estejam prontos para serem executados no JDK 7.
-4. Clique em **Próximo**.
-5. Na caixa de diálogo **Configuração da máquina virtual** :
+1. Entre no [Portal do Azure](https://portal.azure.com).  
+2. Clique em **Novo**, em **Computação** e, em seguida, em **Ver todos** nos **Aplicativos em destaque**.
+3. Clique em **JDK** e em **JDK 8** no painel **JDK**.  
+   Imagens de máquina virtual que dão suporte ao **JDK 6** e ao **JDK 7** estão disponíveis se você tem aplicativos herdados que não estão prontos para serem executados no JDK 8.
+4. No painel do JDK 8, selecione **Clássico** e, em seguida, clique em **Criar**.
+5. Na folha **Básico**:
    1. Especifique um nome para a máquina virtual.
-   2. Especifique o tamanho a ser usado para a máquina virtual.
-   3. Digite um nome para o administrador no campo **Nome do Usuário** . Lembre-se do nome e da senha inseridos a seguir, você irá usá-los ao entrar remotamente na máquina virtual.
-   4. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**. Esta é a senha da conta do Administrador.
-   5. Clique em **Próximo**.
-6. Na próxima caixa de diálogo **Configuração da máquina virtual** :
-   1. Para **Serviço de Nuvem**, use o padrão **Criar um novo serviço de nuvem**.
-   2. O valor de **Nome DNS do Serviço de Nuvem** deve ser exclusivo no cloudapp.net. Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo.
-   3. Especifique uma região, um grupo de afinidade ou uma rede virtual. Neste tutorial, especifique uma região, como **Oeste dos Estados Unidos**.
-   4. Para **Conta de Armazenamento**, selecione **Usar uma conta de armazenamento gerada automaticamente**.
-   5. Para **Conjunto de Disponibilidade**, selecione **(Nenhum)**.
-   6. Clique em **Próximo**.
-7. Na caixa de diálogo **Configuração da máquina virtual** final:
-   1. Aceite as entradas de ponto de extremidade padrão.
-   2. Clique em **Concluído**.
+   2. Digite um nome para o administrador no campo **Nome do Usuário** . Memorize esse nome e a senha associada mostrada no próximo campo. Você precisará deles quando entrar remotamente na máquina virtual.
+   3. Insira uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar senha**. Essa senha refere-se à conta de Administrador.
+   4. Selecione a **Assinatura** apropriada.
+   5. Para o **Grupo de recursos**, clique em **Criar novo** e insira o nome de um novo grupo de recursos. Se preferir, clique em **Usar existente** e selecione um dos grupos de recursos disponíveis.
+   6. Selecione uma localização em que a máquina virtual reside, como **Centro-Sul dos EUA**.
+6. Clique em **Próximo**.
+7. Na folha **Tamanho da imagem de máquina virtual**, selecione **A1 Padrão** ou outra imagem apropriada.
+8. Clique em **Selecionar**.
+
+9. Na folha **Configurações**, clique em **OK**. É possível usar os valores padrão fornecidos pelo Azure.  
+10. Na folha **Resumo**, clique em **OK**.
 
 ## <a name="to-remotely-sign-in-to-your-virtual-machine"></a>Para entrar remotamente na máquina virtual
-1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Clique em **Máquinas Virtuais**.
+1. Faça logon no [portal do Azure](https://portal.azure.com).
+2. Clique em **Máquinas virtuais (clássicas)**. Se necessário, clique em **Mais serviços** no canto inferior esquerdo nas categorias de serviços. A entrada **Máquinas virtuais (clássicas)** é listada no grupo **Computação**.
 3. Clique no nome da Máquina Virtual na qual você deseja entrar.
-4. Depois que a máquina virtual for iniciada, um menu pop-up aparecerá na parte inferior da página para permitir as conexões.
+4. Depois que a máquina virtual for iniciada, um menu na parte superior do painel permitirá conexões.
 5. Clique em **Conectar**.
-6. Responda às solicitações conforme necessário para se conectar à máquina virtual. Isso deve incluir salvar ou abrir o arquivo .rdp que contém os detalhes de conexão. Pode ser necessário copiar url:port como último parte da primeira linha do arquivo .rdp e colar essa informações em um aplicativo de entrada remoto.
+6. Responda às solicitações conforme necessário para se conectar à máquina virtual. Normalmente, você salva ou abre o arquivo .rdp que contém os detalhes de conexão. Pode ser necessário copiar url:port como último parte da primeira linha do arquivo .rdp e colar essa informações em um aplicativo de entrada remoto.
 
 ## <a name="to-install-a-java-application-server-on-your-virtual-machine"></a>Para instalar um servidor de aplicativos Java em sua máquina virtual
 Você pode copiar um servidor de aplicativos Java em sua máquina virtual ou instalar um servidor de aplicativos Java por meio de um instalador.
 
-Para o objetivo deste tutorial, o Tomcat será instalado.
+Este tutorial usa o Tomcat como o servidor de aplicativos Java a ser instalado.
 
-1. Depois de se conectar à máquina virtual, abra uma sessão do navegador para [Apache Tomcat](http://tomcat.apache.org/download-70.cgi).
-2. Clique duas vezes no link **Instalador de serviço do Windows de&32; bits/64 bits**. Usando essa técnica, o Tomcat será instalado como um serviço do Windows.
+1. Depois de se conectar à máquina virtual, abra uma sessão do navegador para [Apache Tomcat](http://tomcat.apache.org/download-80.cgi).
+2. Clique duas vezes no link **Instalador de serviço do Windows de 32 bits/64 bits**. Ao usar essa técnica, o Tomcat é instalado como um serviço Windows.
 3. Quando solicitado, opte por executar o instalador.
 4. No assistente de **Configuração do Apache Tomcat** , siga os prompts para instalar o Tomcat. Para o objetivo deste tutorial, aceitar os padrões será o suficiente. Quando você chegar à caixa de diálogo **Concluindo o Assistente de Instalação do Apache Tomcat**, poderá marcar opcionalmente **Executar o Apache Tomcat** para que o Tomcat inicie agora. Clique em **Concluir** para concluir o processo de configuração do Tomcat.
 
 ## <a name="to-start-tomcat"></a>Para iniciar o Tomcat
-Se você não optou por executar o Tomcat na caixa de diálogo **Concluindo o Assistente de Instalação do Apache Tomcat**, inicie-o abrindo um prompt de comando em sua máquina virtual e executando **net start Tomcat7**.
 
-Agora você deverá ver o Tomcat em execução se executar o navegador da máquina virtual e abrir <http://localhost:8080>.
+É possível iniciar o Tomcat manualmente abrindo um prompt de comando na máquina virtual e executando o comando **net&nbsp;start&nbsp;Tomcat8**.
+
+Quando o Tomcat estiver em execução, você poderá acessá-lo inserindo a URL <http://localhost:8080> no navegador da máquina virtual.
 
 Para ver o Tomcat em execução em máquinas externas, você precisará criar um ponto de extremidade e abrir uma porta.
 
 ## <a name="to-create-an-endpoint-for-your-virtual-machine"></a>Para criar um ponto de extremidade para sua máquina virtual
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Clique em **Máquinas Virtuais**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Clique em **Máquinas virtuais (clássicas)**.
 3. Clique no nome da máquina virtual que está executando o servidor de aplicativos Java.
 4. Clique em **Pontos de Extremidade**.
 5. Clique em **Adicionar**.
-6. Na caixa de diálogo **Adicionar ponto de extremidade**, verifique se a opção **Adicionar ponto de extremidade autônomo** está marcada e clique em **Próximo**.
-7. Na caixa de diálogo **Detalhes do novo ponto de extremidade** :
+6. Na caixa de diálogo **Adicionar ponto de extremidade**:
    1. Especifique um nome para o ponto de extremidade. Por exemplo, **HttpIn**.
-   2. Especifique **TCP** para o protocolo.
+   2. Selecione **TCP** como o protocolo.
    3. Especifique **80** para a porta pública.
    4. Especifique **8080** para a porta privada.
-   5. Clique no botão **Concluído** para fechar a caixa de diálogo. O ponto de extremidade será criado.
+   5. Selecione **Desabilitado** para o endereço IP flutuante.
+   6. Deixe a lista de controle de acesso como está.
+   7. Clique no botão **OK** para fechar a caixa de diálogo e criar o ponto de extremidade.
 
 ## <a name="to-open-a-port-in-the-firewall-for-your-virtual-machine"></a>Para abrir uma porta no firewall para sua máquina virtual
 1. Entre na máquina virtual.
 2. Clique em **Iniciar do Windows**.
 3. Clique em **Painel de Controle**.
 4. Clique em **Sistema e Segurança**, clique em **Firewall do Windows** e, em seguida, clique em **Configurações Avançadas**.
-5. Clique em **Regras de Entrada** e, em seguida, clique em **Nova Regra**.
+5. Clique em **Regras de Entrada** e, em seguida, clique em **Nova Regra**.  
    ![Nova regra de entrada][NewIBRule]
-6. Para o **Tipo de Regra**, selecione **Porta** e clique em **Próximo**.
+6. Para o **Tipo de Regra**, selecione **Porta** e clique em **Próximo**.  
    ![Nova porta de regra de entrada][NewRulePort]
-7. Na tela **Protocolo e Portas**, selecione **TCP**, especifique **8080** como a **Porta local específica** e clique em **Próximo**.
-   ![Nova regra de entrada][NewRuleProtocol]
+7. Na tela **Protocolo e Portas**, selecione **TCP**, especifique **8080** como a **Porta local específica** e clique em **Próximo**.  
+  ![Nova regra de entrada][NewRuleProtocol]
 8. Na tela **Ação**, selecione **Permitir a conexão** e clique em **Próximo**.
    ![Nova ação de regra de entrada][NewRuleAction]
 9. Na tela **Perfil**, verifique se **Domínio**, **Privado** e **Público** estão marcados e clique em **Próximo**.
@@ -121,18 +121,18 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 10. Na tela **Nome**, especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**.  
     ![Nome da nova regra de entrada][NewRuleName]
 
-Neste ponto, o site do Tomcat deve ser visível de um navegador externo usando uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
+Neste ponto, o site do Tomcat deverá estar visível em um navegador externo. Na janela de endereço do navegador, digite uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que***your\_DNS\_name*** é o nome DNS especificado quando a máquina virtual foi criada.
 
 ## <a name="application-lifecycle-considerations"></a>Considerações sobre o ciclo de vida do aplicativo
-* Você pode criar o próprio arquivo web do aplicativo (WAR) e adicioná-lo à pasta **webapps** . Por exemplo, crie um projeto Web dinâmico JSP (página de serviço Java) básico e o exporte como um arquivo WAR, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e o execute em um navegador.
-* Por padrão, quando o serviço Tomcat for instalado, ele será definido para iniciar manualmente. Você pode mudá-lo para iniciar automaticamente, usando o snap-in Serviços. Inicie o snap-in Serviços clicando em **Iniciar do Windows**, **Ferramentas Administrativas** e em **Serviços**. Clique duas vezes no serviço **Apache Tomcat** e defina o **Tipo de inicialização** como **Automático**.
-  
+* Você pode criar o próprio arquivo web do aplicativo (WAR) e adicioná-lo à pasta **webapps** . Por exemplo, crie um projeto Web dinâmico JSP (Página de Serviço Java) básico e exporte-o como um arquivo WAR. Em seguida, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e, em seguida, execute-o em um navegador.
+* Por padrão, quando o serviço Tomcat for instalado, ele será definido para iniciar manualmente. Você pode mudá-lo para iniciar automaticamente, usando o snap-in Serviços. Inicie o snap-in Serviços clicando em **Iniciar do Windows**, **Ferramentas Administrativas** e em **Serviços**. Clique duas vezes no serviço **Apache Tomcat** e defina **Tipo de inicialização** como **Automático**.
+
     ![Configurando um serviço para iniciar automaticamente][service_automatic_startup]
-  
-    O benefício de fazer o Tomcat ser iniciado automaticamente é que ele será iniciado se a máquina virtual for reinicializada (por exemplo, depois que atualizações de software que exijam uma reinicialização forem instaladas).
+
+    A vantagem de fazer com que o Tomcat seja iniciado automaticamente é que ele começa a ser executado quando a máquina virtual é reinicializada (por exemplo, após a instalação das atualizações de software que exigem uma reinicialização).
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento de serviço, o Banco de Dados SQL) que você pode desejar incluir com seus aplicativos do Java, conferindo as informações disponíveis no [Centro de Desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
+É possível saber mais sobre outros serviços (como o Armazenamento do Azure, barramento de serviço e Banco de Dados SQL) que talvez você deseje incluir nos aplicativos Java. Exibir as informações disponíveis no [Central de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -154,7 +154,9 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 [NewRuleProfile]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
 
 
-
-<!--HONumber=Jan17_HO4-->
-
+<!-- Deleted from the "To create an ednpoint for your virtual mache" 3/17/2017,
+     to use the new portal.
+6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
+7. In the **New endpoint details** dialog box:
+-->
 
