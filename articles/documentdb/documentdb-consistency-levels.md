@@ -17,9 +17,9 @@ ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 839f8c8669c06e22635b68018d816a669aec895b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: af8e53d7cc074bf669b967014223ee88476d1686
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -77,7 +77,7 @@ A tabela a seguir captura várias garantias de consistência correspondentes aos
 | **Garantia de prefixo consistente** |Sim |Sim |Sim |Sim |
 | **Leituras monotônicas** |Sim |Sim, nas regiões fora da janela de desatualização e em uma região o tempo todo. |Sim, para a sessão determinada |Não |
 | **Gravações monotônicas** |Sim |Sim |Sim |Sim |
-| **Leitura de suas gravações** |Sim |Sim |Sim (na região de gravação) |Não |
+| **Leitura de suas gravações** |Sim |Sim (na região de gravação) | Sim |Não |
 
 ## <a name="configuring-the-default-consistency-level"></a>Configurando o nível de consistência padrão
 1. No [portal do Azure](https://portal.azure.com/), na barra de atalhos, clique em **DocumentDB (NoSQL)**.

@@ -53,7 +53,7 @@ Com o uso de Grupos de Recursos, você tem flexibilidade para projetar os compon
 ### <a name="cloud-only-virtual-networks"></a>Redes virtuais somente na nuvem
 Se os computadores e usuários locais não exigirem conectividade contínua com as VMs em uma rede virtual do Azure, o design de sua rede virtual será bastante simples:
 
-![Diagrama básico de rede virtual somente na nuvem](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Diagrama básico de rede virtual somente na nuvem](windows/media/infrastructure-networking-guidelines/vnet01.png)
 
 Essa abordagem costuma ser usada para cargas de trabalho para a Internet, como um servidor Web baseado na Internet. Você pode gerenciar essas VMs usando conexões SSH ou VPN ponto a site.
 
@@ -62,7 +62,7 @@ Como elas não se conectam à sua rede local, as redes virtuais somente do Azure
 ### <a name="cross-premises-virtual-networks"></a>Redes virtuais entre instalações
 Se os computadores e usuários locais exigem conectividade contínua com as VMs em uma rede virtual do Azure, crie uma rede virtual entre instalações. Conecte a rede virtual à sua rede local com uma conexão de ExpressRoute ou uma conexão VPN site a site.
 
-![Diagrama de rede virtual entre instalações](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![Diagrama de rede virtual entre instalações](windows/media/infrastructure-networking-guidelines/vnet02.png)
 
 Nessa configuração, a rede virtual do Azure é essencialmente uma extensão baseada em nuvem da sua rede local.
 

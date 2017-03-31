@@ -16,9 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 12/22/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: f234e50d194c1b8b8deed8282a6ab1250b53d075
-ms.openlocfilehash: d055e40305b277338ae85e8d6c53d3d76a78d235
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fa4cf56c10f885a2fd4b62e08a369a51d1280ab3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -91,10 +91,6 @@ Para obter mais informações sobre a retenção de backup de longo prazo, consu
 14. Clique em **salvar** para habilitar a retenção de backup a longo prazo, usando essa nova política no cofre de serviços de recuperação do Azure que você configurou.
 
    ![definir política de retenção](./media/sql-database-get-started-backup-recovery/enable-long-term-retention.png)
-
-14. Após a habilitação da retenção de backup de longo prazo, abra a folha **Cofre dos Serviços de Recuperação** (acesse **Todos os recursos** e selecione-o na lista de recursos de sua assinatura).
-
-   ![exibir cofre dos serviços de recuperação](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
 
 ## <a name="restore-from-long-term-backup-retention-using-the-azure-portal"></a>Restaurar da retenção de backup de longo prazo usando o portal do Azure

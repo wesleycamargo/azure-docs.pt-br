@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 34445eff89ff7ff513893d5b36b937075b09f599
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 138c90a1a9cbf3b85856f372beeb4472edb9e2e8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -49,10 +49,7 @@ O modelo do Azure Resource Manager usado neste documento demonstra como criar v�
 * [Java e JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): usado para desenvolver a topologia do Storm.
 * [Maven](http://maven.apache.org/what-is-maven.html): usado para criar e compilar o projeto.
 * [Git](http://git-scm.com/): usado para baixar o projeto do GitHub.
-* Um cliente **SSH** : usado para conectar-se aos clusters HDInsight baseados em Linux. Para saber mais sobre como usar SSH com o HDInsight, veja os seguintes documentos:
-  
-  * [Usar SSH (PuTTY) com o HDInsight em um cliente Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-  * [Usar o SSH com o HDInsight em um Linux, Unix, OS X ou Bash no Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
+* Um cliente **SSH** : usado para conectar-se aos clusters HDInsight baseados em Linux. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     
     > [!NOTE]
     > Você também deve ter acesso ao comando `scp`, que é usado para copiar arquivos entre o seu ambiente de desenvolvimento local e o cluster HDInsight usando o SSH.

@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
-ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 90e443fe69afdda8786dd00ffb32e9680a476cd4
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -97,7 +98,7 @@ A tabela a seguir resume os recursos de Business Intelligence instalados nas ima
   * A política de cache da unidade padrão **C**: não é ideal para o trabalho com dados.
   * A unidade **D**: é uma unidade temporária usada principalmente pelo arquivo de paginação. A unidade **D**: não é persistente e não é salva no armazenamento de blob. As tarefas de gerenciamento, como uma alteração no tamanho da máquina virtual, redefinem a unidade **D**:. Recomenda-se **NÃO** usar a unidade **D**: para arquivos de banco de dados, incluindo o tempdb.
     
-    Para saber mais sobre como criar e anexar discos, consulte [Como anexar um disco de dados a uma máquina virtual](../../virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Para saber mais sobre como criar e anexar discos, consulte [Como anexar um disco de dados a uma máquina virtual](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Pare ou desinstale os serviços que você não planeja usar. Por exemplo, se a máquina virtual for usada apenas para o Reporting Services, pare ou desinstale o Analysis Services e o SQL Server Integration Services. A imagem a seguir é um exemplo de como os serviços são iniciados por padrão.
   
     ![Serviços do SQL Server](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -138,7 +139,7 @@ Analysis Services, Reporting Services, Mecanismo de Banco de Dados SQL Server e 
 A imagem da galeria de máquinas virtuais do SQL Server inclui a instalação do modo Nativo do Reporting Services. No entanto, o servidor de relatório não está configurado. As etapas desta seção configuram o servidor de relatório do Reporting Services. Para obter informações mais detalhadas sobre como configurar o modo Nativo do Reporting Services, consulte [Instalar o servidor de relatório no modo nativo do Reporting Services (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx).
 
 > [!NOTE]
-> Para obter conteúdo semelhante que usa scripts do Windows PowerShell para configurar o servidor de relatório, consulte [Usar o PowerShell para criar uma VM do Azure com um servidor de relatório no modo nativo](virtual-machines-windows-classic-ps-sql-report.md).
+> Para obter conteúdo semelhante que usa scripts do Windows PowerShell para configurar o servidor de relatório, consulte [Usar o PowerShell para criar uma VM do Azure com um servidor de relatório no modo nativo](../classic/ps-sql-report.md).
 
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>Conectar-se à máquina virtual e iniciar o Gerenciador de Configuração do Reporting Services
 Há dois fluxos de trabalho comuns para se conectar a uma máquina virtual do Azure:
@@ -242,7 +243,7 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
   
   1. Crie um disco rígido .VHD no computador local com seus relatórios.
   2. Crie e instale um certificado de gerenciamento.
-  3. Carregue o arquivo VHD no Azure usando o cmdlet Add-AzureVHD [Criar e carregar um VHD do Windows Server no Azure](../../virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  3. Carregue o arquivo VHD no Azure usando o cmdlet Add-AzureVHD [Criar e carregar um VHD do Windows Server no Azure](../classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
   4. Anexe o disco à máquina virtual.
 
 ## <a name="install-other-sql-server-services-and-features"></a>Instalar outros serviços e recursos do SQL Server
@@ -322,7 +323,7 @@ Esta seção resume os pontos de extremidade de máquina virtual do Microsoft Az
 
 Para saber mais sobre a criação de pontos de extremidade, consulte o seguinte:
 
-* Criar pontos de extremidade:[Como configurar os pontos de extremidade para uma máquina virtual](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Criar pontos de extremidade:[Como configurar os pontos de extremidade para uma máquina virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * SQL Server: consulte a seção "Etapas completas de configuração para se conectar à máquina virtual usando o SQL Server Management Studio" de [Provisionando uma máquina virtual do SQL Server no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de permitir o acesso remoto a recursos e componentes na VM.
@@ -334,7 +335,7 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 * [Visão geral do SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Provisionando uma máquina virtual do SQL Server no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Como anexar um disco de dados à máquina virtual](../../virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Como anexar um disco de dados à máquina virtual](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migração de um banco de dados para o SQL Server em uma VM do Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Determinar o modo de servidor de uma instância do Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Modelagem multidimensional (tutorial da Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)
@@ -346,10 +347,5 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 ### <a name="community-content"></a>Conteúdo da comunidade
 * [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
