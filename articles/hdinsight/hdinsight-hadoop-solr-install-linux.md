@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2214315f084aec80986fe30ebcaff6813162c5f8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -81,10 +81,7 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    Para obter mais informações sobre como usar SSH com o HDInsight, consulte o seguinte:
-   
-   * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
      
      > [!IMPORTANT]
      > Etapas posteriormente em tornar este documento usam um túnel SSL para conectar-se a interface de usuário da Web do Solr. Para usar essas etapas, você deve estabelecer um túnel SSL e, em seguida, configurar seu navegador para usá-lo.
@@ -173,10 +170,8 @@ Depois de estabelecer um túnel SSH, use as seguintes etapas para usar o painel 
    
    1. Use SSH para conectar-se ao cluster na porta 22. Por exemplo, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` onde **USERNAME** é o nome de usuário SSH e **CLUSTERNAME** é o nome do cluster.
       
-       Para saber mais sobre como usar SSH, veja os documentos a seguir:
-      
-      * [Usar SSH com HDInsight baseado em Linux em um cliente Linux, Unix ou Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-      * [Usar SSH com HDInsight baseado em Linux em um cliente com Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+       Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
    2. Use o seguinte comando para obter o nome de host totalmente qualificado:
       
            hostname -f

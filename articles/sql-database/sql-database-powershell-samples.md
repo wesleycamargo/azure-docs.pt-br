@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: abcccabbfc56102c97ef2408fb812755e21b467c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 8057747aea2725abf3b37481858c7902ff8fe4da
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -30,19 +30,19 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 | |  |
 |---|---|
 |**Criar um banco de dados individual e um pool elástico**||
-| [Criar um Banco de Dados individual e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-powershell.md) | Cria um banco de dados SQL do Azure individual e configura uma regra de firewall no nível do servidor. |
-| [Criar pools Elásticos e mover bancos de dados em pools](scripts/sql-database-move-database-between-pools-powershell.md) | Cria pools Elásticos, move os bancos de dados em pools e altera os níveis de desempenho.|
+| [Criar um Banco de Dados individual e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2ftoc.json) | Cria um banco de dados SQL do Azure individual e configura uma regra de firewall no nível do servidor. |
+| [Criar pools Elásticos e mover bancos de dados em pools](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2ftoc.json) | Cria pools Elásticos, move os bancos de dados em pools e altera os níveis de desempenho.|
 |**Configurar a replicação geográfica e o failover**||
-| [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)| Configura a replicação geográfica ativa para um Banco de Dados SQL do Azure individual e faz o failover desse banco de dados para a réplica secundária. |
-| [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)| Configura a replicação geográfica ativa para um Banco de Dados SQL do Azure em um pool elástico e faz o failover desse banco de dados para a réplica secundária. |
+| [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2ftoc.json)| Configura a replicação geográfica ativa para um Banco de Dados SQL do Azure individual e faz o failover desse banco de dados para a réplica secundária. |
+| [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2ftoc.json)| Configura a replicação geográfica ativa para um Banco de Dados SQL do Azure em um pool elástico e faz o failover desse banco de dados para a réplica secundária. |
 |**Dimensionar um banco de dados individual e um pool elástico**||
-| [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-powershell.md) | Monitora as métricas de desempenho de um Banco de Dados SQL do Azure, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho. |
-| [Dimensionar um pool elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md) | Monitora as métricas de desempenho de um pool elástico, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho.  |
+| [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2ftoc.json) | Monitora as métricas de desempenho de um Banco de Dados SQL do Azure, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho. |
+| [Dimensionar um pool elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2ftoc.json) | Monitora as métricas de desempenho de um pool elástico, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho.  |
 | **Auditoria e detecção de ameaças** |
-| [Configurar auditoria e detecção de ameaças](scripts/sql-database-auditing-and-threat-detection-powershell.md)| Configura políticas de detecção de ameaças e auditoria para um Banco de Dados SQL do Azure. |
+| [Configurar auditoria e detecção de ameaças](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2ftoc.json)| Configura políticas de detecção de ameaças e auditoria para um Banco de Dados SQL do Azure. |
 | **Restaurar, copiar e importar um banco de dados**||
-| [Restaurar um banco de dados](scripts/sql-database-restore-database-powershell.md)| Restaura um Banco de Dados SQL do Azure com base em um backup com redundância geográfica e restaura um Banco de Dados SQL do Azure excluído para o backup mais recente. |
-| [Copiar um banco de dados para o novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md)| Cria uma cópia do Banco de Dados SQL do Azure existente em um novo Azure SQL Server. |
-| [Importar um banco de dados de um arquivo bacpac](scripts/sql-database-import-from-bacpac-powershell.md)| Importa um banco de dados para um SQL Server do Azure de um arquivo bacpac. |
+| [Restaurar um banco de dados](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2ftoc.json)| Restaura um Banco de Dados SQL do Azure com base em um backup com redundância geográfica e restaura um Banco de Dados SQL do Azure excluído para o backup mais recente. |
+| [Copiar um banco de dados para o novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2ftoc.json)| Cria uma cópia do Banco de Dados SQL do Azure existente em um novo Azure SQL Server. |
+| [Importar um banco de dados de um arquivo bacpac](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2ftoc.json)| Importa um banco de dados para um SQL Server do Azure de um arquivo bacpac. |
 |||
 

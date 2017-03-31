@@ -5,20 +5,17 @@
 ## [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 ## [Criar Banco de dados - CLI do Azure](sql-database-get-started-cli.md)
 ## [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
-## Connect
+## Gerenciar
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [Código do VS](sql-database-connect-query-vscode.md)
+## Connect
 ### [C#](sql-database-connect-query-dotnet.md)
 # Exemplos
 ## [CLI do Azure](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Tutoriais
-## Access
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Recuperação
-### [Portal](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [Criar um banco de dados](sql-database-design-first-database.md)
+
 # Conceitos
 ## Bancos de dados e servidores
 ### [Bancos de dados](sql-database-overview.md)
@@ -110,6 +107,9 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
+## Acesso ao Banco de dados 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Proteger dados
 ### [Autenticação do Azure AD](sql-database-aad-authentication-configure.md)
 ### [Auditoria](sql-database-auditing-portal.md)
@@ -117,11 +117,13 @@
 ### [Criptografar - armazenamento de certificados](sql-database-always-encrypted.md)
 ### [Criptografar - cofre da chave](sql-database-always-encrypted-azure-key-vault.md)
 ### [Configurar o mascaramento](sql-database-dynamic-data-masking-get-started-portal.md)
-## Fazer backup e restauração
-### [Restauração - Portal](sql-database-restore-database-portal.md)
+## Recuperação
+### [Portal](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [Tabela única](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Retenção
 ### [Retenção - Portal](sql-database-manage-long-term-backup-retention-portal.md)
 ### [Retenção - PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [Recuperar uma tabela única](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Dados de replicação geográfica
 ### [Portal](sql-database-geo-replication-portal.md)
 ### [T-SQL - Configurar](sql-database-geo-replication-transact-sql.md)
@@ -184,7 +186,7 @@
 
 # Referência
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
-## [PowerShell (Banco de dados Elástico)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [PowerShell - Banco de dados Elástico -](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
 ## [CLI 2.0 do Azure](/cli/azure/sql)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
@@ -195,8 +197,8 @@
 ## [T-SQL](https://msdn.microsoft.com/library/bb510741.aspx)
 ## [REST](https://msdn.microsoft.com/library/mt163571.aspx)
 ## [Ferramentas do SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)
-## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-## [SSDT (Ferramentas de Dados do SQL Server)](https://msdn.microsoft.com/library/mt204009.aspx)
+## [SQL Server Management Studio - SSMS](https://msdn.microsoft.com/library/mt238290.aspx)
+## [SSDT - Ferramentas de Dados do SQL Server](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)

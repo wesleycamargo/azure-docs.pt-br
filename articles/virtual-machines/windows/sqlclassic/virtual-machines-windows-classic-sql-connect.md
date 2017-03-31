@@ -15,15 +15,16 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: c6c716c4dce810f190ed66d633524472ba665256
-ms.openlocfilehash: 60d74f1a8dff6441aa461cdc740b5aadc6b77be3
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: edc013dee657cbda7c0d9020b6ff4ccda0580dcd
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conectar-se a uma máquina virtual do SQL Server no Azure (implantação clássica)
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](../sql/virtual-machines-windows-sql-connect.md)
-> * [Clássico](virtual-machines-windows-classic-sql-connect.md)
+> * [Clássico](../classic/sql-connect.md)
 > 
 > 
 
@@ -46,7 +47,7 @@ A maneira como um cliente se conecta ao SQL Server em execução em uma máquina
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Conectar-se ao SQL Server no mesmo serviço de nuvem
-Várias máquinas virtuais podem ser criadas no mesmo serviço de nuvem. Para compreender este cenário com máquinas virtuais, consulte [Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](../../virtual-machines-windows-classic-connect-vms.md#connect-vms-in-a-standalone-cloud-service). Esse cenário refere-se aos casos em que um cliente em uma máquina virtual tenta se conectar ao SQL Server em execução em outra máquina virtual no mesmo serviço de nuvem.
+Várias máquinas virtuais podem ser criadas no mesmo serviço de nuvem. Para compreender este cenário com máquinas virtuais, consulte [Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Esse cenário refere-se aos casos em que um cliente em uma máquina virtual tenta se conectar ao SQL Server em execução em outra máquina virtual no mesmo serviço de nuvem.
 
 Nesse cenário, você pode se conectar usando o **Nome** da VM (também mostrado como **Nome do Computador** ou **hostname** no portal). Esse é o nome fornecido para a VM durante a criação. Por exemplo, se você nomeou a VM do SQL **mysqlvm**, uma VM cliente no mesmo serviço de nuvem pode usar a seguinte cadeia de conexão para se conectar:
 
@@ -61,7 +62,7 @@ Por exemplo, considere uma máquina virtual clássica chamada **mysqlvm** com o 
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Embora isso habilite a conectividade para clientes pela Internet, não significa que qualquer pessoa possa se conectar ao seu SQL Server. Clientes externos precisam ter o nome de usuário e a senha corretos. Para aumentar a segurança, não use a conhecida porta 1433 para o ponto de extremidade de máquina virtual público. Se possível, considere a ideia de adicionar uma ACL ao ponto de extremidade para restringir o tráfego apenas aos clientes permitidos. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](../../virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Embora isso habilite a conectividade para clientes pela Internet, não significa que qualquer pessoa possa se conectar ao seu SQL Server. Clientes externos precisam ter o nome de usuário e a senha corretos. Para aumentar a segurança, não use a conhecida porta 1433 para o ponto de extremidade de máquina virtual público. Se possível, considere a ideia de adicionar uma ACL ao ponto de extremidade para restringir o tráfego apenas aos clientes permitidos. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
 > É importante observar que, quando você usa essa técnica para se comunicar com o SQL Server, todos os dados de saída do datacenter do Azure estão sujeitos a [preços de transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/)normais.
@@ -101,17 +102,12 @@ O caminho de conexão é resumido pelo diagrama a seguir:
 [!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade e recuperação de desastres, você deve considerar implementar um ouvinte. Clientes do banco de dados se conectam ao ouvinte e não diretamente a uma das instâncias do SQL Server. O ouvinte direciona os clientes para a réplica primária do grupo de disponibilidade. Para obter mais informações, consulte [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade e recuperação de desastres, você deve considerar implementar um ouvinte. Clientes do banco de dados se conectam ao ouvinte e não diretamente a uma das instâncias do SQL Server. O ouvinte direciona os clientes para a réplica primária do grupo de disponibilidade. Para obter mais informações, consulte [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](../classic/ps-sql-int-listener.md).
 
 É importante reler todas as práticas recomendadas de segurança para o SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-security.md).
 
 [Explore o Roteiro de Aprendizagem](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server nas máquinas virtuais do Azure. 
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

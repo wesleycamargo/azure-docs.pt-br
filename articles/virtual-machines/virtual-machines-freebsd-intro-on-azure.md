@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 24410a07995d5ac813b2bf4cdeed320c72ce7e06
-ms.openlocfilehash: 7845b552bd1360927eae414f57fefbd74ac0b7f7
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: d0fc5de34f7d9e5a607495eb97d9e35dc9eb21f9
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -128,5 +128,5 @@ O [Agente convidado da VM Azure](https://github.com/Azure/WALinuxAgent/) versão
 
 ## <a name="next-steps"></a>Próximas etapas
 * Acesse o [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) para criar uma VM FreeBSD.
-* Se você quiser levar seu próprio FreeBSD para o Azure, veja [Criar e carregar um VHD FreeBSD no Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
+* Se você quiser levar seu próprio FreeBSD para o Azure, veja [Criar e carregar um VHD FreeBSD no Azure](linux/classic/freebsd-create-upload-vhd.md).
 

@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: b4de2d04c331ac608c77057613276ac8f85ec600
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 510a96051d3f650f5451eb46bbc8263a3393432e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -195,10 +195,7 @@ Para verificar se você tem acesso restrito, use estes métodos:
 * Para clusters HDInsight **baseados no Windows** , use a Área de Trabalho Remota para se conectar ao cluster. Para obter mais informações, consulte [Conectar ao HDInsight usando RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
   
     Uma vez conectado, use o ícone **Linha de Comando do Hadoop** na área de trabalho para abrir um prompt de comando.
-* Para clusters HDInsight **baseados em Linux** , use SSH para conectar-se ao cluster. Veja um dos documentos a seguir para obter informações sobre o uso de SSH com os clusters baseados em Linux:
-  
-  * [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, OS X, Unix ou Bash no Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Usar SSH (PuTTY) com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* Para clusters HDInsight **baseados em Linux** , use SSH para conectar-se ao cluster. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Uma vez conectado ao cluster, use as etapas a seguir para verificar se você só pode ler e listar itens na conta de armazenamento SAS:
 

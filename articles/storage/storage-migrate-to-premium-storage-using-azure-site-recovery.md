@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 3/1/2016
 ms.author: luywang
 translationtype: Human Translation
-ms.sourcegitcommit: 106e03a5a99134eb6e5744cbf29ba32efc31f0ba
-ms.openlocfilehash: d76aa3e62c691c4537684bc70d3a91a3dbb8b446
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 41e3db2762998bd042c0a23fccd03e599bd237a5
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -140,7 +140,7 @@ Você pode usar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou 
 ## <a name="post-migration-steps"></a>Etapas pós-migração
 
 1. **Configurar as VMs replicadas para o conjunto de disponibilidade, se aplicável**. O Site Recovery não dá suporte à migração de VMs junto com o conjunto de disponibilidade. Dependendo da implantação da VM replicada, siga um dos seguintes procedimentos:
-  * Para uma VM criada usando o modelo de implantação clássico: adicione a VM ao conjunto de disponibilidade no portal do Azure. Para obter as etapas detalhadas, vá para [Adicionar uma máquina virtual existente ao conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-classic-configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+  * Para uma VM criada usando o modelo de implantação clássico: adicione a VM ao conjunto de disponibilidade no portal do Azure. Para obter as etapas detalhadas, vá para [Adicionar uma máquina virtual existente ao conjunto de disponibilidade](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
   * Para o modelo de implantação do Gerenciador de recursos: salve a configuração da VM e, em seguida, exclua e recrie as VMs no conjunto de disponibilidade. Para fazer isso, use o script em [Definir Conjunto de Disponibilidade de VM do Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Verifique se a limitação do script e planeje o tempo de inatividade antes de executá-lo.
 
 2. **Exclua VMs e discos antigos**. Antes de excluir, verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. No modelo de implantação do Gerenciador de Recursos (RM), exclua a VM e exclua os discos das contas de armazenamento de origem no portal do Azure. No modelo de implantação clássico, você pode excluir a VM e os discos no portal clássico ou portal do Azure. Se houver um problema em que o disco não seja excluído mesmo que você tenha excluído a VM, consulte [Solucionar erros ao excluir VHDs em uma implantação do RM](storage-resource-manager-cannot-delete-storage-account-container-vhd.md) ou [Solucionar erros ao excluir VHDs em uma implantação clássica](storage-cannot-delete-storage-account-container-vhd.md).
@@ -157,8 +157,8 @@ Você pode usar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou 
 Consulte as seguintes fontes para cenários específicos de migração de máquinas virtuais:
 
 * [Migrar Máquinas Virtuais do Azure entre as Contas de Armazenamento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Crie e carregue um VHD do Windows Server no Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Criando e Carregando um Disco Rígido Virtual que Contém o Sistema Operacional Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Crie e carregue um VHD do Windows Server no Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Criando e Carregando um Disco Rígido Virtual que Contém o Sistema Operacional Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrando Máquinas Virtuais do Amazon AWS para o Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Confira também as fontes a seguir para saber mais sobre o Armazenamento do Azure e as Máquinas Virtuais do Azure:

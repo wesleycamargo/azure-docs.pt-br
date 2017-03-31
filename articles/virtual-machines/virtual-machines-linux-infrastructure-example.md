@@ -40,7 +40,7 @@ A Adventure Works Cycles deseja criar um aplicativo do repositório online no Az
   * uma sub-rede de front-end para os servidores Web 
   * uma sub-rede de back-end para os servidores de aplicativos, cluster do MongoDB e controladores de domínio
 
-![Diagrama de níveis diferentes de infraestrutura de aplicativos](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
+![Diagrama de níveis diferentes de infraestrutura de aplicativos](windows/media/infrastructure-example/example-tiers.png)
 
 O tráfego seguro da Web de entrada deve ter balanceamento de carga entre os servidores Web enquanto os clientes navegam pelo repositório online. O tráfego de processamento de pedidos na forma de solicitações HTTP dos servidores Web deve ser balanceado entre os servidores de aplicativos. Além disso, a infraestrutura deve ser projetada para alta disponibilidade.
 
@@ -107,7 +107,7 @@ A Adventure Works Cycles decidiu usar os seguintes nomes para suas VMs do Azure:
 
 Veja abaixo a configuração resultante.
 
-![Infraestrutura final do aplicativo implantada no Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+![Infraestrutura final do aplicativo implantada no Azure](windows/media/infrastructure-example/example-config.png)
 
 Essa configuração inclui:
 

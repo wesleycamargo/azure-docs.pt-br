@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 31821203c18f1310c6a781bd28022efd3da7f03d
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -149,7 +149,7 @@ O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 Com os clusters HDInsight, você pode configurar duas contas de usuário durante a criação de cluster:
 
 * Usuário HTTP. O nome de usuário padrão é *admin*. Ele usa a configuração básica no portal do Azure. Às vezes, ele é chamado "Usuário de cluster".
-* Usuário SSH (clusters do Linux). Ele é usado para conectar-se ao cluster por meio de SSH. É possível criar outras contas de usuário SSH após a criação do cluster seguindo as etapas em [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md) ou [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Usuário SSH (clusters do Linux). Ele é usado para conectar-se ao cluster por meio de SSH. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
   > [!NOTE]
   > Para os clusters baseados no Windows, você pode criar um usuário RDP para se conectar ao cluster usando o RDP.
@@ -214,28 +214,28 @@ No modelo de implantação clássica, alguns tamanhos de VM são ligeiramente di
 
 | Tamanho | Núcleos de CPU | Memória | NICs (Máx.) | Máx. tamanho do disco | Máx. de discos de dados (1023 GB cada) | Máx. IOPS (500 por disco) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A3\Grande |4 |7 GB |2 |Temporário = 285 GB |8 |8 x&500; |
-| Standard_A4\ExtraLarge |8 |14 GB |4 |Temporário = 605 GB |16 |16 x&500; |
-| Standard_A6 |4 |28 GB |2 |Temporário = 285 GB |8 |8 x&500; |
-| Standard_A7 |8 |56 GB |4 |Temporário = 605 GB |16 |16 x&500; |
+| Standard_A3\Grande |4 |7 GB |2 |Temporário = 285 GB |8 |8 x 500 |
+| Standard_A4\ExtraLarge |8 |14 GB |4 |Temporário = 605 GB |16 |16 x 500 |
+| Standard_A6 |4 |28 GB |2 |Temporário = 285 GB |8 |8 x 500 |
+| Standard_A7 |8 |56 GB |4 |Temporário = 605 GB |16 |16 x 500 |
 
 #### <a name="standard-tier-d-series"></a>Camada Standard: série D
 | Tamanho | Núcleos de CPU | Memória | NICs (Máx.) | Máx. tamanho do disco | Máx. de discos de dados (1023 GB cada) | Máx. IOPS (500 por disco) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3 |4 |14 GB |4 |Temporário (SSD) =200 GB |8 |8 x&500; |
-| Standard_D4 |8 |28 GB |8 |Temporário (SSD) =400 GB |16 |16 x&500; |
-| Standard_D12 |4 |28 GB |4 |Temporário (SSD) =200 GB |8 |8 x&500; |
-| Standard_D13 |8 |56 GB |8 |Temporário (SSD) =400 GB |16 |16 x&500; |
-| Standard_D14 |16 |112 GB |8 |Temporário (SSD) =800 GB |32 |32 x&500; |
+| Standard_D3 |4 |14 GB |4 |Temporário (SSD) =200 GB |8 |8 x 500 |
+| Standard_D4 |8 |28 GB |8 |Temporário (SSD) =400 GB |16 |16 x 500 |
+| Standard_D12 |4 |28 GB |4 |Temporário (SSD) =200 GB |8 |8 x 500 |
+| Standard_D13 |8 |56 GB |8 |Temporário (SSD) =400 GB |16 |16 x 500 |
+| Standard_D14 |16 |112 GB |8 |Temporário (SSD) =800 GB |32 |32 x 500 |
 
 #### <a name="standard-tier-dv2-series"></a>Camada Standard: série Dv2
 | Tamanho | Núcleos de CPU | Memória | NICs (Máx.) | Máx. tamanho do disco | Máx. de discos de dados (1023 GB cada) | Máx. IOPS (500 por disco) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 GB |4 |Temporário (SSD) =200 GB |8 |8 x&500; |
-| Standard_D4_v2 |8 |28 GB |8 |Temporário (SSD) =400 GB |16 |16 x&500; |
-| Standard_D12_v2 |4 |28 GB |4 |Temporário (SSD) =200 GB |8 |8 x&500; |
-| Standard_D13_v2 |8 |56 GB |8 |Temporário (SSD) =400 GB |16 |16 x&500; |
-| Standard_D14_v2 |16 |112 GB |8 |Temporário (SSD) =800 GB |32 |32 x&500; |
+| Standard_D3_v2 |4 |14 GB |4 |Temporário (SSD) =200 GB |8 |8 x 500 |
+| Standard_D4_v2 |8 |28 GB |8 |Temporário (SSD) =400 GB |16 |16 x 500 |
+| Standard_D12_v2 |4 |28 GB |4 |Temporário (SSD) =200 GB |8 |8 x 500 |
+| Standard_D13_v2 |8 |56 GB |8 |Temporário (SSD) =400 GB |16 |16 x 500 |
+| Standard_D14_v2 |16 |112 GB |8 |Temporário (SSD) =800 GB |32 |32 x 500 |
 
 Para obter as considerações de implantação a serem observadas ao planejar o uso desses recursos, confira [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para obter informações sobre os preços dos vários tamanhos, confira [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 

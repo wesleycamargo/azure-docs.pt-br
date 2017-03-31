@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: dc61f74a10fed1ba9e3959326e0020cf2b4440ea
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 554d1d504205767a287c690d82f03808047b1961
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ Opcionalmente, você pode obter um shell de root usando **sudo -s**.
 ## <a name="firewall-configuration"></a>Configuração do firewall
 O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no portal clássico do Azure. Por padrão, a única porta permitida é SSH. Você pode abrir o acesso a portas adicionais na sua máquina virtual Linux configurando pontos de extremidade no portal clássico do Azure:
 
-* Veja: [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* Veja: [Como instalar pontos de extremidade em uma máquina virtual](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 As imagens do Linux na Galeria do Azure não habilitam o firewall *iptables* por padrão. Se desejado, o firewall poderá ser configurado para fornecer filtragem adicional.
 
@@ -60,7 +61,7 @@ O Agente Linux do Azure inclui uma funcionalidade para detectar automaticamente 
 ### <a name="cloud-init"></a>Inicialização de nuvem
 As imagens do **Ubuntu** e **CoreOS** utilizam inicialização de nuvem no Azure, que fornece recursos adicionais para inicializar uma máquina virtual.
 
-* [Como injetar dados personalizados](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Como injetar dados personalizados](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Dados personalizados e inicialização de nuvem no Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
 * [Criar partições de troca do Azure usando a nuvem Init](https://wiki.ubuntu.com/AzureSwapPartitions)
 * [Como usar o CoreOS no Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
@@ -72,7 +73,7 @@ O Azure oferece a possibilidade de capturar o estado de uma máquina virtual exi
 2. Desligue a máquina virtual.
 3. Clique em *Capturar* no portal clássico do Azure ou use as ferramentas Powershell ou CLI para capturar a máquina virtual como uma imagem.
    
-   * Veja: [Como capturar uma máquina virtual Linux para ser usada como um modelo](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+   * Veja: [Como capturar uma máquina virtual Linux para ser usada como um modelo](linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="attaching-disks"></a>Anexando discos
 Cada máquina virtual tem um *disco de recursos* anexado. Como os dados em um disco de recurso talvez não sejam duráveis nas reinicializações, ele costuma ser usado por aplicativos e processos em execução na máquina virtual para o armazenamento de dados transitório e **temporário** . Ele também é usado para armazenar páginas ou trocar arquivos para o sistema operacional.
@@ -84,13 +85,8 @@ No Linux, o disco de recurso é normalmente gerenciado pelo agente do Linux do A
 > 
 > 
 
-No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados a uma máquina virtual](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados a uma máquina virtual](linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 * **Veja também:** [Configurar o Software RAID no Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) & [Configurar LVM em uma VM do Linux no Azure](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

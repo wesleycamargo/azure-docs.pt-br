@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d61e50b7440dcd107df3e5dd085a36b149779553
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -34,9 +34,6 @@ Após a configuração de um Application Gateway do Azure, um dos erros que os u
 * VMs de back-end ou instâncias do Conjunto de Escala de VM não estão respondendo à investigação de integridade padrão.
 * Configuração inválida ou incorreta de investigações de integridade personalizadas.
 * Tempo limite de solicitação ou problemas de conectividade com solicitações de usuário.
-
-> [!note]
-> O Gateway de Aplicativo preserva o cabeçalho de host de entrada e envia o mesmo cabeçalho ao back-end. Se o back-end exigir um cabeçalho diferente, isso não funcionará. Da mesma forma, se o back-end tiver vários locatários, e o SSL ponta a ponta estiver habilitado, o back-end esperaria o nome do servidor na extensão SNI. No momento, o Gateway de Aplicativo não envia um cabeçalho SNI nas solicitações de back-end em cenários SSL de ponta a ponta que causariam problemas de investigação e caminho de dados.
 
 ## <a name="empty-backendaddresspool"></a>BackendAddressPool vazio
 
@@ -109,7 +106,7 @@ Os erros 502 também podem ser indicadores frequentes de que a investigação de
 * Se BackendHttpSetting especificar uma porta diferente de 80, o site padrão deverá ser configurado para escutar nessa porta.
 * A chamada para http://127.0.0.1:porta. deve retornar um código de resultado de HTTP 200. Ele deve ser retornado dentro do período de tempo limite de 30 segundos.
 * Verifique se a porta configurada está aberta e se não há regras de firewall ou Grupos de Segurança de Rede do Azure que bloqueiam o tráfego de entrada ou de saída na porta configurada.
-* Se VMs clássicas do Azure ou o Serviço de Nuvem forem usados com FQDN ou IP Público, verifique se o [ponto de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondente está aberto.
+* Se VMs clássicas do Azure ou o Serviço de Nuvem forem usados com FQDN ou IP Público, verifique se o [ponto de extremidade](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondente está aberto.
 * Se a VM for configurada por meio do Azure Resource Manager e estiver fora da rede virtual em que o Application Gateway está implantado, o [Grupo de Segurança de Rede](../virtual-network/virtual-networks-nsg.md) deverá ser configurado para permitir o acesso na porta desejada.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemas com a investigação de integridade personalizada

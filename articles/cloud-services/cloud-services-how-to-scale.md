@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 04ed5f52a36f5d6483ed197d0886f3a908d393c5
-ms.openlocfilehash: 53bc2f6e0be0af13f95968272aa1f97f1d0918a2
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 488b16623300d80a53a61badee420de106c418b0
+ms.lasthandoff: 03/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2017
 Na página Escala do Portal Clássico do Azure, você pode definir as configurações de dimensionamento automático para a função web ou para a função de trabalho. Como alternativa, você pode configurar a colocação em escala manual em vez da colocação em escala automática com base em regras.
 
 > [!NOTE]
-> Este artigo se concentra nas funções Web e de trabalho do Serviço de Nuvem. Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Algumas dessas informações se aplica a esses tipos de máquinas virtuais. A colocação em escala de um conjunto de disponibilidade das máquinas virtuais é simplesmente ligá-las e desligá-las com base nas regras de dimensionamento configuradas. Para saber mais sobre as máquinas virtuais e conjuntos de disponibilidade, confira [Gerenciar a disponibilidade de máquinas virtuais](../virtual-machines/virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> Este artigo se concentra nas funções Web e de trabalho do Serviço de Nuvem. Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Algumas dessas informações se aplica a esses tipos de máquinas virtuais. A colocação em escala de um conjunto de disponibilidade das máquinas virtuais é simplesmente ligá-las e desligá-las com base nas regras de dimensionamento configuradas. Para saber mais sobre as máquinas virtuais e conjuntos de disponibilidade, confira [Gerenciar a disponibilidade de máquinas virtuais](../virtual-machines/windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 Você deve considerar as seguintes informações antes de configurar a colocação em escala do seu aplicativo:
 

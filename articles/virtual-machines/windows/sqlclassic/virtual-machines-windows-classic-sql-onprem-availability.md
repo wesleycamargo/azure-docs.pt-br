@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: d96140483edffb1f94add16598bf0dc0a85dd6da
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 38728a20527be060e63d2dbdea923263b3d6c7fa
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,16 +85,11 @@ Esta seção mostra como usar o **Assistente de Adição de Réplica do Azure** 
 > 
 
 ## <a name="create-an-availability-group-listener"></a>Criar um ouvinte de grupo de disponibilidade
-Após o grupo de disponibilidade ter sido criado, você deve criar um ouvinte para os clientes se conectarem às réplicas. Os ouvintes direcionam conexões de entrada para a réplica primária ou uma réplica secundária somente leitura. Para obter mais informações sobre os ouvintes, consulte [Configurar um ouvinte de ILB para os Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Após o grupo de disponibilidade ter sido criado, você deve criar um ouvinte para os clientes se conectarem às réplicas. Os ouvintes direcionam conexões de entrada para a réplica primária ou uma réplica secundária somente leitura. Para obter mais informações sobre os ouvintes, consulte [Configurar um ouvinte de ILB para os Grupos de Disponibilidade AlwaysOn no Azure](../classic/ps-sql-int-listener.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Além de usar o **Assistente de Adição de Réplica do Azure** para estender seu grupo de disponibilidade AlwaysOn ao Azure, você também pode mover algumas cargas de trabalho do SQL Server completamente para o Azure. Para começar, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

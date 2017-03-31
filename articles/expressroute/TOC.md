@@ -2,27 +2,25 @@
 ## [O que é o ExpressRoute?](expressroute-introduction.md)
 ## [Perguntas Frequentes sobre o ExpressRoute](expressroute-faqs.md)
 ## [Modelos de conectividade](expressroute-connectivity-models.md)
+## [Sobre circuitos e domínios de roteamento](expressroute-circuit-peerings.md)
 ## [Locais e parceiros](expressroute-locations.md)
 ### [Provedores por local](expressroute-locations-providers.md)
 ### [Locais por provedor](expressroute-locations.md)
+## [Sobre os gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Introdução
-## [Fluxos de trabalho](expressroute-workflows.md)
 ## [Pré-requisitos](expressroute-prerequisites.md)
-## [Sobre circuitos e domínios de roteamento](expressroute-circuit-peerings.md)
+## [Fluxos de trabalho](expressroute-workflows.md)
 ## [Requisitos de roteamento](expressroute-routing.md)
-## [Otimizar roteamento](expressroute-optimize-routing.md)
 ## [Requisitos de NAT](expressroute-nat.md)
 ## [Requisitos de QoS](expressroute-qos.md)
 ## [Movendo circuitos do clássico para o Gerenciador de Recursos](expressroute-move.md)
-## [Sobre os gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Como
 ## Criar e modificar um circuito
 ### [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (Clássico)](expressroute-howto-circuit-classic.md)
-## Criar e modificar a configuração de roteamento
+## Criar e modificar a configuração de emparelhamento
 ### [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (Clássico)](expressroute-howto-routing-classic.md)
@@ -38,11 +36,12 @@
 ### [PowerShell (Clássico)](expressroute-howto-coexist-classic.md)
 ## [Mover um circuito do clássico para o Gerenciador de Recursos](expressroute-howto-move-arm.md)
 ## Configurar um roteador para o ExpressRoute
-### [Exemplos de definições de configuração de roteador](expressroute-config-samples-routing.md)
+### [Configurar um roteador](expressroute-config-samples-routing.md)
 ### [Exemplos de configuração de roteador para NAT](expressroute-config-samples-nat.md)
 
 ## Práticas Recomendadas
 ### [Práticas recomendadas para segurança de rede e serviços de nuvem](../best-practices-network-security.md)
+## [Otimizar roteamento](expressroute-optimize-routing.md)
 ### [Roteamento assimétrico](expressroute-asymmetric-routing.md)
 
 ## Solucionar problemas

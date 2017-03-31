@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b64978da0513ac5daf8e7c4699cf6e3501d63fd9
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 1dc2883056eab9764cda674b42fa40c517550ccd
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -190,7 +190,7 @@ Depois de inserir os valores necessários, aceite o *termos e Condições* e cli
    ![implantação por envio de modelo](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Etapas de pós-restauração
-* Se você estiver usando uma distribuição do Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/virtual-machines-linux-classic-reset-access.md). Recomendamos o uso de chaves SSH nessas distribuições para evitar a redefinição de senha após a restauração.
+* Se você estiver usando uma distribuição do Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/linux/classic/reset-access.md). Recomendamos o uso de chaves SSH nessas distribuições para evitar a redefinição de senha após a restauração.
 * As extensões presentes durante a configuração do backup serão instaladas, mas não serão habilitadas. Se você vir qualquer problema, reinstale as extensões. 
 * Se, após a restauração, a VM de backup tiver IP estático, a VM restaurada terá um IP dinâmico para evitar conflitos ao criar uma VM restaurada. Saiba mais sobre como [adicionar um endereço IP estático à VM restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * A VM restaurada não terá o valor de disponibilidade definido. Recomendamos o uso da opção de discos de restauração e [adição do conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set) ao criar uma VM do PowerShell ou modelos usando discos restaurados. 

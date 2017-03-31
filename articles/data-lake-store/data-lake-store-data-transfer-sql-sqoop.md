@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f1c8c5b9bfa14b817efb635cf812242afaa70e35
-ms.openlocfilehash: d536ba2bd44941d036a00a74243cb37b8ae69abb
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 7f165111cd089d5f32f309235dcbc24d11fb5d64
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -76,7 +76,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-store"></a>Usar o Sqoop de um cluster HDInsight com acesso ao Repositório Azure Data Lake
 Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver configurado o cluster HDInsight para usar o Repositório Data Lake como armazenamento adicional, poderá usar o Sqoop (sem alterações de configuração) para importar/exportar dados entre um banco de dados relacional (neste exemplo, o Banco de Dados SQL do Azure) e uma conta do Repositório Data Lake.
 
-1. Para este tutorial, vamos supor que você tenha criado um cluster Linux para poder usar o SSH para se conectar ao cluster. Confira [Conectar-se a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect).
+1. Para este tutorial, vamos supor que você tenha criado um cluster Linux para poder usar o SSH para se conectar ao cluster. Confira [Conectar-se a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Verifique se você pode acessar a conta do Repositório Data Lake do cluster. Execute o comando a seguir do prompt do SSH:
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net/
@@ -109,7 +109,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver confi
         -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
         -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-    Cada arquivo **part-m-*** corresponde a uma linha na tabela de origem, **Table1**. Você pode exibir o conteúdo dos arquivos part-m-* para verificação.
+    Cada arquivo **part-m-***corresponde a uma linha na tabela de origem,**Table1**. Você pode exibir o conteúdo dos arquivos part-m-* para verificação.
 
 
 ### <a name="export-data-from-data-lake-store-into-azure-sql-database"></a>Exportar dados do Repositório Data Lake para o Banco de Dados SQL do Azure

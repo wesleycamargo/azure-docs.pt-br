@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: a8540a541d05d1d8a0afeb2aeb42c77951ebf8c2
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9916eb7deaae6acb784cac1b7b64d93a03f3c590
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -76,7 +76,7 @@ Para saber mais sobre como criar uma imagem do Azure RemoteApp, confira: [Como c
 ### <a name="4-capture-image"></a>4. Capturar a imagem
 Após a interrupção da execução da VM, encontre-a no portal atual e capture-a.
 
-Para saber mais sobre como capturar uma imagem, consulte [Capturar uma imagem de uma máquina virtual Windows do Azure criada com o modelo de implantação clássico](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Para saber mais sobre como capturar uma imagem, consulte [Capturar uma imagem de uma máquina virtual Windows do Azure criada com o modelo de implantação clássico](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ### <a name="5-add-to-azure-remoteapp-template-images"></a>5. Adicionar a imagens de modelo do Azure RemoteApp
 Na seção Azure RemoteApp do portal atual, acesse a guia Imagens de Modelo e clique em Adicionar. Na caixa pop-up, selecione "Importar uma imagem da biblioteca Máquinas Virtuais" e, em seguida, escolha a imagem que você acabou de criar.

@@ -70,6 +70,9 @@
 ### [Hub de Superfície](log-analytics-surface-hubs.md)
 ### [Gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
 ### [VMware](log-analytics-vmware.md)
+### Análise do Windows
+#### [Conformidade para atualização](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started)
+#### [Preparação para atualização](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started)
 ### [Dados durante a transmissão](log-analytics-wire-data.md)
 ## Desenvolver
 ### [API do coletor de dados](log-analytics-data-collector-api.md)
@@ -83,6 +86,6 @@
 ## [REST](/rest/api/loganalytics)
 
 # Recursos
-## [Atualizar análise](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Análise do Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
 ## [Preços](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=log-analytics)

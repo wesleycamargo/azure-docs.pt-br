@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f6df10ce5edefbff24011fc20cad8ae927ba5125
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: e3c8f61be72309354471451a33664c4b5497eb0e
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -62,7 +62,7 @@ Com o [PowerShell](/powershell/azureps-cmdlets-docs) , você pode usar uma linha
 * **Cmdlets do PowerShell com um modelo do Gerenciador de Recursos do Azure:** você pode usar o PowerShell para criar recursos do Azure usando um modelo do Gerenciador de Recursos do Azure. Os modelos podem ser salvos e versões podem ser criadas. Saiba mais ao ler o artigo [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md) . Vários [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) existem para soluções comuns, e eles podem ser baixados e também modificados.
 
 ## <a name="cli"></a>CLI
-Você pode criar e configurar recursos do Azure de computadores com Windows, OS X ou Linux usando a CLI.  Leia o artigo [Instalar a CLI do Azure](cli-install-nodejs.md) para instalar a CLI no sistema operacional de sua escolha. Como o PowerShell, há diferentes comandos que devem ser usados se você estiver criando recursos usando os modelos de implantação do [Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) ou do [Clássico (Gerenciamento de serviço)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Você pode criar e configurar recursos do Azure de computadores com Windows, OS X ou Linux usando a CLI.  Leia o artigo [Instalar a CLI do Azure](cli-install-nodejs.md) para instalar a CLI no sistema operacional de sua escolha. Como o PowerShell, há diferentes comandos que devem ser usados se você estiver criando recursos usando os modelos de implantação do [Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) ou do [Clássico (Gerenciamento de serviço)](virtual-machines/linux/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [Gerenciador de Recursos](azure-resource-manager/resource-group-overview.md).

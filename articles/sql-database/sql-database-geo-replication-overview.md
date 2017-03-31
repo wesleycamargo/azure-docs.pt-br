@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 26eac30a08db2e224f9e9018817a18c3a4405b7f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,7 +33,7 @@ A Replicação Geográfica Ativa permite que você configure até quatro bancos 
 
 Se, por qualquer motivo, o seu banco de dados primário falhar ou simplesmente precisar ser colocado offline, você poderá fazer *failover* para qualquer um dos seus bancos de dados secundários. Quando o failover é ativado para um dos bancos de dados secundários, todos os outros secundários são vinculados automaticamente ao novo primário.
 
-Você pode fazer o failover para um secundário usando o [Portal do Azure](sql-database-geo-replication-failover-portal.md), o [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), a [API REST - Failover planejado](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) ou a [API REST - Failover não planejado](https://msdn.microsoft.com/library/azure/mt582027.aspx).
+Você pode fazer o failover para um secundário usando o [Portal do Azure](sql-database-geo-replication-failover-portal.md), o [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), a [API REST - Failover planejado](https://msdn.microsoft.com/library/mt575007.aspx) ou a [API REST - Failover não planejado](https://msdn.microsoft.com/library/mt582027.aspx).
 
 Após o failover, verifique se os requisitos de autenticação para o servidor e o banco de dados estão configurados no novo primário. Para obter detalhes, consulte [Segurança do Banco de Dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
 
@@ -107,10 +107,10 @@ Conforme discutido anteriormente, a Replicação geográfica ativa pode ser gere
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | Descrição |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Obtém um ou mais bancos de dados. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Obtém um ou mais bancos de dados. |
 | [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) |Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
-| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt619393.aspx) |Alterna um banco de dados secundário para primário a fim de iniciar o failover. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt603457.aspx) |Encerra uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
+| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) |Alterna um banco de dados secundário para primário a fim de iniciar o failover. |
+| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) |Encerra uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
 | [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) |Obtém os links de replicação geográfica entre um Banco de Dados SQL do Azure e um grupo de recursos ou do SQL Server. |
 |  | |
 
@@ -119,7 +119,7 @@ Conforme discutido anteriormente, a Replicação geográfica ativa pode ser gere
 | --- | --- |
 | [Criar ou atualizar banco de dados (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
 | [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Retorna o status durante uma operação de criação. |
-| [Definir o banco de dados secundário como primário (Failover planejado)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) |Promova um banco de dados secundário em uma parceria de replicação geográfica como o novo banco de dados primário. |
+| [Definir o banco de dados secundário como primário (Failover planejado)](https://msdn.microsoft.com/library/azure/mt575007.aspx) |Promova um banco de dados secundário em uma parceria de replicação geográfica como o novo banco de dados primário. |
 | [Definir o banco de dados secundário como primário r (Failover não planejado)](https://msdn.microsoft.com/library/azure/mt582027.aspx) |Para forçar um failover para o banco de dados secundário e definir o secundário como primário. |
 | [Obter Links de replicação](https://msdn.microsoft.com/library/azure/mt600929.aspx) |Obtém todos os links de replicação para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
 | [Obter link de replicação](https://msdn.microsoft.com/library/azure/mt600778.aspx) |Obtém um link de replicação específico para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
