@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 891d950c7d4984b39f2e03af3d0f66af5594a348
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 66ddcea180395b830cdb5310446e1dbc02e7d784
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -28,7 +29,7 @@ Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de
 > 
 > 
 
-As ACLs podem ser configuradas usando o PowerShell ou o Portal de Gerenciamento. Para configurar ACLs usando o PowerShell, confira [Gerenciando ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede usando o Portal de Gerenciamento, consulte [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+As ACLs podem ser configuradas usando o PowerShell ou o Portal de Gerenciamento. Para configurar ACLs usando o PowerShell, confira [Gerenciando ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede usando o Portal de Gerenciamento, consulte [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Com as ACLs de rede, você pode fazer o seguinte:
 
@@ -90,10 +91,5 @@ As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

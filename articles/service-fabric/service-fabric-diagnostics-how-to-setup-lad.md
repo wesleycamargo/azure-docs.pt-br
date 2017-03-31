@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
-ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 46b62b0ebc5b81241815e3b5b4fa3fe275b88af1
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ A primeira etapa para coletar logs será implantar a extensão Diagnóstico em c
 
 Para implantar a extensão de diagnóstico nas VMs no cluster como parte da criação do cluster, defina **Diagnóstico** como **Ativado**. Depois de criar o cluster, você não poderá alterar essa configuração por meio do portal.
 
-Em seguida, configure o LAD (Diagnóstico do Azure para o Linux) para coletar os arquivos e colocá-los na sua conta de armazenamento. Este processo é explicado como cenário 3 ("carregar seus próprios arquivos de log") no artigo [Usando o LAD para monitorar e diagnosticar as VMs do Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Seguindo esse processo, você terá acesso aos rastreamentos. Você poderá carregar os rastreamentos em um visualizador de sua escolha.
+Em seguida, configure o LAD (Diagnóstico do Azure para o Linux) para coletar os arquivos e colocá-los na sua conta de armazenamento. Este processo é explicado como cenário 3 ("carregar seus próprios arquivos de log") no artigo [Usando o LAD para monitorar e diagnosticar as VMs do Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Seguindo esse processo, você terá acesso aos rastreamentos. Você poderá carregar os rastreamentos em um visualizador de sua escolha.
 
 Você também poderá implantar a extensão de diagnóstico usando o Gerenciador de Recursos do Azure. O processo é semelhante para o Windows e para o Linux, e é documentado para clusters do Windows em [Como coletar logs com o Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md).
 
@@ -48,6 +48,6 @@ Você também pode usar o Operations Management Suite, conforme descrito em [An�
 Depois que essa configuração for definida, o agente do LAD monitora os arquivos de log especificados. Sempre que uma nova linha for anexada ao arquivo, ela cria uma entrada de syslog que é enviada para o armazenamento especificado.
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira [Documentação do LTTng](http://lttng.org/docs) e [Usando o LAD](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para entender mais detalhadamente quais eventos você deve examinar ao solucionar problemas.
+Confira [Documentação do LTTng](http://lttng.org/docs) e [Usando o LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para entender mais detalhadamente quais eventos você deve examinar ao solucionar problemas.
 
 

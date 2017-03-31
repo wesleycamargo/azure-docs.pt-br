@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
-ms.openlocfilehash: 31d7f4620420839ade1ca58391fad78e94d4e929
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 9c36e1e463d5d40ba1152481705a5cee9af89460
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -99,5 +99,5 @@ Continue seguindo as instruções para anexar um [disco gerenciado](#use-azure-m
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois que o disco for adicionado, você precisará prepará-lo para uso. Para obter mais informações, veja [Como: inicializar um novo disco de dados no Linux](virtual-machines-linux-classic-attach-disk.md#initialize-a-new-data-disk-in-linux).
+Depois que o disco for adicionado, você precisará prepará-lo para uso. Para obter mais informações, veja [Como: inicializar um novo disco de dados no Linux](linux/classic/attach-disk.md#initialize-a-new-data-disk-in-linux).
 

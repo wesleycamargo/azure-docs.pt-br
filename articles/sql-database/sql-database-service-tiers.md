@@ -17,9 +17,9 @@ ms.workload: data-management
 wms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 4307797b3961d8efef4045590e340268f0ad226d
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: ab637f9910523cc8d8967dd1507dbcfad9f7ae88
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -55,13 +55,13 @@ Primeiro, decida se deseja executar um único banco de dados com uma quantidade 
 ||||||
 
 > [!IMPORTANT]
-> Os clientes que usam os níveis de desempenho P11 e P15 podem usar até 4 TB de armazenamento incluído sem custo adicional. Essa opção de 4 TB está atualmente em visualização pública e está disponível somente nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Europa Ocidental, Sudeste Asiático, Leste do Japão, Leste da Austrália, Central do Canadá e Leste do Canadá. Para limitações atuais, confira [Limitações atuais 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Os clientes que usam os níveis de desempenho P11 e P15 podem usar até 4 TB de armazenamento incluído sem custo adicional. Essa opção de 4 TB está atualmente em visualização pública nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Europa Ocidental, Sudeste Asiático, Leste do Japão, Leste da Austrália, Central do Canadá e Leste do Canadá. Para limitações atuais, confira [Limitações atuais 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Depois de determinar a camada de serviço mínima, você estará pronto para determinar o nível de desempenho do banco de dados (o número de DTUs). Os níveis de desempenho do S2 e S3 padrão são quase sempre um bom ponto de partida. Para bancos de dados com altas exigências de CPU ou E/S, os níveis de desempenho Premium são o ponto de partida correto. O Premium oferece mais CPU e começa em 10 vezes mais E/S em comparação com o nível de desempenho Standard mais alto.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Camadas de serviço e níveis de desempenho de banco de dados individual
-Para bancos de dados individuais, há vários níveis de desempenho dentro de cada camada de serviço. Você tem a flexibilidade de escolher o nível que melhor atenda às demandas de sua carga de trabalho, usando o [Portal do Azure](sql-database-manage-single-databases-portal.md), o [PowerShell](sql-database-manage-single-databases-powershell.md), o [Transact-SQL](sql-database-manage-single-databases-tsql.md), o C# e a API REST. 
+Para bancos de dados individuais, há vários níveis de desempenho dentro de cada camada de serviço. Você tem a flexibilidade de escolher o nível que melhor atenda às demandas de sua carga de trabalho, usando o [Portal do Azure](sql-database-manage-single-databases-portal.md), o [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), o [Transact-SQL](sql-database-manage-single-databases-tsql.md), o C# e a API REST. 
 
 Independentemente do número de bancos de dados hospedados, o banco de dados ainda obterá um conjunto garantido de recursos e as características de desempenho esperadas de seu banco de dados não são afetadas.
 
@@ -73,7 +73,7 @@ Independentemente do número de bancos de dados hospedados, o banco de dados ain
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>Escalar verticalmente ou reduzir um banco de dados
 
-Depois de escolher inicialmente um nível de desempenho e da camada de serviço, você pode dimensionar um banco de dados para cima ou para baixo dinamicamente com base na experiência real. Se precisar expandir ou reduzir, você poderá alterar facilmente as camadas do banco de dados usando o [Portal do Azure](sql-database-manage-single-databases-portal.md), o [PowerShell](sql-database-manage-single-databases-powershell.md), o [Transact-SQL](sql-database-manage-single-databases-tsql.md), o C# e a API REST. 
+Depois de escolher inicialmente um nível de desempenho e da camada de serviço, você pode dimensionar um banco de dados para cima ou para baixo dinamicamente com base na experiência real. Se precisar expandir ou reduzir, você poderá alterar facilmente as camadas do banco de dados usando o [Portal do Azure](sql-database-manage-single-databases-portal.md), o [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), o [Transact-SQL](sql-database-manage-single-databases-tsql.md), o C# e a API REST. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -89,7 +89,7 @@ A duração de todo o processo de expansão depende a camada tamanho e de servi�
 * As novas propriedades do banco de dados não serão aplicadas até que as alterações sejam concluídas.
 
 > [!IMPORTANT]
-> Para obter etapas detalhadas, confira [Gerenciamento de um banco de dados no portal do Azure](sql-database-manage-single-databases-portal.md), [Gerenciamento de um banco de dados com o PowerShell](sql-database-manage-single-databases-powershell.md), ou [Gerenciamento de um banco de dados com Transact-SQL](sql-database-manage-single-databases-tsql.md).
+> Para obter etapas detalhadas, confira [Gerenciamento de um banco de dados no portal do Azure](sql-database-manage-single-databases-portal.md), [Gerenciamento de um banco de dados com o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), ou [Gerenciamento de um banco de dados com Transact-SQL](sql-database-manage-single-databases-tsql.md).
 >
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Camadas de serviço e desempenho em eDTUs do pool elástico
@@ -109,7 +109,7 @@ Depois de escolher inicialmente uma camada de serviço e um nível de desempenho
 * Normalmente, a alteração das eDTUs mínimas ou das eDTUs máximas por banco de dados é um processo concluído em cinco minutos ou menos.
 * O tempo levado para alterar o tamanho do pool (eDTUs) depende do tamanho combinado de todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total de todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar os eDTUs do pool será de 3 horas por pool ou menos.
 
-Para obter etapas detalhadas, confira [Gerenciamento de um pool elástico no portal do Azure](sql-database-elastic-pool-manage-portal.md), [Gerenciamento de um pool elástico com o Powershell](sql-database-elastic-pool-manage-powershell.md), [Gerenciamento de um pool Elástico com Transact-SQL](sql-database-elastic-pool-manage-tsql.md), ou [Gerenciamento de um pool Elástico com C#](sql-database-elastic-pool-manage-csharp.md).
+Para obter etapas detalhadas, confira [Gerenciamento de um pool elástico no portal do Azure](sql-database-elastic-pool-manage-portal.md), [Gerenciamento de um pool elástico com o Powershell](scripts/sql-database-monitor-and-scale-pool-powershell.md), [Gerenciamento de um pool Elástico com Transact-SQL](sql-database-elastic-pool-manage-tsql.md), ou [Gerenciamento de um pool Elástico com C#](sql-database-elastic-pool-manage-csharp.md).
 
 ## <a name="creating-or-upgrading-to-4tb"></a>Criação ou atualização de 4 TB
 

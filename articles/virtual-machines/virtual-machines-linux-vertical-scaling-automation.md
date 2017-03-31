@@ -69,7 +69,7 @@ Os Runbooks necessários para dimensionar verticalmente a sua máquina virtual j
 
 Os Runbooks que precisam ser importados são mostrados na imagem abaixo
 
-![Importar Runbooks](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
+![Importar Runbooks](./windows/media/vertical-scaling-automation/scale-runbooks.png)
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Adicionar um webhook ao seu Runbook
 Depois de ter importado os Runbooks, você precisará adicionar um webhook ao Runbook para que ele possa ser disparado por um alerta de uma máquina virtual. Os detalhes da criação de um webhook para seu Runbook podem ser lidos aqui
@@ -88,8 +88,8 @@ Copie o webhook antes de fechar a caixa de diálogo do webhook, pois você preci
 7. Selecione um período no qual o serviço de monitoramento verificará a condição e o limite nas Etapas 5 e 6
 8. Cole o webhook que você copiou da seção anterior.
 
-![Adicionar alerta à máquina virtual 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
+![Adicionar alerta à máquina virtual 1](./windows/media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Adicionar alerta à máquina virtual 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
+![Adicionar alerta à máquina virtual 2](./windows/media/vertical-scaling-automation/add-alert-webhook-2.png)
 
 

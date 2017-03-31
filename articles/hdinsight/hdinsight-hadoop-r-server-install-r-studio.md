@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 8a73f04b0b2d6e308f7b2888ef14d48c50c13ce1
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 970419650e1d3e22637733fdb4fba72ff27f5339
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -44,10 +44,8 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
 
    * Nó principal `CLUSTERNAME-ssh.azurehdinsight.net`
    * Nó de borda `CLUSTERNAME-ed-ssh.azurehdinsight.net` 
-2. SSH no nó de borda do cluster usando o padrão de nomenclatura acima. 
+2. SSH no nó de borda do cluster usando o padrão de nomenclatura acima. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * Se estiver se conectando por meio de um cliente Linux, veja [Conectar-se a um cluster HDInsight baseado em Linux](hdinsight-hadoop-linux-use-ssh-unix.md).
-   * Se estiver se conectando por meio de um cliente Windows, veja [Connect to a Linux-based HDInsight cluster using PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md)(Conectar-se a um cluster HDInsight baseado em Linux usando o PuTTY).
 3. Quando você estiver conectado, torne-se um usuário raiz no cluster. Na sessão do SSH, use o comando a seguir.
 
         sudo su -
@@ -81,7 +79,7 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
        Substitua **USERNAME** por um usuário SSH de seu cluster HDInsight e substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight. Você também pode usar uma chave SSH em vez de uma senha adicionando `-i id_rsa_key`        
    * Se estiver usar um cliente do Windows com PuTTY
 
-     1. Abra o PuTTY e insira as informações da sua conexão. Se você não estiver familiarizado com o PuTTY, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obter informações sobre como usá-lo com o HDInsight.
+     1. Abra o PuTTY e insira as informações da sua conexão.
      2. Na seção **Categoria** à esquerda da caixa de diálogo, expanda **Conexão**, expanda **SSH** e selecione **Túneis**.
      3. Forneça as seguintes informações no formulário **Opções de controle do encaminhamento de porta SSH** :
 

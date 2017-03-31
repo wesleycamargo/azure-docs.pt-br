@@ -98,6 +98,11 @@
 ## Use um Arduino
 
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Gerenciar mensagens do dispositivos de nuvem com o iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
+### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Gerenciar mensagens do dispositivos de nuvem com o iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lição 1: Configurar seu dispositivo
@@ -233,7 +238,9 @@
 #### [Usar a API REST](iot-hub-rm-rest.md)
 #### [Usar um modelo do PowerShell](iot-hub-rm-template-powershell.md)
 #### [Usar um modelo do .NET](iot-hub-rm-template.md)
-### [Configurar o upload de arquivo](iot-hub-configure-file-upload.md)
+### Configurar o upload de arquivo
+#### [Usar o portal](iot-hub-configure-file-upload.md)
+#### [Usar o PowerShell](iot-hub-configure-file-upload-powershell.md)
 ### [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Métricas de uso](iot-hub-metrics.md)
 ### [Monitoramento de operações](iot-hub-operations-monitoring.md)

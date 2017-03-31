@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e6818ea7db680f34bb4ee900396c74fc6e42c4b6
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: e2e39b0fa9c45027c51bc5e063df990faf934ff5
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>Sobre as VMs da série H e da série A de computação intensiva para Linux
@@ -30,7 +30,7 @@ Para obter as especificações básicas, as capacidades de armazenamento e os de
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## <a name="access-to-the-rdma-network"></a>Acesso à rede RDMA
-Você pode criar clusters de VMs do Linux compatíveis com RDMA que executam uma das seguintes distribuições de Linux HPC com suporte e uma implementação MPI com suporte para tirar proveito da rede RDMA do Azure. Veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para obter opções de implantação e etapas de configuração de exemplo.
+Você pode criar clusters de VMs do Linux compatíveis com RDMA que executam uma das seguintes distribuições de Linux HPC com suporte e uma implementação MPI com suporte para tirar proveito da rede RDMA do Azure. Veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para obter opções de implantação e etapas de configuração de exemplo.
 
 * **Distribuições** – Você deve implantar as VMs de imagens HPC com base em OpenLogic CentOS ou SLES (SUSE Linux Enterprise Server) compatíveis com RDMA no Azure Marketplace. As seguintes imagens do Marketplace dão suporte à conectividade RDMA:
   
@@ -56,10 +56,10 @@ Você pode criar clusters de VMs do Linux compatíveis com RDMA que executam uma
 
   * **Imagens do HPC baseado em CentOS** – O Intel MPI 5.1 já está instalado.  
     
-    Configurações adicionais do sistema são necessárias para executar trabalhos MPI em máquinas virtuais clusterizadas. Por exemplo, em um cluster de máquinas virtuais, você precisa estabelecer confiança entre os nós de computação. Para configurações típicas, consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+    Configurações adicionais do sistema são necessárias para executar trabalhos MPI em máquinas virtuais clusterizadas. Por exemplo, em um cluster de máquinas virtuais, você precisa estabelecer confiança entre os nós de computação. Para configurações típicas, consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="considerations-for-hpc-pack-and-linux"></a>Considerações para HPC Pack e Linux
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), solução gratuita da Microsoft de gerenciamento de trabalho e cluster HPC, fornece uma opção para usar as instâncias de computação intensiva com o Linux. As últimas versões do HPC Pack dão suporte a várias distribuições Linux para execução em nós de computação implantados nas VMs do Azure, gerenciados por um nó de cabeçalho do Windows Server. Com os nós de computação Linux compatíveis com RDMA executando o Intel MPI, o HPC Pack pode agendar e executar os aplicativos Linux MPI que acessam a rede RDMA. Para se familiarizar, veja [Introdução aos nós de computação do Linux em um cluster HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), solução gratuita da Microsoft de gerenciamento de trabalho e cluster HPC, fornece uma opção para usar as instâncias de computação intensiva com o Linux. As últimas versões do HPC Pack dão suporte a várias distribuições Linux para execução em nós de computação implantados nas VMs do Azure, gerenciados por um nó de cabeçalho do Windows Server. Com os nós de computação Linux compatíveis com RDMA executando o Intel MPI, o HPC Pack pode agendar e executar os aplicativos Linux MPI que acessam a rede RDMA. Para se familiarizar, veja [Introdução aos nós de computação do Linux em um cluster HPC Pack no Azure](linux/classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="network-topology-considerations"></a>Considerações de topologia de rede
 * Em VMs Linux habilitadas para RDMA no Azure, Eth1 é reservado para o tráfego de rede RDMA. Não altere as configurações de Eth1 ou as informações no arquivo de configuração que se refere a essa rede. Eth0 é reservado para o tráfego de rede regular do Azure.
@@ -70,6 +70,6 @@ Você pode criar clusters de VMs do Linux compatíveis com RDMA que executam uma
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter detalhes sobre a disponibilidade e os preços dos tamanhos de computação intensiva, confira [Preços das máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
 * Para obter os detalhes de disco e as capacidades de armazenamento, consulte [Tamanhos das máquinas virtuais](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Para se familiarizar com a implantação e o uso dos tamanhos de computação intensiva com o RDMA no Linux, veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Para se familiarizar com a implantação e o uso dos tamanhos de computação intensiva com o RDMA no Linux, veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 

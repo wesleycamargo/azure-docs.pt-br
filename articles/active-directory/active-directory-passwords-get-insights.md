@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 334819e0819206d1bd928c0861b25cc59dd29fa7
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: e4e9e16c62ab1262021d1a719f5aa15d936f4843
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>Como obter percepções operacionais com relatórios de gerenciamento de senhas
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -94,10 +94,10 @@ Os tipos de atividade a seguir aparecem na categoria de evento de auditoria **Ge
 * [**Redefinição de senha (autoatendimento)**](#activity-type-reset-password-self-service) - indica que um usuário redefiniu com êxito a senha no [Portal de Redefinição de Senha do Azure AD](https://passwordreset.microsoftonline.com).
 * [**Progresso de atividade do fluxo de redefinição de senha de autoatendimento**](#activity-type-self-serve-password-reset-flow-activity-progress) – indica cada etapa específica que um usuário executa (como uma porta de autenticação de redefinição de senha específica) como parte do processo de redefinição de senha.
 * [**Desbloquear a conta de usuário (autoatendimento)**](#activity-type-unlock-user-account-self-service) – indica que um usuário desbloqueou com êxito sua conta do Active Directory sem redefinir a senha no [Portal de Redefinição de Senha do Azure AD](https://passwordreset.microsoftonline.com) usando o recurso de [desbloqueio de conta do AD sem redefinir](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password).
-* [**Usuário registrado para redefinição de senha de autoatendimento**](#activity-type-user-registered-for-self-service-password-reset) – indica que um usuário registrou todas as informações necessárias para redefinir sua senha de acordo com a política de redefinição de senha do locatário especificada no momento. 
+* [**Usuário registrado para redefinição de senha de autoatendimento**](#activity-type-user-registered-for-self-service-password-reset) – indica que um usuário registrou todas as informações necessárias para redefinir sua senha de acordo com a política de redefinição de senha do locatário especificada no momento.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo de atividade: redefinição de senha de autoatendimento bloqueada
-A seguinte lista explica essa atividade em detalhes: 
+A seguinte lista explica essa atividade em detalhes:
 
 * **Descrição da Atividade** – indica que um usuário tentou redefinir uma senha, usar uma porta específica ou validar um número de telefone mais de cinco vezes no total em 24 horas.
 * **Ator de Atividade** - o usuário que foi limitado ao executar operações de redefinição adicionais. Pode ser um usuário final ou um administrador.
@@ -107,7 +107,7 @@ A seguinte lista explica essa atividade em detalhes:
 * **Razão da Falha do Status de Atividade** - não aplicável
 
 ### <a name="activity-type-change-password-self-service"></a>Tipo de atividade: alterar senha (autoatendimento)
-A seguinte lista explica essa atividade em detalhes: 
+A seguinte lista explica essa atividade em detalhes:
 
 * **Descrição da Atividade** – indica que um usuário executou uma alteração de senha voluntária ou forçada (devido à expiração).
 * **Ator de Atividade** - o usuário que alterou sua senha. Pode ser um usuário final ou um administrador.
@@ -115,11 +115,11 @@ A seguinte lista explica essa atividade em detalhes:
 * **Status de Atividade Permitida**
  * _Sucesso_ - indica que um usuário alterou a senha com êxito
  * _Falha_ - indica que um usuário não pôde alterar sua senha. Clicar na linha permitirá que você veja a categoria **Motivo do Status de Atividade** para saber mais sobre o motivo da falha.
-* **Razão da Falha do Status de Atividade** - 
+* **Razão da Falha do Status de Atividade** -
  * _FuzzyPolicyViolationInvalidPassword_ - o usuário selecionou uma senha que foi excluída automaticamente porque os recursos de Detecção de Senha Banida da Microsoft a consideraram muito comum ou particularmente fraca.
 
 ### <a name="activity-type-reset-password-by-admin"></a>Tipo de atividade: redefinir senha (pelo administrador)
-A seguinte lista explica essa atividade em detalhes: 
+A seguinte lista explica essa atividade em detalhes:
 
 * **Descrição da Atividade** – indica que um administrador executou uma redefinição em nome de um usuário no Portal do Azure.
 * **Ator de Atividade** - o administrador que realizou a redefinição em nome de outro usuário final ou administrador de senha. Deve ser o administrador global, o administrador de senha, o administrador de usuário ou o administrador de assistência técnica.
@@ -129,7 +129,7 @@ A seguinte lista explica essa atividade em detalhes:
  * _Falha_ - indica que um administrador falhou ao alterar a senha do usuário. Clicar na linha permitirá que você veja a categoria **Motivo do Status de Atividade** para saber mais sobre o motivo da falha.
 
 ### <a name="activity-type-reset-password-self-service"></a>Tipo de atividade: redefinir senha (autoatendimento)
-A seguinte lista explica essa atividade em detalhes: 
+A seguinte lista explica essa atividade em detalhes:
 
 * **Descrição da Atividade** – indica que um usuário redefiniu a senha com êxito no [Portal de Redefinição de Senha do Azure AD](https://passwordreset.microsoftonline.com).
 * **Ator de Atividade** - o usuário que redefiniu sua senha. Pode ser um usuário final ou um administrador.
@@ -137,11 +137,11 @@ A seguinte lista explica essa atividade em detalhes:
 * **Status de Atividade Permitida**
  * _Sucesso_ - indica que um usuário redefiniu sua própria senha com êxito
  * _Falha_ - indica que um usuário falhou ao redefinir sua senha. Clicar na linha permitirá que você veja a categoria **Motivo do Status de Atividade** para saber mais sobre o motivo da falha.
-* **Razão da Falha do Status de Atividade** - 
+* **Razão da Falha do Status de Atividade** -
  * _FuzzyPolicyViolationInvalidPassword_ - o administrador selecionou uma senha que foi excluída automaticamente porque os recursos de Detecção de Senha Banida da Microsoft a consideraram muito comum ou particularmente fraca.
 
 ### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Tipo de atividade: progresso de atividade de fluxo de redefinição de senha de autoatendimento
-A seguinte lista explica essa atividade em detalhes: 
+A seguinte lista explica essa atividade em detalhes:
 
 * **Descrição da Atividade** – indica cada etapa específica que um usuário executa (como uma porta de autenticação de redefinição de senha específica) como parte do processo de redefinição de senha.
 * **Ator de Atividade** - o usuário que realizou a parte do fluxo de redefinição de senha. Pode ser um usuário final ou um administrador.
@@ -153,7 +153,7 @@ A seguinte lista explica essa atividade em detalhes:
  * Confira a tabela abaixo para ver [todas as razões de status de atividade de redefinição permitida](#allowed-values-for-details-column)
 
 ### <a name="activity-type-unlock-user-account-self-service"></a>Tipo de atividade: desbloquear conta de usuário (autoatendimento)
-A seguinte lista explica essa atividade em detalhes: 
+A seguinte lista explica essa atividade em detalhes:
 
 * **Descrição da Atividade** – indica que um usuário desbloqueou com êxito sua conta do Active Directory sem redefinir a senha no [Portal de Redefinição de Senha do Azure AD](https://passwordreset.microsoftonline.com) usando o recurso de [desbloqueio de conta do AD sem redefinir](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password).
 * **Ator de Atividade** - o usuário que desbloqueou sua conta sem redefinir a senha. Pode ser um usuário final ou um administrador.
@@ -163,13 +163,13 @@ A seguinte lista explica essa atividade em detalhes:
  * _Falha_ - indica que um usuário falhou ao desbloquear sua conta. Clicar na linha permitirá que você veja a categoria **Motivo do Status de Atividade** para saber mais sobre o motivo da falha.
 
 ### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Tipo de atividade: usuário registrado para redefinição de senha de autoatendimento
-A seguinte lista explica essa atividade em detalhes: 
+A seguinte lista explica essa atividade em detalhes:
 
-* **Descrição da Atividade** – indica que um usuário registrou todas as informações necessárias para redefinir sua senha de acordo com a política de redefinição de senha do locatário especificada no momento. 
+* **Descrição da Atividade** – indica que um usuário registrou todas as informações necessárias para redefinir sua senha de acordo com a política de redefinição de senha do locatário especificada no momento.
 * **Ator de Atividade** - o usuário que se registrou para a redefinição de senha. Pode ser um usuário final ou um administrador.
 * **Destino de Atividade** - o usuário que se registrou para a redefinição de senha. Pode ser um usuário final ou um administrador.
 * **Status de Atividade Permitida**
- * _Sucesso_ - indica que um usuário se registrou com êxito para a redefinição de senha de acordo com a política atual. 
+ * _Sucesso_ - indica que um usuário se registrou com êxito para a redefinição de senha de acordo com a política atual.
  * _Falha_ - indica que um usuário falhou ao se registrar para a redefinição de senha. Clicar na linha permitirá que você veja a categoria **Motivo do Status de Atividade** para saber mais sobre o motivo da falha. Observação - isso não significa que um usuário não possa redefinir sua própria senha, apenas que ele não concluiu o processo de registro. Se houver dados não verificados na conta que estejam corretos (como um número de telefone que não foi validado), mesmo que eles não tenham verificado esse número de telefone, ainda poderão usá-lo para redefinir a senha. Para obter mais informações, confira [O que acontece quando um usuário é registrado?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)
 
 ## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Como recuperar eventos de gerenciamento de senhas da API de Relatórios e Eventos do Azure AD
@@ -184,7 +184,7 @@ Quando você tiver um script de trabalho, em seguida desejará examinar os event
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): lista as colunas disponíveis para os eventos do registro de redefinição de senhas
 
 ### <a name="reporting-api-data-retrieval-limitations"></a>Relatando limitações de recuperação de dados de API
-Atualmente, os Relatórios do Azure AD e a API de Eventos recuperam até **75.000 eventos individuais** dos tipos [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), abrangendo os **últimos 30 dias**. 
+Atualmente, os Relatórios do Azure AD e a API de Eventos recuperam até **75.000 eventos individuais** dos tipos [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), abrangendo os **últimos 30 dias**.
 
 Se precisar recuperar ou armazenar dados além desta janela, sugerimos persisti-los em um banco de dados externo e usar a API para consultar os deltas resultantes. Uma prática recomendada é começar a recuperar esses dados ao iniciar o processo de redefinição de senha na organização, persisti-lo externamente e continuar a acompanhar os deltas desse ponto em diante.
 
@@ -300,7 +300,7 @@ Abaixo está a lista de tipos de resultado que você pode esperar ao usar o rela
 ## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar**](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização

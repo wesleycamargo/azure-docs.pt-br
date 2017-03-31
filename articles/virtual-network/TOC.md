@@ -123,6 +123,7 @@
 ### Rotas
 #### [Portal](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+### [Teste de taxa de transferência](virtual-network-bandwidth-testing.md)
 
 # Referência
 ## [PowerShell (Gerenciador de Recursos)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)

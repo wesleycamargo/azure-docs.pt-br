@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5ef5cfeb82eed86fd0a9b6328c803d6a88cd2822
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5ea7af4744876f1085e14de800d599e001c3f3dd
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure
-Neste tutorial, você aprenderá como criar aplicativos complexos de grande escala com o [Serviço de Aplicativo do Azure](/services/app-service/), de forma a oferecer suporte ao [desenvolvimento de software Agile](https://en.wikipedia.org/wiki/Agile_software_development). Ele pressupõe que você já sabe como [implantar aplicativos complexos de modo previsível no Azure](app-service-deploy-complex-application-predictably.md).
+Neste tutorial, você aprenderá como criar aplicativos complexos de grande escala com o [Serviço de Aplicativo do Azure](/azure/app-service/), de forma a oferecer suporte ao [desenvolvimento de software Agile](https://en.wikipedia.org/wiki/Agile_software_development). Ele pressupõe que você já sabe como [implantar aplicativos complexos de modo previsível no Azure](app-service-deploy-complex-application-predictably.md).
 
 Limitações em processos técnicos muitas vezes podem atrapalhar o êxito da implementação das metodologias Agile. O Serviço de Aplicativo do Azure, com recursos como [publicação contínua](app-service-continuous-deployment.md), [ambientes de preparo](web-sites-staged-publishing.md) (slots) e [monitoramento](web-sites-monitor.md), quando associado com sabedoria à coordenação e ao gerenciamento da implantação no [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), pode ser parte de uma solução excelente para desenvolvedores que adotam o desenvolvimento de software Agile.
 

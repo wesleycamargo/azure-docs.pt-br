@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 376415d34592d18de00513ee9142512eb716e426
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 514319dfcb532ab3708352b2467c095d7775b714
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -183,8 +183,7 @@ O projeto que contém essa topologia está disponível como um download em [http
    
     Quando solicitado, digite a senha usada ao criar o usuário SSH para o cluster. Se você usou uma chave pública em vez de uma senha, talvez precise usar o parâmetro `-i` para especificar o caminho para a chave privada correspondente.
    
-   > [!NOTE]
-   > Se estiver usando um cliente Windows para o desenvolvimento, siga as informações em [Connect to Linux-based HDInsight with SSH from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) (Conectar ao HDInsight baseado em Linux com o SSH do Windows) para obter informações sobre como usar o cliente PuTTY para se conectar ao cluster.
+   Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. Depois de conectado, use o seguinte comando para criar um arquivo chamado `dev.properties`:
 

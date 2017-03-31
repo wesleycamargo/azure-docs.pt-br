@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
 translationtype: Human Translation
-ms.sourcegitcommit: faf363eb5848752b27faacd971867391b6393337
-ms.openlocfilehash: 1a693477a51a05fb28e7c4772aeee77fd0c4e1dd
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 4d6ea897ec24ab9cbf5c131cd4629f45447f1460
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -30,7 +31,7 @@ Este artigo descreve o custo do DocumentDB para operações simples de gravaçã
 
 ## <a name="why-we-use-request-units-rus"></a>Por que usamos RUs (Unidades de Solicitação)
 
-O desempenho do DocumentDB tem base na quantidade de RU [(Unidades de Solicitação)](documentdb-programming.md) provisionada para a partição. O provisionamento ocorre a uma granularidade de segundos e é adquirido em RUs/s ([não deve ser confundido com a cobrança por hora](https://azure.microsoft.com/pricing/details/documentdb/)). RUs devem ser considerados como uma moeda que simplifica o provisionamento da taxa de transferência necessária para o aplicativo. Nossos clientes não precisam pensar em diferenciar unidades de capacidade de leitura e gravação. O modelo de moeda única de RUs cria eficiência no compartilhamento da capacidade provisionada entre leituras e gravações. Esse modelo de capacidade provisionada permite que o serviço forneça uma taxa de transferência previsível e consistente, além de garantia de baixa latência e alta disponibilidade. Finalmente, usamos o RU para modelar a taxa de transferência, mas cada RU provisionado também tem uma quantidade definida de recursos (Memória, Núcleo). RU/s não é apenas o IOPS.
+O desempenho do DocumentDB tem base na quantidade de RU [(Unidades de Solicitação)](documentdb-request-units.md) provisionada para a partição. O provisionamento ocorre a uma granularidade de segundos e é adquirido em RUs/s ([não deve ser confundido com a cobrança por hora](https://azure.microsoft.com/pricing/details/documentdb/)). RUs devem ser considerados como uma moeda que simplifica o provisionamento da taxa de transferência necessária para o aplicativo. Nossos clientes não precisam pensar em diferenciar unidades de capacidade de leitura e gravação. O modelo de moeda única de RUs cria eficiência no compartilhamento da capacidade provisionada entre leituras e gravações. Esse modelo de capacidade provisionada permite que o serviço forneça uma taxa de transferência previsível e consistente, além de garantia de baixa latência e alta disponibilidade. Finalmente, usamos o RU para modelar a taxa de transferência, mas cada RU provisionado também tem uma quantidade definida de recursos (Memória, Núcleo). RU/s não é apenas o IOPS.
 
 Como um sistema de bancos de dados distribuídos globalmente, o DocumentDB é o único serviço do Azure que fornece um SLA sobre latência, taxa de transferência e consistência, além de alta disponibilidade. A taxa de transferência que você provisiona é aplicada a cada uma das regiões associadas à sua conta de banco de dados do DocumentDB. Para leituras, o DocumentDB oferece vários [níveis de consistência](documentdb-consistency-levels.md) bem definidos para sua escolha. 
 
@@ -47,17 +48,12 @@ Se você provisionar 1.000 RU/s, o resultado será de 3,6 m RU/hora e custará $
 
 |Tamanho do documento|1m de Leitura|1m de Gravação|
 |-------------|-------|--------|
-|1 KB|$&0;,022|$&0;,111|
-|100 KB|$&0;,222|$&1;,111|
+|1 KB|$ 0,022|$ 0,111|
+|100 KB|$ 0,222|$ 1,111|
 
-A maioria dos repositórios de blob ou de objeto básicos cobra $&0;,40 por um milhão de transações de leitura, e $&5; por um milhão de transações de gravação. Se usado corretamente, o DocumentDB pode ser até 98% mais barato do que essas outras soluções (para transações de 1KB).
+A maioria dos repositórios de blob ou de objeto básicos cobra $ 0,40 por um milhão de transações de leitura, e $ 5 por um milhão de transações de gravação. Se usado corretamente, o DocumentDB pode ser até 98% mais barato do que essas outras soluções (para transações de 1KB).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Fique atento a novos artigos sobre como otimizar o provisionamento de recursos do DocumentDB. Enquanto isso, fique à vontade para usar nossa [Calculadora de RU](https://www.documentdb.com/capacityplanner).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

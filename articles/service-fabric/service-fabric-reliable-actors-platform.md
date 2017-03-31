@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: c2e8f2d2f26bb93af5c2858242392b3dc207beb4
-ms.openlocfilehash: 2a3a5647f506d61e853f465f241d66fbe8c4ced0
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: ba07b1bf1b49ebb24a7d5cfbaad71f5f17c49192
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,7 +31,7 @@ Este artigo explica sobre o funcionamento dos Reliable Actors na plataforma do S
 Juntos, esses componentes formam a estrutura do Reliable Actor. 
 
 ## <a name="service-layering"></a>Disposição em camadas de serviço
-Como o próprio Serviço de Ator é um Reliable Service, todos os conceitos de [modelo de aplicativo](service-fabric-application-model.md), ciclo de vida, [empacotamento](service-fabric-application-model.md#package-an-application), [implantação](service-fabric-deploy-remove-applications.md), atualização e dimensionamento dos Reliable Services aplicam-se da mesma maneira aos serviços de Ator. 
+Como o próprio Serviço de Ator é um Reliable Service, todos os conceitos de [modelo de aplicativo](service-fabric-application-model.md), ciclo de vida, [empacotamento](service-fabric-package-apps.md), [implantação](service-fabric-deploy-remove-applications.md), atualização e dimensionamento dos Reliable Services aplicam-se da mesma maneira aos serviços de Ator. 
 
 ![Disposição em camadas do Serviço de Ator][1]
 

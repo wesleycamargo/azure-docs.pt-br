@@ -28,6 +28,7 @@
 ### [Configurar uma entidade de serviço](container-service-kubernetes-service-principal.md)
 ### [Gerenciamento de contêineres - IU do Kubernetes](container-service-kubernetes-ui.md)
 ### [Contêineres do Kubernetes para balanceamento de carga](container-service-kubernetes-load-balancing.md)
+### [Integração Jenkins com o ACS Kubernetes](container-service-kubernetes-jenkins.md)
 ### Monitorar o Kubernetes
 #### [Monitorar com o OMS](container-service-kubernetes-oms.md)
 #### [Monitorar com o Datadog](container-service-kubernetes-datadog.md)

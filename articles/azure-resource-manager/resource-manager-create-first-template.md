@@ -31,9 +31,9 @@ Para criar e revisar os modelos, você precisa de um editor de JSON. [Visual Stu
 
 2. Instale a extensão [Ferramentas do Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) acessando a Abertura Rápida (Ctrl+P) e executando: 
 
-  ```
-  ext install msazurermtools.azurerm-vscode-tools
-  ```
+   ```
+   ext install msazurermtools.azurerm-vscode-tools
+   ```
 
 3. Reinicie o Código VS quando solicitado para habilitar a extensão.
 
@@ -45,15 +45,15 @@ Vamos começar com um modelo em branco que inclui apenas as seções básicas de
 
 2. Copie e cole a seguinte sintaxe JSON em seu arquivo:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [  ],
-    "outputs": {  }
-  }
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [  ],
+     "outputs": {  }
+   }
    ```
 
 3. Salve este arquivo como **azuredeploy.json**. 
@@ -63,43 +63,43 @@ Vamos começar com um modelo em branco que inclui apenas as seções básicas de
 
 3. Cole esse JSON na seção **resources** do modelo, conforme mostra o exemplo a seguir: 
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [
-      {
-        "name": "string",
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2016-05-01",
-        "sku": {
-          "name": "string"
-        },
-        "kind": "string",
-        "location": "string",
-        "tags": {},
-        "properties": {
-          "customDomain": {
-            "name": "string",
-            "useSubDomain": boolean
-          },
-          "encryption": {
-            "services": {
-              "blob": {
-                "enabled": boolean
-              }
-            },
-            "keySource": "Microsoft.Storage"
-          },
-          "accessTier": "string"
-        }
-      }
-    ],
-    "outputs": {  }
-  }
-  ```
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [
+       {
+         "name": "string",
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2016-05-01",
+         "sku": {
+           "name": "string"
+         },
+         "kind": "string",
+         "location": "string",
+         "tags": {},
+         "properties": {
+           "customDomain": {
+             "name": "string",
+             "useSubDomain": boolean
+           },
+           "encryption": {
+             "services": {
+               "blob": {
+                 "enabled": boolean
+               }
+             },
+             "keySource": "Microsoft.Storage"
+           },
+           "accessTier": "string"
+         }
+       }
+     ],
+     "outputs": {  }
+   }
+   ```
 
   O exemplo anterior inclui muitos valores de espaço reservado e algumas propriedades que talvez você não precise em sua conta de armazenamento.
 
@@ -111,37 +111,37 @@ Agora, você está pronto para definir valores para sua conta de armazenamento.
 
 2. Observe que dentro do elemento **properties**, **customDomain**, **encryption**, e **accessTier** estão listados como não necessários. Esses valores podem ser importantes para seus cenários, mas para simplificar este exemplo, vamos removê-los.
 
-  ```json
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "string",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  ```
+   ```json
+   "resources": [
+     {
+       "name": "string",
+       "type": "Microsoft.Storage/storageAccounts",
+       "apiVersion": "2016-05-01",
+       "sku": {
+         "name": "string"
+       },
+       "kind": "string",
+       "location": "string",
+       "tags": {},
+       "properties": {
+       }
+     }
+   ],
+   ```
 
 3. No momento, o elemento **kind** é definido como um valor de espaço reservado ("string"). O VS Code inclui muitos recursos que ajudarão você a entender os valores a serem usados no modelo. Observe que o VS Code indica que esse valor não é válido. Se você passar por "string", o VS Code sugerirá que os valores válidos para **kind** são `Storage` ou `BlobStorage`. 
 
-  ![mostrar os valores sugeridos do VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ![mostrar os valores sugeridos do VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-  Para ver os valores disponíveis, exclua os caracteres entre as aspas duplas e selecione **Ctrl + Espaço**. Selecione **Armazenamento** entre as opções disponíveis.
+   Para ver os valores disponíveis, exclua os caracteres entre as aspas duplas e selecione **Ctrl + Espaço**. Selecione **Armazenamento** entre as opções disponíveis.
   
-  ![mostrar intellisense](./media/resource-manager-create-first-template/intellisense.png)
+   ![mostrar intellisense](./media/resource-manager-create-first-template/intellisense.png)
 
-  Se você não estiver usando o VS Code, examine a página de referência do modelo das contas de armazenamento. Observe que a descrição lista os mesmos valores válidos. Defina o elemento como **Armazenamento**.
+   Se você não estiver usando o VS Code, examine a página de referência do modelo das contas de armazenamento. Observe que a descrição lista os mesmos valores válidos. Defina o elemento como **Armazenamento**.
 
-  ```json
-  "kind": "Storage",
-  ```
+   ```json
+   "kind": "Storage",
+   ```
 
 O modelo agora se parece com:
 
@@ -186,8 +186,6 @@ Novamente, o VS Code ajuda você sugerindo as funções disponíveis.
 
 Observe que a função é delimitada por colchetes. A função [resourceGroup](resource-group-template-functions.md#resourcegroup) retorna um objeto com uma propriedade chamada `location`. O grupo de recursos contém todos os recursos relacionados para sua solução. Você pode codificar a propriedade location para um valor como "EUA Central", mas precisaria alterar manualmente o modelo reimplantar em um local diferente. A função `resourceGroup` facilita a reimplantação desse modelo para um grupo de recursos diferente em um local diferente.
 
-
-
 O modelo agora se parece com:
 
 ```json
@@ -222,71 +220,71 @@ Os nomes de conta de armazenamento têm várias restrições que os tornam difí
 
 1. Para passar um prefixo para o nome que corresponda às suas convenções de nomenclatura, acesse a seção **parameters** de seu modelo. Adicione um parâmetro para o modelo que aceite um prefixo para o nome da conta de armazenamento:
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     }
+   },
+   ```
 
   O prefixo é limitado a no máximo 11 caracteres, pois `uniqueString` retorna 13 caracteres, e o nome não pode exceder 24 caracteres. Se você não passar um valor para o parâmetro durante a implantação, o valor padrão será usado.
 
 2. Acesse a seção **variables** do modelo. Para construir o nome a partir do prefixo e da string exclusiva, adicione a seguinte variável:
 
-  ```json
-  "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 3. Na seção **resources**, defina o nome da conta de armazenamento para essa variável.
 
-  ```json
-  "name": "[variables('storageName')]",
-  ```
+   ```json
+   "name": "[variables('storageName')]",
+   ```
 
 3. Para habilitar a passagem em SKUs diferentes para a conta de armazenamento, acesse a seção **parameters**. Após o parâmetro do prefixo de nome do armazenamento, adicione um parâmetro que especifica os valores de SKU permitidos e um valor padrão. Encontre os valores permitidos na página de referência do modelo ou no VS Code. No exemplo a seguir, inclua todos os valores válidos para SKU. Porém, você pode limitar os valores permitidos apenas aos tipos de SKUs que você deseja implantar por meio desse modelo.
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
-    "storageSKU": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ],
-      "defaultValue": "Standard_LRS",
-      "metadata": {
-        "description": "The type of replication to use for the storage account."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     },
+     "storageSKU": {
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ],
+       "defaultValue": "Standard_LRS",
+       "metadata": {
+         "description": "The type of replication to use for the storage account."
+       }
+     }
+   },
+   ```
 
 3. Altere a propriedade do SKU para usar o valor do parâmetro:
 
-  ```json
-  "sku": {
-    "name": "[parameters('storageSKU')]"
-  },
-  ```    
+   ```json
+   "sku": {
+     "name": "[parameters('storageSKU')]"
+   },
+   ```    
 
 4. Salve o arquivo.
 

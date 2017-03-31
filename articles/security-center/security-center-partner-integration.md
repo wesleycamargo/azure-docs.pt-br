@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
 ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -56,7 +57,7 @@ Com base na configuração de seu ambiente do Azure e na política de segurança
 
 Após a implantação de uma solução de parceiro, você pode exibir informações sobre a integridade da solução e executar tarefas básicas de gerenciamento no bloco Solução de parceiro no painel principal da Central de Segurança. Para obter mais informações sobre o gerenciamento de soluções de parceiros na Central de Segurança, leia [Monitoramento de soluções de parceiro com a Central de Segurança do Azure](security-center-partner-solutions.md).
 
-![Integração de Parceiros](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
+![Integração de Parceiros](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
 
 
 ## <a name="see-also"></a>Consulte também
@@ -69,9 +70,4 @@ Neste documento, você aprendeu como integrar a solução de parceiro à Central
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

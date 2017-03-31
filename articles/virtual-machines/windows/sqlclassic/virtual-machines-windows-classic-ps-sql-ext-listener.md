@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 64d3f55445c82bf2be3ca8e64d7ea5d19e70310b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d9138b17e54aa1c4bf1982b09d3d0ad10e936d4c
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurar um ouvinte externo para grupos de disponibilidade AlwaysOn no Azure
 > [!div class="op_single_selector"]
-> * [Ouvinte interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [Ouvinte externo](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [Ouvinte interno](../classic/ps-sql-int-listener.md)
+> * [Ouvinte externo](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -33,7 +34,7 @@ Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade 
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
-O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) , mas não configurou um ouvinte.
+O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](../classic/portal-sql-alwayson-availability-groups.md) , mas não configurou um ouvinte.
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>Diretrizes e limitações para ouvintes externos
 Observe as seguintes limitações sobre o ouvinte do grupo de disponibilidade no Azure ao implantar usando o endereço VIP público do serviço de nuvem:
@@ -47,7 +48,7 @@ Observe as seguintes limitações sobre o ouvinte do grupo de disponibilidade no
 ## <a name="determine-the-accessibility-of-the-listener"></a>Determine a acessibilidade do ouvinte
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artigo se concentra na criação de um ouvinte que use o **balanceamento de carga externo**. Se você quiser um ouvinte privado em sua rede virtual, consulte a versão deste artigo que fornece as etapas para configurar um [ouvinte com ILB](virtual-machines-windows-classic-ps-sql-int-listener.md)
+Este artigo se concentra na criação de um ouvinte que use o **balanceamento de carga externo**. Se você quiser um ouvinte privado em sua rede virtual, consulte a versão deste artigo que fornece as etapas para configurar um [ouvinte com ILB](../classic/ps-sql-int-listener.md)
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Criar pontos de extremidade da VM com balanceamento de carga com retorno de servidor direto
 O Balanceamento de carga externo usa o endereço IP Virtual público do serviço de nuvem que hospeda suas VMs. Portanto, você não precisa criar ou configurar o balanceador de carga nesse caso.
@@ -132,10 +133,5 @@ Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes dever
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
