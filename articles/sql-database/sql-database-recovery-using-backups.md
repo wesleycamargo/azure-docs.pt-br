@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 02/20/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ab3a9b28e5bcf5e1a481cc204b46617c20287a8
-ms.openlocfilehash: 2f75c492313b1ab7f4abe82a98640d535c3d7909
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 751e1eaf65da889ab5c7dc26145c017682a12a4d
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -55,7 +55,7 @@ O tempo de recuperação para restaurar um banco de dados usando backups de banc
 
 ## <a name="point-in-time-restore"></a>Restauração pontual
 
-Você pode restaurar um banco de dados existente para um ponto anterior no tempo como um novo banco de dados no mesmo servidor lógico usando o [Portal do Azure](sql-database-point-in-time-restore-portal.md), o [PowerShell](sql-database-point-in-time-restore-powershell.md) ou a [API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Você pode restaurar um banco de dados existente para um ponto anterior no tempo como um novo banco de dados no mesmo servidor lógico usando o [Portal do Azure](sql-database-point-in-time-restore-portal.md), o [PowerShell](scripts/sql-database-restore-database-powershell.md) ou a [API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > Não é possível substituir o banco de dados existente durante a restauração.
@@ -69,7 +69,7 @@ Um banco de dados geralmente é restaurado para um ponto anterior para fins de r
 * ***Recuperação de dados:*** se planejar recuperar dados do banco de dados restaurado para se recuperar de um erro de aplicativo ou de usuário, você precisará escrever e executar os scripts de recuperação de dados necessários para extrair dados do banco de dados restaurado para o banco de dados original. Embora a operação de restauração possa demorar muito para concluir, o banco de dados em restauração é visível na lista de banco de dados por todo o processo de restauração. Se você excluir o banco de dados durante a restauração, a operação de restauração será cancelada e você não será cobrado pelo banco de dados cuja restauração não foi concluída. 
 
 ## <a name="deleted-database-restore"></a>Restauração de banco de dados excluído
-Você pode restaurar um banco de dados excluído para o momento de exclusão para um banco de dados excluído no mesmo servidor lógico usando o [Portal do Azure](sql-database-restore-deleted-database-portal.md), o [PowerShell](sql-database-restore-deleted-database-powershell.md) ou o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Você pode restaurar um banco de dados excluído para o momento de exclusão para um banco de dados excluído no mesmo servidor lógico usando o [Portal do Azure](sql-database-restore-deleted-database-portal.md), o [PowerShell](scripts/sql-database-restore-database-powershell.md) ou o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > Se você excluir uma instância de servidor de Banco de Dados SQL do Azure, todos os seus bancos de dados também serão excluídos e não poderão ser recuperados. No momento, não há suporte para restaurar um servidor excluído.
@@ -94,8 +94,8 @@ Conforme discutido anteriormente, além do Portal do Azure, a recuperação de b
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | Descrição |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Obtém um ou mais bancos de dados. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/en-us/library/azure/mt693387.aspx) |Obtém um banco de dados excluído que você pode restaurar. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Obtém um ou mais bancos de dados. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) |Obtém um banco de dados excluído que você pode restaurar. |
 | [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) |Obtém um backup com redundância geográfica de um banco de dados. |
 | [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) |Restaura um banco de dados SQL. |
 |  | |

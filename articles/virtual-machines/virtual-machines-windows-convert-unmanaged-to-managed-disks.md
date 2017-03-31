@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
-ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 96137d49d3caa0444400edcfcfaa097dc71ba8e3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -76,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Converter as VMs do Azure existentes para discos gerenciados do mesmo tipo de armazenamento
 
 > [!IMPORTANT]
-> Depois de executar o procedimento a seguir, há um único blob que permanece no contêiner /vhds padrão. O nome do arquivo é "VMName.xxxxxxx.status". Esse arquivo é criado pelo Azure apenas quando você instalou [extensões de VM](virtual-machines-windows-classic-agents-and-extensions.md) na VM. Não exclua esse objeto de status restante. Um trabalho futuro deverá resolver esse problema.
+> Depois de executar o procedimento a seguir, há um único blob que permanece no contêiner /vhds padrão. O nome do arquivo é "VMName.xxxxxxx.status". Esse arquivo é criado pelo Azure apenas quando você instalou [extensões de VM](windows/classic/agents-and-extensions.md) na VM. Não exclua esse objeto de status restante. Um trabalho futuro deverá resolver esse problema.
 
 Esta seção aborda como converter suas VMs do Azure existente de discos não gerenciados nas contas de armazenamento para discos gerenciados quando estiver usando o mesmo tipo de armazenamento. Você pode usar este processo para ir de discos (SSD) não gerenciados Premium para discos gerenciados Premium, ou de discos (HDD) não gerenciados standard para discos gerenciados standard. 
 

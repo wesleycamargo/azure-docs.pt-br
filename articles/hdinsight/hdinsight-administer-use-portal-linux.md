@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 8c439591dae0bd561ba4f079aba9f2073d1e954b
-ms.openlocfilehash: dc94c3f428200f107f7e953a57cf4e0e83bc7de1
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 82c12f4a2a24e190babfd88ff667e24d6c45ebac
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -78,7 +80,7 @@ O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obte
    * **Logon do Cluster**: exibir as informações de logon do cluster.
    * **Uso de núcleo de assinatura**: exibir os núcleos usados e disponíveis para sua assinatura. 
    * **Dimensionar o Cluster**: aumente e diminua o número de nós de trabalho do cluster. Consulte [Dimensionar clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-   * **Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH). Confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows com PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) e [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * **Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH). Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
    * **Parceiro HDInsight**: adicione/remova o Parceiro HDInsight atual.
    * **Metastores Externos**: exiba os Hive e Oozie metastores. Os metastores só podem ser configurados durante o processo de criação do cluster. Consulte [usar metastore do Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
    * **Ações de Script**: execute scripts Bash no cluster. Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -314,9 +316,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e c
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

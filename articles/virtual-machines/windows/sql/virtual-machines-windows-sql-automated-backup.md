@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 01/30/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 253c504fa433c7ca37c0065ebf01d13dafc76231
-ms.openlocfilehash: c4cf6ab29ebf5b3397017cf754ee04bf57ab1555
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1b9401d7c2f756081d585b9432ceef412ab1f807
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup Automatizado para em máquinas virtuais do SQL Server 2014 (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](virtual-machines-windows-sql-automated-backup.md)
-> * [Clássico](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md)
+> * [Clássico](../classic/sql-automated-backup.md)
 > 
 > 
 
@@ -32,7 +33,7 @@ O backup automatizado configura automaticamente o [Backup Gerenciado do Microsof
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para exibir a versão clássica deste artigo, consulte [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure Clássico](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md).
+Para exibir a versão clássica deste artigo, consulte [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure Clássico](../classic/sql-automated-backup.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar o Backup Automatizado, considere os seguintes pré-requisitos:
@@ -73,7 +74,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para Backup Au
 | Configuração | Intervalo (Padrão) | Descrição |
 | --- | --- | --- |
 | **Backup Automatizado** | Habilitar/desabilitar (Desabilitado) | Habilita ou desabilita o Backup Automatizado de uma VM do Azure que executa o SQL Server 2014 Standard ou Enterprise. |
-| **Período de retenção** | Um a&30; dias (30 dias) | O número de dias para manter um backup. |
+| **Período de retenção** | Um a 30 dias (30 dias) | O número de dias para manter um backup. |
 | **Conta de armazenamento** | Conta de Armazenamento do Azure | Uma conta de armazenamento do Azure a ser usada para armazenar arquivos de Backup Automatizado no armazenamento de blobs. Um contêiner é criado neste local para armazenar todos os arquivos de backup. A convenção de nomenclatura do arquivo de backup inclui a data, hora e nome do computador. |
 | **Criptografia** | Habilitar/desabilitar (Desabilitado) | Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup estão localizados na conta de armazenamento especificado no mesmo contêiner `automaticbackup` usando a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanece para restaurar backups anteriores. |
 | **Senha** | Texto da senha | Uma senha para as chaves de criptografia. Isso só é necessário se a criptografia estiver habilitada. Para restaurar um backup criptografado, você deverá ter a senha correta e o certificado relacionado que foi usado no momento em que o backup foi feito. |
@@ -149,10 +150,5 @@ Você pode encontrar outras orientações de backup e de restauração para o SQ
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

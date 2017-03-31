@@ -6,6 +6,7 @@
 ## [Criar um Registro no portal](container-registry-get-started-portal.md)
 ## [Criar um registro com a CLI 2.0 do Azure](container-registry-get-started-azure-cli.md)
 ## [Enviar e receber uma imagem](container-registry-get-started-docker-cli.md)
+## [Exibir repositórios](container-registry-repositories.md)
 
 # Como
 

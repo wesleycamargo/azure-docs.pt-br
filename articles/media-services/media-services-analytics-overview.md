@@ -17,6 +17,7 @@ ms.author: milanga;juliako;johndeu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,7 +31,7 @@ A Análise de Mídia do Azure permite que os desenvolvedores aprendam a usar rap
 
 O diagrama a seguir mostra a **Análise de Mídia** e outras partes importantes da plataforma Serviços de Mídia. 
 
-![Fluxo de trabalho VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
+![Fluxo de trabalho VoD](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
 O processador de mídia da Análise de Mídia produz arquivos MP4 ou arquivos JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do Armazenamento de Blobs do Azure. 
 
@@ -129,9 +130,4 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

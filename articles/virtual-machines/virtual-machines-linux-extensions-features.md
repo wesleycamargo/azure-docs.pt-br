@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c6c92f0d357909921a9f3ee2f484ff355ddde0be
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: ef28ca0a43d7e07fa87d5afdd3f0428f28a310f0
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ Cada extensão da máquina virtual pode ter seu próprio conjunto de pré-requis
 
 O agente de VM do Azure gerencia a interação entre uma máquina virtual do Azure e o controlador de malha do Azure. O agente de VM é responsável por muitos aspectos funcionais de implantação e gerenciamento de máquinas virtuais do Azure, incluindo a execução de extensões da VM. O agente de VM do Azure é pré-instalado em imagens do Azure Marketplace e pode ser instalado manualmente em sistemas operacionais com suporte.
 
-Para saber mais sobre os sistemas operacionais com suporte e as instruções de instalação, confira [Agente de máquina virtual do Azure](virtual-machines-linux-classic-agents-and-extensions.md).
+Para saber mais sobre os sistemas operacionais com suporte e as instruções de instalação, confira [Agente de máquina virtual do Azure](linux/classic/agents-and-extensions.md).
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 

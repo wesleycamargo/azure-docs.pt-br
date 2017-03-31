@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 27d8da9df87dc5e93272be0bb6584e90971fb461
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c059d39840ae268da647cffd2bfcb937f006356a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -175,7 +175,7 @@ Depois de habilitar o backup com êxito, a sua política de backup será executa
 Se você tiver problemas ao registrar a máquina virtual, confira as seguintes informações sobre como instalar o agente de VM e conectividade de rede. Se as máquinas virtuais criadas no Azure estiverem protegidas, então é provável que as informações a seguir não serão necessárias. No entanto se você migrou suas máquinas virtuais para o Azure, então é melhor conferir se o agente de VM foi instalado corretamente e se a sua máquina virtual pode se comunicar com a rede virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o Agente de VM na máquina virtual
-O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Se sua VM tiver sido criada da galeria do Azure, o agente de VM já estará presente na máquina virtual. Essas informações são fornecidas para as situações em que você *não* está usando uma VM criada da Galeria do Azure, por exemplo, tendo migrado uma VM de um datacenter local. Nesse caso, o Agente de VM precisa ser instalado para proteger a máquina virtual. Saiba mais sobre o [agente de VM](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
+O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Se sua VM tiver sido criada da galeria do Azure, o agente de VM já estará presente na máquina virtual. Essas informações são fornecidas para as situações em que você *não* está usando uma VM criada da Galeria do Azure, por exemplo, tendo migrado uma VM de um datacenter local. Nesse caso, o Agente de VM precisa ser instalado para proteger a máquina virtual. Saiba mais sobre o [agente de VM](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
 
 Se você tiver problemas para fazer backup da VM do Azure, verifique se o Agente de VM do Azure está instalado corretamente na máquina virtual (veja a tabela abaixo). A tabela a seguir oferece informações adicionais sobre o Agente de VM para VMs do Windows e do Linux.
 

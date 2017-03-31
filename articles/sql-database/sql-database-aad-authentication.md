@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/23/2017
+ms.date: 03/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 9f29b451ef76a318a7778a8d20e292e311191298
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 01294f8f8fdaa65a5f33dbf6d35c0baa342cacc8
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -99,7 +99,6 @@ A autenticação do Active Directory do Azure dá suporte aos seguintes métodos
 * O SQL Server Data Tools para Visual Studio 2015 requer pelo menos a versão de abril de 2016 do Data Tools (versão 14.0.60311.1). Atualmente, os usuários do Azure AD não são mostrados no Pesquisador de Objetos do SSDT. Como alternativa, exiba os usuários em [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 * O [Microsoft JDBC Driver 6.0 para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) dá suporte à autenticação do Azure AD. Confira também [Configuração das propriedades de conexão](https://msdn.microsoft.com/library/ms378988.aspx).   
 * O PolyBase não pode ser autenticado com a autenticação do Azure AD.   
-* Não há suporte para algumas ferramentas como o Excel e o BI.   
 * Há suporte para a autenticação do Azure AD no Banco de Dados SQL por meio das folhas **Importar Banco de Dados** e **Exportar Banco de Dados** do portal do Azure. Também há suporte para importação e exportação com a autenticação do Azure AD no comando do PowerShell.   
 
 ## <a name="next-steps"></a>Próximas etapas

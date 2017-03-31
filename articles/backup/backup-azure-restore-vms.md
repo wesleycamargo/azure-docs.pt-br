@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 7de8d98f24ea01012b8fa3a326e1d4ad3f04099a
-ms.openlocfilehash: 186929c1193f63ecda6fd4851bb66c8430ab99ab
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 64557a71f30762befe07616c3d274a621f22e235
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -92,10 +92,10 @@ Quando a operação de restauração for concluída, ela será marcada como conc
 
 ![Trabalho de restauração concluído](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Depois de restaurar a máquina virtual, talvez seja necessário reinstalar as extensões existentes na VM original e [modificar os pontos de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) para a máquina virtual no portal do Azure.
+Depois de restaurar a máquina virtual, talvez seja necessário reinstalar as extensões existentes na VM original e [modificar os pontos de extremidade](../virtual-machines/windows/classic/setup-endpoints.md) para a máquina virtual no portal do Azure.
 
 ## <a name="post-restore-steps"></a>Etapas de pós-restauração
-Se você estiver usando uma distribuição do Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/virtual-machines-linux-classic-reset-access.md). Recomendamos o uso de chaves SSH nessas distribuições para evitar a redefinição de senha após a restauração. 
+Se você estiver usando uma distribuição do Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/linux/classic/reset-access.md). Recomendamos o uso de chaves SSH nessas distribuições para evitar a redefinição de senha após a restauração. 
 
 ## <a name="backup-for-restored-vms"></a>Backup de VMs restauradas
 Se você tiver restaurado a VM no mesmo serviço de nuvem com o mesmo nome que o backup original da VM, o backup continuará na VM após a restauração. Se você tiver restaurado a VM em um serviço de nuvem diferente ou especificado um nome diferente para a VM restaurada, isso será tratado como uma nova VM e você precisará configurar o backup para a VM restaurada.

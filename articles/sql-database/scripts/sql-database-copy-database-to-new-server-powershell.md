@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 0f750cb3021f04ade9d639e2de14e1b119cde36e
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 38e7454c22b1e675e8da99da1eaa0f86b9549216
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/10/2017
 
 Este exemplo de script do PowerShell cria uma cópia de um banco de dados existente em um novo servidor. 
 
-Antes de executar esse script, certifique-se de que uma conexão com o Azure foi criada usando o cmdlet `Add-AzureRmAccount`.
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="copy-a-database-to-a-new-server"></a>Copiar um banco de dados para um novo servidor
 
@@ -45,7 +45,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Comando | Observações |
+| Command | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | Cria um servidor lógico que hospeda um banco de dados ou pool elástico. |

@@ -13,11 +13,12 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 81d7d09f48d08943623b24e7e7a26847a0d129fe
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -111,10 +112,5 @@ Neste documento, você aprendeu a usar a solução de Segurança e Auditoria do 
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Introdução à solução de Segurança e Auditoria do Operations Management Suite](oms-security-getting-started.md)
 * [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

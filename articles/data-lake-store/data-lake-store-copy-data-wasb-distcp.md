@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 1e66ce0af4d3d33b584f9f3a881c34aa04e783b7
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 12aea210308636677ba2905887ddd24dc5c35238
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -44,7 +44,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 Um cluster do HDInsight é fornecido com o utilitário Distcp, que pode ser usado para copiar dados de fontes diferentes em um cluster do HDInsight. Se você tiver configurado o cluster do HDInsight para usar o Repositório do Data Lake como um armazenamento adicional, o utilitário Distcp pode ser usado prontamente para copiar dados de e para uma conta do Repositório do Data Lake. Nesta seção, vamos examinar como usar o utilitário Distcp.
 
-1. Da sua área de trabalho, use o SSH para se conectar ao cluster. Confira [Conectar-se a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Execute os comandos do prompt de SSH.
+1. Da sua área de trabalho, use o SSH para se conectar ao cluster. Confira [Conectar-se a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Execute os comandos do prompt de SSH.
 
 2. Verifique se você pode acessar os WASB (Blobs de Armazenamento do Azure). Execute o comando a seguir:
 
@@ -101,7 +101,7 @@ Se outros aplicativos estiverem usando memória, então você poderá usar somen
 
 ### <a name="copying-large-datasets"></a>Copiando grandes conjuntos de dados
 
-Quando o tamanho do conjunto de dados a ser movido será muito grande (por exemplo, maior que&1; TB) ou se você tiver muitas pastas diferentes, considere usar vários trabalhos DistCp. Provavelmente, não haverá nenhum ganho de desempenho, porém isso espalhará os trabalhos para que, se algum trabalho falhar, seja necessário reiniciar somente esse trabalho específico em vez de todo o trabalho.
+Quando o tamanho do conjunto de dados a ser movido será muito grande (por exemplo, maior que 1 TB) ou se você tiver muitas pastas diferentes, considere usar vários trabalhos DistCp. Provavelmente, não haverá nenhum ganho de desempenho, porém isso espalhará os trabalhos para que, se algum trabalho falhar, seja necessário reiniciar somente esse trabalho específico em vez de todo o trabalho.
 
 ### <a name="limitations"></a>Limitações
 

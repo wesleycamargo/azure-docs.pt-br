@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: 106a6f5f44882fd80f7d92f392dbe4bc71004a4f
-ms.openlocfilehash: 8610582803d65d6118cbc2a2c3bc29c50405a26a
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 6a02baabc4b11d80cebfd8c65fc95006716e5d98
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -184,6 +184,6 @@ A preparação de uma máquina virtual Oracle Linux 7 para o Azure é muito pare
 15. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora você está pronto para usar o .vhd Oracle Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que você estiver carregando o arquivo .vhd para o Azure, veja as etapas 2 e 3 em [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Agora você está pronto para usar o .vhd Oracle Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que você estiver carregando o arquivo .vhd para o Azure, veja as etapas 2 e 3 em [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 
