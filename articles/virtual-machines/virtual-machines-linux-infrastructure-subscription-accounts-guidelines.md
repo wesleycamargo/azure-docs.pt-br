@@ -50,19 +50,19 @@ Para trabalhar com o Azure, você precisa de uma ou mais assinaturas do Azure. R
 
 Devido ao limite de dois níveis de hierarquia na relação de Conta/Assinatura, é importante alinhar a convenção de nomenclatura das contas e assinaturas às necessidades de cobrança. Por exemplo, se uma empresa global usar o Azure, poderá optar por ter uma conta por região e gerenciar as assinaturas no nível de região:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
 Por exemplo, você pode usar a seguinte estrutura:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
 Se uma região decide ter mais de uma assinatura associada a um determinado grupo, a convenção de nomenclatura deve incorporar uma forma de codificar os dados adicionais no nome da conta ou da assinatura. Essa organização permite manipular os dados de faturamento para gerar os novos níveis de hierarquia durante os relatórios de cobrança:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
 A organização pode ser parecida com o seguinte exemplo:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
 Fornecemos cobrança detalhada por meio de um arquivo para download, para uma única conta ou para todas as contas em um contrato empresarial.
 

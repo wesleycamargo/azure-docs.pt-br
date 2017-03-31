@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
 ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -100,9 +101,4 @@ A equipe de resposta a incidentes também pode aproveitar o recurso [Security Ce
 
 ## <a name="conclusion"></a>Conclusão
 Montar uma equipe antes que ocorra um incidente é muito importante para sua organização e influenciará positivamente em como os incidentes são lidados. Ter as ferramentas certas para monitorar os recursos pode ajudar a essa equipe a dar passos precisos para corrigir um incidente de segurança. Os recursos de detecção da [Central de Segurança](security-center-detection-capabilities.md) poderão auxiliar a TI a responder rapidamente aos incidentes de segurança e corrigir os problemas.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

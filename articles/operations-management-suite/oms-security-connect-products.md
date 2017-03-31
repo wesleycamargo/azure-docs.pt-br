@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -89,7 +90,7 @@ No computador agente, os eventos precisam ser enviados do daemon syslog para a p
     ```
 6. Digite o comando abaixo e examine o resultado para confirmar que não há erros no log do Agente do OMS:
 
-    ``` 
+    ```    
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
@@ -110,10 +111,5 @@ Neste documento, você aprendeu como conectar sua solução CEF ao OMS. Para sab
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

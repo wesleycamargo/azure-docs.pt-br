@@ -13,11 +13,12 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -90,10 +91,5 @@ Neste documento, você aprendeu a usar a opção **Inteligência contra Ameaças
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Introdução à solução de Segurança e Auditoria do Operations Management Suite](oms-security-getting-started.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

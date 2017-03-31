@@ -68,7 +68,7 @@ Continue seguindo as instruções para anexar um [novo disco](#option-1-attach-a
 1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Depois de entrar na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, selecione **Arquivos e serviços de armazenamento**.
 
-    ![Abra o gerenciador de servidor.](./media/attach-disk/fileandstorageservices.png)
+    ![Abra o gerenciador de servidor.](../media/attach-disk-portal/fileandstorageservices.png)
 
 3. Escolha **Discos**.
 4. A seção **Discos** lista os discos. Na maioria das vezes, uma máquina virtual tem disco 0, disco 1 e disco 2. Disco 0 é o disco do sistema operacional, disco 1 é o disco temporário e disco 2 é o disco de dados que você acabou de conectar à máquina virtual. O disco de dados lista a Partição como **Desconhecido**.
