@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-sql-server-on-azure"></a><a name="heading"></a>Dados de exemplo no SQL Server no Azure
+# <a name="heading"></a>Dados de exemplo no SQL Server no Azure
 Este documento mostra como obter amostras de dados armazenados no SQL Server no Azure usando o SQL ou a linguagem de programação Python. Também mostra como mover dados de amostra para o Aprendizado de Máquina do Azure, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no Estúdio do Aprendizado de Máquina do Azure.
 
 A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/pyodbc/) para se conectar ao SQL Server no Azure e a biblioteca [Pandas](http://pandas.pydata.org/) para fazer a amostragem.
@@ -39,7 +40,7 @@ Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma 
 
 Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="a-namesqlausing-sql"></a><a name="SQL"></a>Usando o SQL
+## <a name="SQL"></a>Usando o SQL
 Esta seção descreve vários métodos usando SQL para executar uma amostragem aleatória simples em relação aos dados no banco de dados. Escolha um método com base no tamanho e na distribuição dos seus dados.
 
 Os dois itens a seguir mostram como usar newid no SQL Server para executar a amostra. O método escolhido depende do quão aleatório você deseja que o exemplo seja (pk_id no código de exemplo abaixo é considerado como uma chave primária gerada automaticamente).
@@ -64,12 +65,12 @@ TABLESAMPLE pode ser usado para amostragem conforme demonstrado a seguir. Isso p
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
+### <a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 É possível usar diretamente as consultas de exemplo acima no módulo [Importar Dados][import-data] do Azure Machine Learning para buscar os dados dinamicamente e colocá-los em um teste do Azure Machine Learning. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
 
 ![sql leitor][1]
 
-## <a name="a-namepythonausing-the-python-programming-language"></a><a name="python"></a>Usando a linguagem de programação Python
+## <a name="python"></a>Usando a linguagem de programação Python
 Esta seção demonstra como usar a [biblioteca pyodbc](https://code.google.com/p/pyodbc/) para estabelecer uma conexão ODBC com um banco de dados do SQL Server no Python. A cadeia de conexão do banco de dados é a seguinte (substitua o nome do servidor, o nome do banco de dados, o nome de usuário e a senha pela sua configuração):
 
     #Set up the SQL Azure connection
@@ -85,7 +86,7 @@ A biblioteca [Pandas](http://pandas.pydata.org/) no Python fornece um conjunto a
 
 Agora você pode trabalhar com os dados de amostra no quadro de dados Pandas. 
 
-### <a name="a-namepython-amlaconnecting-to-azure-machine-learning"></a><a name="python-aml"></a>Conectando ao Aprendizado de Máquina do Azure
+### <a name="python-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um Teste do Azure Machine Learning usando o módulo [Importar Dados][import-data]. As etapas são as seguintes: 
 
 1. Gravar o quadro de dados Pandas em um arquivo local
@@ -123,9 +124,4 @@ Para obter um exemplo passo a passo completo do Processo de Ciência de Dados de
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

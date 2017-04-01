@@ -27,8 +27,6 @@ Os logs de fluxo do grupo de segurança de rede permitem que você exiba informa
 
 Não é fácil aprofundar-se sobre dados de registro em log de fluxo pesquisando manualmente os arquivos de log. Neste artigo, fornecemos uma solução para visualizar os logs de fluxo mais recentes e as informações sobre o tráfego na sua rede.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Cenário
 
 No cenário a seguir, conectamos a área de trabalho do Power BI com a conta de armazenamento que havíamos configurado como o coletor para nossos dados de registro em log de fluxo de NSG. Depois de nos conectarmos com nossa conta de armazenamento, o Power BI baixa e analisa os logs para fornecer uma representação visual do tráfego registrado por grupos de segurança de rede.

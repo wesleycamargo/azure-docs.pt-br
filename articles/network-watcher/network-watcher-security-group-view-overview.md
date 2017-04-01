@@ -29,8 +29,6 @@ Um caso de uso mais estendido está em conformidade com a segurança e auditoria
 
 No portal, as regras são divididas em Efetiva, Sub-rede, Interface de Rede e Padrão. Isso fornece uma exibição simples das regras aplicadas em uma máquina virtual. Um botão de download é fornecido para baixar com facilidade todas as regras de segurança, independentemente da guia em um arquivo CSV.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![exibição do grupo de segurança][1]
 
 As regras podem ser selecionadas e uma nova folha é aberta para mostrar o Grupo de Segurança da Rede e os prefixos de origem e destino. Nessa folha, você pode navegar diretamente para o recurso Grupo de Segurança da Rede.
