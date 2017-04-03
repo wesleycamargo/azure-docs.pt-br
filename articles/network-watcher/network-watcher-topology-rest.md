@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
+ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
 ms.openlocfilehash: 4fa34050a8039cebebe30842469c596c83744313
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -30,8 +30,6 @@ ms.lasthandoff: 02/23/2017
 
 O recurso de topologia do Observador de rede fornece uma representação visual dos recursos de rede em uma assinatura. No portal, essa visualização é apresentada para você automaticamente. As informações que seguem a visualização de topologia no portal podem ser recuperadas por meio do PowerShell.
 Esse recurso torna as informações de topologia mais versáteis, já que os dados podem ser consumidos por outras ferramentas para criar a visualização.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 A interconexão é modelada em duas relações.
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: huvalo;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
 ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -32,7 +33,7 @@ Este tópico fornece instruções sobre como:
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 A biblioteca de cliente do Python foi testada nos ambientes a seguir:
 
 * Windows, Mac e Linux
@@ -46,7 +47,7 @@ Ela tem uma dependência nos seguintes pacotes:
 
 É recomendável usar uma distribuição do Python como [Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), que acompanham o Python, IPython e os três pacotes listados acima e instalados. Embora o IPython não seja estritamente necessário, é um ótimo ambiente para manipular e visualizar dados interativamente.
 
-### <a name="a-nameinstallationahow-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Como instalar a biblioteca de cliente do Python de Aprendizado de Máquina do Azure
+### <a name="installation"></a>Como instalar a biblioteca de cliente do Python de Aprendizado de Máquina do Azure
 A biblioteca de cliente do Python de Azure Machine Learning também deve ser instalada para concluir as tarefas descritas neste tópico. Ela está disponível no [Índice de Pacote do Python](https://pypi.python.org/pypi/azureml). Para instalá-la em seu ambiente Python, execute o seguinte comando no seu ambiente local Python:
 
     pip install azureml
@@ -60,12 +61,12 @@ Se tiver o git instalado em seu computador, você pode usar pip para instalar di
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="a-namedatasetaccessause-studio-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>Usar trechos de código do Estúdio para acessar conjuntos de dados
+## <a name="datasetAccess"></a>Usar trechos de código do Estúdio para acessar conjuntos de dados
 A biblioteca de cliente do Python fornece acesso programático aos conjuntos de dados existentes de testes que foram executados.
 
 Na interface da web do Estúdio, você pode gerar trechos de código que incluem todas as informações necessárias para baixar e desserializar os conjuntos de dados como objetos Pandas DataFrame em seu computador local.
 
-### <a name="a-namesecurityasecurity-for-data-access"></a><a name="security"></a>Segurança para acesso a dados
+### <a name="security"></a>Segurança para acesso a dados
 Os trechos de código fornecidos pelo Estúdio para uso com a biblioteca de cliente do Python incluem a ID do espaço de trabalho e a autorização de token. Eles fornecem acesso completo ao espaço de trabalho e devem ser protegidos, com uma senha, por exemplo.
 
 Por motivos de segurança, a funcionalidade do trecho de código está disponível somente para usuários que tenham a função definida como **Proprietário** no espaço de trabalho. Sua função é exibida no Estúdio de Machine Learning do Azure na página **USUÁRIOS** em **Configurações**.
@@ -86,7 +87,7 @@ Depois que os desenvolvedores tiverem obtido a ID do espaço de trabalho e o tok
 
 Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO** em **CONFIGURAÇÕES**. Você pode gerá-los novamente, mas esse procedimento revogará o acesso ao token anterior.
 
-### <a name="a-nameaccessingdatasetsaaccess-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>Conjuntos de dados de acesso de um aplicativo Python local
+### <a name="accessingDatasets"></a>Conjuntos de dados de acesso de um aplicativo Python local
 1. No Machine Learning Studio, clique em **CONJUNTOS DE DADOS** na barra de navegação à esquerda.
 2. Selecione o conjunto de dados que você deseja acessar. Você pode selecionar qualquer um dos conjuntos de dados da lista **MEUS CONJUNTOS DE DADOS** ou da lista **EXEMPLOS**.
 3. Na barra de ferramentas inferior, clique em **Gerar código de acesso a dados**. Esse botão será desabilitado se os dados estiverem em um formato incompatível com a biblioteca de cliente do Python.
@@ -99,7 +100,7 @@ Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO
    
     ![Bloco de notas][ipython-dataset]
 
-## <a name="a-nameaccessingintermediatedatasetsaaccess-intermediate-datasets-from-machine-learning-experiments"></a><a name="accessingIntermediateDatasets"></a>Acesse os conjuntos intermediários de testes de Aprendizado de Máquina
+## <a name="accessingIntermediateDatasets"></a>Acesse os conjuntos intermediários de testes de Aprendizado de Máquina
 Depois de um teste ser executado no Estúdio de Aprendizado de Máquina, é possível acessar os conjuntos de dados intermediários de nós de saída dos módulos. Os conjuntos de dados intermediários são dados que foram criados e usados para etapas intermediárias quando uma ferramenta de modelo tiver sido executada.
 
 Os conjuntos de dados intermediários podem ser acessados conforme o formato de dados for compatível com a biblioteca de cliente do Python.
@@ -143,7 +144,7 @@ As etapas a seguir mostram um exemplo que cria um teste, executa-o e acessa o co
     
     ![Histograma][ipython-histogram]
 
-## <a name="a-nameclientapisause-the-machine-learning-python-client-library-to-access-read-create-and-manage-datasets"></a><a name="clientApis"></a>Use a biblioteca de cliente do Python de Aprendizado de Máquina para acessar, ler, criar e gerenciar conjuntos de dados
+## <a name="clientApis"></a>Use a biblioteca de cliente do Python de Aprendizado de Máquina para acessar, ler, criar e gerenciar conjuntos de dados
 ### <a name="workspace"></a>Espaço de trabalho
 O espaço de trabalho é o ponto de entrada para a biblioteca de cliente do Python. Forneça a classe `Workspace` com a sua ID de espaço de trabalho e token de autorização para criar uma instância:
 
@@ -334,10 +335,5 @@ Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez d
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/31/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -52,10 +53,5 @@ O passo a passo [Análise avançada no banco de dados para desenvolvedores do SQ
 
 ## <a name="whats-next"></a>O que vem a seguir?
 Para obter uma visão geral dos tópicos que orientam as tarefas que compõem o processo de ciência de dados no Azure, veja [Processo de Ciência de Dados](http://aka.ms/datascienceprocess). 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

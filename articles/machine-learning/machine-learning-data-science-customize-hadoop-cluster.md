@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 22d7dc81cb2fc44ff4471951cbc482f60a97bb27
 ms.openlocfilehash: 9104c45508afdb5682c44db64576a0cdae95d75f
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -27,7 +28,7 @@ Este menu leva a tópicos que descrevem como configurar os diversos ambientes de
 
 [!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-## <a name="a-namecustomizeacustomize-azure-hdinsight-hadoop-cluster"></a><a name="customize"></a>Personalizar o cluster do Hadoop do Azure HDInsight
+## <a name="customize"></a>Personalizar o cluster do Hadoop do Azure HDInsight
 Para criar um cluster personalizado Hadoop do HDInsight, faça logon no [**Portal Clássico do Azure**](https://manage.windowsazure.com/), clique em **Novo** no canto inferior esquerdo e selecione SERVIÇOS DE DADOS -> HDINSIGHT -> **CRIAÇÃO PERSONALIZADA** para abrir a janela **Detalhes do Cluster**. 
 
 ![Criar espaço de trabalho](./media/machine-learning-data-science-customize-hadoop-cluster/customize-cluster-img1.png)
@@ -66,7 +67,7 @@ Por fim, clique na marca de seleção para iniciar a criação do cluster person
 
 ![Criar espaço de trabalho](./media/machine-learning-data-science-customize-hadoop-cluster/script-actions.png)
 
-## <a name="a-nameheadnodea-access-the-head-node-of-hadoop-cluster"></a><a name="headnode"></a> Acessar o nó principal do Cluster do Hadoop
+## <a name="headnode"></a> Acessar o nó principal do Cluster do Hadoop
 É necessário habilitar o acesso remoto ao cluster do Hadoop no Azure para acessar o nó principal do cluster do Hadoop via RDP. 
 
 1. Faça logon no [**Portal Clássico do Azure**](https://manage.windowsazure.com/), selecione **HDInsight** à esquerda, selecione o cluster Hadoop na lista de clusters, clique na guia **CONFIGURAÇÃO** e, em seguida, clique no ícone **HABILITAR CONEXÃO REMOTA** na parte inferior da página.
@@ -88,10 +89,5 @@ Após habilitar o acesso remoto, clique em **CONECTAR** na parte inferior da pá
 As próximas etapas do processo de análise avançada são mapeadas no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movem dados para o HDInsight, que os processa e que obtém amostras deles como parte da preparação para o aprendizado baseado em dados com o Azure Machine Learning.
 
 Veja [Como enviar consultas do Hive](machine-learning-data-science-move-hive-tables.md#submit) para obter instruções sobre como acessar os módulos Python incluídos no Anaconda por meio do nó principal do cluster em UDFs (funções definidas pelo usuário) usadas para processar registros do Hive armazenados no cluster.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

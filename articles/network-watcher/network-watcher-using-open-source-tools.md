@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 05fb0b7e80684737277626c12468ca9c754a0ac9
+ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
 ms.openlocfilehash: e27bb694d0cbcf1ff7c9d8ca4682a79c8b5c5cb1
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 02/22/2017
 As capturas de pacote contêm dados de rede que permitem que você execute análise forense e inspeções profundas. Você pode usar muitas das ferramentas de softwares livres disponíveis para analisar as capturas de pacote para aprofundar-se sobre a sua rede. Uma dessas ferramentas é a CapAnalysis, uma ferramenta de visualização de captura de pacote de software livre. Visualizar dados de captura de pacote é uma maneira valiosa para aprofundar-se rapidamente sobre os padrões e anomalias na rede. As visualizações também fornecem um meio de compartilhar essas informações de maneira facilmente consumível.
 
 O observador de rede do Azure fornece a capacidade de capturar esses dados valiosos, permitindo que você execute as capturas de pacote na sua rede. Neste artigo, fornecemos um passo a passo sobre como visualizar e aprofundar-se sobre as capturas de pacote usando CapAnalysis com o observador de rede.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Cenário
 

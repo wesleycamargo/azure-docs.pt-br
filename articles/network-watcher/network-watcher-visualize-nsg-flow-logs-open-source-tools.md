@@ -27,8 +27,6 @@ Os logs de fluxo do Grupo de Segurança de Rede fornecem informações que podem
 
 Esses logs de fluxo podem ser difíceis de serem analisados e de obter ideias de forma manual. No entanto, há várias ferramentas de código livre que podem ajudar a visualizar esses dados. Esse artigo fornece uma solução para visualizar esses logs usando o Elastic Stack que permite indexar e visualizar seus logs de fluxo em um painel Kibana.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Cenário
 
 Neste artigo, vamos configurar uma solução que permitirá a visualização dos logs de fluxo do Grupo de Segurança de Rede usando o Elastic Stack.  Um conector de entrada Logstash obterá os logs de fluxo diretamente do blob de armazenamento configurado para conter os logs do fluxo. Em seguida, usando o Elastic Stack, os logs do fluxo serão indexados e usados para criar um painel Kibana para visualizar as informações.

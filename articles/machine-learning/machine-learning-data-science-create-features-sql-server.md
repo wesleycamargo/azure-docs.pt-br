@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;fashah;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -38,7 +39,7 @@ Este artigo supõe que você:
 * Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
 * Armazenou seus dados no SQL Server. Se não tiver feito isso, veja [Mover dados para um Banco de Dados SQL do Azure para o Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) para obter instruções sobre como mover os dados para lá.
 
-## <a name="a-namesql-featuregenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>Geração de recursos com o SQL
+## <a name="sql-featuregen"></a>Geração de recursos com o SQL
 Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:  
 
 1. [Geração de recursos baseada em contagem](#sql-countfeature)
@@ -50,7 +51,7 @@ Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:
 > 
 > 
 
-### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Geração de recursos baseada em contagem
+### <a name="sql-countfeature"></a>Geração de recursos baseada em contagem
 Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo usa a cláusula 'where'. Eles podem então ser unidos à tabela original (usando colunas de chave primária) para que os recursos de contagem fiquem junto com os dados originais.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -58,13 +59,13 @@ Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Agrupamento da Geração de Recursos
+### <a name="sql-binningfeature"></a>Agrupamento da Geração de Recursos
 O exemplo a seguir mostra como gerar recursos compartimentalizados guardando (usando 5 compartimentos) uma coluna numérica que poderá ser usada como um recurso:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Propagar os recursos de uma única coluna
+### <a name="sql-featurerollout"></a>Propagar os recursos de uma única coluna
 Nesta seção, demonstraremos como propagar uma única coluna em uma tabela para gerar recursos adicionais. O exemplo presume que há uma coluna de latitude ou longitude na tabela da qual você está tentando gerar recursos.
 
 Aqui está uma breve cartilha sobre os dados de localização de latitude/longitude (recursos de stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). É útil entender isso antes de destacar o campo local:
@@ -101,12 +102,12 @@ Os recursos de localização acima podem ser usados ainda para gerar recursos ad
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
+### <a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Recursos poderão ser gerados ou acessados se já foram criados, usando o módulo [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) no AM do Azure conforme mostrado abaixo:
 
 ![leitores de azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Usando uma linguagem de programação como Python
+## <a name="python"></a>Usando uma linguagem de programação como Python
 Usar o Python para gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no blob do Azure usando o Python conforme documentado em [Processar dados de Blob do Azure em seu ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md). Os dados precisam ser carregados do banco de dados para um quadro de dados pandas, quando então poderão ser processados. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um quadro de dados nesta seção.
 
 O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, nome de usuário e senha pelos seus valores específicos):
@@ -121,10 +122,5 @@ A [Biblioteca Pandas](http://pandas.pydata.org/) no Python fornece um conjunto a
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
 Agora, você pode trabalhar com o quadro de dados Pandas como abordado nos tópicos [Criar recursos para os dados de armazenamento de blobs do Azure usando o Panda](machine-learning-data-science-create-features-blob.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
