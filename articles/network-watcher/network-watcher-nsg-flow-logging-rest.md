@@ -33,8 +33,6 @@ ms.lasthandoff: 03/01/2017
 
 Logs de fluxo do grupo de segurança de rede são um recurso do Observador de Rede permite que você exiba informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="before-you-begin"></a>Antes de começar
 
 O ARMclient é usado para chamar a API REST usando o PowerShell. O ARMClient é encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)

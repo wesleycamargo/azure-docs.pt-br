@@ -25,8 +25,6 @@ ms.lasthandoff: 03/04/2017
 
 Os Gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais no Azure. Para garantir que a comunicação não seja quebrada, é essencial monitorar esses gateways e suas Conexões. O Observador de Rede fornece a capacidade de solucionar problemas das Conexões e dos Gateways de Rede Virtual. Essa solução pode ser chamada pelo PowerShell, pela CLI ou pela REST API. Quando chamado, o Observador de Rede diagnostica a integridade da conexão ou do gateway de rede virtual e retorna os resultados adequados. Essa solicitação é uma transação de longa duração e os resultados são retornados quando o diagnóstico for concluído.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="results"></a>Resultados
 
 Os resultados preliminares retornados fornecem uma visão geral da integridade do recurso. Mais informações podem ser fornecidas sobre os recursos, como mostrado na seção a seguir:

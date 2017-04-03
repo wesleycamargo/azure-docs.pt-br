@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 78f367de862e4fa9203cc794549abb935f117848
+ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
 ms.openlocfilehash: a91da330e677c85f16f6f4e506613576b6507d7c
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,8 +33,6 @@ Se você estiver familiarizado com os Grupos de segurança de rede, visite [Vis�
 Nesse cenário, você compara uma linha de base válida com os resultados da exibição do grupo de segurança retornados para uma máquina virtual.
 
 Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Cenário
 

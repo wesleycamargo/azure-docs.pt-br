@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: c046220304075242f655bced2f0f16a6fb692ad3
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-azure-blob-containers-sql-server-and-hive-tables"></a><a name="heading"></a>Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive
+# <a name="heading"></a>Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive
 Este documento leva a tópicos que abordam como obter amostras de dados armazenados em um dos três diferentes locais do Azure:
 
 * **dados no contêiner de blobs do Azure** é realizada baixando-os programaticamente e realizando a amostragem com um exemplo de código Python.
@@ -35,10 +36,5 @@ Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados d
 
 ## <a name="why-sample-data"></a>Por que fazer a amostragem de dados?
 Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

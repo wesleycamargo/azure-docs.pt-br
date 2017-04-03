@@ -31,8 +31,6 @@ Este artigo percorre alguns cenários pré-configurados em uma captura de pacote
 
 Ele pressupõe que você já executou uma captura de pacotes em uma máquina virtual. Para saber como criar uma captura de pacotes, visite [Gerenciar capturas de pacotes com o portal](network-watcher-packet-capture-manage-portal.md) ou com o REST visitando [Gerenciamento de Capturas de Pacotes com a API REST](network-watcher-packet-capture-manage-rest.md).
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Cenário
 
 Nesse cenário, você irá:

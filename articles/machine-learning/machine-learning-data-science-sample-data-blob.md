@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-azure-blob-storage"></a><a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
+# <a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
 Este documento aborda os dados de amostragem armazenados no armazenamento de blobs do Azure, baixando-os de forma programática e realizando amostragem usando procedimentos escritos em Python.
 
 O **menu** a seguir leva a tópicos que descrevem como obter dados de exemplo de vários ambientes de armazenamento. 
@@ -68,7 +69,7 @@ Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados d
 
 Agora você pode trabalhar com o quadro de dados acima com a amostra de 1 por cento para exploração e geração de recursos adicional.
 
-## <a name="a-nameheadingaupload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>Carregar os dados e lê-los no Aprendizado de Máquina do Azure
+## <a name="heading"></a>Carregar os dados e lê-los no Aprendizado de Máquina do Azure
 É possível usar o código de exemplo a seguir para os reduzir os dados e usá-los diretamente no Azure Machine Learning:
 
 1. Escrever o quadro de dados em um arquivo local
@@ -100,10 +101,5 @@ Agora você pode trabalhar com o quadro de dados acima com a amostra de 1 por ce
 3. Leia os dados do blob do Azure usando o [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do Azure Machine Learning, como mostrado na imagem abaixo:
 
 ![blob de leitor](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

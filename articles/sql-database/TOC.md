@@ -186,7 +186,7 @@
 
 # Referência
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
-## [PowerShell (Banco de dados Elástico)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [PowerShell - Banco de dados Elástico -](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
 ## [CLI 2.0 do Azure](/cli/azure/sql)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
@@ -197,8 +197,8 @@
 ## [T-SQL](https://msdn.microsoft.com/library/bb510741.aspx)
 ## [REST](https://msdn.microsoft.com/library/mt163571.aspx)
 ## [Ferramentas do SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)
-## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-## [SSDT (Ferramentas de Dados do SQL Server)](https://msdn.microsoft.com/library/mt204009.aspx)
+## [SQL Server Management Studio - SSMS](https://msdn.microsoft.com/library/mt238290.aspx)
+## [SSDT - Ferramentas de Dados do SQL Server](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)

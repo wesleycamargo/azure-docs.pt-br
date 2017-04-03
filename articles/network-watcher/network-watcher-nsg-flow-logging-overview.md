@@ -26,8 +26,6 @@ ms.lasthandoff: 03/04/2017
 
 Os logs de fluxo do Grupo de Segurança da Rede são um recurso do Observador de Rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança da Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e saída por regra, a NIC à qual o fluxo se aplica, informações com cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![visão geral dos logs de fluxo][1]
 
 Embora os logs de fluxo sejam destinados aos Grupos de Segurança da Rede, eles não são exibidos como os outros logs. Os logs de fluxo são armazenados apenas em uma conta de armazenamento e seguem o caminho do log como mostrado no exemplo a seguir:

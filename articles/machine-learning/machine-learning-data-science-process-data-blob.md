@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
+ms.lasthandoff: 12/13/2016
 
 
 ---
-# <a name="a-nameheadingaprocess-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Processar dados de blob do Azure com análises avançadas
+# <a name="heading"></a>Processar dados de blob do Azure com análises avançadas
 Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carregar os dados em um quadro de dados Pandas
@@ -50,7 +51,7 @@ Para explorar e manipular um conjunto de dados, ele deve ser baixado da fonte de
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-## <a name="a-nameblob-dataexplorationadata-exploration"></a><a name="blob-dataexploration"></a>Exploração de Dados
+## <a name="blob-dataexploration"></a>Exploração de Dados
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
 1. Verificar o número de linhas e colunas 
@@ -95,10 +96,10 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Geração de Recursos
+## <a name="blob-featuregen"></a>Geração de Recursos
 Podemos gerar recursos usando o Python da seguinte maneira:
 
-### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
+### <a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
 Recursos categóricos podem ser criados da seguinte maneira:
 
 1. Inspecionar a distribuição da coluna categórica:
@@ -117,7 +118,7 @@ Recursos categóricos podem ser criados da seguinte maneira:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
+### <a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
 Para gerar recursos compartimentalizados, faça o seguinte:
 
 1. Adicione uma sequência de colunas a ser compartimentalizada a coluna numérica
@@ -131,7 +132,7 @@ Para gerar recursos compartimentalizados, faça o seguinte:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
+## <a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
 Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Aprendizado de Máquina do Azure usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Estúdio de Aprendizado de Máquina do Azure também. 
 
 1. Grave o quadro de dados no arquivo local
@@ -167,10 +168,5 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;deguhath
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 99f12dc1ea65d4b9be3249ea5d5c7452f5a8d72e
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -1107,10 +1108,5 @@ Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o 
 [Passo a passo do processo de ciência de dados de equipe](data-science-process-walkthroughs.md) descreve outras orientações de ponta a ponta que demonstram as etapas no Processo de ciência de dados de equipe para cenários específicos. As orientações também mostram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
 
 [Pontuar modelos de aprendizado de máquina criados no Spark](machine-learning-data-science-spark-model-consumption.md) mostra como usar o código Scala para carregar e pontuar automaticamente novos conjuntos de dados com modelos de aprendizado de máquina compilados no Spark e salvos no armazenamento de Blobs do Azure. Você pode seguir as instruções fornecidas nele e simplesmente substituir o código Python pelo código Scala neste artigo para o consumo automatizado.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
