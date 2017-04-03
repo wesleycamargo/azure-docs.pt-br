@@ -34,8 +34,6 @@ Usando o Observador de Rede, Alertas e Funções de dentro do ecossistema do Azu
 Neste exemplo, sua VM está enviando mais segmentos TCP que o usual e você gostaria de ser alertado. Os segmentos TCP são usados como um exemplo e você pode utilizar qualquer condição de alerta. Quando você for alertado, desejará ter os dados no nível do pacote para entender por que a comunicação aumentou para que possa tomar medidas para retornar a máquina à comunicação normal.
 Este cenário pressupõe que você tem uma instância existente do Observador de Rede e um grupo de recursos com uma máquina virtual válida a ser usada.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Cenário
 
 Para automatizar esse processo, criamos e conectamos um Alerta em nossa VM para disparar quando ocorre o incidente, e uma Função do Azure para chamar no Observador de Rede.

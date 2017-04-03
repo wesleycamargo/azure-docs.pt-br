@@ -35,8 +35,6 @@ Fluxo de IP Verifique se é um recurso do Observador de Rede que permite verific
 
 Este cenário pressupõe que você já tenha seguido as etapas em [criar um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede ou ter uma instância existente do Gerenciador da rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Cenário
 
 Esse cenário usa a verificação de fluxo de IP para verificar se uma máquina virtual pode se comunicar com um endereço IP do Bing conhecido. Se o tráfego é negado, ele retorna a regra de segurança que está negando esse tráfego. Para saber mais sobre a verificação de fluxo de IP, visite [Visão geral de verificação de fluxo de IP](network-watcher-ip-flow-verify-overview.md)

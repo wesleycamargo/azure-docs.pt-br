@@ -29,8 +29,6 @@ A verificação de fluxo de IP tem como alvo uma interface de rede de uma máqui
 
 Uma instância do Observador de Rede precisa ser criada em todas as regiões nas quais você pretende executar a verificação de fluxo de IP. O Observador de Rede é um serviço regional e só pode ser executado em recursos na mesma região. Isso não afeta os resultados da verificação de fluxo de IP, pois a rota associada à NIC ainda será retornada.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![1][1]
 
 ## <a name="next-steps"></a>Próximas etapas
