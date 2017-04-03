@@ -15,17 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3e7595baa26ba9eebfcb8a2fd5c2744d9c0fbfcb
+ms.sourcegitcommit: fa79ab0ab80481c8969c6fa653e92b10985cab3b
 ms.openlocfilehash: 42443f614b76b8180ac163b9889163021adbf048
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
 # <a name="introduction-to-topology-in-azure-network-watcher"></a>Introdução à topologia no Observador de Rede do Azure
 
 A topologia retorna um gráfico de recursos de rede em uma rede virtual. O gráfico mostra a interconexão entre os recursos para representar a conectividade de rede de ponta a ponta.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ![visão geral da topologia][1]
 

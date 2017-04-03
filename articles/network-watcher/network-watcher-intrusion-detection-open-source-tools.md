@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: a1199ae3eccc5268006587fa47f2ca4fad362bdc
+ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
 ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
-ms.lasthandoff: 02/24/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 02/24/2017
 Captura de pacote é um componente-chave para implementar sistemas de detecção de invasão de rede (IDS) e executar o Monitoramento de Segurança de Rede (NSM). Há várias ferramentas de IDS de software livre que processam capturas de pacote e procuram assinaturas de possíveis invasões de rede e atividades mal-intencionadas. Usar as capturas de pacote fornecidas pelo Observador de Rede, você pode analisar sua rede para invasões prejudiciais ou vulnerabilidades.
 
 Uma dessas ferramentas de software livre é o Suricata, um mecanismo de IDS que usa conjuntos de regras para monitorar o tráfego de rede e dispara alertas sempre que ocorrerem eventos suspeitos. O Suricata oferece um mecanismo de vários segmentos, o que significa que ele pode realizar análise de tráfego de rede com mais velocidade e eficiência. Para obter mais detalhes sobre o Suricata e seus recursos, visite o site em https://suricata-ids.org/.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Cenário
 

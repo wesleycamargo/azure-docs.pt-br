@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -705,10 +706,5 @@ Clique aqui para obter instruções detalhadas sobre como configurar os relatór
 
 ## <a name="summary"></a>Resumo
 Este documento contém um detalhamento da Solução de Análise da Telemetria do Veículo. Isto apresenta um padrão de arquitetura lambda para a análise em tempo real e em lote com previsões e ações. Esse padrão se aplica a uma ampla variedade de casos de uso que exigem as análises de afunilamento (em tempo real) e de ampliação (em lote). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
