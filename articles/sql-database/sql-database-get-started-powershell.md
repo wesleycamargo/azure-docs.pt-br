@@ -1,5 +1,5 @@
 ---
-title: "Azure PowerShell: criar um único Banco de Dados SQL | Microsoft Docs"
+title: 'Azure PowerShell: criar um Banco de Dados SQL | Microsoft Docs'
 description: "Aprenda a criar um servidor lógico do Banco de Dados SQL, uma regra de firewall no nível de servidor e bancos de dados com o portal do Azure."
 keywords: tutorial do banco de dados SQL, criar um banco de dados SQL
 services: sql-database
@@ -17,21 +17,21 @@ ms.topic: hero-article
 ms.date: 03/13/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: fe527f7de573b87fbc644cb6d71ae13816bc284b
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 70cf89a5832aee2d0c303e0d40e104d84837b50c
+ms.lasthandoff: 03/25/2017
 
 ---
 
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Criar um único Banco de Dados SQL do Azure usando o PowerShell
 
-O PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso do PowerShell para implantar um Banco de Dados SQL do Azure em um grupo de recursos do Azure em um servidor lógico do Banco de Dados SQL.
+O PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso do PowerShell para implantar um Banco de Dados SQL do Azure em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em um [servidor lógico do Banco de Dados SQL do Azure](sql-database-features.md).
 
-Antes de começar, verifique se a versão mais recente do PowerShell está instalada. A CLI do Azure foi instalada. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs). 
+Antes de começar, verifique se a versão mais recente do PowerShell está instalada. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs). 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon na sua assinatura do Azure com o comando [Add-AzureRmAccount](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) e acompanhe as instruções na tela.
+Faça logon na sua assinatura do Azure com o comando [Add-AzureRmAccount](https://docs.microsoft.com/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) e acompanhe as instruções na tela.
 
 ```powershell
 Add-AzureRmAccount
@@ -39,14 +39,14 @@ Add-AzureRmAccount
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westeurope`.
+Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com o comando [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westeurope`.
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
 ```
 ## <a name="create-a-logical-server"></a>Criar um servidor lógico
 
-Crie um servidor lógico do Banco de Dados SQL com o comando [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). O exemplo a seguir cria um servidor nomeado aleatoriamente em seu grupo de recursos com um logon de administrador chamado `ServerAdmin` e uma senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
+Crie um [servidor lógico do Banco de Dados SQL do Azure](sql-database-features.md) com o comando [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). Um servidor lógico contém um grupo de bancos de dados gerenciados conjuntamente. O exemplo a seguir cria um servidor nomeado aleatoriamente no seu grupo de recursos com logon de administrador `ServerAdmin` e senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
 
 ```powershell
 $servername = "server-$(Get-Random)"
@@ -58,7 +58,7 @@ New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall de servidor
 
-Crie uma regra de firewall no nível de servidor do Banco de Dados SQL com o comando [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule). Uma regra de firewall no nível de servidor permite que um aplicativo externo, como o SQL Server Management Studio ou o utilitário SQLCMD, se conecte ao banco de dados SQL através do firewall do serviço de Banco de Dados SQL. O exemplo a seguir cria uma regra de firewall para um intervalo de endereços predefinidos, que, neste exemplo, é intervalo inteiro possível de endereços IP. Substitua esses valores predefinidos pelos valores do endereço IP externo ou do intervalo de endereços IP. 
+Crie uma [regra de firewall no nível de servidor do Banco de Dados SQL do Azure](sql-database-firewall-configure.md) com o comando [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule). Uma regra de firewall no nível de servidor permite que um aplicativo externo, como o SQL Server Management Studio ou o utilitário SQLCMD, se conecte ao banco de dados SQL através do firewall do serviço de Banco de Dados SQL. O exemplo a seguir cria uma regra de firewall para um intervalo de endereços predefinidos, que, neste exemplo, é intervalo inteiro possível de endereços IP. Substitua esses valores predefinidos pelos valores do endereço IP externo ou do intervalo de endereços IP. 
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
@@ -68,7 +68,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-blank-database"></a>Criar um banco de dados vazio
 
-Crie um Banco de Dados SQL vazio com um nível de desempenho S0 no servidor com o comando [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase). O exemplo a seguir cria um banco de dados chamado `mySampleDatabase`. Substitua esse valor predefinido conforme desejado.
+Crie um Banco de Dados SQL vazio com um [nível de desempenho S0](sql-database-service-tiers.md) no servidor com o comando [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase). O exemplo a seguir cria um banco de dados chamado `mySampleDatabase`. Substitua esse valor predefinido conforme desejado.
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
@@ -79,7 +79,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover todos os recursos criados por este Início Rápido, execute o seguinte comando:
+Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja continuar trabalhando com inícios rápidos subsequentes ou com os tutoriais, não limpe os recursos criados nesse início rápido. Caso contrário, use os comandos a seguir para excluir todos os recursos criados por esse início rápido.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"

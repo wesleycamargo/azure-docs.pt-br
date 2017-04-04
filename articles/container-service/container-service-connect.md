@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 320285d97b3ef723ec2b5715fd02580d058cbbcf
-ms.openlocfilehash: 2304c85177cefa6505d92679ec7f791cb87e69e4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 25a35912b72f7f44b83ccd49f298b44665318418
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="connect-to-an-azure-container-service-cluster"></a>Conectar a um cluster do Serviço de Contêiner do Azure
+# <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Fazer uma conexão remota com um cluster Kubernetes, DC/OS ou Docker Swarm
 Depois de criar um cluster do serviço de contêiner do Azure, você precisa se conectar ao cluster para implantar e gerenciar cargas de trabalho. Este artigo descreve como conectar-se à VM mestre do cluster de um computador remoto. 
 
 Os clusters Kubernetes DC/SO e Docker Swarm fornecem pontos de extremidade HTTP localmente. Para Kubernetes, esse ponto de extremidade é exposto de maneira segura na Internet, e você pode acessá-lo executando a ferramenta de linha de comando `kubectl` de qualquer computador conectado à Internet. 

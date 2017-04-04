@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/27/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
-ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
-ms.lasthandoff: 01/28/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/28/2017
 > 
 > 
 
-Este tutorial mostra como criar e implantar um aplicativo Web ASP .NET no aplicativo Web do Serviço de Aplicativo do Azure usando o Visual Studio 2015. O aplicativo de exemplo exibe uma lista de estatísticas da equipe de um banco de dados e mostra diferentes maneiras de usar o Cache Redis do Azure para armazenar e recuperar dados do cache. Ao concluir o tutorial, você terá um aplicativo Web em execução que lê e grava em um banco de dados, otimizado com o Cache Redis do Azure e hospedado no Azure.
+Este tutorial mostra como criar e implantar um aplicativo Web ASP.NET em um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio 2017. O aplicativo de exemplo exibe uma lista de estatísticas da equipe de um banco de dados e mostra diferentes maneiras de usar o Cache Redis do Azure para armazenar e recuperar dados do cache. Ao concluir o tutorial, você terá um aplicativo Web em execução que lê e grava em um banco de dados, otimizado com o Cache Redis do Azure e hospedado no Azure.
 
 O que você aprenderá:
 
@@ -46,30 +46,31 @@ O que você aprenderá:
 Para concluir o tutorial, você deve ter os pré-requisitos a seguir.
 
 * [Conta do Azure](#azure-account)
-* [Visual Studio 2015 com o SDK do Azure para .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [Visual Studio 2017 com o SDK do Azure para .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Conta do Azure
 Você precisa de uma conta do Azure para concluir este tutorial. Você pode:
 
 * [Abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos gratuitos do Azure.
-* [Ativar benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). - todos os meses, sua assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure.
+* [Ativar benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Todos os meses, sua assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 com o SDK do Azure para .NET
-O tutorial é escrito para o Visual Studio 2015 com o [SDK do Azure para .NET](../dotnet-sdk.md) 2.8.2 ou posterior. [Baixe o SDK mais recente do Azure para Visual Studio 2015 aqui](http://go.microsoft.com/fwlink/?linkid=518003). O Visual Studio será instalado automaticamente com o SDK caso você ainda não o tenha.
+### <a name="visual-studio-2017-with-the-azure-sdk-for-net"></a>Visual Studio 2017 com o SDK do Azure para .NET
+O tutorial é escrito para o Visual Studio 2017 com o [SDK do Azure para .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). O SDK do Azure 2.9.5 está incluído com o instalador do Visual Studio.
+
+Se você tiver o Visual Studio 2015, siga o tutorial com o [SDK do Azure para .NET](../dotnet-sdk.md) 2.8.2 ou posterior. [Baixe o SDK mais recente do Azure para Visual Studio 2015 aqui](http://go.microsoft.com/fwlink/?linkid=518003). O Visual Studio será instalado automaticamente com o SDK caso você ainda não o tenha. Algumas telas podem parecer diferentes das ilustrações mostradas neste tutorial.
 
 Se tiver o Visual Studio 2013, você poderá [baixar o SDK do Azure mais recente para o Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Algumas telas podem parecer diferentes das ilustrações mostradas neste tutorial.
-
-> [!NOTE]
-> Dependendo de quantas dependências de SDK você já tiver no seu computador, a instalação do SDK pode demorar bastante, de vários minutos a meia hora ou mais.
-> 
-> 
 
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
 1. Abra o Visual Studio e clique em **Arquivo**, **Novo**, **Projeto**.
 2. Expanda o nó **Visual C#** na lista **Modelos**, selecione **Nuvem** e clique em **Aplicativo Web ASP.NET**. Verifique se **.NET Framework 4.5.2** ou superior está selecionado.  Digite **ContosoTeamStats** na caixa de texto **Nome** e clique em **OK**.
    
     ![Criar projeto][cache-create-project]
-3. Selecione **MVC** como o tipo de projeto. Desmarque a caixa de seleção **Host na nuvem** . Você vai [provisionar os recursos do Azure](#provision-the-azure-resources) e [publicar o aplicativo no Azure](#publish-the-application-to-azure) nas etapas subsequentes do tutorial. Para obter um exemplo de provisionamento de um aplicativo Web do Serviço de Aplicativo do Visual Studio deixando a opção **Host na nuvem** marcada, confira [Introdução aos aplicativos Web no Serviço de Aplicativo do Azure, usando ASP.NET e Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+3. Selecione **MVC** como o tipo de projeto. 
+
+    Certifique-se de que a opção **Sem Autenticação** esteja especificada para as configurações **Autenticação**. Dependendo de sua versão do Visual Studio, o padrão pode ser definido para algo diferente. Para alterá-lo, clique em **Alterar Autenticação**e selecione **Sem Autenticação**.
+
+    Se você estiver acompanhando com o Visual Studio 2015, desmarque a caixa de seleção **Host na nuvem**. Você vai [provisionar os recursos do Azure](#provision-the-azure-resources) e [publicar o aplicativo no Azure](#publish-the-application-to-azure) nas etapas subsequentes do tutorial. Para obter um exemplo de provisionamento de um aplicativo Web do Serviço de Aplicativo do Visual Studio deixando a opção **Host na nuvem** marcada, confira [Introdução aos aplicativos Web no Serviço de Aplicativo do Azure, usando ASP.NET e Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
    
     ![Selecionar modelo de projeto][cache-select-template]
 4. Clique em **OK** para criar o projeto.
@@ -77,9 +78,21 @@ Se tiver o Visual Studio 2013, você poderá [baixar o SDK do Azure mais recente
 ## <a name="create-the-aspnet-mvc-application"></a>Criar o aplicativo MVC ASP.NET
 Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe estatísticas de equipe de um banco de dados.
 
+* [Adicionar o pacote NuGet do Entity Framework](#add-the-entity-framework-nuget-package)
 * [Adicionar o modelo](#add-the-model)
 * [Adicionar controlador](#add-the-controller)
 * [Configurar os modos de exibição](#configure-the-views)
+
+### <a name="add-the-entity-framework-nuget-package"></a>Adicionar o pacote NuGet do Entity Framework
+
+1. Clique em **Gerenciador de Pacotes Nuget**, **Console do Gerenciador de Pacotes** no menu **Ferramentas**.
+2. Execute o comando a seguir na janela `Package Manager Console`.
+    
+    ```
+    Install-Package EntityFramework
+    ```
+
+Para saber mais sobre este pacote, consulte a página do NuGet [EntityFramework](https://www.nuget.org/packages/EntityFramework/).
 
 ### <a name="add-the-model"></a>Adicionar o modelo
 1. Clique com o botão direito do mouse em **Modelos** no **Gerenciador de Soluções** e escolha **Adicionar**, **Classe**. 
@@ -173,21 +186,27 @@ Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe es
 1. No **Gerenciador de Soluções**, clique duas vezes em **web.config** para abri-lo.
    
     ![Web.config][cache-web-config]
-2. Adicione a cadeia de conexão a seguir à seção `connectionStrings` . O nome da cadeia de conexão deve corresponder ao nome da classe de contexto de banco de dados do Entity Framework, que é `TeamContext`.
-
-    ```xml   
-    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-    ```
-
-    Depois que você adicionar isso, a seção `connectionStrings` deverá ser semelhante ao exemplo a seguir.
+2. Adicione a seção `connectionStrings` a seguir. O nome da cadeia de conexão deve corresponder ao nome da classe de contexto de banco de dados do Entity Framework, que é `TeamContext`.
 
     ```xml
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-            providerName="System.Data.SqlClient" />
         <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
+
+    Adicione a nova seção `connectionStrings` para que ela siga `configSections`, conforme mostrado no exemplo a seguir.
+
+    ```xml
+    <configuration>
+      <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      </configSections>
+      <connectionStrings>
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+      </connectionStrings>
+      ...
+      ```
 
 ### <a name="add-the-controller"></a>Adicionar controlador
 1. Pressione **F6** para compilar o projeto. 
@@ -229,11 +248,11 @@ Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe es
         url: "{controller}/{action}/{id}",
         defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
     );
-```
+    ```
 
 
 ### <a name="configure-the-views"></a>Configurar os modos de exibição
-1. No **Gerenciador de Soluções**, expanda a pasta **Exibições** e a pasta **Compartilhado** e clique duas vezes em** _Layout.cshtml**. 
+1. No **Gerenciador de Soluções**, expanda a pasta **Exibições** e a pasta **Compartilhado** e clique duas vezes em**_Layout.cshtml**. 
    
     ![_Layout.cshtml.][cache-layout-cshtml]
 2. Altere o conteúdo do elemento `title` e substitua `My ASP.NET Application` por `Contoso Team Stats`, conforme é mostrado no exemplo a seguir.
@@ -262,14 +281,14 @@ Nesta seção do tutorial, você configurará o aplicativo de exemplo para armaz
 * [Atualizar o modo de exibição de Índice de Equipes para trabalhar com o cache](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>Configurar o aplicativo para usar StackExchange.Redis
-1. Para configurar um aplicativo de cliente no Visual Studio utilizando o pacote NuGet StackExchange.Redis, clique com o botão direito no projeto em **Gerenciador de Soluções** e escolha **Gerenciar pacotes NuGet**. 
+1. Para configurar um aplicativo cliente no Visual Studio usando o pacote NuGet do StackExchange.Redis, clique em **Gerenciador de Pacotes NuGet**, **Console do Gerenciador de Pacotes** no menu **Ferramentas**.
+2. Execute o comando a seguir na janela `Package Manager Console`.
+    
+    ```
+    Install-Package StackExchange.Redis
+    ```
    
-    ![Gerenciar pacotes NuGet][redis-cache-manage-nuget-menu]
-2. Digite **StackExchange.Redis** na caixa de texto de pesquisa, selecione a versão desejada dos resultados e clique em **Instalar**.
-   
-    ![Pacote NuGet StackExchange.Redis][redis-cache-stack-exchange-nuget]
-   
-    Os downloads de pacote NuGet acrescentam as referências de assembly necessárias para o seu aplicativo de cliente para acessar o cache Redis do Azure com o cliente de cache StackExchange.Redis. Se preferir utilizar uma versão de nome forte da biblioteca do cliente de **StackExchange.Redis**, escolha **StackExchange.Redis.StrongName**; caso contrário escolha **StackExchange.Redis**.
+    Os downloads de pacote NuGet acrescentam as referências de assembly necessárias para o seu aplicativo de cliente para acessar o cache Redis do Azure com o cliente de cache StackExchange.Redis. Se você preferir usar uma versão de nome forte da biblioteca de cliente `StackExchange.Redis`, instale o pacote `StackExchange.Redis.StrongName`.
 3. No **Gerenciador de Soluções**, expanda a pasta **Controladores** e clique duas vezes em **TeamsController.cs** para abri-lo.
    
     ![Controlador de equipes][cache-teamscontroller]
@@ -671,7 +690,7 @@ O código de scaffolding gerado como parte do exemplo inclui métodos para adici
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
    
-    Essa linha exibe o valor de `ViewBag.Msg` , que contém um relatório de status sobre a operação atual, que é definida quando você clica em um dos links de ação da etapa anterior.   
+    Essa linha exibe o valor de `ViewBag.Msg` que contém um relatório de status sobre a operação atual. O `ViewBag.Msg` é definido quando você clica em qualquer um dos links de ação da etapa anterior.   
    
     ![Mensagem de status][cache-status-message]
 2. Pressione **F6** para compilar o projeto.
@@ -699,7 +718,7 @@ Se clicar no botão **Implantar no Azure** , você será levado para o portal do
 ![Implantar no Azure][cache-deploy-to-azure-step-1]
 
 1. Na folha **Fundamentos** , selecione a assinatura do Azure a ser usada, selecione um grupo de recursos existente ou crie um novo e especifique o local do grupo de recursos.
-2. Na seção **Configurações**, especifique um nome de conta de administrador (**LOGONDOADMINISTRADOR** -não use **administrador**), uma senha de logon de administrador (**SENHADELOGONDOADMINISTRADOR**) e o nome do banco de dados (**NOMEDOBANCODEDADOS**). Os outros parâmetros são configurados para um plano de hospedagem do Serviço de Aplicativo gratuito e opções de custo mais baixo para o Banco de Dados SQL e o Cache Redis do Azure, que não vêm com uma camada gratuita.
+2. Na seção **Configurações**, especifique um **Logon de Administrador** (não use **administrador**), **Senha de Logon do Administrador** e o **Nome do Banco de Dados**. Os outros parâmetros são configurados para um plano de hospedagem do Serviço de Aplicativo gratuito e opções de custo mais baixo para o Banco de Dados SQL e o Cache Redis do Azure, que não vêm com uma camada gratuita.
 
     ![Implantar no Azure][cache-deploy-to-azure-step-2]
 
@@ -727,17 +746,13 @@ Nesta etapa do tutorial, você publicará o aplicativo no Azure e o executará n
 1. Clique com o botão direito do mouse no projeto **ContosoTeamStats** no Visual Studio e escolha **Publicar**.
    
     ![Publicar][cache-publish-app]
-2. Clique em **Serviço de Aplicativo do Microsoft Azure**
+2. Clique em **Serviço de Aplicativo do Microsoft Azure**, escolha **Selecionar Existente** e clique em **Publicar**.
    
     ![Publicar][cache-publish-to-app-service]
-3. Selecione a assinatura usada ao criar os recursos do Azure, expanda o grupo de recursos que contém os recursos, selecione o aplicativo Web desejado e clique em **OK**. Se você tiver usado o botão **Implantar no Azure**, o nome do aplicativo Web começará com **webSite**, seguido de alguns caracteres adicionais.
+3. Selecione a assinatura usada ao criar os recursos do Azure, expanda o grupo de recursos que contém os recursos, selecione o aplicativo Web desejado. Se você tiver usado o botão **Implantar no Azure**, o nome do aplicativo Web começará com **webSite**, seguido de alguns caracteres adicionais.
    
     ![Selecionar aplicativo Web][cache-select-web-app]
-4. Clique em **Validar Conexão** para verificar as configurações e clique em **Publicar**.
-   
-    ![Publicar][cache-publish]
-   
-    Após alguns instantes, o processo de publicação será concluído, e um navegador será iniciado com o aplicativo de exemplo em execução. Se você receber um erro DNS ao validar ou publicar, e o processo de provisionamento de recursos do Azure para o aplicativo tiver sido concluído recentemente, aguarde um momento e tente novamente.
+4. Clique em **OK** para iniciar o processo de publicação. Após alguns instantes, o processo de publicação é concluído e um navegador será iniciado com o aplicativo de exemplo em execução. Se você receber um erro DNS ao validar ou publicar, e o processo de provisionamento de recursos do Azure para o aplicativo tiver sido concluído recentemente, aguarde um momento e tente novamente.
    
     ![Cache adicionado][cache-added-to-application]
 

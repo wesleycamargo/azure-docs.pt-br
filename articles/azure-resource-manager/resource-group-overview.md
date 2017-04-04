@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
-ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 295203755487ace6193d97737be635d4a61fe337
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -78,7 +79,7 @@ Existem alguns fatores importantes a considerar ao definir seu grupo de recursos
 Ao criar um grupo de recursos, você precisará fornecer um local para ele. Você pode estar se perguntando: "Por que um grupo de recursos precisa de um local? E, se os recursos podem ter locais diferentes do grupo de recursos, por que o local do grupo de recursos importa?" O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você especifica um local para o grupo de recursos, especifica onde os metadados são armazenados. Por motivos de conformidade, você precisa fazer com que os dados sejam armazenados em determinada região.
 
 ## <a name="resource-providers"></a>Provedores de recursos
-Cada provedor de recursos oferece um conjunto de recursos e operações para trabalhar com um serviço do Azure. Por exemplo, se você quer armazenar chaves e segredos, trabalhe com o provedor de recursos **Microsoft.KeyVault** . Este provedor de recursos oferece um tipo de recurso chamado **cofres** para criar o cofre da chave e um tipo de recurso chamado **cofres/segredos** para criar um segredo no cofre de chaves. 
+Cada provedor de recursos oferece um conjunto de recursos e operações para trabalhar com um serviço do Azure. Por exemplo, se você quer armazenar chaves e segredos, trabalhe com o provedor de recursos **Microsoft.KeyVault** . Este provedor de recursos oferece um tipo de recurso denominado **cofres** para criar o cofre da chave. 
 
 Antes de começar a implantação de recursos, você deve ter uma compreensão dos provedores de recursos disponíveis. Conhecer os nomes dos provedores de recursos e dos recursos ajuda a definir os recursos que você deseja implantar no Azure.
 
@@ -92,10 +93,10 @@ Você recupera todos os provedores de recursos com o seguinte cmdlet do PowerShe
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Ou, com a CLI do Azure, você recupera todos os provedores de recursos com o seguinte comando:
+Ou, com o Azure CLI 2.0, você recupera todos os provedores de recursos com o seguinte comando:
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 Você pode verificar a lista retornada para encontrar os provedores de recursos que precisa usar.
@@ -106,10 +107,10 @@ Para obter detalhes sobre um provedor de recursos, adicione o namespace do prove
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-Ou, com a CLI do Azure, recupere os tipos de recursos, locais e versões de API com suporte para Microsoft.Compute, com o seguinte comando:
+Ou, com o Azure CLI 2.0, recupere os tipos de recursos, locais e versões de API com suporte para Microsoft.Compute, com o seguinte comando:
 
 ```azurecli
-azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+az provider show --namespace Microsoft.Compute
 ```
 
 Para obter mais informações, confira [Provedores do Gerenciador de Recursos, regiões, versões de API e esquemas](resource-manager-supported-services.md).
@@ -117,7 +118,7 @@ Para obter mais informações, confira [Provedores do Gerenciador de Recursos, r
 ## <a name="template-deployment"></a>Implantação de modelo
 Com o Gerenciador de Recursos, você pode criar um modelo (no formato JSON) que define a infraestrutura e a configuração de sua solução do Azure. Usando um modelo, você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente. Quando você cria uma solução no Portal, ela inclui automaticamente um modelo de implantação. Você não precisa criar seu modelo do zero, pois é possível iniciar com o modelo da sua solução e personalizá-lo para atender às suas necessidades específicas. Você pode recuperar um modelo de um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para determinada implantação. A exibição do [modelo exportado](resource-manager-export-template.md) é uma maneira útil de saber mais sobre a sintaxe do modelo.
 
-Para saber mais sobre o formato do modelo e como construí-lo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md) e [Passo a passo de modelos do Gerenciador de Recursos](resource-manager-template-walkthrough.md).
+Para saber mais sobre o formato do modelo e como construí-o, consulte [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md). Para exibir a sintaxe JSON para os tipos de recursos, consulte [Definir recursos nos modelos do Azure Resource Manager](/azure/templates/).
 
 O Gerenciador de Recursos processa o modelo como qualquer outra solicitação (confira a imagem da [Camada de gerenciamento consistente](#consistent-management-layer)). Ele analisa o modelo e converte sua sintaxe em operações da API REST para provedores de recurso apropriado. Por exemplo, quando o Gerenciador de Recursos recebe um modelo com a seguinte definição de recurso:
 
@@ -214,10 +215,10 @@ Para recuperar todos os recursos com um valor de marca, use o seguinte cmdlet do
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Ou execute o seguinte comando da CLI do Azure:
+Ou o seguinte comando do Azure CLI 2.0:
 
 ```azurecli
-azure resource list -t costCenter=Finance --json
+az resource list --tag costCenter=Finance
 ```
 
 Você também pode exibir os recursos marcados por meio do portal do Azure.
@@ -332,10 +333,9 @@ Além desses exemplos, você pode pesquisar os exemplos da galeria.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma introdução simples do trabalho com modelos, confira [Exportar um modelo Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
-* Para obter uma explicação mais completa da criação de um modelo, veja [Passo a Passo do Modelo do Resource Manager](resource-manager-template-walkthrough.md).
+* Para obter uma explicação mais completa da criação de um modelo, consulte [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 * Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](resource-group-template-functions.md)
 * Para saber mais sobre como usar o Visual Studio com o Resource Manager, veja [Criar e implantar grupos de recursos do Azure com o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-* Para saber mais sobre como usar o VS Code com o Resource Manager, confira [Trabalhando com Modelos do Azure Resource Manager no Visual Studio Code](resource-manager-vs-code.md).
 
 Veja uma demonstração em vídeo desta visão geral:
 
@@ -343,9 +343,4 @@ Veja uma demonstração em vídeo desta visão geral:
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

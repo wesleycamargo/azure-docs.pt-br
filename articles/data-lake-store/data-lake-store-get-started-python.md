@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 8a3f3d8bfe670f2a4d1a4642b2380764aa6daeb4
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -242,9 +243,4 @@ O trecho de código a seguir primeiro cria o cliente de conta do Data Lake Store
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Referência do SDK do .NET do Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Referência do REST do Azure Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

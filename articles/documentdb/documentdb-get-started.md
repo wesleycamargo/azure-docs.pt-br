@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 03/19/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 639eb424c31abea4106cf37b14fee99a8fd9d307
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 648aa01beaffccf69250f1028e27bc13ed70837c
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -529,7 +529,7 @@ Você deverá ver a saída do aplicativo iniciado. A saída mostrará os resulta
 Parabéns! Você concluiu este tutorial do NoSQL e tem um aplicativo de console em C# funcional!
 
 ## <a id="GetSolution"></a> Obter a solução do tutorial do NoSQL completa
-Se não tiver tempo para concluir as etapas deste tutorial ou se desejar apenas baixar os exemplos de código, você poderá obtê-los no [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+Se você não teve tempo para concluir as etapas neste tutorial ou se deseja apenas baixar os exemplos de código, poderá obtê-los no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 Para criar a solução de Introdução, você precisará do seguinte:
 

@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 12/27/2016
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: fc73eedae7ec9664da714567f47a543e625cd023
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -38,17 +38,20 @@ O Service Fabric não é executado nativamente no OS X. Para executar um cluster
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 >[!NOTE]
->  Você precisa usar versões com suporte mútuo do Vagrant e do VirtualBox. O Vagrant pode se comportar incorretamente em uma versão sem suporte do VirtualBox.
+> Você precisa usar versões com suporte mútuo do Vagrant e do VirtualBox. O Vagrant pode se comportar incorretamente em uma versão sem suporte do VirtualBox.
 >
 
 ## <a name="create-the-local-vm"></a>Criar a VM local
 Para criar a VM local que contém um cluster de cinco nós do Service Fabric, faça o seguinte:
 
-1. Clone o repositório **Vagrantfile**
+1. Clone o repositório `Vagrantfile`
 
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
+    Essas etapas trazem o arquivo `Vagrantfile` que contém a configuração da VM juntamente com o local de onde a VM é baixada.
+
+   
 2. Navegue até o clone local do repositório
 
     ```bash
@@ -61,7 +64,7 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
    * 3 GB de memória alocada
    * Rede de host privada configurada no IP 192.168.50.50, permitindo a passagem do tráfego a partir do host do Mac
 
-     Você pode alterar qualquer uma dessas configurações ou adicionar outras configurações à VM no Vagrantfile. Confira a [Documentação do Vagrant](http://www.vagrantup.com/docs) para obter a lista completa das opções de configuração.
+     Você pode alterar qualquer uma dessas configurações ou adicionar outras configurações à VM no `Vagrantfile`. Confira a [Documentação do Vagrant](http://www.vagrantup.com/docs) para obter a lista completa das opções de configuração.
 4. Criar a VM
 
     ```bash
@@ -72,19 +75,24 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
 
     ![A configuração do cluster começa após o provisionamento da VM][cluster-setup-script]
 
+>[!TIP]
+> Se o download da VM está demorando muito, você pode baixá-la usando wget ou curl, ou, em um navegador, acessando o link especificado por **config.vm.box_url** no arquivo `Vagrantfile`. Depois de baixá-lo localmente, edite `Vagrantfile` para apontar para o caminho local onde você baixou a imagem. Por exemplo se você baixou a imagem /home/users/test/azureservicefabric.tp8.box, em seguida, defina **config.vm.box_url** para esse caminho.
+>
+
 5. Teste se o cluster foi configurado corretamente navegando até o Service Fabric Explorer em http://192.168.50.50:19080/Explorer (supondo que você manteve o IP da rede privada padrão).
 
     ![Service Fabric Explorer exibido a partir do Mac de host][sfx-mac]
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Instalar o plug-in do Service Fabric para o Eclipse Neon
 
-O Service Fabric fornece um plug-in para o **Eclipse Neon para Java IDE** que pode simplificar o processo de criação e implantação dos serviços Java. Você pode seguir as etapas de instalação mencionadas nesta [documentação](service-fabric-get-started-eclipse.md#install-or-update-service-fabric-plugin-on-eclipse-neon) geral sobre como instalar ou atualizar o plug-in Eclipse do Service Fabric.
+O Service Fabric fornece um plug-in para o **Eclipse Neon para Java IDE** que pode simplificar o processo de criação e implantação dos serviços Java. Você pode seguir as etapas de instalação mencionadas nesta [documentação](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) geral sobre como instalar ou atualizar o plug-in Eclipse do Service Fabric.
 
 ## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Uso do plug-in Eclipse do Service Fabric no Mac
 
-Verifique se você passou por todas as etapas mencionadas na [documentação do plug-in Eclipse do Service Fabric](service-fabric-get-started-eclipse.md). As etapas para criar, desenvolver e implantar aplicativos Java do Service Fabric usando o contêiner vagrant-guest em um host do Mac geralmente são iguais às da documentação geral, exceto em alguns pontos que você deve considerar, como mencionado abaixo.-
-* Como as bibliotecas do Service Fabric serão exigidas para que seu aplicativo Java do Service Fabric seja criado com êxito, o projeto do eclipse deverá ser criado em um caminho compartilhado. Por padrão, o conteúdo no caminho no seu host onde o ``Vagrantfile`` existe é compartilhado com o caminho do ``/vagrant`` no convidado.
-* Para simplificar, se você tiver o ``Vagrantfile`` em um caminho, digamos, ``~/home/john/allprojects/``, precisará criar o seu projeto do Service Fabric ``MyActor`` no local ``~/home/john/allprojects/MyActor`` e o caminho para que seu espaço de trabalho do eclipse seja ``~/home/john/allprojects``.
+Verifique se você passou por todas as etapas mencionadas na [documentação do plug-in Eclipse do Service Fabric](service-fabric-get-started-eclipse.md). As etapas para criar, desenvolver e implantar aplicativos Java do Service Fabric usando o contêiner vagrant-guest em um host do Mac geralmente são iguais às da documentação geral, exceto os itens abaixo:
+
+* Como as bibliotecas do Service Fabric são exigidas para seu aplicativo Java do Service Fabric, o projeto do eclipse deve ser criado em um caminho compartilhado. Por padrão, o conteúdo no caminho no seu host onde o ``Vagrantfile`` existe é compartilhado com o caminho do ``/vagrant`` no convidado.
+* Se você tiver o ``Vagrantfile`` em um caminho, digamos, ``~/home/john/allprojects/``, precisará criar seu projeto do Service Fabric ``MyActor`` no local ``~/home/john/allprojects/MyActor`` e o caminho para que seu espaço de trabalho do eclipse seja ``~/home/john/allprojects``.
 
 ## <a name="next-steps"></a>Próximas etapas
 <!-- Links -->

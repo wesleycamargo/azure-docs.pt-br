@@ -1,5 +1,5 @@
 ---
-title: "Configurar conexões VPN de Site a Site e de ExpressRoute que possam coexistir para o modelo de implantação do Gerenciador de Recursos | Microsoft Docs"
+title: "Configurar as conexões de VPN ExpressRoute e Site a Site que possam coexistir: Resource Manager: Azure | Microsoft Docs"
 description: "Este artigo o orienta na configuração da conexão VPN de Site a Site e de Rota Expressa que pode coexistir para o modelo do Gerenciador de Recursos."
 documentationcenter: na
 services: expressroute
@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 68ad5679a2a6fcb7cfca25410af3f2f113490bdc
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 17f179d9bd614b5ea05bef8c4ca4173eecc6b9be
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-resource-manager-deployment-model"></a>Configurar as conexões coexistentes Site a Site e de Rota Expressa para o modelo de implantação do Gerenciador de Recursos
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurar conexões coexistentes Site a Site e de Rota Expressa
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - clássico](expressroute-howto-coexist-classic.md)
@@ -79,7 +80,7 @@ Há dois conjuntos de procedimentos diferentes para configurar as conexões de m
   
     Neste procedimento, a criação de conexões que possam coexistir exigirá que você exclua seu gateway e então configure novos gateways. Isso significa que haverá tempo de inatividade nas suas conexões entre locais durante o processo de exclusão e recriação de seu gateway e conexões, mas você não precisará migrar nenhuma das suas VMs ou serviços para uma nova rede virtual. Suas VMs e serviços ainda poderão se comunicar por meio do balanceador de carga enquanto você configura o seu gateway, se estiverem configurados para fazer isso.
 
-## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Para criar uma nova rede virtual e conexões coexistentes
+## <a name="new"></a>Para criar uma nova rede virtual e conexões coexistentes
 Este procedimento orientará você na criação de uma Rede Virtual, bem como na criação das conexões site a site e de Rota Expressa que coexistirão.
 
 1. Você precisará instalar a versão mais recente dos cmdlets do Azure PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell. Observe que os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções.
@@ -150,7 +151,7 @@ Este procedimento orientará você na criação de uma Rede Virtual, bem como na
         $azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
         New-AzureRmVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
 
-## <a name="a-nameaddato-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Para configurar conexões coexistentes para uma VNet já existente
+## <a name="add"></a>Para configurar conexões coexistentes para uma VNet já existente
 Se você tiver uma rede virtual existente, verifique o tamanho da sub-rede do gateway. Se a sub-rede do gateway é /28 ou /29, você deve primeiro excluir o gateway da rede virtual e aumentar o tamanho de sub-rede do gateway. As etapas nesta seção mostram como fazer isso.
 
 Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada via Rota Expressa, você pode ignorar as etapas abaixo e ir para a ["Etapa 6: criar um gateway de VPN Site a Site"](#vpngw) na seção anterior. 
@@ -208,10 +209,5 @@ Para saber mais sobre a VPN de Ponto a Site, confira [Configurar uma conexão de
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
