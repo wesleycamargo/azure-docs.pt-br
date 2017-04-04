@@ -1,11 +1,11 @@
 ---
-title: "Imagens do Docker no registro do contêiner do Azure | Microsoft Docs"
-description: "Envie e obtenha imagens do Docker para um registro de contêiner do Azure usando a CLI do Docker"
+title: Enviar a imagem do Docker por push para o registro privado do Azure | Microsoft Docs
+description: "Envie e obtenha imagens do Docker para um registro de contêiner privado no Azure usando a CLI do Docker"
 services: container-registry
 documentationcenter: 
 author: stevelas
 manager: balans
-editor: dlepow
+editor: cristyg
 tags: 
 keywords: 
 ms.assetid: 64fbe43f-fdde-4c17-a39a-d04f2d6d90a1
@@ -16,22 +16,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: b6c26f28aa1e574ba3aabe53eda359cb6bf2edcc
+ms.lasthandoff: 03/27/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner usando a CLI do Docker
-Um registro de contêiner do Azure armazena e gerencia imagens de contêiner privadas do [Docker](http://hub.docker.com), de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens públicas do Docker. Você usa a [Interface de Linha de Comando do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) para [logon](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/) e outras operações no registro de contêiner. 
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
+Um registro de contêiner do Azure armazena e gerencia imagens de contêiner privadas do [Docker](http://hub.docker.com), de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens públicas do Docker. Você usa a [Interface de Linha de Comando do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) para [logon](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/) e outras operações no registro de contêiner.
 
-Para obter mais informações e conceitos, confira [O que é o Registro de Contêiner do Azure?](container-registry-intro.md)
+Para obter mais informações e conceitos, consulte [visão geral](container-registry-intro.md)
 
 
-> [!NOTE]
-> O Registro de Contêiner está atualmente em visualização.
-> 
-> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Registro de Contêiner do Azure** - crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure 2.0](container-registry-get-started-azure-cli.md).
@@ -40,17 +37,17 @@ Para obter mais informações e conceitos, confira [O que é o Registro de Cont�
 ## <a name="log-in-to-a-registry"></a>Fazer logon em um registro
 Execute `docker login` para fazer logon em seu registro de contêiner as [credenciais de registro](container-registry-authentication.md).
 
-O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/active-directory-application-objects.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. 
+O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/active-directory-application-objects.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação.
 
 ```
-docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
 > [!TIP]
-> Especifique o nome totalmente qualificado do registro (todo em minúsculas). Neste exemplo, é `myregistry-contoso.azurecr.io`.
+> Especifique o nome totalmente qualificado do registro (todo em minúsculas). Neste exemplo, é `myregistry.azurecr.io`.
 
 ## <a name="steps-to-pull-and-push-an-image"></a>Etapas para enviar e receber uma imagem
-O exemplo a seguir baixa uma imagem de Nginx do registro do Hub do Docker público, marca-a para o registro de contêiner do Azure privado, envia-a por push ao registro e a extrai novamente.
+O exemplo a seguir baixa a imagem de Nginx do registro do Hub do Docker público, marca-a para o registro de contêiner do Azure privado, envia-a por push ao registro e a extrai novamente.
 
 **1. Obtenha a imagem oficial do Docker para Nginx**
 
@@ -61,7 +58,7 @@ docker pull nginx
 ```
 **2. Iniciar o contêiner Nginx**
 
-O comando a seguir inicia o contêiner Nginx local de forma interativa (para que você possa ver a saída de Nginx) e escuta na porta 8080. Remove o contêiner em execução, uma vez interrompido.
+O comando a seguir inicia o contêiner Nginx local de forma interativa na porta 8080, permitindo que você veja a saída de Nginx. Remove o contêiner em execução, uma vez interrompido.
 
 ```
 docker run -it --rm -p 8080:80 nginx
@@ -78,42 +75,45 @@ Para interromper o contêiner em execução, pressione [CTRL]+[C].
 O comando a seguir cria um alias da imagem, com um caminho totalmente qualificado para o registro. Este exemplo especifica o namespace `samples` para evitar confusão na raiz do registro.
 
 ```
-docker tag nginx myregistry-exp.azurecr.io/samples/nginx
+docker tag nginx myregistry.azurecr.io/samples/nginx
 ```  
 
 **4. Envie a imagem para o registro**
 
 ```
-docker push myregistry-contoso.azurecr.io/samples/nginx
-``` 
+docker push myregistry.azurecr.io/samples/nginx
+```
 
 **5. Obtenha a imagem do registro**
 
 ```
-docker pull myregistry-contoso.azurecr.io/samples/nginx
-``` 
+docker pull myregistry.azurecr.io/samples/nginx
+```
 
 **6. Iniciar o contêiner Nginx no registro**
 
 ```
-docker run -it --rm -p 8080:80 myregistry-exp.azurecr.io/samples/nginx
+docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
 Navegue até [http://localhost:8080/](http://localhost:8080) para exibir o contêiner em execução.
 
 Para interromper o contêiner em execução, pressione [CTRL]+[C].
 
-**6. Remover a imagem**
+**7. (Opcional) Remover a imagem**
 
 ```
-docker rmi myregistry-contoso.azurecr.io/samples/nginx
+docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
+##<a name="concurrent-limits"></a>Limites simultâneos
+Em alguns cenários, a execução simultânea de chamadas pode resultar em erros. A tabela abaixo contém os limites de chamadas simultâneas com operações "Push" e "Pull" no registro do contêiner do Azure:
 
+| Operação  | Limite                                  |
+| ---------- | -------------------------------------- |
+| PULL       | Até 10 pulls simultâneos por registro |
+| PUSH       | Até 5 pushes simultâneos por registro |
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que conhece os fundamentos, você está pronto para começar a usar o registro! Por exemplo, inicie a implantação de imagens de contêiner para um cluster de [Serviço de Contêiner do Azure](https://azure.microsoft.com/documentation/services/container-service/).
-
-
-
 

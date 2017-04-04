@@ -1,4 +1,4 @@
-Verifique se você já criou um namespace da Retransmissão, como mostrado [aqui][namespace-how-to].
+Verifique se você já criou um namespace Retransmissão, como mostrado [aqui][namespace-how-to].
 
 1. Faça logon no [portal do Azure](https://portal.azure.com).
 2. No painel de navegação esquerdo do portal, clique em **Retransmissão**.
@@ -14,7 +14,3 @@ Verifique se você já criou um namespace da Retransmissão, como mostrado [aqui
 6. Na parte inferior da folha, clique em **Criar**.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
-
-<!--HONumber=Feb17_HO1-->
-
-

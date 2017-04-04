@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -62,10 +63,10 @@ Crie um aplicativo Web com o [Serviço de Aplicativo do Azure](https://azure.mic
 9. Depois de escolher o projeto e a ramificação, clique em ok. Você começará a ver notificações de uma implantação.
    
    ![image9][image9]
-10. Navegue de volta até o Github para ver o webhook criado para integrar o repositório do controle de origem com o Azure. O Portal do Azure permite a integração com o Github com apenas algumas etapas simples.
+10. Navegue de volta até o GitHub para ver o webhook criado para integrar o repositório de controle da fonte no Azure. O Portal do Azure permite a integração com o GitHub com apenas algumas etapas simples.
     
     ![image10][image10]
-11. Para demonstrar a implantação contínua, adicione rapidamente algum conteúdo ao repositório. Para conferir um exemplo simples, adicione um exemplo de arquivo de texto para um repositório Github. Fique à vontade para usar .NET, Ruby, Python ou algum outro tipo de aplicativo com o Serviço de Aplicativo. Adicionar também se quiser um arquivo de texto, ASP.NET MVC, Java ou aplicativo Ruby ao repositório de sua escolha.
+11. Para demonstrar a implantação contínua, adicione rapidamente algum conteúdo ao repositório. Para ter um exemplo simples, adicione um arquivo de texto de exemplo a um repositório GitHub. Fique à vontade para usar .NET, Ruby, Python ou algum outro tipo de aplicativo com o Serviço de Aplicativo. Adicionar também se quiser um arquivo de texto, ASP.NET MVC, Java ou aplicativo Ruby ao repositório de sua escolha.
     
     ![image11][image11]
 12. Depois de confirmar as alterações em seu repositório, você verá uma nova implantação ser iniciada na área de notificações do portal. Clique em Sincronizar, se você não vir rapidamente as alterações após a confirmação de seu repositório.
@@ -334,9 +335,4 @@ Este tutorial demonstrou um pouco das possibilidades com a plataforma do Azure p
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

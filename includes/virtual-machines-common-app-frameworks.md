@@ -26,7 +26,7 @@ Nesta tabela, você pode encontrar mais informações sobre os parâmetros que s
 Além desses modelos, é possível pesquisar nos [modelos da galeria](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="azure-portal"></a>Portal do Azure
-Implantar um modelo usando o portal do Azure é fácil, bastando apenas enviar uma URL para ele. Você precisa do nome do arquivo de modelo para implantá-lo. É possível localizar o nome examinando as páginas na galeria de modelos ou no repositório do Github. Altere {nome do modelo} nessa URL para o nome do modelo que você deseja implantar e insira-o no navegador:
+Implantar um modelo usando o portal do Azure é fácil, bastando apenas enviar uma URL para ele. Você precisa do nome do arquivo de modelo para implantá-lo. É possível localizar o nome examinando as páginas na galeria de modelos ou no repositório do GitHub. Altere {nome do modelo} nessa URL para o nome do modelo que você deseja implantar e insira-o no navegador:
 
     https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
 

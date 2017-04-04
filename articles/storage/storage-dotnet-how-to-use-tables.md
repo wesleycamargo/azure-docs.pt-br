@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 98307e924927655c8a7de0e8fc6a7c0c2b57af00
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 7a9a28ce8be7587c84a1188d643c990cc4fb7355
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -35,7 +36,7 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 
 **Pré-requisitos:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Biblioteca do Cliente de Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Gerenciador de Configurações do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Uma conta do Armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account)
@@ -51,8 +52,8 @@ Para obter exemplos adicionais usando o Armazenamento de Tabelas, confira [Intro
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>Adicionar declarações do namespace
-Adicione o seguinte **usando** as instruções na parte superior do arquivo `program.cs`:
+### <a name="add-using-directives"></a>Adicionar diretivas using
+Adicione as seguintes diretivas **using** à parte superior do arquivo `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -492,9 +493,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 [How to: Programmatically access Table storage]: #tablestorage
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

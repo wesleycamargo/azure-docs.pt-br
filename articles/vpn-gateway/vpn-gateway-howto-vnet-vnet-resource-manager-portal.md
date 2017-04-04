@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
-ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 102eab0e2e915521f8702b526dda886a2502f40b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -66,7 +67,7 @@ Você talvez queira conectar redes virtuais pelos seguintes motivos:
 
 Para saber mais sobre conexões de Rede Virtual a Rede Virtual, confira as [Considerações sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo.
 
-### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Configurações de exemplo
+### <a name="values"></a>Configurações de exemplo
 Ao usar estas etapas como um exercício, você poderá usar os valores de configuração de exemplo. Para fins de exemplo, podemos usar vários espaços de endereço para cada rede virtual. No entanto, as configurações de rede virtual para rede virtual não exigem vários espaços de endereço.
 
 **Valores para TestVNet1:**
@@ -115,18 +116,18 @@ Ao usar estas etapas como um exercício, você poderá usar os valores de config
   * Nome: TestVNet4toTestVNet1
   * Chave compartilhada: você pode criar a chave compartilhada por conta própria. Para este exemplo, usaremos abc123. O importante é que, quando você cria a conexão entre as redes virtuais, o valor deve corresponder.
 
-## <a name="a-namecreatvneta1-create-and-configure-testvnet1"></a><a name="CreatVNet"></a>1. Criar e configurar a TestVNet1
+## <a name="CreatVNet"></a>1. Criar e configurar a TestVNet1
 Se você já tiver uma rede virtual, verifique se as configurações são compatíveis com seu design de gateway de VPN. Preste atenção especial em todas as sub-redes que possam se sobrepor a outras redes. Se você tiver uma sobreposição de sub-redes, a conexão não funcionará corretamente. Se a sua Rede Virtual estiver configurada com as definições corretas, poderá começar as etapas na seção [Especificar um servidor DNS](#dns) .
 
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Adicionar outro espaço de endereço e criar sub-redes
+## <a name="subnets"></a>2. Adicionar outro espaço de endereço e criar sub-redes
 Você pode adicionar outro espaço de endereço e criar sub-redes após a criação da sua rede virtual.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Criar uma sub-rede de gateway
+## <a name="gatewaysubnet"></a>3. Criar uma sub-rede de gateway
 Antes de conectar sua Rede Virtual a um gateway, você precisará criar a sub-rede de gateway para a Rede Virtual à qual você deseja se conectar. Se possível, é melhor criar uma sub-rede de gateway usando um bloco CIDR de /28 ou /27, a fim de fornecer endereços IP suficientes para acomodar requisitos futuros de configuração.
 
 Se a criação dessa configuração fizer parte de um exercício, confira essas [Configurações de exemplo](#values) ao criar sua sub-rede de gateway.
@@ -136,21 +137,21 @@ Se a criação dessa configuração fizer parte de um exercício, confira essas 
 ### <a name="to-create-a-gateway-subnet"></a>Para criar uma sub-rede de gateway
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="a-namednsservera4-specify-a-dns-server-optional"></a><a name="DNSServer"></a>4. Especificar um servidor DNS (opcional)
-Se você quiser ter resolução de nomes de máquinas virtuais implantadas em suas redes virtuais, deverá especificar um servidor DNS.
+## <a name="DNSServer"></a>4. Especificar um servidor DNS (opcional)
+O DNS não é necessário para as conexões VNet a VNet. No entanto, se você quiser ter a resolução de nomes dos recursos que são implantados em sua rede virtual, deverá especificar um servidor DNS. Essa configuração permite que você especifique o servidor DNS que deseja usar para a resolução de nomes dessa rede virtual. Ela não cria um servidor DNS.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namevnetgatewaya5-create-a-virtual-network-gateway"></a><a name="VNetGateway"></a>5. Criar um gateway de rede virtual
+## <a name="VNetGateway"></a>5. Criar um gateway de rede virtual
 Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Esta etapa pode demorar até 45 minutos para ser concluída. Se você estiver criando esta configuração como um exercício, consulte as [Configuração de exemplo](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Para criar um gateway da rede virtual
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namecreatetestvnet4a6-create-and-configure-testvnet4"></a><a name="CreateTestVNet4"></a>6. Criar e configurar TestVNet4
+## <a name="CreateTestVNet4"></a>6. Criar e configurar TestVNet4
 Depois de ter configurado TestVNet1, crie TestVNet4 repetindo as etapas anteriores, substituindo os valores pelos valores de TestVNet4. Você não precisa esperar até que o gateway de rede virtual para TestVNet1 tenha terminado a criação antes de configurar TestVNet4. Se você estiver usando seus próprios valores, certifique-se de que os espaços de endereço não se sobreponham a qualquer uma das redes virtuais às quais você deseja se conectar.
 
-## <a name="a-nametestvnet1connectiona7-configure-the-testvnet1-connection"></a><a name="TestVNet1Connection"></a>7. Configurar a conexão TestVNet1
+## <a name="TestVNet1Connection"></a>7. Configurar a conexão TestVNet1
 Quando os gateways de rede virtual para TestVNet1 e TestVNet4 tiverem sido concluídos, você poderá criar suas conexões de gateway de rede virtual. Nesta seção, você criará uma conexão de VNet1 para VNet4.
 
 1. Em **Todos os recursos**, navegue até o gateway de rede virtual para sua rede virtual. Por exemplo, **TestVNet1GW**. Clique em **TestVNet1GW** para abrir a folha do gateway de rede virtual.
@@ -172,10 +173,10 @@ Quando os gateways de rede virtual para TestVNet1 e TestVNet4 tiverem sido concl
     ![Chave compartilhada](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Chave compartilhada")
 10. Clique em **OK** na parte inferior da folha para salvar suas alterações.
 
-## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Configurar a conexão TestVNet4
+## <a name="TestVNet4Connection"></a>8. Configurar a conexão TestVNet4
 Em seguida, crie uma conexão de TestVNet4 para TestVNet1. Use o mesmo método que você usou para criar a conexão de TestVNet1 a TestVNet4. Use a mesma chave compartilhada.
 
-## <a name="a-nameverifyconnectiona9-verify-your-connection"></a><a name="VerifyConnection"></a>9. Verificar a conexão
+## <a name="VerifyConnection"></a>9. Verificar a conexão
 Verifique a conexão. Para cada gateway de rede virtual, faça o seguinte:
 
 1. Localize a folha do gateway de rede virtual. Por exemplo, **TestVNet4GW**. 
@@ -189,16 +190,11 @@ Clique duas vezes em cada conexão separadamente para exibir mais informações 
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Considerações de Rede Virtual para Rede Virtual
+## <a name="faq"></a>Considerações de Rede Virtual para Rede Virtual
 Exiba os detalhes de perguntas frequentes para obter informações adicionais sobre conexões de Rede Virtual para Rede Virtual.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a [Documentação sobre Máquinas Virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para obter mais informações.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
