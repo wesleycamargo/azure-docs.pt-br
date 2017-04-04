@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: 
 author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 541849501335fb25d96cffa81b8119adc158cdd7
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
+ms.lasthandoff: 03/23/2017
+
 
 
 ---
@@ -48,18 +49,26 @@ Você também poderá acessar a folha clicando em **Mais serviços** e então pe
 2. Clique em **+Adicionar** , na parte superior da folha.
 3. Insira um **Nome** para o aplicativo que descreva seu aplicativo para os consumidores. Por exemplo, você poderia digitar "Aplicativo B2C da Contoso".
 4. Ativar/desativar a opção **Incluir API da Web/aplicativo Web** como **Sim**. As **URLs de Resposta** são pontos de extremidade para onde o Azure AD B2C retornará quaisquer tokens que seus aplicativo solicitarem. Por exemplo, insira: `https://localhost:44316/`.
-5. Clique em **Salvar** para registrar seu aplicativo.
-6. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código.
+5. Clique em **Criar** para registrar seu aplicativo.
+6. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código. 
+7. Se o aplicativo Web também chamar uma API Web protegida pelo Azure AD B2C, crie também um **Segredo de Aplicativo** acessando a folha **Chaves** e clicando no botão **Gerar Chave**.
 
+> [!NOTE]
+> Um **Segredo de Aplicativo** é uma credencial de segurança importante e deve ser protegido adequadamente.
+> 
+   
 
 ## <a name="register-a-web-api"></a>Registrar uma api Web
 1. Na folha de recursos do B2C no Portal do Azure, clique em **Aplicativos**.
 2. Clique em **+Adicionar** , na parte superior da folha.
 3. Insira um **Nome** para o aplicativo que descreva seu aplicativo para os consumidores. Por exemplo, você poderia digitar "Api B2C da Contoso".
 4. Ativar/desativar a opção **Incluir API da Web/aplicativo Web** como **Sim**. As **URLs de Resposta** são pontos de extremidade para onde o Azure AD B2C retornará quaisquer tokens que seus aplicativo solicitarem. Por exemplo, insira: `https://localhost:44316/`.
-5. Clique em **Salvar** para registrar seu aplicativo.
-6. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código.
-
+5. Insira um **URI da ID do aplicativo**. Esse é o identificador usado para a API Web. Por exemplo, insira 'notas'. Ele gerará o URI do identificador completo abaixo. 
+6. Clique em **Criar** para registrar seu aplicativo.
+7. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código.
+8. Clique em **Escopos publicados**. Isso é onde você define as permissões (escopos) que podem ser concedidas a outros aplicativos.
+9. Adicione mais escopos conforme a necessidade. Por padrão, o escopo "user_impersonation" será definido. Isso dá a outros aplicativos a capacidade de acessar essa API no lugar do usuário conectado. Essa opção pode ser removida, se desejar. 
+10. Clique em **Salvar**.
 
 ## <a name="register-a-mobilenative-application"></a>Registrar um aplicativo móvel/nativo
 1. Na folha de recursos do B2C no Portal do Azure, clique em **Aplicativos**.
@@ -69,6 +78,11 @@ Você também poderá acessar a folha clicando em **Mais serviços** e então pe
 5. Insira um **URI de redirecionamento** com um esquema personalizado. Por exemplo, com.onmicrosoft.contoso.appname://redirect/path. Escolha um [bom URI de redirecionamento](#choosing-a-redirect-uri).
 6. Clique em **Salvar** para registrar seu aplicativo.
 7. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código.
+8. Se o aplicativo nativo também chamar uma API Web protegida pelo Azure AD B2C, crie também um **Segredo de Aplicativo** acessando a folha **Chaves** e clicando no botão **Gerar Chave**.
+
+> [!NOTE]
+> Um **Segredo de Aplicativo** é uma credencial de segurança importante e deve ser protegido adequadamente.
+> 
 
 ### <a name="choosing-a-redirect-uri"></a>Escolha um URI de redirecionamento
 Há duas considerações importantes ao escolher um URI de redirecionamento para aplicativos móveis/nativo: 

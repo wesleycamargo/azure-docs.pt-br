@@ -1,19 +1,19 @@
-Este artigo descreve um conjunto de práticas comprovadas para a execução de uma VM (máquina virtual) do Windows no Azure, considerando a escalabilidade, disponibilidade, capacidade de gerenciamento e segurança. 
+Este artigo descreve um conjunto de práticas comprovadas para a execução de uma VM (máquina virtual) do Windows no Azure, considerando a escalabilidade, disponibilidade, capacidade de gerenciamento e segurança.
 
 > [!NOTE]
 > O Azure tem dois modelos de implantação diferentes: [Azure Resource Manager][resource-manager-overview] e clássico. Este artigo usa o Gerenciador de Recursos, recomendado pela Microsoft para novas implantações.
-> 
-> 
+>
+>
 
-Não recomendamos usar uma única VM para cargas de trabalho críticas, pois elas criam um ponto único de falha. Para obter maior disponibilidade, é necessário implantar várias VMs em um [conjunto de disponibilidade][availability-set]. Para saber mais, confira [Executando várias VMs no Azure][multi-vm]. 
+Não recomendamos usar uma única VM para cargas de trabalho críticas, pois elas criam um ponto único de falha. Para obter maior disponibilidade, é necessário implantar várias VMs em um [conjunto de disponibilidade][availability-set]. Para saber mais, confira [Executando várias VMs no Azure][multi-vm].
 
 ## <a name="architecture-diagram"></a>Diagrama da arquitetura
 
 O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a própria VM. Há elementos de computação, de rede e de armazenamento.
 
 > Um documento do Visio que inclui esse diagrama da arquitetura está disponível para download no [Centro de download da Microsoft][visio-download]. Este diagrama está na página "Computação - VM única".
-> 
-> 
+>
+>
 
 ![[0]][0]
 
@@ -30,11 +30,11 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ## <a name="recommendations"></a>Recomendações
 
-As seguintes recomendações aplicam-se à maioria dos cenários. Siga estas recomendações, a menos que você tenha um requisito específico que as substitua. 
+As seguintes recomendações aplicam-se à maioria dos cenários. Siga estas recomendações, a menos que você tenha um requisito específico que as substitua.
 
 ### <a name="vm-recommendations"></a>Recomendações de VM
 
-O Azure oferece vários tamanhos de máquina virtual diferente, mas são recomendáveis as séries DS e GS, pois esses tamanhos de máquina dão suporte ao [Armazenamento Premium][premium-storage]. Selecione um desses tamanhos de máquina, a menos que você tenha uma carga de trabalho especializada, como a computação de alto desempenho. Para obter detalhes, confira [tamanhos das máquinas virtuais][virtual-machine-sizes]. 
+O Azure oferece vários tamanhos de máquina virtual diferente, mas são recomendáveis as séries DS e GS, pois esses tamanhos de máquina dão suporte ao [Armazenamento Premium][premium-storage]. Selecione um desses tamanhos de máquina, a menos que você tenha uma carga de trabalho especializada, como a computação de alto desempenho. Para obter detalhes, confira [tamanhos das máquinas virtuais][virtual-machine-sizes].
 
 Se você estiver movendo uma carga de trabalho existente para o Azure, deverá começar com o tamanho da VM que mais se aproxima de seus servidores locais. Em seguida, meça o desempenho da carga de trabalho real com relação à CPU, memória e operações de entrada/saída de disco e ajuste o tamanho, se necessário. Se precisar de várias NICs para sua VM, lembre-se de que o número máximo de NICs é uma função do [tamanho da VM][vm-size-tables].   
 
@@ -48,9 +48,9 @@ Para obter informações sobre como escolher uma imagem da VM publicada, confira
 
 ### <a name="disk-and-storage-recommendations"></a>Recomendações de disco e de armazenamento
 
-Para um melhor desempenho de E/S de disco, recomendamos o [Armazenamento Premium][premium-storage], que armazena dados em SSDs (unidades de estado sólido). O custo se baseia no tamanho do disco provisionado. O IOPS e a taxa de transferência também dependem do tamanho do disco. Portanto, ao provisionar um disco, considere todos os três fatores (capacidade, IOPS e taxa de transferência). 
+Para um melhor desempenho de E/S de disco, recomendamos o [Armazenamento Premium][premium-storage], que armazena dados em SSDs (unidades de estado sólido). O custo se baseia no tamanho do disco provisionado. O IOPS e a taxa de transferência também dependem do tamanho do disco. Portanto, ao provisionar um disco, considere todos os três fatores (capacidade, IOPS e taxa de transferência).
 
-Crie contas de Armazenamento do Azure separadas para cada VM conter os discos rígidos virtuais (VHDs), demodo a evitar atingir os limites de IOPS para contas de armazenamento. 
+Crie contas de Armazenamento do Azure separadas para cada VM conter os discos rígidos virtuais (VHDs), demodo a evitar atingir os limites de IOPS para contas de armazenamento.
 
 Adicione um ou mais discos de dados. Quando você cria um novo VHD, ele não está formatado. Faça logon na VM para formatar o disco. Se você tiver uma grande quantidade de discos de dados, esteja ciente dos limites totais de E/S da conta de armazenamento. Para saber mais, confira [limites de disco da máquina virtual][vm-disk-limits].
 
@@ -71,15 +71,15 @@ Para habilitar o RDP, adicione uma regra NSG que permita o tráfego de entrada n
 
 ## <a name="scalability-considerations"></a>Considerações sobre escalabilidade
 
-Você pode escalar uma VM vertical ou horizontalmente [alterando o tamanho da VM][vm-resize]. Para escalar horizontalmente, coloque duas ou mais VMs em um conjunto de disponibilidade atrás de um balanceador de carga. Para obter detalhes, confira [Várias VMs em execução no Azure para escalabilidade e disponibilidade][multi-vm].
+Você pode dimensionar uma VM vertical ou horizontalmente [alterando o tamanho da VM](../articles/virtual-machines/virtual-machines-windows-sizes.md). Para escalar horizontalmente, coloque duas ou mais VMs em um conjunto de disponibilidade atrás de um balanceador de carga. Para obter detalhes, confira [Várias VMs em execução no Azure para escalabilidade e disponibilidade][multi-vm].
 
 ## <a name="availability-considerations"></a>Considerações sobre disponibilidade
 
-Para obter maior disponibilidade, é necessário implantar várias VMs em um conjunto de disponibilidade. Isso também fornece um maior [contrato de nível de serviço][vm-sla] (SLA). 
+Para obter maior disponibilidade, é necessário implantar várias VMs em um conjunto de disponibilidade. Isso também fornece um maior [contrato de nível de serviço][vm-sla] (SLA).
 
 Sua VM pode ser afetada por uma [manutenção planejada][planned-maintenance] ou [manutenção não planejada][manage-vm-availability]. Você pode usar os[ logs de reinicialização da VM][reboot-logs] para determinar se uma reinicialização da VM foi causada por manutenção planejada.
 
-VHDs são armazenados no [armazenamento do Azure][azure-storage] e o armazenamento do Azure é replicado para durabilidade e disponibilidade. 
+VHDs são armazenados no [armazenamento do Azure][azure-storage] e o armazenamento do Azure é replicado para durabilidade e disponibilidade.
 
 Para se proteger contra perda acidental de dados durante operações normais (por exemplo, devido ao erro do usuário), você também deve implementar backups pontuais usando [instantâneos de blob][blob-snapshot] ou outra ferramenta.
 
@@ -107,7 +107,7 @@ No Portal do Azure, o botão **Parar** desaloca a VM. No entanto, se você desli
 
 **Excluindo uma VM.** Se você excluir uma VM, os VHDs não serão excluídos. Isso significa que você poderá excluir com segurança a VM sem perda de dados. No entanto, você ainda será cobrado pelo armazenamento. Para excluir o VHD, exclua o arquivo do [Armazenamento de blobs][blob-storage].
 
-Para evitar a exclusão acidental, use um [bloqueio de recurso][resource-lock] para bloquear o grupo de recursos inteiro ou bloquear recursos individuais, como a VM. 
+Para evitar a exclusão acidental, use um [bloqueio de recurso][resource-lock] para bloquear o grupo de recursos inteiro ou bloquear recursos individuais, como a VM.
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
@@ -121,8 +121,8 @@ Use a [Central de Segurança do Azure][security-center] para obter uma exibiçã
 
 > [!NOTE]
 > O RBAC não limita as ações que podem ser executadas por um usuário conectado a uma VM. Essas permissões são determinadas pelo tipo de conta no SO convidado.   
-> 
-> 
+>
+>
 
 Para redefinir a senha de administrador local, execute o comando `vm reset-access` da CLI do Azure.
 
@@ -132,16 +132,16 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 
 Use os [logs de auditoria][audit-logs] para ver as ações de provisionamento e outros eventos da VM.
 
-**Criptografia de dados.** Considere o uso do [Azure Disk Encryption][disk-encryption] se você precisar criptografar os discos do sistema operacional e de dados. 
+**Criptografia de dados.** Considere o uso do [Azure Disk Encryption][disk-encryption] se você precisar criptografar os discos do sistema operacional e de dados.
 
 ## <a name="solution-deployment"></a>Implantação da solução
 
-Uma implantação para essa arquitetura de referência está disponível no [GitHub][github-folder]. Ele inclui uma VNet, NSG e uma única VM. Para implantar a arquitetura, siga estas etapas: 
+Uma implantação para essa arquitetura de referência está disponível no [GitHub][github-folder]. Ele inclui uma VNet, NSG e uma única VM. Para implantar a arquitetura, siga estas etapas:
 
 1. Clique com o botão direito do mouse no botão abaixo e selecione "Abrir link em nova guia" ou "Abrir link em nova janela".  
    [![Implantar no Azure](../articles/guidance/media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
-2. Depois que o link for aberto no portal do Azure, você deve inserir valores para algumas das configurações: 
-   
+2. Depois que o link for aberto no portal do Azure, você deve inserir valores para algumas das configurações:
+
    * O nome do **Grupo de recursos** já está definido no arquivo de parâmetros, portanto, selecione **Criar novo** e digite `ra-single-vm-rg` na caixa de texto.
    * Selecione a região na caixa suspensa **Local**.
    * Não edite as caixas de texto **URI da raiz do modelo** ou **URI da raiz do parâmetro**.
@@ -151,10 +151,10 @@ Uma implantação para essa arquitetura de referência está disponível no [Git
 3. Aguarde até que a implantação seja concluída.
 4. Os arquivos de parâmetro incluem um nome de usuário administrador embutido e uma senha e é altamente recomendável que você altere imediatamente ambos. Clique na VM denominada `ra-single-vm0 `no portal do Azure. Em seguida, clique em **Redefinir senha** na folha **Suporte + solução de problemas**. Selecione **Redefinir senha** na caixa suspensa **Modo**, selecione um novo **Nome de usuário** e **Senha**. Clique no botão **Atualizar** para manter o novo nome de usuário e senha.
 
-Para obter informações sobre outras maneiras de implantar essa arquitetura de referência, confira o arquivo Leiame na pasta Github [diretrizes de vm única][github-folder]]. 
+Para obter informações sobre outras maneiras de implantar essa arquitetura de referência, consulte o arquivo readme na pasta GitHub [guidance-single-vm][github-folder]].
 
 ## <a name="customize-the-deployment"></a>Personalizar a implantação
-Se você precisar alterar a implantação para atender às suas necessidades, siga as instruções no arquivo [Leiame][github-folder]. 
+Se você precisar alterar a implantação para atender às suas necessidades, siga as instruções no arquivo [Leiame][github-folder].
 
 ## <a name="next-steps"></a>Próximas etapas
 Para maior disponibilidade, implante duas ou mais VMs atrás de um balanceador de carga. Para saber mais, confira [Executando várias VMs no Azure][multi-vm].

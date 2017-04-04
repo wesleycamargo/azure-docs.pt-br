@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao plug-in Eclipse para o Azure Service Fabric | Microsoft Docs"
-description: "Introdução ao plug-in Eclipse para o Azure Service Fabric."
+title: Plug-in do Service Fabric do Azure para Eclipse | Microsoft Docs
+description: Comece a usar o plug-in do Service Fabric para Eclipse.
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -15,124 +15,130 @@ ms.workload: NA
 ms.date: 12/27/2016
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 891df38aa685cac7bbfecb71b15c88d557ac493b
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
+ms.lasthandoff: 03/22/2017
 
 
 ---
 
-# <a name="getting-started-with-eclipse-plugin-for-service-fabric-java-application-development"></a>Introdução ao plug-in Eclipse para desenvolvimento de aplicativos Java do Service Fabric
-O Eclipse é um dos IDEs mais usados para desenvolvedores de Java. Neste artigo, discutiremos como você pode definir o seu ambiente de desenvolvimento do Eclipse para trabalhar com o Service Fabric. Este artigo o ajudará a instalar o plug-in, criar aplicativos do Service Fabric e implantar seu aplicativo do Service Fabric em um cluster do Service Fabric local ou remoto.
+# <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in do Service Fabric para o desenvolvimento de aplicativos Eclipse Java
+O Eclipse é um dos IDEs (ambientes de desenvolvimento integrado) mais amplamente usados para desenvolvedores de Java. Neste artigo, descreveremos como configurar seu ambiente de desenvolvimento do Eclipse para trabalhar com o Azure Service Fabric. Saiba como instalar o plug-in do Service Fabric, criar um aplicativo do Service Fabric e implantar o aplicativo do Service Fabric em um cluster do Service Fabric local ou remoto no Eclipse Neon.
 
-## <a name="install-or-update-service-fabric-plugin-on-eclipse-neon"></a>Instalar ou atualizar o plug-in do Service Fabric no Eclipse Neon
-O Service Fabric fornece um plug-in para o **Eclipse IDE para desenvolvedores Java** que pode simplificar o processo de criação e implantação dos serviços Java.
+## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>Instalar ou atualizar o plug-in do Service Fabric no Eclipse Neon
+Você pode instalar um plug-in do Service Fabric no Eclipse. O plug-in pode ajudar a simplificar o processo de criação e implantação de serviços Java.
 
-1. Verifique se você tem o Eclipse **Neon** mais recente e a versão mais recente do Buildship (1.0.17 ou posterior) instalados. Você pode verificar as versões dos componentes instalados escolhendo ``Help => Installation Details``. Você pode atualizar o Buildship usando as instruções [aqui][buildship-update]. Para verificar se o Eclipse Neon está na versão mais recente e atualizá-la, vá para ``Help => Check for Updates``.
+1.  Verifique se você tem a versão mais recente do Eclipse Neon e a versão mais recente do Buildship (1.0.17 ou uma versão posterior) instalado:
+    -   Para verificar as versões dos componentes instalados, no Eclipse Neon, acesse **Ajuda** > **Detalhes da Instalação**.
+    -   Para atualizar o Buildship, confira [Eclipse Buildship: plug-ins do Eclipse para Gradle][buildship-update].
+    -   Para verificar e instalar atualizações para o Eclipse Neon, acesse **Ajuda** > **Verificar se Há Atualizações**.
 
-2. Para instalar o plug-in do Service Fabric, escolha ``Help => Install New Software...``.
-  1. Na caixa de texto "Trabalhar com", digite: ``http://dl.windowsazure.com/eclipse/servicefabric``.
-  2. Clique em Adicionar.
+2.  Para instalar o plug-in do Service Fabric, no Eclipse Neon, acesse **Ajuda** > **Instalar Novo Software**.
+  1.    Na caixa de texto **Trabalhar com**, insira: **http://dl.windowsazure.com/eclipse/servicefabric**.
+  2.    Clique em **Adicionar**.
+    ![Plug-in do Service Fabric para Eclipse Neon][sf-eclipse-plugin-install]
+  3.    Selecione o plug-in do Service Fabric e clique em **Avançar**.
+  4.    Conclua as etapas de instalação e aceite os Termos de Licença de Software da Microsoft.
 
-  ![Plug-in do Eclipse Neon para o Service Fabric][sf-eclipse-plugin-install]
-
-  3. Escolha o plug-in do Service Fabric e clique em Avançar.
-  4. Continue com a instalação e aceite o contrato de licença do usuário final.
-
-Se você já tiver o plug-in Eclipse do Service Fabric instalado, verifique se está usando a versão mais recente. Você pode verificar se ele pode ser atualizado ainda mais para o seguinte - ``Help => Installation Details``. Em seguida, procure o Service Fabric na lista de plug-ins instalados e clique em atualizar. Se houver qualquer atualização pendente, ela será buscada e instalada.
+Se já tiver o plug-in do Service Fabric instalado, verifique se você tem a versão mais recente. Para verificar se há atualizações disponíveis, acesse **Ajuda** > **Detalhes da Instalação**. Na lista de plug-ins instalados, selecione o Service Fabric e clique em **Atualizar**. As atualizações disponíveis serão instaladas.
 
 > [!NOTE]
-> Caso a instalação ou atualização do plug-in Eclipse do Service Fabric demore muito tempo, é porque o Eclipse tenta buscar metadados de todas as novas alterações feitas a todos os update-sites registrados em sua instância do Eclipse. Portanto, para torná-lo mais rápido, você pode usar este truque: vá para `Available Software Sites` e desmarque tudo o que não aponta para o local do plug-in do Service Fabric `http://dl.windowsazure.com/eclipse/servicefabric`.
->
+> Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, isso poderá ser devido a uma configuração do Eclipse. O Eclipse coleta metadados sobre todas as alterações para atualizar sites que estão registrados com a instância do Eclipse. Para acelerar o processo de verificar e instalar uma atualização de plug-in do Service Fabric, acesse **Sites de Software Disponível**. Desmarque as caixas de seleção de todos os sites, exceto aquele que aponta para o local do plug-in do Service Fabric (http://dl.windowsazure.com/eclipse/servicefabric).
 
-## <a name="create-service-fabric-application-using-eclipse"></a>Criar aplicativo do Service Fabric usando o Eclipse
+## <a name="create-a-service-fabric-application-in-eclipse"></a>Criar um aplicativo do Service Fabric no Eclipse
 
-1. Vá para ``File => New => Other``. Selecione ``Service Fabric Project``. Clique em ``Next``.
+1.  No Eclipse Neon, acesse **Arquivo** > **Novo** > **Outros**. Selecione **Projeto do Service Fabric** e clique em **Avançar**.
 
-    ![Novo Projeto do Service Fabric Página 1][create-application/p1]
+    ![Novo Projeto do Service Fabric página 1][create-application/p1]
 
-2. Dê um nome ao seu projeto. Clique em ``Next``.
+2.  Insira um nome para o projeto e clique em **Avançar**.
 
-    ![Novo Projeto do Service Fabric Página 2][create-application/p2]
+    ![Novo Projeto do Service Fabric página 2][create-application/p2]
 
-3. Selecione o Modelo de Serviço disponível no conjunto de modelos (Ator, Sem Estado, Contêiner ou Executável por Convidado). Clique em ``Next``.
+3.  Na lista de modelos, selecione **Modelo de Serviço**. Selecione o tipo de modelo de serviço (Ator, Sem Monitoração de Estado, Contêiner ou Convidado Binário) e clique em **Avançar**.
 
-    ![Novo Projeto do Service Fabric Página 3][create-application/p3]
+    ![Novo Projeto do Service Fabric página 3][create-application/p3]
 
-4. Insira o nome do serviço e/ou os detalhes de serviço relevantes nessa página e clique em ``Finish``.
+4.  Insira os detalhes e o nome do serviço e clique em **Concluir**.
 
-    ![Novo Projeto do Service Fabric Página 4][create-application/p4]
+    ![Novo Projeto do Service Fabric página 4][create-application/p4]
 
-5. Ao criar seu primeiro projeto do Service Fabric, ele perguntará se vai querer definir a perspectiva do Service Fabric. Selecione ``yes`` para continuar.
+5. Ao criar seu primeiro projeto do Service Fabric, na caixa de diálogo **Abrir Perspectiva Associada**, clique em **Sim**.
 
-    ![Novo Projeto do Service Fabric Página 5][create-application/p5]
+    ![Novo Projeto do Service Fabric página 5][create-application/p5]
 
-6. Após a criação bem-sucedida, o projeto terá a seguinte aparência:
+6.  O novo projeto tem esta aparência:
 
-    ![Novo Projeto do Service Fabric Página 6][create-application/p6]
+    ![Novo Projeto do Service Fabric página 6][create-application/p6]
 
-## <a name="build-and-deploy-the-service-fabric-application-using-eclipse"></a>Criar e implantar o aplicativo do Service Fabric usando o Eclipse
+## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Criar e implantar um aplicativo do Service Fabric no Eclipse
 
-* Clique com botão direito no aplicativo do Service Fabric criado anteriormente. Selecione a opção ``Service Fabric`` no menu de contexto. Isso abre um submenu com várias opções. que se pareceriam com:
+1.  Clique com o botão direito do mouse no novo aplicativo do Service Fabric e selecione **Service Fabric**.
 
     ![Menu de atalho do Service Fabric][publish/RightClick]
 
-  Quando você clicar em opções para compilação, recompilação e limpeza, ele executará as ações pretendidas.
-  - ``Build Application`` criará o aplicativo sem limpar
-  - ``Rebuild Application`` fará uma compilação limpa do aplicativo
-  - ``Clean Application`` removerá os artefatos internos do aplicativo
+2. No submenu, selecione a opção desejada:
+    -   Para compilar o aplicativo sem limpeza, clique em **Compilar Aplicativo**.
+    -   Para fazer uma compilação limpa do aplicativo, clique em **Recompilar o Aplicativo**.
+    -   Para limpar a aplicação de artefatos compilados, clique em **Limpar Aplicativo**.
 
+3.  Nesse menu, você também pode implantar, desimplantar e publicar o aplicativo:
+    -   Para implantar no cluster local, clique em **Implantar Aplicativo**.
+    -   Na caixa de diálogo **Publicar Aplicativo**, selecione um perfil de publicação:
+        -  **Local.json**
+        -  **Cloud.json**
 
-* Você pode optar por implantar, remover a implantação e publicar seu aplicativo nesse menu.
-  - ``Deploy Application`` implantará no cluster local
-  - ``Publish Application...`` solicitará qual dos perfis de publicação, ``Local.json`` ou ``Cloud.json``, você deseja escolher. Esses arquivos JSON são usados para armazenar informações (como pontos de extremidade de conexão e informações de segurança) necessárias para se conectar a um cluster local ou de nuvem (Azure).
+     Esses arquivos JSON (JavaScript Object Notation) armazenam informações (como pontos de extremidade de conexão e informações de segurança) que são necessárias para se conectar ao cluster local ou de nuvem (Azure).
 
-  ![Menu de atalho do Service Fabric][publish/Publish]
+  ![Menu Publicar do Service Fabric][publish/Publish]
 
-* Há um modo alternativo pelo qual você pode implantar seu aplicativo do Service Fabric usando configurações de execução do Eclipse.
+Uma maneira alternativa de implantar o aplicativo do Service Fabric é usar as configurações de execução do Eclipse.
 
-  1. Escolha ``Run => Run Configurations``. Selecione a configuração de execução ``ServiceFabricDeployer`` em ``Grade Project``.
-  2. na guia ``Arguments`` no painel à direita, especifique **local** ou **nuvem** como o ``publishProfile``. A configuração padrão é **local**. Para implantar em um cluster remoto/na nuvem, selecione **nuvem**.
-  3. Preencha as informações corretas nos perfis de publicação editando `Local.json` ou `Cloud.json` conforme apropriado, com detalhes do ponto de extremidade e credenciais de segurança, se houver.
-  4. Verifique se ``Working Directory`` no painel direito em ``Grade Project`` aponta para o aplicativo que você deseja implantar. Se não, basta clicar no botão ``Workspace...`` e selecionar o aplicativo desejado.
-  5. Clique em **Aplicar** e **Executar**.
+  1.    Acesse **Executar** > **Configurações de Execução**.
+  2.    Em **Projeto do Gradle**, selecione a configuração de execução **ServiceFabricDeployer**.
+  3.    No painel direito, na guia **Argumentos**, para **publishProfile**, selecione **local** ou **nuvem**.  O padrão é **local**. Para implantar em um computador remoto ou cluster de nuvem, selecione **nuvem**.
+  4.    Para garantir que as informações adequadas sejam preenchidas nos perfis de publicação, edite **Local.json** ou **Cloud.json** conforme necessário. Você pode adicionar ou atualizar detalhes de ponto de extremidade e credenciais de segurança.
+  5.    Verifique se **Diretório de Trabalho** aponta para o aplicativo que você deseja implantar. Para alterar o aplicativo, clique no botão **Espaço de trabalho** e selecione o aplicativo desejado.
+  6.    Clique em **Aplicar** e em **Executar**.
 
-Seu aplicativo será compilado e implantado em poucos instantes. Você pode monitorar o status no Service Fabric Explorer.  
+Seu aplicativo será compilado e implantado em poucos instantes. Você pode monitorar o status da implantação no Service Fabric Explorer.  
 
-## <a name="add-new-service-fabric-service-to-your-service-fabric-application"></a>Adicionar novo serviço do Service Fabric ao aplicativo do Service Fabric
+## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Adicionar um serviço do Service Fabric ao aplicativo do Service Fabric
 
-É possível adicionar um novo serviço do Service Fabric a um aplicativo do Service Fabric existente usando as seguintes etapas:
+Para adicionar um serviço do Service Fabric a um aplicativo do Service Fabric existente, siga estas etapas:
 
-1. Clique com o botão direito do mouse no projeto ao qual você deseja adicionar um serviço para abrir o menu de contexto e selecione a opção ‘Service Fabric’. Isso abre um submenu com várias opções.
+1.  Clique com o botão direito do mouse no projeto ao qual você deseja adicionar um serviço e clique no **Service Fabric**.
 
     ![Adicionar Serviço do Service Fabric Página 1][add-service/p1]
 
-2. Selecione a opção `Add ServiceFabric Service` e ela o orientará pelo próximo conjunto de etapas para adicionar um serviço ao projeto.
-3. Selecione o modelo de serviço que você deseja adicionar ao projeto e clique em 'Avançar'.
+2.  Clique em **Adicionar Serviço do Service Fabric**e conclua o conjunto de etapas para adicionar um serviço ao projeto.
+3.  Selecione o modelo de serviço que você deseja adicionar ao projeto e clique em **Avançar**.
 
     ![Adicionar Serviço do Service Fabric Página 2][add-service/p2]
 
-4. Insira o nome do serviço (e outros detalhes necessários) e clique no botão "Adicionar serviço" abaixo.  
+4.  Insira o nome do serviço (e outros detalhes, conforme necessário) e clique no botão **Adicionar Serviço**.  
 
     ![Adicionar Serviço do Service Fabric Página 3][add-service/p3]
 
-5. Depois que o serviço é adicionado com êxito, a estrutura de todo o projeto fica semelhante ao seguinte:
+5.  Depois que o serviço é adicionado, a estrutura geral do projeto é semelhante ao seguinte projeto:
 
     ![Adicionar Serviço do Service Fabric Página 4][add-service/p4]
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Atualizar seu aplicativo Java do Service Fabric
 
-Vamos supor que você criou o projeto ``App1`` usando o plug-in Eclipse do Service Fabric e o implantou usando o plug-in para criar um aplicativo chamado ``fabric:/App1Application`` do tipo de aplicativo ``App1AppicationType`` e versão 1.0. Agora você deseja atualizar seu aplicativo sem desativá-lo.
+Para um cenário de atualização, digamos que você tenha criado o projeto **App1** usando o plug-in do Service Fabric do Eclipse. Você o implantou usando o plug-in para criar um aplicativo chamado **fabric:/App1Application**. O tipo de aplicativo é **App1AppicationType** e a versão do aplicativo é 1.0. Agora, você deseja atualizar o aplicativo sem interromper a disponibilidade.
 
-Faça a alteração em seu aplicativo e recompile o serviço modificado.  Atualize o arquivo de manifesto do serviço modificado (``ServiceManifest.xml``) com as versões atualizadas para o serviço (e Código, Configuração ou Dados, conforme apropriado). Modifique também o manifesto do aplicativo (``ApplicationManifest.xml``) com o número da versão atualizada do aplicativo e o serviço modificado.  
+Primeiro, faça as alterações no aplicativo e recrie o serviço modificado. Atualize o arquivo de manifesto do serviço modificado (ServiceManifest.xml) com as versões atualizadas para o serviço (e Código, Configuração ou Dados, conforme relevante). Modifique também o manifesto do aplicativo (ApplicationManifest.xml) com o número da versão atualizada do aplicativo e o serviço modificado.  
 
-Para atualizar seu aplicativo usando o Eclipse, você pode criar uma configuração de execução duplicada e usá-la para atualizar seu aplicativo como e quando for necessário, usando as seguintes etapas:
-1. Escolha ``Run => Run Configurations``. Clique na seta pequena à esquerda de ``Grade Project`` no painel esquerdo.
-2. Clique com o botão direito do mouse em ``ServiceFabricDeployer`` e selecione ``Duplicate``. Forneça um novo nome para essa configuração, por exemplo, ``ServiceFabricUpgrader``.
-3. No painel direito, em ``Arguments``, altere ``-Pconfig='deploy'`` para ``-Pconfig=upgrade`` e clique em ``Apply``.
-4. Agora, você criou e salvou uma configuração de execução para atualizar seu aplicativo, que você pode ``Run`` quando desejar. Ela se encarregará de obter a versão do tipo de aplicativo mais recente atualizada do arquivo de manifesto do aplicativo.
+Para atualizar o aplicativo usando o Eclipse Neon, você pode criar um perfil de configuração de execução duplicada. Em seguida, use-o para atualizar o aplicativo conforme necessário.
 
-Agora você pode monitorar a atualização de aplicativo usando o Service Fabric Explorer. Em alguns minutos, o aplicativo seria atualizado.
+1.  Acesse **Executar** > **Configurações de Execução**. No painel esquerdo, clique na seta pequena à esquerda de **Projeto do Gradle**.
+2.  Clique com o botão direito do mouse em **ServiceFabricDeployer**e selecione **Duplicar**. Digite um novo nome para essa configuração, por exemplo, **ServiceFabricUpgrader**.
+3.  No painel direito, na guia **Argumentos**, altere **-Pconfig='deploy'** para **-Pconfig='upgrade'**e clique em **Aplicar**.
+
+Esse processo cria e salva um perfil de configuração de execução que você pode usar a qualquer momento para atualizar o aplicativo. Também obtém a versão mais recente do tipo de aplicativo atualizado do arquivo de manifesto do aplicativo.
+
+A atualização do aplicativo leva alguns minutos. Você pode monitorar a atualização do aplicativo no Service Fabric Explorer.
 
 <!-- Images -->
 

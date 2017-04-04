@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Introdução ao Gerenciamento de Senhas
 > [!IMPORTANT]
-> **Você está aqui porque está tendo problemas para entrar?** Em caso afirmativo, [veja como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Você está aqui porque está tendo problemas para entrar?** Em caso afirmativo, [veja como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -33,7 +33,7 @@ Permitir que os usuários gerenciem suas próprias senhas da nuvem do Active Dir
 * [**Principais dicas de nossos clientes para ler antes de começar**](#top-tips-from-our-customers-to-read-before-you-begin)
  * [**DICA IMPORTANTE: NAVEGAÇÃO DE DOCUMENTAÇÃO** - Use o sumário e o recurso de pesquisa do seu navegador para encontrar respostas](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
  * [**Dica 1: LICENCIAMENTO** - Verifique se entendeu corretamente os requisitos de licenciamento](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
- * [**Dica 2: TESTE** - Teste com um usuário final, não com um administrador e faça o piloto com um pequeno grupo de usuários](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Dica 2: TESTE** - Teste com um usuário final, não com um administrador e faça o piloto com um pequeno grupo de usuários](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**Dica 3: IMPLANTAÇÃO** -preencha os dados de seus usuários previamente para que eles não precisem se registrar](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
  * [**Dica 4: IMPLANTAÇÃO** -Redefina as senhas para eliminar a necessidade de se informar senhas temporárias](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
  * [**Dica 5: WRITE-BACK** - Examine o log de eventos do aplicativo em seu computador AAD Connect para solucionar problemas de write-back de senha](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -59,7 +59,7 @@ Abaixo estão algumas das principais dicas úteis para os clientes que implantam
 
 * [**DICA IMPORTANTE: NAVEGAÇÃO DE DOCUMENTAÇÃO** - Use o sumário e o recurso de pesquisa do seu navegador para encontrar respostas](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
 * [**Dica 1: LICENCIAMENTO** - Verifique se entendeu corretamente os requisitos de licenciamento](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
-* [**Dica 2: TESTE** - Teste com um usuário final, não com um administrador e faça o piloto com um pequeno grupo de usuários](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Dica 2: TESTE** - Teste com um usuário final, não com um administrador e faça o piloto com um pequeno grupo de usuários](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**Dica 3: IMPLANTAÇÃO** -preencha os dados de seus usuários previamente para que eles não precisem se registrar](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
 * [**Dica 4: IMPLANTAÇÃO** -Redefina as senhas para eliminar a necessidade de se informar senhas temporárias](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
 * [**Dica 5: WRITE-BACK** - Examine o log de eventos do aplicativo em seu computador AAD Connect para solucionar problemas de write-back de senha](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -78,9 +78,9 @@ Confira o sumário abaixo:
 Para a redefinição de senhas do AD do Azure funcionar, você deverá ter pelo menos uma vez licença atribuída na sua organização. Não impomos licença por usuário na experiência de redefinição de senha em si. No entanto, se você usar o recurso sem uma licença atribuída a um usuário, será considerado como uma violação ao contrato de licenciamento da Microsoft e as licenças terão de ser atribuídas a esses usuários.
 
 Aqui estão alguns documentos que podem ajudar você a compreender quais licenças são necessárias para a redefinição de senha.
-* [Informações gerais de licenciamento para redefinição de senha]()
-* [Informações de licenciamento para redefinição de senha por recurso]()
-* [Cenários com suporte para write-back de senha]()
+* [Informações gerais de licenciamento para redefinição de senha](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize#what-customization-options-are-available)
+* [Informações de licenciamento para redefinição de senha por recurso](https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability)
+* [Cenários com suporte para write-back de senha](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#scenarios-supported-for-password-writeback)
 
 ### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Dica 2: TESTE - Teste com um usuário final, não com um administrador e faça o piloto com um pequeno grupo de usuários
 Quando você testa um administrador, impomos a política de redefinição de senha do administrador, que está definida abaixo.  Isso significa que você NÃO verá os resultados esperados da política configurada para seus usuários finais.
@@ -309,7 +309,8 @@ Esta seção o orienta pela configuração da redefinição de senha para gravar
 ### <a name="writeback-prerequisites"></a>Pré-requisitos de write-back
 Antes de poder habilitar e usar o Write-back de Senha, você deve concluir os seguintes pré-requisitos:
 
-* Ter um locatário do Azure AD com o Azure AD Premium ativado.  Para saber mais, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+* Ter um locatário do Azure AD com o Azure AD Premium ativado.  Para saber mais, confira [Edições do Active Directory do Azure](active-directory-editions.md).
+* Você deve conectar o Azure AD Connect ao Emulador de Controlador de Domínio Primário para que o write-back de senha funcione.  Se preciso, você pode configurar o Azure AD Connect para usar um Controlador de Domínio Primário, clicando com o botão direito nas **propriedades** do conector de sincronização do Active Directory e selecionando **configurar partições de diretório**. Em seguida, procure a seção **configurações de conexão do controlador de domínio** e marque a caixa **usam somente controladores de domínio preferenciais**.  Observação: se o controlador de DC Preferencial não for um emulador de PDC, o Azure AD Connect tentará ainda alcançar o PDC para executar o write-back de senha.
 * Configurar e habilitar a redefinição de senha no seu locatário.  Para saber mais, consulte [Permitir que os usuários redefinam suas senhas do Azure AD](#enable-users-to-reset-their-azure-ad-passwords)
 * Ter pelo menos uma conta de administrador e uma conta de usuário de teste com uma licença do Azure AD Premium que você pode usar para testar esse recurso.  Para saber mais, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
@@ -374,7 +375,7 @@ Agora que você já baixou a ferramenta Azure AD Connect, você está pronto par
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Para habilitar o Write-back de Senha usando o Windows PowerShell
 1. No seu **Computador do Directory Sync**, abra uma nova **janela do Windows PowerShell com privilégios elevados**.
 2. Se o módulo ainda não tiver carregado, digite o comando `import-module ADSync` para carregar os cmdlets do Azure AD Connect na sua sessão atual.
-3. Obter a lista de Conectores AAD no seu sistema executando o cmdlet `Get-ADSyncConnector` e armazenando os resultados no `$aadConnectorName``$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Obter a lista de Conectores AAD no seu sistema executando o cmdlet `Get-ADSyncConnector` e armazenando os resultados no `$aadConnectorName``$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`
 4. Para obter o status atual do write-back do conector atual, execute o seguinte cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Habilite o Write-back de Senha executando o cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -398,9 +399,9 @@ Depois de você ter habilitado o Write-back de Senha, precisará verificar se o 
 
 #### <a name="why-do-i-need-to-do-this"></a>Por que preciso fazer isto?
 
-Para o Write-back de Senha funcionar corretamente, o computador que executa o Azure AD Connect precisa ser capaz de estabelecer conexões HTTPS de saída com **.servicebus.windows.net* e o endereço IP específico usado pelo Azure, como definido na [lista de Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+Para fazer o Write-back de Senha funcionar corretamente, o computador que executa o Azure AD Connect precisa ser capaz de se comunicar com o Serviço de Redefinição de Senha, bem como o Barramento de Serviço do Azure.
 
-Para as versões da ferramenta Azure AD Connect **1.1.443.0** (mais recente) e superior:
+Para a ferramenta Azure AD Connect **1.1.443.0** e superior:
 
 - A versão mais recente da ferramenta Azure AD Connect precisará de acesso **HTTPS de saída** a:
     - *passwordreset.microsoftonline.com*
@@ -420,7 +421,7 @@ Para as versões da ferramenta Azure AD Connect **1.0.8667.0** a **1.1.380.0**:
         - Nessa configuração, para o write-back de senha continuar a funcionar, você precisará garantir que seus dispositivos de rede sejam atualizados semanalmente com os IPs mais recentes na lista de Intervalos de IP do Datacenter do Microsoft Azure. Esses intervalos de IP estão disponíveis como um arquivo XML que é atualizado toda quarta-feira (Hora do Pacífico) e entram em vigor na segunda-feira seguinte (Hora do Pacífico).
     - Etapas necessárias:
         - Permitir todas as conexões HTTPS de saída para *.servicebus.windows.net
-        - Permitir todas as conexões HTTPS de saída para todos os IPs na lista de Intervalos de IP do Datacenter do Microsoft Azure e manter essa configuração atualizada semanalmente.
+        - Permitir todas as conexões HTTPS de saída para todos os IPs na lista de Intervalos de IP do Datacenter do Microsoft Azure e manter essa configuração atualizada semanalmente. A lista está disponível para download [aqui](https://www.microsoft.com/download/details.aspx?id=41653).
 
 > [!NOTE]
 > Se você configurou o Write-back de Senha seguindo as instruções acima e não vê nenhum erro no log de eventos do Azure AD Connect, mas está recebendo erros de conectividade durante o teste, pode ser o caso de um dispositivo de rede em seu ambiente estar bloqueando as conexões HTTPS para os endereços IP. Por exemplo, embora uma conexão com *https://*.servicebus.windows.net* seja permitida, uma conexão com um endereço IP específico dentro desse intervalo pode estar bloqueada. Para resolver esse problema, você precisará configurar seu ambiente de rede para permitir todas as conexões HTTPS de saída na porta 443 para qualquer endereço IP ou URL (Opção 1 acima) ou trabalhará com sua equipe de rede para permitir explicitamente as conexões HTTPS com endereços IP específicos (Opção 2 acima).
@@ -494,9 +495,9 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 ## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Como funciona**](active-directory-passwords-how-it-works.md)- saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
-* [**Personalizar **](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Personalizar**](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
 * [**Obter percepções**](active-directory-passwords-get-insights.md) – saiba mais sobre nossos recursos integrados de relatórios
 * [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
