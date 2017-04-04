@@ -677,9 +677,9 @@ Novamente, você precisará localizar os valores que deseja inserir para os par�
 ### <a name="step-2-obtain-the-vhd"></a>Etapa 2: obter o VHD
 Obviamente, você precisará de um .vhd para isso. Você pode usar um que já tenha no Azure ou pode carregar um.
 
-Para uma máquina virtual baseada no Windows, confira [Criar e carregar um VHD do Windows Server no Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para uma máquina virtual baseada no Windows, confira [Criar e carregar um VHD do Windows Server no Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Para uma máquina virtual baseada no Linux, confira [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Para uma máquina virtual baseada no Linux, confira [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Etapa 3: criar a máquina virtual usando o modelo
 Agora, você está pronto para criar uma nova máquina virtual com base no .vhd. Crie um grupo para a implantação usando o `azure group create <location>`:
@@ -759,7 +759,7 @@ Esse modelo permite que você crie duas máquinas virtuais sob um balanceador de
 Siga estas etapas para implantar um aplicativo com várias VMs que usa uma rede virtual e um balanceador de carga usando um modelo do Gerenciador de Recursos no repositório de modelos do Github através dos comandos do Azure PowerShell.
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Etapa 1: examinar o arquivo JSON do modelo
-Aqui está o conteúdo do arquivo JSON para o modelo. Se você quiser a versão mais recente, ela está localizada [no repositório Github para modelos](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Este tópico usa a opção `--template-uri` para chamar o modelo, mas você também pode usar a opção `--template-file` para passar uma versão local.
+Aqui está o conteúdo do arquivo JSON para o modelo. Se você quiser a versão mais recente, ela está localizada [no repositório GitHub para modelos](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Este tópico usa a opção `--template-uri` para chamar o modelo, mas você também pode usar a opção `--template-file` para passar uma versão local.
 
 ```json
 {

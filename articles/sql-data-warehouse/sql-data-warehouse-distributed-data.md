@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
 ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -62,7 +64,7 @@ Uma distribuição é a unidade básica de armazenamento de dados distribuídos 
 ### <a name="can-i-view-the-compute-nodes"></a>Posso exibir os nós de Computação?
 Cada nó de computação tem uma ID de nó e está visível nas exibições do sistema referentes ao SQL Data Warehouse e ao Parallel Data Warehouse.  Você pode ver o nó de Computação olhando para a coluna node_id nas exibições do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista das exibições de sistema, consulte [Exibição do sistema MPP](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>Tabelas replicadas para o Parallel Data Warehouse
+## <a name="Replicated"></a>Tabelas replicadas para o Parallel Data Warehouse
 Aplica-se a: Parallel Data Warehouse
 
 Além de usar tabelas distribuídas, o Parallel Data Warehouse oferece uma opção para replicar tabelas. Um *tabela replicada* é uma tabela armazenada em sua totalidade em cada nó de Computação. Replicar uma tabela elimina a necessidade de transferir suas linhas de tabela entre nós de Computação antes de usar a tabela em uma junção ou agregação. Tabelas replicadas só são viáveis com tabelas pequenas devido ao armazenamento extra necessário para armazenar a tabela completa em cada nó de computação.  
@@ -73,10 +75,5 @@ O diagrama a seguir mostra uma tabela replicada armazenada em cada nó de Comput
 
 ## <a name="next-steps"></a>Próximas etapas
 Para usar tabelas distribuídas com eficiência, consulte [Distribuir tabelas no SQL Data Warehouse](sql-data-warehouse-tables-distribute.md)  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

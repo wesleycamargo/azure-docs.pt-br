@@ -9,16 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: bdc00541e55ea68f0b18456f8fa1a1ac51116d69
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 21d8dff230e045607b70013f4eabf1bfe8ec3993
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -64,7 +65,7 @@ O procedimento a seguir usa um modelo do Azure Resource Manager para criar um cl
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Criar tabelas e inserir dados
-Você pode usar o SSH para se conectar aos clusters HBase e usar o Shell do HBase para criar tabelas HBase, inserir dados e consultar dados. Para obter informações sobre como usar o SSH, confira [Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md) e [Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+Você pode usar o SSH para se conectar aos clusters HBase e usar o Shell do HBase para criar tabelas HBase, inserir dados e consultar dados. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Para a maioria das pessoas, os dados aparecem no formato de tabela:
 
@@ -223,6 +224,11 @@ Você pode consultar os dados nas tabelas HBase usando o Hive. Esta seção cria
         -v
 
 Para saber mais sobre o Rest HBase, veja [Guia de referência do Apache HBase](https://hbase.apache.org/book.html#_rest).
+
+>
+> [!NOTE]
+> Não há suporte para thrift pelo HBase no HDInsight.
+>
 
 ## <a name="check-cluster-status"></a>Verificar o status do cluster
 O HBase em HDInsight é fornecido com uma interface do usuário da Web para monitorar clusters. Usando a interface do usuário da Web, você pode solicitar estatísticas ou informações sobre regiões.
