@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 5627cd7370ce6d9503b4c98b15a19592b8f228de
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c3fd647fdd21f6978e4d631ca9b10429e963cd05
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -81,6 +81,9 @@ As capturas de tela desta seção são fornecidas como um exemplo de referência
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="dns"></a>Parte 4 - Especificar um servidor DNS (opcional)
+
+O DNS não é necessário para uma conexão Ponto a Site. No entanto, se você quiser ter a resolução de nomes dos recursos que são implantados em sua rede virtual, deverá especificar um servidor DNS. Essa configuração permite que você especifique o servidor DNS que deseja usar para a resolução de nomes dessa rede virtual. Ela não cria um servidor DNS.
+
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="creategw"></a>Parte 5 - Criar um gateway de rede virtual
@@ -94,7 +97,7 @@ As conexões Ponto a Site exigem as seguintes configurações:
 
 ## <a name="generatecert"></a>Parte 6 - Gerar certificados
 
-Os certificados são usados pelo Azure para autenticar clientes de VPN para as VPNs Ponto a Site. Depois de criar o certificado raiz, exporte os dados de certificado público (não a chave privada) como o arquivo .cer X.509 codificado em Base&64;. Em seguida, carregue os dados do certificado público do certificado raiz para o Azure.
+Os certificados são usados pelo Azure para autenticar clientes de VPN para as VPNs Ponto a Site. Depois de criar o certificado raiz, exporte os dados de certificado público (não a chave privada) como o arquivo .cer X.509 codificado em Base 64. Em seguida, carregue os dados do certificado público do certificado raiz para o Azure.
 
 Cada computador cliente que se conecta a uma rede virtual usando ponto a site deve ter um certificado de cliente instalado. O certificado de cliente é gerado a partir do certificado raiz e instalado em cada computador cliente. Se um certificado de cliente válido não for instalado, e o cliente tentar se conectar à rede virtual, a autenticação falhará.
 
@@ -116,11 +119,11 @@ Se você não estiver usando uma solução de certificado corporativo, será nec
 
 #### <a name="to-export-the-public-key-for-a-self-signed-root-certificate"></a>Para exportar a chave pública para um certificado raiz autoassinado
 
-Conexões ponto a site exigem a chave pública (.cer) carregadas no Azure. As etapas a seguir ajudarão você a exportar o arquivo .cer para seu certificado autoassinado.
+Conexões ponto a site exigem a chave pública (.cer) carregadas no Azure. As etapas a seguir ajudarão você a exportar o arquivo .cer para seu certificado raiz autoassinado.
 
 1. Para obter um arquivo .cer do certificado, abra **certmgr.msc**. Localize o certificado raiz autoassinado, normalmente em 'Certificados – Usuário Atual\Pessoal\Certificados', então clique nele com o botão direito do mouse. Clique em **Todas as Tarefas** e, em seguida, em **Exportar**. Isso abre o **Assistente para Exportação de Certificados**.
 2. No Assistente, clique em **Avançar**. Selecione **Não exportar a chave privada** e clique em **Avançar**.
-3. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base&64; (.CER).** e clique em **Avançar**. 
+3. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base 64 (.CER).** e clique em **Avançar**. 
 4. Em **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Próximo**.
 5. Clique em **Concluir** para exportar o certificado. Você verá a mensagem **A exportação foi bem-sucedida**. Clique em **OK** para fechar o assistente.
 
@@ -140,7 +143,7 @@ Se você gerar um certificado de cliente de um certificado autoassinado usando a
 
 1. Para exportar um certificado de cliente, abra **certmgr.msc**. Clique com o botão direito no certificado do cliente que você deseja exportar, clique em **todas as tarefas** e, em seguida, clique em **exportar**. Isso abre o **Assistente para Exportação de Certificados**.
 2. No Assistente, clique em **Avançar**, escolha **Sim, exportar a chave privada** e clique em **Avançar**.
-3. Na página **Exportar Formato de Arquivo** , você pode deixar os padrões selecionados. Em seguida, clique em **Próximo**. 
+3. Na página **Formato do Arquivo de Exportação**, deixe os padrões selecionados. Verifique se a opção **Incluir todos os certificados no caminho de certificação, se possível** está selecionada. Em seguida, clique em **Próximo**. 
 4. Na página **Segurança** , você deve proteger a chave privada. Se você optar por usar uma senha, não deixe de anotar ou lembrar da senha definida para esse certificado. Em seguida, clique em **Próximo**.
 5. Em **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Próximo**.
 6. Clique em **Concluir** para exportar o certificado.   
@@ -157,7 +160,7 @@ Se você gerar um certificado de cliente de um certificado autoassinado usando a
 Depois que o gateway tiver sido criado, você poderá carregar o arquivo .cer para um certificado raiz confiável no Azure. Você pode carregar arquivos em até 20 certificados raiz. Você não carrega a chave privada do certificado raiz no Azure. Depois que o arquivo .cer for carregado, o Azure o utilizará para autenticar clientes que se conectam à rede virtual.
 
 1. Os certificados são adicionados na folha de **Configuração Ponto a site** na seção **Certificado raiz**.  
-2. Verifique se você exportou o certificado raiz como um arquivo x.509 (.cer) codificado em Base&64;. Você precisa exportá-lo neste formato para poder abrir o certificado em um editor de texto.
+2. Verifique se você exportou o certificado raiz como um arquivo x.509 (.cer) codificado em Base 64. Você precisa exportá-lo neste formato para poder abrir o certificado em um editor de texto.
 3. Abra o certificado com um editor de texto, como o Bloco de Notas. Copie apenas a seção a seguir como uma linha contínua:
    
     ![Dados do certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
@@ -185,10 +188,7 @@ Você pode usar o mesmo pacote de configuração de cliente VPN em cada computad
     ![Download do cliente VPN 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
 2. Selecione o pacote correto para o cliente e clique em **Baixar**. Salve o arquivo de pacote de configuração. Você o instalará em cada computador cliente que se conectará à rede virtual.
 
-    ![Download do cliente VPN 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/client.png)
-
-   * Para os clientes de 64 bits, selecione **AMD64**.
-   * Para clientes de 32 bits, selecione **x86**.
+    ![Download do cliente VPN 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
 ### <a name="step-2---install-the-client-configuration-package"></a>Etapa 2 - instalar o pacote de configuração do cliente
 
@@ -203,7 +203,7 @@ Você pode usar o mesmo pacote de configuração de cliente VPN em cada computad
 
 ## <a name="installclientcert"></a>Parte 10 - Instalar um certificado de cliente exportado
 
-Se você quiser criar uma conexão P2S de um computador cliente diferente daquele usada para gerar os certificados cliente, instale um certificado de cliente. Ao instalar um certificado de cliente, você precisará da senha criada quando o certificado do cliente foi exportado. 
+Se você quiser criar uma conexão P2S de um computador cliente diferente daquele usada para gerar os certificados cliente, instale um certificado de cliente. Ao instalar um certificado do cliente, você precisará da senha criada durante a exportação do certificado do cliente. 
 
 1. Localize e copie o arquivo *.pfx* no computador cliente. No computador cliente, clique duas vezes no arquivo *.pfx* para instalá-lo. Deixe **Localização do Repositório** como **Usuário Atual** e clique em **Avançar**.
 2. Na página **Arquivo** a importar, não faça nenhuma alteração. Clique em **Próximo**.

@@ -4,7 +4,7 @@ description: "Saiba como criar, implantar e gerenciar um dispositivo virtual Sto
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f37752a5-cd0c-479b-bef2-ac2c724bcc37
 ms.service: storsimple
@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 03/22/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -33,34 +33,13 @@ O dispositivo virtual StorSimple está disponível em dois modelos, um padrão 8
 | **Capacidade máxima** |30 TB |64 TB |
 | **VM do Azure** |Standard_A3 (4 núcleos, 7 GB de memória) |Standard_DS3 (4 núcleos, 14 GB de memória) |
 | **Compatibilidade de versão** |Versões com pré-Atualização 2 ou posterior |Versões com Atualização 2 ou posterior |
-| **Disponibilidade de região** |Todas as regiões do Azure |Regiões do Azure que dão suporte ao Armazenamento Premium<br></br>Para obter uma lista de regiões, veja [regiões com suporte para 8020](#supported-regions-for-8020) |
+| **Disponibilidade de região** |Todas as regiões do Azure |Todas as regiões do Azure que dão suporte ao Armazenamento Premium<br></br> As regiões de armazenamento Premium são regiões que correspondem à linha de *Armazenamento em disco* na lista dos [Serviços do Azure por Região](https://azure.microsoft.com/en-us/regions/services). |
 | **Tipo de armazenamento** |Usa o Armazenamento Standard do Azure para discos locais<br></br> Saiba como [criar uma conta de Armazenamento Standard](../storage/storage-create-storage-account.md) |Usa o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br>Saiba como [criar uma conta de Armazenamento Premium](../storage/storage-premium-storage.md) |
 | **Diretrizes sobre carga de trabalho** |Recuperação no nível de item de arquivos de backups |Cenários de desenvolvimento e teste na nuvem, baixa latência, cargas de trabalho de desempenho mais altas  <br></br>Dispositivo secundário para recuperação de desastre |
 
 <sup>1</sup> *Conhecido anteriormente como 1100*.
 
 <sup>2</sup> *O 8010 e o 8020 usam o Armazenamento Standard do Azure para a camada de nuvem. A diferença existe apenas na camada de local do dispositivo*.
-
-#### <a name="supported-regions-for-8020"></a>Regiões com suporte para 8020
-As regiões de armazenamento Premium que atualmente têm suporte para 8020 estão na tabela abaixo. Essa lista será atualizada continuamente conforme o armazenamento Premium se tornar disponível em mais regiões.
-
-| S. no. | Atualmente, com suporte nas regiões |
-| --- | --- |
-| 1 |Centro dos EUA |
-| 2 |Leste dos EUA |
-| 3 |Leste dos EUA 2 |
-| 4 |Oeste dos EUA |
-| 5 |Norte da Europa |
-| 6 |Europa Ocidental |
-| 7 |Sudeste Asiático |
-| 8 |Leste do Japão |
-| 9 |Oeste do Japão |
-| 10 |Leste da Austrália |
-| 11 |Sudeste da Austrália* |
-| 12 |Ásia Oriental* |
-| 13 |Centro-Sul dos EUA* |
-
-*O armazenamento Premium foi lançado recentemente nessas áreas geográficas.
 
 Este artigo descreve o processo passo a passo de implantação de um dispositivo virtual do StorSimple no Azure. Depois de ler este artigo, você irá:
 
@@ -90,7 +69,7 @@ As seções a seguir explicam os pré-requisitos de configuração para o dispos
 #### <a name="azure-requirements"></a>Requisitos do Azure
 Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes preparações no seu ambiente do Azure:
 
-* Para o dispositivo virtual, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se usar o Armazenamento Premium, você deve criar uma rede virtual em uma região do Azure que dá suporte ao Armazenamento Premium. Para saber mais sobre [regiões que atualmente têm suporte para 8020](#supported-regions-for-8020).
+* Para o dispositivo virtual, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se usar o Armazenamento Premium, você deve criar uma rede virtual em uma região do Azure que dá suporte ao Armazenamento Premium. As regiões de armazenamento Premium são regiões que correspondem à linha de *Armazenamento em disco* na lista dos [Serviços do Azure por Região](https://azure.microsoft.com/en-us/regions/services).
 * É aconselhável utilizar o servidor DNS padrão fornecido pelo Azure em vez de especificar o nome do seu próprio servidor DNS. Se o nome do servidor DNS não for válido ou se o servidor DNS não conseguir resolver endereços IP corretamente, a criação do dispositivo virtual falhará.
 * Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados.
 * É possível criar [Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (servidores de host) na rede virtual que podem usar os volumes expostos pelo dispositivo virtual. Esses servidores devem atender aos seguintes requisitos:                             

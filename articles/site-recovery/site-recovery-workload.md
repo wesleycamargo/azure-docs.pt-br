@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -130,6 +130,19 @@ Use o Site Recovery para proteger sua implantação do SAP como a seguir:
 * Simplifique o desenvolvimento e o teste do SAP criando uma cópia de produção sob demanda para o teste e a depuração dos aplicativos.
 
 [Saiba mais](http://aka.ms/asr-sap) sobre como proteger o SAP.
+
+## <a name="protect-iis"></a>Proteger o IIS
+Use o Site Recovery para proteger sua implantação do IIS como mostrado abaixo:
+
+O Azure Site Recovery oferece recuperação de desastre replicando os componentes essenciais de seu ambiente em um site remoto frio ou em uma nuvem pública, como o Microsoft Azure. Já que a máquina virtual com o servidor Web e o banco de dados estão sendo replicados no local de recuperação, não há nenhum requisito para fazer backup de arquivos de configuração ou certificados separadamente. As associações e mapeamentos de aplicativo dependentes de variáveis de ambiente que são alterados após o failover podem ser atualizados por meio de scripts integrados aos planos de recuperação de desastre. As máquinas virtuais somente aparecem no site de recuperação no caso de um failover. Além disso, o Azure Site Recovery também ajuda a organizar o failover de ponta a ponta oferecendo os seguintes recursos:
+
+-    O desligamento e a inicialização de máquinas virtuais nas várias camadas.
+-    A adição de scripts para permitir a atualização das dependências do aplicativo e associações em máquinas virtuais depois da inicialização. Os scripts também podem ser usados para atualizar o servidor DNS a fim de apontar para o local de recuperação.
+-    A alocação de endereços IP para máquinas virtuais antes do failover mapeando as redes primária e de recuperação e, portanto, o uso de scripts que não precisam ser atualizados após o failover.
+-    A capacidade de failover em um clique para vários aplicativos Web nos servidores Web, eliminando o escopo de confusão em caso de desastre.
+-    A capacidade de testar os planos de recuperação em um ambiente isolado para exercícios de recuperação de desastre.
+
+[Saiba mais](https://aka.ms/asr-iis) sobre como proteger o web farm do IIS.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Verificar pré-requisitos](site-recovery-prereq.md) 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do oSQL: SDK do Java do Azure DocumentDB | Microsoft Docs'
+title: 'Tutorial do NoSQL: SDK do Java do Azure DocumentDB | Microsoft Docs'
 description: "Um tutorial do NoSQL que cria um banco de dados online e um aplicativo de console Java usando o SDK do Java do DocumentDB. O Azure DocumentDB é um banco de dados NoSQL para JSON."
 keywords: tutorial do nosql, banco de dados online, aplicativo de console java
 services: documentdb
@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: ddd676df429c20d1c07cfe64abc9ab69ef11bd8c
-ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: da7907ffc515ea2e3040075c93bcd53840cf3ff5
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -26,8 +26,9 @@ ms.lasthandoff: 01/06/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js para MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -59,12 +60,12 @@ Verifique se você tem o seguinte:
 * [Maven](http://maven.apache.org/download.cgi).
 
 ## <a name="step-1-create-a-documentdb-account"></a>Etapa 1: Criar uma conta do Banco de Dados de Documentos
-Vamos criar uma conta de Banco de Dados de Documentos. Se você já tiver uma conta que deseja usar, poderá pular para [Clonar o projeto do Github](#GitClone). Se você estiver usando o Emulador do DocumentDB, siga as etapas em [Emulador do Azure DocumentDB](documentdb-nosql-local-emulator.md) para configurar o emulador e pular para a [Clonar o projeto do Github](#GitClone).
+Vamos criar uma conta de Banco de Dados de Documentos. Se você já tiver uma conta que deseja usar, poderá pular para [Clonar o projeto do GitHub](#GitClone). Se você estiver usando o Emulador do DocumentDB, siga as etapas no [Emulador do Azure DocumentDB](documentdb-nosql-local-emulator.md) para configurar o emulador e pular para [Clonar o projeto do GitHub](#GitClone).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Etapa 2: Clonar o projeto do Github
-Você pode começar pela clonagem de repositório Github para [Introdução ao DocumentDB e Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Por exemplo, de um diretório local, execute o seguinte para recuperar o projeto de exemplo localmente.
+## <a id="GitClone"></a>Etapa 2: Clonar o projeto do GitHub
+Você pode começar clonando o repositório do GitHub para a [Introdução ao DocumentDB e Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Por exemplo, de um diretório local, execute o seguinte para recuperar o projeto de exemplo localmente.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
 
