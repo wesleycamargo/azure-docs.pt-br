@@ -23,7 +23,7 @@ Para aumentar ou diminuir o número de máquinas virtuais em um conjunto de dime
 
 Se estiver reimplantando um modelo para alterar a capacidade, você pode definir um modelo muito menor que inclui apenas a SKU e a capacidade atualizada. Um exemplo disso é mostrado em: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Para percorrer as etapas para criar um conjunto de dimensionamento que foi dimensionado automaticamente, confira [Dimensionar automaticamente as máquinas em um Conjunto de dimensionamento de máquina virtual](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Para percorrer as etapas para criar um conjunto de dimensionamento que foi dimensionado automaticamente, confira [Dimensionar automaticamente as máquinas em um Conjunto de dimensionamento de máquina virtual](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="monitoring-your-vm-scale-set"></a>Monitoramento de seu conjunto de dimensionamento de VM
 Atualmente recomenda-se a utilização do [Azure Resource Explorer](https://resources.azure.com) para exibir os conjuntos de dimensionamento de VM. Os conjuntos de dimensionamento de VM são um recurso encontrado em Microsoft.Compute, de modo que nesse site, você pode vê-los expandindo os seguintes links:
@@ -64,7 +64,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 ## <a name="vm-scale-set-frequently-asked-questions"></a>Conjunto de dimensionamento de VM - Perguntas frequentes
 **P.** Quantas VMs você pode ter em um conjunto de dimensionamento de VM?
 
-**A.** &100;, se você usar imagens de plataforma que podem ser distribuídas entre várias contas de armazenamento. Se você usar imagens personalizadas, até 40, desde que as imagens personalizadas sejam limitadas a uma única conta de armazenamento durante a visualização.
+**A.** 100, se você usar imagens de plataforma que podem ser distribuídas entre várias contas de armazenamento. Se você usar imagens personalizadas, até 40, desde que as imagens personalizadas sejam limitadas a uma única conta de armazenamento durante a visualização.
 
 **P** Que outros limites de recurso existem para conjuntos de dimensionamento de VM?
 
@@ -115,9 +115,4 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 **P.** Os conjuntos de dimensionamento de VM funcionam com os conjuntos de disponibilidade do Azure?
 
 **A.** Sim. Um conjunto de dimensionamento de VM é um conjunto de disponibilidade implícito com 3 FDs e 5 UDs. Não é preciso configurar nada em virtualMachineProfile. Em versões futuras, os conjuntos de dimensionamento de VM provavelmente incluirão vários locatários, mas, por enquanto, um conjunto de dimensionamento é um único conjunto de disponibilidade.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

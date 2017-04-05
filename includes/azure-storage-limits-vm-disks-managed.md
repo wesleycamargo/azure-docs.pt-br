@@ -21,4 +21,4 @@
 | IOPS máxima por VM |80.000 IOPS com VM GS5<sup>1</sup> |
 | Taxa de transferência máxima por VM |2.000 MB/s com VM GS5<sup>1</sup> |
 
-<sup>1</sup>Veja [Tamanho da VM](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter os limites de outros tamanhos de VM. 
+<sup>1</sup>Veja [Tamanho da VM](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter os limites de outros tamanhos de VM. 

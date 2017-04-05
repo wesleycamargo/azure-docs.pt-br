@@ -1,13 +1,3 @@
-### <a name="disk-persistence"></a>Persistência de disco 
-
-A tabela a seguir ilustra os diferentes estados dos diferentes discos em uma VM do Azure e se os dados são persistidos ou não em cada estado.
-
-| Disco | Iniciar | Parar/<br>Desalocar | Pausar | Reini-<br>ciar | Des-<br>ligar | Excluir | Failure | Redimensionar | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| Disco do sistema operacional | Sim | Sim  | Sim | Sim | Sim  | Não | Não  | Sim | 
-| RAM  | Sim | Sim | Sim | Sim | Não   | Não | Não | Não | 
-| Disco temporário local | Sim | Não | Sim | Não | Não  | Não | Não | Não | 
-| Disco de dados anexado | Sim | Sim | Sim | Sim | Sim  | Sim | Sim | Sim | 
 
 ## <a name="about-vhds"></a>Sobre VHDs
 
