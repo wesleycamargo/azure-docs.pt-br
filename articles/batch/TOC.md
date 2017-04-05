@@ -37,8 +37,8 @@
 
 # Relacionados
 ## [Shipyard de lote](https://github.com/Azure/batch-shipyard)
+## [Processamento de dados com Lote e Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Soluções de Lote e HPC na nuvem do Azure](batch-hpc-solutions.md)
-## [Big Compute no Azure: recursos técnicos](big-compute-resources.md)
 
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/batch/)
@@ -48,5 +48,8 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Exemplos de código do C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Exemplos de código do Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Exemplos de CLI](batch-cli-samples.md)
+## [Recursos de Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
+
 
