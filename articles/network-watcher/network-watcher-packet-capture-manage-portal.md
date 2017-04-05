@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 590d2c39e295e2f855910b00e0302f01d96de8dc
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: c309151e3e3aa6ff235f0dee2ddf975940f34f44
+ms.lasthandoff: 03/24/2017
 
 ---
 
@@ -82,7 +82,7 @@ As propriedades que podem ser definidas em uma captura de pacotes são:
 
 **Configuração da captura**
 
-- **Armazenamento** - determina se a captura de pacotes é salva em uma conta de armazenamento.
+- **Conta de Armazenamento** - Determina se a captura do pacote é salva em uma conta de armazenamento.
 - **Arquivo** - determina se uma captura de pacote sé salva localmente na máquina virtual.
 - **Contas de Armazenamento** - a conta de armazenamento selecionada na qual salvar a captura de pacotes. O local padrão é https://{nome da conta de armazenamento}.blob.core.windows.net/network-watcher-logs/subscriptions/{id assinatura}/resourcegroups/{nome do grupo de recursos}/providers/microsoft.compute/virtualmachines/{nome máquina virtual}/{AA}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Habilitado somente se o **Armazenamento** estiver selecionado)
 - **Caminho do arquivo local** - o caminho local em uma máquina virtual para salvar a captura de pacotes. (Habilitado somente se o **Arquivo** estiver selecionado). Um caminho válido deve ser fornecido

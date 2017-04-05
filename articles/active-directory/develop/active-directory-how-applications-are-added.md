@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: ceb16b1431d689fb7d56c4dd588b50914357680a
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 65c8a2c020d5ef7ce47905927a248b9e73d2ed1b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -131,7 +132,7 @@ Com tudo isso, é possível impedir que os usuários em seu diretório adicionem
 Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar serviços para aplicativos.
 
 * Desenvolvedores: [Saiba como integrar um aplicativo ao AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
-* Desenvolvedores: [Revise o código de exemplo para aplicativos integrados ao Active Directory do Azure no Github](https://github.com/AzureADSamples)
+* Desenvolvedores: [Examinar o código de exemplo para aplicativos integrados ao Azure Active Directory no GitHub](https://github.com/AzureADSamples)
 * Desenvolvedores e profissionais de TI: [Leia a documentação da API REST para a Graph API do Active Directory do Azure](https://msdn.microsoft.com/library/azure/hh974478.aspx)
 * Profissionais de TI: [Saiba como usar aplicativos pré-integrados do Active Directory do Azure a partir da Galeria de Aplicativos](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 * Profissionais de TI: [Localize tutoriais para a configuração de determinados aplicativos pré-integrados](https://msdn.microsoft.com/library/azure/dn893637.aspx)
@@ -143,9 +144,4 @@ Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar ser
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]:../media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

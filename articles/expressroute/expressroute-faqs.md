@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/29/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 31a267963199518ed6db4610830062099ed0dde4
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 5b7e2d8df2723f77aa8283d9faab22656198ed47
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -109,7 +109,7 @@ Sim. Você pode ter mais de um circuito de Rota Expressa em sua assinatura. O li
 Sim. Você pode ter circuitos de Rota Expressa de muitos provedores de serviços. Cada circuito de Rota Expressa será associado apenas a um provedor de serviços. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Posso ter vários circuitos de ExpressRoute no mesmo local?
-Sim. Você pode ter vários circuitos de ExpressRoute, com os mesmos provedores de serviço ou com provedores diferentes no mesmo local. No entanto, não será possível vincular mais de um circuito de ExpressRoute na mesma rede virtual.
+Sim. Você pode ter vários circuitos de ExpressRoute, com os mesmos provedores de serviço ou com provedores diferentes no mesmo local. No entanto, não será possível vincular mais de um circuito de ExpressRoute na mesma rede virtual a partir do mesmo local.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como conectar minhas redes virtuais a um circuito da Rota Expressa
 As etapas básicas são descritas a seguir.

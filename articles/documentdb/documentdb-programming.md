@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 94376ba0cb7e68045e5bc44e356a91ac2ca787b2
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d337114c123151f06a24e80b0208c6eafb1df487
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -294,7 +294,7 @@ Abaixo está um exemplo de um procedimento armazenado gravado para documentos de
         }
     }
 
-## <a name="a-idtriggera-database-triggers"></a><a id="trigger"></a> Gatilhos de banco de dados
+## <a id="trigger"></a> Gatilhos de banco de dados
 ### <a name="database-pre-triggers"></a>Pré-gatilhos de banco de dados
 O Banco de Dados de Documentos oferece gatilhos que são executados ou desencadeados por uma operação em um documento. Por exemplo, você pode especificar um pré-gatilho ao criar um documento; esse pré-gatilho será executado antes que o documento seja criado. A seguir está um exemplo de como os pré-gatilhos podem ser usados para validar as propriedades de um documento que está sendo criado:
 
@@ -437,7 +437,7 @@ Esse gatilho consulta o documento de metadados e o atualiza com detalhes sobre o
 
 É importante observar a execução **transacional** de gatilhos no Banco de Dados de Documentos. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se lançarmos uma exceção a partir do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será retrocedida. Nenhum documento será criado e uma exceção será retornada.  
 
-## <a name="a-idudfauser-defined-functions"></a><a id="udf"></a>Funções definidas pelo usuário
+## <a id="udf"></a>Funções definidas pelo usuário
 UDFs (funções definidas pelo usuário) são usadas para estender a gramática da linguagem de consulta SQL do Banco de Dados de Documentos e para implementar uma lógica de negócios personalizada. Elas podem ser invocadas somente de dentro das consultas. Elas não possuem acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, UDFs podem ser executadas em réplicas secundárias do serviço do Banco de Dados de Documentos.  
 
 A amostra a seguir cria uma UDF para calcular o imposto de renda com base nas taxas para diversos intervalos de renda, e depois a utiliza dentro de uma consulta para descobrir todas as pessoas que pagaram mais de $20.000 em impostos.
@@ -794,7 +794,7 @@ Gatilhos, diferentemente dos procedimentos armazenados, não podem ser executado
 Aqui, o pré-gatilho a ser executado com a solicitação é especificado no cabeçalho x-ms-documentdb-pre-trigger-include. Da mesma forma, qualquer pós-gatilho é fornecido no cabeçalho x-ms-documentdb-post-trigger-include. Observe que pré e pós-gatilhos podem ser especificados para uma determinada solicitação.
 
 ## <a name="sample-code"></a>Exemplo de código
-Você pode encontrar mais exemplos de código do lado do servidor (incluindo [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) em nosso [repositório Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Você pode encontrar mais exemplos de código do lado do servidor (incluindo [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) em nosso [repositório GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Deseja compartilhar seu procedimento armazenado incrível? Por favor, envie uma solicitação pull! 
 

@@ -1,5 +1,5 @@
 ---
-title: Aplicativos que usam regras de acesso condicional no Azure Active Directory | Microsoft Docs
+title: Aplicativos e navegadores que usam regras de acesso condicional no Azure Active Directory | Microsoft Docs
 description: "Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas quando autentica o usuário e para permitir o acesso do aplicativo."
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/22/2017
+ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 6dea1af021599eb530a4feb3257238e088191d5f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 7dc79fad1a87f015475cd2643c8bec55192b2a15
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="applications-that-use-conditional-access-rules-in-azure-active-directory"></a>Os aplicativos que usam regras de acesso condicional no Azure Active Directory
+# <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Aplicativos e navegadores que usam regras de acesso condicional no Azure Active Directory
+
 As regras de acesso condicional têm suporte em aplicativos conectados do Azure Active Directory, (Azure AD) aplicativos SaaS (software como serviço) federados pré-integrados, aplicativos que usam senha de logon único (SSO), aplicativos de linha de negócios e aplicativos que usam o Proxy de Aplicativo do Azure AD. Para obter uma lista detalhada dos aplicativos para os quais você pode habilitar o acesso condicional, veja [Serviços habilitados com acesso condicional](active-directory-conditional-access-technical-reference.md). O acesso condicional funciona com os aplicativos móveis e da área de trabalho que usam autenticação moderna. Neste artigo, abordaremos o funcionamento do acesso condicional em aplicativos móveis e de área de trabalho.
 
 Você pode usar páginas de entrada do Azure AD em aplicativos que usam autenticação moderna. Com uma página de logon, a autenticação multifator é solicitada de um usuário. Se o acesso do usuário estiver bloqueado, será mostrada uma mensagem. A autenticação moderna é necessária para que o dispositivo se autentique no Azure AD para que políticas de acesso condicional com base no dispositivo sejam avaliadas.
@@ -48,7 +49,7 @@ Os aplicativos a seguir oferecem suporte ao acesso condicional para o Office 365
 | Office 365 SharePoint Online |Mac OS X |Aplicativos do Office 2016 para autenticação multifator e somente localização; suporte a política baseada em dispositivo planejado para o futuro |
 | Office 365 Yammer |Suporte para Windows 10, iOS e Android planejado para o futuro |Aplicativo Office Yammer |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS e Android |Aplicativo Dynamics CRM |
-| Serviço PowerBI |Windows 10, Windows 8.1, Windows 7 e iOS|Aplicativo do Power BI (aplicativos Android sem suporte) |
+| Serviço PowerBI |Windows 10, Windows 8.1, Windows 7, iOS e Android |Aplicativo PowerBI |
 | Serviço de Aplicativo Remoto do Azure |Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X |Aplicativo Remoto do Azure |
 | Qualquer serviço de aplicativo de Meus Aplicativos |Android e iOS |Qualquer serviço de aplicativo de Meus Aplicativos |
 
@@ -109,4 +110,35 @@ Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Co
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
+
+
+## <a name="supported-browsers"></a>Navegadores com suporte
+
+
+| SO                     | Navegadores                 | Suporte |
+| :--                    | :--                      | :-:     |
+| Win 10                 | IE, Edge                 | ![Verificação][1] |
+| Win 10                 | Chrome                   | Em breve |
+| Win 8 / 8.1            | IE                       | ![Verificação][1] |
+| Win 7                  | IE                       | ![Verificação][1] |
+| iOS                     | Safari                   | ![Verificação][1] |
+| Android                | Chrome                   | ![Verificação][1] |
+| WinPhone               | IE, Edge                 | ![Verificação][1] |
+| Windows Server 2016    | IE, Edge                 | ![Verificação][1] |
+| Windows Server 2012 R2 | IE                       | ![Verificação][1] |
+| Windows Server2008 R2     | IE                       | ![Verificação][1] |
+| Mac OS                 | Safari                   | ![Verificação][1] |
+| Mac OS                 | Chrome                   | Em breve |
+
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais detalhes, confira [Acesso condicional no Azure Active Directory](active-directory-conditional-access.md)
+
+
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-supported-apps/ic195031.png
+
+
 

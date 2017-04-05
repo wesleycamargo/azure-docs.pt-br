@@ -9,6 +9,7 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: fd30c5befb378a031e818c29e9bde72c1105bf78
-ms.openlocfilehash: ac7e47835b0ae4fee724c18df949cedfc3a16957
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ff1013840c220c54a9120572d16946ab6c5c5b07
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -97,7 +98,7 @@ Nesta seção, você pode usar um modelo do Resource Manager para criar um clust
    * **Grupo de Recursos**: Criar um novo grupo de recursos usado para o cluster.
    * **Local**: selecione um local para o grupo de recursos.
    * **Nome do Cluster**: insira um nome para o novo cluster a ser criado.
-   * **Nome de Usuário de Logon do Cluster **: insira o nome de usuário HTTP do Hadoop.  O nome padrão é **admin**.
+   * **Nome de Usuário de Logon do Cluster**: insira o nome de usuário HTTP do Hadoop.  O nome padrão é **admin**.
    * **Senha de Logon do Cluster**: digite a senha do usuário HTTP do Hadoop.
    * **Nome de Usuário Ssh**: digite o nome de usuário SSH. O nome padrão é **sshuser**.
    * **Senha do Ssh**: digite a senha de usuário do SSH.
@@ -120,7 +121,8 @@ O nó de borda aparece como um aplicativo no portal do Azure.  O portal fornece 
 
 **Para usar o Hive no nó de borda**
 
-1. Use SSH para conectar-se ao nó de borda.  Confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, do Unix ou do OS X](hdinsight-hadoop-linux-use-ssh-unix.md) ou [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+1. Use SSH para conectar-se ao nó de borda. Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. Depois que você tiver se conectado ao nó de borda usando o SSH, use o seguinte comando para abrir o console do Hive:
    
         hive

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 03/24/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 75b7cee2485d1d68fee8dcd65ade84995dcdb9be
-ms.openlocfilehash: fc5bc67fd38fe8a8c4499257a29bc0f0ec71468c
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 32b12bcb7410fcc74450422767e9d92fef38ebdc
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: fc5bc67fd38fe8a8c4499257a29bc0f0ec71468c
 > 
 > 
 
-Este artigo o ajudará a vincular as redes virtuais (VNets) aos circuitos de Rota Expressa do Azure usando o modelo de implantação do Gerenciador de Recursos e do PowerShell. As redes virtuais podem estar na mesma assinatura ou fazer parte de outra assinatura.
+Este artigo ajuda a vincular as VNets (redes virtuais) aos circuitos do Azure ExpressRoute usando o modelo de implantação do Resource Manager e PowerShell. As redes virtuais podem estar na mesma assinatura ou fazer parte de outra assinatura. Este artigo mostra como atualizar um link de rede virtual. 
 
 **Sobre modelos de implantação do Azure**
 
@@ -147,12 +148,19 @@ O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autoriz
 
 É possível liberar uma autorização excluindo a conexão que vincula o circuito da Rota Expressa à rede virtual.
 
+## <a name="modify-a-virtual-network-connection"></a>Modificar uma conexão de rede virtual
+Você pode atualizar determinadas propriedades de uma conexão de rede virtual. 
+
+### <a name="update-the-connection-weight"></a>Atualizar o peso da conexão
+Sua rede virtual pode ser conectada a vários circuitos do ExpressRoute. Você pode receber o mesmo prefixo de mais de um circuito do ExpressRoute. Para escolher à qual conexão enviar o tráfego destinado a esse prefixo, você pode alterar *RoutingWeight* de uma conexão. O tráfego será enviado na conexão com o *RoutingWeight* mais alto.
+
+    $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
+    $connection.RoutingWeight = 100
+    Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
+
+O intervalo de *RoutingWeight* é de 0 a 32.000. O valor padrão é 0. 
+
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 11/11/2016
 ms.author: mezha
 translationtype: Human Translation
-ms.sourcegitcommit: 69c33986f05181460c9eea73295de5721c9ea3cf
-ms.openlocfilehash: 16e87412fd1cbe34ed8a37d6cebcb9395d1c7e36
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -132,7 +133,7 @@ Este gráfico descreve como a CDN do Azure valida a solicitação do cliente qua
         
     ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. Você pode personalizar o token, que é um aplicativo que gera um token para recursos de autenticação com base em token. O código-fonte pode ser acessado aqui no [Github](https://github.com/VerizonDigital/ectoken).
+5. Você pode personalizar o token, que é um aplicativo que gera um token para recursos de autenticação com base em token. O código-fonte pode ser acessado aqui no [GitHub](https://github.com/VerizonDigital/ectoken).
 Os idiomas disponíveis incluem:
     
     - C
@@ -146,9 +147,4 @@ Os idiomas disponíveis incluem:
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Preços de provedor e recursos da Azure CDN
 
 Confira o tópico [Visão geral da CDN](cdn-overview.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

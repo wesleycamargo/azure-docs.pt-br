@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 3c18b1929a78137ff3b53b8e084dc35e0c8dcaac
-ms.openlocfilehash: 478db825a269beeaa9fbb0afef3488fc7d49d024
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: b7334f68e4526b716210b28388afcd0ee6e48940
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -32,7 +32,7 @@ Você pode gerenciar as configurações de aplicativos do Azure Functions clican
 
 ## <a name="develop"></a>Desenvolver
 ### <a name="app-service-editor"></a>Editor de Serviço de Aplicativo
-O Editor de Serviço de Aplicativo é um editor avançado dentro do portal que você pode usar para modificar arquivos de configuração JSON e arquivos de código semelhantes. Escolher essa opção inicia uma nova guia do navegador com um editor básico. Isso permite que você se integre ao Github, execute e depure código, além de modificar as configurações do aplicativos de funções.
+O Editor de Serviço de Aplicativo é um editor avançado dentro do portal que você pode usar para modificar arquivos de configuração JSON e arquivos de código semelhantes. Escolher essa opção inicia uma nova guia do navegador com um editor básico. Isso permite que você se integre ao GitHub, execute e depure código, além de modificar as configurações do aplicativos de funções.
 
 ![O Editor de Serviço de Aplicativo](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 

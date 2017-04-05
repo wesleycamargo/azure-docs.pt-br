@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d6756dcc5b47898575002cd7336b8d4d5200e08
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: eab8b66bc4a9cf3090ee81f9bb47430aaf26eeee
+ms.lasthandoff: 03/24/2017
 
 ---
 
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de Tráfego
 
-O método de roteamento de tráfego geográfico permite direcionar tráfego para pontos de extremidade específicos com base na localização geográfica em que as solicitações são originadas. Este tutorial mostra como criar um perfil do Gerenciador de Tráfego com esse método de roteamento e configurar os pontos de extremidade para receber tráfego de regiões geográficas específicas 
+O método de roteamento de tráfego geográfico permite direcionar tráfego para pontos de extremidade específicos com base na localização geográfica em que as solicitações são originadas. Este tutorial mostra como criar um perfil do Gerenciador de Tráfego com esse método de roteamento e configurar os pontos de extremidade para receber tráfego de regiões geográficas específicas.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego 
 
@@ -62,8 +62,6 @@ O método de roteamento de tráfego geográfico permite direcionar tráfego para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-
-- Saiba mais sobre o [método de roteamento de tráfego ponderado](traffic-manager-configure-weighted-routing-method.md).
-- Saiba mais sobre o [método de roteamento de desempenho](traffic-manager-configure-performance-routing-method.md).
+- Saiba mais sobre [Método de roteamento de tráfego geográfico](traffic-manager-routing-methods.md#geographic-traffic-routing-method).
 - Saiba como [testar as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md).
 

@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: f67e96618ea25e4463a4fdf83ea20f238498fac0
-ms.openlocfilehash: 838a19ef05adad59e0317fb62e2acec8a40d7a64
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 97c6724261e35063c461ee95ccad36372dd907db
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -112,7 +113,7 @@ Se você está desenvolvendo atualmente um aplicativo de locatário único, mas 
 Cada cenário listado neste documento inclui uma subseção que descreve seus requisitos de provisionamento. Para obter informações mais detalhadas sobre o provisionamento de um aplicativo no AD do Azure e sobre as diferenças entre aplicativos de locatário único e multilocatário, confira [Integrando aplicativos com o Active Directory do Azure](active-directory-integrating-applications.md) . Continue lendo para entender os cenários comuns de aplicativos no Azure AD.
 
 ## <a name="application-types-and-scenarios"></a>Cenários e tipos de aplicativos
-Cada um dos cenários descritos neste documento pode ser desenvolvido usando várias linguagens e plataformas. Todos eles contam com exemplos de código completos que estão disponíveis em nosso [guia Exemplos de Código](active-directory-code-samples.md), ou diretamente dos repositórios de exemplo do [Github correspondentes](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory). Além disso, se seu aplicativo precisar de uma parte ou segmento específico de um cenário de ponta a ponta, na maioria dos casos, essa funcionalidade pode ser adicionada independentemente. Por exemplo, se você tiver um aplicativo nativo que chama uma API da Web, você pode adicionar facilmente um aplicativo Web que também chama a API da Web. O diagrama a seguir ilustra esses cenários e tipos de aplicativos e como os diferentes componentes podem ser adicionados:
+Cada um dos cenários descritos neste documento pode ser desenvolvido usando várias linguagens e plataformas. Todos eles contam com exemplos de código completos que estão disponíveis em nosso [guia Exemplos de Código](active-directory-code-samples.md) ou diretamente nos [repositórios de exemplo do GitHub](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory) correspondentes. Além disso, se seu aplicativo precisar de uma parte ou segmento específico de um cenário de ponta a ponta, na maioria dos casos, essa funcionalidade pode ser adicionada independentemente. Por exemplo, se você tiver um aplicativo nativo que chama uma API da Web, você pode adicionar facilmente um aplicativo Web que também chama a API da Web. O diagrama a seguir ilustra esses cenários e tipos de aplicativos e como os diferentes componentes podem ser adicionados:
 
 ![Cenários e tipos de aplicativos](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -294,10 +295,5 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 [Informações importantes sobre a substituição da chave de assinatura no Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

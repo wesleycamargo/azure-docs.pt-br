@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: fb3f7c08c5f3a76e4bd28f3519ab72e8b636b93c
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 2684e09daa3554a5768a96ae18757a669e221efe
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -28,13 +29,13 @@ Para um serviço de nuvem que contenha instâncias de funções web ou funções
 
 O arquivo *servicedefinition.csdef* contém a configuração do ponto de extremidade e quando existem várias instâncias de função para uma implantação de função de trabalho ou da Web, o balanceador de carga é instalado para ele. A maneira de adicionar instâncias à sua implantação de nuvem está alterando a contagem de instâncias no arquivo de configuração de serviço (.csfg).
 
-A figura a seguir mostra um ponto de extremidade de balanceamento de carga para tráfego criptografado na Web, que é compartilhado entre três máquinas virtuais para a porta TCP pública e privada de 443. Essas três máquinas virtuais estão em um conjunto de balanceamento de carga.
+A figura a seguir mostra um ponto de extremidade de balanceamento de carga para tráfego criptografado na Web, que é compartilhado entre três máquinas virtuais para a porta TCP pública e privada de 80. Essas três máquinas virtuais estão em um conjunto de balanceamento de carga.
 
 ![exemplo de balanceador de carga público](./media/load-balancer-internet-overview/IC727496.png))
 
-Figura 1 – Ponto de extremidade com balanceamento de carga para tráfego da Web criptografado
+Figura 1 – Ponto de extremidade com balanceamento de carga para tráfego da Web
 
-Quando os clientes da Internet enviam solicitações de página da Web para o endereço IP público do serviço de nuvem na porta TCP 443, o Azure Load Balancer distribui as solicitações entre as três máquinas virtuais no conjunto de balanceamento de carga. Para obter mais informações sobre os algoritmos do balanceador de carga, consulte a [load balancer overview page (página de visão geral do balanceador de carga)](load-balancer-overview.md#load-balancer-features).
+Quando os clientes da Internet enviam solicitações de página da Web para o endereço IP público do serviço de nuvem na porta TCP 80, o Azure Load Balancer distribui as solicitações entre as três máquinas virtuais no conjunto de balanceamento de carga. Para obter mais informações sobre os algoritmos do balanceador de carga, consulte a [load balancer overview page (página de visão geral do balanceador de carga)](load-balancer-overview.md#load-balancer-features).
 
 Por padrão, Azure Load Balancer distribui o tráfego de rede igualmente entre várias instâncias da máquina virtual. Também é possível configurar a afinidade de sessão. Para obter mais informações, consulte [load balancer distribution mode (modo de distribuição do balanceador de carga)](load-balancer-distribution-mode.md).
 
@@ -45,9 +46,4 @@ Saiba mais sobre [Balanceadores de carga internos](load-balancer-internal-overvi
 Também é possível [começar a criar um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento específico de tráfego de rede do balanceador de carga.
 
 Se seu aplicativo precisar manter conexões ativas para servidores por trás de um balanceador de carga, você poderá entender mais sobre as [configurações de tempo limite de TCP ocioso para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Assim, você saberá mais sobre o comportamento da conexão ociosa quando estiver usando um Balanceador de Carga do Azure.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

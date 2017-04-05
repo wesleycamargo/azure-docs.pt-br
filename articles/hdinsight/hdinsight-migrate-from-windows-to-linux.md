@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 1a2a08a844f1502d970cb7686d512387263d1d13
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9a2e9b7809b00ae2b60e152bc240ab2ef775c7bf
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -67,10 +67,7 @@ Use as etapas a seguir para copiar os dados do cluster de produção para o clus
 2. Para criar um ambiente de teste, siga as etapas descritas no documento Criar clusters baseados em Linux no HDInsight. Pare antes de criar o cluster e escolha **Configuração Opcional**.
 3. Na folha Configuração Opcional, escolha **Contas de Armazenamento Vinculadas**.
 4. Escolha **Adicionar uma chave de armazenamento**e, quando solicitado, escolha a conta de armazenamento que foi retornada pelo script do PowerShell na etapa 1. Clique em **Selecionar** em cada folha. E por último, crie o cluster.
-5. Assim que o cluster tiver sido criado, conecte-o usando **SSH.** Se não estiver familiarizado com o uso do SSH com o HDInsight, consulte um dos seguintes documentos:
-
-   * [Usar o SSH (PuTTY) com o HDInsight baseado em Linux em clientes Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-   * [Usar o SSH com o HDInsight baseado em Linux no Linux, Unix, OS X e Bash no Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
+5. Assim que o cluster tiver sido criado, conecte-o usando **SSH.** Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 6. Na sessão SSH, use o comando a seguir para copiar arquivos da conta de armazenamento vinculada para a nova conta de armazenamento padrão. Substitua CONTÊINER pelas informações de contêiner retornadas pelo PowerShell. Substitua __CONTA__ pelo nome da conta. Substitua o caminho para dados pelo caminho para um arquivo de dados.
 
@@ -109,10 +106,7 @@ Durante a criação do cluster, você deve fornecer um usuário SSH e uma **senh
 
 É recomendável usar um certificado de chave pública, pois é mais seguro do que usar uma senha. A autenticação de certificado funciona gerando um par de chaves pública/privada assinada e fornecendo a chave pública na criação do cluster. Ao se conectar ao servidor usando o SSH, a chave privada no cliente fornece autenticação para a conexão.
 
-Para saber mais sobre como usar SSH com HDInsight, confira:
-
-* [Usar SSH com o HDInsight em clientes Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Usar SSH com HDInsight em clientes Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="cluster-customization"></a>Personalização do cluster
 **Ações de Script** usadas com clusters baseados em Linux devem ser escritas no script Bash. Embora as Ações de Script possam ser usadas durante a criação do cluster, em clusters baseados em Linux, elas também podem ser usadas na personalização depois que um cluster estiver ativo. Para obter mais informações, confira [Personalizar clusters HDInsight baseados em Linux usando as Ação de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -220,8 +214,8 @@ Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, 
       hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Saiba como criar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
-* [Conectar-se a um cluster baseado em Linux usando SSH em um cliente Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Conectar-se a um cluster baseado em Linux usando SSH em um cliente Linux, Unix ou Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Usar SSH para se conectar ao HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gerenciar um cluster baseado em Linux usando o Ambari](hdinsight-hadoop-manage-ambari.md)
 

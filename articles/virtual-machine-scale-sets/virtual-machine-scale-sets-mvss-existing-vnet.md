@@ -1,6 +1,6 @@
 ---
-title: "Conjuntos de dimensionamento de máquinas virtuais do Azure: modelo de rede virtual existente | Microsoft Docs"
-description: Saiba como criar um modelo de conjunto de dimensionamento com a rede virtual existente
+title: "Fazer referência a uma rede virtual em um modelo do conjunto de dimensionamento do Azure | Microsoft Docs"
+description: "Saiba como adicionar uma rede virtual a um modelo existente do conjunto de dimensionamento de máquinas virtuais do Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -16,18 +16,17 @@ ms.topic: article
 ms.date: 3/06/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: ddb3e1789e49d138e744c2238679236134b69324
-ms.lasthandoff: 03/09/2017
-
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: f300537943b76e53b0e7c271e65293e585a2cd32
+ms.lasthandoff: 03/24/2017
 
 ---
 
-# <a name="about-this-article"></a>Sobre este artigo
+# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>Adicionar referência a uma rede virtual a um modelo do conjunto de dimensionamento do Azure
 
 Este artigo mostra como modificar o [modelo de conjunto de dimensionamento mínimo viável](./virtual-machine-scale-sets-mvss-start.md) para implantar em uma rede virtual existente em vez de criar uma nova.
 
-## <a name="modifying-the-minimum-viable-scale-set-to-deploy-into-an-existing-virtual-network"></a>Modificando o conjunto de dimensionamento mínimo viável para implantar em uma rede virtual existente
+## <a name="change-the-template-definition"></a>Alterar a definição do modelo
 
 Nosso modelo de conjunto de dimensionamento mínimo viável pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), e nosso modelo para implantar o conjunto de dimensionamento em uma rede virtual existente pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Vamos examinar a comparação usada para criar esse modelo (`git diff master minimum-viable-scale-set`), parte por parte:
 

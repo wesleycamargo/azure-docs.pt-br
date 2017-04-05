@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1184277f90dce4215de2add8b48c022e013d191d
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -95,7 +95,7 @@ Se sua VNET não tem um gateway ou ponto a site, você precisa configurar isso p
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Habilitar Ponto a Site em uma VNET do Resource Manager
-Para configurar uma VNET do Resource Manager com um gateway e um Ponto a Site, você precisa usar o PowerShell conforme documentado aqui, [Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell][V2VNETP2S].  A interface do usuário para executar esse recurso ainda não está disponível. 
+Para configurar uma VNET do Resource Manager com um gateway e Ponto a Site, você pode usar o PowerShell, conforme documentado em [Configurar uma conexão Ponto a Site com uma rede virtual usando PowerShell][V2VNETP2S] ou usar o Portal do Azure, conforme documentado em [Configurar uma conexão Ponto a Site para uma rede virtual usando o Portal do Azure][V2VNETPortal].  A interface do usuário para executar esse recurso ainda não está disponível. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Criar uma VNET pré-configurada
 Se você quiser criar uma nova VNET que esteja configurada com um gateway e um Ponto a Site, a interface do usuário de rede do Serviço de Aplicativo tem a capacidade de fazer isso, mas somente para VNET de Resource Manager.  Se você quiser criar uma VNET Clássica com um gateway e um Ponto a Site, precisará fazer isso manualmente por meio da interface do usuário de rede. 
@@ -300,4 +300,5 @@ Além das diferenças funcionais, há também diferenças de preço.  O recurso 
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
+[V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
 

@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 2/25/2017
 ms.author: ronitr;giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: d1350081aa4f70660802c61a77250496e1e7fc2a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e20a30a565198c01f213895a87fe8807a37272cb
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Configurar e gerenciar a auditoria do Banco de Dados SQL no Portal do Azure
 
-A seção a seguir descreve como configurar e gerenciar a auditoria usando o Portal do Azure. Para configurar e gerenciar a auditoria usando o PowerShell, consulte [Configurar a auditoria com o PowerShell](sql-database-auditing-powershell.md). 
+A seção a seguir descreve como configurar e gerenciar a auditoria usando o Portal do Azure. Para configurar e gerenciar a auditoria usando o PowerShell, consulte [Configurar a auditoria com o PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
 
 Para obter uma visão geral da auditoria, consulte [Auditoria de Banco de Dados SQL](sql-database-auditing.md).
 
@@ -45,7 +45,7 @@ Para obter uma visão geral da auditoria, consulte [Auditoria de Banco de Dados 
 
     <a id="storage-screenshot"></a>
     ![Painel de navegação][4]
-6. Se você desejar personalizar os eventos auditados, você poderá fazer isso por meio do PowerShell ou da API REST.
+6. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio do PowerShell ou da API REST.
 7. Depois de definir as configurações de auditoria, você pode ativar o novo recurso Detecção de Ameaças (visualização) e configurar os emails para receber alertas de segurança. A Detecção de Ameaças permite que você receba alertas proativos em atividades anômalas de banco de dados que podem indicar possíveis ameaças de segurança. Consulte [Detecção de ameaças](sql-database-threat-detection.md) para obter mais detalhes.
 8. Clique em **Salvar**.
 
@@ -188,7 +188,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para configurar e gerenciar a auditoria usando o PowerShell, consulte [Configurar a auditoria de banco de dados usando o PowerShell](sql-database-auditing-powershell.md).
+* Para configurar e gerenciar a auditoria usando o PowerShell, consulte [Configurar a auditoria de banco de dados usando o PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
 * Para obter uma visão geral da auditoria, consulte [Auditoria de banco de dados](sql-database-auditing.md).
 
 

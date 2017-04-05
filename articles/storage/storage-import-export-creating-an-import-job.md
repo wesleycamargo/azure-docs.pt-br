@@ -1,6 +1,6 @@
 ---
 title: "Criar um trabalho de importação para a Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como criar uma importação para o serviço de importação/exportação do Microsoft Azure"
+description: "Saiba como criar uma importação para o serviço de Importação/Exportação do Microsoft Azure."
 author: muralikk
 manager: syadav
 editor: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
-ms.openlocfilehash: 84ba5256c3ee485af9a1a6bccc0571f93c9c0ab7
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 3a0ac3de9828903b7ca66c15e5422d1228e2a731
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/16/2017
 
 Criar um trabalho de importação para o serviço de importação/exportação do Microsoft Azure usando a API REST envolve as seguintes etapas:
 
--   Preparar unidades com a ferramenta de importação/exportação do Azure.
+-   Preparar unidades com a Ferramenta de Importação/Exportação do Azure.
 
 -   Obter o local para o qual enviar a unidade.
 
@@ -41,7 +41,7 @@ Criar um trabalho de importação para o serviço de importação/exportação d
 
 As etapas para preparar unidades para um trabalho de importação são as mesmas se você cria o trabalho pelo portal ou pela API REST.
 
-Abaixo apresentamos uma breve visão geral da preparação de unidades. Veja a [Referência de Import-ExportTool do Azure](storage-import-export-tool-how-to-v1.md) para saber mais. Você pode baixar a ferramenta de Importação/Exportação do Azure [aqui](http://go.microsoft.com/fwlink/?LinkID=301900).
+Abaixo apresentamos uma breve visão geral da preparação de unidades. Veja a [Referência de Import-ExportTool do Azure](storage-import-export-tool-how-to-v1.md) para saber mais. Você pode baixar a Ferramenta de Importação/Exportação do Azure [aqui](http://go.microsoft.com/fwlink/?LinkID=301900).
 
 Para preparar a unidade:
 
@@ -49,9 +49,9 @@ Para preparar a unidade:
 
 -   Identifique os blobs de destino no armazenamento do Windows Azure.
 
--   Use a ferramenta de Importação/Exportação do Azure para copiar seus dados para um ou mais discos rígidos.
+-   Use a Ferramenta de Importação/Exportação do Azure para copiar seus dados para um ou mais discos rígidos.
 
- A ferramenta de importação/exportação do Azure também gerará um arquivo de manifesto para cada unidade assim que for preparada. Um arquivo de manifesto contém:
+ A Ferramenta de Importação/Exportação do Azure também gerará um arquivo de manifesto para cada unidade assim que for preparada. Um arquivo de manifesto contém:
 
 -   Uma enumeração de todos os arquivos a carregar e os mapeamentos desses arquivos para blobs.
 
@@ -61,7 +61,7 @@ Para preparar a unidade:
 
 -   Lista de ação a ser tomada se um blob que está sendo carregado tem o mesmo nome de um blob existente no contêiner. As opções possíveis são: a) substituir o blob com o arquivo, b) manter o blob existente e ignorar o carregamento do arquivo, c) acrescentar um sufixo ao nome para que não haja conflito com outros arquivos.
 
-## <a name="obtaining-your-shipping-location"></a>Obter o local de envio
+## <a name="obtaining-your-shipping-location"></a>Obtendo o local de envio
 
 Antes de criar um trabalho de importação, você precisa obter um nome e o endereço de um local de envio chamando a operação [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` retorna uma lista de locais e seus endereços de correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.
 
@@ -73,7 +73,7 @@ Antes de criar um trabalho de importação, você precisa obter um nome e o ende
 
 -   Se a propriedade `AlternateLocations` do local contiver o próprio local, então é seguro usar este local. Caso contrário, chame a operação `Get Location` novamente com uma das localizações alternativas. O local original pode estar fechado temporariamente para manutenção.
 
-## <a name="creating-the-import-job"></a>Criar o trabalho de importação
+## <a name="creating-the-import-job"></a>Criando o trabalho de importação
 Para criar o trabalho de importação, chame a operação [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Primeiro, forneça as seguintes informações:
 
 -   Um nome para o trabalho.
@@ -96,15 +96,16 @@ Para criar o trabalho de importação, chame a operação [Put Job](/rest/api/st
 
     -   O hash MD5 do arquivo de manifesto codificado para Base16
 
-## <a name="shipping-your-drives"></a>Enviar suas unidades
+## <a name="shipping-your-drives"></a>Enviando suas unidades
 Você deve enviar suas unidades para o endereço obtido na etapa anterior, e deve fornecer ao serviço de importação/exportação o número de rastreamento do pacote.
 
 > [!NOTE]
 >  Você deve enviar suas unidades por meio de um serviço de transporte compatível, que fornecerá um número de rastreamento para seu pacote.
 
-## <a name="updating-the-import-job-with-your-shipping-information"></a>Atualizar o trabalho de importação com as informações do envio
+## <a name="updating-the-import-job-with-your-shipping-information"></a>Atualizando o trabalho de importação com as informações do envio
 Depois que tiver o número de rastreamento, chame a operação [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) para atualizar o nome da operadora, o número de rastreamento do trabalho e o número da conta da operadora para retorno. Opcionalmente, você também pode especificar a quantidade de unidades e a data de envio.
 
-## <a name="see-also"></a>Consulte também
-[Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Próximas etapas
+
+* [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Usando importação/exportação para transferir dados para o Armazenamento de Blobs | Microsoft Docs"
-description: "Saiba como criar trabalhos de importação e exportação no Portal do Azure para transferir dados para o Armazenamento de Blobs."
+title: "Usando a Importação/Exportação do Azure para transferir dados bidirecionalmente do armazenamento de blobs | Microsoft Docs"
+description: "Saiba como criar trabalhos de importação e exportação no Portal do Azure para transferir dados bidirecionalmente no armazenamento de blobs."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c30203120a155fd3fc431009baa3e8b318e1330f
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: fd2338b73bd82121ed36e286446b07ccd4a8a219
+ms.lasthandoff: 03/30/2017
 
 
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento de Blobs
-## <a name="overview"></a>Visão geral
-O Serviço de Importação/Exportação do Azure permite a você transferir com segurança grandes quantidades de dados para o armazenamento de blobs do Azure por meio do envio de unidades de disco rígido para um data center do Azure. Você também pode usar esse serviço para transferir dados do armazenamento de Blobs do Azure para as unidades de disco rígido e enviar para seu site local. Esse serviço é adequado em situações em que você deseja transferir vários TBs de dados de ou para o Azure, mas carregar ou baixar pela rede não é viável devido à largura de banda limitada ou aos os altos custos de rede.
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de blobs
+
+O serviço de Importação/Exportação do Azure permite a você transferir com segurança grandes quantidades de dados para o armazenamento de blobs do Azure por meio do envio de unidades de disco rígido para um data center do Azure. Você também pode usar esse serviço para transferir dados do armazenamento de Blobs do Azure para as unidades de disco rígido e enviar para seu site local. Esse serviço é adequado em situações em que você deseja transferir vários terabytes (TB) de dados para dentro ou fora do Azure, mas o upload ou download pela rede não é viável devido à largura de banda limitada ou aos os altos custos de rede.
 
 O serviço requer que as unidades de disco rígido sejam criptografadas com BitLocker para a segurança dos seus dados. O serviço oferece suporte às contas de armazenamento Clássica e do Azure Resource Manager (tipo padrão e dinâmico) presentes em todas as regiões do Azure Público. Você deve enviar as unidades de disco rígido para um dos locais com suporte especificados posteriormente neste artigo.
 
-Neste artigo, você aprenderá mais sobre o serviço de Importação/Exportação do Azure e como enviar as unidades para copiar os dados para e a partir do armazenamento de Blobs do Azure.
+Neste artigo, você aprenderá mais sobre o serviço de Importação/Exportação do Azure e como enviar unidades para copiar os dados para dentro e fora do armazenamento de blobs do Azure.
 
 ## <a name="when-should-i-use-the-azure-importexport-service"></a>Quando devo usar o serviço de Importação/Exportação do Azure?
-Você pode considerar usar o serviço de Importação/Exportação do Azure quando carregar ou baixar os dados pela rede estiver lento ou quando a largura de banda de rede adicional for dispendioso.
+Considere o uso do serviço de Importação/Exportação do Azure quando o upload ou download dos dados pela rede estiver muito lento, ou quando a largura de banda de rede adicional for dispendiosa.
 
 Você pode usar esse serviço em cenários como:
 
@@ -40,7 +40,7 @@ Você pode usar esse serviço em cenários como:
 * Recuperação de dados: recuperar uma grande quantidade de dados guardados no armazenamento de blobs e enviá-los para seu local.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Nesta seção, listamos os pré-requisitos necessários para usar este serviço. Examine-os cuidadosamente antes de enviar suas unidades.
+Nesta seção, listamos os pré-requisitos necessários para usar esse serviço. Examine-os cuidadosamente antes de enviar suas unidades.
 
 ### <a name="storage-account"></a>Conta de armazenamento
 Você deve ter uma assinatura do Azure existente e uma ou mais contas de armazenamento para usar o serviço de Importação/Exportação. Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um único trabalho de importação/exportação não pode estender-se por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
@@ -78,7 +78,6 @@ Baixe a versão mais recente da [ferramenta WAImportExport](http://download.micr
 ### <a name="hard-disk-drives"></a>Unidades de disco rígido
 Somente discos rígidos internos SSD de 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas têm suporte para uso com o serviço de Importação/Exportação. Você pode usar discos rígidos de até 10 TB.
 Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS.
-Ao copiar dados para o disco rígido, você poderá anexá-lo diretamente usando um conector SSD de 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas, ou anexá-lo externamente usando um adaptador USB SSD de 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas.
 
 > [!IMPORTANT]
 > As unidades de disco rígido externas que vêm com um adaptador USB interno não são suportadas por esse serviço. Além disso, o disco dentro da proteção de um HDD externo não pode ser usado; não envie HDDs externos.
@@ -144,7 +143,7 @@ Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Az
 ## <a name="how-does-the-azure-importexport-service-work"></a>Como funciona o serviço de Importação/Exportação do Azure?
 Você pode transferir dados entre o site local e o armazenamento de blobs do Azure usando o serviço de Importação/Exportação do Azure criando trabalhos e enviando as unidades de disco rígido para um data center do Azure. Cada unidade de disco rígido que você enviar estará associada a um único trabalho. Cada trabalho é associado uma única conta de armazenamento. Examine a [seção de pré-requisitos](#pre-requisites) cuidadosamente para conhecer as especificações desse serviço, como tipos de blob, tipos de disco, localizações e envio com suporte.
 
-Nesta seção, descreveremos em um nível alto, as etapas envolvidas na importação e exportação de trabalhos. Posteriormente na [seção Início Rápido](#quick-start), forneceremos instruções passo a passo para criar um trabalho de importação e exportação.
+Nesta seção, descrevemos em um nível alto, as etapas envolvidas nos trabalhos de importação e exportação. Posteriormente na [seção Início Rápido](#quick-start), fornecemos instruções passo a passo para criar um trabalho de importação e exportação.
 
 ### <a name="inside-an-import-job"></a>Dentro de um trabalho de importação
 Em um alto nível, um trabalho de importação envolve as seguintes etapas:
@@ -161,7 +160,7 @@ Em um alto nível, um trabalho de importação envolve as seguintes etapas:
   
     ![Figura 1: Importar o fluxo de trabalho](./media/storage-import-export-service/importjob.png)
 
-### <a name="inside-an-export-job"></a>Dentro de um trabalho de Exportação
+### <a name="inside-an-export-job"></a>Dentro de um trabalho de exportação
 Em um alto nível, um trabalho de exportação envolve as seguintes etapas:
 
 * Determine os dados a serem exportados e o número de unidades necessárias.
@@ -194,10 +193,8 @@ Você verá um dos seguintes status de trabalho, dependendo de onde a unidade es
 | Concluído | Depois que todas as unidades forem enviadas para o cliente, se o trabalho for concluído sem erros, será definido com o estado Concluído. O trabalho será excluído automaticamente após 90 dias no estado Concluído. |
 | Fechado | Depois que todas as unidades forem enviadas para o cliente, se houver erros durante o processamento do trabalho, será definido o estado Fechado. O trabalho será excluído automaticamente após 90 dias no estado Fechado. |
 
-A tabela a seguir descreve o ciclo de vida de uma unidade individual conforme ela passa por um trabalho de importação ou exportação. O estado atual de cada unidade em um trabalho fica visível no Portal do Azure.
+A tabela a seguir descreve o ciclo de vida de uma unidade individual conforme ela passa por um trabalho de importação ou exportação. O estado atual de cada unidade em um trabalho agora fica visível no Portal do Azure.
 A tabela a seguir descreve cada estado pelo qual cada unidade em um trabalho pode passar.
-
-![Exibir estado da unidade](./media/storage-import-export-service/drivestate.png)
 
 | Estado da unidade | Descrição |
 |:--- |:--- |
@@ -209,6 +206,10 @@ A tabela a seguir descreve cada estado pelo qual cada unidade em um trabalho pod
 | Concluído mais informações | Uma unidade passará para o estado Concluído mais informações quando o serviço encontrar alguns problemas ao copiar dados de ou para a unidade. As informações podem incluir erros, avisos ou mensagens informativas sobre a substituição de blobs.
 | Enviado de volta | A unidade passará para o estado Enviado de volta quando for enviada do data center para o endereço de retorno. |
 
+Essa imagem no Portal do Azure exibe o estado da unidade de um trabalho de exemplo:
+
+![Exibir estado da unidade](./media/storage-import-export-service/drivestate.png)
+
 A tabela a seguir descreve os estados de falha de unidade e as ações executadas para cada estado.
 
 | Estado da unidade | Evento | Resolução/Próxima etapa |
@@ -216,9 +217,8 @@ A tabela a seguir descreve os estados de falha de unidade e as ações executada
 | Nunca recebido | Uma unidade que está marcada como Nunca recebido (porque não foi recebida como parte da remessa do trabalho) chega em outra remessa. | A equipe de operações moverá a unidade para o estado Recebido. |
 | N/D | Uma unidade que não é parte de qualquer trabalho chega no data center como parte de outro trabalho. | A unidade será marcada como uma unidade adicional e será retornada ao cliente quando o trabalho associado ao pacote original for concluído. |
 
-
 ### <a name="time-to-process-job"></a>Tempo para processar o trabalho
-O tempo necessário para processar um trabalho de importação/exportação varia de acordo com diversos fatores, como tempo de envio, tipo do trabalho, tipo e tamanho dos dados sendo copiados, e tamanho dos discos fornecidos. O Serviço de Importação/Exportação não tem um SLA. Você pode usar a API REST para acompanhar o andamento do trabalho mais de perto. Há um parâmetro de porcentagem completa na operação Listar Trabalhos que fornece uma indicação do andamento da cópia. Contate-nos se precisar de uma estimativa para concluir um trabalho de importação/exportação de tempo crítico.
+O tempo necessário para processar um trabalho de importação/exportação varia de acordo com diversos fatores, como tempo de envio, tipo do trabalho, tipo e tamanho dos dados sendo copiados, e tamanho dos discos fornecidos. O serviço de Importação/Exportação não tem um SLA. Você pode usar a API REST para acompanhar o andamento do trabalho mais de perto. Há um parâmetro de porcentagem completa na operação Listar Trabalhos que fornece uma indicação do andamento da cópia. Contate-nos se precisar de uma estimativa para concluir um trabalho de importação/exportação de tempo crítico.
 
 ### <a name="pricing"></a>Preços
 **Taxa de manuseio de unidade**
@@ -234,9 +234,9 @@ Quando você envia unidades do Azure, você paga pelo custo de envio para a tran
 Não há nenhum custo de transação ao importar dados para o armazenamento de blobs. Os encargos de saída padrão são aplicáveis quando dados são exportados do armazenamento de blobs. Para obter mais detalhes sobre os custos da transação, consulte [Preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## <a name="quick-start"></a>Início rápido
-Nesta seção, forneceremos instruções passo a passo para criar um trabalho de importação e exportação. Atenda a todos os [pré-requisitos](#pre-requisites) antes de prosseguir.
+Nesta seção, fornecemos instruções passo a passo para criar um trabalho de importação e exportação. Atenda a todos os [pré-requisitos](#pre-requisites) antes de prosseguir.
 
-## <a name="how-to-create-an-import-job"></a>Como faço para criar um Trabalho de Importação?
+## <a name="create-an-import-job"></a>Criar um trabalho de importação
 Crie um trabalho de importação para copiar os dados para sua conta de armazenamento do Azure enviando uma ou mais unidades contendo dados para o data center especificado. O trabalho de importação transmite detalhes sobre os discos rígidos, dados a serem copiados, conta de armazenamento de destino e envio de informações para o serviço de Importação/Exportação do Azure. A criação de um trabalho de importação é um processo de três etapas. Primeiro, prepare suas unidades usando a ferramenta WAImportExport. Segundo, envie um trabalho de importação usando o Portal do Azure. Terceiro, envie as unidades para o endereço de envio fornecido durante a criação do trabalho e atualize as informações de envio nos detalhes do seu trabalho.   
 
 > [!IMPORTANT]
@@ -303,7 +303,7 @@ O comando PrepImport da ferramenta WAImportExport para a primeira sessão de có
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
 ```
 
-**Exemplo:**
+**Exemplo de importação 1**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
@@ -315,7 +315,7 @@ Para **adicionar mais unidades**, é possível criar um novo arquivo de driveset
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 ```
 
-**Exemplo**
+**Exemplo de importação 2**
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
 ```
@@ -326,7 +326,7 @@ Para adicionar outros dados ao mesmo driveset, é possível chamar o comando Pre
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
 ```
 
-**Exemplo:**
+**Exemplo de importação 3**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
@@ -334,7 +334,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 Veja mais detalhes sobre como usar a ferramenta WAImportExport em [Preparação de discos rígidos para importação](storage-import-export-tool-preparing-hard-drives-import.md).
 
-Além disso, consulte o [Fluxo de trabalho de exemplo para preparar discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) para obter instruções passo a passo mais detalhadas.  
+Além disso, confira o [Fluxo de trabalho de exemplo para preparo dos discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) para obter instruções passo a passo mais detalhadas.  
 
 ### <a name="create-the-import-job"></a>Criar o trabalho de importação
 1. Depois de preparar a unidade, navegue até a conta de armazenamento no Portal do Azure e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Importação**. Examine as etapas e marque a caixa de seleção para indicar que você preparou a unidade e que o arquivo de diário de unidade está disponível.
@@ -357,7 +357,7 @@ Além disso, consulte o [Fluxo de trabalho de exemplo para preparar discos rígi
     Você também pode atualizar o número da conta da transportadora na Etapa 2 do assistente, caso o trabalho esteja nas fases Criando, Enviando ou Transferindo. Você não poderá atualizar o número da conta da transportadora para o trabalho em questão quando ele estiver na fase de Empacotamento.
 7. Você pode acompanhar o andamento do trabalho no painel do portal. Veja o que significa cada estado do trabalho na seção anterior em [Exibindo o status do trabalho](#viewing-your-job-status).
 
-## <a name="how-to-create-an-export-job"></a>Como posso criar um Trabalho de Exportação?
+## <a name="create-an-export-job"></a>Criar um trabalho de exportação
 Crie um trabalho de exportação para notificar o serviço de Importação/Exportação que você enviará uma ou mais unidades vazias para o data center para que os dados possam ser exportados de sua conta de armazenamento para as unidades e as unidades, então, sejam enviadas para você.
 
 ### <a name="prepare-your-drives"></a>Preparar suas unidades
@@ -366,7 +366,7 @@ As pré-verificações a seguir são recomendadas para preparar suas unidades pa
 1. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta WAImportExport. Para obter mais informações, consulte [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar.
 2. Verifique se você pode ler/gravar no disco rígido que será enviado para o trabalho de exportação.
 
-### <a name="create-the-export-job"></a>Criar o trabalho de Exportação
+### <a name="create-the-export-job"></a>Criar o trabalho de exportação
 1. Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no Portal do Azure e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Exportação** e continue com o assistente.
 2. Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de exportação. Se desejar salvar dados de log detalhados para o trabalho de exportação, marque a opção para **Salvar o log detalhado no meu contêiner de blob 'waimportexport'**.
 3. Na Etapa 3, especifique quais dados de blob deseja exportar da sua conta de armazenamento para a(s) unidade(s) em branco. Você pode optar por exportar todos os dados de blob na conta de armazenamento ou especificar quais blobs ou conjuntos de blobs serão exportados.
@@ -496,7 +496,8 @@ Confira [Import PST files or SharePoint data to Office 365](https://technet.micr
 
 Confira o [Fluxo de trabalho de backup offline no Backup do Azure](../backup/backup-azure-backup-import-export.md).
 
-## <a name="see-also"></a>Consulte também:
+## <a name="next-steps"></a>Próximas etapas
+
 * [Configuração da ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 * [Exemplo de API REST de importação e exportação do Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c3e5ad8b7c8325049cb53d709673c7c7ad58108f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: f691f3886fce217ea784237f03a4f02ed58e12ee
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -29,14 +29,14 @@ Saiba mais sobre adaptadores de rede (NIC) e como trabalhar com eles. Uma NIC é
 
 ![Interface de rede](./media/virtual-network-network-interface/nic.png)
 
-Este artigo explica como trabalhar com os conceitos mostrados na figura. Clique em qualquer um dos conceitos a seguir para ir diretamente para essa seção do artigo.
+Este artigo explica como trabalhar com os conceitos mostrados na figura. Clique em qualquer um dos seguintes conceitos para ir diretamente para essa seção do artigo:
 
-- [Adaptadores de rede](#nics): uma NIC está conectada a uma sub-rede em uma rede virtual do Azure (VNet). Na figura, a **VM1** tem duas NICs anexadas, enquanto a **VM2** tem uma NIC anexada. Cada NIC está conectada com a mesma VNet, mas as sub-redes são diferentes. Esta seção fornece etapas para listar as NICs existentes e criar, alterar e excluir NICs. 
-- [Configurações de IP](#ip-configs): cada NIC está associada a uma ou mais configurações de IP. Cada configuração de IP está atribuída a um endereço IP privado. Uma configuração de IP pode estar associada a um endereço IP público. Na figura, **NIC1** e **NIC3** estão associadas a uma configuração de IP, enquanto a **NIC2** está associada a duas configurações de IP. A configuração de IP atribuída NIC1 e NIC3 ter endereços IP públicos atribuídos, ao passo que nenhuma configuração de IP atribuída à NIC2 está associada a um endereço IP público. Esta seção fornece etapas para criar, alterar e excluir as configurações de IP com endereços IP privados atribuídos usando os métodos de atribuição estática e dinâmica. Esta seção também fornece etapas para associar e desassociar os endereços IP públicos em uma configuração de IP. 
+- [Adaptadores de rede](#nics): uma NIC está conectada a uma sub-rede em uma rede virtual do Azure (VNet). Na figura, a **VM1** tem duas NICs anexadas, enquanto a **VM2** tem uma NIC anexada. Cada NIC está conectada com a mesma VNet, mas as sub-redes são diferentes. Esta seção fornece etapas para listar as NICs existentes e criar, alterar e excluir NICs.
+- [Configurações de IP](#ip-configs): cada NIC está associada a uma ou mais configurações de IP. Cada configuração de IP está atribuída a um endereço IP privado. Uma configuração de IP pode estar associada a um endereço IP público. Na figura, **NIC1** e **NIC3** estão associadas a uma configuração de IP, enquanto a **NIC2** está associada a duas configurações de IP. A configuração de IP atribuída NIC1 e NIC3 ter endereços IP públicos atribuídos, ao passo que nenhuma configuração de IP atribuída à NIC2 está associada a um endereço IP público. Esta seção fornece etapas para criar, alterar e excluir as configurações de IP com endereços IP privados atribuídos usando os métodos de atribuição estática e dinâmica. Esta seção também fornece etapas para associar e desassociar os endereços IP públicos em uma configuração de IP.
 - [Grupos de segurança de rede](#nsgs): os grupos de segurança de rede (NSG) contêm uma ou mais regras de segurança de entrada ou saída. As regras controlam o tipo de tráfego de rede que pode fluir de e para um adaptador de rede, uma sub-rede ou ambos. Na figura, **NIC1** e **NIC3** estão associadas a um NSG, já a **NIC2** não está associada. Esta seção apresenta etapas para exibir os NSGs aplicados a uma NIC, adicionar um NSG a uma NIC e remover um NSG de uma NIC.
-- [Máquinas virtuais](#vms): dependendo do tamanho, uma VM pode ter várias NICs anexadas a ela, com no mínimo uma NIC. Para saber quantas NICs cada tamanho da VM suporta, confira o artigo tamanhos de VMs do [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json#size-tables) ou [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json#size-tables). Nesta seção, você aprenderá a criar VMs com uma ou mais NICs, e como anexar e desanexar NICs em VMs existentes.
+- [Máquinas virtuais](#vms): dependendo do tamanho, uma VM pode ter várias NICs anexadas a ela, com no mínimo uma NIC. Para saber quantas NICs cada tamanho da VM suporta, confira o artigo tamanhos de VMs do [Windows](../virtual-machines/virtual-machines-windows-sizes.md) ou [Linux](../virtual-machines/virtual-machines-linux-sizes.md). Nesta seção, você aprenderá a criar VMs com uma ou mais NICs, e como anexar e desanexar NICs em VMs existentes.
 
-Se você não estiver familiarizado com NICs e VMs no Azure, recomendamos que você conclua o exercício [Criação da sua primeira Rede Virtual do Azure](virtual-network-get-started-vnet-subnet.md) antes de ler este artigo. O exercício ajuda a entender melhor as VNets e VMs. 
+Se você não estiver familiarizado com NICs e VMs no Azure, recomendamos que você conclua o exercício [Criação da sua primeira Rede Virtual do Azure](virtual-network-get-started-vnet-subnet.md) antes de ler este artigo. O exercício ajuda a entender melhor as VNets e VMs.
 
 Este artigo se aplica a NICs e VMs criadas por meio do modelo de implantação do Azure Resource Manager. A Microsoft recomenda criar recursos com o modelo de implantação do Resource Manager, em vez de usar o modelo de implantação clássico. Leia o artigo sobre as [Noções básicas dos modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) se você não estiver familiarizado com as diferenças entre os dois modelos.
 
@@ -58,7 +58,7 @@ Para criar uma NIC, siga as seguintes etapas:
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 3. Na folha **adaptadores de rede** que aparece, clique em **+ Adicionar**.
 4. Na folha em que aparece o texto **Criar adaptador de rede**, digite ou selecione valores para as seguintes configurações e clique em **Criar**:
-    
+
     |**Configuração**|**Obrigatório?**|**Detalhes**|
     |---|---|---|
     |**Nome**|Sim|O nome não pode ser alterado depois que a NIC é criada. O nome deve ser exclusivo no grupo de recursos selecionado. Leia o artigo [Convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) para obter sugestões de nomes.|
@@ -70,7 +70,7 @@ Para criar uma NIC, siga as seguintes etapas:
     |**Grupo de recursos**|Sim| A NIC pode existir no grupo de recursos iguais ou diferentes que a VM na qual foi anexada ou a VNet na qual foi conectada.|
     |**Localidade**|Sim|A VM anexada à NIC e a VNet com a qual foi conectada devem existir no mesmo local.|
 
-O portal do Azure cria uma configuração de IP primária nomeada **ipconfig1** com um endereço IP privado dinâmico e o associa à NIC criada. Para saber mais sobre as configurações de IP, leia a seção [Configurações de IP](#ip-configs) deste artigo. Ao criar uma NIC, você não pode especificar o nome da configuração de IP criada pelo portal, atribuir um endereço IP privado estático nem atribuir um endereço IP público. Se você criar a NIC usando o PowerShell ou a CLI, você pode especificar o nome da configuração de IP, um endereço IP estático e atribuir um endereço IP público. Depois de criar a NIC, você pode alterar o método de atribuição de endereço IP privado e o endereço IP público associado à NIC. Para alterar as configurações depois de criar uma NIC, siga as etapas da seção [Como alterar uma configuração de IP](#change-ip-config) deste artigo. 
+O portal do Azure cria uma configuração de IP primária nomeada **ipconfig1** com um endereço IP privado dinâmico e o associa à NIC criada. Para saber mais sobre as configurações de IP, leia a seção [Configurações de IP](#ip-configs) deste artigo. Ao criar uma NIC, você não pode especificar o nome da configuração de IP criada pelo portal, atribuir um endereço IP privado estático nem atribuir um endereço IP público. Se você criar a NIC usando o PowerShell ou a CLI, você pode especificar o nome da configuração de IP, um endereço IP estático e atribuir um endereço IP público. Depois de criar a NIC, você pode alterar o método de atribuição de endereço IP privado e o endereço IP público associado à NIC. Para alterar as configurações depois de criar uma NIC, siga as etapas da seção [Como alterar uma configuração de IP](#change-ip-config) deste artigo.
 
 >[!Note]
 > O Azure só atribui um endereço MAC à NIC depois que a NIC está anexada a uma VM iniciada pela primeira vez. Não é possível especificar o endereço MAC que o Azure atribui à NIC. O endereço MAC permanece atribuído à NIC até que a mesma seja excluída ou o endereço IP privado atribuído à configuração de IP primária da NIC primária seja alterado. Para saber mais sobre as configurações de IP, leia a seção [Configurações de IP](#ip-configs) deste artigo.
@@ -124,7 +124,7 @@ O encaminhamento de IP permite que a VM na qual a NIC está anexada:
 - Receba o tráfego de rede não destinado a um dos endereços IP atribuídos a qualquer uma das configurações de IP atribuídas à NIC.
 - Envie o tráfego de rede com um endereço IP de origem diferente daquele atribuído a uma de suas configurações de IP.
 
-A configuração deve ser habilitada para cada NIC anexada à VM que recebe o tráfego que a VM deve encaminhar. Uma VM pode encaminhar tráfego se houver uma ou mais NICs anexadas a ela. Embora o encaminhamento de IP seja uma configuração do Azure, a VM também deve executar um aplicativo capaz de encaminhar o tráfego, como, por exemplo, firewall, otimização de WAN e aplicativos de balanceamento de carga. Quando uma VM executa aplicativos de rede, a VM é conhecida como um dispositivo de rede virtual (NVA). Você pode exibir uma lista de NVAs prontas para implantar no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). O encaminhamento de IP normalmente é usado com rotas definidas pelo usuário. Para saber mais sobre as rotas definidas pelo usuário, leia o artigo [Rotas definidas pelo usuário](virtual-networks-udr-overview.md). 
+A configuração deve ser habilitada para cada NIC anexada à VM que recebe o tráfego que a VM deve encaminhar. Uma VM pode encaminhar tráfego se houver uma ou mais NICs anexadas a ela. Embora o encaminhamento de IP seja uma configuração do Azure, a VM também deve executar um aplicativo capaz de encaminhar o tráfego, como, por exemplo, firewall, otimização de WAN e aplicativos de balanceamento de carga. Quando uma VM executa aplicativos de rede, a VM é conhecida como um dispositivo de rede virtual (NVA). Você pode exibir uma lista de NVAs prontas para implantar no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). O encaminhamento de IP normalmente é usado com rotas definidas pelo usuário. Para saber mais sobre as rotas definidas pelo usuário, leia o artigo [Rotas definidas pelo usuário](virtual-networks-udr-overview.md).
 
 Para alterar as configurações de encaminhamento de IP de uma NIC, siga as seguintes etapas:
 
@@ -188,7 +188,7 @@ Há um número limitado de endereços IP públicos que podem ser usados dentro d
 ### <a name="create-ip-config"></a>Como adicionar uma configuração de IP secundária a uma NIC
 
 Você pode adicionar quantas configurações de IP forem necessárias a uma NIC, desde que respeite os limites listados no artigo [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Para adicionar uma configuração de IP a uma NIC, siga as seguintes etapas:
- 
+
 1. Se quiser adicionar uma configuração de IP em uma NIC, siga as etapas 1 a 3 na seção[Como exibir as configurações de adaptador de rede](#view-nics) deste artigo.
 2. Para a NIC selecionada, clique na folha **Configurações de IP**.
 3. Clique em **+ Adicionar** na folha de configurações de IP que é exibida.
@@ -199,7 +199,7 @@ Você pode adicionar quantas configurações de IP forem necessárias a uma NIC,
     |**Nome**|Sim|Deve ser exclusivo para a NIC|
     |**Tipo**|Sim|Como você está adicionando uma configuração de IP a uma NIC existente, e cada NIC deve ter uma configuração de IP primária, a sua única opção é **secundária**.|
     |**Método de atribuição de endereço IP privado**|Sim|Os endereços **dinâmicos** podem ser alterados se a VM for reiniciada depois de ter seu estado modificado para pausado (desalocada). Os endereços **estáticos** não serão liberados até que a NIC seja excluída. Especifique um endereço IP do intervalo de espaço de endereço da sub-rede que não esteja em uso por outra configuração de IP.|
-    |Endereço IP público|Não|**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create).|
+    |**Endereço IP público**|Não|**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create).|
 5. Adicione manualmente endereços IP privados secundários ao sistema operacional da VM seguindo as instruções do artigo [Como atribuir vários endereços IP a máquinas virtuais](virtual-network-multiple-ip-addresses-portal.md#os-config). Não adicione endereços IP públicos ao sistema operacional da VM.
 
 |**Ferramenta**|**Comando**|
@@ -249,14 +249,14 @@ Para associar ou desassociar um NSG a uma NIC, siga as seguintes etapas:
 1. Siga as etapas de 1 a 3 na seção [Exibição e alteração de adaptadores de rede e configurações](#view-nics) deste artigo para a NIC que você deseja associar ou desassociar um NSG.
 2. Na folha da NIC que você selecionou, clique no **Grupo de segurança de rede**. Uma folha é exibida com **Editar** na parte superior. Se nenhum NSG está associado atualmente à NIC, *nenhum* **Grupo de segurança de rede** é exibido. Se um NSG está associado atualmente a uma NIC, o **Grupo de segurança de rede** *NSG-Nome* (onde NSG-Nome é o nome do NSG atualmente associado à NIC) é exibido.
 3. Clique em **Editar**.
-4. Clique em **Grupo de Segurança de Rede**. Se nenhum grupo de segurança de rede estiver listado, é porque nenhum existe na sua assinatura. Para criar um NSG, conclua as etapas no artigo [Grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md). 
+4. Clique em **Grupo de Segurança de Rede**. Se nenhum grupo de segurança de rede estiver listado, é porque nenhum existe na sua assinatura. Para criar um NSG, conclua as etapas no artigo [Grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
 5. Na folha **Escolher grupo de segurança de rede** que aparece, clique em um NSG existente na lista para associar esse NSG à NIC ou clique em **Nenhum** para desassociar um NSG associado atualmente a uma NIC.
 6. Clique em **Salvar**.
 
 |**Ferramenta**|**Comando**|
 |---|---|
 |**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)]|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vms"></a>Como anexar e desanexar NICs de uma máquina virtual
 
@@ -269,12 +269,13 @@ Você pode anexar um NIC existente a uma VM ao criá-la ou você pode anexar um 
 
 Você pode usar o PowerShell ou a CLI para criar uma VM ou uma NIC com todos os atributos anteriores, não permitidos pelo portal. Antes de concluir as tarefas nas seções a seguir, considere as seguintes restrições e comportamentos:
 
-- O tamanho da VM deve dar suporte a várias NICs. Para saber quantas NICs cada tamanho da VM suporta, confira o artigo tamanhos de VMs do [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json#size-tables) ou [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json#size-tables).
+- Diferentes tamanhos de VM dão suporte a diferentes números de NICs. Para saber mais sobre a quantas NICs cada tamanho de VM dá suporte, leia os artigos sobre tamanhos de VM [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 - Por padrão, a primeira NIC conectada a uma VM é definida como o NIC *primária*. Todas as outras NICs anexadas à VM estão NICs *secundárias*.
 - Por padrão, todo o tráfego de saída da VM é enviado pelo endereço IP atribuído à configuração de IP primária da NIC primária. Logicamente que você pode controlar qual endereço IP é usado para tráfego de saída no sistema operacional da VM.
 - No passado, todas as VMs dentro do mesmo conjunto de disponibilidade deviam ter uma única ou diversas NICs. VMs com qualquer número de NICs agora podem existir no mesmo conjunto de disponibilidade. Uma VM só pode ser adicionada a um conjunto de disponibilidade quando ela é criada. Para saber mais sobre os conjuntos de disponibilidade, leia o artigo [Gerenciamento da disponibilidade das máquinas virtuais do Windows no Azure](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 - Enquanto as NICs anexadas à mesma VM podem ser conectadas a diferentes sub-redes em uma VNet, todas as NICs devem estar conectadas à mesma VNet.
 - Você pode adicionar qualquer endereço IP para qualquer configuração de IP de qualquer NIC primário ou secundário para um pool de back-end do Azure Load Balancer. No passado, somente o endereço IP primário para a NIC primária pode ser adicionado a um pool de back-end.
+- Excluir uma VM não exclui as NICs conectadas a ela. Quando uma VM é excluída, as NICs são desconectadas da VM. Você pode anexar as NICs a diferentes VMs, ou excluí-las.
 
 ### <a name="vm-create"></a>Como anexar uma ou mais NICs ao criar uma máquina virtual
 

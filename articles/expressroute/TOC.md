@@ -23,17 +23,11 @@
 ## Criar e modificar a configuração de emparelhamento
 ### [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (Clássico)](expressroute-howto-routing-classic.md)
-## Vincular uma rede virtual a um circuito de ExpressRoute
+## Vincular uma rede virtual a um circuito de Rota Expressa
 ### [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (Clássico)](expressroute-howto-linkvnet-classic.md)
-## Configurar um gateway de rede virtual para ExpressRoute
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (Clássico)](expressroute-howto-add-gateway-classic.md)
-## Criar conexões coexistentes ExpressRoute e de gateway de VPN Site a Site
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (Clássico)](expressroute-howto-coexist-classic.md)
+## [Configurar um gateway de rede virtual para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Configurar conexões coexistentes Site a Site e de ExpressRoute](expressroute-howto-coexist-resource-manager.md)
 ## [Mover um circuito do clássico para o Gerenciador de Recursos](expressroute-howto-move-arm.md)
 ## Configurar um roteador para o ExpressRoute
 ### [Configurar um roteador](expressroute-config-samples-routing.md)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 03/20/2016
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 382eecf863f1e4798533034f915101c08dd4f448
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,13 +29,13 @@ Este artigo é uma introdução à funcionalidade geoespacial do [Banco de Dados
 * Como faço para consultar dados geoespaciais no Banco de Dados de Documentos do Azure no SQL e no LINQ?
 * Como eu habilito ou desabilito a indexação espacial no Banco de Dados de Documentos?
 
-Consulte este [projeto Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) para obter exemplos de código.
+Consulte este [projeto do GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) para obter exemplos de código.
 
 ## <a name="introduction-to-spatial-data"></a>Introdução aos dados espaciais
 Os dados espaciais descrevem a posição e a forma dos objetos no espaço. Na maioria dos aplicativos, eles correspondem aos objetos na Terra, ou seja, dados geoespaciais. Os dados espaciais podem ser usados para representar a localização de uma pessoa, um lugar de interesse ou a divisa de uma cidade ou de um lago. Com frequência, os casos de uso comum envolvem consultas de proximidade, por exemplo, “encontre todas as cafeterias próximas ao local atual”. 
 
 ### <a name="geojson"></a>GeoJSON
-O Banco de Dados de Documentos dá suporte à indexação e à consulta de dados de ponto geoespaciais representados usando a [especificação GeoJSON](http://geojson.org/geojson-spec.html). As estruturas de dados GeoJSON são sempre  objetos JSON válidos e, portanto, podem ser armazenadas e consultadas usando o Banco de Dados de Documentos sem qualquer ferramenta ou biblioteca especializada. Os SDKs do Banco de Dados de Documentos fornecem classes auxiliares e métodos que facilitam o trabalho com dados espaciais. 
+O Banco de Dados de Documentos dá suporte à indexação e à consulta de dados de ponto geoespaciais representados usando a [especificação GeoJSON](https://tools.ietf.org/html/rfc7946). As estruturas de dados GeoJSON são sempre  objetos JSON válidos e, portanto, podem ser armazenadas e consultadas usando o Banco de Dados de Documentos sem qualquer ferramenta ou biblioteca especializada. Os SDKs do Banco de Dados de Documentos fornecem classes auxiliares e métodos que facilitam o trabalho com dados espaciais. 
 
 ### <a name="points-linestrings-and-polygons"></a>Pontos, LineStrings e Polígonos
 Um **Ponto** denota uma única posição no espaço. Em dados geoespaciais, um Ponto representa o local exato, que poderia ser um endereço de um supermercado, de um quiosque, de um automóvel ou de uma cidade.  Um ponto é representado no GeoJSON (e no Banco de Dados de Documentos) usando seu par de coordenadas ou a longitude e a latitude. Veja um exemplo JSON para um ponto.
@@ -236,7 +236,7 @@ O DocumentDB também dá suporte à execução de consultas inversas, ou seja, v
 
 ST_ISVALID e ST_ISVALIDDETAILED podem ser usados para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). ST_ISVALID retorna um valor Booliano e ST_ISVALIDDETAILED retorna o Booliano e uma cadeia de caracteres com o motivo pelo qual ele é considerado inválido.
 
-** Consulta **
+* * Consulta * *
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
@@ -385,7 +385,7 @@ E veja como você pode modificar uma coleção existente para aproveitar a index
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco de Dados de Documentos, poderá:
 
-* Começar a codificar com os [exemplos de código geoespacial .NET no Github](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
+* Começar a codificar com os [exemplos de código geoespacial .NET no GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Pratique com as consultas geoespaciais no [Query Playground do Banco de Dados de Documentos](http://www.documentdb.com/sql/demo#geospatial)
 * Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 * Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)

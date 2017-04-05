@@ -1,6 +1,6 @@
 ---
-title: "Reparação de um trabalho de Importação do Azure | Microsoft Docs"
-description: "Saiba como reparar um trabalho de importação criado e executado usando o serviço de Importação-Exportação."
+title: "Reparando um trabalho de importação do serviço de Importação/Exportação do Azure — v1 | Microsoft Docs"
+description: "Saiba como reparar um trabalho de importação criado e executado usando o serviço de Importação/Exportação do Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: a47b0da43a84bb77fb8de16c37811a4b87fe3fbf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9403fb0bb16227871388f063e9d0004c7186866e
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -31,9 +31,11 @@ O serviço de Importação/Exportação do Microsoft Azure pode não copiar algu
   
 -   A chave da conta de armazenamento mudou durante a transferência do arquivo.  
   
-Você pode executar a ferramenta de Importação/Exportação do Microsoft Azure com os arquivos de log de cópia do trabalho de importação, e a ferramenta carregará os arquivos ausentes (ou partes de um arquivo) em sua conta de armazenamento do Windows Azure para completar o trabalho de importação.  
+Você pode executar a Ferramenta de Importação/Exportação do Microsoft Azure com os arquivos de log de cópia do trabalho de importação, e a ferramenta carregará os arquivos ausentes (ou partes de um arquivo) em sua conta de armazenamento do Windows Azure para concluir o trabalho de importação.  
   
-O comando para reparar um trabalho de importação é **RepairImport**. Os parâmetros a seguir podem ser especificados:  
+## <a name="repairimport-parameters"></a>Parâmetros de RepairImport
+
+Os seguintes parâmetros podem ser especificados com **RepairImport**: 
   
 |||  
 |-|-|  
@@ -47,7 +49,7 @@ O comando para reparar um trabalho de importação é **RepairImport**. Os parâ
 |**/CopyLogFile:**<DriveCopyLogFile\>|**Obrigatório.** Caminho até o arquivo de log de cópia da unidade (log detalhado ou de erro). O arquivo é gerado pelo serviço de Importação/Exportação do Windows Azure e pode ser baixado do armazenamento de blobs associado ao trabalho. O arquivo de log de cópia contém informações sobre blobs com falha ou arquivos que devem ser reparados.|  
 |**/PathMapFile:**<DrivePathMapFile\>|**Opcional** Caminho até um arquivo de texto que pode ser usado para resolver ambiguidades se você tiver vários arquivos com o mesmo nome que foram importados no mesmo trabalho. Na primeira vez que a ferramenta é executada, ela pode preencher esse arquivo com todos os nomes ambíguos. Execuções subsequentes da ferramenta usarão esse arquivo para resolver as ambiguidades.|  
   
-## <a name="using-the-repairimport-command"></a>Como usar o comando RepairImport  
+## <a name="using-the-repairimport-command"></a>Usando o comando RepairImport  
 Para reparar a dados de importação transmitindo os dados pela rede, você deve especificar os diretórios que contêm os arquivos originais importados usando o parâmetro `/d`. Você também deve especificar o arquivo de log de cópia que você baixou da sua conta de armazenamento. Uma linha de comando típica para reparar um trabalho de importação com falhas parciais é semelhante a:  
   
 ```  
@@ -73,7 +75,7 @@ Veja a seguir um exemplo de um arquivo de log de cópia. Nesse caso, uma parte d
 </DriveLog>  
 ```
   
-Quando esse log de cópia for passado para a ferramenta de Importação/Exportação do Azure, a ferramenta tentará concluir a importação desse arquivo copiando o conteúdo ausente pela rede. Seguindo o exemplo acima, a ferramenta procurará o arquivo original `\animals\koala.jpg` nos dois diretórios `C:\Users\bob\Pictures` e `X:\BobBackup\photos`. Se o arquivo `C:\Users\bob\Pictures\animals\koala.jpg` existir, a ferramenta de Importação/Exportação do Azure copiará o intervalo de dados ausente no blob correspondente `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
+Quando esse log de cópia for passado para a Ferramenta de Importação/Exportação do Azure, a ferramenta tentará concluir a importação desse arquivo copiando o conteúdo ausente pela rede. Seguindo o exemplo acima, a ferramenta procurará o arquivo original `\animals\koala.jpg` nos dois diretórios `C:\Users\bob\Pictures` e `X:\BobBackup\photos`. Se o arquivo `C:\Users\bob\Pictures\animals\koala.jpg` existir, a Ferramenta de Importação/Exportação do Azure copiará o intervalo de dados ausente no blob correspondente `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
   
 ## <a name="resolving-conflicts-when-using-repairimport"></a>Resolvendo conflitos ao usar RepairImport  
 Em algumas situações, talvez a ferramenta não seja capaz de localizar ou abrir o arquivo necessário por um dos seguintes motivos: não foi possível encontrar o arquivo, o arquivo não está acessível, o nome do arquivo é ambíguo ou o conteúdo do arquivo não está correto.  
@@ -102,10 +104,11 @@ Em seguida, a ferramenta gravará os caminhos do arquivo problemático em `9WM35
   
 Depois de disponibilizar os arquivos necessários para a ferramenta, ou atualizar o arquivo de mapa do caminho, execute novamente a ferramenta para concluir o processo de importação.  
   
-## <a name="see-also"></a>Consulte também  
-[Configurar a ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)   
-[Preparação de discos rígidos para um trabalho de importação](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
-[Reparação de um trabalho de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)   
-[Solução de problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>Próximas etapas
+ 
+* [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)   
+* [Preparação de discos rígidos para um trabalho de importação](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Reparação de um trabalho de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
 

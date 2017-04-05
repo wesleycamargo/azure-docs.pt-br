@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 02/10/2017
 ms.author: vturecek
+redirect_url: /azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc0a7dfa74e9100a61fbc45fda908e9227cf54da
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 73b7e1c0cb93ae7c54780a3aab837b0e5bcdb0a0
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -34,19 +36,13 @@ A API Web na Malha de Serviço é o mesma API Web ASP.NET que você conhece e ad
 O aplicativo de API Web, em si, não muda. Ele não é diferente dos aplicativos de API Web que você possa ter desenvolvido no passado, e você poderá simplesmente mover a maioria dos códigos do aplicativo diretamente. Mas, se você usava a hospedagem no IIS, onde você hospedará o aplicativo pode ser um pouco diferente do que você estava acostumado. Antes de adentrarmos na parte de hospedagem, vamos começar com algo mais familiar: o aplicativo de API Web.
 
 ## <a name="create-the-application"></a>Criar o aplicativo
-Comece criando um novo aplicativo do Service Fabric com um único serviço sem estado no Visual Studio 2015:
-
-![Criar um novo aplicativo da Malha de Serviço](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+Comece criando um novo aplicativo do Service Fabric com um único serviço sem estado no Visual Studio 2015.
 
 Existe um modelo do Visual Studio para um serviço sem estado usando a API Web à sua disposição. Neste tutorial, vamos criar um projeto de API da Web do zero que resulta no que você obteria se você selecionasse esse modelo.
 
 Selecione um projeto de serviço sem estado em branco para aprender a criar um projeto de API Web do zero. Você também pode começar com o modelo de API Web do serviço sem estado e simplesmente acompanhá-lo.  
 
-![Criar um único serviço sem estado](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
-
 A primeira etapa é obter alguns pacotes NuGet para o API Web. O pacote que queremos usar é o Microsoft.AspNet.WebApi.OwinSelfHost. Esse pacote inclui todos os pacotes de API Web necessários e os pacotes de *hospedagem* . Isso será importante mais tarde.
-
-![Criar a API Web usando o Gerenciador de Pacotes NuGet](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
 Depois que os pacotes tiverem sido instalados, você poderá começar a criar a estrutura do projeto básico de API Web. Se você usou o API Web, a estrutura do projeto deve ser bastante familiar. Comece adicionando um diretório `Controllers` e um controlador de valores simples:
 
@@ -626,16 +622,12 @@ namespace WebService
 }
 ```
 
-Agora que você juntou todas as peças, seu projeto deve se parecer com um típico aplicativo de API Web, com pontos de entrada API dos Reliable Services e um host OWIN:
-
-![API Web com pontos de entrada da API dos Reliable Services e hospedagem OWIN](media/service-fabric-reliable-services-communication-webapi/webapi-projectstructure.png)
+Agora que você juntou todas as peças, seu projeto deve se parecer com um típico aplicativo de API Web, com pontos de entrada API dos Reliable Services e um host OWIN.
 
 ## <a name="run-and-connect-through-a-web-browser"></a>Execução e conexão por meio de um navegador da Web
 [Configure seu ambiente de desenvolvimento](service-fabric-get-started.md), caso ainda não tenha feito isso.
 
 Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando que o servidor Web foi aberto em http://localhost:8281/.
-
-![Janela Eventos de Diagnóstico do Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
 
 > [!NOTE]
 > Se a porta já tiver sido aberta por outro processo em seu computador, você poderá ver um erro aqui. Isso indica que o ouvinte não pôde ser aberto. Se esse for o caso, tente usar outra porta na configuração do ponto de extremidade em ServiceManifest.xml.
@@ -671,10 +663,5 @@ Para obter mais informações sobre como criar aplicativos e instâncias de serv
 
 ## <a name="next-steps"></a>Próximas etapas
 [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

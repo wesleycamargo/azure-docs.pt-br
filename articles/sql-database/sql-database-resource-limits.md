@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 15692a155cdb55d8dc6eeeb68df264411e46b662
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 61eac09668b14a98a42b1907a54577d80eb933a6
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -52,7 +52,7 @@ Para um banco de dados individual, os limites são definidos pelo nível de serv
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> Os clientes que usam os níveis de desempenho P11 e P15 podem usar até 4 TB de armazenamento incluído sem custo adicional. Essa opção de 4 TB está atualmente em visualização pública nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Europa Ocidental, Sudeste Asiático, Leste do Japão, Leste da Austrália, Central do Canadá e Leste do Canadá. Para ver as limitações atuais, consulte [Limitações atuais de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Os clientes que usam os níveis de desempenho P11 e P15 podem usar até 4 TB de armazenamento incluído sem custo adicional. Essa opção de 4 TB está atualmente em visualização pública nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Europa Ocidental, Sudeste Asiático, Leste do Japão, Leste da Austrália, Central do Canadá e Leste do Canadá.
 >
 
 ### <a name="elastic-pools"></a>Pools elásticos
@@ -67,10 +67,10 @@ Para obter uma definição expandida de cada recurso listado nas tabelas anterio
 | --- | --- | --- |
 | Bancos de dados usando a exportação Automatizada por assinatura |10 |A exportação automatizada permite que você crie uma agenda personalizada para realização do backup de seus bancos de dados SQL. A visualização desse recurso será encerrada em 1º de março de 2017.  |
 | Bancos de dados por servidor |Até 5.000 |Até 5.000 bancos de dados são permitidos por servidor em servidores V12. |
-| DTUs por servidor |45000 |São permitidas&45;.000 DTUs por servidor em servidores V12 para o provisionamento de bancos de dados independentes e pools elásticos. O número total de bancos de dados independentes e pools permitidos por servidor é limitado somente pelo número de DTUs do servidor.  
+| DTUs por servidor |45000 |São permitidas 45.000 DTUs por servidor em servidores V12 para o provisionamento de bancos de dados independentes e pools elásticos. O número total de bancos de dados independentes e pools permitidos por servidor é limitado somente pelo número de DTUs do servidor.  
 
 > [!IMPORTANT]
-> A Exportação Automatizada do Banco de Dados SQL do Azure está agora em visualização e será desativada em 1º de março de 2017. A partir de 1º de dezembro de 2016, não será mais possível configurar a exportação automatizada em um banco de dados SQL. Todos os trabalhos de exportação automatizada existentes continuarão funcionando até 1º de março de 2017. Após 1º de dezembro de 2016, você poderá usar a [retenção de backup de longo prazo](sql-database-long-term-retention.md) ou a [Automação do Azure](../automation/automation-intro.md) para arquivar bancos de dados SQL periodicamente, usando o PowerShell periodicamente de acordo com um agendamento de sua escolha. Para obter um script de exemplo, baixe o [script de exemplo no GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+> A Exportação Automatizada do Banco de Dados SQL do Azure está agora em visualização e será desativada em 1º de março de 2017. A partir de 1º de dezembro de 2016, não será mais possível configurar a exportação automatizada em um banco de dados SQL. Todos os trabalhos de exportação automatizada existentes continuarão funcionando até 1º de março de 2017. Após 1º de dezembro de 2016, você poderá usar a [retenção de backup de longo prazo](sql-database-long-term-retention.md) ou a [Automação do Azure](../automation/automation-intro.md) para arquivar bancos de dados SQL periodicamente, usando o PowerShell periodicamente de acordo com um agendamento de sua escolha. Para obter um script de exemplo, baixe o [script de exemplo no GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).
 >
 
 
@@ -80,5 +80,4 @@ Para obter uma definição expandida de cada recurso listado nas tabelas anterio
 [Faixas de Serviço de Banco de Dados SQL do Azure e Níveis de Desempenho](sql-database-service-tiers.md)
 
 [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
-
 

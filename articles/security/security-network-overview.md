@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2017
+ms.date: 03/28/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4f8ff754858dfb12a7c1fb6e11b1ea99d99d4aeb
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 7fe9111061fed4af6aa720d0b158e5b4f2becd90
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,6 +29,7 @@ O objetivo deste artigo é facilitar o entendimento do que o Microsoft Azure tem
 Este artigo de Visão geral da Segurança de Rede do Azure tem como foco os seguintes tópicos:
 
 * Rede do Azure
+* Observador de Rede do Azure
 * Controle de acesso à rede
 * Acesso remoto seguro e conectividade entre instalações
 * Disponibilidade
@@ -43,6 +44,18 @@ As máquinas virtuais precisam de conectividade de rede. Para dar suporte a esse
 Saiba mais:
 
 * [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
+
+## <a name="azure-network-watcher"></a>Observador de Rede do Azure
+O Observador de Rede do Azure inclui vários recursos de monitoramento de rede que ajudarão com a solução de problemas, além de fornecerem um novo conjunto de ferramentas que auxiliam na identificação de problemas de segurança.
+
+A [Exibição do Grupo de Segurança](/network-watcher/network-watcher-security-group-view-overview.md) ajuda com a conformidade de segurança e auditoria de Máquinas Virtuais e pode ser usada para a realização de auditorias programáticas comparando as políticas de linhas de base definida pela organização com as regras efetivas de cada uma das VMs. Isso pode ajudar a identificar qualquer descompasso de configuração.
+
+A [captura de pacote](/network-watcher/network-watcher-packet-capture-overview.md) permite que você capture o tráfego de rede que entra e sai da máquina virtual. Além de ajudar permitindo que você colete estatísticas de rede e com a solução de problemas de aplicativo, a captura de pacote pode ser extraordinária na investigação das intrusões de rede. Você também pode usar essa funcionalidade em conjunto com o Azure Functions para iniciar capturas de rede em resposta a alertas específicos do Azure.
+
+Para saber mais sobre o Observador de Rede do Azure e como começar a testar algumas das funcionalidades nos laboratórios, leia a [visão geral do monitoramento do Observador de Rede do Azure](/network-watcher/network-watcher-monitoring-overview.md)
+
+>[!NOTE]
+O Observador de Rede do Azure ainda está no modo preview público, de modo que ele pode não ter o mesmo nível de disponibilidade e confiabilidade que os serviços que estão na versão de disponibilidade geral. Determinados recursos podem não ter suporte, podem ter restrição e podem não estar disponíveis em todos os locais do Azure. Para ver as notificações mais recentes sobre disponibilidade e status desse serviço, verifique a [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=network-watcher)
 
 ## <a name="network-access-control"></a>Controle de acesso à rede
 O controle de acesso à rede é o ato de limitar a conectividade de entrada ou saída de sub-redes ou dispositivos específicos em uma Rede Virtual do Azure. O objetivo do controle de acesso à rede é certificar-se de que suas máquinas virtuais e seus serviços são acessíveis apenas aos usuários e dispositivos para os quais você deseja que tenham esse acesso. Os controles de acesso baseiam-se em decisões de permissão ou negação para conexões de entrada ou saída da máquina virtual ou do serviço.
@@ -213,6 +226,7 @@ Você também pode usar o [Microsoft Power BI](https://powerbi.microsoft.com/wha
 Saiba mais:
 
 * [Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md)
+
 
 ## <a name="name-resolution"></a>Resolução de nomes
 Resolução de nomes é uma função crítica para todos os serviços hospedados no Azure. De uma perspectiva de segurança, o comprometimento da função de resolução de nomes pode fazer com que um invasor redirecione as solicitações de seus sites para o site do invasor. Uma resolução de nomes segura é um requisito de todos os serviços hospedados na nuvem.

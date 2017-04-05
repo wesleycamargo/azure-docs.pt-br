@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f0292efd50721ef58028df778052eb0ed6fcda84
-ms.openlocfilehash: 724eba50b7428b0012e8f062e264ce057e2a5287
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0dac2cc79de884def8d4cf0ee89dc2f645d35b34
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -26,12 +27,15 @@ ms.openlocfilehash: 724eba50b7428b0012e8f062e264ce057e2a5287
 ## <a name="introduction"></a>Introdução
 O Stream Analytics expõe dois tipos de logs: 
 * [Logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) que estão sempre habilitados e fornecem informações sobre as operações realizadas em trabalhos;
-* [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) que são configuráveis pelo usuário e fornecem informações mais avançadas sobre tudo o que acontece com o trabalho desde quando ele é criado, atualizado, enquanto ele está em execução e até ser excluído;
+* [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) que são configuráveis e fornecem informações mais avançadas sobre tudo o que acontece com o trabalho desde quando ele é criado, atualizado, enquanto ele está em execução e até ser excluído.
+
+> [!NOTE]
+> Observe que o uso de serviços, como o Armazenamento do Azure, Hub de Eventos e Log Analytics, para análise de dados fora de conformidade serão cobrados com base no modelo de preços desses serviços.
 
 ## <a name="how-to-enable-diagnostic-logs"></a>Como habilitar os logs de diagnóstico
 Os logs de diagnóstico estão **desligados** por padrão. Para habilitá-los, siga estas etapas:
 
-Entre no Portal do Azure e navegue até a folha de trabalho de streaming e use a folha de "Logs de diagnóstico" em "Monitoramento".
+Entre no Portal do Azure e navegue até a folha de trabalho de streaming. Vá para a folha "Logs de diagnóstico", em "Monitoramento".
 
 ![navegação de folha para logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/image1.png)  
 
@@ -45,7 +49,7 @@ Nos diagnósticos abertos, altere o status para "Ligado".
 
 Configure o destino de arquivamento desejado (conta de armazenamento, hub de eventos, Log Analytics) e selecione as categorias de logs que você deseja coletar (Execução, Criação). Em seguida, salve a nova configuração de diagnóstico.
 
-Uma vez salva, a configuração levará cerca de 10 minutos para entrar em vigor e após isso os logs começarão a aparecer no destino de arquivamento configurado, que pode ser visto na folha “Logs de diagnóstico”:
+A configuração depois de salva leva cerca de 10 minutos para entrar em vigor. Depois disso, os logs começarão a aparecer no destino de arquivamento configurado (que você pode ver na folha "Logs de diagnóstico"):
 
 ![navegação de folha para logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/image4.png)
 
@@ -58,7 +62,7 @@ Há duas categorias de logs de diagnóstico que capturamos no momento:
 * **Execução:** capture o que está ocorrendo durante a execução do trabalho.
     * Erros de conectividade;
     * Erros de processamento de dados;
-        * Eventos que não estão em conformidade com a definição de consulta (valores e tipos de campo incompatíveis, campos ausentes etc.);
+        * Eventos que não estão em conformidade com a definição de consulta (valores e tipos de campo incompatíveis, campos ausentes, etc.);
         * Erros de avaliação da expressão;
     * Etc.
 
@@ -68,12 +72,12 @@ Todos os logs são armazenados no formato JSON e cada entrada tem os seguintes c
 Nome | Descrição
 ------- | -------
 tempo real | O carimbo de data/hora (em UTC) do log
-resourceId | A ID do recurso em que a operação ocorreu, em maiúsculas. Inclui a ID de assinatura, o grupo de recursos e o nome do trabalho. Por exemplo, `/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB`
-categoria | A categoria do log, `Execution` ou `Authoring`
-operationName | Nome da operação que está registrada. Por exemplo, `Send Events: SQL Output write failure to mysqloutput`
-status | O status da operação. Por exemplo: `Failed, Succeeded`.
-level | Nível do log. Por exemplo, `Error, Warning, Informational`
-propriedades | detalhes específicos de entrada de log, serializada como cadeia de caracteres JSON, consulte abaixo para obter mais detalhes
+resourceId | A ID do recurso em que a operação ocorreu, em maiúsculas. Inclui a ID da assinatura, o grupo de recursos e o nome do trabalho. Por exemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+categoria | A categoria do log, **Execução** ou **Criação**.
+operationName | Nome da operação que está registrada. Por exemplo, **Enviar Eventos: Falha na gravação da saída do SQL em mysqloutput**
+status | O status da operação. Por exemplo, **Com falha, Êxito**.
+level | Nível do log. Por exemplo, **Erro, Aviso, Informativo**.
+propriedades | detalhes específicos de entrada do log; serializado como cadeia de caracteres JSON; consulte abaixo para obter mais detalhes
 
 ### <a name="execution-logs-properties-schema"></a>Esquema de propriedades de logs de execução
 Os logs de execução contêm informações sobre eventos que ocorreram durante a execução do trabalho do Stream Analytics.
@@ -86,7 +90,7 @@ Nome | Descrição
 ------- | -------
 Fonte | Nome da entrada ou saída do trabalho em que o erro ocorreu.
 Mensagem | Mensagem associada ao erro.
-Tipo | O tipo de erro. Por exemplo, `DataConversionError, CsvParserError, ServiceBusPropertyColumnMissingError` etc.
+Tipo | O tipo de erro. Por exemplo, **DataConversionError, CsvParserError e ServiceBusPropertyColumnMissingError**.
 Dados | Contém dados úteis para localizar com precisão a origem do erro. Sujeito a truncamento dependendo do tamanho.
 
 Dependendo do valor de **operationName**, os erros de dados terão o esquema a seguir:
@@ -102,8 +106,8 @@ Nome | Descrição
 -------- | --------
 Erro | (opcional) Informações de erro, geralmente informações de exceção se disponíveis.
 Mensagem| Mensagem de log.
-Tipo | Tipo de mensagem, mapeia para categorização interna de erros: por exemplo, JobValidationError, BlobOutputAdapterInitializationFailure etc.
-ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica exclusivamente a execução do trabalho. Todas as entradas de log de execução produzidas desde que o trabalho foi iniciado até ele parar terão a mesma “ID de Correlação”.
+Tipo | Tipo de mensagem, mapeia para categorização interna de erros: por exemplo, **JobValidationError, BlobOutputAdapterInitializationFailure** etc.
+ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica exclusivamente a execução do trabalho. Todas as entradas de log de execução produzidas desde que o trabalho foi iniciado até ele parar terão a mesma "ID de Correlação".
 
 
 
@@ -113,10 +117,5 @@ ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_ide
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
