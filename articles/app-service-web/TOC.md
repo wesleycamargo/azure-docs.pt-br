@@ -15,13 +15,6 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Tutoriais
-## [Adicionar funcionalidade a um aplicativo Web](app-service-web-get-started-2.md)
-## [Aplicativo ASP.NET com Banco de dados SQL](web-sites-dotnet-get-started.md)
-## [Aplicativo Laravel com MySQL](app-service-web-php-get-started.md)
-## [Aplicativo Sails.js com Banco de dados NOSQL](app-service-web-nodejs-sails.md)
-## [Aplicativo Java com Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
-## [Aplicativo Java com IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-## [Aplicativo do Django com o MySQL](web-sites-python-ptvs-django-mysql.md)
 
 # Conceitos
 ## [Como funciona o Serviço de Aplicativo](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
@@ -34,20 +27,25 @@
 # Guias de Instruções
 ## Desenvolver seu aplicativo    
 ### ASP.NET
-
+#### [Aplicativo ASP.NET com Banco de dados SQL](web-sites-dotnet-get-started.md)
 #### [Desenvolver um aplicativo ASP.NET Core com código VS](web-sites-create-web-app-using-vscode.md)
 ### PHP
+#### [Aplicativo Laravel com MySQL](app-service-web-php-get-started.md)
 #### [Configurar o seu projeto em PHP](web-sites-php-configure.md)
 #### [Configurar multissite em WordPress](web-sites-php-convert-wordpress-multisite.md) 
 ### Node.js
+#### [Aplicativo Sails.js com Banco de dados NOSQL](app-service-web-nodejs-sails.md)
 #### [Usar io.js](web-sites-nodejs-iojs.md)
 #### [Depurar aplicativo Node.js](web-sites-nodejs-debug.md)
 ### Java
-
+#### [Aplicativo Java com Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
+#### [Aplicativo Java com IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Usar SDK do Azure para Java](java-create-azure-website-using-java-sdk.md)
 #### [Carregar aplicativo existente](web-sites-java-add-app.md)
 #### [Depuração remota do Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [Depuração remota do IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
+### Python
+#### [Aplicativo do Django com o MySQL](web-sites-python-ptvs-django-mysql.md)
 
 ### [Enviar emails com SendGrid](sendgrid-dotnet-how-to-send-email.md)
 
@@ -82,6 +80,7 @@
 
 ### [Migrar do IIS](web-sites-migration-from-iis-server.md)
 ### [Teste em produção](app-service-web-test-in-production-get-start.md)
+### [Adicionar funcionalidade a um aplicativo Web](app-service-web-get-started-2.md)
 
 ## Conectar ao banco de dados/recursos        
 

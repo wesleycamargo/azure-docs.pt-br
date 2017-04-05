@@ -41,7 +41,7 @@ Veja os itens necessários:
 
 2. O conector de mensagem EDIFACT de decodificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
-3.    Na caixa de pesquisa, digite "EDIFACT" como filtro. Escolha **Decodificar Mensagem EDIFACT**.
+3. Na caixa de pesquisa, digite "EDIFACT" como filtro. Escolha **Decodificar Mensagem EDIFACT**.
    
     ![pesquisar EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
@@ -56,7 +56,7 @@ Veja os itens necessários:
     | Nome da Conexão * |Digite um nome para a conexão. |
     | Uma conta de integração * |Insira um nome para sua conta de integração. Verifique se sua conta de integração e o aplicativo lógico estão no mesmo local do Azure. |
 
-4.    Ao concluir a criação da sua conexão, escolha **Criar**. Os detalhes de conexão devem ser semelhantes a este exemplo:
+4. Ao concluir a criação da sua conexão, escolha **Criar**. Os detalhes de conexão devem ser semelhantes a este exemplo:
 
     ![detalhes da conta de integração](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 
