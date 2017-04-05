@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -274,7 +274,7 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
     ![Verificar as máquinas virtuais](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Na guia **Configurar** das propriedades da máquina virtual, as seguintes propriedades de rede podem ser modificadas.
 
-* **Número de adaptadores de rede na máquina virtual de destino** - o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique as [especificações de tamanho da máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md) para saber o número de adaptadores suportado pelo tamanho da máquina virtual. Quando você altera o tamanho de uma máquina virtual e salva as configurações, o número de adaptadores de rede é alterado na próxima vez que você abrir a página **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o número mínimo de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada, conforme indicado a seguir:
+* **Número de adaptadores de rede na máquina virtual de destino** - o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique as [especificações de tamanho da máquina virtual](../virtual-machines/linux/sizes.md) para saber o número de adaptadores suportado pelo tamanho da máquina virtual. Quando você altera o tamanho de uma máquina virtual e salva as configurações, o número de adaptadores de rede é alterado na próxima vez que você abrir a página **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o número mínimo de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada, conforme indicado a seguir:
 
   * Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
   * Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.

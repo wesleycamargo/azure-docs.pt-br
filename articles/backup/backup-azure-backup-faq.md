@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 463e2a8af1fd319b396c6a769896344cac5f9f32
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -187,7 +187,7 @@ Sim. Você pode executar os trabalhos de backup no Windows Server ou em estaçõ
  Todos os dados dos quais é feito backup do Azure Backup Agent, SCDPM ou Servidor de Backup do Azure são compactados e criptografados antes de serem transferidos. Depois que a compactação e a criptografia forem aplicadas, os dados no cofre de backup serão de 30 a 40% menores.
 
  ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Há uma maneira de ajustar a quantidade de largura de banda usada pelo serviço de Backup?<br/>
-  Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Você pode ajustar a quantidade de largura de banda e os horários quando usar essa largura de banda. Para obter instruções passo a passo, consulte ** [Habilitar limitação de rede](backup-configure-vault.md#enable-network-throttling)**.
+  Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Você pode ajustar a quantidade de largura de banda e os horários quando usar essa largura de banda. Para obter instruções passo a passo, consulte **[Habilitar limitação de rede](backup-configure-vault.md#enable-network-throttling)**.
 
 
 
@@ -213,7 +213,7 @@ O Backup do Azure dá suporte à seguinte lista de sistemas operacionais para ba
 
 **Para o backup de VM do Azure:**
 
-* **Linux**: o Backup do Azure dá suporte a [uma lista de distribuições endossadas pelo Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) exceto o principal sistema operacional Linux.  Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python.
+* **Linux**: o Backup do Azure dá suporte a [uma lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md) exceto o principal sistema operacional Linux.  Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python.
 * **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
 
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ Requisitos e principais aspectos do emparelhamento VNet:
 * O emparelhamento de VNet é entre duas VNets, mas não há uma relação transitiva derivada entre os emparelhamentos. Por exemplo, se VNetA é emparelhada com VNetB e VNetB é emparelhada com VNetC, VNetA *não* é emparelhada com VNetC.
 * Você pode emparelhar VNets existentes em duas assinaturas diferentes, desde que um usuário com privilégios de ambas as assinaturas autorize o emparelhamento e as assinaturas estejam associadas ao mesmo locatário do Active Directory.
 * VNets podem ser emparelhadas se ambas são criadas por meio do modelo de implantação do Gerenciador de Recursos ou se uma é criada por meio do modelo de implantação do Gerenciador de Recursos e a outra é criada por meio do modelo de implantação clássico. No entanto, duas VNets criadas por meio do modelo de implantação clássico não podem ser emparelhadas uma à outra. Ao emparelhar VNets criadas por meio de diferentes modelos de implantação, ambas as VNets devem existir na *mesma* assinatura. A capacidade de emparelhar VNets criadas por meio de diferentes modelos de implantação que existem em assinaturas *diferentes* está em versão de **visualização**. Leia o artigo [Criar um emparelhamento de rede virtual usando o Powershell](virtual-networks-create-vnetpeering-arm-ps.md) para obter mais detalhes.
-* Embora a comunicação entre VMs em VNets emparelhadas não tenha restrição de largura de banda adicional, há uma largura de banda de rede máxima, dependendo do tamanho da VM que ainda é aplicável. Para saber mais sobre a largura de banda de rede máxima para diferentes tamanhos de VM, leia os artigos sobre tamanhos de VM do [Windows](../virtual-machines/virtual-machines-windows-sizes.md) ou do [Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+* Embora a comunicação entre VMs em VNets emparelhadas não tenha restrição de largura de banda adicional, há uma largura de banda de rede máxima, dependendo do tamanho da VM que ainda é aplicável. Para saber mais sobre a largura de banda de rede máxima para diferentes tamanhos de VM, leia os artigos sobre tamanhos de VM do [Windows](../virtual-machines/windows/sizes.md) ou do [Linux](../virtual-machines/linux/sizes.md).
 
 ![Emparelhamento VNet básico](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ Há limites no número de emparelhamentos permitidos para uma única rede virtua
 ## <a name="pricing"></a>Preços
 Há um custo nominal para tráfego de entrada e saída que utiliza um emparelhamento de VNet. Para saber mais, consulte a [página de preço](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Aprenda a criar um emparelhamento de VNet usando:
 
 * [O portal do Azure](virtual-networks-create-vnetpeering-arm-portal.md)
 * [PowerShell do Azure](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Um modelo do Azure Resource Manager](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
