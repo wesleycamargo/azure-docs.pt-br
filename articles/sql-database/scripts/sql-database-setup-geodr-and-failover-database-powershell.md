@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 Esse exemplo de script do PowerShell configura a Replicação Geográfica Ativa para um banco de dados individual e faz o failover desse banco de dados para a réplica secundária.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>Exemplos de Scripts
 

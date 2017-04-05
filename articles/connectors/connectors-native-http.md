@@ -143,7 +143,7 @@ Um * significa que é um campo obrigatório.
 | Password* |Senha |Senha para autenticação |
 
 > [!TIP]
-> Se você quiser usar uma senha que não é possível recuperar na definição, use um parâmetro `securestring` e a função de definição do fluxo de trabalho `@parameters()`[](http://aka.ms/logicappdocs).
+> Se você quiser usar uma senha que não é possível recuperar na definição, use um parâmetro `securestring` e a `@parameters()` [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
 > 
 > 
 

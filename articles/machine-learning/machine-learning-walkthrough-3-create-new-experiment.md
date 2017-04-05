@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: bd4a38e74ecab47071631f7e67e99c7806abd935
-ms.openlocfilehash: e8f1d55dd374608b49d4189fb47603a6ddaee3dd
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: cd410316910bce76f5c915c06e83b24c034481b7
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -55,10 +56,10 @@ A próxima etapa neste passo a passo é criar um teste no Estúdio de Aprendizad
 ## <a name="prepare-the-data"></a>Preparar os dados
 É possível exibir as 100 primeiras linhas dos dados e algumas informações estatísticas de todo o conjunto de dados clicando na porta de saída do conjunto de dados (o círculo pequeno na parte inferior) e selecionando **Visualizar**.  
 
-Como o arquivo de dados não foi fornecido com títulos de coluna, o Estúdio forneceu títulos genéricos (Col1, Col2 *etc.*). Bons títulos de coluna não são essenciais para criar um modelo, mas facilitam o trabalho com os dados no teste. Também, quando eventualmente publicarmos esse modelo em um serviço Web, os títulos ajudarão a identificar as colunas para o usuário do serviço.  
+Como o arquivo de dados não foi fornecido com títulos de coluna, o Estúdio forneceu títulos genéricos (Col1, Col2 *etc.*). Bons títulos de coluna não são essenciais para criar um modelo, mas facilitam o trabalho com os dados no teste. Além disso, quando eventualmente publicarmos esse modelo em um serviço Web, os títulos ajudarão a identificar as colunas para o usuário do serviço.  
 
 É possível adicionar títulos de coluna usando o módulo [Editar Metadados][edit-metadata].
-O módulo [Editar Metadados][edit-metadata] é usado para alterar os metadados associados a um conjunto de dados. Nesse caso, ele fornecerá nomes mais amigáveis para títulos de coluna. 
+O módulo [Editar Metadados][edit-metadata] é usado para alterar os metadados associados a um conjunto de dados. Nesse caso, ele fornece nomes mais amigáveis para títulos de coluna. 
 
 Para usar o módulo [Editar Metadados][edit-metadata], é necessário especificar quais colunas você deseja modificar (nesse caso, todas). Em seguida, especifique a ação a ser executada nessas colunas (nesse caso, alterar os cabeçalhos de coluna.)
 
@@ -102,7 +103,8 @@ Para usar o módulo [Editar Metadados][edit-metadata], é necessário especifica
 > 
 
 ## <a name="create-training-and-test-datasets"></a>Criar conjuntos de dados de treinamento e teste
-A próxima etapa do teste é dividir o conjunto de dados em dois conjuntos de dados separados. Usaremos um desses conjuntos de dados para treinar nosso modelo e o outro para testá-lo.
+Precisamos de alguns dados para treinar o modelo e alguns para testá-lo.
+Portanto, na próxima etapa do teste, dividiremos o conjunto de dados em dois conjuntos de dados separados: um para treinar nosso modelo e outro para testá-lo.
 
 Para isso, usamos o módulo [Dividir Dados][split].  
 
@@ -111,7 +113,7 @@ Para isso, usamos o módulo [Dividir Dados][split].
 2. Por padrão, a taxa de divisão é 0,5 e o parâmetro **Divisão aleatória** é definido. Isso significa que metade dos dados aleatórios sairá por uma porta do módulo [Dividir Dados][split] e a outra metade sairá por outra porta. É possível ajustar isso, bem como o parâmetro **Semente aleatória**, a fim de alterar a divisão entre dados de treinamento e teste. Neste exemplo, deixaremos como está.
    
    > [!TIP]
-   > A propriedade **Fração de linhas no primeiro conjunto de dados de saída** determina a quantidade de dados que saem através da porta de saída à esquerda. Por exemplo, se você definir a taxa em 0,7, então, 70% dos dados sairão pela porta esquerda e 30% pela porta direita.  
+   > A propriedade **Fração de linhas no primeiro conjunto de dados de saída** determina a quantidade de dados que saem através da porta de saída à *esquerda*. Por exemplo, se você definir a taxa em 0,7, então, 70% dos dados sairão pela porta esquerda e 30% pela porta direita.  
    > 
    > 
 
@@ -119,7 +121,7 @@ Para isso, usamos o módulo [Dividir Dados][split].
 
 É possível usar as saídas do módulo [Dividir Dados][split] da forma que desejarmos, mas vamos escolher usar a saída à esquerda para dados de treinamento e a saída à direita para dados de teste.  
 
-Como mencionado anteriormente, o custo de classificar incorretamente um risco de crédito alto como baixo é cinco vezes maior do que o custo de classificar incorretamente de um risco baixo como alto. Para isso, geramos um novo conjunto de dados que reflita essa função de custo. No novo conjunto de dados, cada exemplo de alto risco é replicado cinco vezes, enquanto cada exemplo de baixo risco não será replicado.   
+Como mencionado na [etapa anterior](machine-learning-walkthrough-2-upload-data.md), o custo de uma classificação incorreta de um risco de crédito alto como baixo é cinco vezes maior do que o custo da classificação incorreta de um risco baixo como alto. Para isso, geramos um novo conjunto de dados que reflita essa função de custo. No novo conjunto de dados, cada exemplo de alto risco é replicado cinco vezes, enquanto cada exemplo de baixo risco não será replicado.   
 
 Podemos fazer essa replicação usando o código R:  
 
@@ -129,7 +131,7 @@ Podemos fazer essa replicação usando o código R:
 
 3. Clique duas vezes no módulo [Executar Script R][execute-r-script] e insira o comentário "Definir ajuste de custo".
 
-4. No painel **Propriedades**, exclua o texto padrão no parâmetro** Script R** e insira esse script:
+4. No painel **Propriedades**, exclua o texto padrão no parâmetro**Script R** e insira esse script:
    
        dataset1 <- maml.mapInputPort(1)
        data.set<-dataset1[dataset1[,21]==1,]
@@ -139,7 +141,7 @@ Podemos fazer essa replicação usando o código R:
 
     ![Script R no módulo Executar Script R][9]
 
-É necessário fazer essa mesma operação de replicação para cada saída do módulo [Dividir Dados][split] de forma que os dados de treinamento e teste tenham os mesmos ajustes de custo. Isso será feito duplicando o módulo [Executar Script R][execute-r-script] que acabamos de criar e conectando-o a outra porta de saída do módulo [Dividir Dados][split].
+É necessário fazer essa mesma operação de replicação para cada saída do módulo [Dividir Dados][split] de forma que os dados de treinamento e teste tenham os mesmos ajustes de custo. A maneira mais fácil de fazer isso é duplicando o módulo [Executar Script R][execute-r-script] que acabamos de criar e conectando-o a outra porta de saída do módulo [Dividir Dados][split].
 
 1. Clique com o botão direito do mouse no módulo [Executar Script R][execute-r-script] e selecione **Copiar**.
 
@@ -178,9 +180,4 @@ Para obter mais informações sobre como usar scripts R em seus testes, consulte
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Recursos de segurança do Azure usados nas máquinas virtuais do Azure | Microsoft Docs"
-description: " Uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com máquinas virtuais do Azure. As VMs do Azure oferecem a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que a executa a VM. "
+description: " Uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com máquinas virtuais do Azure. As VMs do Azure oferecem a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a VM. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 5e9dcd9913cf301e7c5a50eb9e55fb0b3dc303e5
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 70d22ae8d7f67f1e12a233e004f1eb749927e7d8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -70,8 +71,8 @@ Saiba mais: para saber mais sobre o software antimalware para proteger as máqui
 
 * [Microsoft Antimalware para Serviços de Nuvem do Azure e máquinas virtuais](azure-security-antimalware.md)
 * [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-* [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+* [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](../virtual-machines/windows/classic/install-trend.md)
+* [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../virtual-machines/windows/classic/install-symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection (Novas opções de antimalware para proteção das Máquinas Virtuais do Azure – McAfee Endpoint Protection)](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 * [Soluções de segurança no Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -151,9 +152,4 @@ Saiba mais:
 
 * [Microsoft Trust Center: Compliance (Central de Confiabilidade da Microsoft: conformidade)](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 * [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance (A nuvem confiável: segurança, privacidade e conformidade do Microsoft Azure)](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -6,7 +6,7 @@
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por assinatura |Ilimitado |Ilimitado |
 | [Contas de armazenamento](../articles/storage/storage-create-storage-account.md) por assinatura |200 |200<sup>2</sup> |
 | [Grupos de Recursos](../articles/azure-resource-manager/resource-group-overview.md) por assinatura |800 |800 |
-| [Conjuntos de disponibilidade](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por assinatura |2000 por região |2000 por região |
+| [Conjuntos de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por assinatura |2000 por região |2000 por região |
 | Leituras de API do Gerenciador de Recursos |15.000 por hora |15.000 por hora |
 | Gravações de API do Gerenciador de Recursos |1.200 por hora |1.200 por hora |
 | Tamanho da solicitação de API do Gerenciador de Recursos |4194304 bytes |4194304 bytes |
@@ -24,9 +24,4 @@
 > <!-- -->
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

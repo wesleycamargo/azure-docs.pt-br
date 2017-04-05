@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2048c2786cbe7e237f7a72f5a73a4b135ed60088
-ms.openlocfilehash: cf4ee6d18d5ab3b0f53ec5e8ab80d6e91864a103
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 48531d69fcefed27785e0e1ae667274fa48ea1d2
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -57,19 +58,15 @@ Caso isso não seja esperado, investigue e tome medidas corretivas. Para ver qua
 
 Se todas as exclusões forem desejadas, siga este procedimento:
 
-1. Para desabilitar temporariamente a proteção e permitir que as exclusões ocorram, execute o cmdlet do PowerShell: `Disable-ADSyncExportDeletionThreshold`. Forneça uma conta e senha de Administrador Global do Azure AD.
+1. Para recuperar o limite atual de exclusão, execute o cmdlet `Get-ADSyncExportDeletionThreshold` do PowerShell. Forneça uma conta e senha de Administrador Global do Azure AD. O valor padrão é 500.
+2. Para desabilitar temporariamente a proteção e permitir que as exclusões ocorram, execute o cmdlet do PowerShell: `Disable-ADSyncExportDeletionThreshold`. Forneça uma conta e senha de Administrador Global do Azure AD.
    ![Credenciais](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
-2. Com o Conector do Azure Active Directory ainda selecionado, selecione a ação **Executar** e **Exportar**.
-3. Para reabilitar a proteção, execute o cmdlet do PowerShell: `Enable-ADSyncExportDeletionThreshold`.
+3. Com o Conector do Azure Active Directory ainda selecionado, selecione a ação **Executar** e **Exportar**.
+4. Para reabilitar a proteção, execute o cmdlet do PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Substitua 500 pelo valor que você observou ao recuperar o limite atual de exclusão. Forneça uma conta e senha de Administrador Global do Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

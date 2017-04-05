@@ -60,7 +60,7 @@ Saiba como usar o Lote para executar aplicativos paralelos em larga escala de co
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/azure/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

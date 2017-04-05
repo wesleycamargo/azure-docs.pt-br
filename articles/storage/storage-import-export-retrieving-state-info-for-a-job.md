@@ -1,6 +1,6 @@
 ---
-title: "Recuperar informações de estado para um trabalho da Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como obter informações de estado para trabalhos do serviço de importação/exportação do Microsoft Azure"
+title: "Recuperando informações de estado para um trabalho de Importação/Exportação do Azure | Microsoft Docs"
+description: "Saiba como obter informações de estado para trabalhos do serviço de Importação/Exportação do Microsoft Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: d8156439cc81a88172d5af97c31147b6ceb23ff6
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -64,7 +64,7 @@ A tabela a seguir descreve os erros que podem ocorrer para cada estado do trabal
 |`Transferring/Packaging`|O trabalho tem um endereço de remetente incorreto ou ausente.|A equipe de operações tentará falar com a pessoa de contato para o trabalho a fim de obter o endereço correto.<br /><br /> No caso de o cliente não poder ser contatado, as unidades serão destruídas com segurança em 90 dias.|
 |`Creating / Shipping/ Transferring`|Uma unidade que não aparece na lista de unidades a serem importadas está incluída no pacote de envio.|As unidades adicionais não serão processadas e serão retornadas ao cliente quando o trabalho for concluído.|
 
-## <a name="drive-states"></a>Estados de unidade
+## <a name="drive-states"></a>Estados da unidade
 A tabela e o diagrama a seguir descrevem o ciclo de vida de uma unidade individual conforme ela passa por um trabalho de importação ou exportação. Você pode obter o estado atual da unidade chamando a operação `Get Job` e analisando o elemento `State` da propriedade `DriveList`.
 
 ![DriveStates](./media/storage-import-export-retrieving-state-info-for-a-job/DriveStates.png "DriveStates")
@@ -91,6 +91,7 @@ A tabela a seguir descreve os estados de falha de unidade e as ações executada
 ## <a name="faulted-states"></a>Estados com falha
 Quando um trabalho ou uma unidade não puder progredir normalmente por seu ciclo de vida esperado, o trabalho ou a unidade será movido para o estado `Faulted`. Nesse ponto, a equipe de operações entrará em contato com o cliente por email ou telefone. Quando o problema for resolvido, o trabalho ou a unidade em falha passará do estado `Faulted` para o estado apropriado.
 
-## <a name="see-also"></a>Consulte também
-[Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Próximas etapas
+
+* [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
 

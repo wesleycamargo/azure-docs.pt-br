@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/27/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 7ad5eb2e53e846e7f19e9f136249e4ae280bf996
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e9171844e2fbac7a4e734be9144b30d1bbd0397f
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -37,16 +37,16 @@ A seguir, a lista de limitações impostas. Os valores referem-se a um hub indiv
 
 | Restrição | Hubs Gratuitos e S1 | Hubs S2 | Hubs S3 | 
 | -------- | ------- | ------- | ------- |
-| Operações de registro de identidade (criar, recuperar, listar, atualizar, excluir) | 100/min/unidade | 100/min/unidade | 5000/min/unidade |
+| Operações de registro de identidade (criar, recuperar, listar, atualizar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
 | Conexões do dispositivo | Máximo de 100/s ou 12/s/unidade <br/> Por exemplo, duas unidades de S1 são 2\*12 = 24/s, mas você tem pelo menos 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9\*12) em suas unidades. | 120/s/unidade | 6000/s/unidade |
 | Envios do dispositivo para a nuvem | Máximo de 100/s ou 12/s/unidade <br/> Por exemplo, duas unidades de S1 são 2\*12 = 24/s, mas você tem pelo menos 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9\*12) em suas unidades. | 120/s/unidade | 6000/s/unidade |
-| Envios da nuvem para o dispositivo | 100/min/unidade | 100/min/unidade | 5000/min/unidade |
-| Recebimentos da nuvem para o dispositivo <br/> (somente quando o dispositivo usar HTTP)| 1000/min/unidade | 1000/min/unidade| 50000/min/unidade |
-| Upload de arquivos | 100 notificações de upload de arquivo/min/unidade | 100 notificações de upload de arquivo/min/unidade | 5000 notificações de upload de arquivo/min/unidade |
+| Envios da nuvem para o dispositivo | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
+| Recebimentos da nuvem para o dispositivo <br/> (somente quando o dispositivo usar HTTP)| 16,67/s/unidade (1000/min/unidade) | 16,67/s/unidade (1000/min/unidade) | 833,33/s/unidade (50000/min/unidade) |
+| Upload de arquivos | 1,67 notificações de carregamento de arquivo/s/unidade (100/min/unidade) | 1,67 notificações de carregamento de arquivo/s/unidade (100/min/unidade) | 83,33 notificações de carregamento de arquivo/s/unidade (5000/min/unidade) |
 | Métodos diretos | 10/s/unidade | 30/s/unidade | 1500/s/unidade | 
 | Leituras de dispositivo gêmeo | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Atualizações de dispositivos gêmeos | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
-| Operações de trabalhos <br/> (criar, atualizar, listar, excluir) | 100/min/unidade | 100/min/unidade | 5000/min/unidade |
+| Operações de trabalhos <br/> (criar, atualizar, listar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
 | Taxa de transferência de operação de trabalhos por dispositivo | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 
 É importante esclarecer que a restrição de *conexões de dispositivo* controla a taxa em que novas conexões de dispositivo podem ser estabelecidas com um Hub IoT e não o número máximo de dispositivos conectados simultaneamente. A restrição depende do número de unidades provisionadas para o hub IoT.
@@ -69,7 +69,7 @@ O Hub IoT impõe outros limites nas suas diferentes funcionalidades.
 
 | Operação | Limite |
 | --------- | ----- |
-| URIs de upload de arquivos | 10000 URIs de SAS podem estar fora de uma conta de armazenamento ao mesmo tempo. <br/> &10; URIs de SAS/dispositivo podem estar fora ao mesmo tempo. |
+| URIs de upload de arquivos | 10000 URIs de SAS podem estar fora de uma conta de armazenamento ao mesmo tempo. <br/> 10 URIs de SAS/dispositivo podem estar fora ao mesmo tempo. |
 | Trabalhos | O histórico do trabalho é retido por até 30 dias <br/> O máximo de trabalhos simultâneos é 1 (para Gratuito e S1, 5 (para S2), 10 (para S3). |
 | Pontos de extremidade adicionais | Hubs SKU pagos podem ter 10 pontos de extremidade adicionais. Hubs SKU gratuitos podem ter um ponto de extremidade adicional. |
 | Regras de roteamento de mensagem | Hubs SKU pagos podem ter 100 regras de roteamento. Hubs SKU gratuitos podem ter cinco regras de roteamento. |

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a12d3a5c25decdc88df0c9f9b3216bfaae33d5a6
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: e4cbc9b0c9532d56376c4fabebcde8c64cb0474b
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -80,7 +80,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>Tokens de recurso
 
 Os tokens de recurso fornecem acesso aos recursos do aplicativo em um banco de dados. Tokens de recurso:
-- Fornecem acesso a coleções, documentos, anexos, procedimentos armazenados, gatilhos e UDFs específicos.
+- Fornecem acesso a coleções, chaves de partição, documentos, anexos, procedimentos armazenados, gatilhos e UDFs específicos.
 - São criados quando um [usuário](#users) recebe [permissões](#permissions) para um recurso específico.
 - São recriados quando um recurso de permissão recebe uma ação de uma chamada POST, GET ou PUT.
 - Use um token de recurso de hash construído especificamente para o usuário, o recurso e a permissão.
@@ -105,9 +105,9 @@ Este é um padrão de design típico no qual tokens de recurso podem ser solicit
 
     ![Fluxo de trabalho dos tokens de recurso do Banco de Dados de Documentos](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
- A geração e gerenciamento do token de recurso é realizada pelas bibliotecas de cliente nativas do DocumentDB; no entanto, se você usar REST deverá construir os cabeçalhos de solicitação/autenticação. Para saber mais sobre como criar cabeçalhos de autenticação para REST, veja [Controle de acesso em recursos do DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) ou o [código-fonte para nossos SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
- 
- Para obter um exemplo de um serviço de camada intermediária usado para gerar, ou tokens de recurso do agente, confira o [aplicativo ResourceTokenBroker](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+A geração e gerenciamento do token de recurso é realizada pelas bibliotecas de cliente nativas do DocumentDB; no entanto, se você usar REST deverá construir os cabeçalhos de solicitação/autenticação. Para saber mais sobre como criar cabeçalhos de autenticação para REST, veja [Controle de acesso em recursos do DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) ou o [código-fonte para nossos SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+
+Para obter um exemplo de um serviço de camada intermediária usado para gerar, ou tokens de recurso do agente, confira o [aplicativo ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 <a id="users"></a>
 
@@ -184,5 +184,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * Para saber mais sobre a segurança de banco de dados do DocumentDB, veja [DocumentDB: segurança de banco de dados NoSQL](documentdb-nosql-database-security.md).
 * Para saber mais sobre o gerenciamento de chaves mestras e chaves somente leitura, veja [Como gerenciar uma conta do DocumentDB](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 * Para saber como criar tokens de autorização do DocumentDB, veja [Controle de acesso em recursos do DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources).
-
 

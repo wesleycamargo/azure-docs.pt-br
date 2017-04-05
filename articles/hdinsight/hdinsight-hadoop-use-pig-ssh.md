@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
-ms.openlocfilehash: 271a15d258177c98ad72be007c20ae278df6236b
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4fe50acbbf9424275c5746b3bdabc79b08b027d3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -55,12 +55,7 @@ Conecte-se com o FQDN (nome de domínio totalmente qualificado) do cluster HDIns
 
 **Se você forneceu uma senha para autenticação SSH** ao criar o cluster HDInsight, você precisará fornecer a senha quando solicitado.
 
-Para saber mais sobre como usar o SSH com o HDInsight, confira [Usar SSH com o Hadoop baseado em Linux no HDInsight no Linux, no OS X e no Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-### <a name="putty-windows-based-clients"></a>PuTTY (clientes baseados no Windows)
-O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
-Para obter mais informações sobre o uso de PuTTY, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
+Para saber mais sobre como usar o SSH com HDInsight, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="pig"></a>Usar o comando Pig
 1. Uma vez conectado, inicie a CLI (interface de linha de comando) do Pig usando o comando a seguir.

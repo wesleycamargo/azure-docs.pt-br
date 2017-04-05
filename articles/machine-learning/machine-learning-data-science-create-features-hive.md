@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5a4ca11079ac2a3962d92c7688e8d7337c31389d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -39,7 +40,7 @@ Este artigo supõe que você:
 * Os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-move-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
 * Habilitou o acesso remoto ao cluster. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
-## <a name="a-namehive-featureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Geração de recursos
+## <a name="hive-featureengineering"></a>Geração de recursos
 Nesta seção, veja vários exemplos dos modos pelos quais os recursos podem ser gerados usando consultas de Hive. Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser associada à tabela original. Estes são os exemplos apresentados:
 
 1. [Geração de recursos baseada em frequência](#hive-frequencyfeature)
@@ -48,7 +49,7 @@ Nesta seção, veja vários exemplos dos modos pelos quais os recursos podem ser
 4. [Extrair recursos de campo de texto](#hive-textfeatures)
 5. [Calcular a distância entre coordenadas de GPS](#hive-gpsdistance)
 
-### <a name="a-namehive-frequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Geração de recursos baseada em frequência
+### <a name="hive-frequencyfeature"></a>Geração de recursos baseada em frequência
 Geralmente é útil calcular as frequências dos níveis de uma variável categórica ou as frequências de determinadas combinações de níveis de diversas variáveis categóricas. Os usuários podem usar o script a seguir para calcular tais frequências:
 
         select
@@ -62,7 +63,7 @@ Geralmente é útil calcular as frequências dos níveis de uma variável categ�
         order by frequency desc;
 
 
-### <a name="a-namehive-riskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Riscos de variáveis categóricas na classificação binária
+### <a name="hive-riskfeature"></a>Riscos de variáveis categóricas na classificação binária
 Na classificação binária, é necessário converter variáveis categóricas não numéricas em recursos numéricos quando os modelos usados aceitam apenas recursos numéricos. Isso é feito substituindo cada nível não numéricos por um risco numérico. Nesta seção, mostraremos algumas consultas de Hive genéricas para calcular os valores de risco (probabilidade de log) de uma variável categórica.
 
         set smooth_param1=1;
@@ -87,7 +88,7 @@ Neste exemplo, as variáveis `smooth_param1` e `smooth_param2` são definidas pa
 
 Depois da tabela de risco ser calculada, os usuários podem atribuir valores de risco a uma tabela associando-a à tabela de risco. A consulta de associação de Hive foi indicada na seção anterior.
 
-### <a name="a-namehive-datefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extrair recursos de campos Datetime
+### <a name="hive-datefeatures"></a>Extrair recursos de campos Datetime
 O Hive vem com um conjunto de UDFs para processar campos datetime. No Hive, o formato de datetime padrão é “aaaa-MM-dd 00:00:00” (“1970-01-01 12:21:32”, por exemplo). Nesta seção, vamos mostrar exemplos de como extrair o dia do mês e o mês de um campo datetime, bem como exemplos de conversão de uma cadeia de caracteres de datetime em um formato diferente do formato padrão para uma cadeia de caracteres de datetime no formato padrão.
 
         select day(<datetime field>), month(<datetime field>)
@@ -107,13 +108,13 @@ Nesta consulta, se o *&#60;campo datetime>* tiver o padrão *03/26/2015 12:04:39
 
 O *hivesampletable* nesta consulta vem pré-instalado com todos os clusters do Hadoop do Azure HDInsight por padrão quando os clusters são provisionados.
 
-### <a name="a-namehive-textfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extrair recursos de campos de Texto
+### <a name="hive-textfeatures"></a>Extrair recursos de campos de Texto
 Quando a tabela Hive tem um campo de texto que contém uma cadeia de caracteres de palavras delimitada por espaços, a consulta a seguir extrai o comprimento da cadeia de caracteres e o número de palavras na cadeia de caracteres.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="a-namehive-gpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcular a distância entre conjuntos de coordenadas de GPS
+### <a name="hive-gpsdistance"></a>Calcular a distância entre conjuntos de coordenadas de GPS
 A consulta fornecida nesta seção pode ser aplicada diretamente aos Dados de Viagens de Táxi em NYC. A finalidade dessa consulta é mostrar como aplicar funções matemáticas incorporadas no Hive para gerar recursos.
 
 Os campos que são usados nesta consulta são coordenadas de GPS de locais de saída e chegada, chamadas *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* e *dropoff\_latitude*. As consultas que calculam a distância direta entre as coordenadas de saída e chegada são:
@@ -140,7 +141,7 @@ As equações matemáticas que calculam a distância entre duas coordenadas de G
 
 Uma lista completa de UDFs internas do Hive pode ser encontrada na seção **Funções Internas** no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki do Apache Hive</a>.  
 
-## <a name="a-nametuninga-advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Tópicos avançados: ajustar parâmetros de Hive para melhorar a velocidade de consulta
+## <a name="tuning"></a> Tópicos avançados: ajustar parâmetros de Hive para melhorar a velocidade de consulta
 As configurações de parâmetro padrão do cluster de Hive talvez não sejam adequadas para as consultas de Hive e os dados que as consultas estão processando. Nesta seção, discutiremos alguns parâmetros que os usuários podem ajustar para melhorar o desempenho das consultas de Hive. Os usuários precisam adicionar as consultas de ajuste de parâmetro antes das consultas de processamento de dados.
 
 1. **Espaço de heap de Java**: para consultas que envolvem ingressar grandes conjuntos de dados ou processar longos registros, um erro comum é **ficar sem espaço de heap**. Isso pode ser ajustado definindo os parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* com os valores desejados. Veja um exemplo:
@@ -168,10 +169,5 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
         set mapreduce.reduce.java.opts=-Xmx8192m;
         set mapred.reduce.tasks=128;
         set mapred.tasktracker.reduce.tasks.maximum=128;
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

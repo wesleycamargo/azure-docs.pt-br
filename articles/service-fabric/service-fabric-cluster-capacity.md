@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/24/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: e9d7e1b5976719c07de78b01408b2546b4fec297
-ms.openlocfilehash: 875b344d6ed1f467c8d7a51f46e1c39ec42cfacd
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 788021a5b5715524a534ce3e9ff9019310450f4a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -42,7 +42,7 @@ Estabeleça o número de tipos de nós com os quais o cluster precisa começar. 
 * Como você não pode prever o futuro, baseie-se no que já sabe e decida com quantos tipos de nós os aplicativos precisam começar. Você sempre pode adicionar ou remover tipos de nós posteriormente. Um cluster do Service Fabric deve ter pelo menos um tipo de nó.
 
 ## <a name="the-properties-of-each-node-type"></a>As propriedades de cada tipo de nó
-O **tipo de nó** pode ser visto como algo equivalente a funções nos Serviços de Nuvem. Os tipos de nó definem os tamanhos e o número de VMs e suas propriedades. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um Conjunto de Dimensionamento de Máquinas Virtuais (VMSS) separado. Os Conjuntos de Escala de VM são um recurso de computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Sendo definidos como Conjuntos de Escala de VM distintos, cada tipo de nó pode ser escalado verticalmente ou horizontalmente de forma independente, ter diferentes conjuntos de portas abertas e ter métricas de capacidade diferentes.
+O **tipo de nó** pode ser visto como algo equivalente a funções nos Serviços de Nuvem. Os tipos de nó definem os tamanhos e o número de VMs e suas propriedades. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um Conjunto de Dimensionamento de Máquinas Virtuais (VMSS) separado. O VMSS é um recurso de computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Sendo definidos como VMSS distintos, cada tipo de nó pode ser escalado vertical ou horizontalmente de forma independente, ter diferentes conjuntos de portas abertas e ter métricas de capacidade diferentes.
 
 Leia [este documento](service-fabric-cluster-nodetypes.md) para obter mais detalhes sobre o relacionamento de Nodetypes para VMSS, como RDP em uma das instâncias, abrir novas portas etc.
 
@@ -71,7 +71,7 @@ A camada de durabilidade é usada para indicar ao sistema os privilégios que as
 
 Esse privilégio é expresso nos seguintes valores:
 
-* Ouro - os Trabalhos de Infraestrutura podem ser pausados por uma duração de duas horas por UD
+* Ouro - os Trabalhos de infraestrutura podem ser pausados por duas horas por UD. A durabilidade ouro pode ser habilitada apenas em skus de VM de nó completo como D15_V2, G5 etc.
 * Prata – os Trabalhos de Infraestrutura podem ser pausados por uma duração de 30 minutos por UD (Isso não está habilitado para uso atualmente. Uma vez habilitado, isso estará disponível em todas as VMs padrão de núcleo único e acima).
 * Bronze - sem privilégios. Esse é o padrão.
 
@@ -133,7 +133,7 @@ Para cargas de trabalho de produção
 
 Leia o seguinte para Cargas de Trabalho sem monitoração de estado
 
-**Número de instâncias de VM:** para cargas de trabalho de produção sem monitoração de estado, o tamanho mínimo do tipo de Nó não Principal com suporte é 2. Isso permite a execução de duas instâncias sem monitoração de estado do seu aplicativo e permite que seu serviço sobreviva à perda de uma instância de VM. 
+**Número de instâncias de VM:** para cargas de trabalho de produção sem estado, o tamanho mínimo do tipo de Nó não Principal com suporte é 2. Isso permite a execução de duas instâncias sem monitoração de estado do seu aplicativo e permite que seu serviço sobreviva à perda de uma instância de VM. 
 
 > [!NOTE]
 > Se o cluster estiver em execução em uma versão do Service Fabric inferior a 5.6, devido a um defeito no tempo de execução (que deverá ser corrigido na versão 5.6), o dimensionamento de um tipo de nó não primário para menos de 5 fará com que o cluster se torne não íntegro, até você chamar [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) com o nome de nó apropriado. Leia [Sair ou entrar no cluster do Service Fabric](service-fabric-cluster-scale-up-down.md) para obter mais detalhes

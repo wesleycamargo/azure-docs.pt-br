@@ -12,54 +12,44 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 03/06/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33d6b242c5562bd0aba4786ff70782c697ca7cd7
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 11a56418156a46e1fcef7b8d1c6003990000046f
+ms.lasthandoff: 03/27/2017
 
 
 ---
-# <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configure um projeto de serviço de nuvem do Azure com o Visual Studio
+# <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configurar um projeto de serviço de nuvem do Azure com o Visual Studio
 Você pode configurar um projeto de serviço de nuvem do Azure, dependendo dos requisitos para o projeto. Você pode definir propriedades do projeto para as seguintes categorias:
 
-* **Publicar um serviço de nuvem no Azure**
-  
-  Você pode definir uma propriedade para certificar-se de que um serviço de nuvem existente implantado no Azure não é excluído acidentalmente.
-* **Executar ou depurar um serviço de nuvem no computador local**
-  
-  Você pode selecionar uma configuração de serviço para usar e indicar se deseja iniciar o emulador de armazenamento do Azure.
-* **Validar um pacote de serviço de nuvem quando ele é criado**
-  
-  Você pode optar por tratar todos os avisos como erros, para que você possa certificar-se de que o pacote de serviço de nuvem será implantado sem problemas. Isso reduz o tempo de espera se você implantar e, em seguida, descobrir que ocorreu uma falha.
+- **Publicar um serviço de nuvem no Azure**: você pode definir uma propriedade para ter certeza de que um serviço de nuvem existente implantado no Azure não seja excluído acidentalmente.
+- **Executar ou depurar um serviço de nuvem no computador local**: você pode selecionar uma configuração de serviço para usar e indicar se deseja iniciar o emulador de armazenamento do Azure.
+- **Validar um pacote de serviço de nuvem quando ele é criado**: você pode optar por tratar todos os avisos como erros para que seja possível garantir que o pacote de serviço de nuvem seja implantado sem problemas. 
 
-A ilustração a seguir mostra como selecionar uma configuração a ser usada quando você executa ou depura o serviço de nuvem localmente. Você pode definir qualquer uma das propriedades do projeto que necessita nesta janela, conforme mostrado na ilustração.
+## <a name="steps-to-configure-an-azure-cloud-service-project"></a>Etapas para configurar um projeto de serviço de nuvem do Azure
+1. Abra ou crie um projeto de serviço de nuvem do Azure no Visual Studio
 
-![Configurar um projeto do Microsoft Azure](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
-
-## <a name="to-configure-an-azure-cloud-service-project"></a>Para configurar um projeto de serviço de nuvem do Azure
-1. Para configurar um projeto do serviço de nuvem do **Gerenciador de Soluções**, abra o menu de atalho para o projeto de serviço de nuvem e, em seguida, escolha **Propriedades**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e, no menu de contexto, selecione **Propriedades**.
    
-   Uma página com o nome do projeto de serviço de nuvem aparece no editor do Visual Studio.
-2. Escolha a guia **Desenvolvimento** .
-3. Para certificar-se de não excluir acidentalmente uma implantação existente no Azure, no prompt antes de excluir uma lista de implantação existente, escolha **True**.
-4. Para selecionar a configuração de serviço que você deseja usar quando executa ou depura seu serviço de nuvem localmente, na lista **Configuração do Serviço** , escolha a configuração do serviço.
-   
-   > [!NOTE]
-   > Se você deseja criar uma configuração de serviço para usar, consulte como: gerenciar configurações de serviço e perfis. Se você quiser modificar uma configuração de serviço para uma função, consulte [como configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
-   > 
-   > 
-5. Para iniciar o emulador de armazenamento do Azure, quando você executa ou depura seu serviço de nuvem localmente, em **Iniciar o emulador de armazenamento do Azure**, escolha **Verdadeiro**.
-6. Para certificar-se de que você não pode publicar se houver erros de validação de pacote, em **Tratar avisos como erros**, escolha **Verdadeiro**.
-7. Para certificar-se de que sua função web usa a mesma porta a cada vez que inicia localmente no IIS Express, em **Usar portas de projeto Web**, escolha **Verdadeiro**. Para usar uma porta específica para um projeto Web específico, abra o menu de atalho para o projeto Web, escolha a guia **Propriedades**, escolha a guia **Web** e altere o número da porta no **Url do projeto** definindo na seção **IIS Express**. Por exemplo, digite `http://localhost:14020` como a URL do projeto.
-8. Para salvar as alterações feitas nas propriedades do projeto de serviço de nuvem, escolha o botão **Salvar** na barra de ferramentas.
+1. Na página de propriedades do projeto, selecione a guia **Desenvolvimento**.
+
+    ![Menu Propriedades do projeto](./media/vs-azure-tools-configuring-an-azure-project/solution-explorer-project-properties-menu.png)
+
+1. Defina **Avisar antes de excluir uma implantação existente** como **Verdadeiro**. Essa configuração ajuda a garantir que você não exclua acidentalmente uma implantação existente no Azure
+
+1. Selecione a **Configuração de serviço** desejada para indicar qual configuração de serviço deseja usar quando executar ou depurar o serviço de nuvem localmente. Para saber mais sobre como modificar uma configuração de serviço para uma função, confira [Configurar funções de serviço de nuvem do Azure com o Visual Studio](./vs-azure-tools-configure-roles-for-cloud-service.md).
+
+1. Defina **Iniciar emulador de armazenamento do Azure** como **Verdadeiro** para iniciar o emulador de armazenamento do Azure ao executar ou depurar o serviço de nuvem localmente.
+
+1. Defina **Tratar avisos como erros** como **Verdadeiro** para garantir que não seja possível publicar se houver erros de validação de pacote.
+
+1. Defina **Usar portas de projeto Web** como **Verdadeiro** para garantir que sua função web use a mesma porta toda vez que ela iniciar localmente no IIS Express.
+
+1. Na barra de ferramentas do Visual Studio, selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como configurar projetos de serviço de nuvem do Azure no Visual Studio, consulte [Configurando seu projeto do Azure usando várias configurações de serviço](vs-azure-tools-multiple-services-project-configurations.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+- [Configurando um projeto do Azure usando várias configurações de serviço](vs-azure-tools-multiple-services-project-configurations.md)
 
 

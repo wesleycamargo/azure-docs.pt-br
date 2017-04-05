@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas da Ferramenta de Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba mais sobre os problemas comuns que os usuários enfrentam ao usar a Ferramenta de Importação/Exportação e como resolvê-los."
+title: "Solucionando problemas da Ferramenta de Importação/Exportação do Azure | Microsoft Docs"
+description: "Saiba mais sobre alguns dos problemas comuns enfrentados ao usar a Ferramenta de Importação/Exportação do Azure e como lidar com eles."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
-ms.openlocfilehash: 53755e0048cfd80d9f930419a105893e5b34dc41
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 43b5d5a57df6bdda57a31ff0330ec6eff7aa732c
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
-# <a name="troubleshooting-the-azure-import-export-tool"></a>Solução de problemas da Ferramenta de Importação-Exportação do Azure
-A ferramenta de Importação/Exportação do Microsoft Azure retorna mensagens de erro em caso de problemas. Este tópico lista alguns problemas comuns que os usuários poderão enfrentar.  
+# <a name="troubleshooting-the-azure-importexport-tool"></a>Solução de problemas da Ferramenta de Importação/Exportação do Azure
+A Ferramenta de Importação/Exportação do Microsoft Azure retorna mensagens de erro em caso de problemas. Este tópico lista alguns problemas comuns que os usuários poderão enfrentar.  
   
 ## <a name="a-copy-session-fails-what-i-should-do"></a>Quando uma sessão de cópia falha o que devo fazer?  
  Quando uma sessão de cópia falha, há duas opções:  
@@ -38,10 +38,11 @@ A ferramenta de Importação/Exportação do Microsoft Azure retorna mensagens d
 ## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>Perdi o arquivo de diário. Ainda posso criar o trabalho?  
  O arquivo de diário de uma unidade contém as informações completas da cópia de dados para essa unidade. Ele é necessário para adicionar mais arquivos à unidade e será usado para criar um trabalho de importação. Em caso de perda do arquivo de diário, você precisará refazer todas as sessões de cópia da unidade.  
   
-## <a name="see-also"></a>Consulte também  
- [Configurar a ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)   
- [Preparação de discos rígidos para um trabalho de importação](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
- [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)  (Reparando um trabalho de importação)  
- [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md) (Reparando um trabalho de exportação)
+## <a name="next-steps"></a>Próximas etapas
+ 
+* [Configurando a Ferramenta de importação/exportação do Azure](storage-import-export-tool-setup-v1.md)   
+* [Preparação de discos rígidos para um trabalho de importação](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Reparação de um trabalho de importação](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Reparação de um trabalho de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)
 

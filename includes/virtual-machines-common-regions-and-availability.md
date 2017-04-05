@@ -81,14 +81,14 @@ No Azure, as VMs são criadas de uma imagem. Normalmente, as imagens são do [Az
 
 Quando cria uma VM de uma imagem no Azure Marketplace, você, na verdade, está trabalhando com modelos. Modelos do Azure Resource Manager são arquivos JSON (JavaScript Object Notation) declarativos que podem ser usados para criar ambientes de aplicativo complexos que consistem em VMs, armazenamento, redes virtuais etc. Você pode ler mais sobre o uso de [modelos do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md), incluindo como [criar seus próprios modelos](../articles/resource-group-authoring-templates.md).
 
-Você também pode criar suas próprias imagens personalizadas e carregá-las usando a [CLI do Azure](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou o [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para criar rapidamente VMs personalizadas para os requisitos do seu build específico.
+Você também pode criar suas próprias imagens personalizadas e carregá-las usando a [CLI do Azure](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou o [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para criar rapidamente VMs personalizadas para os requisitos do seu build específico.
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
-Um conjunto de disponibilidade é um agrupamento lógico de VMs que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de&99;,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando estiver usando uma única VM [armazenamento Premium do Azure](../articles/storage/storage-premium-storage.md), o SLA do Azure se aplica a eventos de manutenção não planejada. Um conjunto de disponibilidade é composto por dois agrupamentos adicionais que protegem contra falhas de hardware e permitem que atualizações sejam aplicadas com segurança – FDs (domínios de falha) e UDs (domínios de atualização).
+Um conjunto de disponibilidade é um agrupamento lógico de VMs que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando estiver usando uma única VM [armazenamento Premium do Azure](../articles/storage/storage-premium-storage.md), o SLA do Azure se aplica a eventos de manutenção não planejada. Um conjunto de disponibilidade é composto por dois agrupamentos adicionais que protegem contra falhas de hardware e permitem que atualizações sejam aplicadas com segurança – FDs (domínios de falha) e UDs (domínios de atualização).
 
 ![Desenho conceitual da configuração do domínio de atualização e do domínio de falha](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-Você pode ler mais sobre como gerenciar a disponibilidade de [VMs Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [VMs Windows](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Você pode ler mais sobre como gerenciar a disponibilidade de [VMs Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [VMs Windows](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="fault-domains"></a>Domínios de falha
 Um domínio de falha é um grupo lógico de hardwares subjacentes que compartilham a mesma fonte de alimentação e o mesmo comutador de rede, de forma semelhante a um rack em um datacenter local. À medida que você cria máquinas virtuais em um conjunto de disponibilidade, a plataforma Windows Azure distribui automaticamente suas VMs entre esses domínios de falha. Essa abordagem limita o impacto de possíveis falhas de hardware físico, interrupções de rede ou interrupções de energia.
@@ -101,9 +101,4 @@ Um domínio de atualização é um grupo lógico de hardwares subjacentes que po
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode começar a usar esses recursos de redundância e disponibilidade para criar seu ambiente do Azure. Para obter informações de práticas recomendadas, confira [Práticas recomendadas de disponibilidade do Azure](../articles/best-practices-availability-checklist.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

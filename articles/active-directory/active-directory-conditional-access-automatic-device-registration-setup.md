@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 96fb170e7a079fbb4bcfb4a6b1e98970a709406f
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -87,7 +87,8 @@ Use a tabela a seguir para ter uma visão geral das etapas necessárias para o s
 | Etapa 1: configurar o ponto de conexão de serviço | ![Verificação][1]                            | ![Verificação][1]                    | ![Verificação][1]        |
 | Etapa 2: configurar a emissão de declarações           |                                        | ![Verificação][1]                    | ![Verificação][1]        |
 | Etapa 3: habilitar dispositivos não Windows 10      |                                        |                                | ![Verificação][1]        |
-
+| Etapa 4: implantação de controle e distribuição     | ![Verificação][1]                            | ![Verificação][1]                    | ![Verificação][1]        |
+| Etapa 5: verificar os dispositivos registrados          | ![Verificação][1]                            | ![Verificação][1]                    | ![Verificação][1]        |
 
 
 
@@ -292,8 +293,13 @@ A definição ajuda você a verificar se os valores estão presentes ou se você
         Value = "http://<verified-domain-name>/adfs/services/trust/"
     );
 
-> [!NOTE]
-> A declaração issuerID de computador na regra acima deve conter um dos nomes de domínio verificados no Azure AD. Isso não é a URL de serviço do AD FS.
+
+Na declaração acima,
+
+- `$<domain>` é a URL de serviço do AD FS
+- `<verified-domain-name>` é um espaço reservado que você precisa substituir por um de seus nomes de domínio verificado no Azure AD
+
+
 
 Para obter mais detalhes sobre nomes de domínio verificados, confira [Adicionar um nome de domínio ao Azure Active Directory](active-directory-add-domain.md).  
 Para obter uma lista dos domínios da empresa verificados, você pode usar o cmdlet [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 
@@ -473,7 +479,7 @@ Para registrar dispositivos de nível inferior do Windows, você precisa garanti
 
 `Azure Active Directory > Users and groups > Device settings`
     
-A política a seguir deve ser definida como **Todos **: **os usuários podem registrar seus dispositivos com o Azure AD**
+A política a seguir deve ser definida como **Todos**: **os usuários podem registrar seus dispositivos com o Azure AD**
 
 ![Registrar dispositivos](./media/active-directory-conditional-access-automatic-device-registration-setup/23.png)
 
@@ -505,7 +511,7 @@ No AD FS, você precisa adicionar uma regra de transformação de emissão que p
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. No servidor de federação, digite o comando do PowerShell abaixo após substituir ** \<RPObjectName\> ** pelo nome do objeto da terceira parte confiável para o seu objeto de terceira parte confiável do Azure AD. Geralmente, este objeto é nomeado como **Plataforma de Identidade do Microsoft Office 365**.
+8. No servidor de federação, digite o comando do PowerShell abaixo após substituir **\<RPObjectName\>** pelo nome do objeto da terceira parte confiável para o seu objeto de terceira parte confiável do Azure AD. Geralmente, este objeto é nomeado como **Plataforma de Identidade do Microsoft Office 365**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -553,7 +559,7 @@ Para controlar a distribuição do registro automático de computadores atuais d
 
 Para registrar computadores de nível inferior do Windows associados ao domínio em um ambiente federado, você pode baixar e instalar esses pacotes do Windows Installer (.msi) do Centro de Downloads na página [Microsoft Workplace Join para computadores não-Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=53554) .
 
-Você pode implantar o pacote usando um sistema de distribuição de software como o System Center Configuration Manager. O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro *quiet*. O System Center Configuration Manager Current Branch oferece benefícios adicionais em relação às versões anteriores, como a capacidade de monitorar registros concluídos. Para obter mais informações, consulte [System Center&2016;](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
+Você pode implantar o pacote usando um sistema de distribuição de software como o System Center Configuration Manager. O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro *quiet*. O System Center Configuration Manager Current Branch oferece benefícios adicionais em relação às versões anteriores, como a capacidade de monitorar registros concluídos. Para obter mais informações, consulte [System Center 2016](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
 
 O instalador cria uma tarefa agendada no sistema que é executada no contexto do usuário. A tarefa é disparada quando o usuário entra no Windows. A tarefa registra silenciosamente o dispositivo no Azure AD com as credenciais do usuário após a autenticação usando a Autenticação Integrada do Windows. Para ver a tarefa agendada, no dispositivo, vá para o **Microsoft** > **Workplace Join** e depois para a biblioteca do Agendador de Tarefas.
 

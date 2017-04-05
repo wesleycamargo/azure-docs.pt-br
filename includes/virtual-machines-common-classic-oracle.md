@@ -7,7 +7,7 @@ Consulte a [Lista de imagens de máquina virtual Oracle](../articles/virtual-mac
 Consulte [Considerações diversas sobre imagens de máquinas virtuais Oracle](../articles/virtual-machines/windows/classic/oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para entender as limitações do software Oracle em máquinas virtuais do Azure baseadas no Windows Server.
 
 ## <a name="prepare-an-oracle-linux-virtual-machine"></a>Preparar uma máquina virtual Oracle Linux
-[Preparar uma máquina virtual do Oracle Linux para o Azure](../articles/virtual-machines/virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) percorre os pré-requisitos e a criação de máquinas virtuais para Oracle Linux 6.4+ e o Oracle Linux 7.0+.
+[Preparar uma máquina virtual do Oracle Linux para o Azure](../articles/virtual-machines/linux/oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) percorre os pré-requisitos e a criação de máquinas virtuais para Oracle Linux 6.4+ e o Oracle Linux 7.0+.
 
 ## <a name="oracle-data-guard"></a>Oracle Data Guard
 [Configurando o Oracle Data Guard para Azure](../articles/virtual-machines/windows/classic/configure-oracle-data-guard.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) percorre as etapas de configuração do ambiente em espera e do ouvinte.

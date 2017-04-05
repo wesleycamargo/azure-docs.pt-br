@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 404b1784717d7a2e56e4154dd8995093b37a3bc1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -42,7 +42,7 @@ Primeiro, crie um grupo de recursos para seu ambiente do Docker com [az group cr
 az group create --name myResourceGroup --location westus
 ```
 
-Em seguida, implante uma VM com [az group deployment create](/cli/azure/group/deployment#create), o que inclui a extensão da VM do Docker do Azure a partir [deste modelo do Azure Resource Manager no Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Forneça seus próprios valores para `newStorageAccountName`, `adminUsername`, `adminPassword` e `dnsNameForPublicIP`:
+Em seguida, implante uma VM com [az group deployment create](/cli/azure/group/deployment#create), o que inclui a extensão da VM do Docker do Azure [deste modelo do Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Forneça seus próprios valores para `newStorageAccountName`, `adminUsername`, `adminPassword` e `dnsNameForPublicIP`:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -67,7 +67,7 @@ Quando esse comando retornar `Succeeded`, a implantação terá sido concluída 
 ### <a name="azure-cli-10"></a>CLI 1.0 do Azure
 Instale a versão mais recente da [CLI do Azure 1.0](../cli-install-nodejs.md) e faça logon em uma conta do Azure. Certifique-se de que você esteja usando o modo Resource Manager para criar a VM (`azure config mode arm`).
 
-O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `West US` e implanta uma VM com a extensão de VM do Docker do Azure. Um [modelo do Azure Resource Manager do Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) é usado para implantar o ambiente:
+O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `West US` e implanta uma VM com a extensão de VM do Docker do Azure. Um [modelo do Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) é usado para implantar o ambiente:
 
 ```azurecli
 azure group create --name myResourceGroup --location "West US" \

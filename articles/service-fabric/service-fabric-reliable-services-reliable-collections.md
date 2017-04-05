@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 3/1/2017
+ms.date: 3/27/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 4952dfded6ec5c4512a61cb18d4c754bf001dade
-ms.openlocfilehash: b5fab7cf91493d477cafd66e27e346ea3ad02f04
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 6ac47fe040793f2ac4ff596880675df0b331143e
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -146,6 +146,7 @@ Dessa forma, quando a réplica precisar ser reiniciada, as Coleções Confiávei
 * Não crie uma transação dentro da instrução `using` de outra transação porque isso pode causar deadlocks.
 * Certifique-se de que a implementação de `IComparable<TKey>` esteja correta. O sistema depende disso para mesclar os pontos de verificação.
 * Use bloqueio de atualização durante a leitura de um item com uma intenção de atualizá-lo para impedir determinada classe de deadlocks.
+* Considere manter seus itens (por exemplo, TKey + TValue para o dicionário confiável) abaixo de 80 KBytes: quanto menor, melhor. Isso reduzirá a quantidade de uso da Pilha de Objetos Grandes, bem como os requisitos de disco e de E/S da rede. Em muitos casos, isso também reduzirá a replicação de dados duplicados quando apenas uma pequena parte do valor estiver sendo atualizada. Uma maneira comum de fazer isso no Dicionário Confiável é dividir as linhas em várias linhas. 
 * Considere o uso da funcionalidade de backup e restauração para ter uma recuperação de desastre.
 * Evite a mistura de operações de entidade única e operações de várias entidades (por exemplo, de `GetCountAsync`, `CreateEnumerableAsync`) na mesma transação devido a níveis de isolamento diferentes.
 * Trate InvalidOperationException. As transações do usuário podem ser anuladas pelo sistema por diversos motivos. Por exemplo, quando o Gerenciador de Estado Confiável muda sua função Primária ou quando uma transação de longa execução bloqueia o truncamento do log transacional. Nesses casos, o usuário pode receber InvalidOperationException, indicando que a transação já foi encerrada. Supondo que o encerramento da transação não foi solicitado pelo usuário, a melhor maneira de tratar essa exceção é descartar a transação, verificar se o token de cancelamento foi sinalizado (ou se a função da réplica foi alterada) e, caso não tenha, criar uma nova transação e tentar novamente.  

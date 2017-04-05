@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ce0be184fe11a7e5873639d79961e98de730ec86
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: ef7df25d8080cae41235dffb287906508d4a652d
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -58,6 +58,10 @@ Se você ainda não fez isso, siga estas etapas para [instalar o gateway de dado
 
 Depois de instalar o gateway, você deverá associar sua assinatura do Azure a ele.
 
+> [!IMPORTANT] 
+> Verifique se o recurso de gateway foi criado na mesma região do Azure que seu Aplicativo Lógico. Se você não implantá-lo na mesma região, ele não poderá ser acessado no Aplicativo Lógico. 
+> 
+
 1. Entre no Azure usando o mesmo endereço de email corporativo ou escolar usado durante a instalação do gateway.
 2. Escolha **Novo**.
 3. Encontre e selecione o **gateway de dados local**.
@@ -80,6 +84,11 @@ Agora que sua assinatura do Azure está associada a uma instância do gateway de
 4. Para criar a conexão, escolha **Criar**.
 
 Sua conexão agora está configurada para ser usada pelo aplicativo lógico.
+
+## <a name="data-gateway-connection-modifications"></a>Modificações da conexão do gateway de dados
+Depois de adicionar a conexão de gateway de dados ao aplicativo lógico, talvez seja necessário modificá-la para ajustar as configurações específicas para essa conexão. É possível encontrar a conexão em um destes dois locais:
+* Na folha principal do Aplicativo Lógico, você deverá ver um painel de Conexões de API na seção Ferramentas de Desenvolvimento. Selecioná-lo mostrará todas as Conexões de API associadas ao Aplicativo Lógico, uma das quais será sua conexão de gateway de dados. Selecionando-a, você poderá exibir e modificar as configurações associadas à conexão.
+* A seleção da folha principal Conexões de API mostrará todas as Conexões de API na assinatura. Nessa lista estará a sua conexão de gateway de dados. Selecionando-a, você poderá exibir e modificar as configurações associadas à conexão.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 4dc9491f3645b071640262af3f1ffcb480cfabef
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d1c327e90ca3343703784c22aba93280d4599723
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -365,7 +365,7 @@ Quando você cria um pool, define um [PoolAddParameter][py_pooladdparam] que esp
 * **ID** do pool (*id* – obrigatória)<p/>Como acontece com a maioria das entidades no Lote, seu novo pool deverá ter uma ID exclusiva em sua conta do Lote. Seu código faz referência a esse pool usando sua ID e é assim que você identifica o pool no [portal][azure_portal] do Azure.
 * **Número de nós de computação** (*target_dedicated* – obrigatório)<p/>Esta propriedade especifica quantas VMs devem ser implantadas no pool. É importante observar que todas as contas do Lote têm uma **cota** padrão que limita o número de **núcleos** (e, portanto, nós de computação) em uma conta do Lote. Você pode encontrar as cotas padrão e as instruções sobre como [aumentar uma cota](batch-quota-limit.md#increase-a-quota) (como o número máximo de núcleos em sua conta do Lote) em [Cotas e limites para o serviço Lote do Azure](batch-quota-limit.md). Se você estiver se perguntando "Por que meu pool não alcança mais do que X nós?", essa cota principal poderá ser a causa.
 * **Sistema operacional** para nós (*virtual_machine_configuration* **ou** *cloud_service_configuration* – obrigatório)<p/>Em *python_tutorial_client.py*, podemos criar um pool de nós do Linux usando um [VirtualMachineConfiguration][py_vm_config]. A função `select_latest_verified_vm_image_with_node_agent_sku` no `common.helpers` simplifica o trabalho com imagens do [Marketplace de Máquinas Virtuais do Azure][vm_marketplace]. Veja [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md) para saber mais sobre o uso de imagens do Marketplace.
-* **Tamanho de nós de computação** (*vm_size* – obrigatório)<p/>Já que estamos especificando nós do Linux para a nossa [VirtualMachineConfiguration][py_vm_config], especificamos um tamanho de VM (neste exemplo, `STANDARD_A1`) de [Tamanhos das máquinas virtuais no Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Novamente, veja [Provisionar nós de computação Linux em pools do Lote do Azure](batch-linux-nodes.md) para saber mais.
+* **Tamanho de nós de computação** (*vm_size* – obrigatório)<p/>Já que estamos especificando nós do Linux para a nossa [VirtualMachineConfiguration][py_vm_config], especificamos um tamanho de VM (neste exemplo, `STANDARD_A1`) de [Tamanhos das máquinas virtuais no Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Novamente, veja [Provisionar nós de computação Linux em pools do Lote do Azure](batch-linux-nodes.md) para saber mais.
 * **Iniciar tarefa** (*start_task* – não obrigatório)<p/>Junto com as propriedades do nó físico acima, talvez você também especifique uma [StartTask][py_starttask] para o pool (não é obrigatório). StartTask é executado em cada nó quando o nó ingressa no pool e sempre que um nó é reiniciado. A StartTask é especialmente útil para a preparação de nós de computação para a execução de tarefas, como a instalação dos aplicativos que suas tarefas executam.<p/>Neste aplicativo de exemplo, a StartTask copia os arquivos baixados do Armazenamento (especificados usando a propriedade **resource_files** da StartTask) por meio do *diretório de trabalho* StartTask para o diretório *compartilhado* que todas as tarefas em execução no nó podem acessar. Essencialmente, isso copia `python_tutorial_task.py` para o diretório compartilhado em cada nó à medida que o nó se une o pool para que qualquer tarefa executada no nó possa acessá-lo.
 
 Talvez você observe a chamada à função auxiliar `wrap_commands_in_shell` . Essa função usa um conjunto de comandos separados e cria uma única linha de comando apropriada para a propriedade de linha de comando da tarefa.

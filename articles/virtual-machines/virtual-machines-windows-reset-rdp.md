@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e1331276cda20d235341171852dffeb4a9cb8bb2
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2673c95d2e312d427454585d46ac790cb126fea6
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Como redefinir o serviço Área de Trabalho Remota ou sua senha de logon em uma VM do Windows
-Se não conseguir se conectar a uma máquina virtual do Windows (VM), você pode redefinir a senha de administrador local ou a configuração do serviço de Área de Trabalho Remota. Você pode usar o Portal do Azure ou a extensão VM Access no Azure PowerShell para redefinir a senha. Se estiver usando o PowerShell, verifique se você tem o [último módulo do PowerShell instalado e configurado](/powershell/azureps-cmdlets-docs) e se está conectado à sua assinatura do Azure. Você também pode [realizar essas etapas para VMs criadas com o modelo de implantação Clássico](virtual-machines-windows-classic-reset-rdp.md).
+Se não conseguir se conectar a uma máquina virtual do Windows (VM), você pode redefinir a senha de administrador local ou a configuração do serviço de Área de Trabalho Remota. Você pode usar o Portal do Azure ou a extensão VM Access no Azure PowerShell para redefinir a senha. Se estiver usando o PowerShell, verifique se você tem o [último módulo do PowerShell instalado e configurado](/powershell/azureps-cmdlets-docs) e se está conectado à sua assinatura do Azure. Você também pode [realizar essas etapas para VMs criadas com o modelo de implantação Clássico](windows/classic/reset-rdp.md).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Maneiras para redefinir a configuração ou as credenciais
 É possível redefinir os serviços e as credenciais de Área de Trabalho Remota de várias maneiras diferentes, dependendo de suas necessidades:
@@ -44,9 +44,15 @@ Selecione sua máquina virtual do Windows e clique em **Suporte + Solução de P
 
 Insira o nome de usuário e uma nova senha e clique em **Atualizar**. Tente se conectar à VM novamente.
 
+> [!NOTE] 
+> - Depois que você alterar a senha e a operação for concluída no portal, a alteração pode levar de três a cinco minutos para entrar em vigor na VM. No entanto, se a alteração não entrar em vigor, tente reiniciar a VM.
+> - A extensão VMAccess funciona somente na conta do administrador local interno e não terá nenhum efeito em qualquer outra ID local ou ID de domínio.
+> - Se o computador de destino for um controlador de domínio, a extensão redefinirá ou renomeará a conta do administrador de domínio.
+
+
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**Redefinir a configuração dos serviços de Área de Trabalho Remota**
 
-Selecione sua máquina virtual do Windows e clique em **Suporte + Solução de Problemas** > **Redefinir senha**. A folha de redefinição de senha é exibida. 
+Selecione sua máquina virtual Windows e clique em **Suporte + Solução de Problemas** > **Redefinir senha**. A folha de redefinição de senha é exibida como se segue:
 
 ![Redefinir configuração do RDP](./media/virtual-machines-windows-reset-rdp/Portal-RM-RDP-Reset.png)
 

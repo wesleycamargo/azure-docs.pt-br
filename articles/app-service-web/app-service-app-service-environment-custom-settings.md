@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a1271acd3d9132048de39173e43c805a372c909
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 687475fae0c90713c15e8abbb92b71059eae81c0
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -53,7 +54,7 @@ O atributo **clusterSettings** pode ser incluído em um modelo do Resource Manag
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Usar o Gerenciador de Recursos do Azure para atualizar um Ambiente de Serviço de Aplicativo
 Como alternativa, você pode atualizar o Ambiente de Serviço de Aplicativo usando o [Gerenciador de Recursos do Azure](https://resources.azure.com).  
 
-1. No Gerenciador de Recursos, acesse o nó para Ambiente de Serviço de Aplicativo (**assinaturas** > **resourceGroups** > **provedores** > **Microsoft.Web** > **hostingEnvironments**). Em seguida, clique no Ambiente de Serviço de Aplicativo específico que você deseja atualizar.
+1. No Gerenciador de Recursos, acesse o nó para Ambiente de Serviço de Aplicativo (**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Em seguida, clique no Ambiente de Serviço de Aplicativo específico que você deseja atualizar.
 2. No painel à direita, clique em **Leitura/gravação** na barra de ferramentas superior para permitir a edição interativa no Gerenciador de Recursos.  
 3. Clique no botão azul **Editar** para tornar o modelo do Resource Manager editável.
 4. Role até o final do painel à direita. O atributo **clusterSettings** está na parte inferior, na qual você poderá inserir ou atualizar seu valor.
@@ -96,9 +97,4 @@ O site de modelo do Azure Quickstart Resource Manager inclui um modelo com a def
 <!-- LINKS -->
 
 <!-- IMAGES -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

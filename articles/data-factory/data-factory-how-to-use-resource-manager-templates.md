@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: db7066fb87175caa165d741b63f9b0e3f9ed851c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2faab833724bf4bb3f3262517e1d724868f7524d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -39,8 +40,8 @@ Consulte os tutoriais a seguir para obter instruções passo a passo para criar 
 * [Tutorial: criar um pipeline para copiar os dados usando o modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [Tutorial: criar um pipeline para processar os dados usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline.md)
 
-## <a name="data-factory-templates-on-github"></a>Modelos do Data Factory no Github
-Confira os seguintes modelos de início rápido do Azure no Github:
+## <a name="data-factory-templates-on-github"></a>Modelos do Data Factory no GitHub
+Confira os seguintes modelos de início rápido do Azure no GitHub:
 
 * [Criar o Data Factory para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
 * [Criar um Data Factory com a atividade do Hive em um cluster HDInsight do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
@@ -252,9 +253,4 @@ Se você precisar receber segredos do [Cofre de Chaves do Azure](../key-vault/ke
 > Embora ainda não haja suporte para exportar modelos para Data Factories existentes, ele ainda funciona.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
