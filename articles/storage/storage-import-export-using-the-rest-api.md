@@ -1,6 +1,6 @@
 ---
 title: "Usando a API REST do serviço de Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como usar a API REST do serviço de Importação/Exportação do Azure"
+description: "Saiba ais sobre como encontrar recursos para usar a API REST do serviço de Importação/Exportação do Azure, incluindo instruções e material de referência."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 675aef8ec0f9344d2b3073021e83856c2fb34b7c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e4f5ca289f4bd87574e448d37a1154b222f221f5
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -38,27 +39,23 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 As solicitações para o serviço de Importação/Exportação devem especificar o parâmetro `api-version` e definir seu valor como `2016-11-01`.
 
-## <a name="in-this-section"></a>Nesta seção
+## <a name="importexport-service-operations"></a>Operações do serviço de Importação/Exportação
 
-[Creating an Import Job](storage-import-export-creating-an-import-job.md) (Criando um trabalho de importação)
+[Criação de um trabalho de importação](storage-import-export-creating-an-import-job.md)
 
-[Criando um trabalho de exportação](storage-import-export-creating-an-export-job.md)
+[Criação de um trabalho de exportação](storage-import-export-creating-an-export-job.md)
 
-[Retrieving State Information for a Job](storage-import-export-retrieving-state-info-for-a-job.md) (Recuperando as informações de estado de um trabalho)
+[Recuperação de informações de estado para um trabalho](storage-import-export-retrieving-state-info-for-a-job.md)
 
-[Enumerando trabalhos](storage-import-export-enumerating-jobs.md)
+[Enumeração de trabalhos](storage-import-export-enumerating-jobs.md)
 
-[Cancelando e excluindo trabalhos](storage-import-export-cancelling-and-deleting-jobs.md)
+[Cancelamento e exclusão de trabalhos](storage-import-export-cancelling-and-deleting-jobs.md)
 
-[Fazer backup de manifestos de unidade](storage-import-export-backing-up-drive-manifests.md)
+[Backup de manifestos da unidade](storage-import-export-backing-up-drive-manifests.md)
 
 [Diagnóstico e recuperação de erro para trabalhos de Importação/Exportação](storage-import-export-diagnostics-and-error-recovery.md)
 
-## <a name="see-also"></a>Consulte também
- [Storage Import/Export REST](/rest/api/storageimportexport) (REST de Importação/Exportação do Armazenamento)
+## <a name="next-steps"></a>Próximas etapas
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Referência de REST de Importação/Exportação do Armazenamento](/rest/api/storageimportexport)
 

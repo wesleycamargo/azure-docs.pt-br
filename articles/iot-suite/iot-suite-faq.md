@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/15/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: ce37bb41babb7bf894c23add994bf2c144ee6549
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 8fa08ca6cefc10c1e1b47a7a498f69aca7de882e
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -47,7 +47,7 @@ A lista de dispositivos no painel de solução usa uma consulta para retornar a 
 * Se você excluir o grupo de recursos no [Portal do Azure][lnk-azure-portal], somente os recursos nesse grupo serão excluídos. Você também precisa excluir o aplicativo do Azure Active Directory associado à solução pré-configurada no [Portal Clássico do Azure][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Hub IoT posso provisionar em uma assinatura?
-Você pode provisionar 10 hubs IoT por assinatura. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite mas, por padrão, só será possível provisionar 10 Hubs IoT por assinatura, como descrito em [Limites de assinatura do Azure][link-azuresublimits]. Como resultado, uma vez que cada solução pré-configurada provisiona um novo Hub IoT, você só poderá provisionar até 10 soluções pré-configuradas em uma determinada assinatura. 
+Por padrão, você pode provisionar [10 Hubs IoT por assinatura][link-azuresublimits]. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite. Como resultado, uma vez que cada solução pré-configurada provisiona um novo Hub IoT, você só poderá provisionar até 10 soluções pré-configuradas em uma determinada assinatura. 
 
 ### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Banco de Dados de Documentos posso provisionar em uma assinatura?
 Cinquenta. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite, mas por padrão, só será possível provisionar 50 instâncias do DocumentDB por assinatura. 

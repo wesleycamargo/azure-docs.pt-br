@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/28/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6cf561b269c4d873a894b47265e39a057cc415c3
-ms.openlocfilehash: 24ad2c2d2872f844e32d3fae559683c3d992bd00
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: accfd5f0fec69175e584528ff9f6db66402cb89e
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente de Máquina Virtual do Azure
 
-O AM Agent (Agente de Máquina Virtual do Microsoft Azure) é um processo seguro e leve que gerencia a interação de VM com o Controlador de Malha do Azure. O Agente de VM tem uma função fundamental na habilitação e execução de extensões de máquina virtual do Azure. Extensões de VM habilitam a configuração máquinas virtuais pós-implantação, como instalação e configuração de software. Extensões de máquina virtual também habilitam os recursos de recuperação como redefinir a senha administrativa de uma máquina virtual. Sem o Agente de VM do Azure, não é possível executar extensões da máquina virtual.
+O Agente de VM (Máquina Virtual) do Microsoft Azure é um processo seguro e leve que gerencia a interação da VM com o Controlador de Malha do Azure. O Agente de VM tem uma função fundamental na habilitação e execução de extensões de máquina virtual do Azure. Extensões de VM habilitam a configuração máquinas virtuais pós-implantação, como instalação e configuração de software. Extensões de máquina virtual também habilitam os recursos de recuperação como redefinir a senha administrativa de uma máquina virtual. Sem o Agente de VM do Azure, não é possível executar extensões da máquina virtual.
 
 Este documento fornece detalhes sobre a instalação, detecção e remoção do Agente de Máquina Virtual do Azure.
 
@@ -82,8 +83,3 @@ Quando conectado a uma VM do Microsoft Azure, o gerenciador de tarefas pode ser 
 ## <a name="upgrade-the-vm-agent"></a>Atualizar o Agente de VM
 
 O Agente de VM do Azure para Windows é atualizado automaticamente. Conforme novas máquinas virtuais são implantadas no Azure, elas receberão o agente de VM mais recente. Imagens de VM personalizadas devem ser atualizadas manualmente para incluir o novo agente de VM.
-
-
-<!--HONumber=Dec16_HO1-->
-
-

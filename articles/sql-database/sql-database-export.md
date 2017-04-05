@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 7b96e8b144f329819596e3ff63e6febbbcc1ffb0
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ff24360696c54091ab93e7e1c8f28d95c226bc0a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -60,5 +60,5 @@ Quando for preciso exportar um banco de dados para arquivamento ou para mover pa
 
 * Para ver uma discussão de todo o processo de migração do banco de dados do SQL Server, confira [Migrar um banco de dados do SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
 * Para obter uma visão geral de como copiar um banco de dados no Azure, confira [Copiando um banco de dados SQL do Azure](sql-database-copy.md).
-* Você pode criar um banco de dados SQL do Azure no Azure usando o [Portal do Azure](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md) ou [Transact-SQL](sql-database-copy-transact-sql.md). 
+* Você pode criar um banco de dados SQL do Azure no Azure usando o [Portal do Azure](sql-database-copy-portal.md), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md) ou [Transact-SQL](sql-database-copy-transact-sql.md). 
 

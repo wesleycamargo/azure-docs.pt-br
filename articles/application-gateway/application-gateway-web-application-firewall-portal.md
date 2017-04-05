@@ -1,5 +1,5 @@
 ---
-title: Criar um gateway de aplicativo do Azure com o firewall do aplicativo Web | Microsoft Docs
+title: Criar ou atualizar um Gateway de Aplicativo do Azure com o firewall do aplicativo Web | Microsoft Docs
 description: Saiba como criar um Gateway de Aplicativo com o firewall do aplicativo Web usando o portal
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9f16384a3944c3943dbfc094aaba37a24969e949
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 O firewall de aplicativo Web (WAF) no Gateway de Aplicativo do Azure protege os aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão. O aplicativo Web protege contra muitas das 10 principais vulnerabilidades da Web OWASP.
 
-O Azure Application Gateway é um balanceador de carga de camada&7;. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local.
+O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local.
 O aplicativo fornece muitos recursos do Controlador de Entrega de Aplicativos (ADC), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de Secure Sockets Layer (SSL), as sondas de integridade personalizadas, suporte para vários sites e muitos outros.
 Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
 
@@ -51,7 +52,7 @@ No segundo cenário, você aprenderá a [criar um gateway de aplicativo com o fi
 
 O Azure Application Gateway requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>adicionar o firewall do aplicativo Web a um gateway de aplicativo existente
+##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Adicionar o firewall do aplicativo Web a um gateway de aplicativo existente
 
 Este cenário atualiza um gateway de aplicativo existente para dar suporte ao firewall do aplicativo Web no modo de prevenção.
 
@@ -63,14 +64,18 @@ Navegue até o portal do Azure, selecione um Gateway de Aplicativo existente.
 
 ### <a name="step-2"></a>Etapa 2
 
-Clique em **Configuração** e atualize as configurações do gateway de aplicativo. Quando concluir, clique em **Salvar**
+Clique em **Firewall do Aplicativo Web** e atualize as configurações do gateway de aplicativo. Quando concluir, clique em **Salvar**
 
 As configurações para atualizar um gateway de aplicativo existente para dar suporte ao firewall do aplicativo da Web são:
 
-* **Camada** - a camada selecionada deve ser **WAF** para dar suporte ao firewall do aplicativo Web
-* **Tamanho do SKU** - essa configuração é o tamanho do gateway de aplicativo com o firewall de aplicativo Web, as opções disponíveis são (**Médio** e **Grande**).
+* **Fazer upgrade para a camada WAF** - Esta configuração é necessária para configurar o WAF.
 * **Firewall status** - essa configuração também desabilita ou habilita o firewall do aplicativo Web.
 * **Modo firewall** - essa configuração é como o firewall do aplicativo Web lida com o tráfego mal-intencionado. O modo **Detecção** só registra em log os eventos, onde o modo **Prevenção** registra os eventos e interrompe o tráfego mal-intencionado.
+* **Conjunto de regras** - Essa configuração determina o [conjunto principal de regras](application-gateway-web-application-firewall-overview.md#core-rule-sets) usado para proteger os membros do pool de back-end.
+* **Configurar regras desabilitadas** - Para evitar possíveis falsos positivos, essa configuração permite que você desabilite certas [regras e grupos de regras](application-gateway-crs-rulegroups-rules.md).
+
+>[!NOTE]
+> Ao fazer o upgrade de um gateway de aplicativo existente para o SKU do WAF, o tamanho do SKU muda para **médio**. Isso pode ser reconfigurado após a conclusão da configuração.
 
 ![folha mostrando configurações básicas][2]
 
@@ -164,7 +169,7 @@ Clique uma vez concluído **OK** para examinar as configurações do Application
 Definir as configurações específicas do **WAF** .
 
 * **Status do firewall** - essa configuração ativa ou desativa o WAF.
-* **Modo de firewall** - essa configuração determina as ações tomadas pelo WAF em relação ao tráfego mal-intencionado. Se **Detecção** for escolhido, o tráfego só será registrado em log.  Se **Prevenção** for escolhido, o tráfego será registrado em log e interrompido com um 403 Não Autorizado.
+* **Modo de firewall** - essa configuração determina as ações tomadas pelo WAF em relação ao tráfego mal-intencionado. Se **Detecção** for escolhido, o tráfego só será registrado em log.  Se **Prevenção** for escolhido, o tráfego será registrado em log e interrompido com uma resposta 403 Não Autorizado.
 
 ![configurações de firewall do aplicativo Web][9]
 
@@ -180,9 +185,12 @@ Quando o Application Gateway tiver sido criado, navegue até ele no portal para 
 
 Estas etapas criam um gateway de aplicativo básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido
 
+> [!NOTE]
+> Os gateways de aplicativo criados com a configuração básica do firewall do aplicativo Web são configurados com o CRS 3.0 para proteções.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como configurar o log de diagnóstico para registrar os eventos detectados ou impedidos pelo Firewall do Aplicativo Web ao visitar o [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
+Saiba como configurar o log de diagnóstico para registrar os eventos detectados ou impedidos pelo firewall do aplicativo Web ao visitar o [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
 
 Saiba como criar investigações de integridade personalizados visitando [Criar uma investigação de integridade personalizada](application-gateway-create-probe-portal.md)
 
@@ -202,9 +210,4 @@ Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL car
 [9]: ./media/application-gateway-web-application-firewall-portal/figure9.png
 [10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
 [scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -46,6 +46,9 @@
 ### [Agendador](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Extensões de diretório](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Alteração da senha da conta de serviço do Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Habilitar a lixeira do AD](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Operações](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md)

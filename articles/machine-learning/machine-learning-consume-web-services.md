@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: ecb2ab00b56476b4373fa06cb766384cb2fcd514
-ms.openlocfilehash: fceb4254461bd91fd2da8603af4fefa47def72e8
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f4f3caed8390ba3a80d6cf1282f4d2751c67ae6b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -523,7 +524,7 @@ O exemplo de código a seguir demonstra como você pode enviar e monitorar um tr
     }
 
 #### <a name="sample-code-in-java-for-bes"></a>Código de exemplo em Java para BES
-A API REST do serviço de execução do Lote usa o JSON que consiste em uma referência para um csv de exemplo de entrada e em um csv de exemplo de saída, como mostrado no exemplo a seguir, e cria um trabalho no Azure ML para fazer previsões em lotes. Você pode exibir o código completo no [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Este exemplo de Java requer a [biblioteca cliente HTTP do apache](https://hc.apache.org/downloads.cgi). 
+A API REST do serviço de execução do Lote usa o JSON que consiste em uma referência para um csv de exemplo de entrada e em um csv de exemplo de saída, como mostrado no exemplo a seguir, e cria um trabalho no Azure ML para fazer previsões em lotes. Você pode exibir o código completo no [GitHub](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Este exemplo de Java requer a [biblioteca cliente HTTP do apache](https://hc.apache.org/downloads.cgi). 
 
     { "GlobalParameters": {}, 
         "Inputs": { "input1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
@@ -730,9 +731,4 @@ Agora você pode usar todas as ferramentas do swagger. Aqui estão as instruçõ
 <!-- External Links -->
 [webservicesportal]: https://services.azureml.net/
 [mlstudio]: https://studio.azureml.net
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

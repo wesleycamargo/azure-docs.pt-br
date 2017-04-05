@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c239c12dd9fcc849a6b90ec379ebb8690bd049fc
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -47,7 +47,7 @@ Quando um cliente adquire um token de acesso para acessar um recurso protegido, 
 É importante fazer uma distinção entre clientes públicos e clientes confidenciais. Para saber mais sobre os tipos diferentes de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente confidencial
-Clientes confidenciais são aplicativos que podem armazenar com segurança uma senha (segredo) do cliente. Eles podem provar que as solicitações são provenientes do aplicativo cliente, e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois pode armazenar um segredo do cliente no servidor Web. Ele não fica exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são maiores e não podem ser alterados usando a política de.
+Clientes confidenciais são aplicativos que podem armazenar com segurança uma senha (segredo) do cliente. Eles podem provar que as solicitações são provenientes do aplicativo cliente, e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois pode armazenar um segredo do cliente no servidor Web. Ele não fica exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são `until-revoked`, não podem ser alterados usando uma política e não serão revogados em redefinições de senha voluntárias.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente público
 
@@ -203,7 +203,7 @@ Para começar, execute uma destas etapas:
     Connect-AzureAD -Confirm
     ```
 
-3. Para ver todas as políticas criadas em sua organização, execute o comando a seguir. Execute esse comando após a maioria das operações nos cenários a seguir. Ele também ajuda você a obter a **ObjecId** de suas políticas.
+3. Para ver todas as políticas criadas em sua organização, execute o comando a seguir. Execute esse comando após a maioria das operações nos cenários a seguir. A execução do comando também ajuda você a obter a ** ** de suas políticas.
 
     ```PowerShell
     Get-AzureADPolicy
@@ -243,9 +243,8 @@ Neste exemplo, crie uma política que permita aos usuários fazerem logon com me
     Talvez você decida que a primeira política definida neste exemplo não é tão estrita quanto seu serviço exige. Para definir a expiração do Token de Atualização de Fator Único para dois dias, execute o seguinte comando:
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
-
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Exemplo: Criar uma política para entrada na Web
 
@@ -274,7 +273,7 @@ Neste exemplo, crie uma política que exige dos usuários a autenticação mais 
     2.  Quando você tiver a **ObjectId** de sua entidade de serviço, execute o seguinte comando:
 
         ```PowerShell
-        Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -300,7 +299,7 @@ Neste exemplo, crie uma política que exige dos usuários a autenticação menos
    Quando você tiver a **ObjectId** de seu aplicativo, execute o seguinte comando:
 
         ```PowerShell
-        Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -330,13 +329,13 @@ Nesse exemplo, crie algumas políticas para saber como funciona o sistema de pri
     2.  Quando você tiver a **ObjectId** de sua entidade de serviço, execute o seguinte comando:
 
             ```PowerShell
-            Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
 3. Defina o sinalizador `IsOrganizationDefault` como false:
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Crie uma nova política padrão de organização:
@@ -380,7 +379,7 @@ Get-AzureADPolicy
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> [Opcional] |**ObjectId** da política desejada. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Opcional] |**ObjectId (Id)** da política desejada. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -388,12 +387,12 @@ Get-AzureADPolicy
 Obtém todos os aplicativos e entidades de serviço vinculados a uma política.
 
 ```PowerShell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
+Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** da política desejada. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** da política desejada. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -401,12 +400,12 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
 Atualiza uma política existente.
 
 ```PowerShell
-Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
+Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** da política desejada. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** da política desejada. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Cadeia de caracteres do nome da política. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [Opcional] |Matriz de JSON em representação textual que contém todas as regras da política. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [Opcional] |Se for true, define a política como a política padrão da organização. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
@@ -419,12 +418,12 @@ Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
 Exclui a política especificada.
 
 ```PowerShell
- Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+ Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** da política desejada. | `-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** da política desejada. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -435,12 +434,12 @@ Use os cmdlets a seguir para políticas de aplicativos.</br></br>
 Vincula a política especificada a um aplicativo.
 
 ```PowerShell
-Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** do aplicativo. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** da política. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -449,12 +448,12 @@ Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <O
 Obtém a política atribuída a um aplicativo.
 
 ```PowerShell
-Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** do aplicativo. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -462,12 +461,12 @@ Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
 Remove uma política de um aplicativo.
 
 ```PowerShell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** do aplicativo. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** da política. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -479,12 +478,12 @@ Use os cmdlets a seguir para políticas de entidade de serviço.
 Vincula a política especificada a uma entidade de serviço.
 
 ```PowerShell
-Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** do aplicativo. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** da política. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -493,12 +492,12 @@ Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefO
 Obtém qualquer política vinculada à entidade de serviço especificada.
 
 ```PowerShell
-Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** do aplicativo. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -506,11 +505,11 @@ Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
 Remove a política da entidade da entidade de serviço especificada.
 
 ```PowerShell
-Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** do aplicativo. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** da política. | `-PolicyId <ObjectId of Policy>` |
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 3/17/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 0ae9ad40f2e32d56fd50c90b86339cbb458d7291
-ms.openlocfilehash: a3276c764ebb6382594cf7002e7c7e8e328862ef
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 318ce3e14e2bbc23b180d582d81b0571d1e81d56
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -59,9 +59,7 @@ CQhoFA
 ```
 
 ### <a name="access-tokens"></a>Tokens de acesso
-Um token de acesso é uma forma de token de segurança que seu aplicativo recebe dos pontos de extremidade `authorize` e `token` do Azure AD B2C. Os tokens de acesso são representados como [JWTs](#types-of-tokens) e contêm declarações que você pode usar para identificar usuários em serviços e APIs Web.
-
-Os tokens de acesso são assinados, mas não são criptografados atualmente - e são bem semelhantes a tokens de ID.  Os tokens de acesso devem ser usados para fornecer acesso a serviços e APIs Web e para identificar e autenticar o usuário nesses serviços.  No entanto, eles não fornecem nenhuma declaração de autorização nesses serviços.  Isso quer dizer que a declaração `scp` em tokens de acesso não limita ou, de outra forma, representa o acesso concedido ao assunto do token.
+Um token de acesso é uma forma de token de segurança que seu aplicativo recebe dos pontos de extremidade `authorize` e `token` do Azure AD B2C. Os tokens de acesso também são representados como [JWTs](#types-of-tokens) e contêm declarações que você pode usar para identificar as permissões concedidas às suas APIs. Os tokens de acesso são assinados, mas não são criptografados atualmente.  Os tokens de acesso devem ser usados para fornecer acesso aos servidores de APIs e recursos. Saiba mais sobre como [usar tokens de acesso](active-directory-b2c-access-tokens.md). 
 
 Quando sua API recebe um token de acesso, deve [validar a assinatura](#token-validation) para provar que o token é autêntico. Sua API também deve validar algumas declarações no token para provar que ele é válido. Dependendo dos requisitos do cenário, as declarações validadas por um aplicativo podem variar, mas seu aplicativo deve executar algumas [validações de declaração comuns](#token-validation) em cada cenário.
 
@@ -123,7 +121,7 @@ O Azure AD B2C tem um ponto de extremidade de metadados OpenID Connect. Isso per
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-`fabrikamb2c.onmicrosoft.com` é o diretório B2C usado para autenticar o usuário e `b2c_1_sign_in` é a política usada para adquirir o token. Para determinar qual política foi usada para assinar um token (e onde buscar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base&64; o corpo e desserializando a cadeia de caracteres JSON resultante. A declaração `acr` será o nome da política que foi usada para emitir o token.  A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
+`fabrikamb2c.onmicrosoft.com` é o diretório B2C usado para autenticar o usuário e `b2c_1_sign_in` é a política usada para adquirir o token. Para determinar qual política foi usada para assinar um token (e onde buscar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base 64 o corpo e desserializando a cadeia de caracteres JSON resultante. A declaração `acr` será o nome da política que foi usada para emitir o token.  A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
 
 O documento de metadados é um objeto JSON que contém várias informações úteis. Isso inclui o local dos pontos de extremidade necessários para realizar a autenticação OpenID Connect. Também inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. Esse local é fornecido aqui, mas é melhor buscar o local dinamicamente usando o documento de metadados e analisando `jwks_uri`:
 

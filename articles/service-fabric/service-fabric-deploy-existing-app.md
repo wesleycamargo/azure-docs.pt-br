@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/17/2016
 ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
-ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e9c53dc601406961ee7aeca2e350ba14e691cb9b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -266,6 +266,11 @@ No elemento `ServiceManifestImport` , você pode especificar um ou mais serviço
 Para executáveis convidados, é útil poder ver os logs do console para descobrir se o aplicativo e os scripts de configuração mostram algum erro.
 O redirecionamento do console pode ser configurado no arquivo `ServiceManifest.xml` usando o elemento `ConsoleRedirection`.
 
+> [!WARNING]
+> Nunca use a política de redirecionamento de console em um aplicativo implantado na produção, pois isso pode afetar o failover do aplicativo. *Só* use isso para fins de depuração e de desenvolvimento locais.  
+> 
+> 
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -286,7 +291,7 @@ O `FileRetentionCount` determina quantos arquivos são salvos no diretório de t
 Arquivos de log são salvos em um dos diretórios de trabalho do serviço. Para determinar o local em que os arquivos estão localizados, use o Service Fabric Explorer para determinar em qual nó o serviço está sendo executado e qual diretório de trabalho está sendo usado. Esse processo é abordado mais adiante neste artigo.
 
 ## <a name="deployment"></a>Implantação
-A última etapa será implantar seu aplicativo. O script do PowerShell a seguir mostra como implantar seu aplicativo no cluster de desenvolvimento local e iniciar um novo serviço do Service Fabric.
+A última etapa será [implantar seu aplicativo](service-fabric-deploy-remove-applications.md). O script do PowerShell a seguir mostra como implantar seu aplicativo no cluster de desenvolvimento local e iniciar um novo serviço do Service Fabric.
 
 ```PowerShell
 
@@ -303,6 +308,11 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationType
 New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
 
 ```
+
+>[!TIP]
+> [Compacte o pacote](service-fabric-package-apps.md#compress-a-package) antes de copiar no armazenamento de imagens, se o pacote for grande ou tiver muitos arquivos. Leia mais [aqui](service-fabric-deploy-remove-applications.md#upload-the-application-package).
+>
+
 Um serviço do Service Fabric pode ser implantado em várias "configurações". Por exemplo, pode ser implantado como uma ou várias instâncias, ou pode ser implantado de forma que haja uma instância do serviço em cada nó do cluster do Service Fabric.
 
 O parâmetro `InstanceCount` do cmdlet `New-ServiceFabricService` é usado para especificar quantas instâncias do serviço devem ser iniciadas no cluster do Service Fabric. Você pode definir o valor de `InstanceCount` dependendo do tipo de aplicativo que está implantando. Os dois cenários mais comuns são:

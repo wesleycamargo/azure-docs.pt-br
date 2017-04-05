@@ -12,11 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2017
 ms.author: onewth
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: ../cognitive-services/cognitive-services-text-analytics-quick-start
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: f4389705a81b531bd706cbabc0b4c3b171febd5f
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -360,10 +363,5 @@ As propriedades de cada parte da resposta são as seguintes:
 | ID |Identificador do registro. É igual à ID incluída na entrada. |
 | TopicId |A ID do tópico a que o registro foi atribuído. |
 | Distância |Confiança em que o registro pertence ao tópico. Uma distância mais próxima a zero indica maior confiança. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

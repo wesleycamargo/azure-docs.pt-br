@@ -4,6 +4,7 @@
 # Introdução
 ## [Implantar um conjunto de dimensionamento no portal](virtual-machine-scale-sets-portal-create.md)
 ## [Implantar um conjunto de dimensionamento usando a CLI do Azure ou PowerShell](virtual-machine-scale-sets-create.md)
+## [Implantar um aplicativo de dimensionamento automático usando um modelo](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Como
 ## Planejar e projetar

@@ -36,7 +36,7 @@ Se ainda não tiver uma assinatura do Azure, mas tiver uma assinatura do MSDN, v
 Agora, [faça logon com a conta do Azure de modo interativo](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) digitando `azure login` e seguindo os prompts para ter uma experiência de logon interativa para sua conta do Azure. 
 
 > [!NOTE]
-> Se tiver uma ID corporativa ou de estudante e souber que não tem a autenticação de dois fatores habilitada, poderá **também** usar `azure login -u` juntamente com a ID corporativa ou de estudante para fazer logon *sem* uma sessão interativa. Se não tiver uma ID corporativa ou de estudante, poderá [criar uma ID corporativa ou de estudante de sua conta pessoal da Microsoft](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para fazer logon da mesma maneira.
+> Se tiver uma ID corporativa ou de estudante e souber que não tem a autenticação de dois fatores habilitada, poderá **também** usar `azure login -u` juntamente com a ID corporativa ou de estudante para fazer logon *sem* uma sessão interativa. Se não tiver uma ID corporativa ou de estudante, poderá [criar uma ID corporativa ou de estudante de sua conta pessoal da Microsoft](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para fazer logon da mesma maneira.
 >
 >
 
@@ -100,7 +100,7 @@ data:
 info:    group create command OK
 ```
 
-Em segundo lugar, você precisará de uma imagem. Para encontrar uma imagem com a CLI do Azure, confira [Navegando e selecionando imagens de máquinas virtuais do Azure com o PowerShell e a CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Porém, para este artigo, aqui está uma pequena lista de imagens populares. Vamos usar a imagem estável do CoreOS para esta criação rápida.
+Em segundo lugar, você precisará de uma imagem. Para encontrar uma imagem com a CLI do Azure, confira [Navegando e selecionando imagens de máquinas virtuais do Azure com o PowerShell e a CLI do Azure](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Porém, para este artigo, aqui está uma pequena lista de imagens populares. Vamos usar a imagem estável do CoreOS para esta criação rápida.
 
 > [!NOTE]
 > Para ComputeImageVersion, você pode também pode simplesmente fornecer 'latest' como o parâmetro tanto na linguagem do modelo quanto na CLI do Azure. Isso permitirá que você use sempre a versão mais recente e corrigida da imagem sem ter que modificar seus scripts ou modelos. Isso é mostrado abaixo.
@@ -232,7 +232,7 @@ Nesse caso, o modelo abaixo pedirá:
 * Um nome de domínio a ser usado pelo mundo exterior.
 * Um número de versão do Servidor do Ubuntu, mas apenas um de uma lista será aceito.
 
-Confira mais sobre os [requisitos de nome de usuário e senha](../articles/virtual-machines/virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+Confira mais sobre os [requisitos de nome de usuário e senha](../articles/virtual-machines/linux/faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 Após decidir quanto a esses valores, você estará pronto para criar um grupo e implantar esse modelo em sua assinatura do Azure.
 
@@ -1264,7 +1264,7 @@ info:    vm show command OK
 >
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarefa: Fazer logon em uma máquina virtual baseada no Linux
-Normalmente, as máquinas Linux são conectadas por meio de SSH. Para saber mais, confira [Como usar o SSH com o Linux no Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Normalmente, as máquinas Linux são conectadas por meio de SSH. Para saber mais, confira [Como usar o SSH com o Linux no Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a id="stop-a-virtual-machine"></a>Tarefa: Parar uma VM
 Execute este comando:
@@ -1305,4 +1305,4 @@ Em seguida, você precisará montar o disco, como faria normalmente no Linux.
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais exemplos de uso da CLI do Azure com o modo **arm** , confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](../articles/xplat-cli-azure-resource-manager.md). Para saber mais sobre recursos do Azure e seus conceitos, confira [Visão geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
-Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](../articles/virtual-machines/linux/app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

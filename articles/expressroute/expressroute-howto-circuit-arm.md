@@ -13,38 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: ced4347baf7eca4dd8fc9cf1c8c0b451314f0ad2
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 212de47a9cc4f2130b94ac1e622eabe0c0cb781a
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito da Rota Expressa
+# <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito da Rota Expressa usando o PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [Clássico - PowerShell](expressroute-howto-circuit-classic.md)
 > * [Vídeo – Portal do Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
 >
 
-Este artigo descreve como criar um circuito da Rota Expressa do azure usando os cmdlets do Windows PowerShell e o modelo de implantação do Azure Resource Manager. Este artigo também mostrará a você como verificar o status do circuito, como atualizá-lo ou como excluí-lo e desprovisioná-lo.
+Este artigo descreve como criar um circuito da Rota Expressa do azure usando os cmdlets do Windows PowerShell e o modelo de implantação do Azure Resource Manager. Este artigo também mostra como verificar o status do circuito, atualizá-lo ou excluí-lo e desprovisioná-lo.
 
 **Sobre modelos de implantação do Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Obtenha a versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Para obter as diretrizes passo a passo sobre como configurar seu computador para usar os módulos do PowerShell, siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Você precisará da versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para saber mais, confira [Getting started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Introdução aos cmdlets do Azure PowerShell). 
 * Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito da Rota Expressa
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Entre na sua conta do Azure e selecione sua assinatura
-Para iniciar sua configuração, entrar na sua conta do Azure. Para obter mais informações sobre o PowerShell, consulte [Usando o Windows PowerShell com o Resource Manager](../powershell-azure-resource-manager.md). Use o exemplo a seguir para ajudar a conectar:
+Para iniciar sua configuração, entrar na sua conta do Azure. Use o exemplo a seguir para ajudar a conectar:
 
     Login-AzureRmAccount
 

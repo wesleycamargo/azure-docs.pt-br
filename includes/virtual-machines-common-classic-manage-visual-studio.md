@@ -129,10 +129,5 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 2. No menu de atalho, escolha o comando **Fechar** ou escolha **Configurar** para exibir a página de configuração de máquina virtual e, em seguida, escolha o botão **Fechar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a criação de máquinas virtuais, consulte [Criar uma máquina virtual executando Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Criar uma máquina virtual executando o Windows na Versão Prévia do Portal do Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Para saber mais sobre a criação de máquinas virtuais, consulte [Criar uma máquina virtual executando Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Criar uma máquina virtual executando o Windows na Versão Prévia do Portal do Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/29/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 43a09fc208bee29c41776df402c5be664bb38e18
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 24b575a3c32c9df963f889954abd152ada4f3102
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -57,6 +57,14 @@ O SDK do .NET Core para DocumentDB tem paridade de recursos com a versão mais r
 > [!NOTE] 
 > O SDK do .NET Core do DocumentDB ainda não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
+### <a name="a-name121121httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore121"></a><a name="1.2.1"/>[1.2.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.2.1)
+
+* Correção de um problema que causou deadlocks em algumas APIs assíncronas quando usado dentro do contexto do ASP.NET.
+
+### <a name="a-name120120httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore120"></a><a name="1.2.0"/>[1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.2.0)
+
+* Correções para tornar o SDK mais resilientes ao failover automático em determinadas condições.
+
 ### <a name="a-name112112httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore112"></a><a name="1.1.2"/>[1.1.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.2)
 
 * Correção de um problema que eventualmente causa uma WebException: O nome remoto não pôde ser resolvido.
@@ -94,6 +102,8 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.2.1](#1.2.1) |29 de março de 2017 |--- |
+| [1.2.0](#1.2.0) |25 de março de 2017 |--- |
 | [1.1.2](#1.1.2) |20 de março de 2017 |--- |
 | [1.1.1](#1.1.1) |14 de março de 2017 |--- |
 | [1.1.0](#1.1.0) |16 de fevereiro de 2017 |--- |

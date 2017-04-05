@@ -17,9 +17,9 @@ ms.date: 02/27/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: b39c913367928e8e98dfb1d6bfdca75fcded13c3
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 88d54250c0ce8feff78e2bf122be1c69dd0d8008
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Usar as UDF (Funções Definidas pelo Usuário) do Python com o Hive e o Pig no HDInsight
@@ -182,7 +182,8 @@ Quando os dados forem devolvidos ao Pig, eles terão um esquema consistente, com
 Se você estiver usando um cluster HDInsight baseado em Linux, siga as etapas do **SSH**. Se você estiver usando um cluster HDInsight baseado no Windows e um cliente do Windows, use as etapas do **PowerShell** .
 
 ### <a name="ssh"></a>SSH
-Para obter mais informações sobre como usar o SSH, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md) ou [Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
+Para saber mais sobre como usar SSH, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Usando os exemplos do Python [streaming.py](#streamingpy) e [pig_python.py](#jythonpy), crie cópias locais dos arquivos em seu computador de desenvolvimento.
 

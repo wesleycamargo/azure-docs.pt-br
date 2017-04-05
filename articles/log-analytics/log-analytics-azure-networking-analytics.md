@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 1095267ce0c2a922d4bd9cb95a607ce8993df310
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9b0936299d506e951e45d54f630657c187ec6820
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções de monitoramento de rede do Azure no Log Analytics
 
 O Log Analytics oferece as seguintes soluções para monitorar suas redes:
-* Monitor de Desempenho de Rede (NPM)
+* Monitor de Desempenho de Rede (NPM) para
  * Monitorar a integridade da sua rede
 * Análise do Gateway de Aplicativo do Azure para revisão
  * Logs do Gateway de Aplicativo do Azure
@@ -37,8 +37,6 @@ A solução de gerenciamento do [Monitor de Desempenho de Rede](log-analytics-ne
 * nuvem pública e local 
 * data centers e locais de usuário (filiais)
 * sub-redes hospeda várias camadas de um aplicativo de várias camadas.
-
- ![imagem do Monitor de Desempenho de Rede](./media/log-analytics-network-performance-monitor/npm-topology.png)
 
 Para obter mais informações, confira [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md).
 
@@ -76,7 +74,7 @@ Nos Gateways de Aplicativo, há suporte para os seguintes logs:
 
 Há suporte para as seguintes métricas nos Gateways de Aplicativo:
 
-* Taxa de transferência de&5; minutos
+* Taxa de transferência de 5 minutos
 
 ### <a name="install-and-configure-the-solution"></a>Instale e configure a solução
 Use as instruções a seguir para instalar e configurar a solução de análise do Gateway de Aplicativo do Azure:

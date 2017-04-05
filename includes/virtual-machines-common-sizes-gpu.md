@@ -17,7 +17,7 @@ As instâncias de NC têm a tecnologia do Tesla K80 da NVIDIA. Agora, os usuári
 
 **Sistemas operacionais com suporte**
 
-* Windows Server 2016, Windows Server 2012 R2 - confira a [instalação do driver N-series para Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 - confira a [instalação do driver N-series para Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
 
 ## <a name="nc-instances"></a>Instâncias de NC
 
@@ -34,8 +34,8 @@ As instâncias de NC têm a tecnologia do Tesla K80 da NVIDIA. Agora, os usuári
 
 **Sistemas operacionais com suporte**
 
-* Windows Server 2016, Windows Server 2012 R2 - confira a [instalação do driver N-series para Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
-* Ubuntu 16.04 LTS - confira a [instalação do driver N-series para Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 - confira a [instalação do driver N-series para Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
+* Ubuntu 16.04 LTS - confira a [instalação do driver N-series para Linux](../articles/virtual-machines/linux/n-series-driver-setup.md)
 
 <br>
 

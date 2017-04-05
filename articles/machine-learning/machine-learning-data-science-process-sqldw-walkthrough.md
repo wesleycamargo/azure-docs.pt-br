@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
-ms.openlocfilehash: f12bf7ef4f608e01115a7e7d12b734d65ccc40e5
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 55e3f99cd3202abc012d310b43358d3795c8531e
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -55,7 +55,7 @@ A **chave exclusiva** para unir trip\_data e trip\_fare é composta pelos três 
 ## <a name="mltasks"></a>Resolver três tipos de tarefas de previsão
 Formulamos três problemas de previsão com base em *tip\_amount* para ilustrar três tipos de tarefas de modelagem:
 
-1. **Classificação binária**: para prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$&0; é um exemplo positivo, enquanto um *tip\_amount* de US$&0; é um exemplo negativo.
+1. **Classificação binária**: para prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
 2. **Classificação multiclasse**: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
    
         Class 0 : tip_amount = $0
@@ -105,7 +105,7 @@ Siga a documentação em [Criar um SQL Data Warehouse](../sql-data-warehouse/sql
 **Crie um espaço de trabalho de Azure Machine Learning em sua assinatura do Azure.** Para obter instruções, confira [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md).
 
 ## <a name="getdata"></a>Carregar os dados no SQL Data Warehouse
-Abra um console de comando do Windows PowerShell. Execute os seguintes comandos do PowerShell para baixar os arquivos de exemplo de script SQL que compartilhamos com você no Github para um diretório local especificado com o parâmetro *-DestDir*. Você pode alterar o valor do parâmetro *-DestDir* para qualquer diretório local. Se *-DestDir* não existir, ele será criado pelo script do PowerShell.
+Abra um console de comando do Windows PowerShell. Execute os seguintes comandos do PowerShell para baixar os arquivos de exemplo de script SQL que compartilhamos com você no GitHub para um diretório local especificado com o parâmetro *-DestDir*. Você pode alterar o valor do parâmetro *-DestDir* para qualquer diretório local. Se *-DestDir* não existir, ele será criado pelo script do PowerShell.
 
 > [!NOTE]
 > Talvez seja necessário **Executar como Administrador** ao executar o seguinte script do PowerShell se o *DestDir* precisar de privilégio de Administrador para criação ou gravação.
@@ -340,7 +340,7 @@ Após a execução bem-sucedida, você verá uma tela parecida com a seguinte:
 ![][20]
 
 ## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no Azure SQL Data Warehouse
-Nesta seção, executamos a exploração de dados e a geração de recursos por meio da execução de consultas SQL no Azure SQL DW usando diretamente o **Visual Studio Data Tools**. Todas as consultas SQL usadas nesta seção podem ser encontradas no exemplo de script chamado *SQLDW_Explorations.sql*. Esse arquivo já foi baixado em seu diretório local pelo script do PowerShell. Você também pode recuperá-lo no [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Mas o arquivo no Github não tem as informações do Azure SQL DW conectadas.
+Nesta seção, executamos a exploração de dados e a geração de recursos por meio da execução de consultas SQL no Azure SQL DW usando diretamente o **Visual Studio Data Tools**. Todas as consultas SQL usadas nesta seção podem ser encontradas no exemplo de script chamado *SQLDW_Explorations.sql*. Esse arquivo já foi baixado em seu diretório local pelo script do PowerShell. Você também pode recuperá-lo no [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Mas o arquivo no GitHub não tem as informações do Azure SQL DW conectadas.
 
 Conecte-se ao seu Azure SQL DW usando o Visual Studio com o nome e senha de logon do SQL DW e abra o **Pesquisador de Objetos do SQL** para confirmar se o banco de dados e as tabelas foram importados. Recupere o arquivo *SQLDW_Explorations.sql*.
 

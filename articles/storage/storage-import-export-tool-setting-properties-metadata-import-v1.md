@@ -1,6 +1,6 @@
 ---
-title: "Configurando propriedades e metadados usando a Importação/Exportação do Azure | Microsoft Docs | Microsoft Docs"
-description: "Saiba como especificar as propriedades e os metadados a serem definidos nos blobs de destino durante a execução da ferramenta de Importação/Exportação para preparar as unidades."
+title: "Configuração de propriedades e metadados usando a Importação/Exportação do Azure - v1 | Microsoft Docs"
+description: "Saiba como especificar as propriedades e os metadados a serem definidos nos blobs de destino durante a execução da Ferramenta de Importação/Exportação do Azure para preparar as unidades. Este documento refere-se à v1 da Ferramenta de Importação/Exportação."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 8e1152a03eee01244dd469586848c396a7f689cc
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 6455ce57572f9ec36d0ebae88c1ddd9f40f237bf
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>Configurando propriedades e metadados durante o processo de importação
-Ao executar a ferramenta de Importação/Exportação do Microsoft Azure para preparar as unidades, é possível especificar as propriedades e os metadados a serem definidos nos blobs de destino. Siga estas etapas:  
+Quando você executa a Ferramenta de Importação/Exportação do Microsoft Azure para preparar as unidades, é possível especificar as propriedades e os metadados a serem definidos nos blobs de destino. Siga estas etapas:  
   
 1.  Para definir propriedades de blob, crie um arquivo de texto no computador local que especifica os nomes e valores das propriedades.  
   
 2.  Para definir metadados de blob, crie um arquivo de texto no computador local que especifica os nomes e valores dos metadados.  
   
-3.  Passe o caminho completo para um ou ambos os arquivos à ferramenta de Importação/Exportação do Azure como parte da operação `PrepImport`.  
+3.  Passe o caminho completo para um ou ambos os arquivos à Ferramenta de Importação/Exportação do Azure como parte da operação `PrepImport`.  
   
 > [!NOTE]
 >  Ao especificar um arquivo de propriedades ou de metadados como parte de uma sessão de cópia, essas propriedades ou esses metadados são definidos para cada blob importado como parte da sessão de cópia. Se desejar especificar outro conjunto de propriedades ou de metadados para alguns dos blobs importados, você precisará criar uma sessão de cópia separada com arquivos de propriedades ou de metadados diferentes.  
@@ -54,7 +54,7 @@ Da mesma forma, para especificar os metadados de blob, crie um arquivo de texto 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -63,12 +63,13 @@ Da mesma forma, para especificar os metadados de blob, crie um arquivo de texto 
 Salve o arquivo em uma localização local como `C:\WAImportExport\ImportMetadata.txt`.  
   
 ## <a name="create-a-copy-session-including-the-properties-or-metadata-files"></a>Criar uma sessão de cópia, incluindo os arquivos de propriedades ou metadados  
-Ao executar a ferramenta de Importação/Exportação do Azure para preparar o trabalho de importação, especifique o arquivo de propriedades na linha de comando usando o parâmetro `PropertyFile`. Especifique o arquivo de metadados na linha de comando usando o parâmetro `/MetadataFile`. Este é um exemplo que especifica os dois arquivos:  
+Ao executar a Ferramenta de Importação/Exportação do Azure para preparar o trabalho de importação, especifique o arquivo de propriedades na linha de comando usando o parâmetro `PropertyFile`. Especifique o arquivo de metadados na linha de comando usando o parâmetro `/MetadataFile`. Este é um exemplo que especifica os dois arquivos:  
   
 ```
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
   
-## <a name="see-also"></a>Consulte também  
-[Formato de arquivo de propriedades e metadados do Serviço de Importação/Exportação](storage-import-export-file-format-metadata-and-properties.md)
+## <a name="next-steps"></a>Próximas etapas
+
+* [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](storage-import-export-file-format-metadata-and-properties.md)
 

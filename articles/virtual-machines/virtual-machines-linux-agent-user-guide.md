@@ -17,9 +17,9 @@ ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 07ee32a293d53dd9c0e0afa5da2bac7ec146a536
-ms.openlocfilehash: c7f39a5396f0f9b6f9a577a3225ccadff1fd0dc9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: b95d2f268548b48a1e31f2a35de8feaab251a485
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
@@ -50,7 +50,7 @@ O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux 
   * Garante a estabilidade do nome da interface de rede
 * **Kernel**
   
-  * Configura NUMA virtual (desabilitar para kernel <&2;.6.37)
+  * Configura NUMA virtual (desabilitar para kernel < 2.6.37)
   * Consome entropia de Hyper-V para /dev/random
   * Configura os tempos limite de SCSI para o dispositivo raiz (o qual poderia ser remoto)
 * **Diagnostics**
@@ -105,7 +105,7 @@ O agente do Linux depende de alguns pacotes de sistema para funcionar corretamen
 ## <a name="installation"></a>Instalação
 Instalação usando um RPM ou um pacote DEB do repositório de pacotes da distribuição é o método preferencial para instalar e atualizar o Azure do Agente Linux do Azure. Todos os [provedores de distribuição aprovados](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) integram o pacote do agente Linux do Azure em suas imagens e repositórios.
 
-Consulte a documentação do [repositório do agente Linux do Azure no Github](https://github.com/Azure/WALinuxAgent) para opções de instalação avançada, como instalação a partir da origem ou para locais personalizados ou prefixos.
+Consulte a documentação do [repositório do agente Linux do Azure no GitHub](https://github.com/Azure/WALinuxAgent) para ver opções de instalação avançada, como instalação da origem ou em locais personalizados ou prefixos.
 
 ## <a name="command-line-options"></a>Opções de linha de comando
 ### <a name="flags"></a>Sinalizadores
@@ -211,7 +211,7 @@ Se definido, o waagent executará o CustomData após o provisionamento.
 
 **Provisioning.PasswordCryptId**  
 Tipo: Sequência  
-Padrão:&6;
+Padrão: 6
 
 Algoritmo usado pelo Crypt ao gerar o hash de senha.  
  1 - MD5  
@@ -221,7 +221,7 @@ Algoritmo usado pelo Crypt ao gerar o hash de senha.
 
 **Provisioning.PasswordCryptSaltLength**  
 Tipo: Sequência  
-Padrão:&10;
+Padrão: 10
 
 Comprimento de sal aleatório usado ao gerar o hash de senha.
 
@@ -305,6 +305,6 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
 * Consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e o espaço de troca nas Imagens de Nuvem do Ubuntu durante o provisionamento:
   
   * [Wiki do Ubuntu: configurar partições de troca](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Injetando dados personalizados em uma Máquina Virtual do Azure](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  * [Injetando dados personalizados em uma Máquina Virtual do Azure](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 

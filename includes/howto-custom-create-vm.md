@@ -44,6 +44,6 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 ## <a name="next-steps"></a>Próximas etapas
 Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando o portal mostra o status como Executando, você poderá fazer logon na máquina virtual. Para obter instruções, consulte um dos seguintes artigos:
 
-* [Como fazer logon em uma máquina virtual que executa o Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Como fazer logon em uma máquina virtual que executa o Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Como fazer logon em uma máquina virtual que executa o Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

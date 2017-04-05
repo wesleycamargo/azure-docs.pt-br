@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 1d3336e7e2e3ec84ab85a8f494717a75f77982b3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 379b32f4e533f48f1593a97e73737a0c5bfb9135
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -155,9 +155,9 @@ Você também pode navegar até ***https://CLUSTERNAME.azurehdinsight.net/jupyte
 
 ![Procurar Notebooks Jupyter](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Selecione PySpark para ver um diretório que contém alguns exemplos de notebooks predefinidos que usam a API do PySpark. Os notebooks que contêm os exemplos de código para esse conjunto de tópicos do Spark estão disponíveis no [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
+Selecione PySpark para ver um diretório que contém alguns exemplos de notebooks predefinidos que usam a API do PySpark. Os notebooks que contêm os exemplos de código para esse conjunto de tópicos do Spark estão disponíveis no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-Você pode carregar os blocos de anotações diretamente do [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor do bloco de anotações Jupyter no seu cluster Spark. Na home page do seu Jupyter, clique no botão **Carregar** na parte direita da tela. Ele abre o explorador de arquivos. Aqui, você pode colar a URL do Github (conteúdo bruto) do Notebook e clicar em **Abrir**. 
+Você pode carregar os blocos de anotações diretamente do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor do bloco de anotações Jupyter no seu cluster Spark. Na home page do seu Jupyter, clique no botão **Carregar** na parte direita da tela. Ele abre o explorador de arquivos. Aqui, você pode colar a URL do GitHub (conteúdo bruto) do Notebook e clicar em **Abrir**. 
 
 Você vê o nome do arquivo em sua lista de arquivos do Jupyter, com um botão **Carregar** novamente. Clique nesse botão **Carregar** . Agora, você importou o notebook. Repita estas etapas deste passo a passo para carregar outros notebooks.
 

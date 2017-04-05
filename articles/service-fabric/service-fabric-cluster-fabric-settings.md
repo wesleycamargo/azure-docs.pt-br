@@ -16,14 +16,38 @@ ms.workload: NA
 ms.date: 02/15/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2e22150f9cea004af4892cd7fa2fb2b59c8787
-ms.openlocfilehash: 16e53dbdb4ce6de02a9c8acb2fb1d8a3ac265b8f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: bee47924092a0b327ef3aa5b936116bf311ce8d7
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
 Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los no portal ou usando um modelo do Azure Resource Manager.
+
+> [!NOTE]
+> Nem todas as configurações podem estar disponíveis por meio do portal. No caso de uma configuração listada abaixo não está disponível por meio do portal, personalize-a usando um modelo do Azure Resource Manager.
+> 
+
+## <a name="customizing-service-fabric-cluster-settings-using-azure-resource-manager-templates"></a>Personalizar configurações de cluster do Service Fabric usando modelos do Azure Resource Manager
+As etapas abaixo ilustram como adicionar uma nova configuração *MaxDiskQuotaInMB* à seção *Diagnóstico*.
+
+1. Vá para https://resources.azure.com
+2. Navegue até sua assinatura expandindo assinaturas -> grupos de recursos -> Microsoft.ServiceFabric -> Nome do Cluster
+3. No canto superior direito, selecione "Leitura/Gravação"
+4. Selecione Editar, atualize o elemento JSON `fabricSettings` e adicione um novo elemento
+
+```
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
 
 ## <a name="fabric-settings-that-you-can-customize"></a>Configurações de malha que você pode personalizar
 Aqui estão as configurações de Malha que você pode personalizar:
@@ -63,7 +87,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | FabricLogRoot |Cadeia de caracteres |Diretório raiz de log do Service Fabric. É nele que logs e os rastreamentos do SF são colocados. |
 | ServiceRunAsAccountName |Cadeia de caracteres |O nome da conta na qual executar o serviço de host de malha. |
 | ServiceStartupType |Cadeia de caracteres |O tipo de inicialização do serviço de host de malha. |
-| SkipFirewallConfiguration |Bool, o padrão é false |Especifica se as configurações do firewall precisam ser definidas pelo sistema ou não. Isso se aplicará apenas se você estiver usando o Firewall do Windows. Se você estiver usando firewalls de terceiros, deverá abrir as portas para o sistema e aplicativos a utilizar |
+| SkipFirewallConfiguration |Bool, o padrão é false |Especifica se as configurações do firewall precisam ou não ser definidas pelo sistema. Isso se aplicará apenas se você estiver usando o Firewall do Windows. Se você estiver usando firewalls de terceiros, deverá abrir as portas para o sistema e aplicativos a utilizar |
 
 ### <a name="section-name-transactionalreplicator"></a>Nome da seção: TransactionalReplicator
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
@@ -71,7 +95,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | MaxCopyQueueSize |Uint, o padrão é 16384 |Esse é o valor máximo que define o tamanho inicial da fila que mantém as operações de replicação. Observe que ele deve ser uma potência de 2. Se, durante a o tempo de execução, a fila aumentar para esse tamanho, as operações estarão restritas entre os replicadores primários e secundários. |
 | BatchAcknowledgementInterval | Tempo em segundos, o padrão é 0,015 | Especifique o intervalo de tempo em segundos. Determina a quantidade de tempo que o replicador aguarda depois de receber uma operação antes de enviar de volta uma confirmação. Outras operações recebidas durante esse período de tempo terão suas confirmações enviadas de volta em uma única mensagem-> reduzindo o tráfego de rede, mas reduzindo potencialmente a produtividade do replicador. |
 | MaxReplicationMessageSize |Uint, o padrão é 52428800 | Tamanho máximo da mensagem das operações de replicação. O padrão é 50 MB. |
-| ReplicatorAddress |Wstring, o padrão é "localhost:0" | O ponto de extremidade na forma de uma cadeia de caracteres -'IP:Port', usada pelo replicador do Windows Fabric para estabelecer conexões com outras réplicas a fim de enviar/receber operações. |
+| ReplicatorAddress |cadeia de caracteres, o padrão é "localhost:0" | O ponto de extremidade na forma de uma cadeia de caracteres -'IP:Port', usada pelo replicador do Windows Fabric para estabelecer conexões com outras réplicas a fim de enviar/receber operações. |
 | InitialPrimaryReplicationQueueSize |Uint, o padrão é 64 | Esse valor define o tamanho inicial da fila que mantém as operações de replicação no primário. Observe que ele deve ser uma potência de 2.|
 | MaxPrimaryReplicationQueueSize |Uint, o padrão é 8192 |Esse é o número máximo de operações que poderiam existir na fila de replicação primária. Observe que ele deve ser uma potência de 2. |
 | MaxPrimaryReplicationQueueMemorySize |Uint, o padrão é 0 |Esse é o valor máximo da fila de replicação primária em bytes. |
@@ -92,7 +116,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 ### <a name="section-name-fabricclient"></a>Nome da seção: FabricClient
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| NodeAddresses |Wstring, o padrão é "" |Uma coleção de endereços (cadeias de conexão) em diferentes nós que podem ser usados para se comunicar com o serviço de cadastramento. Inicialmente, o cliente se conecta selecionando um dos endereços aleatoriamente. Se mais de uma cadeia de conexão for fornecida e uma conexão falhar devido a um erro de comunicação ou de tempo limite, o cliente usará o próximo endereço na sequência. Consulte a seção de repetição do Endereço do Serviço de Cadastramento para obter detalhes sobre semântica de repetição. |
+| NodeAddresses |cadeia de caracteres, o padrão é "" |Uma coleção de endereços (cadeias de conexão) em diferentes nós que podem ser usados para se comunicar com o serviço de cadastramento. Inicialmente, o cliente se conecta selecionando um dos endereços aleatoriamente. Se mais de uma cadeia de conexão for fornecida e uma conexão falhar devido a um erro de comunicação ou de tempo limite, o cliente usará o próximo endereço na sequência. Consulte a seção de repetição do Endereço do Serviço de Cadastramento para obter detalhes sobre semântica de repetição. |
 | ConnectionInitializationTimeout |Tempo em segundos, o padrão é 2 |Especifique o intervalo de tempo em segundos. Intervalo do tempo limite de conexão para que cada cliente tente abrir uma conexão com o gateway. |
 | PartitionLocationCacheLimit |Int, o padrão é 100000 |Número de partições em cache para a resolução do serviço (definida como 0 para nenhum limite). |
 | ServiceChangePollInterval |Tempo em segundos, o padrão é 120 |Especifique o intervalo de tempo em segundos. O intervalo entre pesquisas consecutivas para que o serviço seja alterado do cliente para o gateway para retornos de chamada de notificações de alteração do serviço registrado. |
@@ -121,7 +145,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 ### <a name="section-name-nodedomainids"></a>Nome da seção: NodeDomainIds
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| UpgradeDomainId |Wstring, o padrão é "" |Descreve o domínio de atualização ao qual o nó pertence. |
+| UpgradeDomainId |cadeia de caracteres, o padrão é "" |Descreve o domínio de atualização ao qual o nó pertence. |
 | PropertyGroup |NodeFaultDomainIdCollection |Descreve os domínios de falha aos quais o nó pertence. O domínio de falha é definido por meio de um URI que descreve o local do nó no data center.  Os URIs do domínio de falha estão no formato fd:/fd/ seguidos por um segmento de caminho do URI.|
 
 ### <a name="section-name-nodeproperties"></a>Nome da seção: NodeProperties
@@ -139,27 +163,27 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | --- | --- | --- |
 | StartApplicationPortRange |Int, o padrão é 0 |Início das portas do aplicativo gerenciadas pelo subsistema de hospedagem. Necessário se EndpointFilteringEnabled for true na hospedagem. |
 | EndApplicationPortRange |Int, o padrão é 0 |Fim (não inclusive) das portas do aplicativo gerenciadas pelo subsistema de hospedagem. Necessário se EndpointFilteringEnabled for true na hospedagem. |
-| ClusterX509StoreName |Wstring, o padrão é "My" |Nome do repositório de certificados X.509 que contém o certificado do cluster para proteger a comunicação dentro do cluster. |
-| ClusterX509FindType |Wstring, o padrão é "FindByThumbprint" |Indica como pesquisar o certificado do cluster no repositório especificado pelos valores com suporte ClusterX509StoreName: "FindByThumbprint"; "FindBySubjectName" With "FindBySubjectName"; quando houver várias correspondências, a que tiver a data de expiração mais afastada será usada. |
-| ClusterX509FindValue |Wstring, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado do cluster. |
-| ClusterX509FindValueSecondary |Wstring, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado do cluster. |
-| ServerAuthX509StoreName |Wstring, o padrão é "My" |Nome do repositório de certificados X.509 que contém o certificado do servidor para o serviço de entrada. |
-| ServerAuthX509FindType |Wstring, o padrão é "FindByThumbprint" |Indica como pesquisar o certificado do servidor no repositório especificado pelo valor ServerAuthX509StoreName com suporte: FindByThumbprint; FindBySubjectName. |
-| ServerAuthX509FindValue |Wstring, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado do servidor. |
-| ServerAuthX509FindValueSecondary |Wstring, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado do servidor. |
-| ClientAuthX509StoreName |Wstring, o padrão é "My" |Nome do repositório de certificados X.509 que contém o certificado da função de administrador padrão FabricClient. |
-| ClientAuthX509FindType |Wstring, o padrão é "FindByThumbprint" |Indica como pesquisar o certificado no repositório especificado pelo valor ClientAuthX509StoreName com suporte: FindByThumbprint; FindBySubjectName. |
-| ClientAuthX509FindValue |Wstring, o padrão é "" | Valor do filtro de pesquisa usado para localizar o certificado para a função de administrador padrão FabricClient. |
-| ClientAuthX509FindValueSecondary |Wstring, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado para a função de administrador padrão FabricClient. |
-| UserRoleClientX509StoreName |Wstring, o padrão é "My" |Nome do repositório de certificados X.509 que contém o certificado da função de usuário padrão FabricClient. |
-| UserRoleClientX509FindType |Wstring, o padrão é "FindByThumbprint" |Indica como pesquisar o certificado no repositório especificado pelo valor UserRoleClientX509StoreName com suporte: FindByThumbprint; FindBySubjectName. |
-| UserRoleClientX509FindValue |Wstring, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado para a função de usuário padrão FabricClient. |
-| UserRoleClientX509FindValueSecondary |Wstring, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado para a função de usuário padrão FabricClient. |
+| ClusterX509StoreName |cadeia de caracteres, o padrão é "My" |Nome do repositório de certificados X.509 que contém o certificado do cluster para proteger a comunicação dentro do cluster. |
+| ClusterX509FindType |cadeia de caracteres, o padrão é "FindByThumbprint" |Indica como pesquisar o certificado do cluster no repositório especificado pelos valores com suporte ClusterX509StoreName: "FindByThumbprint"; "FindBySubjectName" With "FindBySubjectName"; quando houver várias correspondências, a que tiver a data de expiração mais afastada será usada. |
+| ClusterX509FindValue |cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado do cluster. |
+| ClusterX509FindValueSecondary |cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado do cluster. |
+| ServerAuthX509StoreName |cadeia de caracteres, o padrão é "My" |Nome do repositório de certificados X.509 que contém o certificado do servidor para o serviço de entrada. |
+| ServerAuthX509FindType |cadeia de caracteres, o padrão é "FindByThumbprint" |Indica como pesquisar o certificado do servidor no repositório especificado pelo valor ServerAuthX509StoreName com suporte: FindByThumbprint; FindBySubjectName. |
+| ServerAuthX509FindValue |cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado do servidor. |
+| ServerAuthX509FindValueSecondary |cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado do servidor. |
+| ClientAuthX509StoreName |cadeia de caracteres, o padrão é "My" |Nome do repositório de certificados X.509 que contém o certificado da função de administrador padrão FabricClient. |
+| ClientAuthX509FindType |cadeia de caracteres, o padrão é "FindByThumbprint" |Indica como pesquisar o certificado no repositório especificado pelo valor ClientAuthX509StoreName com suporte: FindByThumbprint; FindBySubjectName. |
+| ClientAuthX509FindValue |cadeia de caracteres, o padrão é "" | Valor do filtro de pesquisa usado para localizar o certificado para a função de administrador padrão FabricClient. |
+| ClientAuthX509FindValueSecondary |cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado para a função de administrador padrão FabricClient. |
+| UserRoleClientX509StoreName |cadeia de caracteres, o padrão é "My" |Nome do repositório de certificados X.509 que contém o certificado da função de usuário padrão FabricClient. |
+| UserRoleClientX509FindType |cadeia de caracteres, o padrão é "FindByThumbprint" |Indica como pesquisar o certificado no repositório especificado pelo valor UserRoleClientX509StoreName com suporte: FindByThumbprint; FindBySubjectName. |
+| UserRoleClientX509FindValue |cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado para a função de usuário padrão FabricClient. |
+| UserRoleClientX509FindValueSecondary |cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado para a função de usuário padrão FabricClient. |
 
 ### <a name="section-name-paas"></a>Nome da seção: Paas
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| ClusterId |Wstring, o padrão é "" |Repositório de certificados X509 usado pela malha para proteção da configuração. |
+| ClusterId |cadeia de caracteres, o padrão é "" |Repositório de certificados X509 usado pela malha para proteção da configuração. |
 
 ### <a name="section-name-fabrichost"></a>Nome da seção: FabricHost
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
@@ -190,7 +214,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |ReplicaRestartWaitDuration | Tempo em segundos, o padrão é (60,0 * 30)| Especifique o intervalo de tempo em segundos. Quando uma réplica do Serviço de Cadastramento ficar inativa, esse temporizador será iniciado.  Quando ele expirar, o FM começará a substituir as réplicas inativas (ele não ainda não as considerará perdidas). |
 |QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue | Especifique o intervalo de tempo em segundos. Quando um Serviço de Cadastramento entra em perda de quorum, esse temporizador é iniciado.  Quando ele expirar, o FM considerará as réplicas inativas como perdidas e tentará recuperar o quorum. Observe que isso pode resultar em perda de dados. |
 |StandByReplicaKeepDuration | Tempo em segundos, o padrão é 3600,0 * 2 | Especifique o intervalo de tempo em segundos. Quando uma réplica do Serviço de Cadastramento volta de um estado inativo, talvez ela já tenha sido substituída.  Este temporizador determina por quanto tempo o FM manterá a réplica em espera antes de descartá-la. |
-|PlacementConstraints | Wstring, o padrão é "" | Restrição de posicionamento para o Serviço de Cadastramento. |
+|PlacementConstraints | cadeia de caracteres, o padrão é "" | Restrição de posicionamento para o Serviço de Cadastramento. |
 |ServiceDescriptionCacheLimit | Int, o padrão é 0 | O número máximo de entradas mantidas no cache de descrição do serviço LRU no Serviço do Repositório de Cadastramento (defina como 0 para sem limite). |
 |RepairInterval | Tempo em segundos, o padrão é 5 | Especifique o intervalo de tempo em segundos. Intervalo em que o reparo de inconsistência de nomenclatura entre o proprietário da autoridade e o proprietário do nome será iniciado. |
 |MaxNamingServiceHealthReports | Int, o padrão é 10 | O número máximo de operações lentas que o Serviço do Repositório de Cadastramento reporta como não íntegras de uma vez. Se for 0, todas as operações lentas serão enviadas. |
@@ -207,30 +231,30 @@ Aqui estão as configurações de Malha que você pode personalizar:
 ### <a name="section-name-runas"></a>Nome da seção: RunAs
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
-|RunAsAccountType|Wstring, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
-|RunAsPassword|Wstring, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
+| RunAsAccountName |cadeia de caracteres, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
+|RunAsAccountType|cadeia de caracteres, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
+|RunAsPassword|cadeia de caracteres, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
 ### <a name="section-name-runasfabric"></a>Nome da seção: RunAs_Fabric
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
-|RunAsAccountType|Wstring, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|Wstring, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
+| RunAsAccountName |cadeia de caracteres, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
+|RunAsAccountType|cadeia de caracteres, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|RunAsPassword|cadeia de caracteres, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
 ### <a name="section-name-runashttpgateway"></a>Nome da seção: RunAs_HttpGateway
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
-|RunAsAccountType|Wstring, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|Wstring, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
+| RunAsAccountName |cadeia de caracteres, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
+|RunAsAccountType|cadeia de caracteres, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|RunAsPassword|cadeia de caracteres, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
 ### <a name="section-name-runasdca"></a>Nome da seção: RunAs_DCA
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
-|RunAsAccountType|Wstring, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|Wstring, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
+| RunAsAccountName |cadeia de caracteres, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
+|RunAsAccountType|cadeia de caracteres, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|RunAsPassword|cadeia de caracteres, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
 ### <a name="section-name-httpgateway"></a>Nome da seção: HttpGateway
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
@@ -246,8 +270,8 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |WriteBufferMemoryPoolMinimumInKB |Int, o padrão é 8388608 |O número de KB para serem inicialmente alocados para o pool de memória do buffer de gravação. Use 0 para indicar que nenhum padrão de limite deve ser consistente com SharedLogSizeInMB abaixo. |
 |WriteBufferMemoryPoolMaximumInKB | Int, o padrão é 0 |O número de KB até o qual o pool de memória do buffer de gravação tem permissão para crescer. Use 0 para não indicar nenhum limite. |
 |MaximumDestagingWriteOutstandingInKB | Int, o padrão é 0 | O número de KB que o log compartilhado tem permissão para ficar à frente do log dedicado. Use 0 para não indicar nenhum limite.
-|SharedLogPath |Wstring, o padrão é "" | O caminho e o nome de arquivo do local onde será inserido o contêiner do log compartilhado. Use "" para usar o caminho padrão na raiz de dados de malha. |
-|SharedLogId |Wstring, o padrão é "" |Guid exclusivo para o contêiner de log compartilhado. Use "" se usar o caminho padrão na raiz de dados de malha. |
+|SharedLogPath |cadeia de caracteres, o padrão é "" | O caminho e o nome de arquivo do local onde será inserido o contêiner do log compartilhado. Use "" para usar o caminho padrão na raiz de dados de malha. |
+|SharedLogId |cadeia de caracteres, o padrão é "" |Guid exclusivo para o contêiner de log compartilhado. Use "" se usar o caminho padrão na raiz de dados de malha. |
 |SharedLogSizeInMB |Int, o padrão é 8192 | O número de MB a ser alocado no contêiner do log compartilhado. |
 
 ### <a name="section-name-applicationgatewayhttp"></a>Nome da seção: ApplicationGateway/Http
@@ -258,11 +282,11 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |DefaultHttpRequestTimeout |Tempo em segundos. o padrão é 60 |Especifique o intervalo de tempo em segundos.  Fornece o tempo limite da solicitação padrão para as solicitações de http que estão sendo processadas no gateway de aplicativo http. |
 |ResolveServiceBackoffInterval |Tempo em segundos, o padrão é 5 |Especifique o intervalo de tempo em segundos.  Fornece o intervalo de retirada padrão antes de tentar uma operação de serviço de resolução falido novamente. |
 |BodyChunkSize |Uint, o padrão é 4096 |  Fornece o tamanho da parte em bytes usado para ler o corpo. |
-|GatewayAuthCredentialType |Wstring, o padrão é "None" | Indica o tipo de credenciais de segurança para usar nos ponto de extremidade do gateway do aplicativo Os valores válidos são “None/ X509. |
-|GatewayX509CertificateStoreName |Wstring, o padrão é "My" | Nome do repositório de certificados X.509 que contém o certificado do gateway de aplicativo http. |
-|GatewayX509CertificateFindType |Wstring, o padrão é "FindByThumbprint" | Indica como pesquisar o certificado no repositório especificado pelo valor GatewayX509CertificateStoreName com suporte: FindByThumbprint; FindBySubjectName. |
-|GatewayX509CertificateFindValue | Wstring, o padrão é "" | Valor do filtro de pesquisa usado para localizar o certificado de gateway de aplicativo http. Esse certificado é configurado no ponto de extremidade https e também pode ser usado para verificar a identidade do aplicativo, se necessário, para os serviços. FindValue é pesquisado primeiro; se ele não existir, FindValueSecondary será pesquisado. |
-|GatewayX509CertificateFindValueSecondary | Wstring, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado de gateway de aplicativo http. Esse certificado é configurado no ponto de extremidade https e também pode ser usado para verificar a identidade do aplicativo, se necessário, para os serviços. FindValue é pesquisado primeiro; se ele não existir, FindValueSecondary será pesquisado.|
+|GatewayAuthCredentialType |cadeia de caracteres, o padrão é "None" | Indica o tipo de credenciais de segurança para usar nos ponto de extremidade do gateway do aplicativo Os valores válidos são “None/ X509. |
+|GatewayX509CertificateStoreName |cadeia de caracteres, o padrão é "My" | Nome do repositório de certificados X.509 que contém o certificado do gateway de aplicativo http. |
+|GatewayX509CertificateFindType |cadeia de caracteres, o padrão é "FindByThumbprint" | Indica como pesquisar o certificado no repositório especificado pelo valor GatewayX509CertificateStoreName com suporte: FindByThumbprint; FindBySubjectName. |
+|GatewayX509CertificateFindValue | cadeia de caracteres, o padrão é "" | Valor do filtro de pesquisa usado para localizar o certificado de gateway de aplicativo http. Esse certificado é configurado no ponto de extremidade https e também pode ser usado para verificar a identidade do aplicativo, se necessário, para os serviços. FindValue é pesquisado primeiro; se ele não existir, FindValueSecondary será pesquisado. |
+|GatewayX509CertificateFindValueSecondary | cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado de gateway de aplicativo http. Esse certificado é configurado no ponto de extremidade https e também pode ser usado para verificar a identidade do aplicativo, se necessário, para os serviços. FindValue é pesquisado primeiro; se ele não existir, FindValueSecondary será pesquisado.|
 
 ### <a name="section-name-management"></a>Nome da seção: gerenciamento
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
@@ -293,7 +317,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | ReplicaRestartWaitDuration |Tempo em segundos, o padrão é 60 minutos|Especifique o intervalo de tempo em segundos. O ReplicaRestartWaitDuration para FaultAnalysisService. |
 | QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para FaultAnalysisService. |
 | StandByReplicaKeepDuration| Tempo em segundos, o padrão é (60*24*7) minutos |Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para FaultAnalysisService. |
-| PlacementConstraints | Wstring, o padrão é ""| O PlacementConstraints para FaultAnalysisService. |
+| PlacementConstraints | cadeia de caracteres, o padrão é ""| O PlacementConstraints para FaultAnalysisService. |
 | StoredActionCleanupIntervalInSeconds | Int, o padrão é 3600 |Essa é a frequência com que o repositório será limpo.  Somente ações em um estado terminal; e a concluída há pelo menos CompletedActionKeepDurationInSeconds será removida. |
 | CompletedActionKeepDurationInSeconds | Int, o padrão é 604800 | Isso é aproximadamente por quanto tempo serão mantidas as ações em um estado terminal.  Isso também depende de StoredActionCleanupIntervalInSeconds, uma vez que o trabalho de limpeza é realizado somente nesse intervalo. 604800 é 7 dias. |
 | StoredChaosEventCleanupIntervalInSeconds | Int, o padrão é 3600 |Essa é a frequência com que o repositório será auditado para limpeza; se o número de eventos for maior do que 30000, a limpeza começará. |
@@ -309,20 +333,20 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | MaxRequestProcessingThreads | Uint, o padrão é 200 |O número máximo de threads paralelos permitidos para processar solicitações no primário. '0' == número de núcleos. |
 | MaxSecondaryFileCopyFailureThreshold | Uint, o padrão é 25| O número máximo de repetições de cópia de arquivo no secundário antes de desistir. |
 | AnonymousAccessEnabled | Bool, o padrão é true |Habilitar/desabilitar o acesso anônimo aos compartilhamentos do FileStoreService. |
-| PrimaryAccountType | Wstring, o padrão é "" |O AccountType primário da entidade para colocar os compartilhamentos do FileStoreService em ACL. |
-| PrimaryAccountUserName | Wstring, o padrão é "" |O nome de usuário da conta primária da entidade para colocar os compartilhamentos do FileStoreService em ACL. |
+| PrimaryAccountType | cadeia de caracteres, o padrão é "" |O AccountType primário da entidade para colocar os compartilhamentos do FileStoreService em ACL. |
+| PrimaryAccountUserName | cadeia de caracteres, o padrão é "" |O nome de usuário da conta primária da entidade para colocar os compartilhamentos do FileStoreService em ACL. |
 | PrimaryAccountUserPassword | SecureString, o padrão é vazio |O nome de usuário da conta primária da entidade colocar os compartilhamentos do FileStoreService em ACL. |
 | FileStoreService | PrimaryAccountNTLMPasswordSecret | SecureString, o padrão é vazio | O segredo de senha usado como semente para gerar a mesma senha gerada ao usar a autenticação NTLM. |
-| PrimaryAccountNTLMX509StoreLocation | Wstring, o padrão é "LocalMachine"| O local de repositório do certificado X509 usado para gerar HMAC no PrimaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
-| PrimaryAccountNTLMX509StoreName | Wstring, o padrão é "MY"| O nome de repositório do certificado X509 usado para gerar HMAC no PrimaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
-| PrimaryAccountNTLMX509Thumbprint | Wstring, o padrão é ""|A impressão digital de repositório do certificado X509 usado para gerar HMAC no PrimaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
-| SecondaryAccountType | Wstring, o padrão é ""| O AccountType secundário da entidade para colocar os compartilhamentos do FileStoreService em ACL. |
-| SecondaryAccountUserName | Wstring, o padrão é ""| O nome de usuário da conta secundária da entidade para colocar os compartilhamentos do FileStoreService em ACL. |
+| PrimaryAccountNTLMX509StoreLocation | cadeia de caracteres, o padrão é "LocalMachine"| O local de repositório do certificado X509 usado para gerar HMAC no PrimaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
+| PrimaryAccountNTLMX509StoreName | cadeia de caracteres, o padrão é "MY"| O nome de repositório do certificado X509 usado para gerar HMAC no PrimaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
+| PrimaryAccountNTLMX509Thumbprint | cadeia de caracteres, o padrão é ""|A impressão digital de repositório do certificado X509 usado para gerar HMAC no PrimaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
+| SecondaryAccountType | cadeia de caracteres, o padrão é ""| O AccountType secundário da entidade para colocar os compartilhamentos do FileStoreService em ACL. |
+| SecondaryAccountUserName | cadeia de caracteres, o padrão é ""| O Nome de Usuário da conta secundária da entidade para colocar os compartilhamentos do FileStoreService em ACL. |
 | SecondaryAccountUserPassword | SecureString, o padrão é vazio |A senha da conta secundária da entidade para colocar os compartilhamentos do FileStoreService em ACL.  |
 | SecondaryAccountNTLMPasswordSecret | SecureString, o padrão é vazio | O segredo de senha usado como semente para gerar a mesma senha gerada ao usar a autenticação NTLM. |
-| SecondaryAccountNTLMX509StoreLocation | Wstring, o padrão é "LocalMachine" |O local de repositório do certificado X509 usado para gerar HMAC no SecondaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
-| SecondaryAccountNTLMX509StoreName | Wstring, o padrão é "MY" |O nome de repositório do certificado X509 usado para gerar HMAC no SecondaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
-| SecondaryAccountNTLMX509Thumbprint | Wstring, o padrão é ""| A impressão digital do certificado X509 usado para gerar HMAC no SecondaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
+| SecondaryAccountNTLMX509StoreLocation | cadeia de caracteres, o padrão é "LocalMachine" |O local de repositório do certificado X509 usado para gerar HMAC no SecondaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
+| SecondaryAccountNTLMX509StoreName | cadeia de caracteres, o padrão é "MY" |O nome de repositório do certificado X509 usado para gerar HMAC no SecondaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
+| SecondaryAccountNTLMX509Thumbprint | cadeia de caracteres, o padrão é ""| A impressão digital do certificado X509 usado para gerar HMAC no SecondaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
 
 ### <a name="section-name-imagestoreservice"></a>Nome da seção: ImageStoreService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
@@ -333,7 +357,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | ReplicaRestartWaitDuration | Tempo em segundos, o padrão é 60,0 * 30 | Especifique o intervalo de tempo em segundos. O ReplicaRestartWaitDuration para ImageStoreService. |
 | QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue | Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para ImageStoreService. |
 | StandByReplicaKeepDuration | Tempo em segundos, o padrão é 3600,0 * 2 | Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para ImageStoreService. |
-| PlacementConstraints | Wstring, o padrão é "" | O PlacementConstraints para ImageStoreService. |
+| PlacementConstraints | cadeia de caracteres, o padrão é "" | O PlacementConstraints para ImageStoreService. |
 | ClientUploadTimeout | Tempo em segundos, o padrão é 1800 |Especifique o intervalo de tempo em segundos. Valor de tempo limite para solicitação de upload de nível superior para o Serviço de Repositório de Imagens. |
 | ClientCopyTimeout | Tempo em segundos, o padrão é 1800 | Especifique o intervalo de tempo em segundos. Valor de tempo limite para solicitação de cópia de nível superior para o Serviço de Repositório de Imagens. |
 | ClientDownloadTimeout | Tempo em segundos, o padrão é 1800 | Especifique o intervalo de tempo em segundos. Valor de tempo limite para solicitação de download de nível superior para o Serviço de Repositório de Imagens |
@@ -352,7 +376,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 ### <a name="section-name-tokenvalidationservice"></a>Nome da seção: TokenValidationService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| Provedores |Wstring, o padrão é "DSTS" |Lista separada por vírgulas dos provedores de validação de tokens para habilitar (os provedores válidas são: DSTS; AAD). No momento, somente um provedor pode ser habilitado a qualquer momento. |
+| Provedores |cadeia de caracteres, o padrão é "DSTS" |Lista separada por vírgulas dos provedores de validação de tokens para habilitar (os provedores válidas são: DSTS; AAD). No momento, somente um provedor pode ser habilitado a qualquer momento. |
 
 ### <a name="section-name-upgradeorchestrationservice"></a>Nome da seção: UpgradeOrchestrationService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
@@ -362,113 +386,113 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | ReplicaRestartWaitDuration | Tempo em segundos, o padrão é 60 minutos| Especifique o intervalo de tempo em segundos. O ReplicaRestartWaitDuration para UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue | Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Tempo em segundos, o padrão é 60*24*7 minutos | Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para UpgradeOrchestrationService. |
-| PlacementConstraints | Wstring, o padrão é "" | O PlacementConstraints para UpgradeOrchestrationService. |
+| PlacementConstraints | cadeia de caracteres, o padrão é "" | O PlacementConstraints para UpgradeOrchestrationService. |
 | AutoupgradeEnabled | Bool, o padrão é true | Sondagem automática e ação de atualização baseadas em um arquivo de estado de meta. |
 | UpgradeApprovalRequired | Bool, o padrão é false | Configuração para fazer a atualização de código exigir aprovação do administrador antes de continuar. |
 
 ### <a name="section-name-upgradeservice"></a>Nome da seção: UpgradeService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| PlacementConstraints |Wstring, o padrão é "" |O PlacementConstraints para o serviço de atualização. |
+| PlacementConstraints |cadeia de caracteres, o padrão é "" |O PlacementConstraints para o serviço de atualização. |
 | TargetReplicaSetSize | Int, o padrão é 3 | O TargetReplicaSetSize para UpgradeService. |
 | MinReplicaSetSize | Int, o padrão é 2 | O MinReplicaSetSize para UpgradeService. |
-| CoordinatorType | Wstring, o padrão é "WUTest"| O CoordinatorType para UpgradeService. |
-| BaseUrl | Wstring, o padrão é "" |BaseUrl para UpgradeService. |
-| ClusterId | Wstring, o padrão é "" | ClusterId para UpgradeService. |
-| X509StoreName | Wstring, o padrão é "My"| X509StoreName para UpgradeService. |
-| X509StoreLocation | Wstring, o padrão é "" | X509StoreLocation para UpgradeService. |
-| X509FindType | Wstring, o padrão é ""| X509FindType para UpgradeService. |
-| X509FindValue | Wstring, o padrão é "" | X509FindValue para UpgradeService. |
-| X509SecondaryFindValue | Wstring, o padrão é "" | X509SecondaryFindValue para UpgradeService. |
+| CoordinatorType | cadeia de caracteres, o padrão é "WUTest"| O CoordinatorType para UpgradeService. |
+| BaseUrl | cadeia de caracteres, o padrão é "" |BaseUrl para UpgradeService. |
+| ClusterId | cadeia de caracteres, o padrão é "" | ClusterId para UpgradeService. |
+| X509StoreName | cadeia de caracteres, o padrão é "My"| X509StoreName para UpgradeService. |
+| X509StoreLocation | cadeia de caracteres, o padrão é "" | X509StoreLocation para UpgradeService. |
+| X509FindType | cadeia de caracteres, o padrão é ""| X509FindType para UpgradeService. |
+| X509FindValue | cadeia de caracteres, o padrão é "" | X509FindValue para UpgradeService. |
+| X509SecondaryFindValue | cadeia de caracteres, o padrão é "" | X509SecondaryFindValue para UpgradeService. |
 | OnlyBaseUpgrade | Bool, o padrão é false | OnlyBaseUpgrade para UpgradeService. |
-| TestCabFolder | Wstring, o padrão é "" | TestCabFolder para UpgradeService. |
+| TestCabFolder | cadeia de caracteres, o padrão é "" | TestCabFolder para UpgradeService. |
 
 ### <a name="section-name-securityclientaccess"></a>Nome da seção: segurança/ClientAccess
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
-| CreateName |Wstring, o padrão é "Admin" |Configuração de segurança para a criação do URI de nomenclatura. |
-| DeleteName |Wstring, o padrão é "Admin" |Configuração de segurança para a exclusão do URI de nomenclatura. |
-| PropertyWriteBatch |Wstring, o padrão é "Admin" |Configuração de segurança para operações de gravação da propriedade de Nomenclatura. |
-| CreateService |Wstring, o padrão é "Admin" | Configuração de segurança para a criação do serviço. |
-| CreateServiceFromTemplate |Wstring, o padrão é "Admin" |Configuração de segurança para a criação do serviço com base no modelo. |
-| UpdateService |Wstring, o padrão é "Admin" |Configuração de segurança para atualizações de serviço. |
-| DeleteService  |Wstring, o padrão é "Admin" |Configuração de segurança para a exclusão do serviço. |
-| ProvisionApplicationType |Wstring, o padrão é "Admin" | Configuração de segurança para provisionamento de tipo de aplicativo. |
-| CreateApplication |Wstring, o padrão é "Admin" | Configuração de segurança para a criação de aplicativos. |
-| DeleteApplication |Wstring, o padrão é "Admin" | Configuração de segurança para a exclusão de aplicativos. |
-| UpgradeApplication |Wstring, o padrão é "Admin" | Configuração de segurança para iniciar ou interromper atualizações do aplicativo. |
-| RollbackApplicationUpgrade |Wstring, o padrão é "Admin" | Configuração de segurança para reverter atualizações do aplicativo. |
-| UnprovisionApplicationType |Wstring, o padrão é "Admin" | Configuração de segurança para desprovisionamento de tipo de aplicativo. |
-| MoveNextUpgradeDomain |Wstring, o padrão é "Admin" | Configuração de segurança para retomar as atualizações do aplicativo com um domínio de atualização explícito. |
-| ReportUpgradeHealth |Wstring, o padrão é "Admin" | Configuração de segurança para retomar as atualizações do aplicativo com o andamento da atualização atual. |
-| ReportHealth |Wstring, o padrão é "Admin" | Configuração de segurança para relatar integridade. |
-| ProvisionFabric |Wstring, o padrão é "Admin" | Configuração de segurança para MSI e/ou provisionamento de manifesto do cluster. |
-| UpgradeFabric |Wstring, o padrão é "Admin" | Configuração de segurança para iniciar atualizações do cluster. |
-| RollbackFabricUpgrade |Wstring, o padrão é "Admin" | Configuração de segurança para reverter atualizações do cluster. |
-| UnprovisionFabric |Wstring, o padrão é "Admin" | Configuração de segurança para MSI e/ou desprovisionamento de manifesto do cluster. |
-| MoveNextFabricUpgradeDomain |Wstring, o padrão é "Admin" | Configuração de segurança para retomar as atualizações do cluster com um domínio de atualização explícito. |
-| ReportFabricUpgradeHealth |Wstring, o padrão é "Admin" | Configuração de segurança para retomar as atualizações do cluster com o andamento da atualização atual. |
-| StartInfrastructureTask |Wstring, o padrão é "Admin" | Configuração de segurança para iniciar tarefas de infraestrutura. |
-| FinishInfrastructureTask |Wstring, o padrão é "Admin" | Configuração de segurança para encerrar tarefas de infraestrutura. |
-| ActivateNode |Wstring, o padrão é "Admin" | Configuração de segurança para ativar um nó. |
-| DeactivateNode |Wstring, o padrão é "Admin" | Configuração de segurança para desativar um nó. |
-| DeactivateNodesBatch |Wstring, o padrão é "Admin" | Configuração de segurança para desativar vários nós. |
-| RemoveNodeDeactivations |Wstring, o padrão é "Admin" | Configuração de segurança para reverter a desativação de vários nós. |
-| GetNodeDeactivationStatus |Wstring, o padrão é "Admin" | Configuração de segurança para verificar o status de desativação. |
-| NodeStateRemoved |Wstring, o padrão é "Admin" | Configuração de segurança para relatar o estado do nó removido. |
-| RecoverPartition |Wstring, o padrão é "Admin" | Configuração de segurança para recuperar uma partição. |
-| RecoverPartitions |Wstring, o padrão é "Admin" | Configuração de segurança para recuperar partições. |
-| RecoverServicePartitions |Wstring, o padrão é "Admin" | Configuração de segurança para recuperar partições de serviço. |
-| RecoverSystemPartitions |Wstring, o padrão é "Admin" | Configuração de segurança para recuperar partições de serviço de sistema. |
-| ReportFault |Wstring, o padrão é "Admin" | Configuração de segurança para falha de relatório. |
-| InvokeInfrastructureCommand |Wstring, o padrão é "Admin" | Configuração de segurança para comandos de gerenciamento de tarefa de infraestrutura. |
-| FileContent |Wstring, o padrão é "Admin" | Configuração de segurança para transferência do arquivo do cliente do repositório de imagens (externo ao cluster). |
-| FileDownload |Wstring, o padrão é "Admin" | Configuração de segurança para iniciação do download do arquivo do cliente do repositório de imagens (externo ao cluster). |
-| InternalList |Wstring, o padrão é "Admin" | Configuração de segurança para operação da lista de arquivos do cliente do repositório de imagens (interno). |
-| Excluir |Wstring, o padrão é "Admin" | Configuração de segurança para operação de exclusão do repositório de imagens. |
-| Carregar |Wstring, o padrão é "Admin" | Configuração de segurança para operação de upload do repositório de imagens. |
-| GetStagingLocation |Wstring, o padrão é "Admin" | Configuração de segurança para recuperação do local de preparo do cliente do repositório de imagens. |
-| GetStoreLocation |Wstring, o padrão é "Admin" | Configuração de segurança para recuperação do local de repositório do cliente do repositório de imagens. |
-| NodeControl |Wstring, o padrão é "Admin" | Configuração de segurança para iniciar, interromper e reiniciar nós. |
-| CodePackageControl |Wstring, o padrão é "Admin" | Configuração de segurança para reiniciar pacotes de códigos. |
-| UnreliableTransportControl |Wstring, o padrão é "Admin" | Transporte não confiável para adicionar e remover comportamentos. |
-| MoveReplicaControl |Wstring, o padrão é "Admin" | Mova a réplica. |
-| PredeployPackageToNode |Wstring, o padrão é "Admin" | Predeployment api. |
-| StartPartitionDataLoss |Wstring, o padrão é "Admin" | Induz a perda de dados em uma partição. |
-| StartPartitionQuorumLoss |Wstring, o padrão é "Admin" | Induz a perda de quorum em uma partição. |
-| StartPartitionRestart |Wstring, o padrão é "Admin" | Reinicia simultaneamente algumas ou todas as réplicas de uma partição. |
-| CancelTestCommand |Wstring, o padrão é "Admin" | Cancelará um TestCommand específico se ele estiver em trânsito. |
-| StartChaos |Wstring, o padrão é "Admin" | Iniciará o caos se ele não tiver sido iniciado ainda. |
-| StopChaos |Wstring, o padrão é "Admin" | Interromperá o caos se ele já tiver sido iniciado. |
-| StartNodeTransition |Wstring, o padrão é "Admin" | Configuração de segurança para iniciar a transição de um nó. |
-| StartClusterConfigurationUpgrade |Wstring, o padrão é "Admin" | Induz StartClusterConfigurationUpgrade em uma partição. |
-| GetUpgradesPendingApproval |Wstring, o padrão é "Admin" | Induz GetUpgradesPendingApproval em uma partição. |
-| StartApprovedUpgrades |Wstring, o padrão é "Admin" | Induz StartApprovedUpgrades em uma partição. |
-| Ping |Wstring, o padrão é "Admin\|\|User" | Configurações de segurança para pings de clientes. |
-| Consultar |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para consultas. |
-| NameExists |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para verificações de existência do URI de Nomenclatura. |
-| EnumerateSubnames |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para a enumeração do URI de Nomenclatura. |
-| EnumerateProperties |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para a enumeração da propriedade de Nomenclatura. |
-| PropertyReadBatch |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para operações de leitura da propriedade de Nomenclatura. |
-| GetServiceDescription |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para notificações de serviço de sondagem longa e descrições de serviço de leitura. |
-| ResolveService |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para a resolução do serviço de reclamação. |
-| ResolveNameOwner |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para determinar o proprietário do URI de Nomenclatura. |
-| ResolvePartition |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para determinar os serviços de sistema. |
-| ServiceNotifications |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para notificações de serviço baseadas em evento. |
-| PrefixResolveService |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para resolução de prefixo do serviço de reclamação. |
-| GetUpgradeStatus |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para sondar o status de atualização do aplicativo. |
-| GetFabricUpgradeStatus |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para sondar o status de atualização do cluster. |
-| InvokeInfrastructureQuery |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para consultar tarefas de infraestrutura. |
-| Listar |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para operação da lista de arquivos do cliente do repositório de imagens. |
-| ResetPartitionLoad |Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para carga de redefinição para um failoverUnit. |
-| ToggleVerboseServicePlacementHealthReporting | Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para alternar o ServicePlacement HealthReporting detalhado. |
-| GetPartitionDataLossProgress | Wstring, o padrão é "Admin\|\|User" | Busca o andamento de uma chamada à API de perda de dados de invocação. |
-| GetPartitionQuorumLossProgress | Wstring, o padrão é "Admin\|\|User" | Busca o andamento de uma chamada à API de perda de quorum de invocação. |
-| GetPartitionRestartProgress | Wstring, o padrão é "Admin\|\|User" | Busca o andamento de uma chamada à API de partição de redefinição. |
-| GetChaosReport | Wstring, o padrão é "Admin\|\|User" | Busca o status de caos dentro de um determinado intervalo de tempo. |
-| GetNodeTransitionProgress | Wstring, o padrão é "Admin\|\|User" | Configuração de segurança para obter o andamento em um comando de transição do nó. |
-| GetClusterConfigurationUpgradeStatus | Wstring, o padrão é "Admin\|\|User" | Induz GetClusterConfigurationUpgradeStatus em uma partição. |
-| GetClusterConfiguration | Wstring, o padrão é "Admin\|\|User" | Induz GetClusterConfiguration em uma partição. |
+| CreateName |cadeia de caracteres, o padrão é "Admin" |Configuração de segurança para a criação do URI de nomenclatura. |
+| DeleteName |cadeia de caracteres, o padrão é "Admin" |Configuração de segurança para a exclusão do URI de nomenclatura. |
+| PropertyWriteBatch |cadeia de caracteres, o padrão é "Admin" |Configuração de segurança para operações de gravação da propriedade de Nomenclatura. |
+| CreateService |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para a criação do serviço. |
+| CreateServiceFromTemplate |cadeia de caracteres, o padrão é "Admin" |Configuração de segurança para a criação do serviço com base no modelo. |
+| UpdateService |cadeia de caracteres, o padrão é "Admin" |Configuração de segurança para atualizações de serviço. |
+| DeleteService  |cadeia de caracteres, o padrão é "Admin" |Configuração de segurança para a exclusão do serviço. |
+| ProvisionApplicationType |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para provisionamento de tipo de aplicativo. |
+| CreateApplication |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para a criação de aplicativos. |
+| DeleteApplication |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para a exclusão de aplicativos. |
+| UpgradeApplication |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para iniciar ou interromper atualizações do aplicativo. |
+| RollbackApplicationUpgrade |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para reverter atualizações do aplicativo. |
+| UnprovisionApplicationType |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para desprovisionamento de tipo de aplicativo. |
+| MoveNextUpgradeDomain |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para retomar as atualizações do aplicativo com um domínio de atualização explícito. |
+| ReportUpgradeHealth |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para retomar as atualizações do aplicativo com o andamento da atualização atual. |
+| ReportHealth |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para relatar integridade. |
+| ProvisionFabric |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para MSI e/ou provisionamento de manifesto do cluster. |
+| UpgradeFabric |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para iniciar atualizações do cluster. |
+| RollbackFabricUpgrade |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para reverter atualizações do cluster. |
+| UnprovisionFabric |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para MSI e/ou desprovisionamento de manifesto do cluster. |
+| MoveNextFabricUpgradeDomain |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para retomar as atualizações do cluster com um domínio de atualização explícito. |
+| ReportFabricUpgradeHealth |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para retomar as atualizações do cluster com o andamento da atualização atual. |
+| StartInfrastructureTask |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para iniciar tarefas de infraestrutura. |
+| FinishInfrastructureTask |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para encerrar tarefas de infraestrutura. |
+| ActivateNode |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para ativar um nó. |
+| DeactivateNode |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para desativar um nó. |
+| DeactivateNodesBatch |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para desativar vários nós. |
+| RemoveNodeDeactivations |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para reverter a desativação de vários nós. |
+| GetNodeDeactivationStatus |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para verificar o status de desativação. |
+| NodeStateRemoved |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para relatar o estado do nó removido. |
+| RecoverPartition |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para recuperar uma partição. |
+| RecoverPartitions |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para recuperar partições. |
+| RecoverServicePartitions |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para recuperar partições de serviço. |
+| RecoverSystemPartitions |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para recuperar partições de serviço de sistema. |
+| ReportFault |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para falha de relatório. |
+| InvokeInfrastructureCommand |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para comandos de gerenciamento de tarefa de infraestrutura. |
+| FileContent |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para transferência do arquivo do cliente do repositório de imagens (externo ao cluster). |
+| FileDownload |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para iniciação do download do arquivo do cliente do repositório de imagens (externo ao cluster). |
+| InternalList |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para operação da lista de arquivos do cliente do repositório de imagens (interno). |
+| Excluir |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para operação de exclusão do repositório de imagens. |
+| Carregar |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para operação de upload do repositório de imagens. |
+| GetStagingLocation |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para recuperação do local de preparo do cliente do repositório de imagens. |
+| GetStoreLocation |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para recuperação do local de repositório do cliente do repositório de imagens. |
+| NodeControl |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para iniciar, interromper e reiniciar nós. |
+| CodePackageControl |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para reiniciar pacotes de códigos. |
+| UnreliableTransportControl |cadeia de caracteres, o padrão é "Admin" | Transporte não confiável para adicionar e remover comportamentos. |
+| MoveReplicaControl |cadeia de caracteres, o padrão é "Admin" | Mova a réplica. |
+| PredeployPackageToNode |cadeia de caracteres, o padrão é "Admin" | Predeployment api. |
+| StartPartitionDataLoss |cadeia de caracteres, o padrão é "Admin" | Induz a perda de dados em uma partição. |
+| StartPartitionQuorumLoss |cadeia de caracteres, o padrão é "Admin" | Induz a perda de quorum em uma partição. |
+| StartPartitionRestart |cadeia de caracteres, o padrão é "Admin" | Reinicia simultaneamente algumas ou todas as réplicas de uma partição. |
+| CancelTestCommand |cadeia de caracteres, o padrão é "Admin" | Cancelará um TestCommand específico se ele estiver em trânsito. |
+| StartChaos |cadeia de caracteres, o padrão é "Admin" | Iniciará o caos se ele não tiver sido iniciado ainda. |
+| StopChaos |cadeia de caracteres, o padrão é "Admin" | Interromperá o caos se ele já tiver sido iniciado. |
+| StartNodeTransition |cadeia de caracteres, o padrão é "Admin" | Configuração de segurança para iniciar a transição de um nó. |
+| StartClusterConfigurationUpgrade |cadeia de caracteres, o padrão é "Admin" | Induz StartClusterConfigurationUpgrade em uma partição. |
+| GetUpgradesPendingApproval |cadeia de caracteres, o padrão é "Admin" | Induz GetUpgradesPendingApproval em uma partição. |
+| StartApprovedUpgrades |cadeia de caracteres, o padrão é "Admin" | Induz StartApprovedUpgrades em uma partição. |
+| Ping |cadeia de caracteres, o padrão é "Admin\|\|User" | Configurações de segurança para pings de clientes. |
+| Consultar |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para consultas. |
+| NameExists |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para verificações de existência do URI de Nomenclatura. |
+| EnumerateSubnames |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para a enumeração do URI de Nomenclatura. |
+| EnumerateProperties |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para a enumeração da propriedade de Nomenclatura. |
+| PropertyReadBatch |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para operações de leitura da propriedade de Nomenclatura. |
+| GetServiceDescription |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para notificações de serviço de sondagem longa e descrições de serviço de leitura. |
+| ResolveService |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para a resolução do serviço de reclamação. |
+| ResolveNameOwner |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para determinar o proprietário do URI de Nomenclatura. |
+| ResolvePartition |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para determinar os serviços de sistema. |
+| ServiceNotifications |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para notificações de serviço baseadas em evento. |
+| PrefixResolveService |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para resolução de prefixo do serviço de reclamação. |
+| GetUpgradeStatus |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para sondar o status de atualização do aplicativo. |
+| GetFabricUpgradeStatus |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para sondar o status de atualização do cluster. |
+| InvokeInfrastructureQuery |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para consultar tarefas de infraestrutura. |
+| Listar |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para operação da lista de arquivos do cliente do repositório de imagens. |
+| ResetPartitionLoad |cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para carga de redefinição para um failoverUnit. |
+| ToggleVerboseServicePlacementHealthReporting | cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para alternar o ServicePlacement HealthReporting detalhado. |
+| GetPartitionDataLossProgress | cadeia de caracteres, o padrão é "Admin\|\|User" | Busca o andamento de uma chamada à API de perda de dados de invocação. |
+| GetPartitionQuorumLossProgress | cadeia de caracteres, o padrão é "Admin\|\|User" | Busca o andamento de uma chamada à API de perda de quorum de invocação. |
+| GetPartitionRestartProgress | cadeia de caracteres, o padrão é "Admin\|\|User" | Busca o andamento de uma chamada à API de partição de redefinição. |
+| GetChaosReport | cadeia de caracteres, o padrão é "Admin\|\|User" | Busca o status de caos dentro de um determinado intervalo de tempo. |
+| GetNodeTransitionProgress | cadeia de caracteres, o padrão é "Admin\|\|User" | Configuração de segurança para obter o andamento em um comando de transição do nó. |
+| GetClusterConfigurationUpgradeStatus | cadeia de caracteres, o padrão é "Admin\|\|User" | Induz GetClusterConfigurationUpgradeStatus em uma partição. |
+| GetClusterConfiguration | cadeia de caracteres, o padrão é "Admin\|\|User" | Induz GetClusterConfiguration em uma partição. |
 
 ### <a name="section-name-reconfigurationagent"></a>Nome da seção: ReconfigurationAgent
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
@@ -513,13 +537,13 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |UseMoveCostReports | Bool, o padrão é false | Instrui o LB a ignorar o elemento de custo da função de pontuação, resultando em uma quantidade de movimentos potencialmente grande para obter posicionamento balanceado. |
 |PreventTransientOvercommit | Bool, o padrão é false | Determina se o PLB conta imediatamente com recursos que serão liberados pelos movimentos iniciados. Por padrão, o PLB pode iniciar movimentos para fora e para dentro no mesmo nó que pode criar compromissos excessivos transitórios. Definir esse parâmetro como true impedirá que esses tipos de compromissos excessivos e a desfragmentação sob demanda (conhecida como placementWithMove) sejam desabilitados. |
 |InBuildThrottlingEnabled | Bool, o padrão é false | Determine se a limitação no build está habilitada. |
-|InBuildThrottlingAssociatedMetric | Wstring, o padrão é "" | O nome da métrica associada para essa limitação. |
+|InBuildThrottlingAssociatedMetric | cadeia de caracteres, o padrão é "" | O nome da métrica associada para essa limitação. |
 |InBuildThrottlingGlobalMaxValue | Int, o padrão é 0 |O número máximo de réplicas no build permitidas globalmente. |
 |SwapPrimaryThrottlingEnabled | Bool, o padrão é false| Determine se a limitação de troca primária está habilitada. |
-|SwapPrimaryThrottlingAssociatedMetric | Wstring, o padrão é ""| O nome da métrica associada para essa limitação. |
+|SwapPrimaryThrottlingAssociatedMetric | cadeia de caracteres, o padrão é ""| O nome da métrica associada para essa limitação. |
 |SwapPrimaryThrottlingGlobalMaxValue | Int, o padrão é 0 | O número máximo de réplicas de troca primárias permitidas globalmente. |
 |PlacementConstraintPriority | Int, o padrão é 0 | Determina a prioridade da restrição de posicionamento: 0: rígida; 1: flexível; negativa: ignorar. |
-|PreferredLocationConstraintPriority | Int, o padrão é 2| Determina a prioridade da restrição de local preferencial: 0: rígida; 1: flexível; 2: otimização; negativo: ignorar |
+|PreferredLocationConstraintPriority | Int, o padrão é 2| Determina a prioridade da restrição de local preferencial: 0: Rígida; 1: flexível; 2: Otimização; negativo: Ignorar |
 |CapacityConstraintPriority | Int, o padrão é 0 | Determina a prioridade da restrição de capacidade: 0: difícil; 1: flexível; negativo: ignorar. |
 |AffinityConstraintPriority | Int, o padrão é 0 | Determina a prioridade da restrição de afinidade: 0: rígida; 1: flexível; negativa: ignorar. |
 |FaultDomainConstraintPriority | Int, o padrão é 0 | Determina a prioridade da restrição de domínio de falha: 0: rígida; 1: flexível; negativa: ignorar. |
@@ -571,11 +595,11 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |ReplicaRestartWaitDuration |Tempo em segundos, o padrão é (60,0 * 30)|Especifique o intervalo de tempo em segundos. O ReplicaRestartWaitDuration para ClusterManager. |
 |QuorumLossWaitDuration |Tempo em segundos, o padrão é MaxValue | Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para ClusterManager. |
 |StandByReplicaKeepDuration | Tempo em segundos, o padrão é (3600,0 * 2)|Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para ClusterManager. |
-|PlacementConstraints | Wstring, o padrão é "" |O PlacementConstraints para ClusterManager. |
+|PlacementConstraints | cadeia de caracteres, o padrão é "" |O PlacementConstraints para ClusterManager. |
 |SkipRollbackUpdateDefaultService | Bool, o padrão é false |O CM ignorará a inversão dos serviços padrão atualizados durante a reversão da atualização do aplicativo. |
 |EnableDefaultServicesUpgrade | Bool, o padrão é false |Habilite a atualização de serviços padrão durante a atualização do aplicativo. Descrições de serviço padrão serão substituídas após a atualização. |
 |InfrastructureTaskHealthCheckWaitDuration |Tempo em segundos, o padrão é 0| Especifique o intervalo de tempo em segundos. A quantidade de tempo de espera antes de iniciar verificações de integridade após pós-processar uma tarefa de infraestrutura. |
-|InfrastructureTaskHealthCheckStableDuration | Tempo em segundos, o padrão é 0| Especifique o intervalo de tempo em segundos. A quantidade de tempo para observar verificações de integridade passadas consecutivas antes que o pós-processamento de uma tarefa de infraestrutura seja encerrado com sucesso. Observar uma verificação de integridade com falha redefinirá esse temporizador. |
+|InfrastructureTaskHealthCheckStableDuration | Tempo em segundos, o padrão é 0| Especifique o intervalo de tempo em segundos. A quantidade de tempo para observar verificações de integridade passadas consecutivas antes que o pós-processamento de uma tarefa de infraestrutura seja encerrado com êxito. Observar uma verificação de integridade com falha redefinirá esse temporizador. |
 |InfrastructureTaskHealthCheckRetryTimeout | Tempo em segundos, o padrão é de 60 |Especifique o intervalo de tempo em segundos. A quantidade de tempo para tentar novamente verificações de integridade com falha ao pós-processar uma tarefa de infraestrutura. Observar uma verificação de integridade aprovada redefinirá esse temporizador. |
 |ImageBuilderTimeoutBuffer |Tempo em segundos, o padrão é 3 |Especifique o intervalo de tempo em segundos. A quantidade de tempo para permitir que erros de tempo limite específico do Image Builder para retornar ao cliente. Se esse buffer for pequeno demais, então o cliente atingirá o tempo limite antes do servidor e receberá um erro de tempo limite genérico. |
 |MinOperationTimeout | Tempo em segundos, o padrão é de 60 |Especifique o intervalo de tempo em segundos. O tempo limite global mínimo para processar internamente operações no ClusterManager. |

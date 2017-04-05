@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1072ab3d7c8cc472258925baaa2ef82cdfb17eed
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 3b608f341278ceaef9dd112cea38f138be69ee44
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -30,7 +31,7 @@ Neste artigo, mostrarei detalhadamente como usar sua DSVM para executar várias 
 3. Operacionalizar modelos criados usando R e Python no Aprendizado de Máquina do Azure para que os aplicativos cliente possam acessar seus modelos usando uma interface simples de serviços Web
 4. Administrar os recursos do Azure usando o portal do Azure ou o Powershell
 5. Estender o espaço de armazenamento e compartilhar conjuntos de dados/códigos em grande escala com toda sua equipe criando um Armazenamento de Arquivos do Azure como uma unidade montável na DSVM
-6. Compartilhar código com sua equipe usando o Github e acessar o repositório usando os clientes Git pré-instalados — Git Bash, Git GUI.
+6. Compartilhar código com sua equipe usando o GitHub e acessar o repositório usando os clientes Git pré-instalados — Git Bash, Git GUI.
 7. Acessar vários serviços de análise e dados do Azure, como Armazenamento de Blobs do Azure, Azure Data Lake, Azure HDInsight (Hadoop), Banco de Dados de Documentos do Azure, Azure SQL Data Warehouse e bancos de dados
 8. Criar relatórios e painéis usando o Power BI Desktop pré-instalado na DSVM e implantá-los na nuvem
 9. Dimensionar dinamicamente a DSVM para atender às suas necessidades de projeto
@@ -236,20 +237,20 @@ Agora que você criou um compartilhamento de arquivos do Azure, é possível mon
 
 Agora, você pode acessar essa unidade como faria com qualquer unidade normal na VM.
 
-## <a name="6-share-code-with-your-team-using-github"></a>6. Compartilhar código com sua equipe usando o Github
-O Github é um repositório de códigos onde você pode encontrar muitas fontes e códigos de exemplo para diferentes ferramentas usando diversas tecnologias compartilhadas pela comunidade de desenvolvedores. Ele usa Git como a tecnologia para rastrear e armazenar versões dos arquivos de código. O Github também é uma plataforma em que você pode criar seu próprio repositório para armazenar o código compartilhado e a documentação da sua equipe, implementar o controle de versão e também controlar quem tem acesso para exibir e contribuir com código. Visite as [páginas de ajuda do Github](https://help.github.com/) para obter mais informações sobre como usar o Git. Você pode usar o Github como uma das formas de colaborar com sua equipe, usar o código desenvolvido pela comunidade e retribuir com código na comunidade.
+## <a name="6-share-code-with-your-team-using-github"></a>6. Compartilhar código com sua equipe usando o GitHub
+O GitHub é um repositório de códigos onde você pode encontrar muitas fontes e códigos de exemplo para diferentes ferramentas usando diversas tecnologias compartilhadas pela comunidade de desenvolvedores. Ele usa Git como a tecnologia para rastrear e armazenar versões dos arquivos de código. O GitHub também é uma plataforma em que você pode criar seu próprio repositório para armazenar o código compartilhado e a documentação da sua equipe, implementar o controle de versão e também controlar quem tem acesso para exibir e contribuir com código. Visite as [páginas de ajuda do GitHub](https://help.github.com/) para obter mais informações sobre como usar o Git. Você pode usar o GitHub como uma das formas de colaborar com sua equipe, usar o código desenvolvido pela comunidade e retribuir com código na comunidade.
 
-O DSVM já vem carregado com ferramentas cliente na linha de comando e na GUI para acessar o repositório do Github. A ferramenta de linha de comando para trabalhar com Git e Github é chamada Git Bash. O Visual Studio instalado na DSVM tem as extensões de Git. Você pode encontrar ícones de inicialização para essas ferramentas no menu Iniciar e na área de trabalho.
+O DSVM já vem carregado com ferramentas cliente na linha de comando e na GUI para acessar o repositório do GitHub. A ferramenta de linha de comando para trabalhar com Git e GitHub é chamada Git Bash. O Visual Studio instalado na DSVM tem as extensões de Git. Você pode encontrar ícones de inicialização para essas ferramentas no menu Iniciar e na área de trabalho.
 
-Para baixar o código de um repositório Github, você usará o comando ```git clone``` . Por exemplo, para baixar o repositório de ciência de dados publicado pela Microsoft no diretório atual, você pode executar o comando a seguir quando estiver no ```git-bash```.
+Para baixar o código de um repositório GitHub, você usará o comando ```git clone```. Por exemplo, para baixar o repositório de ciência de dados publicado pela Microsoft no diretório atual, você pode executar o comando a seguir quando estiver no ```git-bash```.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-No Visual Studio, você pode fazer a mesma operação de clonagem. A captura de tela abaixo mostra como acessar as ferramentas Git e Github no Visual Studio.
+No Visual Studio, você pode fazer a mesma operação de clonagem. A captura de tela abaixo mostra como acessar as ferramentas Git e GitHub no Visual Studio.
 
 ![Git no Visual Studio](./media/machine-learning-data-science-vm-do-ten-things/VSGit.PNG)
 
-Encontre mais informações sobre como usar Git para trabalhar com o repositório Github nos vários recursos disponíveis em github.com. O [roteiro](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) é uma referência útil.
+Encontre mais informações sobre como usar Git para trabalhar com o repositório GitHub nos vários recursos disponíveis em github.com. O [roteiro](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) é uma referência útil.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Acessar vários serviços de análise e dados do Azure
 ### <a name="azure-blob"></a>Blob do Azure
@@ -865,10 +866,5 @@ Você pode aproveitar outros serviços de análise e dados do Azure listados nes
 
 ## <a name="summary"></a>Resumo
 Essas são apenas algumas das coisas que você pode fazer na Máquina Virtual de Ciência de Dados da Microsoft. Há muito mais coisas que você fazer para torná-la um ambiente eficaz de análise.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

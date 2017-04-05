@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 404e621bc1d16d15aeb705a1055ed4c2b9e251a2
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 02add070405f3f00d3631362a2b139239d44c34d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -31,12 +31,12 @@ ms.lasthandoff: 02/23/2017
 O recurso de topologia do Observador de rede fornece uma representação visual dos recursos de rede em uma assinatura. No portal, essa visualização é apresentada para você automaticamente. As informações que seguem a visualização de topologia no portal podem ser recuperadas por meio do PowerShell.
 Esse recurso torna as informações de topologia mais versáteis, já que os dados podem ser consumidos por outras ferramentas para criar a visualização.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+Este artigo usa a CLI 1.0 do Azure para plataforma cruzada, que está disponível para Windows, Mac e Linux. Atualmente, o Observador de Rede usa a CLI 1.0 do Azure para dar suporte à CLI.
 
 A interconexão é modelada em duas relações.
 
-- **Confinamento** - Exemplo: a Vnet contém uma sub-rede que contém uma NIC
-- **Associados** - Exemplo: a NIC está associada a uma VM
+- **Confinamento** - exemplo: a VNet contém uma sub-rede que contém uma NIC
+- **Associados** - exemplo: a NIC está associada a uma VM
 
 A lista a seguir contém propriedades que são retornadas ao consultar a REST API de topologia.
 
@@ -52,7 +52,7 @@ A lista a seguir contém propriedades que são retornadas ao consultar a REST AP
 
 Nesse cenário, você deve usar o cmdlet `network watcher topology` para recuperar as informações de topologia. Também há um artigo sobre [Como recuperar a topologia de rede com a REST API](network-watcher-topology-rest.md).
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
 
 ## <a name="scenario"></a>Cenário
 

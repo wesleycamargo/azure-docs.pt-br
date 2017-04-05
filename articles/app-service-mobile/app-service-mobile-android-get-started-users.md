@@ -4,7 +4,7 @@ description: "Saiba como usar o recurso Aplicativos Móveis do Serviço de Aplic
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: adrianha
+manager: 
 editor: 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 817626dd3fc87db61280075b80cedf8b9ed77684
-ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
-ms.lasthandoff: 12/13/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fcaab18c2c22bcbdbb42708da9840fb6e5c25b2e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,6 +30,20 @@ Neste tutorial, você adiciona autenticação ao projeto de início rápido da l
 ## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo do Azure
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+## <a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
+
+A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos sempre o esquema de URL _appname_. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
+
+1. No [Portal do Azure], selecione seu Serviço de Aplicativo.
+
+2. Clique na opção de menu **Autenticação/Autorização**.
+
+3. Em **URLs de Redirecionamento Externo Permitidas**, insira `appname://easyauth.callback`.  O _appname_ na cadeia de caracteres é o esquema de URL para seu aplicativo móvel.  Ele deve seguir as especificações de URL normal para um protocolo (use somente letras e números e inicie com uma letra).  Você deve anotar a cadeia de caracteres escolhida, já que precisará ajustar o código do aplicativo móvel com o esquema de URL em vários lugares.
+
+4. Clique em **OK**.
+
+5. Clique em **Salvar**.
+
 ## <a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -41,6 +55,8 @@ Em seguida, você atualiza o aplicativo para autenticar os usuários antes de so
 
 ## <a name="add-authentication-to-the-app"></a>Adicionar autenticação ao aplicativo
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
+
+
 
 ## <a name="cache-tokens"></a>Armazenar em cache tokens de autenticação no cliente
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]

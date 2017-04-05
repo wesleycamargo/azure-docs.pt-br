@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/16/2017
+ms.date: 3/24/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
-ms.openlocfilehash: 056968900d8078dfe53948a2da1daa26cb04a713
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 01c0d7e8430df758749f7a524dd3b7771b24fac1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -44,10 +44,19 @@ Os recursos incluem;
 ## <a name="packaging-a-docker-container-with-yeoman"></a>Empacotando um contêiner do Docker com yeoman
 Ao empacotar um contêiner no Linux, você pode optar por usar um modelo yeoman ou por [criar o pacote de aplicativos manualmente](#manually).
 
-Um aplicativo do Service Fabric pode conter um ou mais contêineres, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. O SDK do Service Fabric para Linux inclui um gerador [Yeoman](http://yeoman.io/) que facilita a criação de seu aplicativo e a adição de uma imagem de contêiner. Vamos usar o Yeoman para criar um novo aplicativo, com um único contêiner do Docker, chamado de *SimpleContainerApp*. Você pode adicionar mais serviços mais tarde editando os arquivos de manifesto gerados.
+Um aplicativo do Service Fabric pode conter um ou mais contêineres, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. O SDK do Service Fabric para Linux inclui um gerador [Yeoman](http://yeoman.io/) que facilita a criação de seu aplicativo e a adição de uma imagem de contêiner. Vamos usar o Yeoman para criar um aplicativo, com um único contêiner do Docker, chamado de *SimpleContainerApp*. Você pode adicionar mais serviços mais tarde editando os arquivos de manifesto gerados.
+
+## <a name="install-docker-on-your-development-box"></a>Instalar o Docker em sua caixa de desenvolvimento
+
+Execute os seguintes comandos para instalar o docker em sua caixa de desenvolvimento do Linux (se você estiver usando a imagem vagrant no OSX, o docker já estará instalado):
+
+```bash
+    sudo apt-get install wget
+    wget -qO- https://get.docker.io/ | sh
+```
 
 ## <a name="create-the-application"></a>Criar o aplicativo
-1. Em um terminal, digite **yo azuresfguest**.
+1. Em um terminal, digite `yo azuresfguest`.
 2. Para o framework, escolha **Contêiner**.
 3. Dê um nome para o seu aplicativo, por exemplo, SimpleContainerApp
 4. Forneça a URL da imagem do contêiner de um repositório DockerHub. O parâmetro da imagem assume a forma [repositório]/[nome da imagem]
@@ -59,26 +68,30 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local usa
 
 1. Conectar-se ao cluster local do Service Fabric.
 
-    ```bash
+```bash
     azure servicefabric cluster connect
-    ```
+```
+
 2. Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
 
-    ```bash
+```bash
     ./install.sh
-    ```
+```
+
 3. Abra um navegador e navegue até o Service Fabric Explorer em http://localhost:19080/Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant no Mac OS X).
 4. Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 5. Use o script de desinstalação fornecido com o modelo para excluir a instância do aplicativo e cancelar o registro do tipo de aplicativo.
 
-    ```bash
+```bash
     ./uninstall.sh
-    ```
+```
+
 Para obter um aplicativo de exemplo, [confira os códigos de exemplo de contêiner do Service Fabric no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Adicionando mais serviços a um aplicativo existente
 
 Para adicionar outro serviço de contêiner a um aplicativo já criado usando `yo`, execute as seguintes etapas: 
+
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
 2. Execute o `yo azuresfguest:AddService`
 
@@ -180,7 +193,7 @@ Você pode configurar uma porta de host usada para se comunicar com o contêiner
 ```
 
 ## <a name="configure-container-to-container-discovery-and-communication"></a>Configurar descoberta e comunicação de contêiner para contêiner
-Usando a política `PortBinding`, você pode mapear uma porta de contêiner para um `Endpoint` no manifesto do serviço conforme mostrado no exemplo a seguir. O ponto de extremidade `Endpoint1` pode especificar uma porta fixa (por exemplo, porta 80). Também pode especificar nenhuma porta, quando uma porta aleatória no intervalo de portas do aplicativo do cluster será escolhida para você.
+Usando a política `PortBinding`, você pode mapear uma porta de contêiner para um `Endpoint` no manifesto do serviço. O ponto de extremidade `Endpoint1` pode especificar uma porta fixa (por exemplo, porta 80). Também pode especificar nenhuma porta, quando uma porta aleatória no intervalo de portas do aplicativo do cluster será escolhida para você.
 
 Se você especificar um ponto de extremidade, usando a marca `Endpoint` no manifesto do serviço de um contêiner de convidado, o Service Fabric poderá publicar automaticamente este ponto de extremidade no serviço de Nomenclatura. Portanto, outros serviços que são executados no cluster podem descobrir esse contêiner usando as consultas REST para resolver.
 
@@ -302,5 +315,5 @@ Agora que você implantou um serviço em contêiner, saiba como gerenciar seu ci
 * [Interagindo com clusters do Service Fabric usando a CLI do Azure](service-fabric-azure-cli.md)
 
 <!-- Images -->
-[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman.png
+[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
 

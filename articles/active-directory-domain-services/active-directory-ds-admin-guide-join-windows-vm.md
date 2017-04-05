@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
-ms.lasthandoff: 12/29/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9f8d21f6964d26a2e17e31d1f2947e7eb07c177d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/29/2016
 Este artigo mostra como ingressar uma máquina virtual executando o Windows Server 2012 R2 em um domínio gerenciado dos Serviços de Domínio do Azure AD, usando o portal clássico do Azure.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>Etapa 1: Criar a máquina virtual do Windows Server
-Siga as instruções descritas no tutorial [Criar uma máquina virtual executando o Windows no portal clássico do Azure](../virtual-machines/virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). É importante garantir que essa máquina virtual recém-criada seja ingressada na mesma rede virtual em que você habilitou os Serviços de Domínio do Azure AD. A opção 'Criação Rápida' não permite que você ingresse a máquina virtual em uma rede virtual. Portanto, você precisa usar a opção 'Da Galeria' para criar a máquina virtual.
+Siga as instruções descritas no tutorial [Criar uma máquina virtual executando o Windows no portal clássico do Azure](../virtual-machines/windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). É importante garantir que essa máquina virtual recém-criada seja ingressada na mesma rede virtual em que você habilitou os Serviços de Domínio do Azure AD. A opção 'Criação Rápida' não permite que você ingresse a máquina virtual em uma rede virtual. Portanto, você precisa usar a opção 'Da Galeria' para criar a máquina virtual.
 
 Realize as seguintes etapas para criar uma máquina virtual do Windows ingressada na rede virtual na qual você habilitou os Serviços de Domínio do Azure AD.
 
@@ -91,7 +91,7 @@ Execute as seguintes etapas para ingressar a máquina virtual do Windows Server 
     ![Especificar credenciais para ingresso no domínio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. Você pode especificar as credenciais das seguintes maneiras:
 
-   * Formato UPN: especifique o sufixo UPN para a conta de usuário, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do usuário 'pedro' é 'bob@domainservicespreview.onmicrosoft.com'.
+   * Formato UPN: especifique o sufixo UPN para a conta de usuário, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do usuário "pedro" é "bob@domainservicespreview.onmicrosoft.com".
    * Formato SAMAccountName: você pode especificar o nome da conta no formato SAMAccountName. Neste exemplo, o usuário 'bob' precisaria inserir 'CONTOSO100\bob'.
 
      > [!NOTE]
@@ -119,7 +119,7 @@ Consulte as etapas a seguir se você estiver enfrentando problemas com as creden
 * Tente usar o formato UPN para especificar as credenciais. O SAMAccountName para sua conta poderá ser gerada automaticamente se houver vários usuários com o mesmo prefixo UPN no seu locatário ou se o prefixo UPN for muito longo. Portanto, o formato de SAMAccountName para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
 * Tente usar as credenciais de uma conta de usuário que pertence ao grupo 'Administradores do controlador de domínio do AAD' para ingressar computadores ao domínio gerenciado.
 * Verifique se você [habilitou a sincronização de senhas](active-directory-ds-getting-started-password-sync.md) de acordo com as etapas descritas no Guia de Introdução.
-* Use o UPN do usuário conforme configurado no Azure AD (por exemplo, 'bob@domainservicespreview.onmicrosoft.com') para entrar.
+* Use o UPN do usuário conforme configurado no Azure AD (por exemplo, "bob@domainservicespreview.onmicrosoft.com") para entrar.
 * Certifique-se de que já esperou tempo suficiente para a sincronização de senha ser concluída conforme especificado no Guia de Introdução.
 
 ## <a name="related-content"></a>Conteúdo relacionado

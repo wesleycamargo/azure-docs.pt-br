@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
-ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 666d0f655a0705423d025b88a1f457b866008ab9
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitorar suas APIs com o Gerenciamento de API do Azure, Hubs de Eventos e Runscope
@@ -262,7 +262,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 Eu pude usar uma [biblioteca de cliente existente do Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) que facilita o envio por push instâncias de `HttpRequestMessage` e `HttpResponseMessage` para o respectivo serviço. Para acessar a API do Runscope, você precisará de uma conta e uma chave de API. Instruções sobre como obter uma chave API podem ser encontradas no screencast [Criando aplicativos para acessar a API do Runscope](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) .
 
 ## <a name="complete-sample"></a>Exemplo completo
-O [código-fonte](https://github.com/darrelmiller/ApimEventProcessor) e os testes do exemplo estão no Github. Para executar o exemplo, você precisará de um [Serviço de Gerenciamento de API](api-management-get-started.md), de um [Hub de Eventos conectado](api-management-howto-log-event-hubs.md) e de uma [Conta de Armazenamento](../storage/storage-create-storage-account.md).   
+O [código-fonte](https://github.com/darrelmiller/ApimEventProcessor) e os testes do exemplo estão no GitHub. Para executar o exemplo, você precisará de um [Serviço de Gerenciamento de API](api-management-get-started.md), de um [Hub de Eventos conectado](api-management-howto-log-event-hubs.md) e de uma [Conta de Armazenamento](../storage/storage-create-storage-account.md).   
 
 O exemplo é apenas um aplicativo de console simples que escuta eventos originados no Hub de Eventos, os converte em objetos `HttpRequestMessage` e `HttpResponseMessage` e os encaminha para a API do Runscope.
 

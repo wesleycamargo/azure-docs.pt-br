@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0bab12648a31b416bd7ceca75f0f83f5da226bad
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -90,10 +90,10 @@ Veja mais sobre os serviços de computação, dados, rede e outros serviços rel
 > 
 
 ### <a name="compute-services"></a>Serviços de computação
-Os serviços de computação do Azure são a base de uma solução de Big Compute, e os serviços de computação diferentes oferecem vantagens para diferentes cenários. Em um nível básico, esses serviços oferecem modos diferentes para que os aplicativos sejam executados em instâncias de computação baseadas em máquina virtual que o Azure fornece usando a tecnologia Hyper-V do Windows Server. Essas instâncias podem executar sistemas operacionais e ferramentas padrão e personalizadas para Linux e Windows. O Azure fornece várias opções de [tamanhos de instância](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) com diferentes configurações de núcleos de CPU, de memória, de capacidade do disco e outras características. Dependendo de suas necessidades, você pode dimensionar as instâncias para milhares de núcleos e, em seguida, reduzir verticalmente, quando você precisa de menos recursos.
+Os serviços de computação do Azure são a base de uma solução de Big Compute, e os serviços de computação diferentes oferecem vantagens para diferentes cenários. Em um nível básico, esses serviços oferecem modos diferentes para que os aplicativos sejam executados em instâncias de computação baseadas em máquina virtual que o Azure fornece usando a tecnologia Hyper-V do Windows Server. Essas instâncias podem executar sistemas operacionais e ferramentas padrão e personalizadas para Linux e Windows. O Azure fornece várias opções de [tamanhos de instância](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) com diferentes configurações de núcleos de CPU, de memória, de capacidade do disco e outras características. Dependendo de suas necessidades, você pode dimensionar as instâncias para milhares de núcleos e, em seguida, reduzir verticalmente, quando você precisa de menos recursos.
 
 > [!NOTE]
-> Tire proveito das [instâncias de computação intensiva do Azure como a série H](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para melhorar o desempenho e a escalabilidade das cargas de trabalho HPC. Essas instâncias também dão suporte a aplicativos MPI paralelos que exigem uma rede do aplicativo de baixa latência e alta taxa de transferência. Também estão disponíveis VMs [série N](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) com GPUs NVIDIA, para expandir o intervalo de cenários de computação e de visualização no Azure.  
+> Tire proveito das [instâncias de computação intensiva do Azure como a série H](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para melhorar o desempenho e a escalabilidade das cargas de trabalho HPC. Essas instâncias também dão suporte a aplicativos MPI paralelos que exigem uma rede do aplicativo de baixa latência e alta taxa de transferência. Também estão disponíveis VMs [série N](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) com GPUs NVIDIA, para expandir o intervalo de cenários de computação e de visualização no Azure.  
 > 
 > 
 

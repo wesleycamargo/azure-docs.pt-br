@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 6101c58e41202091ac89320177b0ca5bc36483a8
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 228737056b813c76bf26ee07023db27be710f6d7
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Este artigo explica como criar uma máquina virtual (VM) por meio do Modelo de i
 
 ## <a name = "create"></a>Criar uma VM com vários endereços IP
 
-Se você quiser criar uma VM com vários endereços IP, crie-a usando o PowerShell ou a CLI do Azure. Para saber como fazer isso, clique nas opções PowerShell ou CLI na parte superior deste artigo. Você pode criar uma VM com um único endereço IP privado estático e (opcionalmente) um único endereço IP público usando o Portal e executando as etapas nos artigos [Criar uma VM do Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) ou [Criar uma VM do Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Depois de criar a VM, você poderá alterar os tipos de endereço IP e adicionar outros endereços IP usando o Portal e executando as etapas na seção [Adicionar endereços IP a uma VM](#add) deste artigo.
+Se quiser criar uma VM com vários endereços IP ou um endereço IP privado estático, você deverá criá-la usando o PowerShell ou a CLI do Azure. Para saber como fazer isso, clique nas opções PowerShell ou CLI na parte superior deste artigo. Você pode criar uma VM com um único endereço IP privado dinâmico e (opcionalmente) um único endereço IP público usando o portal e executando as etapas nos artigos [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) (Criar uma VM Windows) ou [Criar uma VM Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Depois de criar a VM, você poderá alterar o tipo de endereço IP de dinâmico para estático e adicionar outros endereços IP usando o portal e executando as etapas na seção [Adicionar endereços IP a uma VM](#add) deste artigo.
 
 ## <a name="add"></a>Adicionar endereços IP a uma VM
 
@@ -46,9 +46,7 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
 
     ![Interface de rede](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-4. Na folha que aparece para a NIC selecionada, clique em **Configurações de IP**, conforme mostra a imagem a seguir:
-
-    ![Configurações de IP](./media/virtual-network-multiple-ip-addresses-portal/figure2.png)
+4. Na folha que aparece para a NIC selecionada, clique em **Configurações de IP**.
 
 Conclua as etapas em uma das seções a seguir com base no tipo de endereço IP que você deseja adicionar.
 
@@ -57,19 +55,12 @@ Conclua as etapas em uma das seções a seguir com base no tipo de endereço IP 
 Conclua as etapas a seguir para adicionar um novo endereço IP privado:
 
 1. Conclua as etapas na seção [Principais etapas](#coreadd) deste artigo.
-2. Clique em **Adicionar**. Na folha **Adicionar configuração de IP** que aparece, crie uma configuração de IP chamada *IPConfig-4* com *10.0.0.7* como um endereço IP privado *Estático* e clique em **OK**, conforme mostra a imagem a seguir:
-
-    ![Adicionar IP privado](./media/virtual-network-multiple-ip-addresses-portal/figure3.png)
+2. Clique em **Adicionar**. Na folha **Adicionar configuração de IP** que aparece, crie uma configuração de IP chamada *IPConfig-4* com *10.0.0.7* como um endereço IP privado *Estático* e clique em **OK**.
 
     > [!NOTE]
     > Ao adicionar um endereço IP estático, você deve especificar um endereço válido, não utilizado, na sub-rede a qual a NIC está conectada. Se o endereço selecionado não estiver disponível, o portal mostrará um X para o endereço IP, e você precisará selecionar outro.
 
-    Se você preferir que o **Método de alocação** do endereço IP privado seja *Dinâmico*, selecione essa opção e não será necessário especificar um endereço IP.
-3. Ao clicar em OK, a folha será fechada e você verá a nova configuração de IP listada, conforme mostra a imagem a seguir:
-
-    ![Configurações de IP](./media/virtual-network-multiple-ip-addresses-portal/figure4.png)
-
-    Clique em **OK** para fechar a folha **Adicionar Configuração de IP**.
+3. Ao clicar em OK, a folha será fechada e você verá a nova configuração de IP listada. Clique em **OK** para fechar a folha **Adicionar Configuração de IP**.
 4. Clique em **Adicionar** para adicionar outras configurações de IP ou feche todas as folhas abertas para concluir a adição de endereços IP.
 5. Adicione os endereços IP privados ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo.
 
@@ -96,36 +87,22 @@ Um endereço IP público é uma configuração para um recurso de endereço IP p
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Associar o recurso de endereço IP público a uma nova configuração de IP
 
 1. Conclua as etapas na seção [Principais etapas](#coreadd) deste artigo.
-2. Clique em **Adicionar**. Na folha **Adicionar configuração de IP** que aparece, crie uma configuração de IP chamada *IPConfig-4*. Habilite o **Endereço IP público** e selecione um recurso de endereço IP público existente e disponível na folha **Escolher endereço IP público** que aparece, como mostra a imagem a seguir:
-
-    ![Nova configuração de IP](./media/virtual-network-multiple-ip-addresses-portal/figure6.png)
+2. Clique em **Adicionar**. Na folha **Adicionar configuração de IP** que aparece, crie uma configuração de IP chamada *IPConfig-4*. Habilite o **Endereço IP público** e selecione um recurso de endereço IP público existente e disponível na folha **Escolher endereço IP público** que aparece.
 
     Depois de selecionar o recurso de endereço IP público, clique em **OK** e a folha será fechada. Se você não tiver um endereço IP público existente, crie um usando as etapas na seção [Criar um recurso de endereço IP público](#create-public-ip) deste artigo. 
 
-3. Analise a nova configuração de IP, conforme mostra a imagem a seguir:
-
-    ![Configurações de IP](./media/virtual-network-multiple-ip-addresses-portal/figure7.png)
-
-    > [!NOTE]
-    > Apesar de um endereço IP privado não ter sido explicitamente atribuído, um foi atribuído automaticamente para a configuração de IP, pois todas as configurações de IP devem ter um endereço IP privado.
-    >
-
+3. Revise a nova configuração de IP. Apesar de um endereço IP privado não ter sido explicitamente atribuído, um foi atribuído automaticamente para a configuração de IP, pois todas as configurações de IP devem ter um endereço IP privado.
 4. Clique em **Adicionar** para adicionar outras configurações de IP ou feche todas as folhas abertas para concluir a adição de endereços IP.
 5. Adicione o endereço IP privado ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo. Não adicione o endereço IP público ao sistema operacional.
 
 #### <a name="associate-the-public-ip-address-resource-to-an-existing-ip-configuration"></a>Associar o recurso de endereço IP público a uma configuração de IP existente
 
 1. Conclua as etapas na seção [Principais etapas](#coreadd) deste artigo.
-2. Selecione a configuração de IP a qual você deseja adicionar o recurso de endereço IP público, habilite o endereço IP público e selecione um recurso de endereço IP público existente e disponível. No exemplo da imagem a seguir, o recurso de endereço IP público *myPublicIp3* está associado a *IPConfig-3*.
-
-    ![Configuração de IP existente](./media/virtual-network-multiple-ip-addresses-portal/figure8.png)
-
-    Depois de selecionar o recurso de endereço IP público, clique em **Salvar** e a folha será fechada. Se você não tiver um endereço IP público existente, crie um usando as etapas na seção [Criar um recurso de endereço IP público](#create-public-ip) deste artigo.
-
-3. Analise a nova configuração de IP, conforme mostra a imagem a seguir:
-
-    ![Configurações de IP](./media/virtual-network-multiple-ip-addresses-portal/figure9.png)
-
+2. Clique na configuração de IP que quer adicionar ao recurso de endereço IP público.
+3. Na folha IPConfig que é exibida, clique em **Endereço IP**.
+4. Na folha **Escolher endereço IP público** que é exibida, escolha um endereço IP público.
+5. Clique em **Salvar** e as folhas serão fechadas. Se você não tiver um endereço IP público existente, crie um usando as etapas na seção [Criar um recurso de endereço IP público](#create-public-ip) deste artigo.
+3. Revise a nova configuração de IP.
 4. Clique em **Adicionar** para adicionar outras configurações de IP ou feche todas as folhas abertas para concluir a adição de endereços IP. Não adicione o endereço IP público ao sistema operacional.
 
 

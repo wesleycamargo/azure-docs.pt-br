@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
-ms.author: babanisa
+ms.date: 03/27/2017
+ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
-ms.openlocfilehash: 87c0f3eab8c09c79de06c2e806830b2f67ea5732
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b0484b2d4f6474be728531fbda65896f30eccc4
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Logs de diagnóstico dos Hubs de Eventos
 
 É possível exibir dois tipos de logs para os Hubs de Eventos do Azure:
-* **[Logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre ativados.
-* **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para obter informações mais sofisticadas sobre tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
+* **[Logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre habilitados.
+* **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico
-Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs de diagnóstico:
+Os logs de diagnóstico estão **desativados** por padrão. Para habilitar logs de diagnóstico:
 
 1.    No portal do Azure, acesse a folha do trabalho de transmissão.
 
@@ -45,7 +45,7 @@ Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs 
 
     ![Alterar o status dos logs de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.    Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um hub de eventos ou o Azure Log Analytics.
+5.    Defina o destino de arquivamento desejado; por exemplo, uma conta de armazenamento, um Hub de Eventos ou o Azure Log Analytics.
 
 6.    Selecione as categorias de logs que você deseja coletar, por exemplo, **Execução** ou **Criação**.
 
@@ -53,13 +53,13 @@ Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs 
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Logs de diagnóstico**.
 
-Para obter mais informações sobre como configurar um diagnóstico, consulte uma [visão geral dos logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorias dos logs de diagnóstico
 Os Hubs de Eventos capturam os logs de diagnóstico de duas categorias:
 
-* Os **ArchivalLogs** capturam os logs relacionados aos arquivamentos do hub de eventos, especificamente, logs relacionados a erros de arquivo morto.
-* Os **OperationalLogs** capturam o que está acontecendo durante a operação do hub de eventos, especificamente, o tipo de operação, incluindo a criação de hub de eventos, os recursos usados e o status da operação.
+* **ArchivalLogs**: logs relacionados aos arquivamentos de Hubs de Eventos, especificamente os logs relacionados a erros de arquivo morto.
+* **OperationalLogs**: informações sobre o que está acontecendo durante a operação dos Hubs de Eventos, especificamente o tipo de operação, incluindo a criação do Hub de Eventos, os recursos usados e o status da operação.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
 Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito nos exemplos a seguir.
@@ -70,20 +70,20 @@ As cadeias de caracteres JSON do log de arquivo morto incluem os elementos lista
 
 Nome | Descrição
 ------- | -------
-TaskName | Descrição da tarefa que falhou
-ActivityId | ID interna, usada para acompanhamento
-trackingId | ID interna, usada para acompanhamento
-resourceId | ID de recurso do Azure Resource Manager
-eventHub | Nome completo do hub de eventos (inclui o nome do namespace)
-partitionId | Partição do hub de eventos usada para gravação
+TaskName | Descrição da tarefa que falhou.
+ActivityId | ID interna, usada para acompanhamento.
+trackingId | ID interna, usada para acompanhamento.
+resourceId | ID do Recurso do Azure Resource Manager.
+eventHub | Nome completo do hub de eventos (inclui o nome do namespace).
+partitionId | Partição do Hub de Eventos usada para gravação.
 archiveStep | ArchiveFlushWriter
-startTime | Hora de início de falha
-failures | Número de vezes que ocorreu a falha
-durationInSeconds | Duração de falha
-Message | Mensagem de erro
+startTime | Hora de início da falha.
+failures | Número de vezes que a falha ocorreu.
+durationInSeconds | Duração da falha.
+Message | Mensagem de erro.
 categoria | ArchiveLogs
 
-Este é um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
+Veja a seguir um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
 
 ```json
 {
@@ -108,17 +108,17 @@ As cadeias de caracteres JSON do log de operação incluem os elementos listados
 
 Nome | Descrição
 ------- | -------
-ActivityId | ID interna, usada para acompanhar a finalidade
-EventName | Nome da operação             
-resourceId | ID de recurso do Azure Resource Manager
-SubscriptionId | ID da assinatura
-EventTimeString | Tempo de operação
-EventProperties | Propriedades da operação
-Status | Status da operação
-Chamador | Chamador da operação (portal do Azure ou cliente de gerenciamento)
+ActivityId | ID interna, usada para fins de rastreamento.
+EventName | Nome da operação.     
+resourceId | ID do Recurso do Azure Resource Manager.
+SubscriptionId | ID da assinatura.
+EventTimeString | Tempo da operação.
+EventProperties | Propriedades da operação.
+Status | Status da operação.
+Chamador | Chamador da operação (Portal do Azure ou cliente de gerenciamento).
 categoria | OperationalLogs
 
-Este é um exemplo de uma cadeia de caracteres JSON do log de operação:
+Veja a seguir um exemplo de uma cadeia de caracteres JSON do log de operação:
 
 ```json
 Example:

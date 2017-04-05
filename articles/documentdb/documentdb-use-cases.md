@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/23/2017
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 912d5af4231dee6aa8bc2f32d7950f59377fe90f
-ms.openlocfilehash: dbd5448c94577e6a21a2433a00e7a2f75afcc4a0
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9a0ba106b4c2aded8aaac673dfba3610bd4ca0fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -78,7 +79,7 @@ O DocumentDB é usado por jogos como [The Walking Dead: No Man's Land](https://a
 ![Arquitetura de referência de jogos do Azure DocumentDB](./media/documentdb-use-cases/documentdb-gaming-architecture.png)
 
 ## <a name="web-and-mobile-applications"></a>Aplicativos Web e móveis
-O DocumentDB é usado normalmente em aplicativos Web e móveis e é especialmente adequado para modelagem de interações sociais, integração com serviços de terceiros e para a compilação de experiências personalizadas. 
+O DocumentDB é usado normalmente em aplicativos Web e móveis e é especialmente adequado para modelagem de interações sociais, integração com serviços de terceiros e para a compilação de experiências personalizadas. Os SDKs do DocumentDB podem ser usados para criar aplicativos avançados de iOS e Android usando a conhecida [estrutura Xamarin](documentdb-mobile-apps-with-xamarin.md).  
 
 ### <a name="social-applications"></a>Aplicativos sociais
 Um caso de uso comum para o Banco de Dados de Documentos é armazenar e consultar UGC (User Generated Content, conteúdo gerado pelo usuário) para aplicativos Web e móveis, particularmente aplicativos de mídia social. Alguns exemplos de UGC são sessões de bate-papo, tweets, postagens em blogs, classificações e comentários. Muitas vezes, o UGC em aplicativos de redes sociais é uma mistura de texto livre, propriedades, rótulos e relações que não se limitam a uma estrutura rígida. Conteúdos como bate-papos, comentários e postagens podem ser armazenados no Banco de Dados de Documentos sem a necessidade de transformações ou objetos complexos em camadas de mapeamento relacional.  Propriedades de dados podem ser adicionadas ou modificadas facilmente para atender aos requisitos conforme os desenvolvedores iteram sobre o código do aplicativo, portanto, promovendo um desenvolvimento rápido.  
@@ -115,9 +116,4 @@ Ou, se você quiser ler mais sobre os clientes que usam o Banco de Dados de Docu
 * [Orange Tribes](https://customers.microsoft.com/en-US/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). Esse aplicativo de comida reserva muito mais do os que olhos, ou a boca, podem sentir.
 * [Real Madrid](https://customers.microsoft.com/en-US/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Com o Microsoft Cloud, é como se o Real Madrid levasse 450 milhões de fãs do mundo inteiro para seu estádio.
 * [Tuku](https://customers.microsoft.com/en-US/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU torna a compra de carros mais divertida com a Ajuda dos serviços do Azure 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

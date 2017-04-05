@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0469880325b907065b95f94f62ab76d252c0eda5
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0cde1f36af2d41697fa956c62cc882e5429707e8
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -339,7 +339,7 @@ Para testar a função, você precisa carregar um arquivo MP4 no contêiner **in
 
 Neste ponto, você está pronto para começar a desenvolver um aplicativo de Serviços de Mídia. 
  
-Para obter mais detalhes e amostras/soluções completas de como usar o Azure Functions e os Aplicativos Lógicos com os Serviços de Mídia do Azure para criar fluxos de trabalho de criação de conteúdo personalizados, consulte as [Amostras de integração do Functions ao .NET dos Serviços de Mídia no GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+Para obter mais detalhes e amostras/soluções completas de como usar o Azure Functions e os Aplicativos Lógicos com os Serviços de Mídia do Azure para criar fluxos de trabalho de criação de conteúdo personalizados, confira as [Amostras de integração do Functions ao .NET dos Serviços de Mídia no GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 Consulte também [Usar o Azure WebHooks para monitorar notificações de trabalho dos Serviços de Mídia com o .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
