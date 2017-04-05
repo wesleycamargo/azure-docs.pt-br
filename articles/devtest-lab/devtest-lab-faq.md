@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 4fc454a8c7974b8f53cd6621639dd5b575cc66f7
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c427ddbe408fc42403eb6738d1983c220e899a7
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -65,7 +65,7 @@ Este artigo responde algumas das perguntas mais comuns sobre o Azure DevTest Lab
 * [Meu artefato falhou durante a criação da VM. Como solucionar isso?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [Por que a minha rede virtual existente não está salvando corretamente?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [Por que recebo um erro "Recurso pai não encontrado" ao provisionar do PowerShell?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
-* [Onde posso encontrar mais informações sobre erros quando há falha na implantação de uma VM?](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
+* [Onde posso encontrar mais informações sobre erros se há falha na implantação de uma VM?](#where-can-i-find-more-error-information-if-a-vm-deployment-fails)  
 
 ### <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
 Caso sua pergunta não esteja listada aqui, fale conosco e nós o ajudaremos a encontrar uma resposta.
@@ -98,7 +98,7 @@ O Azure DevTest Labs é um serviço gratuito, o que significa que a criação e 
 ### <a name="what-are-the-different-security-levels-in-azure-devtest-labs"></a>Quais são os diferentes níveis de segurança do Azure DevTest Labs?
 O acesso de segurança é determinado pelo [RBAC (controle de acesso baseado em função) do Azure](../active-directory/role-based-access-built-in-roles.md). Para entender como funciona o acesso, é importante entender as diferenças entre um escopo, uma permissão e uma função, conforme definido pelo RBAC.
 
-* **Permissão** – uma permissão é um acesso definido a uma ação específica. Por exemplo, uma permissão pode ser de acesso de leitura para todas as máquinas virtuais.
+* **Permissão** – uma permissão é um acesso definido a uma ação específica. Por exemplo, uma permissão pode ser de acesso de leitura a todas as máquinas virtuais.
 * **Função** – uma função é um conjunto de permissões que podem ser agrupadas e atribuídas a um usuário. Por exemplo, um "proprietário da assinatura" tem acesso a todos os recursos dentro de uma assinatura.
 * **Escopo** – um escopo é um nível dentro da hierarquia do recurso do Azure. Por exemplo, um escopo pode ser um grupo de recursos, um único laboratório ou toda a assinatura.
 
@@ -160,7 +160,7 @@ Há suporte para anexar vários discos a máquinas virtuais.
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do sistema operacional Windows para o meu teste, preciso comprar uma assinatura do MSDN?
 Se você precisar usar imagens do sistema operacional cliente Windows (Windows 7 ou posterior) para o desenvolvimento ou teste no Azure, deverá:
 
-- [Comprar uma assinatura do MSDN](https://www.visualstudio.com/products/how-to-buy-vs). 
+- [Comprar uma assinatura do MSDN](https://www.visualstudio.com/products/how-to-buy-vs).
 - Se você tiver um Contrato Enterprise, crie uma assinatura do Azure com a [oferta de Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
 
 Para obter mais informações sobre os créditos Azure para cada oferta do MSDN, consulte [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
@@ -216,10 +216,10 @@ Além de excluir as VMs do laboratório no portal do Azure, é possível excluir
 
 
 ### <a name="what-are-artifacts"></a>O que são os artefatos?
-Artefatos são elementos personalizáveis que podem ser usados para implantar os bits mais recentes ou as ferramentas de desenvolvimento em uma VM. Eles estão anexados à sua VM durante a criação com apenas alguns cliques, e depois que a VM é provisionada, os artefatos implantam e configuram a VM. Há diversos artefatos preexistentes no nosso [repositório Github público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), mas você pode [criar seus próprios artefatos](devtest-lab-artifact-author.md) facilmente.
+Artefatos são elementos personalizáveis que podem ser usados para implantar os bits mais recentes ou as ferramentas de desenvolvimento em uma VM. Eles estão anexados à sua VM durante a criação com apenas alguns cliques, e depois que a VM é provisionada, os artefatos implantam e configuram a VM. Há diversos artefatos preexistentes no nosso [repositório GitHub público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), mas você pode [criar seus próprios artefatos](devtest-lab-artifact-author.md) facilmente.
 
 ### <a name="how-do-i-create-a-lab-from-an-azure-resource-manager-template"></a>Como criar um laboratório de um modelo do Azure Resource Manager?
-Nós fornecemos um [repositório Github dos modelos do laboratório do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que você pode implantar como são ou modificar para criar modelos personalizados para seus laboratórios. Cada um desses modelos tem um link em que você pode clicar para implantar o laboratório no estado em que se encontra sob sua própria assinatura do Azure, ou você pode personalizar o modelo e [implantar usando o PowerShell ou CLI do Azure](../azure-resource-manager/resource-group-template-deploy.md).
+Nós fornecemos um [repositório GitHub dos modelos do laboratório do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que você pode implantar como são ou modificar para criar modelos personalizados para seus laboratórios. Cada um desses modelos tem um link em que você pode clicar para implantar o laboratório no estado em que se encontra sob sua própria assinatura do Azure, ou você pode personalizar o modelo e [implantar usando o PowerShell ou CLI do Azure](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups"></a>Por que as minhas VMs são criadas em grupos de recursos diferentes com nomes arbitrários? Posso renomear ou modificar esses grupos de recursos?
 Grupos de recursos são criados dessa maneira para que o Azure DevTest Labs gerencie as permissões e acessos de usuário às máquinas virtuais. Embora você possa mover a VM para outro grupo de recursos com o nome desejado, não é recomendável fazer isso. Estamos trabalhando na melhoria dessa experiência para proporcionar mais flexibilidade.   
@@ -261,7 +261,7 @@ Quando um recurso é pai de outro recurso, o recurso pai deve existir antes da c
 As VMs são recursos filhos em um laboratório em um grupo de recursos. Quando você usa modelos do Azure Resource Manager para implantar por meio do PowerShell, o nome do grupo de recursos fornecido no script do PowerShell deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [Solução de erros comuns de implantação do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Onde posso encontrar mais informações sobre erros se há falha na implantação de uma VM?
-Os erros de implantação de VM são capturados nos logs de atividades. É possível encontrar os logs de atividades de VMs do laboratório por meio dos **Logs de auditoria** ou do **Diagnóstico de máquina virtual** no menu de recursos da folha de VMs do laboratório (a folha é exibida após a seleção da VM na lista **Minhas máquinas virtuais**). 
+Os erros de implantação de VM são capturados nos logs de atividades. É possível encontrar os logs de atividades de VMs do laboratório por meio dos **Logs de auditoria** ou do **Diagnóstico de máquina virtual** no menu de recursos da folha de VMs do laboratório (a folha é exibida após a seleção da VM na lista **Minhas máquinas virtuais**).
 
 Às vezes, o erro de implantação ocorre antes do início da implantação da VM – por exemplo, quando o limite da assinatura de um recurso criado com a VM é excedido. Nesse caso, os detalhes do erro são capturados nos **Logs de atividades** em nível de laboratório, que podem ser encontrados na parte inferior das configurações **Configuração e políticas**. Para obter mais informações sobre como usar os logs de atividades no Azure, consulte [Exibir logs de atividades para auditar ações em recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 

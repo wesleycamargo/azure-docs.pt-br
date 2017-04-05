@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 44786974a86a8cef9bfbaa9ea2a131b11747b01e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 275b1cd91347fdfcc36e0e8a6448ccd8818a507d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,7 +85,7 @@ Você pode verificar o status do aplicativo no portal do Azure para validar a in
 3. Clique no cluster em que você instalou o aplicativo.
 4. Na folha **Configurações**, clique em **Aplicativos** na categoria **Geral**. Você deverá ver **hue** listado na folha **Aplicativos Instalados**.
 5. Clique em **hue** na lista para listar as propriedades.  
-6. Clique no link da página da Web para validar o site. Abra o ponto de extremidade HTTP em um navegador para validar a interface do usuário Web do Hue e abra o ponto de extremidade SSH usando [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) ou outros [clientes SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+6. Clique no link da página da Web para validar o site. Abra o ponto de extremidade HTTP em um navegador para validar a interface do usuário Web do Hue e abra o ponto de extremidade SSH usando SSH. Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="troubleshoot-the-installation"></a>Solucionar problemas de instalação
 Você pode verificar o status de instalação do aplicativo da notificação do portal (clique no ícone de sino na parte superior do portal).

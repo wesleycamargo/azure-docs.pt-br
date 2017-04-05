@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b65e9e6b196965a7df1e4979219117fb87cedbd7
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 693e3aebad339b1a9b5e0afbe7770197ea70dcf6
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -40,9 +42,9 @@ Todos os nós em um cluster HDInsight estão localizados em uma Rede Virtual do 
 
 | O Barramento de | Port | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
-| sshd |22 |SSH |Conecta os clientes a sshd no nó de cabeçalho primário. Confira [Usar SSH com HDInsight baseado no Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
-| sshd |22 |SSH |Conecta clientes ao sshd no nó de borda (apenas HDInsight Premium). Confira [Introdução ao uso do Servidor R no HDInsight](hdinsight-hadoop-r-server-get-started.md) |
-| sshd |23 |SSH |Conecta os clientes a sshd no nó de cabeçalho secundário. Confira [Usar SSH com HDInsight baseado no Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd |22 |SSH |Conecta os clientes a sshd no nó de cabeçalho primário. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |22 |SSH |Conecta clientes ao sshd no nó de borda. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |23 |SSH |Conecta os clientes a sshd no nó de cabeçalho secundário. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Interface de usuário da Web do Ambari. Confira [Gerenciar clusters HDInsight usando a interface de usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |API REST do Ambari. Confira [Gerenciar clusters HDInsight usando a API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |API REST do HCatalog. Confira [Usar Hive com Curl](hdinsight-hadoop-use-pig-curl.md), [Usar Pig com Curl](hdinsight-hadoop-use-pig-curl.md), [Usar MapReduce com Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
@@ -138,10 +140,5 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 | --- | --- | --- | --- | --- |
 | Agente |Nós de trabalho |9092 |[Protocolo Kafka Wire](http://kafka.apache.org/protocol.html) |Usado para comunicação do cliente |
 | &nbsp; |Nós do Zookeeper |2181 |&nbsp; |A porta que os clientes usam para se conectar ao ZooKeeper |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

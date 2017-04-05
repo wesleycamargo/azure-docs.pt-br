@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 1/30/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 2ed6b838608f0f2249ef16b62ff2fb0159fc6e7f
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 34148a8fe2fe5b9ebd2ff4a01ff523f7f5a74c67
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -104,7 +105,7 @@ Observe os seguintes pontos:
 
 * O tipo foi definido como AzureSqlTable.
 * A propriedade de tipo tableName (específica do tipo AzureSqlTable) foi definida como MyTable.
-* linkedServiceName refere-se a um serviço vinculado do tipo AzureSqlDatabase. Veja a definição do serviço vinculado a seguir.
+* linkedServiceName se refere a um serviço vinculado do tipo AzureSqlDatabase, que é definido no seguinte trecho de JSON.
 * A frequência de disponibilidade foi definida como Dia e o intervalo foi definido como 1, o que significa que a fatia é produzida diariamente.  
 
 AzureSqlLinkedService é definido da seguinte maneira:
@@ -134,11 +135,11 @@ Como você pode ver, o serviço vinculado define como se conectar a um banco de 
 >
 >
 
-## <a name="a-nametypea-dataset-type"></a><a name="Type"></a> Tipo de conjunto de dados
+## <a name="Type"></a> Tipo de conjunto de dados
 As fontes de dados com suporte e os tipos de conjunto de dados são alinhados. Confira os tópicos citados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para obter informações sobre os tipos e a configuração dos conjuntos de dados. Por exemplo, se você estiver usando dados de um Banco de Dados SQL do Azure, clique em Banco de Dados SQL do Azure na lista de repositórios de dados com suporte para ver informações detalhadas.  
 
-## <a name="a-namestructureadataset-structure"></a><a name="Structure"></a>Estrutura do conjunto de dados
-A seção **estrutura** define o esquema do conjunto de dados. Ela contém uma coleção de nomes e tipos de dados das colunas.  No exemplo a seguir, o conjunto de dados tem três colunas: slicetimestamp, projectname e pageviews, sendo dos seguintes tipos: String, String e Decimal, respectivamente.
+## <a name="Structure"></a>Estrutura do conjunto de dados
+A seção **estrutura** é uma seção **opcional** que define o esquema do conjunto de dados. Ela contém uma coleção de nomes e tipos de dados das colunas. Use a seção de estrutura tanto para fornecer informações de tipo para **conversões de tipo** ou fazer **mapeamentos de coluna**. No exemplo a seguir, o conjunto de dados tem três colunas: `slicetimestamp`, `projectname` e `pageviews`, sendo dos seguintes tipos: String, String e Decimal, respectivamente.
 
 ```json
 structure:  
@@ -149,7 +150,28 @@ structure:
 ]
 ```
 
-## <a name="a-nameavailabilitya-dataset-availability"></a><a name="Availability"></a> Disponibilidade do conjunto de dados
+Cada coluna contém as seguintes propriedades:
+
+| Propriedade | Descrição | Obrigatório |
+| --- | --- | --- |
+| name |Nome da coluna. |Sim |
+| type |Tipo de dados da coluna.  |Não |
+| culture |Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. O padrão é "en-us". |Não |
+| formato |O formato de cadeia de caracteres a ser usado quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. |Não |
+
+Use as diretrizes a seguir referentes a quando incluir informações de "estrutura" e o que incluir na seção **estrutura**.
+
+* **Para fontes de dados estruturados** que armazenam as informações sobre o esquema e o tipo junto com os dados em si (origens como SQL Server, Oracle, tabela do Azure etc.): especifique a seção "estrutura" apenas se quiser mapear colunas de origem para colunas no coletor e seus nomes não forem iguais. 
+  
+    Como as informações de tipo já estão disponíveis para fontes de dados estruturadas, não inclua informações de tipo quando você incluir a seção "estrutura".
+* **Para esquema de fontes de dados de leitura (especificamente o blob do Azure)**, você pode optar por armazenar os dados sem armazenar nenhuma informação de tipo ou esquema juntamente com esses dados. Para esses tipos de fontes de dados, inclua "estrutura" quando quiser mapear colunas de origem para colunas do coletor (ou) quando o conjunto de dados for um conjunto de dados de entrada para uma atividade de cópia e os tipos de dados do conjunto de dados de origem precisar ser convertido em tipos nativos para o coletor. 
+    
+    O Data Factory dá suporte aos valores de tipo baseados em .NET compatíveis com CLS a seguir, para fornecer informações de tipo em "estrutura" para fontes de dados em que o esquema é definido na leitura, assim como o blob do Azure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan.
+
+O Data Factory executa conversões de tipo automaticamente ao mover dados de um armazenamento de dados de origem para um armazenamento de dados do coletor. 
+  
+
+## <a name="Availability"></a> Disponibilidade do conjunto de dados
 A seção **disponibilidade** em um conjunto de dados define a janela de processamento (horário, diário, semanal etc.) ou o modelo de divisão do conjunto de dados. Consulte o artigo [Cronograma e Execução](data-factory-scheduling-and-execution.md) para obter mais detalhes sobre o modelo de divisão e dependência de conjunto de dados.
 
 A seção de disponibilidade a seguir especifica que o conjunto de dados de saída é produzido por hora (ou) o conjunto de dados de entrada está disponível por hora:
@@ -166,11 +188,11 @@ A tabela a seguir descreve as propriedades que você pode usar na seção de dis
 
 | Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/>**Frequência com suporte**: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
-| intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisa que o conjunto de dados seja dividido por hora, defina **Frequência** como **Hora** e **intervalo** como **1**.<br/><br/>**Observação:** caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15 |Sim |ND |
+| frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
+| intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisa que o conjunto de dados seja dividido por hora, defina <b>Frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/><b>Observação:</b>: caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15 |Sim |ND |
 | estilo |Especifica se a fatia deve ser produzida no início/término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência for definida como Mês e o estilo como EndOfInterval, a fatia será produzida no último dia do mês. Se o estilo for definido como StartOfInterval, a fatia será produzida no primeiro dia do mês.<br/><br/>Se a frequência for definida como Dia e o estilo como EndOfInterval, a fatia será produzida na última hora do dia.<br/><br/>Se a Frequência for definida como Hora e o estilo como EndOfInterval, a fatia será produzida ao final da hora. Por exemplo, para uma fatia de período 13h – 14h, a fatia é produzida às 14h. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/>**Observação:** se AnchorDateTime tiver partes de datas mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o **intervalo** for **por hora** (frequência: hora e intervalo: 1) e o **AnchorDateTime** contiver **minutos e segundos**, as partes **minutos e segundos** do AnchorDateTime serão ignoradas. |Não |01/01/0001 |
-| deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/>**Observação:** se anchorDateTime e o deslocamento forem especificados, o resultado será um deslocamento combinado. |Não |ND |
+| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/><b>Observação:</b> se AnchorDateTime tiver partes de datas mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos</b>, as partes <b>minutos e segundos</b> do AnchorDateTime serão ignoradas. |Não |01/01/0001 |
+| deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Observação:</b> se anchorDateTime e o deslocamento forem especificados, o resultado será um deslocamento combinado. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
 Divisões diárias que iniciam às 6h, em vez da meia-noite do padrão.
@@ -220,7 +242,7 @@ Se precisar de um conjunto de dados mensalmente em uma data e hora específicas 
 }
 ```
 
-## <a name="a-namepolicyadataset-policy"></a><a name="Policy"></a>Política de conjunto de dados
+## <a name="Policy"></a>Política de conjunto de dados
 A seção **política** na definição do conjunto de dados define os critérios ou a condição que as divisões de conjunto de dados devem atender.
 
 ### <a name="validation-policies"></a>Políticas de validação
@@ -365,9 +387,4 @@ Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a
     }
 }
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

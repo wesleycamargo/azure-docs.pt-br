@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
-ms.openlocfilehash: ce7534b9ff675e1ae0902ba936e1ea897d80d936
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 06958522139d621f86afd8bf25128ee64cf822b3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -118,7 +118,7 @@ Um gatilho HTTP com a propriedade _webHookType_ será configurada para responder
 
 O gatilho também pode ser personalizado para um provedor de webhook específico (por exemplo, [GitHub](https://developer.github.com/webhooks/) e [Slack](https://api.slack.com/outgoing-webhooks)). Se um provedor for especificado, o tempo de execução de Functions poderá tratar da lógica de validação do provedor para você.  
 
-### <a name="configuring-github-as-a-webhook-provider"></a>Configuração do Github como um provedor de webhook
+### <a name="configuring-github-as-a-webhook-provider"></a>Configurando o GitHub como um provedor de webhook
 Para responder a webhooks do GitHub, primeiramente crie sua função com um gatilho HTTP e defina a propriedade _webHookType_ como "github". Em seguida, copie a [URL](#url) e a [chave de API](#keys) na página **Adicionar webhook** do seu repositório GitHub. Veja a documentação sobre [como criar webhooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) do GitHub para saber mais.
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)

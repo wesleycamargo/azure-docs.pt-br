@@ -1,7 +1,7 @@
 ---
 
 title: "Formato do arquivo de log da Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba mais sobre o formato dos arquivos de log criados quando etapas são executadas para um trabalho do serviço de importação-exportação"
+description: "Saiba mais sobre o formato dos arquivos de log criados quando etapas são executadas para um trabalho do serviço de Importação/Exportação."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 0b402db8c7e6bd4abb5aaf6ded7f539cfec7172e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -31,7 +31,7 @@ Há dois logs que podem ser gravados pelo serviço de importação/exportação:
   
 -   O log detalhado não é habilitado por padrão, mas pode ser habilitado configurando a propriedade `EnableVerboseLog` em um [Trabalho Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou em uma operação de [Atualização de Propriedades do Trabalho](/rest/api/storageimportexport/jobs#Jobs_Update).  
   
-## <a name="log-file-location"></a>Local do Arquivo de Log  
+## <a name="log-file-location"></a>Local do arquivo de log  
 Os logs são gravados para bloquear blobs no contêiner ou diretório virtual especificado pela configuração `ImportExportStatesPath`, que pode ser definida em um operação `Put Job`. O local no qual os logs são gravados depende de como a autenticação é especificada para o trabalho, junto com o valor especificado para `ImportExportStatesPath`. A autenticação para o trabalho pode ser especificada por meio de uma chave de conta de armazenamento ou um contêiner SAS (assinatura de acesso compartilhado).  
   
 O nome do contêiner ou diretório virtual pode ser o nome padrão de `waimportexport` ou outro nome de contêiner ou diretório virtual que você especificar.  
@@ -47,7 +47,7 @@ A tabela a seguir mostra as opções possíveis:
   
 Você pode recuperar a URL de erro e logs detalhados chamando a operação [Obter Trabalho](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Os logs estão disponíveis após a conclusão do processamento da unidade.  
   
-## <a name="log-file-format"></a>Formato de arquivo de log  
+## <a name="log-file-format"></a>Formato do arquivo de log  
 O formato para ambos os logs é o mesmo: um blob que contém descrições XML dos eventos ocorridos ao copiar blobs entre o disco rígido e a conta do cliente.  
   
 O log detalhado contém informações completas sobre o status da operação de cópia para cada blob (para um trabalho de importação) ou arquivo (para um trabalho de exportação), enquanto que o log de erros contém apenas as informações para blobs ou arquivos que tiveram erros durante o trabalho de importação ou exportação.  
@@ -149,7 +149,7 @@ A tabela a seguir descreve os elementos do arquivo de log.
 |`Properties/Path/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do arquivo de propriedades.|  
 |`Blob/Status`|Cadeia de caracteres|Status do processamento do blob.|  
   
-### <a name="drive-status-codes"></a>Códigos de Status de Unidade  
+# <a name="drive-status-codes"></a>Códigos de status da unidade  
 A tabela a seguir lista os códigos de status para o processamento de uma unidade.  
   
 |Código de status|Descrição|  
@@ -178,7 +178,7 @@ A tabela a seguir lista os códigos de status para o processamento de uma unidad
 |`BlobRequestForbidden`|O acesso aos blobs na conta de armazenamento é proibido. Isso pode ser devido a uma chave da conta de armazenamento inválida ou SAS do contêiner.|  
 |`InternalError`|Ocorreu um erro interno durante o processamento da unidade.|  
   
-### <a name="blob-status-codes"></a>Códigos de Status de Blobs  
+## <a name="blob-status-codes"></a>Códigos de status de blobs  
 A tabela a seguir lista os códigos de status para o processamento de um blob.  
   
 |Código de status|Descrição|  
@@ -197,7 +197,7 @@ A tabela a seguir lista os códigos de status para o processamento de um blob.
 |`IOFailed`|Uma falha de E/S de disco ou rede ocorreu durante o processamento de blob.|  
 |`Failed`|Uma falha desconhecida ocorreu durante o processamento de blob.|  
   
-### <a name="import-disposition-status-codes"></a>Códigos de Status de Disposição de Importação  
+## <a name="import-disposition-status-codes"></a>Códigos de status de disposição de importação  
 A tabela a seguir lista os códigos de status para resolver uma disposição de importação.  
   
 |Código de status|Descrição|  
@@ -208,7 +208,7 @@ A tabela a seguir lista os códigos de status para resolver uma disposição de 
 |`Overwritten`|O blob substituiu um blob existente de acordo com a disposição de importação `overwrite`.|  
 |`Cancelled`|Uma falha anterior interrompeu o processamento da disposição de importação.|  
   
-### <a name="page-rangeblock-status-codes"></a>Códigos de Status de Intervalo de Página/Bloco  
+## <a name="page-rangeblock-status-codes"></a>Códigos de status do intervalo de página/bloco  
 A tabela a seguir lista os códigos de status para o processamento de um intervalo de páginas ou de um bloco.  
   
 |Código de status|Descrição|  
@@ -224,7 +224,7 @@ A tabela a seguir lista os códigos de status para o processamento de um interva
 |`Failed`|Uma falha desconhecida ocorreu durante o processamento do intervalo de páginas ou bloco.|  
 |`Cancelled`|Uma falha anterior interrompeu o processamento do intervalo de páginas ou bloco.|  
   
-### <a name="metadata-status-codes"></a>Códigos de Status de Metadados  
+## <a name="metadata-status-codes"></a>Códigos de status de metadados  
 A tabela a seguir lista os códigos de status para o processamento dos metadados do blob.  
   
 |Código de status|Descrição|  
@@ -242,7 +242,7 @@ A tabela a seguir lista os códigos de status para o processamento dos metadados
 |`Failed`|Uma falha desconhecida ocorreu durante o processamento dos metadados.|  
 |`Cancelled`|Uma falha anterior interrompeu o processamento dos metadados.|  
   
-### <a name="properties-status-codes"></a>Códigos de Status de Propriedades  
+## <a name="properties-status-codes"></a>Códigos de status das propriedades  
 A tabela a seguir lista os códigos de status para o processamento das propriedades do blob.  
   
 |Código de status|Descrição|  
@@ -260,7 +260,7 @@ A tabela a seguir lista os códigos de status para o processamento das proprieda
 |`Failed`|Uma falha desconhecida ocorreu durante o processamento das propriedades.|  
 |`Cancelled`|Uma falha anterior interrompeu o processamento das propriedades.|  
   
-## <a name="sample-logs"></a>Logs de Exemplo  
+## <a name="sample-logs"></a>Logs de exemplo  
 A seguir está um exemplo de log detalhado.  
   
 ```xml
@@ -358,6 +358,7 @@ O log de erros a seguir para um trabalho de exportação indica que o conteúdo 
 </DriveLog>  
 ```
   
-## <a name="see-also"></a>Consulte também  
-[Referência de REST de Importação/Exportação do Armazenamento](/rest/api/storageimportexport/)
+## <a name="next-steps"></a>Próximas etapas
+ 
+* [API REST de Importação/Exportação do Armazenamento](/rest/api/storageimportexport/)
 

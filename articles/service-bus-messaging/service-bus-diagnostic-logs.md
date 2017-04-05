@@ -2,10 +2,10 @@
 title: "Logs de diagnóstico do Barramento de Serviço do Azure | Microsoft Docs"
 description: "Saiba como configurar logs de diagnóstico para o Barramento de Serviço no Azure."
 keywords: 
-documentationcenter: 
+documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
-manager: 
+manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-bus-messaging
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/17/2017
-ms.author: babanisa
+ms.date: 03/23/2017
+ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
-ms.openlocfilehash: 65fe81dc90f2dc7a251860adfdd8374912cb8d73
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: b8ed786fe0c049d9be7ba1ca1cb6adef1950b8e9
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="service-bus-diagnostic-logs"></a>Logs de diagnóstico do Barramento de Serviço
 
 É possível exibir dois tipos de logs para o Barramento de Serviço do Azure:
-* **[Logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre ativados.
-* **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para obter informações mais sofisticadas sobre tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
+* **[Logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre habilitados.
+* **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para obter informações mais detalhadas sobre tudo o que acontece em um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico
-Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs de diagnóstico:
+Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de diagnóstico, faça o seguinte:
 
-1.    No portal do Azure, acesse a folha do trabalho de transmissão.
+1.    No [Portal do Azure](https://portal.azure.com), acesse a folha do trabalho de streaming.
 
 2.    Em **Monitoramento**, acesse a folha **Logs de diagnóstico**.
 
     ![navegação de folha para logs de diagnóstico](./media/service-bus-diagnostic-logs/image1.png)  
 
-3.    Selecione **Ativar diagnóstico**.
+3.    Clique em **Ativar diagnóstico**.
 
     ![ativar logs de diagnóstico](./media/service-bus-diagnostic-logs/image2.png)
 
-4.    Para **Status**, selecione **Ativado**.
+4.    Para **Status**, clique em **Ativar**.
 
     ![alterar logs de diagnóstico de status](./media/service-bus-diagnostic-logs/image3.png)
 
-5.    Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um hub de eventos ou o Azure Log Analytics.
+5.    Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um Hub de Eventos ou o Log Analytics do Azure.
 
 6.    Selecione as categorias de logs que você deseja coletar, por exemplo, **Execução** ou **Criação**.
 
@@ -53,7 +53,7 @@ Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs 
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Logs de diagnóstico**.
 
-Para obter mais informações sobre como configurar um diagnóstico, consulte uma [visão geral dos logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
 
@@ -96,5 +96,5 @@ Example:
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Barramento de Serviço](service-bus-messaging-overview.md)
-* [Introdução ao Barramento de Serviço](service-bus-create-namespace-portal.md)
+* [Introdução ao Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 

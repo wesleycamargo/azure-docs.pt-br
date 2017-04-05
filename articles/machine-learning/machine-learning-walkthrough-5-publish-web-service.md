@@ -1,6 +1,6 @@
 ---
-title: "Etapa 5: Implantar o serviço Web do Machine Learning | Microsoft Docs"
-description: "Etapa 5 de Desenvolver um passo a passo da solução preditiva: Implantar um teste preditivo no Machine Learning Studio como um serviço Web."
+title: "Etapa 5: implantar o serviço Web do Machine Learning | Microsoft Docs"
+description: "Etapa 5 do passo-a-passo Desenvolver uma solução preditiva: implantar um teste preditivo no Estúdio de Aprendizado de Máquina como um serviço Web."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: ac5dfa34c867ecf2f38ebe33d7f5cf6610c33472
-ms.openlocfilehash: 005d96d66843b50d9c7003ae5264896718c37151
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 065e84e8ddee3466834e04fb5d1929652533265a
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Etapa 5 do passo a passo: Implantar o serviço Web do Azure Machine Learning
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Etapa 5 do passo-a-passo: Implantar o serviço Web de Aprendizado de Máquina do Azure
 Esta é a quinta etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Criar um espaço de trabalho do Aprendizado de Máquina](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -34,14 +34,17 @@ Esta é a quinta etapa do passo a passo, [Desenvolver uma solução de análise 
 - - -
 Para que outras pessoas possam usar o modelo de previsão que desenvolvemos neste passo a passo, podemos implantá-lo como um serviço Web no Azure.
 
-Até este ponto, estávamos testando nosso modelo de treinamento. Mas o serviço implantado não fará mais o treinamento – ele gera previsões pontuando a entrada do usuário com base em nosso modelo. Então, vamos fazer algumas preparações para converter esse teste de um teste de ***treinamento*** em um teste ***preditivo***. 
+Até este ponto, estávamos testando nosso modelo de treinamento. Mas o serviço implantado não fará mais o treinamento – ele gerará previsões pontuando a entrada do usuário com base em nosso modelo. Então, vamos fazer algumas preparações para converter esse teste de um teste de ***treinamento*** em um teste ***preditivo***. 
 
-É um processo de duas etapas:  
+Esse é um processo de três etapas:  
 
-1. Converter o *teste de treinamento* que criamos em um *teste preditivo*
-2. Implantar o teste preditivo como um serviço Web
+1. Remova um dos modelos
+2. Converter o *teste de treinamento* que criamos em um *teste preditivo*
+3. Implantar o teste preditivo como um serviço Web
 
-Mas, primeiro, precisamos reduzir esse teste um pouco. No momento, temos dois modelos diferentes no teste, mas queremos apenas um modelo ao implantar isso como um serviço Web.  
+## <a name="remove-one-of-the-models"></a>Remova um dos modelos
+
+Primeiro, precisamos reduzir esse teste um pouco. No momento, temos dois modelos diferentes no teste, mas queremos usar apenas um modelo ao implantar isso como um serviço Web.  
 
 Vamos supor que decidimos que o modelo de árvore aumentada apresentou um desempenho melhor do que modelo SVM. Portanto, a primeira coisa a fazer é remover o módulo [Computador de vetor de suporte de duas classes][two-class-support-vector-machine] e os módulos que foram usados para treiná-lo. Talvez você queira fazer uma cópia do teste clicando primeiro em **Salvar como** na parte inferior da tela do teste.
 
@@ -52,24 +55,30 @@ Vamos supor que decidimos que o modelo de árvore aumentada apresentou um desemp
 * [Normalizar Dados][normalize-data] (ambos)
 * [Avaliar Modelo] [ evaluate-model] (pois terminamos de avaliar os modelos)
 
-Selecione cada módulo e pressione a tecla Excluir, ou clique com botão direito do mouse no módulo e selecione **Excluir**.
+Selecione cada módulo e pressione a tecla Excluir, ou clique com botão direito do mouse no módulo e selecione **Excluir**. 
+
+![Removido o modelo SVM][3a]
+
+Nosso modelo agora deve ser semelhante ao seguinte:
+
+![Removido o modelo SVM][3]
 
 Agora, estamos prontos para implantar esse modelo usando a [Árvore de Decisão Aumentada em Duas Classes][two-class-boosted-decision-tree].
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Converter o teste de treinamento em um teste preditivo
 
-Fazer a conversão em um teste preditivo envolve três etapas:
+Para obter esse modelo pronto para implantação, precisamos converter esse teste de treinamento em um teste preditivo. Isso envolve três etapas:
 
 1. Salvar o modelo com que treinamos e substituir nossos módulos de treinamento
 2. Cortar o teste para remover os módulos necessários somente para treinamento
-3. Definir onde o serviço Web aceitará entrada e onde ele gera a saída
+3. Definir onde o serviço Web aceitará a entrada e onde ele gera a saída
 
-Poderíamos fazer isso manualmente, mas felizmente as três etapas podem ser realizadas apenas clicando em **Configurar serviço Web** na parte inferior da tela de teste (e selecionando a opção **Serviço Web preditivo**).
+Poderíamos fazer isso manualmente, mas felizmente as três etapas podem ser realizadas apenas clicando em **Configurar Serviço Web** na parte inferior da tela de teste (e selecionando a opção **Serviço Web Preditivo**).
 
 > [!TIP]
 > Se você quiser obter mais detalhes sobre o que acontece quando você converte um teste de treinamento em um teste de previsão, confira [Converter um teste de treinamento do Machine Learning em um teste de previsão](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
-Quando você clica em **Instalar serviço Web**, várias coisas acontecem:
+Quando você clica em **Configurar Serviço Web**, várias coisas acontecem:
 
 * O modelo treinado é convertido em um único módulo **Modelo Treinado** e armazenado na paleta de módulos à esquerda da tela de teste (você o encontrará em **Modelos Treinados**)
 * Os módulos que foram usados para o treinamento são removidos; especificamente:
@@ -81,11 +90,10 @@ Quando você clica em **Instalar serviço Web**, várias coisas acontecem:
 * Os módulos **Entrada de serviço Web** e **Saída de serviço Web** são adicionados (eles identificam onde os dados do usuário entrarão no modelo e quais dados retornam quando o serviço Web é acessado)
 
 > [!NOTE]
-> Você pode ver que o teste é salvo em duas partes em guias que foram adicionadas na parte superior da tela do teste. O teste de treinamento original está na guia **Teste de treinamento**, e o teste de previsão recém-criado está em **Teste de previsão**. Implantaremos o teste de previsão como um serviço Web.
+> Você pode ver que o teste é salvo em duas partes em guias que foram adicionadas na parte superior da tela do teste. O teste de treinamento original está na guia **Teste de treinamento**, e o teste de previsão recém-criado está em **Teste de previsão**. Implantaremos o teste preditivo como um serviço Web.
 
 É necessário executar uma etapa adicional com esse teste específico.
 Adicionamos dois módulos [Executar Script R][execute-r-script] para fornecer uma função de ponderação aos dados. Isso era apenas um truque que precisávamos para treinamento e teste, a fim de levarmos esses módulos para o modelo final.
-
 O Machine Learning Studio removeu um módulo [Executar Script R][execute-r-script] quando removeu o módulo [Divisão][split]. Podemos remover o outro e conectar o [Editor de metadados][metadata-editor] diretamente ao [Modelo de pontuação][score-model].    
 
 Agora o teste deve se parecer como isto:  
@@ -99,13 +107,13 @@ Agora o teste deve se parecer como isto:
 > 
 > 
 
-Execute o teste uma última vez (clique em **Executar**). Se você deseja verificar se o modelo ainda está funcionando, clique na saída do módulo [Modelo de Pontuação][score-model] e selecione **Exibir Resultados**. Você verá que os dados originais são exibidos, juntamente com o valor de risco de crédito ("Rótulos de pontuação") e o valor de probabilidade de pontuação ("Probabilidades de pontuação"). 
+Execute o teste uma última vez (clique em **Executar**). Se você deseja verificar se o modelo ainda está funcionando, clique na saída do módulo [Modelo de Pontuação][score-model] e selecione **Exibir Resultados**. Você pode ver que os dados originais são exibidos, juntamente com o valor de risco de crédito ("Rótulos de pontuação") e o valor de probabilidade de pontuação ("Probabilidades de pontuação"). 
 
 ## <a name="deploy-the-web-service"></a>Implantar o serviço Web
 Você pode implantar o teste como um serviço Web clássico ou um novo serviço Web com base no Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Implantar como serviço Web clássico
-Para implantar um serviço Web clássico derivado do teste, clique em **Implantar Serviço Web** abaixo da tela e selecione **Implantar Serviço Web [clássico]**. O Machine Learning Studio implanta o teste como um serviço Web e leva você até o painel desse serviço Web. Desse momento em diante, você pode retornar ao teste (**Exibir instantâneo** ou **Exibir mais recente**) e executar um teste simples do serviço Web (veja **Testar o serviço Web** abaixo). Há também informações para a criação de aplicativos que podem acessar o serviço Web (mais sobre isso na próxima etapa deste passo a passo).
+Para implantar um serviço Web Clássico derivado do teste, clique em **Implantar Serviço Web** abaixo da tela e selecione **Implantar Serviço Web [Clássico]**. O Estúdio de Aprendizado de Máquina implanta o teste como um serviço Web e leva você até o painel para o serviço Web. Dessa página, você pode retornar ao teste (**Exibir instantâneo** ou **Exibir mais recente**) e executar um teste simples do serviço Web (veja **Testar o serviço Web** abaixo). Há também informações para a criação de aplicativos que podem acessar o serviço Web (mais sobre isso na próxima etapa deste passo a passo).
 
 ![Painel de serviço Web][6]
 
@@ -132,7 +140,7 @@ Após alguns minutos, a página **Início Rápido** do serviço Web é aberta.
 
 Você pode configurar o serviço clicando na guia **Configurar**. Aqui você pode modificar o título do serviço e fornecer uma descrição. 
 
-Para testar a seleção do serviço Web, clique na guia **Testar** (veja **Testar o serviço Web** abaixo). Para obter informações sobre a criação de aplicativos que podem acessar o serviço Web, clique na guia **Consumir** (a próxima etapa deste passo a passo fornecerá mais detalhes).
+Para testar o serviço Web, clique na guia **Testar** (veja **Testar o serviço Web** abaixo). Para obter informações sobre a criação de aplicativos que podem acessar o serviço Web, clique na guia **Consumir** (a próxima etapa deste passo a passo fornecerá mais detalhes).
 
 > [!TIP]
 > Você pode atualizar o serviço Web depois de implantá-lo. Por exemplo, se você quiser alterar o modelo, edite o teste de treinamento, ajuste os parâmetros de modelo e clique em **Implantar Serviço Web**, selecione **Implantar Serviço Web [Clássico]** ou **Implantar Serviço Web [Novo]**. Quando você implantar o teste novamente, ele substituirá o serviço Web, agora usando o modelo atualizado.  
@@ -142,46 +150,51 @@ Para testar a seleção do serviço Web, clique na guia **Testar** (veja **Testa
 ## <a name="test-the-web-service"></a>Testar o serviço Web
 
 Quando o serviço Web é acessado, os dados do usuário entram por meio do módulo **Entrada do serviço Web** e são passados para o módulo [Modelo de Pontuação][score-model], nos quais são pontuados. Na maneira que configuramos o teste de previsão, o modelo espera dados no mesmo formato do conjunto de dados de risco de crédito original.
-
 Os resultados retornam para o usuário do serviço Web, passando pelo módulo **Saída do serviço Web**.
 
 > [!TIP]
-> Na maneira que configuramos o teste de previsão, todos os resultados do módulo [Modelo de Pontuação][score-model] retornam. Isso inclui todos os dados de entrada, o valor do risco de crédito e a probabilidade de pontuação. Se deseja retornar algo diferente - por exemplo, apenas o valor do risco de crédito-, você pode inserir um módulo [Colunas do Projeto][project-columns] entre [Modelo de Pontuação][score-model] e a **Saída do serviço Web** para eliminar colunas que você não deseja que o serviço Web retorne. 
+> Na maneira que configuramos o teste de previsão, todos os resultados do módulo [Modelo de Pontuação][score-model] retornam. Isso inclui todos os dados de entrada, o valor do risco de crédito e a probabilidade de pontuação. Mas você pode retornar algo diferente se desejar – por exemplo, você pode retornar apenas o valor do risco de crédito. Para fazer isso, insira um módulo [Colunas do Projeto][project-columns] entre [Modelo de Pontuação][score-model] e **Saída do serviço Web** para eliminar colunas que você não deseja que o serviço Web retorne. 
 > 
 > 
 
-### <a name="test-a-classic-web-service"></a>Implantar um serviço Web clássico
+Você pode testar o serviço Web Clássico no **Machine Learning Studio** ou no portal de **Serviços Web do Azure Machine Learning**.
+Você pode testar um novo serviço Web no portal dos **Serviços Web do Azure Machine Learning**.
 
-Você pode testar o serviço Web no Machine Learning Studio ou no portal de serviços Web do Azure Machine Learning. Testes no portal de serviços Web do Azure Machine Learning têm a vantagem de permitir que você habilite 
+> [!TIP]
+> Durante o teste no portal de serviços Web do Azure Machine Learning, você pode fazer com que o portal crie dados de exemplo e use-os para testar o serviço de solicitação-resposta. Na página **Configurar**, selecione "Sim" para **Dados de Exemplo Habilitados?**. Quando você abre o guia de Solicitação-Resposta na página **Teste**, o portal preenche os dados de exemplo obtidos do conjunto de dados de risco de crédito original.
 
-**Testar no Machine Learning Studio**
+### <a name="test-a-classic-web-service"></a>Testar um serviço Web Clássico
 
-1. Na página **PAINEL**, clique no botão **Testar** em **Ponto de extremidade padrão**. Uma caixa de diálogo é exibida e solicita os dados de entrada para o serviço. Existem as mesmas colunas que apareciam no conjunto de dados de risco de crédito original.  
+Você pode testar um serviço Web Clássico no Machine Learning Studio ou no portal de Serviços Web do Machine Learning. 
+
+#### <a name="test-in-machine-learning-studio"></a>Testar no Machine Learning Studio
+
+1. Na página **PAINEL** do serviço Web, clique no botão **Testar** em **Ponto de Extremidade Padrão**. Uma caixa de diálogo é exibida e solicita os dados de entrada para o serviço. Existem as mesmas colunas que apareciam no conjunto de dados de risco de crédito original.  
 
 2. Insira um conjunto de dados e clique em **OK**. 
 
-**Testar no portal de serviços Web do Azure Machine Learning**
+#### <a name="test-in-the-machine-learning-web-services-portal"></a>Testar no portal de Serviços Web do Azure Machine Learning
 
-1. Na página **PAINEL**, clique no link da visualização **Testar** em **Ponto de extremidade padrão**. A página de teste no portal de serviços Web do Azure Machine Learning para o ponto de extremidade de serviço Web é aberta e solicita dados para o serviço. Existem as mesmas colunas que apareciam no conjunto de dados de risco de crédito original.
+1. Na página **PAINEL** do serviço Web, clique no link **Visualização do teste** em **Ponto de Extremidade Padrão**. A página de teste no portal de serviços Web do Azure Machine Learning para o ponto de extremidade de serviço Web é aberta e solicita dados para o serviço. Existem as mesmas colunas que apareciam no conjunto de dados de risco de crédito original.
 
 2. Clique em **Solicitação-Resposta**. 
 
 ### <a name="test-a-new-web-service"></a>Testar um novo serviço Web
 
-1. No portal de serviços Web do Azure Machine Learning, clique em **Testar** na parte superior da página. A página de **Teste** é aberta e você pode inserir dados para o serviço. Os campos de entrada exibidos correspondem às mesmas colunas que apareciam no conjunto de dados de risco de crédito original. 
+Você pode testar um novo serviço Web no portal dos Serviços Web do Azure Machine Learning.
+
+1. No portal de [Serviços Web do Azure Machine Learning](https://services.azureml.net/quickstart), clique em **Testar** na parte superior da página. A página de **Teste** é aberta e você pode inserir dados para o serviço. Os campos de entrada exibidos correspondem às mesmas colunas que apareciam no conjunto de dados de risco de crédito original. 
 
 2. Insira um conjunto de dados e clique em **Testar solicitação-resposta**.
 
-Os resultados do teste serão exibidos no lado direito da página na coluna de saída. 
+Os resultados do teste são exibidos no lado direito da página na coluna de saída. 
 
-> [!TIP]
-> Durante o teste no portal de serviços Web do Azure Machine Learning, você pode fazer com que o portal crie dados de exemplo e use-os para testar o serviço de solicitação-resposta. Na página **Configurar**, selecione "Sim" para **Dados de Exemplo Habilitados?**. Quando você abre o guia de Solicitação-Resposta na página **Teste**, o portal preenche os dados de exemplo obtidos do conjunto de dados de risco de crédito original.
 
 ## <a name="manage-the-web-service"></a>Gerenciar o serviço Web
 
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Gerenciar um serviço Web Clássico no Portal clássico do Azure
+### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Gerenciar um serviço Web Clássico no Portal Clássico do Azure
 
-Assim que implantar o serviço Web clássico, poderá gerenciá-lo no [Portal clássico do Azure](https://manage.windowsazure.com).
+Assim que implantar o serviço Web clássico, você poderá gerenciá-lo no [Portal Clássico do Azure](https://manage.windowsazure.com).
 
 1. Entre no [Portal clássico do Azure](https://manage.windowsazure.com)
 2. No painel de serviços do Microsoft Azure, clique em **Machine Learning**
@@ -195,15 +208,15 @@ Aqui, você pode fazer coisas como monitorar como o serviço Web está se saindo
 Para obter mais informações, consulte:
 
 * [Criando pontos de extremidade](machine-learning-create-endpoint.md)
-* [Dimensionando o serviço Web](machine-learning-scaling-webservice.md)
+* [Dimensionando serviço Web](machine-learning-scaling-webservice.md)
 
-### <a name="manage-a-web-service-in-the-azure-machine-learning-web-services-portal"></a>Gerenciar um serviço Web no portal de serviços Web do Azure Machine Learning
+### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Gerenciar um serviço Web Novo ou Clássico no portal de serviços Web do Azure Machine Learning
 
-Assim que você implantar o serviço Web, clássico ou novo, poderá gerenciá-lo no [portal de serviços Web do Azure Machine Learning](https://services.azureml.net).
+Assim que você implantar o serviço Web, clássico ou novo, poderá gerenciá-lo no [portal de serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net/quickstart).
 
-Para monitorar o desempenho do serviço Web:
+Para monitorar o desempenho do seu serviço Web:
 
-1. Entre no [portal de serviços Web do Azure Machine Learning](https://servics.azureml.net)
+1. Entre no portal [Serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net/quickstart)
 2. Clique em **Serviços Web**
 3. Clique no seu serviço Web
 4. Clique em **Painel**
@@ -211,9 +224,8 @@ Para monitorar o desempenho do serviço Web:
 - - -
 **Em seguida: [Acessar o serviço Web](machine-learning-walkthrough-6-access-web-service.md)**
 
-[1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
-[2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+[3a]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3a.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
 [5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
 [6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png

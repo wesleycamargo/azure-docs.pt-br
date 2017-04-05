@@ -9,16 +9,17 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/27/2017
 ms.author: bprakash
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: d9c85736e9578ff4f821a118a25055e360e33ae9
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: c753eac8caed139250a0db85b639fca57c1e9ea6
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -88,6 +89,7 @@ O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem 
 | Apache Phoenix |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |1.6.2 + 2.0 (somente Linux) |1.6.0 (somente Linux) |1.5.2 (somente Linux/Compilação experimental) |1.3.1 (somente Windows) |-|-|
 | Apache Kafka | 0.10.0 | 0.9.0 |-|-|-|-|
+| Mono |4.2.1 |3.2.8 |-|-|-|-|
 
 **Obter informações atuais sobre a versão do componente**
 
@@ -105,6 +107,7 @@ A tabela a seguir lista as versões do HDInsight disponíveis no momento, as ver
 
 | Versão do HDInsight | Versão do HDP | SO da VM | Alta disponibilidade | Data do lançamento | Disponível no Portal do Azure | Data de validade do suporte | Data de reprovação |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Preview do HDI 3.6 |HDP 2.6 |Ubuntu 16 |Sim |02/28/2017 |Sim | | |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |Sim |9/30/2016 |Sim | | |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Sim |29/03/2016 |Sim |12/29/2016 |1/9/2018 |
 | HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 2012R2 LTS ou Windows Server |Sim |02/12/2015 |Sim |06/27/2016 |07/31/2017 |
@@ -113,6 +116,9 @@ A tabela a seguir lista as versões do HDInsight disponíveis no momento, as ver
 | HDI 3,0 |HDP 2,0 |Windows Server 2012R2 |Sim |11/02/2014 |Não |17/09/2014 |30/06/2015 |
 | HDI 2,1 |HDP 1,3 |Windows Server 2012R2 |Sim |28/10/2013 |Não |12/05/2014 |31/05/2015 |
 | HDI 1.6 |HDP 1.1 | |Não |28/10/2013 |Não |26/04/2014 |31/05/2015 |
+
+##<a name="hdi-36-preview-with-apache-spark-21"></a>Visualização do HDI 3.6 com o Apache Spark 2.1
+O HDI 3.6 para visualização foi lançado em 28/02/2017. Ele está disponível no modo preview para Apache Spark 2.1. Para obter mais detalhes, confira [HDI 3.6 Preview with Apache Spark 2.1](https://azure.microsoft.com/en-us/blog/announcing-preview-of-azure-hdinsight-3-6-with-apache-spark-2-1/) (Visualização do HDI 3.6 com Apache Spark 2.1)
 
 ##<a name="hdi-version-32-and-33-nearing-deprecation-date"></a>HDI versões 3.2 e 3.3 se aproximando da data de substituição
 O suporte para o cluster do HDI 3.2 expirou em 01/03/2016 e ele será preterido em 01/04/2017. O suporte para o cluster do HDI 3.3 expirou em 27/06/2016 e ele será preterido em 31/07/2017. Se você tiver um cluster do HDI 3.2 ou do HDI 3.3, atualize seu cluster para o HDI 3.5 (versão mais recente) em breve.

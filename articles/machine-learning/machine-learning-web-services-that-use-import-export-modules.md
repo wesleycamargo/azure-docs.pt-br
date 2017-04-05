@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: 30a3a6c438bae191605e35c352cf03fd8eaddf0f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 20e2c9edc4729015f65fbe72649e32effe7f8a3a
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Implantação de serviços Web do Azure AM que usam módulos Importar Dados e Exportar Dados
+
 Quando você cria um experimento de previsão, normalmente adiciona uma entrada e uma saída de serviço Web. Ao implantar o experimento, os consumidores poderão enviar e receber dados do serviço Web por meio de entradas e saídas. Para alguns aplicativos, os dados do cliente podem estar disponíveis a partir de um feed de dados ou já residirem em uma fonte de dados externa, como o armazenamento de Blobs do Azure. Nesses casos, eles não precisam de dados de leitura e gravação usando saídas e entradas do serviço Web. Em vez disso, eles podem usar o BES (Serviço de execução de lote) para ler dados da fonte de dados usando um módulo Importar Dados e gravar os resultados de pontuação em um local de dados diferente usando um módulo Exportar Dados.
 
 Os módulos Importar Dados e Exportar Dados podem ler e gravar em vários locais de dados, como uma URL da Web via HTTP, uma Consulta de Hive, um banco de dados SQL do Azure, Armazenamento de Tabelas do Azure, armazenamento de Blobs do Azure, um provedor de Feed de Dados ou um banco de dados SQL local.
@@ -29,7 +30,7 @@ Os módulos Importar Dados e Exportar Dados podem ler e gravar em vários locais
 Este tópico usa o "Exemplo 5: Treinamento, teste, avaliação para classificação binária: conjunto de dados adulto" e pressupõe que o conjunto de dados já tenha sido carregado em uma tabela SQL do Azure chamada censusdata.
 
 ## <a name="create-the-training-experiment"></a>Criar o teste de treinamento
-Quando você abre o "Exemplo 5: Treinamento, teste, avaliação para classificação binária: conjunto de dados adulto", ele usa o conjunto de dados do exemplo adulto Classificação binária de receita de censo. E o experimento na tela será semelhante à imagem a seguir.
+Quando você abre o "Exemplo 5: Treinamento, teste, avaliação para classificação binária: conjunto de dados adulto", ele usa o conjunto de dados do exemplo adulto Classificação binária de receita de censo. E o experimento na tela será semelhante à imagem a seguir:
 
 ![Configuração inicial do experimento.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -76,7 +77,7 @@ Em seguida, configure o experimento preditivo do qual você implantará o servi�
 9. No campo **Nome da tabela de dados**, digite dbo.ScoredLabels. Se a tabela não existir, ela será criado quando o experimento for executado ou o serviço Web for chamado.
 10. No campo **Lista separada por vírgulas de colunas de banco de dados** , digite ScoredLabels.
 
-Quando você escreve um aplicativo que chama o serviço Web final, convém especificar uma consulta de entrada diferente ou a tabela de destino em tempo de execução. Para configurar essas entradas e saídas, você pode usar o recurso de Parâmetros de Serviço Web para definir o módulo *Importar Dados*, a propriedade *Fonte de dados* e a propriedade de destino de dados do modo *Exportar Dados*.  Para saber mais sobre Parâmetros de Serviço Web, consulte a entrada [Parâmetros de Serviço Web do AzureML](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) no blog Cortana Intelligence and Machine Learning Blog.
+Quando você escreve um aplicativo que chama o serviço Web final, convém especificar uma consulta de entrada diferente ou a tabela de destino em tempo de execução. Para configurar essas entradas e saídas, use o recurso de Parâmetros de Serviço Web para definir o módulo *Importar Dados*, a propriedade *Fonte de dados* e a propriedade de destino de dados do modo *Exportar Dados*.  Para saber mais sobre Parâmetros de Serviço Web, consulte a entrada [Parâmetros de Serviço Web do AzureML](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) no blog Cortana Intelligence and Machine Learning Blog.
 
 Para configurar os Parâmetros de Serviço Web para a consulta de importação e a tabela de destino:
 
@@ -85,7 +86,7 @@ Para configurar os Parâmetros de Serviço Web para a consulta de importação e
 3. Na parte inferior do painel de propriedades do módulo *Exportar Dados* , na seção **Parâmetros de Serviço Web** , clique em Consulta de banco de dados e renomeie a consulta.
 4. Clique em **Nome da tabela de dados** e troque seu nome para **Tabela**.
 
-Quando terminar, seu experimento deverá ser semelhante à imagem a seguir.
+Quando terminar, seu experimento deverá ser semelhante à imagem a seguir:
 
 ![Aparência final do experimento.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
 
@@ -105,7 +106,7 @@ Para implantar como um serviço Web Clássico e criar um aplicativo para consumi
 6. Na Página de Ajuda da API, encontre a seção **Código de Exemplo** na parte inferior da página.
 7. Copie e cole o código de exemplo C# no arquivo Program.cs e remova todas as referências ao armazenamento de blobs.
 8. Atualize o valor da variável *apiKey* com a chave de API que você salvou anteriormente.
-9. Localize a declaração de solicitação e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usará a consulta original, mas definirá um novo nome de tabela.
+9. Localize a declaração de solicitação e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usa a consulta original, mas definirá um novo nome de tabela.
    
         var request = new BatchExecutionRequest() 
         {            
@@ -121,7 +122,7 @@ Após a conclusão da execução, uma nova tabela será adicionada ao banco de d
 ### <a name="deploy-a-new-web-service"></a>Implantar um serviço Web Novo
 
 > [!NOTE] 
-> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para saber mais, confira [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 Para implantar como um serviço Web Novo e criar um aplicativo para consumi-lo:
 
@@ -133,7 +134,7 @@ Para implantar como um serviço Web Novo e criar um aplicativo para consumi-lo:
 6. No Visual Studio, crie um aplicativo de console C#.
 7. Copie e cole o código de exemplo de C# no arquivo Program.cs.
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na seção **Informações básicas de consumo**.
-9. Localize a declaração *scoreRequest* e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usará a consulta original, mas definirá um novo nome de tabela.
+9. Localize a declaração *scoreRequest* e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usa a consulta original, mas definirá um novo nome de tabela.
    
         var scoreRequest = new
         {        

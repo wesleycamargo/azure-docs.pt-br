@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 4ba44128ec19d3937643ac934ca3e787cb9819a3
-ms.openlocfilehash: 690ba97d2b0634548a0ec424d441ad34d70667b9
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 69378496fb7e4176243d36950e7270809248d2bb
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -150,5 +151,5 @@ Pré-requisitos do Azure AD:
 * Para configurar um cluster HDInsight ingressado em um domínio, confira [Configurar clusters HDInsight ingressados em domínio](hdinsight-domain-joined-configure.md).
 * Para gerenciar clusters HDInsight ingressados em um domínio, confira [Gerenciar clusters HDInsight ingressados em domínio](hdinsight-domain-joined-manage.md).
 * Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight ingressados no domínio](hdinsight-domain-joined-run-hive.md).
-* Para executar consultas do Hive usando SSH em clusters do HDInsight ingressados no domínio, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Para executar consultas Hive usando SSH em clusters HDInsight adicionados ao domínio, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

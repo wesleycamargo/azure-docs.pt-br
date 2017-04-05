@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 3206c076350c2105e92d320ce30ce73448ccd3bd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -48,7 +48,7 @@ Nenhuma conversão adicional é necessária. Se estiver trabalhando com dados JS
 
 ### <a name="schema-and-schema-generator"></a>Esquema e gerador de esquema
 
-O gatilho da solicitação permite que você insira um esquema JSON para o conteúdo que espera receber. Esse esquema permite que o designer gere tokens para que você possa consumir o conteúdo da solicitação. Se você não tiver um esquema pronto, selecione `Use sample payload to generate schema` para gerar um esquema JSON de um exemplo de conteúdo.
+O gatilho da solicitação permite que você insira um esquema JSON para o conteúdo que espera receber. Esse esquema permite que o designer gere tokens para que você possa consumir o conteúdo da solicitação. Se não tiver um esquema pronto, escolha **Usar o conteúdo de exemplo para gerar esquema** para poder gerar um esquema JSON de um conteúdo de exemplo.
 
 ![Esquema](./media/logic-apps-http-endpoint/manualtrigger.png)
 

@@ -17,9 +17,9 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 0cb96f97358378a723d7528e53f5c5a771e2000b
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 768a630e1652a48fa4478ec2c25173d536ea6c09
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -112,7 +112,7 @@ Para remover backups com retenção de longo prazo do cofre, confira [Excluir ba
     R: Não, o cofre e o servidor devem estar na mesma região para minimizar o tempo de cópia e evitar os encargos de tráfego.
 5. P: Quantos bancos de dados posso armazenar em um cofre?
 
-    R: Atualmente, só há suporte para até mil bancos de dados por cofre. 
+    R: Atualmente, o suporte é para até 1.000 bancos de dados por cofre. 
 6. P. Quantos cofres posso criar por assinatura?
 
     R. Você pode criar até 25 cofres por assinatura.
@@ -130,7 +130,7 @@ Para remover backups com retenção de longo prazo do cofre, confira [Excluir ba
     R. Sim, há suporte para a TDE. Você poderá restaurar o banco de dados do cofre mesmo se o banco de dados original não existir mais.
 11. P. O que acontecerá com os backups no cofre se minha assinatura for suspensa? 
 
-    R. Se sua assinatura for suspensa, reteremos os bancos de dados e backups existentes, mas os novos backups não serão copiados no cofre. Depois que você reativar a assinatura, o serviço continua a copiar os backups no cofre. Seu cofre fica acessível para as operações de restauração usando os backups que foram copiados nele antes da suspensão da assinatura. 
+    R. Se sua assinatura for suspensa, manteremos os bancos de dados e backups existentes. Os novos backups não estão sendo copiados para o cofre. Depois que você reativar a assinatura, o serviço continua a copiar os backups no cofre. Seu cofre fica acessível para as operações de restauração usando os backups que foram copiados nele antes da suspensão da assinatura. 
 12. P: Posso obter acesso aos arquivos de backup do Banco de Dados SQL para baixá-los ou restaurá-los no SQL Server?
 
     R: Não, não atualmente.

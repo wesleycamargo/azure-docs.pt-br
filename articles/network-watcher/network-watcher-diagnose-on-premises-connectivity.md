@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c7576ce3e802e66ebea6ba83927609ed81fe0869
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b832916f5b6fe413f9fc7b3fcefcea40d3ce7ef
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 03/09/2017
 O Gateway de VPN do Azure permite criar a solução híbrida que atenderá à necessidade de uma conexão segura entre sua rede local e sua rede virtual do Azure. Como os requisitos são exclusivos, a escolha do dispositivo VPN local também é exclusiva. Atualmente, o Azure suporta [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) que são constantemente validados em parceria com os fornecedores de dispositivos. Examine as definições de configuração específicas do dispositivo antes de configurar seu dispositivo VPN local. Da mesma forma, o Gateway de VPN do Azure está configurado com um conjunto de [parâmetros IPsec suportados](../vpn-gateway/vpn-gateway-about-vpn-devices.md#IPSec) que são usados para estabelecer conexões. Atualmente, não há formas de especificar ou selecionar uma combinação específica de parâmetros IPsec a partir do Gateway de VPN do Azure. Para estabelecer uma conexão bem-sucedida entre a rede local e o Azure, as configurações do dispositivo VPN local devem obedecer os parâmetros de IPsec prescritos pelo Gateway de VPN do Azure. A não obediência leva à perda da conectividade e, até então, a resolução desses problemas não era algo trivial e geralmente levava horas para identificar e corrigir o problema.
 
 Com o recurso de solução de problemas do Observador de Rede do Azure, é possível diagnosticar problemas com seu Gateway e Conexões e, em poucos minutos, obter informações suficientes para tomar uma decisão informada para corrigir o problema.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Cenário
 
@@ -53,7 +51,7 @@ Uma das etapas críticas da configuração é a definição dos parâmetros de c
 | Algoritmo de hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Tempo de vida (tempo) da SA (associação de segurança) da fase 1 |28.800 segundos |10.800 segundos |
  
-Como usuário, seria necessário configurar o Cisco ASA, uma configuração de exemplo pode ser encontrada no [Github](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Entre outras configurações, você também precisaria especificar o algoritmo de hash. O Cisco ASA é compatível com mais [algoritmos de hash e criptografia](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) do que o Gateway de VPN do Azure. Sem saber, você configurou seu Cisco ASA para usar o SHA-512 como algoritmo de hash. Como esse algoritmo não é um algoritmo com suporte para conexões baseadas em política, a conexão VPN funcionará.
+Como usuário, seria necessário configurar o Cisco ASA. Uma configuração de exemplo pode ser encontrada no [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Entre outras configurações, você também precisaria especificar o algoritmo de hash. O Cisco ASA é compatível com mais [algoritmos de hash e criptografia](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) do que o Gateway de VPN do Azure. Sem saber, você configurou seu Cisco ASA para usar o SHA-512 como algoritmo de hash. Como esse algoritmo não é um algoritmo com suporte para conexões baseadas em política, a conexão VPN funcionará.
 
 Esses problemas são difíceis de solucionar e as causas principais geralmente são não intuitivas. Nesse caso, você pode abrir um tíquete de suporte e obter ajuda para resolver o problema. Mas, com a API de solução de problemas do Observador de Rede do Azure, é possível identificar esses problemas sozinho. 
 

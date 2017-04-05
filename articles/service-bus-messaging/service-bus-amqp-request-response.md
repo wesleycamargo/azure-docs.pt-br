@@ -1,5 +1,5 @@
 ---
-title: "AMQP 1.0 em operações baseadas em solicitação-resposta do Barramento de Serviço | Microsoft Docs"
+title: "AMQP 1.0 em operações baseadas em solicitação-resposta do Barramento de Serviço do Azure | Microsoft Docs"
 description: "Lista de operações baseadas em solicitação-resposta do Barramento de Serviço do Microsoft Azure."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 03/22/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 05c5c8e8c12357fd150be10def6cd9a272d613e2
-ms.openlocfilehash: 4df8ce114600abfa7abe8e70959a2cd51e2cd8a6
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: a09aefd00a89c48acdc885f98e34d7faa9c5629a
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -46,10 +47,10 @@ Todas as operações descritas neste documento seguem um padrão de solicitaçã
 Cria um link para o envio de solicitações do nó de gerenciamento.  
   
 ```  
-requestLink = session.attach(     
+requestLink = session.attach(       
 role: SENDER,   
-    target: { address: "<entity address>/$management" },   
-    source: { address: ""<my request link unique address>" }   
+       target: { address: "<entity address>/$management" },   
+       source: { address: ""<my request link unique address>" }   
 )  
   
 ```  
@@ -59,10 +60,10 @@ role: SENDER,
 Cria um link para receber as respostas do nó de gerenciamento.  
   
 ```  
-responseLink = session.attach(    
+responseLink = session.attach(      
 role: RECEIVER,   
     source: { address: "<entity address>/$management" }   
-    target: { address: "<my response link unique address>" }   
+       target: { address: "<my response link unique address>" }   
 )  
   
 ```  
@@ -96,13 +97,13 @@ A mensagem de resposta estará no formato a seguir.
   
 ```  
 Message(  
-properties: {     
+properties: {      
         correlation-id: <request id>  
     },  
     application-properties: {  
             "statusCode" -> <status code>,  
             "statusDescription" -> <status description>,  
-           },         
+           },          
 )  
   
 ```  
@@ -186,7 +187,7 @@ O corpo da mensagem de resposta deve consistir em uma seção **amqp-value** que
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-| da nuvem para o dispositivo|lista de mapas|Sim|Lista de mensagens na qual cada mapa representa uma mensagem.|  
+|da nuvem para o dispositivo|lista de mapas|Sim|Lista de mensagens na qual cada mapa representa uma mensagem.|  
   
 O mapa que representa uma mensagem deve conter as entradas a seguir.  
   
@@ -211,7 +212,7 @@ O corpo da mensagem de solicitação deve consistir em uma seção **amqp-value*
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-| da nuvem para o dispositivo|lista de mapas|Sim|Lista de mensagens na qual cada mapa representa uma mensagem.|  
+|da nuvem para o dispositivo|lista de mapas|Sim|Lista de mensagens na qual cada mapa representa uma mensagem.|  
   
 O mapa que representa uma mensagem deve conter as entradas a seguir.  
   
@@ -341,7 +342,7 @@ O corpo da mensagem de resposta deve consistir em uma seção **amqp-value** que
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-| da nuvem para o dispositivo|lista de mapas|Sim|Lista de mensagens na qual cada mapa representa uma mensagem.|  
+|da nuvem para o dispositivo|lista de mapas|Sim|Lista de mensagens na qual cada mapa representa uma mensagem.|  
   
  O mapa que representa uma mensagem deve conter as entradas a seguir.  
   
@@ -495,7 +496,7 @@ O mapa **correlation-filter** deve incluir, pelo menos, uma das entradas a segui
 |session-id|string|Não||  
 |reply-to-session-id|string|Não||  
 |content-type|string|Não||  
-|propriedades|map|Não|É mapeado para [BrokeredMessage.Properties](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) do Barramento de Serviço.|  
+|propriedades|map|Não|É mapeado para [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties) do Barramento de Serviço.|  
   
 O mapa **sql-rule-action** deve incluir as entradas a seguir.  
   
@@ -573,7 +574,7 @@ O corpo da mensagem de resposta deve consistir em uma seção **amqp-value** que
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-| da nuvem para o dispositivo|lista de mapas|Sim|Lista de mensagens, em que cada mapa representa uma mensagem.|  
+|da nuvem para o dispositivo|lista de mapas|Sim|Lista de mensagens, em que cada mapa representa uma mensagem.|  
   
 O mapa que representa uma mensagem deve conter as entradas a seguir.  
   
@@ -624,8 +625,3 @@ para saber mais sobre o AMQP e o Barramento de Serviço, visite os seguintes lin
 [Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
 [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
-
-
-<!--HONumber=Nov16_HO4-->
-
-

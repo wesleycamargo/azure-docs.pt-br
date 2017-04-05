@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: eedaefeed1a704f7816e71ef7b2dddda2268a90f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -127,24 +127,16 @@ Consulte [cmd do PS Start-ServiceFabricClusterConfigurationUpgrade](https://msdn
 
 #### <a name="cluster-upgrade-workflow"></a>Fluxo de trabalho de atualização do cluster
 
-1. Baixe a versão mais recente do pacote do documento [Criar cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-2. Conecte-se ao cluster de qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no cluster. O computador no qual este script é executado não precisa fazer parte do cluster.
+1. Execute Get-ServiceFabricClusterUpgrade em um de nós no cluster e observe o TargetCodeVersion.
+2. Execute o seguinte de uma máquina conectada à internet para listar todas as versões compatíveis com atualização com a versão atual e baixar o pacote correspondente dos links de download associados.
 
     ```powershell
 
-    ###### Connect to the cluster
-    $ClusterName= "mysecurecluster.something.com:19000"
-    $CertThumbprint= "70EF5E22ADB649799DA3C8B6A6BF7FG2D630F8F3"
-    Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
-        -X509Credential `
-        -ServerCertThumbprint $CertThumbprint  `
-        -FindType FindByThumbprint `
-        -FindValue $CertThumbprint `
-        -StoreLocation CurrentUser `
-        -StoreName My
+    ###### Get list of all upgrade compatible packages  
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
     ```
 
-3. Copie o pacote baixado no repositório de imagens do cluster.
+3. Conecte-se ao cluster de qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no cluster. O computador no qual este script é executado não precisa fazer parte do cluster
 
     ```powershell
 
@@ -155,8 +147,9 @@ Consulte [cmd do PS Start-ServiceFabricClusterConfigurationUpgrade](https://msdn
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
 
     ```
+4. Copie o pacote baixado para o repositório de imagens do cluster.
 
-4. Registre o pacote copiado.
+5. Registre o pacote copiado.
 
     ```powershell
 
@@ -167,7 +160,7 @@ Consulte [cmd do PS Start-ServiceFabricClusterConfigurationUpgrade](https://msdn
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
-5. Inicie uma atualização do cluster para uma versão disponível.
+6. Inicie uma atualização do cluster para uma versão disponível.
 
     ```Powershell
 
@@ -197,6 +190,13 @@ Para atualizar a configuração do cluster, execute o comando **Start-ServiceFab
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
 ```
+
+### <a name="cluster-certificate-config-upgrade"></a>Atualização da configuração do certificado do cluster  
+O certificado do cluster é usado para autenticação entre nós de cluster, para que a distribuição do certificado seja executada com muito cuidado, pois a falha bloqueará a comunicação entre nós de cluster.  
+Tecnicamente, há duas opções com suporte:  
+
+1. Atualização de um certificado: o caminho de atualização é 'Certificado A (Primário)-> Certificado B (Primário)-> Certificado C (Primário)->...'.   
+2. Atualização de dois certificados: o caminho de atualização é 'Certificado A (Primário) - > Certificado A (Primário) e B (Secundário) -> Certificado B (Primário) -> Certificado B (Primário) e C (Secundário) -> Certificado C (Primário)->...'.
 
 
 ## <a name="next-steps"></a>Próximas etapas

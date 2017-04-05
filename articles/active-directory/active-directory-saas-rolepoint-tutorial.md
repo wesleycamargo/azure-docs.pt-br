@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 319eaccb0613a7829da01e28112e9510bdf66e67
-ms.openlocfilehash: 7f806619f794b9e9d943a125e59936e51658070c
-ms.lasthandoff: 12/23/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: ea9ddb361d013e58d55401112c98a72b487d92d3
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá a integrar o RolePoint ao Azure AD (Azure Activ
 A integração do RolePoint ao Azure AD oferece os seguintes benefícios:
 
 - Você pode controlar no Azure AD quem tem acesso ao RolePoint
-- Você pode permitir que os usuários façam logon automaticamente no RolePoint (Logon Único) com suas contas do Azure AD
+- Você pode permitir que os usuários façam logon automaticamente no RolePoint usando SSO (logon único) com suas contas do Azure AD
 - Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -37,27 +37,26 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao RolePoint, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do RolePoint
+- Uma assinatura do RolePoint habilitada para SSO
 
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+>
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-
+- Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testa o SSO do Azure AD em um ambiente de teste.
+
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o RolePoint da Galeria
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO do Azure AD
 
-
-## <a name="adding-rolepoint-from-the-gallery"></a>Adicionando o RolePoint da Galeria
+## <a name="add-rolepoint-from-the-gallery"></a>Adicionar o RolePoint da Galeria
 Para configurar a integração do RolePoint ao Azure AD, você precisa adicionar o RolePoint da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o RolePoint usando a galeria, execute as seguintes etapas:**
@@ -88,25 +87,24 @@ Para configurar a integração do RolePoint ao Azure AD, você precisa adicionar
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_0001.png)
 
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+Nesta seção, você configurará e testará o logon único (SSO) do Azure AD com o RolePoint com base em um usuário de teste chamado “Brenda Fernandes”.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-Nesta seção, você vai configurar e testar o logon único do Azure AD com o RolePoint com base em um usuário de teste chamado "Brenda Fernandes".
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do RolePoint é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no RolePoint.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do RolePoint é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no RolePoint.
 
 Essa relação de vinculação é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no RolePoint.
 
-Para configurar e testar o logon único do Azure AD com o RolePoint, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o RolePoint, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do RolePoint](#creating-a-rolepoint-test-user)** — para ter um equivalente de Brenda Fernandes no RolePoint que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-O objetivo desta seção é habilitar o logon único do Azure AD no Portal Clássico do Azure e configurar o logon único em seu aplicativo RolePoint.
+O objetivo desta seção é habilitar o SSO do Azure AD no Portal Clássico do Azure e configurar o logon único em seu aplicativo do RolePoint.
 
 O aplicativo RolePoint espera que as declarações SAML estejam em um formato específico. Configure as seguintes declarações para o aplicativo. Você pode gerenciar o valor dos atributos na guia**"Atributo"**do aplicativo. A captura de tela a seguir mostra um exemplo disso. 
 
@@ -125,16 +123,13 @@ O aplicativo RolePoint espera que as declarações SAML estejam em um formato es
     | Nome | user.givenname |
     | Sobrenome | user.surname |
     | Email | user.mail |
-
-    a. Clique em **adicionar atributo de usuário** para abrir a caixa de diálogo **Adicionar Atributo de Usuário**.
+ 
+  1. Clique em **adicionar atributo de usuário** para abrir a caixa de diálogo **Adicionar Atributo de Usuário**.
 
     ![Configurar Logon Único](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_03.png)
-    
-    b. Na caixa de texto **Nome do Atributo** , digite o nome do atributo mostrado para essa linha.
-    
-    c. Na lista **Valor do Atributo** , digite o valor do atributo mostrado para essa linha.
-    
-    d. Clique em **Concluído**
+  2. Na caixa de texto **Nome do Atributo** , digite o nome do atributo mostrado para essa linha.
+  3. Na lista **Valor do Atributo** , digite o valor do atributo mostrado para essa linha.
+  4. Clique em **Concluído**.
 
 3. No menu na parte superior, clique em **Início Rápido**.
 
@@ -147,13 +142,12 @@ O aplicativo RolePoint espera que as declarações SAML estejam em um formato es
 5. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_06.png)
-
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.rolepoint.com/login`
-
-    b. Clique em **Próximo**.
-
-    > [!NOTE] 
-    > Observe que esse não é o valor real. Você precisa atualizar esse valor com a URL de Entrada real. Para obter esse valor, entre em contato com a [equipe de suporte do RolePoint](emaiLto:info@rolepoint.com).
+  1. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.rolepoint.com/login`
+  2. Clique em **Próximo**.
+  
+    >[!NOTE] 
+    >Observe que esse não é o valor real. Você precisa atualizar esse valor com a URL de Entrada real. Para obter esse valor, entre em contato com a [equipe de suporte do RolePoint](emaiLto:info@rolepoint.com).
+    >
 
 6. Na página **Configurar logon único no RolePoint**, clique em **Baixar metadados** e salve o arquivo no computador:
 
@@ -169,8 +163,7 @@ O aplicativo RolePoint espera que as declarações SAML estejam em um formato es
   
     ![Logon Único do AD do Azure][11]
 
-
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -194,26 +187,18 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rolepoint-tutorial/create_aaduser_05.png) 
-
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-
-    c. Clique em **Próximo**.
+ 1. Em Tipo de Usuário, selecione Novo usuário na organização.
+ 2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+ 3. Clique em **Próximo**.
 
 6.  Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rolepoint-tutorial/create_aaduser_06.png) 
-
-    a. Na caixa de texto **Nome**, digite **Brenda**.  
-
-    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-
-    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-
-    d. Na lista **Função**, selecione **Usuário**.
-
-    e. Clique em **Próximo**.
+ 1. Na caixa de texto **Nome**, digite **Brenda**. 
+ 2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+ 3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+ 4. Na lista **Função**, selecione **Usuário**.
+ 5. Clique em **Próximo**.
 
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -222,19 +207,14 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rolepoint-tutorial/create_aaduser_08.png) 
+ 1. Anote o valor da **Nova Senha**.
+ 2. Clique em **Concluído**.   
 
-    a. Anote o valor da **Nova Senha**.
-
-    b. Clique em **Concluído**.   
-
-
-
-### <a name="creating-a-rolepoint-test-user"></a>Criando um usuário de teste do RolePoint
+### <a name="create-a-rolepoint-test-user"></a>Criar um usuário de teste do RolePoint
 
 Nesta seção, você criará um usuário chamado Brenda Fernandes no RolePoint. Trabalhe com a [equipe de suporte do RolePoint](emaiLto:info@rolepoint.com) para adicionar os usuários na plataforma do RolePoint.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao RolePoint.
 
@@ -260,14 +240,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
     ![Atribuir usuário][205]
 
+### <a name="test-single-sign-on"></a>Testar logon único
 
-
-### <a name="testing-single-sign-on"></a>Teste do logon único
-
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do RolePoint no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo RolePoint.
-
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

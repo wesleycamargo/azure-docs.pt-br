@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 8e7911a3a8080ef8fa125779aa1f6778b9655cde
-ms.openlocfilehash: 8780c193c6aa4b6b183723f88d67ac0990347d1e
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 3b2a18232a9ab8c1b587cfa4fa14ced0c3b515ba
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -101,11 +102,11 @@ O portal mostra uma lista dos aplicativos do HDInsight instalados para um cluste
    * Status: status do aplicativo. 
    * Página da Web: a URL do aplicativo Web que você implantou no nó de borda, se houver. A credencial é igual às credenciais de usuário HTTP que você configurou para o cluster.
    * Ponto de extremidade HTTP: a credencial é igual às credenciais de usuário HTTP que você configurou para o cluster. 
-   * Ponto de extremidade SSH: você pode usar o [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao nó de borda. As credenciais SSH são iguais às credenciais de usuário SSH que você configurou para o cluster.
+   * Ponto de extremidade SSH: você pode usar o SSH para se conectar ao nó de borda. As credenciais SSH são iguais às credenciais de usuário SSH que você configurou para o cluster. Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 6. Para excluir um aplicativo, clique nele com o botão direito do mouse e clique em **Excluir** no menu de contexto.
 
 ## <a name="connect-to-the-edge-node"></a>Conectar-se ao nó de borda
-Você pode se conectar ao nó de borda usando HTTP e SSH. As informações de ponto de extremidade podem ser encontradas no [portal](#list-installed-hdinsight-apps-and-properties). Para saber mais sobre como usar o SSH, confira [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
+Você pode se conectar ao nó de borda usando HTTP e SSH. As informações de ponto de extremidade podem ser encontradas no [portal](#list-installed-hdinsight-apps-and-properties). Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 As credenciais de ponto de extremidade HTTP são as credenciais de usuário HTTP que você configurou para o cluster HDInsight. As credenciais de ponto de extremidade do SSH são as credenciais SSH que você configurou para o cluster HDInsight.
 

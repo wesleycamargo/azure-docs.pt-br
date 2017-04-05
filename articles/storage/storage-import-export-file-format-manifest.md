@@ -1,6 +1,6 @@
 ---
 title: "Formato do arquivo de manifesto da Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba mais sobre o formato do arquivo de manifesto da unidade que descreve o mapeamento entre blobs no Armazenamento de Blobs do Azure e arquivo na unidade em um trabalho de importação ou exportação no serviço de Importação-Exportação"
+description: "Saiba mais sobre o formato do arquivo de manifesto da unidade que descreve o mapeamento entre blobs no Armazenamento de Blobs do Azure e arquivo em uma unidade em um trabalho de importação ou exportação no serviço de Importação/Exportação."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -90,7 +90,10 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
+
 ```
+
+## <a name="manifest-xml-elements-and-attributes"></a>Elementos e atributos XML do manifesto
 
 Os elementos de dados e os atributos do formato XML de manifesto da unidade são especificados na tabela a seguir.  
   
@@ -131,6 +134,7 @@ Os elementos de dados e os atributos do formato XML de manifesto da unidade são
 |`Blob/PropertiesPath`|Cadeia de caracteres|Opcional. Especifica o caminho relativo de um arquivo de propriedades. Durante uma importação, as propriedades são definidas no blob de destino. Durante uma operação de exportação, as propriedades do blob são armazenadas no arquivo de propriedades na unidade.|  
 |`Blob/PropertiesPath/@Hash`|Atributo, cadeia de caracteres|Especifica o hash MD5 codificado em Base16 do arquivo de propriedades do blob.|  
   
-## <a name="see-also"></a>Consulte também  
-[Referência de REST de Importação/Exportação do Armazenamento](/rest/api/storageimportexport/)
+## <a name="next-steps"></a>Próximas etapas
+ 
+* [API REST de Importação/Exportação do Armazenamento](/rest/api/storageimportexport/)
 

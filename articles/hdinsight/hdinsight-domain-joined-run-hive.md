@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 9ddeaea93af8d5a4356d49da76cb64f5e43657db
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 213b6b5274ebde8cc460829ff1edc96a66eef994
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -140,7 +141,7 @@ Para testar a segunda política (read-hivesampletable-devicemake) que você crio
 ## <a name="next-steps"></a>Próximas etapas
 * Para configurar um cluster HDInsight associado a um domínio, confira [Configurar clusters HDInsight associados a domínio](hdinsight-domain-joined-configure.md).
 * Para gerenciar um cluster HDInsight associado a um domínio, confira [Gerenciar clusters HDInsight associados a domínio](hdinsight-domain-joined-manage.md).
-* Para executar consultas Hive usando SSH em clusters HDInsight associados a um domínio, confira [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Para executar consultas Hive usando SSH em clusters HDInsight adicionados ao domínio, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Para conectar o Hive usando o JDBC Hive, confira [Conectar ao Hive no Azure HDInsight usando o driver JDBC do Hive](hdinsight-connect-hive-jdbc-driver.md)
 * Para conectar o Excel ao Hadoop usando o ODBC do Hive, confira [Conectar o Excel ao Hadoop com a unidade ODBC do Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md)
 * Para conectar o Excel ao Hadoop usando o Power Query, confira [Conectar o Excel ao Hadoop usando o Power Query](hdinsight-connect-excel-power-query.md)

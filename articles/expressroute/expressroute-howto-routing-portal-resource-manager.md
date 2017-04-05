@@ -1,10 +1,10 @@
 ---
-title: Como configurar o roteamento de um circuito da ExpressRoute usando o Portal do Azure | Microsoft Docs
+title: 'Como configurar o roteamento (emparelhamento) para um circuito do ExpressRoute: Resource Manager: Azure | Microsoft Docs'
 description: "Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de Rota Expressa. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 03/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 65eef5df67adc089f52d8478fd1bb37a481d7d2a
-ms.openlocfilehash: 8d0b9f142ef274667692009bf8dafeb1f2f0f9c7
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 5e33ffc313e7edfcf7243f1113e07b215dc5b10b
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Criar e modificar o roteamento de um circuito da Rota Expressa
+# <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute
 > [!div class="op_single_selector"]
 > * [Resource Manager – Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
@@ -41,7 +41,7 @@ Esse artigo explica as etapas para criar e gerenciar a configuração de roteame
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
 * Verifique se você leu a página de [pré-requisitos](expressroute-prerequisites.md), a página de [requisitos do roteamento](expressroute-routing.md) e a página [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
-* Você deve ter um circuito da Rota Expressa ativo. Antes de continuar, siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito da Rota Expressa deve estar em um estado provisionado e habilitado e para que você possa executar os cmdlets descritos abaixo.
+* Você deve ter um circuito da Rota Expressa ativo. Antes de continuar, siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-portal-resource-manager.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito da Rota Expressa deve estar em um estado provisionado e habilitado e para que você possa executar os cmdlets descritos abaixo.
 * Se você planeja usar uma chave compartilhada/hash MD5, use-os em ambos os lados do túnel e limite o número de caracteres a 25, no máximo.
 
 Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você. 
@@ -186,8 +186,7 @@ Você pode remover a configuração de emparelhamento selecionando o ícone Excl
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-A próxima etapa será [Vincular uma Rede Virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md).
-
+A próxima etapa será [Vincular uma Rede Virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Para saber mais sobre fluxos de trabalho da Rota Expressa, confira [Fluxos de trabalho da Rota Expressa](expressroute-workflows.md).
 * Para obter mais informações sobre o emparelhamento de circuito, veja [Circuitos e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md).
 * Para saber mais sobre redes virtuais, confira [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).

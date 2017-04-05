@@ -1,6 +1,6 @@
 ---
-title: "Referência rápida de comandos para trabalhos de importação da ferramenta de Importação/Exportação do Azure | Microsoft Docs"
-description: "Referência de comandos da ferramenta de Importação/Exportação do Azure usados com frequência para trabalhos de importação. Refere-se à v1 da ferramenta de Importação/Exportação."
+title: "Referência rápida de comandos para trabalhos de importação da Ferramenta de Importação/Exportação do Azure — v1 | Microsoft Docs"
+description: "Referência de comandos da Ferramenta de Importação/Exportação do Azure para comandos de trabalho de importação usados com frequência. Este documento refere-se à v1 da Ferramenta de Importação/Exportação."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 0c58a94a553a22ac06bfdfd8032879f4a4a87fe5
-ms.openlocfilehash: e1c440ee165d148b59f29035b853cd8e13a44e7c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 632100f324c47d69f64cff020aafbaa300ae8c2b
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -59,11 +60,7 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:music /srcdir:d:\Music /dstd
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:dvd /srcfile:d:\dvd\favoritemovie.vhd /dstblob:dvd/favoritemovie.vhd  
 ```  
   
-## <a name="see-also"></a>Consulte também  
- [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md) (Fluxo de trabalho de exemplo para preparar os discos rígidos para um trabalho de importação)
+## <a name="next-steps"></a>Próximas etapas
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Fluxo de trabalho de exemplo para preparar discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
 

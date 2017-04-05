@@ -1,5 +1,5 @@
 ---
-title: "Como usar os tópicos de Barramento de Serviço com Java | Microsoft Docs"
+title: "Como usar os tópicos de Barramento de Serviço do Azure com Java | Microsoft Docs"
 description: "Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure. Exemplos de código são escritos para aplicativos Java."
 services: service-bus-messaging
 documentationcenter: java
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 38692f530a84f89f3b4573dbdc86712ffcb08322
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7132d1e42963d2e419d2bf1b7866ca5888f8719d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -37,18 +38,18 @@ Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias da
 As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionamento para processar um grande número de mensagens em muitos usuários e aplicativos.
 
 ## <a name="create-a-service-namespace"></a>Criar um namespace de serviço
-Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
+Para começar a usar tópicos e assinaturas do Barramento de Serviço no Azure, primeiramente, é preciso criar um namespace, que fornece um contêiner de controle para lidar com recursos do Barramento de Serviço no seu aplicativo.
 
 Para criar um namespace:
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
-Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
+Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se estiver usando o Eclipse, instale o [Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Adicione as seguintes instruções de importação à parte superior do arquivo Java:
+Adicione as seguintes instruções `import` à parte superior do arquivo Java:
 
 ```java
 import com.microsoft.windowsazure.services.servicebus.*;
@@ -150,7 +151,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-As mensagens enviadas aos Tópicos de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage]* têm um conjunto de métodos padrão (como **setLabel** e **TimeToLive**), um dicionário usado para manter propriedades específicas do aplicativo personalizado e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor da [BrokeredMessage][BrokeredMessage], assim o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, um **java.io.InputStream** pode ser fornecido.
+As mensagens enviadas aos Tópicos de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage]*têm um conjunto de métodos padrão (como**setLabel**e**TimeToLive**), um dicionário usado para manter propriedades específicas do aplicativo personalizado e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor da [BrokeredMessage][BrokeredMessage], assim o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, um **java.io.InputStream** pode ser fornecido.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para `TestTopic` **MessageSender** que obtivemos no trecho de código acima.
 Observe como o valor da propriedade **MessageNumber** de cada mensagem varia de acordo com a iteração do loop (isso determinará quais assinaturas o receberá):
@@ -263,9 +264,4 @@ Agora que você aprendeu as noções básicas sobre as filas do Barramento de Se
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
 [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
 [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

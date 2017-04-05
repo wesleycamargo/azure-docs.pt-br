@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 5ad5c688bae7b20ce6e5830e8c7b8dfa9c6df701
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 1ddf62c155264c5f76d8fd738b979c21cb527962
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -346,12 +346,61 @@ Para iniciar o processamento de eventos, crie uma instância do ChangeFeedProces
 
 Ao longo do tempo, é estabelecido um equilíbrio. Essa funcionalidade dinâmica permite que o dimensionamento automático com base em CPU seja aplicado aos consumidores de ampliação e redução de escala. Se as alterações estiverem disponíveis no DocumentDB a uma taxa mais rápida do que os consumidores puderem processar, o aumento de CPU nos consumidores poderá ser usado para causar uma escala automática na contagem de instâncias de trabalho.
 
-A classe ChangeFeedProcessorHost também implementa um mecanismo de ponto de verificação usando uma coleção separada de concessões do DocumentDB. Esse mecanismo armazena o deslocamento por base de partição, de forma que cada consumidor pode determinar qual foi o último ponto de verificação do consumidor anterior. Conforme as partições fazem transição entre os nós por meio de concessões, esse é o mecanismo de sincronização que facilita a alternância de carga.
+A classe `ChangeFeedProcessorHost` também implementa um mecanismo de ponto de verificação usando uma coleção separada de concessões do DocumentDB. Esse mecanismo armazena o deslocamento por partição, de forma que cada consumidor pode determinar qual foi o último ponto de verificação do consumidor anterior. Conforme as partições fazem transição entre os nós por meio de concessões, esse é o mecanismo de sincronização que facilita a alternância de carga.
+
+
+Veja a seguir um trecho de código para um host simples do processador de feed de alterações que imprime alterações no console:
+
+```cs
+    class DocumentFeedObserver : IChangeFeedObserver
+    {
+        private static int s_totalDocs = 0;
+        public Task OpenAsync(ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Worker opened, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;  // Requires targeting .NET 4.6+.
+        }
+        public Task CloseAsync(ChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
+        {
+            Console.WriteLine("Worker closed, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;
+        }
+        public Task ProcessEventsAsync(IReadOnlyList<Document> docs, ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Change feed: total {0} doc(s)", Interlocked.Add(ref s_totalDocs, docs.Count));
+            return Task.CompletedTask;
+        }
+    }
+```
+
+O trecho de código a seguir mostra como registrar um novo host para ouvir as alterações de uma coleção do DocumentDB. Aqui, configuramos uma coleção separada para gerenciar as concessões a partições entre vários consumidores:
+
+```cs
+    string hostName = Guid.NewGuid().ToString();
+    DocumentCollectionInfo documentCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "documents"
+    };
+
+    DocumentCollectionInfo leaseCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "leases"
+    };
+
+    ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation);
+    await host.RegisterObserverAsync<DocumentFeedObserver>();
+```
 
 Neste artigo, fornecemos um passo a passo de suporte do Feed de Alteração do DocumentDB e como controlar as alterações feitas nos dados do DocumentDB usando a API REST e/ou os SDKs do DocumentDB. 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Experimente os [exemplos de código do Feed de Alteração do DocumentDB no Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
+* Experimente os [exemplos de código do feed de alterações do DocumentDB no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
 * Saiba mais sobre o [modelo e a hierarquia de recursos do DocumentDB](documentdb-resources.md)
 * Introdução à codificação com os [SDKs do DocumentDB](documentdb-sdk-dotnet.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 

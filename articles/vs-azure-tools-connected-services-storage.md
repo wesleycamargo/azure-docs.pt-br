@@ -12,74 +12,67 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 03/26/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c7ca2909de28936f17ab7ac03815d693032b04f
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 614f212bb9afb71bb432bec3df7201807083b7f5
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Adicionando armazenamento do Azure usando os serviços conectados do Visual Studio
-## <a name="overview"></a>Visão geral
-Com o Visual Studio 2015, você pode conectar qualquer serviço de nuvem do C#, serviço móvel back-end do .NET, site ou serviço ASP.NET, serviço 5 ASP.NET ou serviço WebJob do Azure ao Armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados** . A funcionalidade do serviço conectado adiciona todas as referências necessárias e o código de conexão, bem como modifica os arquivos de configuração adequadamente. A caixa de diálogo também dá acesso à documentação que informa quais são as próximas etapas para iniciar o armazenamento de blob, as filas e as tabelas.
+Com o Visual Studio, você pode conectar qualquer um dos seguintes Armazenamentos do Azure usando a caixa de diálogo **Adicionar Serviços Conectados**:
 
-## <a name="supported-project-types"></a>Tipos de projeto com suporte
-Você pode usar a caixa de diálogo Serviços Conectados para se conectar ao Armazenamento do Azure nos tipos de projeto a seguir.
+- Serviço de nuvem do C#
+- Serviço móvel de back-end .NET
+- Site ou serviço ASP.NET
+- Principais serviços ASP.NET
+- Serviço do Trabalho Web do Azure 
 
-* Projetos Web ASP.NET
-* Projetos 5 ASP.NET
-* Projetos de Função de Trabalho e Função Web do serviço de nuvem do .NET
-* Projetos de serviços móveis do .NET
-* Projetos WebJob do Azure
+A funcionalidade do serviço conectado adiciona todas as referências necessárias e o código de conexão ao seu projeto, bem como modifica os arquivos de configuração adequadamente. 
+
+Após a conclusão, a caixa de diálogo **Adicionar Serviços Conectados** exibe automaticamente a documentação detalhando as etapas necessárias para começar a trabalhar com armazenamento de blobs, filas e tabelas.
 
 ## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>Conectar-se ao Armazenamento do Azure usando a caixa de diálogo Serviços Conectados
-1. Certifique-se de que tenha uma conta do Azure. Se não tiver uma conta do Azure, poderá se inscrever para uma [avaliação gratuita](http://go.microsoft.com/fwlink/?LinkId=518146). Quando você tiver uma conta Azure, poderá criar contas de armazenamento, de serviços móveis, e configurar o Active Directory do Azure.
-2. Abra o projeto no Visual Studio, abra o menu de contexto do nó **Referências** no Gerenciador de Soluções e escolha **Adicionar Serviço Conectado**.
-   
-    ![Adicionando um serviço conectado](./media/vs-azure-tools-connected-services-storage/IC796702.png)
-3. Na caixa de diálogo **Adicionar Serviço Conectado**, escolha **Armazenamento do Azure** e, em seguida, escolha o botão **Configurar**. Você será solicitado a fazer logon no Azure, se ainda não o fez.
-   
-    ![Caixa de diálogo Adicionar Serviço Conectado — Armazenamento](./media/vs-azure-tools-connected-services-storage/IC796703.png)
-4. Na caixa de diálogo **Armazenamento do Azure**, selecione uma conta de armazenamento existente e escolha **Adicionar**.
-   
-    Se você precisar criar uma nova conta de armazenamento, passe para a próxima etapa. Caso contrário, pule para a etapa 6.
-   
-    ![Caixa de diálogo Armazenamento do Azure](./media/vs-azure-tools-connected-services-storage/IC796704.png)
-5. Para criar uma nova conta de armazenamento: 
-   
-   1. Escolha o botão **Criar uma Nova Conta de Armazenamento** na parte inferior da caixa de diálogo Armazenamento do Azure.
-   2. Preencha a caixa de diálogo **Criar Conta de Armazenamento** e escolha o botão **Criar**.
-      
-       ![Caixa de diálogo Armazenamento do Azure](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
-      
-       Quando estiver de volta na caixa de diálogo **Armazenamento do Azure** , o novo armazenamento aparecerá na lista.
-   3. Selecione o novo armazenamento na lista e escolha **Adicionar**.
-6. O serviço conectado de armazenamento aparece sob o nó Referências de Serviço do seu projeto de Trabalho Web.
-   
-    ![Armazenamento do Azure no projeto de trabalhos na Web](./media/vs-azure-tools-connected-services-storage/IC796705.png)
-7. Examine a página de introdução que aparece e descubra como o projeto foi modificado. Uma página de introdução aparece no navegador sempre que você adiciona um serviço conectado. É possível examinar as próximas etapas sugeridas e os exemplos de código ou alternar para a página "O que aconteceu" para ver quais referências foram adicionadas ao projeto e como o código e os arquivos de configuração foram modificados.
+1. Abra o projeto no Visual Studio
 
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó **Serviços Conectados** e, no menu de contexto, selecione **Adicionar Serviço Conectado**.
+   
+    ![Adicionar serviço conectado do Azure](./media/vs-azure-tools-connected-services-storage/IC796702.png)
+
+1. Na página **Serviços Conectados**, selecione **Armazenamento em Nuvem com o Armazenamento do Azure**.
+   
+    ![Adicionar Armazenamento do Azure](./media/vs-azure-tools-connected-services-storage/add-azure-storage.png)
+
+1. Na caixa de diálogo **Armazenamento do Azure**, selecione uma conta de armazenamento existente e escolha **Adicionar**.
+   
+    Se você precisar criar uma conta de armazenamento, passe para a próxima etapa. Caso contrário, pule para a etapa 6.
+    
+    ![Adicionar conta de armazenamento existente ao projeto](./media/vs-azure-tools-connected-services-storage/select-azure-storage-account.png)
+
+1. Para criar uma conta de armazenamento: 
+   
+   1. Selecione **Criar uma Nova Conta de Armazenamento** na parte inferior da caixa de diálogo.
+
+   1. Preencha o diálogo **Criar Conta de Armazenamento** e selecione **Criar**.
+      
+       ![Nova conta de armazenamento do Azure](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
+      
+   1. Quando a caixa de diálogo **Armazenamento do Azure** for exibida, a nova conta de armazenamento aparecerá na lista. Selecione a nova conta de armazenamento na lista e escolha **Adicionar**.
+
+1. O serviço conectado de armazenamento aparece sob o nó **Referências de Serviço** do seu projeto.
+   
 ## <a name="how-your-project-is-modified"></a>Como o projeto é modificado
-Quando você acaba de fazer suas escolhas na caixa de diálogo, o Visual Studio adiciona referências e modifica determinados arquivos de configuração. As alterações específicas dependem do tipo de projeto. 
+Quando você acaba de fazer suas escolhas na caixa de diálogo, o Visual Studio adiciona referências e modifica determinados arquivos de configuração. As alterações específicas dependem do tipo de projeto: 
 
-* Para projetos ASP.NET, consulte [O que aconteceu — projetos ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
-* Para projetos 5 ASP.NET, consulte [O que aconteceu — projetos 5 ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
-* Para projetos de serviço de nuvem (funções Web e funções de trabalho), consulte [O que aconteceu — projetos de serviço de nuvem](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
-* Para projetos de Trabalho Web, consulte [O que aconteceu — projetos de Trabalho Web](storage/vs-storage-webjobs-what-happened.md).
+- Projeto ASP.NET — [O que aconteceu — projetos ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126)
+- Projeto de Núcleo ASP.NET — [O que aconteceu — projetos ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124) 
+- Projeto de serviço de nuvem (funções Web e funções de trabalho) — [O que aconteceu — projetos Serviço de Nuvem](http://go.microsoft.com/fwlink/p/?LinkId=516965)
+- Projetos de Trabalho Web — [O que aconteceu — projetos de Trabalho Web](storage/vs-storage-webjobs-what-happened.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-1. Usando os exemplos de código de Introdução como um guia, crie o tipo de armazenamento que deseja e, em seguida, comece a escrever o código para acessar sua conta de armazenamento!
-2. Faça perguntas e obtenha ajuda
-   
-   * [Fórum do MSDN: Armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
-   * [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-   * [Armazenamento em azure.microsoft.com](https://azure.microsoft.com/services/storage/)
-   * [Documentação do Armazenamento em azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+- [Fórum do MSDN: Armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+- [Blog da equipe do Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- [Documentação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 

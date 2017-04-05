@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2deaf44de51a989463826d6e4815f9ce9f0bbee5
-ms.openlocfilehash: 4b1fd3527140bc40299c008071753a91d264d567
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5e2ad5e5eae97645368797c8cdf848d88719bb64
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 4b1fd3527140bc40299c008071753a91d264d567
 Este artigo cataloga as ferramentas que foram fornecidas pela comunidade para auxiliar com a migração dos recursos de IaaS do modelo de implantação clássico para o modelo de implantação do Azure Resource Manager.
 
 > [!NOTE]
-> Não há suporte oficial para essas ferramentas no Suporte da Microsoft. Portanto, são software livre no Github e aceitamos PRs para correções ou cenários adicionais. Para relatar um problema, use o recurso de problemas do GitHub.
+> Não há suporte oficial para essas ferramentas no Suporte da Microsoft. Portanto, são software livre no GitHub e aceitamos PRs para correções ou cenários adicionais. Para relatar um problema, use o recurso de problemas do GitHub.
 > 
 > A migração com essas ferramentas causará tempo de inatividade de sua Máquina Virtual clássica. Se você estiver buscando uma migração da plataforma com suporte, visite 
 > 
@@ -44,10 +45,5 @@ Este é um módulo de script do PowerShell para migrar sua **única** VM (Máqui
 migAz é uma opção adicional para migrar um conjunto completo de recursos de IaaS clássicos para recursos de IaaS do Azure Resource Manager. A migração pode ocorrer na mesma assinatura ou entre assinaturas e tipos de assinatura diferentes (por ex.: assinaturas do CSP).
 
 [Link para a documentação da ferramenta](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/migaz)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

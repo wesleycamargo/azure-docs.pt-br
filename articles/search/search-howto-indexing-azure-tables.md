@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
-ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 66e6fec16aab7764b05b616efc0fccbfb2d0595e
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -60,8 +61,8 @@ Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Cri
 Você pode fornecer as credenciais para a tabela de uma das seguintes maneiras: 
 
 - **Cadeia de conexão da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. É possível obter a cadeia de conexão no portal do Azure navegando para a folha da conta de armazenamento > Configurações > Chaves (para contas de armazenamento Clássicas) ou Configurações > Chaves de acesso (para contas de armazenamento do Azure Resource Manager).
-- **Assinatura de acesso compartilhado de conta de armazenamento** cadeia de conexão (SAS): `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. As SAS devem ter a lista e permissões de leitura nos contêineres (tabelas neste caso) e objetos (linhas de tabela).
--  **Tabela de assinatura de acesso compartilhado**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. As SAS devem ter a lista e permissões de leitura na tabela.
+- **Assinatura de acesso compartilhado de conta de armazenamento** cadeia de conexão (SAS): `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`. As SAS devem ter a lista e permissões de leitura nos contêineres (tabelas neste caso) e objetos (linhas de tabela).
+-  **Tabela de assinatura de acesso compartilhado**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`. A SAS deve ter permissões de consulta (leitura) na tabela.
 
 Para saber mais sobre assinaturas de acesso compartilhado de armazenamento, veja [Uso de Assinaturas de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -110,7 +111,7 @@ Na Pesquisa do Azure, a chave do documento identifica exclusivamente um document
 Como as linhas de tabela têm uma chave composta, a Pesquisa do Azure gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de linha e de chave de partição. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
 
 > [!NOTE]
-> O valor `Key` pode conter caracteres inválidos em chaves de documento, como traços. É possível lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se você fizer isso, lembre-se também de usar a codificação de Base&64; protegida por URL ao transmitir as chaves de documento nas chamadas à API como Pesquisa.
+> O valor `Key` pode conter caracteres inválidos em chaves de documento, como traços. É possível lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se você fizer isso, lembre-se também de usar a codificação de Base 64 protegida por URL ao transmitir as chaves de documento nas chamadas à API como Pesquisa.
 >
 >
 
@@ -134,9 +135,4 @@ Para indicar que determinados documentos devem ser removidos do índice, você p
 
 ## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

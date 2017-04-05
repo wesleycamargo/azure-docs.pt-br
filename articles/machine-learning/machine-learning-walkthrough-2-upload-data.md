@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: 2c44b51d9c832116bf77758144725d2ed3f6e422
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c2ab5f5252e1ea1ec51f6c3bd489826c70ff011c
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,13 +37,19 @@ Para desenvolver um modelo preditivo para risco de crédito, precisamos de dados
 
 Usaremos o arquivo chamado **german.data**. Baixe esse arquivo em sua unidade de disco rígido local.  
 
-Esse conjunto de dados contém linhas de 20 variáveis para 1000 candidatos antigos de crédito. Essas 20 variáveis representam o conjunto de recursos do conjunto de dados (o vetor de recurso) que fornece características de identificação para cada candidato de crédito. Uma coluna adicional em cada linha representa o risco de crédito calculado do candidato, com 700 candidatos identificados como um risco de crédito baixo e 300 como um alto risco.
+O conjunto de dados **german.data** contém linhas de 20 variáveis para 1000 candidatos antigos de crédito. Essas 20 variáveis representam o conjunto de recursos do conjunto de dados (o *vetor de recurso*), que fornece características de identificação para cada candidato de crédito. Uma coluna adicional em cada linha representa o risco de crédito calculado do candidato, com 700 candidatos identificados como um risco de crédito baixo e 300 como um alto risco.
 
 O website do UCI fornece uma descrição dos atributos do vetor de recurso para esses dados. Isso inclui informações financeiras, histórico de crédito, status de emprego e informações pessoais. Para cada candidato, foi dada uma classificação binária indicando se são um risco baixo ou alto de crédito. 
 
 Usaremos estes dados para treinar um modelo analítico preditivo. Quando tivermos concluído, nosso modelo deverá ser capaz de aceitar um vetor de recurso para uma nova pessoa e prever se ela é um risco de crédito alto ou baixo.  
 
-Aqui está uma mudança interessante. A descrição do conjunto de dados explica que a classificação incorreta de uma pessoa como um risco de crédito baixo quando, na verdade, são um risco de crédito alto, é 5 vezes mais onerosa à instituição financeira do que a classificação incorreta de um risco de crédito baixo como alto. Uma forma simples de considerar isto em nosso experimento é duplicando (5 vezes) essas entradas que representam alguém com um risco de crédito alto. Então, se o modelo classificar incorretamente um risco de crédito alto como baixo, ele fará essa classificação incorreta cinco vezes, uma para cada duplicação. Isso aumentará o custo deste erro nos resultados de treinamento.  
+Aqui está uma mudança interessante. A descrição do conjunto de dados no site do UCI menciona quanto custa se classificarmos incorretamente o risco de crédito de uma pessoa.
+Se o modelo previr um alto risco de crédito para alguém que, de fato, é de baixo risco de crédito, o modelo terá feito uma classificação incorreta.
+Porém, a classificação incorreta inversa é cinco vezes mais onerosa para a instituição financeira: se o modelo previr um baixo risco de crédito para alguém que, de fato, é de alto risco de crédito.
+
+Dessa forma, queremos treinar nosso modelo para que o custo desse último tipo de classificação incorreta seja cinco vezes mais alto do que o outro tipo de classificação incorreta.
+Uma maneira simples de fazer isso ao treinar o modelo em nossa experiência é duplicando (cinco vezes) essas entradas que representam alguém com um alto risco de crédito. Assim, se o modelo classificar incorretamente alguém como de baixo risco de crédito, quando ele for de fato de risco alto, o modelo fará a mesma classificação incorreta cinco vezes, uma para cada duplicação. Isso aumentará o custo deste erro nos resultados de treinamento.
+
 
 ## <a name="convert-the-dataset-format"></a>Converter o formato do conjunto de dados
 O conjunto de dados original usa um formato separado por espaço em branco. O Estúdio de Aprendizado de Máquina trabalha melhor com um arquivo CSV (de valores separados por vírgula). Então, converteremos o conjunto de dados substituindo espaços por vírgulas.  
@@ -98,9 +105,4 @@ Para obter mais informações sobre como importar outros tipos de dados para um 
 [2]: media/machine-learning-walkthrough-2-upload-data/add-dataset.png
 [3]: media/machine-learning-walkthrough-2-upload-data/upload-dataset.png
 [4]: media/machine-learning-walkthrough-2-upload-data/dataset-list.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

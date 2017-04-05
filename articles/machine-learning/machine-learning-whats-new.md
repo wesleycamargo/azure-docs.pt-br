@@ -12,15 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
-ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 551b977b90612ddbfa1514a9c2358ebf8179c385
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Novidades do Aprendizado de Máquina do Azure
+
+### <a name="the-march-2017-release-of-microsoft-azure-machine-learning-updates-provides-the-following-feature"></a>A versão de março de 2017 das atualizações do Microsoft Azure Machine Learning fornece o seguinte recurso:
+
+
+
+* Capacidade dedicada para trabalhos BES do Machine Learning
+
+    O processamento em Pool do Lote do Machine Learning usa o [serviço de Lote do Azure](../batch/batch-technical-overview.md) para fornecer escala gerenciada pelo cliente para o Serviço de Execução em Lotes do Machine Learning do Azure. O processamento em Pool do Lote permite criar pools de Lote do Azure nos quais é possível enviar trabalhos em lotes e tê-los executados de maneira previsível.
+
+    Para saber mais, confira [serviço de Lote do Azure para trabalhos do Machine Learning](machine-learning-dedicated-capacity-for-bes-jobs.md).
+
+
 ### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>A versão de agosto de 2016 do Microsoft Azure Machine Learning fornece os seguintes recursos:
 * Os serviços da Web clássicos agora podem ser gerenciados no novo portal dos [Serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net/), que fornece um local para gerenciar todos os aspectos do serviço da Web.    
   * Que fornece [estatísticas de uso](machine-learning-manage-new-webservice.md)do serviço da Web.
@@ -40,10 +53,5 @@ ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
 * Fornece uma nova página de teste do Serviço de Execução em Lote com dados de exemplo e histórico de envio de trabalhos.
 
 Além disso, o Machine Learning Studio foi atualizado para permitir que você implante o novo modelo de serviço da Web ou continue a implantar o modelo de serviço da Web clássico. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

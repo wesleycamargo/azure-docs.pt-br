@@ -13,12 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 03/28/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 034725a50d203d28a9fc4b43a5389eac0a232cbe
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 544f98afc1769f75bd4e06dc7b2bf8a1a0d91371
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -28,10 +28,10 @@ ms.lasthandoff: 03/17/2017
 
 ## <a name="what-you-will-do"></a>O que você fará
 
-Conecte o Adafruit Feather HUZZAH ESP8266 a um hub IoT que será criado. Execute um aplicativo de exemplo no ESP8266 para coletar dados de temperatura e umidade de um sensor DHT22. Por fim, envie os dados do sensor para o hub IoT.
+Conecte o Adafruit Feather HUZZAH ESP8266 a um hub IoT. Execute um aplicativo de exemplo no ESP8266 para coletar dados de temperatura e umidade de um sensor DHT22. Por fim, envie os dados do sensor para o hub IoT.
 
 > [!NOTE]
-> Se você estiver usando outras placas ESP8266, você ainda pode seguir estas etapas para conectar-se ao seu hub IoT. Dependendo da placa ESP8266 que você esteja usando, talvez seja necessário reconfigurar o `LED_PIN`. Por exemplo, se você estiver usando a ESP8266 da Al Thinker, poderá alterá-la de `0` para `2`. Ainda não tem um kit?: Clique [aqui](http://azure.com/iotstarterkits)
+>Se estiver usando outras placas ESP8266, você ainda pode seguir estas etapas para se conectar ao seu hub IoT. Dependendo da placa ESP8266 que você esteja usando, talvez seja necessário reconfigurar o `LED_PIN`. Por exemplo, se você estiver usando a ESP8266 da Al Thinker, poderá alterá-la de `0` para `2`. Ainda não tem uma placa? [Obtenha um kit de início de IoT do Microsoft Azure](http://azure.com/iotstarterkits).
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 
@@ -49,12 +49,13 @@ Para concluir esta operação, você precisará das seguintes partes do seu Kit 
 * A placa Feather HUZZAH ESP8266.
 * Um cabo Micro USB para USB Tipo A.
 
-Você também precisa do seguinte para seu ambiente de desenvolvimento:
+Você também precisa destes itens para seu ambiente de desenvolvimento:
 
 * Mac ou PC que esteja executando o Windows ou Ubuntu.
 * Rede sem fio à qual Feather HUZZAH ESP8266 deve se conectar.
 * Uma conexão com a Internet para baixar a ferramenta de configuração.
-* [IDE Arduino](https://www.arduino.cc/en/main/software) versão 1.6.8 (ou mais recente), versões anteriores não funcionará com a biblioteca de AzureIoT).
+* [IDE Arduino](https://www.arduino.cc/en/main/software) versão 1.6.8 (ou mais recente); versões anteriores não funcionam com a biblioteca de AzureIoT.
+
 
 Os itens a seguir são opcionais, caso você não tenha um sensor. Você também tem a opção de usar dados de sensor simulada.
 
@@ -75,8 +76,9 @@ Os itens a seguir são opcionais, caso você não tenha um sensor. Você também
 
    ![informações básicas de criação do hub iot](media/iot-hub-arduino-huzzah-esp8266-get-started/4_iot-hub-provide-basic-info.png)
 
-   * **Nome**: O nome para o hub IoT. Se o nome for válido, uma marca de seleção verde é exibida.
-   * **Camada de preços e dimensionamento**: selecione a camada livre de F1, será suficiente para esta demonstração. Veja [camada de preços e de escala](https://azure.microsoft.com/pricing/details/iot-hub/).
+   * **Nome**: o nome para o hub IoT. Se o nome for válido, uma marca de seleção verde é exibida.
+   * **Tipo e escala de preço**: selecione a camada gratuita F1. Essa opção é suficiente para esta demonstração. Veja [camada de preços e de escala](https://azure.microsoft.com/pricing/details/iot-hub/).
+
    * **Grupo de recursos**: criar um grupo de recursos para hospedar o hub IoT ou usar um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/resource-group-portal.md).
    * **Local**: selecione o local mais próximo a você onde o hub IoT é criado.
    * **Fixe o painel**: marque esta opção para facilitar o acesso ao seu hub IoT do painel.
@@ -84,21 +86,19 @@ Os itens a seguir são opcionais, caso você não tenha um sensor. Você também
 
    ![monitorar o andamento da criação do hub iot no painel de notificação](media/iot-hub-arduino-huzzah-esp8266-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
 
-1. Depois de criar seu hub IoT, clique no painel. Anote o **Nome do host** a ser usado posteriormente e clique em **Políticas de acesso compartilhado**.
+1. Depois de criar seu hub IoT, clique no painel. Anote o **Nome do host** e clique em **Políticas de acesso compartilhado**.
 
    ![obter nome de host do seu hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/6_iot-hub-get-hostname.png)
 
-1. No **políticas de acesso compartilhado** painel, clique o **iothubowner** política e, em seguida, copiar e anote a **cadeia de conexão** do seu hub IoT que é usado posteriormente. Para saber mais, veja [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md).
+1. No painel **Políticas de acesso compartilhado**, clique na política **iothubowner**, faça uma cópia e anote a **Cadeia de conexão** do seu hub IoT para ser usada posteriormente. Para saber mais, veja [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md).
 
    ![obter cadeia de conexão de hub iot](media/iot-hub-arduino-huzzah-esp8266-get-started/7_iot-hub-get-connection-string.png)
-
-Você criou seu Hub IoT. A cadeia de conexão e de nome de host que anotado será usada posteriormente.
 
 ### <a name="register-a-device-for-feather-huzzah-esp8266-in-your-iot-hub"></a>Registrar um dispositivo para o Feather HUZZAH ESP8266 em seu hub IoT
 
 Cada Hub IoT tem um registro de identidade que armazena informações sobre os dispositivos com permissão para se conectar ao Hub IoT. Antes de um dispositivo poder se conectar a um Hub IoT, deve existir uma entrada para esse dispositivo no registro de identidade do Hub IoT.
 
-Nesta seção, você usará um Gerenciador de iothub ferramenta CLI para registrar um dispositivo para o Feather HUZZAH ESP8266 no registro de identidade do hub IoT.
+Nesta seção, você usa um gerenciador de iothub da ferramenta CLI para registrar um dispositivo para o Feather HUZZAH ESP8266 no registro de identidade do hub IoT.
 
 > [!NOTE]
 > iothub explorer requer o Node. js 4. x ou superior para funcionar corretamente.
@@ -108,17 +108,23 @@ Para registrar um dispositivo para Feather HUZZAH ESP8266, siga estas etapas:
 1. [Baixe](https://nodejs.org/en/download/) e instalar a versão mais recente do LTS do Node.js, NPM incluído.
 1. Instale o iothub explorer usando o NPM.
 
-   * Windows 7 ou posterior Inicie um prompt de comando como administrador. Instale o explorer iothub executando o seguinte comando:
+   * Windows 7 ou posterior
+
+     Inicie um prompt de comando como administrador. Instale o explorer iothub executando o seguinte comando:
 
      ```bash
      npm install -g iothub-explorer
      ```
-   * Ubuntu 16.04 ou posterior para abrir um terminal usando o atalho de teclado Ctrl + Alt + T e execute o seguinte comando:
+   * Ubuntu 16.04 ou posterior
+
+     Abra um terminal usando o atalho de teclado Ctrl + Alt + T e execute o seguinte comando:
 
      ```bash
      sudo npm install -g iothub-explorer
      ```
-   * macOS 10.1 ou posteriores abra um terminal e, em seguida, execute o seguinte comando:
+   * macOS 10.1 ou posterior
+
+     Abra um terminal e execute o seguinte comando:
 
      ```bash
      npm install -g iothub-explorer
@@ -128,13 +134,16 @@ Para registrar um dispositivo para Feather HUZZAH ESP8266, siga estas etapas:
    ```bash
    iothub-explorer login [your iot hub connection string]
    ```
-1. Registrar um novo dispositivo, que `deviceID` é `new-device`e obter sua cadeia de conexão executando o comando a seguir.
+1. Registre um novo dispositivo com `deviceID` como `new-device` e obtenha sua cadeia de conexão executando o seguinte comando:
 
    ```bash
    iothub-explorer create new-device --connection-string
    ```
 
-Anote a cadeia de conexão do dispositivo registrado, ele será usado posteriormente.
+Anote a cadeia de conexão do dispositivo registrado.
+
+> [!NOTE]
+> Para exibir a cadeia de conexão de dispositivos registrados, execute o comando `iothub-explorer list`.
 
 ## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Difusão HUZZAH ESP8266 de conexão com o sensor e seu computador
 
@@ -144,7 +153,7 @@ Use os cabos da placa universal e jumper para fazer a conexão da seguinte manei
 
 ![referência de conexões](media/iot-hub-arduino-huzzah-esp8266-get-started/15_connections_on_breadboard.png)
 
-Pinos de sensor, usaremos a ligação a seguir:
+Use a seguinte ligação para pinos de sensor:
 
 | Início (Sensor)           | End (quadro)           | Cor de cabo   |
 | -----------------------  | ---------------------- | ------------: |
@@ -152,10 +161,9 @@ Pinos de sensor, usaremos a ligação a seguir:
 | DADOS de (Pin 32F)           | GPIO 2 (Pin 46A)       | Cabo azul    |
 | GND (Pin 34F)            | GND (PIn 56I)          | Cabo preto   |
 
+Para saber mais, veja: [Instalação do sensor Adafruit DHT22](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) e [Pinos do Adafruit Feather HUZZAH Esp8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts)
 
-- Para saber mais, veja: [Instalação do sensor Adafruit DHT22](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) e [Pinos do Adafruit Feather HUZZAH Esp8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts)
-
-Agora seu ESP8266 de Huzzah Adafruit difusão deve estar conectado com um sensor de trabalho.
+Agora seu Feather Huzzah ESP8266 deve estar conectado a um sensor ativo.
 
 ![conectar dht22 com feather huzzah](media/iot-hub-arduino-huzzah-esp8266-get-started/8_connect-dht22-feather-huzzah.png)
 
@@ -167,7 +175,7 @@ Use o USB Micro cabo USB de um tipo para conectar Feather HUZZAH ESP8266 em seu 
 
 ### <a name="add-serial-port-permissions--ubuntu-only"></a>Adicionar permissões de porta serial - somente Ubuntu
 
-Se você usar o Ubuntu, certifique-se de que um usuário normal tenha as permissões para operar na porta USB do Feather HUZZAH ESP826. Para adicionar permissões de porta serial para um usuário normal, siga estas etapas:
+Se você usar o Ubuntu, verifique se tem as permissões para operar na porta USB do Feather HUZZAH ESP826. Para adicionar permissões de porta serial, siga estas etapas:
 
 1. Execute os seguintes comandos em um terminal:
 
@@ -197,9 +205,9 @@ Se você usar o Ubuntu, certifique-se de que um usuário normal tenha as permiss
 
 Nesta seção, implante e execute um aplicativo de exemplo em Feather HUZZAH ESP8266. O aplicativo de exemplo pisca o LED de Feather HUZZAH ESP8266 e envia os dados de temperatura e umidade coletados do sensor DHT22 para o hub IoT.
 
-### <a name="get-the-sample-application-from-github"></a>Obter o aplicativo de exemplo do Github
+### <a name="get-the-sample-application-from-github"></a>Obter o aplicativo de exemplo no GitHub
 
-O aplicativo de exemplo está hospedado no Github. Clone o repositório de exemplo que contém o aplicativo de exemplo do GitHub. Para clonar o repositório de exemplo, siga estas etapas:
+O aplicativo de exemplo está hospedado no GitHub. Clone o repositório de exemplo que contém o aplicativo de exemplo do GitHub. Para clonar o repositório de exemplo, siga estas etapas:
 
 1. Abra um prompt de comando ou uma janela de terminal.
 1. Ir para uma pasta onde você deseja que o aplicativo de exemplo a ser armazenado.
@@ -226,7 +234,8 @@ Instale o pacote para o Feather HUZZAH ESP8266 no IDE Arduino:
 
 1. No **preferência** caixa de diálogo, clique em **OK**.
 1. Clique em **Ferramentas** > **Placa** > **Gerenciador de Placas** e procure esp8266.
-   ESP8266 com uma versão 2.2.0 ou posterior deve ser instalado.
+
+   O Gerenciador de Placas indica que ESP8266 com uma versão 2.2.0 ou posterior está instalado.
 
    ![o pacote de esp8266 está instalado](media/iot-hub-arduino-huzzah-esp8266-get-started/12_arduino-ide-esp8266-installed.png)
 
@@ -253,8 +262,8 @@ O aplicativo de exemplo pode simular a temperatura e umidade dados caso você n�
    define SIMULATED_DATA true
    ```
    ![Configurar o aplicativo de exemplo para usar dados simulados](media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
-   
-1. Salvar com `Control-s`.
+
+1. Salve o arquivo com `Control-s`.
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Implantar o aplicativo de exemplo para Feather HUZZAH ESP8266
 
@@ -283,7 +292,14 @@ Se você vir a seguinte saída da janela serial monitor e o LED piscando no Feat
 
 ![saída final no ide arduino](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
 
-## <a name="summary"></a>Resumo
+## <a name="next-steps"></a>Próximas etapas
 
-Você conectou um ESP8266 HUZZAH de difusão para o hub IoT e enviados os dados do sensor capturado para o hub IoT com êxito.
+Você conectou um ESP8266 HUZZAH de difusão para o hub IoT e enviados os dados do sensor capturado para o hub IoT com êxito. 
+
+Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
+
+- [Gerenciar mensagens do dispositivos de nuvem com o iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+- [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
+- [Usar o Power BI para visualizar dados de sensor em tempo real do Hub IoT do Azure](iot-hub-live-data-visualization-in-power-bi.md).
+- [Usar Aplicativos Web do Azure para visualizar dados de sensor em tempo real do Hub IoT do Azure](iot-hub-live-data-visualization-in-web-apps.md).
 

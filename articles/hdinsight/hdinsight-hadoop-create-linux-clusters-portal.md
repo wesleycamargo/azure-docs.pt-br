@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 697278cf-0032-4f7c-b9b2-a84c4347659e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
-ms.openlocfilehash: 7bec6b07d8e15845f06b20f24414a0e25a955f38
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 22b45634ee66ec29c089ecd0a4d9bacc60f68b94
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -70,10 +71,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
 
     * Insira um **nome de usuário SSH** e, se você quiser que a senha SSH seja igual à senha de administrador que você especificou anteriormente, selecione a caixa de seleção **Usar a mesma senha do logon do cluster**. Se não quiser, forneça uma **SENHA** ou uma **CHAVE PÚBLICA**, que será usada para autenticar o usuário SSH. Usar uma chave pública é a abordagem recomendada. Clique em **Selecionar** na parte inferior para salvar a configuração de credenciais.
    
-        Para obter mais informações sobre como usar SSH com o HDInsight, consulte um dos seguintes artigos:
-   
-        * [Usar SSH com Hadoop no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Usar SSH com Hadoop no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+        Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     * Para **Grupo de recursos**, especifique se deseja criar um novo grupo de recursos ou usar um existente.
 
@@ -87,7 +85,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
 
     | Armazenamento                                      | Descrição |
     |----------------------------------------------|-------------|
-    | **Blobs de armazenamento do Azure como armazenamento padrão**   | <ul><li>Para o **tipo de armazenamento primário**, selecione **Armazenamento do Azure**. Depois disso, para **Método de seleção**, você poderá escolher **Minhas assinaturas** se desejar especificar uma conta de armazenamento que faça parte de sua assinatura do Azure e, em seguida, selecionar a conta de armazenamento. Caso contrário, clique em **Tecla de acesso** e forneça as informações da conta de armazenamento que você deseja escolher de fora de sua assinatura do Azure.</li><li>Para **contêiner padrão**, você pode optar por usar o nome do contêiner padrão sugerido pelo Portal ou especificar seu próprio nome.</li><li>Se você estiver usando o WASB como o armazenamento padrão, você poderá (opcionalmente) clicar em **Contas de Armazenamento Adicionais** para especificar contas de armazenamento adicionais para associar ao cluster. Na folha **Chaves de Armazenamento do Azure**, clique em **Adicionar uma chave de armazenamento** e, em seguida, você poderá fornecer uma conta de armazenamento de suas assinaturas do Azure ou de outras assinaturas (fornecendo a tecla de acesso da conta de armazenamento).</li><li>Se você estiver usando o WASB como armazenamento padrão, você poderá clicar em (opcionalmente) em **Acesso ao Data Lake Store** para especificar o Azure Data Lake Store como armazenamento adicional. Para obter mais informações, consulte [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
+    | **Blobs de armazenamento do Azure como armazenamento padrão**   | <ul><li>Para o **tipo de armazenamento primário**, selecione **Armazenamento do Azure**. Depois disso, para **Método de seleção**, você poderá escolher **Minhas assinaturas** se desejar especificar uma conta de armazenamento que faça parte de sua assinatura do Azure e, em seguida, selecionar a conta de armazenamento. Caso contrário, clique em **Chave de acesso** e forneça as informações da conta de armazenamento que você deseja escolher de fora de sua assinatura do Azure.</li><li>Para **contêiner padrão**, você pode optar por usar o nome do contêiner padrão sugerido pelo Portal ou especificar seu próprio nome.</li><li>Se você estiver usando o WASB como o armazenamento padrão, você poderá (opcionalmente) clicar em **Contas de Armazenamento Adicionais** para especificar contas de armazenamento adicionais para associar ao cluster. Na folha **Chaves de Armazenamento do Azure**, clique em **Adicionar uma chave de armazenamento** e, em seguida, você poderá fornecer uma conta de armazenamento de suas assinaturas do Azure ou de outras assinaturas (fornecendo a tecla de acesso da conta de armazenamento).</li><li>Se você estiver usando o WASB como armazenamento padrão, você poderá clicar em (opcionalmente) em **Acesso ao Data Lake Store** para especificar o Azure Data Lake Store como armazenamento adicional. Para obter mais informações, consulte [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
     | **Azure Data Lake Store como armazenamento padrão** | Para **Tipo de armazenamento principal**, selecione **Data Lake Store** e, em seguida, consulte o artigo [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) para obter instruções. |
     | **Metastores externas**                      | Opcionalmente, você pode especificar um Banco de Dados SQL para salvar metadados de Hive e Oozie associados ao cluster. Para **Selecionar um Banco de Dados SQL para Hive**, selecione um Banco de Dados SQL e então forneça o nome de usuário e a senha para ele. Repita essas etapas para metadados do Oozie.<br><br>Há algumas considerações ao usar o Banco de Dados SQL do Azure para metastores. <ul><li>O banco de dados SQL do Azure usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No painel do banco de dados SQL do Azure, no lado direito, clique no nome do servidor. Esse é o servidor no qual a instância do banco de dados SQL está sendo executada. Quando você estiver na exibição do servidor, clique em **Configurar** e depois em **Serviços do Azure**; clique em **Sim** e depois em **Salvar**.</li><li>Ao criar um metastore, não use um nome de banco de dados que contém a traços ou hifens, pois isso pode causar falha no processo de criação de cluster.</li></ul>                                                                                                                                                                       |
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 006ebbbc3f6f745f60c5fc6646649097e144beaf
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -61,5 +61,5 @@ Você pode usar o editor de manifesto embutido para modificar determinadas propr
 ## <a name="next-steps"></a>Próximas etapas
 
 1. Confira os [Inícios rápidos](active-directory-developers-guide.md) para obter instruções passo a passo detalhadas de aplicativos que executam a autenticação usando o Azure AD.
-2. Confira a lista completa de exemplos de código no [Github](https://github.com/azure-samples).
+2. Confira a lista completa de exemplos de código no [GitHub](https://github.com/azure-samples).
 

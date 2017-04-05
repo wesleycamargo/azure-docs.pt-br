@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/09/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
-ms.openlocfilehash: 053f6c292f942da6565b24ef5eecdabf85f15525
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 3d1f24cb23a58b4478a30c5e4a0858b474d5d90e
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -32,16 +32,17 @@ Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao ITRP p
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos para o ITRP
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-itrp-tutorial/IC775551.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-itrp"></a>Habilitando a integração de aplicativos para o ITRP
+## <a name="enable-the-application-integration-for-itrp"></a>Habilitar a integração de aplicativos para o ITRP
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para o ITRP.
 
-### <a name="to-enable-the-application-integration-for-itrp-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com o ITRP, execute as seguintes etapas:
+**Para habilitar a integração de aplicativos com o ITRP, execute as seguintes etapas:**
+
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-itrp-tutorial/IC700993.png "Active Directory")
@@ -68,13 +69,16 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
     ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775566.png "ITRP")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no ITRP com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
+
 Configurar o logon único para ITRP exige que você recupere um valor de impressão digital de um certificado.  
+
 Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
+**Para configurar o logon único, execute as seguintes etapas:**
+
 1. No Portal Clássico do Azure, na página de integração de aplicativos do **ITRP**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar logon único](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configurar logon único")
@@ -105,33 +109,30 @@ Se você não estiver familiarizado com este procedimento, consulte [Como recupe
    
     ![Logon Único](./media/active-directory-saas-itrp-tutorial/IC775572.png "Logon Único")
     
-    ![Logon Único](./media/active-directory-saas-itrp-tutorial/IC775573.png "Logon Único")
-   
-    a. Clique em **Habilitar**.
-   
-    b. No portal clássico do Azure, na página do diálogo **Configurar logon único no ITRP**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff Remoto**.
-   
-    c. No portal clássico do Azure, na página do diálogo **Configurar logon único no ITRP**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL de SSO do SAML**.
-   
-    d. Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão digital do certificado**.
+    ![Logon Único](./media/active-directory-saas-itrp-tutorial/IC775573.png "Logon Único")   
+  1. Clique em **Habilitar**.
+  2. No portal clássico do Azure, na página do diálogo **Configurar logon único no ITRP**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff Remoto**.
+  3. No portal clássico do Azure, na página do diálogo **Configurar logon único no ITRP**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL de SSO do SAML**.
+  4. Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão digital do certificado**.
       
-    > [!TIP]
-    > Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
-    > 
-    > 
-   
-    e. Clique em **Salvar**.
+     >[!TIP]
+     >Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
+     >
+    
+  5. Clique em **Salvar**.
 
 9. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
     ![Configurar Logon Único](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configurar Logon Único")
    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Para permitir que os usuários do AD do Azure façam logon no ITRP, eles devem ser provisionados no ITRP.  
+
 No caso do ITRP, o provisionamento é uma tarefa manual.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para provisionar contas de usuário, execute as seguintes etapas:
+**Para provisionar contas de usuário, execute as seguintes etapas:**
+
 1. Faça logon em seu locatário do **ITRP** .
 
 2. Na barra de ferramentas na parte superior, clique em **Registros**.
@@ -148,21 +149,19 @@ No caso do ITRP, o provisionamento é uma tarefa manual.
 
 5. Na caixa de diálogo Adicionar nova pessoa, execute as seguintes etapas:
    
-    ![Usuário](./media/active-directory-saas-itrp-tutorial/IC775577.png "Usuário")
-   
-    a. Digite o **Nome** e **Email** de uma conta válida do AAD que você deseja provisionar.
-   
-    b. Clique em **Salvar**.
+    ![Usuário](./media/active-directory-saas-itrp-tutorial/IC775577.png "Usuário")   
+  1. Digite o **Nome** e **Email** de uma conta válida do AAD que você deseja provisionar.
+  2. Clique em **Salvar**.
 
-> [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do ITRP ou APIs fornecidas pelo ITRP para provisionar as contas de usuário do AAD.
-> 
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do ITRP ou APIs fornecidas pelo ITRP para provisionar as contas de usuário do AAD. 
 > 
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-itrp-perform-the-following-steps"></a>Para atribuir usuários ao ITRP, execute as seguintes etapas:
+**Para atribuir usuários ao ITRP, execute as seguintes etapas:**
+
 1. No portal do Azure AD, crie uma conta de teste.
 
 2. Na página de integração de aplicativos do **ITRP**, clique em **Atribuir usuários**.

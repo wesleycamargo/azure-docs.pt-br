@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
-ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 3539da8afe5781d74cbf723090050b767373f268
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -103,7 +103,7 @@ O Azure Analysis Services atualmente dá suporte ao modo Tabular para modelos ta
 ##### <a name="data-sources"></a>Fontes de dados
 Na visualização, as fontes de dados a seguir têm suporte em modelos tabulares 1200 implantados em um servidor do Azure Analysis Services.
 
-| **Nuvem** | **Configuração local** |
+| **Nuvem** | **Local (exige o gateway de dados)** |
 | --- | --- |
 | Banco de dados SQL |SQL Server |
 | SQL Data Warehouse |APS |
@@ -114,7 +114,8 @@ Na visualização, as fontes de dados a seguir têm suporte em modelos tabulares
 Os modelos de dados no Azure Analysis Services podem exigir provedores de dados diferentes dos exigidos pelos modelos de dados no SQL Server Analysis Services para se conectarem às fontes de dados. Os requisitos do provedor de dados dependem da localização da fonte de dados ser na nuvem ou local e do tipo de modelo de dados, Consulta Direta ou na memória interna. Para saber mais, confira [Conexões com fonte de dados](analysis-services-datasource.md).
 
 ### <a name="client-connections"></a>Conexões de cliente
-O Power BI Embedded ainda não tem suporte no modo de visualização.
+
+Os aplicativos cliente exigem os [provedores de dados](analysis-services-data-providers.md) de cliente mais recentes para se conectar ao Analysis Services do Azure.
 
 Não há suporte para pastas de trabalho do Excel com conexões ativas em um servidor do Azure Analysis Services e salvas no OneDrive ou no SharePoint Online.
 

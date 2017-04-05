@@ -1,5 +1,5 @@
 ---
-title: "Usando o Emulator Expresso para executar e depurar um serviço de nuvem em um computador local | Microsoft Docs"
+title: "Uso do Emulator Express para executar e depurar um serviço de nuvem do Azure em um computador local | Microsoft Docs"
 description: "Usando o Emulator Express para executar e depurar um serviço de nuvem em um computador local"
 services: visual-studio-online
 documentationcenter: n/a
@@ -12,44 +12,47 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 03/06/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b09fb0be256fc4cc832822f676b6d1f9de1813cb
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 882b0b78f94e220e8a94ee3b614c575b509a8170
+ms.lasthandoff: 03/27/2017
 
 
 ---
-# <a name="using-emulator-express-to-run-and-debug-a-cloud-service-on-a-local-machine"></a>Usando o Emulator Express para executar e depurar um serviço de nuvem em um computador local
-Ao usar o Emulator Express, você poderá testar e depurar um serviço de nuvem sem executar o Visual Studio como um administrador. É possível definir as configurações do projeto para usar o Emulator Express ou o emulador completo, dependendo dos requisitos do seu serviço de nuvem. Para saber mais sobre o emulador completo, consulte [Executar um aplicativo Azure no emulador de computação](storage/storage-use-emulator.md). O Emulator Express foi incluído primeiro no Azure SDK 2.1 e, a partir do Azure SDK 2.3, é o emulador padrão.
+# <a name="using-emulator-express-to-run-and-debug-an-azure-cloud-service-on-a-local-machine"></a>Uso do Emulator Express para executar e depurar um serviço de nuvem do Azure em um computador local
+Ao usar o Emulator Express, você poderá testar e depurar um serviço de nuvem sem executar o Visual Studio como um administrador. É possível definir as configurações do projeto para usar o Emulator Express ou o emulador completo, dependendo dos requisitos do seu serviço de nuvem. Para saber mais sobre o emulador completo, consulte [Executar um aplicativo Azure no emulador de computação](storage/storage-use-emulator.md).
 
-## <a name="using-emulator-express-in-the-visual-studio-ide"></a>Usando o Emulator Express no Visual Studio IDE
-Quando você cria um novo projeto no Azure SDK 2.3 ou posterior, o Emulator Express já está selecionado. No caso de projetos existentes que foram criados com uma versão anterior do SDK, siga estas etapas para selecionar o Emulator Express.
+## <a name="using-emulator-express-in-visual-studio"></a>Uso do Emulator Express no Visual Studio
+Quando você cria um projeto n SDK 2.3 ou posterior do Azure, o Emulator Express é usado automaticamente. No caso de projetos existentes que foram criados com uma versão anterior do SDK do Azure, use as seguintes etapas para selecionar o Emulator Express:
 
-### <a name="to-configure-a-project-to-use-emulator-express"></a>Para configurar um projeto para usar o Emulator Express
-1. No menu de atalho do projeto do Azure, escolha **Propriedades** e, em seguida, escolha a guia **Web**.
-2. Em **Development Server Local**, escolha o botão de opção **Usar o IIS Express**. O Emulator Express não é compatível com o Servidor Web do IIS.
-3. Em **Emulador**, escolha o botão de opção **Usar o Emulator Expresso**.
+1. Crie ou abra um projeto de serviço de nuvem do Azure no Visual Studio.
+
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e, no menu de contexto, selecione **Propriedades**.
+
+1. Nas páginas de propriedades dos projetos, selecione a guia **Web**.
+
+    ![Propriedades de um projeto de serviço de nuvem do Azure](./media/vs-azure-tools-emulator-express-debug-run/web-properties.png)
+
+1. Em **Development Server Local**, escolha a opção **Usar o IIS Express**.
+
+1. Em **Emulador**, selecione **Usar Emulator Express**.
    
-    ![Emulator Express](./media/vs-azure-tools-emulator-express-debug-run/IC673363.gif)
+1. Para iniciar o Emulator Express, execute o seguinte comando em um prompt de comando: 
 
-## <a name="launching-emulator-express-at-a-command-prompt"></a>Iniciando o Emulator Express em um prompt de comando
-Em um prompt de comando, você pode iniciar a versão expressa do Emulador de Computação do Azure, csrun.exe, usando a opção /useemulatorexpress.
+    ```
+    csrun.exe /useemulatorexpress
+    ```
 
-## <a name="limitations"></a>Limitações
-Antes de usar o Emulator Express, você deve estar ciente de algumas limitações:
+## <a name="emulator-express-limitations"></a>Limitações do Emulator Express
+Os seguintes problemas são limitações conhecidas do Emulator Express: 
 
-* O Emulator Express não é compatível com o Servidor Web do IIS.
-* O serviço de nuvem pode conter várias funções, mas cada função é limitada a uma instância.
-* Você não pode acessar números de porta abaixo de 1000. Por exemplo, se você usar um provedor de autenticação que normalmente usa uma porta abaixo de 1000, talvez seja necessário alterar esse valor para um número de porta acima de 1000.
-* As limitações que se aplicam ao Emulador de Computação do Azure também se aplicam ao Emulator Express. Por exemplo, você não pode ter mais de 50 instâncias de função por implantação. Consulte [Executar um aplicativo Azure no emulador de computação](http://go.microsoft.com/fwlink/p/?LinkId=623050)
+- O Emulator Express não é compatível com o Servidor Web do IIS.
+- O serviço de nuvem pode conter várias funções, mas cada função é limitada a uma instância.
+- Você não pode acessar números de porta abaixo de 1000. Se você usar um provedor de autenticação que normalmente usa uma porta abaixo de 1000, talvez seja necessário alterar esse valor para um número de porta acima de 1000.
+- As limitações que se aplicam ao Emulador de Computação do Azure também se aplicam ao Emulator Express. Por exemplo, você não pode ter mais de 50 instâncias de função por implantação. Para saber mais sobre o Emulador de Computação do Azure, confira [Executar um aplicativo do Azure no Emulador de Computação](http://go.microsoft.com/fwlink/p/?LinkId=623050).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Depurando serviços de nuvem](https://msdn.microsoft.com/library/azure/ee405479.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Depuração de serviços de nuvem do Azure](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 

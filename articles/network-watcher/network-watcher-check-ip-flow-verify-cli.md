@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 3c0287783e3f2b7acaeefd87acbda30885f93c22
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 73d398613fc726ebd51ab6b107dc46c44caffdcc
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -29,13 +29,13 @@ ms.lasthandoff: 02/23/2017
 > - [CLI](network-watcher-check-ip-flow-verify-cli.md)
 > - [API REST do Azure](network-watcher-check-ip-flow-verify-rest.md)
 
-Fluxo de IP Verifique se é um recurso do Observador de Rede que permite verificar se o tráfego é permitido para ou de uma máquina virtual. Esse cenário é útil para obter o estado atual de se uma máquina virtual pode se comunicar com um recurso externo ou um back-end. Fluxo IP, verifique se pode ser usado para verificar se as regras de grupo de segurança de rede (NSG) estão configuradas corretamente e solucionar problemas de fluxos que estão sendo bloqueados por regras NSG. Outro motivo para usar IP fluxo Verifique se é para garantir que deseja bloquear o tráfego está sendo bloqueado corretamente por NSG.
+A Verificação de Fluxo de IP é um recurso do Observador de Rede que permite verificar se o tráfego é permitido para ou de uma máquina virtual. Esse cenário é útil para obter o estado atual de se uma máquina virtual pode se comunicar com um recurso externo ou um back-end. A Verificação de Fluxo de IP pode ser usada para verificar se as regras do Grupo de Segurança de Rede (NSG) estão configuradas corretamente e solucionar problemas de fluxos que estão sendo bloqueados por regras do NSG. Outro motivo para usar IP fluxo Verifique se é para garantir que deseja bloquear o tráfego está sendo bloqueado corretamente por NSG.
+
+Este artigo usa a CLI 1.0 do Azure para plataforma cruzada, que está disponível para Windows, Mac e Linux. Atualmente, o Observador de Rede usa a CLI 1.0 do Azure para dar suporte à CLI.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você já tiver seguido as etapas em [criar um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede ou ter uma instância existente do Gerenciador da rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+Este cenário pressupõe que você já tenha seguido as etapas em [criar um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede ou ter uma instância existente do Gerenciador da rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
 
 ## <a name="scenario"></a>Cenário
 
@@ -44,7 +44,7 @@ Esse cenário usa o IP fluxo verificar para verificar se uma máquina virtual po
 
 ## <a name="get-a-vm"></a>Obter uma VM
 
-Fluxo IP Verifique se o tráfego de testes para ou de um endereço IP em uma máquina virtual ou de um destino remoto. Uma Id de uma máquina virtual é necessária para o cmdlet. Se você já souber a ID da máquina virtual para usar, você pode ignorar esta etapa.
+A Verificação de Fluxo de IP testa o tráfego para ou de um endereço IP em uma máquina virtual ou de um destino remoto. Uma Id de uma máquina virtual é necessária para o cmdlet. Se você já souber a ID da máquina virtual para usar, você pode ignorar esta etapa.
 
 ```
 azure vm show -g resourceGroupName -n virtualMachineName
@@ -67,11 +67,11 @@ azure network watcher ip-flow-verify -g resourceGroupName -n networkWatcherName 
 ```
 
 > [!NOTE]
-> Fluxo de IP verificar requer que o recurso de máquina virtual é alocado para executar.
+> A Verificação de Fluxo de IP requer que o recurso de máquina virtual seja alocado para executar.
 
-## <a name="review-results"></a>Analisar resultados
+## <a name="review-results"></a>Analisar Resultados
 
-Após a execução `network watcher ip-flow-verify` os resultados são retornados, o exemplo a seguir é os resultados retornados da etapa anterior.
+Após a execução do `network watcher ip-flow-verify` os resultados são retornados, o exemplo a seguir é os resultados retornados da etapa anterior.
 
 ```
 data:    Access                          : Deny

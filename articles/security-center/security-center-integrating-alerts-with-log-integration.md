@@ -1,5 +1,5 @@
 ---
-title: "Integrando alertas da Central de Segurança do Azure com a integração de log do Azure (Versão prévia) | Microsoft Docs"
+title: "Integração de alertas da Central de Segurança do Azure com a integração de log do Azure | Microsoft Docs"
 description: "Este artigo ajuda você a integrar alertas da Central de Segurança com a integração de log do Azure."
 services: security-center
 documentationcenter: na
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 03/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 32d26fa811f1b5b34981e40d20e6c941d5f08477
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: fcd14b6b0afe08db82f2b8050beaf03ece7fd212
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="integrating-azure-security-center-alerts-with-azure-log-integration-preview"></a>Integrando alertas da Central de Segurança do Azure com a integração de log do Azure (Versão prévia)
+# <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integração de alertas da Central de Segurança do Azure com a integração de log do Azure
 Muitas operações de segurança e equipes de resposta a incidentes contam com uma solução SIEM (Gerenciamento de eventos e informações de segurança) como ponto de partida para separação e investigação de alertas de segurança. Com a integração de log do Azure, os clientes podem sincronizar alertas da Central de Segurança e eventos de segurança da máquina virtual, coletados pelo Diagnóstico do Azure e pelos Logs de Auditoria do Azure, com suas soluções de análise de log e SIEM quase em tempo real.
 
 A integração do log do Azure funciona com a HP ArcSight, Splunk, IBM Qradar e outros.
@@ -92,9 +93,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e responder aos alertas de segurança.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : obtenha as últimas notícias de segurança e informações do Azure.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

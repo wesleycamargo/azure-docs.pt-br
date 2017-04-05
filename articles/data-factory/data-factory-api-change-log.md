@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 01ef15db6e62443a2d34bae8bc133f21f4d874f0
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 06702281ab2a44641231783aa1ddad87c22095e8
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -35,7 +35,7 @@ Adições de Recursos:
   * [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
   * [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
 * Os seguintes tipos de fonte de cópia a seguir foram adicionados:
-  * [MongoDbSource](https://msdn.microsoft.com/en-US/library/mt765123.aspx)
+  * [MongoDbSource](https://msdn.microsoft.com/library/mt765123.aspx)
 
 ## <a name="version-4100"></a>Versão 4.10.0
 * As propriedades opcionais a seguir foram adicionadas a TextFormat:
@@ -180,6 +180,6 @@ As seguintes classes foram renomeadas. Os novos nomes eram os nomes das classes 
 * **List** retorna apenas o resumo de um pipeline, em vez de todos os detalhes. Por exemplo, as atividades em um resumo de pipeline contém apenas nome e tipo.
 
 ### <a name="feature-additions"></a>Adições de recursos
-* A classe [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) suporta duas novas propriedades, **SliceIdentifierColumnName** e **SqlWriterCleanupScript**, para dar suporte à cópia idempotente para o Azure SQL Data Warehouse. Consulte o artigo [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md), especificamente, as seções [Mecanismo 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) e [Mecanismo 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) para obter detalhes sobre essas propriedades.
+* A classe [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) suporta duas novas propriedades, **SliceIdentifierColumnName** e **SqlWriterCleanupScript**, para dar suporte à cópia idempotente para o Azure SQL Data Warehouse. Veja o artigo [SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md) para obter detalhes sobre essas propriedades.
 * Agora há suporte para executar o procedimento armazenado nas fontes do Banco de Dados SQL do Azure e Azure SQL Data Warehouse como parte da Atividade de Cópia. As classes [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) e [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) têm as seguintes propriedades: **SqlReaderStoredProcedureName** e **StoredProcedureParameters**. Consulte os artigos [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md#sqlsource) e [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) em Azure.com para obter detalhes sobre essas propriedades.  
 

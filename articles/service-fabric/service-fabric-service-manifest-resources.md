@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 193bbedca440302ead00eaac0df62fb7fe767515
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 9cfdb94d1e030fe9d467389acf8894d79efd17d1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -93,7 +93,7 @@ A ACL é automaticamente aplicada aos pontos de extremidade HTTP pelo Service Fa
 O protocolo HTTPS fornece autenticação de servidor e também é usado para criptografar a comunicação cliente-servidor. Para habilitar o HTTPS em seu serviço do Service Fabric, especifique o protocolo na seção *Recursos -> Pontos de Extremidade -> Ponto de Extremidade* do manifesto do serviço, conforme mostrado anteriormente para o ponto de extremidade *ServiceEndpoint3*.
 
 > [!NOTE]
-> O protocolo de um serviço não pode ser alterado durante a atualização do aplicativo sem ele, constituindo uma mudança significativa.
+> O protocolo de um serviço não pode ser alterado durante a atualização do aplicativo. Se ele for alterado durante a atualização, será uma alteração significativa.
 > 
 > 
 

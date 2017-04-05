@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
-ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: babda2a4ad7dade942a0c7ece84a6f1d65bd3453
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -240,7 +240,7 @@ Ao fazer a restauração usando uma cadeia de backup, semelhante aos Reliable Se
 É importante garantir que o backup dos dados críticos esteja sendo feito e que os dados possam ser restaurados desse backup. Isso pode ser feito invocando o cmdlet **Invoke-ServiceFabricPartitionDataLoss** no PowerShell, que pode induzir a perda de dados em uma determinada partição para testar se a funcionalidade de backup e restauração dos dados para seu serviço está funcionando conforme o esperado.  Também é possível invocar de modo programático a perda de dados e fazer a restauração a partir desse evento.
 
 > [!NOTE]
-> Você pode encontrar um exemplo de implementação da funcionalidade de backup e restauração no Aplicativo de Referência da Web no Github. Examine o serviço Inventory.Service para obter mais detalhes.
+> Você pode encontrar um exemplo de implementação da funcionalidade de backup e restauração no Aplicativo de Referência da Web no GitHub. Examine o serviço Inventory.Service para obter mais detalhes.
 > 
 > 
 

@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 03/27/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: f1b0fde1e6e31a8179ed61508348d850c5dd784f
-ms.openlocfilehash: 9e2c0cff442f7c66a4b1c76ab612175410f49497
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 5f712c7fa9b6ee06f7c89de40ba4227a925a35ce
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -35,15 +36,22 @@ Esse é o ponto em que o driver ODBC entra. Usando o driver ODBC, você agora po
 
 Vamos começar com o driver ODBC.
 
-## <a name="a-idinstallastep-1-install-the-documentdb-odbc-driver"></a><a id="install"></a>Etapa 1: Instalar o driver ODBC do DocumentDB
-1. Baixe o [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para o sistema operacional Windows de 64 bits ou o [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para o sistema operacional Windows de 32 bits.2. Execute o arquivo msi localmente, que inicia o **Assistente de Instalação do Driver ODBC do Microsoft Azure DocumentDB**. 
+## <a id="install"></a>Etapa 1: Instalar o driver ODBC do DocumentDB
+
+1. Baixe os drivers para seu ambiente:
+
+    * [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para Windows de 64 bits
+    * [Microsoft Azure DocumentDB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) para 32 bits no Windows de 64 bits
+    * [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para Windows de 32 bits
+
+    Execute o arquivo msi localmente, que inicia o **Assistente de Instalação do Driver ODBC do Microsoft Azure DocumentDB**. 
 2. Conclua o assistente de instalação usando a entrada padrão para instalar o driver ODBC.
 3. Abra o aplicativo **Administrador de Fonte de Dados ODBC** no computador, você pode fazer isso digitando **Fontes de dados ODBC** na caixa de pesquisa do Windows. 
     Você pode confirmar se driver foi instalado clicando na guia **Drivers** e assegurando que **Driver ODBC do Microsoft DocumentDB** está listado.
 
     ![Administrador de fonte de dados ODBC do DocumentDB](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver.png)
 
-## <a name="a-idconnectastep-2-connect-to-your-documentdb-database"></a><a id="connect"></a>Etapa 2: Conectar-se ao seu banco de dados DocumentDB
+## <a id="connect"></a>Etapa 2: Conectar-se ao seu banco de dados DocumentDB
 
 1. Depois de [Instalar o driver ODBC do DocumentDB](#install), na janela **Administrador de Fonte de Dados do ODBC**, clique em **Adicionar**. Você pode criar um DSN de usuário ou de sistema. Neste exemplo, estamos criando um DSN de usuário.
 2. Na janela **Criar Nova Fonte de Dados**, selecione **Driver ODBC do Microsoft DocumentDB** e clique em **Concluir**.
@@ -69,7 +77,7 @@ Vamos começar com o driver ODBC.
 
     ![Novo DSN do ODBC do DocumentDB na guia DSN de Usuário](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-user-dsn.png)
 
-## <a name="a-idcollection-mappingastep-3-create-a-schema-definition-using-the-collection-mapping-method"></a><a id="#collection-mapping"></a>Etapa 3: Criar uma definição de esquema usando o método de mapeamento de coleção
+## <a id="#collection-mapping"></a>Etapa 3: Criar uma definição de esquema usando o método de mapeamento de coleção
 
 Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de coleção** ou **delimitadores de tabela**. Uma sessão de amostragem pode utilizar ambos os métodos de amostragem, mas cada coleta pode usar apenas um método de amostragem específico. As etapas a seguir criam um esquema para os dados em uma ou mais coleções usando o método de mapeamento de coleção. Esse método de amostragem recupera os dados na página de uma coleção para determinar a estrutura dos dados. Ele transpõe uma coleção para uma tabela no lado do ODBC. Esse método de amostragem é eficiente e rápido quando os dados em uma coleção são homogêneos. Se uma coleção contiver o tipo heterogêneo de dados, será recomendável usar o [método de mapeamento de delimitadores de tabela](#table-mapping) uma vez que ele fornece um método de amostragem mais robusto para determinar as estruturas de dados na coleção. 
 
@@ -87,7 +95,7 @@ Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de co
 
     Se no futuro você quiser usar este esquema com um DSN, abra a janela Instalação de DSN do Driver ODBC do DocumentDB (por meio do Administrador da Fonte de Dados ODBC), clique em Opções Avançadas e, na caixa Arquivo de Esquema, navegue até o esquema salvo. Salvar um arquivo de esquema em um DSN existente modifica a conexão DSN de escopo para os dados e a estrutura definidos pelo esquema.
 
-## <a name="a-idtable-mappingastep-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>Etapa 4: Criar uma definição de esquema usando o método de mapeamento de delimitadores de tabela
+## <a id="table-mapping"></a>Etapa 4: Criar uma definição de esquema usando o método de mapeamento de delimitadores de tabela
 
 Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de coleção** ou **delimitadores de tabela**. Uma sessão de amostragem pode utilizar ambos os métodos de amostragem, mas cada coleta pode usar apenas um método de amostragem específico. 
 
@@ -143,8 +151,4 @@ Se você receber o seguinte erro, verifique se os valores de **Host** e **Tecla 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o DocumentDB, consulte [O que é o DocumentDB?](documentdb-introduction.md).
-
-
-<!--HONumber=Jan17_HO4-->
-
 
