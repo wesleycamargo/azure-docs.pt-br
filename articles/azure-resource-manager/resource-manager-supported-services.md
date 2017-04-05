@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 46eb4a20c85140a7893d77984f375d6abf3e7634
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -38,7 +38,7 @@ As tabelas a seguir listam quais serviços Microsoft dão suporte à implantaç�
 | Serviço de Contêiner |Sim |[REST do Serviço de Contêiner](/rest/api/compute/containerservices) |[Recursos do Serviço de Contêiner](/azure/templates/microsoft.containerservice/containerservices) |
 | Serviços de ciclo de vida do Dynamics |Sim | | |
 | Conjuntos de Dimensionamento |Sim |[REST do Conjunto de Dimensionamento](/rest/api/compute/virtualmachinescalesets) |[Recursos do Conjunto de Dimensionamento](/azure/templates/microsoft.compute/virtualmachinescalesets) |
-| Service Fabric |Sim |[Service Fabric Rest](/rest/api/servicefabric) | [Esquema do Service Fabric](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |
+| Service Fabric |Sim |[Service Fabric Rest](/rest/api/servicefabric) | [Recursos do Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Máquinas Virtuais |Sim |[VM REST](/rest/api/compute/virtualmachines) |[Recursos da VM](/azure/templates/microsoft.compute/virtualmachines) |
 | Máquinas virtuais (clássico) |Limitado |- |- |
 | Aplicativo Remoto |Não |- |- |
@@ -117,11 +117,11 @@ Os Serviços de Nuvem (clássicos) podem ser usados com outros recursos clássic
 | CDN |Sim |[REST CDN](/rest/api/cdn) |[Recursos da CDN](/azure/templates/microsoft.cdn/profiles) |
 | Serviço de mídia |Sim |[REST dos Serviços de Mídia](/rest/api/media) |[Recursos de Mídia](/azure/templates/microsoft.media/mediaservices) |
 
-## <a name="hybrid-integration"></a>Integração híbrida
+## <a name="enterprise-integration"></a>Integração Empresarial
 | O Barramento de | Gerenciador de Recursos habilitado | API REST | Formato de modelo |
 | --- | --- | --- | --- |
 | Serviços do BizTalk |Sim | |[Esquema do BizTalk](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| Serviço de Recuperação |Sim |[REST dos Serviços de Recuperação](/rest/api/recoveryservices) |[Recursos dos Serviços de Recuperação](/azure/templates/microsoft.recoveryservices/vaults) |
+| Retransmissão | Sim |  | [Recursos de retransmissão](/azure/templates/microsoft.relay/namespaces) |
 | Barramento de Serviço |Sim |[REST do Barramento de Serviço](/rest/api/servicebus) |[Recursos do Barramento de Serviço](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Gerenciamento de acesso e identidade
@@ -139,10 +139,11 @@ O Active Directory do Azure funciona com o Gerenciador de Recursos para habilita
 | O Barramento de | Gerenciador de Recursos habilitado | API REST | Formato de modelo |
 | --- | --- | --- | --- |
 | Supervisor | Sim | [REST do Assistente](/rest/api/advisor/) | - |
-| Automação |Sim |[Automação REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Esquema da Automação](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |
+| Automação |Sim |[Automação REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Recursos de automação](/azure/templates/microsoft.automation/automationaccounts) |
 | Cobrança | Sim | [REST de Cobrança](/rest/api/billing/) | - |
 | Cofre da Chave |Sim |[REST do Cofre da Chave](/rest/api/keyvault) |[Recursos do Key Vault](/azure/templates/microsoft.keyvault/vaults) |
 | Insights Operacionais |Sim | | |
+| Serviço de Recuperação |Sim |[REST dos Serviços de Recuperação](/rest/api/recoveryservices) |[Recursos dos Serviços de Recuperação](/azure/templates/microsoft.recoveryservices/vaults) |
 | Agendador |Sim |[REST do Agendador](/rest/api/scheduler) |[Recursos do Agendador](/azure/templates/microsoft.scheduler/jobcollections) |
 | Segurança |Sim |[REST de Segurança](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |
 | Gerenciamento do Servidor | Sim | [REST de Gerenciamento do Servidor](/rest/api/servermanagement/) | [Recursos de Gerenciamento do Servidor](/azure/templates/microsoft.servermanagement/gateways) |

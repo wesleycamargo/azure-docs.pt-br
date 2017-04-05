@@ -1,5 +1,5 @@
 ---
-title: "Dispositivo SensorTag e Gateway do IoT do Azure - Lição 1: configurar NUC| Microsoft Docs"
+title: "Dispositivo SensorTag e Gateway do IoT do Azure – Lição 1: configurar NUC da Intel | Microsoft Docs"
 description: "Configure um NUC da Intel para funcionar como um gateway IoT entre um sensor e o Hub IoT do Azure a fim de coletar informações do sensor e enviá-las para o Hub IoT."
 services: iot-hub
 documentationcenter: 
@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
-ms.openlocfilehash: 53e709c5134eec29d71be1d75353d606aa651273
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: af2dde245fdef2984465f0c8447b558a2c770618
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -27,9 +27,10 @@ ms.lasthandoff: 01/25/2017
 ## <a name="what-you-will-do"></a>O que você fará
 
 - Configure um NUC da Intel como um gateway IoT.
-- Instale o pacote SDK do gateway IoT do Azure na NUC da Intel.
+- Instale o pacote SDK do gateway IoT do Azure no NUC da Intel.
 - Execute um aplicativo de exemplo "hello_world" no NUC da Intel para verificar a funcionalidade do gateway.
-Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md).
+    
+  > Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 
@@ -41,11 +42,12 @@ Nesta lição, você aprenderá:
 
 ## <a name="what-you-need"></a>O que você precisa
 
-- Um Kit DE3815TYKE do NUC da Intel com o Pacote de Software do Gateway IoT da Intel (Wind River Linux *7.0.0.13) pré-instalado.
+- Um Kit DE3815TYKE do NUC da Intel com o Pacote de Software do Gateway IoT da Intel (Wind River Linux *7.0.0.13) pré-instalado. [Clique aqui para adquirir Kit de Gateway Comercial Grove IoT](https://www.seeedstudio.com/Grove-IoT-Commercial-Gateway-Kit-p-2724.html).
 - Um cabo Ethernet.
 - Um teclado.
 - Um cabo HDMI ou VGA.
 - Um monitor com uma porta HDMI ou VGA.
+- Opcional: [Marcação de Sensor Texas Instruments (CC2650STK)](http://www.ti.com/tool/cc2650stk)
 
 ![Kit de Gateway](media/iot-hub-gateway-kit-lessons/lesson1/kit.png)
 
@@ -54,39 +56,43 @@ Nesta lição, você aprenderá:
 A imagem abaixo é um exemplo de NUC da Intel conectado a vários periféricos:
 
 1. Conectado a um teclado.
-2. Conectado ao monitor por um cabo VGA ou HDMI.
+2. Conectado a um monitor por um cabo VGA ou HDMI.
 3. Conectado a uma rede com fios por um cabo Ethernet.
-4. Conectado à fonte de alimentação por um cabo de alimentação.
+4. Conectado a uma fonte de alimentação por um cabo de alimentação.
 
 ![NUC da Intel conectado a periféricos](media/iot-hub-gateway-kit-lessons/lesson1/nuc.png)
 
 ## <a name="connect-to-the-intel-nuc-system-from-host-computer-via-secure-shell-ssh"></a>Conectar-se ao sistema do NUC da Intel do computador host via SSH (Secure Shell)
 
-Aqui, você precisa de um teclado e um monitor para obter o endereço IP do dispositivo NUC. Se você já sabe o endereço IP, pode pular para a etapa 3 nesta seção.
+Você precisará de um teclado e um monitor para obter o endereço IP do dispositivo NUC da Intel. Se você já sabe o endereço IP, pode pular para a etapa 3 nesta seção.
 
-1. Ative o NUC da Intel pressionando o botão de energia e faça logon no sistema.
+1. Ative o NUC da Intel pressionando o botão de energia e então faça logon.
 
    O nome de usuário e a senha padrão são ambos `root`.
 
-2. Obtenha o endereço IP do NUC executando o comando `ifconfig`. Esta etapa é realizada no dispositivo NUC.
+       > Hit the enter key on your keyboard if you see either of the following errors when you boot: 'A TPM error (7) occurred attempting to read a pcr value.' or 'Timeout, No TPM chip found, activating TPM-bypass!'
+
+2. Obtenha o endereço IP do NUC da Intel executando o comando `ifconfig` nesse dispositivo.
 
    Aqui está um exemplo do resultado do comando.
 
-   ![Resultado de ifconfig mostrando o IP do NUC](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
+   ![Saída ifconfig mostrando o IP do NUC da Intel](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
 
-   Neste exemplo, o valor após `inet addr:` é o endereço IP necessário para se conectar remotamente de um computador host ao NUC da Intel.
+   Neste exemplo, o valor após `inet addr:` é o endereço IP necessário para se conectar de um computador host ao NUC da Intel.
 
-3. Use um dos seguintes clientes SSH do seu computador host para se conectar ao NUC da Intel.
+3. Use um dos clientes SSH do seu computador host a seguir para se conectar ao NUC da Intel.
 
-   - [PuTTY](http://www.putty.org/) para Windows.
-   - O cliente SSH integrado no Ubuntu ou macOS.
+    - [PuTTY](http://www.putty.org/) para Windows.
+    - O cliente SSH interno no Ubuntu ou macOS.
 
-   É mais eficiente e produtivo operar no NUC da Intel desde um computador host. Você precisa do endereço IP, do nome de usuário e da senha para conectar-se ao NUC via cliente SSH. Eis o exemplo de uso de cliente SSH no macOS.
+   É mais eficiente e produtivo operar um NUC da Intel desde um computador host. Você precisará do endereço IP, nome de usuário e senha do NUC para se conectar a ele via um cliente SSH. Aqui está um exemplo que usa um cliente SSH no macOS.
    ![Cliente SSH em execução no macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
 ## <a name="install-the-azure-iot-gateway-sdk-package"></a>Instalar o pacote SDK do gateway IoT do Azure
 
-O pacote SDK do gateway IoT do Azure contém os binários pré-compilados do SDK e suas dependências. Esses binários são o SDK do gateway IoT do Azure, o SDK de IoT do Azure e as ferramentas correspondentes. O pacote também contém um aplicativo de exemplo "hello_world" usado para validar a funcionalidade do gateway. O SDK é a parte principal do gateway. Para instalar o pacote, siga estas etapas:
+O pacote SDK do gateway IoT do Azure contém os binários pré-compilados do SDK e suas dependências. Esses binários são o SDK do gateway IoT do Azure, o SDK de IoT do Azure e as ferramentas correspondentes. O pacote também contém um aplicativo de exemplo "hello_world" usado para validar a funcionalidade do gateway. O SDK é a parte principal do gateway. 
+
+Para instalar o pacote, siga estas etapas.
 
 1. Adicione o repositório de nuvem IoT executando os seguintes comandos em uma janela de terminal:
 
@@ -99,11 +105,13 @@ O pacote SDK do gateway IoT do Azure contém os binários pré-compilados do SDK
 
    ![saída de comandos de canal inteligente e rpm](media/iot-hub-gateway-kit-lessons/lesson1/rpm_smart_channel.png)
 
+2. Execute o comando de atualização inteligente:
+
    ```bash
    smart update
    ```
 
-2. Execute o comando a seguir para instalar o pacote:
+3. Instale o pacote de Gateway IoT do Azure executando o seguinte comando:
 
    ```bash
    smart install packagegroup-cloud-azure -y
@@ -111,22 +119,42 @@ O pacote SDK do gateway IoT do Azure contém os binários pré-compilados do SDK
 
    `packagegroup-cloud-azure` é o nome do pacote. O comando `smart install` é usado para instalar o pacote.
 
-   Depois que o pacote é instalado, espera-se que o NUC da Intel funcione como um gateway.
+
+    > Execute o comando a seguir se você vir este erro: 'chave pública não disponível'
+
+    ```bash
+    smart config --set rpm-check-signatures=false
+    smart install packagegroup-cloud-azure -y
+    ```
+   
+   Depois que o pacote é instalado, o NUC da Intel está pronto para funcionar como um gateway.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Execute o aplicativo de exemplo "hello_world" do SDK do gateway IoT do Azure
 
-Vá para `azureiotgatewaysdk/samples` e execute o aplicativo de exemplo "hello_world". Este aplicativo de exemplo cria um gateway do arquivo `hello_world.json` e usa os componentes fundamentais da arquitetura do SDK do gateway IoT do Azure para registrar uma mensagem “hello world” em um arquivo a cada 5 segundos.
+O aplicativo de exemplo a seguir cria um gateway do arquivo `hello_world.json` e usa os componentes fundamentais da arquitetura do SDK do gateway IoT do Azure para registrar uma mensagem “hello world” em um arquivo (log.txt) a cada cinco segundos.
 
-Você pode executar o aplicativo de exemplo "hello_world" executando o seguinte comando:
+Você pode executar o exemplo Hello World executando os seguintes comandos:
 
 ```bash
 cd /usr/share/azureiotgatewaysdk/samples/hello_world/
 ./hello_world hello_world.json
 ```
 
-O aplicativo de exemplo produz a seguinte saída se a funcionalidade de gateway estiver funcionando corretamente:
-
+Deixe que o aplicativo Hello World seja executado por alguns minutos e, em seguida, pressione a tecla Enter para interrompê-lo.
 ![saída do aplicativo](media/iot-hub-gateway-kit-lessons/lesson1/hello_world.png)
+
+> Você pode ignorar quaisquer erros de 'identificador de argumento inválido(NULL)' que apareçam depois que você pressionar Enter.
+
+Você pode verificar que o gateway foi executado com êxito abrindo o arquivo log.txt que está agora na sua pasta hello_world: ![exibição de diretório de log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtdir.png)
+
+Abra o log.txt usando o seguinte comando:
+
+```bash
+vim log.txt
+```
+
+Você verá então o conteúdo de log.txt, que será uma saída em formato JSON das mensagens de log que foram gravadas a cada cinco segundos pelo módulo de Hello World do gateway.
+![exibição de diretório de log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtview.png)
 
 Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md).
 

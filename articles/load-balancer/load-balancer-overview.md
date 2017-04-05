@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 93577703dd2bc1409250c3df12c2d6265f3f4634
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2f0b7a04f4b732277abc65dd5fe0844d6e906496
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -111,7 +112,7 @@ O balanceador de carga pode ser gerenciado usando ferramentas, modelos e APIs ba
 
     Para cada nova conexão de saída que inicia uma máquina virtual, uma porta de saída também é alocada pelo balanceador de carga. O host externo vê o tráfego com uma porta alocada do IP virtual (VIP). Para cenários que exigem um grande número de conexões de saída, recomendamos o uso de endereços [IP públicos em nível de instância](../virtual-network/virtual-networks-instance-level-public-ip.md) , para que as VMs tenham um endereço IP de saída dedicado para SNAT. Isso reduz o risco de esgotamento da porta.
 
-    O número máximo de portas que podem ser usadas por VIP ou IP público em nível de instância (PIP) é 64.000. Essa é uma limitação de padrão de TCP.
+    Consulte [conexões de saída](load-balancer-outbound-connections.md) para obter mais detalhes sobre esse tópico.
 
 ### <a name="support-for-multiple-load-balanced-ip-addresses-for-virtual-machines"></a>Suporte para vários endereços IP com balanceamento de carga para máquinas virtuais
 Você pode atribuir mais de um endereço IP público com balanceamento de carga a um conjunto de máquinas virtuais. Com esse recurso, você pode hospedar vários sites SSL e/ou ouvintes do Grupo de Disponibilidade AlwaysOn do SQL Server no mesmo conjunto de máquinas virtuais. Para obter mais informações, consulte [Vários VIPs por serviço de nuvem](load-balancer-multivip.md).
@@ -125,10 +126,5 @@ Você pode atribuir mais de um endereço IP público com balanceamento de carga 
 [Visão geral do balanceador de carga interno](load-balancer-internal-overview.md)
 
 [Introdução à criação de um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

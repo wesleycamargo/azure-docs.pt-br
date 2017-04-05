@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 0cb9d65e33bf6f6b67e2a74b7e4634aba3f2359b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c56decc1f7603795e027ce20363c387c593999ae
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>Use Apache Spark com Kafka (visualização) no HDInsight
@@ -32,11 +34,7 @@ Apache Spark pode ser usado para transmitir dados dentro ou fora do Apache Kafka
 
 * Uma assinatura do Azure
 
-* Um cliente SSH (você precisa dos comandos `ssh` e `scp`) – Para mais informações sobre como usar SSH com o HDInsight, veja os documentos a seguir:
-
-    * [Usar SSH com HDInsight baseado em Linux da Linux, Unix ou Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Usar SSH com HDInsight baseado em Linux no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* Um cliente SSH (você precisa dos comandos `ssh` e `scp`) — para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [cURL](https://curl.haxx.se/) – um utilitário de plataforma para fazer solicitações HTTP.
 
@@ -116,7 +114,7 @@ O código no notebook executa as seguintes tarefas:
 
 Cada célula no projeto contêm comentários ou uma seção de texto que explica o que o código faz.
 
-##<a name="a-idkafkahostsakafka-host-information"></a><a id="kafkahosts"></a>Informações do host Kafka
+##<a id="kafkahosts"></a>Informações do host Kafka
 
 A primeira coisa que você deve fazer ao criar um aplicativo que funciona com Kafka no HDInsight é obter o Agente de Kafka e as informações de host Zookeeper para o cluster Kafka. Isso é usado por aplicativos cliente para se comunicarem com Kafka.
 
@@ -183,10 +181,5 @@ Neste documento, você aprendeu a usar o Spark para ler e gravar em Kafka. Use o
 * [Introdução ao Apache Kafka no HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Use MirrorMaker para criar uma réplica de Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Use o Apache Storm com Kafka no HDInsight](hdinsight-apache-storm-with-kafka.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: a2dec2daa4be60a4a53a98164265171bf898cafb
-ms.openlocfilehash: 7f03d376b1785637261b58fc34a0f0e1c1e25f5f
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,12 +66,11 @@ Após a habilitação da Área de Trabalho Remota nas funções, você poderá i
 
 4. Clique em **Abrir** e em **Conectar** para iniciar a conexão de Área de Trabalho Remota.
 
-## <a name="next-steps"></a>Próximas etapas
+>[!NOTE]
+> Se o serviço de nuvem estiver atrás de um NSG, talvez você precise criar uma regra para abrir a porta **20000**.
+
+## <a name="additional-resources"></a>Recursos adicionais
 
 [Como configurar os Serviços de Nuvem](cloud-services-how-to-configure.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
+[Perguntas frequentes sobre os serviços de nuvem — Área de Trabalho Remota](cloud-services-faq.md#remote-desktop)
 

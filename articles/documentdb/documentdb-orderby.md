@@ -2,9 +2,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: c5fc68fb25a4cb2166e0c0a72871d16c71397852
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0ca716857733290fad4278e3be5059408bb75393
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -91,7 +91,7 @@ Aqui está como você pode criar uma coleção com indexação "Todos os Interva
 
 
 ## <a name="samples"></a>Exemplos
-Vejamos este [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) que demonstra como usar Order By, incluindo a criação de políticas de indexação e paginação usando Order By. Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.  
+Vejamos este [projeto de amostras do GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) que demonstra como usar Order By, incluindo a criação de políticas de indexação e paginação usando Order By. Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.  
 
 ## <a name="faq"></a>FAQ
 **O que é o consumo de Unidade de Solicitação (RU) esperado de consultas Order By?**
@@ -124,7 +124,7 @@ No momento, não há suporte para Order By em consultas entre partições ao usa
 Se você receber um erro informando que não há suporte para Order By, verifique se você está usando uma versão do [SDK](documentdb-sdk-dotnet.md) que dá suporte a Order By. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) e comece a ordenar os seus dados! 
+Ramifique o [projeto de amostras do GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) e comece a ordenar os seus dados! 
 
 ## <a name="references"></a>Referências
 * [Referência de consulta do Banco de Dados de Documentos](documentdb-sql-query.md)

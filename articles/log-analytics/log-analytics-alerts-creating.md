@@ -1,5 +1,5 @@
 ---
-title: Criar regras de alerta no OMS Log Analytics | Microsoft Docs
+title: Criar alertas no OMS Log Analytics | Microsoft Docs
 description: "Alertas no Log Analytics identificam informações importantes em seu repositório do OMS e podem notificar proativamente problemas ou invocar ações para tentar corrigi-los.  Este artigo descreve como criar uma regra de alerta e detalha as diferentes ações que elas podem executar."
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 03/23/2017
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fdf22ff85a3a76be5de50632c4948df44c2312df
-ms.openlocfilehash: 9778c79ca887e154ad2796ce5d90d953643b8067
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec118430c6262626728c3156634361c977ccb4b
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="create-and-manage-alert-rules-in-log-analytics-with-the-oms-portal"></a>Criar e gerenciar regras de alerta no Log Analytics com o portal do OMS
-Os [alertas no Log Analytics](log-analytics-alerts.md) são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Eles criarão um registro de alerta se os resultados corresponderem a critérios específicos.  A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo.   
+# <a name="working-with-alert-rules-in-log-analytics"></a>Trabalhar com regras de alerta no Log Analytics
+Os alertas são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Eles criarão um registro de alerta se os resultados corresponderem a critérios específicos.  A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo.   
 
 Este artigo descreve os processos para criar e editar regras de alerta usando o portal do OMS.  Para obter detalhes sobre as diferentes configurações e como implementar a lógica necessária, confira [Noções básicas sobre alertas de Log Analytics](log-analytics-alerts.md).
 
@@ -79,23 +78,37 @@ A consulta de pesquisa e a janela de tempo que retornam os registros que estão 
 
 Quando você fornece a janela de tempo para a regra de alerta, o número de registros existentes que correspondem aos critérios de pesquisa para a janela de tempo será exibido.  Isso pode ajudar a determinar a frequência com que o número de resultados que você espera será fornecido.
 
-#### <a name="threshold"></a>Limite
-
-| Propriedade | Descrição |
-|:--- |:---|
-| Número de resultados |Um alerta será criado se o número de registros retornados pela consulta for **maior que** ou **menor que** o valor que você fornecer.  |
-
-### <a name="alert-frequency"></a>Frequência de alerta
+### <a name="schedule"></a>Agenda
 Define a frequência com que a consulta de pesquisa é executada.
 
 | Propriedade | Descrição |
 |:--- |:---|
 | Frequência de alerta | Especifica a frequência com que a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual a ou menor que a janela de tempo.  Se o valor for maior que a janela de tempo, haverá o risco de que registros sejam perdidos.<br><br>Por exemplo, considere uma janela de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta for executada à 1:00, retornará registros entre 12:30 e 1:00.  A próxima vez em que a consulta será executada é às 2:00, quando ela retornará registros entre 1:30 e 2:00.  Todos os registros criados entre 1:00 e 1:30 nunca seriam avaliados. |
+
+
+### <a name="generate-alert-based-on"></a>Gerar alerta com base em
+Define os critérios que serão avaliados nos resultados da consulta de pesquisa a fim de determinar se um alerta deve ser criado.  Esses detalhes serão diferentes dependendo do tipo de regra de alerta que você selecionar.  Obtenha detalhes sobre os tipos de regra de alerta diferentes em [Noções básicas sobre alertas no Log Analytics](log-analytics-alerts.md).
+
+| Propriedade | Descrição |
+|:--- |:---|
 | Suprimir alertas | Quando você ativa a supressão da regra de alerta, as ações da regra são desabilitadas por um período definido depois de criar um novo alerta. A regra ainda estará em execução e criará registros de alerta se os critérios forem atendidos. Isso serve para permitir que você tenha tempo de corrigir o problema sem executar ações duplicadas. |
 
+#### <a name="number-of-results-alert-rules"></a>Número de regras de alerta resultantes
+
+| Propriedade | Descrição |
+|:--- |:---|
+| Número de resultados |Um alerta será criado se o número de registros retornados pela consulta for **maior que** ou **menor que** o valor que você fornecer.  |
+
+#### <a name="metric-measurement-alert-rules"></a>Regras de alerta com medição métrica
+
+| Propriedade | Descrição |
+|:--- |:---|
+| Valor de agregação | Valor limite que cada valor de agregação nos resultados deve exceder para ser considerado uma violação. |
+| Disparar alerta com base em | O número de violações para um alerta ser criado.  Especifique **Total de violações** para qualquer combinação de violações no conjunto de resultados ou **Violações consecutivas** para exigir que as violações devam ocorrer em amostras consecutivas. |
 
 ### <a name="actions"></a>Ações
-Regras de alerta sempre criarão um [registro de alerta](#alert-records) quando o limite for atingido.  Você também pode definir uma ou mais ações a serem executadas, como enviar um email ou iniciar um runbook.  Confira [Adicionar ações de regras de alerta no Log Analytics](log-analytics-alerts-actions.md) para obter detalhes sobre como configurar ações. 
+Regras de alerta sempre criarão um [registro de alerta](#alert-records) quando o limite for atingido.  Você também pode definir uma ou mais respostas a serem executadas, como enviar um email ou iniciar um runbook.
+
 
 
 #### <a name="email-actions"></a>Ações de email
@@ -115,7 +128,7 @@ Ações de Webhook permitem invocar um processo externo por meio de uma única s
 | webhook |Especifique **Sim** se desejar chamar um webhook quando o alerta for disparado. |
 | URL de Webhook |A URL do webhook. |
 | Incluir a carga JSON personalizada |Selecione esta opção se você deseja substituir a carga padrão por uma carga personalizada. |
-| Insira sua carga JSON personalizada |Carga personalizada para enviar ao webhook.  |
+| Insira sua carga JSON personalizada |A carga personalizada para o webhook.  Consulte a seção anterior para ver os detalhes. |
 
 #### <a name="runbook-actions"></a>Ações de runbook
 Ações de runbook iniciam um runbook na Automação do Azure. 

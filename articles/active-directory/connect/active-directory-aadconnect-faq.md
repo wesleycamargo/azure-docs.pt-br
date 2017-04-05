@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c22a8f4a895efc86abc328c6cf82685d7db8c19c
-ms.openlocfilehash: 33de5839e1e8fa70f75636488a0769f7aebf8b95
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -73,15 +73,7 @@ Não, não há suporte para esse recurso no momento.
 **P: Há suporte para o atributo ImmutableId definido manualmente em objetos de Grupo/Contato existentes do Azure AD para correspondência rígida com objetos de Grupo/Contato do AD locais?**  
 Não, não há suporte para esse recurso no momento.
 
-## <a name="security"></a>Segurança
-**P: As contas são bloqueadas após uma quantidade específica de tentativas com falha, ou uma estratégia mais sofisticada é usada?**</br>
-Usamos uma estratégia mais sofisticada para bloquear contas.  Ela se baseia no IP da solicitação e nas senhas inseridas. A duração do bloqueio também aumenta com base na probabilidade de ser um ataque.  
 
-**P: Determinadas senhas (comuns) são rejeitadas com as mensagens 'essa senha foi usada muitas vezes', isso se refere a senhas usadas no diretório ativo atual?**</br>
-Isso se refere a senhas comuns no mundo todo, como qualquer variante de "Senha" e "123456".
-
-**P: Uma solicitação de entrada de fontes questionáveis (botnets, ponto de extremidade tor) será bloqueada em um locatário B2C, ou isso exige um locatário de edição Basic ou Premium?**</br>
-Temos um gateway que filtra solicitações e fornece alguma proteção contra botnets, e ele é aplicado a todos os locatários B2C. 
 
 ## <a name="custom-configuration"></a>Configuração personalizada
 **P: Onde os cmdlets do PowerShell para o Azure AD Connect estão documentados?**  

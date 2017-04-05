@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/29/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: cd4de75743ee46bb07aec2cf23fa7687f4f20f43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 892d24199be5065ee54d46863cca2fd958db3236
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -114,13 +114,9 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 * Gerenciador de Tráfego
 * Máquinas Virtuais – Não oferecem suporte para mudar para uma nova assinatura quando seus certificados estão armazenados em um Key Vault
 * Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
-* Redes Virtuais
+* Redes virtuais — atualmente, uma Rede Virtual emparelhada não pode ser movida até que o emparelhamento da rede virtual tenha sido desabilitado. Depois de desabilitado, a Rede Virtual pode ser movida com êxito e o emparelhamento VNet pode ser habilitado.
+* Gateway de VPN 
 
-> [!NOTE] 
-> Atualmente, uma Rede Virtual contendo um Gateway de VPN não pode ser movido até que o Gateway tenha sido removido temporariamente. Uma vez removido, a Rede Virtual pode ser movida com êxito e o Gateway pode ser criado.
->
-> Atualmente, uma Rede Virtual emparelhada só poderá ser movida quando o emparelhamento VNet for desabilitado. Depois de desabilitado, a Rede Virtual pode ser movida com êxito e o emparelhamento VNet pode ser habilitado.
->
  
 ## <a name="services-that-do-not-enable-move"></a>Serviços que não permitem mover
 Os serviços que atualmente não permitem mover um recurso são:
@@ -137,9 +133,14 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Segurança
 * Máquinas Virtuais com certificado armazenado no Cofre de Chaves
 * Máquinas virtuais com o Managed Disks
+* Conjuntos de disponibilidade com Máquinas Virtuais com o Managed Disks
+* Conjuntos de Dimensionamento de Máquina Virtual com Managed Disks
+* Managed Disks
+* Imagens criadas no Managed Disks
+* Instantâneos criados no Managed Disks
 * Conjuntos de Escala de Máquinas Virtuais
 * Redes Virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
-* Gateway de VPN
+* Máquinas Virtuais criadas em recursos do Marketplace — não podem ser movidas entre assinaturas. O recurso precisa ser desprovisionado na assinatura atual e implantado novamente na nova assinatura
 
 ## <a name="app-service-limitations"></a>Limitações do Serviço de Aplicativo
 Ao trabalhar com aplicativos do Serviço de Aplicativo, você não pode mover um plano de Serviço de Aplicativo. Para mover os Aplicativos do Serviço de Aplicativo, as opções são:

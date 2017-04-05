@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 62154c38b785b72181f6ee73383f84bd23caeaec
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 9f085dfa1fe4db36d58cb976bb550a46bf241ac7
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -36,96 +36,95 @@ Você pode concluir esta tarefa usando a CLI do Azure 1.0 (este artigo) ou a [CL
 
 1. Instale e configure a CLI do Azure 1.0 seguindo as etapas do artigo [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e faça logon em sua conta do Azure com o comando `azure-login`.
 
-2. [Crie um grupo de recursos](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) seguido por uma [rede virtual e uma sub-rede](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Altere os campos ` --address-prefixes` e `--address-prefix` para o seguinte para seguir o cenário exato descrito neste artigo:
+2. Crie um grupo de recursos:
+    
+    ```azurecli
+    RgName=myResourceGroup
+    Location=westcentralus
+    azure group create --name $RgName --location $Location
+    ```
+3. Criar uma rede virtual:
 
-        --address-prefixes 10.0.0.0/16
-        --address-prefix 10.0.0.0/24
+    ```azurecli
+    azure network vnet create --resource-group $RgName --location $Location --name myVNet \
+    --address-prefixes 10.0.0.0/16
+    ```
+4. Crie uma sub-rede na rede virtual:
 
-    >[!NOTE] 
-    >O artigo mencionado acima usa Europa Ocidental como o local para criar recursos, mas este artigo usa Centro-Oeste dos EUA. Faça as alterações de localização de forma adequada.
+    ```azurecli
+    azure network vnet subnet create --name mySubnet --resource-group $RgName --vnet-name myVNet \
+    --address-prefix 10.0.0.0/24
+    ```
+    
+5. Crie uma conta de armazenamento para a VM. Antes de executar o comando a seguir, substitua *mystorageaccount* por um nome exclusivo. O nome deve ser exclusivo no Azure:
 
-3. [Crie uma nova conta de armazenamento](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) para sua VM.
+    ```azurecli
+    az storage account create --resource-group $RgName --location $Location --name mystorageaccount \
+    --kind Storage --sku Standard_LRS
+    ```
 
-4. Crie a NIC e as configurações do IP que você deseja atribuir à NIC. Você pode adicionar, remover ou alterar as configurações conforme necessário. As configurações a seguir são descritas no cenário:
+6. Crie as configurações de IP, uma NIC e atribua as configurações de IP à NIC. Você pode adicionar, remover ou alterar as configurações conforme necessário. As configurações a seguir são descritas no cenário:
 
     **IPConfig-1**
 
     Insira os comandos a seguir para criar:
 
     - Um recurso de endereço IP público com um endereço IP público estático
-    - Uma configuração de IP com o recurso de endereço IP público e um endereço IP privado dinâmico
+    - Uma NIC, atribuindo o endereço IP público e um endereço IP privado estático a ela.
+    
+    Substitua *mypublicdns* por um nome que seja exclusivo no local do Azure.
 
-    ```bash
-    azure network public-ip create \
-    --resource-group myResourceGroup \
-    --location westcentralus \
-    --name myPublicIP \
-    --domain-name-label mypublicdns \
-    --allocation-method Static
-    ```
+      ```azurecli
+      azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP1 \
+      --domain-name-label mypublicdns --allocation-method Static
+        
+      azure network nic create --resource-group $RgName --location $Location --name myNic1 \
+      --private-ip-address 10.0.0.4 --subnet-name mySubnet --subnet-vnet-name myVNet \
+      --subnet-name mySubnet --public-ip-name myPublicIP1
+      ```
 
-    > [!NOTE]
-    > Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
-
-    ```bash
-    azure network nic create \
-    --resource-group myResourceGroup \
-    --location westcentralus \
-    --subnet-vnet-name myVnet \
-    --subnet-name mySubnet \
-    --name myNic1 \
-    --public-ip-name myPublicIP
-    ```
+      > [!NOTE]
+      > Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
 
     **IPConfig-2**
 
      Insira os seguintes comandos para criar um novo recurso de endereço IP público e uma nova configuração de IP com um endereço IP público estático e um endereço IP privado estático:
     
-    ```bash
-    azure network public-ip create \
-    --resource-group myResourceGroup \
-    --location westcentralus \
-    --name myPublicIP2 \
-    --domain-name-label mypublicdns2 \
-    --allocation-method Static
+      ```azurecli
+      azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP2
+      --domain-name-label mypublicdns2 --allocation-method Static
 
-    azure network nic ip-config create \
-    --resource-group myResourceGroup \
-    --nic-name myNic1 \
-    --name IPConfig-2 \
-    --private-ip-address 10.0.0.5 \
-    --public-ip-name myPublicIP2
-    ```
+      azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --name IPConfig-2
+      --private-ip-address 10.0.0.5 --public-ip-name myPublicIP2
+      ```
 
     **IPConfig-3**
 
-    Insira os comandos a seguir para criar uma configuração de IP com um endereço IP privado dinâmico e nenhum endereço IP público:
+    Insira os seguintes comandos para criar uma configuração de IP com um endereço IP privado estático e nenhum endereço IP público:
 
-    ```bash
-    azure network nic ip-config create \
-    --resource-group myResourceGroup \
-    --nic-name myNic1 \
-    --name IPConfig-3
-    ```
+      ```azurecli
+      azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --private-ip-address 10.0.0.6 \
+      --name IPConfig-3
+      ```
 
     >[!NOTE] 
     >Embora este artigo atribua todas as configurações de IP a uma única NIC, você também pode atribuir várias configurações de IP para qualquer NIC em uma VM. Para saber como criar uma VM com várias NICs, leia o artigo Criar uma VM com várias NICs.
 
-5. Artigo [Criar uma VM Linux](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms). Remova a propriedade ```  --availset-name myAvailabilitySet \ ``` porque ela não é necessária neste cenário. Use a localização apropriada com base em seu cenário. 
+7. Criar uma VM do Linux 
 
-    >[!WARNING] 
-    > A Etapa 6 do artigo Criar uma VM falhará se o tamanho da VM não tiver suporte na localização selecionada. Execute o comando a seguir para obter uma lista completa de VMs no Centro-Oeste dos EUA, por exemplo: `azure vm sizes --location westcentralus`. Esse nome de local pode ser alterado dependendo do seu cenário.
+    ```azurecli
+    az vm create --resource-group $RgName --name myVM1 --location $Location --nics myNic1 \
+    --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --admin-username azureuser
+    ```
 
     Para alterar o tamanho da VM para Standard DS2 v2, por exemplo, basta adicionar a seguinte propriedade `--vm-size Standard_DS3_v2` ao comando `azure vm create` na etapa 6.
 
-6. Insira o comando a seguir para exibir a NIC e as configurações de IP associadas:
+8. Insira o comando a seguir para exibir a NIC e as configurações de IP associadas:
 
-    ```bash
-    azure network nic show \
-    --resource-group myResourceGroup \
-    --name myNic1
+    ```azurecli
+    azure network nic show --resource-group $RgName    --name myNic1
     ```
-7. Adicione os endereços IP privados ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo.
+9. Adicione os endereços IP privados ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo.
 
 ## <a name="add"></a>Adicionar endereços IP a uma VM
 
@@ -137,14 +136,11 @@ Você pode adicionar endereços IP públicos e privados adicionais para um NIC e
 
     - **Adicionar um endereço IP privado**
     
-        Para adicionar um endereço IP privado a uma NIC, você deve criar uma configuração de IP usando o comando a seguir.  Se você deseja adicionar um endereço IP privado dinâmico, remova `-PrivateIpAddress 10.0.0.7` antes de inserir o comando. Ao especificar um endereço IP estático, ele deve ser um endereço não usado para a sub-rede.
+        Para adicionar um endereço IP privado a uma NIC, você deve criar uma configuração de IP usando o comando a seguir. O endereço estático deve ser um endereço não usado para a sub-rede.
 
-        ```bash
-        azure network nic ip-config create \
-        --resource-group myResourceGroup \
-        --nic-name myNic1 \
-        --private-ip-address 10.0.0.7 \
-        --name IPConfig-4
+        ```azurecli
+        azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 \
+        --private-ip-address 10.0.0.7 --name IPConfig-4
         ```
         Crie quantas configurações forem necessárias, usando nomes de configuração exclusivos e endereços IP privados (para configurações com endereços IP estáticos).
 
@@ -156,83 +152,66 @@ Você pode adicionar endereços IP públicos e privados adicionais para um NIC e
         > Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
         >
 
-        - **Associar o recurso a uma nova configuração de IP**
+        **Associar o recurso a uma nova configuração de IP**
     
-            Sempre que você adicionar um endereço IP público em uma nova configuração de IP, também deverá adicionar um endereço IP privado, pois todas as configurações de IP devem ter um endereço IP privado. Você pode adicionar um recurso de endereço IP público existente ou criar um novo. Para criar um novo, insira o seguinte comando:
-    
-            ```bash
-              azure network public-ip create \
-            --resource-group myResourceGroup \
-            --location westcentralus \
-            --name myPublicIP3 \
-            --domain-name-label mypublicdns3
-            ```
+        Sempre que você adicionar um endereço IP público em uma nova configuração de IP, também deverá adicionar um endereço IP privado, pois todas as configurações de IP devem ter um endereço IP privado. Você pode adicionar um recurso de endereço IP público existente ou criar um novo. Para criar um novo, insira o seguinte comando:
 
-             Para criar uma nova configuração de IP com um endereço IP privado dinâmico e o recurso de endereço IP público *myPublicIP3* associado, insira o seguinte comando:
+        ```azurecli
+        azure network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP3 \
+        --domain-name-label mypublicdns3
+        ```
 
-            ```bash
-            azure network nic ip-config create \
-            --resource-group myResourceGroup \
-            --nic-name myNic \
-            --name IPConfig-4 \
-            --public-ip-name myPublicIP3
-            ```
+         Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, insira o seguinte comando:
 
-        - **Associar o recurso a uma configuração de IP existente**
+        ```azurecli
+        azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic --name IPConfig-4 \
+        --private-ip-address 10.0.0.8 --public-ip-name myPublicIP3
+        ```
 
-            Um recurso de endereço IP público só pode ser associado a uma configuração de IP que ainda não tenha um associado. Você pode determinar se uma configuração de IP tem um endereço IP público associado inserindo o seguinte comando:
+        **Associar o recurso a uma configuração de IP existente**
 
-            ```bash
-            azure network nic ip-config list \
-            --resource-group myResourceGroup \
-            --nic-name myNic1
-            ```
+        Um recurso de endereço IP público só pode ser associado a uma configuração de IP que ainda não tenha um associado. Você pode determinar se uma configuração de IP tem um endereço IP público associado inserindo o seguinte comando:
 
-            Procure uma linha semelhante à linha que segue IPConfig-3 na saída retornada: <br>
-            
-                Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
-            
-                default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-                IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-                IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet
+        ```azurecli
+        azure network nic ip-config list --resource-group myResourceGroup --nic-name myNic1
+        ```
 
-            Como a coluna **IP Público** para *IpConfig 3* está em branco, nenhum recurso de endereço IP público está associado a ele no momento. Você pode adicionar um recurso de endereço IP público existente como IpConfig-3 ou inserir o seguinte comando para criar um:
+        Procure uma linha semelhante à linha que segue IPConfig-3 na saída retornada:
 
-            ```bash
-            azure network public-ip create \
-            --resource-group  myResourceGroup \
-            --location westcentralus \
-            --name myPublicIP3 \
-            --domain-name-label mypublicdns3 \
-            --allocation-method Static
-            ```
-    
-            Insira o comando a seguir para associar o recurso de endereço IP público à configuração de IP existente chamada *IPConfig-3*:
-    
-            ```bash
-            azure network nic ip-config set \
-            --resource-group myResourceGroup \
-            --nic-name myNic1 \
-            --name IPConfig-3 \
-            --public-ip-name myPublicIP3
-            ```
+        ```            
+        Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
+        default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
+        IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
+        IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet
+        ```
+          
+        Como a coluna **IP Público** para *IpConfig 3* está em branco, nenhum recurso de endereço IP público está associado a ele no momento. Você pode adicionar um recurso de endereço IP público existente como IpConfig-3 ou inserir o seguinte comando para criar um:
+
+        ```azurecli
+        azure network public-ip create --resource-group  myResourceGroup --location westcentralus \
+        --name myPublicIP3 --domain-name-label mypublicdns3 --allocation-method Static
+        ```
+
+        Insira o comando a seguir para associar o recurso de endereço IP público à configuração de IP existente chamada *IPConfig-3*:
+        ```azurecli
+        azure network nic ip-config set --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-3 \
+        --public-ip-name myPublicIP3
+        ```
 
 3. Exiba os endereços IP privados e o recurso de endereço IP público atribuído à NIC, digitando o seguinte comando:
 
-    ```bash
-    azure network nic ip-config list \
-    --resource-group myResourceGroup \
-    --nic-name myNic1
+    ```azurecli
+    azure network nic ip-config list --resource-group myResourceGroup --nic-name myNic1
     ```
 
-    A saída retornada é semelhante a esta: <br>
-
-        Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
+      A saída retornada é semelhante a esta:
+      ```
+      Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
         
-        default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-        IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-        IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
-
+      default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
+      IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
+      IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet  myPublicIP3
+      ```
 4. Adicione os endereços IP privados que você adicionou à NIC para o sistema operacional da VM seguindo as instruções da seção [Adicionar endereços IP a um sistema operacional de VM](#os-config) deste artigo. Não adicione os endereços IP públicos ao sistema operacional.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

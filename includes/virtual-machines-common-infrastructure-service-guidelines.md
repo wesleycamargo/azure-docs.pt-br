@@ -140,7 +140,7 @@ Os discos do sistema operacional e os discos de dados têm um tamanho máximo de
 ### <a name="striped-disks"></a>Discos distribuídos
 Além de fornecer a capacidade de criar discos com mais de 1023 GB, em muitos casos, o uso da distribuição para discos de dados pode melhorar o desempenho, permitindo que vários blobs façam o armazenamento de um único volume. Com a distribuição, a E/S necessária para gravar e ler dados de um único disco lógico continua em paralelo.
 
-O Azure impõe limites na quantidade de discos de dados e largura de banda disponíveis, dependendo do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+O Azure impõe limites na quantidade de discos de dados e largura de banda disponíveis, dependendo do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Se você estiver usando a distribuição de disco para os discos de dados do Azure, considere as seguintes diretrizes:
 
@@ -390,16 +390,11 @@ Essa configuração inclui:
 ## <a name="additional-resources"></a>Recursos adicionais
 [Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Tamanhos das máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Tamanhos das máquinas virtuais](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Metas de desempenho e escalabilidade do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md)
 
 [Diagrama da arquitetura de referência de extensão do datacenter](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

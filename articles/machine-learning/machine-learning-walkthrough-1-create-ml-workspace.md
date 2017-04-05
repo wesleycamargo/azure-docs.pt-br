@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: 116dbf0ee30497d82c984b10e61ae02301e820a4
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8ca42ef8f5314866301f5c9e93caa90dc837a66e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -44,9 +45,9 @@ Para usar o Estúdio de Aprendizado de Máquina, você precisa ter um espaço de
 4. On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
 -->
 
-O administrador de sua assinatura do Azure precisará criar o espaço de trabalho e, em seguida, adicioná-lo como um proprietário ou colaborador. Para obter mais detalhes, consulte [Criar e compartilhar um espaço de trabalho do Azure Machine Learning](machine-learning-create-workspace.md).
+O administrador de sua assinatura do Azure precisa criar o espaço de trabalho e, em seguida, adicioná-lo como um proprietário ou colaborador. Para obter mais detalhes, consulte [Criar e compartilhar um espaço de trabalho do Azure Machine Learning](machine-learning-create-workspace.md).
 
-Após a criação do espaço de trabalho, abra o Machine Learning Studio:[https://studio.azureml.net](https://studio.azureml.net). Se esse for o seu único espaço de trabalho, o estúdio o abrirá automaticamente. Caso contrário, você pode selecionar o espaço de trabalho na barra de ferramentas no canto superior direito da janela.
+Após a criação do espaço de trabalho, abra o Machine Learning Studio:[https://studio.azureml.net/Home](https://studio.azureml.net/Home). Se você tiver mais de um espaço de trabalho, poderá selecionar o espaço de trabalho na barra de ferramentas no canto superior direito da janela.
 
 ![Selecionar o espaço de trabalho no estúdio][2]
 
@@ -62,9 +63,4 @@ Após a criação do espaço de trabalho, abra o Machine Learning Studio:[https:
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 [2]: ./media/machine-learning-walkthrough-1-create-ml-workspace/open-workspace.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

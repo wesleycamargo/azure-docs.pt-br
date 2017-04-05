@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 7427a5740dd7fe32aeb4d8396568706399c66bd7
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f09c231baecf2452a6e3abd196748629f13885ff
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -70,9 +70,9 @@ Estes são os limites de execução de um único aplicativo lógico.
 
 |Nome|Limite|Observações|
 |----|----|----|
-|Itens ForEach|5.000|Você pode usar a [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maiores, conforme o necessário|
+|Itens ForEach|100.000|Você pode usar a [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maiores, conforme o necessário|
 |Iterações Until|5.000||
-|Itens SplitOn|5.000||
+|Itens SplitOn|100.000||
 |Paralelismo de ForEach|20|Você pode definir um foreach sequencial adicionando `"operationOptions": "Sequential"` à ação `foreach`|
 
 
@@ -82,8 +82,9 @@ Estes são os limites para uma instância única de aplicativo lógico.
 
 |Nome|Limite|Observações|
 |----|----|----|
-|Execuções de ações por segundo (picos)|1.000|Pode distribuir carga de trabalho entre vários aplicativos conforme necessário|
-|Execuções de ações por segundo (mantidas)|1.000.000|Pode distribuir carga de trabalho entre vários aplicativos conforme necessário|
+|Execuções de ações a cada cinco minutos |100.000|Pode distribuir carga de trabalho entre vários aplicativos conforme necessário|
+
+Se você pretende exceder esse limite de processamento normal, ou se quiser executar testes de carga que podem ultrapassar esse limite para um período de tempo, [entre em contato conosco](mailto://logicappsemail@microsoft.com) para que possamos ajudar com suas necessidades.
 
 ### <a name="definition-limits"></a>Limites de definição
 

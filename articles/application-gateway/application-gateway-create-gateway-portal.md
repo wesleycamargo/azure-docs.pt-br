@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9edaa7a101ae0e1a395491999854ee7009fb69cd
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +31,10 @@ ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
 > * [Modelo do Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI do Azure](application-gateway-create-gateway-cli.md)
 
-O Azure Application Gateway é um balanceador de carga de camada&7;. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de Entrega de Aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
+O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local.
+O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de Entrega de Aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros.
+
+Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
 
 ## <a name="scenario"></a>Cenário
 
@@ -47,8 +51,6 @@ Este cenário:
 
 > [!IMPORTANT]
 > A configuração adicional do Application Gateway, incluindo investigações de integridade personalizadas, endereços de pool de back-end e regras adicionais são configuradas após o Application Gateway ser configurado e não durante a implantação inicial.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -151,19 +153,49 @@ Estas etapas criam um gateway de aplicativo básico com configurações padrão 
 
 Depois que o gateway de aplicativo é criado, os sistemas que hospedam o aplicativo que terá a carga balanceada ainda precisará ser adicionado ao gateway de aplicativo. Os endereços IP ou valores FQDN desses servidores são adicionados aos pools de endereços de back-end.
 
-### <a name="step-1"></a>Etapa 1
+### <a name="ip-address-or-fqdn"></a>Endereço IP ou FQDN
+
+#### <a name="step-1"></a>Etapa 1
 
 Clique no gateway de aplicativo que você criou, clique em **Pools de back-end** e selecione o pool de back-end atual.
 
 ![Pools de back-end do Gateway de Aplicativo][11]
 
-### <a name="step-2"></a>Etapa 2
+#### <a name="step-2"></a>Etapa 2
 
-Adicione os endereços IP ou valores de FQDN nas caixas de texto e clique em **Salvar**
+Clique em **Adicionar Destino** para adicionar endereços IP de valores de FQDN
+
+![Pools de back-end do Gateway de Aplicativo][11-1]
+
+#### <a name="step-3"></a>Etapa 3
+
+Após inserir todos os valores de back-end, clique em **Salvar**
 
 ![adicionar valores aos pools de back-end do gateway de aplicativo][12]
 
 Essa ação salva os valores no pool de back-end. Depois que o gateway de aplicativo tiver sido atualizado, o tráfego que entrar no gateway de aplicativo será roteado para os endereços de back-end adicionados nessa etapa.
+
+### <a name="virtual-machine-and-nic"></a>Máquina virtual e NIC
+
+Também é possível adicionar NICs de máquina virtual como membros do pool de back-end. Somente as máquinas virtuais que estão dentro da mesma rede virtual que o Gateway de Aplicativo ficarão disponíveis na lista suspensa.
+
+#### <a name="step-1"></a>Etapa 1
+
+Clique no gateway de aplicativo que você criou, clique em **Pools de back-end** e selecione o pool de back-end atual.
+
+![Pools de back-end do Gateway de Aplicativo][11]
+
+#### <a name="step-2"></a>Etapa 2
+
+Clique em **Adicionar Destino** para adicionar um novo membro do pool de back-end. Escolha uma máquina virtual e uma NIC nas caixas suspensas.
+
+![adicionar nics aos pools de back-end do gateway de aplicativo][13]
+
+#### <a name="step-3"></a>Etapa 3
+
+Quando terminar, clique em **Salvar** para salvar as NICs como membros de back-end.
+
+![salvar nic dos pools de back-end do gateway de aplicativo][14]
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -187,11 +219,9 @@ Saiba como proteger seus aplicativos com o [Firewall do Aplicativo Web](applicat
 [9]: ./media/application-gateway-create-gateway-portal/figure9.png
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [11]: ./media/application-gateway-create-gateway-portal/figure11.png
+[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
 [12]: ./media/application-gateway-create-gateway-portal/figure12.png
+[13]: ./media/application-gateway-create-gateway-portal/figure13.png
+[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -4,6 +4,7 @@
 ## [Alertas](monitoring-overview-alerts.md)
 ## [Autoescala](monitoring-overview-autoscale.md)
 ## [Log de atividade](monitoring-overview-activity-logs.md)
+## [Grupos de Ação](monitoring-action-groups.md)
 ## [Logs de Diagnóstico](monitoring-overview-of-diagnostic-logs.md)
 ## [Integrações de parceiro](monitoring-partners.md)
 ## [Diagnóstico do Azure](azure-diagnostics.md)
@@ -28,10 +29,19 @@
 ### [Configurar webhooks e notificações por email em dimensionamento automático](insights-autoscale-to-webhook-email.md)
 ## Usar o log de atividades
 ### [Exibir eventos no log de atividades](insights-debugging-with-events.md)
-### [Configurar webhook em um alerta de log de atividades](insights-auditlog-to-webhook-email.md)
+### [Configurar alertas em um evento de log de atividade](monitoring-activity-log-alerts.md)
 ### [Arquivar log de atividades](monitoring-archive-activity-log.md)
 ### [Transmitir log de atividades para Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
 ### [Operações de auditoria com o Gerenciador de Recursos](../azure-resource-manager/resource-group-audit.md)
+### [Criar alertas de log de atividade com o Gerenciador de Recursos](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+## Notificações de serviço
+### [Exibir notificações de serviço](monitoring-service-notifications.md)
+### [Configurar alertas em notificações de serviço](monitoring-activity-log-alerts-on-service-notifications.md)
+## Grupos de Ação
+### [Saiba mais sobre o esquema de webhook](monitoring-activity-log-alerts-webhook.md)
+### [Comportamento de Alerta do SMS](monitoring-sms-alert-behavior.md)
+### [Limitação de Taxa de Alerta](monitoring-alerts-rate-limiting.md)
+### [Criar grupos de ação com o Gerenciador de Recursos](monitoring-create-action-group-with-resource-manager-template.md)
 ## Gerenciar logs de diagnóstico
 ### [Arquivar](monitoring-archive-diagnostic-logs.md)
 ### [Transmitir para Hubs de Eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)

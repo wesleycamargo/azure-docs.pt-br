@@ -15,20 +15,19 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
-ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d95aaf81ee4d9c19549a57dd1af0f79a1e1bffdd
+ms.lasthandoff: 03/30/2017
 
 
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparação de discos rígidos para um trabalho de importação
-## <a name="overview"></a>Visão geral
 
 A ferramenta WAImportExport é a ferramenta de preparação e reparo de unidade que pode ser usada com o serviço [Importação/Exportação do Microsoft Azure](storage-import-export-service.md). Use essa ferramenta para copiar dados para os discos rígidos que você vai enviar para um datacenter do Azure. Após a conclusão de um trabalho de importação, é possível usar essa ferramenta para reparar os blobs corrompidos, ausentes ou que entraram em conflito com outros blobs. Depois de receber as unidades de um trabalho de exportação concluído, é possível usar essa ferramenta para reparar os arquivos corrompidos ou ausentes nas unidades. Neste artigo, falaremos sobre o funcionamento dessa ferramenta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="prerequisites-for-running-waimportexportexe"></a>Pré-requisitos para a execução de WAImportExport.exe
+### <a name="requirements-for-waimportexportexe"></a>Requisitos de WAImportExport.exe
 
 - **Configuração da máquina**
   - Windows 7, Windows Server 2008 R2 ou um sistema operacional Windows mais recente
@@ -52,7 +51,7 @@ A ferramenta WAImportExport é a ferramenta de preparação e reparo de unidade 
 
 ## <a name="download-and-install-waimportexport"></a>Baixar e instalar a WAImportExport
 
-Baixe a [versão mais recente do WAImportExport.exe](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). Extraia o conteúdo compactado em um diretório em seu computador.
+Baixe a [versão mais recente do WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=42659). Extraia o conteúdo compactado em um diretório em seu computador.
 
 A próxima tarefa é criar arquivos CSV.
 
@@ -87,10 +86,10 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | --- | --- |
 | BasePath | **[Obrigatório]**<br/>O valor desse parâmetro representa a origem onde os dados a serem importados estão localizados. A ferramenta copiará recursivamente todos os dados localizados sob esse caminho.<br><br/>**Valores Permitidos**: deve ser um caminho válido no computador local ou um caminho de compartilhamento válido e deve ser acessível ao usuário. O caminho do diretório deve ser um caminho absoluto (não relativo). Se o caminho terminar com "\\", representará um diretório, mas se terminar sem "\\" representará um arquivo.<br/>Esse campo não permite regex. Se o caminho contiver espaços, coloque-os entre "".<br><br/>**Exemplo**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory 1"  |
 | DstBlobPathOrPrefix | **[Obrigatório]**<br/> O caminho até o diretório virtual de destino em sua conta de armazenamento do Windows Azure. O diretório virtual pode ou não existir. Se não existir, o serviço de Importação/Exportação criará um.<br/><br/>Certifique-se de usar nomes de contêineres válidos ao especificar diretórios virtuais ou blobs de destino. Tenha em mente que os nomes de contêiner devem estar em minúsculas. Para regras de nomeação de contêiner, consulte [Nomeação e referência de contêineres, blobs e metadados](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata). Se apenas a raiz for especificada, a estrutura de diretórios da origem será replicada no contêiner de blob de destino. Se uma estrutura de diretórios diferente for preferida em vez da existente na origem, use várias linhas de mapeamento em CSV<br/><br/>Você pode especificar um contêiner ou um prefixo de blob como music/70s/. O diretório de destino deve começar com o nome do contêiner, seguido por uma barra "/" e, opcionalmente, pode incluir um diretório virtual de blob que termina com "/".<br/><br/>Quando o contêiner de destino for o contêiner raiz, especifique explicitamente o contêiner raiz, incluindo a barra, como $root/. Como os blobs no contêiner raiz não podem incluir "/" em seus nomes, quaisquer subdiretórios no diretório de origem não serão copiados quando o diretório de destino for o contêiner raiz.<br/><br/>**Exemplo**<br/>Se o caminho do blob de destino for https://mystorageaccount.blob.core.windows.net/video, o valor desse campo poderá ser video/  |
-| BlobType | **[Opcional]** block &#124; page<br/>Atualmente, o serviço de Importação/Exportação oferece suporte a dois tipos de Blobs. Blobs de página e Blobs de bloco. Por padrão, todos os arquivos serão importados como Blobs de blocos. E \*.vhd e \*.vhdx serão importados como Blobs de página. Há um limite para o tamanho permitido para o blob de bloco e o blob de página. Confira [Metas de escalabilidade do armazenamento](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) para saber mais.  |
+| BlobType | **[Opcional]** block &#124; page<br/>Atualmente, o serviço de Importação/Exportação oferece suporte dois tipos de Blobs. Blobs de página e Blobs de bloco. Por padrão, todos os arquivos serão importados como Blobs de blocos. E \*.vhd e \*.vhdx serão importados como Blobs de página. Há um limite para o tamanho permitido para o blob de bloco e o blob de página. Confira [Metas de escalabilidade do armazenamento](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) para saber mais.  |
 | Disposition | **[Opcional]** rename &#124; no-overwrite &#124; overwrite <br/> Este campo especifica o comportamento de cópia durante a importação, ou seja quando os dados estão sendo carregados para a conta de armazenamento do disco. As opções disponíveis são: rename&#124;overwite&#124;no-overwrite. O padrão será "rename", se nada for especificado. <br/><br/>**Rename**: se houver um objeto com o mesmo nome presente, isso cria uma cópia no destino.<br/>Overwrite: substitui o arquivo por um arquivo mais recente. O arquivo com a última modificação vence.<br/>**No-overwrite**: ignora a substituição do arquivo, se ele já estiver presente.|
-| MetadataFile | **[Opcional]** <br/>O valor para esse campo é o arquivo de metadados, que pode ser fornecido se for necessário preservar os metadados dos objetos ou fornecer metadados personalizados. Caminho até o arquivo de metadados para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados do serviço de Importação-Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais |
-| PropertiesFile | **[Opcional]** <br/>Caminho até o arquivo de propriedades para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados do serviço de Importação-Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais. |
+| MetadataFile | **[Opcional]** <br/>O valor para esse campo é o arquivo de metadados, que pode ser fornecido se for necessário preservar os metadados dos objetos ou fornecer metadados personalizados. Caminho até o arquivo de metadados para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais |
+| PropertiesFile | **[Opcional]** <br/>Caminho até o arquivo de propriedades para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais. |
 
 ## <a name="prepare-initialdriveset-or-additionaldriveset-csv-file"></a>Preparar o arquivo CSV AdditionalDriveSet ou InitialDriveSet
 
@@ -120,7 +119,7 @@ H,Format,SilentMode,Encrypt,
 | FormatOption | **[Obrigatório]** Format &#124; AlreadyFormatted<br/><br/> **Format**: isso formatará todos os dados no disco. <br/>**AlreadyFormatted**: a ferramenta ignorará a formatação quando esse valor for especificado. |
 | SilentOrPromptOnFormat | **[Obrigatório]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: esse valor permitirá que o usuário execute a ferramenta no Modo Silencioso. <br/>**PromptOnFormat**: a ferramenta solicitará ao usuário a confirmação se a ação realmente destina-se a todos os formatos.<br/><br/>Se não for definido, o comando será abortado e exibirá a mensagem de erro: "Valor incorreto para SilentOrPromptOnFormat: nenhum" |
 | Criptografia | **[Obrigatório]** Encrypt &#124; AlreadyEncrypted<br/> O valor desse campo decide qual disco criptografar e qual não criptografar. <br/><br/>**Encrypt**: a ferramenta formatará a unidade. Se o valor do campo "FormatOption" for "Format", esse valor deverá ser "Encrypt". Se "AlreadyEncrypted" for especificado, o resultado será um erro "Quando Format for especificado, Encrypt também deverá ser especificado".<br/>**AlreadyEncrypted**: a ferramenta descriptografará a unidade usando o BitLockerKey fornecido no campo "ExistingBitLockerKey". Se o valor do campo "FormatOption" for "AlreadyFormatted", esse valor poderá ser "Encrypt" ou "AlreadyEncrypted" |
-| ExistingBitLockerKey | **[Obrigatório] ** Se o valor do campo "Encryption" for "AlreadyEncrypted"<br/> O valor desse campo é a chave do BitLocker associada ao disco específico. <br/><br/>Esse campo deve ser deixado em branco se o valor do campo "Encryption" for "Encrypt".  Se o BitLocker Key for especificada nesse caso, o resultado será um erro "A Chave do Bitlocker não deve ser especificada".<br/>  **Exemplo**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| ExistingBitLockerKey | **[Obrigatório]** Se o valor do campo "Encryption" for "AlreadyEncrypted"<br/> O valor desse campo é a chave do BitLocker associada ao disco específico. <br/><br/>Esse campo deve ser deixado em branco se o valor do campo "Encryption" for "Encrypt".  Se o BitLocker Key for especificada nesse caso, o resultado será um erro "A Chave do Bitlocker não deve ser especificada".<br/>  **Exemplo**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>Preparação do disco para o trabalho de importação
 
@@ -187,7 +186,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
 
 Somente a última sessão de cópia, se for finalizada de maneira anormal, poderá ser anulada. Observe que não é possível anular a primeira sessão de cópia de uma unidade. Em vez disso, reinicie a sessão de cópia com um novo arquivo de diário.
 
-### <a name="resume-a-latest-interrupted-session"></a>Retomar a sessão interrompida mais recente:
+### <a name="resume-a-latest-interrupted-session"></a>Retomar a sessão interrompida mais recente
 
 Se uma sessão de cópia for interrompida por qualquer motivo, você poderá retomá-la executando a ferramenta apenas com o arquivo de diário especificado:
 
@@ -206,7 +205,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 
 ## <a name="waimportexport-parameters"></a>Parâmetros de WAImportExport
 
-| Parâmetros | Descrição |
+| parâmetros | Descrição |
 | --- | --- |
 |     /j:&lt;JournalFile&gt;  | **Obrigatório**<br/> Caminho até o arquivo de diário. Um arquivo de diário acompanha um conjunto de unidades e registra o progresso da preparação dessas unidades. O arquivo de diário deve ser sempre especificado.  |
 |     /logdir:&lt;LogDirectory&gt;  | **Opcional**. O diretório de log.<br/> Arquivos de log detalhado, bem como alguns arquivos temporários, serão gravados nesse diretório. Se nenhum for especificado, o diretório atual será usado como o diretório de log. O diretório de log pode ser especificado somente uma vez para o mesmo arquivo de diário.  |
@@ -222,14 +221,14 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /CopyLogFile:&lt;DriveCopyLogFile&gt; | **Obrigatório** Aplicável somente para RepairImport e RepairExport. Caminho até o arquivo de log de cópia da unidade (detalhado ou de erro).  |
 |     /ManifestFile:&lt;DriveManifestFile&gt; | **Obrigatório** Aplicável somente para RepairExport.<br/> Caminho até o arquivo de manifesto da unidade.  |
 |     /PathMapFile:&lt;DrivePathMapFile&gt; | **Opcional**. Aplicável somente para RepairImport.<br/> Caminho até o arquivo que contém mapeamentos dos caminhos de arquivo relativos à raiz da unidade até os locais de arquivos reais (delimitado por tabulação). Quando for especificado pela primeira vez, ele será preenchido com caminhos de arquivo com destinos vazios, o que significa que não será encontrado em TargetDirectories, terá o acesso negado, nome inválido ou existirá em vários diretórios. O arquivo de mapa de caminho pode ser editado manualmente para incluir os caminhos de destino corretos, e pode ser especificado novamente para que a ferramenta possa resolver os caminhos de arquivo corretamente.  |
-|     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Obrigatório**. Aplicável somente para PreviewExport.<br/> Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo é o mesmo usado no formato de blob na lista de blobs na operação Put Job da API REST do Serviço de Importação/Exportação.  |
+|     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Obrigatório**. Aplicável somente para PreviewExport.<br/> Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo é o mesmo usado no formato de blob na lista de blobs na operação Put Job da API REST do serviço de Importação/Exportação.  |
 |     /DriveSize:&lt;DriveSize&gt; | **Obrigatório**. Aplicável somente para PreviewExport.<br/>  Tamanho de unidades a serem usadas para exportação. Por exemplo, 500 GB, 1,5 TB. Observação: 1 GB = 1.000.000.000 bytes 1 TB = 1.000.000.000.000 bytes  |
 |     /DataSet:&lt;dataset.csv&gt; | **Obrigatório**<br/> Um arquivo CSV contendo uma lista de diretórios e/ou arquivos de lista a serem copiados nas unidades de destino.  |
 |     /silentmode  | **Opcional**.<br/> Se não for especificado, você será lembrado sobre o requisito das unidades, e sua confirmação será necessária para continuar.  |
 
 ## <a name="tool-output"></a>Saída da ferramenta
 
-### <a name="sample-drive-manifest-file"></a>Exemplo de arquivo de Manifesto da Unidade
+### <a name="sample-drive-manifest-file"></a>Exemplo de arquivo de manifesto da unidade
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -269,7 +268,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 </DriveManifest>
 ```
 
-### <a name="sample-journal-file-for-each-drive-ending-with-xml"></a>Exemplo de arquivo de diário para cada unidade: terminado com .xml
+### <a name="sample-journal-file-xml-for-each-drive"></a>Exemplo de arquivo de diário (XML) para cada unidade
 
 ```xml
 [BeginUpdateRecord][2016/11/01 21:22:25.379][Type:ActivityRecord]
@@ -286,7 +285,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### <a name="sample-journal-file-for-session-ended-with-jrn--which-records-the-trail-of-sessions"></a>Exemplo de arquivo de diário para sessão: terminado com .jrn que registra a trilha de sessões
+### <a name="sample-journal-file-jrn-for-session-which-records-the-trail-of-sessions"></a>Exemplo de arquivo de diário (JRN) para sessão que registra a trilha de sessões
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -308,7 +307,7 @@ StorageAccountKey: *******
 
 #### <a name="what-is-waimportexport-tool"></a>O que é a ferramenta WAImportExport?
 
-A ferramenta WAImportExport é a ferramenta de preparação e reparo de unidade que pode ser usada com o serviço Importação/Exportação do Microsoft Azure. Use essa ferramenta para copiar dados para os discos rígidos que você vai enviar para um datacenter do Azure. Após a conclusão de um trabalho de importação, é possível usar essa ferramenta para reparar os blobs corrompidos, ausentes ou que entraram em conflito com outros blobs. Depois de receber as unidades de um trabalho de exportação concluído, é possível usar essa ferramenta para reparar os arquivos corrompidos ou ausentes nas unidades.
+A ferramenta WAImportExport é a ferramenta de preparação e reparo de unidade que pode ser usada com o serviço de Importação/Exportação do Microsoft Azure. Use essa ferramenta para copiar dados para os discos rígidos que você vai enviar para um datacenter do Azure. Após a conclusão de um trabalho de importação, é possível usar essa ferramenta para reparar os blobs corrompidos, ausentes ou que entraram em conflito com outros blobs. Depois de receber as unidades de um trabalho de exportação concluído, é possível usar essa ferramenta para reparar os arquivos corrompidos ou ausentes nas unidades.
 
 #### <a name="how-does-the-waimportexport-tool-work-on-multiple-sorce-dir-and-disks"></a>Como funciona a ferramenta WAImportExport em vários diretórios de origem e discos?
 
@@ -318,7 +317,7 @@ Se o tamanho dos dados for maior do que o tamanho do disco, a ferramenta WAImpor
 
 A ferramenta WAImportExport tem todas as funcionalidades que a ferramenta WAImportExport V1 tinha. A ferramenta WAImportExport permite aos usuários especificar várias fontes e gravar em várias unidades. Além disso, é possível gerenciar com facilidade vários locais de origem dos quais os dados precisam ser copiados em um único arquivo CSV. No entanto, caso você precise do suporte a SAS ou queira copiar uma única origem para um único disco, será possível [baixar a ferramenta WAImportExport V1] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) e consultar a [Referência à WAImportExport V1](storage-import-export-tool-how-to-v1.md) para obter ajuda com o uso da WAImportExport V1.
 
-#### <a name="what-is-a-session-id"></a>O que é uma ID de Sessão?
+#### <a name="what-is-a-session-id"></a>O que é uma ID de sessão?
 
 A ferramenta espera que o parâmetro (/id) da sessão de cópia seja o mesmo se a intenção for distribuir os dados entre vários discos. Manter o mesmo nome da sessão de cópia permitirá que o usuário copie dados de um ou vários locais de origem para um ou vários discos/diretórios de destino. A manutenção da mesma id de sessão permite que a ferramenta escolha a cópia dos arquivos onde ela foi deixada na última vez.
 
@@ -334,7 +333,7 @@ Por exemplo, sessão-1 ou sessão#1 ou sessão\_1
 
 Sempre que você executar a ferramenta WAImportExport para copiar arquivos no disco rígido, a ferramenta criará uma sessão de cópia. O estado da sessão de cópia é gravado no arquivo de diário. Se uma sessão de cópia for interrompida (por exemplo, devido a uma perda de energia do sistema), ela poderá ser retomada executando a ferramenta novamente e especificando o arquivo de diário na linha de comando.
 
-Para cada disco rígido que você prepara com a ferramenta de Importação/Exportação do Azure, a ferramenta cria um único arquivo de diário com o nome "&lt;DriveID&gt;.xml", em que DriveID é o número de série associado à unidade lida pela ferramenta a partir do disco. Você precisará dos arquivos de diário de todas as unidades para criar o trabalho de importação. O arquivo de diário também pode ser usado para retomar a preparação da unidade se a ferramenta for interrompida.
+Para cada disco rígido que você preparar com a Ferramenta de Importação/Exportação do Azure, a ferramenta criará um único arquivo de diário com o nome "&lt;DriveID&gt;.xml", em que DriveID é o número de série associado à unidade lida pela ferramenta no disco. Você precisará dos arquivos de diário de todas as unidades para criar o trabalho de importação. O arquivo de diário também pode ser usado para retomar a preparação da unidade se a ferramenta for interrompida.
 
 #### <a name="what-is-a-log-directory"></a>O que é um diretório de log?
 
@@ -367,11 +366,11 @@ Para desabilitar o TPM no BitLocker, consulte as seguintes etapas:<br/>
 3. Edite a política **Exigir autenticação adicional na inicialização**.
 4. Configure a política como **Habilitado** e certifique-se de que **Permitir BitLocker sem um TPM compatível** esteja marcado.
 
-####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>Como verificar se o .Net 4 ou uma versão posterior está instalada em meu computador?
+####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>Como verificar se o .NET 4 ou uma versão posterior está instalada em meu computador?
 
 Todas as versões do Microsoft .NET Framework são instaladas no seguinte diretório: %Windir%\Microsoft.NET\Framework\
 
-Navegue até a parte mencionada acima no computador de destino onde a ferramenta precisa ser executada. Procure o nome da pasta que começa com "v4". A ausência de um diretório como esse significa que o .Net v4 não está instalado em seu computador. Você pode baixar o .Net 4 em seu computador usando o [Microsoft .NET Framework 4 (Instalador da Web)](https://www.microsoft.com/download/details.aspx?id=17851).
+Navegue até a parte mencionada acima no computador de destino onde a ferramenta precisa ser executada. Procure o nome da pasta que começa com "v4". A ausência de um diretório como esse significa que o .NET 4 não está instalado em seu computador. Você pode baixar o .Net 4 em seu computador usando o [Microsoft .NET Framework 4 (Instalador da Web)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>limites
 
@@ -403,9 +402,20 @@ A ferramenta de WAImportExport lê e grava arquivos, lote por lote, um lote cont
 
 ### <a name="waimportexport-output"></a>Saída de WAImportExport
 
-#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>Há dois arquivos de diário. Qual deles devo carregar no Portal do Azure?
+#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>Existem dois arquivos de diário, qual deles devo carregar no Portal do Azure?
 
-**.xml** - Para cada disco rígido que você prepara com a ferramenta WAImportExport, a ferramenta cria um único arquivo de diário com o nome "&lt;DriveID&gt;.xml", em que DriveID é o número de série associado à unidade lida pela ferramenta a partir do disco. Você precisará dos arquivos de diário de todas as unidades para criar o trabalho de importação no Portal do Azure. Esse arquivo de diário também pode ser usado para retomar a preparação da unidade se a ferramenta for interrompida.
+**.xml**: para cada disco rígido que você preparar com a Ferramenta WAImportExport, a ferramenta criará um único arquivo de diário com o nome `<DriveID>.xml`, em que DriveID é o número de série associado à unidade lida pela ferramenta no disco. Você precisará dos arquivos de diário de todas as unidades para criar o trabalho de importação no Portal do Azure. Esse arquivo de diário também pode ser usado para retomar a preparação da unidade se a ferramenta for interrompida.
 
-**.jrn** - o arquivo de diário com o sufixo .jrn contém o status de todas as sessões de cópia de um disco rígido. Ele também contém as informações necessárias para criar o trabalho de importação. Você deve sempre especificar um arquivo de diário ao executar a ferramenta WAImportExport, bem como uma ID da sessão de cópia.
+**.jrn**: o arquivo de diário com o sufixo `.jrn` contém o status de todas as sessões de cópia de um disco rígido. Ele também contém as informações necessárias para criar o trabalho de importação. Você deve sempre especificar um arquivo de diário ao executar a ferramenta WAImportExport, bem como uma ID da sessão de cópia.
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup.md)
+* [Definindo propriedades e metadados durante o processo de importação](storage-import-export-tool-setting-properties-metadata-import.md)
+* [Fluxo de trabalho de exemplo para preparar discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+* [Referência rápida para comandos usados frequentemente](storage-import-export-tool-quick-reference.md) 
+* [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)
+* [Reparação de um trabalho de importação](storage-import-export-tool-repairing-an-import-job-v1.md)
+* [Reparação de um trabalho de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
 

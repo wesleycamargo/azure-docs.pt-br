@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 3/07/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 67c859ca7cb88c4b03b605330391856a150323dd
-ms.openlocfilehash: 6f60c803ae0f6d32f79611aced40bef3ea87173b
-ms.lasthandoff: 12/07/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 06debc64a44b58b8cb1fb50aa8af27f22a61d086
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá a integrar o TiViTz ao Azure AD (Azure Active D
 A integração do TiViTz ao Azure AD oferece os seguintes benefícios:
 
 - Você pode controlar no Azure AD quem tem acesso ao TiViTz
-- Você pode permitir que seus usuários façam logon automaticamente no TiViTz (logon único) com suas contas do Azure AD
+- Você pode permitir que seus usuários façam logon automaticamente no TiViTz usando SSO (logon único) com suas contas do Azure AD
 - Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -37,27 +37,25 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao TiViTz, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura do TiViTz habilitada para logon único
+- Uma assinatura do TiViTz habilitada para SSO
 
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+>
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-
+- Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar TiViTz da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO do Azure AD
 
 
-## <a name="adding-tivitz-from-the-gallery"></a>Adicionar TiViTz da galeria
+## <a name="add-tivitz-from-the-gallery"></a>Adicionar o TiViTz da galeria
 Para configurar a integração do TiViTz ao Azure AD, você precisará adicionar o TiViTz da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o TiViTz por meio da galeria, execute as seguintes etapas:**
@@ -88,26 +86,24 @@ Para configurar a integração do TiViTz ao Azure AD, você precisará adicionar
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tivitz-tutorial/tutorial_tivitz_0001.png)
 
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+Nesta seção, você configurará e testará o SSO do Azure AD com o TiViTz, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-Nesta seção, você configurará e testará o logon único do Azure AD com o TiViTz, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do TiViTz é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do TiViTz.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do TiViTz é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do TiViTz.
 
 Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no TiViTz.
 
 Para configurar e testar o logon único do Azure AD com o TiViTz, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do TiViTz](#creating-a-tivitz-test-user)**: para ter um equivalente de Brenda Fernandes no TiViTz que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único no aplicativo do TiViTz.
-
+Nesta seção, você habilitará o SSO do Azure AD no Portal Clássico e configurará o logon único em seu aplicativo TiViTz.
 
 **Para configurar o logon único do Azure AD com o TiViTz, realize as seguintes etapas:**
 
@@ -122,15 +118,13 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-tivitz-tutorial/tutorial_tivitz_03.png)
+ 1. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.o365.tivitz.com/`
+ 2. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.o365.tivitz.com/`
+ 3. Clique em **Próximo**.
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.o365.tivitz.com/`
-
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.o365.tivitz.com/`
-
-    c. Clique em **Avançar**.
-
-    > [!NOTE] 
-    > Observe que esses não são os valores reais. É necessário atualizar esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do TiViTz](emaiLto:info@tivitz.com) para obter valores.
+     >[!NOTE] 
+     >Observe que esses não são os valores reais. É necessário atualizar esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do TiViTz](emaiLto:info@tivitz.com) para obter valores.
+     >
 
 4. Na página **Configurar o logon único no TiViTz**, clique em **Baixar metadados** e salve o arquivo de metadados no computador:
 
@@ -147,7 +141,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     ![Logon Único do AD do Azure][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -171,26 +165,18 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tivitz-tutorial/create_aaduser_05.png) 
-
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-
-    c. Clique em **Próximo**.
+ 1. Em Tipo de Usuário, selecione Novo usuário na organização.
+ 2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+ 3. Clique em **Próximo**.
 
 6.  Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tivitz-tutorial/create_aaduser_06.png) 
-
-    a. Na caixa de texto **Nome**, digite **Brenda**.  
-
-    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-
-    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-
-    d. Na lista **Função**, selecione **Usuário**.
-
-    e. Clique em **Próximo**.
+ 1. Na caixa de texto **Nome**, digite **Brenda**.  
+ 2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+ 3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+ 4. Na lista **Função**, selecione **Usuário**.
+ 5. Clique em **Próximo**.
 
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -199,24 +185,19 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tivitz-tutorial/create_aaduser_08.png) 
+ 1. Anote o valor da **Nova Senha**.
+ 2. Clique em **Concluído**.   
 
-    a. Anote o valor da **Nova Senha**.
-
-    b. Clique em **Concluído**.   
-
-
-
-### <a name="creating-a-tivitz-test-user"></a>Criando um usuário de teste do TiViTz
+### <a name="create-a-tivitz-test-user"></a>Criar um usuário de teste do TiViTz
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no TiViTz. O TiViTz dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
 Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o TiViTz, caso ele ainda não exista.
 
-> [!NOTE]
-> Se precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do TiViTz](emaiLto:info@tivitz.com).
+>[!NOTE]
+>Se precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do TiViTz](emaiLto:info@tivitz.com).
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao TiViTz.
 
@@ -242,14 +223,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
     ![Atribuir usuário][205]
 
-
-
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco TiViTz no Painel de Acesso, deverá ser conectado automaticamente ao aplicativo do TiViTz.
-
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

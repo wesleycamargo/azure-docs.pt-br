@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 699626f24e6f66f4b149feda5eb292e64d4b6647
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: ff27749800319517a8f635530f0f16b928692575
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,7 +32,7 @@ Neste tópico, você aprenderá a instalar o Giraph usando a Ação de Script. D
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="a-namewhatisawhat-is-giraph"></a><a name="whatis"></a>O que é o Giraph?
+## <a name="whatis"></a>O que é o Giraph?
 
 [Apache Giraph](http://giraph.apache.org/) permite executar processamento de gráficos usando o Hadoop e pode ser usado com o Azure HDInsight. Os gráficos modelam as relações entre objetos, como as conexões entre roteadores em uma rede grande, como a Internet, ou as relações entre as pessoas nas redes sociais (às vezes chamados de gráficos sociais). O processamento de tabelas permite que você faça a análise das relações entre objetos em uma tabela, como:
 
@@ -54,7 +56,7 @@ O script executa as ações a seguir:
 
 * Copia o arquivo `giraph-examples.jar` para o armazenamento padrão (WASB) para o seu cluster: `/example/jars/giraph-examples.jar`
 
-## <a name="a-nameinstallainstall-giraph-using-script-actions"></a><a name="install"></a>Instalar o Giraph usando Ações de Script
+## <a name="install"></a>Instalar o Giraph usando Ações de Script
 
 Um script de exemplo para instalar o Giraph em um cluster HDInsight está disponível no seguinte local.
 
@@ -85,7 +87,7 @@ Esta seção fornece instruções sobre como usar o script de exemplo durante a 
 
 4. Continue a criação do cluster conforme descrito em [Criar clusters HDInsight baseados em Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="a-nameusegiraphahow-do-i-use-giraph-in-hdinsight"></a><a name="usegiraph"></a>Como usar o Giraph no HDInsight?
+## <a name="usegiraph"></a>Como usar o Giraph no HDInsight?
 
 Quando a criação do cluster tiver terminado, use as etapas a seguir para executar o exemplo SimpleShortestPathsComputation incluído com o Giraph. Isso usa a implementação do [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) básico para encontrar o caminho mais curto entre objetos em um gráfico.
 
@@ -93,11 +95,7 @@ Quando a criação do cluster tiver terminado, use as etapas a seguir para execu
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    Para obter mais informações sobre como usar SSH com o HDInsight, consulte o seguinte:
-   
-   * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X ou Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-   * [Usar SSH (PuTTY) com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use o seguinte para criar um novo arquivo chamado **tiny_graph.txt**:
    
@@ -178,10 +176,5 @@ Quando a criação do cluster tiver terminado, use as etapas a seguir para execu
 * [Instalar o R em clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md): instruções sobre como usar personalização do cluster para instalar e usar o R em clusters Hadoop HDInsight. R é uma linguagem e ambiente de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação, que combina aspectos de programação funcional e de programação orientada a objetos. Ele também fornece recursos abrangentes de gráficos.
 
 * [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite executar operações de pesquisa avançadas nos dados armazenados.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

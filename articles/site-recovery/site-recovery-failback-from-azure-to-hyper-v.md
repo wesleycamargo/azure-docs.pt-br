@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: a1769a522d13926e887e82b8d26b36afb4c80b08
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 845a950f02ba95a100ffedbb07e4d1491b22a2da
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -63,7 +63,7 @@ Depois do failover do local primário no secundário, as máquinas virtuais repl
 
 4. Se a criptografia de dados estiver habilitada para a nuvem, em **Chave de Criptografia**, selecione o certificado que foi emitido quando você habilitou a criptografia de dados durante a instalação do provedor no servidor VMM.
 5. Inicie o failover. Você pode acompanhar o progresso do failover na guia **Trabalhos** .
-6. Se você tiver selecionado a opção para sincronizar os dados antes do failover, depois que a sincronização de dados inicial for concluída e você estiver pronto para desligar as máquinas virtuais no Azure, clique em **Trabalhos** > <planned failover job name> **Concluir Failover**. Isso desliga a máquina do Azure, transfere as alterações mais recentes para a máquina virtual local e inicia a VM local.
+6. Se você selecionou a opção para sincronizar os dados antes do failover, depois que a sincronização de dados inicial for concluída e você estiver pronto para desligar as máquinas virtuais no Azure, clique em **Trabalhos** nome do trabalho de failover planejado **Concluir Failover**. Isso desliga a máquina do Azure, transfere as alterações mais recentes para a máquina virtual local e inicia a VM local.
 7. Agora você pode fazer logon na máquina virtual para confirmar se ela está disponível conforme esperado.
 8. A máquina virtual está em um estado de confirmação pendente. Clique em **Confirmar** para confirmar o failover.
 9. Agora, para concluir o failback, clique em **Replicação Inversa** para iniciar a proteção da máquina virtual no site primário.

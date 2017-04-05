@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
-ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9601ff3152e62baf95794919fdc5a7fc43204d52
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conectar uma rede virtual a um circuito do ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conectar uma rede virtual a um circuito do ExpressRoute usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
@@ -31,6 +32,8 @@ ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
 > 
 
 Este artigo o ajudará a vincular as redes virtuais (VNets) aos circuitos de Rota Expressa do Azure usando o modelo de implantação clássico e o PowerShell. As redes virtuais podem estar na mesma assinatura ou fazer parte de outra assinatura.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **Sobre modelos de implantação do Azure**
 
@@ -159,10 +162,5 @@ O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autoriz
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

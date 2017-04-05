@@ -1,5 +1,5 @@
 ---
-title: Configurar um gateway VNet para o ExpressRoute usando o PowerShell | Microsoft Docs
+title: "Configurar um gateway VNet para o ExpressRoute usando o PowerShell: clássico: Azure | Microsoft Docs"
 description: "Configure um gateway de VNet para uma VNet do modelo de implantação clássica usando o PowerShell para uma configuração da Rota Expressa."
 documentationcenter: na
 services: expressroute
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2016
+ms.date: 03/21/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2a0db85dc5699b362aa6a920cc26c40bdfdfc28d
-ms.openlocfilehash: 1679bc2f2344ce3dd78599a1e6a8e2cc974ee905
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: badec4e0b542db52f34db3c50f7d906ed6a5a377
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-classic-deployment-model-and-powershell"></a>Configurar gateway de rede virtual para a Rota Expressa usando o modelo de implantação clássico e o PowerShell
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Configurar um gateway de rede virtual para ExpressRoute usando PowerShell (clássico)
 > [!div class="op_single_selector"]
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Clássico - PowerShell](expressroute-howto-add-gateway-classic.md)
@@ -31,6 +31,8 @@ ms.lasthandoff: 12/14/2016
 > 
 
 Este artigo explica as etapas para adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma VNet já existente. As etapas desta configuração se destinam especificamente a VNets criadas com o **modelo de implantação clássica** e que serão usadas em uma configuração da Rota Expressa. 
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **Sobre modelos de implantação do Azure**
 

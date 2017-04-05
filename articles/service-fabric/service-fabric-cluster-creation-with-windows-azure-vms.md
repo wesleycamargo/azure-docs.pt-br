@@ -12,20 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/12/2016
+ms.date: 03/24/2017
 ms.author: ryanwi;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: ea42f4b8cb026cc52749b3dc3b3e0dca7c82d14f
-ms.openlocfilehash: ec0849b9e49b0ce5341908434248e51f1195ba37
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: ba1f6e5662700c309fcf198a4e114fd9b2b47c5f
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="create-a-three-node-standalone-service-fabric-cluster-with-azure-virtual-machines-running-windows-server"></a>Criar um cluster do Service Fabric autônomo com três nós e com máquinas virtuais do Azure executando o Windows Server
-Este artigo descreve como criar um cluster nas máquinas virtuais (VMs) do Azure baseadas no Windows usando o instalador autônomo do Service Fabric para o Windows Server. Trata-se de um caso especial de [Criar e gerenciar um cluster em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md) em que as VMs são [VMs do Azure executando o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), no entanto, você não está criando [um cluster do Service Fabric baseado em nuvem do Azure](service-fabric-cluster-creation-via-portal.md). A diferença é que o cluster do Service Fabric autônomo criado pelas seguintes etapas é totalmente gerenciado por você, enquanto que os clusters do Service Fabric baseados em nuvem do Azure são gerenciados e atualizados pelo provedor de recursos do Service Fabric.
+Este artigo descreve como criar um cluster nas máquinas virtuais (VMs) do Azure baseadas no Windows usando o instalador autônomo do Service Fabric para o Windows Server. O cenário é um caso especial de [Criar e gerenciar um cluster em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md) em que as VMs são [VMs do Azure executando o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), no entanto, você não está criando [um cluster do Service Fabric baseado em nuvem do Azure](service-fabric-cluster-creation-via-portal.md). A diferença em seguir este padrão é que o cluster do Service Fabric autônomo criado pelas seguintes etapas é totalmente gerenciado por você, enquanto que os clusters do Service Fabric baseados em nuvem do Azure são gerenciados e atualizados pelo provedor de recursos do Service Fabric.
 
 ## <a name="steps-to-create-the-standalone-cluster"></a>Etapas para criar o cluster autônomo
-1. Entre no portal do Azure e crie uma nova VM do Windows Server 2012 R2 Datacenter em um grupo de recursos. Leia o artigo [Criar uma VM do Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais detalhes.
-2. Adicione mais algumas VMs do Windows Server 2012 R2 Datacenter ao mesmo grupo de recursos. Verifique se cada uma das VMs tem o mesmo nome de usuário e senha do administrador quando criadas. Uma vez criadas, você deve ver as três VMs na mesma rede virtual.
+1. Entre no Portal do Azure e crie uma nova VM do Windows Server 2012 R2 Datacenter ou do Windows Server 2016 Datacenter em um grupo de recursos. Leia o artigo [Criar uma VM do Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais detalhes.
+2. Adicione mais algumas VMs ao mesmo grupo de recursos. Verifique se cada uma das VMs tem o mesmo nome de usuário e senha do administrador quando criadas. Uma vez criadas, você deve ver as três VMs na mesma rede virtual.
 3. Conecte cada uma das VMs e desative o Firewall do Windows usando o [painel Gerenciador de Servidores, Servidor Local](https://technet.microsoft.com/library/jj134147.aspx). Isso faz com que o tráfego de rede possa comunicar-se entre os computadores. Ainda conectado a cada máquina, obtenha o endereço IP abrindo um prompt de comando e digitando `ipconfig`. Como alternativa, você pode ver o endereço IP de cada computador no portal selecionando o recurso de rede virtual do grupo de recursos e verificando os adaptadores de rede criados para cada um desses computadores.
 4. Conecte uma das VMs e teste se você pode executar o ping nas duas outras VMs com êxito.
 5. Conecte uma das VMs, [baixe o pacote do Service Fabric autônomo para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) em uma nova pasta no computador e extrair o pacote.
@@ -33,42 +34,43 @@ Este artigo descreve como criar um cluster nas máquinas virtuais (VMs) do Azure
    
     ```
     {
-        "name": "TestCluster",
-        "clusterManifestVersion": "1.0.0",
-        "apiVersion": "2015-01-01-alpha",
+        "name": "SampleCluster",
+        "clusterConfigurationVersion": "1.0.0",
+        "apiVersion": "01-2017",
         "nodes": [
         {
-            "nodeName": "vm0",
-            "metadata": "Replace the localhost with valid IP address or FQDN below",
-            "iPAddress": "10.7.0.5",
+            "nodeName": "standalonenode0",
+            "iPAddress": "10.1.0.4",
             "nodeTypeRef": "NodeType0",
             "faultDomain": "fd:/dc1/r0",
             "upgradeDomain": "UD0"
         },
         {
-            "nodeName": "vm1",
-            "metadata": "Replace the localhost with valid IP address or FQDN below",
-            "iPAddress": "10.7.0.4",
+            "nodeName": "standalonenode1",
+            "iPAddress": "10.1.0.5",
             "nodeTypeRef": "NodeType0",
             "faultDomain": "fd:/dc2/r0",
             "upgradeDomain": "UD1"
         },
         {
-            "nodeName": "vm2",
-            "metadata": "Replace the localhost with valid IP address or FQDN below",
-            "iPAddress": "10.7.0.6",
+            "nodeName": "standalonenode2",
+            "iPAddress": "10.1.0.6",
             "nodeTypeRef": "NodeType0",
             "faultDomain": "fd:/dc3/r0",
             "upgradeDomain": "UD2"
         }
-    ],
+        ],
     ```
-7. Abra uma [janela do ISE do PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Navegue até a pasta onde você extraiu o pacote do instalador autônomo baixado e salvou o arquivo de manifesto do cluster. Execute o comando do PowerShell a seguir.
+7. Se você pretende que isso seja um cluster seguro, decida a medida de segurança que você gostaria de usar e execute as etapas no link associado: [Certificado X509](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows](service-fabric-windows-cluster-windows-security.md). Se estiver configurando o cluster usando a Segurança do Windows, será necessário configurar um controlador de domínio para gerenciar o Active Directory. Observe que não há suporte para o uso de um computador controlador de domínio como um nó do Service Fabric.
+8. Abra uma [janela do ISE do PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Navegue até a pasta onde você extraiu o pacote do instalador autônomo baixado e salvou o arquivo de configuração do cluster. Execute o comando PowerShell a seguir para implantar o cluster:
    
     ```
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
     ```
-8. Você deve ver o script do PowerShell ser executado, conectar cada computador e criar um cluster. Após um minuto, você poderá verificar se o cluster está operando conectando o Service Fabric Explorer em um dos endereços IP da máquina, por exemplo, usando `http://10.7.0.5:19080/Explorer/index.html`. Por ser um cluster autônomo que usa VMs do Azure, para torná-lo seguro, será preciso [implantar certificados para as VMs do Azure](service-fabric-windows-cluster-x509-security.md) ou configurar um dos computadores como um [controlador do AD (Active Directory) do Windows Server para a autenticação do Windows](service-fabric-windows-cluster-windows-security.md), exatamente como você faria localmente.
+
+O script configurará remotamente o cluster do Service Fabric e deverá informar o andamento à medida que implantação ocorre.
+
+9. Após um minuto, você poderá verificar se o cluster está operando conectando-se ao Service Fabric Explorer usando um dos endereços IP da máquina, por exemplo, usando `http://10.1.0.5:19080/Explorer/index.html`. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar clusters autônomos do Service Fabric no Windows Server ou Linux](service-fabric-deploy-anywhere.md)
@@ -76,10 +78,5 @@ Este artigo descreve como criar um cluster nas máquinas virtuais (VMs) do Azure
 * [Definições de configuração para o cluster autônomo no Windows](service-fabric-cluster-manifest.md)
 * [Proteger um cluster autônomo no Windows usando a segurança](service-fabric-windows-cluster-windows-security.md)
 * [Proteger um cluster autônomo no Windows usando os certificados X509](service-fabric-windows-cluster-x509-security.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

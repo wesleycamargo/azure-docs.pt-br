@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 6cb0da6d7b3aafeb9a8079b427e31c66811a6281
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -165,6 +166,16 @@ O cluster HDInsight 3.5, por padrão, desabilita o uso de caminhos de arquivo lo
 2. Na navegação à esquerda, clique em **Livy** e em **Configurações**.
 
 3. Em **livy-default** adicione o nome da propriedade `livy.file.local-dir-whitelist` e defina seu valor como **"/"** se você quiser permitir acesso total ao sistema de arquivos. Se você quiser permitir o acesso somente a um diretório específico, forneça o caminho ao diretório como o valor.
+
+## <a name="troubleshooting"></a>Solucionar problemas
+
+Veja aqui alguns dos problemas que você pode enfrentar ao usar o Livy para envio de trabalho remoto aos clusters Spark.
+
+### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Não há suporte para o uso de um jar externo no armazenamento adicional
+
+**Problema:** se for executar um trabalho do Spark usando Livy fazendo referência a um jar externo no armazenamento adicional associado ao cluster, o trabalho falhará.
+
+**Resolução:** verifique se o jar que deseja usar está disponível no armazenamento padrão associado ao cluster HDInsight.
 
 
 ## <a name="seealso"></a>Consulte também

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 86a0f6f2bc27f1411652b273325e73144582eee0
-ms.openlocfilehash: b0122a87ec64d16d6e026f9b37a563125a5f1920
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 424ee513afce6ab689c8804594754b1b49234754
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -403,12 +405,7 @@ Depois de concluir o tutorial, talvez você queira excluir o cluster. Com o HDIn
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para configurar um cluster do HDInsight ingressado no domínio usando o Azure PowerShell, confira [Configure Domain-joined HDInsight clusters use Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md) (Configurar clusters do HDInsight Ingressado no Domínio usando Azure PowerShell).
-* Para configurar políticas do Hive e executar consultas do Hive, confira [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configurar políticas do Hive para clusters do HDInsight Ingressado no Domínio).
-* Para usar SSH para conectar-se a clusters do HDInsight Ingressados no Domínio, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
-
-
-
-<!--HONumber=Nov16_HO5-->
+* Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](hdinsight-domain-joined-run-hive.md).
+* Para usar o SSH para se conectar a clusters HDInsight adicionados ao domínio, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 

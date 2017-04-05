@@ -6,13 +6,13 @@ Se você ainda não tiver instalado a CLI do Azure e a conectado à sua assinatu
 Este artigo aborda os comandos básicos que você desejará usar com a CLI do Azure para gerenciar e interagir com os recursos do ARM (principalmente as VMs) em sua assinatura do Azure.  Para obter ajuda mais detalhada com opções específicas de linha de comando, você pode usar as opções e a ajuda online sobre os comandos digitando `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
 
 > [!NOTE]
-> Esses exemplos não incluem operações baseadas em modelo que geralmente são recomendadas para implantações de VM no Gerenciador de Recursos. Para saber mais, confira [Usar a CLI do Azure com o Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) e [Implantar e gerenciar máquinas virtuais usando modelos do Azure Resource Manager e a CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Esses exemplos não incluem operações baseadas em modelo que geralmente são recomendadas para implantações de VM no Gerenciador de Recursos. Para saber mais, confira [Usar a CLI do Azure com o Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) e [Implantar e gerenciar máquinas virtuais usando modelos do Azure Resource Manager e a CLI do Azure](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 | Tarefa | Gerenciador de Recursos |
 | --- | --- | --- |
-| Criar a VM mais básica |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenha o `image-urn` do comando `azure vm image list`. Confira [este artigo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter exemplos.) |
+| Criar a VM mais básica |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenha o `image-urn` do comando `azure vm image list`. Confira [este artigo](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter exemplos.) |
 | Criar uma VM do Linux |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Criar uma VM do Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
 | Listar VMs |`azure  vm list [options]` |

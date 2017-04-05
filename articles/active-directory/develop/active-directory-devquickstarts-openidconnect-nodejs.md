@@ -55,7 +55,7 @@ O aplicativo completo também é fornecido no final deste tutorial.
 5. Siga os prompts para criar um **Aplicativo Web** e/ou uma **API Web**.
   * O **nome** do aplicativo descreve o aplicativo aos usuários.
 
-  * A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é "http://localhost:3000/auth/openid/return".
+  * A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é `http://localhost:3000/auth/openid/return``.
 
 6. Depois de registrar, AD do Azure atribui seu aplicativo uma ID de aplicativo único. Você precisará desse valor nas seções a seguir, então copie-o da página do aplicativo.
 7. Na página **Configurações** -> **Propriedades** do aplicativo, atualize o URI da ID do Aplicativo. O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo. A convenção é usar o formato `https://<tenant-domain>/<app-name>`, por exemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -209,8 +209,9 @@ O Passport usa um padrão semelhante para todas as estratégias (Twitter, Facebo
 
 6. Finally, let's add the routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
 
-```JavaScript
-
+       
+       ```JavaScript
+ 
         // Our Auth routes (section 3)
 
         // GET /auth/openid

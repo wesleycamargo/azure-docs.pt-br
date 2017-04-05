@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: f589111d3a4da061e1cc3313632dd0b5403dc278
-ms.openlocfilehash: f93e5802141b16862f5e37126196069bd32c1f19
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 94f9bbcfddf8ea3d5ae9bffcb3c196a30f4bb396
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,8 +28,8 @@ ms.openlocfilehash: f93e5802141b16862f5e37126196069bd32c1f19
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
-> 
-> 
+>
+>
 
 <a name="current-dwu-bk"></a>
 
@@ -39,14 +40,15 @@ Para exibir as configurações atuais de DWU para seus bancos de dados:
 2. Conecte-se ao banco de dados mestre associado ao servidor lógico do Banco de Dados SQL.
 3. Selecione do modo de exibição de gerenciamento dinâmico sys.database_service_objectives. Veja um exemplo: 
 
-```
+```sql
 SELECT
- db.name [Database],
- ds.edition [Edition],
- ds.service_objective [Service Objective]
+    db.name [Database]
+,    ds.edition [Edition]
+,    ds.service_objective [Service Objective]
 FROM
- sys.database_service_objectives ds
- JOIN sys.databases db ON ds.database_id = db.database_id
+     sys.database_service_objectives ds
+JOIN
+    sys.databases db ON ds.database_id = db.database_id
 ```
 
 <a name="scale-dwu-bk"></a>
@@ -65,6 +67,35 @@ ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
+
+<a name="check-database-state-bk"></a>
+
+## <a name="check-database-state-and-operation-progress"></a>Verificar estado do banco de dados e o progresso da operação
+
+1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
+2. Enviar consulta para verificar o estado do banco de dados
+
+```sql
+SELECT *
+FROM
+sys.databases
+```
+
+3. Enviar consulta para verificar o status da operação
+
+```sql
+SELECT *
+FROM
+    sys.dm_operation_status
+WHERE
+    resource_type_desc = 'Database'
+AND 
+    major_resource_id = 'MySQLDW'
+```
+
+Esta DMV retorna informações sobre várias operações de gerenciamento no SQL Data Warehouse, como a operação e o estado da operação, que será IN_PROGRESS ou COMPLETED.
+
+
 
 <a name="next-steps-bk"></a>
 
@@ -86,9 +117,4 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][M
 <!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

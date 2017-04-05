@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 03/23/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
-ms.openlocfilehash: f5fd4c6c0b8db3fe91d8b57a68fe33dcff353a59
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: a433b918f48b42d3bf7ee8ee16bd912e278a381d
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -138,9 +138,6 @@ A URL do endereço fornecida na mensagem JSON é usada pelo ouvinte para estabel
 #### <a name="accepting-the-socket"></a>Aceitando o soquete
 Para aceitar, o ouvinte estabelece uma conexão de soquete da Web com o endereço fornecido.
 
-Observe que, para o período de visualização, o URI do endereço pode usar um endereço IP sem colchetes e o certificado TLS fornecido pelo servidor falhará na validação desse endereço.
-Isso será corrigido durante a visualização.
-
 Se a mensagem "accept" transportar um cabeçalho "Sec-WebSocket-Protocol", espera-se que o ouvinte só aceite o soquete da Web se ele der suporte a esse protocolo e que ele defina o cabeçalho conforme o soquete da Web for estabelecido.
 
 O mesmo se aplica ao cabeçalho "Sec-WebSocket-Extensions". Se a estrutura der suporte a uma extensão, ela deverá definir o cabeçalho como a resposta do lado do *servidor* do handshake "Sec-WebSocket-Extensions" necessário para a extensão.
@@ -187,7 +184,7 @@ Para rejeitar o soquete, o cliente usa o endereço URI da mensagem "accept" e ac
 | statusCode |Sim |Código de status HTTP numérico. |
 | statusDescription |Sim |Motivo da rejeição legível por humanos. |
 
-O URI resultante, em seguida, é usado para estabelecer uma conexão WebSocket; novamente, observe que o certificado TLS pode não corresponder ao endereço durante a visualização, portanto, a validação talvez precise ser desabilitada.
+O URI resultante é usado para estabelecer uma conexão WebSocket.
 
 Ao ser concluído corretamente, esse handshake falhará intencionalmente com um código de erro HTTP 410, pois nenhum soquete da Web terá sido estabelecido. Se ocorrer um erro, estas serão as opções:
 
