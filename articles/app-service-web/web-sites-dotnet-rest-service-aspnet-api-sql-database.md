@@ -41,7 +41,6 @@ Você criará um aplicativo Web de lista de contatos simples desenvolvido no ASP
 
 ![captura de tela do site][intro001]
 
-<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ### <a name="create-the-project"></a>Criar o projeto

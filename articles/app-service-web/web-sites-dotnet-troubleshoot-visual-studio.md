@@ -38,7 +38,7 @@ O que você aprenderá:
 
 Se você tiver o Visual Studio Ultimate, também é possível utilizar o [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) para depuração. O IntelliTrace não é abordado neste tutorial.
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este tutorial funciona com o ambiente de desenvolvimento, o projeto Web e o aplicativo Web do Azure que você configurou na [Introdução ao Azure e ao ASP.NET][GetStarted]. Para as seções do WebJobs, você precisará do aplicativo que você criou na [Introdução ao SDK do Azure WebJobs][GetStartedWJ].
 
 Os exemplos de código mostrados neste tutorial são para um aplicativo Web MVC em C#, mas os procedimentos para solução de problemas são os mesmos para aplicativos em Visual Basic e Web Forms.
@@ -47,7 +47,7 @@ O tutorial presume que você esteja usando o Visual Studio 2015 ou 2013. Se voc�
 
 O recurso de logs de streaming funciona apenas para aplicativos que tenham como alvo o .NET Framework 4 ou posterior.
 
-## <a name="a-namesitemanagementaweb-app-configuration-and-management"></a><a name="sitemanagement"></a>Gerenciamento e configuração de aplicativo Web
+## <a name="sitemanagement"></a>Gerenciamento e configuração de aplicativo Web
 O Visual Studio fornece acesso a um subconjunto das funções de gerenciamento e das definições de configuração disponíveis no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Nesta seção, você verá o que está disponível usando o **Gerenciador de Servidores**. Para ver os últimos recursos de integração do Azure, experimente também o **Cloud Explorer** . Você pode abrir as duas janelas do menu de **Exibição** .
 
 1. Se você ainda não entrou no Azure usando o Visual Studio, clique no botão **Conectar ao Azure** do **Gerenciador de Servidores**.
@@ -75,7 +75,7 @@ O Visual Studio fornece acesso a um subconjunto das funções de gerenciamento e
 
     Se desejar executar uma tarefa de gerenciamento do aplicativo Web que não possa ser concluída nessa janela, clique em **Abrir no Portal de Gerenciamento** para abrir uma janela do navegador para o portal do Azure.
 
-## <a name="a-nameremoteviewaaccess-web-app-files-in-server-explorer"></a><a name="remoteview"></a>Acessar arquivos de aplicativo Web no Gerenciador de Servidores
+## <a name="remoteview"></a>Acessar arquivos de aplicativo Web no Gerenciador de Servidores
 Você tipicamente implanta um projeto Web com o `customErrors`sinalizador no arquivo Web.config definido como `On` ou `RemoteOnly`, o que significa que você não receberá uma mensagem de erro útil quando algo dá errado. Para muitos erros, tudo o que você recebe é uma página como uma das páginas a seguir.
 
 **Erro de servidor no aplicativo '/':**
@@ -113,7 +113,7 @@ Normalmente, a maneira mais fácil de encontrar a causa do erro é habilitar men
 
 A edição do arquivo Web.config é apenas um exemplo dos cenários em que a capacidade de ler e editar arquivos no aplicativo Web do Azure facilita a solução de problemas.
 
-## <a name="a-nameremotedebugaremote-debugging-web-apps"></a><a name="remotedebug"></a>Depuração remota de aplicativos Web
+## <a name="remotedebug"></a>Depuração remota de aplicativos Web
 Se a mensagem de erro detalhada não oferecer informações suficientes e não for possível recriar o erro localmente, outra maneira de solucionar o problema é executar no modo de depuração remotamente. Você pode definir os pontos de interrupção, manipular diretamente a memória, percorrer o código e até mesmo alterar o caminho do código.
 
 A depuração remota não funciona em edições Express do Visual Studio.
@@ -159,7 +159,7 @@ Esta seção mostra como depurar remotamente usando o projeto que você criou em
 
      ![A página Sobre com o novo valor](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="a-nameremotedebugwja-remote-debugging-webjobs"></a><a name="remotedebugwj"></a> Trabalhos Web de depuração remota
+## <a name="remotedebugwj"></a> Trabalhos Web de depuração remota
 Esta seção mostra como depurar remotamente usando o projeto e o site que você criou na [Introdução ao SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk.md).
 
 Os recursos mostrados nesta seção só estão disponíveis no Visual Studio 2013 com a Atualização 4 ou posterior.
@@ -221,7 +221,7 @@ Se a sua função [criou logs](websites-dotnet-webjobs-sdk-storage-queues-how-to
 * Um timer é iniciado no servidor quando você habilita o recurso de depuração remota e, após 48 horas, o recurso é desativado automaticamente. Esse limite de 48 horas é definido por razões de segurança e desempenho. Você pode reativá-lo facilmente quantas vezes quiser. É recomendável deixá-lo desabilitado quando você não está depurando ativamente.
 * Você pode anexar manualmente o depurador a qualquer processo, não apenas ao processo do aplicativo Web (w3wp.exe). Para obter mais informações sobre como usar o modo de depuração no Visual Studio, consulte [Depurando no Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
-## <a name="a-namelogsoverviewadiagnostic-logs-overview"></a><a name="logsoverview"></a>Visão geral dos logs de diagnóstico
+## <a name="logsoverview"></a>Visão geral dos logs de diagnóstico
 Um aplicativo em ASP.NET executado em um aplicativo Web do Azure pode criar os seguintes tipos de logs:
 
 * **Logs de rastreamento de aplicativos**<br/>
@@ -237,7 +237,7 @@ Como o registro em log afeta o desempenho do aplicativo Web, o Azure oferece a p
 
 Os logs são gravados em arquivos em uma pasta *LogFiles* no sistema de arquivos de seu aplicativo Web e são acessíveis via FTP. Os logs de servidor Web e de aplicativo também podem ser gravados em uma conta de armazenamento do Azure. Você pode manter um volume maior de logs em uma conta de armazenamento do que o que é possível no sistema de arquivos. Você está limitado a um máximo de 100 megabytes de logs ao usar o sistema de arquivos. (Os logs do sistema de arquivos são apenas para retenção de curto prazo. O Azure exclui arquivos de log antigos para abrir espaço para novos quando o limite é atingido.)  
 
-## <a name="a-nameapptracelogsacreate-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Criar e exibir logs de rastreamento de aplicativos
+## <a name="apptracelogs"></a>Criar e exibir logs de rastreamento de aplicativos
 Nesta seção, você executará as seguintes tarefas:
 
 * Adicionar instruções de rastreamento ao projeto Web que você criou em [Introdução ao Azure e ASP.NET][GetStarted].
@@ -373,7 +373,7 @@ Desempenham as seguintes funções:
 
 Se você inserir uma cadeia de caracteres de pesquisa ou uma expressão regular, o Visual Studio filtrará as informações de log no cliente. Isso significa que você pode inserir os critérios depois que os logs são exibidos na janela **Saída** e pode alterar os critérios de filtragem sem precisar gerar os logs novamente.
 
-## <a name="a-namewebserverlogsaview-web-server-logs"></a><a name="webserverlogs"></a>Exibir logs de servidor Web
+## <a name="webserverlogs"></a>Exibir logs de servidor Web
 Logs do servidor Web registram toda a atividade HTTP para o aplicativo Web. Para vê-los na janela **Saída** , você precisa habilitá-los no aplicativo Web e informar ao Visual Studio que deseja monitorá-los.
 
 1. Na guia **Configuração de Aplicativo Web do Azure** que você abriu no **Gerenciador de Servidores**, altere o Registro em Log de Servidor Web para **Ativado** e, em seguida, clique em **Salvar**.
@@ -395,7 +395,7 @@ Por padrão, quando você habilita os logs do servidor Web pela primeira vez usa
 
 Se você usar o portal para habilitar o registro em log do servidor Web para uma conta de armazenamento do Azure e desabilitar o registro em log no Visual Studio, quando reabilitar o registro em log no Visual Studio, as configurações da conta de armazenamento serão restauradas.
 
-## <a name="a-namedetailederrorlogsaview-detailed-error-message-logs"></a><a name="detailederrorlogs"></a>Exibir logs de mensagens de erro detalhadas
+## <a name="detailederrorlogs"></a>Exibir logs de mensagens de erro detalhadas
 Os logs detalhados de erro fornecem algumas informações adicionais sobre solicitações HTTP que resultam em códigos de resposta de erro (400 ou acima). Para vê-los na janela **Saída** , você precisa habilitá-los no aplicativo Web e informar ao Visual Studio que deseja monitorá-los.
 
 1. Na guia **Configuração de Aplicativo Web do Azure** que você abriu no **Gerenciador de Servidores**, altere **Mensagens de Erro Detalhadas** para **Ativado** e clique em **Salvar**.
@@ -415,7 +415,7 @@ Os logs detalhados de erro fornecem algumas informações adicionais sobre solic
 
     ![Log detalhado de erros na janela do navegador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
-## <a name="a-namedownloadlogsadownload-file-system-logs"></a><a name="downloadlogs"></a>Baixar logs do sistema de arquivos
+## <a name="downloadlogs"></a>Baixar logs do sistema de arquivos
 Todos os logs que podem ser monitorados na janela **Saída** também podem ser baixados como um arquivo *. zip* .
 
 1. Na janela **Saída**, clique em **Baixar Logs de Streaming**.
@@ -435,7 +435,7 @@ Todos os logs que podem ser monitorados na janela **Saída** também podem ser b
 
      (A pasta *deployments* é para os arquivos criados pela publicação de controle do código-fonte; ela não tem nada relacionado à publicação do Visual Studio. A pasta *Git* é para rastreamentos relacionados à publicação de código-fonte e o serviço de streaming de arquivos de log.)  
 
-## <a name="a-namestoragelogsaview-storage-logs"></a><a name="storagelogs"></a>Exibir logs de armazenamento
+## <a name="storagelogs"></a>Exibir logs de armazenamento
 Os logs de rastreamento de aplicativos também podem ser enviados para uma conta de armazenamento do Azure, e você pode exibi-los no Visual Studio. Para fazer isso, você criará uma conta de armazenamento, habilitará os logs de armazenamento no portal clássico e os exibirá na guia **Logs** da janela **Aplicativo Web do Azure**.
 
 Você pode enviar logs para qualquer um ou todos os três destinos:
@@ -514,7 +514,7 @@ As contas de armazenamento oferecem mais armazenamento e retenção por mais tem
 
      ![Tabela de rastreamento no Gerenciador de Servidores](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
 
-## <a name="a-namefailedrequestlogsaview-failed-request-tracing-logs"></a><a name="failedrequestlogs"></a>Exibir logs de rastreamento de solicitações com falha
+## <a name="failedrequestlogs"></a>Exibir logs de rastreamento de solicitações com falha
 Os logs de rastreamento de solicitação com falha são úteis quando você precisa entender os detalhes de como o IIS trata uma solicitação HTTP, em cenários como problemas de autenticação ou regravação de URL.
 
 Os aplicativos Web do Azure usam a mesma funcionalidade de rastreamento de solicitação com falha disponível no IIS 7.0 e em versões posteriores. No entanto, você não tem acesso às configurações do IIS que configuram quais erros são registrados em log. Quando você habilita o rastreamento de solicitação com falha, todos os erros são capturados.
@@ -555,7 +555,7 @@ Você pode exibir os logs de rastreamento de solicitação com falha em um naveg
 
     ![Rastreamento de solicitação com falha no navegador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
-## <a name="a-namenextstepsanext-steps"></a><a name="nextsteps"></a>Próximas etapas
+## <a name="nextsteps"></a>Próximas etapas
 Você viu como o Visual Studio facilita a exibição de logs criados por um aplicativo Web do Azure. As seguintes seções fornecem links para mais recursos sobre tópicos relacionados:
 
 * Solução de problemas de aplicativo Web do Azure
@@ -637,6 +637,6 @@ Para obter mais informações sobre como analisar logs de servidor web, consulte
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisando logs de rastreamento de solicitação com falha
 O site do Microsoft TechNet inclui uma seção [Usando rastreamento de solicitação com falha](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) que pode ser útil para entender como usar esses logs. No entanto, essa documentação se concentra principalmente na configuração do rastreamento de solicitação com falha no IIS, o que você não pode fazer em Aplicativos Web do Azure.
 
-[GetStarted]: web-sites-dotnet-get-started.md
+[GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
 

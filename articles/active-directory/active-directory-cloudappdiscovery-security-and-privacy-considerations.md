@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
 ms.openlocfilehash: 5c4ab6e08c8f1af89ea80ac7f4d58d82ee931ec9
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -168,10 +169,5 @@ Qualquer usuário que acesse dados no portal deve ser licenciado com uma licenç
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
