@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
 ms.openlocfilehash: 7f2a3c4bf8fda9dd235986be8b0ceaa8eb8313e0
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -49,10 +50,5 @@ O objetivo deste tópico é fornecer as etapas que você precisa executar para c
 **Recursos adicionais**
 
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md) 
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

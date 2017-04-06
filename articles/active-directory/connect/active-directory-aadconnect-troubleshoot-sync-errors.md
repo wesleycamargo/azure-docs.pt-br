@@ -215,7 +215,7 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 1. O atributo userCertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados. O limite rígido é de 15 certificados.
 2. O atributo userSMIMECertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados. O limite rígido é de 15 certificados.
 3. O thumbnailPhoto de Bob, definido no Active Directory, é muito grande para ser sincronizado no Azure AD.
-4. Durante a população automática do atributo ProxyAddresses no Active Directory, um ProxyAddresses superior a&500; foi atribuído a um objeto.
+4. Durante a população automática do atributo ProxyAddresses no Active Directory, um ProxyAddresses > 500 foi atribuído a um objeto.
 
 ### <a name="how-to-fix"></a>Como corrigir
 1. Certifique-se de que o atributo que está causando o erro esteja dentro do limite permitido.
