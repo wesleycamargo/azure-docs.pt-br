@@ -33,7 +33,7 @@ Estas etapas mostram como usar a CLI (interface de linha de comando) do Azure pa
 <br>
 Este é um fluxograma para identificar a ordem em que as etapas precisam ser executadas durante um processo de migração
 
-![Captura de tela que mostra as etapas de migração](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-prepare-for-migration"></a>Etapa 1: preparar para a migração
 Veja a seguir algumas das práticas que recomendamos durante a avaliação de migração dos recursos de IaaS do modelo clássico para o Gerenciador de Recursos:
