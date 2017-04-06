@@ -23,14 +23,14 @@ ms.lasthandoff: 03/16/2017
 
 ---
 # <a name="create-a-webhook-or-api-azure-function"></a>Criar um webhook ou um Azure Function de API
-O Azure Functions é uma experiência de computação sob demanda acionada por evento que permite criar unidades de código agendadas ou disparadas, que serão implementadas em diversas linguagens de programação. Para saber mais sobre o Azure Functions, veja a [Visão geral do Azure Functions](functions-overview.md).
+O Azure Functions é uma experiência de computação sob demanda acionada por eventos que permite criar unidades de código agendadas ou disparadas, implementadas em diversas linguagens de programação. Para saber mais sobre o Azure Functions, veja a [Visão geral do Azure Functions](functions-overview.md).
 
-Este tópico mostra como criar uma função do JavaScript que é invocada por um webhook do GitHub. A nova função é criada com base em um modelo predefinido no portal do Azure Functions. Você também pode assistir a um vídeo curto para ver como essas etapas são executadas no portal.
+Este tópico mostra como criar uma função em JavaScript que é invocada por um webhook do GitHub. A nova função é criada com base em um modelo predefinido no portal do Azure Functions. Você também pode assistir a um vídeo de curta duração para ver como essas etapas são executadas no portal.
 
-As etapas gerais neste tutorial também podem ser usadas para criar uma função no c# ou F # em vez de JavaScript. 
+As etapas gerais deste tutorial também podem ser usadas para criar uma função no C# ou F# em vez de JavaScript. 
 
 ## <a name="watch-the-video"></a>Assista ao vídeo
-O vídeo a seguir mostra como executar as etapas básicas deste tutorial 
+O vídeo à seguir mostra como executar as etapas básicas deste tutorial 
 
 >[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
 >
@@ -71,7 +71,7 @@ Um aplicativo de função hospeda a execução de suas funções no Azure.
 Em seguida, você criará o webhook real no repositório GitHub.
 
 ## <a name="configure-the-webhook"></a>Configurar o webhook
-1. No GitHub, navegue até um repositório de sua propriedade. Você também pode usar todos os repositórios que você tenha bifurcado.
+1. No GitHub, navegue até um repositório de sua propriedade. Você também pode usar todos os repositórios que você tenha criado um fork.
  
 2. Clique em **Configurações** > **Webhooks e serviços** > **Adicionar webhook**.
    
