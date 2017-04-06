@@ -3,8 +3,8 @@ title: "Introdução ao Active Directory Premium do Azure"
 description: "Um tópico que explica como inscrever-se no Azure Active Directory Premium Edition por meio do site de Licenciamento por Volume."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: curtand
+author: curtand
+manager: femila
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services

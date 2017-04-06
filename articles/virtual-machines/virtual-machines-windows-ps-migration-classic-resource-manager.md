@@ -34,7 +34,7 @@ Se quiser, você também pode migrar recursos usando a [Interface de linha de co
 <br>
 Este é um fluxograma para identificar a ordem em que as etapas precisam ser executadas durante um processo de migração
 
-![Captura de tela que mostra as etapas de migração](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-plan-for-migration"></a>Etapa 1: Planejar a migração
 Veja a seguir algumas das práticas que recomendamos durante a avaliação de migração dos recursos de IaaS do modelo clássico para o Gerenciador de Recursos:
