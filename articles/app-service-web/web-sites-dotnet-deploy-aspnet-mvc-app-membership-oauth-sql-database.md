@@ -512,7 +512,7 @@ Nesta seção, você aplica o atributo [Authorize](http://msdn.microsoft.com/lib
 6. Faça logon como *user1@contoso.com* (com a senha "P_assw0rd1") e verifique se você pode editar dados.
 7. Faça logoff.
 8. Vá para o [Console de desenvolvedores do Google](https://console.developers.google.com/) e sobre a atualização da guia **Credenciais** redirecione URIS e JavaScript Orgins para utilizar a URL do Azure.
-9. Faça logon usando o Google ou o Facebook. Isso irá adicionar a conta do Google ou do Facebook à função **canEdit** . Se você receber um erro HTTP 400 com a mensagem *O URI de redirecionamento na solicitação: https://contactmanager {minha versão}.azurewebsites.net/signin-google não correspondeu a um URI de redirecionamento registrado.*, você terá de esperar até que as alterações feitas por você sejam propagadas. Se você receber esse erro depois de mais de alguns minutos, verifique se os URIs estão corretos.
+9. Faça logon usando o Google ou o Facebook. Isso irá adicionar a conta do Google ou do Facebook à função **canEdit** . Se você receber um erro HTTP 400 com a mensagem *O URI de redirecionamento na solicitação: https://contactmanager{minha versão}.azurewebsites.net/signin-google não correspondeu a um URI de redirecionamento registrado.*, você terá de esperar até que as alterações feitas por você sejam propagadas. Se você receber esse erro depois de mais de alguns minutos, verifique se os URIs estão corretos.
 
 ### <a name="stop-the-web-app-to-prevent-other-people-from-registering"></a>Parar o aplicativo Web para impedir que outras pessoas se registrem
 1. Em **Gerenciador de Servidores**, navegue até **Azure > Serviço de Aplicativo > {seu grupo de recursos} > {seu aplicativo Web}**.
