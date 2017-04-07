@@ -67,7 +67,7 @@ Caso tenha um dispositivo registrado em sua organização, você precisará conc
 ### <a name="why-does-the-app-request-so-many-permissions"></a>Por que o aplicativo solicita tantas permissões?
 Veja a seguir uma lista completa de permissões que solicitamos e como elas são usadas no aplicativo. As permissões específicas que você vê dependem do tipo de telefone que você tem.
 
-* **Câmera**: podemos usar a câmera para digitalizar códigos de barras&2;D quando você adiciona uma conta corporativa, de estudante ou conta não-Microsoft.
+* **Câmera**: podemos usar a câmera para digitalizar códigos de barras 2D quando você adiciona uma conta corporativa, de estudante ou conta não-Microsoft.
 * **Contatos e telefone**: quando você entra com sua conta pessoal da Microsoft, tentamos simplificar o processo de localizar contas existentes que você usa em seu telefone.
 * **SMS**: quando você entra com sua conta pessoal da Microsoft pela primeira vez, é preciso certificar-se de que o número de telefone corresponde ao que temos no registro. Enviamos uma mensagem de texto para o telefone de onde você baixou o aplicativo. A mensagem contém um código de verificação de 6 a 8 dígitos. Em vez de solicitar que você encontre esse código e insira-o no aplicativo, nós achamos na mensagem de texto para você.
 * **Desenhar sobre outros aplicativos**: quando você recebe uma notificação para verificar sua identidade, podemos exibir notificação sobre qualquer outro aplicativo que pode estar em execução.
