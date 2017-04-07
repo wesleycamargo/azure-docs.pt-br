@@ -63,7 +63,7 @@ Vamos dar uma olhada rápida em o que o nível de compatibilidade 130 traz para 
   * As classificações em uma tabela com um índice de Repositório de Coluna agora estão em modo de lote.
   * As agregações em janela agora operam em modo em lote como instruções T-SQL LAG/LEAD.
   * Consultas em tabelas de Repositório de Coluna com Múltiplas cláusulas distintas operam em modo de Lote.
-  * Consultas em execução com DOP =&1; ou um plano serial também são executadas em Modo de Lote.
+  * Consultas em execução com DOP = 1 ou um plano serial também são executadas em Modo de Lote.
 * Por fim, as melhorias de Estimativa de Cardinalidade são fornecidas com o nível de compatibilidade 120, mas para aqueles que estão executando em um nível de Compatibilidade inferior (ou seja, 100 ou 110), a mudança para o nível de compatibilidade 130 também traz essas melhorias e elas também podem beneficiar o desempenho da consulta dos aplicativos.
 
 ## <a name="practicing-compatibility-level-130"></a>Praticando o nível de compatibilidade 130
