@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/06/2017
 ms.author: magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
@@ -250,7 +250,7 @@ Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccoun
 2. Na folha **Todas as configurações**, em **Configurações de Conta**, selecione **Propriedades**. 
 3. Observe os valores na folha **Propriedades**.
 
- ![A folha "Propriedades" da conta de Automação](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![A folha "Propriedades" da conta de Automação](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-a-run-as-account-powershell-script"></a>Criar o script do PowerShell da conta Executar como
 Este script do PowerShell inclui suporte para as seguintes configurações:
@@ -340,6 +340,7 @@ Para executar o script e carregar o certificado, faça o seguinte:
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
         $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
 
@@ -414,7 +415,6 @@ Para executar o script e carregar o certificado, faça o seguinte:
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
 
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues

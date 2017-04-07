@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3980b99206c9f0c81ba3d03778777878e25db7c8
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -36,10 +37,5 @@ Atualmente, a política não é imposta para usuários convidados do SharePoint.
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>Uma política de acesso condicional se aplica a contas de serviço?
 **R:** As políticas de acesso condicional se aplicam a todas as contas de usuário. Isso inclui contas de usuário usadas como contas de serviço. Em muitos casos, uma conta de serviço que é executada de forma autônoma não é capaz de atender a uma política. É o caso, por exemplo, quando a MFA é necessária. Nesses casos, as contas de serviços podem ser excluídas de uma política, usando configurações de gerenciamento de política de acesso condicional. Saiba mais sobre como aplicar uma política aos usuários aqui.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 
