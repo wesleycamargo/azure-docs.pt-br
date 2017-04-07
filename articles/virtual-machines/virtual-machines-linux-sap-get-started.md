@@ -338,7 +338,7 @@ Resumo: este é o documento que você deverá ler primeiro se estiver pensando e
 
 Atualização: março de 2016
 
-[Este guia pode ser encontrado aqui][guia de planejamento]
+[Este guia pode ser encontrado aqui][planning-guide]
 
 ## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Implantação
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Implantação
@@ -347,7 +347,7 @@ Resumo: este documento oferece orientação de procedimentos para a implantaçã
 
 Atualização: março de 2016
 
-[Este guia pode ser encontrado aqui][guia de implantação]
+[Este guia pode ser encontrado aqui][deployment-guide]
 
 ## <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guia de implantação de DBMS
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Implantação de DBMS
@@ -356,6 +356,6 @@ Resumo: este artigo aborda considerações sobre planejamento e implementação 
 
 Atualização: março de 2016
 
-[Esse guia pode ser encontrado aqui][guia dbms]
+[Esse guia pode ser encontrado aqui][dbms-guide]
 
 

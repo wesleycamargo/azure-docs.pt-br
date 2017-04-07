@@ -250,7 +250,7 @@ Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccoun
 2. Na folha **Todas as configurações**, em **Configurações de Conta**, selecione **Propriedades**. 
 3. Observe os valores na folha **Propriedades**.
 
- ![A folha "Propriedades" da conta de Automação](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![A folha "Propriedades" da conta de Automação](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-a-run-as-account-powershell-script"></a>Criar o script do PowerShell da conta Executar como
 Este script do PowerShell inclui suporte para as seguintes configurações:
@@ -415,7 +415,6 @@ Para executar o script e carregar o certificado, faça o seguinte:
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
 
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
