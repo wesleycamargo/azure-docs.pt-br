@@ -229,7 +229,7 @@ Você precisa saber do seguinte:
 
 
 > [!NOTE]
-> O script abaixo pressupõe que o Grupo de Disponibilidade SQL está hospedado em uma VM do Azure clássico e que o nome da máquina virtual restaurada na Etapa&2; é SQLAzureVM-Test. Modifique o script com base no nome que você usa para a máquina virtual recuperada.
+> O script abaixo pressupõe que o Grupo de Disponibilidade SQL está hospedado em uma VM do Azure clássico e que o nome da máquina virtual restaurada na Etapa 2 é SQLAzureVM-Test. Modifique o script com base no nome que você usa para a máquina virtual recuperada.
 >
 >
 

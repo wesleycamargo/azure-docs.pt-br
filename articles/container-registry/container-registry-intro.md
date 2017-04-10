@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introdução aos registros de contêiner do Docker privado
@@ -48,9 +48,7 @@ Os desenvolvedores também podem enviar um registro de contêiner como parte de 
 
 
 ## <a name="key-concepts"></a>Principais conceitos
-* **Registro** - crie um ou mais registros de contêiner em sua assinatura do Azure. Cada registro é apoiado por uma [conta de armazenamento](../storage/storage-introduction.md) padrão do Azure no mesmo local. Aproveite o armazenamento local e de rede fechada de suas imagens de contêiner criando um registro no mesmo local do Azure de suas implantações.
-
-  Os registros são nomeados em um domínio raiz do [locatário do Azure Active Directory](../active-directory/active-directory-howto-tenant.md) da assinatura. Por exemplo, se você tiver uma conta organizacional no domínio Contoso, seu nome totalmente qualificado do registro estará no formato `myregistry-contoso.azurecr.io`.
+* **Registro** - crie um ou mais registros de contêiner em sua assinatura do Azure. Cada registro é apoiado por uma [conta de armazenamento](../storage/storage-introduction.md) padrão do Azure no mesmo local. Aproveite o armazenamento local e de rede fechada de suas imagens de contêiner criando um registro no mesmo local do Azure de suas implantações. Um nome de registro totalmente qualificado tem a forma `myregistry.azurecr.io`.
 
   Você [controla o acesso](container-registry-authentication.md) a um registro de contêiner usando uma [entidade de serviço](../active-directory/active-directory-application-objects.md) com suporte do Azure Active Directory ou uma conta de administrador fornecida. Execute o comando `docker login` padrão para se autenticar em um registro.
 

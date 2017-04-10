@@ -5,7 +5,6 @@ services: virtual-machines\linux
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
 ms.service: virtual-machines\linux
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,103 +12,68 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a83884a61475d6bc06e405bc7c72d4ac2435c398
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 5a8813e08d10bc2fa34a49b8b7dd01074da7426e
+ms.lasthandoff: 04/08/2017
 
 ---
-# <a name="linux-virtual-machine-documentation"></a>Documentação da Máquina Virtual do Linux
-
-<div class="introHolder">
-    <div class="intro">
-Saiba como executar Máquinas Virtuais no Azure usando a distribuição do Linux de sua escolha. Documentação, referências de API e exemplos mostram diferentes maneiras de criar e implantar modelos de VM.
+<div class="content">
+    <h1>Documentação sobre Máquinas Virtuais do Linux</h1>
+    <p style="padding-bottom: 0px; max-width: 1050px;">As Máquinas Virtuais Linux do Azure fornecem infraestrutura sob demanda, de alta escala, segura e virtualizada usando Red Hat, Ubuntu ou a distribuição do Linux de sua escolha.  Aprenda a criar, configurar, gerenciar e dimensionar as VMs do Linux com nossos guias de início rápido, tutoriais e exemplos.</p>
+<h2 style="margin-top: 36px; margin-bottom: 0px;">Guia de início rápido</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Criar uma VM Linux usando:</p>
+<div class="ico48Case">
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+            <img src="media/index/cli.svg" alt="">
+            <span>CLI do Azure</span>
+        </a>
     </div>
-    <div class="calloutHolder">
-        <div class="callout">
-            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
-                <img src="media/index/pluralsight.svg" />Treinamento em vídeo PluralSight gratuito - gerenciamento de infraestruturas com o Microsoft Azure</a>
-        </div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <img src="media/index/portal.svg" alt="">
+            <span>Portal do Azure</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+            <img src="media/index/logo_powershell.svg" alt="">
+            <span>Azure PowerShell</span>
+        </a>
+    </div>
+<div>
+<div class="columnHolder">
+    <div class="column50">
+        <h2 style="margin-top: 36px">Tutoriais</h2>
+        <p>Criar e implantar máquinas virtuais Linux.</p>
+        <ul class="spaced">
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Criar e gerenciar as VMs Linux</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Balancear carga de VMs altamente disponíveis</a></li>
+        </ul>
+        <h2>Exemplos</h2>
+        <p>Implante seu aplicativo no Azure.</p>
+        <ul class="spaced">
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">CLI do Azure</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a></li>
+        </ul>
+    </div>
+    <div class="column50" style="max-width: 400px">
+        <h2 style="margin-top: 36px">Treinamento em Vídeo Gratuito</h2>
+        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
+            <p style="margin-top: 0px">Treinamento em vídeo PluralSight gratuito – Gerenciamento de infraestruturas</a></p>
+            <p style="margin-top: 36px"></p>
+                <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-vms.png" width="400" alt="" />
+            <p style="margin-top: 0px">Treinamento em vídeo Pluralsight gratuito – Guia de Introdução com Máquinas Virtuais</a></p>
+        <p style="margin-top: 36px"></p>
+        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
+            <p style="margin-top: 0px">Treinamento em vídeo Pluralsight gratuito – Guia de Introdução com Monitoramento IaaS</a></p>
     </div>
 </div>
-
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Criar uma VM do Linux usando a CLI 2.0 do Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Criar uma VM usando o Portal</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/virtual-machine.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Saiba mais sobre as Máquinas Virtuais do Linux</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=virtual-machines">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Biblioteca de Vídeos de Máquinas Virtuais</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
----
- 
-<h2>Referência</h2>
+<hr />
+<h2 style="margin-top: 36px">Referência</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -118,7 +82,7 @@ Saiba como executar Máquinas Virtuais no Azure usando a distribuição do Linux
                     <div class="cardText">
                         <h3>Linha de comando</h3>
                         <p><a href="/cli/azure/vm">CLI do Azure</a></p>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -152,6 +116,5 @@ Saiba como executar Máquinas Virtuais no Azure usando a distribuição do Linux
         </div>
     </li>
 </ul>
-
-
+</div>
 

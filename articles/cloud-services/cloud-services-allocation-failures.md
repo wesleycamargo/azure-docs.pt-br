@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 4/6/2017
 ms.author: v-six
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c91a34eb34a73abe5c5ac2bb6aeb08c818a97856
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -71,9 +72,4 @@ Estes são os cenários comuns de alocação que causam a fixação de uma solic
    * Siga o nº 2 acima, lembrando de especificar o novo IP reservado no CSCFG do serviço.
 4. Remover o grupo de afinidade para novas implantações: grupos de afinidade não são mais recomendados. Execute as etapas para o nº 1 acima a fim de implantar um novo serviço de nuvem. Certifique-se de que o serviço de nuvem não esteja em um grupo de afinidade.
 5. Converter para uma rede virtual regional: confira [Como migrar de grupos de afinidades para uma rede virtual regional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

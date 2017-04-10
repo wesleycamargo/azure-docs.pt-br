@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,30 +34,31 @@ Para obter mais informações sobre como aplicar recomendações, leia [Implemen
 
 No bloco **Integridade da segurança do recurso**, você pode monitorar o estado de segurança de seus recursos. No exemplo a seguir, você pode ver que vários problemas têm severidade média e alta e exigem atenção. As políticas de segurança que são habilitadas terão impacto sobre os tipos de controles que são monitorados.
 
-![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
+![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
 
 Se a Central de Segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma máquina virtual sem atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](/virtual-network/virtual-networks-nsg.md), ela será listada aqui.
 
-### <a name="monitor-virtual-machines"></a>Monitorar máquinas virtuais
-Quando você clica em **Máquinas virtuais** no bloco **Integridade da segurança de recursos**, a folha **Máquinas virtuais** é aberta com mais detalhes sobre integração, etapas de prevenção e uma lista de todas as máquinas virtuais que a Central de Segurança monitora, conforme mostrado na captura de tela a seguir.
+### <a name="monitor-compute"></a>Monitorar a computação
+Quando você clica em **Computação** no bloco **Integridade da segurança dos recursos**, a folha **Computação** aberta mostra três guias:
 
-![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+- **Visão geral**: recomendações de monitoramento e da máquina virtual.
+- **Máquinas Virtuais**: lista todas as máquinas virtuais e seu estado de segurança atual.
+- **Serviços de Nuvem**: lista todas as funções da Web e de trabalho monitoradas pela Central de Segurança.
 
-* Etapas para inclusão
-* Recomendações de máquina virtual
-* Máquinas virtuais
+![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-Em cada seção, você pode selecionar uma opção individual para ver mais detalhes sobre as etapas recomendadas para resolver esse problema. As seções a seguir explicarão essas áreas com mais detalhes.
+Há várias seções em cada guia e, em cada seção, você pode selecionar uma opção individual para ver mais detalhes sobre as etapas recomendadas e resolver esse problema específico. 
 
 #### <a name="monitoring-recommendations"></a>Recomendações de monitoramento
-Esta seção mostra o número total de máquinas virtuais que foram inicializadas para coleta de dados e seu status atual. Depois que todas as máquinas virtuais tiverem inicializado a coleta de dados, estarão prontas para receber as políticas de segurança da Central de Segurança. Quando você clicar nesta entrada, a folha **Status de instalação de coleta de dados** será aberta e você poderá ver os nomes das máquinas virtuais e o status atual da coleta de dados na coluna **STATUS DA INSTALAÇÃO**, conforme mostrado na captura de tela a seguir.
+Esta seção mostra o número total de máquinas virtuais que foram inicializadas para coleta de dados e seu status atual. Depois que todas as máquinas virtuais tiverem inicializado a coleta de dados, estarão prontas para receber as políticas de segurança da Central de Segurança. Quando você clica nessa entrada, a folha **O agente de VM está faltando ou não está respondendo** é aberta. 
 
-![Status de inicialização de máquinas virtuais](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+
 
 #### <a name="virtual-machine-recommendations"></a>Recomendações de máquina virtual
 Esta seção tem um conjunto de [recomendações para cada máquina virtual](security-center-virtual-machine-recommendations.md) que a Central de Segurança do Azure monitora. A primeira coluna lista a recomendação. A segunda coluna mostra o número total de máquinas virtuais que são afetadas por essa recomendação. A terceira coluna mostra a severidade do problema, conforme ilustrado na captura de tela a seguir.
 
-![Recomendações de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![Recomendações de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
 > Somente as máquinas virtuais que têm pelo menos um ponto de extremidade público são mostradas na folha **Integridade de Rede** na lista **Topologia de rede**.
@@ -93,7 +95,7 @@ Para exibir os detalhes de recomendação, clique no nome da máquina virtual. U
 #### <a name="virtual-machines-section"></a>Seção Máquinas virtuais
 A seção de máquinas virtuais fornece uma visão geral de todas as máquinas virtuais e recomendações. Cada coluna representa um conjunto de recomendações, conforme mostrado na seguinte captura de tela:
 
-![Visão geral de todas as máquinas virtuais e recomendações](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Visão geral de todas as máquinas virtuais e recomendações](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
 O ícone que aparece em cada recomendação o ajuda a identificar rapidamente as máquinas virtuais que precisam de atenção e o tipo de recomendação.
 
@@ -103,12 +105,12 @@ No exemplo anterior, uma máquina virtual tem uma recomendação crítica relaci
 
 Esta folha tem os detalhes de segurança para a máquina virtual. Na parte inferior dessa folha, você pode ver a ação recomendada e a gravidade de cada problema.
 
-#### <a name="cloud-services-preview-section"></a>Seção Serviços de nuvem (Visualização)
-O status de integridade dos serviços de nuvem está incluído no bloco de **Integridade de Segurança** de máquinas virtuais. Uma recomendação é criada quando a versão do sistema operacional está desatualizada, conforme mostrado na seguinte captura de tela:
+#### <a name="cloud-services-section"></a>Seção Serviços de nuvem
+Para os serviços de nuvem, uma recomendação é criada quando a versão do sistema operacional está desatualizada, conforme mostra a captura de tela a seguir:
 
-![Status de integridade de serviços de nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![Status de integridade de serviços de nuvem](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-Você precisa seguir as etapas na recomendação para atualizar a versão do sistema operacional. Por exemplo, se você clicar no alerta vermelho nas linhas WebRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS) ou WorkerRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS), uma nova folha será aberta com mais detalhes sobre essa recomendação, conforme mostrado na seguinte captura de tela:
+Em um cenário no qual você há uma recomendação (que não é o caso do exemplo anterior), você precisa seguir as etapas na recomendação para atualizar a versão do sistema operacional. Quando uma atualização estiver disponível, você terá um alerta (vermelho ou laranja - depende da gravidade do problema). Ao clicar nesse alerta vermelho nas linhas WebRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS) ou WorkerRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS), uma nova folha será aberta com mais detalhes sobre essa recomendação, conforme mostrado na seguinte captura de tela:
 
 ![Detalhes do serviço de nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
@@ -170,7 +172,7 @@ A parte inferior da folha tem as recomendações para essa máquina virtual, que
 
 ### <a name="monitor-data"></a>Dados de monitoramento
 
-Quando você clica em **SQL e Dados** no bloco **Integridade de segurança de recursos** a folha **Recursos de Dados** é aberta com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure.](security-center-enable-encryption-for-storage-account.md).
+Quando você clica em **SQL e Dados** no bloco **Integridade de segurança de recursos** a folha **Recursos de Dados** é aberta com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
 
 ![Recursos de dados](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
@@ -214,9 +216,4 @@ Neste artigo, você aprendeu como usar os recursos de monitoramento na Central d
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

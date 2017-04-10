@@ -297,7 +297,7 @@ Você pode omitir o operador lógico para os argumentos de filtro de nível supe
 | Expressão do filtro... | Equivalente a |
 | --- | --- |
 | erro do sistema |erro do sistema AND |
-| sistema "Windows Server" OR Gravidade:&1; |sistema AND (“Windows Server” OR Gravidade:&1;) |
+| sistema "Windows Server" OR Gravidade: 1 |sistema AND (“Windows Server” OR Gravidade: 1) |
 
 ### <a name="wildcarding"></a>Recurso de curinga
 O idioma de consulta oferece suporte ao uso do caractere (\*) para representar um ou mais caracteres para um valor em uma consulta.

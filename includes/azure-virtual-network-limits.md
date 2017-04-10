@@ -1,4 +1,4 @@
-Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura.
+<a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura.
 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Endereços IP públicos (estático) |20 |entre em contato com o suporte |
 | Balanceadores de carga (internos e para Internet) |100 |entre em contato com o suporte |
 | Regras de balanceador de carga por balanceador de carga |150 |150 |
-| IP público front-end por balanceador de carga |10 |entre em contato com o suporte |
+| IP público front-end por balanceador de carga |10 |30 |
 | IP privado front-end por balanceador de carga |10 |entre em contato com o suporte |
 | Emparelhamentos de VNets por rede virtual |10 |50 |
 | Certificados raiz de ponto a site por gateway de VPN |20 |20 |
