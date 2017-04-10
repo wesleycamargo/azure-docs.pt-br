@@ -27,7 +27,7 @@ O ponto de extremidade do Azure Active Directory (Azure AD) v2.0 dá suporte aos
 Quando você compila um aplicativo que usa o ponto de extremidade v2.0, é recomendável usar bibliotecas escritas por especialistas em domínio de protocolo que seguem uma metodologia SDL (Security Development Lifecycle), como [a seguida pela Microsoft][Microsoft-SDL]. Se você codificar suporte para os protocolos manualmente, recomendamos que você siga a metodologia SDL e preste muita atenção nas considerações de segurança encontradas nas especificações dos padrões de cada um dos protocolos.
 
 ## <a name="types-of-libraries"></a>Tipos de bibliotecas
-O Azure AD v&2;.0 funciona com dois tipos de bibliotecas:
+O Azure AD v 2.0 funciona com dois tipos de bibliotecas:
 
 * **Bibliotecas de cliente**. Os clientes e servidores nativos usam bibliotecas de cliente para obter tokens de acesso para chamar um recurso, como o Microsoft Graph.
 * **Bibliotecas de middleware de servidor**. Os aplicativos Web usam bibliotecas de middleware de servidor para a entrada do usuário. As APIs da Web usam bibliotecas de middleware de servidor para validar tokens enviados por clientes nativos ou por outros servidores.

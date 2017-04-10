@@ -1,5 +1,5 @@
 ---
-title: "Atualizações de esquema&1; de agosto de&2015; preview - Aplicativo Lógico do Azure | Microsoft Docs"
+title: "Atualizações de esquema 1 de agosto de 2015 preview - Aplicativo Lógico do Azure | Microsoft Docs"
 description: "Criar definições de JSON para Aplicativos Lógicos do Azure com a versão de esquema 2015-08-01-preview"
 author: stepsic-microsoft-com
 manager: anneta

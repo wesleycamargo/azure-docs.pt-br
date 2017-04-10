@@ -97,7 +97,7 @@ Nesta seção, você criará um aplicativo do console do Java que envia mensagen
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.2.18</version>
     </dependency>
     ```
 
