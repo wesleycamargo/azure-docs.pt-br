@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar um Banco de Dados SQL do Azure no portal do Azure
 
 Este tutorial de início rápido percorre como criar um banco de dados SQL no Azure.  O Banco de Dados SQL do Azure é uma oferta de "banco de dados como serviço" que permite que você execute e dimensione os bancos de dados do SQL Server altamente disponíveis na nuvem.  Este guia rápido mostra como começar criando um novo Banco de Dados SQL no portal do Azure.
+
+Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
@@ -43,10 +45,10 @@ Execute estas etapas para criar um Banco de Dados SQL que contém os dados de ex
 
     ![criar database-1](./media/sql-database-get-started/create-database-1.png)
 
-3. Preencha o formulário do Banco de Dados SQL com as informações abaixo, conforme mostrado na imagem anterior: 
-   - Nome do banco de dados: use **mySampleDatabase**
-   - Grupo de recursos: use **myResourceGroup**
-   - Fonte: Selecione **Exemplo (AdventureWorksLT)**
+3. Preencha o formulário do Banco de Dados SQL com as informações abaixo, conforme mostrado na imagem anterior:     
+   - Nome do banco de dados: **mySampleDatabase**
+   - Grupo de recursos: **myResourceGroup**
+   - Fonte: **Exemplo (AdventureWorksLT)**
 
 4. Clique em **Servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** especificando um nome de servidor exclusivo, forneça um nome para o logon de administrador do servidor e especifique a senha escolhida. 
 
@@ -82,7 +84,7 @@ O serviço Banco de Dados SQL cria um firewall em aplicativos externos impedindo
 
 4. Clique em **OK** e clique no **X** para fechar a página **Configurações do firewall**.
 
-Agora você pode se conectar ao banco de dados e ao seu servidor usando o SQL Server Management Studio ou outra ferramenta de sua escolha.
+Agora você pode se conectar ao banco de dados e ao seu servidor usando o SQL Server Management Studio ou outra ferramenta de sua escolha a partir deste endereço IP usando a conta de administrador do Servidor criada anteriormente.
 
 ## <a name="query-the-sql-database"></a>Consultar o Banco de Dados SQL
 
@@ -103,7 +105,7 @@ Quando criamos nosso Banco de Dados SQL, preenchemos com o banco de dados de exe
 5. Depois de autenticado, digite a consulta a seguir no painel do editor de consulta.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;

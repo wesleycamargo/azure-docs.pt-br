@@ -4,7 +4,7 @@ Observe que a SKU do gateway UltraPerformance não é representada nesta tabela.
 
 |  | **Taxa de transferência de Gateway de VPN (1)** | **Túneis IPsec máximo de Gateway de VPN (2)** | **Taxa de transferência de Gateway de Rota Expressa** | **Coexistência de Gateway de VPN e a Rota Expressa** |
 | --- | --- | --- | --- | --- |
-| **SKU Básica (3)(5)** |100 Mbps |10 |500 Mbps |Não |
+| **SKU Básica (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |Não |
 | **SKU padrão (4)(5)** |100 Mbps |10 |1000 Mbps |Sim |
 | **SKU de Alto Desempenho (4)** |200 Mbps |30 |2000 Mbps |Sim |
 
@@ -13,9 +13,4 @@ Observe que a SKU do gateway UltraPerformance não é representada nesta tabela.
 * (3) Não há suporte a BGP para a SKU básica.
 * (4) não há suporte para VPNs PolicyBased nesta SKU. Eles têm suporte apenas na SKU básica.
 * (5) Não há suporte para conexões de Gateway de VPN S2S ativa-ativa para essa SKU. Ativo-ativo tem suporte apenas com a SKU HighPerformance.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+* (6) SKU Básica é preterida para uso com Expressroute.

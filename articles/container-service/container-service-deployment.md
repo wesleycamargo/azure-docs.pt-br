@@ -1,6 +1,6 @@
 ---
 title: "Implantar um cluster do contêiner Docker no Azure | Microsoft Docs"
-description: "Implante um cluster do serviço de contêiner do Azure usando o portal do Azure ou o modelo do Azure Resource Manager."
+description: "Implante uma solução Kubernetes, CD/SO ou Docker Swarm no Serviço de Contêiner do Azure usando o portal do Azure ou um modelo do Resource Manager."
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 716a6f4507b05b8a8548cd34f8227e8366a91645
-ms.openlocfilehash: 17a4ab1920e020ddf453e9b42319ba260e9700a5
-ms.lasthandoff: 02/24/2017
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="deploy-an-azure-container-service-cluster"></a>Implantar um cluster do Serviço de Contêiner do Azure
+# <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Implante uma solução de hospedagem de contêiner do Docker usando o portal do Azure
 
 
 
@@ -38,7 +38,7 @@ Para obter informações, consulte [Introdução ao Serviço de Contêiner do Az
 
 * **Assinatura do Azure**: se não tiver uma, inscreva-se em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-* **Chave pública SSH RSA**: durante a implantação por meio do portal ou por meio de um dos modelos de início rápido do Azure, você precisa fornecer a chave pública para autenticação nas máquinas virtuais do Serviço de Contêiner do Azure. Para criar chaves SSH (Secure Shell) RSA, consulte as diretrizes para [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ou [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Chave pública SSH RSA**: durante a implantação por meio do portal ou por meio de um dos modelos de início rápido do Azure, você precisa fornecer a chave pública para autenticação nas máquinas virtuais do Serviço de Contêiner do Azure. Para criar chaves SSH (Secure Shell) RSA, consulte as diretrizes para [OS X e Linux](../virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 * **ID e segredo de cliente de entidade de serviço** (somente Kubernetes): para obter mais informações e diretrizes para criar uma entidade de serviço do Azure Active Directory, consulte [Sobre a entidade de serviço para um cluster Kubernetes](container-service-kubernetes-service-principal.md).
 

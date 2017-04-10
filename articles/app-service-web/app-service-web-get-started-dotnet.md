@@ -1,6 +1,6 @@
 ---
 title: Criar seu primeiro aplicativo Web ASP.NET no Azure em cinco minutos | Microsoft Docs
-description: "Saiba como é fácil executar os aplicativos Web no Serviço de Aplicativo implantando um aplicativo ASP.NET de exemplo."
+description: "Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo ao implantar um aplicativo ASP.NET simples."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 03/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a428e183e7535c7745e214332f8e449b4a8bf22c
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b575e92d2140ecc0e0f30186302e7733e08d0415
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -25,60 +25,173 @@ ms.lasthandoff: 03/18/2017
 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-Este Início Rápido ajuda a implantar seu primeiro aplicativo Web ASP.NET para [o Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) em apenas alguns minutos.
+Este Início Rápido ajuda a implantar seu primeiro aplicativo Web ASP.NET para [o Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) em apenas alguns minutos. Após a conclusão, você terá um aplicativo Web simples em funcionamento na nuvem.
 
-Antes de começar, certifique-se de que a CLI do Azure foi instalada. Para obter mais informações, consulte o [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+![Aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Faça logon no Azure ao executar `az login` e acompanha as instruções na tela.
+## <a name="before-you-begin"></a>Antes de começar
+
+Este tutorial demonstra como usar o Visual Studio 2017 para compilar e implantar um aplicativo Web ASP.NET no Azure. Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio 2017 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="create-an-aspnet-web-app"></a>Criar um aplicativo Web ASP .NET
+
+No Visual Studio, crie um novo projeto com `Ctrl`+`Shift`+`N`.
+
+Na caixa de diálogo **Novo Projeto**, clique em **Visual C# > Web > Aplicativo Web ASP .NET (.NET Framework)**.
+
+Nomeie o aplicativo como **myFirstAzureWebApp** e clique em **OK**.
    
-```azurecli
-az login
-```
+![Caixa de diálogo Novo Projeto](./media/app-service-web-get-started-dotnet/new-project.png)
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos   
-Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). Isso é onde você coloca todos os recursos do Azure que deseja gerenciar, como o aplicativo Web e seu back-end do Banco de Dados SQL.
+Você pode implantar qualquer tipo de aplicativo Web ASP.NET no Azure. Para este tutorial, selecione o modelo **MVC** e verifique se a autenticação está definida para **Sem Autenticação**.
+      
+Clique em **OK**.
 
-```azurecli
-az group create --location "West Europe" --name myResourceGroup
-```
+![Caixa de diálogo Novo Projeto ASP .NET](./media/app-service-web-get-started-dotnet/select-mvc-template.png)
 
-Para ver quais são os valores possíveis para `---location`, use o comando `az appservice list-locations` da CLI do Azure.
+## <a name="publish-to-azure"></a>Publicar no Azure
+
+No **Gerenciador de Soluções**, clique com botão direito no projeto **myFirstAzureWebApp** e selecione **Publicar**.
+
+![Publicar no Gerenciador de Soluções](./media/app-service-web-get-started-dotnet/solution-explorer-publish.png)
+
+Verifique se o **Serviço de Aplicativo do Microsoft Azure** está selecionado e clique em **Publicar**.
+
+![Publicar na página de visão geral do projeto](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
+
+Isso abre a caixa de diálogo **Criar Serviço de Aplicativo**, o que ajuda a criar todos os recursos do Azure necessários executar seu aplicativo Web ASP.NET no Azure.
+
+## <a name="sign-in-to-azure"></a>Entrar no Azure
+
+Na caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Adicionar uma conta**, depois, faça logon em sua assinatura do Azure. Se você já entrou em uma conta da Microsoft, verifique se a conta tem sua assinatura do Azure. Se a conta da Microsoft conectada não tiver sua assinatura do Azure, clique nela para adicionar a conta correta.
+   
+![Entrar no Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
+
+Depois de conectado, você está pronto para criar todos os recursos necessários para seu aplicativo Web do Azure nesta caixa de diálogo.
+
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+Primeiro, é necessário um _grupo de recursos_. 
+
+> [!NOTE] 
+> Um grupo de recursos é um contêiner lógico no qual os recursos do Azure, como aplicativos Web, bancos de dados e contas de armazenamento, são implantados e gerenciados.
+>
+>
+
+Lado do **Grupo de Recursos**, clique em **Novo**.
+
+Nome seu grupo de recursos como **myResourceGroup** e clique em **OK**.
 
 ## <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
-Criar um [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "GRATUITO". 
 
-```azurecli
-az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-```
+Seu aplicativo Web também precisa de um _plano do Serviço de Aplicativo_. 
 
-## <a name="create-a-web-app"></a>Criar um aplicativo Web
-Crie um aplicativo Web com um nome exclusivo no `<app_name>`.
+> [!NOTE]
+> Um plano do Serviço de Aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do Serviço de Aplicativo compartilham os recursos definidos por ele, permitindo que você economize ao hospedar vários aplicativos. 
+>
+> Os Planos do Serviço de Aplicativo definem:
+>
+> - Região (Europa Setentrional, Leste dos EUA, Sudeste Asiático)
+> - Tamanha da Instância (Pequena, Média, Grande)
+> - Contagem da Escala (uma, duas, três instâncias etc.) 
+> - SKU (Gratuito, Compartilhado, Básico, Standard, Premium)
+>
+>
 
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-```
+Lado do **Plano do Serviço de Aplicativo**, clique em **Novo**. 
 
-## <a name="deploy-sample-application"></a>Implantar um aplicativo de exemplo
-Implante um aplicativo ASP.NET de exemplo do GitHub.
+Na caixa de diálogo **Configurar Plano do Serviço de Aplicativo**, configure o novo plano do Serviço de Aplicativo com as seguintes definições:
 
-```azurecli
-az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
---repo-url "https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git" --branch master --manual-integration 
-```
+- **Plano do Serviço de Aplicativo**: digite **myAppServicePlan**. 
+- **Local**: escolha **Europa Ocidental** ou qualquer outra região desejada.
+- **Tamanho**: escolha **Gratuito** ou qualquer outro [tipo de preços](https://azure.microsoft.com/pricing/details/app-service/) desejado.
 
-## <a name="browse-to-web-app"></a>Navegar até o aplicativo Web
-Para ver o aplicativo em execução no Azure, execute este comando.
+Clique em **OK**.
 
-```azurecli
-az appservice web browse --name <app_name> --resource-group myResourceGroup
-```
+![Criar um novo plano do Serviço de Aplicativo](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+
+## <a name="create-and-publish-the-web-app"></a>Publicar e publicar o aplicativo Web
+
+A única coisa que resta a fazer é nomear seu aplicativo Web. Em **Nome do Aplicativo Web**, digite um nome exclusivo do aplicativo. Esse nome será usado como parte do nome DNS padrão de seu aplicativo (`<app_name>.azurewebsites.net`), portanto, ele deve ser exclusivo entre todos os aplicativos no Azure. Posteriormente, você poderá mapear um nome de domínio personalizado para seu aplicativo antes de expor para seus usuários.
+
+Também é possível aceitar o nome gerado automaticamente, que já é exclusivo.
+
+Clique em **Criar** para começar a criar os recursos do Azure.
+
+![Configurar o nome do aplicativo Web](./media/app-service-web-get-started-dotnet/web-app-name.png)
+
+Depois do assistente terminar de criar os recursos do Azure, ele publicará automaticamente seu aplicativo Web ASP.NET para o Azure pela primeira vez e, depois, iniciará o aplicativo Web do Azure publicado no navegador padrão.
+
+![Aplicativo Web ASP.NET publicado no Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
+
+A URL usa o nome do aplicativo Web especificado anteriormente, com o formato `http://<app_name>.azurewebsites.net`. 
 
 Parabéns, seu primeiro aplicativo Web ASP.NET está em execução no Serviço de Aplicativo do Azure.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## <a name="update-the-app-and-redeploy"></a>Atualizar o aplicativo e reimplantar
+
+É muito fácil reimplantar uma atualização para o Azure. Faremos uma atualização para a home page.
+
+No **Gerenciador de Soluções**, abra **Views\Home\Index.cshtml**.
+
+Encontre a marcação HTML `<div class="jumbotron">` próximo à parte superior e substitua a marcação inteira pelo seguinte código:
+
+```HTML
+<div class="jumbotron">
+    <h1>ASP.NET in Azure!</h1>
+    <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+</div>
+```
+
+Para reimplantar no Azure, clique com o botão direito no projeto **myFirstAzureWebApp** no **Gerenciador de Soluções** e selecione **Publicar**.
+
+Na página de publicação, clique em **Publicar**.
+
+Quando o Visual Studio for concluído, ele iniciará o aplicativo Web do Azure atualizado em seu navegador.
+
+![Aplicativo Web ASP.NET atualizado no Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+
+## <a name="manage-your-new-azure-web-app"></a>Gerenciar seu novo aplicativo Web do Azure
+
+Vá para o portal do Azure para examinar o aplicativo Web que você acabou de criar. 
+
+Para fazer isso, entre em [https://portal.azure.com](https://portal.azure.com).
+
+No menu à esquerda, clique em **Serviço de Aplicativo**, em seguida, clique no nome do seu aplicativo Web do Azure.
+
+![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-dotnet/access-portal.png)
+
+Você foi para a _folha_ de seu aplicativo Web (uma página do portal que abre horizontalmente). 
+
+Por padrão, a folha de seu aplicativo Web mostra a página **Visão Geral**. Esta página fornece uma visão de como está seu aplicativo. Aqui, você também pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. As guias no lado esquerdo da folha mostram as páginas de configuração diferentes que você pode abrir. 
+
+![Folha Serviço de Aplicativo no portal do Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+
+Essas guias na folha mostram muitos recursos excelentes que você pode adicionar ao seu aplicativo Web. A lista a seguir fornece algumas possibilidades:
+
+- mapear um nome DNS personalizado
+- associar um certificado SSL personalizado
+- configurar uma implantação contínua
+- Escalar vertical e horizontalmente
+- adicionar a autenticação do usuário
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Para excluir seu primeiro aplicativo Web do Azure, você pode clicar em **Excluir** na página **Visão Geral**. No entanto, há uma maneira melhor de excluir tudo o que você criou neste início rápido. Na página **Visão Geral** de seu aplicativo Web, clique no grupo de recursos para abrir sua folha. 
+
+![Acessar grupo de recursos na folha Serviço de Aplicativo](./media/app-service-web-get-started-dotnet/access-resource-group.png)
+
+Na folha do grupo de recursos, você pode ver o plano do Serviço de Aplicativo e o aplicativo Serviço de Aplicativo que o Visual Studio criou para você. 
+
+Na parte superior da folha, clique em **Excluir**. 
+
+<!--![Delete resource group in Azure portal](./media/app-service-web-get-started-dotnet/delete-resource-group.png)-->
+
+Na folha de confirmação, confirme digitando o nome do grupo de recursos **myResourceGroup** na caixa de texto e clique em **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore os [scripts da CLI de aplicativos Web](app-service-cli-samples.md) pré-criados.
+Explore os [scripts do PowerShell dos aplicativos Web](app-service-powershell-samples.md) criados previamente.
 

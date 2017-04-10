@@ -1,6 +1,6 @@
 ---
 title: "Implantar um cluster do contêiner Docker - CLI do Azure | Microsoft Docs"
-description: "Implantar um cluster do Serviço de Contêiner do Azure usando a CLI do Azure 2.0"
+description: "Implante uma solução Kubernetes, CD/SO ou Docker Swarm no Serviço de Contêiner do Azure usando a CLI 2.0 do Azure"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1dad536939f179cd8231d0f8805c1ff4335850d5
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Usar a CLI do Azure 2.0 para criar um cluster do Serviço de Contêiner do Azure
+# <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Implante uma solução de hospedagem de contêiner do Docker usando a CLI 2.0 do Azure
 
 Use o comando `az acs` na CLI do Azure 2.0 para criar e gerenciar clusters no Serviço de Contêiner do Azure. Você também pode implantar um cluster do serviço de contêiner do Azure usando o [portal do Azure](container-service-deployment.md) ou as APIs de serviço do contêiner do Azure.
 
@@ -75,7 +76,7 @@ Outras entradas são definidas com valores padrão (veja a tela a seguir), a men
 
 
 ### <a name="quick-acs-create-using-defaults"></a>`acs create` rápido usando padrões
-Se você tiver um arquivo de chave pública SSH RSA `id_rsa.pub` no local padrão (ou criou um para [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ou [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use um comando semelhante ao seguinte:
+Se você tiver um arquivo de chave pública SSH RSA `id_rsa.pub` no local padrão (ou criou um para [OS X e Linux](../virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../virtual-machines/linux/ssh-from-windows.md)), use um comando semelhante ao seguinte:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789

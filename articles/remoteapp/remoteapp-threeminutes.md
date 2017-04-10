@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 3373e37b8efb1bd7d9b7e6c4fb8d3db468c1ad02
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Experimente o RemoteApp do Azure em seu dispositivo em 3 minutos ou menos
 > [!IMPORTANT]
-> O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -42,10 +43,5 @@ Sua opinião é importante. No final de cada sessão, você verá uma caixa de d
 > Como esse é um ambiente controlado para uso de demonstração, não habilitamos acesso externo à Internet por meio dos aplicativos de demonstração publicados. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.  
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
