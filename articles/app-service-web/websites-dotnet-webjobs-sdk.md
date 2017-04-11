@@ -3,7 +3,7 @@ title: "O que é o SDK de Trabalhos Web do Azure"
 description: "Uma introdução ao SDK de Trabalhos Web do Azure. Explica o que é o SDK, cenários típicos em que ele é útil e exemplos de código."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682

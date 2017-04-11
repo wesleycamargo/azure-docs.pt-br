@@ -3,7 +3,7 @@ title: "Como usar o Barramento de Serviço do Azure com o SDK de Trabalhos Web"
 description: "Saiba como usar tópicos e filas do barramento de serviço do Azure com o SDK de Trabalhos Web."
 services: app-service\web, service-bus
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76

@@ -3,7 +3,7 @@ title: Implantar Trabalhos Web usando o Visual Studio
 description: "Aprenda como implantar Trabalhos Web do Azure para Aplicativos Web do Serviço de Aplicativo do Azure usando o Visual Studio."
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755

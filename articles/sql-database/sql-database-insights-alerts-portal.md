@@ -1,7 +1,7 @@
 ---
 title: Usar o portal do Azure para criar alertas de Banco de Dados SQL | Microsoft Docs
 description: "Use o portal do Azure para criar alertas do Banco de Dados SQL, que podem disparar notificações ou automação quando as condições especificadas são atendidas."
-author: CarlRabeler
+author: aamalvea
 manager: jhubbard
 editor: 
 services: sql-database
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: carlrab
+ms.author: aamalvea
 translationtype: Human Translation
 ms.sourcegitcommit: 2679681c77dd6a3410bbe6ddbcf562924b13bfe6
 ms.openlocfilehash: afa21052281200768db24ce35a94097f23f23efe
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -73,7 +74,7 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 
 ## <a name="sql-database-alert-values-and-thresholds"></a>Valores e limites de alerta do banco de dados SQL
 
-| Tipo de recurso | Nome da métrica | Nome amigável | Tipo de agregação | Janela de tempo mínimo de alerta|
+| Tipo de recurso    | Nome da métrica | Nome amigável | Tipo de agregação | Janela de tempo mínimo de alerta|
 | --- | --- | --- | --- | --- |
 | Banco de dados SQL | cpu_percent | Percentual de CPU | Média | 5 minutos |
 | Banco de dados SQL | physical_data_read_percent | Porcentagem de E/S de dados | Média | 5 minutos |
@@ -90,7 +91,7 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 | Banco de dados SQL | sessions_percent | Porcentagem de sessões | Média | 5 minutos |
 | Banco de dados SQL | dtu_limit | Limite de DTU | Média | 5 minutos |
 | Banco de dados SQL | dtu_used | DTU usado | Média | 5 minutos |
-||||||           
+||||||               
 | SQL Data Warehouse | cpu_percent | Percentual de CPU | Média | 10 minutos |
 | SQL Data Warehouse | physical_data_read_percent | Porcentagem de E/S de dados | Média | 10 minutos |
 | SQL Data Warehouse | storage | Tamanho total do banco de dados | Máximo | 10 minutos |
@@ -101,7 +102,7 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 | SQL Data Warehouse | dwu_limit | limite de dwu | Máximo | 10 minutos |
 | SQL Data Warehouse | dwu_consumption_percent | Porcentagem de DWU | Média | 10 minutos |
 | SQL Data Warehouse | dwu_used | DWU usado | Média | 10 minutos |
-||||||               
+||||||                     
 | Pool elástico | cpu_percent | Percentual de CPU | Média | 5 minutos |
 | Pool elástico | physical_data_read_percent | Porcentagem de E/S de dados | Média | 5 minutos |
 | Pool elástico | log_write_percent | Porcentagem de E/S de log | Média | 5 minutos |
@@ -121,10 +122,5 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 * Saiba mais sobre [Runbooks da Automação do Azure](../automation/automation-starting-a-runbook.md).
 * Tenha uma [visão geral dos logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e colete métricas detalhadas de alta frequência em seu serviço.
 * Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
