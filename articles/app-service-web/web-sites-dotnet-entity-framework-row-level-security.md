@@ -17,6 +17,7 @@ ms.author: thmullan
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ba1bb3d84b462dfebbb2564569517d7336bf54fd
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -203,7 +204,7 @@ Se você já tiver criado alguns usuários no aplicativo (por exemplo, usando co
 
 ![Tabela AspNetUsers de SSMS](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-AspNetUsers.png)
 
-Copie a ID para user1@contoso.com, e cole-a na instrução T-SQL a seguir. Execute esta instrução para associar três Contatos a esta UserId.
+Copie a ID para user1@contoso.com e cole-a na instrução T-SQL a seguir. Execute esta instrução para associar três Contatos a esta UserId.
 
 ```
 UPDATE Contacts SET UserId = '19bc9b0d-28dd-4510-bd5e-d6b6d445f511'
@@ -248,10 +249,5 @@ Para uma validação extra, tente registrar um novo usuário. Ele não verá qua
 Este tutorial forneceu apenas uma pequena amostra do que é possível fazer com RLS. Por exemplo, é possível ter mais uma lógico de acesso mais sofisticada ou granular, e é possível armazenar mais do que apenas a UserId atual no SESSION_CONTEXT. Também é possível [integrar o RLS com as bibliotecas de cliente das ferramentas de banco de dados elástico](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) a fim de oferecer suporte a fragmentos de multilocatários em uma camada de dados de expansão.
 
 Além dessas possibilidades, também estamos trabalhando para melhorar ainda mais o RLS. Se você tiver alguma dúvida, ideias ou coisas que gostaria de ver, envie nos comentários. Agradecemos por seus comentários!
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
