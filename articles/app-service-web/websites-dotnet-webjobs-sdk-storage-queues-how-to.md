@@ -3,7 +3,7 @@ title: Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web
 description: Saiba como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web. Criar e excluir filas; Inserir, inspecionar, obter e excluir a fila de mensagens e muito mais.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463
