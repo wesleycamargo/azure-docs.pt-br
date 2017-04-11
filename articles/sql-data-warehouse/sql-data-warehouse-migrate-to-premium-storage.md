@@ -85,7 +85,7 @@ Se quiser controlar quando o tempo de inatividade deverá ocorrer, você poderá
 ### <a name="self-migration-instructions"></a>Instruções de automigração
 Para você mesmo migrar seu data warehouse, use os recursos de backup e restauração. A parte de restauração da migração deve demorar cerca de uma hora por terabyte de armazenamento por data warehouse. Se você desejar manter o mesmo nome após a conclusão da migração, execute as [etapas para renomear durante a migração][steps to rename during migration].
 
-1. [Pause] [ Pause] seu data warehouse. Isso leva a um backup automático.
+1. [Pause][Pause] seu data warehouse. Isso leva a um backup automático.
 2. [Restaure][Restore] usando o instantâneo mais recente.
 3. Exclua seu data warehouse existente do armazenamento standard. **Se você não conseguir fazer isso, será cobrado pelos dois data warehouses.**
 
