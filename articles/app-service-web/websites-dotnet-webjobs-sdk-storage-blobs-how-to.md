@@ -3,7 +3,7 @@ title: Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web
 description: "Saiba como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web. Dispare um processo quando um novo blob aparecer em um contêiner e identificador &quot;poison blobs&quot;."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: 
 ms.assetid: bf32f919-f7bc-4aaa-916e-461c02f2e26c

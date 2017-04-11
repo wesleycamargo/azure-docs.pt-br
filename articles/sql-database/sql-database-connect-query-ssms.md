@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Use o SQL Server Management Studio para conectar e consultar dados
 
-Use o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para criar e gerenciar recursos do SQL Server na interface do usuário ou em scripts. Este guia detalha o uso do SSMS para se conectar a um Banco de Dados SQL do Azure e, depois, executar instruções de consulta, inserção, atualização e exclusão.
+Use o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para criar e gerenciar recursos do SQL Server na interface do usuário ou em scripts. Este início rápido detalha como usar o SSMS para se conectar a um banco de dados SQL do Azure e, depois, executar instruções de consulta, inserção, atualização e exclusão.
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
@@ -45,11 +45,11 @@ Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Da
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## <a name="connect-to-the-server"></a>Conectar ao servidor
+## <a name="connect-to-the-server-and-your-new-database"></a>Conecte-se ao servidor e ao seu novo banco de dados
 
 Use o SQL Server Management Studio para estabelecer uma conexão com seu servidor de Banco de Dados SQL do Azure.
 
-1. Digite **SSMS** na caixa de pesquisa do Windows e clique em **Enter** para abrir o SSMS.
+1. Abra o SQL Server Management Studio.
 
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
    - **Tipo de servidor**: especifique mecanismo de banco de dados

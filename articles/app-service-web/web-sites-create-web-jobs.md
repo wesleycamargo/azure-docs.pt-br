@@ -3,7 +3,7 @@ title: Executar tarefas em segundo plano com Trabalhos Web
 description: Saiba como executar tarefas em segundo plano em aplicativos Web do Azure.
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -24,6 +24,8 @@ ms.lasthandoff: 03/01/2017
 # <a name="run-background-tasks-with-webjobs"></a>Executar tarefas em segundo plano com Trabalhos Web
 ## <a name="overview"></a>Visão geral
 Você pode executar programas ou scripts em WebJobs em seu aplicativo Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) de três maneiras: sob demanda, continuamente ou com base em uma agenda. Não há nenhum custo adicional para usar Trabalhos Web.
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 Este artigo mostra como implantar Trabalhos Web utilizando o [Portal do Azure](https://portal.azure.com). Para obter informações sobre como implantar utilizando o Visual Studio ou um processo de entrega contínua, consulte [Como implantar Trabalhos Web do Azure em Aplicativos Web](websites-dotnet-deploy-webjobs.md).
 

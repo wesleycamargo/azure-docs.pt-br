@@ -1,10 +1,11 @@
 ---
-title: "Criar fluxos de trabalho com seu primeiro Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Comece a se conectar a aplicativos e serviços SaaS com seu primeiro Aplicativo Lógico"
+title: "Criar seu primeiro fluxo de trabalho entre os aplicativos de nuvem e os serviços de nuvem - Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Automatizar os processos de negócios para os cenários de integração de sistemas e integração de aplicativos empresariais (EAI) criando e executando fluxos de trabalho no Aplicativo Lógico do Azure"
 author: jeffhollan
 manager: anneta
 editor: 
 services: logic-apps
+keywords: "fluxo de trabalho, aplicativos de nuvem, serviços de nuvem, processos de negócios, integração de sistemas, integração de aplicativos empresariais, EAI"
 documentationcenter: 
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
@@ -12,80 +13,160 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2017
-ms.author: jehollan
+ms.date: 03/31/2017
+ms.author: jehollan; estfan; LADocs
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 221f1b9f0985bbaf0553f6ca01f0f048b9976315
-ms.lasthandoff: 03/28/2017
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="create-a-new-logic-app-connecting-saas-services"></a>Criar um novo aplicativo lógico conectando serviços SaaS
-Este tópico demonstra como, em apenas alguns minutos, você pode começar a usar o [Aplicativo Lógico do Azure](logic-apps-what-are-logic-apps.md). Vamos percorrer um fluxo de trabalho simples que permite enviar tweets interessantes ao seu email.
 
-Para usar este cenário, você precisará de:
+# <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Criar seu primeiro fluxo de trabalho lógico para automatizar os processos entre os aplicativos de nuvem e os serviços de nuvem
 
-* Uma assinatura do Azure
-* Uma conta do Twitter
-* Uma conta do Outlook.com ou do Outlook do Office 365
+Sem escrever nenhum código, você pode automatizar os processos de negócios mais fácil e rapidamente quando cria e executa os fluxos de trabalho com o [Aplicativo Lógico do Azure](logic-apps-what-are-logic-apps.md). Este primeiro exemplo mostra como criar um fluxo de trabalho de aplicativo lógico básico que verifica um RSS feed para o novo conteúdo em um site. Quando novos itens aparecem no feed do site, o aplicativo lógico envia um email de uma conta do Outlook ou do Gmail.
 
-## <a name="create-a-new-logic-app-to-email-you-tweets"></a>Criar um novo aplicativo lógico para enviar tweets por email
+Para criar e executar um aplicativo lógico, você precisa destes itens:
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Caso contrário, você pode [inscrever-se para uma assinatura Pré-paga](https://azure.microsoft.com/pricing/purchase-options/).
 
-2. No menu à esquerda, escolha **Novo** > **Enterprise Integration** > **Aplicativo Lógico**.
+  Sua assinatura do Azure é usada para a cobrança de uso do aplicativo lógico. Saiba como a [medição de uso](../logic-apps/logic-apps-pricing.md) e os [preços](https://azure.microsoft.com/pricing/details/logic-apps) funcionam para os Aplicativos Lógicos do Azure.
 
-    Você também pode escolher **Novo** e, na caixa de pesquisa, digitar `logic app` e pressionar Enter. Escolha **Aplicativo Lógico** > **Criar**.
+Além disso, este exemplo requer estes itens:
 
-3. Insira um nome para seu aplicativo lógico, selecione sua assinatura do Azure, crie ou selecione um grupo de recursos do Azure, selecione um local e escolha **Criar**.
+* Uma conta do Gmail, Office 365 Outlook ou Outlook.com
 
-    Se você selecionar **Fixar no Painel** , o aplicativo lógico será aberto automaticamente depois da implantação.
+    > [!TIP]
+    > Se você tiver uma [conta da Microsoft](https://account.microsoft.com/account) pessoal, terá uma conta do Outlook.com. Caso contrário, se tiver uma conta corporativa ou de estudante do Azure, terá uma conta do **Outlook do Office 365**.
 
-4. Ao abrir o aplicativo lógico pela primeira vez, você poderá selecionar um modelo para começar.
-Agora, clique em **Aplicativo Lógico em Branco** para compilá-lo do zero. 
+* Um link para o RSS feed de um site. Este exemplo usa o RSS feed do [site do MSDN Channel 9](https://channel9.msdn.com/):`https://s.ch9.ms/Feeds/RSS`
 
-5. O primeiro item que você precisa criar é o disparador. Esse é o evento que inicia o aplicativo lógico. Na caixa Pesquisar, procure **Twitter**e selecione **Quando um novo tweet é publicado**. Entre com o nome de usuário e a senha da sua conta do Twitter.
+## <a name="add-a-trigger-that-starts-your-workflow"></a>Adicionar um gatilho que inicia o fluxo de trabalho
 
-6. Digite um termo de pesquisa para disparar seu aplicativo lógico.
+Um [ *gatilho* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) é um evento que inicia o fluxo de trabalho do aplicativo lógico e é o primeiro item que seu aplicativo lógico precisa.
 
-   ![Pesquisa do Twitter](media/logic-apps-create-a-logic-app/twittersearch.png)
+1. Entre no [portal do Azure](https://portal.azure.com "portal do Azure").
 
-    A **Frequência** e o **Intervalo** determinam a frequência com que o aplicativo lógico verifica se há novos tweets (e retorna todos os tweets durante esse período de tempo).
+2. No menu à esquerda, escolha **Novo** > **Enterprise Integration** > **Aplicativo Lógico**, como mostrado aqui:
 
-7. Selecione **Nova etapa**e escolha **Adicionar uma ação** ou **Adicionar uma condição**.
+     ![Portal do Azure, Novo, Enterprise Integration, Aplicativo Lógico](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-    Ao selecionar **Adicionar uma ação**, você pode pesquisar [conectores disponíveis](../connectors/apis-list.md) para escolher uma ação. 
+   > [!TIP]
+   > Você também pode escolher **Novo** e, na caixa de pesquisa, digitar `logic app` e pressionar Enter. Então, escolha **Aplicativo Lógico** > **Criar**.
 
-8. Na caixa Pesquisar, procure **outlook**e selecione **Enviar um email** a fim de enviar email de sua conta do Outlook aos endereços de email especificados.
+3. Nomeie seu aplicativo lógico e selecione sua assinatura do Azure. Agora, crie ou selecione um grupo de recursos do Azure, o que ajuda a organizar e gerenciar os recursos do Azure afins. Por fim, selecione o local do datacenter para hospedar seu aplicativo lógico. Quando você estiver pronto, escolha **Fixar no painel** e **Criar**.
 
-   ![Ações](media/logic-apps-create-a-logic-app/actions.png)
+     ![Detalhes do aplicativo lógico](media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
-9. Agora você precisa preencher os parâmetros para o email desejado: 
+   > [!NOTE]
+   > Quando você selecionar **Fixar no painel**, seu aplicativo lógico aparecerá no painel do Azure após a implantação e será aberto automaticamente. Se seu aplicativo lógico não aparecer no painel, no bloco **Todos os recursos**, escolha **Ver Mais** e selecione seu aplicativo lógico. No menu à esquerda, clique em **Mais serviços**. Em **Enterprise Integration**, escolha **Aplicativos Lógicos** e selecione seu aplicativo lógico.
 
-   ![Parâmetros](media/logic-apps-create-a-logic-app/parameters.png)
+4. Quando você abrir seu aplicativo lógico pela primeira vez, o Designer do Aplicativo Lógico mostrará os modelos que você pode usar para começar. Por ora, escolha **Aplicativo Lógico em Branco** para poder compilar seu aplicativo lógico do zero.
 
-10. Por fim, você pode selecionar **Salvar** para ativar seu aplicativo lógico.
+    O Designer do Aplicativo Lógico será aberto e mostrará os serviços disponíveis e *gatilhos* que você pode usar em seu aplicativo lógico.
 
-## <a name="manage-your-logic-app-after-creation"></a>Gerenciar seu aplicativo lógico após a criação
+5. Na caixa de pesquisa, digite `RSS` e selecione este gatilho: **RSS - quando um item do feed é publicado** 
 
-Agora seu aplicativo lógico está em execução. Ele verificará periodicamente se há tweets com o termo de pesquisa digitado. Quando encontrar um tweet correspondente, ele enviará um email. Por fim, você verá como desabilitar o aplicativo ou como está seu desempenho.
+    ![Gatilho do RSS](media/logic-apps-create-a-logic-app/rss-trigger.png)
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+6. Insira o link do RSS feed do site que você deseja controlar. 
 
-2. No menu esquerdo, clique em **Mais serviços**. Em **Enterprise Integration**, escolha **Aplicativos Lógicos**. Selecione seu aplicativo lógico.
+     Você também pode alterar a **Frequência** e o **Intervalo**. 
+     Essas configurações determinam a frequência com que o aplicativo lógico verifica se há novos itens e retorna todos os itens encontrados durante esse período de tempo.
 
-    *    Para exibir o status, o histórico de execução e as informações gerais do seu aplicativo, no menu de aplicativo lógico, escolha **Visão geral**. Se você não encontrar os dados esperados, escolha **Atualização** na barra de comandos.
+     Para este exemplo, iremos verificar todo dia os novos itens postados no site do MSDN Channel 9.
 
-    *    Para editar seu aplicativo, no menu de aplicativo lógico, escolha **Designer de Aplicativos Lógicos**.
+     ![Configurar um gatilho com o RSS feed, frequência e intervalo](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-    *    Para desativar seu aplicativo temporariamente, no menu de aplicativo lógico, escolha **Visão geral**. Na barra de comandos, escolha **Desabilitar**.
+7. Salve seu trabalho agora. (Na barra de comandos do designer, escolha **Salvar**.)
 
-    *    Para excluir seu aplicativo, no menu de aplicativo lógico, escolha **Visão geral**. 
-    Na barra de comandos, escolha **Excluir**. Insira o nome do seu aplicativo lógico e escolha **Excluir**.
+   ![Salve seu aplicativo lógico](media/logic-apps-create-a-logic-app/save-logic-app.png)
 
-Em menos de 5 minutos, você configurou um aplicativo lógico simples e o colocou em execução na nuvem. Para saber mais sobre como usar os recursos de aplicativos lógicos, consulte [Usar os recursos de aplicativos lógicos]. Para saber mais sobre as definições de aplicativos lógicos, consulte [Criar definições de aplicativos lógicos](../logic-apps/logic-apps-author-definitions.md).
+   Quando você salva, seu aplicativo lógico fica ativo, mas no momento, seu aplicativo lógico só verifica os novos itens no RSS feed especificado. 
+   Para tornar este exemplo mais útil, adicionamos uma ação que seu aplicativo lógico executa após o gatilho disparar.
 
-<!-- Shared links -->
-[Azure portal]: https://portal.azure.com
-[Usar os recursos de aplicativos lógicos]: logic-apps-create-a-logic-app.md
+## <a name="add-an-action-that-responds-to-your-trigger"></a>Adicionar uma ação que responde a seu gatilho
+
+Uma [*ação*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) é uma tarefa executada pelo fluxo de trabalho do aplicativo lógico. Depois de adicionar um gatilho ao seu aplicativo lógico, você poderá adicionar uma ação para executar operações com os dados gerados por esse gatilho. Para nosso exemplo, agora adicionaremos uma ação que envia email quando novos itens aparecem no RSS feed do site.
+
+1. No designer, no gatilho, escolha **Nova etapa** > **Adicionar uma ação**, como mostrado aqui:
+
+   ![Adicionar uma ação](media/logic-apps-create-a-logic-app/add-new-action.png)
+
+   O designer mostra os [conectores disponíveis](../connectors/apis-list.md) para que você possa selecionar uma ação para executar quando o gatilho disparar.
+
+2. Com base em sua conta de email, siga as etapas do Outlook ou do Gmail.
+
+   * Para enviar um email de sua conta do Outlook, na caixa de pesquisa, digite `outlook`. Em **Serviços**, escolha **Outlook.com** para as contas pessoais da Microsoft ou escolha **Outlook do Office 365** para as contas corporativas ou de estudante do Azure. 
+   Em **Ações**, selecione **Enviar um email**.
+
+       ![Selecionar a ação "Enviar um email" do Outlook](media/logic-apps-create-a-logic-app/actions.png)
+
+   * Para enviar um email de sua conta do Gmail, na caixa de pesquisa, digite `gmail`. 
+   Em **Ações**, selecione **Enviar email**.
+
+       ![Escolher "Gmail - enviar email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
+
+3. Quando as credenciais forem solicitadas, entre com o nome de usuário e a senha de sua conta de email. 
+
+4. Forneça os detalhes desta ação, como o endereço de email de destino, e escolha os parâmetros para os dados a incluir no email, por exemplo:
+
+   ![Selecionar os dados a incluir no email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
+
+    Portanto, se você escolheu o Outlook, seu aplicativo lógico poderá parecer com este exemplo:
+
+    ![Aplicativo lógico concluído](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
+
+5.    Salve suas alterações. (Na barra de comandos do designer, escolha **Salvar**.)
+
+6. Agora, você pode executar manualmente seu aplicativo lógico para testar. Na barra de comandos do designer, escolha **Executar**. Caso contrário, você pode deixar seu aplicativo lógico verificar o RSS feed especificado com base no agendamento configurado.
+
+   Se seu aplicativo lógico encontrar novos itens, ele enviará um email que inclui os dados selecionados. 
+   Se nenhum item novo for encontrado, seu aplicativo lógico irá ignorar a ação que envia um email.
+
+7. Para monitorar e verificar a execução de seu aplicativo lógico e o histórico de gatilhos, no menu do aplicativo lógico, escolha **Visão Geral**.
+
+   ![Monitorar e verificar a execução de seu aplicativo lógico e o histórico de gatilhos](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
+
+   > [!TIP]
+   > Se você não encontrar os dados esperados, na barra de comandos, escolha **Atualizar**.
+
+   Para saber mais sobre o status de seu aplicativo lógico, a execução e o histórico de gatilhos, ou para diagnosticar seu aplicativo lógico, consulte [Solucionar problemas de seu aplicativo lógico](logic-apps-diagnosing-failures.md).
+
+      > [!NOTE]
+      > Seu aplicativo lógico continuará sendo executado até que você desative o aplicativo. Para desativar seu aplicativo agora, no menu de aplicativo lógico, escolha **Visão Geral**. Na barra de comandos, escolha **Desabilitar**.
+
+Parabéns, você acabou de configurar e executar seu primeiro aplicativo lógico básico. Você também aprendeu como é fácil criar fluxos de trabalho que automatizam os processos e integram os aplicativos e serviços de nuvem - tudo sem código.
+
+## <a name="manage-your-logic-app"></a>Gerenciar seu aplicativo lógico
+
+Para gerenciar seu aplicativo, você pode executar tarefas como verificar o status, editar, exibir histórico, desativar ou excluir seu aplicativo lógico.
+
+1. Entre no [portal do Azure](https://portal.azure.com "portal do Azure").
+
+2. No menu à esquerda, clique em **Mais serviços**. Em **Enterprise Integration**, escolha **Aplicativos Lógicos**. Selecione seu aplicativo lógico. 
+
+   No menu do aplicativo lógico, você pode encontrar estas tarefas de gerenciamento do aplicativo lógico:
+
+   |Tarefa|Etapas| 
+   |:---|:---| 
+   | Exibir o status, histórico de execução e informações gerais de seu aplicativo| Escolha **Visão Geral**.| 
+   | Editar seu aplicativo | Escolha **Designer de Aplicativos Lógicos**. | 
+   | Exibir a definição JSON do fluxo de trabalho de seu aplicativo | Escolha **Exibir Código do Aplicativo Lógico**. | 
+   | Exibir as operações executadas em seu aplicativo lógico | Escolha **Log de atividades**. | 
+   | Exibir as antigas versões de seu aplicativo lógico | Escolha **Versões**. | 
+   | Desativar temporariamente seu aplicativo | Escolha **Visão Geral**, em seguida, na barra de comandos, escolha **Desabilitar**. | 
+   | Excluir seu aplicativo | Escolha **Visão Geral**, em seguida, na barra de comandos, escolha **Excluir**. Insira o nome do seu aplicativo lógico e escolha **Excluir**. | 
+
+## <a name="get-help"></a>Obter ajuda
+
+Para fazer perguntas, responder a perguntas e saber o que os outros usuários dos Aplicativos Lógicos do Azure estão fazendo, visite o [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Para ajudar a melhorar os Aplicativos Lógicos do Azure e conectores, vote ou envie ideias no [site de comentários do usuário dos Aplicativos Lógicos do Azure](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Próximas etapas
+
+*  [Adicionar condições e executar fluxos de trabalho](../logic-apps/logic-apps-use-logic-app-features.md)
+*     [Modelos de aplicativos lógicos](../logic-apps/logic-apps-use-logic-app-templates.md)
+*  [Criar aplicativos lógicos a partir dos modelos do Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md)
+

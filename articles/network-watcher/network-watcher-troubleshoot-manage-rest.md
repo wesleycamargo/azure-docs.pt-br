@@ -46,7 +46,6 @@ Este cenário pressupõe que você seguiu as etapas em [Criação de um observad
 
 A solução de problemas do observador de rede fornece a capacidade de solucionar problemas que podem surgir com as conexões e os gateways de rede virtual. Quando se faz uma solicitação para a solução de problemas de recursos, os logs são consultados e inspecionados. Você receberá um relatório com os resultados assim que a inspeção estiver concluída. As solicitações de API de solução de problemas são solicitações de execução longa e podem demorar para gerar um resultado. Os logs são armazenados em um contêiner em uma conta de armazenamento.
 
-
 ## <a name="log-in-with-armclient"></a>Como fazer logon com ARMClient
 
 ```PowerShell

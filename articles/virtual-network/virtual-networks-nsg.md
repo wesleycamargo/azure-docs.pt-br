@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -66,8 +66,8 @@ A figura acima mostra como as regras NSG são processadas.
 ### <a name="default-tags"></a>Marcas padrão
 Marcas padrão são identificadores fornecidos pelo sistema para atender a uma categoria de endereços IP. Você pode usar marcas padrão nas propriedades **prefixo de endereço de origem** e **prefixo de endereço de destino** de qualquer regra. Há três marcas padrão que você pode usar.
 
-* **VIRTUAL_NETWORK:** essa marca padrão indica todo o espaço de endereço de rede. Ela inclui o espaço de endereço da rede virtual (intervalos de CIDR definidos no Azure), bem como todos os espaços de endereço locais conectados e redes virtuais do Azure conectadas (redes locais).
-* **AZURE_LOADBALANCER:** essa marca padrão denota o balanceador de carga de infraestrutura do Azure. Significa um IP de datacenter do Azure de onde se originam as investigações de integridade do Azure.
+* **VIRTUAL_NETWORK** (**VirtualNetwork** se usando o Azure Resource Manager): essa etiqueta padrão denota todo o espaço de endereço de rede. Ela inclui o espaço de endereço da rede virtual (intervalos de CIDR definidos no Azure), bem como todos os espaços de endereço locais conectados e redes virtuais do Azure conectadas (redes locais).
+* **AZURE_LOADBALANCER** (**AzureLoadBalancer** se usando o Azure Resource Manager): essa etiqueta padrão denota o balanceador de carga de infraestrutura do Azure. Significa um IP de datacenter do Azure de onde se originam as investigações de integridade do Azure.
 * **INTERNET:** essa marca padrão denota o espaço de endereço IP fora da rede virtual e que pode ser acessado por meio da Internet pública. Esse intervalo também inclui o [espaço de IP público de propriedade do Azure](https://www.microsoft.com/download/details.aspx?id=41653) .
 
 ### <a name="default-rules"></a>Regras padrão

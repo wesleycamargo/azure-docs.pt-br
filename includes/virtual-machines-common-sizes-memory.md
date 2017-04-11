@@ -6,6 +6,8 @@ As VMs da série D são projetadas para executar aplicativos que exigem maior ca
 
 A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
+> [!NOTE]
+> Todos os tamanhos de máquina virtual do Azure oferecerão suporte a pelo menos 2 interfaces de rede (NICs) começando no dia 15 de abril. Para obter informações sobre uma região específica, fique atento na [atualização do serviço](https://azure.microsoft.com/en-us/updates/). Essas informações são indicadas abaixo com um "^".
 
 ## <a name="gs-series"></a>Série GS*
 
@@ -13,8 +15,8 @@ ACU: 180 - 240
 
 | Tamanho | Núcleos de CPU | Memória: GiB | SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e do disco local: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | NICs máximas / largura de banda da rede |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_GS1 |2 |28 |56 |4 |10.000 / 100 (264) |5.000 / 125 |1 / alta |
-| Standard_GS2 |4 |56 |112 |8 |20.000 / 200 (528) |10.000 / 250 |2 / Alta |
+| Standard_GS1 |2 |28 |56 |4 |10.000 / 100 (264) |5.000 / 125 |2 ^ / alta |
+| Standard_GS2 |4 |56 |112 |8 |20.000 / 200 (528) |10.000 / 250 |2 / alta |
 | Standard_GS3 |8 |112 |224 |16 |40.000 / 400 (1.056) |20.000 / 500 |4 / muito alta |
 | Standard_GS4 |16 |224 |448 |32 |80.000 / 800 (2.112) |40.000 / 1.000 |8 / extremamente alta |
 | Standard_GS5** |32 |448 |896 |64 |160.000 / 1.600 (4.224) |80.000 / 2.000 |8 / extremamente alta |
@@ -32,7 +34,7 @@ ACU: 180 - 240
 
 | Tamanho         | Núcleos de CPU | Memória: GiB | SSD local: GiB | Taxa de transferência máxima de disco local: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | NICs máximas / largura de banda da rede |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4 / 4 x 500                       | 1 / alta                     |
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4 / 4 x 500                       | 2 ^ / alta                     |
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 8 / 8 x 500                       | 2 / alta                     |
 | Standard_G3  | 8         | 112         | 1.536          | 24000 / 375 / 187                                        | 16 / 16 x 500                     | 4 / muito alta                |
 | Standard_G4  | 16        | 224         | 3.072          | 48000 / 750 / 375                                        | 32 / 32 x 500                     | 8 / extremamente alta           |
