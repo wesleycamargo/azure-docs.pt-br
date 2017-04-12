@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2016
+ms.date: 3/1/2017
 ms.author: mattmcg
 translationtype: Human Translation
-ms.sourcegitcommit: e5df91cbf5df8345b2638b5c417595a727033e16
-ms.openlocfilehash: e96b78d534ecb6107b08eb6dc73b2060a9003ab9
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: bbefca1a60f38f18838ee6563bd26b934cd02172
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,7 +29,7 @@ Quotas are configurable per service and per location, enabling administrators to
 A tenant that subscribes to an offer that contains multiple plans can use all resources that are available in each plan.
 
 ## <a name="to-create-an-iaas-quota"></a>To create an IaaS quota
-1. In a browser, go to [https://portal.azurestack.local](https://portal.azurestack.local/).
+1. In a browser, go to [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external/).
    
    Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
 2. Select **New**, then **Tenant Offers + Plans**, and select **Quota**.
@@ -86,9 +87,4 @@ A tenant that subscribes to an offer that contains multiple plans can use all re
 ##<a name="view-an-existing-quota"></a>View an existing quota
 To view an existing quota, click **More services**>**Resource Providers** and select the service with which the quota you want to view is associated. Next, click **Quotas**, and select the Quota you want to view.
    > ![Viewing an existing quota](./media/azure-stack-setting-quota/ExistingQuota.PNG)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
