@@ -1,9 +1,9 @@
 ---
-redirect_url: /azure/application-insights/app-insights-code-sample-export-sql-stream-analytics
+redirect_url: /azure/marketplace/cloud-partner-portal/cloud-partner-portal-manage-users
 redirect_document_id: TRUE
 translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 88a963584bc5014c554920d3257dd6e1f66dcb37
+ms.openlocfilehash: 9ee0eac12482006ab4d7fa042604e517082c3e09
 ms.lasthandoff: 04/12/2017
 
 ---
