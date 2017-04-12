@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: ranjithr;wadeh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 802a6126302a30aefae5841f42d8b9d782065638
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 79e5329332c457c738c082277ee7b79eb8ead049
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó em Aplicativos Web do Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Neste artigo, você conhecerá as práticas recomendadas e as etapas de solução de problemas para [aplicativos de nó](app-service-web-nodejs-get-started.md) em execução no Azure Webapps (com [iisnode](https://github.com/azure/iisnode)).
+Neste artigo, você conhecerá as práticas recomendadas e as etapas de solução de problemas para [aplicativos de nó](app-service-web-get-started-nodejs.md) em execução no Azure Webapps (com [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Tenha cuidado ao usar as etapas de solução de problemas no site de produção. A recomendação é solucionar problemas do aplicativo em uma configuração que não seja de produção (por exemplo, o slot de preparo) e, quando o problema for corrigido, trocar o slot de preparo pelo slot de produção.
@@ -252,16 +253,11 @@ Há uma configuração no NODE.exe chamada NODE\_PENDING\_PIPE\_INSTANCES. Por p
 ## <a name="more-resources"></a>Mais recursos
 Siga estes links para saber mais sobre aplicativos do node.js no Serviço de Aplicativo do Azure.
 
-* [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-nodejs-get-started.md)
+* [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-get-started-nodejs.md)
 * [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-debug.md)
 * [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Centro de Desenvolvedores do Node.js](../nodejs-use-node-modules-azure-apps.md)
 * [Explorar o Console de Depuração Super Secret Kudu](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

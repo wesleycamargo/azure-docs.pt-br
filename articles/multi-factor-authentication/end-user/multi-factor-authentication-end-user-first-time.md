@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
 ms.openlocfilehash: 6dafec65b2e8091954cae39994d0013d9fd06558
-
+ms.lasthandoff: 12/22/2016
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
@@ -97,9 +98,4 @@ Se você quiser adicionar uma conta ao aplicativo móvel manualmente em vez de u
 * Altere suas opções preferenciais e [gerencie suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)
 * Configure [senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) para aplicativos de dispositivo nativo que não dão suporte à verificação em duas etapas.
 * Confira o [aplicativo Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para obter autenticação segura mesmo quando você não tiver um serviço de célula.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
