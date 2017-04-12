@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 7a34394ebc83e106bd2755ea2e3d966837c01be6
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c07773be6e4a2274287920de9420f4c8b96f58e1
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="accessing-your-apps-in-azure-remoteapp"></a>Acessando seus aplicativos no Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -173,10 +174,5 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 8. Isso lhe dará acesso a um conjunto básico de aplicativos para começar com o RemoteApp.
    
     ![Feed de demonstração do Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

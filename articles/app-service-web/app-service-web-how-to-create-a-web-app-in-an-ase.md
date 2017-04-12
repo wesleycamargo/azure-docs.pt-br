@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
-ms.openlocfilehash: cc8044f78da504c5cd9155c887b24f6880645262
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: cc8044f78da504c5cd9155c887b24f6880645262
 Este tutorial mostra como criar aplicativos Web e planos do Serviço de Aplicativo em um [Ambiente do Serviço de Aplicativo](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> Se você quiser saber como criar um aplicativo Web mas se não precisar fazê-lo em um Ambiente de Serviço de Aplicativo, consulte [Criar um aplicativo Web .NET](web-sites-dotnet-get-started.md) ou um dos tutoriais relacionados para outras linguagens e estruturas.
+> Se você quiser saber como criar um aplicativo Web mas se não precisar fazê-lo em um Ambiente de Serviço de Aplicativo, consulte [Criar um aplicativo Web .NET](app-service-web-get-started-dotnet.md) ou um dos tutoriais relacionados para outras linguagens e estruturas.
 > 
 > 
 
@@ -41,7 +42,7 @@ Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativ
     Se você tiver várias assinaturas, lembre-se de que, para criar um aplicativo no Ambiente de Serviço de Aplicativo, precisará usar a mesma assinatura que usou ao criar o ambiente. 
 3. Selecione ou crie um grupo de recursos.
    
-    Os *grupos de recursos* permitem gerenciar recursos do Azure relacionados como uma unidade e são úteis durante o estabelecimento de regras de *controle de acesso baseado em função* (RBAC) para seus aplicativos. Para saber mais, veja [Visão geral do Azure Resource Manager][ResourceGroups]. 
+    Os *grupos de recursos* permitem gerenciar recursos do Azure relacionados como uma unidade e são úteis durante o estabelecimento de regras de *controle de acesso baseado em função* (RBAC) para seus aplicativos. Para saber mais, confira [Visão geral do Azure Resource Manager][ResourceGroups]. 
 4. Selecione ou crie um plano do Serviço de Aplicativo.
    
     *planos do Serviço de Aplicativo* são conjuntos gerenciados de aplicativos Web.  Normalmente, quando você seleciona os preços, o preço cobrado é aplicado a um plano do serviço de aplicativo em vez de aplicado aos aplicativos individuais. Em um ASE você paga pelas instâncias de computação alocadas para o ASE em vez do que foi listado com o ASP.  Para aumentar o número de instâncias de um aplicativo Web, você aumenta as instâncias do seu plano do Serviço de Aplicativo e isso afeta todos os aplicativos Web nesse plano.  Alguns recursos, como slots de site ou integração de VNET, também têm restrições de quantidade dentro do plano.  Para saber mais, consulte [Visão geral de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
@@ -58,7 +59,7 @@ Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativ
     Se o seu ASE usa um VIP interno, a URL de um aplicativo nesse ASE é: [*sitename*]. [*subdomínio especificado durante a criação do ASE*]   
     Depois de selecionar o ASP durante a criação do ASE você verá o subdomínio de atualização abaixo **Nome**
 
-## <a name="a-namecreateplana-create-an-app-service-plan"></a><a name="createplan"></a> Criar um plano do Serviço de Aplicativo
+## <a name="createplan"></a> Criar um plano do Serviço de Aplicativo
 Quando você cria um plano do Serviço de Aplicativo em um Ambiente do Serviço de Aplicativo, as opções do seu trabalhador serão diferentes caso não haja trabalhadores compartilhados em um ASE.  Os trabalhadores que você precisa usar são aqueles que foram alocados para o ASE pelo administrador.  Isso significa que, para criar um novo plano, você precisa ter mais trabalhadores alocados para o pool de trabalho ASE do que o número total de instâncias em todos os seus planos já nesse pool de trabalho.  Se não tiver trabalhadores suficientes em seu pool de trabalho ASE para criar o plano, você precisará trabalhar com seu administrador do ASE para adicioná-los.
 
 Outra diferença em relação aos planos do Serviço de Aplicativo hospedados por um Ambiente do Serviço de Aplicativo é a ausência de seleção de preços.  Quando você tem um ambiente do serviço de aplicativo, você está pagando por recursos de computação usados pelo sistema e não tem encargos adicionais para os planos nesse ambiente.  Normalmente, quando você cria um plano do Serviço de Aplicativo, você seleciona um plano de preços que determina sua cobrança.  Um ambiente do serviço de aplicativo é essencialmente um local privado onde você pode criar conteúdo.  Você paga pelo ambiente e não para hospedar seu conteúdo.
@@ -107,9 +108,4 @@ Depois de criar seu aplicativo Web e o plano do Serviço de Aplicativo, será um
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
 [ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

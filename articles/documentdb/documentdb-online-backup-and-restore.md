@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: raprasa
 translationtype: Human Translation
-ms.sourcegitcommit: b5419efbaf51476cfc662c8aa814001e2757b4b7
-ms.openlocfilehash: db7b24c049153b6622f50fd9934611d48c98a1e8
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e9b99a79adf445da8761ee399fb1e1a51f9224fc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -27,7 +28,7 @@ O Azure DocumentDB faz backup automaticamente de todos os seus dados em interval
 Este artigo começa com uma recapitulação rápida da redundância de dados e da disponibilidade de dados no DocumentDB e discute os backups. 
 
 ## <a name="high-availability-with-documentdb---a-recap"></a>Alta disponibilidade com DocumentDB - recapitulação
-O DocumentDB foi projetado para ser [distribuído globalmente](documentdb-distribute-data-globally.md) : ele permite que você dimensione a produtividade em várias regiões do Azure juntamente com failover controlado por política e APIs e hospedagem múltipla. Como um sistema de banco de dados que oferece [SLAs de disponibilidade de&99;,99%](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/), todas as gravações no DocumentDB são permanentemente confirmadas em discos locais por um quorum de réplicas em um data center local antes de confirmar para o cliente. Observe que a alta disponibilidade do DocumentDB se baseia no armazenamento local e não depende de qualquer tecnologia de armazenamento externo. Além disso, se sua conta de banco de dados está associada a mais de uma região do Azure, suas gravações são replicadas em outras regiões também. Para dimensionar seus dados de produtividade e acesso em latências menores, você pode ter quantas regiões de leitura associadas à sua conta de banco de dados quantas quiser. Em cada região de leitura, os dados (replicados) são persistidos em um conjunto de réplicas.  
+O DocumentDB foi projetado para ser [distribuído globalmente](documentdb-distribute-data-globally.md) : ele permite que você dimensione a produtividade em várias regiões do Azure juntamente com failover controlado por política e APIs e hospedagem múltipla. Como um sistema de banco de dados que oferece [SLAs de disponibilidade de 99,99%](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/), todas as gravações no DocumentDB são permanentemente confirmadas em discos locais por um quorum de réplicas em um data center local antes de confirmar para o cliente. Observe que a alta disponibilidade do DocumentDB se baseia no armazenamento local e não depende de qualquer tecnologia de armazenamento externo. Além disso, se sua conta de banco de dados está associada a mais de uma região do Azure, suas gravações são replicadas em outras regiões também. Para dimensionar seus dados de produtividade e acesso em latências menores, você pode ter quantas regiões de leitura associadas à sua conta de banco de dados quantas quiser. Em cada região de leitura, os dados (replicados) são persistidos em um conjunto de réplicas.  
 
 Conforme ilustrado no diagrama a seguir, uma única coleção do DocumentDB é [particionada horizontalmente](documentdb-partition-data.md). Uma “partição” é indicada por um círculo no diagrama a seguir, e cada partição torna-se altamente disponível por meio de um conjunto de réplicas. Essa é a distribuição local dentro de uma única região do Azure (indicada pelo eixo X). Além disso, cada partição (com seu conjunto de réplicas correspondente) é distribuída globalmente entre várias regiões associadas à sua conta de banco de dados (por exemplo, neste caso, três regiões: Leste dos EUA, Oeste dos EUA e Índia Central). O "conjunto de partição" é uma entidade distribuída globalmente que consiste em várias cópias de seus dados em cada região (indicado pelo eixo Y). Você pode atribuir prioridade às regiões associadas à conta de banco de dados e o DocumentDB fará failover de forma transparente para a próxima região em caso de desastre. Você pode simular o failover manualmente para testar a disponibilidade de ponta a ponta de seu aplicativo.  
 
@@ -58,10 +59,5 @@ Caso exclua seus dados acidentalmente, você pode [criar um tíquete de suporte]
 Para replicar o banco de dados NoSQL em vários data centers, confira [Distribuir os dados globalmente com o DocumentDB](documentdb-distribute-data-globally.md). 
 
 Para entrar em contato com o Suporte do Azure, [crie um tíquete no portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

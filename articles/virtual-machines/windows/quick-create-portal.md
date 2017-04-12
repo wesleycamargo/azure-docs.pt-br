@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 3cb94144addabf2371c8a058cebff25def4b6338
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 17fb538b33a4a4a2b333ff501e6e729f6000f623
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/04/2017
 
 Máquinas virtuais do Azure podem ser criadas por meio do Portal do Azure. Esse método fornece uma interface do usuário baseada em navegador para a criação e configuração de máquinas virtuais e todos os recursos relacionados. Esse Início Rápido percorre a criação de uma máquina virtual usando o portal do Azure. Depois que a implantação for concluída, nos conectamos ao servidor e instalamos o IIS.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 

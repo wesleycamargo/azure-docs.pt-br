@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8c04dc5a91b7859b5d75f919da55846599038f61
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 5a8af257eb964be4677d5da6a57aadaad1eb2cc3
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-office-with-azure-remoteapp"></a>Usando o Office com o RemoteApp do Azure
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -53,10 +54,5 @@ Quando você ativar sua conta, isso afetará todas as coleções de RemoteApp em
 * A imagem de modelo do Office 2013 Professional Plus (avaliação) destina-se somente para avaliação. Coleções com esta imagem de modelo não podem ser transferidas para produção. Elas serão colocadas no estado “desabilitado”.
 
 Se você não fizer a transição para o modo de produção até a expiração da sua avaliação, as coleções de RemoteApp serão desabilitadas. Não se preocupe – suas configurações e dados de usuários serão salvas por outros 90 dias para que você ainda possa ativar o serviço e alternar para o modo de produção sem qualquer perda de dados.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

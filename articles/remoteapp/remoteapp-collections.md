@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c526faeef2418cfbbca7948004691e127327020
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 7891ce3b04cd5978440dd8af73dc95d1d123ed92
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-kind-of-collection-do-you-need-for-azure-remoteapp"></a>Que tipo de coleção é necessária para o Azure RemoteApp?
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -90,10 +91,5 @@ Confira os [requisitos do AD do Azure + Active Directory para o Azure RemoteApp]
 OK, acho que desvendamos tudo agora. Há apenas uma coisa que resta fazer: criar sua primeira coleção do Azure RemoteApp.
 
 [Criar uma coleção na nuvem](remoteapp-create-cloud-deployment.md) ou [criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md) – basta começar a criar.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
