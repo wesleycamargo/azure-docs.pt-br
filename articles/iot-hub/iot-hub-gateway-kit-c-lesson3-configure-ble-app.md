@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: aplicativo ble, aplicativo de monitor de sensor, coleta de dados do sensor, dados de sensores, dados de sensor para a nuvem
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: b33e53a1-1df7-4412-ade1-45185aec5bef
 ms.service: iot-hub
 ms.devlang: c

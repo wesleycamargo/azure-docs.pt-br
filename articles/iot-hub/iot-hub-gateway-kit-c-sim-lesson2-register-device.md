@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: Hub iot do Azure, nuvem de Internet das coisas, criar dispositivo de Hub IoT do Azure, SensorTag de TI, bli de TI
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 23cfbe21-22c6-4fe1-ae41-63714a897f12
 ms.service: iot-hub
 ms.devlang: c

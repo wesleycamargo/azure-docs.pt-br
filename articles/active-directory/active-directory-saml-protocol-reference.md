@@ -38,4 +38,3 @@ O Azure Active Directory expõe pontos de extremidade de logon único e logout �
 
 Para obter informações sobre os documentos de metadados federados que o Azure AD publica, confira [Metadados Federados](active-directory-federation-metadata.md).
 
-

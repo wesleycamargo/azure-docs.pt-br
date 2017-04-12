@@ -17,6 +17,7 @@ ms.author: sumuth
 translationtype: Human Translation
 ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
 ms.openlocfilehash: 5284022ea473db893800b0f64b5bf4f811d994aa
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -164,7 +165,7 @@ Nesta seção, você aprenderá como configurar um fluxo de trabalho de implanta
     * prefix. Only numbers, letters, and underscores please!
     */
     $table_prefix = getenv('DB_PREFIX');
-```
+    ```
 
 #### <a name="use-relative-paths"></a>Use caminhos relativos
 Por fim, configure caminhos relativos no aplicativo WordPress. O WordPress armazena informações de URL no banco de dados. Esse armazenamento dificulta mais a movimentação de conteúdo de um ambiente para outro. Você precisa atualizar o banco de dados sempre que mudar do ambiente local para o de preparo ou do ambiente de preparo para de produção. Para reduzir o risco de problemas que podem ocorrer com a implantação de banco de dados sempre que você implantar de um ambiente para outro, use o [plug-in de links Relative Root](https://wordpress.org/plugins/root-relative-urls/) que pode ser instalado usando o painel de administrador do WordPress.
@@ -442,9 +443,4 @@ Este exemplo mostra a flexibilidade da plataforma, onde você pode criar módulo
 [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md)
 
 [Como bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
