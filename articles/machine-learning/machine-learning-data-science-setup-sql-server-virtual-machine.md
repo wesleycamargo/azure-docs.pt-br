@@ -96,23 +96,23 @@ Quando você está conectado à máquina virtual com a Área de Trabalho Remota 
 ## <a name="InstallIPython"></a>Instalar o IPython Notebook e outras ferramentas de suporte
 Para configurar a nova VM do SQL Server para servir como um servidor do IPython Notebook e instalar as ferramentas de suporte adicionais, como AzCopy, Azure Storage Explorer, pacotes de Python de ciência de dados úteis e outros, um script de personalização especial é fornecido para você. Para instalar:
 
-* Clique com o botão direito do mouse no ícone **Iniciar do Windows** e clique em **Prompt de comando (Admin)**
-* Copie os seguintes comandos e cole no prompt de comando.
+1. Clique com o botão direito do mouse no ícone **Iniciar do Windows** e clique em **Prompt de comando (Admin)**
+2. Copie os seguintes comandos e cole no prompt de comando.
   
         set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
         @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
-* Quando solicitado, digite uma senha de sua escolha para o servidor do IPython Notebook.
-* O script de personalização automatiza vários procedimentos de pós-instalação, que incluem:
-  * Instalação e configuração do servidor do IPython Notebook
-  * Abertura de portas TCP no firewall do Windows para os pontos de extremidade criados anteriormente:
-  * Para conectividade remota do SQL Server
-  * Para a conectividade remota do servidor IPython Notebook
-  * Busca de scripts Python Notebooks e SQL de amostra
-  * Baixar e instalar pacotes úteis de Python para ciência dados
-  * Baixar e instalar ferramentas do Azure como o AzCopy e o Azure Storage Explorer   
+3. Quando solicitado, digite uma senha de sua escolha para o servidor do IPython Notebook.
+4. O script de personalização automatiza vários procedimentos de pós-instalação, que incluem:
+    * Instalação e configuração do servidor do IPython Notebook
+    * Abertura de portas TCP no firewall do Windows para os pontos de extremidade criados anteriormente:
+    * Para conectividade remota do SQL Server
+    * Para a conectividade remota do servidor IPython Notebook
+    * Busca de scripts Python Notebooks e SQL de amostra
+    * Baixar e instalar pacotes úteis de Python para ciência dados
+    * Baixar e instalar ferramentas do Azure como o AzCopy e o Azure Storage Explorer   
     <br>
-* Você pode acessar e executar o IPython Notebook em qualquer navegador local ou remoto usando uma URL no formato `https://<virtual_machine_DNS_name>:<port>`, em que a porta é a porta pública do IPython que você selecionou ao provisionar a máquina virtual.
-* O servidor do IPython Notebook é executado como um serviço em segundo plano e será reiniciado automaticamente quando você reiniciar a máquina virtual.
+5. Você pode acessar e executar o IPython Notebook em qualquer navegador local ou remoto usando uma URL no formato `https://<virtual_machine_DNS_name>:<port>`, em que a porta é a porta pública do IPython que você selecionou ao provisionar a máquina virtual.
+6. O servidor do IPython Notebook é executado como um serviço em segundo plano e será reiniciado automaticamente quando você reiniciar a máquina virtual.
 
 ## <a name="Optional"></a>Anexe um disco de dados conforme necessário
 Se a sua imagem de VM não incluir discos de dados, ou seja, discos que não sejam a unidade C (disco do sistema operacional) e a unidade D (disco temporário), você precisa adicionar um ou mais discos de dados para armazenar dados. A imagem VM para SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads vem pré-configurada com discos adicionais para arquivos de log e de dados do SQL Server.
