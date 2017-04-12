@@ -17,9 +17,9 @@ ms.date: 03/21/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: b4f2f1195887d8b64599e82334ab36b21eef1d1d
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: dcc248d398f2e2aa0f563a0868e80b1e7ee6a3fb
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Usar o Azure PowerShell para executar trabalhos do Pig com o HDInsight
@@ -36,7 +36,7 @@ Este documento fornece um exemplo de uso do PowerShell do Azure para enviar trab
 * **Um cluster Azure HDInsight**
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * **Uma estação de trabalho com o PowerShell do Azure**.
 
@@ -61,13 +61,13 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
 1. Abra um novo prompt de comando do Windows PowerShell. Altere os diretórios para o local do arquivo **pigjob.ps1** e use o seguinte comando para executar o script:
-   
+
         .\pigjob.ps1
-   
+
     Você deverá fazer logon em sua assinatura do Azure. Em seguida, você deverá fornecer o nome da conta e senha de Administrador/HTTPs do cluster HDInsight.
 
 2. Quando o trabalho for concluído, ele deverá retornar informações semelhantes ao seguinte texto:
-   
+
         Start the Pig job ...
         Wait for the Pig job to complete ...
         Display the standard output ...
@@ -104,5 +104,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
-
 

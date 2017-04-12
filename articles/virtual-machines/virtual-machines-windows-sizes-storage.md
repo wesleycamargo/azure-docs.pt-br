@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: a17064f4d25e0f8cf406451e2d227d72511ac171
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 586b77c357f64f853374a7ba59e766b015d572c2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,13 +34,13 @@ ms.lasthandoff: 03/24/2017
 
 
 ## <a name="other-sizes"></a>Outros tamanhos
-- [Propósito geral](virtual-machines-windows-sizes-general.md)
-- [Computação otimizada](virtual-machines-windows-sizes-compute.md)
+- [Propósito geral](windows/sizes-general.md)
+- [Computação otimizada](windows/sizes-compute.md)
 - [Memória otimizada](virtual-machines-windows-sizes-memory.md)
-- [GPU otimizada](virtual-machines-windows-sizes-gpu.md)
-- [Computação de alto desempenho](virtual-machines-windows-sizes-hpc.md)
+- [GPU otimizada](windows/sizes-gpu.md)
+- [Computação de alto desempenho](windows/sizes-hpc.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como as [ACUs (unidade de computação do Azure)](virtual-machines-windows-acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
+Saiba mais sobre como as [ACUs (unidade de computação do Azure)](windows/acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
 
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: bd313ae585667cc80d44ae50f9d97659b8de62eb
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e910c47d88434fae76f9c2d3bcb8a258d7d3fde4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/27/2017
 Há muitos fatores que afetam o desempenho do MySQL no Azure, tanto na configuração de software como na seleção de hardware virtual. Este artigo se concentra na otimização de desempenho por meio de armazenamento, sistema e configurações de banco de dados.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager](../../../resource-manager-deployment-model.md) e Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para saber mais sobre as otimizações de VM Linux com o modelo do Resource Manager, veja [Otimizar sua VM Linux no Azure](../../virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager](../../../resource-manager-deployment-model.md) e Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para saber mais sobre as otimizações de VM Linux com o modelo do Resource Manager, veja [Otimizar sua VM Linux no Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Utilizar RAID em uma máquina virtual do Azure
 O armazenamento é o principal fator que afeta o desempenho do banco de dados em ambientes de nuvem. Em comparação com um único disco, o RAID pode fornecer acesso mais rápido por meio de simultaneidade. Para obter mais informações, consulte [Níveis de RAID padrão](http://en.wikipedia.org/wiki/Standard_RAID_levels).   
@@ -71,7 +71,7 @@ Você pode ver as unidades adicionadas na máquina virtual, observando o log de 
     sudo grep SCSI /var/log/dmesg
 
 #### <a name="create-raid-with-the-additional-disks"></a>Criar o RAID com os discos adicionais
-As etapas a seguir descrevem como [configurar o software RAID no Linux](../../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+As etapas a seguir descrevem como [configurar o software RAID no Linux](../configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > Se você estiver usando o sistema de arquivos XFS, execute as etapas abaixo após criar o RAID.

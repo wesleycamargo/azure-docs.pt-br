@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 1d568bc6ab8f2801d575d726352f4c68e1f9277a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: a1a2102f2d26a3e739d2112e2e05332a708227d8
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/25/2017
 Este documento explica como acessar os logs de aplicativos YARN (um novo recurso negociador) que termina em um cluster de Hadoop no HDInsight do Azure.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Criar um cluster HDInsight baseado em Linux.
@@ -58,7 +58,7 @@ Os logs de aplicativos (e os logs de contêiner associado) são essenciais na de
 
 Nesse local, *user* é o nome do usuário que iniciou o aplicativo e *applicationId* é o identificador exclusivo de um aplicativo, conforme atribuído pelo RM do YARN.
 
-Os logs agregados não são diretamente legíveis, já que são gravados em um [TFile][T-file], [formato binário][binary-format] indexado pelo contêiner. Você deve usar as ferramentas dos logs ResourceManager do YARN ou CLI para ver esses logs como texto sem formatação para os aplicativos ou contêineres de interesse. 
+Os logs agregados não são diretamente legíveis, já que são gravados em um [TFile][T-file], [formato binário][binary-format] indexado pelo contêiner. Você deve usar as ferramentas dos logs ResourceManager do YARN ou CLI para ver esses logs como texto sem formatação para os aplicativos ou contêineres de interesse.
 
 ## <a name="yarn-cli-tools"></a>Ferramentas CLI do YARN
 
@@ -78,12 +78,12 @@ Depois de criar um túnel SSH, use as etapas a seguir para exibir os logs YARN:
 
 1. No seu navegador, navegue até https://CLUSTERNAME.azurehdinsight.net. Substitua CLUSTERNAME com o nome do cluster HDInsight.
 2. Na lista de serviços à esquerda da página, selecione **YARN**.
-   
+
     ![Serviço de yarn selecionado](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
 3. Na lista suspensa **Links rápidos**, selecione um dos nós principais do cluster e selecione **Log do ResourceManager**.
-   
+
     ![Links rápidos do yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
-   
+
     Você verá uma lista de links para os logs do YARN.
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html

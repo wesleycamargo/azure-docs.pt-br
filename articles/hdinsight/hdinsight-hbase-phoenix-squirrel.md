@@ -16,9 +16,9 @@ ms.date: 02/09/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
-ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: de997066642c72a0a9e1d7210a96a3904580e6ed
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -30,7 +30,7 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e co
 >
 
 > [!IMPORTANT]
-> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 

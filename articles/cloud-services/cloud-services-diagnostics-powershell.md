@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 43eaec477ef5279631454edd584f22573e224977
-ms.openlocfilehash: b97a81cd516b6d3d20740609c064a13fb9f8622a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 6c68ec173fad1800a63a827028ed5481a4e7f5c8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -136,10 +137,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter orientação adicional sobre como usar o diagnóstico do Azure e outras técnicas para solucionar problemas, consulte [Habilitar o Diagnóstico nos Serviços de Nuvem do Azure e Máquinas Virtuais](cloud-services-dotnet-diagnostics.md).
 * O [Esquema de Configuração de Diagnóstico](https://msdn.microsoft.com/library/azure/dn782207.aspx) explica as várias opções de configurações de XML para a extensão de diagnóstico.
-* Para saber como habilitar a extensão de diagnóstico para Máquinas Virtuais, consulte [Criar uma Máquina Virtual do Windows com monitoramento e diagnóstico usando o Modelo do Gerenciador de Recursos do Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+* Para saber como habilitar a extensão de diagnóstico para Máquinas Virtuais, consulte [Criar uma Máquina Virtual do Windows com monitoramento e diagnóstico usando o Modelo do Gerenciador de Recursos do Azure](../virtual-machines/windows/extensions-diagnostics-template.md)
 

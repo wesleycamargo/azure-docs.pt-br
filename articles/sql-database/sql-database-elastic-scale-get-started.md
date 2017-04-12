@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: a1e45a1ea15f76bcc7c0cd3bceca703818b3a9ff
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f77c49c47ae7b75a2cbc1cd7521739cafdfba342
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -75,7 +75,7 @@ Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados 
   * [Banco de dados elásticos com o SQL Azure - integração com o Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Elasticidade do fragmento no Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Anúncio da Escala Elástica](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
-* Microsoft Virtual Academy: [implementando a fragmentação usando escala vertical com o vídeo da biblioteca do cliente do banco de dados elástico](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965) 
+* Microsoft Virtual Academy: [implementando a fragmentação usando escala vertical com o vídeo da biblioteca do cliente do banco de dados elástico](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965) 
 * Canal 9: [Visão geral da Escala Elástica](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Fórum de discussão: [Fórum do banco de dados do SQL Azure](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Para medir o desempenho: [Contadores de desempenho do gerenciador de mapas do fragmento](sql-database-elastic-database-client-library.md)

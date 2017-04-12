@@ -50,7 +50,7 @@
 ## Gerenciar
 ### [Bibliotecas de gerenciamento do Barramento de Serviço](service-bus-management-libraries.md)
 ### [Usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md)
-### [Usando o PowerShell para provisionar entidades](service-bus-powershell-how-to-provision.md)
+### [Usando o PowerShell para provisionar entidades](service-bus-manage-with-ps.md)
 
 # Referência
 ## .NET

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71537845edcca85a7d0722dd32264da9f6b579e9
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1eb8115b13fb18074b4c4726b69e3d9faf387c32
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-plan-your-virtual-network-for-azure-remoteapp"></a>Como planejar sua rede virtual para o RemoteApp do Azure
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -56,10 +57,5 @@ A seguir estão as coisas que você precisará habilitar em sua sub-rede de rede
 
 ## <a name="virtual-network-with-forced-tunneling"></a>Rede virtual com túnel forçado
 [túnel forçado](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) para todas as novas coleções do RemoteApp do Azure. Atualmente, não há suporte para a migração de uma coleção existente para dar suporte a túnel forçado.  Você precisará excluir todas as coleções existentes usando a VNET que você está vinculando ao RemoteApp do Azure e criar uma nova coleção para habilitar o túnel forçado em suas coleções. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

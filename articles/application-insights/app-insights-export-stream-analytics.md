@@ -4,7 +4,7 @@ description: O Stream Analytics pode transformar, filtrar e rotear continuamente
 services: application-insights
 documentationcenter: 
 author: noamben
-manager: douge
+manager: carmonm
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
 ms.service: application-insights
 ms.workload: tbd
@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: be47e9de14700b66a3f1c59554762303987f67be
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c1a76f521cbee673eb473d40bb15badd40cead5f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -238,11 +239,5 @@ Noam Ben Zeev mostra como processar dados exportados usando o Stream Analytics.
 * [Exportação contínua](app-insights-export-telemetry.md)
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
-* [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

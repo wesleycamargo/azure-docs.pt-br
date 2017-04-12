@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ef84d2893bc58b919d7724ce261bc90b44129ed4
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: cd38d71ae6c151e2d746de6d30540ced1af295d8
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -26,7 +26,9 @@ ms.lasthandoff: 03/21/2017
 
 Este script cria uma Máquina Virtual do Azure com um sistema operacional Ubuntu. Após a execução do script, é possível acessar a máquina virtual por SSH.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure. Além disso, você precisará ter uma chave pública SSH chamada `id_rsa.pub` no diretório .ssh do perfil do usuário.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -62,5 +64,5 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

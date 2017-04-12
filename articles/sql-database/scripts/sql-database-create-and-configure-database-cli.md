@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 04/04/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2e65b7a5c44c240c1bc7dea8119c821a7bca2120
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 7a8a6c634cb4be2da654a971d9412f981d4e0e8a
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -49,7 +49,7 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 |---|---|
 | [az group create](/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](/cli/azure/sql/server#create) | Cria um servidor lógico que hospeda o Banco de Dados SQL. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall#create) | Cria uma regra de firewall para permitir o acesso a todos os bancos de dados SQL no servidor do intervalo de endereços IP inserido. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Cria uma regra de firewall para permitir o acesso a todos os bancos de dados SQL no servidor do intervalo de endereços IP inserido. |
 | [az sql db create](/cli/azure/sql/db#create) | Cria o Banco de Dados SQL no servidor lógico. |
 | [az group delete](/cli/azure/resource#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 

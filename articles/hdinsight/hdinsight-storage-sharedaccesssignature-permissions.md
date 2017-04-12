@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 510a96051d3f650f5451eb46bbc8263a3393432e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 758a7e3792869d532d1667277d230f5f5b9d38ca
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -30,17 +30,17 @@ As Assinaturas de Acesso Compartilhado (SAS) são recursos das contas de armazen
 ## <a name="requirements"></a>Requisitos
 * Uma assinatura do Azure
 * C# ou Python. O código de exemplo do C# é fornecido como uma solução do Visual Studio.
-  
+
   * A versão do Visual Studio deve ser a 2013, 2015 ou 2017
   * A versão do Python deverá ser a 2.7 ou superior
-  
+
 * Um cluster HDInsight baseado em Linux OU o [Azure PowerShell][powershell] ‑ Se você tiver um cluster existente baseado em Linux, poderá usar o Ambari para adicionar uma Assinatura de Acesso Compartilhado ao cluster. Caso contrário, você poderá usar o Azure PowerShell para criar um cluster e adicionar uma Assinatura de Acesso Compartilhado durante a criação do cluster.
 
     > [!IMPORTANT]
-    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Os arquivos de exemplo de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Esse repositório contém os seguintes itens:
-  
+
   * Um projeto do Visual Studio que pode criar um contêiner de armazenamento, a política armazenada e a SAS a ser usada com o HDInsight
   * Um script Python que pode criar um contêiner de armazenamento, a política armazenada e a SAS a ser usada com o HDInsight
   * Um script do PowerShell que pode criar um cluster HDInsight e configurá-lo para usar a SAS.
@@ -59,9 +59,9 @@ A diferença entre as duas formas é importante para um cenário fundamental: re
 4. A chave de conta usada para criar as SAS é regenerada. Regenerar a chave faz com que a autenticação de todos os componentes de aplicativos que usam a chave anterior falhe até que eles sejam atualizados com a nova chave.
 
 > [!IMPORTANT]
-> Um URI de assinatura de acesso compartilhado é associado com a chave de conta usada para criar a assinatura e a política de acesso armazenado associada (se houver). Se nenhuma política de acesso armazenado for especificada, a única maneira de revogar uma assinatura de acesso compartilhado é alterar a chave da conta. 
-> 
-> 
+> Um URI de assinatura de acesso compartilhado é associado com a chave de conta usada para criar a assinatura e a política de acesso armazenado associada (se houver). Se nenhuma política de acesso armazenado for especificada, a única maneira de revogar uma assinatura de acesso compartilhado é alterar a chave da conta.
+>
+>
 
 É recomendável que você sempre use as políticas de acesso armazenadas para que você possa revogar assinaturas ou estender a data de vencimento conforme necessário. As etapas deste documento usam políticas de acesso armazenado para gerar a SAS.
 
@@ -74,29 +74,29 @@ No momento, você deve criar uma política armazenada programaticamente. Você p
 1. Abra a solução no Visual Studio.
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SASToken** e selecione **Propriedades**.
 3. Escolha **Configurações** e adicione valores às seguintes entradas:
-   
+
    * StorageConnectionString: a cadeia de conexão da conta de armazenamento para a qual você deseja criar uma política armazenada e uma SAS. O formato deve ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` onde `myaccount` é o nome de sua conta de armazenamento e `mykey` é a chave da conta de armazenamento.
    * ContainerName: o contêiner na conta de armazenamento para o qual você deseja restringir o acesso.
    * SASPolicyName: o nome a ser usado para a política armazenada que será criada.
    * FileToUpload: o caminho para um arquivo que é carregado no contêiner.
 4. Execute o projeto. Será exibida uma janela de console e as informações semelhantes às seguintes serão exibidas depois que a SAS tiver sido gerada:
-   
+
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-   
+
     Salve o token da política SAS, o nome da conta de armazenamento e o nome do contêiner. Esses valores são usados ao associar a conta de armazenamento com seu cluster HDInsight.
 
 ### <a name="create-a-stored-policy-and-sas-using-python"></a>Criar uma política armazenada e uma SAS usando Python
 1. Abra o arquivo SASToken.py e altere os valores a seguir:
-   
+
    * policy\_name: o nome a ser usado para a política armazenada que será criada.
    * storage\_account\_name: o nome da sua conta de armazenamento.
    * storage\_account\_key: a chave da conta de armazenamento.
    * storage\_container\_: o contêiner na conta de armazenamento para o qual você deseja restringir o acesso.
    * example\_file\_path: o caminho para um arquivo que é carregado no contêiner
 2. Execute o script. Isso exibirá o token SAS semelhante ao texto a seguir quando o script for concluído:
-   
+
         sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-   
+
     Salve o token da política SAS, o nome da conta de armazenamento e o nome do contêiner. Esses valores são usados ao associar a conta de armazenamento com seu cluster HDInsight.
 
 ## <a name="use-the-sas-with-hdinsight"></a>Usar a SAS com o HDInsight
@@ -111,7 +111,7 @@ Para usar uma Assinatura de Acesso Compartilhado para limitar o acesso a um cont
 Um exemplo de criação de um cluster HDInsight que use a SAS foi incluído no diretório `CreateCluster` do repositório. Para usá-lo, execute estas etapas:
 
 1. Abra o arquivo `CreateCluster\HDInsightSAS.ps1` em um editor de texto e modifique os valores a seguir no início do documento.
-   
+
         # Replace 'mycluster' with the name of the cluster to be created
         $clusterName = 'mycluster'
         # Valid values are 'Linux' and 'Windows'
@@ -130,35 +130,35 @@ Um exemplo de criação de um cluster HDInsight que use a SAS foi incluído no d
         $SASToken = 'sastoken'
         # Set the number of worker nodes in the cluster
         $clusterSizeInNodes = 2
-   
+
     Por exemplo, altere `'mycluster'` para o nome do cluster que você deseja criar. Os valores da SAS devem corresponder aos valores das etapas anteriores durante a criação de uma conta de armazenamento e de um token SAS.
-   
+
     Depois de alterar os valores, salve o arquivo.
 2. Abra um novo prompt do Azure PowerShell. Se você não estiver familiarizado com o Azure PowerShell ou se não o tiver instalado, consulte [Instalar e configurar o Azure PowerShell][powershell].
 3. No prompt, use o seguinte comando para se autenticar em sua assinatura do Azure:
-   
+
         Login-AzureRmAccount
-   
+
     Quando solicitado, faça logon com a conta da sua assinatura do Azure.
-   
+
     Se a conta estiver associada a várias assinaturas do Azure, talvez seja necessário utilizar `Select-AzureRmSubscription` para selecionar a assinatura que você deseja usar.
 4. No prompt, altere os diretórios para o diretório `CreateCluster` que contém o arquivo HDInsightSAS.ps1. Em seguida, use o comando a seguir para executar o script
-   
+
         .\HDInsightSAS.ps1
-   
+
     À medida que o script for executado, ele registrará a saída em log do prompt do PowerShell enquanto cria o grupo de recursos e as contas de armazenamento. Ele solicitará que você insira o usuário HTTP para o cluster HDInsight. Essa conta é usada para proteger o acesso HTTP/s ao cluster.
-   
+
     Se você estiver criando um cluster baseado em Linux, também será solicitado que você forneça um nome de conta de usuário SSH e uma senha. Essa conta é usada para fazer logon remotamente no cluster.
-   
+
    > [!IMPORTANT]
    > Quando o nome de usuário ou a senha HTTP/s ou SSH forem solicitados, você deverá fornecer uma senha que atenda a estes critérios:
-   > 
+   >
    > * Deve ter pelo menos 10 caracteres de comprimento
    > * Deve conter pelo menos um dígito
    > * Deve conter pelo menos um caractere não alfanumérico
    > * Deve conter pelo menos uma letra maiúscula ou minúscula
-   > 
-   > 
+   >
+   >
 
 Esse script demora um pouco para terminar, normalmente cerca de 15 minutos. Quando o script for concluído sem erros, o cluster terá sido criado.
 
@@ -170,21 +170,21 @@ Se você tiver um cluster baseado em Linux existente, poderá adicionar a SAS à
 2. No lado esquerdo da interface do usuário da Web do Ambari, escolha **HDFS** e selecione a guia **Configurações** na metade da página.
 3. Selecione a guia **Avançado** e então role até encontrar a seção **Core-site personalizado**.
 4. Expanda a seção **Core-site personalizado**, role até o fim e escolha o link **Adicionar propriedade...**. Use os valores a seguir para os campos **Chave** e **Valor**:
-   
+
    * **Chave**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Valor**: a SAS retornada pelo aplicativo C# ou Python executado anteriormente
-     
+
      Substitua **CONTAINERNAME** pelo nome do contêiner usado com o aplicativo C# ou SAS. Substitua **STORAGEACCOUNTNAME** pelo nome da conta de armazenamento usada.
 5. Clique no botão **Adicionar** para salvar essa chave e esse valor e clique no botão **Salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e clique em **Salvar**.
-   
+
     Clique em **OK** quando as alterações forem concluídas.
-   
+
    > [!IMPORTANT]
    > Você deverá reiniciar vários serviços antes que a alteração entre em vigor.
-   > 
-   > 
+   >
+   >
 6. Na IU da Web do Ambari, escolha **HDFS** na lista à esquerda e selecione **Reiniciar Todos** na lista suspensa **Ações de Serviço** à direita. Quando solicitado, selecione **Ativar o modo de manutenção** e selecione __Conforme Reiniciar Todos".
-   
+
     Repita esse processo para MapReduce2 e YARN.
 
 7. Depois os serviços tiverem sido reiniciados, selecione cada uma e desabilite o modo de manutenção na lista suspensa **Ações de Serviço**.
@@ -193,39 +193,39 @@ Se você tiver um cluster baseado em Linux existente, poderá adicionar a SAS à
 Para verificar se você tem acesso restrito, use estes métodos:
 
 * Para clusters HDInsight **baseados no Windows** , use a Área de Trabalho Remota para se conectar ao cluster. Para obter mais informações, consulte [Conectar ao HDInsight usando RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-  
+
     Uma vez conectado, use o ícone **Linha de Comando do Hadoop** na área de trabalho para abrir um prompt de comando.
 * Para clusters HDInsight **baseados em Linux** , use SSH para conectar-se ao cluster. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Uma vez conectado ao cluster, use as etapas a seguir para verificar se você só pode ler e listar itens na conta de armazenamento SAS:
 
 1. No prompt, digite o seguinte. Substitua **SASCONTAINER** pelo nome do contêiner criado para a conta de armazenamento SAS. Substitua **SASACCOUNTNAME** pelo nome da conta de armazenamento usada para a SAS:
-   
+
         hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
-   
+
     Esse comando lista o conteúdo do contêiner, que deve incluir o arquivo carregado quando o contêiner e a SAS foram criados.
 2. Use o comando a seguir para verificar se você pode ler o conteúdo do arquivo. Substitua **SASCONTAINER** e **SASACCOUNTNAME** como na etapa anterior. Substitua **FILENAME** pelo nome do arquivo exibido no comando anterior:
-   
+
         hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
-   
+
     Esse comando lista o conteúdo do arquivo.
 3. Use o comando a seguir para baixar o arquivo para o sistema de arquivos local:
-   
+
         hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
-   
+
     Esse comando baixa o arquivo para um arquivo local chamado **testfile.txt**.
 4. Use o comando a seguir para carregar o arquivo local para um novo arquivo chamado **testupload.txt** no armazenamento SAS:
-   
+
         hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
-   
+
     Você receberá uma mensagem semelhante ao texto a seguir:
-   
+
         put: java.io.IOException
-   
+
     Esse erro só ocorrerá porque o local do armazenamento é somente leitura+lista. Use o comando a para colocar os dados no armazenamento padrão do cluster, que pode ser gravável:
-   
+
         hdfs dfs -put testfile.txt wasbs:///testupload.txt
-   
+
     Dessa vez, a operação deverá ser concluída com êxito.
 
 ## <a name="troubleshooting"></a>Solucionar problemas

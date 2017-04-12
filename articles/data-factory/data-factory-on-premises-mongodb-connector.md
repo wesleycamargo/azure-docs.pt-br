@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 3540e9c151890468be028af7224a6d11045aec6b
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: b1d31112f024ddc8856835f639f58e2defd67bdf
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -53,6 +53,44 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados MongoDB local, confira a seção [Exemplo de JSON: Copiar dados do MongoDB para o Blob do Azure](#json-example-copy-data-from-mongodb-to-azure-blob) deste artigo. 
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas a uma origem do MongoDB:
+
+## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado **OnPremisesMongoDB** .
+
+| Propriedade | Descrição | Obrigatório |
+| --- | --- | --- |
+| type |A propriedade do tipo deve ser definida como: **OnPremisesMongoDb** |Sim |
+| server |Endereço IP ou nome do host do servidor MongoDB. |Sim |
+| porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Opcional, valor padrão: 27017 |
+| authenticationType |Básica ou Anônima. |Sim |
+| Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
+| Senha |Senha do usuário. |Sim (se a autenticação básica for usada). |
+| authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). Padrão: usa a conta de administrador e o banco de dados especificado usando a propriedade databaseName. |
+| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
+| gatewayName |Nome do gateway que acessa o armazenamento de dados. |Sim |
+| encryptedCredential |Credencial criptografada pelo gateway. |Opcional |
+
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
+
+A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
+
+| Propriedade | Descrição | Obrigatório |
+| --- | --- | --- |
+| collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
+
+## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
+
+As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
+
+Quando a fonte é do tipo **MongoDbSource** , as seguintes propriedades estão disponíveis na seção typeProperties:
+
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| --- | --- | --- | --- |
+| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de consulta SQL-92. Por exemplo: select * from MyTable. |Não (se **collectionName** de **dataset** for especificado) |
+
+
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>Exemplo de JSON: copiar dados do MongoDB para o Blob do Azure
 Este exemplo fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de um banco de dados MongoDB local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
@@ -236,41 +274,6 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 }
 ```
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
-A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado **OnPremisesMongoDB** .
-
-| Propriedade | Descrição | Obrigatório |
-| --- | --- | --- |
-| type |A propriedade do tipo deve ser definida como: **OnPremisesMongoDb** |Sim |
-| server |Endereço IP ou nome do host do servidor MongoDB. |Sim |
-| porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Opcional, valor padrão: 27017 |
-| authenticationType |Básica ou Anônima. |Sim |
-| Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
-| Senha |Senha do usuário. |Sim (se a autenticação básica for usada). |
-| authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). Padrão: usa a conta de administrador e o banco de dados especificado usando a propriedade databaseName. |
-| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
-| gatewayName |Nome do gateway que acessa o armazenamento de dados. |Sim |
-| encryptedCredential |Credencial criptografada pelo gateway. |Opcional |
-
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
-
-A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
-
-| Propriedade | Descrição | Obrigatório |
-| --- | --- | --- |
-| collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
-
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
-
-As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
-
-Quando a fonte é do tipo **MongoDbSource** , as seguintes propriedades estão disponíveis na seção typeProperties:
-
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
-| --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de consulta SQL-92. Por exemplo: select * from MyTable. |Não (se **collectionName** de **dataset** for especificado) |
 
 ## <a name="schema-by-data-factory"></a>Esquema do Data Factory
 O serviço Azure Data Factory infere o esquema de uma coleção do MongoDB usando os 100 documentos mais recentes na coleção. Se esses 100 documentos não contiverem o esquema completo, algumas colunas poderão ser ignoradas durante a operação de cópia.
@@ -353,7 +356,7 @@ Tabela "TabelaDeExemplo_Classificações":
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Leitura repetida de fontes relacionais
-Ao copiar dados de repositórios de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

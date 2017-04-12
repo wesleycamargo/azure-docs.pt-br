@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ee48cbbb0f044c6f178373501cec81d4b4cdcb3b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 9e46aa85ae69d749423c8b86813c819d94adb24c
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/21/2017
 
 Este exemplo de script cria todos os componentes necessários para executar várias máquinas virtuais do Ubuntu configuradas em uma alta disponibilidade e configuração de balanceamento de carga. Após a execução do script, você terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure, e acessíveis por meio de um Azure Load Balancer.
 
-Se necessário, instale a CLI do Azure usando a instrução encontrada no [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e, em seguida, execute `az login` para criar uma conexão com o Azure. Além disso, você deve alterar a variável $AdminPassword no início do script para atender aos requisitos exclusivos de complexidade da senha.
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Este exemplo funciona em um Shell Bash. Para opções sobre como executar scripts da CLI do Azure no Windows, veja [Execução da CLI do Azure no Windows](../virtual-machines-windows-cli-options.md).
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -66,5 +66,5 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos de script CLI máquinas virtuais adicionais podem ser encontrados na [documentação da VM do Windows do Azure](../virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Exemplos de script CLI máquinas virtuais adicionais podem ser encontrados na [documentação da VM do Windows do Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

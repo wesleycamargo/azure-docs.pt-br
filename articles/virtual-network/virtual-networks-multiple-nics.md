@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: d10ae92ba79014d9700613c06ef37a437089f5ac
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5e91f640ab72fd3a5fffcb0f9d7bac1e9e031249
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +36,7 @@ A figura mostra uma VM com três NICs, cada uma conectada a uma sub-rede diferen
 * Neste momento, não há suporte para endereços LPIP (PI público no nível da instância) (implantações clássicas) para VMs com várias NICs.
 * A ordem das NICs de dentro da VM será aleatória e também pode ser alterada nas atualizações da infraestrutura do Azure. No entanto, os endereços IP e os endereços ethernet MAC correspondentes permanecerão os mesmos. Por exemplo, suponha que **Eth1** tenha o endereço IP 10.1.0.100 e um endereço MAC 00-0D-3A-B0-39-0D; após uma atualização de infraestrutura e reinicialização do Azure, ela pode ser alterada para **Eth2**, mas o emparelhamento entre IP e MAC permanecerá o mesmo. Quando a reinicialização for iniciada pelo cliente, a ordem das NICs permanecerá a mesma.
 * O endereço de cada NIC em cada máquina virtual deve estar localizado em uma sub-rede, várias NICs em uma única VM podem, cada uma, receber a atribuição de endereços que estejam na mesma sub-rede.
-* O tamanho da VM determina o número de NICS que você pode criar para uma máquina virtual. Consulte os artigos sobre tamanhos de VM do[Windows Server](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e do [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para determinar a quantas NICS cada tamanho de VM oferece suporte. 
+* O tamanho da VM determina o número de NICS que você pode criar para uma máquina virtual. Consulte os artigos sobre tamanhos de VM do[Windows Server](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e do [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para determinar a quantas NICS cada tamanho de VM oferece suporte. 
 
 ## <a name="network-security-groups-nsgs"></a>Grupos de segurança de rede (NSG)
 Em uma implantação do Gerenciador de recursos, qualquer NIC em uma máquina virtual pode estar associada com um NSG (grupo de segurança de rede), incluindo todas as NICs em uma VM que tenha várias NICs habilitadas. Se uma NIC tiver um endereço atribuído em uma sub-rede que esteja associada a um NSG, as regras do NSG da sub-rede também se aplicarão à NIC. Além de associar sub-redes a NSGs, você também pode associar uma NIC a um NSG.
@@ -227,10 +228,5 @@ Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, re
 ## <a name="next-steps"></a>Próximas etapas
 * Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template.md).
 * Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação clássica](virtual-network-deploy-multinic-classic-ps.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

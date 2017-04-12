@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2cbf4c9576f9cc5b2a71e81181647b71162edc1a
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: f8726ba47c6d903c47ae5e3f61dae10c805fcc87
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -26,7 +26,9 @@ ms.lasthandoff: 03/30/2017
 
 Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016. Após a execução do script, é possível acessar a máquina virtual por RDP.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -62,5 +64,5 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Windows do Azure](../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

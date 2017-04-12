@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e21af65ecb6f0ce70048846a9786271dd4cc985
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 59ac11f153c0bd74a1106400dbbf5790968b657c
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="managing-azure-remoteapp-using-azure-automation"></a>Gerenciando o Azure RemoteApp usando a Automação do Azure
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -42,10 +43,5 @@ O RemoteApp pode ser gerenciado na Automação do Azure usando os cmdlets do Pow
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Azure RemoteApp, siga estes links para obter mais informações sobre a Automação do Azure.
 
 * Confira o [Guia de introdução](../automation/automation-first-runbook-graphical.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

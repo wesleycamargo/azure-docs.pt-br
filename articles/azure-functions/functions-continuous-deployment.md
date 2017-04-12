@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 66753c80223e33c3add9d37aa4d81656472391ca
-ms.openlocfilehash: e1a869d3c3512f32eab7840f5abc17abd8ce8004
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: dbcee4d57448c6f25de24d5995b85849d6d82f77
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -27,7 +28,7 @@ O Azure Functions torna fácil configurar a implantação contínua para seu apl
 A implantação contínua é uma ótima opção para projetos nos quais várias contribuições frequentes são integradas. Ele também permite manter o controle do código-fonte no código de funções. As seguintes fontes de implantação têm suporte atualmente:
 
 * [Bitbucket](https://bitbucket.org/)
-* [Dropbox](https://bitbucket.org/)
+* [Dropbox](https://www.dropbox.com/)
 * [Repositório local Git](../app-service-web/app-service-deploy-local-git.md)
 * Repositório externo Git
 * [GitHub]
@@ -141,9 +142,4 @@ Para poder baixar arquivos do aplicativo de funções com o FTP ou repositório 
     Caso solicitado, forneça o nome de usuário e a senha para a implantação do aplicativo de função.  
 
 [GitHub]: https://github.com/
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

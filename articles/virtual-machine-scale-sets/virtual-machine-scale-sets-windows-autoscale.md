@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 4fa0cdc2ee71d4e499dfc45bac7b690d728b626a
-ms.openlocfilehash: 2649edd4af67e25ce49bf0ced858b7c7e4633290
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b2565bef6643decd1b96fc3cc5b01003916e9685
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -110,7 +110,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
         * Os nomes de endereços IP e prefixos para a rede virtual e sub-redes.
         * Os nomes e os identificadores da rede virtual, balanceador de carga e interfaces de rede.
         * Nomes de conta de armazenamento para as contas associadas com as máquinas no conjunto de dimensionamento.
-        * Configurações para a Extensão de diagnóstico que é instalada nas máquinas virtuais. Para obter mais informações sobre a Extensão de diagnóstico, confira [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o Modelo do Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        * Configurações para a Extensão de diagnóstico que é instalada nas máquinas virtuais. Para obter mais informações sobre a Extensão de diagnóstico, confira [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o Modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 4. Adicione o recurso de conta de armazenamento sob o elemento pai de recursos que você adicionou ao modelo. Este modelo usa um loop para criar as cinco contas de armazenamento recomendadas nas quais os discos do sistema operacional e os dados de diagnóstico estão armazenados. Este conjunto de contas pode oferecer suporte a até 100 máquinas virtuais em um conjunto de dimensionamento, que é o máximo atual. Cada conta de armazenamento é nomeada com um designador que foi definido nas variáveis combinadas com o prefixo que você fornecer nos parâmetros do modelo.
 

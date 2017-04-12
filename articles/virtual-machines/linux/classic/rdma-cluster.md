@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8dd8aafcae3ef9652e6f45cd3a07cdd1fd74d58f
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b002d21b198fa4887e30d30c20ec67d21ae30579
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurar um cluster de RDMA do Linux para executar aplicativos MPI
-Saiba como configurar um cluster de RDMA do Linux no Azure com [VMs da séria H ou da série A com computação intensiva](../../virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para executar aplicativos MPI (Interface de Transmissão de Mensagens) paralelamente. Este artigo fornece etapas para preparar uma imagem do HPC Linux para executar o Intel MPI em um cluster. Após a preparação, você implanta um cluster de VMs usando essa imagem e um dos tamanhos de VM do Azure compatíveis com RDMA (atualmente H16r, H16mr, A8 ou A9). Use o cluster para executar aplicativos MPI que se comunicam com eficiência por uma rede de alta taxa de transferência e baixa latência baseada na tecnologia RDMA (acesso remoto direto à memória).
+Saiba como configurar um cluster de RDMA do Linux no Azure com [VMs da séria H ou da série A com computação intensiva](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para executar aplicativos MPI (Interface de Transmissão de Mensagens) paralelamente. Este artigo fornece etapas para preparar uma imagem do HPC Linux para executar o Intel MPI em um cluster. Após a preparação, você implanta um cluster de VMs usando essa imagem e um dos tamanhos de VM do Azure compatíveis com RDMA (atualmente H16r, H16mr, A8 ou A9). Use o cluster para executar aplicativos MPI que se comunicam com eficiência por uma rede de alta taxa de transferência e baixa latência baseada na tecnologia RDMA (acesso remoto direto à memória).
 
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager](../../../resource-manager-deployment-model.md) e clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
@@ -85,7 +85,7 @@ Em que:
 
 
 ### <a name="customize-the-vm"></a>Personalizar a VM
-Depois que a VM concluir o provisionamento, faça SSH nela usando o endereço IP externo da VM (ou o nome DNS) e o número da porta externa configurada; em seguida, personalize-a. Para obter detalhes de conexão, confira [Como fazer logon em uma máquina virtual executando o Linux](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Execute comandos como o usuário configurado na VM, a menos que o acesso à raiz seja necessário para concluir uma etapa.
+Depois que a VM concluir o provisionamento, faça SSH nela usando o endereço IP externo da VM (ou o nome DNS) e o número da porta externa configurada; em seguida, personalize-a. Para obter detalhes de conexão, confira [Como fazer logon em uma máquina virtual executando o Linux](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Execute comandos como o usuário configurado na VM, a menos que o acesso à raiz seja necessário para concluir uma etapa.
 
 > [!IMPORTANT]
 > O Microsoft Azure não oferece acesso à raiz para VMs do Linux. Para obter acesso administrativo quando estiver conectado como um usuário à VM, execute comandos usando `sudo`.

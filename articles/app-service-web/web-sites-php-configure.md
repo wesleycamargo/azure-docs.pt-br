@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b62ee732f1730e8934443fb4320327e64d110833
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 52db4d82faa0db07224f48b6600e690e34808e91
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -158,7 +158,7 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 <a name="composer" />
 
 ## <a name="how-to-enable-composer-automation-in-azure"></a>Como habilitar a automação do Criador no Azure
-Por padrão, o Serviço de Aplicativo não fará nada com o composer.json se você tiver um em seu projeto PHP. Se você usar a [implantação Git](app-service-web-php-get-started.md), você poderá habilitar o composer.json durante o `git push` habilitando a extensão do Criador.
+Por padrão, o Serviço de Aplicativo não fará nada com o composer.json se você tiver um em seu projeto PHP. Se você usar a [implantação Git](app-service-deploy-local-git.md), você poderá habilitar o composer.json durante o `git push` habilitando a extensão do Criador.
 
 > [!NOTE]
 > Você pode [votar para obter o suporte de primeira classe do Criador no Serviço de Aplicativo aqui](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip).

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
@@ -158,7 +159,7 @@ Após a confirmação de suas alterações locais e o envio para o repositório 
 
 ![Implantar][api-management-configuration-deploy]
 
-Para saber mais sobre como executar essa operação usando a API REST, confira [Implantar as alterações do Git no banco de dados de configuração usando a API REST](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
+Para saber mais sobre como executar essa operação usando a API REST, confira [Implantar as alterações do Git no banco de dados de configuração usando a API REST](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referência da estrutura de pastas e arquivos do repositório Git local
 Os arquivos e pastas no repositório git local contêm as informações de configuração sobre a instância do serviço.
@@ -308,10 +309,5 @@ Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, c
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

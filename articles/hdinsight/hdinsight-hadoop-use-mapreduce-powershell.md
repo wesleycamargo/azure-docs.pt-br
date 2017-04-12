@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9eafaca75bbf3db639a42c8206d2ac506c255273
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 936212bf634a0245ea70318fcad703a87bf63c5f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +34,7 @@ Esse documento fornece um exemplo de uso do PowerShell do Azure para executar um
 * **Um cluster Azure HDInsight (Hadoop no HDInsight)**
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * **Uma estação de trabalho com o PowerShell do Azure**.
 
@@ -61,13 +61,13 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
 2. Abra um novo prompt de comando do **PowerShell do Azure** . Altere os diretórios para o local do arquivo **mapreducejob.ps1** e use o seguinte comando para executar o script:
-   
+
         .\mapreducejob.ps1
-   
+
     Quando você executa o script, o nome do cluster do HDInsight e o nome da conta de HTTPS/Admin e a senha para o cluster são solicitados. Você também poderá receber uma solicitação para autenticar a sua assinatura do Azure.
 
 3. Quando o trabalho for concluído, você receberá uma saída semelhante ao seguinte texto:
-    
+
         Cluster         : CLUSTERNAME
         ExitCode        : 0
         Name            : wordcount
@@ -77,12 +77,12 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
         StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
-    
+
     Essa saída indica que o trabalho foi concluído com êxito.
-    
+
     > [!NOTE]
     > Se o **ExitCode** for um valor diferente de 0, consulte [Solução de problemas](#troubleshooting).
-    
+
     Este exemplo também armazena os arquivos baixados em um arquivo **output.txt** no diretório do qual você executa o script.
 
 ### <a name="view-output"></a>Exibir saída
@@ -122,5 +122,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
-
 

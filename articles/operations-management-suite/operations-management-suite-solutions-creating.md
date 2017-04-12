@@ -16,15 +16,15 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9d1a89e84b7340bf4bb3d759b4ae856431efcc0e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: e1e915e07591ed104a30e9194ec6228b04519b8c
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Projetar e compilar uma solução de gerenciamento no OMS (Operations Management Suite) (Visualização)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.   j
+> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.
 
 [As soluções de gerenciamento](operations-management-suite-solutions.md) estendem a funcionalidade do OMS (Operations Management Suite), fornecendo cenários de gerenciamento empacotados que os clientes podem adicionar ao seu espaço de trabalho do OMS.  Este artigo apresenta um processo básico para projetar e compilar uma solução de gerenciamento adequada às necessidades mais comuns.  Se você nunca tiver criado soluções de gerenciamento, use este processo como um ponto de partida e aproveite os conceitos para soluções mais complexas, conforme suas necessidades evoluem.
 

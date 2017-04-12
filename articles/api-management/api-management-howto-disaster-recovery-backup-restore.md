@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
-ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c0413f9c83fd6dceb4a1d956c0f32712e29bdc58
+ms.lasthandoff: 03/31/2017
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -49,7 +49,7 @@ Todas as tarefas que você faz em recursos usando o Gerenciador de Recursos do A
 A primeira etapa é criar um aplicativo do Active Directory do Azure. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando a assinatura que contém sua instância de serviço Gerenciamento de API e navegue até a guia **Aplicativos** para o Active Directory do Azure padrão.
 
 > [!NOTE]
-> Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte "Localizar o diretório padrão no portal clássico do Azure" em [Criando uma identidade Corporativa ou de Estudante no Azure Active Directory para usar com VMs do Windows](../virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte "Localizar o diretório padrão no portal clássico do Azure" em [Criando uma identidade Corporativa ou de Estudante no Azure Active Directory para usar com VMs do Windows](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 

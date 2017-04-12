@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: f6c8c895f406187f2bc525a60ca7e53f12e99d77
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6bc820657da4a72455d76f38dbdb06fe50b0c895
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -162,8 +162,8 @@ Quando um alerta é gerado, o Application Insights pode criar automaticamente um
 ## <a name="but-what-about"></a>Mas e...?
 * [Privacidade e armazenamento](app-insights-data-retention-privacy.md) : sua telemetria é mantida em servidores seguros do Azure.
 * Desempenho: o impacto é muito baixo. A telemetria é feita em lotes.
-* [Suporte](app-insights-get-dev-support.md) - você pode tirar proveito do programa de suporte do Azure. Há fóruns interativos onde você pode obter as respostas dos nossos desenvolvedores. E, em último caso, nós podemos oferecer ajuda individual.
 * [Preço](app-insights-pricing.md) - você pode começar a usar gratuitamente e isso continua enquanto estiver no volume baixo.
+
 
 ## <a name="video"></a>Vídeo
 

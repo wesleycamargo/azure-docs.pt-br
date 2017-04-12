@@ -17,8 +17,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 7a75cb16a1d71b55b7b74107a82b9becbe7f6cb3
-ms.openlocfilehash: 22ce8f67cd3546a0983ce395372e8459e895c136
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 1ceb55ba137a61d6bc2121a6b23df2c87e5b7ce2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -157,7 +158,7 @@ Para testar a conectividade do ouvinte para a região remota, é possível reali
 1. Clique em OK.
 1. Em **Pesquisador**, com o botão direito no grupo de disponibilidade e clique em **Mostrar painel**.
 1. No painel, verifique se a réplica no site de recuperação de desastre está sincronizada. 
-1. Em **Pesquisador**, com o botão direito no grupo de disponibilidade e clique **Failover... **. SQL Server Management Studio abre um Assistente de failover do SQL Server.  
+1. Em **Pesquisador**, com o botão direito no grupo de disponibilidade e clique **Failover...**. SQL Server Management Studio abre um Assistente de failover do SQL Server.  
 1. Clique em **Avançar** e selecione a instância do SQL Server no site de recuperação de desastre. Clique em **Avançar** novamente.
 1. Conecte-se à instância do SQL Server no site de recuperação de desastre e clique em **Avançar**. 
 1. Sobre o **resumo** página, verifique as configurações e clique em **concluir**.
@@ -183,10 +184,5 @@ Para saber mais, consulte os tópicos a seguir:
 * [Grupos de disponibilidade AlwaysOn](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Máquinas Virtuais do Azure](http://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Balanceadores de Carga do Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
-* [Conjuntos de Disponibilidade do Azure](../../virtual-machines-windows-manage-availability.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+* [Conjuntos de Disponibilidade do Azure](../manage-availability.md)
 

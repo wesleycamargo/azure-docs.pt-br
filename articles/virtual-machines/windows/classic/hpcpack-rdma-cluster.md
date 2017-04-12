@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 680b2bec3af18273d0ac43d7102a99392fd8ebe0
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4e542ea6431933668d96f7028431826bceb9f337
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -85,7 +85,7 @@ Veja a seguir as considerações e etapas para disparar as instâncias compatív
    Quando você terminar de executar trabalhos, coloque os nós offline e use a ação **Parar** no Gerenciador de Cluster do HPC.
 
 ## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>Cenário 2: Implantar nós de computação em VMs de computação intensiva (IaaS)
-Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de computação de cluster em VMs em uma rede virtual do Azure. O HPC Pack fornece várias [opções de implantação em VMs do Azure](../../virtual-machines-linux-hpcpack-cluster-options.md), incluindo scripts de implantação automatizada e modelos de início rápido do Azure. Como exemplo, as considerações e etapas a seguir mostrarão a você como usar o [script de implantação IaaS do HPC Pack](hpcpack-cluster-powershell-script.md) para automatizar a implantação de um cluster HPC Pack 2012 R2 no Azure.
+Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de computação de cluster em VMs em uma rede virtual do Azure. O HPC Pack fornece várias [opções de implantação em VMs do Azure](../../linux/hpcpack-cluster-options.md), incluindo scripts de implantação automatizada e modelos de início rápido do Azure. Como exemplo, as considerações e etapas a seguir mostrarão a você como usar o [script de implantação IaaS do HPC Pack](hpcpack-cluster-powershell-script.md) para automatizar a implantação de um cluster HPC Pack 2012 R2 no Azure.
 
 ![Cluster em VMs do Azure][iaas]
 
@@ -102,7 +102,7 @@ Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de comp
    * **Sistema operacional Windows Server**: para dar suporte à conectividade RDMA, especifique um sistema operacional Windows Server 2012 R2 ou Windows Server 2012 para as VMs do nó de computação.
    * **Serviços de nuvem**: é recomendável implantar o nó de cabeçalho em um serviço de nuvem e seus nós de computação em outro serviço de nuvem.
    * **Tamanho do nó de cabeçalho**: para esse cenário, considere, no mínimo, um tamanho A4 (extra grande) para o nó de cabeçalho.
-   * **Extensão HpcVmDrivers**: o script de implantação instala o agente de VM do Azure e a extensão HpcVmDrivers automaticamente quando você implanta os nós de computação A8 ou A9 com um sistema operacional Windows Server. A extensão HpcVmDrivers instala drivers nas VMs do nó de computação para que elas possam se conectar à rede RDMA. Em VMs da série H compatíveis com RDMA, você deve instalar a extensão HpcVmDrivers manualmente. Veja [Sobre a série H e uso intensivo de computação VMs série A](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
+   * **Extensão HpcVmDrivers**: o script de implantação instala o agente de VM do Azure e a extensão HpcVmDrivers automaticamente quando você implanta os nós de computação A8 ou A9 com um sistema operacional Windows Server. A extensão HpcVmDrivers instala drivers nas VMs do nó de computação para que elas possam se conectar à rede RDMA. Em VMs da série H compatíveis com RDMA, você deve instalar a extensão HpcVmDrivers manualmente. Veja [Sobre a série H e uso intensivo de computação VMs série A](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
    * **Configuração de rede de cluster**: o script de implantação configura automaticamente o cluster HPC Pack na Topologia 5 (todos os nós na rede corporativa). Essa topologia é necessária para todas as implantações de cluster de HPC Pack em VMs. Não altere a topologia de rede do cluster posteriormente.
 2. **Colocar os nós de computação online para executar trabalhos**
    

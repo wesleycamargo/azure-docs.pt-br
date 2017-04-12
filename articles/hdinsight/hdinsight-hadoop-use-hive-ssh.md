@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 237b78f723fe6dbb800f9e0be2314c7c8a5c668e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 209f69cf24d6febf1d74047715074aee05d3dcf5
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -38,7 +38,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 * Um cluster do Hadoop no HDInsight baseado em Linux.
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -57,52 +57,52 @@ Para saber mais sobre como usar o SSH com HDInsight, confira [Usar SSH com HDIns
 
 ## <a id="hive"></a>Usar o comando do Hive
 1. Uma vez conectado, inicie a CLI do Hive usando o seguinte comando:
-   
+
         hive
 2. Usando a CLI, digite as seguintes instruções para criar uma nova tabela chamada **log4jLogs** usando os dados de exemplo:
-   
+
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-   
+
     Essas instruções executam as seguintes ações:
-   
+
    * **DROP TABLE** - exclui a tabela e o arquivo de dados caso a tabela já exista.
    * **CREATE EXTERNAL TABLE** - cria uma nova tabela “externa" em Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.
    * **ROW FORMAT** - informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
    * **STORED AS TEXTFILE LOCATION** - informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
    * **SELECT** - Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
    * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
-     
+
      > [!NOTE]
      > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa, como um processo automático de carregamento de dados, ou outra operação MapReduce, mas sempre quer que as consultas Hive utilizem os dados mais recentes.
-     > 
+     >
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
-     > 
-     > 
+     >
+     >
 3. Use as instruções a seguir para criar uma nova tabela "interna" chamada **errorLogs**:
-   
+
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
-   
+
     Essas instruções executam as seguintes ações:
-   
+
    * **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Como a palavra-chave **EXTERNAL** não é usada, esta é uma tabela interna, que é armazenada no data warehouse do Hive e totalmente gerenciada pelo Hive.
    * **STORES AS ORC** : armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
    * **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
-     
+
      Para verificar se apenas as linhas que contêm **[ERROR]** na coluna t4 foram armazenadas na tabela **errorLogs**, use a seguinte instrução para retornar todas as linhas de **errorLogs**:
-     
+
        SELECT * de errorLogs;
-     
+
      Três linhas de dados devem ser devolvidas, todas contendo **[ERROR]** na coluna t4.
-     
+
      > [!NOTE]
      > Ao contrário das tabelas externas, remover uma tabela interna excluirá também os dados subjacentes.
-     > 
-     > 
+     >
+     >
 
 ## <a id="summary"></a>Resumo
 Como você pode ver, o comando do Hive fornece uma maneira fácil de executar consultas Hive interativamente em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
@@ -150,5 +150,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-
 

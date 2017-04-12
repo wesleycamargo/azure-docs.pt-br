@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 257138fddc75b39985ba974b1314e978a554b1e2
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f9ea34229e2f6e498c2826be04c09fb2da6393e3
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -30,7 +30,7 @@ Hive e Pig são ótimos para trabalhar com dados no Azure HDInsight, mas algumas
 Neste documento, Aprenda a usar C# com Hive e Pig.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Windows como o sistema operacional. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Windows como o sistema operacional. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -228,7 +228,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
         bin\pig
 
     Um prompt de `grunt>` é exibido.
-    
+
 3. Digite o seguinte para executar um trabalho do Pig simples usando o aplicativo do .NET Framework:
 
         DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');

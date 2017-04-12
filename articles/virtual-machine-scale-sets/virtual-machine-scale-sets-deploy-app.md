@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9a92490239f22bd4c57c902ac53898aff1adf530
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f39840ab2fb31775c9703799393d8c386a8451ee
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -32,7 +32,7 @@ Um aplicativo em execução em um Conjunto de escala de VM normalmente é implan
 ## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>Instalar um novo software em uma imagem de plataforma durante a implantação
 Uma imagem de plataforma neste contexto é uma imagem de sistema operacional do Azure Marketplace, como o Ubuntu 16.04, o Windows Server 2012 R2 etc.
 
-Você pode instalar um novo software em uma imagem de plataforma usando uma [Extensão de VM](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uma Extensão de VM é um software que é executado no momento da implantação de uma VM. Execute o código que quiser no momento da implantação usando uma extensão de script personalizado. [Este](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) é um modelo do Azure Resource Manager de exemplo que usa uma [extensão DSC (Configuração de Estado Desejado) do Azure](virtual-machine-scale-sets-dsc.md) para instalar o IIS e um aplicativo MVC do .NET integrado à escala automática do Azure.
+Você pode instalar um novo software em uma imagem de plataforma usando uma [Extensão de VM](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uma Extensão de VM é um software que é executado no momento da implantação de uma VM. Execute o código que quiser no momento da implantação usando uma extensão de script personalizado. [Este](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) é um modelo do Azure Resource Manager de exemplo que usa uma [extensão DSC (Configuração de Estado Desejado) do Azure](virtual-machine-scale-sets-dsc.md) para instalar o IIS e um aplicativo MVC do .NET integrado à escala automática do Azure.
 
 Uma vantagem dessa abordagem é ter um nível de separação entre o código do aplicativo e o sistema operacional, podendo manter seu aplicativo separadamente. Isso também significa que também há mais partes móveis, e o tempo de implantação da VM pode ser maior se o script precisar baixar e configurar muita coisa.
 

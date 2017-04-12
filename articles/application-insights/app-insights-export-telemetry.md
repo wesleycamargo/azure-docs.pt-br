@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a06d97216373ddc6a35160e6226b8eee8df52d27
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4ad60c18d451ee5f92eafaf5ca81176698496dd2
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -156,7 +156,7 @@ Abrir a folha Exportação Contínua e edite sua exportação. Edite o destino d
 A exportação contínua será reiniciada.
 
 ## <a name="export-samples"></a>Exemplos de exportação
-* [Exportar para SQL usando uma função de trabalho][exportcode]
+
 * [Exportar para o SQL usando o Stream Analytics][exportasa]
 * [Exemplo do Stream Analytics 2](app-insights-export-stream-analytics.md)
 
@@ -190,14 +190,13 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
     Sim. Clique em Desabilitar.
 
 ## <a name="code-samples"></a>Exemplos de código
-* [Analisar o JSON exportado usando uma função de trabalho][exportcode]
+
 * [Exemplo do Stream Analytics](app-insights-export-stream-analytics.md)
 * [Exportar para o SQL usando o Stream Analytics][exportasa]
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 

@@ -16,13 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: be1c613744d510e4ace636b47fdf730462a2ae07
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 85fa6ab8f7f5ad31347901a0be932d2474594802
+ms.lasthandoff: 04/06/2017
 
 ---
 
 # <a name="restart-vms"></a>Reiniciar VMs
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 Este exemplo mostra duas maneiras para obter algumas VMs e reiniciá-las.
 
@@ -38,7 +42,7 @@ A segunda obtém as VMs marcadas usando `az resouce list`, filtra os recursos qu
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../virtual-machines-windows-cli-options.md).
+Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../windows/cli-options.md).
 
 
 ## <a name="sample-script"></a>Script de exemplo
@@ -93,5 +97,5 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

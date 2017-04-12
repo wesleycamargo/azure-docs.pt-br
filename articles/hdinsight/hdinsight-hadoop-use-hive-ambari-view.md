@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: a846d5a70451ed3082b90d87b90bef0eb6da5993
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 511d6dd1933f44cd0cb5ba800972a7c112a24c04
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -37,7 +37,7 @@ O Ambari é um utilitário de monitoramento e de gerenciamento fornecido com clu
 * Criar um cluster HDInsight baseado em Linux. Para saber mais sobre como criar um cluster, confira [Introdução ao HDInsight baseado no Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="open-the-hive-view"></a>Abrir o modo de exibição Hive
 
@@ -68,7 +68,7 @@ Na seção **Gerenciador de Banco de Dados** da página, escolha a entrada **pad
 Use as seguintes etapas da exibição do Hive para executar uma consulta do Hive.
 
 1. Na seção **Editor de Consultas** da página, cole as seguintes instruções HiveQL na planilha:
-   
+
     ```hiveql
     DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -76,12 +76,12 @@ Use as seguintes etapas da exibição do Hive para executar uma consulta do Hive
     STORED AS TEXTFILE LOCATION '/example/data/';
     SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
     ```
-   
+
     As instruções executam as seguintes ações:
-   
+
    * **DROP TABLE** - exclui a tabela e o arquivo de dados caso a tabela já exista.
 
-   * **CREATE EXTERNAL TABLE** : cria uma nova tabela "externa" no Hive. 
+   * **CREATE EXTERNAL TABLE** : cria uma nova tabela "externa" no Hive.
    As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
 
    * **ROW FORMAT** - informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
@@ -89,42 +89,42 @@ Use as seguintes etapas da exibição do Hive para executar uma consulta do Hive
    * **STORED AS TEXTFILE LOCATION** - informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
 
    * **SELECT** - Seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR].
-     
+
      > [!NOTE]
      > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de carregamento de dados automatizados ou por outra operação MapReduce. Remover uma tabela externa *não* exclui os dados, somente a definição de tabela.
 
 2. Para iniciar a consulta, use o botão **Executar** na parte inferior do Editor de Consultas. Ele fica laranja e o texto é alterado para **Parar execução**. Uma seção **Resultados do Processo de Consulta** deve aparecer abaixo do Editor de Consultas e exibir informações sobre o trabalho.
-   
+
    > [!IMPORTANT]
    > Alguns navegadores podem não atualizar corretamente o log ou as informações dos resultados. Se você executar um trabalho e parecer que ele não cessa a execução sem atualizar o log ou retornar resultados, em vez disso, experimente usar o Mozilla FireFox ou o Google Chrome.
- 
+
 3. Depois que a consulta for concluída, a seção **Resultados do Processo de Consulta** exibirá os resultados da operação. O botão **Parar execução** também muda para um botão **Executar** verde quando a consulta é concluída. A guia **Resultados** deve conter as seguintes informações:
-   
+
         sev       cnt
         [ERROR]   3
-   
+
     A guia **Logs** pode ser usada para exibir as informações de log criadas pelo trabalho.
-   
+
    > [!TIP]
    > O diálogo suspenso **Salvar resultados** no canto superior esquerdo da seção **Resultados do Processo de Consulta** permite que você baixe ou salve os resultados.
 
 4. Selecione as quatro primeiras linhas dessa consulta e escolha **Executar**. Observe que não há resultados quando o trabalho é concluído. O uso do botão **Executar** quando parte da consulta está selecionada executa apenas as instruções escolhidas. Nesse caso, a seleção não incluiu a instrução final que recupera linhas da tabela. Se escolher apenas essa linha e usar **Executar**, você verá os resultados esperados.
 
 5.Para adicionar uma nova planilha, use o botão **Nova Planilha** na parte inferior do **Editor de Consultas**. Na nova planilha, digite as seguintes instruções HiveQL:
-   
+
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
-   
-    These statements perform the following actions:
-   
+
+  As instruções executam as seguintes ações:
+
    * **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Como a palavra-chave **EXTERNAL** não é usada, uma tabela interna é criada. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive. Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
    * **STORES AS ORC** : armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
 
    * **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm [ERROR] e insere os dados na tabela **errorLogs**.
-     
+
      Use o botão **Executar** para executar essa consulta. A guia **Resultados** não contém nenhuma informação quando a consulta retorna zero linhas. O status deve mostrar **SUCCEEDED** após a conclusão da consulta.
 
 ### <a name="hive-settings"></a>Configurações do Hive
@@ -174,13 +174,13 @@ Notificações são mensagens geradas durante a execução de consultas. Por exe
 ## <a name="saved-queries"></a>Consultas salvas
 
 1. No Editor de Consultas, crie uma planilha e insira a seguinte consulta:
-   
+
     ```hiveql
     SELECT * from errorLogs;
     ```
-   
+
     Execute a consulta para verificar se funciona. Os resultados são semelhantes ao exemplo a seguir:
-   
+
         errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
         2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
         2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
@@ -235,5 +235,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
-
 

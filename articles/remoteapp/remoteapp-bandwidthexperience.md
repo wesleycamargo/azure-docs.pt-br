@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc634941e311e6a1492313c434e0da24056e2ceb
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1a1f772c12b2eb4470bd239f0325cc4ae18b9680
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-remoteapp---how-do-network-bandwidth-and-quality-of-experience-work-together"></a>Azure RemoteApp - como a largura de banda de rede e a qualidade da experiência funcionam juntas?
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -40,10 +41,5 @@ Agora, volte para o [artigo de largura de banda de rede principal](remoteapp-ban
 * [Estimar o uso de largura de banda de rede do Azure RemoteApp](remoteapp-bandwidth.md)
 * [Azure RemoteApp - testando o uso da largura de banda de sua rede com alguns cenários comuns](remoteapp-bandwidthtests.md)
 * [Largura de banda de rede do Azure RemoteApp - diretrizes gerais (se não puder testar a sua)](remoteapp-bandwidthguidelines.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

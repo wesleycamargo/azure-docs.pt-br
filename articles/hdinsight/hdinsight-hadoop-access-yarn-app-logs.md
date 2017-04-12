@@ -17,9 +17,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: bd9133fde0c3ebfd915c8ae33daa6d0113b37889
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 059fd9c1578cb987aec09a2f72099a0472c9b119
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 02/07/2017
 Este tópico explica como acessar os logs de aplicativos YARN (Yet Another Resource Negotiator) concluídos em um cluster Hadoop baseado no Windows no HDInsight do Azure
 
 > [!IMPORTANT]
-> As informações contidas neste documento são aplicadas apenas aos clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para obter informações sobre os logs de YARN nos clusters HDInsight baseados em Linux, consulte [Acessar logs do aplicativo YARN no Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-> 
+> As informações contidas neste documento são aplicadas apenas aos clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Para obter informações sobre os logs de YARN nos clusters HDInsight baseados em Linux, consulte [Acessar logs do aplicativo YARN no Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+>
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -70,9 +70,9 @@ Os logs agregados não são diretamente legíveis, já que são gravados em um [
 
 
 ## <a name="yarn-resourcemanager-ui"></a>IU do ResourceManager YARN
-A interface de usuário ResourceManager do YARN é executada no nó de cabeçalho do cluster e pode ser acessada pelo painel do portal do Azure: 
+A interface de usuário ResourceManager do YARN é executada no nó de cabeçalho do cluster e pode ser acessada pelo painel do portal do Azure:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/). 
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu esquerdo, clique em **Procurar**, clique em **Clusters HDInsight**, clique em um cluster baseado no Windows cujos logs de aplicativo YARN você deseja acessar.
 3. No menu superior, clique em **Painel**. Você verá uma página aberta em uma nova guia do navegador chamada **Console de Consulta do HDInsight**.
 4. Em **Console de Consulta do HDInsight**, clique em **Interface do Usuário do YARN**.

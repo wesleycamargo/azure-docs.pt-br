@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6cb781b9bc0cfe672e2734661be958d4794e08d8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d15ab88be778b8cc081e07fb95fbd99164f18ba1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -79,7 +79,7 @@ Como alternativa, você poderia criar um arquivo DSN usando o assistente que é 
 Parabéns! Agora você se conectou com êxito ao SQL Azure usando o C++ e ODBC no Windows. Você pode continuar lendo para fazer o mesmo para a plataforma Linux. 
 
 ## <a id="Linux"></a>Etapa 5: Conectando de um aplicativo Linux C/C++
-Caso ainda saiba, agora o Visual Studio permite que você desenvolva aplicativos C++ Linux também. Você pode ler sobre esse novo cenário no blog [Desenvolvimento em Visual C++ para Linux](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/). Para compilar para Linux, você precisa de um computador remoto onde sua distribuição do Linux está sendo executada. Se você não tiver um disponível, poderá definir um rapidamente usando [máquinas virtuais Azure Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Caso ainda saiba, agora o Visual Studio permite que você desenvolva aplicativos C++ Linux também. Você pode ler sobre esse novo cenário no blog [Desenvolvimento em Visual C++ para Linux](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/). Para compilar para Linux, você precisa de um computador remoto onde sua distribuição do Linux está sendo executada. Se você não tiver um disponível, poderá definir um rapidamente usando [máquinas virtuais Azure Linux](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Para este tutorial, vamos supor que você tenha uma distribuição do Ubuntu 16.04 Linux configurada. As etapas aqui também devem aplicar ao Ubuntu 15.10, Red Hat 6 e Red Hat 7. 
 

@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 40a1d76cc4167858a9bebac9845230473cc71e3e
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: bc870d2ec2f81c439beb96878a68466ed94988f3
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -30,11 +30,11 @@ ms.lasthandoff: 03/07/2017
 >
 >
 
-Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight com o Azure Data Lake Store **como o armazenamento adicional**. 
+Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight com o Azure Data Lake Store **como o armazenamento adicional**.
 
 Para tipos de cluster compatíveis, o Data Lake Store pode ser usado como um armazenamento padrão ou uma conta de armazenamento adicional. Quando o Data Lake Store é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters ainda será Blobs de Armazenamento do Azure (WASB) e os arquivos relacionados ao cluster (como logs, etc.) ainda serão gravados no armazenamento padrão, embora os dados que você queira processar possam ser armazenados em uma conta do Data Lake Store. O uso do Repositório Data Lake como uma conta de armazenamento adicional não afeta o desempenho ou a capacidade de leitura/gravação no armazenamento do cluster.
 
-## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Usando o Data Lake Store para armazenamento de cluster HDInsight
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Usando o Data Lake Store para armazenamento do cluster HDInsight
 
 Aqui estão algumas considerações importantes para usar o HDInsight com o Data Lake Store:
 
@@ -54,7 +54,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 * **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 * **Entidade de serviço do Azure Active Directory**. As etapas neste tutorial fornecem instruções sobre como criar uma entidade de serviço no Azure AD. No entanto, você deve ser administrador do Azure AD para poder criar uma entidade de serviço. Se você for administrador do Azure AD, poderá ignorar esse pré-requisito e continuar com o tutorial.
 
-    **Se você não for um administrador do Azure AD**, não poderá executar as etapas necessárias para criar uma entidade de serviço. Nesse caso, o administrador do Azure AD deverá primeiro criar uma entidade de serviço antes de criar um cluster HDInsight com Data Lake Store. Além disso, a entidade de serviço deve ser criada usando um certificado, conforme descrito em [Criar uma entidade de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    **Se você não for um administrador do Azure AD**, não poderá executar as etapas necessárias para criar uma entidade de serviço. Nesse caso, o administrador do Azure AD deverá primeiro criar uma entidade de serviço antes de criar um cluster HDInsight com Data Lake Store. Além disso, a entidade de serviço deve ser criada usando um certificado, conforme descrito em [Criar uma entidade de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 
 ## <a name="create-an-hdinsight-cluster-with-azure-data-lake-store"></a>Criar um cluster HDInsight com o Azure Data Lake Store
 O modelo do Resource Manager e os pré-requisitos para usar o modelo estão disponíveis no GitHub em [Implantar um cluster HDInsight Linux com o novo Data Lake Store](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage). Siga as instruções fornecidas neste link para criar um cluster HDInsight com o Azure Data Lake Store como o armazenamento adicional.

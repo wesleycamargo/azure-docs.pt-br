@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 892d24199be5065ee54d46863cca2fd958db3236
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -114,6 +114,7 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 * Gerenciador de Tráfego
 * Máquinas Virtuais – Não oferecem suporte para mudar para uma nova assinatura quando seus certificados estão armazenados em um Key Vault
 * Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
+* Conjuntos de Escala de Máquina Virtual
 * Redes virtuais — atualmente, uma Rede Virtual emparelhada não pode ser movida até que o emparelhamento da rede virtual tenha sido desabilitado. Depois de desabilitado, a Rede Virtual pode ser movida com êxito e o emparelhamento VNet pode ser habilitado.
 * Gateway de VPN 
 
@@ -134,11 +135,9 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Máquinas Virtuais com certificado armazenado no Cofre de Chaves
 * Máquinas virtuais com o Managed Disks
 * Conjuntos de disponibilidade com Máquinas Virtuais com o Managed Disks
-* Conjuntos de Dimensionamento de Máquina Virtual com Managed Disks
 * Managed Disks
 * Imagens criadas no Managed Disks
 * Instantâneos criados no Managed Disks
-* Conjuntos de Escala de Máquinas Virtuais
 * Redes Virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 * Máquinas Virtuais criadas em recursos do Marketplace — não podem ser movidas entre assinaturas. O recurso precisa ser desprovisionado na assinatura atual e implantado novamente na nova assinatura
 

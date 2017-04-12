@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 61610078ad5cefd513fdb758aec45d7489704817
-ms.openlocfilehash: b4cb40d81613c16558be1e0e2c10dbfa0265a6b7
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 1a462b8d557ad23bda912ddf9431195a8cfe909e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -125,7 +125,7 @@ O Azure Managed Disks atualmente suporta apenas o armazenamento LRS (localmente 
 
 **Por que os clientes têm que desbloquear o tráfego de saída na porta 8443 para VMs usando o Azure Managed Disks?**
 
-O Agente de VM do Azure usa a porta 8443 para relatar o status de cada extensão de VM para a plataforma do Azure. Sem que essa porta seja desbloqueada, o agente de VM não conseguirá relatar o status de nenhuma extensão da VM. Para obter mais informações sobre o agente de VM, consulte [visão geral do Agente de Máquina Virtual do Azure](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+O Agente de VM do Azure usa a porta 8443 para relatar o status de cada extensão de VM para a plataforma do Azure. Sem que essa porta seja desbloqueada, o agente de VM não conseguirá relatar o status de nenhuma extensão da VM. Para obter mais informações sobre o agente de VM, consulte [visão geral do Agente de Máquina Virtual do Azure](../virtual-machines/windows/agent-user-guide.md).
 
 **O que acontece se uma VM é implantada com extensões e a porta não está desbloqueada?**
 

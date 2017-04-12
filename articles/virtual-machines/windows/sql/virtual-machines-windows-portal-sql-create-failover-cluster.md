@@ -17,9 +17,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6f0fe474787efc15db5c75266cde369725832aab
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c9b7cc0321ba06a5d30ea5bd467efe4feeb73b99
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -87,7 +87,7 @@ Com esses pré-requisitos em vigor, é possível continuar com a criação do cl
 
 1. Faça logon na [portal do Azure](http://portal.azure.com) com sua assinatura.
 
-1. [Criar um conjunto de disponibilidade do Azure](../../virtual-machines-windows-create-availability-set.md).
+1. [Criar um conjunto de disponibilidade do Azure](../create-availability-set.md).
 
    O conjunto de disponibilidade agrupa máquinas virtuais em domínios de falha e domínios de atualização. O conjunto de disponibilidade garante que o aplicativo não seja afetado por pontos únicos de falha, como o comutador de rede ou a unidade de energia de um rack de servidores. 
 

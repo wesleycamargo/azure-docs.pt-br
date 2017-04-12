@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/6/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 376e3ff9078cf0b53493dbfee9273c415da04e52
-ms.openlocfilehash: fa978644f2cd95b8eb21687e90d16d0df22b3d44
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bc9d9aa1cbe704de5f7fb960f1467aa522acd0b5
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -38,7 +39,7 @@ Se você estiver usando conjuntos de dimensionamento de VM e não vir uma métri
 
 Se uma determinada métrica não estiver sendo amostrada ou transferida com a frequência que você deseja, você poderá atualizar a configuração de diagnóstico.
 
-Se qualquer um dos casos acima for verdadeiro, consulte [Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) sobre o PowerShell para configurar e atualizar sua extensão de diagnóstico de VM do Azure para habilitar a métrica. Esse artigo também inclui um arquivo de configuração de diagnóstico de exemplo.
+Se qualquer um dos casos acima for verdadeiro, consulte [Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) sobre o PowerShell para configurar e atualizar sua extensão de diagnóstico de VM do Azure para habilitar a métrica. Esse artigo também inclui um arquivo de configuração de diagnóstico de exemplo.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de host para VMs Windows e Linux baseadas no Resource Manager
 As seguintes métricas de nível de host são emitidas por padrão para a VM do Azure e VMSS em instâncias do Windows e Linux. Essas métricas descrevem sua VM do Azure, mas são coletadas do host de VM do Azure em vez de por meio do agente instalado na VM convidada. Você pode usar essas métricas em regras de dimensionamento automático. 
@@ -196,10 +197,5 @@ Para Conjuntos de Dimensionamento de VMs, você pode atualizar a configuração 
 > Para o Barramento de Serviço, o conceito de grupo de recursos não existe, mas o Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos geralmente está no formato 'Default - ServiceBus-[região]'. Por exemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

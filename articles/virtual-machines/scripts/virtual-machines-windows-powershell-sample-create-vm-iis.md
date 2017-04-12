@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5269bd54e2dc9604c855cc9ff061cca26db1bf44
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: bdcfa3cea0d3848c5f0c38af44e0ea73c72f5368
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -26,7 +26,9 @@ ms.lasthandoff: 03/21/2017
 
 Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016 e, em seguida, usa a Extensão de Script Personalizado da Máquina Virtual do Azure para instalar o IIS. Após a execução do script, é possível acessar o site do IIS padrão no endereço IP público da máquina virtual.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -63,4 +65,4 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Windows do Azure](../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

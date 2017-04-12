@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 5326c779d766e075a54f5ec43f92b6c5c973be8b
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1199ca2378cfe4adba2d591bfab204113b4a0468
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Alterar o locatário do Active Directory do Azure no RemoteApp do Azure
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -48,10 +49,5 @@ Se você quiser usar um locatário diferente, siga estas etapas para alterar a a
 8. Entre novamente e volte para **Configurações -> Assinaturas**. Selecione sua assinatura e clique em **Editar Diretório**. Selecione o locatário do AD do Azure que deseja usar.
 
 Agora, você pode usar o novo locatário do Azure AD para controlar o acesso à assinatura do Azure e configurar o acesso do usuário no Azure RemoteApp.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

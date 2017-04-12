@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 6ce490fb903d4ed2177b95145bb98fb3eeb0654f
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 71acfdc7748b85b64d4c46072d5c8ee61c0b1768
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,10 +36,10 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 * Um Hadoop baseado em Linux no cluster HDInsight
 
   > [!IMPORTANT]
-  > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Um editor de texto
-  
+
   > [!IMPORTANT]
   > O editor de texto deve usar LF com fim de linha. Se usar CRLF, isso causará erros ao executar o trabalho MapReduce em clusters HDInsight baseados em Linux. Se você não tiver certeza, use a etapa opcional na seção [Executar MapReduce](#run-mapreduce) para converter qualquer CRLF em LF.
 
@@ -241,23 +241,23 @@ Isso copiará os arquivos do sistema local para o nó principal.
 Use as seguintes etapas para se conectar ao cluster e executar o trabalho de streaming MapReduce em uma sessão SSH.
 
 1. Conecte-se ao cluster usando o SSH:
-   
+
    `ssh username@clustername-ssh.azurehdinsight.net`
-   
+
    > [!NOTE]
    > Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada, por exemplo `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`.
 
 2. (Opcional) Se você usou um editor de texto que usa CRLF como fim de linha ao criar os arquivos mapper.py e reducer.py, ou não souber qual fim de linha seu editor usa, use os seguintes comandos para converter as ocorrências de CRLF em mapper.py e reducer.py para LF.
-   
+
     `perl -pi -e 's/\r\n/\n/g' mappery.py`
     `perl -pi -e 's/\r\n/\n/g' reducer.py`
 
 3. Use o seguinte comando para iniciar o trabalho MapReduce.
-   
+
     `yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input /example/data/gutenberg/davinci.txt -output /example/wordcountout`
-   
+
     Esse comando tem as seguintes partes:
-   
+
    * **hadoop-streaming.jar**: usado ao executar operações de transmissão do MapReduce. Faz interfaces do Hadoop com o código externo do MapReduce fornecido por você.
 
    * **-files**: informa o Hadoop que os arquivos especificados são necessários para este trabalho do MapReduce e devem ser copiados para todos os nós do trabalho.
@@ -269,7 +269,7 @@ Use as seguintes etapas para se conectar ao cluster e executar o trabalho de str
    * **-input**: o arquivo de entrada por meio do qual devemos contar palavras.
 
    * **-output**: o diretório no qual a saída será gravada.
-     
+
      > [!NOTE]
      > Esse diretório será criado pelo trabalho.
 
@@ -309,7 +309,7 @@ Use as seguintes etapas para executar o trabalho de streaming MapReduce do Power
 
     # Create the streaming job definition
     # Note: This assumes that the mapper.py and reducer.py
-    #       are in the root of default storage. If you put them in a 
+    #       are in the root of default storage. If you put them in a
     #       subdirectory, change the -Files parameter to the correct path.
     $jobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
         -Files "/mapper.py", "/reducer.py" `
@@ -457,5 +457,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos MapReduce com o HDIn
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
-
 

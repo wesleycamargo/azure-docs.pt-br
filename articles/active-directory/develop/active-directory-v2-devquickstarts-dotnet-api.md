@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: af75c0016d4c64c13c971abc80d0c56542a0db3e
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: d063ea881c82b158a196cb5f63e7514777732846
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -37,7 +38,7 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-O aplicativo de esqueleto inclui todo o código clichê de uma API simples, porém estão faltando todas as partes relacionadas à identidade. Se você não quiser acompanhar, clone ou [baixe o exemplo completo](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip).
+O aplicativo de esqueleto inclui todo o código clichê de uma API simples, porém estão faltando todas as partes relacionadas à identidade. Se você não quiser acompanhar, clone ou [baixe o exemplo completo](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -166,9 +167,4 @@ Para obter recursos adicionais, consulte:
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 590cb831ad265d9b83713f573c92d8675e64db3d
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -55,7 +55,7 @@ O gatilho de blob do Armazenamento de uma função usa os seguintes objetos JSON
 Observe o seguinte:
 
 * Para `path`, consulte [Padrões de nome](#pattern) para descobrir como formatar os padrões de nome de blob.
-* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](). 
+* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](functions-how-to-use-azure-function-app-settings.md). 
 
 Durante a execução em um plano de Consumo, se um Aplicativo de funções tiver ficado ocioso, poderá haver até 10 minutos por dia de processamento de novos blobs. Quando o Aplicativo de funções está em execução, os blobs são processados mais rapidamente. Para evitar esse atraso inicial, use um Plano de Serviço de Aplicativo regular com Always On habilitado ou use outro mecanismo para disparar o processamento de blob, como uma mensagem da fila que contém o nome do blob. 
 
@@ -227,7 +227,7 @@ A entrada de blob de Armazenamento de uma função usa os seguintes objetos JSON
 Observe o seguinte:
 
 * `path` deve conter o nome do contêiner e o nome do blob. Por exemplo, se você tiver um [gatilho de fila](functions-bindings-storage-queue.md) em sua função, você pode usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um blob no `samples-workitems` contêiner com um nome que corresponda ao nome de blob especificado na mensagem de gatilho.   
-* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No portal do Azure, o editor padrão da guia **Integrar** define essa configuração de aplicativo para você quando você cria uma conta de Armazenamento ou seleciona uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](). 
+* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No portal do Azure, o editor padrão da guia **Integrar** define essa configuração de aplicativo para você quando você cria uma conta de Armazenamento ou seleciona uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](functions-how-to-use-azure-function-app-settings.md). 
 
 <a name="inputusage"></a>
 
@@ -340,7 +340,7 @@ A saída de blob de Armazenamento de uma função usa os seguintes objetos JSON 
 Observe o seguinte:
 
 * `path` deve conter o nome do contêiner e o nome do blob de gravação. Por exemplo, se você tiver um [gatilho de fila](functions-bindings-storage-queue.md) em sua função, você pode usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um blob no `samples-workitems` contêiner com um nome que corresponda ao nome de blob especificado na mensagem de gatilho.   
-* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, confira [configure this app setting manually]() (definir essa configuração de aplicativo manualmente). 
+* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, confira [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md) (definir essa configuração de aplicativo manualmente). 
 
 <a name="outputusage"></a>
 

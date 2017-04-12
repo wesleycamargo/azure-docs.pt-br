@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 79beda244007649253fb7130f0403f587fcf76bf
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 6437190ac58a021ce84993f667bbb5fad6031bb3
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -33,7 +33,7 @@ O Serviço de Mobilidade do Azure Site Recovery captura gravações de dados em 
 
 
 >[!IMPORTANT]
-> A partir da versão 9.7.0.0, em VMs (máquinas virtuais) Windows, o instalador do Serviço de Mobilidade também instala o último [agente de VM do Azure](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent) disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
+> A partir da versão 9.7.0.0, em VMs (máquinas virtuais) Windows, o instalador do Serviço de Mobilidade também instala o último [agente de VM do Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidade manualmente no servidor:

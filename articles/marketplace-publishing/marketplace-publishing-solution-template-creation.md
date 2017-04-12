@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 64c7486ae24c31ef2a1116fdfd3cab9b813a09af
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 21da313ba5472223961a301b96e08655a3bbdcad
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -61,15 +62,10 @@ Você também pode se interessar por estes artigos relacionados:
 * Imagens de VM: [Sobre Imagens da Máquina Virtual no Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 * Extensões de VM: [Visão geral sobre Agente de VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) e [Extensões de VM e Extensões de VM e recursos do Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 * Azure Resource Manager: [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [Exemplos de modelos simples](https://github.com/rjmax/ArmExamples)
-* Limites da conta de armazenamento: [como monitorar o limite da conta de armazenamento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [Armazenamento Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets)
+* Limites da conta de armazenamento: [como monitorar o limite da conta de armazenamento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [Armazenamento Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets)
 
 [img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

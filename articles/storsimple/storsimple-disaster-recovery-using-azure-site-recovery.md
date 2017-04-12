@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/16/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: a0817ac21afb83745ec2cc213fc6029fa395d479
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 700dffe72af853d0daa9af06c0b316e0363ab30b
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -122,7 +123,7 @@ Confira a [documentação do Azure Site Recovery](../site-recovery/site-recovery
    > Isso fará com que os compartilhamentos de arquivos fiquem temporariamente indisponíveis
    >
    >
-2. [Habilitar a proteção da máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication) da VM do servidor de arquivos do portal do Azure Site Recovery.
+2. [Habilitar a proteção da máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) da VM do servidor de arquivos do portal do Azure Site Recovery.
 3. Quando a sincronização inicial começar, você poderá reconectar o destino novamente. Acesse o iniciador iSCSI, selecione o dispositivo StorSimple e clique em **Conectar**.
 4. Quando a sincronização for concluída e o status da VM estiver como **Protegida**, selecione a VM, depois a guia **Configurar** e atualize a rede da VM adequadamente (essa é a rede da qual as VMs submetidas ao failover farão parte). Se a rede não aparecer, isso significará que a sincronização ainda está em execução.
 
@@ -301,9 +302,4 @@ O planejamento de capacidade é composto de, pelo menos, dois processos importan
 
 ## <a name="summary"></a>Resumo
 Ao usar o Azure Site Recovery, você poderá criar um plano de recuperação de desastre automatizado completo para um servidor de arquivos de VM com compartilhamentos de arquivos hospedados no armazenamento do StorSimple. Você poderá iniciar o failover em segundos e de qualquer lugar, caso haja uma interrupção, e fazer o aplicativo funcionar em alguns minutos.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

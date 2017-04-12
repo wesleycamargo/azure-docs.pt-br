@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9f9908466dbfd471bc881387c0968c924140c67b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -95,7 +95,7 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
     },
     ```
 
-6. Observe que o elemento **vmSize**contém o valor *Standard_DS3*. Apenas determinados tamanhos de VM permitem o uso de várias NICs. Você pode verificar quais tamanhos de VM comportam várias NICs lendo os artigos [Tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tamanhos de VM do Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+6. Observe que o elemento **vmSize**contém o valor *Standard_DS3*. Apenas determinados tamanhos de VM permitem o uso de várias NICs. Você pode verificar quais tamanhos de VM comportam várias NICs lendo os artigos [Tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tamanhos de VM do Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 7. Role para baixo até **recursos** e observe o primeiro elemento. Ele descreve uma conta de armazenamento. Essa conta de armazenamento é usada para manter os discos de dados usados por cada VM do banco de dados. Nesse cenário, cada VM do banco de dados tem um disco do sistema operacional em armazenamento regular e dois discos de dados em armazenamento SSD (premium).
 

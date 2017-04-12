@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: genli;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 26ea5c6f867165a25dd5aecb01d0a0ce3b213a51
-ms.openlocfilehash: 707d666eb6c23fb926c31711daddfb22979513bc
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d7924d8aade1ea582faa0f319f8c1d16d5461fbc
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -54,7 +55,7 @@ Para saber como configurar um proxy HTTP para backups VM, veja [preparar seu amb
 ### <a name="solution"></a>Solução
 A maioria das falhas relacionadas ao agente ou relacionadas à extensão para VMs do Linux é causada por problemas que afetam um agente de VM desatualizado. Para solucionar esse problema, siga estas diretrizes gerais:
 
-1. Siga as instruções para [atualizar o agente de VM do Linux ](../virtual-machines/virtual-machines-linux-update-agent.md).
+1. Siga as instruções para [atualizar o agente de VM do Linux ](../virtual-machines/linux/update-agent.md).
 
  >[!NOTE]
  >Estamos *altamente recomendável* que você atualizar o agente apenas por meio de um repositório de distribuição. Não é recomendável baixar o código do agente diretamente do GitHub e atualizá-lo. Se o agente mais recente está disponível para a sua distribuição, contate o suporte de distribuição para obter instruções sobre como instalá-lo. Para verificar o agente mais recente, vá para a página [agente Linux do Windows Azure](https://github.com/Azure/WALinuxAgent/releases) no repositório do GitHub.
@@ -118,9 +119,4 @@ As condições a seguir podem causar a falha da tarefa do instantâneo:
 | Várias VMs do mesmo serviço de nuvem são configuradas para backup simultaneamente. | É uma prática recomendada distribuir as agendas de backup para VMs do mesmo serviço de nuvem. |
 | A VM está em execução com alto uso de CPU ou memória. | Se a VM estiver em execução com alta utilização de CPU (mais de 90%) ou alto uso de memória, a tarefa do instantâneo será enfieirada e postergada e, eventualmente, atingirá o tempo limite. Nessa situação, tente um backup sob demanda. |
 | A VM não pode obter o endereço do host/malha do DHCP. | O DHCP deve estar habilitado no convidado para que o backup da VM IaaS funcione.  Se a VM não puder obter o endereço do host/malha da resposta DHCP 245, ela não poderá baixar ou executar qualquer extensão. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Para saber mais, veja [Definição de um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md). |
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

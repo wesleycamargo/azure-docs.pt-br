@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: b7c6a2bcdf975233d7afe6c20bd886cfcc02de2a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3efb68c12cd05fc0c4ac68497f8c20d1c671df82
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ Este artigo apresenta os conceitos básicos da proteção da camada de dados de 
 Para obter uma visão geral completa dos recursos de segurança disponíveis em todas as versões do SQL, confira a [Central de Segurança do mecanismo de banco de dados do SQL Server e Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/bb510589). Outras informações também estão disponíveis no [White paper técnico sobre segurança e o Banco de Dados SQL do Azure](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## <a name="protect-data"></a>Proteger dados
-O Banco de Dados SQL protege dados, fornecendo criptografia de dados em movimento usando o [protocolo TLS](https://support.microsoft.com/en-us/kb/3135244), para dados em repouso usando [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242) e para dados em uso usando [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+O Banco de Dados SQL protege dados, fornecendo criptografia de dados em movimento usando o [protocolo TLS](https://support.microsoft.com/kb/3135244), para dados em repouso usando [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242) e para dados em uso usando [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Todas as conexões do Banco de Dados SQL do Azure exigem criptografia (SSL/TLS) todo o tempo que os dados estiverem "em trânsito", entrando e saindo do banco de dados. Na cadeia de conexão do seu aplicativo, você deve especificar os parâmetros para criptografar a conexão, e *não* para confiar no certificado do servidor (esse processo será automático se você copiar a cadeia de conexão fora do Portal Clássico do Azure); caso contrário, a conexão não verificará a identidade do servidor e estará sujeita a ataques "man-in-the-middle". Para o driver do ADO.NET, por exemplo, esses parâmetros da cadeia de conexão são **Encrypt=True** e **TrustServerCertificate=False**. 
