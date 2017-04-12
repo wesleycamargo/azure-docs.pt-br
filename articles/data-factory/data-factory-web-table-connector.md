@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
@@ -26,7 +26,7 @@ Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para 
 
 Atualmente, o data factory dá suporte apenas para a movimentação de dados de uma tabela da Web para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para uma tabela da Web.
 
-> [!NOTE]
+> [!IMPORTANT]
 > No momento, esse conector da Web dá suporte apenas à extração do conteúdo da tabela de uma página HTML. Para recuperar dados de um ponto de extremidade HTTP/s, use o [conector HTTP](data-factory-http-connector.md) em vez disso.
 
 ## <a name="getting-started"></a>Introdução

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 04/11/2017
 ms.author: bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: f2b0655bdddc162c7c8ef7d478b2ce1fd1993f15
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -73,10 +74,5 @@ Se você usar o SCOM como uma fonte de dados para o Log Analytics, você poderá
 
 ## <a name="next-steps"></a>Próximas etapas
 * Conheça os detalhes dos [alertas no SCOM (System Center Operations Manager)](https://technet.microsoft.com/library/hh212913.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
