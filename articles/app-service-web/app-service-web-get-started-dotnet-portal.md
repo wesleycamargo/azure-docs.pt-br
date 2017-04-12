@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/10/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: fa3f31cdd708729071876ffad707bea70567da83
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6b1dede903083d1771733330a069b6ab533d9f00
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -103,7 +103,7 @@ Quando o Azure concluir a implantação do aplicativo você verá outra notifica
     ![Configuração do Umbraco – primeiro Umbraco no Serviço de Aplicativo do Azure](./media/app-service-web-get-started-dotnet-portal/umbraco-config.png)
     
 ## <a name="next-steps"></a>Próximas etapas
-* [Implantar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure usando o Visual Studio](web-sites-dotnet-get-started.md) – Aprenda a criar um novo aplicativo Web do Azure no Visual Studio, usando qualquer um dos modelos de aplicativos incluídos.
+* [Implantar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure usando o Visual Studio](app-service-web-get-started-dotnet.md) – Aprenda a criar um novo aplicativo Web do Azure no Visual Studio, usando qualquer um dos modelos de aplicativos incluídos.
 * [Implantar seu código no Serviço de Aplicativo do Azure](web-sites-deploy.md) – Aprenda como implantar do FTP ou de repositórios de controle do código-fonte.
 * [Adicionar funcionalidade ao seu primeiro aplicativo Web](app-service-web-get-started-2.md) – Leve seu aplicativo do Azure para o próximo patamar. Autenticar os usuários. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques.
 

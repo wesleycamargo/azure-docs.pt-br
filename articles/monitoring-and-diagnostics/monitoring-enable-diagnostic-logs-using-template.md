@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 2/14/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: f4e7b1f2ac7f10748473605eacee71bf0cd538e6
-ms.openlocfilehash: 2b28045c3ec32a703c62aeb509777750342ffbb3
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 87403d68bfb57645417d6255329af7fd0d757f50
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -231,19 +232,14 @@ Para habilitar o diagnóstico em um recurso de Computação, por exemplo uma Má
 3. Adicionar o conteúdo do arquivo XML WADCfg na propriedade XMLCfg, substituindo todos os caracteres XML corretamente.
 
 > [!WARNING]
-> Esta última etapa pode ser difícil de fazer. [Confira este artigo](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divide o Esquema de Configuração de Diagnóstico em variáveis que são substituídas e formatadas corretamente.
+> Esta última etapa pode ser difícil de fazer. [Confira este artigo](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divide o Esquema de Configuração de Diagnóstico em variáveis que são substituídas e formatadas corretamente.
 > 
 > 
 
-O processo inteiro, incluindo os exemplos, é descrito [neste documento](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+O processo inteiro, incluindo os exemplos, é descrito [neste documento](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Transmitir Logs de Diagnóstico do Azure para os Hubs de Eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

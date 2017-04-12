@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 75ab31176abaeed2865a77689a5733666f95a253
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: bedb6816e4f203687529e95ffa24688e86b5a3cb
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,11 +29,11 @@ O Power BI permite a exibição visual dos dados como relatórios. Este document
 
 > [!NOTE]
 > Embora as etapas neste documento dependam de um ambiente de desenvolvimento do Windows com Visual Studio, o projeto compilado pode ser enviado a um cluster HDInsight baseado em Windows ou Linux. Somente os clusters baseados em Linux criados depois de 28/10/2016 são compatíveis com as topologias do SCP.NET.
-> 
+>
 > Para usar uma topologia do C# com um cluster baseado em Linux, atualize o pacote NuGet Microsoft.SCP.Net.SDK usado pelo seu projeto para a versão 0.10.0.6 ou superior. A versão do pacote também deve coincidir com a versão principal do Storm instalada no HDInsight. Por exemplo, o HDInsight versões 3.3 e 3.4 usam o Storm versão 0.10.x, enquanto o HDInsight 3.5 usa o Storm 1.0. x.
-> 
+>
 > As topologias C# em clusters baseados em Linux devem usar o .NET 4.5 e o Mono para execução no cluster HDInsight. A maioria das coisas funciona. No entanto, você deve verificar o documento [Compatibilidade do Mono](http://www.mono-project.com/docs/about-mono/compatibility/) em busca de possíveis incompatibilidades.
-> 
+>
 > Para obter uma versão Java deste projeto, que funciona com HDInsight baseado em Windows ou Linux, confira [Processar eventos dos Hubs de Eventos do Azure com Storm no HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,10 +42,10 @@ O Power BI permite a exibição visual dos dados como relatórios. Este document
 * Um cluster HDInsight. Para obter mais informações, confira [Introdução ao Storm no HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Visual Studio (uma das seguintes versões a seguir)
-  
+
   * Visual Studio 2012 com [atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
   * Visual Studio 2013 com [atualização 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
@@ -82,9 +82,9 @@ Baixe o [exemplo do Power BI do Storm em C# do HDInsight](https://github.com/Azu
 1. No [Portal do Azure](https://portal.azure.com), selecione seu Banco de Dados SQL. Na seção **Fundamentos** da folha Banco de Dados SQL, selecione **Mostrar cadeias de conexão de banco de dados**. Na lista exibida, copie as informações de **ADO.NET (autenticação do SQL)** .
 
 2. Abra o exemplo no Visual Studio. No **Gerenciador de Soluções**, abra o arquivo **App.config** e localize a seguinte entrada:
-   
+
         <add key="SqlAzureConnectionString" value="##TOBEFILLED##" />
-   
+
     Substitua o valor **##TOBEFILLED##** valor pela cadeia de conexão de banco de dados copiada na etapa anterior. Substitua **{your\_username}** e **{your\_password}** pelo nome de usuário e pela senha do banco de dados.
 
 3. Salve e feche os arquivos.
@@ -92,31 +92,31 @@ Baixe o [exemplo do Power BI do Storm em C# do HDInsight](https://github.com/Azu
 ## <a name="deploy-the-sample"></a>Implantar o exemplo
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **StormToSQL** e selecione **Enviar para o Storm no HDInsight**. Selecione o cluster HDInsight no menu suspenso **Cluster Storm** .
-   
+
    > [!NOTE]
    > Pode levar alguns segundos para a lista suspensa **Cluster Storm** ser populada com os nomes de servidor.
-   > 
+   >
    > Se solicitado, insira as credenciais de logon para sua assinatura do Azure. Se você tiver mais de uma assinatura, faça o logon naquela que contém seu Storm no cluster HDInsight.
 
 2. Depois que a topologia é enviada, o __Visualizador de Topologia__ é exibido. Para exibir essa topologia, selecione a entrada SqlAzureWriterTopology na lista.
-   
+
     ![As topologias, com a topologia selecionada](./media/hdinsight-storm-power-bi-topology/topologyview.png)
-   
+
     Você pode usar esta exibição para ver informações sobre a topologia ou clicar duas vezes em uma entrada (como SqlAzureBolt) para ver as informações específicas de um componente na topologia.
 
 3. Depois que a topologia estiver executado por alguns minutos, volte para a janela de consulta do SQL usada para criar o banco de dados. Substitua as instruções existentes pela seguinte consulta:
-   
+
         select * from iislogs;
-   
+
     Use Ctrl + Shift + E para executar a consulta e você deverá receber resultados semelhantes aos a seguir:
-   
+
         1    2016-05-27 17:57:14.797    255.255.255.255    /bar    GET    200
         2    2016-05-27 17:57:14.843    127.0.0.1    /spam/eggs    POST    500
         3    2016-05-27 17:57:14.850    123.123.123.123    /eggs    DELETE    200
         4    2016-05-27 17:57:14.853    127.0.0.1    /foo    POST    404
         5    2016-05-27 17:57:14.853    10.9.8.7    /bar    GET    200
         6    2016-05-27 17:57:14.857    192.168.1.1    /spam    DELETE    200
-   
+
     Esses dados foram gravados da topologia do Storm.
 
 ## <a name="create-a-report"></a>Criar um relatório
@@ -128,26 +128,26 @@ Baixe o [exemplo do Power BI do Storm em C# do HDInsight](https://github.com/Azu
 3. Selecione **Banco de Dados SQL do Azure** e **Conectar**.
 
 4. Insira as informações para se conectar ao seu Banco de Dados SQL do Azure. Você pode encontrar essas informações visitando o [Portal do Azure](https://portal.azure.com) e selecionando o Banco de Dados SQL.
-   
+
    > [!NOTE]
    > Você também pode definir o intervalo de atualização e filtros personalizados usando **Habilitar Opções Avançadas** na caixa de diálogo de conexão.
- 
+
 5. Depois de ter se conectado, você verá um novo conjunto de dados com o mesmo nome que o banco de dados ao qual está conectado. Selecione o conjunto de dados para começar a criar um relatório.
 
 6. Em **Campos**, expanda a entrada **IISLOGS**. Marque a caixa de seleção de **URISTEM**. Isso cria um relatório que lista os troncos URI (/foo, /bar, etc.) registrados no banco de dados.
-   
+
     ![Criando um relatório](./media/hdinsight-storm-power-bi-topology/createreport.png)
 
 7. Em seguida, arraste **METHOD** para o relatório. O relatório será atualizado para listar os troncos e o método HTTP correspondente usado para a solicitação HTTP.
-   
+
     ![adicionando os dados de método](./media/hdinsight-storm-power-bi-topology/uristemandmethod.png)
 
 8. Na coluna **Visualizações**, selecione o ícone **Campos** e selecione a seta para baixo ao lado de **METHOD** na seção **Valores**. Na lista exibida, selecione **Contagem**. Isso altera o relatório para listar uma contagem de quantas vezes um URI específico foi acessado.
-   
+
     ![Mudando para uma contagem de métodos](./media/hdinsight-storm-power-bi-topology/count.png)
 
 9. Em seguida, selecione o **Gráfico de colunas empilhadas** para alterar como as informações são exibidas.
-   
+
     ![Mudando para um gráfico empilhado](./media/hdinsight-storm-power-bi-topology/stackedcolumn.png)
 
 10. Para salvar o relatório, selecione **Salvar** e digite um nome para o relatório.
@@ -159,7 +159,7 @@ A topologia continuará sendo executada até você interrompê-la ou excluir o S
 1. No Visual Studio, volte ao visualizador de topologia e selecione a topologia.
 
 2. Selecione o botão **Eliminar** para interromper a topologia.
-   
+
     ![Botão Eliminar no resumo da topologia](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
 ## <a name="delete-your-cluster"></a>Excluir o cluster
@@ -171,5 +171,4 @@ A topologia continuará sendo executada até você interrompê-la ou excluir o S
 Neste documento, você aprendeu como enviar dados de uma topologia do Storm para o Banco de Dados SQL e exibir os dados usando o Power BI. Para obter informações sobre como trabalhar com outras tecnologias do Azure usando o Storm no HDInsight, consulte o seguinte:
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
-
 

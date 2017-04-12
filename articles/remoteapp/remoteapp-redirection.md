@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5a5ad526513c7adf9b8274acec7d89fe375f43fc
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: cab03e7765dc7116a7f974833871fae652e8363c
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-redirection-in-azure-remoteapp"></a>Usando o redirecionamento no RemoteApp do Azure
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -115,10 +116,5 @@ Você também pode usar a ferramenta Gerenciamento de Política de Grupo para cr
 6. Clique duas vezes em **Permitir redirecionamento de RDP de outros dispositivos USB RemoteFX com suporte deste computador**.
 7. Selecione **Habilitado** e, em seguida, selecione **Administradores e Usuários nos Direitos de Acesso de Redirecionamento de USB RemoteFX**.
 8. Clique em **OK**.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

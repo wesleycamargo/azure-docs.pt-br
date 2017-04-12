@@ -17,9 +17,9 @@ ms.date: 02/27/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 88d54250c0ce8feff78e2bf122be1c69dd0d8008
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1fc13142d3e4f54e0945032a404eb497746ee5a0
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Usar as UDF (Funções Definidas pelo Usuário) do Python com o Hive e o Pig no HDInsight
@@ -31,7 +31,7 @@ O Hive e o Pig são ótimos para trabalhar usando dados no HDInsight, mas às ve
 * Um cluster HDInsight
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Um editor de texto
 
@@ -161,7 +161,7 @@ def create_structure(input):
 Lembre-se de que definimos anteriormente a entrada **LINE** como uma matriz de caracteres porque não havia um esquema consistente para a entrada. O script Python transforma os dados em um esquema consistente para a saída.
 
 1. A instrução **@outputSchema** define o formato dos dados que são retornados ao Pig. Nesse caso, é uma **mala de dados**, que é um tipo de dado do Pig. A mala contém os campos a seguir, todos eles sendo matrizes de caracteres (cadeias de caracteres):
-   
+
    * date - a data em que a entrada no log foi criada
    * time - o horário em que a entrada de log foi criada
    * classname - o nome da classe para a qual a entrada foi criada
@@ -188,14 +188,14 @@ Para saber mais sobre como usar SSH, confira [Usar SSH com HDInsight](hdinsight-
 1. Usando os exemplos do Python [streaming.py](#streamingpy) e [pig_python.py](#jythonpy), crie cópias locais dos arquivos em seu computador de desenvolvimento.
 
 2. Use `scp` para copiar os arquivos para seu cluster HDInsight. Por exemplo, o comando a seguir copia os arquivos para um cluster chamado **mycluster**.
-   
+
         scp streaming.py pig_python.py myuser@mycluster-ssh.azurehdinsight.net:
 
 3. Use SSH para conectar-se ao cluster. Por exemplo, o seguinte conectaria um cluster denominado **mycluster** como o usuário **myuser**.
-   
+
         ssh myuser@mycluster-ssh.azurehdinsight.net
 4. Na sessão de SSH, adicione ao cluster os arquivos de python carregados no armazenamento WASB anteriormente.
-   
+
         hdfs dfs -put streaming.py /streaming.py
         hdfs dfs -put pig_python.py /pig_python.py
 
@@ -205,7 +205,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 
 1. Use o comando `hive` para iniciar o shell do hive. Você deve ver um prompt `hive>` assim que o shell for carregado.
 2. No prompt `hive>` , insira o seguinte:
-   
+
    ```hive
    add file wasbs:///streaming.py;
    SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -215,7 +215,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
    ORDER BY clientid LIMIT 50;
    ```
 3. Depois de inserir a última linha, o trabalho deve ser iniciado. Quando o trabalho for concluído, ele retornará uma saída semelhante ao exemplo a seguir:
-   
+
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
@@ -227,7 +227,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 1. Use o comando `pig` para iniciar o shell. Você deve ver um prompt `grunt>` assim que o shell for carregado.
 
 2. No prompt `grunt>`, insira as seguintes instruções:
-   
+
    ```pig
    Register wasbs:///pig_python.py using jython as myfuncs;
    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
@@ -237,7 +237,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
    ```
 
 3. Depois de inserir a linha a seguir, o trabalho será iniciado. Quando o trabalho for concluído, ele retornará uma saída semelhante à seguinte.
-   
+
         ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
         ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
         ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
@@ -245,17 +245,17 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
         ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
 4. Use `quit` para sair do shell do Grunt e use o seguinte para editar o arquivo pig_python.py no sistema de arquivos local:
-   
+
     nano pig_python.py
 
 5. No editor, remova a seguinte linha removendo o caractere `#` do início da linha:
-   
+
         #from pig_util import outputSchema
-   
+
     Depois que a alteração for feita, use Ctrl+X para sair do editor. Selecione Y e Enter para salvar as alterações.
 
 6. Use o comando `pig` para iniciar o shell novamente. No prompt `grunt>` , use o que segue para executar o script de Python usando o interpretador de Python C.
-   
+
    ```pig
    Register 'pig_python.py' using streaming_python as myfuncs;
    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
@@ -263,7 +263,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
    ```
-   
+
     Quando o trabalho for concluído, você verá a mesma saída de quando executou o script usando Jython.
 
 ### <a name="powershell"></a>PowerShell
@@ -272,7 +272,7 @@ Essas etapas usam o PowerShell do Azure. Para obter mais informações sobre com
 
 1. Usando os exemplos do Python [streaming.py](#streamingpy) e [pig_python.py](#jythonpy), crie cópias locais dos arquivos em seu computador de desenvolvimento.
 2. Use o seguinte script do PowerShell para transferir os arquivos **streaming.py** e **pig\_python.py** para o servidor. Substitua o nome do seu cluster HDInsight do Azure e o caminho para os arquivos **streaming.py** e **pig\_python.py** nas três primeiras linhas do script.
-   
+
    ```powershell
     # Login to your Azure subscription
     # Is there an active Azure subscription?
@@ -314,7 +314,7 @@ Essas etapas usam o PowerShell do Azure. Para obter mais informações sobre com
    ```
 
     Este script obtém informações a partir de seu cluster HDInsight, então, extrai a conta e a chave para a conta de armazenamento padrão, além de carregar os arquivos para a raiz do contêiner.
-   
+
    > [!NOTE]
    > É possível encontrar outros métodos para carregar os scripts no documento [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md) .
 
@@ -484,5 +484,4 @@ Para obter outras formas de usar o Pig e o Hive e para saber como usar o MapRedu
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
-
 

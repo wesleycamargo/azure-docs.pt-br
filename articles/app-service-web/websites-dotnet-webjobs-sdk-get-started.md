@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: b4a64bbccabf0e7b0e7aec659d066883139c8207
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 31fa57771aaa2d4d6e4e0d387e045fb28e378887
+ms.lasthandoff: 04/10/2017
 
 
 ---
 # <a name="create-a-net-webjob-in-azure-app-service"></a>Criar um Trabalho Web do .NET no Serviço de Aplicativo do Azure
 Este tutorial mostra como escrever código para um aplicativo ASP.NET MVC 5 multicamadas simples que usa [SDK do WebJobs](websites-dotnet-webjobs-sdk.md).
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 A finalidade do [SDK do WebJobs](websites-webjobs-resources.md) é simplificar o código escrito para tarefas comuns que um WebJob pode executar, como o processamento de imagens, o processamento de filas, a agregação de RSS, a manutenção de arquivos e o envio de emails. O SDK do WebJobs tem recursos internos para trabalhar com o Armazenamento do Azure e o Barramento de Serviço, para o agendamento de tarefas e o tratamento de erros e de muitos outros cenários comuns. Além disso, ele foi projetado para ser extensível e há um [repositório de software livre para extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 

@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 06639080dec485395d6821c371a4f792c7c02845
-ms.openlocfilehash: 5e3ac3a08ea3e5c72082dcc7faa209d848acf2fe
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: b986fc881a39ca3a28d6f5f968cefe19c05b5dc5
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -40,7 +41,7 @@ Cada banco de dados no Banco de Dados SQL do Azure é associado a um servidor l�
 - **Firewall do Banco de Dados SQL**: para ajudar a proteger seus dados, o firewall do Banco de Dados SQL impede todo acesso ao servidor de banco de dados ou de seus bancos de dados até que você especifique quais computadores têm permissão. Consulte [Firewalls](sql-database-firewall-configure.md)
 
 ## <a name="what-collations-are-supported"></a>Há suporte para quais agrupamentos?
-O agrupamento de banco de dados padrão usado pelo Banco de Dados SQL do Microsoft Azure é **SQL_LATIN1_GENERAL_CP1_CI_AS**, em que **LATIN1_GENERAL** é inglês (Estados Unidos), **CP1** é a página de código 1252, **CI** diferencia maiúsculas de minúsculas e **AS** diferencia acentos. Não é possível alterar o agrupamento dos bancos de dados V12. Para obter mais informações sobre como definir o agrupamento, veja [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+O agrupamento de banco de dados padrão usado pelo Banco de Dados SQL do Microsoft Azure é **SQL_LATIN1_GENERAL_CP1_CI_AS**, em que **LATIN1_GENERAL** é inglês (Estados Unidos), **CP1** é a página de código 1252, **CI** diferencia maiúsculas de minúsculas e **AS** diferencia acentos. Para obter mais informações sobre como definir o agrupamento, veja [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>Quais são os requisitos de nomenclatura para objetos de banco de dados?
 
@@ -67,10 +68,5 @@ Você pode gerenciar servidores lógicos do Banco de Dados SQL do Azure usando v
 - Para obter informações sobre cotas e limitações de recursos específicos com base na **camada de serviço**. Para obter uma visão geral das camadas de serviço, consulte [Camadas de serviço do banco de dados SQL](sql-database-service-tiers.md).
 - Para obter uma visão geral de segurança, veja [Visão geral de segurança do Banco de Dados SQL do Azure](sql-database-security-overview.md).
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

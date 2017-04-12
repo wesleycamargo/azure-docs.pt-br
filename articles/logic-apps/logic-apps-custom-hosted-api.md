@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/31/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: fc509ef8b30fadb6e026f346d4adbd6ef759624a
-ms.openlocfilehash: 74aae9f757f56e94b583069a1fdee7efaafe467c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 9d169bcc0b1e89866d04cced474ee9c0e6ba6952
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,7 +28,7 @@ Saiba [como compilar APIs como um gatilho ou ação em aplicativos lógicos](../
 
 ## <a name="deploy-your-web-app"></a>Implantar o aplicativo Web
 
-Primeiro, você precisa implantar sua API como um aplicativo Web no Serviço de Aplicativo do Azure. Saiba mais sobre [implantação básica quando você cria um aplicativo Web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Embora você possa chamar qualquer API a partir de um aplicativo lógico, para ter a melhor experiência, é recomendável adicionar os metadados Swagger para integrar facilmente com as ações dos aplicativos lógicos. Saiba mais sobre [como adicionar metadados Swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
+Primeiro, você precisa implantar sua API como um aplicativo Web no Serviço de Aplicativo do Azure. Saiba mais sobre [implantação básica quando você cria um aplicativo Web ASP.NET](../app-service-web/app-service-web-get-started-dotnet.md). Embora você possa chamar qualquer API a partir de um aplicativo lógico, para ter a melhor experiência, é recomendável adicionar os metadados Swagger para integrar facilmente com as ações dos aplicativos lógicos. Saiba mais sobre [como adicionar metadados Swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
 ### <a name="api-settings"></a>Configurações da API
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8ea8de916a36a1b5274f42513b0446f99707c179
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 2cbd477776329ef84ef615b6c28c56cfee12fc99
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o SSO do Azure AD em um ambiente de teste.  
 
-O cenário descrito neste tutorial consiste em três blocos de construção principais:
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o AWS (Amazon Web Services) da galeria 
 2. Configurar e testar o SSO do Azure AD

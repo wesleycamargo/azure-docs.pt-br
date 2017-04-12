@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 01294f8f8fdaa65a5f33dbf6d35c0baa342cacc8
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 154cd7eec65559ec2263a12b8977ec0af0a78743
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -39,12 +39,11 @@ A autenticação do Azure Active Directory é um mecanismo de conexão com o Ban
 As etapas de configuração incluem os procedimentos a seguir para configurar e usar a autenticação do Active Directory do Azure.
 
 1. Criar e popular o Azure AD.
-2. Verifique se o banco de dados está em um Banco de Dados SQL V12 do Azure (Não necessariamente para o SQL Data Warehouse).
-3. Opcional: associe ou altere o Active Directory que está associado atualmente à sua Assinatura do Azure.
-4. Crie um administrador do Azure Active Directory para o Azure SQL Server ou o [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-5. Configure os computadores cliente.
-6. Crie usuários de banco de dados independente em seu banco de dados, mapeados para identidades do Azure AD.
-7. Conecte-se ao banco de dados usando identidades do Azure AD.
+2. Opcional: associe ou altere o Active Directory que está associado atualmente à sua Assinatura do Azure.
+3. Crie um administrador do Azure Active Directory para o Azure SQL Server ou o [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+4. Configure os computadores cliente.
+5. Crie usuários de banco de dados independente em seu banco de dados, mapeados para identidades do Azure AD.
+6. Conecte-se ao banco de dados usando identidades do Azure AD.
 
 > [!NOTE]
 > Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o Banco de Dados SQL do Azure e SQL Data Warehouse, consulte [Configurar o Azure AD com o Banco de Dados SQL](sql-database-aad-authentication-configure.md).

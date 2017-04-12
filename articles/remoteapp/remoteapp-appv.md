@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8057e9ce27f9df3e9455d48d9c8196033612c8f3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 0e82c639ea7bfceb89f0cf9c59ab657a951f2d5f
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-app-v-apps-in-azure-remoteapp"></a>Usando os aplicativos App-V no Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -41,10 +42,5 @@ Antes de começar, instale o cliente do App-V 5.1 com as atualizações mais rec
 | Global (máquina) |Pré-publicar ou destinar usando o servidor de Publicação |Você precisará atualizar a imagem do Azure se quiser atualizar o aplicativo (enorme). Ocupa algum espaço na imagem. | |
 
  Depois de criar sua imagem personalizada e sua coleção híbrida, publique seu aplicativo, atribua usuários e aproveite seus aplicativos existentes do App-V hospedados no Azure RemoteApp entregues a qualquer dispositivo em qualquer lugar.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

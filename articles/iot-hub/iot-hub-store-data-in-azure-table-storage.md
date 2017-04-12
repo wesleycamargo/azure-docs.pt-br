@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: de47a15dd4009b9a33a53fd981bc178eaa50c035
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Salvar mensagens de Hub IoT que contêm informações como dados de sensor no armazenamento de tabelas do Azure
 
-> [!Note]
-> Antes de iniciar este tutorial, certifique-se de ter concluído [Conectar a ESP8266 ao Hub IoT do Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md). Em [Conectar a ESP8266 ao Hub IoT do Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md), você configura seu dispositivo IoT e Hub IoT e implanta um aplicativo de exemplo para executar no seu dispositivo. O aplicativo envia dados de sensor coletados para o Hub IoT.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 
@@ -39,7 +38,7 @@ Saiba como criar uma conta de armazenamento do Azure e um Aplicativo de Funçõe
 
 ## <a name="what-you-will-need"></a>O que será necessário
 
-- Tutorial [Conectar a ESP8266 ao Hub IoT do Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md) concluído, que aborda os seguintes requisitos:
+- Tutorial [Conectar a ESP8266 ao Hub IoT do Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) concluído, que aborda os seguintes requisitos:
   - Uma assinatura ativa do Azure.
   - Um Hub IoT do Azure em sua assinatura.
   - O aplicativo em execução que envia mensagens para o Hub IoT do Azure.
@@ -205,6 +204,4 @@ A essa altura, você já criou o Aplicativo de Funções. Ele armazena as mensag
 
 Você criou com êxito sua conta de armazenamento do Azure e o Aplicativo de Funções do Azure para armazenar mensagens que o Hub IoT recebe em seu Armazenamento de Tabelas do Azure.
 
-Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
-
-- [Gerenciar mensagens do dispositivos de nuvem com o iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

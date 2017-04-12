@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 798b4310eb5ea7a4877d7842371b5dd7cf88d632
-ms.openlocfilehash: 8a5c1a381cc5cf30f211da948951dc577a124951
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3142bea414e54e321e3dc9ae13aca110049ee105
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -81,10 +82,9 @@ Namespaces emparelhados dão suporte à *disponibilidade de envio*. A disponibil
 
 1. As mensagens são recebidas apenas do namespace principal.
 2. As mensagens enviadas a determinada fila ou tópico podem chegar fora de ordem.
-3. Se seu aplicativo usa sessões: as mensagens em uma sessão podem chegar fora de ordem. Essa é uma falha de funcionalidade normal das sessões. Isso significa que seu aplicativo usa sessões para mensagens agrupadas logicamente. O estado da sessão é mantido somente no namespace principal.
-4. As mensagens em uma sessão podem chegar fora de ordem. Essa é uma falha de funcionalidade normal das sessões. Isso significa que seu aplicativo usa sessões para mensagens agrupadas logicamente.
-5. O estado da sessão é mantido somente no namespace principal.
-6. A fila principal pode ficar online e começar a aceitar mensagens antes de a fila secundária entregar todas as mensagens à fila principal.
+3. As mensagens em uma sessão podem chegar fora de ordem. Essa é uma falha de funcionalidade normal das sessões. Isso significa que seu aplicativo usa sessões para mensagens agrupadas logicamente.
+4. O estado da sessão é mantido somente no namespace principal.
+5. A fila principal pode ficar online e começar a aceitar mensagens antes de a fila secundária entregar todas as mensagens à fila principal.
 
 As seções a seguir discutem as APIs e como as APIs são implementadas e mostra um código de exemplo que usa o recurso. Observe que há implicações de cobranças associadas a esse recurso.
 
@@ -152,9 +152,4 @@ Agora que você aprendeu os conceitos básicos sobre mensagens assíncronas no B
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
 [BacklogQueueCount]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
 [paired namespaces]: service-bus-paired-namespaces.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

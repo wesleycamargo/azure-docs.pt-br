@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: 34f5c92dc565e644bd8c569bfbea65e92ace5a19
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 290271855ac54af8c99311ff675a08d1e6942d93
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -38,14 +38,14 @@ O [Apache Ambari](http://ambari.apache.org) simplifica o gerenciamento do Hadoop
 A IU da Web do Ambari é fornecida por padrão com clusters HDInsight que usam o sistema operacional Linux.
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
 
 ## <a name="connectivity"></a>Conectividade
 
-A IU da Web do Ambari está disponível no seu cluster HDInsight em HTTPS://CLUSTERNAME.azurehdidnsight.net, onde **CLUSTERNAME** é o nome do cluster. 
+A IU da Web do Ambari está disponível no seu cluster HDInsight em HTTPS://CLUSTERNAME.azurehdidnsight.net, onde **CLUSTERNAME** é o nome do cluster.
 
 > [!IMPORTANT]
-> Conectar-se ao Ambari no HDInsight requer HTTPS. Você também deve autenticar-se no Ambari usando o nome da conta de administrador (o padrão é **admin**) e a senha fornecidos durante a criação do cluster. 
+> Conectar-se ao Ambari no HDInsight requer HTTPS. Você também deve autenticar-se no Ambari usando o nome da conta de administrador (o padrão é **admin**) e a senha fornecidos durante a criação do cluster.
 
 ## <a name="ssh-tunnel-proxy"></a>Túnel SSH (proxy)
 
@@ -147,7 +147,7 @@ A seleção de qualquer um desses links abrirá uma nova guia em seu navegador, 
 
 > [!NOTE]
 > A seleção de um link **Links Rápidos** de algum serviço resulta em um erro "servidor não encontrado", a não ser que você use um túnel SSL como proxy do tráfego da Web para o cluster. Isso ocorre porque os aplicativos Web usados para exibir essas informações não são expostos na Internet.
-> 
+>
 > Para saber mais sobre como usar um túnel SSL com HDInsight, consulte [Usar túnel SSH para acessar a IU do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IU da Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="management"></a>Gerenciamento
@@ -171,7 +171,7 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
 1. Selecione o(s) host(s) que você deseja gerenciar.
 
 2. Use o menu **Ações** para selecionar a ação que deseja executar:
-   
+
    * **Iniciar todos os componentes** : iniciar todos os componentes no host.
 
    * **Parar todos os componentes** : parar todos os componentes no host.
@@ -189,12 +189,12 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
    * **Reiniciar** : para e inicia o DataNode ou NodeManagers no host.
 
    * **Encerramento** : remove um host do cluster.
-     
+
      > [!NOTE]
      > Não use esta ação em clusters HDInsight.
 
    * **Reativação** : adiciona ao cluster um host que foi encerrado.
-     
+
      > [!NOTE]
      > Não use esta ação em clusters HDInsight.
 
@@ -212,14 +212,14 @@ Embora o botão **Ações** possa reiniciar todos os serviços, muitas vezes con
 1. Na página **Painel** ou **Serviços**, selecione um serviço.
 
 2. Na parte superior da guia **Resumo**, use o botão **Ações de Serviço** e selecione a ação a tomar. Isso reinicia o serviço em todos os nós.
-   
+
     ![ação de serviço](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
-   
+
    > [!NOTE]
    > Reiniciar alguns serviços enquanto o cluster estiver em execução pode gerar alertas. Para evitar isso, você pode usar o botão **Ações de Serviço** para habilitar o **modo Manutenção** para o serviço antes de executar a reinicialização.
 
 3. Depois que uma ação é selecionada, a entrada **Nº operações** na parte superior da página aumenta para mostrar que está ocorrendo uma operação em segundo plano. Se a exibição estiver configurada, a lista de operações em segundo plano será exibida.
-   
+
    > [!NOTE]
    > Se você habilitou o **modo Manutenção** para o serviço, lembre-se de desabilitá-lo usando o botão **Ações de Serviço** quando a operação for concluída.
 
@@ -228,7 +228,7 @@ Para configurar um serviço, use as seguintes etapas:
 1. Na página **Painel** ou **Serviços**, selecione um serviço.
 
 2. Selecione a guia **Configurações** . A configuração atual é exibida. Uma lista das configurações anteriores também é exibida.
-   
+
     ![configurações](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
 
 3. Use os campos exibidos para modificar a configuração e selecione **Salvar**. Ou selecione uma configuração anterior e clique em **Tornar atual** para reverter para as configurações anteriores.
@@ -242,5 +242,4 @@ As Exibições do Ambari permitem que os desenvolvedores conectem elementos de i
 * Exibição do Hive: a Exibição do Hive permite executar consultas de Hive diretamente do seu navegador da Web. Você pode salvar consultas, exibir os resultados, salvar os resultados no armazenamento de cluster ou baixar os resultados no sistema local. Para obter mais informações sobre como usar Exibições do Hive, consulte [Usar Exibições do Hive com o HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 * Exibição do Tez: a Exibição do Tez permite que você entenda melhor e otimize trabalhos exibindo informações sobre como trabalhos do Tez são executados e quais recursos são usados pelo trabalho.
-
 

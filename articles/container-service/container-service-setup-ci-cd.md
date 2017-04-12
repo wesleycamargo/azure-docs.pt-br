@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: acfba48585b960a1ce39b77e35d292189aa9732b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -50,8 +50,8 @@ Vamos abordar alguns aspectos fundamentais do aplicativo e seu fluxo de implanta
 >[!IMPORTANT]
 > Para criar um cluster seguro você passa o arquivo de chave pública SSH ao chamar `az acs create`. O Azure CLI 2.0 pode gerar as chaves para você e passá-las ao mesmo tempo usando a opção `--generate-ssh-keys`, ou você pode passar o caminho para suas chaves usando a opção `--ssh-key-value` (o local padrão no Linux é `~/.ssh/id_rsa.pub` e no Windows `%HOMEPATH%\.ssh\id_rsa.pub`, mas isso pode ser alterado).
 <!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
-> Para criar os arquivos de chave privada e pública SSH no Linux, consulte [Criar chaves SSH no Linux e Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
-> Para criar os arquivos de chave privada e pública SSH no Windows, consulte [Criar chaves SSH no Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Para criar os arquivos de chave privada e pública SSH no Linux, consulte [Criar chaves SSH no Linux e Mac](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Para criar os arquivos de chave privada e pública SSH no Windows, consulte [Criar chaves SSH no Windows](../virtual-machines/linux/ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. Primeiro, digite o comando [logon az](/cli/azure/#login) em uma janela de terminal para fazer logon em sua assinatura do Azure com o Azure CLI: 
 

@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2d72731304aee0952abbb1f3b2c24b620118fc6c
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 272b5eade0a80b1f46af4e4df1c7801d86fee175
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,7 +44,7 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 2. Prepare as correções necessárias como scripts Transact-SQL.
 3. Faça uma cópia transacionalmente consistente do banco de dados de origem que está sendo migrado e verifique se não há mais alterações sendo feitas no banco de dados de origem (ou você pode aplicar essas alterações manualmente após a migração). Há vários métodos para fechar um banco de dados para novas sessões, desde desabilitar a conectividade do cliente até criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implante os scripts Transact-SQL para aplicar as correções à cópia do banco de dados.
-5. [Exporte](sql-database-export-sqlpackage.md) a cópia do banco de dados para um arquivo .BACPAC em uma unidade local.
+5. [Exporte](sql-database-export.md) a cópia do banco de dados para um arquivo .BACPAC em uma unidade local.
 6. [Importe](sql-database-import-sqlpackage.md) o arquivo .BACPAC como um novo banco de dados Azure SQL usando qualquer uma das várias ferramentas de importação de BACPAC, sendo que SQLPackage.exe é a ferramenta recomendada para obter o melhor desempenho.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Otimizando o desempenho de transferência de dados durante a migração 

@@ -11,20 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4b21bf6bc1be59facd503000a4f83a56189d55d3
-ms.openlocfilehash: aea1b35348bec0affe2288ff683e0320e2b0f714
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6869453e0776405841890978eef97f549be97541
+ms.lasthandoff: 04/03/2017
 
 
 ---
 
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory
-> [!NOTE]
-> O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
->
 
 Este artigo explica as considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure AD (Azure Active Directory) para publicar e acessar seus aplicativos remotamente.
 
@@ -88,7 +85,6 @@ Para otimizar o salto 3, o conector é colocado perto do aplicativo de destino n
 
 > [!NOTE]
 Há alguns cenários nos quais você precisará otimizar os saltos 2 e 3 a fim de obter as características de latência desejadas. Por exemplo, se você tiver uma VPN ou ExpressRoute definida entre sua rede e do datacenter do Azure, você pode otimizar ambos esses saltos.
->
 
 ### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>Padrão 2: Aproveitar o ExpressRoute com o emparelhamento público
 
@@ -110,7 +106,7 @@ Embora o foco deste artigo é a instalação, você também pode alterar o posic
 
 As organizações estão cada vez mais migrando suas redes para ambientes hospedados. Isso permite colocar os aplicativos em um ambiente hospedado que também faz parte da rede corporativa, e ainda ser dentro do domínio. Nesse caso, os padrões discutidos nas seções anteriores podem ser aplicados para o novo local do aplicativo.
 
-Considere usar grupos de conector para aplicativos de destino que estão em locais e redes diferentes. Se você estiver considerando essa opção, consulte [Serviços de Domínio do Azure AD](https://azure.microsoft.com/services/active-directory-ds).
+Considere usar grupos de conector para aplicativos de destino que estão em locais e redes diferentes. Se você estiver considerando essa opção, consulte [Serviços de Domínio do Azure AD](../active-directory-domain-services/active-directory-ds-overview.md).
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
@@ -173,8 +169,9 @@ Você também pode considerar o uso de uma outra variante nessa situação. Se a
 ![Diagrama mostrando a estrutura de continentes globais e como os saltos estão organizados neste caso de uso](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Habilitar Proxy de aplicativo](active-directory-application-proxy-enable.md)<br>
-[Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)<br>
-[Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)<br>
-[Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
+
+- [Habilitar Proxy de aplicativo](active-directory-application-proxy-enable.md)
+- [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
+- [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
+- [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cc3c3bff6179b634b82884dfcb3f8f8395f6bb89
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 88f6e1da090eb6088e54c6f81d0f83b1737d3c2c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -38,10 +39,10 @@ A tabela a seguir fornece o nome e a descrição de cada processador de mídia d
 | Fluxo de trabalho do Media Encoder Premium |Permite que você execute tarefas de codificação usando o fluxo de trabalho do Media Encoder Premium. |[Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure](media-services-encode-asset.md) |
 | Indexador de Mídia do Azure |Permite tornar arquivos e conteúdo de mídia pesquisáveis, bem como gerar faixas de legenda e palavras-chave. |[Indexador de Mídia do Azure](media-services-index-content.md) |
 | Azure Media Hyperlapse (visualização) |Permite suavizar "impactos" no vídeo com estabilização do vídeo. Também permite que você a acelere o seu conteúdo em um clipe de consumo. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Codificador de Mídia do Azure |Substituído | |
-| Descriptografia do armazenamento |Substituído | |
-| Gerenciador de mídia do Azure |Substituído | |
-| Criptografador de Mídia do Azure |Substituído | |
+| Codificador de Mídia do Azure |Preteridos | |
+| Descriptografia do armazenamento |Preteridos | |
+| Gerenciador de mídia do Azure |Preteridos | |
+| Criptografador de Mídia do Azure |Preteridos | |
 
 ## <a name="get-media-processor"></a>Obter processador de mídia
 O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável em nível de módulo chamada **_context** para fazer referência ao contexto do servidor, conforme é descrito na seção [Como conectar-se aos Serviços de Mídia de forma programática](media-services-dotnet-connect-programmatically.md).
@@ -66,10 +67,5 @@ O método a seguir mostra como obter uma instância do processador de mídia. O 
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você já sabe como obter uma instância do processador de mídia, vá para o tópico [Como Codificar um Ativo](media-services-dotnet-encode-with-media-encoder-standard.md) , que mostrará como usar o Codificador de Mídia Standard para codificar um ativo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: b76185c0a4a0e17b663affee9a02b65f222fedeb
-ms.openlocfilehash: d679096476406831c1fda4f695adff84e63d6ae8
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 9d7176b018d25b2a60b2175c289dde7490f8d101
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -70,7 +71,7 @@ Se os critérios de qualificação forem atendidos de acordo com as [políticas 
 ### <a name="virtual-machine-image-specific"></a>Imagem específica de máquina virtual
 * [Criando uma imagem de máquina virtual no local](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Criar uma máquina virtual executando o Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Criar uma máquina virtual executando o Linux no Portal do Azure](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Criar uma máquina virtual executando o Linux no Portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Solucionar problemas comuns encontrados durante a criação do VHD](marketplace-publishing-vm-image-creation-troubleshooting.md)
 
 ## <a name="how-to-manage-your-solution"></a>Como gerenciar sua solução
@@ -92,9 +93,4 @@ Se os critérios de qualificação forem atendidos de acordo com as [políticas 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Configurando o PowerShell do Azure](marketplace-publishing-powershell-setup.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

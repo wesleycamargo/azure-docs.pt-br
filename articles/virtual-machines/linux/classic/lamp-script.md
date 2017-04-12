@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 3c1877f0dd560894099fb7c50c30846c2cc720b3
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1c1591079bf09da6fbe50d848b05ec7791657e04
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>Implantar um aplicativo LAMP usando a extensão CustomScript do Azure para Linux
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como implantar uma pilha LAMP usando o modelo do Resource Manager, veja [aqui](../../virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como implantar uma pilha LAMP usando o modelo do Resource Manager, veja [aqui](../create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 A Extensão de Script Personalizado do Microsoft Azure para Linux é uma maneira de personalizar VMs (máquinas virtuais) executando código arbitrário escrito em qualquer linguagem de script com suporte da VM (por exemplo, Python e Bash). Isso fornece uma maneira muito flexível para automatizar a implantação de aplicativos em várias máquinas.
 
@@ -105,6 +105,6 @@ Recursos adicionais da CLI do Azure, do Linux e da Extensão de Script Personali
 
 [Extensões Linux do Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Computação Linux e Software Livre no Azure](../../virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Computação Linux e Software Livre no Azure](../opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 

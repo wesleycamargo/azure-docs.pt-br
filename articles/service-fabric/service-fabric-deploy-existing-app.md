@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/17/2016
+ms.date: 04/07/2016
 ms.author: mfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e9c53dc601406961ee7aeca2e350ba14e691cb9b
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 16000dcb751bd96fba247c6209e85c581833681d
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -36,7 +36,7 @@ Há várias vantagens de executar um convidado executável em um cluster de Serv
 * Densidade. Você pode executar vários aplicativos no cluster, o que elimina a necessidade um hardware próprio para a execução de cada aplicativo.
 
 ## <a name="samples"></a>Exemplos
-* [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Exemplo de dois executáveis convidados (c# e nodejs) se comunicando por meio do serviço de Nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>Visão geral do aplicativo e dos arquivos de manifesto do serviço
@@ -348,7 +348,7 @@ O Yeoman pode ter criado um pacote de aplicativos com os devidos arquivos de apl
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como empacotar um executável convidado e implantá-lo à Service Fabric. Consulte os seguintes artigos para tarefas e informações relacionadas.
 
-* [Amostra de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), incluindo um link para o pré-lançamento da ferramenta de empacotamento
+* [Amostra de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), incluindo um link para o pré-lançamento da ferramenta de empacotamento
 * [Exemplo de dois executáveis convidados (c# e nodejs) se comunicando por meio do serviço de Nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Implantar vários executáveis de convidado](service-fabric-deploy-multiple-apps.md)
 * [Criar seu primeiro aplicativo do Service Fabric usando o Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -679,13 +679,13 @@ A tabela a seguir lista os tópicos de solução de problemas para máquinas vir
 
 | Erro | Artigos |
 | --- | --- |
-| Erros de extensão de script personalizado |[Falhas de extensão da VM do Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Falhas de extensão da VM do Linux](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erros de provisionamento de imagem do SO |[Novos erros da VM do Windows](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Novos erros da VM do Linux](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Falhas na alocação |[Falhas de alocação da VM do Windows](../virtual-machines/virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Falhas de alocação da VM do Linux](../virtual-machines/virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erros do Secure Shell (SSH) ao tentar conectar |[Conexões do Secure Shell com a VM do Linux](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erros ao conectar o aplicativo em execução na VM |[Aplicativo em execução na VM do Windows](../virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Aplicativo em execução na VM do Linux](../virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erros de conexão da Área de Trabalho Remota |[Conexões da Área de Trabalho Remota com a VM do Windows](../virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Erros de conexão resolvidos por meio da reimplantação |[Reimplantar Máquina Virtual em um novo nó do Azure](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Erros de extensão de script personalizado |[Falhas de extensão da VM do Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Falhas de extensão da VM do Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Erros de provisionamento de imagem do SO |[Novos erros da VM do Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Novos erros da VM do Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Falhas na alocação |[Falhas de alocação da VM do Windows](../virtual-machines/windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Falhas de alocação da VM do Linux](../virtual-machines/linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Erros do Secure Shell (SSH) ao tentar conectar |[Conexões do Secure Shell com a VM do Linux](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Erros ao conectar o aplicativo em execução na VM |[Aplicativo em execução na VM do Windows](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Aplicativo em execução na VM do Linux](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Erros de conexão da Área de Trabalho Remota |[Conexões da Área de Trabalho Remota com a VM do Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Erros de conexão resolvidos por meio da reimplantação |[Reimplantar Máquina Virtual em um novo nó do Azure](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Erros do serviço de nuvem |[Problemas de implantação do serviço de nuvem](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
 A tabela a seguir lista os tópicos de solução de problemas para outros serviços do Azure. Ela se concentra nos problemas relacionados à implantação ou à configuração dos recursos. Se você precisar de ajuda para solucionar os problemas de execução com um recurso, confira a documentação desse serviço do Azure.

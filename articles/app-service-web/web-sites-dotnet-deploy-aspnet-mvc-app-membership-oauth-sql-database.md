@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1d9c1c75d29e39bbd9433197ad06a56da5dc799
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ O que você aprenderá:
 * Como implantar um projeto Web que usa um banco de dados em um [aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=529714) no Serviço de Aplicativo do Azure.
 
 > [!NOTE]
-> Este é um tutorial longo. Se quiser ver uma breve introdução a projetos da Web do Serviço de Aplicativo do Azure e do Visual Studio, consulte [Criar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](web-sites-dotnet-get-started.md). Para obter informações de solução de problemas, veja a seção [Solucionando problemas](#troubleshooting) .
+> Este é um tutorial longo. Se quiser ver uma breve introdução a projetos da Web do Serviço de Aplicativo do Azure e do Visual Studio, consulte [Criar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](app-service-web-get-started-dotnet.md). Para obter informações de solução de problemas, veja a seção [Solucionando problemas](#troubleshooting) .
 > 
 > Ou se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 > 
@@ -581,7 +581,7 @@ Se tiver problemas, veja algumas sugestões que você pode experimentar.
 
 * Erros durante o provisionamento do Banco de Dados SQL - Verifique se você tem o SDK atual instalado. As versões anteriores a 2.8.1 contêm um bug que, em alguns cenários, causa erros quando o VS tenta criar o servidor de banco de dados ou o banco de dados.
 * Mensagem de erro “Não há suporte para a operação para o seu tipo de oferta de assinatura” ao criar recursos do Azure - O mesmo que o descrito acima.
-* Erros durante a implantação - Considere a leitura do artigo [Implantação básica do ASP.NET](web-sites-dotnet-get-started.md) . Esse cenário de implantação é mais simples e, se você tiver o mesmo problema lá, pode ser mais fácil de isolá-lo. Por exemplo, em alguns ambientes empresariais, um firewall corporativo pode impedir que o Web Deploy estabeleça os tipos de conexões necessárias com o Azure.
+* Erros durante a implantação - Considere a leitura do artigo [Implantação básica do ASP.NET](app-service-web-get-started-dotnet.md) . Esse cenário de implantação é mais simples e, se você tiver o mesmo problema lá, pode ser mais fácil de isolá-lo. Por exemplo, em alguns ambientes empresariais, um firewall corporativo pode impedir que o Web Deploy estabeleça os tipos de conexões necessárias com o Azure.
 * Nenhuma opção para selecionar a cadeia de conexão no Assistente de Publicação na Web ao implantar – se você tiver usado um método diferente para criar os recursos do Azure (por exemplo, se você estiver tentando implantar um aplicativo Web e um banco de dados SQL criado no portal), o banco de dados SQL poderá não ser associado ao aplicativo Web. A solução mais fácil é criar um novo aplicativo Web e banco de dados usando o VS, como mostrado no tutorial. Você não precisa iniciar o tutorial novamente – no Assistente de Publicação na Web, você pode optar por criar um novo aplicativo Web e receber o mesmo diálogo de criação de recursos do Azure que você recebe quando cria o projeto.
 * As instruções para o portal do desenvolvedor do Google ou Facebook estão desatualizadas - veja o comentário do Disqus em destaque no final deste tutorial.
 

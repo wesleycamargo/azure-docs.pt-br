@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: monicar
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: cace64d3768b6ede44b8748a27de5e8574fa769b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1842d55e2275560581cf2766cdf74e0939e68c98
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,7 +38,7 @@ Confira também [Como as assinaturas do Azure estão associadas ao Azure Active 
 
 ### <a name="availability-set"></a>conjunto de disponibilidade
 Uma coleção de máquinas virtuais gerenciadas em conjunto a fim de fornecer redundância e confiabilidade de aplicativo. O uso de um conjunto de disponibilidade garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível.  
-Confira também [Gerenciar a disponibilidade de máquinas virtuais do Windows](virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Confira também [Gerenciar a disponibilidade de máquinas virtuais do Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="classic-model"></a>modelo de implantação clássico do Azure
 Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usados para implantar recursos no Azure (o novo modelo é o Azure Resource Manager). Alguns recursos do Azure podem ser implantados apenas em um modelo ou no outro, enquanto outros podem ser implantados nos dois modelos. A orientação para recursos individuais do Azure detalha com quais modelos um recurso pode ser implantado.
@@ -55,7 +55,7 @@ Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usa
 
 ### <a name="fault-domain"></a>domínio de falha
 A coleção de máquinas virtuais em um conjunto de disponibilidade que podem falhar ao mesmo tempo. Um exemplo disso é um grupo de máquinas em um rack que compartilham uma fonte de alimentação e um comutador de rede comum. No Azure, as máquinas virtuais em um conjunto de disponibilidade são separadas automaticamente em vários domínios de falha.  
-Confira também [Gerenciar a disponibilidade de máquinas virtuais do Windows](virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+Confira também [Gerenciar a disponibilidade de máquinas virtuais do Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ### <a name="geo"></a>área geográfica
 Um limite definido para a residência dos dados e que geralmente contém duas ou mais regiões. Os limites podem ser dentro ou fora de fronteiras nacionais e são influenciados pela regulamentação fiscal. Cada área geográfica tem pelo menos uma região. Entre os exemplos de áreas geográficas estão Pacífico Asiático e Japão. Também é chamada de *geografia*.  
@@ -67,7 +67,7 @@ Confira também, [Replicação geográfica ativa para o Banco de Dados SQL do Az
 
 ### <a name="image"></a>imagem
 Um arquivo que contém o sistema operacional e a configuração de aplicativo que pode ser usada para criar qualquer quantidade de máquinas virtuais. No Azure, há dois tipos de imagens: a imagem da VM e a imagem do SO. Uma imagem de VM inclui um sistema operacional e todos os discos anexados a uma máquina virtual quando a imagem é criada. Uma imagem do SO contém apenas um sistema operacional generalizado sem qualquer configuração de disco de dados.  
-Confira também [Navegue e selecione imagens da máquina virtual do Windows no Azure com o PowerShell ou a CLI](virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Confira também [Navegue e selecione imagens da máquina virtual do Windows no Azure com o PowerShell ou a CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="limits"></a>limites
 O número de recursos que podem ser criados, ou o parâmetro de comparação de desempenho que pode ser atingido. Geralmente, os limites estão associados a assinaturas, serviços e ofertas.  
@@ -125,7 +125,7 @@ Confira também [Usando marcas para organizar os recursos do Azure](resource-gro
 
 ### <a name="update-domain"></a>domínio de atualização
 A coleção de máquinas virtuais em um conjunto de disponibilidade que são atualizadas ao mesmo tempo. As máquinas virtuais no mesmo domínio de atualização são reiniciadas juntas durante a manutenção planejada. O Azure nunca reinicia mais de um domínio de atualização por vez. Isso também é chamado de domínio de upgrade.  
-Confira também [Gerenciar a disponibilidade de máquinas virtuais do Windows](virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+Confira também [Gerenciar a disponibilidade de máquinas virtuais do Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ### <a name="vm"></a>máquina virtual
 A implementação de software de um computador físico que executa um sistema operacional. Diversas máquinas virtuais podem ser executadas simultaneamente no mesmo hardware. No Azure, as máquinas virtuais estão disponíveis em vários tamanhos.  
@@ -133,7 +133,7 @@ Confira também [Documentação sobre Máquinas Virtuais](https://azure.microsof
 
 ### <a name="vm-extension"></a>extensão da máquina virtual
 Um recurso que implementa comportamentos ou recursos que ajudam outros programas a funcionar, ou que fornecem a capacidade de interação com um computador em execução. Por exemplo, você pode usar a extensão de Acesso da Máquina Virtual para redefinir ou modificar valores de acesso remoto em uma máquina virtual do Azure.  
-Confira também [Sobre os recursos e extensões de máquina virtual (Windows)](virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Sobre os recursos e extensões de máquina virtual (Linux)](virtual-machines/virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Confira também [Sobre os recursos e extensões de máquina virtual (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Sobre os recursos e extensões de máquina virtual (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="vnet"></a>rede virtual
 Uma rede que fornece conectividade entre seus recursos do Azure que estão isolados de todos os outros locatários do Azure. Ela pode ser conectada a outras redes virtuais do Azure por meio de um [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) e à sua rede local usando [várias opções](vpn-gateway/vpn-gateway-plan-design.md). Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas na rede.  

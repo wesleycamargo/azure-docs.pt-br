@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: fb524efc41b1eaa36319726b3b8b534857e2afc7
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 13085f51529dadb739b4c629bb50d8aff0c9d8c2
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="secure-apps-and-resources-in-azure-remoteapp"></a>Proteger aplicativos e recursos no Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -48,10 +49,5 @@ Outro exemplo é se você quiser bloquear o acesso à Internet para um aplicativ
 * Observe que a configuração de redirecionamentos pelo módulo PowerShell do RemoteApp (conforme visto [aqui](remoteapp-redirection.md)) conta com o computador cliente para impor a política, de modo que se a segurança for o objetivo principal, convém impor a política usando a política local da imagem de modelo ou a política de grupo.
 * [Políticas do Windows Server 2012 R2](https://technet.microsoft.com/library/hh831791.aspx).
 * [Políticas do Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (incluindo [como personalizar a barra de ferramentas do Office](https://technet.microsoft.com/library/cc179143.aspx)).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

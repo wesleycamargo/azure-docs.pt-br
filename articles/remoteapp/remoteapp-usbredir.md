@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 937ebbbb7daf573d072697ee09ab7f6557d0184f
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1be1e6f63c4a4786d23af57d454e7a2e3bb17ad0
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-do-you-redirect-usb-devices-in-azure-remoteapp"></a>Como redirecionar dispositivos USB no Azure RemoteApp?
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -84,10 +85,5 @@ Agora, use a ID de instância no seguinte cmdlet:
 
 ### <a name="help-us-help-you"></a>Ajude-nos a ajudar você
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
