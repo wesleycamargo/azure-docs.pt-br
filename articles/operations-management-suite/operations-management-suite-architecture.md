@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 04/11/2017
 ms.author: bwren
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -83,10 +84,5 @@ O Azure Site Recovery apresenta três cenários fundamentais de replicação.
 * Saiba mais sobre a [Automação do Azure](https://azure.microsoft.com/documentation/services/automation).
 * Saiba mais sobre o [Backup do Azure](http://azure.microsoft.com/documentation/services/backup).
 * Saiba mais sobre o [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
