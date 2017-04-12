@@ -12,11 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/31/2017
 ms.author: luisca
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-datamarket-deprecation
 translationtype: Human Translation
-ms.sourcegitcommit: c5d1812a3bd7e1ad3621ca691339f01729882b08
-ms.openlocfilehash: 67131bbaccff549817bfe5fdf874d609ea22c2bc
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 21cf8b726ffd9b05f771c8ac6480140a6ed3199e
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -50,9 +53,9 @@ Todas as etapas acima são feitas por meio da API de Recomendações do Aprendiz
 ## <a name="limitations"></a>Limitações
 * O número máximo de modelos por assinatura é 10.
 * O número máximo de itens que um catálogo pode conter é 100.000.
-* O número máximo de pontos de uso mantidos é cerca de&5;.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
+* O número máximo de pontos de uso mantidos é cerca de 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
 * O volume máximo dos dados que podem ser enviado no POST (por exemplo, importar dados de catálogo e importar dados de uso) é de 200 MB.
-* O número de transações por segundo para uma compilação de modelo de recomendação que não está ativa é cerca de&2; TPS. Uma compilação de modelo de recomendação ativo pode conter até 20 TPS.
+* O número de transações por segundo para uma compilação de modelo de recomendação que não está ativa é cerca de 2 TPS. Uma compilação de modelo de recomendação ativo pode conter até 20 TPS.
 
 ## <a name="integration"></a>Integração
 ### <a name="authentication"></a>Autenticação
@@ -343,7 +346,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
 | modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| userDescription |Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com&20;%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
+| userDescription |Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
 | apiVersion |1.0 |
 |  | |
 | Corpo da solicitação |NENHUM |
@@ -701,10 +704,5 @@ XML de OData
 
 ## <a name="legal"></a>Legal
 Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados. 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

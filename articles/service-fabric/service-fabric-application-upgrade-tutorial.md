@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9fc53417c40225c87d3849cbe51712849e5cc93a
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/03/2017
 O Azure Service Fabric simplifica o processo de atualização de aplicativos em nuvem, garantindo que apenas os serviços alterados sejam atualizados e que a integridade do aplicativo seja monitorada durante todo o processo de atualização. Além disso, ele reverte automaticamente o aplicativo para a versão anterior ao encontrar problemas. As atualizações de aplicativo do Service Fabric não apresentam *Nenhum Tempo de Inatividade*, pois o aplicativo pode ser atualizado sem qualquer tempo de inatividade. Este tutorial aborda como concluir uma atualização sem interrupção por meio do Visual Studio.
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Etapa 1: Compilar e implantar o exemplo do Visual Objects
-Primeiro, baixe o aplicativo [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) do GitHub. Em seguida, crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjects** e selecionando o comando **Publicar** no item de menu Service Fabric.
+Primeiro, baixe o aplicativo [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) do GitHub. Em seguida, crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjects** e selecionando o comando **Publicar** no item de menu Service Fabric.
 
 ![Menu de contexto para um aplicativo do Service Fabric][image1]
 

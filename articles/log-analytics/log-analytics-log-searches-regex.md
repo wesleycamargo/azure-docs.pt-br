@@ -14,39 +14,39 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 73739f4f154bebe271ce29bd285122ea7f56d769
-ms.openlocfilehash: bcf36cdec6c1dda7aa0213c42adf8d0281dc28d2
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6c01fe7a791742d283505057a310891a075029ef
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Usando expressões regulares para filtrar pesquisas de logs no Log Analytics
 
-As [Pesquisas de logs](log-analytics-log-searches.md) permitem extrair informações do repositório do Log Analytics.  As [Expressões de filtro](log-analytics-search-reference.md#filter-expression) permitem filtrar os resultados da pesquisa de acordo com critérios específicos.  A palavra-chave **RegEx** permite que você especifique uma expressão regular para este filtro.  
+As [Pesquisas de logs](log-analytics-log-searches.md) permitem extrair informações do repositório do Log Analytics.  As [Expressões de filtro](log-analytics-search-reference.md#filter-expressions) permitem filtrar os resultados da pesquisa de acordo com critérios específicos.  A palavra-chave **RegEx** permite que você especifique uma expressão regular para este filtro.  
 
 Este artigo fornece detalhes sobre a sintaxe de expressão regular usada pelo Log Analytics.
 
 
 ## <a name="regex-keyword"></a>Palavra-chave RegEx
 
-Utilize a seguinte sintaxe para usar a palavra-chave **RegEx** em uma pesquisa de logs.  É possível usar as outras seções deste artigo para determinar a sintaxe da expressão regular em si. 
+Utilize a seguinte sintaxe para usar a palavra-chave **RegEx** em uma pesquisa de logs.  É possível usar as outras seções deste artigo para determinar a sintaxe da expressão regular em si.
 
     field:Regex("Regular Expression")
     field=Regex("Regular Expression")
 
-Por exemplo, para usar uma expressão regular para retornar registros de alerta com um tipo de *Aviso* ou *Erro*, você usaria a seguinte pesquisa de logs. 
+Por exemplo, para usar uma expressão regular para retornar registros de alerta com um tipo de *Aviso* ou *Erro*, você usaria a seguinte pesquisa de logs.
 
     Type=Alert AlertSeverity=RegEx("Warning|Error")
 
 ## <a name="partial-matches"></a>Correspondências parciais
 Observe que a expressão regular deve corresponder a todo o texto da propriedade.  Correspondências parciais não retornarão nenhum registro.  Por exemplo, se você está tentando retornar registros de um computador chamado srv01.contoso.com, a seguinte pesquisa de logs **não** retornaria nenhum registro.
 
-    Computer=RegEx("srv..") 
+    Computer=RegEx("srv..")
 
-Isso ocorre porque a primeira parte do nome corresponde à expressão regular.  As duas pesquisas de logs seguintes retornariam registros deste computador porque correspondem ao nome completo. 
+Isso ocorre porque a primeira parte do nome corresponde à expressão regular.  As duas pesquisas de logs seguintes retornariam registros deste computador porque correspondem ao nome completo.
 
     Computer=RegEx("srv..@")
-    Computer=RegEx("srv...contoso.com") 
+    Computer=RegEx("srv...contoso.com")
 
 ## <a name="characters"></a>Caracteres
 Especificar caracteres diferentes.

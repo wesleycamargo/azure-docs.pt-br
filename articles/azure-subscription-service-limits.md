@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 8b4818ccea1ac5025e93fa0939735b3ed606f47c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e26a37fbe783c2ca95679b5bdcc9b0ba0beec76b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -140,7 +140,7 @@ Para obter mais detalhes sobre os limites da conta de armazenamento, veja [Metas
 #### <a name="virtual-machine-disk-limits"></a>Limites de disco de máquina virtual 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-Consulte [Tamanhos de máquina virtual](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para saber mais detalhes.
+Consulte [Tamanhos de máquina virtual](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para saber mais detalhes.
 
 #### <a name="managed-virtual-machine-disks"></a>Discos de máquina virtual gerenciados
 
@@ -275,7 +275,7 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 ## <a name="see-also"></a>Confira também
 [Entendendo os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Tamanhos de máquinas virtuais e serviços de nuvem do Azure](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Tamanhos de máquinas virtuais e serviços de nuvem do Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 

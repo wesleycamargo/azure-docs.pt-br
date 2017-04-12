@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 0639e19423adc842a708982997852fb8d10df779
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 9375981db64ec4a1ae523e958423b5f5787cec33
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Dimensionamento de informações de um VNET no RemoteApp do Azure
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -33,10 +34,5 @@ Confira as informações a seguir para confirmar se sua VNET está configurada e
 
 * [Migrar de uma VNET pessoal para uma VNET do Azure](remoteapp-migratevnet.md)
 * [Validar o VNET do Azure para usar com o RemoteApp do Azure](remoteapp-vnet.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

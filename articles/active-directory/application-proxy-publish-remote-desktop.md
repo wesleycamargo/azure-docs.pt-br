@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 0d9f2f5c9ad5c47eb5e1a8a8ec3fee2952caef63
-ms.openlocfilehash: 5c01f89c335a6c85b5b50a4c8491ae1b02740578
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: fd0ecc62fd3cfc860423acd02108648e99f44753
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -82,5 +82,5 @@ No caso anterior, os usuários devem autenticar RDWA usando a autenticação bas
 ## <a name="next-steps"></a>Próximas etapas
 
 [Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
-[Habilitar o Proxy de Aplicativo no portal do Azure](https://github.com/Microsoft/azure-docs-pr/blob/master/articles/active-directory/active-directory-application-proxy-enable.md)
+[Habilitar o Proxy de Aplicativo no portal do Azure](active-directory-application-proxy-enable.md)
 

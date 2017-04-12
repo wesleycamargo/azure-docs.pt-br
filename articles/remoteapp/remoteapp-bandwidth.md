@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 045410664ec70c846abbf32a36dcc8f70ac471be
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 8b5f4568fa4e505b28011134cc8669ea50e17cf6
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Estimar o uso de largura de banda de rede do Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -43,10 +44,5 @@ Ao examinar os testes propostos e nossas recomendações gerais (e reconhecidame
 Embora, discutamos o redirecionamento de dispositivo, podemos não levar em consideração o impacto de largura de banda do tráfego de rede causado por dispositivos conectados, como armazenamento, impressoras, scanners, câmeras Web e outros dispositivos USB. O efeito desses dispositivos geralmente aumenta as necessidades de largura de banda em picos temporariamente e desaparece quando a tarefa for concluída. Mas se feito com frequência, essa demanda de largura de banda poderá ser bastante perceptível.
 
 Também não discutimos como um usuário pode afetar outros usuários na mesma rede. Por exemplo, um usuário consumindo 4K vídeo em uma rede de 100 MB/s pode afetar significativamente outros usuários na mesma rede tentando fazer a mesma tarefa. Infelizmente, torna-se progressivamente mais difícil determinar o impacto de uso simultâneo para fornecer uma recomendação comum ou totalmente abrangente sobre o desempenho do sistema durante a agregação. Tudo o que podemos dizer é que a tecnologia de protocolo subjacente fará o melhor uso da largura de banda de rede disponível, mas ela tem suas limitações.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

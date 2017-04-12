@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e696906adf604ebdb665a7a29fd1bba25095e842
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: fbf33ea6a6362857bf4bc92055cabd9b099a6d0c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -39,7 +39,7 @@ Para concluir as etapas neste artigo, você precisa do seguinte:
 * Um cluster do HDInsight baseado em Linux (Hadoop no HDInsight)
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -60,42 +60,42 @@ Para saber mais sobre como usar o SSH com HDInsight, confira [Usar SSH com HDIns
 ## <a id="hadoop"></a>Usar comandos Hadoop
 
 1. Uma vez conectado ao cluster HDInsight, use o comando do **Hadoop** a seguir para iniciar um trabalho MapReduce:
-   
+
     ```
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
     Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar**. Como entrada, ele usa o documento **/example/data/gutenberg/davinci.txt** e a saída é armazenada em **/example/data/WordCountOutput**.
-   
+
     > [!NOTE]
     > Para saber mais sobre esse trabalho MapReduce e os dados de exemplo, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
 2. O trabalho emite detalhes conforme é processado, retornando informações semelhantes às seguintes quando é concluído:
-   
+
         File Input Format Counters
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
 
 3. Após a conclusão do trabalho, use o seguinte comando para listar os arquivos de saída armazenados em **wasbs://example/data/WordCountOutput**:
-   
+
     ```
     hdfs dfs -ls /example/data/WordCountOutput
     ```
-   
+
     Isso deve exibir dois arquivos, **_SUCCESS** e **part-r-00000**. O arquivo **part-r-00000** contém a saída para esse trabalho.
-   
+
     > [!NOTE]
     > Alguns trabalhos MapReduce podem dividir os resultados em vários arquivos **part-r-#####** . Nesse caso, use o sufixo ##### para indicar a ordem dos arquivos.
 
 4. Para exibir a saída, use o comando a seguir:
-   
+
     ```
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
-   
+
     Isso exibirá uma lista de palavras contidas no arquivo **wasb://example/data/gutenberg/davinci.txt** e o número de vezes que cada palavra ocorreu. Veja a seguir um exemplo dos dados contidos no arquivo:
-   
+
         wreathed        3
         wreathing       1
         wreaths         1
@@ -118,5 +118,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
-
 

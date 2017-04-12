@@ -17,9 +17,9 @@ ms.date: 09/26/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: a2e8e0dc40a63c363f295149e35f9823c8e90fa8
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 90dc3b45f470bfac03c34c1a20a7b54b9acbc281
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -56,7 +56,7 @@ Existem as seguintes limitações ao usar essa funcionalidade:
 * **Criação da VM:** um adaptador de rede com rede acelerada habilitada somente poderá ser conectado a uma VM quando a VM for criada. O adaptador de rede não pode ser conectado a uma VM existente.
 * **Regiões:** oferecida apenas nas regiões do Azure do Centro-Oeste dos EUA e da Europa Ocidental. O conjunto de regiões será expandido no futuro.
 * **Sistema de operacional com suporte:** Microsoft Windows Server 2012 R2 e Windows Server 2016 Technical Preview 5. Suporte a Linux e Windows Server 2012 será adicionado em breve.
-* **Tamanho da VM:** Standard_D15_v2 e Standard_DS15_v2 são os únicos tamanhos de instância de VM com suporte. Para obter mais informações, consulte o artigo [Tamanhos das máquinas virtuais no Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . O conjunto de tamanhos de instância VM com suporte será expandido no futuro.
+* **Tamanho da VM:** Standard_D15_v2 e Standard_DS15_v2 são os únicos tamanhos de instância de VM com suporte. Para obter mais informações, consulte o artigo [Tamanhos das máquinas virtuais no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . O conjunto de tamanhos de instância VM com suporte será expandido no futuro.
 
 Alterações feitas nessas limitações serão anunciadas na página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 

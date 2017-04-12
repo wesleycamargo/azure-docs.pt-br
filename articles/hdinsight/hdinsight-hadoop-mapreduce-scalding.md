@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/19/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: f3be777497d842f019c1904ec1990bd1f1213ba2
-ms.openlocfilehash: 166ff7f3586932494984e87fc0df7d3d3d914c82
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0631d522c2a6cc36044106e76de16c78b7c24bca
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +34,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 * **Um Hadoop baseado em Windows ou Linux em clusters do HDInsight**. Consulte [Provisionamento do Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) ou [Provisionamento do Hadoop baseado em Windows no HDInsight](hdinsight-provision-clusters.md) para obter mais informações.
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * **[Maven](http://maven.apache.org/)**
 
@@ -43,13 +43,13 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 ## <a name="create-and-build-the-project"></a>Criar e compilar o projeto
 
 1. Use o comando a seguir para criar um novo projeto Maven:
-   
+
         mvn archetype:generate -DgroupId=com.microsoft.example -DartifactId=scaldingwordcount -DarchetypeGroupId=org.scala-tools.archetypes -DarchetypeArtifactId=scala-archetype-simple -DinteractiveMode=false
-   
+
     Esse comando criará um novo diretório chamado **scaldingwordcount**e criará o scaffolding para um aplicativo Scala.
 
 2. No diretório **scaldingwordcount**, abra o arquivo **pom.xml** e substitua o conteúdo pelo seguinte:
-   
+
         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
             <modelVersion>4.0.0</modelVersion>
             <groupId>com.microsoft.example</groupId>
@@ -141,9 +141,9 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
             </plugins>
             </build>
         </project>
-   
+
     Este arquivo descreve o projeto, as dependências e os plug-ins. Aqui estão as entradas importantes:
-   
+
    * **maven.compiler.source** e **maven.compiler.target**: define a versão Java para este projeto.
 
    * **repositories**: os repositórios que contêm os arquivos de dependência usados pelo projeto.
@@ -153,19 +153,19 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
    * **maven-scala-plugin**: plug-in para compilar aplicativos Scala.
 
    * **maven-shade-plugin**: plug-in para criar jars sombreadas (fat). Este plug-in aplica filtros e transformações; especificamente:
-     
+
      * **filtros**: os filtros aplicados modificam as metainformações incluídas com o arquivo jar. Para evitar a assinatura de exceções em tempo de execução, isso exclui vários arquivos de assinatura que podem ser incluídos com dependências.
 
      * **execuções**: a configuração de execução da fase de pacote especifica a classe **com.twitter.scalding.Tool** como a classe principal para o pacote. Sem ela, você precisaria especificar com.twitter.scalding.Tool, além da classe que contém a lógica de aplicativo, ao executar o trabalho com o comando hadoop.
-    
+
 3. Exclua o diretório **src/teste** , pois você não criará testes com este exemplo.
 
 4. Abra o arquivo **src/main/scala/com/microsoft/example/App.scala** e substitua o conteúdo pelo seguinte:
-   
+
         package com.microsoft.example
-   
+
         import com.twitter.scalding._
-   
+
         class WordCount(args : Args) extends Job(args) {
             // 1. Read lines from the specified input location
             // 2. Extract individual words from each line
@@ -175,21 +175,21 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
             .flatMap('line -> 'word) { line : String => tokenize(line) }
             .groupBy('word) { _.size }
             .write(Tsv(args("output")))
-   
+
             //Tokenizer to split sentance into words
             def tokenize(text : String) : Array[String] = {
             text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
             }
         }
-   
+
     Isso implementa um trabalho básico de contagem de palavras.
 
 5. Salve e feche os arquivos.
 
 6. Use o seguinte comando a partir do diretório **scaldingwordcount** para compilar e empacotar o aplicativo:
-   
+
         mvn package
-   
+
     Quando esse trabalho for concluído, o pacote que contém o aplicativo WordCount poderá ser encontrado em **target/scaldingwordcount-1.0-SNAPSHOT.jar**.
 
 ## <a name="run-the-job-on-a-linux-based-cluster"></a>Executar o trabalho em um cluster baseado em Linux
@@ -199,33 +199,33 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
 
 1. Use o comando a seguir para carregar o pacote para seu cluster HDInsight:
-   
+
         scp target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:
-   
+
     Isso copiará os arquivos do sistema local para o nó principal.
-   
+
    > [!NOTE]
    > Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo, `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
-   > 
-   > 
+   >
+   >
 2. Use o comando a seguir para se conectar ao nó principal do cluster:
-   
+
         ssh username@clustername-ssh.azurehdinsight.net
-   
+
    > [!NOTE]
    > Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
 3. Uma vez conectado ao nó principal, use o seguinte comando para executar o trabalho de contagem de palavras
-   
+
         yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasbs:///example/data/gutenberg/davinci.txt --output wasbs:///example/wordcountout
-   
+
     Isso executa a classe WordCount implementada anteriormente. `--hdfs` instrui o trabalho para usar HDFS. `--input` especifica o arquivo de texto de entrada, enquanto que `--output` especifica a localização de saída.
 4. Após concluir o trabalho, use o seguinte para exibir a saída.
-   
+
         hdfs dfs -text wasbs:///example/wordcountout/*
-   
+
     Isso exibirá informações semelhantes às seguintes:
-   
+
         writers 9
         writes  18
         writhed 1
@@ -247,22 +247,22 @@ As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de exec
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 1. Inicie o Azure PowerShell e faça logon em sua conta do Azure. Depois de fornecer suas credenciais, o comando retornará informações sobre sua conta.
-   
+
         Add-AzureRMAccount
-   
+
         Id                             Type       ...
         --                             ----
         someone@example.com            User       ...
 
 2. Se você tiver várias assinaturas, forneça a ID da assinatura que deseja usar para implantação.
-   
+
         Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
-   
+
    > [!NOTE]
    > Você pode usar `Get-AzureRMSubscription` para obter uma lista de todas as assinaturas associadas à sua conta, o que inclui a Id de assinatura de cada uma delas.
 
 3. Use o seguinte script para carregar e executar o trabalho WordCount. Substitua `CLUSTERNAME` pelo nome de seu cluster HDInsight e verifique se `$fileToUpload` é o caminho correto para o arquivo **scaldingwordcount-1.0-SNAPSHOT.jar**.
-   
+
    ```powershell
     # Login to your Azure subscription
     # Is there an active Azure subscription?
@@ -330,15 +330,15 @@ As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de exec
         -HttpCredential $creds `
         -DisplayOutputType StandardError
    ```
-   
+
      Quando você executa o script, recebe uma solicitação para inserir o nome de usuário e a senha de administrador para seu cluster HDInsight. Os erros que ocorrem durante a execução do trabalho serão registrados no console.
 
 4. Após a conclusão do trabalho, o resultado será baixado no arquivo **output.txt** no diretório atual. Execute o comando a seguir para exibir os resultados:
-   
+
         cat output.txt
-   
+
     O arquivo deve conter valores semelhantes ao seguinte:
-   
+
         writers 9
         writes  18
         writhed 1
@@ -359,5 +359,4 @@ Agora que você aprendeu como usar o Scalding para criar trabalhos do MapReduce 
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
-
 

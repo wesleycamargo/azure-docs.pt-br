@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1e1e3b405d752c459ecfc7f74fbdafc148c147b5
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f46facee3e45704f74a13db7a18274f5ce90ceff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -61,7 +61,7 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
    ![Chaves públicas e privadas][keys]
 
 ### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Adicionar o par de chaves ao cluster do HPC Pack
-1. [Conecte-se por meio da Área de Trabalho Remota](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à VM do nó principal usando as credenciais de domínio fornecidas quando você implantou o cluster (por exemplo, hpc\clusteradmin). Você gerencia o cluster do nó principal.
+1. [Conecte-se por meio da Área de Trabalho Remota](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à VM do nó principal usando as credenciais de domínio fornecidas quando você implantou o cluster (por exemplo, hpc\clusteradmin). Você gerencia o cluster do nó principal.
 2. Use os procedimentos padrão do Windows Server para criar uma conta de usuário de domínio no domínio do Active Directory do cluster. Por exemplo, use o Usuário do Active Directory e a ferramenta Computers no nó principal. Com os exemplos neste artigo, supomos que você criará um usuário de domínio chamado hpcuser no domínio hpclab (hpclab\hpcuser).
 3. Adicione o usuário do domínio ao cluster HPC Pack como um usuário do cluster. Para obter instruções, consulte [Adicionar ou remover usuários de cluster](https://technet.microsoft.com/library/ff919330.aspx).
 4. Crie um arquivo chamado C:\cred.xml e copie os dados da chave RSA nele. Você pode encontrar um exemplo nos arquivos de exemplo ao final deste artigo.

@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dd281ead7d2c06af98ea0baea31d897b5be0d9d7
-ms.openlocfilehash: 04d8031a4c5f06d56afc1d08d4a4fa5fb50f8a25
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e1a1848bac1cb339569b813ae5c5e214e1ec2409
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-does-azure-remoteapp-save-user-data-and-settings"></a>Como o Azure RemoteApp salva configurações e dados de usuário?
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 

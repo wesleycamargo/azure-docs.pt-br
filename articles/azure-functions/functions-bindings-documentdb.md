@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e476a80a3846b8c80c35d6803d5518727f008824
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -153,7 +153,7 @@ A associação de saída usa o seguinte objeto JSON na matriz `bindings` de func
 Observe o seguinte:
 
 * Defina `createIfNotExists` como `true` para criar o banco de dados e a coleção se eles não existirem. O valor padrão é `false`. As novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais informações, consulte [Preços do Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/).
-* `connection` deve ser o nome de uma configuração de aplicativo que aponta para o ponto de extremidade para sua conta do DocumentDB (com o valor `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Se você criar uma conta do DocumentDB por meio do portal de funções da interface do Usuário, o processo de criação de conta cria uma configuração de um novo aplicativo para você. Para usar uma conta existente do DocumentDB, você precisará [definir a configuração deste aplicativo manualmente](). 
+* `connection` deve ser o nome de uma configuração de aplicativo que aponta para o ponto de extremidade para sua conta do DocumentDB (com o valor `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Se você criar uma conta do DocumentDB por meio do portal de funções da interface do Usuário, o processo de criação de conta cria uma configuração de um novo aplicativo para você. Para usar uma conta existente do DocumentDB, você precisará [definir a configuração deste aplicativo manualmente](functions-how-to-use-azure-function-app-settings.md). 
 
 ## <a name="output-usage"></a>Uso de saída
 Esta seção mostra como usar a associação de saída do DocumentDB no código da função.

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4015aede386913607df8a9499c0f08c414ee6959
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 17fbef55920c4f06f895739b89a0acc6ff08bd9d
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-do-you-deploy-quickbooks-in-azure-remoteapp"></a>Como implantar o QuickBooks no RemoteApp do Azure?
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -41,17 +42,12 @@ Você pode compartilhar o QuickBooks 2015 Enterprise com o RemoteApp do Azure em
 4. Inicie o cliente do QuickBooks hospedado no RemoteApp do Azure, navegue usando a rede padrão do Windows até a VM que hospeda o servidor de banco de dados do QuickBooks e abra o arquivo da empresa. 
 
 ## <a name="documentation-references"></a>Referências de documentação
-*  [Configurações com suporte](http://enterprisesuite.intuit.com/products/enterprise-solutions/technical/#top)
-*  [Opções de implantação](http://enterprisesuite.intuit.com/everythingenterprise/launchpad/new-user/)
+* [Configurações com suporte](http://enterprisesuite.intuit.com/products/enterprise-solutions/technical/#top)
+* [Opções de implantação](http://enterprisesuite.intuit.com/everythingenterprise/launchpad/new-user/)
 
 Você também pode conferir minha apresentação do Ignite, [Conceitos básicos de Gerenciamento e Administração do RemoteApp do Microsoft Azure](https://channel9.msdn.com/Events/Ignite/2015/BRK3868) ; avance até 1:02:45 para chegar à parte sobre QuickBooks.
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 ![Implantação do QuickBooks + RemoteApp do Azure](./media/remoteapp-quickbooks/ra-quickbooks.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

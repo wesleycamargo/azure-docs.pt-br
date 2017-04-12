@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/23/2016
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 7e1d596739e6c548349827ff79b76cc0312bc4df
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,6 +29,7 @@ ms.lasthandoff: 01/30/2017
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [CLI do Azure](data-lake-store-get-started-cli.md)
+> * [CLI 2.0 do Azure](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -51,7 +52,7 @@ Neste tutorial, usamos um segredo do cliente de aplicativo do Azure AD para recu
 2. Recupere a ID do cliente, o segredo do cliente e o ponto de extremidade de token para o aplicativo Web do Azure AD.
 3. Configure o acesso ao aplicativo Web do Azure AD no arquivo/pasta do Data Lake Store que você deseja acessar por meio do aplicativo Java que está criando.
 
-Para obter instruções sobre como executar essas etapas, confira [Criar um aplicativo do Active Directory](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
+Para obter instruções sobre como executar essas etapas, confira [Criar um aplicativo do Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 O Azure Active Directory fornece outras opções, bem como a recuperação de um token. Você pode escolher vários mecanismos de autenticação diferentes de acordo com seu cenário; por exemplo, um aplicativo em execução em um navegador, um aplicativo distribuído como um aplicativo da área de trabalho ou um aplicativo de servidor em execução no local ou em uma máquina virtual do Azure. Você também pode escolher diferentes tipos de credenciais, como senhas, certificados, autenticação de dois fatores etc. Além disso, o Azure Active Directory permite sincronizar os usuários do Active Directory locais com a nuvem. Para obter detalhes, confira [Cenários de autenticação do Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 

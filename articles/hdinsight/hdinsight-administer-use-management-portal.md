@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 58011fe25a96edfe2744990180b2f2866537bd37
-ms.openlocfilehash: ec35e177d1bb94671b1703020c9aa863a3805af1
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 316a3b6bd0ff32213df4baa9f722ff36ecc41d22
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -29,7 +29,7 @@ Ao usar o [Portal do Azure][azure-portal], você pode criar clusters Hadoop base
 As informações neste artigo aplicam-se apenas aos clusters HDInsight baseados no Windows. Para obter informações sobre como gerenciar clusters baseados no Linux, confira [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -135,7 +135,8 @@ Não há suporte para a instalação de software personalizado no cluster usando
    * **Tipo**: Hadoop, HBase, Storm, Spark.
    * **Versão**. Consulte [versões do HDInsight](hdinsight-component-versioning.md)
    * **Assinatura**: nome da assinatura.
-   * **ID da assinatura.**.
+   * <seg>
+  **ID da assinatura**.</seg>
    * **Fonte de dados primária**. A conta de armazenamento de Blob do Azure usada como o sistema de arquivos Hadoop padrão.
    * **Faixa de preço dos nós de trabalho**.
    * **Faixa de preço do nó de cabeça**.
