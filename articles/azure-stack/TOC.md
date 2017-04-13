@@ -8,6 +8,7 @@
 ## Introdução
 ### [Pré-requisitos de implantação](azure-stack-deploy.md)
 ### [Implantar](azure-stack-run-powershell-script.md)
+### [Ativar portais](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Registrar](azure-stack-register.md)
 ## Como
 ### [Conectar-se ao Azure Stack POC](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [Serviço de aplicativo na visão geral do Azure Stack](azure-stack-app-service-overview.md)
 #### [Antes de começar](azure-stack-app-service-before-you-get-started.md)
 #### [Implantar provedor de recursos do Serviço de Aplicativo](azure-stack-app-service-deploy.md)
+#### [Implantar o Serviço de Aplicativo offline](azure-stack-app-service-deploy-offline.md)
 #### [Adicionar mais funções de trabalho da Web](azure-stack-app-service-add-worker-roles.md)
 #### [Configurar fontes de implantação](azure-stack-app-service-configure-deployment-sources.md)
 #### [Habilitar o FTP no Serviço de Aplicativo no Azure Stack](azure-stack-app-service-enable-ftp.md)
@@ -65,7 +67,7 @@
 #### [Criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 #### [Adicionar uma imagem de máquina virtual personalizada](azure-stack-add-vm-image.md)
 #### [Implantar máquinas virtuais do Linux](azure-stack-linux.md)
-### Uso e Cobrança
+### Uso e cobrança
 #### [Visão geral](azure-stack-billing-and-chargeback.md)
 #### [Relatórios de dados de uso](azure-stack-usage-reporting.md)
 #### [API de uso do provedor](azure-stack-provider-resource-api.md)
@@ -80,7 +82,7 @@
 ### [Visão geral](azure-stack-storage-overview.md)
 ### [Diferenças e considerações](azure-stack-acs-differences-tp2.md)
 ## Rede
-### [iDNS para o Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [iDNS para o Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS no Azure Stack](azure-stack-dns.md)
 ### [Noções básicas sobre conexões VPN site a site](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Cofre de Chaves
