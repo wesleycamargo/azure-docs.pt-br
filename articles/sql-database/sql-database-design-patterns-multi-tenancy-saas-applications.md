@@ -119,10 +119,10 @@ Os pools elásticos no Banco de Dados SQL combina o isolamento de locatários co
 | --- | --- |
 | Isolamento de locatários e compartilhamento de recursos |[Pools elásticos](sql-database-elastic-pool.md): alocam um pool de recursos de Banco de Dados SQL e compartilham recursos entre vários bancos de dados. Além disso, os bancos de dados individuais podem retirar a quantidade de recursos do pool necessária para acomodar picos de demanda de capacidade devido a alterações nas cargas de trabalho de locatário. O próprio pool elástico pode ser aumentado ou reduzido conforme necessário. Os pools elásticos também fornecem facilidade de gerenciamento, monitoramento e solução de problemas no nível do pool. |
 | Facilidade de DevOps em bancos de dados |[Pools elásticos](sql-database-elastic-pool.md): conforme mencionado anteriormente. |
-| [Consulta elástica:](sql-database-elastic-query-horizontal-partitioning.md)consulta relatórios ou análises entre locatários nos bancos de dados. | |
-| [Trabalhos elásticos:](sql-database-elastic-jobs-overview.md)empacotam e implantam confiavelmente as operações de manutenção de banco de dados ou alterações de esquema do banco de dados para vários bancos de dados. | |
-| [Transações elásticas:](sql-database-elastic-transactions-overview.md)processam alterações em vários bancos de dados de uma maneira atômica e isolada. Transações elásticas são necessárias quando os aplicativos precisam de garantias de "tudo ou nada" sobre várias operações de banco de dados. | |
-| [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md): gerencia distribuições de dados e mapeiam locatários para bancos de dados. | |
+| | [Consulta elástica:](sql-database-elastic-query-horizontal-partitioning.md)consulta relatórios ou análises entre locatários nos bancos de dados. |
+| | [Trabalhos elásticos:](sql-database-elastic-jobs-overview.md)empacotam e implantam confiavelmente as operações de manutenção de banco de dados ou alterações de esquema do banco de dados para vários bancos de dados. |
+| | [Transações elásticas:](sql-database-elastic-transactions-overview.md)processam alterações em vários bancos de dados de uma maneira atômica e isolada. Transações elásticas são necessárias quando os aplicativos precisam de garantias de "tudo ou nada" sobre várias operações de banco de dados. |
+| | [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md): gerencia distribuições de dados e mapeiam locatários para bancos de dados. |
 
 ## <a name="shared-models"></a>Modelos compartilhados
 Conforme descrito anteriormente, para a maioria dos provedores de SaaS, uma abordagem de modelo compartilhado pode apresentar problemas com questões de isolamento de locatário e complexidades de desenvolvimento e manutenção do aplicativo. No entanto, para aplicativos multilocatários que fornecem um serviço diretamente para clientes, os requisitos de isolamento de locatário podem não ser uma prioridade tão alta como a minimização do custo. Eles poderão empacotar locatários em um ou mais bancos de dados em uma densidade bastante alta para reduzir os custos. Os modelos de banco de dados compartilhados usando um banco de dados individual ou vários bancos de dados fragmentados podem resultar em uma eficiência adicional no compartilhamento de recursos e na redução do custo geral. O Banco de Dados SQL do Azure fornece alguns recursos que ajudam os clientes a criar um isolamento aprimorado de segurança e gerenciamento em escala na camada de dados.
@@ -132,10 +132,10 @@ Conforme descrito anteriormente, para a maioria dos provedores de SaaS, uma abor
 | Recursos de isolamento de segurança |[Segurança em nível de linha](https://msdn.microsoft.com/library/dn765131.aspx) |
 | [Esquema de banco de dados](https://msdn.microsoft.com/library/dd207005.aspx) | |
 | Facilidade de DevOps em bancos de dados |[Consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) |
-| [Trabalhos elásticos](sql-database-elastic-jobs-overview.md) | |
-| [Transações elásticas](sql-database-elastic-transactions-overview.md) | |
-| [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) | |
-| [Divisão e mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md) | |
+| | [Trabalhos elásticos](sql-database-elastic-jobs-overview.md) |
+| | [Transações elásticas](sql-database-elastic-transactions-overview.md) |
+| | [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) |
+| | [Divisão e mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md) |
 
 ## <a name="summary"></a>Resumo
 Os requisitos de isolamento de locatário são importantes para a maioria dos aplicativos SaaS multilocatários. A melhor opção para fornecer isolamento é voltada fortemente para a abordagem banco de dados por locatário. As outras duas abordagens exigem investimentos em camadas de aplicativo complexas que exigem uma equipe de desenvolvimento especializada para fornecer isolamento, que aumenta significativamente custos e riscos. Se os requisitos de isolamento não forem considerados no início do desenvolvimento de serviços, retrocedê-los poderá ser ainda mais oneroso do que os primeiros dois modelos. As principais desvantagens associadas ao modelo de banco de dados por locatário estão relacionadas aos custos dos recursos de nuvem maiores devido à redução de compartilhamento e à manutenção e gerenciamento de um grande número de bancos de dados. Os desenvolvedores de aplicativos SaaS muitas vezes têm dificuldades ao fazer essas compensações.
