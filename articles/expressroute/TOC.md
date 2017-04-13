@@ -14,7 +14,7 @@
 ## [Requisitos de roteamento](expressroute-routing.md)
 ## [Requisitos de NAT](expressroute-nat.md)
 ## [Requisitos de QoS](expressroute-qos.md)
-## [Movendo circuitos do clássico para o Gerenciador de Recursos](expressroute-move.md)
+## [Sobre a movimentação de circuitos do clássico para o Gerenciador de Recursos](expressroute-move.md)
 
 # Como
 ## Criar e modificar um circuito
@@ -29,6 +29,7 @@
 ## [Configurar um gateway de rede virtual para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configurar conexões coexistentes Site a Site e de ExpressRoute](expressroute-howto-coexist-resource-manager.md)
 ## [Mover um circuito do clássico para o Gerenciador de Recursos](expressroute-howto-move-arm.md)
+## [Migrar redes virtuais associadas do clássico para o Gerenciador de recursos](expressroute-migration-classic-resource-manager.md)
 ## Configurar um roteador para o ExpressRoute
 ### [Configurar um roteador](expressroute-config-samples-routing.md)
 ### [Exemplos de configuração de roteador para NAT](expressroute-config-samples-nat.md)

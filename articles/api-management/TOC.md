@@ -45,6 +45,7 @@
 ### [Gerenciar usando automação](automation-manage-api-management.md)
 ### [Configurar usando Git](api-management-configuration-repository-git.md)
 ### [Monitorar usando o Azure Monitor](api-management-howto-use-azure-monitor.md)
+### [Usar controle de acesso baseado em função](api-management-role-based-access-control.md)
 # Referência
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/apimanagement/)
