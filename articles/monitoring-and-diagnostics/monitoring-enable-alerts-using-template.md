@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 4/13/2017
 ms.author: johnkem
 translationtype: Human Translation
 ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
+ms.lasthandoff: 12/22/2016
 
 
 ---
@@ -377,7 +378,7 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
                         "resourceUri": "[variables('vmID')]",
                         "metricName": "[variables('metricName')]"
                     },
-                    "operator": "[parameters('operator')]",
+                    "operator": "[variables('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"
@@ -403,10 +404,5 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os Alertas](insights-receive-alert-notifications.md)
 * [Adicionar Configurações de Diagnóstico](monitoring-enable-diagnostic-logs-using-template.md) ao modelo do Resource Manager
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
