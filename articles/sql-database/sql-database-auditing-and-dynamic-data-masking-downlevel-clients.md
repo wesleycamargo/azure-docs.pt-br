@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/17/2017
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>Banco de Dados SQL - Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria
 A [Auditoria de Banco de Dados](sql-database-auditing.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS. Observe que o redirecionamento não se aplica ao usar o método Auditoria de Blob.
 
-## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Suporte a clientes de versão anterior
+## <a id="subheading-1"></a>Suporte a clientes de versão anterior
 Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a redirecionamento. As exceções incluem o JDBC 4.0, no qual o recurso de redirecionamento não tem suporte completo, e o Tedious para Node.JS, no qual o redirecionamento não foi implementado.
 
 Para "clientes de versão anterior", ou seja, que oferecem suporte ao TDS versão 7.3 e inferior - o FQDN do servidor na cadeia de conexão deve ser modificado:
@@ -43,7 +43,7 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 
 **Comentário:** a modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de Auditoria no Nível do SQL Server sem a necessidade de uma etapa de configuração em cada banco de dados (redução temporária).
 
-## <a name="a-idsubheading-2aip-endpoint-changes-when-enabling-auditing"></a><a id="subheading-2"></a>Alterações de ponto de extremidade IP ao habilitar a Auditoria
+## <a id="subheading-2"></a>Alterações de ponto de extremidade IP ao habilitar a Auditoria
 Observe que, quando você habilita a Auditoria de Tabela, o ponto de extremidade IP do seu banco de dados é alterado. Se você tiver configurações de firewall estritas, atualize as configurações de firewall adequadamente.
 
 O novo ponto de extremidade IP do banco de dados dependerá da região de banco de dados:
