@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Implante uma solução de hospedagem de contêiner do Docker usando o portal do Azure
@@ -36,7 +36,11 @@ Para obter informações, consulte [Introdução ao Serviço de Contêiner do Az
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure**: se não tiver uma, inscreva-se em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+* **Assinatura do Azure**: se não tiver uma, inscreva-se em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Para um cluster maior, considere uma assinatura pré-paga ou outras opções de compra.
+
+    > [!NOTE]
+    > O uso da assinatura do Azure e as [cotas de recursos](../azure-subscription-service-limits.md), como as cotas de núcleos, podem limitar o tamanho do cluster que você implanta. Para solicitar um aumento de cota, abra uma [solicitação de atendimento ao cliente online](../azure-supportability/how-to-create-azure-support-request.md) gratuitamente.
+    >
 
 * **Chave pública SSH RSA**: durante a implantação por meio do portal ou por meio de um dos modelos de início rápido do Azure, você precisa fornecer a chave pública para autenticação nas máquinas virtuais do Serviço de Contêiner do Azure. Para criar chaves SSH (Secure Shell) RSA, consulte as diretrizes para [OS X e Linux](../virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
@@ -109,7 +113,7 @@ A implantação leva vários minutos para ser concluída. Em seguida, o cluster 
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Criar um cluster usando um modelo de início rápido
 Modelos de início rápido do Azure estão disponíveis para implantar um cluster no serviço de contêiner do Azure. Os modelos de início rápido fornecidos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para criar um cluster do serviço de contêiner do Azure usando um modelo de início rápido do Azure, você precisa de uma assinatura do Azure. Se não tiver uma, inscreva-se para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Siga estas etapas para implantar um cluster usando um modelo e a CLI do Azure 2.0 (veja [instruções de instalação e configuração](/cli/azure/install-az-cli2.md)).
+Siga estas etapas para implantar um cluster usando um modelo e a CLI do Azure 2.0 (veja [instruções de instalação e configuração](/cli/azure/install-az-cli2)).
 
 > [!NOTE] 
 > Se você estiver em um sistema Windows, você pode usar etapas semelhantes para implantar um modelo usando o Azure PowerShell. Consulte as etapas nesta seção. Você também pode implantar um modelo por meio de [portal](../azure-resource-manager/resource-group-template-deploy-portal.md) ou outros métodos.

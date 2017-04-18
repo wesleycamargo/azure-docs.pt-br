@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ Para montar o compartilhamento de arquivos de um cliente local, siga estas etapa
 > Alguns provedores de serviços de Internet podem bloquear a porta 445; portanto, é necessário verificar com seu provedor de serviços.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>Desmontar o compartilhamento de arquivos
+Para desmontar o compartilhamento de arquivos, você pode usar o comando `net use` com a opção `/delete`.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>Desenvolver com o armazenamento de arquivo
 Para escrever um código que chama o Armazenamento de arquivos, você poderá usar as bibliotecas do cliente de armazenamento do .NET e Java ou a API REST do Armazenamento do Azure. O exemplo nesta seção demonstra como trabalhar com um compartilhamento de arquivos usando a [Biblioteca de Cliente do Armazenamento do Azure para .NET](https://msdn.microsoft.com/library/mt347887.aspx) de um aplicativo de console simples em execução na área de trabalho.
@@ -615,7 +625,7 @@ Além disso, você pode consultar o [artigo de Solução de problemas de arquivo
    
     Atualmente não damos suporte a autenticação baseada no AD ou em ACLs, mas a temos em nossa lista de solicitações de recursos. Por enquanto, as chaves de conta de armazenamento do Azure são usadas para permitir a autenticação de compartilhamento de arquivos. Oferecemos uma solução alternativa usando SAS (assinaturas de acesso compartilhado) pela API REST ou pelas bibliotecas de cliente. Com a SAS, você pode gerar tokens com permissões específicas que são válidas em um intervalo de tempo especificado. Por exemplo, você pode gerar um token de acesso somente leitura a um determinado arquivo. Qualquer pessoa que possua esse token enquanto for válido terá acesso somente leitura ao arquivo.
    
-    A SAS tem suporte somente via API REST ou bibliotecas de cliente. Quando você monta o compartilhamento de arquivos por meio do protocolo SMB, não pode usar uma SAS para delegar acesso a seu conteúdo. 
+    A SAS tem suporte somente via API REST ou bibliotecas de cliente. Quando você montar o compartilhamento de arquivos via protocolo SMB, não poderá usar uma SAS para delegar acesso a seu conteúdo. 
 
 2. **Como pode fornecer acesso a um arquivo específico em um navegador da web?**
    Com a SAS, você pode gerar tokens com permissões específicas que são válidas em um intervalo de tempo especificado. Por exemplo, você pode gerar um token de acesso somente leitura a um arquivo específico para um período de tempo específico. Qualquer pessoa que possua essa url pode realizar o download diretamente de qualquer navegador da web enquanto ele é válido. Chaves SAS podem ser facilmente geradas na interface do usuário como o Gerenciador de armazenamento.
@@ -633,7 +643,7 @@ Além disso, você pode consultar o [artigo de Solução de problemas de arquivo
     Sim. Será gratuito se o tráfego estiver na mesma região.
 7. **A conexão de máquinas virtuais locais ao armazenamento de arquivo do Azure depende da Rota Expressa do Azure?**
    
-    Não. Se você não tiver a Rota Expressa, ainda poderá acessar o compartilhamento de arquivos do local, desde que a porta 445 (TCP de saída) esteja aberta para acesso à Internet. No entanto, se desejar, você pode usar a Rota Expressa com o armazenamento de arquivos.
+    Não. Se você não tiver um ExpressRoute, ainda poderá acessar o compartilhamento de arquivos no local, desde que a porta 445 (TCP de saída) esteja aberta para acesso à Internet. No entanto, se desejar, você pode usar a Rota Expressa com o armazenamento de arquivos.
 8. **Uma “testemunha de compartilhamento de arquivo” de um cluster de failover é um dos casos de uso para armazenamento de arquivo do Azure?**
    
     Não há suporte para isso no momento.
@@ -651,7 +661,7 @@ Além disso, você pode consultar o [artigo de Solução de problemas de arquivo
     Não. O compartilhamento de arquivos é o driver virtual que você pode montar; portanto, não há suporte para compartilhamentos aninhados.
 13. **É possível especificar permissões somente leitura ou somente gravação em pastas no compartilhamento?**
     
-    Você não tem esse nível de controle sobre as permissões se montar o compartilhamento de arquivos via SMB. No entanto, você pode conseguir isso criando uma SAS (assinatura de acesso compartilhado) por meio de bibliotecas de API REST ou de cliente.  
+    Você não terá esse nível de controle sobre as permissões se montar o compartilhamento de arquivos via SMB. No entanto, você pode conseguir isso criando uma SAS (assinatura de acesso compartilhado) por meio de bibliotecas de API REST ou de cliente.  
 14. **O desempenho era lento durante a tentativa de descompactar arquivos no Armazenamento de Arquivos. O que devo fazer?**
     
     Para transferir grandes quantidades de arquivos para o armazenamento de arquivos, recomendamos que você use o AzCopy, o Azure Powershell (Windows) ou a CLI do Azure (Unix/Linux), já que essas ferramentas foram otimizadas para transferência de rede.
@@ -666,11 +676,13 @@ Além disso, você pode consultar o [artigo de Solução de problemas de arquivo
     Consulte o [artigo de Solução de problemas de Arquivos do Azure](storage-troubleshoot-file-connection-problems.md) para obter diretrizes completas de solução de problemas.               
 
 18. **Como habilitar a criptografia no lado do servidor para os Arquivos do Azure?**
+> [!NOTE]
+> [A criptografia do lado do servidor](storage-service-encryption.md) para os Arquivos do Azure está atualmente em visualização. Você poderá contatar o [SSEDiscussion](mailto:ssediscussions@microsoft.com) se tiver dúvidas durante a visualização.
 
-    [A criptografia do lado do servidor](storage-service-encryption.md) para os Arquivos do Azure está atualmente em visualização. Durante a visualização, você pode habilitar esse recurso apenas em novas contas de armazenamento do Azure Resource Manager criado usando o [portal do Azure](https://portal.azure.com). Não há nenhum custo adicional para habilitar esse recurso. Quando você habilita a Encriptação do Serviço de Armazenamento para o Armazenamento de Arquivos do Azure, os seus dados são automaticamente encriptados. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    Planejamos dar suporte à habilitação de criptografia para armazenamento de arquivos com o [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), a [CLI do Azure](storage-azure-cli.md)e a [API REST do provedor de recursos do Armazenamento do Azure](/rest/api/storagerp/storageaccounts) no futuro. 
-    Confira [Criptografia do Serviço de Armazenamento](storage-service-encryption.md) para saber mais sobre criptografia em repouso no Armazenamento do Azure e entre em contato com ssediscussions@microsoft.com se tiver dúvidas durante a visualização.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte estes links para obter mais informações sobre o armazenamento de arquivo do Azure.

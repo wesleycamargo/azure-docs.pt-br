@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0664888dbb14aaa353d5d126cdf799b62711d71f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -106,7 +106,7 @@ Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para
     ```PowerShell
     $azureAdApplication    
     ```
-    Anote a ID do aplicativo (**applicationID** da saída).
+    Anote a ID do aplicativo (IDaplicativo) na saída.
 
 Você deve ter quatro valores após estas etapas:
 
@@ -124,7 +124,7 @@ Você deve ter quatro valores após estas etapas:
    5. Digite **DataFactoryAPITestApp** como o Nome.
    6. Selecione **C:\ADFGetStarted** como o Local.
    7. Clique em **OK** para criar o projeto.
-2. Clique em **Ferramentas**, aponte para **Gerenciador de Pacotes Nuget** e clique em **Console do Gerenciador de Pacotes**.
+2. Clique em **Ferramentas**, aponte para **Gerenciador de Pacotes NuGet** e clique em **Console do Gerenciador de Pacotes**.
 3. No **Console do Gerenciador de Pacotes**, realize as seguintes etapas:
    1. Execute o seguinte comando para instalar o pacote de Data Factory: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Execute o seguinte comando para instalar o pacote do Azure Active Directory (use a API do Active Directory no código): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -184,7 +184,7 @@ Você deve ter quatro valores após estas etapas:
    > [!IMPORTANT]
    > Substitua o valor de **resourceGroupName** pelo nome do seu grupo de recursos do Azure.
    >
-   > O nome da atualização de data factory (**dataFactoryName**) deve ser exclusivo. O nome de data factory deve ser exclusivo. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+   > O nome de atualização do data factory (NomedataFactory) deve ser exclusivo. O nome de data factory deve ser exclusivo. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 
 7. Adicione o seguinte código que cria um **data factory** no método **Main**.
 
@@ -473,7 +473,7 @@ Você deve ter quatro valores após estas etapas:
     }
     ```
 
-15. No Gerenciador de Soluções, expanda o projeto (**DataFactoryAPITestApp**), clique com o botão direito do mouse em **Referências** e clique em **Adicionar Referência**. Marque a caixa de seleção do assembly "**System.Configuration**" e clique em **OK**.
+15. No Gerenciador de Soluções, expanda o projeto (DataFactoryAPITestApp), clique com botão direito em **Referências**e clique em **Adicionar Referência**. Marque a caixa de seleção do assembly **System. Configuration**. E clique em **OK**.
 16. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**.
 17. Confirme se há pelo menos um arquivo no contêiner **adftutorial** no seu armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo **Emp.txt** no bloco de notas com o seguinte conteúdo e carregue-o no contêiner adftutorial.
 
@@ -486,7 +486,7 @@ Você deve ter quatro valores após estas etapas:
    * Serviço vinculado: **LinkedService_AzureStorage**
    * Conjunto de dados: **DatasetBlobSource** e **DatasetBlobDestination**.
    * Pipeline: **PipelineBlobSample**
-20. Verifique se os dois registros de funcionários são criados na tabela "**emp**" do banco de dados SQL do Azure especificado.
+20. Verifique se os dois registros de funcionários são criados na tabela **emp** do banco de dados SQL do Azure especificado.
 
 ## <a name="next-steps"></a>Próximas etapas
 | Tópico | Descrição |

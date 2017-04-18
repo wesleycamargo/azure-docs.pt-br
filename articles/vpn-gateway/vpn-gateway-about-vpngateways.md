@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 3be72ac862650d2381a56c4ab682e41a8aaa8a27
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1dfd9be47adfcb6de46f26571847a3a6b7f51410
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -79,7 +79,7 @@ As redes virtuais às quais você se conecta podem estar:
 
 * na mesma região ou em regiões diferentes
 * na mesma assinatura ou em assinaturas diferentes 
-* no mesmo modelo de implantação ou em modelos de implantação diferentes
+* nos mesmos modelos de implantação ou em modelos diferentes
 
 ![Exemplo de conexão VNet a VNet do Gateway de VPN do Azure](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 

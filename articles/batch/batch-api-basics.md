@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +46,7 @@ O seguinte fluxo de trabalho de alto nível é típico de quase todos os aplicat
 As seções a seguir discutem esses e outros recursos do Lote que habilitarão que seu cenário de computação distribuída.
 
 > [!NOTE]
-> Você precisa de uma [Conta do Lote](batch-account-create-portal.md) para usar o serviço do Lote. Além disso, praticamente todas as soluções usam uma conta de [Armazenamento do Azure][azure_storage] para o armazenamento de arquivos e a recuperação. Atualmente, o Lote dá suporte apenas ao tipo da conta de armazenamento de **Uso geral**, conforme descrito na etapa 5 de [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
+> Você precisa de uma [Conta do Lote](#account) para usar o serviço do Lote. Além disso, praticamente todas as soluções usam uma conta de [Armazenamento do Azure][azure_storage] para o armazenamento de arquivos e a recuperação. Atualmente, o Lote dá suporte apenas ao tipo da conta de armazenamento de **Uso geral**, conforme descrito na etapa 5 de [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -69,7 +69,16 @@ Alguns dos recursos a seguir - contas, nó de computação, pool, trabalhos e ta
 * [Pacotes de aplicativos](#application-packages)
 
 ## <a name="account"></a>Conta
-Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch. Todo o processamento é feito por meio de uma conta do Lote. Quando executar operações com o serviço Lote, você precisará do nome da conta e de uma de suas chaves. Você pode criar uma [conta do Lote do Azure usando o Portal do Azure](batch-account-create-portal.md).
+Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch. Todo o processamento é feito por meio de uma conta do Lote.
+
+Você pode criar uma conta do Lote do Azure usando o [portal do Azure](batch-account-create-portal.md) ou por meio de programação, como com a [biblioteca .NET do Gerenciamento de Lote](batch-management-dotnet.md). Ao criar a conta, você poderá associar uma conta do Armazenamento do Azure.
+
+O Lote dá suporte a duas configurações de conta, com base na propriedade *modo de alocação de pool*. As duas configurações oferecem opções diferentes para autenticar com o serviço Lote e para provisionar e gerenciar [pools](#pool) do Lote (mais adiante neste artigo). 
+
+
+* **Serviço Lote** (padrão): você pode acessar as APIs do Lote usando a autenticação de chave compartilhada ou a [autenticação do Azure Active Directory](batch-aad-auth.md). Os recursos de computação no Lote são alocados em segundo plano em uma conta gerenciada pelo Azure.   
+* **Assinatura do usuário**: só é possível acessar as APIs do Lote usando a [autenticação do Azure Active Directory](batch-aad-auth.md). Os recursos de computação do Lote são alocados diretamente na sua assinatura do Azure. Esse modo oferece mais flexibilidade para configurar os nós de computação e integrar com outros serviços. Esse modo exige que você configure mais um Azure Key Vault para sua conta do Lote.
+ 
 
 ## <a name="compute-node"></a>Nó de computação
 Um nó de computação é uma máquina virtual (VM) do Azure dedicada ao processamento de uma parte da carga de trabalho do aplicativo. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de arquivos local alocado para o nó. Você pode criar pools de nós do Windows ou do Linux usando os Serviços de Nuvem ou as imagens de Marketplace das Máquinas Virtuais. Consulte o seguinte seção [Pool](#pool) para obter mais informações sobre essas opções.
@@ -89,13 +98,16 @@ Os pools do Lote do Azure se baseiam na plataforma de computação principal do 
 
 Todos os nós adicionados a um pool recebem um nome e um endereço IP exclusivos. Quando um nó é removido de um pool, todas as alterações feitas no sistema operacional ou arquivos são perdidas e seu nome e endereço IP são liberados para o uso futuro. Quando um nó deixa um pool, seu tempo de vida termina.
 
-Ao criar um pool, você pode especificar os seguintes atributos:
+Ao criar um pool, você pode especificar os seguintes atributos. Algumas configurações são diferentes dependendo do modo de alocação de pool da [conta](#account) do Lote.
 
 * **Sistema operacional** e **versão** do nó de computação
 
-    Você tem duas opções ao selecionar um sistema operacional para os nós no pool: **Configuração da Máquina Virtual** e **Configuração dos Serviços de Nuvem**.
+    > [!NOTE]
+    > No modo de alocação do pool de serviços do Lote, você tem duas opções ao selecionar um sistema operacional para os nós no pool: **Configuração de Máquina Virtual** e **Configuração dos Serviços de Nuvem**. No modo de assinatura do usuário, você só pode usar a configuração de máquina virtual.
+    >
 
-    A **Configuração da Máquina Virtual** fornece imagens do Linux e do Windows para os nós de computação no [Marketplace de Máquinas Virtuais do Azure][vm_marketplace].
+    A **configuração de máquina virtual** fornece imagens Linux e Windows para nós de computação do [Marketplace de máquinas virtuais do Azure] [ vm_marketplace] e, no modo de alocação de assinatura do usuário, a opção de usar imagens VM personalizadas.
+
     Ao criar um pool que contém nós de Configuração da Máquina Virtual, você deve especificar não apenas o tamanho dos nós, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md).
 
     **Configuração dos Serviços de Nuvem** fornece *apenas*. Os sistemas operacionais disponíveis para pools de Configuração de Serviços de Nuvem são listados na [matriz de compatibilidade de SDK e versões de SO Convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Ao criar um pool que contém os nós dos Serviços de Nuvem, você precisa especificar apenas o tamanho do nó e sua *Família de SOs*. Quando você crie pools de nós de computação do Windows, os Serviços de Nuvem são usados com mais frequência.
@@ -313,17 +325,27 @@ Uma abordagem combinada normalmente é usada para lidar com uma carga variável,
 
 ## <a name="pool-network-configuration"></a>Configuração de rede do pool
 
-Quando você cria um pool de nós de computação no Lote do Azure, você pode especificar a ID de uma [rede virtual (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) do Azure em que nós de computação do pool devem ser criados.
-
-* Somente pools de **Configuração de Serviços de Nuvem** podem ser atribuídos a uma VNet.
+Quando você cria um pool de nós de computação no Lote do Azure, pode usar as APIs para especificar a ID de uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure em que nós de computação do pool devem ser criados.
 
 * A VNet deve ser:
 
    * Na mesma **região** do Azure que a conta do Lote do Azure.
    * Na mesma **assinatura** do Azure que a conta do Lote do Azure.
-   * Uma VNet **clássica**. Não há suporte para VNets criadas com o modelo de implantação do Azure Resource Manager.
 
 * A VNet deve ter **endereços IP** livres suficientes para acomodar a propriedade `targetDedicated` do pool. Se a sub-rede não tiver endereços IP suficientes livres, o serviço de Lote alocará parcialmente os nós de computação no pool e retornará um erro de redimensionamento.
+
+* A sub-rede especificada deve permitir a comunicação do serviço do Lote para que seja capaz de agendar tarefas nos nós de computação. Se a comunicação com os nós de computação for negada por um **NSG (grupo de segurança de rede)** associado com a VNet, o serviço de lote definirá o estado de nós de computação para **inutilizável**. 
+
+* Se a rede virtual especificada tiver NSGs associados, a comunicação de entrada deverá estar habilitada. Para um pool de Linux, as portas 29876, 29877 e 22 devem estar habilitadas. Para um pool do Windows, a porta 3389 deve estar habilitada.
+
+As configurações adicionais para a VNet dependem do modo de alocação de pool da conta do Lote.
+
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>VNets para pools provisionados no serviço Lote
+
+No modo de alocação do serviço Lote, apenas os pools da **configuração dos serviços de nuvem** podem ser atribuídos a uma rede virtual. Além disso, a VNet especificada deve ser uma VNet **clássica**. Não há suporte para VNets criadas com o modelo de implantação do Azure Resource Manager.
+   
+
+
 * A entidade de serviço *MicrosoftAzureBatch* deve ter a função de RBAC (controle de acesso baseado em função) [Colaborador de Máquina Virtual Clássica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) para a VNet especificada. No Portal do Azure:
 
   * Selecione a **VNet**, em seguida, **Controle de Acesso (IAM)** > **Funções** > **Colaborador de Máquina Virtual Clássica** > **Adicionar**
@@ -331,7 +353,13 @@ Quando você cria um pool de nós de computação no Lote do Azure, você pode e
   * Marque a caixa de seleção **MicrosoftAzureBatch**
   * Selecione o botão **Selecionar**
 
-* Se a comunicação com os nós de computação for negada por um **NSG (grupo de segurança de rede)** associado com a VNet, o serviço de lote definirá o estado de nós de computação para **inutilizável**. A sub-rede deve permitir a comunicação do serviço de lote do Azure para que seja capaz de agendar tarefas nos nós de computação.
+
+
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>VNets para pools provisionados em uma assinatura do usuário
+
+No modo de assinatura do usuário, apenas os pools de **configuração de máquina virtual** têm suporte e podem ser atribuídos a uma rede virtual. Além disso, a rede virtual especificada deve ser uma rede virtual baseada no **Gerenciador de Recursos**. Não há suporte para redes virtuais criadas com o modelo de implantação clássico.
+
+
 
 ## <a name="scaling-compute-resources"></a>Dimensionando os recursos de computação
 Com o [dimensionamento automático](batch-automatic-scaling.md), você pode deixar que o serviço de Lote ajuste dinamicamente o número de nós de computação em um pool de acordo com a carga de trabalho e o uso de recursos atuais do cenário de computação. Isso permite reduzir o custo geral de execução do aplicativo usando apenas os recursos necessários e liberando os que você não precisa.
