@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: xerners
 translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: 2dfe58c032888ca34e905f4e549fcc4d6e36d324
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -188,10 +189,5 @@ Depois da autenticação bem-sucedida, escolha o botão **Solicitar Recurso Prot
 
 ## <a name="get-security-updates-for-our-product"></a>Obter atualizações de segurança para nosso produto
 É recomendável obter notificações sobre incidentes de segurança visitando a página [Segurança TechCenter](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
