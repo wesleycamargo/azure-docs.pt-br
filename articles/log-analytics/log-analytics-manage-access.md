@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
@@ -78,7 +78,7 @@ Por padrão, a conta da Microsoft ou a conta Organizacional usada para criar o e
 Há dois modelos de permissão que controlam o acesso a um espaço de trabalho do Log Analytics:
 
 1. Funções de usuário herdadas do Log Analytics
-2. [Acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md) 
+2. [Acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md)
 
 A tabela a seguir resume o acesso que pode ser definido usando cada modelo de permissão:
 
@@ -101,13 +101,14 @@ As atividades a seguir no portal do Log Analytics também exigem permissões do 
 | Adicionar e remover soluções de gerenciamento                        | Gravação no grupo de recursos <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Alterar o tipo de preço                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Exibir dados nos blocos de solução *Backup* e *Site Recovery* | Administrador/coadministrador | Acessa recursos implantados usando o modelo de implantação clássico |
- 
+
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gerenciar o acesso ao Log Analytics usando permissões do Azure
 Para conceder acesso ao espaço de trabalho do Log Analytics usando permissões do Azure, execute as etapas em [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](../active-directory/role-based-access-control-configure.md).
 
 Se você tiver pelo menos a permissão de leitura do Azure no espaço de trabalho do Log Analytics, abra o portal do OMS clicando na tarefa **Portal do OMS** ao exibir o espaço de trabalho do Log Analytics.
 
-Ao abrir o portal do Log Analytics, use as funções de usuário herdadas do Log Analytics. Se você não tiver uma atribuição de função no portal do Log Analytics, o serviço [verificará as permissões do Azure existentes no espaço de trabalho](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). Sua atribuição de função no portal do Log Analytics é determinada da seguinte maneira:
+Ao abrir o portal do Log Analytics, use as funções de usuário herdadas do Log Analytics. Se você não tiver uma atribuição de função no portal do Log Analytics, o serviço [verificará as permissões do Azure existentes no espaço de trabalho](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+Sua atribuição de função no portal do Log Analytics é determinada da seguinte maneira:
 
 | Condições                                                   | Funções de usuário do Log Analytics atribuída | Observações |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -119,7 +120,7 @@ Ao abrir o portal do Log Analytics, use as funções de usuário herdadas do Log
 | Para assinaturas de gerenciadas por CSP (Provedor de solução de nuvem) <br> A conta com a qual você está conectado está no Azure Active Directory vinculado ao espaço de trabalho | Administrador | Normalmente, o cliente de um CSP |
 | Para assinaturas de gerenciadas por CSP (Provedor de solução de nuvem) <br> A conta com a qual você está conectado não está no Azure Active Directory vinculado ao espaço de trabalho | Colaborador | Normalmente o CSP |
 
-<sup>1</sup> Consulte [Permissões do Azure](../active-directory/role-based-access-control-custom-roles.md) para saber mais sobre definições de função. Ao avaliar funções, uma ação de `*` não é equivalente a `Microsoft.OperationalInsights/workspaces/*`. 
+<sup>1</sup> Consulte [Permissões do Azure](../active-directory/role-based-access-control-custom-roles.md) para saber mais sobre definições de função. Ao avaliar funções, uma ação de `*` não é equivalente a `Microsoft.OperationalInsights/workspaces/*`.
 
 Alguns pontos a ter em mente sobre o portal do Azure:
 

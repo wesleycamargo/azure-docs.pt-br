@@ -29,13 +29,13 @@
 ##### [Associações de tabela](functions-bindings-storage-table.md)
 #### [Gatilho de temporizador](functions-bindings-timer.md)
 #### [Associação de saída do Twilio](functions-bindings-twilio.md)
+### [Definir proxies de Funções](functions-proxies.md)
 ### [Criar um aplicativo de funções a partir do portal do Azure](functions-create-function-app-portal.md) 
-### [Testando o Azure Functions](functions-test-a-function.md)
+### [Executar uma tarefa agendada de limpeza](functions-scenario-database-table-cleanup.md)
+### [Testar Azure Functions](functions-test-a-function.md)
 ### [Desenvolver e depurar localmente](functions-run-local.md)
 ### [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
-### [Usar o Azure Functions para executar uma tarefa de limpeza agendada](functions-scenario-database-table-cleanup.md)
-### [Criar uma definição de OpenAPI (visualização)](functions-api-definition-getting-started.md)
-#### [OpenAPI 2.0 na referência de Funções](functions-api-definition.md)
+### [Criar uma definição de OpenAPI](functions-api-definition-getting-started.md)
 
 ## Gerenciar
 ### [Definir configurações para um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md)

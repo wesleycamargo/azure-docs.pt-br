@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "projetos led arduino, piscar led arduino, código piscar led arduino, programa de piscar arduino, exemplo de piscar arduino"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: b0a7d076-d580-4686-9f7d-c0712750b615
 ms.service: iot-hub
 ms.devlang: arduino

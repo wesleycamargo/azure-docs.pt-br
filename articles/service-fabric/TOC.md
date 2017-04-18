@@ -17,6 +17,7 @@
 ### [Java no Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# em Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Implantar aplicativos em um cluster local](service-fabric-get-started-with-a-local-cluster.md)
+## [Criar um cluster autônomo](service-fabric-get-started-standalone-cluster.md)
 
 # Como
 ## Compilar um aplicativo
@@ -145,6 +146,7 @@
 ### Implantar ou remover aplicativos
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+#### [APIs de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 ### [Visão geral de atualização de aplicativo](service-fabric-application-upgrade.md)
 ### [Configurar a atualização de aplicativo](service-fabric-visualstudio-configure-upgrade.md)
 ### [Parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md)
@@ -208,9 +210,9 @@
 ### [Movimento de serviço](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # Referência
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [API Java](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [PowerShell](/powershell/module/ServiceFabric/)
+## [API Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicefabric)
 
 # Recursos

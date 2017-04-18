@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "conectar o arduino à nuvem, hub iot do azure, nuvem de Internet das coisas, criar dispositivo de hub iot do azure, nuvem arduino"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 5edc690b-7a1d-4ebc-b011-ff27bfffe6e8
 ms.service: iot-hub
 ms.devlang: arduino
