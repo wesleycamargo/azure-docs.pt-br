@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
-ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 5c6a6fcf86867fb2195a31d636003f16ed503da2
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/14/2017
 Neste artigo, você usa o Microsoft Visual Studio para criar seu primeiro data factory do Azure. Para fazer o tutorial usando outras ferramentas/SDKs, selecione uma das opções da lista suspensa.
 
 > [!NOTE]
-> O pipeline de dados neste tutorial transforma os dados de entrada para gerar dados de saída. Ele não copia dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como copiar dados usando o Azure Data Factory, veja [Tutorial: Copiar dados do Armazenamento de Blobs para um banco de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> O pipeline de dados neste tutorial transforma os dados de entrada para gerar dados de saída. Ele não copia dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como copiar dados usando o Azure Data Factory, confira [Tutorial: copiar dados do armazenamento de blobs para um banco de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Veja [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
 
@@ -45,7 +45,7 @@ Neste artigo, você usa o Microsoft Visual Studio para criar seu primeiro data f
 3. Você deve ter os seguintes itens instalados no seu computador:
    * Visual Studio 2013 ou Visual Studio 2015
    * Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
-   * Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Você também pode atualizar o plug-in fazendo o seguinte: no menu, clique em **Ferramentas** -> **Extensões e Atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory para Visual Studio** -> **Atualizar**.
+   * Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Você também pode atualizar o plug-in, executando as seguintes etapas: no menu, clique em **Ferramentas** -> **Extensões e Atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory** -> **Atualizar**.
 
 Agora, vamos usar o Visual Studio para criar um data factory do Azure.
 
@@ -78,8 +78,8 @@ Nesta etapa, você vincula a conta do Armazenamento do Azure ao data factory. Pa
 Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data factory. O cluster do HDInsight é automaticamente criado no tempo de execução e excluído após a conclusão do processamento, ficando ocioso durante o período especificado. Você pode usar seu próprio cluster do HDInsight em vez de usar um cluster do HDInsight sob demanda. Veja [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
 
 1. No **Gerenciador de Soluções**, clique com botão direito em **Serviços Vinculados**, aponte para **Adicionar** e clique em **Novo Item**.
-2. Selecione **erviço Vinculado Sob Demanda do HDInsight ** e clique em **Adicionar**.
-3. Substitua o **JSON** pelo seguinte:
+2. Selecione **erviço Vinculado Sob Demanda do HDInsight** e clique em **Adicionar**.
+3. Substitua o **JSON** pelo seguinte JSON:
 
     ```JSON
     {
@@ -99,19 +99,19 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
     A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
    | Propriedade | Descrição |
-   | --- | --- |
-   |  Versão |Especifica a versão do HDInsight criada como a 3.2. |
-   |  ClusterSize |Especifica o tamanho do cluster HDInsight. |
-   |  TimeToLive |Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído. |
-   |  linkedServiceName |Especifica a conta de armazenamento usada para armazenar os logs gerados pelo HDInsight |
+   | -------- | ----------- |
+   | Versão | Especifica a versão do HDInsight criada como a 3.2. |
+   | ClusterSize |Especifica o tamanho do cluster HDInsight. |
+   | TimeToLive |Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído. |
+   | linkedServiceName |Especifica a conta de armazenamento usada para armazenar os logs gerados pelo HDInsight |
 
-    Observe o seguinte:
+    Observe os seguintes pontos:
 
    * O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON anteriores. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux** . Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
    * Você pode usar **seu próprio cluster do HDInsight** em vez de usar um cluster do HDInsight sob demanda. Confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
    * O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado no JSON (**nomeServiçoVinculado**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia é processada, a menos que haja um cluster ativo existente (**timeToLive**). O cluster será excluído automaticamente quando o processamento for concluído.
 
-       Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf**nomeseudatafactory**-**nomeserviçovinculado**- carimbodatahora". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+       Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
      Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 4. Salve o arquivo **HDInsightOnDemandLinkedService1.json** .
@@ -122,9 +122,9 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
 #### <a name="create-input-dataset"></a>Criar conjunto de dados de entrada
 1. No **Gerenciador de Soluções**, clique com botão direito em **Tabelas**, aponte para **Adicionar**e clique em **Novo Item**.
 2. Selecione o **Blob do Azure** na lista, altere o nome do arquivo para **InputDataSet.json** e clique em **Adicionar**.
-3. Substitua o **JSON** no editor pelo seguinte:
+3. Substitua o **JSON** no editor pelo seguinte trecho de código JSON:
 
-    No trecho JSON, você está criando um conjunto de dados chamado **AzureBlobInput** que representa dados de entrada para uma atividade no pipeline. Além disso, você especifica que os dados de entrada estão localizados no contêiner de blobs denominado **adfgetstarted** e na pasta denominada **inputdata**
+    No trecho JSON, você está criando um conjunto de dados chamado **AzureBlobInput** que representa dados de entrada para uma atividade no pipeline. Além disso, você especifica que os dados de entrada estão localizados no contêiner de blobs denominado `adfgetstarted` e a pasta denominada `inputdata`.
 
     ```JSON
     {
@@ -152,7 +152,7 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
     A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
    | Propriedade | Descrição |
-   |:--- |:--- |
+   | -------- | ----------- |
    | type |A propriedade type é definida como AzureBlob porque os dados residem no armazenamento de blobs do Azure. |
    | linkedServiceName |refere-se ao AzureStorageLinkedService1 que você criou anteriormente. |
    | fileName |Essa propriedade é opcional. Se você omitir essa propriedade, todos os arquivos de folderPath serão selecionados. Nesse caso, somente o input.log será processado. |
@@ -167,9 +167,9 @@ Agora, você cria o conjunto de dados de saída para representar os dados de sa�
 
 1. No **Gerenciador de Soluções**, clique com botão direito em **Tabelas**, aponte para **Adicionar**e clique em **Novo Item**.
 2. Selecione **Blob do Azure** na lista, altere o nome do arquivo para **OutputDataset.json** e clique em **Adicionar**.
-3. Substitua o **JSON** no editor pelo seguinte:
+3. Substitua o **JSON** no editor pelo seguinte JSON:
 
-    No trecho JSON, você está criando um conjunto de dados chamado **AzureBlobOutput**e especificando a estrutura dos dados produzidos pelo script do Hive. Além disso, você especifica que os resultados estão armazenados no contêiner de blobs denominado **adfgetstarted** e na pasta denominada **partitioneddata**. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
+    No trecho JSON, você está criando um conjunto de dados chamado **AzureBlobOutput**e especificando a estrutura dos dados produzidos pelo script do Hive. Além disso, você especifica que os resultados estão armazenados no contêiner de blobs denominado `adfgetstarted` e na pasta denominada `partitioneddata`. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
 
     ```JSON
     {
@@ -253,7 +253,7 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade **HDInsightHive** 
     ```
      No trecho de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster HDInsight.
 
-    O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService, denominado **AzureStorageLinkedService1**) e na pasta do **script** no contêiner **adfgetstarted**.
+    O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService, denominado **AzureStorageLinkedService1**) e na pasta `script` no contêiner `adfgetstarted`.
 
     A seção **defines** é usada para especificar as configurações de tempo de execução passadas para o script do hive como valores de configuração do Hive (por exemplo, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
@@ -270,7 +270,7 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade **HDInsightHive** 
 1. Clique com botão direito em **Dependências** na janela do **Gerenciador de Soluções**, aponte para **Adicionar**e clique em **Item Existente**.  
 2. Navegue até **C:\ADFGettingStarted** e selecione os arquivos **partitionweblogs.hql** e **input.log**, e clique em **Adicionar**. Você criou esses dois arquivos como parte dos pré-requisitos da [Visão Geral do Tutorial](data-factory-build-your-first-pipeline.md).
 
-Quando você publicar a solução na próxima etapa, o arquivo **partitionweblogs.hql** será carregado para a pasta de scripts no contêiner de blobs **adfgetstarted**.   
+Quando você publicar a solução na próxima etapa, o arquivo **partitionweblogs.hql** será carregado para a pasta de scripts no contêiner de blobs `adfgetstarted`.   
 
 ### <a name="publishdeploy-data-factory-entities"></a>Publicar/implantar entidades de data factory
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e clique em **Publicar**.
@@ -278,9 +278,9 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 3. Você deve ver a caixa de diálogo a seguir:
 
    ![Caixa de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-4. Na página **Configurar data factory** , faça o seguinte:
+4. Na página **Configurar data factory**, execute as seguintes etapas:
 
-   1. Selecione a opção **Criar Nova Fábrica de Dados** .
+   1. Selecione a opção **Criar Nova Data Factory** .
    2. Insira um **nome** exclusivo para o armazenamento de dados. Por exemplo: **FirstDataFactoryUsingVS09152016**. O nome deve ser globalmente exclusivo.
    3. Selecione a assinatura certa para o campo **Assinatura** . Se você não vir nenhuma assinatura, verifique se está conectado usando uma conta que seja administrador ou coadministrador da assinatura.
    4. Selecione o **grupo de recursos** para o data factory a ser criado.
@@ -311,7 +311,7 @@ Pontos importantes a serem considerados:
 
 ## <a name="monitor-pipeline"></a>Monitorar o pipeline
 ### <a name="monitor-pipeline-using-diagram-view"></a>Monitorar o pipeline usando a Exibição de Diagrama
-1. Faça logon no [portal do Azure](https://portal.azure.com/), siga este procedimento:
+1. Faça logon no [portal do Azure](https://portal.azure.com/), siga as etapas abaixo:
    1. Clique em **Mais serviços** e **Data factories**.
        
         ![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
@@ -332,7 +332,7 @@ Pontos importantes a serem considerados:
     ![Abrir a exibição do pipeline](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
     Para navegar de volta ao modo de exibição anterior, clique em **Data factory** no menu de atalho na parte superior.
-6. Na **Exibição do Diagrama**, clique duas vezes no conjunto de dados **AzureBlobInput**. Confirme se a fatia está no estado **Pronto** . Pode levar alguns minutos para que a fatia apareça no estado Pronto. Se isso não acontecer depois de algum tempo, veja se o arquivo de entrada (input.log) está posicionado no contêiner à direita (adfgetstarted) e na pasta (inputdata).
+6. Na **Exibição do Diagrama**, clique duas vezes no conjunto de dados **AzureBlobInput**. Confirme se a fatia está no estado **Pronto** . Pode levar alguns minutos para que a fatia apareça no estado Pronto. Se isso não acontecer depois de algum tempo, veja se o arquivo de entrada (input.log) está posicionado no contêiner à direita (`adfgetstarted`) e na pasta (`inputdata`).
 
    ![Fatia de entrada no estado pronto](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
 7. Clique em **X** para fechar a folha **AzureBlobInput**.
@@ -347,7 +347,7 @@ Pontos importantes a serem considerados:
    >
 
     ![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
-10. Quando a fatia estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contêiner **adfgetstarted** em seu armazenamento de blobs para os dados de saída.  
+10. Quando a fatia estiver no estado **Pronto**, verifique a pasta `partitioneddata` no contêiner `adfgetstarted` em seu armazenamento de blobs para os dados de saída.  
 
     ![dados de saída](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 11. Clique na fatia para ver detalhes sobre ela em uma folha **Fatia de dados** .
@@ -374,7 +374,7 @@ Você também pode usar o aplicativo Monitorar e Gerenciar para monitorar os pip
     ![Detalhes da janela Atividade](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
 
 > [!IMPORTANT]
-> O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta inputdata do contêiner adfgetstarted.
+> O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta `inputdata` do contêiner `adfgetstarted`.
 >
 >
 
@@ -388,7 +388,7 @@ Você também pode usar o aplicativo Monitorar e Gerenciar para monitorar os pip
     ![Exportar data factory](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Atualizar ferramentas de data factory para o Visual Studio
-Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça o seguinte:
+Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, execute as seguintes etapas:
 
 1. Clique em **Ferramentas** no menu e selecione **Extensões e Atualizações**.
 2. Selecione **Atualizações** no painel esquerdo e selecione **Galeria do Visual Studio**.
@@ -502,6 +502,9 @@ Para publicar as entidades em um projeto do Azure Data Factory usando o arquivo 
 6. Clique em **Concluir** depois que a operação de implantação for concluída.
 
 Quando você implantar, os valores do arquivo de configuração serão usados para definir valores de propriedades nos arquivos JSON para entidades de Data Factory antes que as entidades sejam implantadas no serviço Azure Data Factory.   
+
+## <a name="use-azure-key-vault"></a>Usar o Cofre de Chaves do Azure
+Não é aconselhável e costuma ser contra a política de segurança confirmar dados confidenciais, como cadeias de conexão, para o repositório de código. Confira o exemplo [Secure Publish de ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) no GitHub para saber mais sobre como armazenar informações confidenciais no Azure Key Vault e usá-lo durante a publicação de entidades do Data Factory. A extensão Secure Publish para Visual Studio permite que os segredos sejam armazenados no Key Vault e apenas referências a eles sejam especificadas em serviços vinculados/configurações de implantação. Essas referências são resolvidas quando você publica as entidades do Data Factory do Azure. Em seguida, esses arquivos podem ser confirmados para o repositório de origem sem expor nenhum segredo.
 
 ## <a name="summary"></a>Resumo
 Neste tutorial, você criou uma data factory do Azure para processar dados ao executar o script Hive em um cluster hadoop do HDInsight. Você usou o Data Factory Editor no portal do Azure para executar as seguintes etapas:  

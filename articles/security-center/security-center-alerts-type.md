@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ Eis um exemplo desse tipo de alerta:
 ![Alerta de processo suspeito](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>Várias contas de domínio consultadas
-A Central de Segurança pode detectar várias tentativas para consultar as contas de domínio, sendo algo que normalmente é feito pelo invasores durante o reconhecimento da rede. Os invasores podem aproveitar essa técnica para consultar o domínio a fim de identificar os usuários, quais são as contas do administrador de domínio, quais computadores são os controladores de domínio e também a relação de confiança de domínio potencial com outros domínios.
+A Central de Segurança pode detectar várias tentativas para consultar as contas do Domínio do Active Directory, sendo algo que normalmente é feito pelo invasores durante o reconhecimento da rede. Os invasores podem aproveitar essa técnica para consultar o domínio a fim de identificar os usuários, quais são as contas do administrador de domínio, quais computadores são os controladores de domínio e também a relação de confiança de domínio potencial com outros domínios.
 
 Eis um exemplo desse tipo de alerta:
 
 ![Alerta de conta de vários domínios](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Os membros do grupo Administradores locais foram enumerados
+
+A Central de Segurança vai disparar um alerta quando o evento de segurança 4798, no Windows Server 2016 e no Windows 10, for disparado. Isso acontece quando os grupos de administradores locais são enumerados, que é algo normalmente feito por invasores durante o reconhecimento de rede. Os invasores podem aproveitar essa técnica para consultar a identidade de usuários com privilégios administrativos.
+
+Eis um exemplo desse tipo de alerta:
+
+![Administrador local](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Mistura anormal de caracteres maiúsculos e minúsculos
+
+A Central de Segurança vai disparar um alerta ao detectar o uso de uma combinação de caracteres maiúsculos e minúsculos na linha de comando. Alguns invasores podem usar essa técnica para ocultar de maiúsculas e minúsculas ou regra de computador com base em hash.
+
+Eis um exemplo desse tipo de alerta:
+
+![Mistura anormal](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Ataque de tíquete do ouro do Kerberos
+
+Uma chave [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) comprometida pode ser usada por um invasor para criar "Tíquetes de ouro" Kerberos, permitindo que o invasor represente qualquer usuário desejado. A Central de segurança vai disparar um alerta quando detectar esse tipo de atividade.
+
+> [!NOTE] 
+> Para saber mais sobre o Tíquete de ouro Kerberos, leia [Guia de atenuação de roubo de credenciais do Windows 10](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
+
+Eis um exemplo desse tipo de alerta:
+
+![Tíquete de ouro](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Conta suspeita criada
+
+A Central de Segurança vai disparar um alerta quando uma conta for criada com bastante semelhança à uma conta de privilégios de administrador interna existente. Essa técnica pode ser usada pelos invasores para criar uma conta de invasor que passe despercebida pela verificação humana.
+ 
+Eis um exemplo desse tipo de alerta:
+
+![Conta suspeita](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Regra de firewall suspeita criada
+
+Os invasores podem tentar contornar a segurança do host criando regras de firewall personalizadas para permitir que aplicativos mal-intencionados se comuniquem com o comando e controle, ou para iniciar ataques pela rede por meio do host comprometido. A Central de Segurança vai disparar um alerta quando detectar que uma nova regra de firewall foi criada de um arquivo executável em um local suspeito.
+ 
+Eis um exemplo desse tipo de alerta:
+
+![Regra de Firewall](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>Combinação suspeita de HTA e PowerShell
+
+A Central de Segurança vai disparar um alerta quando detectar que um host de aplicativo HTML da Microsoft (HTA) está iniciando comandos do PowerShell. Essa é uma técnica usada pelos invasores para iniciar scripts do PowerShell mal-intencionados.
+ 
+Eis um exemplo desse tipo de alerta:
+
+![HTA e PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Análise de Rede
 A detecção de ameaças da rede da Central de Segurança funciona coletando automaticamente as informações de segurança de seu tráfego do Azure IPFIX (Internet Protocol Flow Information Export). Ele analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças.

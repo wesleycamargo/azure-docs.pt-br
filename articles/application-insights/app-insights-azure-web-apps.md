@@ -10,13 +10,13 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
+ms.topic: get-started-article
+ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d7a8d669e75991f6707641e4ce53c9b63d04853c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 8d9d39d63209b8ab6884ddeff569687b55591f95
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -52,6 +52,8 @@ Posteriormente, você poderá compilar e reimplantar o aplicativo com o Applicat
 O Application Insights pode fornecer dados de telemetria mais detalhados instalando um SDK em seu aplicativo. Em particular, você pode coletar logs de rastreamento, [escrever telemetria personalizada](app-insights-api-custom-events-metrics.md) e obter relatórios de exceção mais detalhados.
 
 1. **No Visual Studio** (2013 atualização 2 ou posterior), adicione o Application Insights ao seu projeto.
+
+    Clique com botão direito no projeto Web e selecione **Adicionar > Application Insights** ou **Configurar Application Insights**.
    
     ![Clique com o botão direito do mouse no projeto da Web e escolha Adicionar ou Configurar o Application Insights](./media/app-insights-azure-web-apps/03-add.png)
    
@@ -91,11 +93,17 @@ O Application Insights pode fornecer dados de telemetria mais detalhados instala
 
 Para ter pesquisas mais eficientes em sua telemetria, use o [linguagem de consulta de análise](app-insights-analytics-tour.md).
 
+## <a name="more-telemetry"></a>Mais telemetria
+
+* [Carregar dados da página da Web](app-insights-javascript.md)
+* [Telemetria personalizada](app-insights-api-custom-events-metrics.md)
+
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Próximas etapas
+* [Executar o criador de perfil em seu aplicativo ativo](app-insights-profiler.md).
 * [Permita que o diagnóstico do Azure](app-insights-azure-diagnostics.md) seja enviado ao Application Insights.
 * [Monitore as métricas de integridade do serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o serviço esteja disponível e responsivo.
 * [Receba notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.

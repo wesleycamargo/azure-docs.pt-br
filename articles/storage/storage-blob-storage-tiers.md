@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
-ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 618d31e991d9405ece6533727d700e316ae85bec
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -209,7 +209,7 @@ Para obter mais detalhes, confira [Sobre métricas de análise de armazenamento]
 > 
 
 Para monitorar o consumo de armazenamento do o serviço de armazenamento de Blobs, você precisará habilitar as métricas de capacidade.
-Com esse recurso habilitado, os dados de capacidade são gravados diariamente para o serviço Blob de uma conta de armazenamento e registrados como uma entrada de tabela que é gravada na tabela *$MetricsCapacityBlob* dentro da mesma conta de armazenamento.
+Com esse recurso habilitado, os dados de capacidade são gravados diariamente para o serviço Blob de uma conta de armazenamento e registrados como uma entrada de tabela gravada na tabela *$MetricsCapacityBlob* dentro da mesma conta de armazenamento.
 
 Para monitorar o padrão de acesso a dados para o serviço de armazenamento de Blobs, você precisará habilitar as métricas de transações por hora no nível da API.
 Com esse recurso habilitado, as transações por API são agregadas a cada hora e registradas como uma entrada de tabela que é gravada na tabela *$MetricsHourPrimaryTransactionsBlob* dentro da mesma conta de armazenamento. A tabela *$MetricsHourSecondaryTransactionsBlob* registra as transações para o ponto de extremidade secundário no caso de contas de armazenamento RA-GRS.
@@ -268,7 +268,8 @@ O custo da transferência de dados de replicação geográfica para contas de ar
 
 ### <a name="migrating-existing-data"></a>Migração de dados existentes
 Uma conta de Armazenamento de Blobs é especializada no armazenamento exclusivo de blobs de bloco e de acréscimo. As contas de armazenamento de finalidade geral existentes, que permitem o armazenamento de tabelas, filas, arquivos e discos não podem ser convertidas em contas de Armazenamento de Blobs. Para usar as camadas de armazenamento, será necessário criar novas contas de Armazenamento de Blobs e migrar os dados existentes para as contas recém-criadas.
-Você pode usar os métodos a seguir para migrar os dados existentes em contas de armazenamento de Blobs de um dispositivo de armazenamento local, de um provedor de armazenamento de nuvem de terceiros ou de suas contas de armazenamento de finalidade geral existentes no Azure:
+
+Você pode usar os métodos a seguir para migrar os dados existentes para as contas de armazenamento de Blobs a partir dos dispositivos de armazenamento locais, provedores de armazenamento de nuvem de terceiros ou de suas contas de armazenamento geral existentes no Azure:
 
 #### <a name="azcopy"></a>AzCopy
 O AzCopy é um utilitário de linha de comando do Windows desenvolvido para cópia de dados de alto desempenho para dentro e para fora do Armazenamento do Azure. Você pode usar o AzCopy para copiar dados para sua conta de armazenamento de Blobs de suas contas de armazenamento de finalidade geral existentes ou carregar dados do dispositivo de armazenamento local para sua conta de armazenamento de Blobs.

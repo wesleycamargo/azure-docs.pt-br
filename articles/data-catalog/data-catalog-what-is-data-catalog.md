@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 04/06/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
-ms.openlocfilehash: 19d4c3990c88f82f60cd253ffdcbd2005d00ad79
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: fb8f43f5bb5725da30e67cdf5d7b066fe40ed003
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -48,7 +48,7 @@ Quando combinados, esses desafios apresentam uma barreira significativa para as 
 ## <a name="azure-data-catalog-can-help"></a>O Catálogo de Dados do Azure pode ajudar
 O Catálogo de Dados foi projetado para resolver esses problemas e permitir que as empresas aproveitem ao máximo seus ativos de informações existentes. O Catálogo de Dados ajuda facilitando a descoberta das fontes de dados e sua compreensão pelos usuários que precisam dos dados que gerenciam.
 
-O Catálogo de Dados fornece um serviço baseado em nuvem no qual a fonte de dados pode ser registrada. Os dados permanecem no local existente, mas uma cópia dos metadados é adicionada ao Catálogo de Dados, juntamente com uma referência ao local da fonte de dados. Esses metadados também são indexados para tornar cada fonte de dados fácil de descobrir por meio de pesquisa e compreensível para os usuários que os descobrirem.
+O Catálogo de Dados fornece um serviço baseado em nuvem no qual uma fonte de dados pode ser registrada. Os dados permanecem no local existente, mas uma cópia dos metadados é adicionada ao Catálogo de Dados, juntamente com uma referência ao local da fonte de dados. Esses metadados também são indexados para tornar cada fonte de dados fácil de descobrir por meio de pesquisa e compreensível para os usuários que os descobrirem.
 
 Depois que uma fonte de dados é registrada, seus metadados podem ser aprimorados pelo usuário que executou o registro ou por outros usuários na empresa. Qualquer usuário pode anotar uma fonte de dados, fornecendo descrições, marcas ou outros metadados, como documentação, e processos para a solicitação de acesso à fonte de dados. Esses metadados descritivos complementam os metadados estruturais (como nomes de colunas e tipos de dados) registrados da fonte de dados.
 

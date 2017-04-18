@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 04/06/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -241,7 +241,10 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
     Usamos os dois termos de forma intercambiável.
 * *Eu gostaria de usar testes de disponibilidade em nosso servidor interno que é executado por trás de um firewall.*
 
-    Configure o firewall para permitir solicitações dos [endereços IP de agentes de teste Web](app-insights-ip-addresses.md).
+    Há duas soluções possíveis:
+    
+    * Configure o firewall para permitir as solicitações de entrada dos [endereços IP de nossos agentes de teste da Web](app-insights-ip-addresses.md).
+    * Escreva seu próprio código para testar periodicamente o servidor interno. Execute o código como um processo em segundo plano em um servidor de teste por trás do firewall. O processo de teste pode enviar seus resultados para o Application Insights usando a API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK principal. Isso requer que o servidor de teste tenha acesso de saída para o ponto de extremidade de ingestão do Application Insights, mas é um risco de segurança muito menor do que a alternativa de permitir as solicitações de entrada. Os resultados não serão exibidos nas folhas de testes Web de disponibilidade, mas aparecerão como resultados de disponibilidade no Gerenciador de Análise, Pesquisa e Métrica.
 * *Falha de carregamento de um teste na Web de várias etapas*
 
     Há um limite de tamanho de 300 K.
@@ -260,10 +263,6 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
     Não há suporte para isso, infelizmente.
 
-## <a name="video"></a>Vídeo
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
->
->
 
 ## <a name="next"></a>Próximas etapas
 [Pesquisar logs de diagnóstico][diagnostic]

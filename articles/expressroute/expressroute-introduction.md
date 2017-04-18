@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
-ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 2fc966e7c93e44007f15c3129fbe709beddb21af
+ms.lasthandoff: 04/05/2017
 
 
 ---
-# <a name="expressroute-technical-overview"></a>Visão Geral Técnica da Rota Expressa
+# <a name="expressroute-overview"></a>Visão geral do ExpressRoute
 A Rota Expressa do Microsoft Azure permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade. Com a Rota Expressa, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. 
 
 A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização. As conexões da Rota Expressa não passam pela Internet pública. Isso permite que as conexões da Rota Expressa ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet. Para saber mais sobre como conectar sua rede à Microsoft usando ExpressRoute, veja [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
 
-![](./media/expressroute-introduction/expressroute-connection-overview-diagram.png)
+![](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>Principais benefícios
 
@@ -46,7 +46,7 @@ Para saber mais, veja as [perguntas frequentes sobre o ExpressRoute](expressrout
 A Microsoft usa o protocolo padrão do setor para roteamento dinâmico (BGP) a fim de trocar rotas entre sua rede local, suas instâncias no Azure e os endereços públicos da Microsoft.  Estabelecemos várias sessões BGP com sua rede para perfis de tráfego diferentes. Encontre mais detalhes no artigo [Circuito e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md) .
 
 ### <a name="redundancy"></a>Redundância
-Cada circuito da Rota Expressa é formado por duas conexões com dois roteadores de borda do Microsoft Enterprise (MSEEs) do provedor de conectividade/borda de sua rede. A Microsoft exigirá uma conexão BGP dupla do provedor de conectividade/seu lado – uma para cada MSEE. Você pode optar por não implantar dispositivos redundantes/circuitos de Ethernet em seu lado. No entanto, os provedores de conectividade usam dispositivos redundantes para garantir que as conexões sejam entregues à Microsoft de forma redundante. É obrigatório ter uma configuração de conectividade de Camada 3 redundante para que nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido. 
+Cada circuito da Rota Expressa é formado por duas conexões com dois roteadores de borda do Microsoft Enterprise (MSEEs) do provedor de conectividade/borda de sua rede. A Microsoft exige uma conexão BGP dupla do provedor de conectividade/seu lado – uma para cada MSEE. Você pode optar por não implantar dispositivos redundantes/circuitos de Ethernet em seu lado. No entanto, os provedores de conectividade usam dispositivos redundantes para garantir que as conexões sejam entregues à Microsoft de forma redundante. É obrigatório ter uma configuração de conectividade de Camada 3 redundante para que nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Conectividade com serviços de nuvem da Microsoft
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -62,7 +62,7 @@ Visite a página de [Perguntas frequentes sobre a Rota Expressa](expressroute-fa
 ### <a name="connectivity-to-all-regions-within-a-geopolitical-region"></a>Conectividade com todas as regiões em uma região geopolítica
 Você pode se conectar à Microsoft em um dos nossos [locais de emparelhamento](expressroute-locations.md) e ter acesso a todas as regiões dentro da região geopolítica. 
 
-Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio da Rota Expressa, terá acesso a todos os serviços de nuvem da Microsoft hospedados no Norte da Europa e na Europa Ocidental. Veja o artigo [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md) para obter uma visão geral das regiões geopolíticas, regiões associadas da nuvem da Microsoft e locais de emparelhamento correspondentes do ExpressRoute.
+Por exemplo, se você conectou a Microsoft em Amsterdã por meio do ExpressRoute, terá acesso a todos os serviços de nuvem da Microsoft hospedados no Norte da Europa e na Europa Ocidental. Veja o artigo [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md) para obter uma visão geral das regiões geopolíticas, regiões associadas da nuvem da Microsoft e locais de emparelhamento correspondentes do ExpressRoute.
 
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Conectividade global com o complemento premium da Rota Expressa
 Você pode habilitar o complemento da Rota Expressa premium a fim de estender a conectividade pelas fronteiras geopolíticas. Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio da Rota Expressa, terá acesso a todos os serviços de nuvem da Microsoft hospedados em todas as regiões do mundo (nuvens nacionais são excluídas). Você pode acessar serviços implantados na América do Sul ou na Austrália da mesma maneira que acessa as regiões do Norte da Europa e da Europa Ocidental.
@@ -74,7 +74,7 @@ A Rota Expressa tem um ecossistema de provedores de conectividade e parceiros de
 A Microsoft opera ambientes de nuvem isolados para regiões geopolíticas e segmentos de clientes especiais. Consulte a página [Provedores e locais de Rota Expressa](expressroute-locations.md) para obter uma lista de nuvens e provedores nacionais.
 
 ### <a name="bandwidth-options"></a>Opções de largura de banda
-É possível comprar circuitos da Rota Expressa para várias larguras de banda. Veja abaixo a lista de larguras de banda com suporte. Não deixe de entrar em contato com seu provedor de conectividade para verificar a lista de larguras de banda com suporte oferecidas.
+É possível comprar circuitos da Rota Expressa para várias larguras de banda. As larguras de banda com suporte estão listadas abaixo. Não deixe de entrar em contato com seu provedor de conectividade para verificar a lista de larguras de banda com suporte oferecidas.
 
 * 50 Mbps
 * 100 Mbps
@@ -107,6 +107,6 @@ Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos mod
 * Consulte os requisitos para [Roteamento](expressroute-routing.md), [NAT](expressroute-nat.md) e [QoS](expressroute-qos.md).
 * Configurar sua conexão da Rota Expressa.
   * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-portal-resource-manager.md)
-  * [Configurar o roteamento](expressroute-howto-routing-portal-resource-manager.md)
-  * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-portal-resource-manager.md)
+  * [Configurar o emparelhamento para um circuito do ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
+  * [Conectar uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 

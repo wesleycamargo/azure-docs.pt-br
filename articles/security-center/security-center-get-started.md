@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/11/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -50,7 +50,7 @@ No Portal, execute estas etapas para acessar a Central de Segurança:
 1. No menu **Microsoft Azure**, selecione **Central de Segurança**.
 
    ![Menu do Azure][1]
-2. Se você estiver acessando a Central de Segurança pela primeira vez, a folha **Bem-vindo** será aberta. Selecione **Sim! Quero iniciar a Central de Segurança do Azure** para abrir a folha **Central de Segurança** e habilitar a coleta de dados.
+2. Se você estiver acessando a Central de Segurança pela primeira vez, a folha **Bem-vindo** será aberta. Selecione **Iniciar a Central de Segurança** para abrir a folha **Central de Segurança** e habilitar a coleta de dados.
    ![Tela de boas-vindas][10]
 3. Depois que você iniciar a Central de Segurança na folha Bem-vindo ou no menu do Microsoft Azure, a folha **Central de Segurança** será aberta. Para facilitar o acesso à folha **Central de segurança** no futuro, selecione opção **Fixar folha no painel** (canto superior direito).
    ![Fixar a folha à opção de painel][2]
@@ -81,11 +81,17 @@ Você pode configurar políticas de segurança para suas assinaturas e grupos de
 2. Selecione uma recomendação na folha **Recomendação** para exibir mais informações e/ou tomar medidas para resolver o problema.
 
 ### <a name="view-the-health-and-security-state-of-your-resources"></a>Exibir o estado de integridade e segurança de seus recursos
-1. Volte para a folha **Central de segurança** . O bloco **Integridade de segurança dos recursos** contém indicadores do estado da segurança para as máquinas virtuais, rede, dados e aplicativos.
-2. Selecione **Máquinas virtuais** para exibir mais informações. A folha **Máquinas virtuais** abre e exibe um resumo do status dos programas antimalware, atualizações do sistema, reinicializações e vulnerabilidades de SO das máquinas virtuais.
-   ![O bloco de integridade de recursos na Central de Segurança do Azure][6]
-3. Selecione um item em **RECOMENDAÇÕES DA MÁQUINA VIRTUAL** para exibir mais informações e/ou tomar medidas para configurar os controles necessários.
-4. Selecione uma VM em **Máquinas virtuais** para exibir detalhes adicionais.
+1. Volte para a folha **Central de segurança** . O bloco **Integridade de segurança do recurso** contém indicadores do estado da segurança para as máquinas virtuais, rede, dados e aplicativos.
+2. Selecione **Computação** para exibir mais informações. A folha **Computação** será aberta mostrando três guias:
+
+  - **Visão geral** - Contém recomendações de monitoramento e da máquina virtual.
+  - **Máquinas virtuais** - Lista todas as máquinas virtuais e seu estado de segurança atual.
+  - **Serviços de nuvem** - Lista as funções da Web e de trabalho monitoradas pela Central de Segurança.
+
+    ![O bloco de integridade de recursos na Central de Segurança do Azure][6]
+
+3. Na guia **Visão geral**, selecione uma recomendação em **RECOMENDAÇÕES DA MÁQUINA VIRTUAL** para exibir mais informações e/ou tomar medidas para configurar os controles necessários.
+4. Na guia **Máquinas virtuais**, selecione uma VM para exibir detalhes adicionais.
 
 ### <a name="view-security-alerts"></a>Exibir alertas de segurança
 1. Volte para a folha **Central de Segurança** e selecione o bloco **Alertas de segurança**. A folha **Alertas de segurança** exibe uma lista de alertas. A análise da Central de Segurança dos seus logs de segurança e da atividade da rede gera esses alertas. Os alertas das soluções de parceiro integradas estão incluídos.
@@ -102,7 +108,7 @@ Você pode configurar políticas de segurança para suas assinaturas e grupos de
 1. Volte para a folha **Central de segurança** . O bloco **Soluções de parceiros** permite monitorar rapidamente o status da integridade de suas soluções de parceiros integradas em sua assinatura do Azure.
 2. Selecione o bloco **Soluções de parceiros** . Uma folha será aberta e exibirá uma lista de suas soluções de parceiros conectadas à Central de Segurança.
    ![Soluções de parceiros][9]
-3. Selecione uma solução de parceiro. Neste exemplo, vamos selecionar a solução **F5-WAF** .  Uma folha será aberta e mostrará o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução.
+3. Selecione uma solução de parceiro. Neste exemplo, vamos selecionar a solução **QualysVa1** .  Uma folha será aberta e mostrará o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você foi apresentado aos componentes de monitoramento de segurança e de gerenciamento de políticas da Central de Segurança. Agora que você está familiarizado com a Central de Segurança, tente as seguintes etapas:

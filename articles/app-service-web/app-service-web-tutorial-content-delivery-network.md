@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: d616ca49da7a909a1a104409c5845f39c4a5377a
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Conectar um aplicativo Web a uma Rede de distribuição de conteúdo
@@ -19,7 +19,7 @@ ms.lasthandoff: 04/04/2017
 Neste tutorial, você criará um perfil e um ponto de extremidade de CDN do Azure para fornecer os arquivos estáticos de seu aplicativo Web por meio de locais pop da CDN do Azure.
 
 > [!TIP]
-> Revise a lista atualizada de [Locais pop da CDN do Azure](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
+> Revise a lista atualizada dos [Locais POP da CDN do Azure](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
 >
 
 ## <a name="step-1---login-to-azure-portal"></a>Etapa 1: Fazer logon no Portal do Azure
