@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
-ms.openlocfilehash: 3bb6cc477b413a8636433038429e4defec1d2676
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 36bde9353c60b4f1d03188061b2b0182841d34ae
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -43,7 +44,7 @@ Este tópico apresenta um exemplo de código em duas fases:
 * Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualquer banco de dados no qual você possa criar uma tabela.
   
-  * Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
+  * Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started-portal.md) em questão minutos.
 * O SQL Server Management Studio (ssms.exe), idealmente na sua versão de atualização mensal mais recente. 
   Você pode baixar o ssms.exe mais recente de:
   
@@ -553,10 +554,5 @@ Image references.
 -->
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

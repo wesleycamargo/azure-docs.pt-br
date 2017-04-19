@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d15ab88be778b8cc081e07fb95fbd99164f18ba1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 713e4a29550f37b03af3547bead42146a84a417f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -41,7 +41,7 @@ O Azure atualmente tem duas opções para hospedar cargas de trabalho do SQL Ser
 Conectar-se ao Banco de Dados SQL do Azure não é diferente, e atualmente há duas maneiras para conectar aos bancos de dados: ODBC (Open Database Connectivity) e OLE DB (banco de dados vinculação e incorporação de objetos). Nos últimos anos, a Microsoft tem se alinhado com o [ODBC para acesso a dados relacionais nativos](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). O ODBC é relativamente simples e também muito mais rápido que o OLE DB. A única limitação é que o ODBC usa uma API de estilo C antiga. 
 
 ## <a id="Create"></a>Etapa 1: Criando seu Banco de Dados SQL do Azure
-Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo.  Como alternativa, você pode seguir este [breve vídeo de dois minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para criar um Banco de Dados SQL do Azure usando o Portal do Azure.
+Consulte a [página de introdução](sql-database-get-started-portal.md) para aprender a criar um banco de dados de exemplo.  Como alternativa, você pode seguir este [breve vídeo de dois minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para criar um Banco de Dados SQL do Azure usando o Portal do Azure.
 
 ## <a id="ConnectionString"></a>Etapa 2: Obter a cadeia de conexão
 Depois do Banco de Dados SQL do Azure ser configurado, você precisará executar as seguintes etapas para determinar as informações de conexão e adicionar o IP do cliente para acesso ao firewall. 

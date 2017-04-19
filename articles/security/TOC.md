@@ -50,7 +50,7 @@
 ### [Práticas recomendadas de segurança de IoT](../iot-suite/iot-security-best-practices.md)
 
 ## Arquitetura de segurança
-### [Classificação de dados](azure-security-data-classification.md)
+### [Classificação de dados](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Recuperação de desastres e alta disponibilidade para aplicativos baseados no Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # Relacionados
