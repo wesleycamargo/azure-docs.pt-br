@@ -6,16 +6,13 @@ As VMs da série F são uma ótima opção para as cargas de trabalho que exigem
 
 A série Fs fornece todas as vantagens da série F, além do armazenamento Premium.
 
-> [!NOTE]
-> Todos os tamanhos de máquina virtual do Azure oferecerão suporte a pelo menos 2 interfaces de rede (NICs) começando no dia 15 de abril. Para obter informações sobre uma região específica, fique atento na [atualização do serviço](https://azure.microsoft.com/en-us/updates/). Essas informações são indicadas abaixo com um "^".
-
 ## <a name="fs-series"></a>Série Fs*
 
 ACU: 210 - 250
 
 | Tamanho | Núcleos de CPU | Memória: GiB | SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e do disco local: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | NICs máximas / largura de banda da rede |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |2 |4.000 / 32 (12) |3.200 / 48 |2 ^/ moderada |
+| Standard_F1s |1 |2 |4 |2 |4.000 / 32 (12) |3.200 / 48 |2 / moderada |
 | Standard_F2s |2 |4 |8 |4 |8.000 / 64 (24) |6.400 / 96 |2 / alta |
 | Standard_F4s |4 |8 |16 |8 |16.000 / 128 (48) |12.800 / 192 |4 / alta |
 | Standard_F8s |8 |16 |32 |16 |32.000 / 256 (96) |25.600 / 384 |8 / alta |
@@ -32,7 +29,7 @@ ACU: 210 - 250
 
 | Tamanho         | Núcleos de CPU | Memória: GiB | SSD local: GiB | Taxa de transferência máxima de disco local: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | NICs máximas / largura de banda da rede |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 2 ^/ moderada                 |
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 2 / moderada                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / alta                     |
 | Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / alta                     |
 | Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / alta                     |
