@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: dekapur
 translationtype: Human Translation
-ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
-ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: e2b969151876fac34b2a5c05ce050ee6b51004d0
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ Quando seus serviços enfrentam problemas, sua capacidade de reagir e corrigir o
 
 Há três maneiras de relatar a integridade no serviço:
 
-* Usar os objetos [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) ou [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx).  
+* Usar os objetos [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) ou [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext).  
   Você pode usar os objetos `Partition` e `CodePackageActivationContext` para relatar a integridade de elementos que fazem parte do contexto atual. Por exemplo, o código que é executado como parte de uma réplica pode relatar a integridade apenas dessa réplica, da partição a qual pertence e do aplicativo do qual faz parte.
 * Usar o `FabricClient`.   
   Você poderá usar o `FabricClient` para relatar a integridade do código do serviço se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o serviço estiver sendo executado com privilégios de administrador. Isso não acontecerá na maioria dos cenários reais. Com o `FabricClient`, você poderá relatar a integridade de qualquer entidade que faz parte do cluster. No entanto, o ideal é que o código do serviço envie apenas relatórios relacionados à sua própria integridade.

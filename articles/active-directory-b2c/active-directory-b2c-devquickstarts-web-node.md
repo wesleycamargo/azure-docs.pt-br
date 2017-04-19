@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/10/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 443516838190ccad408bc2b3b6b63513b3a3041e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a4d9394983539da52105bda6cf06273205f8b0ad
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -40,9 +40,6 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 O aplicativo completo é fornecido no fim deste tutorial.
-
-> [!WARNING]
-Para ora, você deve usar a mesma **ID do Cliente**/**ID do Aplicativo** e as mesmas políticas para o servidor de tarefa da API Web e para o cliente que se conecta a ele. Isso também se aplica aos tutoriais para Android e iOS. Se você tiver criado anteriormente um aplicativo em qualquer um desses guias de Início Rápido, use esses valores; não crie novos.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório AD B2C do Azure
 

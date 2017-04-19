@@ -16,15 +16,15 @@ ms.date: 02/28/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 24c94f80afdb3d3330a835fae2f77ecb213a9ae5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: b9f7c86415a2606cb969427a362b4d2feef183fb
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="how-password-management-works-in-azure-active-directory"></a>Como funciona o gerenciamento de senha no Azure Active Directory
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 
 O gerenciamento de senhas no Azure AD (Azure Active Directory) consiste nos seguintes componentes lógicos:
 
@@ -116,7 +116,7 @@ Para obter mais informações sobre o Azure AD Connect, confira [Introdução: A
 
 Para obter mais informações, confira as seguintes páginas sobre redefinição de senha do Azure AD:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Nesse caso, veja como [alterar e redefinir sua própria senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Nesse caso, veja como [alterar e redefinir sua própria senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Introdução**](active-directory-passwords-getting-started.md): saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local.
 * [**Personalizar**](active-directory-passwords-customize.md): aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização.
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md): aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização.

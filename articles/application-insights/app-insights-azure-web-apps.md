@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 8d9d39d63209b8ab6884ddeff569687b55591f95
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -107,7 +107,7 @@ Para ter pesquisas mais eficientes em sua telemetria, use o [linguagem de consul
 * [Permita que o diagnóstico do Azure](app-insights-azure-diagnostics.md) seja enviado ao Application Insights.
 * [Monitore as métricas de integridade do serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o serviço esteja disponível e responsivo.
 * [Receba notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
-* Use o [Application Insights para aplicativos JavaScript e páginas Web](app-insights-web-track-usage.md) para obter a telemetria do cliente dos navegadores que visitam uma página da Web.
+* Use o [Application Insights para aplicativos JavaScript e páginas Web](app-insights-javascript.md) para obter a telemetria do cliente dos navegadores que visitam uma página da Web.
 * [Configure testes de disponibilidade da Web](app-insights-monitor-web-app-availability.md) para ser alertado se o seu site for desativado.
 
 

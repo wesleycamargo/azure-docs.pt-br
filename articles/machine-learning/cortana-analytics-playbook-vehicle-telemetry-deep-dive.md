@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
-ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0a4dba58445cf0fd9fd8f51d443576bacd92251b
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -97,11 +97,6 @@ O conjunto de dados de referência do modelo do veículo contém o VIN para o ma
 | XUF99EW9OIQOMV7Q7 |Automóvel de três volumes |
 | 8OMCL3LGI7XNCC21U |Conversível |
 | ……. | |
-
-### <a name="to-generate-simulated-data"></a>Para gerar dados simulados
-1. Para baixar o pacote do simulador de dados, clique na seta no canto superior direito no nó Simulador de Telemática do Veículo. Salve e extraia os arquivos localmente em seu computador. ![Plano gráfico da solução de análise de telemetria do veículo](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telemetry-blueprint.png) *Figura 2 – Plano gráfico de solução de análise de telemetria do veículo*
-2. Em seu computador local, vá para a pasta onde você extraiu o pacote Simulador de Telemática do Veículo. ![Pasta do simulador de telemática do veículo](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telematics-simulator-folder.png) *Figura 3 – Pasta do simulador de telemática do veículo*
-3. Execute o aplicativo **CarEventGenerator.exe**.
 
 ### <a name="references"></a>Referências
 [Solução Vehicle Telematics Simulator do Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) 
@@ -393,11 +388,9 @@ Esse padrão também é aplicável em situações nas quais você deseja integra
 Clique em [Baixar RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para baixar a solução RealtimeDashboardApp do Visual Studio para as personalizações. 
 
 **Para executar o Aplicativo do Painel em Tempo Real**
-
-1. Clique no nó do Power BI na exibição de diagrama e clique no link "Baixar Aplicativo do Painel em Tempo Real" no painel de propriedades. ![Instruções de instalação do painel do Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-powerbi-dashboard-setup.png) *Figura 15 – Instruções de instalação do painel do Power BI*
-2. Extrair e salvar localmente a ![Pasta RealtimeDashboardApp](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Figura 16 – Pasta RealtimeDashboardApp*  
-3. Executar o aplicativo RealtimeDashboardApp.exe
-4. Forneça credenciais válidas do Power BI, entre e clique em Aceitar ![Aplicativo do painel em tempo real conectando-se ao Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Aplicativo do painel em tempo real conclui a conexão ao Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+1. Extrair e salvar localmente a ![Pasta RealtimeDashboardApp](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Figura 16 – Pasta RealtimeDashboardApp*  
+2. Executar o aplicativo RealtimeDashboardApp.exe
+3. Forneça credenciais válidas do Power BI, entre e clique em Aceitar ![Aplicativo do painel em tempo real conectando-se ao Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Aplicativo do painel em tempo real conclui a conexão ao Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Figura 17 – RealtimeDashboardApp: entrar no Power BI*
 
