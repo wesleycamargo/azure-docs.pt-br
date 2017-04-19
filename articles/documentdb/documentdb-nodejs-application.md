@@ -16,14 +16,16 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a5abaa698de2978e676153832d252cf2bc43e72b
-ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 6c84c21a0a61ab3e4d043e85d48780fc23f23a08
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="a-nametoc395783175abuild-a-nodejs-web-application-using-documentdb"></a><a name="_Toc395783175"></a>Criar um aplicativo Web Node.js usando o Banco de Dados de Documentos
+# <a name="_Toc395783175"></a>Criar um aplicativo Web Node.js usando o Banco de Dados de Documentos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [.NET para MongoDB](documentdb-mongodb-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -36,7 +38,7 @@ Este tutorial do Node.js mostra a você como usar o Azure Document DB para armaz
 
 Não há tempo para concluir o tutorial e deseja apenas a solução completa? Não é um problema, você pode obter a solução de exemplo completo da [GitHub][GitHub]. Leia o arquivo [Leiame](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) para obter instruções sobre como executar o aplicativo.
 
-## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>Pré-requisitos
+## <a name="_Toc395783176"></a>Pré-requisitos
 > [!TIP]
 > Este tutorial do Node.js presume que você tenha alguma experiência anterior com o Node.js e sites do Azure.
 > 
@@ -53,14 +55,14 @@ Antes de seguir as instruções deste artigo, verifique se você possui o seguin
 * [Gerador expresso](http://www.expressjs.com/starter/generator.html) (você pode instalá-lo por meio de `npm install express-generator -g`)
 * [Git][Git].
 
-## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Etapa 1: criar uma conta de banco de dados do Banco de Dados de Documentos
+## <a name="_Toc395637761"></a>Etapa 1: criar uma conta de banco de dados do Banco de Dados de Documentos
 Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se você já tiver uma conta ou se estiver usando o Emulador do DocumentDB para este tutorial, pule para a [Etapa 2: criar um novo aplicativo do Node.js](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="a-nametoc395783178astep-2-learn-to-create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>Etapa 2: Aprender a criar um novo aplicativo Node.js
+## <a name="_Toc395783178"></a>Etapa 2: Aprender a criar um novo aplicativo Node.js
 Agora vamos aprender a criar um projeto Hello World Node.js básico usando a estrutura [Express](http://expressjs.com/) .
 
 1. Abra seu terminal favorito, como o prompt de comando do Node.js.
@@ -81,7 +83,7 @@ Agora vamos aprender a criar um projeto Hello World Node.js básico usando a est
 
     Em seguida, para interromper o aplicativo, pressione CTRL+C na janela do terminal e clique em **y** para finalizar o trabalho em lotes.
 
-## <a name="a-nametoc395783179astep-3-install-additional-modules"></a><a name="_Toc395783179"></a>Etapa 3: Instalar módulos adicionais
+## <a name="_Toc395783179"></a>Etapa 3: Instalar módulos adicionais
 O arquivo **package.json** é um dos arquivos criados na raiz do projeto. Esse arquivo contém uma lista dos módulos adicionais que são necessários para seu aplicativo do Node.js. Posteriormente, ao implantar esse aplicativo em um site do Azure, esse arquivo será usado para determinar quais módulos precisam ser instalados no Azure para dar suporte ao seu aplicativo. Ainda precisamos instalar mais dois pacotes para este tutorial.
 
 1. De volta ao terminal, instale o módulo **async** via npm.
@@ -114,7 +116,7 @@ O arquivo **package.json** é um dos arquivos criados na raiz do projeto. Esse a
    
     Isso informa ao Nó (e ao Azure mais tarde) que seu aplicativo depende desses módulos adicionais.
 
-## <a name="a-nametoc395783180astep-4-using-the-documentdb-service-in-a-node-application"></a><a name="_Toc395783180"></a>Etapa 4: Usando o serviço do Banco de Dados de Documento em um aplicativo de nó
+## <a name="_Toc395783180"></a>Etapa 4: Usando o serviço do Banco de Dados de Documento em um aplicativo de nó
 Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motivo de estarmos aqui, ou seja, para gravar algum código usando o Banco de Dados de Documentos do Azure.
 
 ### <a name="create-the-model"></a>Criar o modelo
@@ -428,7 +430,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 5. Essas linhas definem uma nova instância do nosso objeto **TaskDao**, com uma nova conexão ao DocumentDB (usando os valores lidos a partir de **config.js**), inicialize o objeto de tarefa e associe ações do formulário aos métodos no nosso controlador **TaskList**. 
 6. Por fim, salve e feche o arquivo **app.js** ; está praticamente pronto.
 
-## <a name="a-nametoc395783181astep-5-build-a-user-interface"></a><a name="_Toc395783181"></a>Etapa 5: Criar uma interface do usuário
+## <a name="_Toc395783181"></a>Etapa 5: Criar uma interface do usuário
 Agora vamos voltar a atenção para criar a interface do usuário, desse modo, um usuário pode realmente interagir com nosso aplicativo. O aplicativo Express que criamos usa **Jade** como mecanismo de exibição. Para obter mais informações sobre o Jade, consulte [http://jade-lang.com/](http://jade-lang.com/).
 
 1. O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar a [Twitter Bootstrap](https://github.com/twbs/bootstrap), que é um kit de ferramentas que facilita a criação de um site com uma aparência interessante. 
@@ -519,7 +521,7 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
    
     Salve e feche esse arquivo **style.css** .
 
-## <a name="a-nametoc395783181astep-6-run-your-application-locally"></a><a name="_Toc395783181"></a>Etapa 6: Execute o seu aplicativo localmente
+## <a name="_Toc395783181"></a>Etapa 6: Execute o seu aplicativo localmente
 1. Para testar o aplicativo no computador local, execute `npm start` no terminal para iniciar o aplicativo e atualize a página do navegador [http://localhost:3000](http://localhost:3000). Agora a página deve ser semelhante à seguinte imagem:
    
     ![Captura de tela do aplicativo MyTodo List em uma janela do navegador](./media/documentdb-nodejs-application/image18.png)
@@ -535,7 +537,7 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 5. Para interromper o aplicativo, pressione CTRL+C na janela do terminal e clique em **Y** para finalizar o trabalho em lotes.
 
-## <a name="a-nametoc395783182astep-7-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Etapa 7: implantar seu projeto de desenvolvimento de aplicativo nos sites do Azure
+## <a name="_Toc395783182"></a>Etapa 7: implantar seu projeto de desenvolvimento de aplicativo nos sites do Azure
 1. Se ainda não o fez, habilite um repositório git do seu site do Azure. Encontre instruções sobre como fazer isso no tópico [Implantação GIT Local no Serviço de Aplicativo do Azure](../app-service-web/app-service-deploy-local-git.md) .
 2. Adicione seu site do Azure como um git remoto.
    
@@ -549,7 +551,7 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
     Se você quiser baixar ou consultar o aplicativo de referência completa para este tutorial, ele pode ser baixado do [GitHub][GitHub].
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Próximas etapas
+## <a name="_Toc395637775"></a>Próximas etapas
 
 * Deseja executar testes de desempenho e escalabilidade com o Banco de Dados de Documentos? Confira [teste de desempenho e escalabilidade com o Banco de Dados de Documentos](documentdb-performance-testing.md)
 * Saiba como [monitorar uma conta do Banco de Dados de Documentos](documentdb-monitor-accounts.md).
@@ -558,11 +560,6 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 

@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b6a0504f2dd5d23fa135b8afc371e3a9210d7caa
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
 Este documento aborda os recursos de detecção avançada da Central de Segurança do Azure, que ajuda a identificar ameaças ativas aos recursos do Microsoft Azure e fornece as informações necessárias para uma resposta rápida.
 
 > [!NOTE]
-> Detecções avançadas estão disponíveis na camada Standard da Central de Segurança do Azure. Há uma avaliação gratuita de 90 dias disponível. Você pode atualizar na seleção de Tipo de Preço na [Política de Segurança](security-center-policies.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre preços. 
+> Detecções avançadas estão disponíveis na camada Standard da Central de Segurança do Azure. Há uma avaliação gratuita de 60 dias disponível. Você pode atualizar na seleção de Tipo de Preço na [Política de Segurança](security-center-policies.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre preços. 
 > 
 > 
 
@@ -89,10 +90,5 @@ Neste documento, você aprendeu como funcionam os recursos de detecção da Cent
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
