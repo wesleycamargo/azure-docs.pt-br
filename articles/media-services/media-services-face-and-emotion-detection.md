@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 04/17/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
 ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
 ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -48,7 +49,7 @@ A API de detecção e acompanhamento facial fornece detecção e acompanhamento 
 
 As faces detectadas e acompanhadas retornam com coordenadas (esquerda, superior, largura e altura) que indicam o local das faces na imagem em pixels, bem como um número de identificação da face indicando o acompanhamento dessa pessoa. Os números de identificação de face estão sujeitos à redefinição em circunstâncias nas quais a face frontal é perdida ou sobreposta no quadro, resultando na atribuição de várias IDs às mesmas pessoas.
 
-### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos do arquivo JSON de saída
+### <a id="output_elements"></a>Elementos do arquivo JSON de saída
 Para a operação de detecção e acompanhamento facial, o resultado de saída contém os metadados das faces dentro do arquivo especificado no formato JSON.
 
 O JSON de detecção e acompanhamento facial inclui os seguintes atributos:
@@ -82,7 +83,7 @@ O Face Detector usa técnicas de fragmentação (em que os metadados podem ser d
 Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especificar uma predefinição de configuração. A predefinição de configuração a seguir serve apenas para detecção de face.
 
     {
-      "version":"1.0"
+      "version":"1.0",
       "options":{
           "TrackingMode": "Faster"
       }
@@ -521,10 +522,5 @@ O programa a seguir mostra como:
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
