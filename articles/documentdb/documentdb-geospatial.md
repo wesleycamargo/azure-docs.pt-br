@@ -236,7 +236,7 @@ O DocumentDB também dá suporte à execução de consultas inversas, ou seja, v
 
 ST_ISVALID e ST_ISVALIDDETAILED podem ser usados para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). ST_ISVALID retorna um valor Booliano e ST_ISVALIDDETAILED retorna o Booliano e uma cadeia de caracteres com o motivo pelo qual ele é considerado inválido.
 
-* * Consulta * *
+** Consulta **
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
