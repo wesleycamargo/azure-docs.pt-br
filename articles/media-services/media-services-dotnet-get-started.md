@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -33,8 +33,8 @@ Os itens a seguir são necessários para concluir o tutorial:
 
 * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
-* .NET Framework 4.0 ou posterior
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou versões posteriores.
+* .NET Framework 4.0 ou posterior.
+* Visual Studio.
 
 Este tutorial inclui as seguintes tarefas:
 
@@ -81,7 +81,7 @@ Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-1. Crie um novo Aplicativo de Console C# no Visual Studio 2013, no Visual Studio 2012 ou no Visual Studio 2010 SP1. Digite o **Nome**, o **Local** e o **Nome da solução** e clique em **OK**.
+1. No Visual Studio, crie um novo aplicativo de console C#. Digite o **Nome**, o **Local** e o **Nome da solução** e clique em **OK**.
 2. Use o pacote NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar **extensões do SDK .NET dos Serviços de Mídia do Azure**.  As Extensões do SDK do .NET dos Serviços de Mídia do Azure são um conjunto de métodos de extensão e funções auxiliares que simplificarão seu código e tornarão mais fácil desenvolver com os Serviços de Mídia. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
 
     Para adicionar referências usando o NuGet, faça o seguinte: no Gerenciador de Soluções, clique no botão direito do mouse no nome do projeto, selecione **Gerenciar pacotes NuGet**. Em seguida, pesquise por **windowsazure.mediaservices.extensions** e clique em **Instalar**.

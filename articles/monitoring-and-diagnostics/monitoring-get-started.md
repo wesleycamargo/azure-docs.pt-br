@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 692a0086bd8e0dd6b57de1db0f4e2a9b4f2f0bda
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6e1a1f522b9632c7d162d36ad5baa23d6130f8b6
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,11 +30,6 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
 2. Clique na opção **Monitor** para abrir a folha **Monitor**. Esta folha reúne todas as suas configurações e dados de monitoramento em uma exibição consolidada. Ela abre primeiro na seção **Log de atividades** .
    
     ![Navegação da folha Monitor](./media/monitoring-get-started/monitor-blade-nav.png)
-   
-   > [!WARNING]
-   > As opções **Notificações de serviço** e **Grupos de notificação** exibidas acima aparecem somente para aqueles que se associaram à Visualização Privada desses recursos.
-   > 
-   > 
    
     O Azure Monitor tem três categorias básicas de monitoramento: **log de atividades**, **métricas** e **logs de diagnóstico**.
 3. Clique em **Log de atividades** para garantir que a seção do log de atividades seja exibida.
@@ -88,7 +84,7 @@ O Azure Monitor é o serviço de plataforma que fornece uma única fonte para mo
     
     ![folha de alertas para o público](./media/monitoring-get-started/monitor-alerts-nopp.png)
     
-    Aqui, você pode gerenciar todos os [**alertas**](monitoring-overview-alerts.md) nos recursos do Azure. Isso inclui alertas sobre as métricas, eventos do log de atividades (visualização privada), testes da Web do Application Insights (Locais) e diagnóstico proativo do Application Insights. Os alertas podem disparar um envio de email ou um HTTP POST para uma URL de webhook.
+    Aqui, você pode gerenciar todos os [**alertas**](monitoring-overview-alerts.md) nos recursos do Azure. Isso inclui alertas sobre as métricas, eventos do log de atividades, testes da Web do Application Insights (Locais) e diagnóstico proativo do Application Insights. Os alertas podem disparar um envio de email ou um HTTP POST para uma URL de webhook.
 13. Clique em **Adicionar alerta da métrica** para criar um alerta.
     
     ![Adicionar alerta da métrica](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -103,10 +99,5 @@ Seguindo essas etapas e fixando todos os blocos relevantes em um painel, você p
 
 ## <a name="next-steps"></a>Próximas etapas
 * Leia a [Visão Geral do Azure Monitor](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

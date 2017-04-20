@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
-ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6508b5a5d7d654954c68f9390c62a7871c1f032c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -47,7 +47,7 @@ Assim que tiver uma conta, você poderá criar um aplicativo simples de armazena
 2. No menu **Arquivo**, clique em **Novo Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, clique em **Instalados** > **Modelos** > **Visual C#** > **Nuvem** > **QuickStarts** > **Serviços de Dados**.
    
-   a. Escolha um dos seguintes modelos:** Armazenamento do Azure: blobs**, **Armazenamento do Azure: arquivos**, **Armazenamento do Azure: filas** ou **Armazenamento do Azure: tabelas**.
+   a. Escolha um dos seguintes modelos:**Armazenamento do Azure: blobs**, **Armazenamento do Azure: arquivos**, **Armazenamento do Azure: filas** ou **Armazenamento do Azure: tabelas**.
    
    b. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
    
@@ -75,13 +75,13 @@ Em seguida, execute o aplicativo de exemplo:
 ## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>Execute seu primeiro aplicativo para o Armazenamento do Azure localmente no Emulador de Armazenamento do Azure
 O [Emulador de Armazenamento do Azure](storage-use-emulator.md) fornece um ambiente local que emula os serviços de blob, fila e tabela do Azure para fins de desenvolvimento. Você pode usar o emulador de armazenamento para testar o aplicativo de armazenamento localmente, sem criar uma conta de armazenamento ou de assinatura do Azure e sem gerar custos.
 
-Para experimentar, vamos criar um aplicativo simples do Armazenamento do Azure usando um dos projetos de exemplo do início rápido do Azure no Visual Studio. Este tutorial concentra-se nos projetos de exemplo do **Armazenamento de Blobs do Azure**, **Armazenamento de Tabelas do Azure** e **Armazenamento de Filas do Azure**:
+Para experimentar, criaremos um aplicativo simples de Armazenamento do Azure usando um dos projetos de exemplo do Início Rápido do Azure no Visual Studio. Este tutorial concentra-se nos projetos de exemplo do **Armazenamento de Blobs do Azure**, **Armazenamento de Tabelas do Azure** e **Armazenamento de Filas do Azure**:
 
 1. Inicie o Visual Studio.
 2. No menu **Arquivo**, clique em **Novo Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, clique em **Instalados** > **Modelos** > **Visual C#** > **Nuvem** > **QuickStarts** > **Serviços de Dados**.
     
-    a. Escolha um dos seguintes modelos:** Armazenamento do Azure: blobs**, **Armazenamento do Azure: arquivos**, **Armazenamento do Azure: filas** ou **Armazenamento do Azure: tabelas**.
+    a. Escolha um dos seguintes modelos:**Armazenamento do Azure: blobs**, **Armazenamento do Azure: arquivos**, **Armazenamento do Azure: filas** ou **Armazenamento do Azure: tabelas**.
     
     b. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
     

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f03099391600bc3b918eb3a8c866c16a02052b7a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,7 +67,7 @@ Com o ExpressRoute, você pode habilitar a comunicação de Rede Virtual a Rede 
 ![ExpressRoute, Caso 3 - qualidade inferior de roteamento entre redes virtuais](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>Solução: atribuir um peso alto à conexão local
-A solução é simples. Como você sabe onde as redes virtuais e os circuitos estão, pode indicar qual caminho cada VNet deve preferir. Especificamente para esse exemplo, você pode atribuir um peso mais alto para a conexão local do que para a conexão remota. Quando uma VNet receber o prefixo da outra VNet em várias conexões, ela preferirá a conexão com o peso mais alto para enviar o tráfego destinado a esse prefixo.
+A solução é simples. Como você sabe onde as redes virtuais e os circuitos estão, pode indicar qual caminho cada VNet deve preferir. Especificamente para esse exemplo, você atribui um peso mais alto à conexão local do que à conexão remota (consulte o exemplo de configuração [aqui](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection)). Quando uma VNet receber o prefixo da outra VNet em várias conexões, ela preferirá a conexão com o peso mais alto para enviar o tráfego destinado a esse prefixo.
 
 ![Solução de ExpressRoute, Caso 3 - atribuir peso alto à conexão local](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 
@@ -75,3 +75,4 @@ A solução é simples. Como você sabe onde as redes virtuais e os circuitos es
 > Você também poderá influenciar o roteamento da VNet à rede local se tiver vários circuitos do ExpressRoute, configurando o peso de uma conexão em vez de aplicar AS PATH para prefixação, uma técnica descrita no segundo cenário acima. Para cada prefixo, sempre veremos o peso de conexão antes do comprimento do Caminho AS ao decidir como enviar o tráfego.
 >
 >
+

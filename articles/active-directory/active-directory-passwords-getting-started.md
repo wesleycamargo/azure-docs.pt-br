@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Introdução ao Gerenciamento de Senhas
 > [!IMPORTANT]
-> **Você está aqui porque está tendo problemas para entrar?** Em caso afirmativo, [veja como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Você está aqui porque está tendo problemas para entrar?** Em caso afirmativo, [veja como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -69,9 +69,9 @@ Abaixo estão algumas das principais dicas úteis para os clientes que implantam
 * [**Tip 9: SOLUÇÃO DE PROBLEMAS** - Se ainda precisar de ajuda, inclua informações suficientes para podermos ajudá-lo](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>DICA IMPORTANTE: NAVEGAÇÃO DE DOCUMENTAÇÃO - Use o sumário e o recurso de pesquisa do seu navegador para encontrar respostas
-Se você estiver usando uma de nossas documentações, tentamos fornecer links rápidos para todos os pontos de interesse dos administradores em nosso sumário. 
+Se você estiver usando uma de nossas documentações, tentamos fornecer links rápidos para todos os pontos de interesse dos administradores em nosso sumário.
 
-Confira o sumário abaixo: 
+Confira o sumário abaixo:
 * [Redefinição de senha do Azure AD: sumário da documentação](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Dica 1: LICENCIAMENTO - Verifique se entendeu corretamente os requisitos de licenciamento
@@ -93,9 +93,9 @@ As políticas configuradas na experiência do usuário administrativa SÓ se apl
  * ...aos primeiros 30 dias depois de uma avaliação ser iniciada **OU**
  * ... quando um domínio personalizado não está presente **E** o Azure AD Connect não está sincronizando identidades
  * **_Requer_**: **um** email de autenticação, email alternativo, telefone de autenticação, telefone celular ou telefone comercial para ter um valor presente
-* **A política de dois portões se aplica...** 
+* **A política de dois portões se aplica...**
  * ...após os 30 primeiros dias de uma versão de avaliação **OU**
- * ...quando um domínio personalizado está presente **OU** 
+ * ...quando um domínio personalizado está presente **OU**
  * ... quando você habilitou o Azure AD Connect para sincronizar as identidades do seu ambiente local
  * _**Requer**_: **duas** opções de email de autenticação, email alternativo, telefone de autenticação, telefone celular ou telefone comercial para ter um valor presente
 
@@ -145,7 +145,7 @@ Para obter uma lista completa de orientações de solução de problemas e diret
 * [Implantação de write-back - Etapa 3: Configurar seu firewall](#step-3-configure-your-firewall)
 * [Implantação de write-back - Etapa 4: configurar as permissões apropriadas](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Dica 7: RELATÓRIOS - Veja quem está registrando ou redefinindo senhas com os Logs de Auditoria do Azure AD SSPR 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Dica 7: RELATÓRIOS - Veja quem está registrando ou redefinindo senhas com os Logs de Auditoria do Azure AD SSPR
 Depois que a redefinição de senha é implantada e está funcionando, a próxima etapa lógica é ver o funcionamento e analisar quem ainda precisa ser registrado, os problemas comuns que os usuários enfrentam na redefinição e o retorno sobre o investimento do recurso.
 
 Usando os Logs de Auditoria de Redefinição de Senha do Azure AD, você pode fazer isso e muito mais no Portal do Azure, no PowerBI, na API de Relatório de Eventos do Azure AD ou no PowerShell.  Para saber mais sobre como usar esses recursos de relatório, confira:
@@ -495,7 +495,7 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 ## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Como funciona**](active-directory-passwords-how-it-works.md)- saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Personalizar**](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização

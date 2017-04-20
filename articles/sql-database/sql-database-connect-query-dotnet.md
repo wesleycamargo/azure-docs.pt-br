@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao Banco de Dados SQL do Azure usando .NET (C#) | Microsoft Docs
-description: "Use o código de exemplo neste início rápido para criar um aplicativo moderno com C# e sustentado por um poderoso banco de dados relacional na nuvem com o Banco de Dados SQL do Azure."
+description: "Apresenta um exemplo de código .NET que pode ser usado para conectar e consultar o Banco de Dados SQL do Azure"
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,37 +8,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: c6c0c218b8d0456d37a4514238675fd8e75faf9d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar .NET (C#) para conectar e consultar dados
 
-Use [C# e ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) para conectar e consultar um Banco de Dados SQL do Azure. Este guia detalha o uso do C# para se conectar a um Banco de Dados SQL do Azure e, depois, executar instruções de consulta, inserção, atualização e exclusão.
+Este guia rápido demonstra como usar o [C# e ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) para conectar um banco de dados SQL do Azure, então, usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados nas plataformas Windows, Mac OS e Ubuntu Linux.
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
 - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
 
-## <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
+## <a name="install-net"></a>Instalar o .NET
 
-As seções a seguir detalham como configurar os ambientes de desenvolvimento existentes do Mac OS, Linux (Ubuntu) e Windows para trabalhar com o Banco de Dados SQL do Azure.
+### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework e .NET Core**
+
+A Comunidade do Visual Studio 2017 é um IDE completo, extensível, gratuito para a criação de aplicativos modernos para Android, iOS, Windows, bem como aplicativos da Web e do banco de dados, e serviços de nuvem. Você pode instalar o .NET Framework completo ou apenas o .NET Core. Os trechos de código no início rápido funcionam com qualquer um. Se você já tiver o Visual Studio instalado em seu computador, ignore as próximas etapas.
+
+1. Baixe o [instalador](https://go.microsoft.com/fwlink/?LinkId=691978). 
+2. Execute o instalador e siga os prompts de instalação para concluir a instalação.
 
 ### <a name="mac-os"></a>**Mac OS**
 Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto .NET Core. Digite os comandos a seguir para instalar **brew** e **OpenSSL** e **.NET Core**. 
 
-```C#
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install openssl
@@ -52,20 +57,12 @@ Instale o .NET Core no macOS. Baixe o [instalador oficial](https://go.microsoft.
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto .NET Core. Digite os comandos a seguir para instalar o **.NET Core**.
 
-```C#
+```bash
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
-
-### <a name="windows"></a>**Windows**
-Instale o Visual Studio 2015 Community Edition e o .NET Framework. Se você já tiver o Visual Studio instalado em seu computador, ignore as próximas etapas.
-
-A Comunidade do Visual Studio 2015 é um IDE completo, extensível, gratuito para a criação de aplicativos modernos para Android, iOS, Windows, bem como aplicativos de banco de dados e serviços de nuvem.
-
-1. Baixe o [instalador](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Execute o instalador e siga os prompts de instalação para concluir a instalação.
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
@@ -309,5 +306,11 @@ namespace ConsoleApplication1
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter a documentação do .NET, consulte [Documentação do .NET](https://docs.microsoft.com/dotnet/).
-- Para saber mais sobre como consultar e editar dados usando o Visual Studio Code, confira [Visual Studio Code](https://code.visualstudio.com/docs).
+- Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md)
+- Para conectar e consultar usando o Visual Studio, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
+- Para conectar e consultar usando o PHP, veja [Conectar e consultar com o PHP](sql-database-connect-query-php.md).
+- Para conectar e consultar usando o Node.js, veja [Conectar e consultar com o Node.js](sql-database-connect-query-nodejs.md).
+- Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
+- Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
+- Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).
 

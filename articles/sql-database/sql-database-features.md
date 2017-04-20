@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 7dc5210c073a3130bfc9ffdbc9ce33e19ca5bc1a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Para obter mais informações sobre bancos de dados SQL do Azure, consulte [Banc
 
 As tabelas a seguir listam os principais recursos do Banco de Dados SQL do Azure e do SQL Server, especifica sua capacidade de suporte e fornece um link para mais informações sobre o recurso em cada plataforma. Para recursos do Transact-SQL, siga o link na tabela até a categoria do recurso. Consulte também [Diferenças do Transact-SQL do Banco de Dados SQL do Azure](sql-database-transact-sql-information.md) para obter mais informações sobre os motivos da falta de suporte para determinados tipos de recursos.
 
-Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite a nossa página da Web de atualizações de serviço do Azure e use os seus filtros:
+Continuamos a adicionar recursos ao Banco de Dados SQL do Azure. Portanto, recomendamos que você visite a nossa página da Web de atualizações de serviço do Azure e use os seus filtros:
 
 * Filtrado para o [Serviço de Banco de Dados SQL](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrado para disponibilidade geral [Anúncios (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para recursos do Banco de Dados SQL.

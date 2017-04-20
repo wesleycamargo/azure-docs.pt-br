@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 7e48069b84c1048617a86fbc334a04462b52deda
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 914084ff790ceb2e11852c5dae757b935f813062
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -80,20 +80,6 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados SQL do 
 2. Em todos os firewalls entre o cliente e a Internet, certifique-se de que a porta 1433 está aberta para conexões de saída. Revisão [configurar o Firewall do Windows para permitir acesso ao SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) e [híbrida identidade necessárias portas e protocolos](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) ponteiros adicionais relacionadas a portas adicionais que você precisa abrir para autenticação do Azure Active Directory.
 3. Verifique a cadeia de conexão e outras configurações de conexão. Confira a seção Cadeia de Conexão do [tópico sobre problemas de conectividade](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4. Verifique a integridade do serviço no painel. Se você achar que há uma interrupção regional, confira [Recuperar-se de uma paralisação](sql-database-disaster-recovery.md) para obter as etapas de recuperação de uma nova região.
-
-## <a name="all-topics-for-azure-sql-database-connection-problems"></a>Todos os tópicos sobre problemas de conexão de Banco de Dados SQL do Azure
-A tabela a seguir lista todos os tópicos sobre problemas de conexão que se aplicam diretamente ao serviço do Banco de Dados SQL do Azure.
-
-| &nbsp; | Title | Descrição |
-| ---:|:--- |:--- |
-| 1 |[Solucionar problemas de conexão no Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md) |Esta é a página de aterrissagem para solução de problemas de conectividade no Banco de Dados SQL do Azure. Ela descreve como identificar e resolver erros transitórios e erros persistentes ou não transitório no Banco de Dados SQL do Azure. |
-| 2 |[Solucionar problemas, diagnosticar e evitar erros de conexão SQL e erros transitórios para o Banco de Dados SQL](sql-database-connectivity-issues.md) |Saiba como solucionar problemas, diagnosticar e evitar um erro de conexão do SQL ou um erro transitório no Banco de Dados SQL. |
-| 3 |[Diretrizes gerais para tratamento de falhas transitórias](../best-practices-retry-general.md) |Fornece diretrizes gerais para tratar falhas transitórias ao se conectar ao Banco de Dados SQL do Azure. |
-| 4 |[Solucionar problemas de conectividade com o Banco de Dados SQL do Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |Esta ferramenta ajuda a identificar e solucionar erros de conexão. |
-| 5 |[Solução de problemas de “O banco de dados &lt;x&gt; no servidor &lt;y&gt; não está disponível no momento. Tente a conexão novamente mais tarde”](sql-database-troubleshoot-connection.md) |Descreve como identificar e resolver um erro 40613: “O banco de dados &lt;x&gt; no servidor &lt;y&gt; não está disponível no momento. Tente a conexão novamente mais tarde." |
-| 6 |[Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md) |Fornece informações sobre os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, como erros comuns de conexão de banco de dados, problemas de cópia de banco de dados e erros gerais. |
-| 7 |[Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md) |Fornece orientações para ajudá-lo a determinar qual camada de serviço é adequada para seu aplicativo. Também fornece recomendações para ajustar seu aplicativo para obter o maior proveito de seu Banco de Dados SQL do Azure. |
-| 8 |[Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md) |Fornece links para exemplos de código de várias tecnologias que você pode usar para se conectar e interagir com o Banco de Dados SQL do Azure. |
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Solucionar problemas de desempenho no Banco de Dados SQL do Azure](sql-database-troubleshoot-performance.md)

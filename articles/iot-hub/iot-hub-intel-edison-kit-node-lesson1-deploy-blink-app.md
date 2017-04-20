@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "projetos led arduino, piscar led arduino, código piscar led arduino, programa de piscar arduino, exemplo de piscar arduino"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: ed2c21d0-c72c-4ac2-9e70-347e9a0711c0
 ms.service: iot-hub
 ms.devlang: nodejs

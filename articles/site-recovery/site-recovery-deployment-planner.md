@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploy
 
     Exemplo:  
     Copie o arquivo .zip para a unidade E:\ e extraia-o.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Funcionalidades
 Você pode executar a ferramenta de linha de comando (ASRDeploymentPlanner.exe) em qualquer um dos três seguintes modos:
@@ -145,6 +145,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Opcional) A senha a ser usada para se conectar ao host ESXi vSphere/servidor vCenter. Se não especificar uma agora, você será solicitado a fornecê-la quando o comando for executado.|
 | -StorageAccountName | (Opcional) O nome da conta de armazenamento que é usado para localizar a taxa de transferência possível para replicação de dados do local do Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para calcular a taxa de transferência.|
 | -StorageAccountKey | (Opcional) A chave de conta de armazenamento que é usada para acessar a conta de armazenamento. Acesse o portal do Azure > Contas de armazenamento > <*Nome de conta de armazenamento*> > Configurações > Chaves de Acesso > Chave1 (ou chave de acesso primário da conta de armazenamento clássico). |
+| -Ambiente | (opcional) Este é o seu ambiente de conta do Armazenamento do Azure de destino. Isso pode ser um dos três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. O padrão é AzureCloud. Use o parâmetro quando a região do Azure de destino é uma nuvem do Governo dos EUA do Azure ou Azure China. |
+
 
 É recomendável que você crie o perfil de suas VMs durante pelo menos 15 a 30 dias. Durante o período de criação de perfil, ASRDeploymentPlanner.exe continua em execução. A ferramenta aceita a entrada de tempo de criação de perfil em dias. Para criar o perfil por algumas horas ou minutos e fazer um teste rápido da ferramenta, na visualização pública, você precisará converter o horário na medida equivalente de dias. Por exemplo, para criar o perfil por 30 minutos, a entrada deve ser 30/(60*24) = 0,021 dia. O tempo de criação de perfil mínimo permitido é de 30 minutos.
 
@@ -281,11 +283,12 @@ Abra um console de linha de comando e acesse a pasta da ferramenta de planejamen
 
 |Nome do parâmetro | Descrição |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Directory | (Opcional) A UNC o ou caminho do diretório local em que os dados com perfil gerado (arquivos gerados durante a criação de perfil) são armazenados. Esses dados são necessários para gerar o relatório. Se não for especificado um nome de diretório, será usado o diretório 'ProfiledData'. |
 | -StorageAccountName | O nome de conta de armazenamento usada para obter a largura de banda consumida para replicação de dados do local para o Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para obter a largura de banda consumida. |
 | -StorageAccountKey | A chave da conta de armazenamento usada para acessar a conta de armazenamento. Acesse o portal do Azure > Contas de armazenamento > <*Nome de conta de armazenamento*> > Configurações > Chaves de Acesso > Chave1 (ou chave de acesso primário da conta de armazenamento clássico). |
 | -VMListFile | O arquivo que contém a lista de VMs para criação de perfil para calcular a largura de banda consumida. O caminho do arquivo pode ser absoluto ou relativo. O arquivo deve conter um nome de VM/endereço IP por linha. Os nomes de VM especificados no arquivo devem ser iguais aos nomes de VM no servidor vCenter/host ESXi vSphere.<br>Por exemplo, o arquivo VMList.txt contém as seguintes VMs:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Ambiente | (opcional) Este é o seu ambiente de conta do Armazenamento do Azure de destino. Isso pode ser um dos três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. O padrão é AzureCloud. Use o parâmetro quando a região do Azure de destino é uma nuvem do Governo dos EUA do Azure ou Azure China. |
 
 A ferramenta cria vários arquivos asrvhdfile<#>. vhd de 64 MB (em que "#" é o número de arquivos) no diretório especificado. A ferramenta carrega os arquivos para a conta de armazenamento para obter a taxa de transferência. Depois que a taxa de transferência é medida, a ferramenta exclui todos os arquivos da conta de armazenamento e do servidor local. Se a ferramenta for encerrada por qualquer motivo enquanto estiver calculando a taxa de transferência, não excluirá os arquivos do armazenamento ou do servidor local. Será necessário excluí-los manualmente.
 
@@ -477,6 +480,10 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 
 **NICs**: o número de NICs na VM.
 
+**Tipo de inicialização**: é o tipo de inicialização da máquina virtual. Pode ser o BIOS ou EFI. Atualmente o Azure Site Recovery dá suporte apenas ao tipo de inicialização BIOS. Todas as máquinas virtuais do tipo de inicialização EFI estão listadas na planilha de VMs Incompatível. 
+
+**Tipo de sistema operacional**: o tipo de SO da VM. Ele pode ser Windows, Linux ou outros.
+
 ## <a name="incompatible-vms"></a>VMs incompatíveis
 
 ![Planilha do Excel de VMs incompatíveis](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -486,6 +493,7 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 **Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser qualquer um dos seguintes:
 
 * O tamanho do disco é > 1023 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco maiores que 1 TB.
+* O tipo de inicialização é EFI. O Azure Site Recovery atualmente dá suporte apenas a máquinas virtuais com tipo de inicialização BIOS.
 
 * O tamanho total da VM (replicação + TFO) excede o limite de tamanho de conta de armazenamento com suporte (35 TB). Essa incompatibilidade normalmente ocorre quando um único disco na VM tem uma característica de desempenho que excede os limites máximo com suporte do Azure ou do Site Recovery para o armazenamento standard. Essa instância coloca a VM na zona de armazenamento premium. No entanto, o tamanho máximo com suporte de uma conta de armazenamento premium é de 35 TB, e uma única VM protegida não pode ser protegida em várias contas de armazenamento. Além disso, observe que quando um failover de teste é executado em uma VM protegida, ele é executado na mesma conta de armazenamento em que a replicação está em andamento. Nessa instância, configure duas vezes o tamanho do disco para que a replicação progrida e o failover de teste tenha êxito em paralelo.
 * O IOPS de origem excede o limite de IOPS de armazenamento com suporte de 5000 por disco.
@@ -508,6 +516,10 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 **Memória (MB)**: a quantidade de RAM na VM.
 
 **NICs**: o número de NICs na VM.
+
+**Tipo de inicialização**: é o tipo de inicialização da máquina virtual. Pode ser o BIOS ou EFI. Atualmente o Azure Site Recovery dá suporte apenas ao tipo de inicialização BIOS. Todas as máquinas virtuais do tipo de inicialização EFI estão listadas na planilha de VMs Incompatível. 
+
+**Tipo de sistema operacional**: o tipo de SO da VM. Ele pode ser Windows, Linux ou outros.
 
 
 ## <a name="site-recovery-limits"></a>Limites da Recuperação de Site
@@ -546,6 +558,18 @@ Para atualizar o planejador de implantação, faça o seguinte:
 
 
 ## <a name="version-history"></a>Histórico de versão
+### <a name="12"></a>1.2
+Última atualização: 7 de abril de 2017
+
+Adicionadas as seguintes correções:
+
+* Verificação de tipo de inicialização (BIOS ou EFI) adicionada para cada máquina virtual a fim de determinar se a máquina virtual é compatível ou incompatível com a proteção.
+* Informações de tipo de sistema operacional adicionadas para cada máquina virtual nas planilhas VMs compatíveis e VMs incompatíveis.
+* Agora há suporte para a operação GetThroughput nas regiões do Microsoft Azure do governo dos EUA e da China.
+* Algumas outras verificações de pré-requisitos foram adicionadas para vCenter e Servidor ESXi.
+* Um relatório incorreto estava sendo gerado quando as configurações de localidade estavam definidas para outro idioma que não o inglês.
+
+
 ### <a name="11"></a>1,1
 Atualização: 9 de março de 2017
 

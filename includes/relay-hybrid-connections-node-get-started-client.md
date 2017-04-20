@@ -17,7 +17,7 @@
     ```
 2. Adicione a retransmissão `constants` a seguir a `sender.js` para os detalhes da Conexão Híbrida. Substitua os espaços reservados nos colchetes pelos valores adequados que foram obtidos na criação da Conexão Híbrida.
    
-   1. `const ns` - o namespace de retransmissão
+   1. `const ns` - o namespace de retransmissão (use FQDN - por exemplo, `{namespace}.servicebus.windows.net`)
    2. `const path` - o nome da Conexão Híbrida
    3. `const keyrule` - o nome da chave SAS
    4. `const key` - o valor da chave SAS
@@ -71,9 +71,4 @@
         }
     );
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

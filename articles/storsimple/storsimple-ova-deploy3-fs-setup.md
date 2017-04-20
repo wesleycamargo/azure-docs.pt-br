@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/26/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: e1863b43706ffc200bb94c4a26ae75080a6dd857
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 37d25c8c7b47bf8ef3b4d5c6d3978b13c52329c3
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -47,7 +48,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
    Use a URL de conexão observada na etapa anterior. Você verá um erro indicando que há um problema com o certificado de segurança do site. Clique em **Continuar para essa página da Web**.
    
    ![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
-2. Entre na interface do usuário da Web de seu dispositivo virtual como **StorSimpleAdmin**. Digite a senha do administrador do dispositivo que você alterou na Etapa 3: iniciar o dispositivo virtual em [Provisionar um StorSimple Virtual Array no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou em [Provisionar um StorSimple Virtual Array no VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Entre na interface do usuário da Web de seu dispositivo virtual como **StorSimpleAdmin**. Digite a senha do administrador do dispositivo que você alterou na Etapa 3: iniciar o dispositivo virtual em [Provisionar um StorSimple Virtual Array no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou em [Provisionar um StorSimple Virtual Array no VMware](storsimple-ova-deploy2-provision-vmware.md). O usuário padrão é *StorSimpleAdmin* e a senha padrão é *Password1*.
    
    ![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 3. Você será levado à página **Inicial** . Esta página descreve as várias configurações necessárias para configurar e registrar o dispositivo virtual com o serviço StorSimple Manager. Observe que **Configurações de rede**, **Configurações de proxy Web** e **Configurações de hora** são opcionais. As únicas configurações obrigatórias são as **Configurações do dispositivo** e **Configurações de nuvem**.
@@ -183,10 +184,5 @@ Assista ao vídeo para ver como você pode configurar e registrar uma StorSimple
 
 ## <a name="next-steps"></a>Próximas etapas
 Aprenda como [usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

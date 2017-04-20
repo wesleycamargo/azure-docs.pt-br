@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 04/07/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ O dispositivo virtual StorSimple está disponível em dois modelos, um padrão 8
 | **Capacidade máxima** |30 TB |64 TB |
 | **VM do Azure** |Standard_A3 (4 núcleos, 7 GB de memória) |Standard_DS3 (4 núcleos, 14 GB de memória) |
 | **Compatibilidade de versão** |Versões com pré-Atualização 2 ou posterior |Versões com Atualização 2 ou posterior |
-| **Disponibilidade de região** |Todas as regiões do Azure |Todas as regiões do Azure que dão suporte ao Armazenamento Premium<br></br> As regiões de armazenamento Premium são regiões que correspondem à linha de *Armazenamento em disco* na lista dos [Serviços do Azure por Região](https://azure.microsoft.com/en-us/regions/services). |
+| **Disponibilidade de região** |Todas as regiões do Azure |Todas as regiões do Azure que dão suporte ao Armazenamento Premium e às VMs DS3 do Azure<br></br> Use [esta lista](https://azure.microsoft.com/en-us/regions/services) para ver se as *Máquinas Virtuais > série DS* e o *Armazenamento > Armazenamento em disco* estão disponíveis em sua região. |
 | **Tipo de armazenamento** |Usa o Armazenamento Standard do Azure para discos locais<br></br> Saiba como [criar uma conta de Armazenamento Standard](../storage/storage-create-storage-account.md) |Usa o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br>Saiba como [criar uma conta de Armazenamento Premium](../storage/storage-premium-storage.md) |
 | **Diretrizes sobre carga de trabalho** |Recuperação no nível de item de arquivos de backups |Cenários de desenvolvimento e teste na nuvem, baixa latência, cargas de trabalho de desempenho mais altas  <br></br>Dispositivo secundário para recuperação de desastre |
 

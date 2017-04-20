@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: ab55d08c78f6c333819dc31936b24ae6797870bb
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: e279ca5f86ec2870955f0fd204e852252a34a42e
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="set-password-expiration-policies-in-azure-active-directory"></a>Definir políticas de expiração de senha no Active Directory do Azure
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -63,5 +63,5 @@ Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
    * Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
 ## <a name="next-steps"></a>Próximas etapas
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 

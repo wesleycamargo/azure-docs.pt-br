@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 977fcf74c86e2ab312d99b3f1821cfb7efbe9745
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f45c21e682f93de4dbe34b4ce07745225d548cb0
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -356,7 +356,7 @@ Você também pode usar Monitorar e gerenciar aplicativos para monitorar os pipe
 
 ## <a name="data-factory-entities-in-the-template"></a>Entidades do Data Factory no modelo
 ### <a name="define-data-factory"></a>Definir Data Factory
-Você pode definir um data factory no modelo do Resource Manager, conforme mostrado no exemplo a seguir:  
+Você pode definir um Data Factory no modelo do Resource Manager, conforme mostrado no exemplo a seguir:  
 
 ```json
 "resources": [
@@ -376,7 +376,7 @@ O dataFactoryName é definido como:
 
 É uma cadeia de caracteres exclusiva com base na ID de grupo de recursos.  
 
-### <a name="defining-data-factory-entities"></a>Definindo entidades de Data Factory
+### <a name="defining-data-factory-entities"></a>Definir entidades de Data Factory
 As seguintes entidades de Data Factory são definidas no modelo JSON: 
 
 1. [Serviço vinculado de armazenamento do Azure](#azure-storage-linked-service)
@@ -584,7 +584,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 Observe que o primeiro comando usa o arquivo de parâmetro para o ambiente de desenvolvimento, outro para o ambiente de teste e um terceiro para o ambiente de produção.  
 
-Também é possível reutilizar o modelo para executar tarefas repetidas. Por exemplo, você precisa criar vários data factories com um ou mais pipelines que implementem a mesma lógica, mas cada data factory usa contas de Banco de Dados SQL e Armazenamento do Azure diferentes. Nesse cenário, você usa o mesmo modelo no mesmo ambiente (desenvolvimento, teste ou produção) com arquivos de parâmetros diferentes para criar data factories.   
+Também é possível reutilizar o modelo para executar tarefas repetidas. Por exemplo, você precisa criar vários data factories com um ou mais pipelines que implementam a mesma lógica, mas cada data factory usa contas de Armazenamento e do Banco de Dados SQL diferentes. Nesse cenário, você usa o mesmo modelo no mesmo ambiente (desenvolvimento, teste ou produção) com arquivos de parâmetros diferentes para criar data factories.   
 
 ## <a name="see-also"></a>Consulte também
 | Tópico | Descrição |

@@ -22,7 +22,3 @@ Há detalhes que você esperaria ver e que não estão listados para sua soluç�
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
-
-<!--HONumber=Dec16_HO3-->
-
-

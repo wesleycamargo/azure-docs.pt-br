@@ -4,7 +4,7 @@ description: "Este artigo demonstra como usar a Automação do Azure para automa
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
+ms.date: 04/14/2017
 ms.author: tiandert; bwren
 translationtype: Human Translation
-ms.sourcegitcommit: ff1acafaacc40dd8a04b008df7cd479c811a7af0
-ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e0b784006b4933fe986890c09afa965934511784
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
 Neste artigo, nós demonstramos como você pode usar a Automação do Azure para provisionar uma máquina virtual na sua assinatura do AWS (Amazon Web Services) e dar um nome específico à VM – o que o AWS chama de "marcar" a VM.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para fins deste artigo, você precisa ter uma conta da Automação do Azure e uma assinatura do AWS. Para obter mais informações sobre como configurar uma conta da Automação do Azure e configurá-la com suas credenciais de assinatura do AWS, consulte [Configurar a autenticação com a Amazon Web Services](automation-sec-configure-aws-account.md).  Essa conta deve ser criada ou atualizada com suas credenciais de assinatura do AWS antes de prosseguir, pois faremos referência a ela nas etapas abaixo.
+Para fins deste artigo, você precisa ter uma conta da Automação do Azure e uma assinatura do AWS. Para obter mais informações sobre como configurar uma conta da Automação do Azure e configurá-la com suas credenciais de assinatura do AWS, consulte [Configurar a autenticação com a Amazon Web Services](automation-configure-aws-account.md).  Essa conta deve ser criada ou atualizada com suas credenciais de assinatura do AWS antes de prosseguir, pois faremos referência a ela nas etapas abaixo.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Implantar Módulo do PowerShell do Amazon Web Services
 Nosso runbook de provisionamento de VM utilizará o módulo do PowerShell do AWS para fazer seu trabalho. Execute as seguintes etapas para adicionar o módulo à sua conta da Automação que está configurada com as credenciais de assinatura do AWS.  
@@ -113,10 +114,5 @@ Antes de continuarmos testando o runbook, precisamos verificar algumas coisas. E
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 * Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 * Para saber mais sobre o recurso de suporte de script do PowerShell, veja [Native PowerShell script support in Azure Automation (Suporte a scripts nativos do PowerShell na Automação do Azure)](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

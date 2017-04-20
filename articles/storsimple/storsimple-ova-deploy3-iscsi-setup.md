@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 715720d22b58ddd3d0e5042de151219e49549c5e
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: cc5136c209483b6b72e8d456084338688792c0d0
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -52,7 +53,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
     Use a URL de conexão observada na etapa anterior. Você verá um erro informando que há um problema com o certificado de segurança do site. Clique em **Continuar para essa página da Web**.
    
     ![erro de certificado de segurança](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
-2. Entre na interface do usuário da Web de seu dispositivo virtual como **StorSimpleAdmin**. Insira a senha do administrador do dispositivo alterado na Etapa 3: iniciar o dispositivo virtual em [Implantar o StorSimple Virtual Array – Provisionar um dispositivo virtual no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Implantar o StorSimple Virtual Array – Provisionar um dispositivo virtual no VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Entre na interface do usuário da Web de seu dispositivo virtual como **StorSimpleAdmin**. Insira a senha do administrador do dispositivo alterado na Etapa 3: iniciar o dispositivo virtual em [Implantar o StorSimple Virtual Array – Provisionar um dispositivo virtual no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Implantar o StorSimple Virtual Array – Provisionar um dispositivo virtual no VMware](storsimple-ova-deploy2-provision-vmware.md). O usuário padrão é *StorSimpleAdmin* e a senha padrão é *Password1*. 
    
     ![Página de entrada](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 3. Você será levado à página **Inicial** . Esta página descreve as várias configurações necessárias para configurar e registrar o dispositivo virtual com o serviço StorSimple Manager. Observe que **Configurações de rede**, **Configurações de proxy Web** e **Configurações de hora** são opcionais. As únicas configurações obrigatórias são as **Configurações do dispositivo** e **Configurações de nuvem**.
@@ -91,7 +92,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
    
     Na página **Proxy Web** :
    
-   1. Forneça a **URL do proxy Web** neste formato: *http://endereço IP do host * or *FDQN: Número de porta*. Observe que não há suporte para URLs HTTPS.
+   1. Forneça a **URL do proxy Web** neste formato: *http://endereço IP do host* or *FDQN: Número de porta*. Observe que não há suporte para URLs HTTPS.
    2. Especifique a **Autenticação** como **Básica** ou **Nenhuma**.
    3. Se estiver usando a autenticação, também será necessário fornecer um **Nome de Usuário** e uma **Senha**.
    4. Clique em **Aplicar**. Isso validará e aplicará as configurações de proxy Web definidas.
@@ -242,10 +243,5 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

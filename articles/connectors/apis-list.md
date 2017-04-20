@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 53bb5d64e27458b4a88981bd20ea4236b31431ec
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ Os conectores também fornecem ações que podem ser usadas no fluxo de trabalho
 
 ## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Conectores personalizados e certificação para o Microsoft Azure
 
-Quer criar seus próprios conectores, ou não consegue localizar o conector que você deseja? [Estenda a plataforma de Aplicativos Lógicos](../logic-apps/logic-apps-create-api-app.md) Se crie Aplicativos de API que chamam APIs ou sistemas que não estão disponíveis como conectores prontos para uso. Além disso, você pode enviar seus Aplicativos de API para a certificação do Microsoft Azure e, em seguida, disponibilizá-los por meio do Azure. Saiba mais sobre como atribuir às suas soluções a [Certificação do Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+Para chamar as APIs que executam o código personalizado ou não estão disponíveis como conectores, você pode [estender a plataforma dos Aplicativos Lógicos](../logic-apps/logic-apps-create-api-app.md) criando Aplicativos de API baseados no REST como conectores personalizados. Se você quiser tornar seus Aplicativos de API personalizados públicos e disponíveis para usar no Azure, envie suas indicações para o [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
 ## <a name="get-help"></a>Obter ajuda
 
