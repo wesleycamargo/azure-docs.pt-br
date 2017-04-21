@@ -62,7 +62,7 @@ Não há limite para a quantidade total de produtividade à qual uma coleção p
 Consulte a página [Detalhes de preços do DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/) para obter detalhes. Os encargos pelo uso do DocumentDB são determinados pelo número de coleções provisionadas, pelo número de horas que as coleções estiveram online e pela produtividade provisionada para cada coleção.
 
 ### <a name="is-there-a-free-account-available"></a>Existe uma conta gratuita disponível?
-Se for novo no Azure, você poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/free/), que dá 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$&150; em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.  
+Se for novo no Azure, você poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/free/), que dá 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$ 150 em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.  
 
 Use o [Emulador do Azure DocumentDB](documentdb-nosql-local-emulator.md) para desenvolver e testar seu aplicativo localmente sem criar uma assinatura Azure. Quando você estiver satisfeito com o funcionamento de seu aplicativo no Emulador do DocumentDB, alterne para uma conta do DocumentDB do Azure na nuvem.
 

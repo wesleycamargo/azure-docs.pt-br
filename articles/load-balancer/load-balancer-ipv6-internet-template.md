@@ -30,7 +30,7 @@ ms.lasthandoff: 03/15/2017
 > * [CLI do Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modelo](load-balancer-ipv6-internet-template.md)
 
-Um Azure Load Balancer é um balanceador de carga de Camada&4; (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
+Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
 ## <a name="example-deployment-scenario"></a>Exemplo de cenário de implantação
 

@@ -64,7 +64,7 @@ Nesta seção, você deve criar um projeto de scala de exemplo usando IntelliJ I
     - **SDK Scala**: clique em **selecione**, selecione versão **2.10.6**e, em seguida, clique em **OK**. Se a versão não estiver listada, clique em **baixar**, selecione **versão Scala**e, em seguida, clique em **OK**. Certifique-se de não usar a versão 2.11.x. Este artigo usa a versão 2.10.6.
     - **Spark SDK**: baixar o [SDK](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Você também pode ignorar isso e usar o Repositório do Spark Maven, no entanto, certifique-se de ter o repositório maven correto instalado para desenvolver aplicativos Spark. (Por exemplo, você precisará certificar-se de que a parte do Streaming Spark está instalada se estiver usando o Streaming Spark. Além disso, verifique se você está utilizando o repositório marcado como Scala 2.10 - não use o repositório marcado como Scala 2.11.)
 5. Clique em **Concluir**.
-6. Pressione **[ALT] +&1;** para abrir o modo de exibição de projeto se ele não estiver aberto.
+6. Pressione **[ALT] + 1** para abrir o modo de exibição de projeto se ele não estiver aberto.
 7. De **Explorador de projeto**, expanda o projeto e, em seguida, clique em **src**.
 8. Clique com botão direito **src**, aponte para **novo**e, em seguida, clique em **Scala classe**.
 9. Insira um nome, selecione **objeto** na **tipo**e, em seguida, clique em **OK**.

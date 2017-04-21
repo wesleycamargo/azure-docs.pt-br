@@ -50,7 +50,7 @@ Enquanto isso, [fornecemos um script](https://blogs.msdn.microsoft.com/azureserv
 
 **Resposta longa** – Embora os grandes VMSS (conjuntos de dimensionamento virtuais) permitam que você dimensione um VMSS até 1.000 instâncias de VM, isso é feito pelo uso de PGs (Grupos de Posicionamento). FDs (domínios de falha) e UDs (domínios de atualização) só são consistentes dentro de um grupo de posicionamento. O Service Fabric usa UDs e FDs para tomar decisões de posicionamento de suas instâncias de serviço/réplicas de serviço. Já que UDs e FDs são comparáveis somente dentro de um grupo de posicionamento, o SF não pode usá-los. Por exemplo, se VM1 no PG1 tem uma topologia de FD=0 e VM9 em PG2 tem uma topologia de FD=4, isso não significa que VM1 e VM2 estejam em dois Racks de hardwares diferentes, portanto, os SFs não podem usar os valores de FD nesse caso para tomar decisões de posicionamento.
 
-Atualmente, há outros problemas com VMSS grande, assim como a falta de suporte para balanceamento de carga de nível&4;. Consulte para obter [detalhes sobre VMSS grande](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+Atualmente, há outros problemas com VMSS grande, assim como a falta de suporte para balanceamento de carga de nível 4. Consulte para obter [detalhes sobre VMSS grande](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
 
@@ -58,7 +58,7 @@ Atualmente, há outros problemas com VMSS grande, assim como a falta de suporte 
 
 O tamanho mínimo com suporte para um cluster do Service Fabric que execute cargas de trabalho de produção é de cinco nós. Para cenários de desenvolvimento/teste, oferecemos suporte para três clusters de nó.
 
-Esses valores mínimos existem porque o cluster do Service Fabric executa um conjunto de serviços com sistema de estado, incluindo o serviço de nomes e o gerenciador de failover. Esses serviços, que controlam quais serviços foram implantados no cluster e onde eles estão hospedados atualmente, dependem de uma consistência forte. Essa consistência forte, por sua vez, depende da capacidade de adquirir um *quorum* para qualquer atualização para o estado desses serviços, onde um quorum representa a maioria estrita das réplicas (N/2 +&1;) para um determinado serviço.
+Esses valores mínimos existem porque o cluster do Service Fabric executa um conjunto de serviços com sistema de estado, incluindo o serviço de nomes e o gerenciador de failover. Esses serviços, que controlam quais serviços foram implantados no cluster e onde eles estão hospedados atualmente, dependem de uma consistência forte. Essa consistência forte, por sua vez, depende da capacidade de adquirir um *quorum* para qualquer atualização para o estado desses serviços, onde um quorum representa a maioria estrita das réplicas (N/2 + 1) para um determinado serviço.
 
 Com esse plano de fundo, vamos examinar algumas configurações de cluster possíveis:
 

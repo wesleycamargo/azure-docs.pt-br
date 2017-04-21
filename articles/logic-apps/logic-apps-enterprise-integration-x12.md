@@ -171,7 +171,7 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 | Propriedade | Descrição |
 | --- | --- |
-| Converte o formato decimal implícito "Nn" para o valor numérico de base 10 |Converte um número de EDI especificado no formato "Nn" em um valor numérico de base&10; |
+| Converte o formato decimal implícito "Nn" para o valor numérico de base 10 |Converte um número de EDI especificado no formato "Nn" em um valor numérico de base 10 |
 | Criar marcas XML vazias se forem permitidos separadores à direita |Marque essa caixa de seleção para que o remetente do intercâmbio inclua marcas XML vazias para separadores à direita. |
 | Dividir Intercâmbio como conjuntos de transação – suspender conjuntos de transação com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado ao conjunto de transações. Suspende somente as transações em que a validação falhar. |
 | Dividir Intercâmbio como conjuntos de transação – suspender intercâmbio com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado. Suspende o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação. | 
