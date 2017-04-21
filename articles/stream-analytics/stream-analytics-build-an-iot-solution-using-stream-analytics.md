@@ -129,7 +129,7 @@ Se não tiver uma conta do Azure, [solicite uma versão de avaliação gratuita]
 > 
 > 
 
-Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito Azure gratuito de US$&200;.
+Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito Azure gratuito de US$ 200.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Provisionar os recursos do Azure necessários para o tutorial
 Este tutorial requer dois hubs de eventos para receber transmissões de dados de *entrada* e de *saída*. O Banco de Dados SQL do Azure gera os resultados dos trabalhos do Stream Analytics. O Armazenamento do Azure armazena dados de referência sobre o registro do veículo.
@@ -255,7 +255,7 @@ No entanto, se estiver interessado nos detalhes da implementação, você encont
 6. A Fonte é **Hub de eventos**.
 7. O **Namespace do barramento de serviço** deve ser o TollData no menu suspenso.
 8. O **Nome do hub de eventos** deve ser definido como **entrada**.
-9. O **Nome da política do hub de eventos* é **RootManageSharedAccessKey** (o valor padrão).
+9. O **Nome da política do hub de eventos* é**RootManageSharedAccessKey** (o valor padrão).
 10. Selecione **JSON** como **FORMATO DE SERIALIZAÇÃO DO EVENTO** e **UTF8** como **CODIFICAÇÃO**.
    
     As configurações ficarão semelhantes:
