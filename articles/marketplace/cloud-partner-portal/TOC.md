@@ -23,7 +23,7 @@
 ### [Excluir uma oferta/SKU de VM](./cloud-partner-portal-delete-an-offer.md)
 ### [Migrar para o portal de parceiros de nuvem](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
-## [Gerenciamento de clientes potenciais de marketing](../../cloud-partner-portal/cloud-partner-portal-marketing-lead-management.md)
+## [Obter clientes potenciais](./cloud-partner-portal-get-customer-leads.md)
 ### [Tabela do Azure](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM online](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-salesforce.md)
@@ -31,5 +31,4 @@
 
 ## [Gerenciar perfil do editor](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Gerenciar usuários](./cloud-partner-portal-manage-users.md)
-## [Fornecer feedback](./cloud-partner-portal-give-feedback.md)
 ## [Obtenha suporte](./cloud-partner-portal-support-for-cloud-partner-portal.md)

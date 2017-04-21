@@ -25,6 +25,16 @@
 ### [Cmdlets do PowerShell do Lote](batch-powershell-cmdlets-get-started.md)
 ### [CLI do Azure](batch-cli-get-started.md)
 ### [Logs de diagnóstico do Lote](batch-diagnostics.md)
+### [Análise de Lote](batch-analytics.md)
+#### [Evento para criar pool](batch-pool-create-event.md)
+#### [Evento para iniciar exclusão do pool](batch-pool-delete-start-event.md)
+#### [Evento para concluir exclusão do pool](batch-pool-delete-complete-event.md)
+#### [Evento para iniciar redimensionamento do pool](batch-pool-resize-start-event.md)
+#### [Evento para concluir redimensionamento do pool](batch-pool-resize-complete-event.md)
+#### [Evento para iniciar tarefa](batch-task-start-event.md)
+#### [Evento para concluir tarefa](batch-task-complete-event.md)
+#### [Evento de falha da tarefa](batch-task-fail-event.md)
+### [Variáveis de ambiente do nó de computação de lote do Azure](batch-compute-node-environment-variables.md)
 
 # Referência
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
