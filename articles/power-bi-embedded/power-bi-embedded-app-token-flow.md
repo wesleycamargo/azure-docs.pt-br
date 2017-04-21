@@ -42,7 +42,7 @@ O token de seu aplicativo pode conter as seguintes declarações:
 
 | Declaração | Descrição |
 | --- | --- |
-| **ver** |A versão do token do aplicativo. A versão atual é&0;.2.0. |
+| **ver** |A versão do token do aplicativo. A versão atual é 0.2.0. |
 | **aud** |O destinatário pretendido do token. Para uso do Power BI Embedded: "https://analysis.windows.net/powerbi/api". |
 | **iss** |Uma cadeia de caracteres que indica o aplicativo que emitiu o token. |
 | **tipo** |O tipo de token do aplicativo que está sendo criado. O único tipo com suporte atualmente é **incorporar**. |

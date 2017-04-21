@@ -27,7 +27,7 @@ ms.lasthandoff: 03/10/2017
 O Service Fabric permite especificar dois certificados de cluster, um primário e um secundário, quando você configura a segurança do certificado durante a criação do cluster, além de certificados de cliente. Veja a [criação de um cluster do Service Fabric por meio do portal](service-fabric-cluster-creation-via-portal.md) ou a [criação de um cluster do azure por meio do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a configuração deles no tempo de criação. Se você especificar apenas um certificado de cluster no momento da criação, em seguida, que é usado como o certificado principal. Após a criação do cluster, é possível adicionar um novo certificado como um secundário.
 
 > [!NOTE]
-> Para um cluster seguro, você sempre precisará de, pelo menos, um certificado de cluster (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar. Em&90; dias antes que todos os certificados válidos alcancem a expiração, o sistema gera um rastreamento de avisos e também um evento de integridade de aviso no nó. Atualmente, não há nenhum email nem qualquer outra notificação enviada pelo Service Fabric sobre esse tópico. 
+> Para um cluster seguro, você sempre precisará de, pelo menos, um certificado de cluster (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar. Em 90 dias antes que todos os certificados válidos alcancem a expiração, o sistema gera um rastreamento de avisos e também um evento de integridade de aviso no nó. Atualmente, não há nenhum email nem qualquer outra notificação enviada pelo Service Fabric sobre esse tópico. 
 > 
 > 
 

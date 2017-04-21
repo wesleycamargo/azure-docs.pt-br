@@ -43,7 +43,7 @@ Depois de adicionar uma segunda região, a opção **Failover Manual** é habili
 ### <a name="selecting-global-database-regions"></a>Selecionar regiões de bancos de dados globais
 Ao configurar duas ou mais regiões, é recomendável que as regiões sejam selecionadas com base nos pares de região descritos no artigo [Continuidade dos negócios e recuperação de desastre (BCDR): Regiões Emparelhadas do Azure][bcdr].
 
-Especificamente, ao configurar para várias regiões, certifique-se de selecionar o mesmo número de regiões (+/-&1; para par/ímpar) de cada uma das colunas de região emparelhada. Por exemplo, se quiser implantar em quatro regiões dos EUA, selecione duas regiões dos EUA na coluna à esquerda e duas à direita. Assim, a definição apropriada seria: Oeste dos EUA, Leste dos EUA, Centro-Norte dos EUA e Centro-Sul dos EUA.
+Especificamente, ao configurar para várias regiões, certifique-se de selecionar o mesmo número de regiões (+/- 1 para par/ímpar) de cada uma das colunas de região emparelhada. Por exemplo, se quiser implantar em quatro regiões dos EUA, selecione duas regiões dos EUA na coluna à esquerda e duas à direita. Assim, a definição apropriada seria: Oeste dos EUA, Leste dos EUA, Centro-Norte dos EUA e Centro-Sul dos EUA.
 
 É importante seguir essa instrução quando apenas duas regiões são configuradas para cenários de recuperação de desastre. Para mais de duas regiões, seguir essa instrução é uma boa prática, mas não crítica, pois algumas da regiões selecionadas adotam esse emparelhamento.
 

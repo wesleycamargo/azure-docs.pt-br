@@ -58,8 +58,8 @@ Serviço de Cache Gerenciado do e Cache Redis do Azure são semelhantes, mas imp
 O Cache Redis do Microsoft Azure está disponível nas seguintes camadas:
 
 * **Básico** – um único nó. Vários tamanhos acima de 53 GB.
-* **Standard** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de&99;,9%.
-* **Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos do tipo Standard e outros, incluindo suporte para [cluster Redis](cache-how-to-premium-clustering.md), [persistência Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de&99;,9%.
+* **Standard** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de 99,9%.
+* **Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos do tipo Standard e outros, incluindo suporte para [cluster Redis](cache-how-to-premium-clustering.md), [persistência Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de 99,9%.
 
 Cada camada é diferente em termos de recursos e preços. Os recursos são abordados posteriormente neste manual e, para obter mais informações sobre preços, consulte [Detalhes de preços do Cache](https://azure.microsoft.com/pricing/details/cache/).
 
