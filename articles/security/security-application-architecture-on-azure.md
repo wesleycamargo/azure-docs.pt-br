@@ -29,7 +29,7 @@ Temos o seguinte para ajudá-lo com seus designs e investigações de arquitetur
 * Infográficos de arquitetura
 * Plantas de arquitetura
 * Conjunto de símbolos de nuvem e empresariais
-* Modelo de planta&3;D do Visio
+* Modelo de planta 3D do Visio
 
 ## <a name="architectural-infographics"></a>Infográficos de arquitetura
 A Microsoft publica diversos infográficos/pôsteres relacionados à arquitetura. Elas incluem:
@@ -48,7 +48,7 @@ Cada planta inclui um:
 ## <a name="cloud-and-enterprise-symbol-set"></a>Conjunto de símbolos de nuvem e empresariais
 [Exiba o Visio e o vídeo de treinamento de símbolos](http://aka.ms/CnESymbolsVideo) e [baixe o conjunto de Símbolos de Nuvem e Empresariais](http://aka.ms/CnESymbols) para ajudar a criar materiais técnicos que descrevem o Azure, Windows Server, SQL Server e mais. Você pode usar os símbolos nos diagramas de arquitetura, materiais de treinamento, apresentações, folhas de dados, infográficos, white papers e até mesmo em livros de terceiros se o livro treina as pessoas para usarem os produtos da Microsoft. No entanto, eles não se destinam ao uso em interfaces do usuário.
 
-## <a name="3d-blueprint-visio-template"></a>Modelo de planta&3;D do Visio
+## <a name="3d-blueprint-visio-template"></a>Modelo de planta 3D do Visio
 As versões 3D das [Plantas de arquitetura da Microsoft](http://aka.ms/azblueprints) foram criadas inicialmente em uma ferramenta não Microsoft. Um novo modelo do Visio 2013 (e posterior) foi enviado em 5 de agosto de 2015 como parte de um [Curso de certificação de arquitetura da Microsoft distribuído em EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
 
 O modelo também está disponível fora do curso.
