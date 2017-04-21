@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 03/07/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
-ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-O SDK do Service Fabric inclui um suplemento do Visual Studio que fornece modelos e ferramentas para criar, implantar e depurar aplicativos do Service Fabric. Este tópico orienta você no processo de criação de seu primeiro aplicativo no Visual Studio.
+O SDK do Service Fabric inclui um suplemento do Visual Studio que fornece modelos e ferramentas para criar, implantar e depurar aplicativos do Service Fabric. Este tópico orienta você no processo de criação de seu primeiro aplicativo no Visual Studio 2017 ou Visual Studio 2015.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, verifique se você [configurou o ambiente de desenvolvimento](service-fabric-get-started.md).

@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 31157645006b24e9ed6ee9187c355310356615a7
-ms.openlocfilehash: 7d9dbf3af8e7d84d470bf6f42e2d2be01c5cb27d
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
+ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -430,7 +430,11 @@ Recomendamos que você comece com a camada Standard S1 e monitore o uso de seu s
 
 **Em quais regiões os novos planos estão disponíveis?**
 
-Para obter informações sobre disponibilidade regional, confira [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+Os novos planos de cobrança estão disponíveis nas três regiões de produção em que há suporte para os novos serviços Web:
+
+* Centro-Sul dos Estados Unidos
+* Europa Ocidental
+* Sudeste da Ásia
 
 **Tenho serviços Web em várias regiões. Preciso de um plano para cada região?**
 
@@ -451,7 +455,7 @@ Serviços que têm um tipo de preços de Desenvolvimento/Teste atribuída a eles
 
 Para uma carga de trabalho RRS, você será cobrado por todas as chamadas de transação de API que fizer, além do tempo de cálculo associado a essas solicitações. Seus custos da transação de API de produção RRS são, portanto, calculados como o número total de chamadas de API que você faz multiplicado pelo preço por mil transações (rateado por transação individual). Seus custos de horas de computação da API de produção de API RRS são calculados como a quantia de tempo necessária para cada chamada à API ser executada, multiplicada pelo número total de transações de API multiplicado pelo preço por hora de computação da API de produção.
 
-Por exemplo, para excedente em Standard S1, um milhão de transações de API que demoram 0,72 segundo cada para execução resultariam em (1.000.000 * * US$ 0,50/1K de transações API) em US$ 500 em custos de transação de API de produção e (1,000,000 * 0,72 s * US$ 2/h) US$ 400 nas horas de computação da API de produção, para um total de US$ 900.
+Por exemplo, para excedente em Standard S1, um milhão de transações de API que demoram 0,72 segundo cada para execução resultariam em (1.000.000 * US$ 0,50/1K de transações API) em US$ 500 em custos de transação de API de produção e (1,000,000 * 0,72 s * US$ 2/h) US$ 400 nas horas de computação da API de produção, para um total de US$ 900.
 
 Para uma carga de trabalho do BES, você é cobrado da mesma maneira. No entanto, os custos de transação de API representam o número de trabalhos de lote que você enviou e os custos calculados representam o tempo calculado associado a esses trabalhos de lote. Seus custos da transação de API de produção BES são, portanto, calculados como o número total de trabalhos enviados multiplicado pelo preço por mil transações (rateado por transação individual). Seus custos de horas de computação de API de produção de API BES são calculados como a quantia de tempo necessária para cada linha em seu trabalho para execução multiplicada pelo número total de linhas em seu trabalho, multiplicado pelo número total de trabalhos, multiplicado pelo preço por hora de computação da API de produção. Quando você usa a calculadora Machine Learning, a métrica de transação representa o número de trabalhos que planeja enviar e o tempo por campo de transação representa o tempo combinado necessário para execução de todas as linhas em cada trabalho.
 
@@ -465,7 +469,13 @@ Sim, os serviços Web clássicos ainda estão disponíveis no Azure Machine Lear
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Camadas Gratuita e Standard do Machine Learning
 **O que está incluído na Camada gratuita do Aprendizado de Máquina do Azure?**
 
-A camada Gratuita do Aprendizado de Máquina do Azure tem o objetivo de fornecer uma introdução abrangente ao Estúdio de Aprendizado de Máquina do Azure. Tudo o que você precisa é de uma conta da Microsoft para se conectar. A Camada gratuita inclui acesso gratuito a um espaço de trabalho do Estúdio de Aprendizado de Máquina do Azure por [conta da Microsoft](https://www.microsoft.com/account/default.aspx). Nessa camada, você pode usar até 10 GB de armazenamento e colocar em operação modelos como APIs de preparo. Cargas de trabalho de camada gratuita não são cobertas por um SLA e destinam-se ao desenvolvimento e uso pessoal. As cargas de trabalho de camada gratuita não podem acessar dados conectando-se a um servidor local que executa o SQL Server.
+A camada Gratuita do Aprendizado de Máquina do Azure tem o objetivo de fornecer uma introdução abrangente ao Estúdio de Aprendizado de Máquina do Azure. Tudo o que você precisa é de uma conta da Microsoft para se conectar. A Camada gratuita inclui acesso gratuito a um espaço de trabalho do Estúdio de Aprendizado de Máquina do Azure por [conta da Microsoft](https://www.microsoft.com/account/default.aspx). Nessa camada, você pode usar até 10 GB de armazenamento e colocar em operação modelos como APIs de preparo. Cargas de trabalho de camada gratuita não são cobertas por um SLA e destinam-se ao desenvolvimento e uso pessoal. 
+
+Os espaços de trabalho da camada gratuita têm as limitações a seguir:
+
+* As cargas de trabalho não podem acessar dados conectando-se a um servidor local que executa o SQL Server.
+* Não é possível implantar os serviços Web base do Novo Gerenciador de Recursos.
+
 
 **O que está incluso na camada e nos planos Standard do Aprendizado de Máquina do Azure?**
 

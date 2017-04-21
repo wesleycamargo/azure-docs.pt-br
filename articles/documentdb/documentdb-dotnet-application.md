@@ -16,20 +16,20 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 9b24fe8139d50b7c37a380fcc52b7ac302f5ee5d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativos Web com o Banco de Dados de Documentos
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-get-started.md)
-> * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
-> * [Node.js](documentdb-nodejs-get-started.md)
-> * [C++](documentdb-cpp-get-started.md)
->  
+> * [.NET](documentdb-dotnet-application.md)
+> * [.NET para MongoDB](documentdb-mongodb-application.md)
+> * [Node.js](documentdb-nodejs-application.md)
+> * [Java](documentdb-java-application.md)
+> * [Python](documentdb-python-application.md)
+> 
 > 
 
 Para destacar como você pode aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este artigo fornece um passo a passo completo que mostra como compilar um aplicativo de lista de tarefas pendentes usando o Banco de Dados de Documentos do Azure. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos do Azure.
@@ -64,7 +64,7 @@ Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se j�
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
 <br/>
- Agora vamos abordar como criar um novo aplicativo ASP.NET MVC desde o início. 
+Agora vamos abordar como criar um novo aplicativo ASP.NET MVC desde o início. 
 
 ## <a name="_Toc395637762"></a>Etapa 2: criar um novo aplicativo ASP.NET MVC
 Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
@@ -559,7 +559,7 @@ Se receber a mensagem "Erro ao processar a solicitação" ao tentar implantar o 
     - Região: selecione a região mais próxima dos usuários do aplicativo
     - Servidor de banco de dados: nenhum banco de dados, clique em **Criar**. 
 
-4. Na "tela todo-net-app *", clique em **Validar Conexão**. Depois que a conexão for verificada, **Publicar**. 
+4. Na “tela todo-net-app *", clique em **Validar Conexão**. Depois que a conexão for verificada, **Publicar**. 
     
     O aplicativo é então exibido em seu navegador.
 
