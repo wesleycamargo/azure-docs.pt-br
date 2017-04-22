@@ -32,7 +32,7 @@ ms.lasthandoff: 03/01/2017
 > * [CLI 1.0 do Azure](application-gateway-create-gateway-cli.md)
 > * [CLI 2.0 do Azure](application-gateway-create-gateway-cli.md)
 
-O Azure Application Gateway é um balanceador de carga de camada&7;. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL (protocolo SSL), investigações de integridade personalizadas e suporte para vários sites.
+O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL (protocolo SSL), investigações de integridade personalizadas e suporte para vários sites.
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
 
