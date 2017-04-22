@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 9f664b07566fe78d93b1e35a2e0f7e5513960fad
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -31,14 +32,23 @@ A imagem a seguir mostra a caixa de diálogo **Pontos de Extremidade de Serviço
 Na caixa de diálogo **Pontos de Extremidade de Serviço** , execute uma das seguintes ações:
 
 * Se deseja usar a plataforma global do Azure, na lista suspensa **Conjunto Ativo**, selecione **windowsazure.com** e clique em **OK**.
+
 * Se deseja usar o Azure operado pela 21Vianet na China, a partir da lista suspensa **Conjunto Ativo**, selecione **windowsazure.cn (China)** e clique em **OK**.
+
 * Se quiser usar uma plataforma privada do Azure:
+
   1. Clique em **Editar**.
+
   2. Uma caixa de diálogo será aberta, informando que a caixa de diálogo **Pontos de Extremidade de Serviço** será fechada e o arquivo de definições de preferência será aberto. Clique em **OK**.
+
   3. No arquivo preferencesets.xml, crie um novo elemento `preferenceset` . Para esse novo elemento, crie atributos `name`, `blob`, `management`, `portalURL` e `publishsettings` e adicione valores para que correspondam à sua plataforma privada do Azure. Você pode usar os valores fornecidos para os elementos `preferenceset` existentes como modelos. **Observação**: o valor usado para o atributo `blob` deve conter o texto "blob" na URL.
+
   4. Salve e feche preferencesets.xml.
+
   5. Reabra a caixa de diálogo **Pontos de Extremidade de Serviço** .
+
   6. Na lista suspensa **Conjunto Ativo**, selecione o ativo definido que você criou e clique em **OK**.
+
   7. Depois de criar seu elemento `preferenceset` da plataforma privada do Azure, você pode alterar os valores atribuídos a ele clicando no botão **Editar** na caixa de diálogo **Ponto de Extremidade de Serviços**. Se desejar, você também pode criar vários elementos `preferenceset` de plataformas privadas do Azure.
 
 ## <a name="see-also"></a>Consulte também
@@ -62,9 +72,4 @@ Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvo
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
