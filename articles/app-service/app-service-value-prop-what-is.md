@@ -83,7 +83,7 @@ Se precisar de mais escalabilidade e isolamento da rede, execute os aplicativos 
 Para saber mais sobre os custos do Serviço de Aplicativo, confira [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>Serviço de Aplicativo orientado a teste
-[Crie um aplicativo Web, um aplicativo móvel ou um aplicativo lógico de exemplo](https://azure.microsoft.com/try/app-service/) e use-o por&1; hora, sem nenhum cartão de crédito, comprometimento ou inconvenientes.
+[Crie um aplicativo Web, um aplicativo móvel ou um aplicativo lógico de exemplo](https://azure.microsoft.com/try/app-service/) e use-o por 1 hora, sem nenhum cartão de crédito, comprometimento ou inconvenientes.
 
 Ou abra uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/)e experimente um de nossos tutoriais de introdução:
 
