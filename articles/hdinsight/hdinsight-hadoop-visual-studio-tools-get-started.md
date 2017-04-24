@@ -10,15 +10,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: ce9c572a-1e98-46bf-9581-13a9767f1fa5
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 03/07/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 86641734634df131fd366e0b9e7cc6f0d4e54b7e
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -31,17 +33,11 @@ As Ferramentas do Data Lake para Visual Studio podem ser usadas para acessar Dat
 
 Para concluir este tutorial e usar as ferramentas do Data Lake no Visual Studio, você precisará do seguinte:
 
-* Um cluster Azure do HDInsight: um cluster baseado em Windows ou Linux funcionará com as etapas neste documento. Consulte o seguinte para obter informações sobre como criar um cluster:
-  
-  * [Introdução ao HDInsight baseado em Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
-  * [Introdução ao HDInsight baseado no Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
+* Um cluster Azure HDInsight: para criar um, confira [Começar a usar o HDInsight baseado em Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 * Uma estação de trabalho com o seguinte software:
   
-  * Windows 8.1, Windows 8 ou Windows 7
-  * Visual Studio (uma das versões a seguir):
-    
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate com [Atualização 4](https://www.microsoft.com/download/details.aspx?id=44921)
-    * Visual Studio 2015 (Community/Enterprise)
+  * Windows 10, Windows 8.1, Windows 8, ou Windows 7.
+  * Visual Studio 2013/2015/2017.
     
     > [!NOTE]
     > Atualmente, as ferramentas do Data Lake para Visual Studio são fornecidas apenas na versão em inglês.
@@ -49,7 +45,8 @@ Para concluir este tutorial e usar as ferramentas do Data Lake no Visual Studio,
     > 
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Instalar Ferramentas do Data Lake para Visual Studio
-Você pode instalar as Ferramentas do Data Lake usando o [Web Platform Installer](https://www.microsoft.com/web/downloads/). Você deve escolher aquela que corresponde à sua versão do Visual Studio. Se não tiver instalado o Visual Studio, você poderá instalar a mais recente Visual Studio Community e o SDK do Azure usando o [Web Platform Installer](https://www.microsoft.com/web/downloads/):
+
+As Ferramentas do Data Lake estão instaladas por padrão no Visual Studio 2017. Em versões antigas, você pode instalá-las usando o [Web Platform Installer](https://www.microsoft.com/web/downloads/). Você deve escolher aquela que corresponde à sua versão do Visual Studio. Se não tiver instalado o Visual Studio, você poderá instalar a mais recente Visual Studio Community e o SDK do Azure usando o [Web Platform Installer](https://www.microsoft.com/web/downloads/):
 
 ![Web Platform installer de Ferramentas do Data Lake para Visual Studio.][1]
 
@@ -128,7 +125,7 @@ Todos os clusters HDInsight são fornecidos com uma tabela Hive de exemplo chama
    
     ![Ferramentas do Data Lake: criar tabela hive das Ferramentas do HDInsight para Visual Studio][7]
 
-### <a name="a-namerunqueriesavalidate-and-run-hive-queries"></a><a name="run.queries"></a>Validar e executar consultas do Hive
+### <a name="run.queries"></a>Validar e executar consultas do Hive
 Há duas maneiras de criar e executar consultas Hive:
 
 * Criar consultas locais
@@ -278,9 +275,4 @@ Neste artigo, você aprendeu como se conectar a clusters HDInsight no Visual Stu
 [hdinsight.access.application.logs]: hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

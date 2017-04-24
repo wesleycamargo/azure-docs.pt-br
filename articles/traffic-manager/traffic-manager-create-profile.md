@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
@@ -39,7 +39,7 @@ Neste artigo, dois pontos de extremidade de aplicativo Web do Azure anteriorment
     6. Clique em **Criar**.
     7. Quando a implantação global do seu perfil do Gerenciador de Tráfego estiver concluída, ela será listada no respectivo grupo de recursos como um dos recursos.
 
-![Criar um perfil do Gerenciador de Tráfego](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
+    ![Criar um perfil do Gerenciador de Tráfego](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
 
@@ -57,7 +57,7 @@ Neste artigo, dois pontos de extremidade de aplicativo Web do Azure anteriorment
 5.    Repita as etapas 3 e 4 para o próximo ponto de extremidade de Aplicativos Web do Azure. Certifique-se de adicioná-lo com o valor de **Prioridade** definido como **2**.
 6.    Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos na folha **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
-![Adicionar um ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
+    ![Adicionar um ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Usar o perfil do Gerenciador de Tráfego
 1.    Na barra de pesquisa do portal, procure o nome do **Perfil do Gerenciador de Tráfego** criado na seção anterior. Nos resultados exibidos, clique no perfil do gerenciador de tráfego.

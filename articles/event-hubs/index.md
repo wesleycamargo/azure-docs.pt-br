@@ -13,13 +13,13 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a7759c242057e5190fcef6952303a770a3277b55
-ms.openlocfilehash: b3bbbefea5b2bffd8cdee1b93d7bd8bcf808bef0
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d6ed0042e91c011700022d84b548f90d2610c4ad
+ms.lasthandoff: 04/18/2017
 
 ---
 
-#<a name="event-hubs-documentation"></a>Documentação dos Hubs de Eventos
+# <a name="event-hubs-documentation"></a>Documentação dos Hubs de Eventos
 
 Saiba como usar os Hubs de Eventos para coletar e gerenciar milhões de eventos por segundo de aplicativos e dispositivos IoT conectados. Os tutoriais, as referências de API e outras documentações mostram como configurar a ingestão escalonável de eventos em uma ampla variedade de plataformas.
 
@@ -106,11 +106,20 @@ Saiba como usar os Hubs de Eventos para coletar e gerenciar milhões de eventos 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">Microsoft.Azure.EventHubs</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.eventhubs.processor">Microsoft.Azure.EventHubs.Processor</a></p>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.servicebus.eventprocessorhost">Microsoft.Azure.ServiceBus.EventProcessorHost</a></p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/module/azurerm.eventhub/">PowerShell</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Linguagens</h3>
+                        <p><a href="/dotnet/api/">Navegador de API do .NET</a></p>
                    </div>
                 </div>
             </div>
@@ -134,9 +143,8 @@ Saiba como usar os Hubs de Eventos para coletar e gerenciar milhões de eventos 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="/rest/api/eventhub">REST</a></h3>
-                        <p><a href="/azure/event-hubs/event-hubs-messaging-exceptions">Exceções</a></p>
-                        <p><a href="/azure/event-hubs/event-hubs-quotas">Cotas</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/eventhub">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>

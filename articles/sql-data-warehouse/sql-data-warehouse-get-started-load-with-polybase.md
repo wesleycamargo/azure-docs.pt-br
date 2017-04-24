@@ -4,7 +4,7 @@ description: "Saiba o que é o PolyBase e como usá-lo em cenários de data ware
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
-manager: barbkess
+manager: jhubbard
 editor: 
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
@@ -12,12 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: cakarst;barbkess
+ms.custom: loading
+ms.date: 03/01/2017
+ms.author: cakarst
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 4ca929b2be7fe17e140a9daca01a25ac903e8c76
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 03d4c2a75ff99a55aaa58ca76d6145fd0eec9fac
+ms.lasthandoff: 04/18/2017
+
 
 
 ---

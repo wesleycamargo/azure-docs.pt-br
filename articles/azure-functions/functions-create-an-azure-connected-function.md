@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -33,7 +33,7 @@ Você pode ver esse cenário demonstrado em um [vídeo no Channel 9](https://cha
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Criar uma função que grava na fila
 
-Antes de você se conectar a uma fila de armazenamento, você precisa criar uma função que carrega a fila de mensagens. Essa função de JavaScript usa um gatilho de temporizador que grava uma mensagem na fila a cada 10 segundos. Se você ainda não tiver uma conta do Azure, confira a experiência [Experimentar Azure Functions](https://functions.azure.com/try) ou [crie sua conta gratuita do Azure](https://azure.microsoft.com/free/).
+Antes de você se conectar a uma fila de armazenamento, você precisa criar uma função que carrega a fila de mensagens. Essa função de JavaScript usa um gatilho de temporizador que grava uma mensagem na fila a cada 10 segundos. Se você ainda não tiver uma conta do Azure, confira a experiência [Experimentar o Azure Functions](https://functions.azure.com/try) ou [crie sua conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 1. Acesse o Portal do Azure e localize o aplicativo de funções.
 
@@ -126,7 +126,7 @@ Agora que você tem mensagens sendo adicionadas à fila, você pode criar outra 
 
     ![Adicionar uma associação a uma tabela de Armazenamento do Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Insira `TableItem` para **Nome de tabela** e `functionbindings` para **Nome de parâmetro de tabela**, escolha uma **Conexão da conta de armazenamento** ou crie uma nova e, em seguida, clique em **Salvar**.
+2. Insira `functionbindings` para **Nome de tabela** e `myTable` para **Nome de parâmetro de tabela**, escolha uma **Conexão da conta de armazenamento** ou crie uma nova e, em seguida, clique em **Salvar**.
 
     ![Configurar a Associação da tabela de armazenamento](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -181,7 +181,7 @@ Agora que você tem mensagens sendo adicionadas à fila, você pode criar outra 
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja estes tópicos para obter mais informações sobre o Azure Functions.
+Confira estes tópicos para obter mais informações sobre o Azure Functions:
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
   Referência do programador para codificação de funções e definição de gatilhos e de associações.

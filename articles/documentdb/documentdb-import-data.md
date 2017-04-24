@@ -106,7 +106,7 @@ A cadeia de conexão está no formato padrão do MongoDB:
 > 
 > 
 
-Digite o nome da coleção por meio da qual os dados serão importados. Você pode opcionalmente especificar ou fornecer um arquivo para uma consulta (por exemplo, {pop: {$gt:&5000;}}) e/ou uma projeção (por exemplo, {loc:0}) para filtrar e moldar os dados a serem importados.
+Digite o nome da coleção por meio da qual os dados serão importados. Você pode opcionalmente especificar ou fornecer um arquivo para uma consulta (por exemplo, {pop: {$gt: 5000}}) e/ou uma projeção (por exemplo, {loc:0}) para filtrar e moldar os dados a serem importados.
 
 Aqui estão alguns exemplos de linha de comando para importar por meio do MongoDB:
 
@@ -410,7 +410,7 @@ Para importar para uma única coleção, digite o nome da coleção à qual os d
 2. Você pode usar uma sintaxe abreviada: collection[3] emitirá o mesmo conjunto de coleções mencionado na etapa 1.
 3. Mais de uma substituição pode ser fornecida. Por exemplo, a coleção [0-1] [0-9] gerará 20 nomes de coleção com zeros à esquerda (collection01... 02,... 03).
 
-Depois de especificar o(s) nome(s) de coleção, escolha a taxa de transferência desejada da(s) coleção(ões) (de 400 a 250.000 RUs). Para uma importação com melhor desempenho, escolha uma taxa de transferência maior. Para obter mais informações sobre níveis de desempenho, confira [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md). Qualquer importação para coleções com taxa de transferência acima de&10;.000 RUs exigirá uma chave de partição. Se optar por ter mais de 250.000 RUs, você precisará fazer uma solicitação no portal para aumento da conta.
+Depois de especificar o(s) nome(s) de coleção, escolha a taxa de transferência desejada da(s) coleção(ões) (de 400 a 250.000 RUs). Para uma importação com melhor desempenho, escolha uma taxa de transferência maior. Para obter mais informações sobre níveis de desempenho, confira [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md). Qualquer importação para coleções com taxa de transferência acima de 10.000 RUs exigirá uma chave de partição. Se optar por ter mais de 250.000 RUs, você precisará fazer uma solicitação no portal para aumento da conta.
 
 > [!NOTE]
 > A configuração de taxa de transferência só se aplica à criação da coleção. Se a coleção especificada já existir, sua taxa de transferência não será modificada.

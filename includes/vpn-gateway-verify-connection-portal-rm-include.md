@@ -5,9 +5,3 @@ No portal do Azure, você pode exibir o status da conexão de um Gateway de VPN 
 3. Clique no nome da conexão que você deseja verificar para abrir **Essentials**. No Essentials, você pode exibir mais informações sobre a conexão. O **Status** será 'Êxito' e 'Conectado' quando você tiver feito uma conexão bem-sucedida.
    
     ![Verifique a conexão do Gateway de VPN usando o portal do Azure](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

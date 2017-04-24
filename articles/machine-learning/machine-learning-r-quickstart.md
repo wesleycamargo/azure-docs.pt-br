@@ -610,7 +610,7 @@ A classe de série de tempo POSIXct é comumente usada e é relativamente simple
 <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ### <a name="time-series-object-example"></a>Exemplo de objeto de série temporal
-Vamos começar com o nosso exemplo. Arraste e solte um **novo** módulo [Executar Script R][execute-r-script] em seu experimento. Conecte a porta de saída do Conjunto de Dados de Resultado&1; do módulo [Executar Script R][execute-r-script] existente à porta de entrada do Conjunto de Dados de Resultado&1; do novo módulo [Executar Script R][execute-r-script].
+Vamos começar com o nosso exemplo. Arraste e solte um **novo** módulo [Executar Script R][execute-r-script] em seu experimento. Conecte a porta de saída do Conjunto de Dados de Resultado 1 do módulo [Executar Script R][execute-r-script] existente à porta de entrada do Conjunto de Dados de Resultado 1 do novo módulo [Executar Script R][execute-r-script].
 
 Como fiz nos primeiros exemplos, ao progredirmos no exemplo, em alguns pontos vou mostrar apenas as linhas adicionais incrementais do código R em cada etapa.  
 
@@ -887,7 +887,7 @@ Nosso modelo de previsão terá dois componentes, um componente de tendência e 
 O código R completo para esta seção está disponível no arquivo zip baixado anteriormente.
 
 ### <a name="creating-the-dataframe-for-analysis"></a>Criando o dataframe para análise
-Comece adicionando um **novo** módulo [Executar Script R][execute-r-script] ao seu experimento. Conecte a saída do **Conjunto de Dados de Resultado** do módulo [Executar Script R][execute-r-script] existente à entrada do **Conjunto de Dados&1;** do novo módulo. O resultado deve ser semelhante a Figura 20.
+Comece adicionando um **novo** módulo [Executar Script R][execute-r-script] ao seu experimento. Conecte a saída do **Conjunto de Dados de Resultado** do módulo [Executar Script R][execute-r-script] existente à entrada do **Conjunto de Dados 1** do novo módulo. O resultado deve ser semelhante a Figura 20.
 
 ![O teste com o novo módulo Executar Script R adicionado][21]
 
@@ -1249,7 +1249,7 @@ Alguns ótimos recursos na Internet:
 * DataCamp: DataCamp ensina R no conforto de seu navegador, com lições em vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R e os pacotes mais recentes. Obtenha o tutorial de R interativo gratuitamente em https://www.datacamp.com/courses/introduction-to-r
 * Um guia de Introdução ao R de Programiz https://www.programiz.com/r-programming
 * A quick R tutorial, por Kelly Black, da Clarkson University, http://www.cyclismo.org/tutorial/R/
-* Mais de&60; recursos de R listados em http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
+* Mais de 60 recursos de R listados em http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
 [1]: ./media/machine-learning-r-quickstart/fig1.png

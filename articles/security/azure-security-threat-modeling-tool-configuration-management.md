@@ -397,7 +397,7 @@ public class ResourcesController : ApiController
 | Referências              | [Permitindo solicitações entre origens (CORS) no ASP.NET Core 1.0](https://docs.asp.net/en/latest/security/cors.html) |
 | Etapas | <p>No ASP.NET 1.0, o CORS pode ser habilitado com o middleware ou o MVC. Quando o MVC é usado para habilitar o CORS, os mesmos serviços do CORS são usados, mas o middleware CORS não.</p>|
 
-**Abordagem&1;** Habilitar o CORS com middleware: para habilitar o CORS para todo o aplicativo, adicione o middleware do CORS ao pipeline de solicitação usando o método da extensão UseCors. Uma política entre origens pode ser especificada quando o middleware do CORS for adicionado usando a classe CorsPolicyBuilder. Há duas maneiras de fazer isso:
+**Abordagem 1** Habilitar o CORS com middleware: para habilitar o CORS para todo o aplicativo, adicione o middleware do CORS ao pipeline de solicitação usando o método da extensão UseCors. Uma política entre origens pode ser especificada quando o middleware do CORS for adicionado usando a classe CorsPolicyBuilder. Há duas maneiras de fazer isso:
 
 ### <a name="example"></a>Exemplo
 A primeira é chamar UseCors com um lambda. O lambda utiliza um objeto CorsPolicyBuilder: 
@@ -432,7 +432,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-**Abordagem&2;** Habilitar o CORS no MVC: os desenvolvedores podem usar o MVC como uma alternativa aplicar um CORS específico por ação, por controlador ou globalmente para todos os controladores.
+**Abordagem 2** Habilitar o CORS no MVC: os desenvolvedores podem usar o MVC como uma alternativa aplicar um CORS específico por ação, por controlador ou globalmente para todos os controladores.
 
 ### <a name="example"></a>Exemplo
 Por ação: para especificar uma política de CORS para uma ação específica, adicione o atributo [EnableCors] à ação. Especifique o nome da política. 

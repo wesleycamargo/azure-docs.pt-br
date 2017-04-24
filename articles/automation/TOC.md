@@ -1,17 +1,20 @@
 # Visão geral
 ## [O que é a Automação do Azure?](automation-intro.md)
 # Introdução
+## [Introdução à Automação do Azure](automation-offering-get-started.md)
 ## Tutorial de runbook
 ### [Criar runbook gráfico](automation-first-runbook-graphical.md)
 ### [Criar runbook do PowerShell](automation-first-runbook-textual-powershell.md)
 ### [Criar runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 # Como
 ## Autenticação e segurança
-### [Autenticação na Automação do Azure](automation-security-overview.md)
-### [Configurar conta Executar como do Azure](automation-sec-configure-azure-runas-account.md)
-### [Configurar conta de Usuário do Azure AD](automation-sec-configure-aduser-account.md)
-### [Configurar autenticação com o AWS](automation-sec-configure-aws-account.md)
+### [Criar conta de Automação autônoma](automation-create-standalone-account.md)
+### [Criar conta de Usuário do Azure AD](automation-create-aduser-account.md)
+### [Configurar Autenticação com o AWS](automation-config-aws-account.md)
+### [Criar conta Executar Como do Azure com o PowerShell](automation-update-account-powershell.md)
+### [Validar a configuração da conta de Automação](automation-verify-runas-authentication.md)
 ### [Gerenciar controle de acesso baseado em função](automation-role-based-access-control.md)
+### [Gerenciar conta de Automação](automation-manage-account.md)
 ## Criar runbooks
 ### [Tipos de runbook](automation-runbook-types.md)
 ### [Criar e importar runbooks](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (Clássico)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (Clássico)](https://msdn.microsoft.com/library/azure/mt163781)
 # Recursos
 ## [Notas de versão](https://azure.microsoft.com/updates/?product=automation)

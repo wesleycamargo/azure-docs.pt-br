@@ -65,7 +65,7 @@ Nesta seção, você criará um cluster Spark no HDInsight usando um [modelo do 
 Nesta seção, você usa um bloco de anotações do Jupyter para executar consultas do Spark SQL em relação ao cluster Spark. Os clusters HDInsight Spark fornecem três kernels que você pode usar com o bloco de anotações do Jupyter. Estes são:
 
 * **PySpark** (para aplicativos escritos em Python)
-* **PySpark3** (para aplicativos escritos em Python&3;)
+* **PySpark3** (para aplicativos escritos em Python 3)
 * **Spark** (para aplicativos escritos em Scala)
 
 Neste artigo, você usa o kernel do **PySpark**. Para saber mais sobre os três kernels, consulte [clusters kernels de blocos de anotações do Jupyter de uso com o Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Alguns dos principais benefícios de usar o kernel PySpark são:
