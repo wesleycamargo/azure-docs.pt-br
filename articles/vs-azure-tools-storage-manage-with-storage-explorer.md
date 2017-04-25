@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
-ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 07b62cd6f6deb0cf3ff1c806204ebc26c773a164
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -57,6 +58,67 @@ O Gerenciador de Armazenamento (Visualização) fornece várias maneiras de se c
 4. O painel esquerdo exibe as contas de armazenamento associadas às assinaturas do Azure selecionadas.
 
     ![Assinaturas do Azure selecionadas][4]
+
+## <a name="connect-to-an-azure-stack-subscription"></a>Conexão com uma assinatura do Azure Stack
+
+1. Uma conexão VPN é necessária para que o Gerenciador de armazenamento acesse a assinatura do Azure Stack remotamente. Para saber mais sobre como configurar a conexão VPN para o Azure Stack, confira [Como conectar-se com o Azure com VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn)
+
+2. Para o POC do Azure Stack, você precisa exportar o certificado de raiz da autoridade do Azure Stack. Abra `mmc.exe` em CON01-MAS, Azure Stack host ou em uma máquina local com a conexão VPN para o Azure Stack. Em **Arquivo**, selecione **Adicionar/Remover Snap-in** e adicione **Certificados** para gerenciar a **conta de computador** do **computador local**.
+
+   ![Como carregar o certificado de raiz do Azure Stack por meio do mmc.exe][25]   
+
+   Localize o **AzureStackCertificationAuthority** que pode ser encontrado em **Raiz do console\Certificado (Computador local)\Autoridades de certificação de raiz confiável\Certificados**. Clique com o botão direito no item e selecione **Todas as tarefas -> Exportar**. Em seguida, siga as caixas de diálogo para exportar o certificado **X.509 codificado com Base 64 (.CER)**. O certificado exportado será usado na próxima etapa.   
+
+   ![Como exportar o certificado raiz de autorização do Azure Stack raiz][26]   
+
+3. No Gerenciador de armazenamento (visualização), selecione o menu **Editar**, em seguida, **Certificados SSL**, em seguida, **Importar certificados**. Use a caixa de diálogo do seletor de arquivos para localizar e abrir o certificado que você explorou na etapa anterior. Após a importação, você será solicitado para reiniciar o Gerenciador de armazenamento.
+
+   ![Importe o certificado no Gerenciador de armazenamento (visualização)][27]
+
+4. Depois que o Gerenciador de armazenamento (visualização) reiniciar, selecione o menu **Editar** e confira se o **Destino do Azure Stack** está marcado. Se não estiver, marque-o e reinicie o Gerenciador de armazenamento para que a alteração tenha efeito. Essa configuração é necessária para que haja compatibilidade com seu ambiente do Azure Stack.
+
+   ![Confira se o Destino Azure Stack está selecionado][28]
+
+5. Na barra do lado esquerdo, selecione **Gerenciar contas**. O painel esquerdo exibe todas as contas da Microsoft nas quais você se registrou. Para conectar-se com a conta do Azure Stack, selecione **Adicionar uma conta**.
+
+   ![Adicionar uma conta do Azure Stack][29]
+
+6. Escolha **Criar ambiente personalizado** que pode ser encontrado em **Ambiente Azure** na caixa de diálogo **Adicionar nova conta** e, em seguida, clique em **Próximo**.
+
+7. Insira todas as informações necessárias do ambiente personalizado do Azure Stack e, em seguida, clique em **Entrar**.  Preencha a caixa de diálogo **Entrar em um ambiente de nuvem personalizada** para entrar com a conta do Azure Stack associada a pelo menos uma assinatura ativa do Azure Stack. Veja em seguida os detalhes para cada campo na caixa de diálogo:
+
+    * **Nome do ambiente** – o campo pode ser personalizado pelo usuário.
+    * **Autoridade** – o valor deve ser https://login.windows.net. Para o Azure na China (Mooncake), use https://login.chinacloudapi.cn.
+    * **ID do recurso de conexão** – execute o PowerShell a seguir para obter o valor:
+
+    Se você for um administrador de nuvem:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    Se você for um locatário:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    * **Ponto de extremidade de gráfico** – o valor deve ser https://graph.windows.net. Para o Azure na China (Mooncake), use https://graph.chinacloudapi.cn.
+    * **Id de recurso do ARM** – use o mesmo valor como ID do recurso de conexão.
+    * **O ponto de extremidade dos recursos do ARM** – as amostras de ponto de extremidade dos recursos do ARM:
+
+    Para o administrador de nuvem: https://adminmanagement.local.azurestack.external   
+    Para o locatário: https://management.local.azurestack.external
+ 
+    * **Ids de locatário** – opcional. O valor é fornecido apenas quando o diretório deve ser especificado.
+
+8. Depois de entrar com êxito usando uma conta do Azure Stack, o painel esquerdo é preenchido com as assinaturas do Azure Stack associadas à conta. Selecione as assinaturas do Azure Stack com as quais você deseja trabalhar e, então, selecione **Aplicar**. (A escolha dos botões **Todas as assinaturas** seleciona todas ou nenhuma das assinaturas do Azure Stack listadas.)
+
+   ![Selecione as assinaturas do Azure Stack depois de preencher a caixa de diálogo do ambiente de nuvem personalizada][30]
+
+9. O painel esquerdo exibe as contas de armazenamento associadas às assinaturas do Azure Stack selecionadas.
+
+   ![Lista de contas de armazenamento, incluindo contas de assinatura do Azure Stack][31]
 
 ## <a name="work-with-local-development-storage"></a>Trabalhar com o armazenamento de desenvolvimento local
 O Gerenciador de Armazenamento (Preview) permite que você trabalhe no armazenamento local usando o Emulador de Armazenamento do Azure. Isso permite que você escreva códigos e teste o armazenamento sem necessariamente ter uma conta de armazenamento implantada no Azure (uma vez que a conta de armazenamento está sendo emulada pelo Emulador de Armazenamento do Azure).
@@ -207,9 +269,11 @@ Para limpar a pesquisa, escolha o botão **x** na caixa de pesquisa.
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+[25]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-certificate-azure-stack.png
+[26]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/export-root-cert-azure-stack.png
+[27]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/import-azure-stack-cert-storage-explorer.png
+[28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
+[29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
+[30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
 

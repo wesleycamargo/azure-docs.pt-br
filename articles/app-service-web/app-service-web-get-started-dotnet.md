@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: b575e92d2140ecc0e0f30186302e7733e08d0415
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 24ddf0d81e52960bd582861d324585b8ba0ca357
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/04/2017
 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-Este Início Rápido ajuda a implantar seu primeiro aplicativo Web ASP.NET para [o Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) em apenas alguns minutos. Após a conclusão, você terá um aplicativo Web simples em funcionamento na nuvem.
+Este Início Rápido ajuda a implantar seu primeiro aplicativo Web ASP.NET para [o Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) em apenas alguns minutos. Após a conclusão, você terá um aplicativo Web simples em execução na nuvem.
 
 ![Aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
@@ -159,7 +159,7 @@ Vá para o portal do Azure para examinar o aplicativo Web que você acabou de cr
 
 Para fazer isso, entre em [https://portal.azure.com](https://portal.azure.com).
 
-No menu à esquerda, clique em **Serviço de Aplicativo**, em seguida, clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda, clique em **Serviço de Aplicativos** e, em seguida, clique no nome do seu aplicativo Web do Azure.
 
 ![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-dotnet/access-portal.png)
 

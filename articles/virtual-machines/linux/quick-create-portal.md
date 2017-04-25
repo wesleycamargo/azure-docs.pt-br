@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 25ffd1c5bf289fa98a4b350eb916b386eee7f05c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Máquinas virtuais do Azure podem ser criadas por meio do Portal do Azure. Esse método fornece uma interface do usuário baseada em navegador para a criação e configuração de máquinas virtuais e todos os recursos relacionados. Esse Início Rápido percorre a criação de uma máquina virtual usando o portal do Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-ssh-key-pair"></a>Criar o par de chaves SSH
 
@@ -52,9 +52,9 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
     ![Insira as informações básicas sobre sua VM na folha do portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. Escolha um tamanho para a VM e clique em **Selecionar**. 
+4. Escolha um tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos os** ou altere o filtro **Tipo de disco com suporte**. 
 
-    ![Selecione um tamanho para a sua VM na folha do portal](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![A captura de tela que mostra os tamanhos da VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. Na folha de configurações, selecione **Sim** em **Usar discos gerenciados**, mantenha os padrões para o restante das configurações e clique em **OK**.
 
@@ -68,10 +68,10 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 Por padrão, somente as conexões de SSH são permitidas em máquinas virtuais Linux implantadas no Azure. Se essa VM for se transformar em um servidor Web, você precisará abrir a porta 80 para o tráfego da Web. Esta etapa orienta a criação de uma regra NSG (grupo de segurança de rede) para permitir conexões de entrada na porta 80.
 
 1. Na folha da máquina virtual, na seção **Conceitos básicos**, clique no nome do **Grupo de recursos**.
-2. Na folha do grupo de recursos, clique no **Grupo de segurança de rede** na lista de recursos. O nome NSG deve ser o nome da VM com - nsg acrescentado ao final.
+2. Na folha do grupo de recursos, clique no **Grupo de segurança da rede** na lista de recursos. O nome NSG deve ser o nome da VM com - nsg acrescentado ao final.
 3. Clique no cabeçalho **Regra de Segurança de Entrada** para abrir a lista de regras de entrada. Você deve ver uma regra de RDP já na lista.
 4. Clique em **+ Adicionar** para abrir a folha **Adicionar regra de segurança de entrada**.
-5. Em **Nome**, digite **nginx** e certifique-se de que o **Intervalo de porta** está definido como 80 e **Ação** está definido como **Permitir** e, em seguida, clique em **OK**.
+5. Em **Nome**, digite **nginx**. Verifique se o **Intervalo de portas** está definido para 80 e a **Ação** está definida para **Permitir**. Clique em **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
@@ -104,7 +104,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Exibir a página de boas-vindas do NGIX
 
-Com o NGINX instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do NGINX padrão. Use `publicIpAddress` que você documentou acima para visitar a página padrão. 
+Com o NGINX instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do NGINX padrão. Use `publicIpAddress` que você documentou para visitar a página padrão. 
 
 ![Site padrão NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Excluir máquina virtual

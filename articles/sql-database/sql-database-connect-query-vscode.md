@@ -15,18 +15,18 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Use Visual Studio Code para se conectar e consultar dados
 
-O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para o Linux, macOS e Windows que oferece suporte às extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o SQL Data Warehouse. Este início rápido demonstra como usar o Visual Studio Code para conectar um banco de dados SQL do Azure, então, usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir os dados no banco de dados.
+O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para o Linux, macOS e Windows que oferece suporte às extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, Banco de Dados SQL do Azure e SQL Data Warehouse. Este início rápido demonstra como usar o Visual Studio Code para conectar um banco de dados SQL do Azure, então, usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir os dados no banco de dados.
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
@@ -38,7 +38,7 @@ Antes de começar, verifique se você instalou a versão mais recente do [Visual
 ## <a name="configure-vs-code-mac-os-only"></a>Configurar o VS Code (somente Mac OS)
 
 ### <a name="mac-os"></a>**Mac OS**
-Para o macOS, você precisará instalar o OpenSSL, que é um pré-requisito do DotNet Core a extensão mssql usa. Abra seu terminal e digite os seguintes comandos para instalar **brew** e **OpenSSL***. 
+Para o macOS, você precisa instalar o OpenSSL, que é um pré-requisito do DotNet Core a extensão mssql usa. Abra seu terminal e digite os seguintes comandos para instalar o **brew** e o **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -55,9 +55,11 @@ Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Da
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor** para usar posteriormente neste inicio rápido.
+3. Na página **Visão geral** do banco de dados, examine o nome totalmente qualificado do servidor, como mostrado na imagem a seguir. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**.
 
-    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![informações da conexão](./media/sql-database-connect-query-ssms/connection-information.png) 
+
+4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL, navegue até a página do servidor para exibir o nome de administrador do servidor e, se necessário, redefinir a senha. 
 
 ## <a name="set-language-mode-to-sql"></a>Definir o modo de linguagem para SQL
 
@@ -65,17 +67,22 @@ Defina o modo de linguagem como **SQL** no Visual Studio Code para permitir coma
 
 1. Abra uma nova janela do Visual Studio Code. 
 
-2. Pressione **⌘+K,M** ou **CTRL+K,M** (opções do Mac e Windows, respectivamente), digite **SQL** e pressione **ENTER** para definir o modo de linguagem para SQL. 
+2. Clique em **Texto sem Formatação** no canto inferior direito da barra de status.
+3. No menu suspenso **Selecionar modo de linguagem** aberto, digite **SQL**e pressione **ENTER** para definir o modo de linguagem para SQL. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
+   ![Modo de linguagem SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-the-server"></a>Conectar ao servidor
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Conectar o banco de dados no servidor lógico do Banco de Dados SQL
 
 Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco de Dados SQL do Azure.
 
+> [!IMPORTANT]
+> Antes de continuar, verifique se você tem seu servidor, banco de dados e informações de logon prontos. Depois que você começar a inserir as informações de perfil da conexão, se você mudar o foco do Visual Studio Code, terá que reiniciar a criação do perfil de conexão.
+>
+
 1. No VS Code, pressione **CTRL + SHIFT + P** (ou **F1**) para abrir a Paleta de Comandos.
 
-2. Digite **sqlcon**, pressione **ENTER** e defina a linguagem para **SQL**.
+2. Digite **sqlcon** e pressione **ENTER**.
 
 3. Pressione **ENTER** para selecionar **Criar Perfil de Conexão**. Isso cria um perfil de conexão para a instância do SQL Server.
 
@@ -97,7 +104,7 @@ Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco
 
 6. Verifique se sua conexão na barra de status.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
+   ![Status da conexão](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## <a name="query-data"></a>Consultar dados
 
@@ -114,7 +121,7 @@ Use a instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de 
 
 2. Pressione **CTRL + SHIFT + E** para recuperar dados das tabelas Product e ProductCategory.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
+    ![Consultar](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Inserir dados
 

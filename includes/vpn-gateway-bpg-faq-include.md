@@ -28,6 +28,8 @@ O Gateway de VPN do Azure anunciará as seguintes rotas para seus dispositivos d
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Posso anunciar a rota padrão (0.0.0.0/0) para gateways de VPN do Azure?
 Sim.
 
+Observe que isso forçará qualquer tráfego de saída da VNet para o site local e impedirá que as VMs da VNet aceitem uma comunicação pública da Internet diretamente, como o RDP ou SSH da Internet para as VMs.
+
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>Posso anunciar os prefixos exatamente como meus prefixos de Rede Virtual?
 
 Não, o anúncio dos mesmos prefixos como qualquer um de seus prefixos de endereço de sua Rede Virtual será bloqueado ou filtrado pela plataforma do Azure. No entanto, você pode anunciar um prefixo que é um superconjunto do que você tem em sua Rede Virtual. 
@@ -65,9 +67,4 @@ O Gateway de Rede Local do Azure especifica os prefixos de endereços iniciais p
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>O que devo adicionar a meu dispositivo VPN local para a sessão de emparelhamento de BGP?
 Você deve adicionar uma rota de host do endereço IP de Par de BGP do Azure em seu dispositivo VPN apontando para o túnel de VPN S2S IPsec. Por exemplo, se o IP de Par de VPN do Azure for "10.12.255.30", você deverá adicionar uma rota de host para "10.12.255.30" com uma interface de nexthop da interface de túnel IPsec correspondente em seu dispositivo VPN.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

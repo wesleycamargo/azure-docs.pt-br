@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Abra a folha Navegador para exibir dados de desempenho agregados dos navegadores
 
 ![Em portal.azure.com, abra o recurso do aplicativo e clique em Configurações, Navegador](./media/app-insights-javascript/03.png)
 
-*Não há dados ainda? Clique em**Atualizar**na parte superior da página. Nada mesmo assim? Consulte [Solução de problemas](app-insights-troubleshoot-faq.md).*
+*Não há dados ainda? Clique em **Atualizar** na parte superior da página. Nada mesmo assim? Consulte [Solução de problemas](app-insights-troubleshoot-faq.md).*
 
 A folha Navegadores é uma [folha do Metrics Explorer](app-insights-metrics-explorer.md) com filtros predefinidos e opções de gráfico. Você poderá editar o intervalo de tempo, os filtros e a configuração do gráfico, se desejar, e salvar o resultado como um favorito. Clique em **Restaurar padrões** para voltar para a configuração original da folha.
 
@@ -230,6 +230,6 @@ Quer saber o que os usuários fazem com seu aplicativo?
 ## <a name="next"></a> Próximas etapas
 * [Acompanhar uso](app-insights-web-track-usage.md)
 * [Eventos e métricas personalizados](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-overview-usage.md)
+* [Build-measure-learn](app-insights-web-track-usage.md)
 
 

@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
-ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introdução aos registros de contêiner do Docker privado
@@ -39,7 +39,7 @@ Para obter informações sobre o Docker e contêineres, confira:
 Obtenha imagens de um registro de contêiner do Azure para vários destinos de implantação:
 
 * **Sistemas de orquestração escalonáveis** que gerenciam aplicativos em contêineres em clusters de hosts, incluindo [CD/SO](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) e [Kubernetes](http://kubernetes.io/docs/).
-* **Serviços do Azure** que dão suporte à criação e execução de aplicativos em grande escala, incluindo [Serviço de Contêiner](../container-service/index.md), [Serviço de Aplicativo](/app-service/index.md), [Lote](../batch/index.md) e [Service Fabric](../service-fabric/index.md).
+* **Serviços do Azure** que dão suporte à criação e execução de aplicativos em grande escala, incluindo [Serviço de Contêiner](../container-service/index.md), [Serviço de Aplicativo](/app-service/index.md), [Lote](../batch/index.md), [Service Fabric](../service-fabric/index.md) e outros.
 
 Os desenvolvedores também podem enviar um registro de contêiner como parte de um fluxo de trabalho de desenvolvimento do contêiner. Por exemplo, direcione uma ferramenta de implantação e integração contínua de destino como [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) ou [Jenkins](https://jenkins.io/) a um Registro de contêiner.
 
