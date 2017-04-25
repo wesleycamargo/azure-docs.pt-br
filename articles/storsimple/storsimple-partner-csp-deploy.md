@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: 0b28c5e93dc8f53597b1d2fa6f4ae154acf16068
 ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -88,7 +89,7 @@ Em alguns casos, você pode ter um cliente existente e você precisa adicionar u
 
     ![Adicionar nova assinatura](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. Depois de uma nova assinatura for criada, clique em ** <-- Clientes** no painel esquerdo para voltar para a página de **Clientes**. Pesquisa do cliente para o qual você acabou de criar uma assinatura. Clique no **Nome da empresa** para fazer drill down nos detalhes.
+6. Depois de uma nova assinatura for criada, clique em **<-- Clientes** no painel esquerdo para voltar para a página de **Clientes**. Pesquisa do cliente para o qual você acabou de criar uma assinatura. Clique no **Nome da empresa** para fazer drill down nos detalhes.
 
     ![Procurar o cliente](./media/storsimple-partner-csp-deploy/image6.png)  
 
@@ -104,9 +105,4 @@ Em alguns casos, você pode ter um cliente existente e você precisa adicionar u
 
 - Se tiver mais dúvidas relacionadas ao StorSimple no CSP, visite [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple no CSP: perguntas frequentes).
 - Se você estiver pronto para implantar seu StorSimple, acesse [Implantar o StorSimple para CSP](storsimple-partner-csp-deploy.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
