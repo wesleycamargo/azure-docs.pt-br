@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -60,7 +60,7 @@ Se você estiver usando o System Center Operations Manager, cada grupo de gerenc
 
 Você pode exibir detalhes sobre o espaço de trabalho no portal do Azure. Você também pode exibir detalhes no portal do OMS.
 
-#### <a name="view-workspace-information-the-azure-portal"></a>Exibir informações do espaço de trabalho no portal do Azure
+#### <a name="view-workspace-information-in-the-azure-portal"></a>Exibir informações do espaço de trabalho no portal do Azure
 
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com) usando a sua assinatura do Azure.
 2. No menu **Hub**, clique em **Mais serviços** e, na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Log Analytics**.  
@@ -177,7 +177,7 @@ Você pode alterar a função da conta de um usuário associado à sua conta do 
 4. Na caixa de diálogo de confirmação, clique em **Sim**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Remover um usuário de um espaço de trabalho
-Use as seguintes etapas para remover um usuário de um espaço de trabalho. Remover o usuário não fecha o espaço de trabalho. Em vez disso, remove a associação entre o usuário e o espaço de trabalho. Se um usuário estiver associado a vários espaços de trabalho, ele ainda poderá entrar no OMS e ver os outros espaços de trabalho.
+Use as seguintes etapas para remover um usuário de um espaço de trabalho. Remover o usuário não fecha o espaço de trabalho. Em vez disso, remove a associação entre o usuário e o espaço de trabalho. Se um usuário estiver associado a vários espaços de trabalho, ele ainda poderá entrar no OMS e ver seus outros espaços de trabalho.
 
 1. No portal do OMS, clique no bloco **Configurações**.
 2. Clique na guia **Contas**, em seguida, clique na guia **Gerenciar Usuários**.
@@ -202,9 +202,6 @@ Todos os espaços de trabalho criados depois de 26 de setembro de 2016 devem ser
     > [!IMPORTANT]
     > Para vincular um espaço de trabalho, sua conta do Azure já deve ter acesso ao espaço de trabalho que você deseja vincular.  Em outras palavras, a conta usada para acessar o portal do Azure deve ser **igual** à conta usada para acessar seu espaço de trabalho. Para fazer isso, confira [Adicionar um usuário a um espaço de trabalho existente](#add-a-user-to-an-existing-workspace).
 
-
-
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Para vincular um espaço de trabalho a uma assinatura do Azure no portal do Azure
 1. Faça logon no [Portal do Azure](http://portal.azure.com).
 2. Procure pelo **Log Analytics** e selecione-o.
@@ -225,7 +222,7 @@ Todos os espaços de trabalho criados depois de 26 de setembro de 2016 devem ser
 8. Clique em **OK**. O espaço de trabalho agora está vinculado à sua conta do Azure.
 
 > [!NOTE]
-> Caso você não veja o espaço de trabalho que deseja vincular aqui, sua assinatura do Azure não tem acesso ao espaço de trabalho que você criou usando o site da Web do OMS.  Para conceder acesso a essa conta no portal do OMS, consulte [adicionar um usuário a um espaço de trabalho](#add-a-user-to-an-existing-workspace).
+> Caso você não veja o espaço de trabalho que deseja vincular, sua assinatura do Azure não tem acesso ao espaço de trabalho criado usando o portal do OMS.  Para conceder acesso a essa conta no portal do OMS, consulte [adicionar um usuário a um espaço de trabalho](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -250,7 +247,7 @@ Para garantir que o uso de um espaço de trabalho seja aplicado aos seus direito
 Os direitos de assinatura do OMS não são visíveis no portal do Azure ou do OMS. Você pode ver os direitos e o uso no Portal Enterprise.  
 
 Se você precisar alterar a assinatura do Azure vinculada ao seu espaço de trabalho, poderá usar o cmdlet do Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) .
-para
+
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Usar o Azure Commitment de um Enterprise Agreement
 Se não tiver uma assinatura do OMS, você pagará separadamente por cada componente do OMS, e o uso será exibido em sua conta do Azure.
 
@@ -295,7 +292,7 @@ No tipo de preço Standard, o Log Analytics disponibiliza os últimos 30 dias de
 No tipo de preço Premium, o Log Analytics disponibiliza os últimos 365 dias de dados.
 Nos tipos de preço Autônomo e OMS, o Log Analytics disponibiliza por padrão os últimos 31 dias de dados.
 
-Quando você usa as faixas de preço OMS e Autônomo, você pode manter até 2 anos de dados (730 dias). Dados armazenados por mais tempo do que o padrão de 31 dias acarreta um custo por retenção de dados. Para obter mais informações sobre preços, consulte [encargos excedentes](https://azure.microsoft.com/pricing/details/log-analytics/).
+Quando você usa os tipos de preço OMS e Autônomo, pode manter até dois anos de dados (730 dias). Dados armazenados por mais tempo do que o padrão de 31 dias acarreta um custo por retenção de dados. Para obter mais informações sobre preços, consulte [encargos excedentes](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 Para alterar o período de retenção de dados:
 

@@ -1,6 +1,6 @@
 ---
-title: "Solução do problema não é possível ir daqui até lá no Portal do Azure em um dispositivo do Windows | Microsoft Docs"
-description: "Saiba quais são as etapas que você pode executar para resolver problemas de acesso com recursos online da sua organização."
+title: "Você não consegue chegar lá a partir daqui no portal do Azure em um dispositivo do Windows | Microsoft Docs"
+description: "Saiba onde não é possível chegar lá a partir daqui e o que você pode verificar o para evitar essa caixa de diálogo."
 services: active-directory
 keywords: acesso condicional baseado em dispositivo, registro de dispositivo, habilitar registro de dispositivo, registro de dispositivo e MDM
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.lasthandoff: 04/12/2017
 
 
 ---

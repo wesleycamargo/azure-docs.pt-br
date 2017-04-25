@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -41,12 +41,13 @@ Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Da
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**.
+3. Na página **Visão geral** do banco de dados, examine o nome totalmente qualificado do servidor, como mostrado na imagem abaixo. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**.
 
    ![informações da conexão](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL, navegue até a página do servidor para exibir o nome de administrador do servidor e, se necessário, redefinir a senha. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>Conecte-se ao servidor e ao seu novo banco de dados
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Conectar o banco de dados no servidor lógico do Banco de Dados SQL
 
 Use o SQL Server Management Studio para estabelecer uma conexão com seu servidor de Banco de Dados SQL do Azure. 
 
@@ -65,7 +66,7 @@ Use o SQL Server Management Studio para estabelecer uma conexão com seu servido
 
    ![conectar-se ao servidor](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Clique em **Opções**. Na seção **Conectar banco de dados**, digite **mySampleDatabase** para conectar o banco de dados criado anteriormente.
+3. Clique em **Opções** na caixa de diálogo **Conectar servidor**. Na seção **Conectar banco de dados**, digite **mySampleDatabase** para conectar este banco de dados.
 
    ![conectar o banco de dados no servidor](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ Use o SQL Server Management Studio para estabelecer uma conexão com seu servido
 
    ![conectado ao servidor](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. No Pesquisador de Objetos, expanda **Bancos de Dados** e expanda **mySampleDatabase** para exibir os objetos no banco de dados de exemplo.
+5. No Pesquisador de Objetos, expanda **Bancos de Dados** e expanda **mySampleDatabase** para exibir os objetos no banco de dados de exemplo.
 
 ## <a name="query-data"></a>Consultar dados
 
@@ -91,7 +92,7 @@ Use a instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de 
 
 3. Na barra de ferramentas, clique em **Executar** para recuperar dados das tabelas Product e ProductCategory.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Inserir dados
 

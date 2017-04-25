@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,15 +17,15 @@ ms.workload: data-management
 wms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 827394be9485685388879c1eb4cee4d79ef9fe51
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 85b7336958c90b477eea8ea185a69bab2bd87a79
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço
 
-[Banco de dados SQL do Azure](sql-database-technical-overview.md) oferece quatro camadas de serviço: **Basic**, **Standard**, **Premium** e **Premium RS**. Cada camada de serviço tem vários níveis de desempenho para lidar com cargas de trabalho diferentes. Os níveis de desempenho mais elevados fornecem recursos adicionais, projetados para oferecer uma taxa de transferência crescente. Você pode alterar as camadas de serviços e os níveis de desempenho sem tempo de inatividade. Todas as camadas de serviço, Basic, Standard e Premium têm um SLA de tempo de atividade de 99,99%, opções de continuidade dos negócios flexíveis, recursos de segurança e cobrança por hora. A camada Premium RS fornece os mesmos níveis de desempenho, recursos de segurança e recursos de continuidade de negócios que a camada Premium, mas com um SLA reduzido.
+[Banco de dados SQL do Azure](sql-database-technical-overview.md) oferece quatro camadas de serviço: **Basic**, **Standard**, **Premium** e **Premium RS**. Cada camada de serviço tem vários níveis de desempenho para lidar com cargas de trabalho diferentes. Os níveis de desempenho mais elevados fornecem recursos adicionais, projetados para oferecer uma taxa de transferência crescente. Você pode alterar as camadas de serviços e os níveis de desempenho sem tempo de inatividade. Todas as camadas de serviço, Basic, Standard, Premium e Premium RS têm um SLA de tempo de atividade de 99,99%, opções de continuidade dos negócios flexíveis, recursos de segurança e cobrança por hora. A camada Premium RS fornece os mesmos níveis de desempenho, recursos de segurança e recursos de continuidade de negócios que a camada Premium, mas com um SLA reduzido.
 
 > [!IMPORTANT]
 > Bancos de dados Premium RS operam com um número menor de cópias redundantes que bancos de dados Premium ou Standard. Portanto, em caso de falha de serviço, você precisará recuperar seu banco de dados de um backup com um retardo de até 5 minutos.
@@ -61,7 +61,7 @@ Primeiro, decida se deseja executar um único banco de dados com uma quantidade 
 Depois de determinar a camada de serviço mínima, você estará pronto para determinar o nível de desempenho do banco de dados (o número de DTUs). Os níveis de desempenho do S2 e S3 padrão são quase sempre um bom ponto de partida. Para bancos de dados com altas exigências de CPU ou E/S, os níveis de desempenho Premium são o ponto de partida correto. O Premium oferece mais CPU e começa em 10 vezes mais E/S em comparação com o nível de desempenho Standard mais alto.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Camadas de serviço e níveis de desempenho de banco de dados individual
-Para bancos de dados individuais, há vários níveis de desempenho dentro de cada camada de serviço. Você tem a flexibilidade de escolher o nível que melhor atenda às demandas de sua carga de trabalho, usando o [Portal do Azure](sql-database-manage-single-databases-portal.md), o [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), o [Transact-SQL](sql-database-manage-single-databases-tsql.md), o C# e a API REST. 
+Para bancos de dados individuais, há vários níveis de desempenho dentro de cada camada de serviço. Você tem a flexibilidade de escolher o nível que melhor atenda às demandas de sua carga de trabalho, usando o [Portal do Azure](scripts/sql-database-monitor-and-scale-database-powershell.md), o [PowerShell](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), o Transact-SQL, o C# e a API REST.  
 
 Independentemente do número de bancos de dados hospedados, o banco de dados ainda obterá um conjunto garantido de recursos e as características de desempenho esperadas de seu banco de dados não são afetadas.
 
@@ -73,7 +73,7 @@ Independentemente do número de bancos de dados hospedados, o banco de dados ain
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>Escalar verticalmente ou reduzir um banco de dados
 
-Depois de escolher inicialmente um nível de desempenho e da camada de serviço, você pode dimensionar um banco de dados para cima ou para baixo dinamicamente com base na experiência real. Se precisar expandir ou reduzir, você poderá alterar facilmente as camadas do banco de dados usando o [Portal do Azure](sql-database-manage-single-databases-portal.md), o [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), o [Transact-SQL](sql-database-manage-single-databases-tsql.md), o C# e a API REST. 
+Depois de escolher inicialmente um nível de desempenho e da camada de serviço, você pode dimensionar um banco de dados para cima ou para baixo dinamicamente com base na experiência real. Se precisar expandir ou reduzir, você poderá alterar facilmente as camadas do banco de dados usando o Portal do Azure, o [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), o C# e a API REST. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -87,10 +87,6 @@ A duração de todo o processo de expansão depende a camada tamanho e de servi�
 * Ao fazer downgrade de uma camada de serviço Premium, primeiro, você deve encerrar todos os relacionamentos de Replicação Geográfica. Você pode seguir as etapas descritas no tópico [Recuperação de uma interrupção](sql-database-disaster-recovery.md) para interromper o processo de replicação entre os bancos de dados primários e secundários ativos.
 * As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se estiver fazendo downgrade, talvez você perca a capacidade de fazer uma restauração pontual ou tenha um período menor de retenção do backup. Para saber mais, confira [Backup e restauração do Banco de dados SQL do Azure](sql-database-business-continuity.md).
 * As novas propriedades do banco de dados não serão aplicadas até que as alterações sejam concluídas.
-
-> [!IMPORTANT]
-> Para obter etapas detalhadas, confira [Gerenciamento de um banco de dados no portal do Azure](sql-database-manage-single-databases-portal.md), [Gerenciamento de um banco de dados com o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), ou [Gerenciamento de um banco de dados com Transact-SQL](sql-database-manage-single-databases-tsql.md).
->
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Camadas de serviço e desempenho em eDTUs do pool elástico
 
@@ -127,7 +123,7 @@ Ao criar um banco de dados P11/P15, você pode definir o valor do maxsize para 1
 
 Para bancos de dados P11 e P15 existentes localizados em uma das regiões com suporte, você pode aumentar o maxsize do armazenamento para 4 TB. Isso pode ser feito no portal do Azure, no PowerShell ou com o Transact-SQL. O exemplo a seguir mostra o maxsize sendo alterado usando o comando ALTER DATABASE:
 
- ```t-sql
+ ```sql
 ALTER DATABASE <myDatabaseName> 
    MODIFY (MAXSIZE = 4096 GB);
 ```
@@ -144,13 +140,13 @@ Ao criar ou atualizar um banco de dados P11/P15 em uma região sem suporte, a op
 - Para cenários com Replicação Geográfica Ativa:
    - Configurar uma relação de replicação geográfica: se o banco de dados primário for P11 ou P15, os secundários também devem ser P11 ou P15; os níveis de desempenho inferiores serão rejeitadas como secundários porque não são capazes de dar suporte a 4 TB.
    - Atualizando o banco de dados primário em uma relação de replicação geográfica: alterar o tamanho máximo de 4 TB em um banco de dados primário disparará a mesma alteração no banco de dados secundário. As duas atualizações devem ser bem-sucedidas para que a alteração no primário entre em vigor. Limitações de região para a opção de 4TB se aplicam (confira acima). Se o secundário estiver em uma região que não oferece suporte a 4 TB, o primário não será atualizado.
-- Não há suporte para o uso do serviço de Importação/Exportação para carregar bancos de dados P11-4TB/P15-4TB. Use SqlPackage.exe para [importar](sql-database-import-sqlpackage.md) e [exportar](sql-database-export.md) dados.
+- Não há suporte para o uso do serviço de Importação/Exportação para carregar bancos de dados P11-4TB/P15-4TB. Use SqlPackage.exe para [importar](sql-database-import.md) e [exportar](sql-database-export.md) dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Conheça os detalhes dos [pools elásticos](sql-database-elastic-pool-guidance.md) e [considerações sobre o preço e o desempenho dos pools elásticos](sql-database-elastic-pool-guidance.md).
 * Saiba como [Monitorar, gerenciar e redimensionar pools elásticos](sql-database-elastic-pool-manage-portal.md) e [Monitorar o desempenho de bancos de dados individuais](sql-database-single-database-monitor.md).
-* Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md).
+* Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started-portal.md).
 * Para cenários de migração, use a [Calculadora de DTU](http://dtucalculator.azurewebsites.net/) para ter uma ideia aproximada do número de DTUs necessários. 
 
 

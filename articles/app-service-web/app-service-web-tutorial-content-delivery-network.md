@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8194e669f943a6c47f02ae0d2a55e0e720420489
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Conectar um aplicativo Web a uma Rede de distribuição de conteúdo
@@ -28,7 +28,7 @@ Primeiro, abra seu navegador favorito e navegue até o [Portal](https://portal.a
 
 ## <a name="step-2---create-a-cdn-profile"></a>Etapa 2: Criar um perfil de CDN
 
-Clique no botão `+ New` no painel de navegação esquerdo, clique em **Web + Móvel**. Na categoria Web + Móvel, selecione **CDN**.
+Clique no botão **+ Novo** no painel de navegação esquerdo, clique em **Web + Móvel**. Na categoria Web + Móvel, selecione **CDN**.
 
 Especifique a **Nome**, o **Local**, o **Grupo de recursos**, **Tipo de preço** e clique em **Criar**.
 
@@ -38,7 +38,7 @@ Abra o hub de grupos de recursos do painel de navegação esquerdo e selecione *
 
 ## <a name="step-3---create-a-cdn-endpoint"></a>Etapa 3: Criar um novo ponto de extremidade de CDN
 
-Clique em `+ Endpoint` nos comandos ao lado da caixa de pesquisa para iniciar a folha de Criação do ponto de extremidade.
+Clique no **ponto de extremidade +** nos comandos ao lado da caixa de pesquisa para iniciar a folha de Criação do ponto de extremidade.
 
 Especifique o **Nome**, o **Tipo de origem**, o **Nome do host de origem** e clique em **Adicionar**.
 

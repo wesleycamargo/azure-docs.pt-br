@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -73,8 +73,7 @@ Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre e
 Para restringir os dados relatados a um nível que funciona para você, filtre os dados de auditoria usando os seguintes campos:
 
 - Intervalo de datas
-- Iniciado por
-- Categoria
+- Iniciado por (ator)
 - Categoria
 - Tipo de recurso de atividade
 - Atividade
@@ -92,7 +91,7 @@ Os valores possíveis são:
 
 Quando você seleciona um período de tempo personalizado, pode configurar uma hora de início e uma hora de término.
 
-O filtro **iniciado por** permite que você defina o nome de um ator ou seu nome UPN.
+O filtro **iniciado por** permite que você defina o nome do ator ou seu nome principal universal (UPN).
 
 O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
@@ -311,7 +310,7 @@ Com relatórios de auditoria baseados em aplicativos, você pode obter respostas
 * Os nomes de aplicativos foram alterados?
 * Quem deu permissão a um aplicativo?
 
-Se quiser examinar os dados de auditoria relacionados aos aplicativos, você poderá encontrar uma exibição filtrada em **Logs de auditoria** na seção **Atividade** da folha **Aplicativos empresariais**. Esse ponto de entrada tem **Aplicativo** como **Tipo de Recurso de Atividade** pré-selecionado.
+Se quiser examinar os dados de auditoria relacionados aos aplicativos, você poderá encontrar uma exibição filtrada em **Logs de auditoria** na seção **Atividade** da folha **Aplicativos empresariais**. Esse ponto de entrada tem **aplicativos empresariais** como **tipo de recurso de atividade** pré-selecionado.
 
 ![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/134.png "Logs de auditoria")
 

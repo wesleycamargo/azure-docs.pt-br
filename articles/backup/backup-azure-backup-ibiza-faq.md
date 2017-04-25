@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e5ef305d926a57e32cdebd44f3dbe2185c735dd4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -40,6 +40,7 @@ Os cofres dos Serviços de Recuperação dão suporte a ambos os modelos.  Você
 Os backups de VMs clássicas no cofre de backup não migrarão automaticamente para o cofre dos serviços de recuperação quando você migrar as VMs do modo clássico para o modo do Gerenciador de Recursos. Siga estas etapas para a migração de backups de VMs:
 
 1. No cofre de backup, vá para a guia **Itens Protegidos** e selecione a VM. Clique em [Interromper a Proteção](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Deixe a opção *Excluir dados de backup associados***desmarcada**.
-2. Migre a máquina virtual do modo clássico para o modo do Gerenciador de Recursos. Verifique se o armazenamento e a rede correspondentes à máquina virtual também são migrados para o modo do Gerenciador de Recursos.
-3. Criar um cofre dos serviços de recuperação e configure o backup na máquina virtual migrada usando a ação **Backup** na parte superior do painel do cofre. Saiba mais sobre como [habilitar o backup no cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md)
+2. No [portal do Azure](https://portal.azure.com), acesse o menu **extensões**para a VM e desinstale a extensão **VMSnapshot/VMSnapshotLinux**.
+3. Migre a máquina virtual do modo clássico para o modo do Gerenciador de Recursos. Verifique se o armazenamento e a rede correspondentes à máquina virtual também são migrados para o modo do Gerenciador de Recursos.
+4. Criar um cofre dos serviços de recuperação e configure o backup na máquina virtual migrada usando a ação **Backup** na parte superior do painel do cofre. Saiba mais sobre como [habilitar o backup no cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md)
 
