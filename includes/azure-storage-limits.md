@@ -16,14 +16,14 @@
 | Tamanho máximo de um compartilhamento de arquivo |5 TB |
 | Tamanho máximo de um arquivo em um compartilhamento de arquivos |1 TB |
 | Número máximo de arquivos em um compartilhamento de arquivo |O único limite é a capacidade total de 5 TB do compartilhamento de arquivo |
-| Máx. de 8 KB de IOPS por compartilhamento |1000 |
+| IOPS máximo por compartilhamento |1000 |
 | Número máximo de arquivos em um compartilhamento de arquivo |O único limite é a capacidade total de 5 TB do compartilhamento de arquivo |
 | Número máximo de contêineres de blob, blobs, compartilhamentos de arquivo, tabelas, filas, entidades ou mensagens por conta de armazenamento |O único limite é a capacidade de conta de armazenamento de 500 TB |
 | Número máximo de políticas de acesso armazenada por contêiner, compartilhamento de arquivos, tabela ou fila |5 |
 | Taxa Máxima de Solicitação por conta de armazenamento |Blobs: 20.000 solicitações por segundo para blobs de qualquer tamanho válido (restrito somente pelos limites de entrada/saída da conta) <br />Arquivos: 1000 IOPS (de 8 KB) por compartilhamento de arquivos <br />Filas: 20.000 mensagens por segundo (supondo que o tamanho de mensagem seja de 1 KB)<br />Tabelas: 20.000 transações por segundo (supondo que tamanho de entidade seja de 1 KB) |
 | Taxa de transferência de destino para blob único |Até 60 MB por segundo, ou até 500 solicitações por segundo |
-| Taxa de transferência de destino para fila única (mensagens de&1; KB) |Até 2000 mensagens por segundo |
-| Meta de taxa de transferência para partição de tabela única (entidades de&1; KB) |Até 2000 entidades por segundo |
+| Taxa de transferência de destino para fila única (mensagens de 1 KB) |Até 2000 mensagens por segundo |
+| Meta de taxa de transferência para partição de tabela única (entidades de 1 KB) |Até 2000 entidades por segundo |
 | Taxa de transferência de destino para compartilhamento de arquivo único |Até 60 MB por segundo |
 | Entrada máxima<sup>2</sup> por conta de armazenamento (regiões dos EUA) |10 Gbps se o GRS/ZRS<sup>3</sup> estiver habilitado, 20 Gbps para o LRS |
 | Saída máxima<sup>2</sup> por conta de armazenamento (regiões dos EUA) |20 Gbps se o RA-GRS/GRS/ZRS<sup>3</sup> estiver habilitado, 30 Gbps para o LRS |
