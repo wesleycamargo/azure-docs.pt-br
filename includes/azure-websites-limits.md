@@ -38,8 +38,3 @@
 <sup>9</sup>Execute os executáveis personalizados e/ou os scripts sob demanda, por agendamento ou continuamente como uma tarefa em segundo plano na instância do Serviço de Aplicativo. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Trabalhos Web agendados requerem o Agendador do Azure Gratuito ou Standard. Não há nenhum limite predefinido na quantidade de WebJobs que podem ser executados em uma instância do Serviço de Aplicativo, mas há limites práticos que dependem do que o código do aplicativo está tentando fazer.   
 <sup>10</sup>SLA de 99,95% fornecido para implantações que usam várias instâncias com o Gerenciador de Tráfego do Azure configurado para failover.  
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-

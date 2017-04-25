@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
 ms.openlocfilehash: 9c7c10031c068eeb02b4468ec48bf60aece2f12e
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -186,10 +187,5 @@ Para saber mais sobre o Microsoft Graph e como criar aplicativos usando a API do
 * [Microsoft Graph](https://graph.microsoft.io/)
 * [Visão geral do Microsoft Graph](https://graph.microsoft.io/docs)
 * [Raiz do Serviço Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
