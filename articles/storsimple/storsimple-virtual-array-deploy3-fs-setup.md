@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 405e236288a32afa572da8c665ea2557a9c8cb03
-ms.openlocfilehash: 8d09eb65d6d165093f9de5810a6affbe95b7a053
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: ca5b67043843185ac40d02030f26fab8639a1f9f
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor de arquivos por meio do portal do Azure
@@ -134,7 +134,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
     
     3. Uma chave AES de 256 bits é ser usada com a chave de criptografia definida pelo usuário. Especifique uma chave de 32 caracteres e, em seguida, insira novamente a chave para confirmá-la. Registre a chave em um aplicativo de gerenciamento de chaves para referência futura.
     
-    4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada.
+    4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada. **Certifique-se de que a conta de armazenamento usada oferece suporte a blobs de bloco. Blobs de página não têm suporte.** Para obter mais informações sobre [blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
     ![Configurar um servidor de arquivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Na folha **Adicionar credenciais de uma conta de armazenamento**, faça o seguinte: 
@@ -169,7 +169,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
 Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para criar um compartilhamento.
 
 #### <a name="to-create-a-share"></a>Para criar um compartilhamento
-1. Selecione o dispositivo de servidor de arquivos configurado na etapa anterior e clique em **... ** (ou clique com o botão direito do mouse). No menu de contexto, selecione **Adicionar compartilhamento**. Como alternativa, você pode clicar em **+ Adicionar Compartilhamento** na barra de comandos do dispositivo.
+1. Selecione o dispositivo de servidor de arquivos configurado na etapa anterior e clique em **...**  (ou clique com o botão direito do mouse). No menu de contexto, selecione **Adicionar compartilhamento**. Como alternativa, você pode clicar em **+ Adicionar Compartilhamento** na barra de comandos do dispositivo.
    
    ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Especifique as configurações de compartilhamento a seguir:
