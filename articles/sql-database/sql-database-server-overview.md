@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: servers
+ms.custom: DBs and servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
-ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 430af168e1bd19c15170996247bc7c7a62fe52d4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -41,8 +42,8 @@ Um servidor lógico do Banco de Dados do Azure:
 - Fornece acesso aos metadados sobre os recursos independentes por meio de DMVs, conectando-se ao banco de dados mestre 
 - Fornece o escopo para políticas de gerenciamento que se aplicam a seus bancos de dados: logons, firewall, auditoria, detecção de ameaças, etc. 
 - É restrito por uma cota na assinatura pai (seis servidores por assinatura – [consulte os Limites da assinatura aqui](../azure-subscription-service-limits.md))
-- Fornece o escopo da cota de banco de dados e da cota de DTU para os recursos que ele contém (como 45000 DTUs na V12)
-- É o escopo de controle de versão para as funcionalidades habilitadas em recursos independentes (a última versão é V12)
+- Fornece o escopo da cota de banco de dados e da cota de DTU para os recursos que ele contém (como 45.000 DTUs)
+- É o escopo de controle de versão para as funcionalidades habilitadas em recursos contidos 
 - Os logons de entidade de segurança no nível do servidor podem gerenciar todos os bancos de dados em um servidor
 - Pode conter logons semelhantes aos das instâncias do SQL Server locais que têm permissão para acessar um ou mais bancos de dados no servidor, além de poder receber direitos administrativos limitados. Para obter mais informações, consulte [Logons](sql-database-manage-logins.md).
 
@@ -55,7 +56,7 @@ Um servidor lógico do Banco de Dados do Azure:
 
 ## <a name="what-collations-are-supported"></a>Há suporte para quais agrupamentos?
 
-O agrupamento de banco de dados padrão usado pelo Banco de Dados SQL do Microsoft Azure (incluindo o banco de dados mestre) é **SQL_LATIN1_GENERAL_CP1_CI_AS**, em que **LATIN1_GENERAL** é inglês (Estados Unidos), **CP1** é a página de código 1252, **CI** diferencia maiúsculas de minúsculas e **AS** diferencia acentos. Não é recomendável alterar o agrupamento de bancos de dados V12 após a criação. Para obter mais informações sobre agrupamentos, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+O agrupamento de banco de dados padrão usado pelo Banco de Dados SQL do Microsoft Azure (incluindo o banco de dados mestre) é **SQL_LATIN1_GENERAL_CP1_CI_AS**, em que **LATIN1_GENERAL** é inglês (Estados Unidos), **CP1** é a página de código 1252, **CI** diferencia maiúsculas de minúsculas e **AS** diferencia acentos. Não é recomendável alterar o agrupamento depois que os bancos de dados são criados. Para obter mais informações sobre agrupamentos, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>Quais são os requisitos de nomenclatura para objetos de banco de dados?
 
@@ -68,8 +69,8 @@ Para obter informações sobre os recursos com suporte, consulte [Recursos](sql-
 ## <a name="how-do-i-manage-a-logical-server"></a>Como faço para gerenciar um servidor lógico?
 
 Você pode gerenciar servidores lógicos do Banco de Dados SQL do Azure usando vários métodos:
-- [portal do Azure](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
+- [portal do Azure](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
 - [REST](/rest/api/sql/)
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -81,10 +82,5 @@ Você pode gerenciar servidores lógicos do Banco de Dados SQL do Azure usando v
 - Para obter informações sobre cotas e limitações de recursos específicos com base na **camada de serviço**. Para obter uma visão geral das camadas de serviço, consulte [Camadas de serviço do banco de dados SQL](sql-database-service-tiers.md).
 - Para obter uma visão geral de segurança, veja [Visão geral de segurança do Banco de Dados SQL do Azure](sql-database-security-overview.md).
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

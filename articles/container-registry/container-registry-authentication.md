@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 774c844375df89864274e3376ed07dd565c8ecff
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: ae6af47c82a5c0425f6cd53b8ba1134797505e6c
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um Registro de contêiner privado do Docker
@@ -43,9 +43,16 @@ Depois de conectado, o Docker armazena em cache as credenciais, portanto, você 
 >
 
 
-As entidades de serviço permitem o [acesso baseado em função](../active-directory/role-based-access-control-configure.md) a um registro. As funções disponíveis são Leitor (acesso somente para efetuar pull), Colaborador (efetuar pull e enviar por push) e Proprietário (efetuar pull, enviar por push e atribuir funções a outros usuários). É possível atribuir várias entidades de serviço a um registro, o que permite definir acesso para diferentes usuários ou aplicativos. As entidades de serviço também permitem conectividade "sem periféricos" a um registro em cenários de desenvolvedor ou DevOps, como os seguintes:
+As entidades de serviço permitem o [acesso baseado em função](../active-directory/role-based-access-control-configure.md) a um registro. As funções disponíveis são:
+  * Leitor (acesso somente de pull).
+  * Colaborador (pull e push).
+  * Proprietário (pull, push e atribuir funções a outros usuários).
 
-  * Implantações de contêiner de um registro para sistemas de orquestração, incluindo DC/OS, Docker Swarm e Kubernetes. Também é possível efetuar pull de registros para serviços do Azure relacionados, como [Serviço de Contêiner](../container-service/index.md), [Serviço de Aplicativo](../app-service/index.md), [Lote](../batch/index.md) e [Service Fabric](../service-fabric/index.md).
+Acesso anônimo não está disponível em Registros de Contêiner do Azure. Para imagens públicas, você pode usar o [Docker Hub](https://docs.docker.com/docker-hub/).
+
+É possível atribuir várias entidades de serviço a um registro, o que permite definir acesso para diferentes usuários ou aplicativos. As entidades de serviço também permitem conectividade “sem periféricos” a um registro em cenários de desenvolvedor ou DevOps, como nos seguintes exemplos:
+
+  * Implantações de contêiner de um registro para sistemas de orquestração, incluindo DC/OS, Docker Swarm e Kubernetes. Também é possível efetuar pull de registros de contêiner para serviços do Azure relacionados, como [Serviço de Contêiner](../container-service/index.md), [Serviço de Aplicativo](../app-service/index.md), [Lote](../batch/index.md) e [Service Fabric](../service-fabric/index.md), entre outros.
 
   * Soluções de integração e implantação contínuas (como Visual Studio Team Services ou Jenkins) que criam imagens de contêiner e as envia por push para um registro.
 
@@ -54,10 +61,10 @@ As entidades de serviço permitem o [acesso baseado em função](../active-direc
 
 
 ## <a name="admin-account"></a>Conta de administrador
-Com cada registro que você cria, uma conta de administrador é criada automaticamente. Por padrão, a conta está desabilitada, mas você pode habilitá-la e gerenciar as credenciais, por exemplo, por meio do [portal](container-registry-get-started-portal.md#manage-registry-settings) ou usando os [comandos da CLI 2.0 do Azure](container-registry-get-started-azure-cli.md#manage-admin-credentials). Se a conta estiver habilitada, você pode passar o nome de usuário e a senha para o comando `docker login` para autenticação básica no registro. Por exemplo:
+Com cada registro que você cria, uma conta de administrador é criada automaticamente. Por padrão, a conta está desabilitada, mas você pode habilitá-la e gerenciar as credenciais, por exemplo, por meio do [portal](container-registry-get-started-portal.md#manage-registry-settings) ou usando os [comandos da CLI 2.0 do Azure](container-registry-get-started-azure-cli.md#manage-admin-credentials). Cada conta do administrador é fornecida com duas senhas, que podem ser regeneradas. As duas senhas permitem manter conexões com o registro usando uma senha enquanto a outra senha é regenerada. Se a conta estiver habilitada, você poderá passar o nome de usuário e a senha para o comando `docker login` para autenticação básica no registro. Por exemplo:
 
 ```
-docker login myregistry.azurecr.io -u myAdminName -p myPassword
+docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 ```
 
 > [!IMPORTANT]

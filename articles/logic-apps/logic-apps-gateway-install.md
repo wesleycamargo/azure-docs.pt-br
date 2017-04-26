@@ -15,25 +15,28 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 23b806556667539156ee399e90c7bd4af808804f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b9971117d5f61669a5161a28c96b11b2fd600b61
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="install-an-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar gateway de dados local para Aplicativos Lógicos do Azure
 
-O gateway de dados local dá suporte a estas conexões de fonte de dados:
+O gateway de dados local dá suporte a estas conexões:
 
 *   BizTalk Server
-*    DB2  
+*   DB2  
 *   Sistema de Arquivos
 *   Informix
 *   MQ
-*    Banco de dados Oracle 
-*   Servidor de Aplicativos SAP 
-*   Servidor de Mensagens SAP
-*    SQL Server
+*   MySQL
+*   Banco de dados Oracle 
+*   Servidor de aplicativos SAP 
+*   Servidor de mensagens SAP
+*   SharePoint somente para HTTP e não para HTTPS
+*   SQL Server
+*   Teradata
 
 Para obter mais informações sobre essas conexões, confira [Conectores para Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/connectors/apis-list).
 
@@ -48,8 +51,8 @@ Mínimo:
 
 Recomendável:
 
-* CPU de&8; núcleos
-* Memória de&8; GB
+* CPU de 8 núcleos
+* Memória de 8 GB
 * Versão de 64 bits do Windows 2012 R2 (ou posterior)
 
 Considerações relacionadas:
@@ -61,7 +64,7 @@ Você não pode instalar o gateway em um controlador de domínio.
 
 * Você só pode usar um endereço de email corporativo ou de estudante no Azure, para que possa associar o gateway de dados local a sua conta baseada no Azure Active Directory.
 
-    Se estiver usando uma conta da Microsoft, como @outlook.com, você poderá usar sua conta do Azure para   [criar um endereço de email corporativo ou de estudante](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+    Se estiver usando uma conta da Microsoft, como @outlook.com, você poderá usar sua conta do Azure para   [criar um endereço de email corporativo ou de estudante](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
 ### <a name="install-the-gateway"></a>Instalar o gateway
 
