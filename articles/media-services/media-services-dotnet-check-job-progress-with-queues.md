@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0ddac6ef30439e6bea04d63c41662bc49309de2c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: a9bb00c6f0a691ac3a67d19ada4341d8d94876c1
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -36,7 +36,7 @@ Considere o seguinte ao desenvolver aplicativos dos Serviços de Mídia que usam
 
 * O Armazenamento de filas não fornece uma garantia de entrega ordenada PEPS (primeiro a entrar, primeiro a sair). Para obter mais informações, consulte [Filas do Azure e Filas do Barramento de Serviço do Azure comparadas e contrastadas](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * O Armazenamento de filas não é um serviço de envio por push. Você precisa sondar a fila.
-* Você pode ter qualquer número de filas. Para obter mais informações, consulte [API REST do Serviço de Fila](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
+* Você pode ter qualquer número de filas. Para obter mais informações, consulte [API REST do Serviço de Fila](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
 * O Armazenamento de filas tem algumas limitações e especificações a serem consideradas. Elas são descritas em [Filas do Azure e Filas do Barramento de Serviço do Azure – semelhanças e diferenças](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### <a name="code-example"></a>Exemplo de código

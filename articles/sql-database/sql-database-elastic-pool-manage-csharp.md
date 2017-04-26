@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: c83a5aacca6669c4259365fba9f444ecb1b2a6c9
-ms.openlocfilehash: 1e7393537f6c9e4d6af522dd05f149403a85559e
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9e038bfeee023b26aa80046fe877db007baa1816
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -370,6 +370,6 @@ Recuperar as propriedades do pool existente. Modifique os valores e execute o m�
 ## <a name="additional-resources"></a>Recursos adicionais
 *  Para códigos de erro de aplicativos cliente do Banco de Dados SQL, erro de conexão de banco de dados e outros problemas, veja [Mensagens de erro](sql-database-develop-error-messages.md).
 * [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* Para obter diretrizes sobre pool elástico, veja [Quando um pool elástico deve ser usado?](sql-database-elastic-pool-guidance.md)
+* Para obter diretrizes sobre pool elástico, veja [Quando um pool elástico deve ser usado?](sql-database-elastic-pool.md)
 
 

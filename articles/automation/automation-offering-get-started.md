@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1876b78186da3aa6c0ae9dc7de3b7ab7e46888bb
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -211,7 +211,7 @@ Quando a criação da conta de Automação tiver sido criada com êxito, vários
 | Runbook do AzureClassicAutomationTutorial | Um exemplo de runbook gráfico que obtém todas as VMs que são criadas usando o modelo de implantação clássico em uma assinatura usando a conta Executar como Clássica (certificado) e grava o nome da VM e o status. |
 | Runbook do script AzureClassicAutomationTutorial | Um runbook do PowerShell de exemplo que obtém todas as VMs clássicas em uma assinatura usando a conta Executar como Clássica (certificado) e grava o nome e o status da VM. |
 | AzureClassicRunAsCertificate | O ativo de certificado criado automaticamente que você usou para se autenticar no Azure para que possa gerenciar recursos clássicos do Azure por meio de runbooks. O certificado tem um tempo de vida de um ano. |
-| AzureClassicRunAsConnection | O ativo de conexão criado automaticamente e usado para se autenticar no Azure para que você possa gerenciar recursos clássicos do Azure por meio de runbooks. |autenticar com o Azure para que você possa gerenciar recursos clássicos do Azure a partir do runbooks. |
+| AzureClassicRunAsConnection | O ativo de conexão criado automaticamente e usado para se autenticar no Azure para que você possa gerenciar recursos clássicos do Azure por meio de runbooks.|
 
 ## <a name="next-steps"></a>Próximas etapas
 * Você pode confirmar que a sua nova conta de automação pode autenticar em recursos do Azure em [Como testar a autenticação da conta Executar como de Automação do Azure](automation-verify-runas-authentication.md).

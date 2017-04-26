@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d7a08bb0f4128eb3915658b41843b35613108a98
-ms.openlocfilehash: d544695654ff136ee25856cb4a0309f882057ebb
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 4036c994cb5be68b372a4f244f65a17ce173ecc2
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -214,4 +214,4 @@ A capacidade usada pelas tabelas de métricas também é faturável. Você pode 
 * A tabela de capacidade para blobs tem duas linhas adicionadas por dia (fornecida pelo usuário que optou pelos logs). Isso implica que todos os dias o tamanho dessa tabela aumenta em até aproximadamente 300 bytes.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Habilitando o armazenamento de log e acessando os dados de log](/rest/api/storageservices/fileservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
+[Habilitando o armazenamento de log e acessando os dados de log](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
