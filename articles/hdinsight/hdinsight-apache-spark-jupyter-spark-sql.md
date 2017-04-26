@@ -126,7 +126,7 @@ Neste artigo, você usa o kernel do **PySpark**. Para saber mais sobre os três 
         # Create a data frame
         hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
 
-        # Register the data fram as a table to run queries against
+        # Register the data frame as a table to run queries against
         hvacdf.registerTempTable("hvac")
 
     Os clusters Spark no HDInsight são fornecidos com um arquivo de dados de exemplo, **hvac.csv**, em **\HdiSamples\HdiSamples\SensorSampleData\hvac**.

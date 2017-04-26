@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/14/2017
+ms.date: 04/25/2017
 ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
@@ -230,6 +230,10 @@ Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é 
 * Para obter uma lista completa em ordem alfabética dos algoritmos e módulos no Machine Learning Studio do Azure, consulte a [Lista de A-Z de módulos do Machine Learning Studio] na Ajuda de algoritmo e módulo do Machine Learning Studio.
 * Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Machine Learning Studio do Azure, consulte [Diagrama de visão geral dos recursos do Machine Learning Studio do Azure](machine-learning-studio-overview-diagram.md).
 
+
+<!-- Reference links -->
+[initialize-model]: https://msdn.microsoft.com/library/azure/dn905812.aspx
+[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
 
 <!-- Media -->
 
