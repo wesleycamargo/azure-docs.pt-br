@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
-ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos do sistema da StorSimple Virtual Array
@@ -80,7 +81,9 @@ Os requisitos de software a seguir referem-se aos clientes SMB que acessam o Sto
 > [!IMPORTANT]
 > Não copie ou armazene arquivos protegidos pelo Windows Encrypting File System (EFS) para o servidor de arquivo StorSimple Virtual Array. Isso resultará em uma configuração sem suporte. 
 > 
-> 
+
+### <a name="supported-storage-format"></a>Formato de armazenamento com suporte
+Há suporte para o armazenamento de blob de blocos do Azure. Blobs de página não têm suporte. Para obter mais informações [sobre blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego de gerenciamento, de nuvem, SMB ou iSCSI. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
@@ -127,10 +130,5 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 ## <a name="next-step"></a>Próxima etapa
 * [Preparar o portal para implantar sua StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
