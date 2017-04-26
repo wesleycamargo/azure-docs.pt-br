@@ -538,7 +538,7 @@ Este é o código para essas duas tarefas.
 ## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prevê se uma gorjeta será paga ou não
 Nesta seção, você cria três tipos de modelo de classificação binária para prever se uma gorjeta será paga ou não:
 
-* Um **modelo de regressão logística`LogisticRegression()` usando a função ** do ML do Spark
+* Um **modelo de regressão logística`LogisticRegression()` usando a função**  do ML do Spark
 * Um **modelo de classificação de floresta aleatória** usando a função `RandomForestClassifier()` da AM do Spark
 * Um **modelo de classificação de árvore de aumento gradiente** usando a função `GradientBoostedTrees()` da MLlib
 
