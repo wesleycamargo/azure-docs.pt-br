@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 36cc060273ec4e402a4eecc877ed41889d9ce8ce
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: cd60055833eec98c4bef4680fec9910c347d9d0c
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Windows
-Quando não precisar mais de um disco de dados conectado a uma máquina virtual, você poderá desanexá-lo facilmente. Essa ação remove o disco da máquina virtual, mas não o remove do armazenamento. 
+Quando não precisar mais de um disco de dados conectado a uma máquina virtual, você poderá desanexá-lo facilmente. Essa ação remove o disco da máquina virtual, mas não o remove do armazenamento.
 
 > [!WARNING]
-> Se você desanexar um disco, ele não será excluído automaticamente. Se você se inscreveu para o armazenamento Premium, você continuará incorrendo em encargos de armazenamento para o disco. Para obter mais informações, consulte [Preços e cobrança ao usar o Armazenamento Premium](../../storage/storage-premium-storage.md#pricing-and-billing). 
-> 
-> 
+> Se você desanexar um disco, ele não será excluído automaticamente. Se você se inscreveu para o armazenamento Premium, você continuará incorrendo em encargos de armazenamento para o disco. Para obter mais informações, consulte [Preços e cobrança ao usar o Armazenamento Premium](../../storage/storage-premium-storage.md#pricing-and-billing).
+>
+>
 
-Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.  
+Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados usando o portal
 1. No hub do portal, selecione **máquinas virtuais**.
@@ -46,19 +46,19 @@ Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo �
 O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Desanexar um disco de dados usando o PowerShell
-Neste exemplo, o primeiro comando obtém a máquina virtual chamada **MyVM07** no grupo de recursos **RG11** usando o cmdlet Get-AzureRmVM. O comando armazena a máquina virtual na variável **$VirtualMachine** . 
+Neste exemplo, o primeiro comando obtém a máquina virtual chamada **MyVM07** no grupo de recursos **RG11** usando o cmdlet Get-AzureRmVM. O comando armazena a máquina virtual na variável **$VirtualMachine** .
 
-O segundo comando remove da máquina virtual o disco de dados denominado DataDisk3. 
+O segundo comando remove da máquina virtual o disco de dados denominado DataDisk3.
 
 O comando final atualiza o estado da máquina virtual para concluir o processo de remoção do disco de dados.
 
 ```powershell
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 ```
 
-Para obter mais informações, consulte [Remove-AzureRmVMDataDisk](/powershell/remove-azurermvmdatadisk).
+Para obter mais informações, consulte [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você quiser reutilizar o disco de dados, você poderá simplesmente [anexá-lo a outra VM](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

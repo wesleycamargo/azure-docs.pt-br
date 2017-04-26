@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 3fb7a0361717d4616ec21e55c0a202ed8bf8991d
-ms.openlocfilehash: a537a71a43b49d510a12d1293d8ee898d66efe63
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: ab8623d6f9751ed6d71d9a5b1c0d5e939c442862
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -27,10 +28,14 @@ No Kit de Ferramentas do Azure para o Eclipse, é possível habilitar a afinidad
 
 ## <a name="to-enable-session-affinity-for-your-role"></a>Para habilitar a afinidade de sessão para sua função
 1. Clique com o botão direito do mouse na função no Explorador de Projetos do Eclipse, clique em **Azure** e em **Balanceamento de Carga**.
+
 2. No diálogo **Propriedades de balanceamento de carga de WorkerRole1** :
-   1. Verifique **Habilitar a afinidade de sessão HTTP (sessões autoadesivas) para esta função.**
-   2. Para **Ponto de extremidade de entrada a ser usado**, selecione um ponto de extremidade de entrada a ser usado, por exemplo, **http (pública:&80;, privada:&8080;)**. Seu aplicativo deve usar esse ponto de extremidade como seu ponto de extremidade HTTP. Você pode habilitar vários pontos de extremidade para a sua função, mas selecionar apenas um para dar suporte às sessões adesivas.
-   3. Recompile seu aplicativo.
+
+   a. Verifique **Habilitar a afinidade de sessão HTTP (sessões autoadesivas) para esta função.**
+
+   b. Para **Ponto de extremidade de entrada a ser usado**, selecione um ponto de extremidade de entrada a ser usado, por exemplo, **http (pública: 80, privada: 8080)**. Seu aplicativo deve usar esse ponto de extremidade como seu ponto de extremidade HTTP. Você pode habilitar vários pontos de extremidade para a sua função, mas selecionar apenas um para dar suporte às sessões adesivas.
+
+   c. Recompile seu aplicativo.
 
 Quando habilitadas, se você tiver mais de uma instância de função, as solicitações HTTP provenientes de um determinado cliente continuarão sendo manipuladas pela mesma instância de função.
 
@@ -38,8 +43,11 @@ O Kit de Ferramentas para o Eclipse permite isso instalando um módulo IIS espec
 
 ## <a name="notes-about-session-affinity"></a>Observações sobre a afinidade de sessão
 * A afinidade de sessão não funciona no emulador de computação. As configurações podem ser aplicadas no emulador de computação sem interferir no processo de compilação ou na execução do emulador de computação, mas o recurso em si não funciona no emulador de computação.
+
 * Habilitar a afinidade de sessão resultará em um aumento na quantidade de espaço em disco ocupada pela sua implantação no Azure, já que um software adicional será baixado e instalado em suas instâncias de função quando o serviço for iniciado na nuvem do Azure.
+
 * O tempo para inicializar cada função levará mais tempo.
+
 * Um ponto de extremidade interno, para funcionar como um novo roteador de tráfego, como mencionado acima, será adicionado.
 
 
@@ -65,9 +73,4 @@ Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvo
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

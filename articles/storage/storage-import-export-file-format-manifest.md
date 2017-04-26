@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -123,7 +123,7 @@ Os elementos de dados e os atributos do formato XML de manifesto da unidade são
 |`PageRange/@Offset`|Atributo, inteiro|Especifica o deslocamento no arquivo de transferência e o blob onde o intervalo de páginas especificado começa. Esse valor deve ser um múltiplo de 512.|  
 |`PageRange/@Length`|Atributo, inteiro|Especifica o comprimento do intervalo de páginas. Esse valor deve ser um múltiplo de 512 e não ultrapassar 4 MB.|  
 |`PageRange/@Hash`|Atributo, cadeia de caracteres|Especifica o valor de hash MD5 codificado com Base16 do intervalo de páginas.|  
-|`BlockList`|Elemento XML aninhado|Obrigatório para um blob de blocos com blocos nomeados.<br /><br /> Para uma operação de importação, a lista de blocos especifica um conjunto de blocos que será importado para o Armazenamento do Azure. Para uma operação de exportação, a lista de blocos especifica onde cada bloco foi armazenado no arquivo no disco de exportação. Cada bloco é descrito por um deslocamento no arquivo e um cumprimento de bloco; cada bloco ainda recebe um nome de um atributo de ID de bloco, e contém um hash MD5 para o bloco. É possível usar até 50.000 blocos para descrever um blob.  Todos os blocos deverão ser ordenados por deslocamento e, juntos, devem cobrir o intervalo completo do arquivo, *ou seja*, não deve haver nenhum espaço entre os blocos. Se o blob não ultrapassar 64 MB, todas as IDs de bloco deverão estar todas ausentes ou todas presentes. As IDs de bloco devem ser cadeias de caracteres codificadas em Base64. Consulte [Put Block](/rest/api/storageservices/fileservices/put-block) para ver mais requisitos para IDs de bloco.|  
+|`BlockList`|Elemento XML aninhado|Obrigatório para um blob de blocos com blocos nomeados.<br /><br /> Para uma operação de importação, a lista de blocos especifica um conjunto de blocos que será importado para o Armazenamento do Azure. Para uma operação de exportação, a lista de blocos especifica onde cada bloco foi armazenado no arquivo no disco de exportação. Cada bloco é descrito por um deslocamento no arquivo e um cumprimento de bloco; cada bloco ainda recebe um nome de um atributo de ID de bloco, e contém um hash MD5 para o bloco. É possível usar até 50.000 blocos para descrever um blob.  Todos os blocos deverão ser ordenados por deslocamento e, juntos, devem cobrir o intervalo completo do arquivo, *ou seja*, não deve haver nenhum espaço entre os blocos. Se o blob não ultrapassar 64 MB, todas as IDs de bloco deverão estar todas ausentes ou todas presentes. As IDs de bloco devem ser cadeias de caracteres codificadas em Base64. Consulte [Put Block](/rest/api/storageservices/put-block) para ver mais requisitos para IDs de bloco.|  
 |`Block`|Elemento XML|Representa um bloco.|  
 |`Block/@Offset`|Atributo, inteiro|Especifica o deslocamento no qual o bloco especificado começa.|  
 |`Block/@Length`|Atributo, inteiro|Especifica o número de bytes no bloco; esse valor não deve ultrapassar 4 MB.|  

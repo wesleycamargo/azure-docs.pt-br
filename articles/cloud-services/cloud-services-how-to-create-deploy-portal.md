@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 1ce2e980dc71ede4f8cd8ec7c9166efac7b25d2e
-ms.openlocfilehash: 554ef45d7fba5f2ff314a162ae33c6cc27206933
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 542817c562e10ff32c62afd186cf012abbe82ac5
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,7 +33,7 @@ O portal do Azure oferece duas maneiras de criar e implantar um serviço de nuve
 Este artigo explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o Portal do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a Criação Personalizada.
 
 > [!NOTE]
-> Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no Início Rápido do Azure ou no painel. Para obter mais informações, consulte [Fornecimento Contínuo para o Azure usando o Visual Studio Team Services][TFSTutorialForCloudService] ou consulte a ajuda da página **Início Rápido**.
+> Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no Início Rápido do Azure ou no painel. Para saber mais, confira [Entrega contínua no Azure usando Visual Studio Team Services][TFSTutorialForCloudService] ou confira a ajuda da página **Início Rápido**.
 >
 >
 
@@ -108,9 +109,4 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

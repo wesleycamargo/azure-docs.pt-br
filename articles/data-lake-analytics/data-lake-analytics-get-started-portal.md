@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7f23ae904461e754b3871b33ca40c2ff4fcb99f0
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 64c5869f3e66c249fefa9af228fe1b33974cf293
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -57,14 +57,14 @@ Cada conta do Data Lake Analytics tem uma dependência da conta do Azure Data La
 Após a criação de uma conta da Análise Data Lake, é possível adicionar outras contas do Repositório Data Lake e contas de Armazenamento do Azure. Para obter instruções, consulte [Gerenciar as fontes de dados da conta da Análise Data Lake](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 ## <a name="prepare-source-data"></a>Preparar dados de origem
-Neste tutorial, você processará logs de pesquisa.  O log de pesquisa pode ser armazenado no repositório Data Lake ou no armazenamento de Blobs do Azure.
+Neste tutorial, você processará logs de pesquisa.  O log de pesquisa pode ser armazenado no Repositório Data Lake ou no Armazenamento de Blob do Azure.
 
 O portal do Azure fornece uma interface do usuário para copiar arquivos de dados de exemplo para a conta padrão do Data Lake Store, o que inclui um arquivo de log de pesquisa.
 
 **Copiar arquivos de dados de exemplo**
 
 1. No [Portal do Azure](https://portal.azure.com), abra sua conta do Data Lake Analytics.  Confira [Gerenciar contas do Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account) para criar uma e abrir a conta no portal.
-2. Expanda o painel **Essentials**, em seguida, clique em **Explorar scripts de exemplo**. Isso abre outra folha denominada **Scripts de Exemplo**.
+2. Expanda o painel **Essentials**, em seguida, clique em **Explorar scripts de exemplo**. Isso abre outra folha denominada **Scripts de Exemplo** .
 
     ![Script de exemplo do portal do Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
 3. Clique em **Dados de Exemplo Ausentes** para copiar os arquivos de dados de exemplo. Quando estiver pronto, o portal mostrará **Dados de exemplo atualizados com êxito**.

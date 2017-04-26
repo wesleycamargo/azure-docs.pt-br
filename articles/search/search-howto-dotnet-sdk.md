@@ -4,7 +4,7 @@ description: Como usar a Pesquisa do Azure de um aplicativo .NET
 services: search
 documentationcenter: 
 author: brjohnstmsft
-manager: pablocas
+manager: jlembicz
 editor: 
 ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
 ms.service: search
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/30/2016
+ms.date: 04/21/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 23ea2ac2afd60c500b3ffe4ee57e991a11551625
-ms.openlocfilehash: 50e03b7a3af6f88c9ceb3241d60b9414bbe42d16
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 2c7032e74dc59eb610b8860338486afc52e3abbe
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -59,40 +60,49 @@ O código de exemplo a seguir ilustra cada um deles. Fique à vontade para usar 
 ### <a name="overview"></a>Visão geral
 O exemplo de aplicativo que vamos explorar cria um novo índice chamado "hotéis", preenche-o com alguns documentos e, em seguida, executa algumas consultas de pesquisa. Este é o programa principal, mostrando o fluxo geral:
 
-    // This sample shows how to delete, create, upload documents and query an index
-    static void Main(string[] args)
-    {
-        SearchServiceClient serviceClient = CreateSearchServiceClient();
+```csharp
+// This sample shows how to delete, create, upload documents and query an index
+static void Main(string[] args)
+{
+    SearchServiceClient serviceClient = CreateSearchServiceClient();
 
-        Console.WriteLine("{0}", "Deleting index...\n");
-        DeleteHotelsIndexIfExists(serviceClient);
+    Console.WriteLine("{0}", "Deleting index...\n");
+    DeleteHotelsIndexIfExists(serviceClient);
 
-        Console.WriteLine("{0}", "Creating index...\n");
-        CreateHotelsIndex(serviceClient);
+    Console.WriteLine("{0}", "Creating index...\n");
+    CreateHotelsIndex(serviceClient);
 
-        ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+    ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
-        Console.WriteLine("{0}", "Uploading documents...\n");
-        UploadDocuments(indexClient);
+    Console.WriteLine("{0}", "Uploading documents...\n");
+    UploadDocuments(indexClient);
 
-        ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
+    ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
 
-        RunQueries(indexClientForQueries);
+    RunQueries(indexClientForQueries);
 
-        Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
-        Console.ReadKey();
-    }
+    Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
+    Console.ReadKey();
+}
+```
+
+> [!NOTE]
+> Você pode encontrar o código-fonte completo do aplicativo de exemplo usado neste passo a passo no [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
+> 
+>
 
 Vamos examinar isso passo a passo. Primeiro, é necessário criar um novo `SearchServiceClient`. Esse objeto permite o gerenciamento de índices. Para construir um, você precisa fornecer o nome do serviço da Pesquisa do Azure, bem como uma chave de API de administração.
 
-    private static SearchServiceClient CreateSearchServiceClient()
-    {
-        string searchServiceName = "myservice";
-        string adminApiKey = "Put your API admin key here";
+```csharp
+private static SearchServiceClient CreateSearchServiceClient()
+{
+    string searchServiceName = "myservice";
+    string adminApiKey = "Put your API admin key here";
 
-        SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
-        return serviceClient;
-    }
+    SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+    return serviceClient;
+}
+```
 
 > [!NOTE]
 > Se você fornecer uma chave incorreta (por exemplo, uma chave de consulta quando era necessário fornecer uma chave de administrador), o `SearchServiceClient` lançará uma `CloudException` com a mensagem de erro "Forbidden" na primeira vez que você chamar um método de operação, como `Indexes.Create`. Se isso ocorrer, verifique novamente a chave da API.
@@ -101,15 +111,19 @@ Vamos examinar isso passo a passo. Primeiro, é necessário criar um novo `Searc
 
 As próximas linhas chamam métodos para criação de um índice chamado "hotéis," excluindo-o primeiro caso ele já exista. Abordaremos esses métodos um pouco mais tarde.
 
-    Console.WriteLine("{0}", "Deleting index...\n");
-    DeleteHotelsIndexIfExists(serviceClient);
+```csharp
+Console.WriteLine("{0}", "Deleting index...\n");
+DeleteHotelsIndexIfExists(serviceClient);
 
-    Console.WriteLine("{0}", "Creating index...\n");
-    CreateHotelsIndex(serviceClient);
+Console.WriteLine("{0}", "Creating index...\n");
+CreateHotelsIndex(serviceClient);
+```
 
 Em seguida, o índice precisa ser preenchido. Para fazer isso, precisaremos de um `SearchIndexClient`. Há duas maneiras de obter um: construindo ou chamando `Indexes.GetClient` no `SearchServiceClient`. Usaremos o último por conveniência.
 
-    ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+```csharp
+ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+```
 
 > [!NOTE]
 > Em um aplicativo típico de pesquisa, o gerenciamento e o preenchimento do índice é tratado por um componente separado das consultas de pesquisa. `Indexes.GetClient` é conveniente para preencher um índice porque poupa o trabalho de fornecer outras `SearchCredentials`. Ele faz isso passando a chave de administrador que você usou para criar o `SearchServiceClient` ao novo `SearchIndexClient`. No entanto, na parte do aplicativo que executa consultas, é melhor criar o `SearchIndexClient` diretamente para que você possa passar uma chave de consulta em vez de uma chave de administrador. Isso está de acordo com o princípio de privilégios mínimos e ajuda a tornar seu aplicativo mais seguro. Você pode saber mais sobre chaves de administração e chaves de consulta [aqui](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
@@ -118,25 +132,31 @@ Em seguida, o índice precisa ser preenchido. Para fazer isso, precisaremos de u
 
 Agora que temos um `SearchIndexClient`, podemos preencher o índice. Isso é feito por outro método que descreveremos mais tarde detalhadamente.
 
-    Console.WriteLine("{0}", "Uploading documents...\n");
-    UploadDocuments(indexClient);
+```csharp
+Console.WriteLine("{0}", "Uploading documents...\n");
+UploadDocuments(indexClient);
+```
 
 Por fim, executamos algumas consultas de pesquisa e exibimos os resultados. Dessa vez, usamos outro `SearchIndexClient`:
 
-    ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
+```csharp
+ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
 
-    RunQueries(indexClientForQueries);
+RunQueries(indexClientForQueries);
+```
 
 Posteriormente, faremos uma análise mais detalhada do método `RunQueries`. Este é o código para criar o novo `SearchIndexClient`:
 
-    private static SearchIndexClient CreateSearchIndexClient()
-    {
-        string searchServiceName = "myservice";
-        string queryApiKey = "Put one of your API query keys here";
+```csharp
+private static SearchIndexClient CreateSearchIndexClient()
+{
+    string searchServiceName = "myservice";
+    string queryApiKey = "Put one of your API query keys here";
 
-        SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
-        return indexClient;
-    }
+    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+    return indexClient;
+}
+```
 
 Dessa vez, usaremos uma chave de consulta, já que não precisamos de acesso de gravação para o índice.
 
@@ -177,13 +197,15 @@ Em seguida, analisaremos com mais detalhes cada um dos métodos chamados pelo `M
 ### <a name="creating-an-index"></a>Criando um índice
 Depois de criar um `SearchServiceClient`, a próxima coisa que o `Main` faz é excluir o índice "hotéis", caso ele já exista. Isso é feito pelo método a seguir:
 
-    private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
+```csharp
+private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
+{
+    if (serviceClient.Indexes.Exists("hotels"))
     {
-        if (serviceClient.Indexes.Exists("hotels"))
-        {
-            serviceClient.Indexes.Delete("hotels");
-        }
+        serviceClient.Indexes.Delete("hotels");
     }
+}
+```
 
 Esse método usa o `SearchServiceClient` fornecido para verificar se o índice existe e, nesse caso, excluí-lo.
 
@@ -194,16 +216,18 @@ Esse método usa o `SearchServiceClient` fornecido para verificar se o índice e
 
 Em seguida, `Main` cria um novo índice "hotéis" chamando este método:
 
-    private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+```csharp
+private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+{
+    var definition = new Index()
     {
-        var definition = new Index()
-        {
-            Name = "hotels",
-            Fields = FieldBuilder.BuildForType<Hotel>()
-        };
+        Name = "hotels",
+        Fields = FieldBuilder.BuildForType<Hotel>()
+    };
 
-        serviceClient.Indexes.Create(definition);
-    }
+    serviceClient.Indexes.Create(definition);
+}
+```
 
 Esse método cria um novo objeto `Index` com uma lista de objetos `Field` que definem o esquema do novo índice. Cada campo tem um nome, tipo de dados e vários atributos que definem seu comportamento de pesquisa. A classe `FieldBuilder` usa a reflexão para criar uma lista de objetos `Field` para o índice, examinando os atributos e propriedades públicas da classe do modelo `Hotel` determinada. Posteriormente, faremos uma análise mais detalhada da classe `Hotel`.
 
@@ -217,67 +241,69 @@ Além dos campos, você também pode adicionar perfis de pontuação, sugestões
 ### <a name="populating-the-index"></a>Preenchendo o índice
 A próxima etapa no `Main` é popular o índice recém-criado. Isso é feito com o método a seguir:
 
-    private static void UploadDocuments(ISearchIndexClient indexClient)
+```csharp
+private static void UploadDocuments(ISearchIndexClient indexClient)
+{
+    var hotels = new Hotel[]
     {
-        var hotels = new Hotel[]
-        {
-            new Hotel()
-            { 
-                HotelId = "1", 
-                BaseRate = 199.0, 
-                Description = "Best hotel in town",
-                DescriptionFr = "Meilleur hôtel en ville",
-                HotelName = "Fancy Stay",
-                Category = "Luxury", 
-                Tags = new[] { "pool", "view", "wifi", "concierge" },
-                ParkingIncluded = false, 
-                SmokingAllowed = false,
-                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                Rating = 5, 
-                Location = GeographyPoint.Create(47.678581, -122.131577)
-            },
-            new Hotel()
-            { 
-                HotelId = "2", 
-                BaseRate = 79.99,
-                Description = "Cheapest hotel in town",
-                DescriptionFr = "Hôtel le moins cher en ville",
-                HotelName = "Roach Motel",
-                Category = "Budget",
-                Tags = new[] { "motel", "budget" },
-                ParkingIncluded = true,
-                SmokingAllowed = true,
-                LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
-                Rating = 1,
-                Location = GeographyPoint.Create(49.678581, -122.131577)
-            },
-            new Hotel() 
-            { 
-                HotelId = "3", 
-                BaseRate = 129.99,
-                Description = "Close to town hall and the river"
-            }
-        };
-
-        var batch = IndexBatch.Upload(hotels);
-
-        try
-        {
-            indexClient.Documents.Index(batch);
+        new Hotel()
+        { 
+            HotelId = "1", 
+            BaseRate = 199.0, 
+            Description = "Best hotel in town",
+            DescriptionFr = "Meilleur hôtel en ville",
+            HotelName = "Fancy Stay",
+            Category = "Luxury", 
+            Tags = new[] { "pool", "view", "wifi", "concierge" },
+            ParkingIncluded = false, 
+            SmokingAllowed = false,
+            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
+            Rating = 5, 
+            Location = GeographyPoint.Create(47.678581, -122.131577)
+        },
+        new Hotel()
+        { 
+            HotelId = "2", 
+            BaseRate = 79.99,
+            Description = "Cheapest hotel in town",
+            DescriptionFr = "Hôtel le moins cher en ville",
+            HotelName = "Roach Motel",
+            Category = "Budget",
+            Tags = new[] { "motel", "budget" },
+            ParkingIncluded = true,
+            SmokingAllowed = true,
+            LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
+            Rating = 1,
+            Location = GeographyPoint.Create(49.678581, -122.131577)
+        },
+        new Hotel() 
+        { 
+            HotelId = "3", 
+            BaseRate = 129.99,
+            Description = "Close to town hall and the river"
         }
-        catch (IndexBatchException e)
-        {
-            // Sometimes when your Search service is under load, indexing will fail for some of the documents in
-            // the batch. Depending on your application, you can take compensating actions like delaying and
-            // retrying. For this simple demo, we just log the failed document keys and continue.
-            Console.WriteLine(
-                "Failed to index some of the documents: {0}",
-                String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
-        }
+    };
 
-        Console.WriteLine("Waiting for documents to be indexed...\n");
-        Thread.Sleep(2000);
+    var batch = IndexBatch.Upload(hotels);
+
+    try
+    {
+        indexClient.Documents.Index(batch);
     }
+    catch (IndexBatchException e)
+    {
+        // Sometimes when your Search service is under load, indexing will fail for some of the documents in
+        // the batch. Depending on your application, you can take compensating actions like delaying and
+        // retrying. For this simple demo, we just log the failed document keys and continue.
+        Console.WriteLine(
+            "Failed to index some of the documents: {0}",
+            String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
+    }
+
+    Console.WriteLine("Waiting for documents to be indexed...\n");
+    Thread.Sleep(2000);
+}
+```
 
 Este método tem quatro partes. O primeiro cria uma matriz de objetos `Hotel` que servirá como nossos dados de entrada para carregamento do índice. Esses dados são codificados para manter a simplicidade. Em seu próprio aplicativo, provavelmente seus dados virão de uma fonte de dados externa, como um banco de dados SQL.
 
@@ -300,50 +326,53 @@ Por fim, o método `UploadDocuments` atrasa por dois segundos. A indexação oco
 #### <a name="how-the-net-sdk-handles-documents"></a>Como o SDK do .NET lida com documentos
 Você pode estar se perguntando como o SDK do .NET da Pesquisa do Azure é capaz de carregar instâncias de uma classe definida pelo usuário, como `Hotel` , no índice. Para ajudar a responder a essa pergunta, vamos examinar a classe `Hotel` :
 
-    [SerializePropertyNamesAsCamelCase]
-    public partial class Hotel
-    {
-        [Key]
-        [IsFilterable]
-        public string HotelId { get; set; }
+```csharp
+// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
+// It ensures that Pascal-case property names in the model class are mapped to camel-case
+// field names in the index.
+[SerializePropertyNamesAsCamelCase]
+public partial class Hotel
+{
+    [System.ComponentModel.DataAnnotations.Key]
+    [IsFilterable]
+    public string HotelId { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
-        public double? BaseRate { get; set; }
+    [IsFilterable, IsSortable, IsFacetable]
+    public double? BaseRate { get; set; }
 
-        [IsSearchable]
-        public string Description { get; set; }
+    [IsSearchable]
+    public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrLucene)]
-        [JsonProperty("description_fr")]
-        public string DescriptionFr { get; set; }
+    [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.FrLucene)]
+    [JsonProperty("description_fr")]
+    public string DescriptionFr { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable]
-        public string HotelName { get; set; }
+    [IsSearchable, IsFilterable, IsSortable]
+    public string HotelName { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string Category { get; set; }
+    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+    public string Category { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string[] Tags { get; set; }
+    [IsSearchable, IsFilterable, IsFacetable]
+    public string[] Tags { get; set; }
 
-        [IsFilterable, IsFacetable]
-        public bool? ParkingIncluded { get; set; }
+    [IsFilterable, IsFacetable]
+    public bool? ParkingIncluded { get; set; }
 
-        [IsFilterable, IsFacetable]
-        public bool? SmokingAllowed { get; set; }
+    [IsFilterable, IsFacetable]
+    public bool? SmokingAllowed { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
-        public DateTimeOffset? LastRenovationDate { get; set; }
+    [IsFilterable, IsSortable, IsFacetable]
+    public DateTimeOffset? LastRenovationDate { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
-        public int? Rating { get; set; }
+    [IsFilterable, IsSortable, IsFacetable]
+    public int? Rating { get; set; }
 
-        [IsFilterable, IsSortable]
-        public GeographyPoint Location { get; set; }
-
-        // ToString() method omitted for brevity...
-    }
+    [IsFilterable, IsSortable]
+    public GeographyPoint Location { get; set; }
+}
+```
 
 A primeira coisa a observar é que cada propriedade pública de `Hotel` corresponde a um campo na definição do índice, mas com uma diferença fundamental: o nome de cada campo começa com uma letra minúscula ("minúsculas concatenadas"), enquanto o nome de cada propriedade pública de `Hotel` começa com uma letra maiúscula ("maiúsculas concatenadas"). Esse é um cenário comum em aplicativos .NET que executam associação de dados quando o esquema de destino está fora do controle do desenvolvedor do aplicativo. Em vez de violar as diretrizes de nomenclatura do .NET, usando minúscula para os nomes de propriedade, você pode informar ao SDK para mapear automaticamente os nomes de propriedade como minúscula com o atributo `[SerializePropertyNamesAsCamelCase]` .
 
@@ -387,83 +416,13 @@ Você pode encontrar exemplos de implementação de serialização personalizada
 ### <a name="searching-for-documents-in-the-index"></a>Pesquisando documentos no índice
 A última etapa no exemplo de aplicativo é procurar por documentos no índice. O método a seguir faz isso:
 
-    private static void RunQueries(ISearchIndexClient indexClient)
-    {
-        SearchParameters parameters;
-        DocumentSearchResult<Hotel> results;
-    
-        Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
-    
-        parameters =
-            new SearchParameters()
-            {
-                Select = new[] { "hotelName" }
-            };
-    
-        results = indexClient.Documents.Search<Hotel>("budget", parameters);
-    
-        WriteDocuments(results);
-    
-        Console.Write("Apply a filter to the index to find hotels cheaper than $150 per night, ");
-        Console.WriteLine("and return the hotelId and description:\n");
-    
-        parameters =
-            new SearchParameters()
-            {
-                Filter = "baseRate lt 150",
-                Select = new[] { "hotelId", "description" }
-            };
-    
-        results = indexClient.Documents.Search<Hotel>("*", parameters);
-    
-        WriteDocuments(results);
-    
-        Console.Write("Search the entire index, order by a specific field (lastRenovationDate) ");
-        Console.Write("in descending order, take the top two results, and show only hotelName and ");
-        Console.WriteLine("lastRenovationDate:\n");
-    
-        parameters =
-            new SearchParameters()
-            {
-                OrderBy = new[] { "lastRenovationDate desc" },
-                Select = new[] { "hotelName", "lastRenovationDate" },
-                Top = 2
-            };
-    
-        results = indexClient.Documents.Search<Hotel>("*", parameters);
-    
-        WriteDocuments(results);
-    
-        Console.WriteLine("Search the entire index for the term 'motel':\n");
-    
-        parameters = new SearchParameters();
-        results = indexClient.Documents.Search<Hotel>("motel", parameters);
-    
-        WriteDocuments(results);
-    }
+```csharp
+private static void RunQueries(ISearchIndexClient indexClient)
+{
+    SearchParameters parameters;
+    DocumentSearchResult<Hotel> results;
 
-Cada vez que ele executa uma consulta, esse método cria, primeiro, um novo objeto `SearchParameters`. Isso é usado para especificar opções adicionais para a consulta, como classificação, filtragem, paginação e organização. Nesse método, estamos definindo as propriedades de `Filter`, `Select`, `OrderBy` e `Top` para consultas diferentes. Todas as propriedades de `SearchParameters` são documentadas [aqui](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
-
-A próxima etapa é executar a consulta de pesquisa. Isso é feito usando o método `Documents.Search` . Para cada consulta, passamos o texto de pesquisa a ser usado como uma cadeia de caracteres (ou `"*"` se não houver um texto de pesquisa) e também os parâmetros de pesquisa criados anteriormente. Também podemos especificar `Hotel` como o parâmetro de tipo para `Documents.Search`, que informa ao SDK para desserializar documentos nos resultados da pesquisa em objetos do tipo `Hotel`.
-
-> [!NOTE]
-> Você pode saber mais sobre a sintaxe de expressão da consulta de pesquisa [aqui](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
-> 
-> 
-
-Por fim, depois de cada consulta, esse método percorre todas as correspondências nos resultados da pesquisa, imprimindo cada documento no console:
-
-    private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
-    {
-        foreach (SearchResult<Hotel> result in searchResults.Results)
-        {
-            Console.WriteLine(result.Document);
-        }
-
-        Console.WriteLine();
-    }
-
-Vejamos cada uma das consultas com mais detalhes. Este é o código para executar a primeira consulta:
+    Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
 
     parameters =
         new SearchParameters()
@@ -475,11 +434,8 @@ Vejamos cada uma das consultas com mais detalhes. Este é o código para executa
 
     WriteDocuments(results);
 
-Neste caso, estamos pesquisando hotéis que correspondam à palavra "budget" e queremos nos resultados apenas os nomes dos hotéis, conforme especificado pelo parâmetro `Select`. Estes são os resultados:
-
-    Name: Roach Motel
-
-Em seguida, queremos encontrar hotéis com uma diária inferior a US$ 150 e obter resultados somente com a ID e descrição dos hotéis:
+    Console.Write("Apply a filter to the index to find hotels cheaper than $150 per night, ");
+    Console.WriteLine("and return the hotelId and description:\n");
 
     parameters =
         new SearchParameters()
@@ -492,6 +448,87 @@ Em seguida, queremos encontrar hotéis com uma diária inferior a US$ 150 e obt
 
     WriteDocuments(results);
 
+    Console.Write("Search the entire index, order by a specific field (lastRenovationDate) ");
+    Console.Write("in descending order, take the top two results, and show only hotelName and ");
+    Console.WriteLine("lastRenovationDate:\n");
+
+    parameters =
+        new SearchParameters()
+        {
+            OrderBy = new[] { "lastRenovationDate desc" },
+            Select = new[] { "hotelName", "lastRenovationDate" },
+            Top = 2
+        };
+
+    results = indexClient.Documents.Search<Hotel>("*", parameters);
+
+    WriteDocuments(results);
+
+    Console.WriteLine("Search the entire index for the term 'motel':\n");
+
+    parameters = new SearchParameters();
+    results = indexClient.Documents.Search<Hotel>("motel", parameters);
+
+    WriteDocuments(results);
+}
+```
+
+Cada vez que ele executa uma consulta, esse método cria, primeiro, um novo objeto `SearchParameters`. Isso é usado para especificar opções adicionais para a consulta, como classificação, filtragem, paginação e organização. Nesse método, estamos definindo as propriedades de `Filter`, `Select`, `OrderBy` e `Top` para consultas diferentes. Todas as propriedades de `SearchParameters` são documentadas [aqui](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
+
+A próxima etapa é executar a consulta de pesquisa. Isso é feito usando o método `Documents.Search` . Para cada consulta, passamos o texto de pesquisa a ser usado como uma cadeia de caracteres (ou `"*"` se não houver um texto de pesquisa) e também os parâmetros de pesquisa criados anteriormente. Também podemos especificar `Hotel` como o parâmetro de tipo para `Documents.Search`, que informa ao SDK para desserializar documentos nos resultados da pesquisa em objetos do tipo `Hotel`.
+
+> [!NOTE]
+> Você pode saber mais sobre a sintaxe de expressão da consulta de pesquisa [aqui](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
+> 
+> 
+
+Por fim, depois de cada consulta, esse método percorre todas as correspondências nos resultados da pesquisa, imprimindo cada documento no console:
+
+```csharp
+private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
+{
+    foreach (SearchResult<Hotel> result in searchResults.Results)
+    {
+        Console.WriteLine(result.Document);
+    }
+
+    Console.WriteLine();
+}
+```
+
+Vejamos cada uma das consultas com mais detalhes. Este é o código para executar a primeira consulta:
+
+```csharp
+parameters =
+    new SearchParameters()
+    {
+        Select = new[] { "hotelName" }
+    };
+
+results = indexClient.Documents.Search<Hotel>("budget", parameters);
+
+WriteDocuments(results);
+```
+
+Neste caso, estamos pesquisando hotéis que correspondam à palavra "budget" e queremos nos resultados apenas os nomes dos hotéis, conforme especificado pelo parâmetro `Select`. Estes são os resultados:
+
+    Name: Roach Motel
+
+Em seguida, queremos encontrar hotéis com uma diária inferior a US$ 150 e obter resultados somente com a ID e descrição dos hotéis:
+
+```csharp
+parameters =
+    new SearchParameters()
+    {
+        Filter = "baseRate lt 150",
+        Select = new[] { "hotelId", "description" }
+    };
+
+results = indexClient.Documents.Search<Hotel>("*", parameters);
+
+WriteDocuments(results);
+```
+
 Esta consulta usa uma expressão `$filter` do OData, `baseRate lt 150`, para filtrar os documentos no índice. Você pode saber mais sobre a sintaxe do OData com suporte da Pesquisa do Azure [aqui](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search).
 
 Estes são alguns dos resultados da consulta:
@@ -501,17 +538,19 @@ Estes são alguns dos resultados da consulta:
 
 Em seguida, queremos localizar os dois principais hotéis reformados mais recentemente e mostrar o nome dos hotéis e a data da última reforma. Eis o código: 
 
-    parameters =
-        new SearchParameters()
-        {
-            OrderBy = new[] { "lastRenovationDate desc" },
-            Select = new[] { "hotelName", "lastRenovationDate" },
-            Top = 2
-        };
-    
-    results = indexClient.Documents.Search<Hotel>("*", parameters);
-    
-    WriteDocuments(results);
+```csharp
+parameters =
+    new SearchParameters()
+    {
+        OrderBy = new[] { "lastRenovationDate desc" },
+        Select = new[] { "hotelName", "lastRenovationDate" },
+        Top = 2
+    };
+
+results = indexClient.Documents.Search<Hotel>("*", parameters);
+
+WriteDocuments(results);
+```
 
 Neste caso, usaremos novamente a sintaxe do OData para especificar o parâmetro `OrderBy` como `lastRenovationDate desc`. Também vamos definir `Top` como 2 para garantir que só iremos receber os dois principais documentos. Como antes, definimos `Select` para especificar quais campos devem ser retornados.
 
@@ -522,10 +561,12 @@ Estes são os resultados:
 
 Por fim, queremos encontrar todos os hotéis que correspondam à palavra "motel":
 
-    parameters = new SearchParameters();
-    results = indexClient.Documents.Search<Hotel>("motel", parameters);
+```csharp
+parameters = new SearchParameters();
+results = indexClient.Documents.Search<Hotel>("motel", parameters);
 
-    WriteDocuments(results);
+WriteDocuments(results);
+```
 
 Estes são os resultados, que incluem todos os campos uma vez que não especificamos a propriedade `Select`:
 
@@ -533,17 +574,9 @@ Estes são os resultados, que incluem todos os campos uma vez que não especific
 
 Essa etapa conclui o tutorial, mas não pare aqui. **Próximas etapas** fornece os recursos adicionais para aprender mais sobre a Pesquisa do Azure.
 
-## <a name="sample-application-source-code"></a>Código-fonte do aplicativo de exemplo
-Você pode encontrar o código-fonte completo do aplicativo de exemplo usado neste passo a passo no [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
-
 ## <a name="next-steps"></a>Próximas etapas
 * Procure as referências para o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e a [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 * Aprofunde seus conhecimentos por meio de [vídeos e outros exemplos e tutoriais](search-video-demo-tutorial-list.md).
 * Revise as [convenções de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) para saber as regras de nomeação de vários objetos.
 * Examine os [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) na Pesquisa do Azure.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
