@@ -3,7 +3,7 @@ title: "Referência à API de auditoria do Azure Active Directory | Microsoft Do
 description: "Como começar a usar a API de auditoria do Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: markusvi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 04/05/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
-ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -75,6 +76,8 @@ Para entrar dados de entrada relacionados à API, os filtros a seguir recebem su
 Para especificar o tipo de registro com o qual você se preocupa, compile uma instrução de filtro que possa conter um ou uma combinação dos campos de filtro a seguir:
 
 * [activityDate](#activitydate) – define uma data ou intervalo de datas
+* [categoria](#category) – define a categoria pela qual você deseja filtrar.
+* [activityStatus](#activitystatus) – define o status de uma atividade
 * [activityType](#activitytype) – define o tipo de uma atividade
 * [activity](#activity) – Define a atividade como uma cadeia de caracteres  
 * [actor/name](#actorname) – define o ator na forma de nome do ator
@@ -97,6 +100,45 @@ Para especificar o tipo de registro com o qual você se preocupa, compile uma in
 datetime deve estar no formato UTC
 
 - - -
+### <a name="category"></a>categoria
+
+**Valores com suporte**:
+
+| Categoria                         | Valor     |
+| :--                              | ---       |
+| Diretório principal                   | Diretório |
+| Gerenciamento de senhas de auto-atendimento | SSPR      |
+| Gerenciamento de grupos de autoatendimento    | SSGM      |
+| Provisionamento de conta de usuário             | Sincronizar      |
+| Substituição de senha automática      | Substituição de senha automática |
+| Identity Protection              | IdentityProtection |
+| Usuários Convidados                    | Usuários Convidados |
+| Serviço MIM                      | Serviço MIM |
+
+
+
+**Operadores com suporte**: eq
+
+**Exemplo**:
+
+    $filter=category eq 'SSPR'
+- - -
+### <a name="activitystatus"></a>activityStatus
+
+**Valores com suporte**:
+
+| Status da Atividade | Valor |
+| :--             | ---   |
+| Sucesso         | 0     |
+| Failure         | - 1   |
+
+**Operadores com suporte**: eq
+
+**Exemplo**:
+
+    $filter=activityStatus eq -1    
+
+---
 ### <a name="activitytype"></a>activityType
 **Operadores com suporte**: eq
 
@@ -139,6 +181,7 @@ não diferenciam maiúsculas de minúsculas
 **Exemplo**:
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
+
 
 - - -
 ### <a name="targetname"></a>target/name
@@ -190,10 +233,5 @@ não diferenciam maiúsculas de minúsculas
 ## <a name="next-steps"></a>Próximas etapas
 * Quer ver exemplos para atividades do sistema filtradas? Confira os [exemplos de API de auditoria do Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Quer saber mais sobre a API de relatório do Azure AD? Confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

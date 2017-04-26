@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: alainl
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 5649895d1ae39d9a7fa863407b5341f1cdf567ee
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a5e84ded4e7b574a24583be507902f9537328153
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -29,10 +29,10 @@ Neste artigo, exploramos os benefícios da execução do Banco de Dados SQL do A
 
 Como um lembrete do histórico, os alinhamentos das versões do SQL com os níveis de compatibilidade padrão são:
 
-* 100: no SQL Server 2008 e no Banco de Dados SQL do Azure V11.
-* 110: no SQL Server 2012 e no Banco de Dados SQL do Azure V11.
-* 120: no SQL Server 2014 e no Banco de Dados SQL do Azure V12.
-* 130: no SQL Server 2016 e no Banco de Dados SQL do Azure V12.
+* 100: no SQL Server 2008 e no Banco de Dados SQL do Azure.
+* 110: no SQL Server 2012 e no Banco de Dados SQL do Azure.
+* 120: no SQL Server 2014 e no Banco de Dados SQL do Azure.
+* 130: no SQL Server 2016 e no Banco de Dados SQL do Azure.
 
 > [!IMPORTANT]
 > O nível de compatibilidade padrão é 130 para bancos de dados **recém-criados**.
@@ -414,7 +414,7 @@ Embora a maioria das cargas de trabalho se beneficie do nível de compatibilidad
 
 1. Você passa para o nível de compatibilidade 130 e examina como fica o desempenho. Caso você perceba algumas regressões, defina o nível de compatibilidade de volta ao nível original ou mantenha 130 e apenas reverta a Estimativa de Cardinalidade para o modo herdado (conforme explicado anteriormente, isoladamente, isso poderá resolver o problema).
 2. Você testa os aplicativos existentes por completo sob uma carga de produção semelhante, ajusta e valida o desempenho antes de entrar em produção. Em caso de problemas, conforme descrito acima, sempre é possível voltar para o nível de compatibilidade original ou reverter a Estimativa de Cardinalidade para o modo herdado.
-3. Como uma opção final e a maneira mais recente de resolver esses problemas, use o Repositório de Consultas. Essa é a opção recomendada de hoje! Para ajudar na análise das consultas no nível de compatibilidade 120 ou inferior versus 130, nunca é suficiente incentivar o uso do Repositório de Consultas. O Repositório de Consultas está disponível com a versão mais recente do Banco de Dados SQL do Azure V12 e foi projetada para ajudá-lo a solucionar problemas de desempenho de consulta. Considere o Repositório de Consultas um gravador de dados de voo para seu banco de dados, coletando e apresentando informações históricas detalhadas sobre todas as consultas. Isso simplifica bastante a forense de desempenho, reduzindo o tempo para diagnosticar e resolver problemas. Você pode encontrar mais informações no artigo sobre [Repositório de Consultas: o gravador de dados de voo para o banco de dados](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/).
+3. Como uma opção final e a maneira mais recente de resolver esses problemas, use o Repositório de Consultas. Essa é a opção recomendada de hoje! Para ajudar na análise das consultas no nível de compatibilidade 120 ou inferior versus 130, nunca é suficiente incentivar o uso do Repositório de Consultas. O Repositório de Consultas está disponível com a versão mais recente do Banco de Dados SQL do Azure e foi projetada para ajudá-lo a solucionar problemas de desempenho de consulta. Considere o Repositório de Consultas um gravador de dados de voo para seu banco de dados, coletando e apresentando informações históricas detalhadas sobre todas as consultas. Isso simplifica bastante a forense de desempenho, reduzindo o tempo para diagnosticar e resolver problemas. Você pode encontrar mais informações no artigo sobre [Repositório de Consultas: o gravador de dados de voo para o banco de dados](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/).
 
 No nível superior, se você já tiver um conjunto de bancos de dados em execução no nível de compatibilidade 120 ou inferior e pretender mudar alguns deles para 130, ou porque a carga de trabalho provisiona novos bancos de dados automaticamente que são definidos por padrão como 130, considere o seguinte:
 
@@ -432,7 +432,7 @@ Usar o Banco de Dados SQL do Azure para se beneficiar de todos os aprimoramentos
 * [Blog: Repositório de Consultas: um gravador de dados de voo para o banco de dados, por Borko Novakovic, de 8 de junho de 2016](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)
 * [Nível de compatibilidade ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx)
 * [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx)
-* [Nível de compatibilidade 130 para Banco de Dados SQL do Azure V12](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/)
+* [Nível de compatibilidade 130 para Banco de Dados SQL do Azure](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/)
 * [Otimizando seus planos de consulta com o Avaliador de Cardinalidade SQL Server 2014](https://msdn.microsoft.com/library/dn673537.aspx)
 * [Guia de índices ColumnStore](https://msdn.microsoft.com/library/gg492088.aspx)
 * [Blog: Desempenho aprimorado de consultas com nível de compatibilidade 130 no Banco de Dados SQL do Azure, por Alain Lissoir, 6 de maio de 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)

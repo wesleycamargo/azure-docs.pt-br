@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8e1fccf953579beb138d47d1897bf702461fc39a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 203648d999032d86dca10f9b47c40a2208ab79e9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -219,7 +219,7 @@ Uma coleção do DocumentDB é distribuída usando duas dimensões: em uma regi�
 
 Em virtude de um gerenciamento de partição altamente responsivo, do balanceamento de carga e da governança de recursos estrita, o DocumentDB permite dimensionar a taxa de transferência com elasticidade em várias regiões do Azure em uma coleção do DocumentDB. A alteração da taxa de transferência em uma coleção é uma operação de tempo de execução do DocumentDB. Assim como em outras operações de banco de dados, o DocumentDB garante o limite superior absoluto da latência para sua solicitação para alterar a taxa de transferência. Por exemplo, a figura a seguir mostra a coleção de um cliente com taxa de transferência provisionada com elasticidade (variando de 1 M a 10 M de solicitações por segundo em duas regiões) com base na demanda.
  
-**Coleção de um cliente com taxa de transferência provisionada com elasticidade (1 M -&10; M solicitações/s)**
+**Coleção de um cliente com taxa de transferência provisionada com elasticidade (1 M - 10 M solicitações/s)**
 
 ![Taxa de transferência provisionada de forma elástica do Azure DocumentDB](./media/documentdb-distribute-data-globally/documentdb-elastic-throughput.png)
 
@@ -252,12 +252,12 @@ O DocumentDB expõe de forma transparente as métricas de taxa de transferência
 
 ## <a id="References"></a>Referências
 1. Eric Brewer. [Para garantir sistemas distribuídos robustos](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)
-2. Eric Brewer. [CAP Twelve Years Later – How the rules have changed](http://informatik.unibas.ch/fileadmin/Lectures/HS2012/CS341/workshops/reportsAndSlides/PresentationKevinUrban.pdf) (CAP&12; anos mais tarde – como as regras foram alteradas)
+2. Eric Brewer. [CAP Twelve Years Later – How the rules have changed](http://informatik.unibas.ch/fileadmin/Lectures/HS2012/CS341/workshops/reportsAndSlides/PresentationKevinUrban.pdf) (CAP 12 anos mais tarde – como as regras foram alteradas)
 3. Gilbert, Lynch. - [Brewer&#39;s Conjecture and Feasibility of Consistent, Available, Partition Tolerant Web Services](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) (Conjectura e viabilidade de serviços Web tolerantes a partição consistentes e disponíveis)
 4. Daniel Abadi. [Consistency Tradeoffs in Modern Distributed Database Systems Design](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf) (Compensações de consistência no projeto de sistemas de bancos de dados modernos distribuídos)
 5. Martin Kleppmann. [Please stop calling databases CP or AP](https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html) (Pare de chamar bancos de dados de CP ou AP)
 6. Peter Bailis et al. [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (PBS (Probabilistic Bounded Staleness) para quóruns parciais práticos)
 7. Naor e Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) (Carga, capacidade e disponibilidade em sistemas de quorum)
 8. Herlihy e Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) (Linearidade: uma condição de correção para objetos simultâneos)
-9. SLA do DocumentDB do Azure (última atualização em dezembro de 2016)
+9. [SLA do Azure DocumentDB](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/)
 

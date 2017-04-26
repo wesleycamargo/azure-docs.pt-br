@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/05/2017
+ms.date: 04/05/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e0de3b12b98bf9bf361607dac4b087e4eacabf1e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: ab914153df01c6d8135732bc772b78066e14d1d1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -26,9 +26,8 @@ ms.lasthandoff: 03/06/2017
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](search-get-started-management-api.md)
-> 
-> 
+> * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 O Azure Search é um serviço de pesquisa baseado em nuvem, totalmente gerenciado usado para criar uma experiência avançada de pesquisa em aplicativos personalizados. Este artigo aborda as tarefas *administração de serviço* que você pode executar no [portal do Azure](https://portal.azure.com) para um serviço de pesquisa que você já tenha provisionado. *Service administration* é leve por design, limitada às seguintes tarefas:
 
@@ -74,7 +73,7 @@ O Azure Search não expõe os arquivos de log para um serviço individual por me
 Em termos de informações gerais sobre o serviço, você pode obter informações das seguintes maneiras:
 
 * No portal, no painel de serviço, por meio de notificações, propriedades e mensagens de status.
-* Usando o [PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx) para [obter propriedades do serviço](https://msdn.microsoft.com/library/azure/dn832694.aspx), ou status no uso de recursos do índice.
+* Usando o [PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/) para [obter propriedades do serviço](https://docs.microsoft.com/rest/api/searchmanagement/services), ou status no uso de recursos do índice.
 * Por meio de [análise de tráfego de pesquisa](search-traffic-analytics.md), conforme observado anteriormente.
 
 <a id="manage-keys"></a>
@@ -116,8 +115,8 @@ No painel, o monitoramento de recursos é limitado às informações mostradas n
 
 Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Para saber mais, confira [Limites de serviço de pesquisa](search-limits-quotas-capacity.md). 
 
-* [Obter estatísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
-* [Contar documentos](http://msdn.microsoft.com/library/dn798924.aspx)
+* [Obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Contar documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 > [!NOTE]
 > Os comportamentos de cache podem aumentar um limite temporariamente. Por exemplo, ao usar o serviço compartilhado, você pode ver uma contagem de documentos que ultrapassa o limite de 10.000. O aumento é temporário e será detectado na próxima verificação de aplicação do limite. 
@@ -170,7 +169,7 @@ Em contraste com a remoção de réplicas, que não requer nenhum esforço extra
 
 Não há um método de detecção que informe quais fragmentos de índices estão armazenados em quais partições. Cada partição fornece cerca de 25 GB de armazenamento, de modo que você precisará reduzir o armazenamento para um tamanho que possa ser acomodado pelo número de partições que possui. Caso queira reverter para uma partição, os 12 fragmentos precisarão se encaixar.
 
-Para se planejar para o futuro, talvez você queira conferir o armazenamento (usando [Obter Estatísticas do Índice](http://msdn.microsoft.com/library/dn798942.aspx)) para ver o quanto você realmente usou. 
+Para se planejar para o futuro, talvez você queira conferir o armazenamento (usando [Obter Estatísticas do Índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver o quanto você realmente usou. 
 
 <a id="advanced-deployment"></a>
 
@@ -187,7 +186,6 @@ Este vídeo de 30 minutos examina as práticas recomendadas para cenários de im
 Depois de compreender os tipos de operações relativas à administração do serviço, considere as diversas abordagens para o gerenciamento de serviço:
 
 * [PowerShell](search-manage-powershell.md)
-* [API REST de gerenciamento](search-get-started-management-api.md)
 
 Além disso, se você ainda não fez isso, examine o [artigo de desempenho e otimização](search-performance-optimization.md), e, opcionalmente, assista ao vídeo observado na seção anterior para obter mais detalhes e demonstrações técnicas recomendadas.
 

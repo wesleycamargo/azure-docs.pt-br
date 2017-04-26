@@ -1,6 +1,6 @@
 ---
-title: "Criar aplicativos em Scala autônomos para execução em clusters do Azure Spark | Microsoft Docs"
-description: "Saiba como criar um aplicativo Spark autônomos para executar em clusters do HDInsight Spark."
+title: "Criar aplicativos Maven Scala para execução em clusters do Azure Spark | Microsoft Docs"
+description: "Saiba como criar um aplicativo Spark autônomo usando o Maven para executar em clusters do HDInsight Spark."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 153b1ea4ec3d326fb533817cdb74d3489135f7d9
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Criar um aplicativo Scala autônomo para ser executado no cluster do Apache Spark no HDInsight
+# <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Criar um aplicativo Maven Scala para execução no cluster do Apache Spark no HDInsight
 
-Esse artigo fornece orientação passo a passo sobre como desenvolver aplicativos Spark autônomos escritos em Scala usando o Maven com IntelliJ IDEA. O artigo usa o Apache Maven como o sistema de build e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA.  Em um alto nível, criar um aplicativo Scala no IntelliJ IDEA envolverá as seguintes etapas:
+Saiba como criar um aplicativo Spark escrito em Scala usando o Maven com IntelliJ IDEA. O artigo usa o Apache Maven como o sistema de build e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA.  Criar um aplicativo Scala no IntelliJ IDEA envolve as seguintes etapas:
 
 * Usar o Maven como o sistema de compilação.
 * Atualize o arquivo do POM (Modelo de Objeto do Projeto) para resolver as dependências do módulo Spark.
@@ -38,7 +38,7 @@ Esse artigo fornece orientação passo a passo sobre como desenvolver aplicativo
 > 
 > 
 
-**Pré-requisitos**
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).

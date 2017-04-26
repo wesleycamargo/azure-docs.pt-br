@@ -14,21 +14,22 @@ ms.topic: article
 ms.date: 11/25/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 7dd1289453fe146b446322570fcb1c0df74b4db2
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cbdef43381deac957c0e48b7043273c43b032935
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
 
-Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. O [Application Insights][iniciar] vai lhe dizer sobre quaisquer problemas de desempenho e exceções, e o ajudará a localizar e diagnosticar as causas raízes.
+Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. O [Application Insights][start] lhe informará sobre quaisquer problemas de desempenho e exceções e lhe ajudará a localizar e diagnosticar as causas raiz.
 
 O Application Insights pode monitorar serviços e aplicativos Web Java e ASP.NET e serviços WCF. Eles podem ser hospedados no local, em máquinas virtuais ou como sites do Microsoft Azure. 
 
 No lado do cliente, o Application Insights pode realizar a telemetria de páginas da Web e de uma grande variedade de dispositivos, incluindo iOS, Android e aplicativos da Windows Store.
 
-## <a name="a-namesetupaset-up-performance-monitoring"></a><a name="setup"></a>Configurar o monitoramento de desempenho
+## <a name="setup"></a>Configurar o monitoramento de desempenho
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
 
 * [Aplicativos Web ASP.NET](app-insights-asp-net.md)
@@ -37,7 +38,7 @@ Se você ainda não tem o Application Insights adicionado ao seu projeto (ou sej
 * [Aplicativos Web J2EE](app-insights-java-get-started.md)
   * [Adicionar monitoramento de dependência](app-insights-java-agent.md)
 
-## <a name="a-nameviewaexploring-performance-metrics"></a><a name="view"></a>Explorando métricas de desempenho
+## <a name="view"></a>Explorando métricas de desempenho
 No [portal do Azure](https://portal.azure.com), navegue até o recurso do Application Insights que você configurou para seu aplicativo. A folha de visão geral mostra os dados de desempenho básicos:
 
 Clique em qualquer gráfico para ver mais detalhes e para ver os resultados por um período mais longo. Por exemplo, clique no bloco Solicitações e, em seguida, selecione um intervalo de tempo:
@@ -53,7 +54,7 @@ Clique em um gráfico para selecionar outras medidas que são exibidas, ou adici
 > 
 > 
 
-## <a name="a-namemetricsawhat-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
+## <a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
 Existe uma variedade de métricas de desempenho que você pode obter. Vamos começar com estas que aparecem por padrão na folha do aplicativo.
 
 ### <a name="requests"></a>Solicitações
@@ -104,26 +105,24 @@ Defina o recurso antes de outras propriedades. Não escolha os recursos webtest 
 
 Observe as unidades quando você for solicitado para inserir o valor de limite.
 
-*Não vejo o botão Adicionar Alerta.*  - Esta é uma conta de grupo para a qual você tem acesso somente leitura? Verifique com o administrador da conta.
+*Não vejo o botão Adicionar Alerta.* - Esta é uma conta de grupo para a qual você tem acesso somente leitura? Verifique com o administrador da conta.
 
-## <a name="a-namediagnosisadiagnosing-issues"></a><a name="diagnosis"></a>Diagnosticando problemas
+## <a name="diagnosis"></a>Diagnosticando problemas
 Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
-* Configure os [testes de web][availability] para ser alertado se seu site cair ou responder de forma incorreta ou lenta. 
+* Configure os [testes da Web][availability] para serem alertados se seu site cair ou responder de forma incorreta ou lenta. 
 * Compare a contagem de Solicitação com outras métricas para ver se falhas ou resposta lenta são relatadas ao carregar.
 * [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar a detectar problemas.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Próximas etapas
-[Testes da web][availability] - Tem solicitações da web enviadas ao seu aplicativo em intervalos regulares em todo o mundo.
+## <a name="next"></a>Próximas etapas
+[Testes da Web][availability] – faça com que solicitações da Web sejam enviadas ao seu aplicativo em intervalos regulares de todo o mundo.
 
-[Capture e pesquise rastreamento de diagnóstico][diagnostic] - Inserir chamadas de rastreamento e separar através dos resultados para problemas de pinpoint.
+[Capturar e pesquisar rastreamento de diagnóstico][diagnostic] – Inserir chamadas de rastreamento e separar através dos resultados para problemas de pinpoint.
 
-[Rastreamento de uso][usage] - Saiba como as pessoas usam se aplicativo.
+[Acompanhamento de uso][usage] – Saiba como as pessoas usam seu aplicativo.
 
-[Solução de problemas][qna] - e perguntas e respostas
+[Solução de problemas][qna] – e P e R
 
-## <a name="video"></a>Vídeo
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
 
 
 <!--Link references-->
@@ -133,13 +132,8 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[iniciar]: app-insights-overview.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

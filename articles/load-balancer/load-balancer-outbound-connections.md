@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: f02e17bb413f250fc4d980c62cfb46bc5359f7fb
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 3d2ba1d63f4bb89ff51275044922fb86b5f70365
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -70,4 +70,6 @@ Certifique-se de que a VM possa receber solicitações de investigação de inte
 ## <a name="limitations"></a>Limitações
 
 Embora não garantido, o número máximo de portas SNAT disponíveis hoje é 64.511 (65.535 - 1.024 portas privilegiadas).  Isso não se traduz diretamente no número de conexões. Veja acima as especificações sobre quando e como as portas SNAT são alocadas e como gerenciar esse esgotável recurso.
+
+Se [vários endereços IP (públicos) estão associados com um balanceador de carga](load-balancer-multivip-overview.md), qualquer desses endereços IP públicos são um candidato para fluxos de saída.
 

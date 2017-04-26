@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: fa62c0883b8230e514f60626b59fa3b3b20a6784
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5bcdb2cd11ffa633bce4e0faee4f49d9053a662b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -51,7 +51,7 @@ Para converter o teste de treinamento em um teste preditivo, clique em **Executa
 
 ![Converter para o teste de pontuação](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
-Para obter mais informações sobre como realizar essa conversão, veja [Converter um teste de treinamento do Machine Learning em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+Para obter mais informações sobre como realizar essa conversão, consulte [Como preparar seu modelo para implantação no Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 As etapas a seguir descrevem a implantação de um teste preditivo como um novo serviço Web. Você também pode implantar o teste como um serviço Web clássico.
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ff7d5c372500c2cd392ed65a921d8a994b090f23
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -45,7 +46,7 @@ Nessa página, você pode procurar todos os notebooks na Galeria. Você também 
 ## <a name="download"></a>Baixar
 Você pode baixar uma cópia de qualquer notebook da Galeria em seu espaço de trabalho do Machine Learning Studio.
 
-### <a name="from-the-gallery"></a>Da Galeria
+### <a name="download-from-the-gallery"></a>Baixar da Galeria
 Para baixar uma cópia de um notebook da Galeria:
 
 1. Abra a página de detalhes do notebook na Galeria
@@ -56,7 +57,7 @@ Para baixar uma cópia de um notebook da Galeria:
 
 Quando você clica em **Abrir no Studio**, o notebook é carregado no seu espaço de trabalho do Machine Learning Studio e aberto (se você ainda não entrou no Studio, será solicitado que você entre usando sua conta da Microsoft para que o notebook seja copiado no espaço de trabalho). Você pode encontrar o notebook novamente mais tarde clicando em **Notebooks** no lado esquerdo da home page do Studio.
 
-### <a name="in-machine-learning-studio"></a>No Machine Learning Studio
+### <a name="download-in-machine-learning-studio"></a>Baixar no Machine Learning Studio
 Você também pode abrir qualquer um dos notebooks da Galeria enquanto estiver trabalhando no Machine Learning Studio:
 
 1. No Machine Learning Studio, clique em **+NOVO**
@@ -71,10 +72,5 @@ O notebook estará listado, com outros notebooks, na página **Notebooks** do St
 **[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

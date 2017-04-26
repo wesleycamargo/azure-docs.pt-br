@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 04/05/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caa4f001871beeb83cc0406bd2f89c5aa026cd97
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,7 +49,7 @@ Saiba mais sobre a Central de Segurança do Azure, seus principais recursos e co
 | Responder | Sugere maneiras para interromper o ataque atual e ajudar a evitar ataques futuros |
 
 ## <a name="introductory-walkthrough"></a>Passo a passo introdutório
- Você acessar a Central de Segurança pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/). [Entre no portal](https://portal.azure.com), selecione **Navegar** e role até a opção **Central de Segurança** ou escolha o bloco **Central de Segurança** fixado anteriormente ao painel do Portal.
+ Você acessar a Central de Segurança pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/). [Entre no Portal](https://portal.azure.com). No menu principal do portal, role até a opção **Central de Segurança** ou escolha o bloco **Central de Segurança** que você fixou anteriormente ao painel do Portal.
 
 ![Bloco de segurança no portal do Azure][1]
 
@@ -83,7 +83,7 @@ Na folha **Política de segurança** , selecione uma assinatura para exibir os d
 >
 >
 
-Selecione **Política de prevenção** (veja acima) para abrir a folha **Política de prevenção**. **Mostrar recomendações para** permite que você escolha os controles de segurança que deseja monitorar e recomendar com base nas necessidades de segurança dos recursos na assinatura.
+Selecione **Política de prevenção** (veja acima) para abrir a folha **Política de prevenção**. **Mostrar recomendações para** permite que você escolha os controles de segurança que deseja monitorar e as recomendações que você deseja ver, com base nas necessidades de segurança dos recursos na assinatura.
 
 Em seguida, selecione um grupo de recursos para exibir detalhes da política.
 
@@ -115,7 +115,7 @@ Clique no bloco **Recomendações** para obter uma lista de recomendações. Cli
 ### <a name="resource-health"></a>Integridade de recursos
 O bloco **Integridade da segurança dos recursos** mostra a postura geral de segurança do ambiente por tipo de recurso, incluindo máquinas virtuais, aplicativos Web e outros recursos.   
 
-Selecione um tipo de recurso no bloco **Integridade da segurança dos recursos** para exibir mais informações, incluindo uma lista de possíveis vulnerabilidades de segurança que foram identificadas. (**Máquinas virtuais** é selecionado no exemplo a seguir).
+Selecione um tipo de recurso no bloco **Integridade da segurança dos recursos** para exibir mais informações, incluindo uma lista de possíveis vulnerabilidades de segurança que foram identificadas. (**Computação** é selecionado no exemplo a seguir.)
 
 ![Bloco de integridade de recursos][6]
 

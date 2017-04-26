@@ -15,14 +15,15 @@ ms.workload: tbd
 ms.date: 10/04/2016
 ms.author: himad
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 143a12ef975aa915ab28a66e20df1b586925daab
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 700761e24565310df0792a209ce6e41699f3d0e8
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="creating-endpoints"></a>Criando pontos de extremidade
 > [!NOTE]
-> Este tópico descreve técnicas aplicáveis a um serviço Web clássico.
+>  Este tópico descreve técnicas aplicáveis a um serviço Web do Machine Learning **clássico**.
 > 
 > 
 
@@ -71,10 +72,5 @@ Você pode adicionar um ponto de extremidade ao serviço Web programaticamente u
 
 ## <a name="next-steps"></a>Próximas etapas
 [Como consumir um serviço Web publicado do Azure Machine Learning](machine-learning-consume-web-services.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

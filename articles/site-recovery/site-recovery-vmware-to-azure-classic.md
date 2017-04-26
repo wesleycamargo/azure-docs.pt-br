@@ -12,15 +12,18 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-vmware-to-azure
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 03178e1b933f5681caf6efbeb5a89d56727ae743
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5c597e94f524a7ecbb9e4269adbbbd735a90aa14
+ms.lasthandoff: 04/06/2017
 
 
 ---
+
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery"></a>Replicar máquinas virtuais VMware e servidores físicos no Azure com o Azure Site Recovery
 > [!div class="op_single_selector"]
 > * [O portal do Azure](site-recovery-vmware-to-azure.md)
@@ -567,7 +570,7 @@ Você pode monitorar o status na página **Trabalhos** .
 
 ![Monitorar status na página Trabalhos](./media/site-recovery-vmware-to-azure-classic/enable-protection5.png)
 
-O status da proteção também pode ser monitorado em **Itens Protegidos** > *nome do grupo de proteção* > **Máquinas Virtuais**. Depois da conclusão da replicação e da sincronização dos dados, o status do computador é alterado para**Protegido**.
+O status da proteção também pode ser monitorado em **Itens Protegidos** > *nome do grupo de proteção* > **Máquinas Virtuais**. Depois da conclusão da replicação e da sincronização dos dados, o status do computador é alterado para **Protegido**.
 
 ![Monitorar o status em Itens Protegidos](./media/site-recovery-vmware-to-azure-classic/enable-protection6.png)
 
@@ -579,7 +582,7 @@ O status da proteção também pode ser monitorado em **Itens Protegidos** > *no
 3. Você pode alterar essas configurações:
 
    * **Nome da VM do Azure**: esse é o nome que será dado ao computador no Azure após o failover. O nome deve atender aos requisitos do Azure.
-   * **Tamanho da VM do Azure**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Para obter mais informações sobre tamanhos e adaptadores, confira as [tabelas de tamanhos](../virtual-machines/virtual-machines-linux-sizes.md). Observe que:
+   * **Tamanho da VM do Azure**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Para obter mais informações sobre tamanhos e adaptadores, confira as [tabelas de tamanhos](../virtual-machines/linux/sizes.md). Observe que:
 
      * Quando você modificar o tamanho de uma máquina virtual e salvar as configurações, o número de adaptadores de rede será alterado na próxima vez em que você abrir a guia **Configurar**. O número mínimo de adaptadores de rede em máquinas virtuais de destino é igual ao número mínimo de adaptadores de rede em uma máquina virtual de origem. O número máximo de adaptadores de rede é determinado pelo tamanho da máquina virtual.
        * Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.

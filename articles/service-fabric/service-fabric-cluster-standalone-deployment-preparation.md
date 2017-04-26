@@ -14,9 +14,9 @@ ms.workload: NA
 ms.date: 1/17/2017
 ms.author: maburlik;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: bd9ea82adc97698957dfebc3ee7c14c498808dd3
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f332193f9a53260173a1010b8bf9f08726bea427
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -105,7 +105,9 @@ Quando um administrador de cluster configura um cluster autônomo do Service Fab
 4. Se o cluster a ser implantado é um cluster seguro, valide que os pré-requisitos de segurança necessários estão em vigor e configurados corretamente em relação à configuração.
 5. Se os computadores do cluster não são acessíveis pela Internet, defina o seguinte na configuração do cluster:
 * Desabilitar a telemetria: em *properties*, defina   *"enableTelemetry": false*
-* Desabilitar o download automático de versão do e Fabric e as notificações de que a versão do cluster atual está aproximando do fim do suporte: em *properties*, defina   *"fabricClusterAutoupgradeEnabled": true*
+* Desabilitar o download automático de versão do Fabric e as notificações que informam que a versão do cluster atual está se aproximando do fim do suporte: em *Propriedades*, defina   *"fabricClusterAutoupgradeEnabled": false*
+* Como alternativa, se o acesso à rede da Internet estiver limitado aos domínios na lista de permissões, os domínios abaixo serão necessários para a atualização automática: go.microsoft.com   download.microsoft.com
+
 6. Defina as exclusões de antivírus do Service Fabric apropriadas:
 
 | **Diretórios de Antivírus excluídos** |

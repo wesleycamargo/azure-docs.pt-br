@@ -1,6 +1,6 @@
 ---
 title: Usar o Kit de ferramentas do Azure para Eclipse para criar aplicativos Scala para Spark | Microsoft Docs
-description: "Saiba como criar um aplicativo Spark autônomos para executar em clusters do HDInsight Spark."
+description: "Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para desenvolver aplicativos Spark escritos em Scala e enviá-los para um cluster HDInsight Spark, diretamente do IDE Eclipse."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,15 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: b304f66f71142606391ecbb3f29b917c32ba876a
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6dde4684e4bbb8eb79c69b620c7f52e085cb40c6
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-cluster"></a>Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse a fim de criar aplicativos Spark para um cluster HDInsight Spark
-Este artigo oferece diretrizes detalhadas sobre como desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster HDInsight Spark usando as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse. Você pode usar as ferramentas de algumas maneiras diferentes:
+# <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-cluster"></a>Usar o Kit de ferramentas do Azure para Eclipse para criar aplicativos Spark para cluster HDInsight
+
+Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para desenvolver aplicativos Spark escritos em Scala e enviá-los para um cluster HDInsight Spark, diretamente do IDE Eclipse. Você pode usar o plug-in ferramentas do HDInsight de algumas maneiras diferentes:
 
 * Para desenvolver e enviar um aplicativo Scala Spark em um cluster HDInsight Spark
 * Para acessar os recursos de cluster do Azure HDInsight Spark
@@ -45,7 +46,7 @@ Este artigo oferece diretrizes detalhadas sobre como desenvolver aplicativos Spa
 * Eclipse IDE. Este artigo usa o Eclipse Neon. Você pode instalá-lo clicando [aqui](https://www.eclipse.org/downloads/).
 * Scala IDE para Eclipse. 
   
-  * **Se tiver instalado o Eclipse IDE**, você pode adicionar o plug-in Scala IDE acessando **Ajuda** -> ** -> Instalar Novo Software** e adicionar [http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site](http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site) como fonte de download do plug-in Scala para Eclipse. 
+  * **Se tiver instalado o Eclipse IDE**, você pode adicionar o plug-in Scala IDE acessando **Ajuda** ->  **-> Instalar Novo Software** e adicionar [http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site](http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site) como fonte de download do plug-in Scala para Eclipse. 
   * **Caso não tenha instalado o Eclipse IDE**, você pode instalar o Scala IDE diretamente [daqui](http://scala-ide.org/download/sdk.html). Você pode baixar o arquivo .zip desse link, extraí-lo, navegar até a pasta **/eclipse** e executar o arquivo **eclipse.exe** dela.
     
     > [!NOTE]
@@ -110,7 +111,7 @@ As Ferramentas do HDInsight para Eclipse estão disponíveis como parte do Kit d
    7. O recém-adicionado JRE deve estar listado para **Ambiente de Execução**. Clique em **Concluir**.
       
             ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-10.png)
-6. De volta à guia **Bibliotecas**, clique duas vezes em **Contêiner da Biblioteca Scala [2.11.8]**. Na caixa de diálogo **Editar Biblioteca**, selecione **Contêiner Fixo da Biblioteca Scala:&2;.10.6**. 
+6. De volta à guia **Bibliotecas**, clique duas vezes em **Contêiner da Biblioteca Scala [2.11.8]**. Na caixa de diálogo **Editar Biblioteca**, selecione **Contêiner Fixo da Biblioteca Scala: 2.10.6**. 
    
     ![Criar um aplicativo Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-11.png)
    

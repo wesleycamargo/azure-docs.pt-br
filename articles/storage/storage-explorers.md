@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb7e798120ea9075dba92da76826ff621882c32a
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 85ef906d680df8f6848b323d79a09b8414ed0817
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="azure-storage-client-tools"></a>Ferramentas de Cliente do Armazenamento do Azure
-Com frequência, os usuários do Armazenamento do Azure desejam poder exibir/interagir com seus dados usando uma ferramenta de cliente do Armazenamento do Azure. Nas tabelas abaixo, listamos várias ferramentas que permitem que você faça isso. Colocamos um “X” em cada bloco caso a ferramenta forneça a capacidade de enumerar e/ou acessar a abstração de dados. A tabela também mostra se as ferramentas são gratuitas ou não. “Avaliação” indica que há uma avaliação gratuita, mas o produto completo não é gratuito. “S/N” indica que uma versão está disponível gratuitamente, enquanto outra versão está disponível para compra.
+Com frequência, os usuários do Armazenamento do Azure desejam poder exibir/interagir com seus dados usando uma ferramenta de cliente do Armazenamento do Azure. Nas tabelas abaixo, listamos várias ferramentas que permitem que você faça isso. Colocamos um "X" em cada bloco caso a ferramenta forneça a capacidade de enumerar e/ou acessar a abstração de dados. A tabela também mostra se as ferramentas são gratuitas ou não. "Avaliação" indica que há uma avaliação gratuita, mas o produto completo não é gratuito. "S/N" indica que uma versão está disponível gratuitamente, enquanto outra versão está disponível para compra.
 
 Fornecemos somente um instantâneo das ferramentas de cliente do Armazenamento do Azure disponíveis. Essas ferramentas poderão continuar a evoluir e expandir sua funcionalidade. Se houver correções ou atualizações, deixe um comentário para nos contar. O mesmo é verdadeiro se você conhecer ferramentas que deveriam estar aqui – ficaríamos felizes de adicioná-las.
 

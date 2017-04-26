@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: cd727a02716323c54d1c54a23cd4edd8f4940da1
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: aaada39283b19015e460768b072d0164b0d22bae
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +44,7 @@ Entre em contato com ssediscussions@microsoft.com para participar da visualizaç
 Para saber mais, veja as perguntas frequentes.
 
 ### <a name="availability-for-file-storage"></a>Disponibilidade para o Armazenamento de Arquivos
-A Criptografia do Serviço de Armazenamento para Armazenamento de Arquivos está disponível atualmente no Leste dos EUA, Leste dos EUA&2;, Centro dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Centro-Oeste dos EUA, Oeste dos EUA, Oeste dos EUA&2;, Ásia Oriental, Europa Setentrional, Europa Ocidental, Leste da Austrália e regiões do Sudeste da Austrália.
+A Criptografia de Serviço de Armazenamento para o Armazenamento de Arquivos está disponível atualmente em todas as regiões do Azure.
 
 
 Para habilitar ou desabilitar a Criptografia do Serviço de Armazenamento para uma conta de armazenamento, faça logon no [Portal do Azure](https://azure.portal.com) e selecione uma conta de armazenamento. Na folha Configurações, procure a seção de Serviço Blob, conforme mostrado nesta captura de tela, e clique em Criptografia.
@@ -74,7 +74,7 @@ A SSE tem as seguintes limitações:
 * Não há suporte para a criptografia de contas de armazenamento clássicas.
 * A criptografia de contas de armazenamento clássicas migradas para as contas de armazenamento do gerenciador de recursos têm suporte para criptografia de serviço Blob, mas não para o serviço de arquivos.
 * A criptografia para armazenamento de arquivos tem suporte apenas para contas de armazenamento criadas recentemente.
-* Dados existentes - A SSE criptografa apenas os dados recém-criados após a habilitação da criptografia. Se, por exemplo, você criar uma nova conta de armazenamento do Resource Manager, mas não ativar a criptografia e, na sequência, carregar blobs ou VHDs arquivados nessa conta de armazenamento e então ativar a SSE, esses blobs não serão criptografados, a menos que sejam reconfigurados ou copiados.
+* Dados existentes - A SSE criptografa apenas os dados recém-criados após a habilitação da criptografia. Se, por exemplo, você criar uma nova conta de armazenamento do Resource Manager mas não ativar a criptografia e, na sequência, carregar blobs ou VHDs arquivados nessa conta de armazenamento e então ativar a SSE, esses blobs não serão criptografados, a menos que sejam reconfigurados ou copiados.
 * Suporte do Marketplace – habilite a criptografia de VMs criadas no Marketplace usando o [portal do Azure](https://portal.azure.com), o PowerShell e a CLI do Azure. Imagem base de VHD permanecerá não criptografada; no entanto, quaisquer gravações feitas após a rotação da VM serão criptografadas.
 * Dados de filas e tabelas não serão criptografados.
 

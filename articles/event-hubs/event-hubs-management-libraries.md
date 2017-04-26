@@ -1,5 +1,5 @@
 ---
-title: Bibliotecas de gerenciamento de Hubs de eventos do Azure | Microsoft Docs
+title: Bibliotecas de gerenciamento dos Hubs de Eventos do Azure | Microsoft Docs
 description: Gerenciar namespaces de Hubs de eventos e entidades do .NET
 services: event-hubs
 cloud: na
@@ -12,18 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 4/10/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: 84075b60074b0607c14787db72c8dff8b701a8ea
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a9023448c4ced1edf54c84bb103454cbd76fbfba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gerenciamento dos Hubs de Eventos
 
-As bibliotecas de gerenciamento de Hubs de eventos podem provisionar dinamicamente entidades e namespaces de Hubs de eventos. Isso permite implantações e cenários de mensagens complexos, possibilitando que você determine programaticamente quais entidades provisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
+As bibliotecas de gerenciamento de Hubs de eventos podem provisionar dinamicamente entidades e namespaces de Hubs de eventos. Isso permite implantações e cenários de mensagens complexos, de modo que você possa determinar de forma programática quais entidades provisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidade com suporte
 
@@ -64,7 +65,7 @@ O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protoc
     };
     ```
 
-1. Defina os parâmetros de CreateOrUpdate para os valores especificados.
+1. Defina os parâmetros `CreateOrUpdate` com os valores especificados.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {
@@ -80,9 +81,4 @@ O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protoc
 ## <a name="next-steps"></a>Próximas etapas
 * [Exemplo do Gerenciamento do .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Referência de Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

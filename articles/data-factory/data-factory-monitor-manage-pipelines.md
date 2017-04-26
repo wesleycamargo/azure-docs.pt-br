@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2c41c2df135caaead328d8fe05407cfa75cbcb91
-ms.openlocfilehash: a486fbe46f9892f6f70dcdcf27edbac63728af6e
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 223edfde090c9b77467e032198c2150fbaa56a5b
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -74,7 +74,7 @@ Você pode ampliar, reduzir, ajustar nível de zoom, aplicar zoom 100%, bloquear
 1. Clique com o botão direito do mouse no pipeline e depois clique em **Abrir pipeline** para ver todas as atividades no pipeline junto com conjuntos de dados de entrada e saída para as atividades. Esse recurso é útil quando o pipeline é composto por mais de uma atividade, e você deseja compreender a linhagem operacional de um único pipeline.
 
     ![Menu do pipeline aberto](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
-2. No exemplo a seguir, você vê duas atividades no pipeline com suas entradas e saídas. A atividade denominada **JoinData**, do tipo atividade de Hive do HDInsight, e **EgressDataAzure**, do tipo atividade de cópia, estão neste pipeline de exemplo.
+2. No exemplo a seguir, você vê uma atividade de cópia no pipeline com uma entrada e uma saída. 
 
     ![Atividades dentro de um pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. Você pode voltar à home page do data factory clicando no link **Data factory** na trilha no canto superior esquerdo.
@@ -84,11 +84,9 @@ Você pode ampliar, reduzir, ajustar nível de zoom, aplicar zoom 100%, bloquear
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Exibir o estado de cada atividade dentro de um pipeline
 Veja o estado atual de uma atividade exibindo o status de qualquer um dos conjuntos de dados produzidos pela atividade.
 
-No exemplo a seguir, **BlobPartitionHiveActivity** foi executado com êxito e produziu um conjunto de dados chamado **PartitionedProductsUsageTable**, que está no estado **Pronto**.
+Clicar duas vezes em **OutputBlobTable** no **Diagrama** exibirá todas as fatias produzidas por diferentes execuções de atividade dentro de um pipeline. Você pode ver que a atividade de cópia foi executada com êxito pelas últimas oito horas e produziu as fatias com estado **Pronto**.  
 
 ![Estado do pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
-
-Clicar duas vezes em **PartitionedProductsUsageTable** no **Diagrama** exibirá todas as fatias produzidas por diferentes execuções de atividade dentro de um pipeline. Você pode ver que **BlobPartitionHiveActivity** foi executado com êxito todos os meses nos últimos oito meses e produziu as fatias com estado **Pronto**.
 
 As fatias do conjunto de dados no data factory podem ter um dos seguintes status:
 

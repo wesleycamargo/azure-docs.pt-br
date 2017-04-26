@@ -1,6 +1,6 @@
 ---
 title: Usar o Kit de ferramentas do Azure para IntelliJ para criar aplicativos Scala para Spark | Microsoft Docs
-description: "Saiba como criar um aplicativo Spark autônomos para executar em clusters do HDInsight Spark."
+description: "Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para desenvolver aplicativos Spark escritos em Scala e enviá-los para um cluster HDInsight Spark."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 6c513def2abc8c99b84b2eb48848de76e12e69c7
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 494545ae20e0b766a3787ae462d5d0f4331853b1
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-intellij-to-create-spark-applications-for-hdinsight-spark-linux-cluster"></a>Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight Spark Linux
-Este artigo oferece diretrizes detalhadas sobre como desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster HDInsight Spark usando as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ.  Você pode usar as ferramentas de algumas maneiras diferentes:
+# <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-hdinsight-cluster"></a>Usar o Kit de ferramentas do Azure para IntelliJ para criar aplicativos Spark para cluster HDInsight
+
+Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para desenvolver aplicativos Spark escritos em Scala e enviá-los para um cluster HDInsight Spark, diretamente do IDE IntelliJ. Você pode usar o plug-in ferramentas do HDInsight de algumas maneiras diferentes:
 
 * Para desenvolver e enviar um aplicativo Scala Spark em um cluster HDInsight Spark
 * Para acessar os recursos de cluster do Azure HDInsight Spark
@@ -154,7 +155,7 @@ Você pode executar várias operações usando as ferramentas do HDInsight, que 
    
     ![Acessar a exibição de trabalhos](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
 3. As caixas da **Mensagem de Erro**, **Saída do Trabalho**, **Logs de Trabalho Livy** e **Logs do Driver Spark** são preenchidas com base no aplicativo selecionado.
-4. Você também pode abrir a **IU do Histórico Spark ** e a **IU YARN** (no nível do aplicativo) clicando nos respectivos botões na parte superior da tela.
+4. Você também pode abrir a **IU do Histórico Spark**  e a **IU YARN** (no nível do aplicativo) clicando nos respectivos botões na parte superior da tela.
 
 ### <a name="access-the-spark-history-server"></a>Acessar o Servidor de Histórico do Spark
 1. No **Azure Explorer**, expanda o **HDInsight**, clique com o botão direito no nome do cluster Spark, em seguida, selecione **Abrir IU do Histórico Spark**. Quando solicitado, insira as credenciais de administrador para o cluster. Elas devem ter sido especificadas no provisionamento do cluster.

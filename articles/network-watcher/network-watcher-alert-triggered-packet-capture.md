@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5f31b24a0d46b9d557a55b3c9d0cd7748ecb9c33
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 941a795c4c83e05ec3c5bb55790f8fcc72829a65
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -46,7 +46,7 @@ Este cenário:
 
 ## <a name="creating-an-azure-function-and-overview"></a>Criar uma Função do Azure e visão geral
 
-A primeira etapa é criar uma função do Azure para processar o alerta e criar uma captura de pacotes. 
+A primeira etapa é criar uma função do Azure para processar o alerta e criar uma captura de pacotes.
 
 A lista a seguir é uma visão geral do fluxo de trabalho que ocorre.
 
@@ -65,7 +65,7 @@ Criar uma Função do Azure pode ser feito no portal seguindo [Criar sua primeir
 
 ## <a name="adding-modules"></a>Adicionando módulos
 
-Para usar os cmdlets do PowerShell no Observador de Rede, é preciso fazer upload do módulo mais recente do PowerShell no Aplicativo de funções.
+Para usar os cmdlets do PowerShell no Observador de Rede, é necessário fazer upload do último módulo do PowerShell no Aplicativo de funções.
 
 1. No computador local com os módulos mais recentes do Azure PowerShell instalados, execute o seguinte comando do PowerShell:
 
@@ -73,7 +73,7 @@ Para usar os cmdlets do PowerShell no Observador de Rede, é preciso fazer uploa
     (Get-Module AzureRM.Network).Path
     ```
 
-    Esse comando fornece o caminho local dos seus módulos do Azure PowerShell. Essas pastas são usadas em uma etapa posterior. Os módulos usados neste cenário são:
+    Esse exemplo fornece o caminho local dos módulos do Azure PowerShell. Essas pastas são usadas em uma etapa posterior. Os módulos usados neste cenário são:
 
     * AzureRM.Network
 
@@ -107,9 +107,9 @@ Para usar os cmdlets do PowerShell no Observador de Rede, é preciso fazer uploa
 
 ## <a name="authentication"></a>Autenticação
 
-Para usar os cmdlets do PowerShell, você deve se autenticar. A autenticação precisa ser configurada no Aplicativo de funções. Para fazer isso, as variáveis de ambiente são configuradas e um arquivo de chave criptografado precisa ser carregado no Aplicativo de funções.
+Para usar os cmdlets do PowerShell, você deve se autenticar. A autenticação precisa ser configurada no Aplicativo de funções. Para configurar a autenticação, as variáveis de ambiente são configuradas e um arquivo de chave criptografado precisa ser carregado no Aplicativo de funções.
 
-> [!note]
+> [!NOTE]
 > Esse cenário fornece apenas um exemplo de como implementar a autenticação com o Azure Functions, mas há outras maneiras de fazer isso.
 
 ### <a name="encrypted-credentials"></a>Credenciais Criptografadas
@@ -139,7 +139,7 @@ No Editor do Serviço de Aplicativo do Aplicativo de funções, crie uma pasta c
 
 ### <a name="retrieving-values-for-environment-variables"></a>Recuperando valores de variáveis de ambiente
 
-A configuração final necessária é instalar as variáveis de ambiente necessárias para acessar os valores de autenticação. Veja a seguir uma lista de variáveis de ambiente que são criadas.
+A configuração final necessária é instalar as variáveis de ambiente necessárias para acessar os valores de autenticação. A seguinte lista relaciona as variáveis de ambiente criadas:
 
 * AzureClientID
 
@@ -303,7 +303,7 @@ Navegue até uma máquina virtual existente e adicione uma regra de alerta. Mais
 ![adicionar regra de alerta da vm a uma máquina virtual][1]
 
 > [!NOTE]
-> Algumas métricas não são habilitadas por padrão. Saiba mais sobre como habilitar as métricas de adição visitando [Habilitar o monitoramento e diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
+> A métrica de segmentos TCP não está habilitada por padrão. Saiba mais sobre como habilitar outras métricas visitando [Habilitar o monitoramento e o diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
 
 Por fim, cole a URL da etapa anterior na caixa de texto webhook em seu alerta. Clique em **OK** para salvar a regra de alerta.
 

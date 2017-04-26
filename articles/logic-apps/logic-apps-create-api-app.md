@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 4c6bf3e46d80871c8f6ef1cd0a9959e4766a69f5
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3fd558835fb36ef70ac97419727b5133d0741d7e
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -88,9 +89,7 @@ Atualmente o Designer de Aplicativo Lógico não dá suporte à descoberta de um
 
 Você pode ver um exemplo de um gatilho webhook no GitHub [aqui](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
 
+## <a name="publish-custom-connectors-to-azure"></a>Publicar conectores personalizados no Azure
 
-
-
-<!--HONumber=Jan17_HO3-->
-
+Para tornar seus Aplicativos de API personalizados públicos e disponibilizá-los para uso no Azure, envie suas indicações para o [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 

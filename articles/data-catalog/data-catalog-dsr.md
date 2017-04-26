@@ -16,9 +16,9 @@ ms.workload: data-catalog
 ms.date: 03/14/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: b92db8dd81af0c58861644cc02ca9e56b6a6a832
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d68ed62022834c9417d820a7a64e30b47f71a1bd
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -417,6 +417,24 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     <tr>
       <td>Coleção do Azure DocumentDB</td>
       <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Tabela ODBC Genérica</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Exibição ODBC Genérica</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2></font></td>
@@ -918,6 +936,22 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
       <td>Coleção</td>
       <td>
         <font size=2> protocol: document-db <br>autenticação: {azure-access-key} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>Coleção &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </td>
+    </tr>
+    <tr>
+      <td>ODBC Genérico</td>
+      <td>Contêiner</td>
+      <td>Banco de dados</td>
+      <td>Protocolo 
+        <font size=2>: odbc <br>autenticação: {básica, windows} <br>endereço: <br>Opções &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+      </td>
+    </tr>
+    <tr>
+      <td>ODBC Genérico</td>
+      <td>Tabela</td>
+      <td>Tabela, exibição</td>
+      <td>Protocolo 
+        <font size=2>: odbc <br>autenticação: {básica, windows} <br>endereço: <br>Opções &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema </font>
       </td>
     </tr>
     <tr>

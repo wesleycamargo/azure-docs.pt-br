@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 20f60ccd9108a7473705c2368f28d3152d0dd614
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -29,7 +29,7 @@ Esses logs de fluxo podem ser difíceis de serem analisados e de obter ideias de
 
 ## <a name="scenario"></a>Cenário
 
-Neste artigo, vamos configurar uma solução que permitirá a visualização dos logs de fluxo do Grupo de Segurança de Rede usando o Elastic Stack.  Um conector de entrada Logstash obterá os logs de fluxo diretamente do blob de armazenamento configurado para conter os logs do fluxo. Em seguida, usando o Elastic Stack, os logs do fluxo serão indexados e usados para criar um painel Kibana para visualizar as informações.
+Neste artigo, vamos configurar uma solução que permitirá a visualização dos logs de fluxo do Grupo de Segurança de Rede usando o Elastic Stack.  Um plug-in de entrada Logstash obterá os logs de fluxo diretamente do blob de armazenamento configurado para conter os logs do fluxo. Em seguida, usando o Elastic Stack, os logs do fluxo serão indexados e usados para criar um painel Kibana para visualizar as informações.
 
 ![cenário][scenario]
 
@@ -88,7 +88,7 @@ Para obter instruções adicionais sobre a instalação da pesquisa elástica, c
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Em seguida, precisamos configurar Logstash a leitura da saída do arquivo eve.json. Crie um arquivo logstash.conf usando:
+1. Em seguida, precisamos configurar o Logstash para acessar e analisar os logs de fluxo. Crie um arquivo logstash.conf usando:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -156,7 +156,7 @@ Para obter mais informações sobre como instalar o Logstash, consulte a [docume
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Instalar o plugin de entrada do Logstash para o armazenamento de blobs do Azure
 
-Esse plug-in do Logstash permitirá o acesso direto aos logs do fluxo a partir da conta de armazenamento designada. Para instalar esse plug-in, do diretório de instalação Logstash padrão (nesse caso, /usr/share/logstash/bin), execute o comando:
+Esse plug-in do Logstash permitirá o acesso direto aos logs do fluxo por meio da conta de armazenamento designada. Para instalar esse plug-in, no diretório de instalação padrão do Logstash (nesse caso, /usr/share/logstash/bin), execute o comando:
 
 ```
 logstash-plugin install logstash-input-azureblob

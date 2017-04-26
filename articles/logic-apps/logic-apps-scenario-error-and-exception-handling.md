@@ -17,9 +17,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -105,22 +105,22 @@ Devemos registrar a origem (solicitação) do registro do paciente do portal do 
 
 1. É necessário obter um novo registro de compromisso do Dynamics CRM Online.
 
-    O gatilho proveniente do CRM fornece a **CRM PatentId**, o  **tipo de registro**, o **Registro Novo ou Atualizado** (valor booliano novo ou atualizado) e a **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado somente para uma atualização.
-    Obtemos o registro do CRM usando a **PatientID** do CRM e o **Tipo de Registro**.
+   O gatilho proveniente do CRM fornece a **CRM PatentId**, o **tipo de registro**, o **Registro Novo ou Atualizado** (valor booliano novo ou atualizado) e a **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado somente para uma atualização.
+   Obtemos o registro do CRM usando a **PatientID** do CRM e o **Tipo de Registro**.
 
-2. Em seguida, precisamos adicionar a operação **InsertLogEntry** de nosso aplicativo de API do DocumentDB, conforme mostrado aqui.
+2. Em seguida, precisamos adicionar a operação **InsertLogEntry** de nosso aplicativo de API do DocumentDB, conforme mostrado aqui no Designer de Aplicativo Lógico.
 
-### <a name="insert-log-entry-designer-view"></a>Inserir entrada de log no modo de exibição de designer
+   **Inserir entrada de log**
 
-![Inserir Entrada de Log](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Inserir Entrada de Log](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
-### <a name="insert-error-entry-designer-view"></a>Inserir entrada de erro no modo de exibição de designer
+   **Inserir entrada de erro**
 
-![Inserir Entrada de Log](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Inserir Entrada de Log](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-### <a name="check-for-create-record-failure"></a>Verificar falha em criar registro
+   **Verificar falha na criação de registro**
 
-![Condição](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Condição](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Código-fonte do aplicativo lógico
 

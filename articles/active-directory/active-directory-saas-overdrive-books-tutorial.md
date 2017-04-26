@@ -11,33 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 35c1dfb5aaee4427f40e72a2293c756ae4fcb76c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5d6f44f868010d50b36a9171b7db63aeee7e8bc0
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive-books"></a>Tutorial: Integração do Active Directory do Azure com o Overdrive Books
 O objetivo deste tutorial é mostrar a integração do Azure com o OverDrive.  
+
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
-* Uma assinatura habilitada para logon único do OverDrive
+* Uma assinatura do OverDrive com SSO (logon único) habilitado
 
 Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao OverDrive poderão fazer SSO (logon único) no aplicativo em seu site de empresa do OverDrive (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos para o OverDrive
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-overdrive-books-tutorial/IC784462.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-overdrive"></a>Habilitando a integração de aplicativos para o OverDrive
+## <a name="enable-the-application-integration-for-overdrive"></a>Habilitar a integração de aplicativos para o OverDrive
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o OverDrive.
 
 **Para habilitar a integração de aplicativos para o OverDrive, execute as seguintes etapas:**
@@ -62,13 +64,13 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
    ![OverDrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.png "OverDrive")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no OverDrive com a respectiva conta do AD do Azure usando federação baseada em protocolo SAML.
 
-**Para configurar o logon único, execute as seguintes etapas:**
+**Para configurar o SSO, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração de aplicativos do **OverDrive**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1. No Portal Clássico do Azure, na página de integração de aplicativos do **OverDrive**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
    ![Habilitar logon único](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Habilitar logon único")
 2. Na página **Como você deseja que os usuários façam logon no OverDrive**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
@@ -81,25 +83,26 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
    
    ![Configurar logon único](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configurar logon único")
    
-   > [!NOTE]
-   > A equipe de suporte do OverDrive configura o logon único para você e envia uma notificação quando a configuração é concluída.
+   >[!NOTE]
+   >A equipe de suporte do OverDrive configura o logon único para você e envia uma notificação quando a configuração é concluída.
    > 
    > 
 5. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
    ![Configurar logon único](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Configurar logon único")
    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Não há nenhum item de ação para a configuração de provisionamento de usuário para o OverDrive.  
+
 Quando um usuário atribuído tentar fazer logon no OverDrive, uma conta do OverDrive será automaticamente criada, se necessário.
 
-> [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do OverDrive ou as APIs fornecidas pelo OverDrive para provisionar as contas de usuário do AAD.
-> 
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do OverDrive ou as APIs fornecidas pelo OverDrive para provisionar as contas de usuário do AAD.
+>
+>
  
-
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 **Para atribuir usuários ao OverDrive, execute as seguintes etapas:**
@@ -113,11 +116,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    
    ![Sim](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Recursos adicionais
 
-
-
-<!--HONumber=Feb17_HO1-->
-
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

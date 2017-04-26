@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d87f6068cef7630ca7d9e8929b43449d28d11f78
-ms.openlocfilehash: 9d9074c986c7210e7d7a345ad5d761ac781be3c1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d47cb9ae48034c73ccb20bd1872a6b50eebb27d7
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -37,7 +37,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 
 ![Cenário](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-logicmonitor"></a>Habilitando a integração de aplicativos com o LogicMonitor
+## <a name="enable-the-application-integration-for-logicmonitor"></a>Habilitar a integração de aplicativos para o LogicMonitor
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o LogicMonitor.
 
 **Para habilitar a integração de aplicativos com o LogicMonitor, execute as seguintes etapas:**
@@ -62,7 +62,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
    ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no LogicMonitor com sua conta do AD do Azure usando federação baseada em protocolo SAML.
 
@@ -99,7 +99,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
    
    ![Configurar Logon Único](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configurar Logon Único")
    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Para usuários do AAD conseguirem efetuar logon, eles devem ser provisionados para o aplicativo LogicMonitor usando seus nomes de usuário do Active Directory do Azure.
 
@@ -122,7 +122,7 @@ Para usuários do AAD conseguirem efetuar logon, eles devem ser provisionados pa
 >Você pode usar qualquer outra ferramenta de criação da conta de usuário do LogicMonitor ou APIs fornecidas pelo LogicMonitor para provisionar as contas de usuário do Active Directory do Azure. 
 > 
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 **Para atribuir usuários ao LogicMonitor, execute as seguintes etapas:**

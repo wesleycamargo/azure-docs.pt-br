@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
-ms.openlocfilehash: 30ac3558534e96b63d78f9c66d42d11b7c1a3c75
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3cf78b59dc2dd010fdf4f480b09b3f80def1e62d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,9 +37,9 @@ Use o SQL Server Management Studio (SSMS) para conectar e consultar o SQL Data W
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar este tutorial, você precisará de:
 
-* Um SQL Data Warehouse existente. Para criar um, confira [Criar um SQL Data Warehouse][Criar um SQL Data Warehouse].
-* SSMS (SQL Server Management Studio) instalado. [Instalar SSMS][Instalar SSMS] gratuitamente se você ainda não o tiver.
-* O nome de servidor SQL totalmente qualificado. Para encontrar isso, confira [Conectar-se ao SQL Data Warehouse][Conectar-se ao SQL Data Warehouse].
+* Um SQL Data Warehouse existente. Para criar um, confira [Criar um SQL Data Warehouse][Create a SQL Data Warehouse].
+* SSMS (SQL Server Management Studio) instalado. [Instale o SSMS][Install SSMS] gratuitamente se você ainda não o tiver.
+* O nome de servidor SQL totalmente qualificado. Para encontrar isso, confira [Conectar-se ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conectar-se ao SQL Data Warehouse
 1. Abra o SSMS.
@@ -76,19 +78,19 @@ Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma c
     ![Resultados da consulta][6]
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você pode se conectar e consultar, tente [visualizar os dados com o PowerBI][visualizar os dados com o PowerBI].
+Agora que você pode se conectar e consultar, tente [visualizar os dados com o PowerBI][visualizing the data with PowerBI].
 
-Para configurar seu ambiente para a autenticação do Azure Active Directory, confira [Autenticar no SQL Data Warehouse][Autenticar no SQL Data Warehouse].
+Para configurar seu ambiente para a autenticação do Azure Active Directory, confira [Autenticar no SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
-[Conectar-se ao SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
-[Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Autenticar no SQL Data Warehouse]: sql-data-warehouse-authentication.md
-[visualizar os dados com o PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
+[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
 
 <!--Other-->
-[Portal do Azure]: https://portal.azure.com
-[Instalar SSMS]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
+[Azure portal]: https://portal.azure.com
+[Install SSMS]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
 
 
 <!--Image references-->
@@ -99,9 +101,4 @@ Para configurar seu ambiente para a autenticação do Azure Active Directory, co
 [4]: media/sql-data-warehouse-query-ssms/new-query.png
 [5]: media/sql-data-warehouse-query-ssms/execute-query.png
 [6]: media/sql-data-warehouse-query-ssms/results.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

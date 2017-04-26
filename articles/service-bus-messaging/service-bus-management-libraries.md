@@ -1,6 +1,6 @@
 ---
 title: "Bibliotecas de gerenciamento do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Gerenciar entidades e namespaces de Barramento de Serviço do .NET"
+description: "Gerenciar entidades de mensagens e namespaces do Barramento de Serviço por meio do .NET"
 services: service-bus-messaging
 cloud: na
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 04/03/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: 7b04227327235f788ecf4018b6c159d33113b63d
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: ec9f2fa3d88f59172d320b58287208deb084856f
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -36,17 +37,17 @@ As bibliotecas de gerenciamento do Barramento de Serviço podem provisionar dina
 
 Para começar a usar as bibliotecas de gerenciamento do Barramento de Serviço, você deverá se autenticar com o Azure Active Directory (AAD). AAD exige que você autentique como uma entidade de serviço que fornece acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 
-* [Usar o Portal do Azure para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Usar o portal do Azure para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-Estes tutoriais fornecerão uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (Chave de Autenticação), todos usados para autenticação pelas bibliotecas de gerenciamento. Você deve ter as permissões 'Proprietário' para o grupo de recursos no qual você deseja executar.
+Estes tutoriais fornecem uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todas usadas para autenticação pelas bibliotecas de gerenciamento. Você deve ter as permissões 'Proprietário' para o grupo de recursos no qual você deseja executar.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 
 O padrão para manipular qualquer recurso do Barramento de Serviço segue um protocolo comum:
 
-1. Obter um token do Azure Active Directory usando a biblioteca `Microsoft.IdentityModel.Clients.ActiveDirectory`.
+1. Obtenha um token do Azure Active Directory usando a biblioteca **Microsoft.IdentityModel.Clients.ActiveDirectory**.
     ```csharp
     var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
 
@@ -65,7 +66,7 @@ O padrão para manipular qualquer recurso do Barramento de Serviço segue um pro
     };
     ```
 
-1. Defina os parâmetros de CreateOrUpdate para os valores especificados.
+1. Defina os parâmetros `CreateOrUpdate` com os valores especificados.
     ```csharp
     var queueParams = new QueueCreateOrUpdateParameters()
     {
@@ -82,9 +83,4 @@ O padrão para manipular qualquer recurso do Barramento de Serviço segue um pro
 ## <a name="next-steps"></a>Próximas etapas
 * [Exemplo do Gerenciamento do .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Referência do Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

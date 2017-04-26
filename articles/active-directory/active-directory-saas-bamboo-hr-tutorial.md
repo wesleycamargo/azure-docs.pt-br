@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 308c9f4d59f6c6981af74f4208c9963e3d0102dd
-ms.openlocfilehash: 6644afc1de68230ccca089529b32195c4c8ddfe7
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e190cfdf6d7a9dee86ed7b9072dc51ca8c993d32
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +33,7 @@ Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao Bam
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 * Habilitando a integração de aplicativos para o BambooHR
-* Configurando o logon único
+* Configuração do SSO (logon único)
 * Configurando o provisionamento de usuários
 * Atribuindo usuários
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no BambooHR com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.  
 
-Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base&64;. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 **Para configurar o logon único, execute as seguintes etapas:**
 
@@ -95,13 +95,13 @@ Como parte deste procedimento, é necessário criar um arquivo de certificado co
    
    ![Logon Único do SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Logon Único do SAML")
    
-   1. No portal clássico do Azure, na página do diálogo **Configurar logon único no BambooHR**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon de SSO**.
-   2. Crie um arquivo **codificado em base&64;** usando o certificado baixado.  
+   1. No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no BambooHR**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon de SSO **.
+   2. Crie um arquivo **codificado em base 64** usando o certificado baixado.  
    
       >[!TIP]
       >Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o). 
       > 
-   3. Abra seu certificado codificado em Base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
+   3. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
    4. Clique em **Salvar**.
 8. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
@@ -128,7 +128,7 @@ Para permitir que os usuários do AD do Azure façam logon no BambooHR, eles dev
 >É possível usar qualquer outra ferramenta de criação da conta de usuário do BambooHR ou as APIs fornecidas pelo BambooHR para provisionar as contas de usuário do AAD. 
 > 
 
-## <a name="assig-users"></a>Atribuir usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 **Para atribuir usuários ao BambooHR, execute as seguintes etapas:**
@@ -141,6 +141,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    
    ![Sim](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 

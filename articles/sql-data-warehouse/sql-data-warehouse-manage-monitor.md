@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6877a54f77a4c0137e4f6a8b2b2fcff41664a4b5
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3735d656429da1f1fe7569f640b272b099382032
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -71,9 +73,9 @@ WHERE   [label] = 'My Query';
 
 Nos resultados da consulta anterior, **observe a ID da Solicitação** da consulta que você deseja investigar.
 
-As consultas no estado **Suspenso** estão sendo enfileiradas devido aos limites de simultaneidade. Essas consultas também aparecem na consulta de esperas sys.dm_pdw_waits com um tipo de UserConcurrencyResourceType. Consulte [Concurrency and workload management][Concurrency and workload management] para obter mais detalhes sobre os limites de simultaneidade. As consultas também podem esperar por motivos, como bloqueios.  Se sua consulta estiver aguardando um recurso, consulte [Investigar consultas aguardando recursos][Investigar consultas aguardando recursos] mais adiante neste artigo.
+As consultas no estado **Suspenso** estão sendo enfileiradas devido aos limites de simultaneidade. Essas consultas também aparecem na consulta de esperas sys.dm_pdw_waits com um tipo de UserConcurrencyResourceType. Confira [Concurrency and workload management][Concurrency and workload management] (Gerenciamento de simultaneidade e carga de trabalho) para obter mais detalhes sobre os limites de simultaneidade. As consultas também podem esperar por motivos, como bloqueios.  Se sua consulta estiver aguardando um recurso, confira [Investigar consultas aguardando recursos][Investigating queries waiting for resources] mais adiante neste artigo.
 
-Para simplificar a pesquisa de uma consulta na tabela sys.dm_pdw_exec_requests, use [RÓTULO][RÓTULO] para atribuir um comentário à consulta que possa ser pesquisado na exibição sys.dm_pdw_exec_requests.
+Para simplificar a pesquisa de uma consulta na tabela sys.dm_pdw_exec_requests, use [LABEL][LABEL] para atribuir um comentário à consulta que pode ser pesquisada no modo de exibição sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -84,7 +86,7 @@ OPTION (LABEL = 'My Query')
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>ETAPA 2: investigar o plano de consulta
-Use a ID de Solicitação para recuperar o plano DSQL (SQL distribuído) da consulta de [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
+Use a ID de solicitação para recuperar o DSQL (plano de SQL distribuído) da consulta de [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -95,7 +97,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-Quando um plano DSQL estiver demorando mais do que o esperado, a causa pode ser um plano complexo com muitas etapas de DSQL ou apenas uma etapa demorando muito tempo.  Se o plano tiver muitas etapas com várias operações de movimentação, considere otimizar suas distribuições de tabela para reduzir a movimentação de dados. O artigo [Distribuição da tabela][Distribuição da tabela] explica por que os dados devem ser movidos para resolver uma consulta e explica algumas estratégias de distribuição para minimizar a movimentação de dados.
+Quando um plano DSQL estiver demorando mais do que o esperado, a causa pode ser um plano complexo com muitas etapas de DSQL ou apenas uma etapa demorando muito tempo.  Se o plano tiver muitas etapas com várias operações de movimentação, considere otimizar suas distribuições de tabela para reduzir a movimentação de dados. O artigo [Distribuição da tabela][Table distribution] explica por que os dados devem ser movidos para resolver uma consulta e explica algumas estratégias de distribuição para minimizar a movimentação de dados.
 
 Para investigar mais detalhes sobre uma única etapa, verifique a coluna *operation_type* da etapa de consulta de execução longa de consulta e observe o **Índice da etapa**:
 
@@ -123,7 +125,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
 ### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>ETAPA 3b: investigar a movimentação de dados em bancos de dados distribuídos
-Use a ID da Solicitação e o Índice da Etapa para recuperar as informações sobre uma etapa de movimentação de dados em execução em cada distribuição de [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
+Use a ID da Solicitação e o Índice da Etapa para recuperar as informações sobre a etapa de movimentação dos dados em execução em cada distribuição em [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -173,18 +175,18 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se a consulta estiver ativamente aguardando recursos de outra consulta, o estado será **AcquireResources**.  Se a consulta tiver todos os recursos necessários, o estado será **Concedido**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte [Exibições do sistema][Exibições do sistema] para obter mais informações sobre DMVs.
-Consulte [Práticas recomendadas do SQL Data Warehouse][Práticas recomendadas do SQL Data Warehouse] para saber mais sobre as práticas recomendadas
+Confira [Exibições do sistema][System views] para obter mais informações sobre DMVs.
+Consulte [Práticas Recomendadas do SQL Data Warehouse][SQL Data Warehouse best practices] para saber mais sobre as práticas recomendadas
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral do gerenciamento]: ./sql-data-warehouse-overview-manage.md
-[Práticas recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
-[Exibições do sistema]: ./sql-data-warehouse-reference-tsql-system-views.md
-[Distribuição da tabela]: ./sql-data-warehouse-tables-distribute.md
+[Manage overview]: ./sql-data-warehouse-overview-manage.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
+[Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
-[Investigar consultas aguardando recursos]: ./sql-data-warehouse-manage-monitor.md#waiting
+[Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
 [sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -194,10 +196,5 @@ Consulte [Práticas recomendadas do SQL Data Warehouse][Práticas recomendadas d
 [sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
-[RÓTULO]: https://msdn.microsoft.com/library/ms190322.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
 

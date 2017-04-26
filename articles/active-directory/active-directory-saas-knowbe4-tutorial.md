@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: bc7ce4867180dd9f896b894b56a02bf033ed6bbb
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: deb4916d69ad9a447836b33711864c242e5c5dec
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ O objetivo deste tutorial é mostrar como integrar o KnowBe4 ao Azure AD (Azure 
 A integração do KnowBe4 ao Azure AD proporciona os seguintes benefícios:
 
 * Você pode controlar no AD do Azure quem tem acesso ao KnowBe4
-* Você pode permitir que seus usuários façam logon automaticamente no KnowBe4 (logon único) com suas contas do AD do Azure
+* Você pode habilitar seus usuários, com as respectivas contas do Azure AD, a fazer logon automaticamente no KnowBe4 via SSO (logon único)
 * Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -46,7 +46,7 @@ Para configurar a integração do AD do Azure ao KnowBe4, você precisará dos s
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.  
@@ -54,7 +54,7 @@ O objetivo deste tutorial é permitir que você teste o logon único do Azure AD
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 * Adicionando o KnowBe4 da galeria
-* Configurar e testar o logon único do AD do Azure
+* Configurar e testar o SSO do Azure AD
 
 ## <a name="add-knowbe4-from-the-gallery"></a>Adicionar o KnowBe4 da galeria
 Para configurar a integração do KnowBe4 ao AD do Azure, você precisará adicionar o KnowBe4 da galeria à sua lista de aplicativos de SaaS gerenciados.
@@ -88,11 +88,11 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 Para configurar e testar o logon único do AD do Azure com o KnowBe4, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+1. **[Configure o logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criar um usuário de teste do KnowBe4](#creating-a-KnowBe4-test-user)** – para ter um equivalente de Brenda Fernandes no KnowBe4 vinculado à representação dela no Azure AD.
 4. **[Atribuir o usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Testar o logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
+5. **[Teste o logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 O objetivo desta seção é habilitar o logon único do AD do Azure no portal clássico do Azure e configurar o logon único em seu aplicativo KnowBe4.
@@ -180,7 +180,7 @@ Não há itens de ação para você nesta seção. Um novo usuário será criado
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao KnowBe4.
 
-    ![Assign User][200] 
+   ![Atribuir usuário][200] 
 
 **Para atribuir Brenda Fernandes ao KnowBe4, execute as seguintes etapas:**
 

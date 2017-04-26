@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 4/4/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: b4b5e1af6c03e1124de78308cab1dad86d06641e
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 2a64405c0862d09dd487d260a651123eafbcaf99
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -29,6 +29,7 @@ Este artigo descreve como gerenciar e personalizar os Serviços de Federação d
 |:--- |:--- |
 | **Gerenciar o AD FS** | |
 | [Reparar a relação de confiança](#repairthetrust) |Como reparar a confiança de federação com o Office 365. |
+| [Federar ao Azure AD usando uma ID de logon alternativa ](#alternateid) | Configurar a federação usando uma ID de logon alternativa  |
 | [Adicionar um servidor do AD FS](#addadfsserver) |Como expandir o farm do AD FS com um servidor adicional do AD FS. |
 | [Adicionar um Servidor Proxy de Aplicativo Web do AD FS](#addwapserver) |Como expandir um farm do AD FS com um servidor WAP (Proxy de Aplicativo Web) adicional. |
 | [Adicionar um domínio federado](#addfeddomain) |Como adicionar um domínio federado. |
@@ -66,6 +67,22 @@ Você pode usar o Azure AD Connect para verificar a integridade atual da confian
 
 > [!NOTE]
 > O Azure AD Connect só pode reparar ou agir em relação a certificados autoassinados. O Azure AD Connect não pode reparar certificados de terceiros.
+
+## Federar ao Azure AD usando uma AlternateID <a name=alternateid></a>
+É recomendável que o nome UPN local e o nome UPN na nuvem sejam mantidos iguais. Se o UPN local usar um domínio não roteável (por exemplo, Contoso.local) ou não puder ser alterado devido a dependências do aplicativo local, recomendamos configurar uma ID de logon alternativa. A ID de logon alternativa permite configurar uma experiência de logon na qual os usuários podem se conectar com um atributo que não seja o UPN, como o email. A opção para o nome UPN no Azure AD Connect usa como padrão o atributo userPrincipalName no Active Directory. Se você escolher qualquer outro atributo para o nome UPN e estiver federando com o uso do AD FS, o Azure AD Connect configurará o AD FS para a ID de logon alternativa. Um exemplo de escolha de um atributo diferente para o nome UPN é mostrado abaixo:
+
+![Seleção de atributo de ID alternativa](media/active-directory-aadconnect-federation-management/attributeselection.png)
+
+A configuração da ID de logon alternativa do AD FS consiste em duas etapas principais:
+1. **Configurar o conjunto certo de declarações de emissão**: as regras de declaração de emissão no objeto de confiança de terceira parte confiável do Azure AD são modificadas para usar o atributo UserPrincipalName selecionado como a ID alternativa do usuário.
+2. **Habilitar a ID de logon alternativa na configuração do AD FS**: a configuração do AD FS é atualizada, de forma que o AD FS possa consultar usuários nas florestas apropriadas usando a ID alternativa. Há suporte para essa configuração no AD FS no Windows Server 2012 R2 (com KB2919355) ou posterior. Se os servidores do AD FS forem 2012 R2, o Azure AD Connect verificará a presença do KB obrigatório. Se o KB não for detectado, um aviso será exibido após a conclusão da configuração, conforme mostrado abaixo:
+
+    ![Aviso de ausência de KB no 2012R2](media/active-directory-aadconnect-federation-management/kbwarning.png)
+
+    Para corrigir a configuração no caso de um KB ausente, instale o [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) obrigatório e repare a relação de confiança usando [Reparar relação de confiança entre o AAD e o AD FS](#repairthetrust).
+
+> [!NOTE]
+> Para obter mais informações sobre alternateID e as etapas para configurá-la manualmente, leia [Configurando a ID de logon alternativa](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## Adicionar um servidor do AD FS <a name=addadfsserver></a>
 

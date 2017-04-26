@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 94c4929c84a671eca210a0e6b53eda5019cc0951
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: f8d441a4945ff7b33da73d683749a9a581bc80ca
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -91,7 +91,7 @@ Permitem que você trabalhe com os recursos do Azure, basicamente Serviços de N
 ### <a id="wte"></a>Ferramentas de Serviço de Aplicativo da Microsoft para Visual Studio
 Isto permite que você trabalhe com sites do Azure:
 
-* [Publicar projetos da Web em sites do Azure](app-service-web/web-sites-dotnet-get-started.md).
+* [Publicar projetos da Web no Serviço de Aplicativo do Azure](app-service-web/app-service-web-get-started-dotnet.md).
 * [Publicar projetos de aplicativos de console no WebJobs do Azure](app-service-web/websites-dotnet-deploy-webjobs.md).
 * [Criar recursos de sites do Azure e de bancos de dados SQL ao criar um novo projeto da Web ou ao publicar um projeto da Web](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 * [Criar scripts de implantação do PowerShell ao criar novos sites](http://msdn.microsoft.com/library/dn642480.aspx).

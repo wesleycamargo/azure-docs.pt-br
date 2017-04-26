@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 3a0ac3de9828903b7ca66c15e5422d1228e2a731
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -67,7 +67,7 @@ Antes de criar um trabalho de importação, você precisa obter um nome e o ende
 
  Siga as etapas abaixo para obter a localização de envio:
 
--   Identifique o nome do local de sua conta de armazenamento. Esse valor pode ser encontrado sob o campo **Local** no **Painel** da conta de armazenamento no Portal do Azure ou ser consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) da API de gerenciamento do serviço.
+-   Identifique o nome da localização de sua conta de armazenamento. Esse valor pode ser encontrado no campo **Local** do **Painel** da conta de armazenamento no portal do Azure ou consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) da API de gerenciamento de serviços.
 
 -   Recupere o local que está disponível para processar esta conta de armazenamento chamando a operação `Get Location`.
 

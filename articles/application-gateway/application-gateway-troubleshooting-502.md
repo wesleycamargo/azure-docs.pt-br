@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: d61e50b7440dcd107df3e5dd085a36b149779553
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 178cd0e1c20947c952a2abb4bad253272da9fcd4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -132,6 +132,8 @@ Valide se a Investigação de Integridade Personalizada está configurada corret
 * Verifique se a investigação foi especificada corretamente, conforme o [guia](application-gateway-create-probe-ps.md).
 * Se o Application Gateway estiver configurado para um único site, por padrão, o nome do Host deverá ser especificado como '127.0.0.1', a menos que seja configurado de outra forma na investigação personalizada.
 * Verifique se uma chamada para http://\<host\>:\<port\>\<path\> retorna um código de resultado HTTP 200.
+* Verifique se Interval, Time-out e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
+* Se usar uma investigação HTTPS, certifique-se de que o servidor de back-end não requer o SNI, configurando para isso um certificado fallback no próprio servidor de back-end. 
 * Verifique se Interval, Time-out e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
 
 ## <a name="request-time-out"></a>Tempo limite de solicitação

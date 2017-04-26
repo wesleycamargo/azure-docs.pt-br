@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/20/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 144dcd5277673024c7a71808f32c6a7b6491559a
-ms.openlocfilehash: 6ccea0eeb594070eed6341d3f5ec80db0efdf8f2
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 8f45d0e86a95779d5ceeddb72638b14e0e7a80eb
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/27/2017
 
 ## <a name="create-a-nodejs-sample-solution"></a>Criar uma solução de exemplo do Node.js
 
-Certifique-se de que o Node.js versão 0.10.x ou posterior esteja instalado no computador de desenvolvimento. Você pode executar `node --version` na linha de comando para verificar a versão.
+Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no computador de desenvolvimento. Você pode executar `node --version` na linha de comando para verificar a versão.
 
 1. Crie uma pasta chamada **RemoteMonitoring** no computador de desenvolvimento. Navegue até essa pasta no ambiente de linha de comando.
 

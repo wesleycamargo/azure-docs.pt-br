@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/08/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 2541236d84100ed7889d06f9b0580fcbc55ecfdb
-ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: d53d4cfdc7b673d2816fa9372dedbed540380cce
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -30,11 +31,11 @@ Este artigo resume o que tem suporte quando você usa o Azure Site Recovery para
 
 ## <a name="deployment-options"></a>Opções de implantação
 
-**Implantação** | **Servidor VMware/físico** | **Hyper-V (sem VMM)** | **Hyper-V (com o VMM)**
+**Implantação** | **Servidor VMware/físico** | **Hyper-V (com e sem o SCVMM)
 --- | --- | --- | ---
-**Portal do Azure** | VMs do VMware locais para o site secundário do VMware.<br/><br/> Baixe o [guia do usuário do InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (não disponível no Portal do Azure). | Sem suporte | VMs do Hyper-V locais em nuvens de VMM para uma nuvem de VMM secundária.<br/><br/> Somente Replicação do Hyper-V padrão. Sem suporte para SAN.
-**Portal clássico** | Somente modo de manutenção. Não é possível criar novos cofres. | Sem suporte | Somente no modo de manutenção
-**PowerShell** | Sem suporte | Sem suporte | Suportado
+**Portal do Azure** | VMs do VMware locais para o site secundário do VMware.<br/><br/> Baixe o [guia do usuário do InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (não disponível no Portal do Azure). | VMs do Hyper-V locais em nuvens de VMM para uma nuvem de VMM secundária.<br></br> Sem suporte sem o SCVMM  <br/><br/> Somente Replicação do Hyper-V padrão. Sem suporte para SAN.
+**Portal clássico** | Somente modo de manutenção. Não é possível criar novos cofres. | Somente no modo de manutenção<br></br> Sem suporte sem o SCVMM
+**PowerShell** | Sem suporte | Suportado<br></br> Sem suporte sem o SCVMM
 
 ## <a name="on-premises-servers"></a>Servidores locais
 
@@ -119,7 +120,7 @@ Disco > 1 TB | Não | Sim
 Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim | Sim
 Espaços de Armazenamento | Não | Sim
 Adição/remoção de disco a quente | Não | Não
-Exclusão de disco | Não | Não
+Exclusão de disco | Não | Sim
 Múltiplos caminhos (MPIO) | N/D | Sim
 
 ## <a name="vaults"></a>Cofres
@@ -140,9 +141,4 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [pré-requisitos de implantação](site-recovery-prereq.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
