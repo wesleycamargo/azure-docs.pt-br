@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
-ms.openlocfilehash: f14ed08473ba9c424acf39d3fe98d4a11adf9948
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d234dd87919f4906628014156708489bd1efab6c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -154,7 +154,7 @@ Além disso, se você estiver usando APIs de listagem segmentada, mas armazena o
 ## <a name="lazy-listing"></a>Listagem lenta
 Embora a listagem greedy gerasse possíveis problemas, ela é conveniente se não houver muitos objetos no contêiner.
 
-Se também estiver usando SDKs C# ou Oracle Java, você deve conhecer o modelo de programação Enumerável, que oferece uma listagem do estilo lazy, onde os dados em um determinado deslocamento são buscados somente se for necessário. Em C++, o modelo com base em iterador também fornece uma abordagem semelhante.
+Se também estiver usando SDKs C# ou Oracle Java, você deverá conhecer o modelo de programação Enumerável, que oferece uma listagem do estilo lazy, na qual os dados em um determinado deslocamento são buscados somente se for necessário. Em C++, o modelo com base em iterador também fornece uma abordagem semelhante.
 
 Uma API típica de listagem lenta, que usa **list_blobs** por exemplo é semelhante ao seguinte:
 

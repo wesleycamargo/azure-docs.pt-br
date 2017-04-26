@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 05487c4bbdce24ea9f31ed451026531c16ead7c4
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6720bb6471ef36179042562c751e1a501979f02b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="whats-new-in-azure-remoteapp"></a>O que há de novo no Azure RemoteApp?
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -43,7 +44,7 @@ Oi, você sabia que a equipe do RemoteApp do Azure envia atualizações mensais 
 Grandes mudanças aconteceram em agosto – eis alguns destaques:
 
 * Agora você pode usar uma VNET do Azure com uma coleção de nuvem! Confira as [instruções de criação de nuvem](remoteapp-create-cloud-deployment.md) das novas etapas.
-* Agora é possível adicionar aplicativos ao menu **Iniciar **para o cliente Windows RemoteApp. Os aplicativos aparecerão na lista de aplicativos e você poderá fixá-los no menu **Iniciar **no Windows.
+* Agora é possível adicionar aplicativos ao menu **Iniciar** para o cliente Windows RemoteApp. Os aplicativos aparecerão na lista de aplicativos e você poderá fixá-los no menu **Iniciar** no Windows.
 * Uma nova imagem foi adicionada à galeria de VM do Azure – Host da Sessão da Área de Trabalho Remota do Windows Server com o Microsoft Office 365 ProPlus.
 * O cliente Mac foi corrigido para que aplicativos com janelas modais parem congelar.
 * Foram documentadas orientações de como usar a [assinatura do Office 365 ProPlus](remoteapp-officesubscription.md) com o Azure RemoteApp.
@@ -87,10 +88,5 @@ Obrigado por estar conosco - o mês que vem traz mais atualizações.
 
 ### <a name="help-us-help-you"></a>Ajude-nos a ajudar você
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -16,9 +16,9 @@ ms.custom: tables
 ms.date: 07/12/2016
 ms.author: jrj;barbkess;sonyama
 translationtype: Human Translation
-ms.sourcegitcommit: f1a24e4ee10593514f44d83ad5e9a46047dafdee
-ms.openlocfilehash: f132af2966e2ac59e77dc0fa8113eb83089c68dd
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: dff94161c7d6dfedc91cfb36954e847f945985f7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -53,7 +53,6 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 Há alguns cenários em que columnstore clusterizado pode não ser uma boa opção:
 
-* As tabelas ColumnStore não dão suporte a índices não clusterizados secundários.  Considere tabelas de índice clusterizado ou heap.
 * Tabelas ColumnStore não dão suporte a varchar (max), nvarchar (max) e varbinary (max).  Considere o heap ou índice clusterizado.
 * As tabelas ColumnStore podem ser menos eficientes para dados transitórios.  Considere a possibilidade de tabelas heap ou até mesmo temporárias.
 * Tabelas pequenas com menos de cem milhões de linhas.  Considere as tabelas de heap.

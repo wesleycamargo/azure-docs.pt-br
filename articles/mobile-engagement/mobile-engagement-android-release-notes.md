@@ -12,16 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 03/30/2017
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af776804affea5abe599594d7b486bbead982f3e
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e50c1c70a4378560f8ce3182069cba4832fa4d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="424-03302017"></a>4.2.4 (30/03/2017)
+* Corrija cores do texto de notificação no aplicativo Android 7 para serem as mesmas de versões mais antigas do Android.
+
 ## <a name="423-08102016"></a>4.2.3 (08/10/2016)
 * Nenhum outro bloqueio de WIFI.
 * Corrige um deadlock ao chamar getDeviceId antes de init (bug introduzido na versão 4.2.0).

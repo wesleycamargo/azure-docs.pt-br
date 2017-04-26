@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 77e48af7ba59ed1e5b2ebcda0760e0eda1f407df
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -33,7 +33,7 @@ Há duas maneiras de criar discos padrão para VMs do Azure:
 
 **Discos não gerenciados**: esse é o método original onde você gerencia as contas de armazenamento usadas para armazenar os arquivos VHD que correspondem aos discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Discos não gerenciados podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que usam principalmente o armazenamento Premium, como a série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo que até 64 TB de armazenamento por VM.
 
-[**Azure Managed Disks**](storage-managed-disks-overview.md): esse recurso gerencia as contas de armazenamento usadas para os discos de VM para você. Você só precisa especificar o tipo (Premium ou Standard) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. Você não precisa se preocupar sobre onde colocar os discos em várias contas de armazenamento para garantir que permaneça dentro dos limites de escalabilidade para contas de armazenamento – o Azure cuida disso para você.
+[**Azure Managed Disks**](storage-managed-disks-overview.md): esse recurso gerencia as contas de armazenamento usadas para os discos de VM para você. Você só precisa especificar o tipo (Premium ou Standard) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. Você não precisa se preocupar com o local em que colocará os discos em várias contas de armazenamento para garantir que fique dentro dos limites de escalabilidade das contas de armazenamento – o Azure cuida disso para você.
 
 Embora os dois tipos de discos estejam disponíveis, é recomendável usar o Managed Disks para aproveitar seus muitos recursos.
 
@@ -42,7 +42,7 @@ Para começar a usar o Armazenamento Standard do Azure, visite a página [Introd
 Para obter informações sobre como criar uma VM com Managed Disks, consulte um dos seguintes artigos.
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Recursos do Armazenamento Standard 
 
@@ -153,4 +153,4 @@ Você também pode usar o serviço de Backup do Azure com o Managed Disks para c
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/linux/quick-create-cli.md)

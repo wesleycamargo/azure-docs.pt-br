@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 3cd588751346517f9359f760561839339b0f9edb
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 2e1915f017db8286b8a381aacf62205f3d34bcc9
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="securing-access-to-azure-remoteapp-and-beyond"></a>Proteger o acesso ao RemoteApp do Azure e além
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -34,7 +35,7 @@ Há 3 áreas principais que o administrador precisa examinar:
 Leia para obter informações e respostas para essas perguntas.
 
 ## <a name="who-can-access-the-collection"></a>Quem pode acessar a coleção?
-O administrador escolhe os usuários que podem acessar os aplicativos remotos na coleção. Você pode usar as contas corporativas ou de estudante do Azure Active Directory (Azure AD) (anteriormente chamadas de "contas organizacionais") ou as contas da Microsoft (por exemplo, @outlook.com). A maioria dos cenários empresariais usa as contas do Azure AD. Elas permitem que você use os recursos de acesso condicional analisados posteriormente e também são a única opção para as coleções de domínio. O restante do artigo pressupõe que você esteja usando as contas do AD do Azure com o RemoteApp do Azure.
+O administrador escolhe os usuários que podem acessar os aplicativos remotos na coleção. Você pode usar as contas corporativas ou de estudante do Azure AD (Azure Active Directory) – anteriormente chamadas de "contas organizacionais" – ou as contas da Microsoft (por exemplo, @outlook.com). A maioria dos cenários empresariais usa as contas do Azure AD. Elas permitem que você use os recursos de acesso condicional analisados posteriormente e também são a única opção para as coleções de domínio. O restante do artigo pressupõe que você esteja usando as contas do AD do Azure com o RemoteApp do Azure.
 
 **O que conseguimos:**
 
@@ -115,10 +116,5 @@ Com o RemoteApp do Azure, primeiro você precisa configurar sua VNET e, em segui
 O diagrama a seguir mostra a solução completa na qual criamos um canal de acesso seguro a partir do usuário final, por meio do RemoteApp do Azure (ARA), até o recurso de back-end.
 ![Proteger Azure RemoteApp](./media/remoteapp-secureaccess/ra-secureoverview.png) No Estágio 1, escolhemos os usuários e criamos regras de acesso que determinam como o ARA pode ser acessado. No exemplo abaixo, apenas permitimos o acesso para os usuários que trabalham na rede corporativa. Os usuários não compatíveis não poderão acessar o ambiente ARA.
 No Estágio 2, expomos o recurso de back-end somente por meio da configuração da VNet/VPN que controlamos. O RemoteApp do Azure foi colocado na mesma VNET. O resultado final é que o recurso só pode ser acessado através do ambiente ARA.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

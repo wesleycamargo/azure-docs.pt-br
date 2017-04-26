@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
-ms.openlocfilehash: 166524147c050512a84c1c0340de93960d8b7632
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18b24a3ceddd667eb41e578cd193d3a0d0d0ac1c
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-ad-integration-with-sciforma"></a>Tutorial: Integração do AD do Azure com o Sciforma
 O objetivo deste tutorial é mostrar a integração do Azure ao Sciforma.  
+
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
@@ -31,22 +33,21 @@ Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Scifor
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos para o Sciforma
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-sciforma-tutorial/IC777369.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-sciforma"></a>Habilitando a integração de aplicativos para o Sciforma
+## <a name="enable-the-application-integration-for-sciforma"></a>Habilitar a integração de aplicativos para o Sciforma
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Sciforma.
 
-### <a name="to-enable-the-application-integration-for-sciforma-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com o Sciforma, execute as seguintes etapas:
+**Para habilitar a integração de aplicativos com o Sciforma, execute as seguintes etapas:**
+
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-sciforma-tutorial/IC700993.png "Active Directory")
-
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Aplicativos](./media/active-directory-saas-sciforma-tutorial/IC700994.png "Aplicativos")
@@ -67,11 +68,12 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
     ![Sciforma](./media/active-directory-saas-sciforma-tutorial/IC777371.png "Sciforma")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Sciforma com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
+**Para configurar o logon único, execute as seguintes etapas:**
+
 1. No Portal Clássico do Azure, na página de integração de aplicativos do **Sciforma**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar logon único](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configurar logon único")
@@ -94,31 +96,25 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
    
     ![Configurar logon único](./media/active-directory-saas-sciforma-tutorial/IC777376.png "Configurar logon único")
    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
-Não há nenhum item de ação para a configuração de provisionamento de usuário para o Sciforma.  
-Quando um usuário atribuído tentar fazer logon no Sciforma usando o painel de acesso, o Sciforma verificará se o usuário existe.  
-Se ainda não houver uma conta de usuário disponível, ela será automaticamente criada pelo Sciforma.
+Não há nenhum item de ação para a configuração de provisionamento de usuário para o Sciforma. Quando um usuário atribuído tentar fazer logon no Sciforma usando o painel de acesso, o Sciforma verificará se o usuário existe.  
 
-## <a name="assigning-users"></a>Atribuindo usuários
+* Se ainda não houver uma conta de usuário disponível, ela será automaticamente criada pelo Sciforma.
+
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-sciforma-perform-the-following-steps"></a>Para atribuir usuários ao Sciforma, execute as seguintes etapas:
-1. No Portal clássico do Azure, crie uma conta de teste.
+**Para atribuir usuários ao Sciforma, execute as seguintes etapas:**
 
+1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos do **Sciforma**, clique em **Atribuir usuários**.
    
     ![Atribuir usuários](./media/active-directory-saas-sciforma-tutorial/IC777377.png "Atribuir usuários")
-
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
     ![Sim](./media/active-directory-saas-sciforma-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

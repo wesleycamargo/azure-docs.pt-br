@@ -17,13 +17,14 @@ ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 27ad7100f6203db3ba3dcc88ffdc191b9b9d45cb
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: f8a001350c9e1ac50641c3ee4430849023233c60
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure DC/OS
-Neste artigo, vamos explorar como criar um balanceador de carga interno em um Serviço de Contêiner do Azure gerenciado por DC/OS usando o Marathon-LB. Isso permitirá que você dimensione horizontalmente seus aplicativos. Também ajudará você a tirar proveito dos clusters de agentes públicos e privados, colocando seus balanceadores de carga no cluster público e seus contêineres de aplicativo no cluster privado.
+Neste artigo, exploraremos como criar um balanceador de carga interno em um Serviço de Contêiner do Azure gerenciado por DC/OS usando o Marathon-LB. Isso permitirá que você dimensione horizontalmente seus aplicativos. Também ajudará você a tirar proveito dos clusters de agentes públicos e privados, colocando seus balanceadores de carga no cluster público e seus contêineres de aplicativo no cluster privado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 [Implantar uma instância do Serviço de Contêiner do Azure](container-service-deployment.md) com o tipo de orquestrador DC/OS e [garantir que o cliente possa se conectar ao cluster](container-service-connect.md). 
@@ -93,19 +94,19 @@ Agora que temos o pacote marathon-lb, podemos implantar um contêiner de aplicat
 
 ```
 
-* Defina o valor de `HAProxy_0_VHOST` para o FQDN do balanceador de carga de seus agentes. Isso está no formato `<acsName>agents.<region>.cloudapp.azure.com`. Por exemplo, se você criasse um cluster do Serviço de Contêiner com o nome `myacs`, na região `West US`, o FQDN seria `myacsagents.westus.cloudapp.azure.com`. Você também pode encontrar isso procurando o balanceador de carga com "agente" no nome ao examinar os recursos no grupo de recursos criado para o Serviço de Contêiner no [Portal do Azure](https://portal.azure.com).
-* Defina o servicePort para uma porta > = 10.000. Isso identifica o serviço que está sendo executado no contêiner; o marathon-lb o utiliza para identificar os serviços que deve balancear.
+* Defina o valor de `HAPROXY_0_VHOST` para o FQDN do balanceador de carga de seus agentes. Isso está no formato `<acsName>agents.<region>.cloudapp.azure.com`. Por exemplo, se você criasse um cluster do Serviço de Contêiner com o nome `myacs`, na região `West US`, o FQDN seria `myacsagents.westus.cloudapp.azure.com`. Você também pode encontrar isso procurando o balanceador de carga com "agente" no nome ao examinar os recursos no grupo de recursos criado para o Serviço de Contêiner no [Portal do Azure](https://portal.azure.com).
+* Defina o `servicePort` para uma porta >= 10.000. Isso identifica o serviço que está sendo executado no contêiner; o marathon-lb o utiliza para identificar os serviços que deve balancear.
 * Defina o rótulo `HAPROXY_GROUP` como "externo".
 * Defina `hostPort` como 0. Isso significa que o Marathon alocará arbitrariamente uma porta disponível.
 * Defina `instances` como o número de instâncias que você deseja criar. Sempre é possível dimensionar isso posteriormente.
 
-Vale a pena saber que, por padrão, o Marathon implantará o cluster privado, e isso significa que a implantação acima só poderá ser acessada por meio do balanceador de carga, que geralmente é o comportamento desejado.
+Vale a pena saber que, por padrão, o Marathon implantará o cluster privado, o que significa que a implantação acima só poderá ser acessada por meio do balanceador de carga, que geralmente é o comportamento desejado.
 
 ### <a name="deploy-using-the-dcos-web-ui"></a>Implantar usando a IU da Web do DC/SO
-1. Visite a página do Marathon em http://localhost/marathon (depois de configurar seu [túnel SSH](container-service-connect.md) e clique em `Create Appliction`
+1. Visite a página do Marathon em http://localhost/marathon (depois de configurar seu [túnel SSH](container-service-connect.md)) e clique em `Create Application`
 2. No diálogo `New Application`, clique em `JSON Mode` no canto superior direito
 3. Colar o JSON acima no editor
-4. Clique em `Create Appliction`
+4. Clique em `Create Application`
 
 ### <a name="deploy-using-the-dcos-cli"></a>Implantar usando a CLI do DC/SO
 Para implantar esse aplicativo com a CLI do DC/SO, basta copiar o JSON acima para um arquivo chamado `hello-web.json` e executar:
@@ -132,10 +133,5 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja a documentação do DC/SO para saber mais sobre o [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

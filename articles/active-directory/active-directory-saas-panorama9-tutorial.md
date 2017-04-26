@@ -11,34 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 12868706693a076ead3cfc13ce5901bbc56d588b
-ms.openlocfilehash: 961aef8496a7de264c5d57c7a990c69996c1527e
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 66d68ef805a28552c5d161b4761e2aa3052c118c
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integração do Active Directory do Azure com o Panorama9
 O objetivo deste tutorial é mostrar a integração do Azure com o Panorama9.  
+
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
-* Uma assinatura habilitada para logon único do Panorama9
+* Uma assinatura do Panorama9 com SSO (logon único) habilitado
 
 Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Panorama9 poderão fazer logon único no aplicativo em seu site de empresa do Panorama9 (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos para Panorama9
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-panorama9-tutorial/IC790016.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-panorama9"></a>Habilitando a integração de aplicativos para Panorama9
+## <a name="enable-the-application-integration-for-panorama9"></a>Habilitar a integração de aplicativos para o Panorama9
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Panorama9.
 
 **Para habilitar a integração de aplicativos para o Panorama9, execute as seguintes etapas:**
@@ -63,17 +64,17 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
    ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Panorama9 com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
 
-Configurar o logon único para o Panorama9 exige que você recupere um valor de impressão digital de um certificado.  
+Configurar o SSO para o Panorama9 exige que você recupere um valor de impressão digital de um certificado.  
 
 Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
-**Para configurar o logon único, execute as seguintes etapas:**
+**Para configurar o SSO, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração do aplicativo **Panorama9**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1. No Portal Clássico do Azure, na página de integração do aplicativo **Panorama9**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configurar Logon Único")
 2. Na página **Como você deseja que os usuários façam logon no Panorama9**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
@@ -108,30 +109,31 @@ Se você não estiver familiarizado com este procedimento, consulte [Como recupe
    
    ![Configurar Logon Único](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configurar Logon Único")
    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Para permitir que os usuários do AD do Azure façam logon no Panorama9, eles devem ser provisionados no Panorama9.  
-No caso do Panorama9, o provisionamento é uma tarefa manual.
+
+* No caso do Panorama9, o provisionamento é uma tarefa manual.
 
 **Para configurar o provisionamento de usuários, execute as seguintes etapas:**
 1. Faça logon em seu site de empresa do **Panorama9** como administrador.
 2. No menu na parte superior, clique em **Gerenciar** e em **Usuários**.
    
-   ![Usuários](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Usuários")
+  ![Usuários](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Usuários")
 3. Clique em **+**.
 4. Na seção Dados do usuário, execute as seguintes etapas:
    
-   ![Usuários](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Usuários")
-   
-   1. Na caixa de texto **Email** , digite o endereço de email de um usuário válido do Active Directory do Azure que você deseja provisionar.
-   2. Clique em **Salvar**.
+  ![Usuários](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Usuários")
 
-> [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do Panorama9 ou as APIs fornecidas pelo Panorama9 para provisionar as contas de usuário do AAD.
-> 
+  1. Na caixa de texto **Email** , digite o endereço de email de um usuário válido do Active Directory do Azure que você deseja provisionar.
+  2. Clique em **Salvar**.
 
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do Panorama9 ou as APIs fornecidas pelo Panorama9 para provisionar as contas de usuário do AAD.
+>
+>
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 **Para atribuir usuários ao Panorama9, execute as seguintes etapas:**
@@ -144,6 +146,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    
    ![Sim](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 

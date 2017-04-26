@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;paulsh
 translationtype: Human Translation
-ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
-ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 80e0b0cb5193d5a0c3782e2e6371b91441780347
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ O conjunto de dados [baseado em spam](https://archive.ics.uci.edu/ml/datasets/sp
 >
 >
 
-Se você precisar de mais espaço de armazenamento, poderá criar discos adicionais e anexá-los à sua VM. Esses discos usam o armazenamento persistente do Azure para que seus dados sejam preservados mesmo quando o servidor é provisionado novamente devido ao redimensionamento ou é desligado. Para adicionar um disco e anexá-lo à sua VM, siga as instruções em [Adicionar um disco a uma VM do Linux](../virtual-machines/virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essas etapas usam a Interface de Linha de Comando do Azure (Azure CLI), que já está instalada na DSVM. Então, esses procedimentos podem ser feitos inteiramente na própria VM. Outra opção para aumentar o armazenamento é usar os [arquivos do Azure](../storage/storage-how-to-use-files-linux.md).
+Se você precisar de mais espaço de armazenamento, poderá criar discos adicionais e anexá-los à sua VM. Esses discos usam o armazenamento persistente do Azure para que seus dados sejam preservados mesmo quando o servidor é provisionado novamente devido ao redimensionamento ou é desligado. Para adicionar um disco e anexá-lo à sua VM, siga as instruções em [Adicionar um disco a uma VM do Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essas etapas usam a Interface de Linha de Comando do Azure (Azure CLI), que já está instalada na DSVM. Então, esses procedimentos podem ser feitos inteiramente na própria VM. Outra opção para aumentar o armazenamento é usar os [arquivos do Azure](../storage/storage-how-to-use-files-linux.md).
 
 Para baixar os dados, abra uma janela do terminal e execute este comando:
 
@@ -374,7 +374,7 @@ Os valores numéricos para as correlações entre as palavras estão disponívei
 
 O Rattle pode transformar o conjunto de dados para lidar com alguns problemas comuns. Por exemplo, ele permite que você redimensione os recursos, atribua os valores ausentes, lide com os valores atípicos e remova as variáveis ou observações sem dados. O Rattle também pode identificar regras de associação entre as observações e/ou variáveis. Essas guias estão fora do escopo deste passo a passo de introdução.
 
-O Rattle também pode executar a análise de cluster. Iremos excluir alguns recursos para facilitar a leitura da saída. Na guia **Dados**, escolha **Ignorar** ao lado de cada uma das variáveis, exceto esses&10; itens:
+O Rattle também pode executar a análise de cluster. Iremos excluir alguns recursos para facilitar a leitura da saída. Na guia **Dados**, escolha **Ignorar** ao lado de cada uma das variáveis, exceto esses 10 itens:
 
 * word_freq_hp
 * word_freq_technology

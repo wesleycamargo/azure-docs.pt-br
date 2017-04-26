@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6a76c399e626ea85581d5f8fb863da878bdbf50b
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 280737097038ff328d487477279ce4f204b0ac0c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -28,7 +28,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 ## <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2012 ou 2013 ou 2015.
 * Baixe e instale o [Azure .NET SDK](http://azure.microsoft.com/downloads/).
-* Adicione um aplicativo cliente nativo ao Azure Active Directory. Confira [Integrar aplicativos ao Azure Active Directory](../active-directory/active-directory-integrating-applications.md) para as etapas necessárias para adicionar o aplicativo. Anote a **ID DO CLIENTE** e o **URI de REDIRECIONAMENTO** na página **CONFIGURAR**.
+* Adicione um aplicativo cliente nativo ao Azure Active Directory. Confira [Integrar aplicativos ao Azure Active Directory](../active-directory/active-directory-integrating-applications.md) para as etapas necessárias para adicionar o aplicativo. Anote a **ID DO CLIENTE** e o **URI de REDIRECIONAMENTO** na página **CONFIGURAR**. Consulte o artigo [Tutorial de Atividade de Cópia usando a API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md) para obter etapas detalhadas. 
 * Obtenha sua **ID de assinatura** e sua **ID de locatário** do Azure. Consulte [Obter IDs da assinatura e locatário do Azure](#get-azure-subscription-and-tenant-ids) para mais instruções.
 * Baixe e instale os pacotes NuGet para Data Factory do Azure. As instruções estão no passo a passo.
 
@@ -364,7 +364,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. No Gerenciador de Soluções, expanda o projeto (**DataFactoryAPITestApp**), clique com o botão direito do mouse em **Referências** e clique em **Adicionar Referência**. Selecione caixa de seleção para o assembly `System.Configuration` e clique em **OK**.
+14. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com botão direito do mouse em **Referências** e clique em **Adicionar Referência**. Selecione caixa de seleção para o assembly `System.Configuration` e clique em **OK**.
 15. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**.
 16. Confirme se há pelo menos um arquivo no contêiner adftutorial no seu armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo de Emp.txt no bloco de notas com o seguinte conteúdo e carregue-o no contêiner adftutorial.
 

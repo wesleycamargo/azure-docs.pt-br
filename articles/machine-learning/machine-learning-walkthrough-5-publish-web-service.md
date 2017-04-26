@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 065e84e8ddee3466834e04fb5d1929652533265a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: cec1bcceea158a20742c7019a266dcefaac4c9cf
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,7 @@ Para obter esse modelo pronto para implantação, precisamos converter esse test
 Poderíamos fazer isso manualmente, mas felizmente as três etapas podem ser realizadas apenas clicando em **Configurar Serviço Web** na parte inferior da tela de teste (e selecionando a opção **Serviço Web Preditivo**).
 
 > [!TIP]
-> Se você quiser obter mais detalhes sobre o que acontece quando você converte um teste de treinamento em um teste de previsão, confira [Converter um teste de treinamento do Machine Learning em um teste de previsão](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Se você quiser obter mais detalhes sobre o que acontece quando você converte um teste de treinamento em um teste de previsão, confira [Como preparar seu modelo para implantação no Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 Quando você clica em **Configurar Serviço Web**, várias coisas acontecem:
 

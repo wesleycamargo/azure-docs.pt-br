@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 62e8e0299aff517f45c89349ed836ec8a6dabd2b
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,7 +45,7 @@ A primeira parte do documento examina várias técnicas de envio em lote para ap
 ## <a name="batching-strategies"></a>Estratégias de envio em lote
 ### <a name="note-about-timing-results-in-this-topic"></a>Observação sobre os resultados de tempo neste tópico
 > [!NOTE]
-> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço](sql-database-service-tiers.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
+> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos há algum tempo e não correspondem necessariamente à taxa de transferência que você pode obter atualmente. O benefício relativo da técnica de envio em lote deve ser semelhante.
 > 
 > 
 
@@ -585,7 +586,7 @@ Neste exemplo, você pode usar o fato de que o SocialSecurityNumber é exclusivo
       SocialSecurityNumber NVARCHAR(50) );
     GO
 
-Em seguida, crie um procedimento armazenado ou escreva um código que use a instrução MERGE para executar a atualização e a inserção. O exemplo a seguir usa a instrução MERGE em um parâmetro com valor de tabela, @employees,, do tipo EmployeeTableType. O conteúdo da tabela @employees não é mostrado aqui.
+Em seguida, crie um procedimento armazenado ou escreva um código que use a instrução MERGE para executar a atualização e a inserção. O exemplo a seguir usa a instrução MERGE em um parâmetro com valor de tabela, @employees, do tipo EmployeeTableType. O conteúdo da tabela @employees não é mostrado aqui.
 
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
@@ -623,10 +624,5 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados individuais](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

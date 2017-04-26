@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 4ef0118435020edc3a922c88a5a55400992cbc09
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -106,14 +107,68 @@ Se você usar configurações expressas, uma conta será criada no Active Direct
 
 ![Conta do AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### <a name="azure-ad-connect-sync-service-accounts"></a>Contas do serviço de sincronização do Azure AD Connect
+Se você usar configurações personalizadas, você será responsável por criar a conta antes de iniciar a instalação.
+
+### <a name="azure-ad-connect-sync-service-account"></a>Conta de serviço de sincronização do Azure AD Connect
+O serviço de sincronização pode ser executado em contas diferentes. Ele pode ser executado em uma VSA (**conta de serviço virtual**), uma gMSA/sMSA (**conta de serviço gerenciado de grupo**) ou então uma conta de usuário regular. As opções com suporte foram alteradas com a versão de abril de 2017 do Connect ao fazer uma nova instalação. Se você atualizar de uma versão anterior do Azure AD Connect, essas opções adicionais não estarão disponíveis.
+
+| Tipo de conta | Opção de instalação | Descrição |
+| --- | --- | --- |
+| [Conta de Serviço Virtual](#virtual-service-account) | Expressa e personalizada, abril de 2017 e posterior | Essa é a opção usada para todas as instalações expressas, exceto para instalações em um controlador de domínio. Ela é a opção padrão para instalações personalizadas, a menos que outra opção seja usada. |
+| [Conta de Serviço Gerenciado de Grupo](#group-managed-service-account) | Personalizada, abril de 2017 e posterior | Se você usa um SQL Server remoto, é recomendável usar uma conta de serviço gerenciado de grupo. |
+| [Conta de usuário](#user-account) | Expressa e personalizada, abril de 2017 e posterior | Uma conta de usuário prefixada com AAD_ só é criada durante a instalação quando instalada no Windows Server 2008 e quando instalada em um controlador de domínio. |
+| [Conta de usuário](#user-account) | Expressa e personalizada, março de 2017 e versões anteriores | Uma conta local prefixada com AAD_ é criada durante a instalação. Ao usar a instalação personalizada, outra conta pode ser especificada. |
+
+Se você usar o Connect com um build de março de 2017 ou anterior, a senha da conta de serviço não deverá ser redefinida, pois o Windows destruirá as chaves de criptografia por motivos de segurança. Você não pode alterar a conta para nenhuma outra conta sem reinstalar o Azure AD Connect. Se você atualizar para um build de abril de 2017 ou posterior, haverá suporte para alterar a senha na conta de serviço, mas você não poderá alterar a conta usada.
+
+> [!Important]
+> Você só pode definir a conta de serviço na primeira instalação. Não há suporte para alterar a conta de serviço após a conclusão da instalação.
+
+Essa é uma tabela das opções padrão, recomendadas e com suporte para a conta de serviço de sincronização.
+
+Legenda:
+
+- **Negrito** indica a opção padrão e, na maioria dos casos, a opção recomendada.
+- *Itálico* indica a opção recomendada quando ela não é a opção padrão.
+- 2008 – opção padrão quando instalado no Windows Server 2008
+- Não negrito – opção com suporte
+- Conta local – conta de usuário local no servidor
+- Conta do domínio – conta de usuário do domínio
+- sMSA – [conta de serviço gerenciado autônomo](https://technet.microsoft.com/library/dd548356.aspx)
+- gMSA – [conta de serviço gerenciado de grupo](https://technet.microsoft.com/library/hh831782.aspx)
+
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
+| --- | --- | --- | --- |
+| **computador autônomo/de grupo de trabalho** | Sem suporte | **VSA**</br>Conta local (2008)</br>Conta local |  Sem suporte |
+| **computador associado ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA, gMSA | **gMSA**</br>Conta do domínio |
+| **Controlador de domínio** | **Conta do domínio** | *gMSA*</br>**Conta do domínio**</br>sMSA| *gMSA*</br>**Conta do domínio**|
+
+#### <a name="virtual-service-account"></a>Conta de serviço virtual
+Uma conta de serviço virtual é um tipo especial de conta que não tem uma senha e é gerenciada pelo Windows.
+
+![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
+
+O VSA destina-se a ser usado em cenários em que o mecanismo de sincronização e o SQL estão no mesmo servidor. Se você usar um SQL server remoto, é recomendável em vez disso usar uma [conta de serviço gerenciado de grupo](#managed-service-account).
+
+Este recurso requer o Windows Server 2008 R2 ou posterior. Se você instalar o Azure AD Connect no Windows Server 2008, a instalação voltará a usar uma [conta de usuário](#user-account) em vez disso.
+
+#### <a name="group-managed-service-account"></a>Conta de serviço gerenciado de grupo
+Se você usa um SQL Server remoto, é recomendável usar uma **Conta de Serviço Gerenciado de Grupo**. Para obter mais informações sobre como preparar o Active Directory para a conta de serviço gerenciado de grupo, consulte [Visão geral de contas de serviço gerenciado de grupo](https://technet.microsoft.com/library/hh831782.aspx).
+
+Para usar essa opção, na página [Instalar componentes necessários](active-directory-aadconnect-get-started-custom.md#install-required-components), selecione **Usar uma conta de serviço existente** e selecione **Conta de serviço gerenciado**.  
+![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
+Também há suporte para o uso de uma [conta de serviço gerenciado autônomo](https://technet.microsoft.com/library/dd548356.aspx). No entanto, como essas contas podem ser usadas apenas no computador local, não há nenhum benefício prático em usá-las no lugar da conta de serviço virtual padrão.
+
+Este recurso requer o Windows Server 2012 ou posterior. Se você precisar usar um sistema operacional mais antigo e usar SQL remoto, você deverá usar uma [conta de usuário](#user-account).
+
+#### <a name="user-account"></a>Conta de usuário
 Uma conta de serviço local é criada pelo assistente de instalação (a menos que você especifique a conta a ser usada em configurações personalizadas). A conta prefixada com **AAD_** é usada com o serviço de sincronização real para ser executada como. Se você instalar o Azure AD Connect em um controlador de domínio, a conta é criada no domínio. Se você usar um servidor remoto que execute um servidor SQL ou se usar um proxy que exija autenticação, a conta do serviço **AAD_** deverá estar localizada no domínio.
 
 ![Conta de serviço de sincronização](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 A conta é criada com uma senha longa complexa que não expira.
 
-Essa conta é usada para armazenar as senhas das outras contas de maneira segura. As senhas dessas outras contas são armazenadas criptografadas no banco de dados. As chaves privadas das chaves de criptografia são protegidas com a criptografia de chave secreta dos serviços de criptografia usando a DPAPI (API de Proteção de Dados) do Windows. A senha da conta de serviço não deverá ser redefinida, pois o Windows destruirá, em seguida, as chaves de criptografia por motivos de segurança.
+Essa conta é usada para armazenar as senhas das outras contas de maneira segura. As senhas dessas outras contas são armazenadas criptografadas no banco de dados. As chaves privadas das chaves de criptografia são protegidas com a criptografia de chave secreta dos serviços de criptografia usando a DPAPI (API de Proteção de Dados) do Windows.
 
 Se você usar um SQL Server completo, a conta de serviço será o DBO do banco de dados criado para o mecanismo de sincronização. O serviço não funcionará conforme esperado com qualquer outra permissão. Um logon do SQL também é criado.
 
@@ -132,10 +187,4 @@ A conta de serviço é criada com uma senha longa e complexa que não expira. El
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](../active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

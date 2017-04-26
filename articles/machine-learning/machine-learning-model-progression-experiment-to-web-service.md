@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 209d1cbe4f1ad08a98caf0a8d16f5b0ee45468ca
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -66,7 +66,7 @@ Pode haver mais alterações que você queira fazer para ter seu experimento pre
 O teste de treinamento não é descartado neste processo de conversão. Quando o processo for concluído, você terá duas guias no Estúdio: uma para o teste de treinamento e outra para o teste preditivo. Dessa forma, você poderá alterar o teste de treinamento antes de implantar o serviço Web e recompilar o teste preditivo. Ou você pode salvar uma cópia do teste de treinamento para iniciar outra linha de teste.
 
 > [!NOTE]
-> Quando você clica em **Serviço Web Preditivo**, um processo automático é iniciado para converter seu teste de treinamento em um teste preditivo, e isso funciona bem na maioria dos casos. Se o seu teste de treinamento for complexo (por exemplo, se você tiver vários caminhos para treinamento reunidos), convém fazer essa conversão manualmente. Para saber mais, confira [Converter um teste de treinamento do Machine Learning em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Quando você clica em **Serviço Web Preditivo**, um processo automático é iniciado para converter seu teste de treinamento em um teste preditivo, e isso funciona bem na maioria dos casos. Se o seu teste de treinamento for complexo (por exemplo, se você tiver vários caminhos para treinamento reunidos), convém fazer essa conversão manualmente. Para obter mais informações, consulte [Como preparar seu modelo para implantação no Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 > 
 > 
 
@@ -111,7 +111,7 @@ Se você deseja fazer alterações em seu teste preditivo original, como selecio
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais detalhes sobre o processo de desenvolvimento e teste, veja os seguintes artigos:
 
-* convertendo o teste - [Converter um teste de treinamento do Aprendizado de Máquina em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+* converter o experimento – [Como preparar seu modelo para implantação no Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 * implantando o serviço Web – [Implantar um serviço Web do Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 * treinando novamente o modelo - [Treinar novamente os modelos do Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md)
 

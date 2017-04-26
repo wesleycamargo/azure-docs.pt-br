@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 3440d7e80e6a806c4119dff687fb9c590b8f0d14
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -59,7 +59,7 @@ Antes de criar um trabalho de exportação, você precisa obter um nome e o ende
 
 Siga as etapas abaixo para obter a localização de envio:
 
--   Identifique o nome da localização de sua conta de armazenamento. Esse valor pode ser encontrado no campo **Localização** do **Painel** da conta de armazenamento no portal clássico ou consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) da API de Gerenciamento de Serviços.
+-   Identifique o nome da localização de sua conta de armazenamento. Esse valor pode ser encontrado no campo **Local** do **Painel** da conta de armazenamento no portal clássico ou consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) da API de gerenciamento de serviços.
 
 -   Recupere a localização que está disponível para processar essa conta de armazenamento chamando a operação `Get Location`.
 

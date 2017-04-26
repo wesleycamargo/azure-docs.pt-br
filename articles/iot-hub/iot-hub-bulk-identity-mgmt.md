@@ -12,33 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 04/06/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 79004e91c9e22b085b04e446999d4efe05426436
-ms.openlocfilehash: 512c4dc5f77d5f730720909628364c5c9d8b3174
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6d878b00094f573adc440d2384c426506fea0a40
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerenciar identidades de dispositivo do Hub IoT em massa
+
 Cada Hub IoT tem um registro de identidade que você pode usar para criar recursos de acordo com o dispositivo no serviço, como uma fila contendo mensagens em andamento da nuvem para o dispositivo. O registro de identidade também permite que você controle o acesso aos pontos de extremidade voltados para o dispositivo. Este artigo descreve como importar e exportar identidades de dispositivo em massa bidirecionalmente em um registro de identidade.
 
 As operações de importação e exportação ocorrem no contexto de *Trabalhos* , que permitem aos usuários executar operações de serviço em massa em um Hub IoT.
 
 A classe **RegistryManager** inclui os métodos **ExportDevicesAsync** e **ImportDevicesAsync** que usam a estrutura **Job**. Esses métodos permitem exportar, importar e sincronizar todo o registro de identidade de um Hub IoT.
 
-## <a name="what-are-jobs"></a>O que são Trabalhos?
+## <a name="what-are-jobs"></a>O que são trabalhos?
+
 As operações de registro de identidade usam o sistema de **Trabalho** quando a operação:
 
-* Tem um tempo de execução potencialmente longo em comparação com as operações de tempo de execução padrão ou
+* Tem um tempo de execução potencialmente longo em comparação com as operações de tempo de execução padrão.
 * Retorna uma grande quantidade de dados para o usuário.
 
 Nesses casos, em vez de ter uma única chamada à API aguardando ou bloqueando o resultado da operação, a operação cria de modo assíncrono um **Trabalho** para o Hub IoT. Então, a operação retorna imediatamente um objeto **JobProperties**.
 
 O trecho de código de C# a seguir mostra como criar um trabalho de exportação:
 
-```
+```csharp
 // Call an export job on the IoT Hub to retrieve all devices
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
@@ -47,11 +49,11 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > Para usar a classe **RegistryManager** no código C#, adicione o pacote NuGet **Microsoft.Azure.Devices** ao projeto. A classe **RegistryManager** está no namespace **Microsoft.Azure.Devices**.
 
 
-Em seguida, você pode usar a classe **RegistryManager** para consultar o estado do **Job** usando os metadados retornados **JobProperties**.
+Você pode usar a classe **RegistryManager** para consultar o estado do **Job** usando os metadados de **JobProperties** retornados.
 
 O trecho de código de C# a seguir mostra como verificar a cada cinco segundos para ver se o trabalho finalizou a execução:
 
-```
+```csharp
 // Wait until job is finished
 while(true)
 {
@@ -69,22 +71,24 @@ while(true)
 ```
 
 ## <a name="export-devices"></a>Exportar dispositivos
-Use o método **ExportDevicesAsync** para exportar todo o registro de identidade de um Hub IoT para um contêiner de blobs do [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/) usando uma [Assinatura de Acesso Compartilhado](https://msdn.microsoft.com/library/ee395415.aspx).
+
+Use o método **ExportDevicesAsync** para exportar todo o registro de identidade de um Hub IoT para um contêiner de blobs do [Armazenamento do Azure](../storage/index.md) usando uma [Assinatura de Acesso Compartilhado](../storage/storage-security-guide.md#data-plane-security).
 
 Esse método permite criar backups confiáveis das informações do dispositivo em um contêiner de blobs controlado por você.
 
 O método **ExportDevicesAsync** exige dois parâmetros:
 
 * Uma *cadeia de caracteres* que contenha um URI de um contêiner de blobs. Esse URI deve conter um token SAS que conceda acesso de gravação ao contêiner. O trabalho cria um blob de blocos nesse contêiner para armazenar os dados do dispositivo de exportação serializados. O token SAS deve incluir estas permissões:
-  
-   ```
+
+   ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
+
 * Um *booliano* que indica se você deseja excluir chaves de autenticação dos dados de exportação. Se for **false**, as chaves de autenticação serão incluídas na saída de exportação. Caso contrário, as chaves serão exportadas como **null**.
 
 O seguinte trecho de código em C# mostra como iniciar um trabalho de exportação que inclui chaves de autenticação de dispositivo nos dados de exportação e, em seguida, pesquisar se houve a conclusão:
 
-```
+```csharp
 // Call an export job on the IoT Hub to retrieve all devices
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 
@@ -108,7 +112,7 @@ O trabalho armazena sua saída no contêiner de blobs fornecido como um blob de 
 
 O exemplo a seguir mostra os dados de saída:
 
-```
+```json
 {"id":"Device1","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 {"id":"Device2","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 {"id":"Device3","eTag":"MA==","status":"disabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
@@ -118,7 +122,7 @@ O exemplo a seguir mostra os dados de saída:
 
 Se precisar de acesso a esses dados no código, você poderá desserializar facilmente esses dados usando a classe **ExportImportDevice** . O seguinte trecho de código de C# mostra como ler informações do dispositivo que foram anteriormente exportadas para um blob de blocos:
 
-```
+```csharp
 var exportedDevices = new List<ExportImportDevice>();
 
 using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), RequestOptions, null), Encoding.UTF8))
@@ -134,44 +138,40 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 > [!NOTE]
 > Você também pode usar o método **GetDevicesAsync** da classe **RegistryManager** para buscar uma lista de seus dispositivos. No entanto, essa abordagem tem um limite rígido de 1.000 no número de objetos de dispositivo que são retornados. O caso de uso esperado para o método **GetDevicesAsync** é para cenários de desenvolvimento como auxílio na depuração, não sendo recomendado para cargas de trabalho de produção.
-> 
-> 
 
 ## <a name="import-devices"></a>Importar dispositivos
+
 O método **ImportDevicesAsync** na classe **RegistryManager** permite que você execute operações em massa de importação e sincronização em um registro de identidade do Hub IoT. Assim como ocorre com o método **ExportDevicesAsync**, o método **ImportDevicesAsync** usa a estrutura **Job**.
 
 Tenha cuidado ao usar o método **ImportDevicesAsync** porque, além de provisionar novos dispositivos no registro de identidade, ele também pode atualizar e excluir os dispositivos existentes.
 
 > [!WARNING]
 > Uma operação de importação não pode ser desfeita. Sempre faça backup de seus dados existentes usando o método **ExportDevicesAsync** em outro contêiner de blobs antes de fazer alterações em massa no registro de identidade.
-> 
-> 
 
 O método **ImportDevicesAsync** usa dois parâmetros:
 
-* Uma *cadeia de caracteres* que contém um URI de um contêiner de blobs do [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/) como *entrada* para o trabalho. Esse URI deve conter um token SAS que conceda acesso de leitura ao contêiner. Esse contêiner deve conter um blob com o nome **devices.txt** que contém os dados de dispositivo serializados a serem importados no registro de identidade. Os dados de importação devem conter informações do dispositivo no mesmo formato JSON usado pelo trabalho **ExportImportDevice** ao criar um blob **devices.txt**. O token SAS deve incluir estas permissões:
-  
-   ```
+* Uma *cadeia de caracteres* que contém um URI de um contêiner de blobs do [Armazenamento do Azure](../storage/index.md) como *entrada* para o trabalho. Esse URI deve conter um token SAS que conceda acesso de leitura ao contêiner. Esse contêiner deve conter um blob com o nome **devices.txt** que contém os dados de dispositivo serializados a serem importados no registro de identidade. Os dados de importação devem conter informações do dispositivo no mesmo formato JSON usado pelo trabalho **ExportImportDevice** ao criar um blob **devices.txt**. O token SAS deve incluir estas permissões:
+
+   ```csharp
    SharedAccessBlobPermissions.Read
    ```
 * Uma *cadeia de caracteres* que contém um URI de um contêiner de blobs do [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/) como *saída* do trabalho. O trabalho cria um blob de blocos nesse contêiner para armazenar quaisquer informações de erro do **Trabalho**de importação concluído. O token SAS deve incluir estas permissões:
-  
-   ```
+
+   ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
 
 > [!NOTE]
 > Os dois parâmetros podem apontar para o mesmo contêiner de blobs. Os parâmetros separados simplesmente permitem mais controle sobre seus dados, pois o contêiner de saída requer permissões adicionais.
-> 
-> 
 
 O trecho de código de C# a seguir mostra como iniciar um trabalho de importação:
 
-```
+```csharp
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
 ## <a name="import-behavior"></a>Comportamento de importação
+
 É possível usar o método **ImportDevicesAsync** para executar as seguintes operações em massa no registro de identidade:
 
 * Registro em massa de novos dispositivos
@@ -196,17 +196,16 @@ Use a propriedade opcional **importMode** nos dados de serialização de importa
 
 > [!NOTE]
 > Se os dados de serialização não definirem explicitamente um sinalizador **importMode** para um dispositivo, eles usarão **createOrUpdate** como padrão durante a operação de importação.
-> 
-> 
 
 ## <a name="import-devices-example--bulk-device-provisioning"></a>Exemplo de importação de dispositivos – provisionamento de dispositivo em massa
+
 O seguinte exemplo de código C# ilustra como gerar várias identidades de dispositivo que:
 
 * Inclua as chaves de autenticação.
 * Grave essas informações de dispositivo em um blob de blocos.
 * Importe os dispositivos para o registro de identidade.
 
-```
+```csharp
 // Provision 1,000 more devices
 var serializedDevices = new List<string>();
 
@@ -268,9 +267,10 @@ while(true)
 ```
 
 ## <a name="import-devices-example--bulk-deletion"></a>Exemplo de importação de dispositivos – exclusão em massa
+
 O exemplo de código a seguir mostra como excluir os dispositivos que você adicionou usando o exemplo de código anterior:
 
-```
+```csharp
 // Step 1: Update each device's ImportMode to be Delete
 sb = new StringBuilder();
 serializedDevices.ForEach(serializedDevice =>
@@ -317,10 +317,11 @@ while(true)
 
 ```
 
-## <a name="getting-the-container-sas-uri"></a>Obtendo o URI de SAS do contêiner
+## <a name="get-the-container-sas-uri"></a>Obter o URI de SAS do contêiner
+
 O exemplo de código a seguir mostra como gerar um [URI SAS](../storage/storage-dotnet-shared-access-signature-part-2.md) com as permissões de leitura, gravação e exclusão para um contêiner de blobs:
 
-```
+```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
 {
   // Set the expiry time and permissions for the container.
@@ -345,6 +346,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste artigo, você aprendeu a realizar operações em massa no registro de identidade em um Hub IoT. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Métricas do Hub IoT][lnk-metrics]

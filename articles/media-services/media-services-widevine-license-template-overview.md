@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/29/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a90e56bb2b7db0bb964684f9cac04096a6577adc
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5ef6e368a170816b7000c23cdf686644690fca45
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -26,7 +27,8 @@ Agora, os Serviços de Mídia do Azure permitem que você configure e solicite l
 
 A solicitação de licença do Widevine é formatada como uma mensagem JSON.  
 
-Observe que você pode optar por criar uma mensagem vazia sem valores, apenas "{}", e um modelo de licença será criado com todos os padrões.  
+>[!NOTE]
+> Você pode optar por criar uma mensagem vazia sem valores, apenas "{}" e um modelo de licença será criado com todos os padrões. O padrão funciona na maioria dos casos. Por exemplo, para cenários de entrega de licença com base em MS que sempre devem ser o padrão. Se você precisar definir os valores de "content_id" e "provedor", um provedor deverá corresponder às credenciais de Widevine do Google.
 
     {  
        “payload”:“<license challenge>”,
@@ -62,7 +64,7 @@ Observe que você pode optar por criar uma mensagem vazia sem valores, apenas "{
 | --- | --- | --- |
 | payload |Cadeia codificada em Base64 |A solicitação de licença enviada por um cliente. |
 | content_id |Cadeia codificada em Base64 |Identificador usado para gerar KeyId(s) e chaves de conteúdo para cada content_key_specs.track_type. |
-| provider |string |Usado para pesquisar as políticas e chaves de conteúdo. Obrigatório. |
+| provider |string |Usado para pesquisar as políticas e chaves de conteúdo. Se a distribuição de chaves MS é usada para entrega de licença do Widevine, esse parâmetro é ignorado. |
 | policy_name |string |Nome de uma política registrada anteriormente. Opcional |
 | allowed_track_types |enum |SD_ONLY ou SD_HD. Controla quais chaves de conteúdo devem ser incluídas em uma licença |
 | content_key_specs |matriz de estruturas JSON, confira **Especificações de chave de conteúdo** abaixo |Um controle mais refinado sobre quais chaves de conteúdo retornar. Confira Especificações de chave de conteúdo a seguir para obter detalhes.  Apenas um entre allowed_track_types e content_key_specs pode ser especificado. |
@@ -79,7 +81,7 @@ Cada content_key_specs deve ser especificado para todos os controles, independen
 | Nome | Valor | Descrição |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Um nome de tipo de controle. Se content_key_specs for especificado na solicitação de licença, especifique de forma explícita todos os tipos de controle. Se você não fizer isso, haverá uma falha de reprodução após 10 segundos. |
-| content_key_specs  <br/> security_level |uint32 |Define os requisitos de robustez de reprodução do cliente. <br/>  1 - É necessário aplicar a criptografia whitebox baseada em software. <br/>  2 - É necessário aplicar a criptografia de software e um decodificador ofuscado. <br/>  3 - As principais operações de criptografia e de materiais devem ser executadas em um ambiente de execução confiável com suporte de hardware. <br/>  4 - A criptografia e decodificação do conteúdo devem ser executadas em um ambiente de execução confiável com suporte de hardware.  <br/>  5 - A criptografia, decodificação e qualquer manipulação da mídia (compactada e descompactada) devem ser tratadas em um ambiente de execução confiável com suporte de hardware. |
+| content_key_specs  <br/> security_level |uint32 |Define os requisitos de robustez de reprodução do cliente. <br/> 1 - É necessário aplicar a criptografia whitebox baseada em software. <br/> 2 - É necessário aplicar a criptografia de software e um decodificador ofuscado. <br/> 3 - As principais operações de criptografia e de materiais devem ser executadas em um ambiente de execução confiável com suporte de hardware. <br/> 4 - A criptografia e decodificação do conteúdo devem ser executadas em um ambiente de execução confiável com suporte de hardware.  <br/> 5 - A criptografia, decodificação e qualquer manipulação da mídia (compactada e descompactada) devem ser tratadas em um ambiente de execução confiável com suporte de hardware. |
 | content_key_specs <br/> required_output_protection.hdc |cadeia de caracteres - uma das seguintes: HDCP_NONE, HDCP_V1, HDCP_V2 |Indica se HDCP é necessário |
 | content_key_specs <br/>chave |Cadeia codificada em  <br/>Base64 |Chave de conteúdo a ser usada para este controle. Se for especificado, o track_type ou a key_id será obrigatório.  Essa opção permite que o provedor de conteúdo insira a chave de conteúdo para este controle em vez de deixar o servidor de licença do Widevine gerar ou procurar uma chave. |
 | content_key_specs.key_id |Binário de cadeia de caracteres codificada em Base64, 16 bytes |Identificador exclusivo para a chave. |
@@ -197,10 +199,5 @@ O exemplo a seguir mostra como usar as APIs do .NET para configurar uma licença
 
 ## <a name="see-also"></a>Consulte também
 [Usando a PlayReady e/ou a Criptografia Comum Dinâmica Widevine](media-services-protect-with-drm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 816305fb3ace5bfc7cf50bac5e42fde83e9697d3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 232901ab919c63ea70e52afb845240b41a517c51
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-ad--active-directory-requirements-for-azure-remoteapp"></a>Requisitos do AD do Azure + Active Directory para o Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
@@ -35,9 +36,9 @@ Observação - a sincronização de diretórios é necessária para coleções h
 ### <a name="make-sure-your-domaincom-match"></a>Certifique-se de que o "@domain.com" corresponda
 Antes de começar, lembre-se de que o UPN da floresta local corresponde ao sufixo do seu domínio do AD do Azure. 
 
-Depois de configurar o sufixo de domínio UPN no Azure AD, todos os usuários que fizerem logon no Azure RemoteApp farão logon como "user@<the suffix you set up>. Certifique-se de que os usuários também podem fazer logon com o mesmo user@suffix no domínio local. Em alguns casos, é possível configurar um nome de domínio no AD do Azure, ao mesmo tempo que você especifica um sufixo de domínio diferente para o usuário local. Nesse caso, seus usuários não poderão se conectar a nenhum computador ou recurso ingressado no domínio por meio do Azure RemoteApp.
+Depois de configurar o sufixo de domínio UPN no Azure AD, todos os usuários que fizerem logon no Azure RemoteApp farão logon como "user@<the suffix you set up>". Certifique-se de que os usuários também podem fazer logon com o mesmo user@suffix no domínio local. Em alguns casos, é possível configurar um nome de domínio no AD do Azure, ao mesmo tempo que você especifica um sufixo de domínio diferente para o usuário local. Nesse caso, seus usuários não poderão se conectar a nenhum computador ou recurso ingressado no domínio por meio do Azure RemoteApp.
 
-Por exemplo, se você configurar o sufixo de domínio UPN no AAD como contoso.com, mas alguns usuários locais/no AD estiverem configurados para fazer logon em @contoso.uk,, esses usuários não poderão fazer logon corretamente na coleção ARA. Os UPNs dos usuários no AAD e no AD devem ser iguais para que o logon seja possível.
+Por exemplo, se você configurar o sufixo de domínio UPN no AAD como contoso.com mas alguns usuários locais/no AD estiverem configurados para fazer logon em @contoso.uk, esses usuários não poderão fazer logon corretamente na coleção ARA. Os UPNs dos usuários no AAD e no AD devem ser iguais para que o logon seja possível.
 
 ### <a name="create-objects-for-azure-remoteapp"></a>Criar objetos para o Azure RemoteApp
 Você também precisará criar os seguintes objetos locais do Active Directory:
@@ -46,10 +47,5 @@ Você também precisará criar os seguintes objetos locais do Active Directory:
 * Uma OU (unidade organizacional) para conter objetos de computador do RemoteApp. Uso da OU é recomendável (mas não obrigatório) para isolar as contas e as políticas que você usará com o RemoteApp.
 
 Você precisa desses dois objetos ao criar sua coleção do RemoteApp, portanto lembre-se de realizar essas etapas primeiro.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

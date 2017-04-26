@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1f274fdbcdb64425a296ac7388938c423745f477
-ms.openlocfilehash: c9c0756fd714438e4ae74deadf0e5f009164af13
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 3b7eca721181155cd2bcc619d517c9b5a6a89a0d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -30,13 +31,13 @@ Há trechos de código incluídos neste artigo e um link para um exemplo complet
 
 ## <a name="key-features-of-ra-grs"></a>Principais recursos do RA-GRS
 
-Antes de falarmos sobre como usar o armazenamento RA-GRS, vamos falar sobre suas propriedades e comportamento.
+Antes de abordarmos como usar o armazenamento RA-GRS, vamos falar sobre suas propriedades e seu comportamento.
 
 * O Armazenamento do Azure mantém uma cópia somente leitura dos dados que você armazena na região primária em uma região secundária; conforme observado anteriormente, o serviço de armazenamento determina o local da região secundária.
 
 * A cópia somente leitura é [eventualmente consistente](https://en.wikipedia.org/wiki/Eventual_consistency) com os dados na região primária.
 
-* Para blobs, tabelas e filas, você pode consultar a região secundária para obter um valor de *Hora da Última Sincronização* que informa quando ocorreu a última replicação da região primária para a secundária. (Isso não tem suporte para Arquivos do Azure, que não têm redundância RA-GRS no momento.)
+* Para blobs, tabelas e filas, você pode consultar a região secundária para obter um valor de *Hora da Última Sincronização* que informa quando ocorreu a última replicação da região primária para a secundária. (Não há suporte para isso nos Arquivos do Azure, que, no momento, não têm redundância RA-GRS.)
 
 * Você pode usar a Biblioteca de Cliente de Armazenamento para interagir com os dados na região primária ou secundária. Você também poderá redirecionar as solicitações de leitura automaticamente para a região secundária se uma solicitação de leitura para a região primária atingir o tempo limite.
 
@@ -52,7 +53,7 @@ A principal finalidade deste artigo é mostrar como criar um aplicativo que cont
 
 Esta solução pressupõe que é aceitável retornar o que poderiam ser dados obsoletos para o aplicativo de chamada. Como os dados secundários são consistentes, é possível que os dados tenham sido gravados no primário, mas a atualização para o secundário não tenha concluído a replicação quando a região primária se tornou inacessível.
 
-Por exemplo, o cliente poderia enviar uma atualização bem-sucedida, e o primário poderia ficar inoperante antes de a atualização ser propagada para o secundário. Nesse caso, se o cliente solicitar a leitura dos dados novamente, receberá os dados obsoletos, em vez dos dados atualizados. Você deve decidir se isso é aceitável e, nesse caso, como você enviará uma mensagem ao cliente. Você verá como verificar a Hora da Última Sincronização dos dados secundários neste artigo para saber se o secundário está atualizado.
+Por exemplo, o cliente poderia enviar uma atualização bem-sucedida, e o primário poderia ficar inoperante antes de a atualização ser propagada para o secundário. Nesse caso, se o cliente solicitar a leitura dos dados novamente, receberá os dados obsoletos, em vez dos dados atualizados. Você deve decidir se isso é aceitável e, nesse caso, como você enviará uma mensagem ao cliente. Você verá como verificar a Hora da Última Sincronização nos dados secundários adiante neste artigo para saber se o secundário está atualizado.
 
 ### <a name="handling-services-separately-or-all-together"></a>Tratamento de serviços separadamente ou em conjunto
 
@@ -80,7 +81,7 @@ Por exemplo, você pode definir um sinalizador que será verificado antes de env
 
 Se optar por lidar com os erros em cada serviço separadamente, você também precisará lidar com a capacidade de executar o aplicativo no modo somente leitura pelo serviço. Você pode ter sinalizadores somente leitura para cada serviço que podem ser habilitados e desabilitados e lidar com o sinalizador apropriado nos locais apropriados no código.
 
-Ser capaz de executar o aplicativo no modo somente leitura tem outro benefício: a capacidade de garantir funcionalidade limitada durante uma atualização importante do aplicativo. Você pode disparar o aplicativo para ser executado no modo somente leitura e apontar para o data center secundário, garantindo que ninguém acesse os dados na região primária enquanto você fizer atualizações.
+Ser capaz de executar o aplicativo no modo somente leitura tem outro benefício: a capacidade de garantir funcionalidade limitada durante uma atualização importante do aplicativo. Você pode disparar o aplicativo para ser executado no modo somente leitura e apontar para o data center secundário, garantindo que ninguém acessa os dados na região primária enquanto você faz atualizações.
 
 ## <a name="handling-updates-when-running-in-read-only-mode"></a>Tratamento de atualizações ao executar no modo somente leitura
 
@@ -234,9 +235,4 @@ Se você tiver tornado configuráveis os limites para alternar o aplicativo para
 * Para obter mais informações sobre Redundância de Área Geográfica com acesso de leitura, inclusive outro exemplo de como LastSyncTime é definido, confira [Opções de redundância de armazenamento do Windows Azure e Redundância de Área Geográfica com acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 * Para obter um exemplo completo que mostra como fazer a alternância entre os pontos de extremidade primário e secundário, confira [Exemplos do Azure – usando o padrão de Disjuntor com o armazenamento de RA-GRS](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

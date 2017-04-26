@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: ac73b5c2ece8044d9f75e017428c43259f8a9357
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 610c731195ffa92ccd915b93e8c901f47b2ff16a
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: integração do Active Directory do Azure com o Promapp
-O objetivo deste tutorial é mostrar como integrar o Promapp ao Azure AD (Azure Active Directory).  
+O objetivo deste tutorial é mostrar como integrar o Promapp ao Azure AD (Azure Active Directory).
+
 A integração do Promapp ao Azure AD proporciona os seguintes benefícios: 
 
 * Você pode controlar no Azure AD quem tem acesso ao Promapp 
-* Você pode habilitar seus usuários a fazerem logon automaticamente no Promapp (logon único) com suas contas do Azure AD
+* Você pode habilitar seus usuários, com as respectivas contas do Azure AD, a fazer logon automaticamente no Promapp via SSO (logon único)
 * Você pode gerenciar suas contas em um local central, o portal clássico do Active Directory do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -34,25 +36,25 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD com o Promapp, você precisa dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada para logon único do Promapp
+* Uma assinatura do Promapp com SSO (logon único) habilitado
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 > 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Promapp da galeria 
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO (logon único) do Azure AD
 
-## <a name="adding-promapp-from-the-gallery"></a>Adicionando Promapp da galeria
+## <a name="add-promapp-from-the-gallery"></a>Adicionar o Promapp da galeria
 Para configurar a integração do Promapp ao Azure AD, você precisa adicionar o Promapp por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o Azure AD por meio da galeria, realize as seguintes etapas:**
@@ -77,26 +79,27 @@ Para configurar a integração do Promapp ao Azure AD, você precisa adicionar o
    
     ![Aplicativos][500]
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Promapp, com base em um usuário de teste chamado “Brenda Fernandes”.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+O objetivo desta seção é mostrar como configurar e testar o SSO do Azure AD com o Promapp, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Promapp é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Promapp.  
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do Promapp é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Promapp.  
+
 Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como sendo o valor de **nome de usuário** no Promapp.
 
-Para configurar e testar o logon único do Azure AD com o Promapp, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Promapp, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criar um usuário de teste Promapp](#creating-a-halogen-software-test-user)** : para ter um equivalente de Brenda Fernandes no Promapp que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
-O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure AD e configurar o logon único em seu aplicativo Promapp.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+O objetivo desta seção é habilitar o SSO do Azure AD no Portal Clássico do Azure AD e configurar o SSO em seu aplicativo Promapp.
 
-**Para configurar o logon único do Azure AD com o Promapp, realize as seguintes etapas:**
+**Para configurar o SSO do Azure AD com o Promapp, execute as seguintes etapas:**
 
-1. No portal clássico do Azure AD, na página de integração de aplicativos do **Promapp**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1. No Portal Clássico do Azure AD, na página de integração de aplicativos do **Promapp**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar Logon Único][6] 
 2. Na página **Como você deseja que os usuários façam logon no Promapp**, escolha **Logon único do Azure AD** e clique em **Avançar**.
@@ -129,7 +132,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
    
    1. No portal clássico do Azure, na caixa de diálogo **Configurar logon único no Promapp**, copie a **URL de Logon Remoto**, cole-a na caixa de texto **URL de Logon Único** e clique em **Salvar**.
    2. Para **SSO - Modo Logon Único**, selecione **Opcional** e clique em **Salvar**.
-   3. Copie o certificado baixado no bloco de notas, abra o conteúdo do certificado sem a primeira linha (*---BEGIN CERTIFICATE---*) e a última linha (*---END CERTIFICATE---*), cole-o na caixa de texto **Certificado SSO-x.&509;** e clique em **Salvar**.
+   3. Copie o certificado baixado no bloco de notas, abra o conteúdo do certificado sem a primeira linha (*---BEGIN CERTIFICATE---*) e a última linha (*---END CERTIFICATE---*), cole-o na caixa de texto **Certificado SSO-x. 509** e clique em **Salvar**.
 6. No portal clássico do Azure AD, selecione a confirmação de configuração do logon único e clique em **Avançar**. 
    
     ![Logon Único do AD do Azure][10]
@@ -137,7 +140,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
    
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -182,12 +185,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    1. Anote o valor da **Nova Senha**.
    2. Clique em **Concluído**.   
 
-### <a name="creating-a-promapp-test-user"></a>Criar um usuário de teste Promapp
-O aplicativo Promapp dá suporte ao provisionamento Just-in-Time.
-Isso significa que uma conte de usuário será criada automaticamente se necessário durante uma tentativa de acessar o aplicativo usando o Painel de Acesso.  
+### <a name="create-a-promapp-test-user"></a>Criar um usuário de teste do Promapp
+O aplicativo Promapp dá suporte ao provisionamento Just-in-Time. Isso significa que, se for necessário, uma conta de usuário será criada automaticamente durante uma tentativa de acessar o aplicativo usando o Painel de Acesso.  
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Promapp.
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+O objetivo desta seção é permitir que Brenda Fernandes use o SSO do Azure, concedendo a ela acesso ao Promapp.
 
 ![Atribuir usuário][200] 
 
@@ -207,8 +209,9 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.  
+### <a name="test-single-sign-on"></a>Testar logon único
+O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
+
 Quando você clica no bloco Promapp no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo Promapp.
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -248,9 +251,4 @@ Quando você clica no bloco Promapp no Painel de Acesso, você deve ser conectad
 [400]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_400.png
 [401]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_401.png
 [402]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_402.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

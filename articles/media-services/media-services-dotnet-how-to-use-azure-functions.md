@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0cde1f36af2d41697fa956c62cc882e5429707e8
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ca7c89dc5f56f1bf4c300874111e65048e88abcf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,11 +36,15 @@ Este tópico mostra como começar a criação de Azure Functions que usam os Ser
 - Compreensão de [como usar o Azure Functions](../azure-functions/functions-overview.md). Além disso, examine:
     - [Associações HTTP e de webhook do Azure Functions](../azure-functions/functions-triggers-bindings.md)
     - [Como definir configurações de aplicativo de uma Azure Function](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
+    
+## <a name="considerations"></a>Considerações
+
+-  O Azure Functions em execução no plano de Consumo atingiu o tempo limite de 5 minutos.
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
 1. Vá para o [portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
-2. Crie um aplicativo de função conforme descrito [aqui](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
+2. Crie um aplicativo de função conforme descrito [aqui](../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]
 > Uma conta de armazenamento especificada na variável de ambiente **StorageConnection** (consulte a próxima etapa) deve estar na mesma região do aplicativo.

@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2b5e2c2d5cc572ba951a61fd1eb78613c43ec453
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -127,7 +127,7 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 
     ![Local de instalação](./media/site-recovery-hyper-v-site-to-azure-classic/provider2.png)
 7. Após a instalação continue para registrar o servidor no cofre.
-8. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave. Especifique a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
+8. Na página **Configurações do Cofre**, clique em **Procurar**  para selecionar o arquivo da chave. Especifique a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
 
     ![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)
 9. Na página **Conexão com a Internet** , especifique como o Provedor se conecta ao Azure Site Recovery. Selecione **Usar configurações de proxy padrão do sistema** para usar as configurações de conexão com a Internet definidas no servidor. Se você não especificar um valor, as configurações padrão serão usadas.
@@ -193,7 +193,7 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 >
 >
 
-1. Na guia **Computadores** do grupo de proteção, clique**em Adicionar máquinas virtuais aos grupos de proteção para habilitar a proteção**.
+1. Na guia **Computadores** do grupo de proteção, clique em **Adicionar máquinas virtuais aos grupos de proteção para habilitar a proteção**.
 2. Na página **Habilitar Proteção da Máquina Virtual** selecione as máquinas virtuais que você deseja proteger.
 
     ![Habilitar Proteção da Máquina Virtual](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -208,9 +208,9 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
      * **Tamanho**: o tamanho de destino da máquina virtual que executa o failover.
 
        ![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-   * Defina as configurações adicionais de máquina virtual em *Itens Protegidos** > **Grupos de Proteção** > *protectiongroup_name* > **Máquinas Virtuais***virtual_machine_name* > **Configurar**, incluindo:
+   * Defina as configurações adicionais de máquina virtual em *Itens Protegidos** > **Grupos de Proteção** > *nome_dogrupodeproteção* > **Máquinas Virtuais** *nome_da_máquina_virtual* > **Configurar**, incluindo:
 
-     * **Adaptadores de rede**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique o número de nics com suporte pelo tamanho da máquina virtual nas [especificações de tamanho de máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md) .
+     * **Adaptadores de rede**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique o número de nics com suporte pelo tamanho da máquina virtual nas [especificações de tamanho de máquina virtual](../virtual-machines/linux/sizes.md) .
 
        Quando você altera a dimensão de uma máquina virtual e salva as configurações, o número do adaptador de rede é alterado na próxima vez em que você abrir a página **Configurar** . O número de adaptadores de rede de máquinas virtuais de destino é o mínimo do número de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada. É explicado abaixo:
 

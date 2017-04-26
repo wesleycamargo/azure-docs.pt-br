@@ -1,21 +1,22 @@
 ---
-title: Application Insights para aplicativos do Microsoft Azure
+title: Application Insights para aplicativos do Microsoft Azure | Microsoft Docs
 description: Analise o uso e o desempenho de seu aplicativo do Azure com o Application Insights.
 services: application-insights
 documentationcenter: windows
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 4bb5dac9-fb01-416e-813c-6e5ae7d6a847
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 03/31/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 727c0a5283f305c805b0f80dc62778cb05932ae2
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 04c83dcd4df442d3e8bb41a15bb033de91bc4fcc
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -30,16 +31,11 @@ Que tipo de aplicativo você tem?
 
 * [Aplicativo Web do Azure](app-insights-asp-net.md)
 * [Aplicativo dos Serviços de Nuvem do Azure - funções da Web e de trabalho](app-insights-cloudservices.md)
-* [Aplicativo Web no IIS na VM do Azure](app-insights-asp-net.md)
 * [Aplicativo fora do Azure](app-insights-overview.md)
 
 Telemetria adicional
 
+* [Criador de perfil para aplicativos Web do Azure ao vivo](app-insights-profiler.md)
 * [Mostrar logs de diagnóstico do Azure no Application Insights](app-insights-azure-diagnostics.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -16,9 +16,9 @@ ms.date: 02/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: 404c4c4012eb5b6f8e7acdd7f985009b9f13b9f3
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: bb8d390a6ab045dc418bf80ec4fc218e0a35282b
+ms.lasthandoff: 04/11/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o Controle de Acesso Baseado em Função do Azure
@@ -48,6 +48,8 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador de zona DNS](#dns-zone-contributor) |Pode gerenciar zonas e registros DNS |
 | [Colaborador de Conta do Banco de Dados de Documentos](#documentdb-account-contributor) |Pode gerenciar contas do Banco de Dados de Documentos |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) |Pode gerenciar contas do Intelligent Systems |
+| [Leitor de monitoramento](#monitoring-reader) |Pode ler todos os dados de monitoramento |
+| [Colaborador de monitoramento](#monitoring-contributor) |Pode ler dados de monitoramento e editar configurações de monitoramento |
 | [Colaborador de rede](#network-contributor) |Pode gerenciar todos os recursos de rede |
 | [Colaborador de Conta APM do New Relic](#new-relic-apm-account-contributor) |Pode gerenciar contas e aplicativos de Gerenciamento de Desempenho do Aplicativo New Relic |
 | [Proprietário](#owner) |Pode gerenciar tudo, incluindo o acesso |
@@ -336,6 +338,36 @@ Pode gerenciar contas do Intelligent Systems
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
+
+### <a name="monitoring-reader"></a>Leitor de monitoramento
+Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Ações** |  |
+| --- | --- |
+| */leitura |Ler recursos de todos os tipos, exceto segredos. |
+| Microsoft.OperationalInsights/workspaces/search/action |Pesquisar dados do Log Analytics |
+| Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
+
+### <a name="monitoring-contributor"></a>Colaborador de monitoramento
+Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Ações** |  |
+| --- | --- |
+| */leitura |Ler recursos de todos os tipos, exceto segredos. |
+| Microsoft.Insights/AlertRules/* |Leitura/gravação/exclusão de regras de alerta. |
+| Microsoft.Insights/components/* |Leia/grave/exclua componentes do Application Insights. |
+| Microsoft.Insights/DiagnosticSettings/* |Leitura/gravação/exclusão de configurações de diagnóstico. |
+| Microsoft.Insights/eventtypes/* |Listar eventos do Log de atividades (eventos de gerenciamento) em um assinatura. Essa permissão é aplicável ao acesso programático e ao portal para o Log de atividades. |
+| Microsoft.Insights/LogDefinitions/* |Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. Liste as categorias de log no Log de Atividades. |
+| Microsoft.Insights/MetricDefinitions/* |Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso). |
+| Microsoft.Insights/Metrics/* |Ler as métricas para um recurso. |
+| Microsoft.Insights/Register/Action |Registre o provedor do Microsoft.Insights. |
+| Microsoft.Insights/webtests/* |Leia/grave/exclua testes da Web do Application Insights. |
+| Microsoft.OperationalInsights/workspaces/intelligencepacks/* |Leia/grave/exclua pacotes de solução do Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/savedSearches/* |Leia/grave/exclua pesquisas salvas do Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/search/action |Pesquise espaços de trabalho do Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/sharedKeys/action |Listar chaves para um espaço de trabalho do Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* |Leia/grave/exclua configurações de insights de armazenamento do Log Analytics. |
 
 ### <a name="network-contributor"></a>Colaborador de rede
 Pode gerenciar todos os recursos de rede

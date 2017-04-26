@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
-ms.openlocfilehash: 504a5723f025d7383dbec78cdd268b7c1b94a1e5
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8d913c024fce9945cfd5eaf336deed259dfbef50
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Tutorial: Integração do Active Directory do Azure com o Rally Software
 O objetivo deste tutorial é mostrar a integração do Azure com o Rally Software.  
+
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
@@ -29,16 +31,17 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos com o Rally Software
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-rally-software-tutorial/IC769525.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-rally-software"></a>Habilitando a integração de aplicativos com o Rally Software
+## <a name="enable-the-application-integration-for-rally-software"></a>Habilitar a integração de aplicativos com o Rally Software
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o Rally Software.
 
-### <a name="to-enable-the-application-integration-for-rally-software-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com o Rally Software, execute as seguintes etapas:
+**Para habilitar a integração de aplicativos com o Rally Software, execute as seguintes etapas:**
+
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-rally-software-tutorial/IC700993.png "Active Directory")
@@ -65,12 +68,14 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
     ![Rally Software](./media/active-directory-saas-rally-software-tutorial/IC769527.png "Rally Software")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários autentiquem no Rally Software com a própria conta no AD do Azure usando federação baseada no protocolo SAML.  
+O objetivo desta seção é descrever como permitir que os usuários autentiquem no Rally Software com a própria conta no AD do Azure usando federação baseada no protocolo SAML.
+
 Como parte desse procedimento, é necessário carregar um certificado para o Rally Software.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
+**Para configurar o logon único, execute as seguintes etapas:**
+
 1. No Portal Clássico do Azure, na página de integração de aplicativos do **Rally Software**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar logon único](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Configurar logon único")
@@ -99,21 +104,20 @@ Como parte desse procedimento, é necessário carregar um certificado para o Ral
    
     ![Autenticação](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Autenticação")
    
-    1. Selecione **Autenticação do Rally ou SSO** na lista suspensa Autenticação
- 
-    2. No portal clássico do Azure, na página de diálogo **Configurar logon único no Rally Software**, copie o valor da **ID do Provedor de Identidade** e cole-o na caixa de texto **URL do Provedor de Identidade**.
-
-    3. No portal clássico do Azure, na página de diálogo **Configurar logon único no Rally Software**, copie o valor da **URL de Logoff Remoto**.
+  1. Selecione **Autenticação do Rally ou SSO** na lista suspensa Autenticação.
+  2. No Portal Clássico do Azure, na página de diálogo **Configurar logon único no Rally Software**, copie o valor da **ID do Provedor de Identidade** e cole-o na caixa de texto **URL do Provedor de Identidade**.
+  3. No portal clássico do Azure, na página de diálogo **Configurar logon único no Rally Software**, copie o valor da **URL de Logoff Remoto**.
 
 9. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
     ![Configurar logon único](./media/active-directory-saas-rally-software-tutorial/IC769547.png "Configurar logon único")
    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Para usuários do AAD conseguirem efetuar logon, eles devem ser provisionados para o aplicativo Rally Software usando seus nomes de usuário do Active Directory do Azure.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
+**Para configurar o provisionamento de usuários, execute as seguintes etapas:**
+
 1. Faça logon no seu locatário do Rally Software.
 
 2. Vá para **Instalação \> USUÁRIOS** e clique em **+ Adicionar Novo**.
@@ -126,21 +130,20 @@ Para usuários do AAD conseguirem efetuar logon, eles devem ser provisionados pa
    
     ![Criar usuário](./media/active-directory-saas-rally-software-tutorial/IC781040.png "Criar usuário")
    
-    1. Na caixa de texto **Nome do Usuário** , digite o nome do usuário do AD do Azure que você deseja provisionar.
+   1. Na caixa de texto **Nome do Usuário** , digite o nome do usuário do AD do Azure que você deseja provisionar.
+   2. Na caixa de texto **Endereço de Email** , digite o endereço de email do usuário do Azure AD que você deseja provisionar.
+   3. Clique em **Salvar e Fechar**.
 
-    2. Na caixa de texto **Endereço de Email** , digite o endereço de email do usuário do Azure AD que você deseja provisionar.
-
-    3. Clique em **Salvar e Fechar**.
-
-> [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do Rally Software ou as APIs fornecidas pelo Rally Software para provisionar as contas de usuário do AAD.
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do Rally Software ou as APIs fornecidas pelo Rally Software para provisionar as contas de usuário do AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-rally-software-perform-the-following-steps"></a>Para atribuir usuários ao Rally Software, execute as seguintes etapas:
+**Para atribuir usuários ao Rally Software, execute as seguintes etapas:**
+
 1. No Portal clássico do Azure, crie uma conta de teste.
 
 2. Na página de integração de aplicativos do **Rally Software**, clique em **Atribuir usuários**.
@@ -151,11 +154,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    
     ![Sim](./media/active-directory-saas-rally-software-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 

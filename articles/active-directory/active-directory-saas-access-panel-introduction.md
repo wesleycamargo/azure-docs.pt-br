@@ -15,9 +15,9 @@ ms.date: 02/27/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d6330397b6e74b62836a2e864b1c37ab172d0028
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c5a0f3f958d42d514a95477c1e39f02c78307d4d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -60,7 +60,7 @@ Após a autenticação, os usuários poderão interagir com os aplicativos integ
 ## <a name="web-browser-requirements"></a>Requisitos de navegador da Web
 O Painel de Acesso exige, pelo menos, um navegador com suporte para JavaScript e CSS habilitado. Para que o usuário possa acessar os aplicativos usando SSO (logon único) baseado em senha, a extensão do Painel de Acesso deve estar instalada no navegador do usuário. Essa extensão é baixada automaticamente quando um usuário seleciona um aplicativo configurado para SSO baseado em senha.
 
-No momento, a extensão do Painel de Acesso está disponível para os navegadores Internet Explorer 8 e superior, Chrome e Firefox.
+No momento, a extensão do Painel de Acesso está disponível para os navegadores Internet Explorer 8 e superior, Edge, Chrome e Firefox.
 
 ## <a name="mobile-app-support"></a>Suporte a aplicativos móveis
 A equipe do Azure Active Directory publica o aplicativo móvel Meus Aplicativos. Quando os usuários instalam esse aplicativo, eles podem entrar em aplicativos de SSO baseado em senha em dispositivos iOS e Android.

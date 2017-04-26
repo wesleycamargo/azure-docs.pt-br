@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c46a85aaf5237a2a7643cc9069255bdad9ab1d69
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
@@ -284,7 +284,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 <set-body>Hello world!</set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-string"></a>Exemplo acessando o corpo como uma cadeia de caracteres  
+#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Exemplo de acesso ao corpo como uma cadeia de caracteres. Observe que estamos preservando o corpo da solicitação original, de forma que possamos acessá-lo mais tarde no pipeline.
   
 ```xml  
 <set-body>  
@@ -298,7 +298,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 </set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-jobject"></a>Exemplo acessando o corpo como um JObject  
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemplo de acesso ao corpo como um JObject. Observe que, como não estamos reservando o corpo da solicitação original, acessá-lo mais tarde no pipeline resultará em uma exceção.  
   
 ```xml  
 <set-body>   
@@ -380,18 +380,40 @@ A política `set-body` pode ser configurada para usar a linguagem de modelagem [
 
 Para acessar informações sobre a solicitação e a resposta, o modelo Líquido pode ser associado a um objeto de contexto com as seguintes propriedades: <br />
 <pre>context.
-Request.
-Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+    Request.
+        Url
+        Method
+        OriginalMethod
+        OriginalUrl
+        IpAddress
+        MatchedParameters
+        HasBody
+        ClientCertificates
+        Headers
 
     Response.
         StatusCode
         Method
         Headers
 Url.
-Scheme Host Port Path Query QueryString ToUri ToString
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 
 OriginalUrl.
-Scheme Host Port Path Query QueryString ToUri ToString
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 </pre>
 
 

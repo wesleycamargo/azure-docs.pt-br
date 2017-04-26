@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 04/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: b5153d2339f688b22796789d74cb9117985a43d2
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 52c3e88689441045c3bd34ea3ab17a8a1d270f23
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -51,7 +51,7 @@ Aqui estão os principais recursos do licenciamento baseado em grupo:
 
 - Em alguns casos, as licenças não podem ser atribuídas a um usuário. Por exemplo, talvez não haja licenças suficientes disponíveis no locatário ou serviços conflitantes foram atribuídos ao mesmo tempo. Os administradores têm acesso às informações sobre os usuários que não puderam receber licenças de grupo do Azure AD. Eles podem agir corretivamente com base nessas informações.
 
-- Durante a visualização pública, uma assinatura paga ou de avaliação para o Azure AD Basic ou Premium é necessária no locatário para usar o gerenciamento de licenças baseado em grupo. Além disso, cada usuário que herdar licenças de grupos deverá ter a licença da edição paga do Azure AD atribuída a ele.
+- Durante a visualização pública, uma assinatura paga ou de avaliação para as edições Azure AD Basic ou Premium é necessária no locatário para usar o gerenciamento de licenças baseado em grupo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
