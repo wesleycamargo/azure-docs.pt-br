@@ -106,7 +106,7 @@ Ao criar um pool, você pode especificar os seguintes atributos. Algumas configu
     > No modo de alocação do pool de serviços do Lote, você tem duas opções ao selecionar um sistema operacional para os nós no pool: **Configuração de Máquina Virtual** e **Configuração dos Serviços de Nuvem**. No modo de assinatura do usuário, você só pode usar a configuração de máquina virtual.
     >
 
-    A **configuração de máquina virtual** fornece imagens Linux e Windows para nós de computação do [Marketplace de máquinas virtuais do Azure] [ vm_marketplace] e, no modo de alocação de assinatura do usuário, a opção de usar imagens VM personalizadas.
+    A **configuração de máquina virtual** fornece imagens Linux e Windows para nós de computação do [Marketplace de máquinas virtuais do Azure][vm_marketplace] e, no modo de alocação de assinatura do usuário, a opção de usar imagens VM personalizadas.
 
     Ao criar um pool que contém nós de Configuração da Máquina Virtual, você deve especificar não apenas o tamanho dos nós, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md).
 
