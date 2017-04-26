@@ -12,12 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 04/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 05fc8ff05f8e2f20215f6683a125c1a506b4ccdc
-ms.openlocfilehash: 23ed2e066cc6751ebabb57c8077f95b0cb074850
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: c74c8fb892103a00b0bdfcfeaa2ecd6c3188251e
+ms.lasthandoff: 04/17/2017
 
 ---
 
@@ -38,7 +38,7 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 * CSV (consulte a versão prévia do recurso [Indexando blobs CSV](search-howto-index-csv-blobs.md))
 
 > [!IMPORTANT]
-> No momento, o suporte para os arquivos CSV e JSON está na versão prévia. Esses formatos são disponíveis somente com a versão **2015-02-28-Preview** da API REST ou a versão 2.x-preview do SDK do .NET. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
+> No momento, o suporte para matrizes em CSV e JSON está na versão prévia. Esses formatos são disponíveis somente com a versão **2015-02-28-Preview** da API REST ou a versão 2.x-preview do SDK do .NET. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
 >
 >
 
@@ -139,11 +139,15 @@ Para obter mais detalhes sobre Criar a API do Indexador, consulte [Criar Indexad
 Dependendo da [configuração do indexador](#PartsOfBlobToIndex), o indexador de blobs pode indexar somente metadados de armazenamento (algo útil quando você está preocupado apenas com os metadados e não precisa indexar o conteúdo dos blobs), metadados de armazenamento e conteúdo ou conteúdo textual e de metadados. Por padrão, o indexador extrai os metadados e o conteúdo.
 
 > [!NOTE]
-> Por padrão, os blobs com conteúdo estruturado, como JSON, CSV ou XML, são indexados como uma única parte de texto. Se você desejar indexar blobs JSON e CSV de uma maneira estruturada, consulte as versões prévias dos recursos [Indexando blobs JSON](search-howto-index-json-blobs.md) e [Indexando blobs CSV](search-howto-index-csv-blobs.md). No momento, não há suporte para a análise de conteúdo XML; caso precise desse recurso, adicione uma sugestão em nosso [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
->
+> Por padrão, os blobs com conteúdo estruturado, como JSON, CSV e indexados como uma única parte de texto. Se você desejar indexar blobs JSON e CSV de uma maneira estruturada, consulte as versões prévias dos recursos [Indexando blobs JSON](search-howto-index-json-blobs.md) e [Indexando blobs CSV](search-howto-index-csv-blobs.md).
+> 
 > Um documento composto ou incorporado (como um arquivo ZIP ou um documento do Word com email do Outlook incorporado contendo anexos) também é indexado como um único documento.
 
-* Todo o conteúdo textual do documento é extraído para um campo de cadeia de caracteres chamado `content`.
+* O conteúdo textual do documento é extraído para um campo de cadeia de caracteres chamado `content`.
+
+> [!NOTE]
+> O Azure Search limita quanto texto é extraído dependendo do tipo de preço: 32.000 caracteres na Camada gratuita, 64.000 na Básica e 4 milhões nas camadas Standard, Standard S2 e Standard S3. Um aviso é incluído na resposta de status do indexador para documentos truncados.  
+
 * As propriedades de metadados especificadas pelo usuário e presentes no blob, se houver alguma, são extraídas literalmente.
 * As propriedades de metadados de blob padrão são extraídas para os seguintes campos:
 
@@ -300,7 +304,7 @@ Para dar suporte à exclusão de documentos, use uma abordagem de "exclusão rev
 
 Por exemplo, a política a seguir considerará que um blob foi excluído se tiver uma propriedade de metadados `IsDeleted` com o valor `true`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 

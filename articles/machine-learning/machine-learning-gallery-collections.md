@@ -15,91 +15,89 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 55f5eb09e13dd645369486affba338759ec6c1d5
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 03f423fff9f4105bdb3a53b245514bde506b9743
+ms.lasthandoff: 04/15/2017
 
 
 ---
-# <a name="discover-and-share-collections-in-the-cortana-intelligence-gallery"></a>Descobrir e compartilhar coleções na Galeria do Cortana Intelligence
+# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Descubra e compartilhe coleções na Galeria do Cortana Intelligence
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Coleções
-Uma **[Coleção](https://gallery.cortanaintelligence.com/collections)** permite agrupar testes, APIs e outros itens da Galeria que abordam uma solução ou um conceito específico. Elas podem ser agrupadas para referência, uso ou compartilhamento futuro.
+Você pode usar uma [coleção](https://gallery.cortanaintelligence.com/collections) para agrupar experimentos, APIs e outros itens da Galeria usados para uma solução ou um conceito específico. Você pode agrupá-los para usar, salvar para referência futura ou compartilhá-los.
 
 ## <a name="discover"></a>Descobrir
-Para navegar pelas coleções na Galeria, abra a [Galeria](http://gallery.cortanaintelligence.com), aponte o mouse para **Mais** na parte superior da home page da Galeria e escolha **Coleções**.
+Para procurar coleções [na Galeria](http://gallery.cortanaintelligence.com), em **Mais**, selecione **Coleções**.
 
-![Escolher coleções na home page da Galeria](media/machine-learning-gallery-collections/select-collections-in-gallery.png)
+![Selecione Coleções na home page da Galeria](media/machine-learning-gallery-collections/select-collections-in-gallery.png)
 
- A página **[Coleções](https://gallery.cortanaintelligence.com/collections)**
- exibe uma lista das coleções mais populares e recentemente adicionados.
-Clique em **Ver todos** para exibir todos as coleções.
-Nessa página, você pode procurar todas as coleções na Galeria. Você também pode pesquisar selecionando critérios de filtragem à esquerda da página e inserindo termos de pesquisa na parte superior.
+A página **[Coleções](https://gallery.cortanaintelligence.com/collections)** exibe uma lista das coleções mais populares e adicionadas recentemente. Para exibir todas as coleções, selecione **Ver todos**. Para procurar uma coleção específica, selecione **Ver todos** e selecione os critérios de filtro. Também é possível inserir os termos de pesquisa na caixa **Pesquisar** na parte superior da página da Galeria.
 
- Clique em qualquer coleção para abrir a página de detalhes da coleção e ler mais informações sobre ela.
-Nessa página, você pode dar sua opinião, fazer comentários ou fazer perguntas na seção de opiniões. É possível até mesmo compartilhá-la com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou Twitter. Você também pode enviar um link por email para o experimento a fim de convidar outros usuários para exibir a página.
+Você pode obter mais informações sobre uma coleção na página de detalhes da coleção. Selecione a coleção para abrir sua página de detalhes. Na página de detalhes de uma coleção, na seção **Comentários**, é possível comentar ou fazer perguntas sobre a coleção. Você pode até mesmo compartilhar a coleção com amigos ou colegas no Twitter ou LinkedIn. Você também pode enviar um link por email para a página de detalhes da coleção a fim de convidar outros usuários para ver a página.
 
 ![Compartilhar este item com amigos](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Adicionar seus próprios comentários](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Contribuir
-Você pode criar uma coleção que contém itens que você possui ou itens enviados pela comunidade. Podem ser quaisquer itens da Galeria usados por solução ou conceito específico
+Você pode criar uma coleção que contém itens que você possui ou itens enviados pela comunidade. Um item de uma coleção pode ser quaisquer itens da Galeria usados por uma solução ou conceito específico.
 
-Por exemplo, você pode usar uma coleção para agrupar itens em um tópico específico ou pode agrupar um teste com várias etapas que soluciona um problema complexo.
-As coleções iniciais contribuídas pela Microsoft consistem em modelos de teste de aprendizado de máquina em várias etapas para solucionar problemas do mundo real, como detecção de fraudes online, classificação de texto, previsão de varejo e manutenção preditiva.
+Por exemplo, você pode usar uma coleção para agrupar itens sobre um tópico específico ou agrupar um experimento com várias etapas que soluciona um problema complexo. As coleções iniciais contribuídas pela Microsoft consistem em modelos de experimentos de aprendizado de máquina de várias etapa. Você pode usar os modelos para ajudar a resolver problemas do mundo real, como detecção de fraudes online, classificação de texto, previsão de varejo ou manutenção preditiva.
 
 ### <a name="create-a-collection"></a>Criar uma coleção
-Siga estas etapas para criar e contribuir com uma coleção na Cortana Intelligence Gallery:
 
 1. Entre na Galeria usando sua conta da Microsoft.
 
-2.  Clique na sua imagem na parte superior da janela e clique no seu nome
+2.  Selecione na sua imagem na parte superior da página e escolha seu nome.
   
-    ![Clique no nome da conta](media/machine-learning-gallery-collections/click-account-name.png)
+    ![Selecione o nome da conta](media/machine-learning-gallery-collections/click-account-name.png)
 
-3. Clique em **Novo Item**
+3. Selecione **Novo Item**.
    
-    ![Clique em "Novo Item"](media/machine-learning-gallery-collections/click-new-item.png)
-4. Escolha **Coleção** para **Tipo de Item**. Em seguida, dê um nome, um breve resumo, uma descrição e marcas à coleção que possam ajudar os usuários a encontrá-la
+    ![Selecione “Novo Item”](media/machine-learning-gallery-collections/click-new-item.png)
+4. Na página **Descrição**, para o **TIPO DE ITEM**, selecione **Coleção**. Insira um nome para sua coleção, um breve resumo, uma descrição detalhada e marcas que podem ajudar outros usuários a localizar sua coleção.
    
-    ![Inserir informações para nova coleção](media/machine-learning-gallery-collections/create-collection-page-1.png)
-5. Clique em **Avançar** - você pode carregar um arquivo de imagem ou escolher uma imagem de estoque, que será exibido com a coleção; escolha algo que ajudará os usuários a identificar o conteúdo e a finalidade da coleção
+    ![Inserir informações para uma nova coleção](media/machine-learning-gallery-collections/create-collection-page-1.png)
+5. Na página **Seleção de imagem**, selecione uma imagem que é exibida com a coleção. Você pode carregar seu próprio arquivo de imagem ou selecionar uma imagem do estoque. Escolha uma imagem que pode ajudar os usuários a identificar o conteúdo e a finalidade da sua coleção.
    
-    ![Inserir informações para nova coleção](media/machine-learning-gallery-collections/create-collection-page-2.png)
-6. Clique em **Avançar** — você pode decidir se a coleção será **Público** (ele poderá ser exibido por qualquer pessoa) ou **Não listado** (somente pessoas com um link direto poderão exibir a coleção)
+    ![Inserir informações para uma nova coleção](media/machine-learning-gallery-collections/create-collection-page-2.png)
+6. Na página **Configurações**, em **Visibilidade**, selecione se a coleção é **Pública** (qualquer pessoa pode ver a coleção) ou **Não listado** (somente as pessoas com um link direto para o tutorial podem vê-la).
    
    > [!IMPORTANT]
-   > Depois de definir uma coleção como **Público**, você não poderá defini-lo como **Não listado**.
+   > Depois de definir uma coleção como **Público** e selecionar **Criar**, não será possível alterar a coleção para **Não listado**.
    > 
    > 
    
-    ![Escolher Público ou Não listado](media/machine-learning-gallery-collections/create-collection-page-3.png)
-7. Clique em **Criar**
+    ![Escolha “Público” ou “Não listado”](media/machine-learning-gallery-collections/create-collection-page-3.png)
+7. Selecione **Criar**.
 
-Sua coleção agora faz parte da Cortana Intelligence Gallery. Ele será listado na página da sua conta na guia **Coleção**.
+Sua coleção agora faz parte da Galeria do Cortana Intelligence. Ela será listada na página da sua conta, na guia **Coleção**.
 
 ### <a name="add-items-to-a-collection"></a>Adicionar itens a uma coleção
-Você pode adicionar itens à sua coleção abrindo-a, clicando em **Editar** e em **Adicionar Item**.
+Para adicionar itens à sua coleção, abra a coleção, selecione **Editar**e selecione **Adicionar Item**.
 
 ![Adicionar itens a uma Coleção da página de detalhes](media/machine-learning-gallery-collections/add-to-collection-from-details-page.png)
 
-Você receberá uma lista de itens que você enviou à Galeria, ou você pode pesquisar a Galeria em busca de itens para adicionar. Clique em um item para selecioná-lo. Cada item selecionado está incluído no conjunto de itens a serem adicionados - o botão **Adicionar** indica quantos itens foram selecionados.
+Uma lista de itens que você contribuiu para a Galeria é mostrada na página da sua conta. Também é possível pesquisar a Galeria de itens para adicionar. Selecione os itens que você deseja adicionar. Cada item selecionado será incluído no conjunto de itens a serem adicionados. O botão **Adicionar** indica quantos itens você selecionou.
 
 ![Adicionar à coleção](media/machine-learning-gallery-collections/add-to-collection.png)
 
-Ou, se ao navegar pela Galeria você encontrar um item que deseja incluir, basta abrir o item, clicar em **Adicionar à coleção**e especificar a coleção a que deseja adicioná-lo.
+Se encontrar um item que você deseja adicionar ao procurar a Galeria, selecione **Adicionar à coleção** para abrir o item. Selecione a coleção à qual você deseja adicionar o item.
 
 ![Adicionar itens a uma Coleção da página de detalhes](media/machine-learning-gallery-collections/add-to-collection-from-item-details.png)
 
-Você pode alterar o resumo, a descrição ou as marcas de sua coleção abrindo-a e clicando em **Editar**.
-Enquanto você estiver editando a coleção, também poderá alterar a ordem dos itens nela usando os botões de seta ao lado de um item para movê-lo na lista. E você pode adicionar anotações para os itens em sua coleção clicando no canto superior direito de um item e selecionando **Adicionar/Editar observação**. Para remover um item de sua coleção, selecione **Remover**.
+Para alterar o resumo, a descrição ou as marcas da sua coleção, abra-a e selecione **Editar**. 
 
-![Alterar detalhes de uma Coleção](media/machine-learning-gallery-collections/change-collection-details.png)
+Enquanto você estiver editando sua coleção, será possível alterar a ordem dos itens que ela contém. Use os botões de seta ao lado de um item para movê-lo para cima ou para baixo na lista de ordem. 
 
-**[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
+Para adicionar anotações aos itens em sua coleção, selecione o canto superior direito de um item e escolha **Adicionar/Editar anotação**. 
+
+Para remover um item de sua coleção, selecione **Remover**.
+
+![Alterar detalhes de uma coleção](media/machine-learning-gallery-collections/change-collection-details.png)
+
+**[Vá para a Galeria](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 

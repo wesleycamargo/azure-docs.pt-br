@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 22b45634ee66ec29c089ecd0a4d9bacc60f68b94
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 79a8b7352c12676bd26555b4447e030ecb4ad011
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -90,6 +90,9 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
     | **Metastores externas**                      | Opcionalmente, você pode especificar um Banco de Dados SQL para salvar metadados de Hive e Oozie associados ao cluster. Para **Selecionar um Banco de Dados SQL para Hive**, selecione um Banco de Dados SQL e então forneça o nome de usuário e a senha para ele. Repita essas etapas para metadados do Oozie.<br><br>Há algumas considerações ao usar o Banco de Dados SQL do Azure para metastores. <ul><li>O banco de dados SQL do Azure usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No painel do banco de dados SQL do Azure, no lado direito, clique no nome do servidor. Esse é o servidor no qual a instância do banco de dados SQL está sendo executada. Quando você estiver na exibição do servidor, clique em **Configurar** e depois em **Serviços do Azure**; clique em **Sim** e depois em **Salvar**.</li><li>Ao criar um metastore, não use um nome de banco de dados que contém a traços ou hifens, pois isso pode causar falha no processo de criação de cluster.</li></ul>                                                                                                                                                                       |
 
     Clique em **Próximo**. 
+
+    > [!WARNING]
+    > Não há suporte para o uso de uma conta de armazenamento adicional em um local diferente do cluster HDInsight.
 
 5. Opcionalmente, clique em **Aplicativos** para instalar aplicativos que funcionam com clusters HDInsight. Esses aplicativos podem ser desenvolvidos pela Microsoft, por ISVs (fornecedores independentes de software) ou por conta própria. Para saber mais, veja [HDInsight instalar aplicativos](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 3a240ff317e1b3ea450703965629c08053668856
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 3f050e2722091aa8b58591cc0c894a6ecb82c3fa
+ms.lasthandoff: 04/14/2017
 
 ---
 
@@ -425,13 +425,13 @@ As ações HTTP chamam um ponto de extremidade especificado e verifica a respost
   
 |Nome do elemento|Obrigatório|Tipo|Descrição|  
 |----------------|------------|--------|---------------|  
-|estático|Sim|string|Pode ser um dos seguintes métodos HTTP: **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**|  
+|estático|Sim|Cadeia de caracteres|Pode ser um dos seguintes métodos HTTP: **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**|  
 |uri|Sim|string|O ponto de extremidade http ou https chamado. O comprimento máximo é 2 quilobytes.|  
 |consultas|Não|Objeto|Representa os parâmetros de consulta a ser adicionados à URL. Por exemplo, `"queries" : { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL.|  
 |headers|Não|Objeto|Representa cada um dos cabeçalhos enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
 |body|Não|Objeto|Representa o conteúdo enviado para o ponto de extremidade.|  
 |retryPolicy|Não|Objeto|Permite personalizar o comportamento de repetição para os erros 4xx ou 5xx.|  
-|operationsOptions|Não|Cadeia de caracteres|Define o conjunto de comportamentos especiais a substituir.|  
+|operationsOptions|Não|string|Define o conjunto de comportamentos especiais a substituir.|  
 |autenticação|Não|Objeto|Representa o método com o qual a solicitação deve ser autenticada. Para obter detalhes sobre esse objeto, consulte [Autenticação de Saída do Agendador](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Além do agendador, há mais uma propriedade com suporte: `authority`. Por padrão, isto é `https://login.windows.net` quando não especificado, mas você pode usar um público diferente como`https://login.windows\-ppe.net`|  
   
 As ações HTTP \(e as ações de Conexão da API\) têm suporte para as políticas de repetição. Uma política de repetição se aplica às falhas intermitentes, caracterizadas como os códigos de status HTTP 408, 429 e 5xx, além de quaisquer exceções de conectividade. Essa política é descrita usando o objeto *retryPolicy* definido como mostrado aqui:
@@ -453,7 +453,7 @@ Por exemplo, a seguinte ação tentará buscar as notícias mais recentes duas v
     "type": "http",
     "inputs": {
         "method": "GET",
-        "uri": "uri": "https://mynews.example.com/latest",
+        "uri": "https://mynews.example.com/latest",
         "retryPolicy" : {
             "type": "fixed",
             "interval": "PT30S",
@@ -658,6 +658,28 @@ A saída da ação `query` é uma matriz com elementos da matriz de entrada que 
 |Da|Sim|Matriz|A matriz de origem.|
 |onde|Sim|Cadeia de caracteres|A condição a ser aplicada em cada elemento da matriz de origem.|
 
+## <a name="select-action"></a>Ação selecionar
+
+A ação `select` permite projetar cada elemento de uma matriz em um novo valor.
+Por exemplo, para converter uma matriz de números em uma matriz de objetos, você pode usar:
+
+```json
+"SelectNumbers" : {
+    "type": "select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+A saída da ação `select` é uma matriz que tem a mesma cardinalidade que a matriz de entrada, com cada elemento transformado conforme definido pela propriedade `select`. Se a entrada for uma matriz vazia, a saída também será uma matriz vazia.
+
+|Nome|Obrigatório|Tipo|Descrição|
+|--------|------------|--------|---------------|
+|Da|Sim|Matriz|A matriz de origem.|
+|selecionar|Sim|Qualquer|A projeção a ser aplicada em cada elemento da matriz de origem.|
+
 ## <a name="terminate-action"></a>Ação para finalizar
 
 A ação Finalizar para a execução do fluxo de trabalho, anulando quaisquer ações em trânsito e ignorando as ações restantes. Por exemplo, para encerrar uma execução com um status **Falha**, você poderá usar o trecho a seguir:
@@ -703,6 +725,71 @@ A ação Compor permite construir um objeto arbitrário. A saída da ação para
 
 > [!NOTE]
 > A ação **Compor** pode ser usada para construir qualquer saída, inclusive objetos, matrizes e qualquer outro tipo com suporte nativo dos aplicativos lógicos, como XML e binários.
+
+## <a name="table-action"></a>Ação tabela
+
+A `table` permite converter uma matriz de itens em uma tabela **CVS** ou **HTML**.
+
+Suponha que @triggerBody() seja
+
+```json
+[{
+  "id": 0,
+  "name": "apples"
+},{
+  "id": 1, 
+  "name": "oranges"
+}]
+```
+
+E permita que a ação a seja definida como
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html"
+    }
+}
+```
+
+Isso produzirá
+
+<table><thead><tr><th>ID</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>"
+
+A fim de personalizar a tabela, você pode especificar explicitamente as colunas. Por exemplo:
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html",
+        "columns": [{
+          "header": "produce id",
+          "value": "@item().id"
+        },{
+          "header": "description",
+          "value": "@concat('fresh ', item().name)"
+        }]
+    }
+}
+```
+
+Isso produzirá
+
+<table><thead><tr><th>produce id</th><th>description</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>"
+
+Se o valor da propriedade `from` for uma matriz vazia, a saída será uma tabela vazia.
+
+|Nome|Obrigatório|Tipo|Descrição|
+|--------|------------|--------|---------------|
+|Da|Sim|Matriz|A matriz de origem.|
+|formato|Sim|Cadeia de caracteres|O formato, **CVS** ou **HTML**.|
+|colunas|Não|Matriz|As colunas. Permite substituir a forma padrão da tabela.|
+|cabeçalho de coluna|Não|Cadeia de caracteres|O cabeçalho da coluna.|
+|valor da coluna|Sim|Cadeia de caracteres|O valor da coluna.|
 
 ## <a name="workflow-action"></a>Ação do fluxo de trabalho   
 
@@ -897,3 +984,4 @@ Se uma condição for avaliada com êxito, a condição está marcada como `Succ
 ## <a name="next-steps"></a>Próximas etapas
 
 [API REST do Serviço de Fluxo de Trabalho](https://docs.microsoft.com/rest/api/logic/workflows)
+

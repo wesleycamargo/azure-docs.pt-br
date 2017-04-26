@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a740813b013e75a098836290ad8e9ebe76d33b37
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -37,7 +37,7 @@ As tabelas a seguir listam quais serviços Microsoft dão suporte à implantaç�
 | Registro de Contêiner |Sim |[REST de Registro de Contêiner](/rest/api/containerregistry) |[Recursos do Registro de Contêiner](/azure/templates/microsoft.containerregistry/registries) |
 | Serviço de Contêiner |Sim |[REST do Serviço de Contêiner](/rest/api/compute/containerservices) |[Recursos do Serviço de Contêiner](/azure/templates/microsoft.containerservice/containerservices) |
 | Serviços de ciclo de vida do Dynamics |Sim | | |
-| Conjuntos de Dimensionamento |Sim |[REST do Conjunto de Dimensionamento](/rest/api/compute/virtualmachinescalesets) |[Recursos do Conjunto de Dimensionamento](/azure/templates/microsoft.compute/virtualmachinescalesets) |
+| Conjuntos de Dimensionamento |Sim |[REST do Conjunto de Dimensionamento](/rest/api/virtualmachinescalesets/) |[Recursos do Conjunto de Dimensionamento](/azure/templates/microsoft.compute/virtualmachinescalesets) |
 | Service Fabric |Sim |[Service Fabric Rest](/rest/api/servicefabric) | [Recursos do Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Máquinas Virtuais |Sim |[VM REST](/rest/api/compute/virtualmachines) |[Recursos da VM](/azure/templates/microsoft.compute/virtualmachines) |
 | Máquinas virtuais (clássico) |Limitado |- |- |
@@ -132,7 +132,7 @@ O Active Directory do Azure funciona com o Gerenciador de Recursos para habilita
 | --- | --- | --- | --- |
 | Monitoramento |Sim |[REST do Monitor](/rest/api/monitor) |[Recursos do Insights](/azure/templates/microsoft.insights/alertrules) |
 | Bing Mapas |Sim | | |
-| Laboratórios de Desenvolvimento/Teste |Sim | [REST de Desenvolvimento/Teste](/rest/api/dtl) |[Recursos do DevTest Lab](/azure/templates/microsoft.devtestlab/labs) |
+| Laboratórios de Desenvolvimento/Teste |Sim | [REST do DevTest Labs](/rest/api/dtl) |[Recursos do DevTest Labs](/azure/templates/microsoft.devtestlab/labs) |
 | Conta do Visual Studio |Sim | |[Esquema do Visual Studio](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## <a name="management-and-security"></a>Gerenciamento e segurança
@@ -157,7 +157,7 @@ O Active Directory do Azure funciona com o Gerenciador de Recursos para habilita
 ## <a name="resource-providers-and-types"></a>Provedores e tipos de recursos
 Ao implantar recursos, com frequência você precisa recuperar informações sobre os provedores e tipos de recursos. Você pode recuperar essas informações por meio da API REST, do Azure PowerShell ou da CLI do Azure.
 
-Para trabalhar com um provedor de recursos, o provedor de recursos deve ser registrado com sua conta. Por padrão, vários provedores de recursos são automaticamente registrados; no entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Os exemplos abaixo mostram como obter o status do registro de um provedor de recursos e registrar o provedor de recursos, se necessário.
+Para trabalhar com um provedor de recursos, o provedor de recursos deve ser registrado com sua conta. Por padrão, vários provedores de recursos são automaticamente registrados; no entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Os exemplos nesta seção mostram como obter o status do registro de um provedor de recursos e registrar o provedor de recursos.
 
 ### <a name="portal"></a>Portal
 Veja uma lista dos provedores de recursos com suporte selecionando **Provedores de recursos** na folha da assinatura. Para registrar sua assinatura em um provedor de recursos, selecione o link **Registrar**.
@@ -255,7 +255,7 @@ Para descobrir quais versões de API está disponíveis para os tipos de recurso
 O exemplo a seguir mostra como obter as versões de API disponíveis para um tipo de recurso específico.
 
 ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 A saída deverá ser semelhante a:

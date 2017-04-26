@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 6ec77968a0f264b8bf1fa56a23e4cc7faef614da
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 53bd62688aa0d1a06d2d012c8da664d2de4b0b45
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/17/2017
 O Azure Managed Disks simplifica o gerenciamento de discos para VMs IaaS do Azure por meio do gerenciamento de [contas de armazenamento](storage-introduction.md) associadas aos discos de VM. Você só precisa especificar o tipo ([Premium](storage-premium-storage.md) ou [Standard](storage-standard-storage.md)) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você.
 
 >[!NOTE]
->As VMs com Managed Disks exigem tráfego de saída na porta 8443 para reportar o status das [extensões de VM](../virtual-machines/virtual-machines-windows-extensions-features.md) instaladas na plataforma Azure. O provisionamento de uma VM com extensões falhará sem a disponibilidade dessa porta. Além disso, o status da implantação de uma extensão será desconhecido se ela estiver instalada em uma VM em execução. Se não for possível desbloquear a porta 8443, você deverá usar discos não gerenciados. Estamos trabalhando ativamente para corrigir esse problema. Confira [Perguntas frequentes sobre discos de VM IaaS](storage-faq-for-disks.md#managed-disks-and-port-8443) para obter mais detalhes. 
+>As VMs com Managed Disks exigem tráfego de saída na porta 8443 para reportar o status das [extensões de VM](../virtual-machines/windows/extensions-features.md) instaladas na plataforma Azure. O provisionamento de uma VM com extensões falhará sem a disponibilidade dessa porta. Além disso, o status da implantação de uma extensão será desconhecido se ela estiver instalada em uma VM em execução. Se não for possível desbloquear a porta 8443, você deverá usar discos não gerenciados. Estamos trabalhando ativamente para corrigir esse problema. Confira [Perguntas frequentes sobre discos de VM IaaS](storage-faq-for-disks.md#managed-disks-and-port-8443) para obter mais detalhes. 
 >
 >
 
@@ -37,13 +37,13 @@ Vamos analisar alguns dos benefícios obtidos com os discos gerenciados.
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Implantação simples e escalonável de VM
 
-O Managed Disks lida com o armazenamento para você nos bastidores. Anteriormente, era necessário criar contas de armazenamento para armazenar os discos (arquivos VHD) para suas VMs do Azure. Ao escalar verticalmente, era necessário certificar-se de que você criou contas de armazenamento adicionais para não exceder o limite de IOPS do armazenamento com qualquer um de seus discos. Com o Managed Disks lidando com o armazenamento, não há mais os limites de conta de armazenamento (como 20.000 IOPS/conta). Também não é mais necessário copiar as imagens personalizadas (arquivos VHD) em várias contas de armazenamento. Você pode gerenciá-las em um local central, uma conta de armazenamento por região do Azure, e usá-las para criar centenas de VMs em uma assinatura.
+O Managed Disks lida com o armazenamento para você nos bastidores. Anteriormente, era necessário criar contas de armazenamento para armazenar os discos (arquivos VHD) para suas VMs do Azure. Ao aumentar, era necessário certificar-se de que você havia criado contas de armazenamento adicionais para não exceder o limite de IOPS do armazenamento com qualquer um de seus discos. Com o Managed Disks lidando com o armazenamento, não há mais os limites de conta de armazenamento (como 20.000 IOPS/conta). Também não é mais necessário copiar as imagens personalizadas (arquivos VHD) em várias contas de armazenamento. Você pode gerenciá-las em um local central, uma conta de armazenamento por região do Azure, e usá-las para criar centenas de VMs em uma assinatura.
 
 O Managed Disks permitirá que você crie até 10.000 **discos** de VM em uma assinatura, o que lhe permitirá criar milhares de **VMs** em uma única assinatura. Esse recurso também aumenta a escalabilidade dos [Conjuntos de dimensionamento de máquinas virtuais (VMSS)](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md), permitindo que você crie até mil VMs em um VMSS usando uma imagem do Marketplace.
 
 ### <a name="better-reliability-for-availability-sets"></a>Maior confiabilidade para Conjuntos de disponibilidade
 
-O Managed Disks fornece mais confiabilidade para Conjuntos de disponibilidade, assegurando que os discos de VMs em um Conjunto de disponibilidade sejam suficientemente isolados entre si para evitar pontos de falha. Ele faz isso colocando automaticamente os discos em unidades de escala (carimbos) de armazenamentos diferentes. Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e as VMs estejam em um Conjunto de disponibilidade. Os discos dessas VMs não serão armazenados no mesmo carimbo. Portanto, se um carimbo ficar inativo, as outras instâncias do aplicativo continuarão executando.
+O Managed Disks fornece mais confiabilidade para Conjuntos de disponibilidade, assegurando que os discos de VMs em um Conjunto de disponibilidade sejam suficientemente isolados entre si para evitar pontos de falha. Ele faz isso colocando automaticamente os discos em unidades de escala (carimbos) de armazenamentos diferentes. Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e que as VMs estejam em um Conjunto de Disponibilidade. Os discos dessas VMs não serão armazenados no mesmo stamp, portanto, se um stamp ficar inativo, as outras instâncias do aplicativo continuarão em execução.
 
 ### <a name="granular-access-control"></a>Controle de acesso granular
 
@@ -95,8 +95,8 @@ Estes são os tamanhos de disco disponíveis para um disco gerenciado padrão:
 
 Para saber mais sobre como criar instantâneos com o Managed Disks, consulte estes recursos:
 
-* [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-* [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+* [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 Para obter informações detalhadas sobre os preços para Managed Disks, confira [Preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
@@ -106,12 +106,12 @@ Para obter informações detalhadas sobre os preços para Managed Disks, confira
 O Managed Disks também oferece suporte à criação de uma imagem personalizada gerenciada. Crie uma imagem de seu VHD personalizado em uma conta de armazenamento ou diretamente de uma VM generalizada (por meio do Sysprep). Isso captura em uma única imagem todos os discos gerenciados associados a uma VM, incluindo o sistema operacional e os discos de dados. Isso permite a criação de centenas de VMs usando sua imagem personalizada, sem a necessidade de copiar ou gerenciar contas de armazenamento.
 
 Para saber mais sobre a criação de imagens, confira os artigos a seguir:
-* [Como capturar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
-* [Como generalizar e capturar uma máquina virtual Linux usando a CLI 2.0 do Azure](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [Como capturar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/windows/capture-image-resource.md)
+* [Como generalizar e capturar uma máquina virtual Linux usando a CLI 2.0 do Azure](../virtual-machines/linux/capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>Imagens versus instantâneos
 
-É comum ver a palavra "imagem" usada com VMs e, agora, você vê também a palavra "instantâneos". É importante compreender a diferença entre elas. Com o Managed Disks, você pode capturar uma imagem de uma VM generalizada que foi desalocada. Esta imagem incluirá todos os discos anexados à VM. Use essa imagem para criar uma nova VM e ela incluirá todos os discos.
+É comum ver a palavra "imagem" usada com VMs e, agora, você também vê a palavra "instantâneos". É importante compreender a diferença entre elas. Com o Managed Disks, você pode capturar uma imagem de uma VM generalizada que foi desalocada. Esta imagem incluirá todos os discos anexados à VM. Use essa imagem para criar uma nova VM e ela incluirá todos os discos.
 
 Um instantâneo é uma cópia de um disco no momento exato em que é tirado. Ele só se aplica a um disco. Se você tiver uma VM com apenas um disco (o SO), será possível tirar um instantâneo ou uma imagem dele e criar uma VM a partir do instantâneo ou da imagem.
 
@@ -141,11 +141,11 @@ Para saber mais sobre o Managed Disks, confira os artigos a seguir.
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Criar uma VM Linux usando a CLI 2.0 do Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Criar uma VM Linux usando a CLI 2.0 do Azure](../virtual-machines/linux/quick-create-cli.md)
 
-* [Anexar um disco de dados gerenciado a uma VM do Windows usando o PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+* [Anexar um disco de dados gerenciado a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
-* [Adicionar um disco gerenciado a uma VM Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Adicionar um disco gerenciado a uma VM Linux](../virtual-machines/linux/add-disk.md)
 
 ### <a name="compare-managed-disks-storage-options"></a>Comparar as opções de armazenamento de Managed Disks 
 
@@ -155,7 +155,7 @@ Para saber mais sobre o Managed Disks, confira os artigos a seguir.
 
 ### <a name="operational-guidance"></a>Diretrizes operacionais
 
-* [Migração do AWS e outras plataformas para os Azure Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+* [Migração do AWS e outras plataformas para os Azure Managed Disks](../virtual-machines/windows/on-prem-to-azure.md)
 
-* [Converter VMs do Azure para discos gerenciados no Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+* [Converter VMs do Azure para discos gerenciados no Azure](../virtual-machines/windows/migrate-to-managed-disks.md)
 

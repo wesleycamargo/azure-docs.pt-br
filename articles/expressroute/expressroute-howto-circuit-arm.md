@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/12/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 212de47a9cc4f2130b94ac1e622eabe0c0cb781a
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: 15c08c950bc1dcd620f2943885e427991585d817
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -30,14 +30,10 @@ ms.lasthandoff: 03/24/2017
 > 
 >
 
-Este artigo descreve como criar um circuito da Rota Expressa do azure usando os cmdlets do Windows PowerShell e o modelo de implantação do Azure Resource Manager. Este artigo também mostra como verificar o status do circuito, atualizá-lo ou excluí-lo e desprovisioná-lo.
-
-**Sobre modelos de implantação do Azure**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+Este artigo descreve como criar um circuito do Azure ExpressRoute usando os cmdlets do Windows PowerShell e o modelo de implantação do Azure Resource Manager. Este artigo também mostra como verificar o status do circuito, atualizá-lo ou excluí-lo e desprovisioná-lo.
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Você precisará da versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para saber mais, confira [Getting started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Introdução aos cmdlets do Azure PowerShell). 
+* Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para obter mais informações, consulte [Visão geral do Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
 
@@ -45,24 +41,32 @@ Este artigo descreve como criar um circuito da Rota Expressa do azure usando os 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Entre na sua conta do Azure e selecione sua assinatura
 Para iniciar sua configuração, entrar na sua conta do Azure. Use o exemplo a seguir para ajudar a conectar:
 
-    Login-AzureRmAccount
+```powershell
+Login-AzureRmAccount
+```
 
 Verifique as assinaturas da conta:
 
-    Get-AzureRmSubscription
+```powershell
+Get-AzureRmSubscription
+```
 
 Selecione a assinatura para a qual você deseja criar um circuito do ExpressRoute:
 
-    Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+```powershell
+Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+```
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
 Antes de criar um circuito de Rota Expressa você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
 
-O cmdlet do PowerShell `Get-AzureRmExpressRouteServiceProvider` retornará estas informações, que você usará em etapas posteriores:
+O cmdlet do PowerShell **Get-AzureRmExpressRouteServiceProvider** retorna essas informações, que serão usadas em etapas posteriores:
 
-    Get-AzureRmExpressRouteServiceProvider
+```powershell
+Get-AzureRmExpressRouteServiceProvider
+```
 
-Verifique se o provedor de conectividade está listado. Anote as informações a seguir, pois você precisará delas mais tarde quando criar um circuito:
+Verifique se o provedor de conectividade está listado. Anote as informações a seguir. Você precisará delas mais tarde ao criar um circuito.
 
 * Nome
 * PeeringLocations
@@ -73,32 +77,40 @@ Agora você está pronto para criar um circuito da Rota Expressa.
 ### <a name="3-create-an-expressroute-circuit"></a>3. Criar um circuito da Rota Expressa
 Se você ainda não tiver um grupo de recursos, deverá criar um antes de criar o circuito da Rota Expressa. Faça isso ao executar o seguinte comando:
 
-    New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+```powershell
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+```
 
 
 O exemplo a seguir mostra como criar um circuito da Rota Expressa de 200 Mbps por meio da Equinix, no Vale do Silício. Se estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a solicitação. A seguir, um exemplo de solicitação de uma nova chave de serviço:
 
-    New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
+```powershell
+New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
+```
 
 Especifique a camada da SKU e a família de SKUs corretas:
 
 * A camada da SKU determina se um complemento padrão ou premium da Rota Expressa está habilitado. Você pode especificar *Standard* para obter o SKU padrão ou *Premium* para o complemento premium.
-* A família da SKU determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. Observe que você pode alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não pode alterar o tipo de *Unlimiteddata* para *Metereddata*.
+* A família da SKU determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*.
 
 > [!IMPORTANT]
 > O circuito da Rota Expressa será cobrado a partir do momento em que uma chave de serviço for emitida. Execute esta operação quando o provedor de conectividade estiver pronto para provisionar o circuito.
 > 
 > 
 
-A resposta conterá a chave de serviço. Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
+A resposta conterá a chave de serviço. Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte comando:
 
-    get-help New-AzureRmExpressRouteCircuit -detailed
+```powershell
+get-help New-AzureRmExpressRouteCircuit -detailed
+```
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Listar todos os circuitos da Rota Expressa
-Para obter uma lista de todos os circuitos da Rota Expressa criados, execute o comando `Get-AzureRmExpressRouteCircuit`:
+Para obter uma lista de todos os circuitos do ExpressRoute criados, execute o comando **Get-AzureRmExpressRouteCircuit**:
 
-    Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```
 
 A resposta será semelhante ao seguinte exemplo:
 
@@ -126,7 +138,9 @@ A resposta será semelhante ao seguinte exemplo:
 
 Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureRmExpressRouteCircuit` . Fazer a chamada sem parâmetros listará todos os circuitos. Sua chave de serviço estará listada no campo *ServiceKey* :
 
-    Get-AzureRmExpressRouteCircuit
+```powershell
+Get-AzureRmExpressRouteCircuit
+```
 
 
 A resposta será semelhante ao seguinte exemplo:
@@ -154,9 +168,11 @@ A resposta será semelhante ao seguinte exemplo:
     Peerings                         : []
 
 
-Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
+Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte comando:
 
-    get-help Get-AzureRmExpressRouteCircuit -detailed
+```powershell
+get-help Get-AzureRmExpressRouteCircuit -detailed
+```
 
 ### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
 *ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. Status fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
@@ -181,7 +197,9 @@ Para que você consiga usar um circuito da Rota Expressa, ele deverá estar no s
 ### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave do circuito
 A verificação do status e o estado da chave do circuito informará quando o provedor tiver habilitado seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisioned*, como mostrado neste exemplo:
 
-    Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```
 
 
 A resposta será semelhante ao seguinte exemplo:
@@ -220,9 +238,11 @@ Para obter instruções passo a passo, confira o artigo [configuração do rotea
 Em seguida, vincule uma rede virtual a seu circuito da Rota Expressa. Use o artigo [Vincular redes virtuais a circuitos da Rota Expressa](expressroute-howto-linkvnet-arm.md) ao trabalhar com o modelo de implantação do Gerenciador de Recursos.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtendo o status de um circuito da Rota Expressa
-Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureRmExpressRouteCircuit` . Fazer a chamada sem parâmetros listará todos os circuitos.
+Você pode recuperar essas informações a qualquer momento usando o cmdlet **Get-AzureRmExpressRouteCircuit**. Fazer a chamada sem parâmetros listará todos os circuitos.
 
-    Get-AzureRmExpressRouteCircuit
+```powershell
+Get-AzureRmExpressRouteCircuit
+```
 
 
 A resposta será semelhante ao seguinte exemplo:
@@ -252,7 +272,9 @@ A resposta será semelhante ao seguinte exemplo:
 
 Você pode obter informações sobre um circuito da Rota Expressa específico passando o nome do grupo de recursos e o nome do circuito como um parâmetro para a chamada:
 
-    Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```
 
 
 A resposta será semelhante ao seguinte exemplo:
@@ -280,10 +302,11 @@ A resposta será semelhante ao seguinte exemplo:
     Peerings                         : []
 
 
-Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
+Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte comando:
 
-    get-help get-azurededicatedcircuit -detailed
-
+```powershell
+get-help get-azurededicatedcircuit -detailed
+```
 
 ## <a name="modify"></a>Modificar um circuito da Rota Expressa
 Você pode modificar certas propriedades de um circuito da Rota Expressa sem afetar a conectividade.
@@ -291,8 +314,8 @@ Você pode modificar certas propriedades de um circuito da Rota Expressa sem afe
 Você pode fazer o seguinte sem tempo de inatividade:
 
 * Como habilitar ou desabilitar o complemento premium da Rota Expressa para seu circuito da Rota Expressa.
-* Aumente a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Observe que não há suporte para o downgrade da largura de banda de um circuito. 
-* Altere o plano de medição de Dados Limitados para Dados Ilimitados. Observe que a alteração do plano de medição de Dados Ilimitados para Dados Limitados não tem suporte.
+* Aumente a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Não há suporte para o downgrade da largura de banda de um circuito. 
+* Altere o plano de medição de Dados Limitados para Dados Ilimitados. Não há suporte para alteração do plano de medição de Dados Ilimitados para Dados Limitados.
 * Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
 
 Para saber mais sobre limites e limitações, confira as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md).
@@ -300,15 +323,16 @@ Para saber mais sobre limites e limitações, confira as [Perguntas frequentes s
 ### <a name="to-enable-the-expressroute-premium-add-on"></a>Para habilitar o complemento premium da Rota Expressa
 Você pode habilitar o complemento premium da Rota Expressa para o circuito existente usando o seguinte trecho do PowerShell:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.Sku.Tier = "Premium"
-    $ckt.sku.Name = "Premium_MeteredData"
+$ckt.Sku.Tier = "Premium"
+$ckt.sku.Name = "Premium_MeteredData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
-
-Agora, o circuito terá os recursos de complemento premium da Rota Expressa habilitados. Observe que começaremos a cobrar pelo recurso do complemento Premium assim que o comando for executado com êxito.
+Agora, o circuito terá os recursos de complemento premium da Rota Expressa habilitados. Começaremos a cobrar pela funcionalidade do complemento Premium assim que o comando for executado com êxito.
 
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>Para desabilitar o complemento premium da Rota Expressa
 > [!IMPORTANT]
@@ -324,13 +348,14 @@ Observe o seguinte:
 
 Você pode desabilitar o complemento premium da Rota Expressa para o circuito existente usando o seguinte cmdlet do PowerShell:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.Sku.Tier = "Standard"
-    $ckt.sku.Name = "Standard_MeteredData"
+$ckt.Sku.Tier = "Standard"
+$ckt.sku.Name = "Standard_MeteredData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 ### <a name="to-update-the-expressroute-circuit-bandwidth"></a>Para atualizar a largura de banda do circuito da Rota Expressa
 Para obter opções de largura de banda com suporte para seu provedor, confira as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md). Você pode escolher qualquer tamanho maior do que o tamanho do circuito existente.
@@ -343,11 +368,13 @@ Para obter opções de largura de banda com suporte para seu provedor, confira a
 
 Depois de decidir sobre qual tamanho você precisa, use o seguinte comando para redimensionar o circuito:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
+$ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 
 O circuito será dimensionado no lado da Microsoft. Entre em contato com seu provedor de conectividade para que ele atualize as configurações para corresponder a essa alteração. Depois que você fizer essa notificação, começaremos a cobrar pela opção de largura de banda atualizada.
@@ -355,12 +382,14 @@ O circuito será dimensionado no lado da Microsoft. Entre em contato com seu pro
 ### <a name="to-move-the-sku-from-metered-to-unlimited"></a>Para mover a SKU de limitado para ilimitado
 Você pode alterar a SKU de um circuito de Rota Expressa usando o seguinte trecho de código do PowerShell:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.Sku.Family = "UnlimitedData"
-    $ckt.sku.Name = "Premium_UnlimitedData"
+$ckt.Sku.Family = "UnlimitedData"
+$ckt.sku.Name = "Premium_UnlimitedData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Para controlar o acesso aos ambientes clássico e do Resource Manager
 Confira as instruções em [Mover os circuitos de Rota Expressa do modelo de implantação Clássico para o Resource Manager](expressroute-howto-move-arm.md).  
@@ -374,9 +403,9 @@ Observe o seguinte:
 
 Você pode excluir o circuito da Rota Expressa executando o comando a seguir:
 
-    Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
-
-
+```powershell
+Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -384,5 +413,4 @@ Depois de criar seu circuito, faça o seguinte:
 
 * [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
 * [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
-
 

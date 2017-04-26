@@ -1,9 +1,9 @@
 ---
-title: 'Backup do Azure: Backup consistente com o aplicativo de VMs Linux do Azure | Microsoft Docs'
-description: Backup consistente com o aplicativo de VMs Linux do Azure
+title: 'Backup do Azure: backups consistentes com o aplicativo de VMs Linux | Microsoft Docs'
+description: "Use scripts para garantir backups consistentes com o aplicativo no Azure, para máquinas virtuais do Linux. Os scripts se aplicam somente às VMs do Linux em uma implantação do Resource Manager. Os scripts não se aplicam a VMs do Windows ou implantações do Service Manager. Este artigo o guiará durante as etapas para configurar os scripts, incluindo a solução de problemas."
 services: backup
 documentationcenter: dev-center-name
-author: anuragm
+author: anuragmehrotra
 manager: shivamg
 keywords: backup consistente com o aplicativo; backup de VM do Azure consistente com o aplicativo; Backup de VM Linux; Backup do Azure
 ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/20/2017
+ms.date: 4/12/2017
 ms.author: anuragm;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 044b5d3834518b44209485d1c1a68f2ac0f8a455
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0f4ca1924531df890433ec092790e6bec7c41df0
+ms.lasthandoff: 04/13/2017
 
 
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Backup consistente com o aplicativo de VMs Linux do Azure (Visualização)
+# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Backup consistente com o aplicativo de VMs Linux do Azure (versão prévia)
 
-Este artigo fala sobre a estrutura pré e pós-script do Linux e como ela pode ser usada para fazer backup consistente com o aplicativo de VMs Linux do Azure.
+Este artigo fala sobre a estrutura pré e pós-script do Linux e como ela pode ser usada para fazer backups consistentes com o aplicativo de VMs Linux do Azure.
 
 > [!Note]
-> A estrutura pré e pós-script tem suporte somente para máquinas virtuais Linux implantadas pelo Resource Manager, não há suporte para máquinas virtuais Clássicas ou do Windows.
+> Só há suporte para a estrutura pré e pós-script para máquinas virtuais Linux implantadas pelo Resource Manager. Não há suporte a scripts para consistência com aplicativos em máquinas virtuais implantadas pelo Service Manager ou máquinas virtuais do Windows.
 >
 
 ## <a name="how-the-framework-works"></a>Como funciona a estrutura
@@ -37,7 +37,7 @@ Um cenário importante para essa estrutura é garantir o backup da VM de forma c
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Etapas para configurar o pré-script e o pós-script
 
-1. Faça logon na VM Linux que passará por backup como o usuário raiz.
+1. Faça logon como o usuário raiz na VM Linux que passará por backup.
 
 2. Baixe VMSnapshotPluginConfig.json do [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e copie-o na pasta /etc/azure em todas as VMs que passarão por backup. Crie o diretório /etc/azure se ele ainda não existir.
 
@@ -48,12 +48,12 @@ Um cenário importante para essa estrutura é garantir o backup da VM de forma c
    - VMSnapshotPluginConfig.json - Permissão "600", ou seja, apenas o usuário "raiz" deve ter permissões de "leitura" e "gravação" nesse arquivo, nenhum usuário deve ter permissões de "execução".
    - Arquivo pré-script - Permissão "700", ou seja, apenas o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" nesse arquivo.
    - Pós-script - Permissão "700", ou seja, apenas o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" nesse arquivo.
-   
+
    > [!Note]
    > A estrutura fornece muita energia para os usuários, portanto, é muito importante que esteja completamente segura, e somente o usuário "raiz" deve ter acesso aos arquivos críticos json e de script.
    > Se caso os requisitos acima não forem atendidos, o script não será executado, resultando falha do sistema de arquivos e do backup consistente.
    >
-   
+
 5. Configurar VMSnapshotPluginConfig.json conforme descrito nos detalhes abaixo
     - **pluginName** - deixe esse campo como está, caso contrário os scripts não funcionarão conforme o esperado.
     - **preScriptLocation** - forneça o caminho completo do pré-script na VM a passar pelo backup.
@@ -65,7 +65,7 @@ Um cenário importante para essa estrutura é garantir o backup da VM de forma c
     - **timeoutInSeconds** - tempos limites individuais para o pré-script e o pós-script.
     - **continueBackupOnFailure** - defina esse valor como verdadeiro se você quiser que o Backup do Azure passe por fallback para um backup consistente com falha/ consistente com o sistema de arquivos, no caso de falha de pré-script ou pós-script. Definir isso como falso causará a falha do backup no caso de falha do script (exceto no caso de uma VM de disco único, na qual ele realizará um backup consistente com a falha independentemente dessa configuração).
     - **fsFreezeEnabled** - isso especifica se Linux fsfreeze deve ser chamado durante a obtenção do instantâneo da VM para garantir a consistência do sistema de arquivos. Recomendamos manter essa configuração como verdadeiro, a menos que seu aplicativo tenha dependência na desabilitação do fsfreeze.
-    
+
 6. Agora a estrutura do script está configurada, se o backup da VM já estiver configurado, o próximo backup chamará os scripts e disparará o backup consistente com o aplicativo. Se o backup da VM não estiver configurado, configure usando [Backup de máquinas virtuais do Azure para cofres dos Serviços de Recuperação.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
 ## <a name="troubleshooting"></a>Solucionar problemas
