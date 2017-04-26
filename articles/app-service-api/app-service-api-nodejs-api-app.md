@@ -57,7 +57,7 @@ Embora o Serviço de Aplicativo ofereça suporte a várias maneiras de implantar
         npm install -g generator-swaggerize
    
     Swaggerize é uma ferramenta que gera o código do servidor para uma API descrita por um arquivo de metadados do Swagger. O arquivo Swagger que você usará é denominado *api.json* e está localizado na pasta *start* do repositório clonado.
-2. Navegue até a pasta *start*, em seguida, execute o comando `yo swaggerize`. O Swaggerize irá fazer uma série de perguntas.  Para saber **como chamar este projeto**, digite "ContactList" para o ** caminho para o documento swagger**, insira "api.json" e para **Express, Hapi ou Restify**, insira "express".
+2. Navegue até a pasta *start*, em seguida, execute o comando `yo swaggerize`. O Swaggerize irá fazer uma série de perguntas.  Para saber **como chamar este projeto**, digite "ContactList" para o **caminho para o documento swagger**, insira "api.json" e para **Express, Hapi ou Restify**, insira "express".
    
         yo swaggerize
    
