@@ -16,9 +16,9 @@ ms.workload: identity
 ms.date: 03/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 62804019a8c2c5e719c36021ee04cbd20e03dd05
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: db219c8bd8d9bf1ba343fe363047a23eabad823c
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -84,7 +84,7 @@ Se você tiver mais de um requisito selecionado na política de acesso condicion
 ![Controle](./media/active-directory-conditional-access-azure-portal/06.png)
 
 ### <a name="session-controls"></a>Controles de sessão
-Controles de sessões permitem a limitação da experiência dentro de um aplicativo na nuvem. Os controles de sessão são impostos por aplicativos de nuvem e contam com informações adicionais sobre a sessão fornecidas pelo Azure AD para o aplicativo.
+Controles de sessão permitem a limitação da experiência dentro de um aplicativo na nuvem. Os controles de sessão são impostos por aplicativos de nuvem e contam com informações adicionais sobre a sessão fornecidas pelo Azure AD para o aplicativo.
 
 ![Controle](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
 
@@ -101,7 +101,7 @@ Você pode incluir as atribuições a seguir em sua instrução de condição:
 ![Controle](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
-- **Quem** - em muitos casos, você deseja que os controles sejam aplicados a um conjunto específico de usuários. Em uma instrução de condição, você pode definir esse conjunto, selecionando os usuários e os grupos aos quais a política se aplica. Se necessário, você pode excluir explicitamente um conjunto de aplicativos de sua política ao dispensá-los.  
+- **Quem** - em muitos casos, você deseja que os controles sejam aplicados a um conjunto específico de usuários. Em uma instrução de condição, você pode definir esse conjunto, selecionando os usuários e os grupos aos quais a política se aplica. Se necessário, você pode excluir explicitamente um conjunto de usuários de sua política ao dispensá-los.  
 Selecionando usuários e grupos, você deve definir o escopo de usuários ao qual sua política se aplicará.    
 
     ![Controle](./media/active-directory-conditional-access-azure-portal/08.png)
