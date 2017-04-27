@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 04/03/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -75,10 +76,7 @@ Ao usar o modelo da API REST ou do Gerenciador de Recursos, inclua o elemento de
 | propriedades |sim |o valor deve ser vazio {} ou pode conter pares de chave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
-Há duas formas de URI de autenticação:
-
-1. Autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Autenticação básica, em que você usa uma ID de usuário e senha. Por exemplo, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+O webhook pode autenticar usando autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Escala automática do esquema de carga útil do webhook de notificação
 Quando a notificação de escala automática é gerada, os metadados a seguir são incluídos na carga útil do webhook:
@@ -128,10 +126,5 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 | oldCapacity |sim |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
 | newCapacity |sim |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
 | propriedades |Não |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

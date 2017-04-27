@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 03/29/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 80ad4ee51dc03c588e9da6a3277120c685839a2b
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 750dfb2ff8b4d82b2f42518c3873a32d6be0bc20
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Mover dados para dentro e fora do Oracle local usando o Azure Data Factory
-Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados para/de um banco de dados do Oracle local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia. 
+Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados para/de um banco de dados do Oracle local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
-Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o Banco de Dados Oracle, ou do banco de dados Oracle para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como fontes ou coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
+Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o Banco de Dados Oracle, ou do banco de dados Oracle para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como fontes ou coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 O Data Factory dá suporte à conexão com fontes Oracle locais usando o Gateway de Gerenciamento de Dados. Veja o artigo [Gateway de gerenciamento de dados](data-factory-data-management-gateway.md) para saber mais sobre o Gateway de Gerenciamento de Dados e o artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados para mover dados.
@@ -35,36 +35,38 @@ O gateway é requerido mesmo que o banco de dados Oracle esteja hospedado em uma
 > Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
 
 ## <a name="supported-versions-and-installation"></a>Instalação e versões com suporte
-Conector do Oracle oferece suporte a duas versões de drivers:
+Este conector Oracle dá suporte a duas versões de drivers:
 
-- **Driver da Microsoft para Oracle** é agrupado com o Gateway de gerenciamento de dados a partir da versão 2.7. Você está **recomendado** usar este driver. Não é necessário instalar nada além do gateway para se conectar ao Oracle e você também pode ter um melhor desempenho de cópia. Há suporte para a versão do banco de dados Oracle 10g versão 2 ou posterior.
+- **Driver da Microsoft para Oracle (recomendado)**: iniciando do gateway de gerenciamento de dados versão 2.7, um driver da Microsoft para Oracle é automaticamente instalado junto com o gateway, de modo que você não precisa manipular adicionalmente o driver para estabelecer a conectividade para o Oracle e você também pode ter melhor desempenho de cópia usando este driver. Há suporte para a versão do banco de dados Oracle 10g versão 2 ou posterior.
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > Atualmente o driver da Microsoft para Oracle suporta apenas copiando dados do Oracle, mas não gravar no Oracle. E observe que a capacidade de conexão de teste na guia Diagnóstico de Gateway de gerenciamento de dados não oferece suporte a este driver. Como alternativa, você pode usar o Assistente para copiar para validar a conectividade.
     >
 
 - **Provedor de dados Oracle para .NET:** também é possível usar o provedor de dados Oracle para copiar dados de/para Oracle. Esse componente está incluído nos [Componentes de Acesso a Dados do Oracle para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Instale a versão adequada (32/64 bits) no computador em que o gateway está instalado. [O Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) pode acessar o Oracle Database 10g Release 2 ou posterior.
 
     Se você escolher "Instalação de XCopy", siga as etapas no readme.htm. É recomendável escolher o instalador com IU (não XCopy).
-    
+
     Depois de instalar o provedor, **reinicie** o serviço de Host do Gateway de Gerenciamento de Dados no seu computador usando o miniaplicativo Serviços (ou) o Gerenciador de Configuração do Gateway de Gerenciamento de Dados.  
+
+Se você usar o assistente de cópia para criar o pipeline de cópia, o tipo de driver será determinado automaticamente. O driver da Microsoft será usado por padrão, a menos que sua versão do gateway seja menor do que 2.7 ou você escolher o Oracle como um coletor.
 
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com atividade de cópia que move dados de/para um banco de dados Oracle local por meio de ferramentas/APIs diferentes.
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
-Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor: 
+Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
 1. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory.
-2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. 
-3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. 
+2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia.
+3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída.
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter exemplos com definições de JSON das entidades do Data Factory usadas para copiar dados bidirecionalmente em um banco de dados do Oracle local, confira a seção [Exemplos de JSON](#json-examples) neste artigo. 
+Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter exemplos com definições de JSON das entidades do Data Factory usadas para copiar dados bidirecionalmente em um banco de dados do Oracle local, confira a seção [Exemplos de JSON](#json-examples) neste artigo.
 
-As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory: 
+As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory:
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do Oracle.
@@ -580,7 +582,7 @@ Ao mover dados do Oracle, os seguintes mapeamentos são usados do tipo de dados 
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Leitura repetida de fontes relacionais
-Ao copiar dados de repositórios de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

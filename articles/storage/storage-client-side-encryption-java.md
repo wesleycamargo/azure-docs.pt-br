@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 7e182ee18e3c2c12eb29f864dd875d764ca5d534
-ms.openlocfilehash: 116693fdb8a8fa0e332b74459f7827bbf44c9ed7
-ms.lasthandoff: 11/22/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 7601449c7f84a4367f9d684d9bbb0cf61fda29b0
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +44,7 @@ A descriptografia com a técnica de envelope funciona da seguinte maneira:
 
 1. A biblioteca de cliente presume que o usuário está gerenciando o KEK (chave de criptografia de chave) localmente ou no Cofre da Chave do Azure. O usuário não precisa conhecer a chave específica que foi usada para criptografia. Em vez disso, um resolvedor de chave que resolve diferentes identificadores de chaves pode ser configurado e usado.  
 2. A biblioteca de cliente baixa os dados criptografados junto com demais materiais de criptografia armazenados no serviço.  
-3. O CEK (chave de criptografia de conteúdo) empacotado é então desempacotado usando KEK. Novamente aqui, a biblioteca de cliente não tem acesso a KEK. Ela simplesmente invoca o Cofre da Chave personalizado ou algoritmo de descompactação do provedor.  
+3. O CEK (chave de criptografia de conteúdo) empacotado é então desempacotado usando KEK. Novamente aqui, a biblioteca de cliente não tem acesso a KEK. Ela simplesmente invoca o algoritmo de descompactação do provedor do Key Vault ou personalizado.  
 4. A CEK (chave de criptografia de conteúdo) é então usada para descriptografar os dados de usuário criptografados.
 
 ## <a name="encryption-mechanism"></a>Mecanismo de criptografia

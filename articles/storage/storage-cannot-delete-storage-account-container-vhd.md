@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: d3d59e19ff654a953be43706dce926c4450c6179
-ms.openlocfilehash: 6493230295dbfc939df3daf8504a7d8662083f51
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 64f875581dccd2ad1215a82eba1e2659fe01d191
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -67,9 +67,9 @@ Depois de excluir uma VM e então tentar excluir os blobs para os VHDs associado
 
 *Falha ao excluir o blob 'path/XXXXXX-XXXXXX-os-1447379084699.vhd'. Erro: 'Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação*.
 
-ou o
+Ou
 
-*O blob 'BlobName.vhd' está em uso como o disco de máquina virtual ‘VirtualMachineDiskName’, portanto não é possível excluir o blob.*
+*O blob 'BlobName.vhd' está em uso como o disco de máquina virtual 'VirtualMachineDiskName', portanto não é possível excluir o blob.*
 
 ## <a name="solution"></a>Solução
 Para resolver os problemas mais comuns, tente o seguinte método:

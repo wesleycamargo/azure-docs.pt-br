@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a139b97e20685a5ced513c1fd180a74e91c497a7
+ms.lasthandoff: 04/15/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>O que é o Banco de Dados SQL? Introdução ao Banco de dados SQL
@@ -35,7 +35,7 @@ Para ver vários exemplos da CLI do Azure e do PowerShell, consulte:
  - [Amostras do Azure PowerShell para o banco de dados SQL do Azure](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste de desempenho e dimensionamento sem tempo de inatividade
-O serviço Banco de Dados SQL oferece três camadas de serviço: Básica, Standard e Premium. Cada camada de serviço oferece [diferentes níveis de desempenho e recursos](sql-database-service-tiers.md) para dar suporte a cargas de trabalho leves e pesadas de banco de dados. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e, em seguida, [alterar sua camada de serviço](sql-database-service-tiers.md) manualmente ou por meio de programação a qualquer momento para atender às necessidades de sua solução. Você pode fazer isso sem tempo de inatividade para seu aplicativo ou seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
+O serviço do Banco de Dados SQL oferece quatro camadas de serviço: Básico, Standard, Premium e Premium RS. Cada camada de serviço oferece [diferentes níveis de desempenho e recursos](sql-database-service-tiers.md) para dar suporte a cargas de trabalho leves e pesadas de banco de dados. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e, em seguida, [alterar sua camada de serviço](sql-database-service-tiers.md) manualmente ou por meio de programação a qualquer momento para atender às necessidades de sua solução. Você pode fazer isso sem tempo de inatividade para seu aplicativo ou seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
 
 ## <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools elásticos para maximizar a utilização de recursos
 Para muitas empresas e aplicativos, ser capaz de criar bancos de dados únicos e ajustar o desempenho sob demanda é o suficiente, especialmente se os padrões de uso forem relativamente previsíveis. Mas se você tiver os padrões de uso imprevisíveis, pode ser difícil de gerenciar os custos e o seu modelo de negócios. [Pools elásticos](sql-database-elastic-pool.md) são projetados para resolver esse problema. O conceito é simples. Você aloca recursos de desempenho para um pool em vez de um banco de dados individual e paga pelos recursos de desempenho coletivo do pool em vez do desempenho do banco de dados único. Com os pools elásticos, você não precisa se concentrar em expandir ou reduzir o desempenho do banco de dados conforme a demanda de recursos flutua. Os bancos de dados em pool consomem os recursos de desempenho do pool elástico conforme necessário. Os bancos de dados em pool consomem, mas não excedem os limites do pool. Portanto, o custo permanece previsível, mesmo que o uso do banco de dados individual não permaneça. Além disso, é possível [adicionar e remover bancos de dados do pool](sql-database-elastic-pool-manage-portal.md), escalar seu aplicativo por meio de alguns bancos de dados para milhares, tudo dentro de um orçamento que você pode controlar. Por fim, você também pode controlar os recursos mínimos e máximos disponíveis para bancos de dados no pool, para garantir que nenhum deles use todos os recursos do pool e que todos tenham um mínimo de recursos garantido. Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
@@ -61,6 +61,6 @@ Agora que você leu uma introdução ao Banco de Dados SQL e respondeu à pergun
 
 * Confira a [página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para ver comparações de custos entre o banco de dados único e pools elásticos e calculadoras.
 * Saiba mais sobre [pools elásticos](sql-database-elastic-pool.md).
-* Comece pela [criação do seu primeiro banco de dados](sql-database-get-started.md).
+* Comece pela [criação do seu primeiro banco de dados](sql-database-get-started-portal.md).
 * Crie seu primeiro aplicativo em C#, Java, Node.js, PHP, Python ou Ruby: [bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 

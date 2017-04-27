@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 7f75b57c5d409ad9c4c79c48e4b7ee0021e7846b
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: bb8fcd907a03350dc21106944e72e6f06109b5f6
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -39,23 +39,43 @@ Faça logon em sua assinatura do Azure usando o comando [Add-AzureRmAccount](htt
 Add-AzureRmAccount
 ```
 
+## <a name="create-variables"></a>Criar variáveis
+
+Defina as variáveis para usar nos scripts neste início rápido.
+
+```powershell
+# The data center and resource name for your resources
+$resourcegroupname = "myResourceGroup"
+$location = "WestEurope"
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
+$servername = "server-$(Get-Random)"
+# Set an admin login and password for your database
+# The login information for the server
+$adminlogin = "ServerAdmin"
+$password = "ChangeYourAdminPassword1"
+# The ip address range that you want to allow to access your server - change as appropriate
+$startip = "0.0.0.0"
+$endip = "0.0.0.1"
+# The database name
+$databasename = "mySampleDatabase"
+```
+
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usando o comando [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westeurope`.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
+New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Criar um servidor lógico
 
 Crie um [servidor lógico do Banco de Dados SQL do Azure](sql-database-features.md) usando o comando [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). Um servidor lógico contém um grupo de bancos de dados gerenciados conjuntamente. O exemplo a seguir cria um servidor nomeado aleatoriamente no seu grupo de recursos com logon de administrador `ServerAdmin` e senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
 
 ```powershell
-$servername = "server-$(Get-Random)"
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -Location "westeurope" `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "ServerAdmin", $(ConvertTo-SecureString -String "ChangeYourAdminPassword1" -AsPlainText -Force))
+    -Location $location `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall de servidor
@@ -63,9 +83,9 @@ New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
 Crie uma [regra de firewall no nível do servidor do Banco de Dados SQL do Azure](sql-database-firewall-configure.md) usando o comando [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule). Uma regra de firewall no nível de servidor permite que um aplicativo externo, como o SQL Server Management Studio ou o utilitário SQLCMD, se conecte ao banco de dados SQL através do firewall do serviço de Banco de Dados SQL. No exemplo a seguir, o firewall está aberto somente para os outros recursos do Azure. Para habilitar a conectividade externa, altere o endereço IP para um endereço apropriado para seu ambiente. Para abrir todos os endereços IP, use 0.0.0.0 como o endereço IP inicial e 255.255.255.255 como o endereço final.
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
+    -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
 
 > [!NOTE]
@@ -77,9 +97,9 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 Crie um Banco de Dados SQL vazio com um [nível de desempenho S0](sql-database-service-tiers.md) no servidor usando o comando [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase). O exemplo a seguir cria um banco de dados chamado `mySampleDatabase`. Substitua esse valor predefinido conforme desejado.
 
 ```powershell
-New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
+    -DatabaseName databasename `
     -RequestedServiceObjectiveName "S0"
 ```
 
@@ -88,7 +108,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
 Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja continuar trabalhando com inícios rápidos subsequentes ou com os tutoriais, não limpe os recursos criados nesse início rápido. Caso contrário, use os comandos a seguir para excluir todos os recursos criados por esse início rápido.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -101,3 +121,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 - Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
 - Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
 - Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).
+

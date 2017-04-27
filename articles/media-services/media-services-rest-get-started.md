@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 52f672dcf42a19bf10935fcf733b8f07ff559a8d
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93481fe9c3920ea4c578f3da326de9f9e8531a71
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -226,7 +226,7 @@ Um dos valores que você precisa fornecer ao criar um ativo é opções de cria�
 
 * **Nenhuma** = **0** - nenhuma criptografia é usada. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
     Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
-* **StorageEncrypted** = **1** - criptografa o conteúdo limpo localmente usando a criptografia AES de&256; bits e, em seguida, carrega-o para o armazenamento do Azure, onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+* **StorageEncrypted** = **1** - criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carrega-o para o armazenamento do Azure, onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
 * **CommonEncryptionProtected** = **2** — use esta opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
 * **EnvelopeEncryptionProtected** = **4** – use esta opção se você estiver carregando HLS criptografado com AES. Os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 
@@ -473,7 +473,7 @@ Depois de definir AccessPolicy e Localizador, o arquivo real é carregado em um 
 >
 >
 
-Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Atualizar o AssetFile
 Agora que você carregou o arquivo, atualize as informações de tamanho do FileAsset (e outros). Por exemplo:
@@ -962,7 +962,7 @@ Depois de definir AccessPolicy e localizador, você pode baixar arquivos usando 
 >
 >
 
-Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 Como resultado do trabalho de codificação que você executou anteriormente (codificação no conjunto de MP4 adaptável), você tem vários arquivos MP4 que pode baixar progressivo. Por exemplo:    
 

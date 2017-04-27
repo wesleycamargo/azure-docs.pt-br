@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 7f6ac80472d3e4fab390b9aa69105e19dca7b947
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: eb1738296844aec0066496a368b9e896ba63cfa8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -35,7 +36,13 @@ public enum ActorReentrancyMode
     Disallowed = 2
 }
 ```
-
+```Java
+public enum ActorReentrancyMode
+{
+    LogicalCallContext(1),
+    Disallowed(2)
+}
+```
 A nova entrada pode ser definida nas configurações de `ActorService`durante o registro. A configuração se aplica a todas as instâncias de ator criadas no serviço de ator.
 
 O exemplo a seguir mostra um serviço de ator que define o modo de nova entrada como `ActorReentrancyMode.Disallowed`. Nesse caso, se um ator envia uma mensagem reentrante para outro ator, será lançada uma exceção do tipo `FabricException` .
@@ -49,8 +56,8 @@ static class Program
         {
             ActorRuntime.RegisterActorAsync<Actor1>(
                 (context, actorType) => new ActorService(
-                    context, 
-                    actorType, () => new Actor1(), 
+                    context,
+                    actorType, () => new Actor1(),
                     settings: new ActorServiceSettings()
                     {
                         ActorConcurrencySettings = new ActorConcurrencySettings()
@@ -70,15 +77,42 @@ static class Program
     }
 }
 ```
+```Java
+static class Program
+{
+    static void Main()
+    {
+        try
+        {
+            ActorConcurrencySettings actorConcurrencySettings = new ActorConcurrencySettings();
+            actorConcurrencySettings.setReentrancyMode(ActorReentrancyMode.Disallowed);
+
+            ActorServiceSettings actorServiceSettings = new ActorServiceSettings();
+            actorServiceSettings.setActorConcurrencySettings(actorConcurrencySettings);
+
+            ActorRuntime.registerActorAsync(
+                Actor1.getClass(),
+                (context, actorType) -> new FabricActorService(
+                    context,
+                    actorType, () -> new Actor1(),
+                    null,
+                    stateProvider,
+                    actorServiceSettings, timeout);
+
+            Thread.sleep(Long.MAX_VALUE);
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+    }
+}
+```
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
 * [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exemplo de código](https://github.com/Azure/servicefabric-samples)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* [Código de exemplo C#](https://github.com/Azure/servicefabric-samples)
+* [Código de exemplo Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 

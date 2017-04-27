@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: bd503bb141b5686f149c5fb46ba069db070d5fae
-ms.openlocfilehash: 99dbb3deefb066b619b839aa709fe5e9b804eb27
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a6ca819329de130257ec67e63a53f87cbca9f39b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +31,7 @@ Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao NetDoc
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos com o NetDocuments
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
@@ -61,13 +62,13 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
    ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no NetDocuments com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
 
-Configurar o logon único para o NetDocuments exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
+Configurar o SSO para o NetDocuments exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
-**Para configurar o logon único, execute as seguintes etapas:**
+**Para configurar o SSO, execute as seguintes etapas:**
 
 1. No Portal Clássico do Azure, na página de integração do aplicativo **NetDocuments**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
@@ -82,10 +83,11 @@ Configurar o logon único para o NetDocuments exige que você recupere um valor 
    1. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para entrar no aplicativo NetDocuments (por exemplo: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
    2. Na caixa de texto **URL de Resposta do NetDocuments**, digite o mesmo valor que você digitou na caixa de texto **URL de Entrada**.  
       
-      > [!NOTE]
-      > Você pode encontrar o valor correto no fim do diálogo **Identidade Federada** (veja a captura de tela da etapa 9).
-      > 
-      
+      >[!NOTE]
+      >Você pode encontrar o valor correto no fim do diálogo **Identidade Federada** (veja a captura de tela da etapa 9).
+      >
+      >
+     
    3. Clique em **Próximo**.
 4. Na página **Configurar logon único no NetDocuments**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente no computador.
    
@@ -109,7 +111,7 @@ Configurar o logon único para o NetDocuments exige que você recupere um valor 
     
     ![Configurar Logon Único](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configurar Logon Único")
     
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Para permitir que os usuários do AD do Azure façam logon no NetDocuments, eles devem ser provisionados no NetDocuments. No caso do NetDocuments, o provisionamento é uma tarefa manual.
 
@@ -126,33 +128,32 @@ Para permitir que os usuários do AD do Azure façam logon no NetDocuments, eles
    
    ![Endereço de Email](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Endereço de Email")
    
-   > [!NOTE]
-   > O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
+   >[!NOTE]
+   >O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
    > 
    > 
 
-> [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do NetDocuments ou as APIs fornecidas pelo NetDocuments para provisionar as contas de usuário do AAD.
-> 
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do NetDocuments ou as APIs fornecidas pelo NetDocuments para provisionar as contas de usuário do AAD.
+>
+>
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 **Para atribuir usuários ao NetDocuments, execute as seguintes etapas:**
 
 1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração do aplicativo **NetDocuments**, clique em **Atribuir usuários**.
+2. Na página de integração do aplicativo **NetDocuments **, clique em **Atribuir usuários**.
    
    ![Atribuir Usuários](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Atribuir Usuários")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
    ![Sim](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Recursos adicionais
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 620572f66367f61c6ee61d3c044083a0f71aca6f
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -27,7 +28,7 @@ Usando tecnologias In-Memory no Banco de Dados SQL do Azure, você pode obter me
 
 Estes são dois exemplos de como o OLTP In-Memory ajudou a melhorar significativamente o desempenho:
 
-- Usando o OLTP In-Memory, o [Quorum Business Solutions foi capaz de duplicar a carga de trabalho, melhorando as DTUs (ou seja, o consumo de recursos) em 70%](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- Usando o OLTP In-Memory, o [Quorum Business Solutions foi capaz de duplicar a carga de trabalho, melhorando as DTUs (ou seja, o consumo de recursos) em 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 - O vídeo a seguir demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de exemplo: [OLTP In-Memory no Banco de Dados SQL do Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
 
 As tecnologias In-Memory estão disponíveis em todos os bancos de dados da camada Premium, incluindo bancos de dados em pools elásticos Premium.
@@ -139,7 +140,7 @@ Antes de fazer o downgrade do banco de dados para Standard/Básico, remova todos
 
 ## <a name="1-install-the-in-memory-oltp-sample"></a>1. Instalar o exemplo de OLTP Na Memória.
 
-Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns cliques no [Portal do Azure](https://portal.azure.com/). Em seguida, as etapas desta seção explicam como você pode aprimorar seu banco de dados AdventureWorksLT com objetos OLTP in-memory e demonstram os benefícios de desempenho.
+Você pode criar o banco de dados de exemplo AdventureWorksLT com alguns cliques no [Portal do Azure](https://portal.azure.com/). Em seguida, as etapas desta seção explicam como você pode aprimorar seu banco de dados AdventureWorksLT com objetos OLTP in-memory e demonstram os benefícios de desempenho.
 
 Para ver uma demonstração de desempenho mais simples, porém, mais visualmente interessante do OLTP in-memory, veja:
 
@@ -148,7 +149,7 @@ Para ver uma demonstração de desempenho mais simples, porém, mais visualmente
 
 #### <a name="installation-steps"></a>Etapas de instalação
 
-1. No [Portal do Azure](https://portal.azure.com/), crie um banco de dados Premium em um servidor V12. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT [V12]. Para obter instruções detalhadas, consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
+1. No [Portal do Azure](https://portal.azure.com/), crie um banco de dados Premium em um servidor. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT. Para obter instruções detalhadas, consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md).
 
 2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -495,7 +496,7 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 #### <a name="deeper-information"></a>Informações mais detalhadas
 
-- [Saiba como o Quorum dobra a principal carga de trabalho do banco de dados, enquanto reduz a DTU em 70% com o OLTP in-memory no Banco de Dados SQL](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Saiba como o Quorum dobra a principal carga de trabalho do banco de dados, enquanto reduz a DTU em 70% com o OLTP in-memory no Banco de Dados SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [Saiba mais sobre o OLTP in-memory](http://msdn.microsoft.com/library/dn133186.aspx)
 
@@ -518,9 +519,4 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SSDT (Ferramentas de Dados do SQL Server)](http://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -17,17 +17,17 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 0afe2d9e8cb6d26c43830df0ebfe2cea5c2f7665
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff27ec5eb86b11bbbc91e648ffa72956436f445a
+ms.lasthandoff: 04/12/2017
 
 ---
 
 # <a name="import-from-a-bacpac-into-a-sql-database-using-powershell"></a>Importar de um bacpac para um Banco de Dados SQL usando o PowerShell
 
-Este script do PowerShell de exemplo importa um banco de dados de um bacpac.  
+Este script do PowerShell de exemplo importa um banco de dados de um arquivo **bacpac**.  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -47,11 +47,11 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 | Command | Observações |
 |---|---|
-| [New-AzureRmResourceGroup]() | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzureRmSqlServer]() | Cria um servidor lógico que hospeda o Banco de Dados SQL. |
-| [New-AzureRmSqlServerFirewallRule]() | Cria uma regra de firewall para permitir o acesso a todos os bancos de dados SQL no servidor do intervalo de endereços IP inserido. |
-| [New-AzureRmSqlDatabase]() | Cria o Banco de Dados SQL no servidor lógico. |
-| [Remove-AzureRmResourceGroup]() | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | Cria um servidor lógico que hospeda o Banco de Dados SQL. |
+| [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) | Cria uma regra de firewall para permitir o acesso a todos os bancos de dados SQL no servidor do intervalo de endereços IP inserido. |
+| [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport?view=azurermps-3.7.0) | Importa um arquivo .bacpac e cria um novo banco de dados no servidor. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/remove-azurermresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

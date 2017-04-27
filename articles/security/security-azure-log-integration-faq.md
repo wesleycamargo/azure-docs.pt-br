@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 2d5201a335e96cc8595de834858750f6aac884a3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,7 +25,11 @@ ms.lasthandoff: 03/17/2017
 Este artigo de perguntas frequentes responde às perguntas sobre a integração do log do Azure, um serviço que permite integrar logs brutos de recursos do Azure a seus sistemas locais de SIEM (Gerenciamento de Eventos e Informações de Segurança). Essa integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança associados aos aplicativos.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>O software Integração de Log do Azure é gratuito?
-Sim. Não há nenhuma cobrança pelo software Integração de Log do Azure. 
+Sim. Não há nenhuma cobrança pelo software Integração de Log do Azure.
+
+## <a name="where-is-azure-log-integration-available"></a>Onde a Integração de log do Azure está disponível?
+
+Ela está disponível atualmente no Azure comercial e Azure Governamental e não está disponível na China nem na Alemanha.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Como posso ver as contas de armazenamento das quais a integração de log do Azure está extraindo os logs da VM do Azure?
 Execute o comando **azlog source list**.
@@ -82,7 +86,7 @@ Consulte:
 Confira [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>Como posso modificar o que é coletado com o diagnóstico da VM?
-Confira [Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter detalhes sobre como obter, modificar e definir o Diagnóstico do Azure na configuração *(WAD)* do Windows. Veja o exemplo a seguir:
+Confira [Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter detalhes sobre como obter, modificar e definir o Diagnóstico do Azure na configuração *(WAD)* do Windows. Veja o exemplo a seguir:
 
 ### <a name="get-the-wad-config"></a>Obter a configuração WAD
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
@@ -107,7 +111,7 @@ O exemplo a seguir é uma configuração onde apenas a EventID 4624 e a EventID 
 
 Depois de fazer alterações, verifique a conta de armazenamento para garantir que os eventos corretos sejam coletados.
 
-Se você tiver algum problema durante a instalação e configuração, abra uma [solicitação de suporte](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) e selecione "Integração de Log" como o serviço para o qual você está solicitando suporte.
+Se você tiver algum problema durante a instalação e configuração, abra uma [solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) e selecione **Integração de Log** como o serviço para o qual você está solicitando suporte.
 
 
 <!--Image references-->

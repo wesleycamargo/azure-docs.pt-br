@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 04/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 0a566fe81239b5753f48d62219d8c8ea3842ffdb
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: f2c4956ba296781907498226a18708684281692b
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -45,13 +45,13 @@ Veja a seguir o fluxo de trabalho geral da migração.
 
 4. Execute testes de validação para garantir que os trabalhos funcionem conforme o esperado no novo cluster.
 
-Depois de verificar se tudo está funcionando conforme o esperado, agende o tempo de inatividade para a migração. Durante esse tempo de inatividade, execute as tarefas a seguir.
+Depois de verificar se tudo está funcionando conforme o esperado, agende o tempo de inatividade para a migração. Durante esse tempo de inatividade, execute as seguintes tarefas:
 
 1. Faça backup de dados transitórios armazenados localmente em nós do cluster. Por exemplo, se você tiver dados armazenados diretamente em um nó principal.
 
 2. Exclua o cluster baseado no Windows.
 
-3. Crie um cluster baseado no Linux usando o mesmo repositório de dados padrão que o cluster baseado no Windows usava. O novo cluster pode continuar trabalhando nos dados de produção existentes.
+3. Crie um cluster baseado no Linux usando o mesmo repositório de dados padrão que o cluster baseado no Windows usava. O cluster do Linux pode continuar trabalhando nos dados de produção existentes.
 
 4. Importe o backup de todos os dados transitórios.
 
@@ -61,7 +61,7 @@ Depois de verificar se tudo está funcionando conforme o esperado, agende o temp
 
 Há vários métodos para copiar os dados e trabalhos. No entanto, os dois abordados nesta seção são os métodos mais simples para mover os arquivos diretamente para um cluster de teste.
 
-#### <a name="hdfs-dfs-copy"></a>Cópia HDFS DFS
+#### <a name="hdfs-copy"></a>Cópia do HDFS
 
 Use as etapas a seguir para copiar os dados do cluster de produção para o cluster de teste. Essas etapas usam o utilitário `hdfs dfs` incluído no HDInsight.
 
@@ -97,24 +97,27 @@ Use as etapas a seguir para copiar os dados do cluster de produção para o clus
 
     A opção `-p` permite a criação de todos os diretórios no caminho.
 
-#### <a name="direct-copy-between-azure-storage-blobs"></a>Cópia direta entre blobs do Armazenamento do Azure
+#### <a name="direct-copy-between-blobs-in-azure-storage"></a>Cópia direta entre blobs do Armazenamento do Azure
 
 Como alternativa, talvez seja conveniente usar o cmdlet `Start-AzureStorageBlobCopy` do Azure PowerShell para copiar blobs entre contas de armazenamento fora do HDInsight. Para saber mais, confira a seção Como gerenciar blobs do Azure em Usando o Azure PowerShell com o Armazenamento do Azure.
 
 ## <a name="client-side-technologies"></a>Tecnologias do lado do cliente
 
-De modo geral, as tecnologias do lado do cliente, como os [cmdlets do Azure PowerShell](/powershell/azureps-cmdlets-docs), a [CLI do Azure](../cli-install-nodejs.md) ou o [SDK do .NET para Hadoop](https://hadoopsdk.codeplex.com/), continuam funcionando do mesma forma com os clusters baseados em Linux, pois elas dependem das APIs REST que são as mesmas nos dois tipos de sistema operacional do cluster.
+Tecnologias do lado do cliente como [cmdlets do Azure PowerShell](/powershell/azureps-cmdlets-docs), [CLI do Azure](../cli-install-nodejs.md) ou [SDK .NET para Hadoop](https://hadoopsdk.codeplex.com/) continuam a funcionar com clusters do Linux. Essas tecnologias dependem de APIs REST, que são as mesmas em ambos os tipos de sistema operacional do cluster.
 
 ## <a name="server-side-technologies"></a>Tecnologias do lado do servidor
 
-A tabela a seguir fornece instruções de como migrar componentes do lado servidor que sejam específicos do Windows.
+A tabela a seguir fornece orientações de como migrar componentes do lado servidor específicos do Windows.
 
 | Se estiver usando esta tecnologia... | Execute esta ação... |
 | --- | --- |
 | **PowerShell** (scripts do lado do servidor, incluindo as Ações de Script usadas durante a criação do cluster) |Reescreva-os como scripts Bash. Para as Ações de Script, confira [Personalizar clusters HDInsight baseados em Linux usando as Ações de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **CLI do Azure** (scripts de servidor) |Embora a CLI do Azure esteja disponível no Linux, ela não vem pré-instalada nos nós principais do cluster HDInsight. Se você precisar dela para criar o script de servidor, confira [Instalar a CLI do Azure](../cli-install-nodejs.md) para obter informações sobre a instalação em plataformas baseadas em Linux. |
-| **Componentes do .NET** |O .NET não é totalmente compatível com todos os tipos de cluster HDInsight baseados em Linux. Os clusters Storm no HDInsight baseados em Linux criados depois de 28/10/2016 aceitam topologias Storm do C# usando a estrutura SCP.NET. O suporte adicional para o .NET será adicionado em futuras atualizações. |
+| **CLI do Azure** (scripts de servidor) |Embora a CLI do Azure esteja disponível no Linux, ela não vem pré-instalada nos nós principais do cluster HDInsight. Para obter mais informações sobre como instalar a CLI do Azure, consulte [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
+| **Componentes do .NET** |O .NET tem suporte no HDInsight do Linux por meio do [Mono](https://mono-project.com). Para obter mais informações, consulte [Migrar soluções .NET para HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | **Componentes do Win32 ou de outra tecnologia exclusiva do Windows** |As diretrizes dependem do componente ou da tecnologia. Você poderá encontrar uma versão compatível com Linux, talvez precise encontrar uma solução alternativa ou reescrever esse componente. |
+
+> [!IMPORTANT]
+> O SDK de gerenciamento de HDInsight não é totalmente compatível com o Mono. Ele não deve ser usado como parte das soluções implantadas para o cluster HDInsight no momento.
 
 ## <a name="cluster-creation"></a>Criação do cluster
 
@@ -122,7 +125,7 @@ Esta seção fornece informações sobre as diferenças na criação do cluster.
 
 ### <a name="ssh-user"></a>Usuário do SSH
 
-Os clusters do HDInsight baseados em Linux usam o protocolo **SSH (Secure Shell)** para fornecer acesso remoto aos nós do cluster. Ao contrário da Área de Trabalho Remota para clusters baseados no Windows, a maioria dos clientes SSH não fornece uma experiência de usuário gráfica, mas uma linha de comando que permite a execução de comandos no cluster. Alguns clientes (como a [MobaXterm](http://mobaxterm.mobatek.net/)) fornecem um navegador gráfico de sistema de arquivos além da linha de comando remota.
+Os clusters do HDInsight baseados em Linux usam o protocolo **SSH (Secure Shell)** para fornecer acesso remoto aos nós do cluster. Ao contrário dos clusters baseados em Área de Trabalho Remota para Windows, a maioria dos clientes SSH não fornecem uma experiência gráfica ao usuário. Em vez disso, os clientes SSH fornecem uma linha de comando que permite executar comandos no cluster. Alguns clientes (como a [MobaXterm](http://mobaxterm.mobatek.net/)) fornecem um navegador gráfico de sistema de arquivos além da linha de comando remota.
 
 Durante a criação do cluster, você deve fornecer um usuário SSH e uma **senha** ou um **certificado de chave pública** para autenticação.
 
@@ -162,7 +165,7 @@ O Ambari tem um sistema de alerta que pode informar a você sobre problemas pote
 >
 > Vários alertas são implementados como consultas baseadas em intervalo em um serviço e esperam uma resposta por um período específico. Portanto, o alerta não significa necessariamente que o serviço está inativo, apenas que ele não retornou resultados dentro do tempo esperado.
 
-De modo geral, antes de tomar alguma medida, você deve avaliar se um alerta vem ocorrendo por um longo período ou se espelha problemas do usuário que foram relatados.
+Antes de tomar alguma medida, você deve avaliar se um alerta vem ocorrendo por um longo período ou se representa problemas do usuário que foram relatados.
 
 ## <a name="file-system-locations"></a>Locais do sistema de arquivos
 
@@ -183,12 +186,18 @@ Você também pode usar caracteres curinga com o nome do arquivo. Por exemplo, `
 
 ## <a name="hive-pig-and-mapreduce"></a>Hive, Pig e MapReduce
 
-Cargas de trabalho do Pig e do MapReduce são muito semelhantes em clusters baseados em Linux. A única diferença é a forma de conexão aos nós de cabeçalho do cluster. Para obter mais informações, consulte um dos seguintes documentos:
+Cargas de trabalho do Pig e do MapReduce são muito semelhantes em clusters baseados em Linux. No entanto, os clusters HDInsight baseados em Linux podem ser criados usando versões mais recentes do Hadoop, Hive e Pig. Essas diferenças de versão podem introduzir alterações no funcionamento das suas soluções existentes. Para obter mais informações sobre a versão dos componentes incluída no HDInsight, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md).
 
+O HDInsight baseado em Linux não oferece a funcionalidade de área de trabalho remota. Em vez disso, você pode usar o SSH para se conectar remotamente aos nós principais do cluster. Para obter mais informações, consulte um dos seguintes documentos:
+
+* [Usar Hive com SSH](hdinsight-hadoop-use-hive-ssh.md)
 * [Usar o Pig com o SSH](hdinsight-hadoop-use-pig-ssh.md)
 * [Usar o MapReduce com o SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
+
+> [!IMPORTANT]
+> Se você usar um metastore do Hive externo, deverá fazer backup do metastore antes de usá-lo com o HDInsight baseado em Linux. O HDInsight baseado em Linux está disponível com versões mais recentes do Hive, o que pode trazer incompatibilidades com metastores criados por versões anteriores.
 
 A tabela a seguir fornece instruções para migrar as cargas de trabalho do Hive.
 
@@ -196,8 +205,32 @@ A tabela a seguir fornece instruções para migrar as cargas de trabalho do Hive
 | --- | --- |
 | **Editor de Hive** |[Modo de Exibição do Hive no Ambari](hdinsight-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` para habilitar o Tez |O Tez é o mecanismo de execução padrão para clusters baseados em Linux, de modo que a instrução set não é mais necessária. |
+| Funções C# definidas pelo usuário | Para obter informações sobre como validar componentes C# com o HDInsight baseado em Linux, consulte [Migrar soluções .NET para HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | Arquivos ou scripts CMD no servidor invocados como parte de um trabalho do Hive |Scripts Bash |
 | `hive` na Área de Trabalho Remota |O [Beeline](hdinsight-hadoop-use-hive-beeline.md) ou o [Hive em uma sessão do SSH](hdinsight-hadoop-use-hive-ssh.md) |
+
+### <a name="pig"></a>Pig
+
+| Com base no Windows, uso... | Com base no Linux... |
+| --- | --- |
+| Funções C# definidas pelo usuário | Para obter informações sobre como validar componentes C# com o HDInsight baseado em Linux, consulte [Migrar soluções .NET para HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
+| Arquivos ou scripts CMD no servidor invocados como parte de um trabalho do Pig |Scripts Bash |
+
+### <a name="mapreduce"></a>MapReduce
+
+| Com base no Windows, uso... | Com base no Linux... |
+| --- | --- |
+| Componentes mapeador e redutor de C# | Para obter informações sobre como validar componentes C# com o HDInsight baseado em Linux, consulte [Migrar soluções .NET para HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
+| Arquivos ou scripts CMD no servidor invocados como parte de um trabalho do Hive |Scripts Bash |
+
+## <a name="oozie"></a>Oozie
+
+> [!IMPORTANT]
+> Se você usar um metastore do Oozie externo, deverá fazer backup do metastore antes de usá-lo com o HDInsight baseado em Linux. O HDInsight baseado em Linux está disponível com versões mais recentes do Oozie, o que pode trazer incompatibilidades com metastores criados por versões anteriores.
+
+Fluxos de trabalho do Oozie permitem realizar ações de shell. Ações de shell usam o shell padrão do sistema operacional para executar comandos de linha de comando. Se você tiver fluxos de trabalho do Oozie que dependem do shell do Windows, reescreva os fluxos de trabalho para dependerem do ambiente de shell do Linux (Bash). Para obter mais informações sobre como usar ações de shell com Oozie, consulte [Extensão da ação de shell do Oozie](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
+
+Se você tiver fluxos de trabalho do Oozie que dependem de aplicativos C# invocados por meio de ações do shell, valide esses aplicativos em um ambiente Linux. Para obter mais informações, consulte [Migrar soluções .NET para HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
 ## <a name="storm"></a>Storm
 
@@ -230,22 +263,27 @@ Atualmente, atividades personalizadas do .NET no Azure Data Factory não são co
 
 No geral, as terminações de linha em sistemas baseados no Windows usam CRLF, enquanto os sistemas baseados no Linux usam LF. Se você produzir, ou esperar, dados com terminações de linha CRLF, talvez seja preciso modificar os produtores ou consumidores para trabalhar com a terminação de linha LF.
 
-Por exemplo, usar o Azure PowerShell para consultar o HDInsight em um cluster baseado no Windows retorna dados com CRLF. A mesma consulta com um cluster baseado em Linux retorna LF. Você deve testar para ver se isso causa um problema na solução antes de migrar para um cluster baseado em Linux.
+Por exemplo, usar o Azure PowerShell para consultar o HDInsight em um cluster baseado no Windows retorna dados com CRLF. A mesma consulta com um cluster baseado em Linux retorna LF. Você deve testar para ver se a terminação de linha causa um problema na solução antes de migrar para um cluster baseado em Linux.
 
 Caso tenha scripts que são executados diretamente nos nós do cluster do Linux, sempre use LF como o final da linha. Caso use CRLF, você poderá ver erros ao executar os scripts em um cluster baseado em Linux.
 
 Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, será possível fazer uma alteração em massa nas terminações de linha usando um dos métodos a seguir:
 
-* **Se você tiver scripts que pretende carregar no cluster**, use as seguintes instruções do PowerShell para alterar as terminações de linha de CRLF para LF antes de carregar o script no cluster.
+* **Antes de carregar para o cluster**: use as seguintes instruções do PowerShell para alterar as terminações de linha de CRLF para LF antes de carregar o script para o cluster.
 
-      $original_file ='c:\path\to\script.py'
-      $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
-      [IO.File]::WriteAllText($original_file, $text)
-* **Se tiver scripts que já estão no armazenamento usado pelo cluster**, você poderá usar o comando a seguir em uma sessão do SSH para o cluster baseado em Linux, a fim de modificar o script.
+    ```powershell
+    $original_file ='c:\path\to\script.py'
+    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+    [IO.File]::WriteAllText($original_file, $text)
+    ```
 
-      hdfs dfs -get wasbs:///path/to/script.py oldscript.py
-      tr -d '\r' < oldscript.py > script.py
-      hdfs dfs -put -f script.py wasbs:///path/to/script.py
+* **Depois de carregar para o cluster**: use o seguinte comando em uma sessão SSH para o cluster do Linux para modificar o script.
+
+    ```bash
+    hdfs dfs -get wasbs:///path/to/script.py oldscript.py
+    tr -d '\r' < oldscript.py > script.py
+    hdfs dfs -put -f script.py wasbs:///path/to/script.py
+    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 25e266441e902a06d980b3b51abdd4fcf668d4d2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: e9215bdd02c9d1b595f65997840926080d6d7d01
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
 ## <a name="overview"></a>Visão geral
-No Azure Data Factory, você pode usar a Atividade de Cópia para copiar dados de diferentes formas de vários repositórios de dados locais e na nuvem para o Azure. Depois que os dados são copiados, eles ainda podem ser transformados e analisados. Também é possível usar a Atividade de Cópia a fim de publicar resultados de análise e transformação para consumo do aplicativo e BI (business intelligence).
+No Azure Data Factory, você pode usar a Atividade de Cópia para copiar dados entre armazenamentos de dados locais e na nuvem. Após os dados serem copiados, eles ainda podem ser transformados e analisados. Também é possível usar a Atividade de Cópia a fim de publicar resultados de análise e transformação para consumo do aplicativo e BI (business intelligence).
 
 ![Função da Atividade de Cópia](media/data-factory-data-movement-activities/copy-activity.png)
 
@@ -60,19 +60,27 @@ Confira [Mover dados entre repositórios de dados locais e na nuvem](data-factor
 Você também pode mover dados entre repositórios de dados compatíveis hospedados nas VMs (máquinas virtuais) de IaaS do Azure usando o Gateway de Gerenciamento de Dados. Nesse caso, é possível instalar o Gateway de Gerenciamento de Dados na mesma VM do repositório de dados em si ou em uma VM separada que tenha acesso ao repositório de dados.
 
 ## <a name="supported-data-stores-and-formats"></a>Fontes de dados e formatos com suporte
+A Atividade de Cópia no Data Factory copia os dados de um repositório de dados de origem para um repositório de dados de coletor. A Data Factory dá suporte aos repositórios de dados a seguir. Os dados de qualquer origem podem ser gravados em qualquer coletor. Clique em um repositório de dados para saber como copiar dados dentro e fora do repositório.
+
+> [!NOTE] 
+> Se precisar mover dados para dentro e fora de um armazenamento de dados ao qual a Atividade de Cópia não dá suporte, use uma **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover dados. Para obter detalhes sobre como criar e usar uma atividade personalizada, confira [Usar atividades personalizadas em um pipeline do Azure Data Factory](data-factory-use-custom-activities.md).
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Se precisar mover dados para dentro e fora de um armazenamento de dados ao qual a Atividade de Cópia não dá suporte, use uma **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover dados. Para obter detalhes sobre como criar e usar uma atividade personalizada, confira [Usar atividades personalizadas em um pipeline do Azure Data Factory](data-factory-use-custom-activities.md).
+> [!NOTE]
+> Os repositórios de dados com * podem estar no local ou no Azure IaaS e exigem a instalação do [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) em um computador Azure IaaS/local.
 
 ### <a name="supported-file-formats"></a>Formatos de arquivo com suporte
-Você pode usar a Atividade de Cópia para **copiar arquivos no estado em que se encontram** entre dois repositórios de dados baseados em arquivo, como Blob do Azure, Azure Data Lake Store, Amazon S3, FTP, Sistema de Arquivos e HDFS. Para fazer isso, você pode pular a [seção de formato](data-factory-create-datasets.md) nas definições de conjunto de dados de entrada e saída. Os dados são copiados com eficiência sem qualquer serialização/desserialização.
+Você pode usar a Atividade de Cópia para **copiar arquivos no estado em que se encontram** entre dois armazenamentos de dados baseados em arquivo, ignore a [seção de formato](data-factory-create-datasets.md) nas duas definições de conjunto de dados de entrada e de saída. Os dados são copiados com eficiência sem qualquer serialização/desserialização.
 
-A Atividade de Cópia também lê e grava em arquivos em formatos especificados: há suporte para **texto, Avro, ORC, Parquet e JSON** e para o codec de compactação **GZip, Deflate, BZip2 e ZipDeflate**. Você pode fazer as seguintes atividades de cópia, por exemplo:
+A Atividade de Cópia também lê e grava em arquivos em formatos especificados: há suporte para **texto, Avro, JSON, ORC e Parquet** e para os codecs de compactação **GZip, Deflate, BZip2 e ZipDeflate**. Consulte [Formatos de arquivo e compactação com suporte](data-factory-supported-file-and-compression-formats.md) para obter detalhes.
 
-* Copiar dados em formato de texto (CSV) compactado por GZip do Blob do Azure e gravá-los no Banco de Dados SQL Azure.
-* Copiar arquivos no formato de texto (CSV) do Sistema de Arquivos local e gravá-los no Blob do Azure no formato Avro.
+Por exemplo, você pode fazer as seguintes atividades de cópia:
+
 * Copiar dados no SQL Server local e gravar ao no Azure Data Lake Store no formato ORC.
+* Copiar arquivos no formato de texto (CSV) do Sistema de Arquivos local e gravá-los no Blob do Azure no formato Avro.
 * Copiar os arquivos compactados do Sistema de Arquivos local e, em seguida, descompactá-los no Azure Data Lake Store.
+* Copiar dados em formato de texto (CSV) compactado por GZip do Blob do Azure e gravá-los no Banco de Dados SQL Azure.
 
 ## <a name="global"></a>Movimentação de dados globalmente disponível
 O Azure Data Factory está disponível apenas nas regiões Oeste dos EUA, Leste dos EUA e Europa Setentrional. No entanto, o serviço que possibilita a Atividade de cópia está disponível globalmente nas seguintes regiões e regiões geográficas. A topologia globalmente disponível garante a movimentação de dados eficiente, o que geralmente evita saltos entre regiões. Confira [Serviços por região](https://azure.microsoft.com/regions/#services) para ver a disponibilidade do Data Factory e da Movimentação de Dados em uma região.
@@ -80,7 +88,7 @@ O Azure Data Factory está disponível apenas nas regiões Oeste dos EUA, Leste 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copiar dados entre armazenamentos de dados em nuvem
 Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Data Factory usa uma implantação de serviço na região que está mais perto do local do coletor na mesma região geográfica para realizar a movimentação de dados. Consulte a tabela a seguir para ver o mapeamento:
 
-| Geografia do repositório de dados de destino | Região do armazenamento de dados de destino | Região usada para movimentação de dados |
+| Geografia dos armazenamentos de dados de destino | Região do armazenamento de dados de destino | Região usada para movimentação de dados |
 |:--- |:--- |:--- |
 | Estados Unidos | Leste dos EUA | Leste dos EUA |
 | &nbsp; | Leste dos EUA 2 | Leste dos EUA 2 |
@@ -107,7 +115,7 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | &nbsp; | Índia Ocidental | Índia Central |
 | &nbsp; | Sul da Índia | Índia Central |
 
-Como alternativa, você pode indicar explicitamente a região do serviço Data Factory a ser usada para realizar a cópia especificando a propriedade `executionLocation` em Atividade de Cópia `typeProperties`. Os valores com suporte para essa propriedade estão listados acima da coluna **Região usada para movimentação de dados**. Observe que seus dados passarão para essa região durante a cópia. Por exemplo, para copiar entre os repositórios do Azure na Coreia, especifique `"executionLocation": "Japan East"` para rotear pela região do Japão (veja [exemplo de JSON](#by-using-json-scripts) como referência).
+Como alternativa, você pode indicar explicitamente a região do serviço Data Factory a ser usada para realizar a cópia especificando a propriedade `executionLocation` em Atividade de Cópia `typeProperties`. Os valores com suporte para essa propriedade estão listados acima da coluna **Região usada para movimentação de dados**. Observe que seus dados passarão para essa região na transferência realizada durante a cópia. Por exemplo, para copiar entre os repositórios do Azure na Coreia, especifique `"executionLocation": "Japan East"` para rotear pela região do Japão (veja [exemplo de JSON](#by-using-json-scripts) como referência).
 
 > [!NOTE]
 > Se a região do repositório de dados de destino não estiver na lista anterior ou não puder ser detectada, a Atividade de Cópia falhará em vez de passar por uma região alternativa, a menos que `executionLocation` seja especificado. A lista de regiões com suporte será expandida ao longo do tempo.

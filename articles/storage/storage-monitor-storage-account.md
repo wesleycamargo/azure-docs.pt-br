@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8dc33077a955052a99b415b1299004cf8a4f217e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: b49e06da0019a50cc8e50c4da47e42c03b44bcc6
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 [Análise de Armazenamento do Azure](storage-analytics.md) fornece métricas para todos os serviços de armazenamento e logs para blobs, filas e tabelas. Você pode usar o [portal do Azure](https://portal.azure.com) de configurar quais métricas e logs são registrados para sua conta e configurar gráficos que fornecem representações visuais dos dados de métricas.
 
 > [!NOTE]
-> Há custos associados ao exame de dados de monitoramento no portal do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
+> Há custos associados ao exame de dados de monitoramento no portal do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > O Armazenamento de arquivos do Azure atualmente dá suporte às métricas de Análise de Armazenamento, mas ainda não dá suporte ao registro em log.
 >
@@ -153,7 +153,7 @@ Você pode instruir o Armazenamento do Azure a salvar logs de diagnóstico para 
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Você pode exibir os dados de log usando um gerenciador de armazenamento como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com) ou de forma programática, usando a biblioteca de cliente de armazenamento ou o PowerShell.
 
-Para obter informações sobre como acessar o contêiner $logs, confira [Habilitando o log de armazenamento e acessando dados de log](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data).
+Para obter informações sobre como acessar o contêiner $logs, confira [Habilitando o log de armazenamento e acessando dados de log](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
 ## <a name="next-steps"></a>Próximas etapas
 

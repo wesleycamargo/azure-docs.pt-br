@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: da581b2e22f85152ae7bc5f0d403b2fc0aaf0e54
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -116,7 +116,7 @@ A lista a seguir exibe exemplos completos de metadados que usam os exemplos ante
 * LogVersion=1.0
 
 ### <a name="accessing-logging-data"></a>Acessando dados de log
-Todos os dados no contêiner `$logs` podem ser acessados usando as APIs do serviço Blob, incluindo as APIs do .NET fornecidas pela biblioteca gerenciada do Azure. O administrador da conta de armazenamento pode ler e excluir logs, mas não é possível criá-los ou atualizá-los. Os metadados do log e o nome do log podem ser usados ao consultar um log. É possível que os logs de uma determinada hora sejam exibidos fora de ordem, mas os metadados sempre especificam o período das entradas de log em um log. Portanto, você pode usar uma combinação de nomes de log e metadados ao procurar um log específico.
+Todos os dados no contêiner `$logs` podem ser acessados usando as APIs do serviço Blob, incluindo as APIs do .NET fornecidas pela biblioteca gerenciada do Azure. O administrador da conta de armazenamento pode ler e excluir logs, mas não é possível criá-los ou atualizá-los. Tanto os metadados do log quanto o nome do log podem ser usados ao consultar em busca de um log. É possível que os logs de uma determinada hora sejam exibidos fora de ordem, mas os metadados sempre especificam o período das entradas de log em um log. Portanto, você pode usar uma combinação de nomes de log e metadados ao procurar um log específico.
 
 ## <a name="about-storage-analytics-metrics"></a>Sobre as métricas de Análise de Armazenamento
 A análise de armazenamento pode armazenar métricas que incluem estatísticas de transação agregadas e os dados de capacidade sobre solicitações para um serviço de armazenamento. As transações são relatadas no nível de operação da API, bem como no nível de serviço de armazenamento, e a capacidade é relatada no nível de serviço de armazenamento. Os dados de métricas podem ser usados para analisar o uso do serviço de armazenamento, diagnosticar problemas com solicitações feitas no serviço de armazenamento e melhorar o desempenho de aplicativos que usam um serviço.
@@ -138,20 +138,20 @@ As métricas de transações são registradas para solicitações de usuários e
 > 
 > 
 
-Os dados de capacidade são gravados diariamente para serviço de Blob de uma conta de armazenamento e duas entidades de tabela são gravadas. Uma entidade fornece estatísticas para dados de usuário e a outra fornece estatísticas sobre o contêiner de blob `$logs` usado pela análise de armazenamento. A tabela `$MetricsCapacityBlob` inclui as seguintes estatísticas:
+Os dados de capacidade são gravados diariamente para o serviço Blob de uma conta de armazenamento e duas entidades de tabela são gravadas. Uma entidade fornece estatísticas para dados de usuário e a outra fornece estatísticas sobre o contêiner de blob `$logs` usado pela análise de armazenamento. A tabela `$MetricsCapacityBlob` inclui as seguintes estatísticas:
 
 * **Capacidade**: a quantidade de armazenamento usado pelo serviço Blob da conta de armazenamento, em bytes.
 * **ContainerCount**: o número de contêineres de blob no serviço Blob da conta de armazenamento.
-* **ObjectCount**: o número de blobs de blocos ou páginas confirmados e não confirmados no serviço Blob da conta de armazenamento.
+* **ObjectCount**: o número de blobs de páginas ou de blocos confirmados e não confirmados no serviço Blob da conta de armazenamento.
 
 Para saber mais sobre as métricas de capacidade, consulte [Esquema da tabela de métricas da Análise de Armazenamento](https://msdn.microsoft.com/library/hh343264.aspx).
 
 ### <a name="how-metrics-are-stored"></a>Como as métricas são armazenadas
-Todos os dados de métricas para cada um dos serviços de armazenamento são armazenados em três tabelas reservadas para esse serviço: uma tabela para informações de transação, uma tabela de informações de transações de minutos e outra tabela para informações de capacidade. Informações de transações de transação de minuto consistem em dados de solicitação e resposta, e informações de capacidade consistem em dados de uso de armazenamento. As métricas de horas, as métricas de minutos e a capacidade de um serviço Blob da conta de armazenamento podem ser acessadas nas tabelas que são nomeadas conforme descrito na tabela a seguir.
+Todos os dados de métricas para cada um dos serviços de armazenamento são armazenados em três tabelas reservadas para esse serviço: uma tabela para informações de transação, uma tabela de informações de transações de minutos e outra tabela para informações de capacidade. Informações de transações de transação de minuto consistem em dados de solicitação e resposta, e informações de capacidade consistem em dados de uso de armazenamento. A métrica de horas, a métrica de minutos e a capacidade de um serviço Blob da conta de armazenamento podem ser acessadas nas tabelas que são nomeadas conforme descrito na tabela a seguir.
 
 | Nível de métricas | Nomes da tabela | Versões com suporte |
 | --- | --- | --- |
-| Métricas por hora, local principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versões anteriores a 15-08-2013 apenas. Embora esses nomes ainda ter suporte, é recomendável que você alterne para usar as tabelas listadas abaixo. |
+| Métricas por hora, local principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versões anteriores a 15-08-2013 apenas. Embora esses nomes ainda tenham suporte, é recomendável que você passe a usar as tabelas listadas abaixo. |
 | Métricas por hora, local principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Todas as versões, incluindo 15-08-2013. |
 | Métricas por minuto, local principal |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Todas as versões, incluindo 15-08-2013. |
 | Métricas por hora, local secundário |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Todas as versões, incluindo 15-08-2013. A replicação de redundância geográfica com acesso de leitura deve estar habilitada. |
@@ -174,7 +174,7 @@ As seguintes ações executadas pela análise de armazenamento são faturáveis:
 Se você configurou uma política de retenção de dados, você não é cobrado para excluir transações quando a análise de armazenamento exclui dados antigos de log e métricas. No entanto, excluir as transações de um cliente são faturáveis. Para saber mais sobre as políticas de retenção, consulte [Definindo uma política de retenção de dados de análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### <a name="understanding-billable-requests"></a>Noções básicas sobre solicitações faturáveis
-Todas as solicitações feitas ao serviço de armazenamento da conta é faturável ou não faturável. A análise de armazenamento registra cada solicitação individual feita a um serviço, incluindo uma mensagem de status que indica como a solicitação foi processada. Da mesma forma, a análise de armazenamento armazena métricas para um serviço e as operações de API desse serviço, incluindo os percentuais e a contagem de determinadas mensagens de status. Juntos, esses recursos podem ajudá-lo a analisar suas solicitações faturáveis, fazer melhorias em seu aplicativo e diagnosticar problemas com solicitações de serviços. Para saber mais sobre a cobrança, confira [Noções básicas sobre cobrança no armazenamento do Azure – largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Todas as solicitações feitas ao serviço de armazenamento da conta são faturáveis ou então não faturáveis. A análise de armazenamento registra cada solicitação individual feita a um serviço, incluindo uma mensagem de status que indica como a solicitação foi processada. Da mesma forma, a análise de armazenamento armazena métricas para um serviço e as operações de API desse serviço, incluindo os percentuais e a contagem de determinadas mensagens de status. Juntos, esses recursos podem ajudá-lo a analisar suas solicitações faturáveis, fazer melhorias em seu aplicativo e diagnosticar problemas com solicitações de serviços. Para saber mais sobre a cobrança, confira [Noções básicas sobre cobrança no armazenamento do Azure – largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no tópico [Mensagens de operações e status registradas da análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343260.aspx) para determinar quais solicitações são faturáveis. Em seguida, você pode comparar seus logs e dados de métricas para as mensagens de status para ver se houve cobrança por uma determinada solicitação. Você também pode usar as tabelas no tópico anterior para investigar a disponibilidade de um serviço de armazenamento ou operação de API individual.
 

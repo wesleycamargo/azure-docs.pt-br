@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: eb0482d0dec3121710cc2ee56ab538cd66cb03c9
-ms.openlocfilehash: eaf7fabc243b3dfa37d974f4315a378bec9356b7
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3d7801d8a53ac048333e43ee64724c11c25bf6a8
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +31,7 @@ Dependendo das necessidades da organização que convida, um usuário de colabor
 
 - Estado 1: hospedado em uma instância externa do AD do Azure, representado como um usuário convidado na organização host. Nesse caso, o usuário B2B entra usando uma conta do Azure AD que pertence ao locatário base. Se a organização externa do usuário não usa o Azure AD no momento do convite, o usuário convidado no Azure AD é criado quando o usuário resgata seu convite e, depois, o Azure AD verifica seu endereço de email. Isso também é chamado de locatário JIT (just in time) ou, às vezes, de locatário viral.
 
-- Estado 2: hospedado na conta da Microsoft e representado como um usuário convidado na organização host. Nesse caso, o usuário convidado entra com uma conta da Microsoft. Na atualização da Visualização Pública do Azure AD, a identidade social do usuário convidado (google.com ou semelhante), que não é uma conta da Microsoft, é criada como uma conta da Microsoft durante o resgate de oferta.
+- Estado 2: hospedado na conta da Microsoft e representado como um usuário convidado na organização host. Nesse caso, o usuário convidado entra com uma conta da Microsoft. A identidade social do usuário convidado (google.com ou semelhante), que não é uma conta da Microsoft, é criada como uma conta da Microsoft durante o resgate da oferta.
 
 - Estado 3: hospedado no Active Directory local da organização host e sincronizado com o AD do Azure da organização host. Durante esta versão, você deve usar o PowerShell para alterar manualmente o UserType desses usuários na nuvem.
 

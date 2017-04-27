@@ -1,6 +1,6 @@
 # Visão geral
 ## [O que é o SQL Server nas VMs do Azure?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [Preços](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [Preços](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [PERGUNTAS FREQUENTES](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Introdução
@@ -48,9 +48,4 @@
 ## [Ferramentas do SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SSDT (Ferramentas de Dados do SQL Server)](https://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

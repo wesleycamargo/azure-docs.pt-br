@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 4ec026a5b95170d0eba244123c37cd3c8fab150a
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: c123b76b0e4c95cfebcc79063fb1c3a27efc8646
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -47,9 +47,9 @@ Veja algumas coisas que você pode fazer com o Log de Atividades:
 ![Log de Atividades do Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* [Criar um alerta de email ou webhook que dispara um evento do Log de Atividades.](insights-auditlog-to-webhook-email.md)
+* [Crie um alerta que dispara um evento do Log de Atividades.](monitoring-activity-log-alerts.md)
 * [Transmiti-lo para um **Hub de Eventos**](monitoring-stream-activity-logs-event-hubs.md) para ingestão por um serviço de terceiro ou solução de análise personalizada, como o PowerBI.
-* Analisá-lo no PowerBI usando o [**Pacote de conteúdo do PowerBI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* Analisá-lo no PowerBI usando o [**Pacote de conteúdo do PowerBI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Salvá-lo em uma **Conta de Armazenamento** para inspeção manual ou arquivamento](monitoring-archive-activity-log.md). Você pode especificar o tempo de retenção (em dias) usando os **Perfis de Log**.
 * Consultar e exibi-lo no **Portal do Azure**.
 * Consultar por meio de Cmdlet do PowerShell, da CLI ou da API REST.
@@ -80,11 +80,10 @@ Você pode transmitir o Log de Atividades para um Hub de Eventos ou armazená-lo
 
     ![Botão Exportar no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. Na folha que aparece, você pode selecionar:  
-
-   * regiões para as quais você deseja exportar eventos
-   * a conta de armazenamento na qual você deseja salvar os eventos
-   * o número de dias para manter esses eventos no armazenamento. Uma configuração de 0 dias retém os logs para sempre.
-   * o namespace do Barramento de Serviço no qual você deseja que um Hub de Eventos seja criado para transmitir esses eventos.
+  * regiões para as quais você deseja exportar eventos
+  * a conta de armazenamento na qual você deseja salvar os eventos
+  * o número de dias para manter esses eventos no armazenamento. Uma configuração de 0 dias retém os logs para sempre.
+  * o namespace do Barramento de Serviço no qual você deseja que um Hub de Eventos seja criado para transmitir esses eventos.
 
      ![Folha Exportar Log de Atividades](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Clique em **Salvar** para salvar as configurações. As configurações serão aplicadas imediatamente à sua assinatura.

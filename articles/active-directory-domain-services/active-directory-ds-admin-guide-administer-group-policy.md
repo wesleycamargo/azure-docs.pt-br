@@ -112,7 +112,7 @@ Você pode criar ou importar seus próprios objetos de política de grupo person
 2. Especifique um nome para o novo GPO e clique em **OK**.
 
     ![Especifique um nome para o GPO](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
-3. Um novo GPO é criado e vinculado à sua UO personalizada. Clique com botão direito do mouse no GPO e clique em **Editar... ** no menu.
+3. Um novo GPO é criado e vinculado à sua UO personalizada. Clique com botão direito do mouse no GPO e clique em **Editar...** no menu.
 
     ![GPO recém-criado](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
 4. Você pode personalizar o GPO recém-criado usando o **Editor de gerenciamento de política de grupo**.

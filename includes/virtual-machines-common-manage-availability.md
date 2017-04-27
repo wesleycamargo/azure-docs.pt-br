@@ -9,7 +9,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 * [Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância]
 * [Configurar cada camada de aplicativo em conjuntos de disponibilidade separados]
 * [Combinar o balanceador de carga com os conjuntos de disponibilidade]
-* [Usar várias contas de armazenamento para cada conjunto de disponibilidade]
+* [Usar Managed Disks para VMs no Conjunto de Disponibilidade]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância
 Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou mais máquinas virtuais em um conjunto de disponibilidade. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual estará disponível e atenderá os 99,95% SLA do Azure. Para saber mais, confira [SLA para máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -41,24 +41,21 @@ Combine o [Azure Load Balancer](../articles/load-balancer/load-balancer-overview
 
 Se o balanceador de carga não estiver configurado para balancear o tráfego entre múltiplas máquinas virtuais, então qualquer evento de manutenção planejada afetará a única máquina virtual atendendo ao tráfego causando uma pane na sua camada de aplicativo. Colocar diversas máquinas virtuais na mesma camada sob o mesmo balanceador de carga e conjunto de disponibilidade habilita o tráfego a ser atendido continuamente pelo menos por uma instância.
 
-## <a name="use-multiple-storage-accounts-for-each-availability-set"></a>Usar várias contas de armazenamento para cada conjunto de disponibilidade
-Se você usar Azure Managed Disks, poderá ignorar as diretrizes a seguir. Os Managed Disks fornecem inerentemente alta disponibilidade e redundância, como os discos são armazenados em domínios de falha que se alinham com os conjuntos de disponibilidade das VMs. Para saber mais, veja [Visão geral dos Azure Managed Disks](../articles/storage/storage-managed-disks-overview.md).
+## <a name="use-managed-disks-for-vms-in-availability-set"></a>Usar Managed Disks para VMs no Conjunto de Disponibilidade
+Se você estiver usando atualmente MVs com discos não gerenciados, é altamente recomendável [converter as VMs no Conjunto de Disponibilidade para usar os Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
 
-Se você usar discos não gerenciados, existem melhores práticas a serem seguidas com relação a contas de armazenamento usadas pelos VHDs (discos rígidos virtuais) contidos na VM. Cada disco (VHD) é um blob de páginas em uma conta de Armazenamento do Azure. É importante garantir que haja redundância e isolamento entre as contas de armazenamento para fornecer alta disponibilidade para VMs no Conjunto de Disponibilidade.
+Os [Managed Disks](../articles/storage/storage-managed-disks-overview.md) fornecem melhor confiabilidade para os Conjuntos de Disponibilidade, assegurando que os discos das VMs em um Conjunto de Disponibilidade estejam suficientemente isolados entre si para evitar pontos únicos de falha. Ele faz isso colocando automaticamente os discos em unidades de escala (carimbos) de armazenamentos diferentes. Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. 
+
+Se você planeja usar VMs com [discos não gerenciados](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), siga abaixo as práticas recomendadas para as Contas de armazenamento nas quais os discos rígidos virtuais (VHDs) das VMs são armazenados como [blobs de página](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs). 
 
 1. **Manter todos os discos (sistema operacional e dados) associados a uma VM na mesma conta de armazenamento**
-2. **Os [limites](../articles/storage/storage-scalability-targets.md) da conta de armazenamento devem ser considerados** ao adicionar mais VHDs a uma conta de armazenamento
-3. **Use uma conta de armazenamento distinta para cada VM em um conjunto de disponibilidade.** Várias VMs no mesmo conjunto de disponibilidade NÃO devem compartilhar contas de armazenamento. É aceitável que VMs em diferentes conjuntos de disponibilidade compartilhem contas de armazenamento, desde que as melhores práticas anteriores sejam seguidas
+2. **Examine os [limites](../articles/storage/storage-scalability-targets.md) no número de discos não gerenciados em uma Conta de armazenamento** antes de adicionar mais VHDs a uma conta de armazenamento
+3. **Use uma conta de armazenamento distinta para cada VM em um conjunto de disponibilidade.** Não compartilhe Contas de armazenamento com várias VMs no mesmo Conjunto de Disponibilidade. É aceitável que as VMs em diferentes Conjuntos de Disponibilidade compartilhem as contas de armazenamento, desde que as melhores práticas acima sejam seguidas
 
 <!-- Link references -->
 [Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Configurar cada camada de aplicativo em conjuntos de disponibilidade separados]: #configure-each-application-tier-into-separate-availability-sets
 [Combinar o balanceador de carga com os conjuntos de disponibilidade]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Usar várias contas de armazenamento para cada conjunto de disponibilidade]: #use-multiple-storage-accounts-for-each-availability-set
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Usar Managed Disks para VMs no Conjunto de Disponibilidade]: #use-managed-disks-for-vms-in-availability-set
 

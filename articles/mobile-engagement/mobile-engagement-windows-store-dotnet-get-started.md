@@ -33,7 +33,7 @@ Esse tutorial demonstra um cenário de transmissão simples usando o Mobile Enga
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Configurar o Mobile Engagement para seu aplicativo Windows Universal
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conecte o seu aplicativo ao back-end do Mobile Engagement
+## <a id="connecting-app"></a>Conecte o seu aplicativo ao back-end do Mobile Engagement
 Este tutorial apresenta uma "integração básica," que é o conjunto mínimo necessário para coletar dados e enviar uma notificação por push. A documentação de integração completa pode ser encontrada na [integração do SDK Universal do Windows para o Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md).
 
 Você cria um aplicativo básico com o Visual Studio para demonstrar a integração.
@@ -98,7 +98,7 @@ Agora, você criou um projeto Aplicativo Windows Universal no qual integrará o 
               //... rest of the code
             }
 
-## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>Habilitar monitoramento em tempo real
+## <a id="monitor"></a>Habilitar monitoramento em tempo real
 Para iniciar o envio dos dados e assegurar que os usuários estejam ativos, você deve enviar pelo menos uma tela (Atividade) para o back-end do Mobile Engagement.
 
 1. Em **MainPage.xaml.cs**, adicione a seguinte instrução `using`:
@@ -120,10 +120,10 @@ Para iniciar o envio dos dados e assegurar que os usuários estejam ativos, voc�
 >
 > Para os **Aplicativos Universais do Windows 10**, use o método recomendado na seção "Método recomendado: sobrecarregar suas classes de Página" dos [Relatórios avançados com o SDK de Engajamento para Aplicativos Universais do Windows](mobile-engagement-windows-store-advanced-reporting.md), em vez do método mencionado acima.
 
-## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Conectar o aplicativo com monitoramento em tempo real
+## <a id="monitor"></a>Conectar o aplicativo com monitoramento em tempo real
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Habilitar notificações por push e mensagens no aplicativo
+## <a id="integrate-push"></a>Habilitar notificações por push e mensagens no aplicativo
 O Mobile Engagement permite interagir e entrar em contato com usuários com notificações por push e mensagens no aplicativo no contexto de campanhas. Esse módulo é chamado de REACH no portal do Mobile Engagement.
 As seções a seguir configuram seu aplicativo para recebê-las.
 
@@ -167,7 +167,7 @@ Você está pronto para enviar uma saudação. Em seguida, verificamos se você 
 
     ![][7]
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Envie uma notificação para seu aplicativo
+## <a id="send"></a>Envie uma notificação para seu aplicativo
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Se o aplicativo estiver em execução, você verá uma notificação no aplicativo. Caso contrário, se o aplicativo estiver fechado, verá uma notificação do toast.

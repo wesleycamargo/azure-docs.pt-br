@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/10/2017
 ms.author: haining;garye
 translationtype: Human Translation
-ms.sourcegitcommit: de2c4d3d354ef3665134302655f602b043aa8ab0
-ms.openlocfilehash: 106efcd5580f91d6d1ed926b19c142d8ea0b0c7c
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4ed387d9ef595312d4fcde78b2fdc3644e96ee27
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -40,7 +40,7 @@ Acesse a home page das [Competições](https://gallery.cortanaintelligence.com/c
 
 1. Encontre a competição de que você gostaria de participar, leia todas as instruções e assista ao vídeo do tutorial. Em seguida, clique no botão **Participar da Competição** para copiar o Teste Inicial para seu espaço de trabalho existente do Azure Machine Learning. Se você ainda não tiver acesso ao espaço de trabalho, crie um com antecedência. Execute o Teste Inicial, observe a métrica de desempenho e use sua criatividade para melhorar o desempenho do modelo. Provavelmente, você passará a maior parte do seu tempo nessa etapa.   
 
-2. Crie um Teste Preditivo com o modelo treinado fora do Teste Inicial. Em seguida, ajuste cuidadosamente o esquema de entrada e saída do serviço Web para garantir que eles estejam em conformidade com os requisitos especificados nas regras da Competição. Geralmente, o documento do tutorial terá instruções detalhadas sobre como fazer isso. Também será possível assistir ao vídeo do tutorial, se ele estiver disponível.   
+2. Crie um Teste Preditivo com o modelo treinado fora do Teste Inicial. Em seguida, ajuste cuidadosamente o esquema de entrada e saída do serviço Web para garantir que eles estejam em conformidade com os requisitos especificados nas regras da competição. Geralmente, o documento do tutorial terá instruções detalhadas sobre como fazer isso. Também será possível assistir ao vídeo do tutorial, se ele estiver disponível.   
 
 3. Implante um serviço Web fora do Teste Preditivo. Teste o serviço Web usando o botão **Teste**
 ou o modelo do Excel criado automaticamente para verificar se ele está funcionando corretamente.   
@@ -51,7 +51,7 @@ Depois de enviar uma entrada, é possível retornar ao Teste Inicial copiado, it
 
 **Posso usar ferramentas de software livre para participar dessas competições?**
 
-Os participantes da competição usam o Azure Machine Learning Studio, um serviço baseado em nuvem no Cortana Intelligence Suite para o desenvolvimento de modelos de ciência de dados e a criação de entradas da Competição para envio. O Estúdio AM não só fornece uma GUI para construir testes de aprendizado de máquina, mas também permite colocar seus próprios scripts de R e/ou Python para execução nativa. Os tempos de execução de R e Python no Estúdio vêm com um amplo conjunto de pacotes de R/Python de software livre e também é possível importar seus próprios pacotes como parte do teste. O Estúdio também tem um serviço interno do Jupyter Notebook para você explorar dados livremente. Claro, você sempre pode baixar os conjuntos de dados usados na Competição e explorá-los em sua ferramenta favorita fora do Estúdio AM. 
+Os participantes da competição usam o Azure Machine Learning Studio, um serviço baseado em nuvem no Cortana Intelligence Suite para o desenvolvimento de modelos de ciência de dados e a criação de entradas da competição para envio. O Estúdio AM não só fornece uma GUI para construir testes de aprendizado de máquina, mas também permite colocar seus próprios scripts de R e/ou Python para execução nativa. Os tempos de execução de R e Python no Estúdio vêm com um amplo conjunto de pacotes de R/Python de software livre e também é possível importar seus próprios pacotes como parte do teste. O Estúdio também tem um serviço interno do Jupyter Notebook para você explorar dados livremente. Claro, você sempre pode baixar os conjuntos de dados usados na competição e explorá-los em sua ferramenta favorita fora do Machine Learning Studio. 
 
 **É necessário ser um cientista de dados para participar?**
 
@@ -63,7 +63,7 @@ Não. Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidad
 
 **Posso me inscrever com meus colegas como uma equipe?**
 
-Atualmente, não há suporte para a participação de equipes na plataforma da Competição. Cada entrada na Competição está vinculada a uma identidade de usuário exclusiva. 
+Atualmente, não há suporte para a participação de equipes na plataforma da competição. Cada entrada na Competição está vinculada a uma identidade de usuário exclusiva. 
 
 **Preciso pagar para participar de uma competição?**
 
@@ -81,10 +81,10 @@ Veja o que acontece:
 * Os dados de treinamento são carregados e fornecidos a você como parte do Experimento Inicial na configuração do módulo Importar Dados.
 * Os dados de teste adicionais são divididos em dados de teste públicos e privados usando a mesma estratificação.
 * Os dados de teste públicos são usados na fase inicial de pontuação. O resultado é chamado de pontuação pública e é isso que você vê em seu histórico de envio ao enviar sua entrada. Essa pontuação é calculada para cada entrada que você enviar. Essa pontuação pública é usada para classificá-lo no placar de líderes público.
-* Os dados de teste privado são usados na fase final de pontuação após o encerramento da Competição. Eles são chamados de pontuação privada. 
+* Os dados de teste privado são usados na fase final de pontuação após o encerramento da competição. Eles são chamados de pontuação privada. 
 * Para cada participante, um número fixo de entradas com as pontuações públicas mais altas são selecionadas automaticamente para entrar na rodada de pontuação privada (esse número pode variar de acordo com a competição). A entrada com a pontuação privada mais alta é selecionada para entrar na classificação final, que, em última análise, determina os vencedores do prêmio.  
 
-**Os Clientes podem patrocinar uma Competição em nossa plataforma?**
+**Os clientes podem hospedar uma competição em nossa plataforma?**
 
 Apreciamos que organizações de terceiros se juntem a nós e patrocinem competições públicas e privadas em nossa plataforma. Temos uma equipe de integração de competições que ficará contente em discutir o processo de integração de tais competições.  Entre em contato conosco pelo email [compsupport@microsoft.com](mailto:compsupport@microsoft.com) para obter mais detalhes. 
 
@@ -92,11 +92,11 @@ Apreciamos que organizações de terceiros se juntem a nós e patrocinem competi
 
 Uma competição típica pode optar por limitar o número de entradas que você pode enviar em um período de 24 horas (fuso horário UTC 00:00:00 a 23:59:59) e o número total de entradas que você pode enviar ao longo da competição. Você receberá mensagens de erro apropriadas quando um limite for excedido. 
 
-**O que acontecerá se eu ganhar uma Competição?**
+**O que acontecerá se eu ganhar uma competição?**
 
 A Microsoft verificará os resultados do placar de líderes privado e entrará em contato com você. Certifique-se de que o endereço de email em seu perfil do usuário está atualizado.
 
-**Como faço para receber a recompensa se eu ganhar uma Competição?**
+**Como faço para receber a recompensa se eu ganhar uma competição?**
 
 Se você for um vencedor do concurso, precisará assinar uma declaração de qualificação, licença e isenção. Este formulário reitera as Regras da Competição. Os vencedores precisarão preencher um formulário Fiscal dos EUA W-9 ou um formulário W-8BEN se não forem contribuintes dos EUA. Entraremos em contato com todos os vencedores como parte do processo de pagamento de recompensas usando seu email de registro. Consulte nossos [Termos e Condições](http://aka.ms/comptermsandconditions) para obter mais detalhes.
 
@@ -104,15 +104,15 @@ Se você for um vencedor do concurso, precisará assinar uma declaração de qua
 
 A hora de envio fará o desempate. A entrada enviada mais cedo prevalecerá sobre a entrada enviada mais tarde.
 
-**Posso participar usando um espaço de trabalho Convidado?**
+**Posso participar usando um espaço de trabalho convidado?**
 
-Não. Você deve usar um espaço de trabalho Gratuito ou Standard para participar. É possível abrir o teste inicial da Competição em um espaço de trabalho Convidado, mas você não poderá criar uma entrada válida para envio nesse espaço de trabalho. 
+Não. Você deve usar um espaço de trabalho Gratuito ou Standard para participar. É possível abrir o teste inicial da competição em um espaço de trabalho Convidado, mas você não poderá criar uma entrada válida para envio nesse espaço de trabalho. 
 
-**Posso participar usando um Espaço de Trabalho em qualquer região do Azure?**
+**Posso participar usando um espaço de trabalho em qualquer região do Azure?**
 
-Atualmente, a plataforma de Competição dá suporte somente a entradas enviadas de um espaço de trabalho na região do Azure no **Centro-Sul dos EUA**. Todos os espaços de trabalho Livres residem no Centro-Sul dos EUA, assim, é possível enviar uma entrada de qualquer espaço de trabalho gratuito. Se você optar por usar um espaço de trabalho Standard, verifique se ele reside na região do Azure no Centro-Sul dos EUA, caso contrário, seu envio não será bem-sucedido. 
+Atualmente, a plataforma de competição dá suporte somente a entradas enviadas de um espaço de trabalho na região do Azure no **Centro-Sul dos EUA**. Todos os espaços de trabalho Livres residem no Centro-Sul dos EUA, assim, é possível enviar uma entrada de qualquer espaço de trabalho gratuito. Se você optar por usar um espaço de trabalho Standard, verifique se ele reside na região do Azure no Centro-Sul dos EUA, caso contrário, seu envio não será bem-sucedido. 
 
-**Podemos manter as Soluções/Entradas das Competições dos Usuários?**
+**Podemos manter as soluções e entradas das competições dos usuários?**
 
 As entradas de usuário são mantidas somente para fins de avaliação para identificar as soluções vencedoras. Consulte nossos [Termos e Condições](http://aka.ms/comptermsandconditions) para obter informações específicas.
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9c027decf5d982519bc9f41aa9588fa431ef3975
-ms.openlocfilehash: 17ad8938cbee539e74f87210077a12c72e777edc
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: a1d7c2f01d3bf345f63077c4d42d79476235e941
+ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="tutorial-azure-ad-integration-with-slack"></a>Tutorial: integração do Azure AD com o Slack
+# <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integração do Active Directory do Azure com o Slack
 
 Neste tutorial, você aprenderá a integrar o Slack ao Azure AD (Azure Active Directory).
 
@@ -39,8 +39,10 @@ Para configurar a integração do Azure AD ao Slack, você precisará dos seguin
 * Uma assinatura do AD do Azure
 * Uma assinatura habilitada pelo SSO do Slack
 
-> [!NOTE]
-> Não é recomendável testar as etapas neste tutorial usando um ambiente de produção.
+>[!NOTE]
+>Não é recomendável testar as etapas neste tutorial usando um ambiente de produção.
+>
+>
 
 Para testar as etapas neste tutorial, siga estas recomendações:
 
@@ -76,7 +78,7 @@ Para configurar a integração do Slack no Azure AD, adicione o Slack na galeria
 
 6. No painel de resultados, selecione **Slack** e clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Selecionar "Slack" no painel de resultados](./media/active-directory-saas-slack-tutorial/tutorial_slack_0001.png)
+     ![Selecionar "Slack" no painel de resultados](./media/active-directory-saas-slack-tutorial/tutorial_slack_0001.png)
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar o SSO do Azure AD
 Nesta seção, você irá configurar e testar o SSO do Azure AD com o Slack usando o usuário de teste “Brenda Fernandes”.
@@ -85,13 +87,13 @@ Para SSO funcionar, o Azure AD deve estabelecer uma relação de vínculo entre 
 
 Para configurar e testar o SSO do Azure AD com o Slack, conclua os seguintes blocos de construção:
 
-1. [Configure o SSO do Azure AD](#configuring-azure-ad-single-sign-on) para permitir que o usuário use esse recurso.
+1. [Configure o logon único do Azure AD](#configuring-azure-ad-single-sign-on) para habilitar o usuário a usar esse recurso.
 2. [Crie um usuário de teste do Azure AD](#creating-an-azure-ad-test-user) para testar o SSO do Azure AD com o usuário Brenda Fernandes.
 3. [Crie um usuário de teste do Slack](#creating-a-slack-test-user) para fornecer ao usuário Brenda Fernandes do Azure AD um equivalente do Slack para vincular.
 4. [Atribua o usuário de teste do Azure AD](#assigning-the-azure-ad-test-user) para permitir que o usuário Brenda Fernandes use SSO do Azure AD.
-5. [Teste o SSO](#testing-single-sign-on) para verificar se a configuração funciona.
+5. [Teste o logon único](#testing-single-sign-on) para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilita o SSO do Azure AD no portal do Azure e configura o SSO em seu aplicativo Slack fazendo seguinte:
 
@@ -106,13 +108,13 @@ Nesta seção, você habilita o SSO do Azure AD no portal do Azure e configura o
 3. Em **Domínio e URLS do Slack**, execute as seguintes etapas:
 
     ![Caixa de diálogo "Logon único"](./media/active-directory-saas-slack-tutorial/tutorial_slack_02.png)
+  1. Na caixa **URL de logon**, digite uma URL que usa a convenção de nomenclatura _https://<company name>.slack.com_.
+  2. Na caixa **Identificador**, digite **https://slack.com**.
 
-    a. Na caixa **URL de logon**, digite uma URL que usa a convenção de nomenclatura *https://<company name>.slack.com*.
-
-    b. Na caixa **Identificador**, digite **https://slack.com**.
-
-    > [!NOTE]
-    > Os valores anteriores não são valores reais. Aqui, é recomendável usar valores exclusivos para a URL e o identificador. Posteriormente, você irá atualizar os valores com a URL e o identificador reais. Para obter os valores, entre em contato com a [equipe de suporte do Slack](https://slack.com/help/contact).
+     >[!NOTE]
+     >Os valores anteriores não são valores reais. Aqui, é recomendável usar valores exclusivos para a URL e o identificador. Posteriormente, você irá atualizar os valores com a URL e o identificador reais. Para obter os valores, entre em contato com a [equipe de suporte do Slack](https://slack.com/help/contact).
+     >
+     >
 
 4. O aplicativo Slack espera que as asserções SAML (Security Assertion Markup Language) sejam exibidas em um formato específico. Configure as declarações e gerencie os valores dos atributos na seção **Atributos do Usuário** da página de integração de aplicativos do Slack como mostrado na seguinte captura de tela:
 
@@ -127,19 +129,15 @@ Nesta seção, você habilita o SSO do Azure AD no portal do Azure e configura o
     | last_name | user.surname |
     | User.Username | extractmailprefix([userprincipalname]) |
 
-    a. Clique no botão **Adicionar atributo**.
+    1. Clique no botão **Adicionar atributo**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-slack-tutorial/tutorial_slack_04.png)
-
-    b. Na caixa de diálogo **Adicionar Atributo**, na caixa **Nome**, digite o primeiro nome na coluna **Nome do atributo** da tabela.
+    ![Configurar o logon único](./media/active-directory-saas-slack-tutorial/tutorial_slack_04.png)
+    2. Na caixa de diálogo **Adicionar Atributo**, na caixa **Nome**, digite o primeiro nome na coluna **Nome do atributo** da tabela.
 
     ![Configurar Logon Único](./media/active-directory-saas-slack-tutorial/tutorial_slack_05.png)
-
-    c. Na caixa **Valor**, digite o primeiro valor na coluna **Valor do atributo** da tabela.
-
-    d. Clique em **OK**.
-
-    e. Repita as etapas de "a" até "d" para as três linhas da tabela seguintes.
+    3. Na caixa **Valor**, digite o primeiro valor na coluna **Valor do atributo** da tabela.
+    4. Clique em **OK**.
+    5. Repita as etapas de "a" até "d" para as três linhas da tabela seguintes.
 
 6. Em **Certificado de Assinatura de SAML**, clique em **Criar novo certificado**.
 
@@ -180,24 +178,15 @@ Nesta seção, você habilita o SSO do Azure AD no portal do Azure e configura o
 15. Na caixa de diálogo **Configurações de Autenticação de SAML**, realize as seguintes etapas:
 
     ![Caixa de diálogo "Configurações de Autenticação de SAML"](./media/active-directory-saas-slack-tutorial/tutorial_slack_003.png)
-
-    a. Na caixa **Ponto de Extremidade do SAML 2.0 (HTTP)**, digite o valor da **URL do Serviço de Logon Único da SAML** na janela de configuração de aplicativos do Azure AD.
-
-    b. Na caixa **Emissor do Provedor de Identidade**, digite o valor da **ID de Entidade da SAML** na janela de configuração de aplicativos do Azure AD.
-
-    c. Abra o arquivo de certificados baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa **Certificado Público**.
-
-    d. Configure as três definições anteriores como for apropriado para sua equipe do Slack. Para obter mais informações sobre as configurações, consulte o [Guia para logon único com Slack](https://get.slack.help/hc/en-us/articles/220403548-Guide-to-single-sign-on-with-Slack).
-
-    e. Clique em **Salvar Configuração**.
-
-    <!-- Desmarque **Permitir que os usuários alterem seu endereço de email**.
-
-    e. Selecione **Permitir que os usuários escolham seu próprio nome de usuário**.
-
-    f. Para **A autenticação de sua equipe deve ser usada por**, selecione **É opcional**. -->
-
-
+  1. Na caixa **Ponto de Extremidade do SAML 2.0 (HTTP)**, digite o valor da **URL do Serviço de Logon Único da SAML** na janela de configuração de aplicativos do Azure AD.
+  2. Na caixa **Emissor do Provedor de Identidade**, digite o valor da **ID de Entidade da SAML** na janela de configuração de aplicativos do Azure AD.
+  3. Abra o arquivo de certificados baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa **Certificado Público**.
+  4. Configure as três definições anteriores como for apropriado para sua equipe do Slack. Para obter mais informações sobre as configurações, consulte o [Guia para logon único com Slack](https://get.slack.help/hc/en-us/articles/220403548-Guide-to-single-sign-on-with-Slack).
+  5. Clique em **Salvar Configuração**.
+  6. Desmarque **Permitir que os usuários alterem seu endereço de email**.
+  7. Selecione **Permitir que os usuários escolham seu próprio nome de usuário**.
+  8. Para **A autenticação de sua equipe deve ser usada por**, selecione **É opcional**.
+  
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 Nesta seção, você criará um usuário de teste no portal do Azure denominado Brenda Fernandes fazendo o seguinte:
 
@@ -216,14 +205,10 @@ Nesta seção, você criará um usuário de teste no portal do Azure denominado 
 4. Na caixa de diálogo **Usuário**, insira as seguintes informações:
 
     ![Caixa de diálogo "Usuário"](./media/active-directory-saas-slack-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha**, em seguida, anote o valor mostrado na caixa **Senha**.
-
-    d. Clique em **Criar**.
+  1. Na caixa **Nome**, digite **BrendaFernandes**.
+  2. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+  3. Marque a caixa de seleção **Mostrar Senha**, em seguida, anote o valor mostrado na caixa **Senha**.
+  4. Clique em **Criar**.
 
 ### <a name="create-a-slack-test-user"></a>Criar um usuário de teste do Slack
 
@@ -231,8 +216,10 @@ Nesta seção, é criado um usuário denominado Brenda Fernandes no Slack. O Sla
 
 Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Slack, um novo será criado quando você tentar acessar o Slack.
 
-> [!NOTE]
-> Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Slack](https://slack.com/help/contact).
+>[!NOTE]
+>Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Slack](https://slack.com/help/contact).
+>
+>
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -264,7 +251,7 @@ Para atribuir o usuário Brenda Fernandes ao Slack, realize as seguintes etapas:
 
 7. Na folha **Adicionar Atribuição**, clique no botão **Atribuir**.
 
-### <a name="test-sso"></a>Testar SSO
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de SSO do Azure AD usando o Painel de Acesso.
 

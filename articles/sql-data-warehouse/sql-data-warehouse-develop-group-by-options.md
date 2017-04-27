@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8c486ca190ae2af650a7fa17843c84538dde8d9
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Agrupar por opções de SQL Data Warehouse
-A cláusula [GROUP BY][GROUP BY] é usada para agregar dados a um conjunto de linhas resumido. Ela também tem algumas opções que ampliam sua funcionalidade que precisam ser solucionadas pois não tem suporte diretamente pelo SQL Data Warehouse do Azure.
+A cláusula [GROUP BY][GROUP BY] é usada para agregar dados a um conjunto de linhas de resumo. Ela também tem algumas opções que ampliam sua funcionalidade que precisam ser solucionadas pois não tem suporte diretamente pelo SQL Data Warehouse do Azure.
 
 Essas opções são
 
@@ -181,22 +183,17 @@ ORDER BY 1,2,3
 Dividir o código em seções e gerar uma construção de loop, torna o código mais gerenciável e sustentável.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvimento][visão geral de desenvolvimento].
+Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento][development overview].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
-[visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

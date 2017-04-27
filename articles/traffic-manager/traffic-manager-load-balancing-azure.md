@@ -190,7 +190,7 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 
 #### <a name="configure-the-load-balancing-rules"></a>Configuração de regras de balanceamento de carga
 
-1. Em **Configurações **do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
+1. Em **Configurações**do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
 2. Na folha **Adicionar regra de balanceamento da carga**, insira o **Nome** para a regra de balanceamento de carga.
 3. Escolha o **Endereço de IP de front-end do balanceador de carga**, o **Protocolo** e a **Porta**.
 4. Em **Porta de back-end**, especifique a porta a ser usada no pool de back-end.

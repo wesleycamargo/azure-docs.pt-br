@@ -35,7 +35,7 @@ Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum
 Se você replicar VMs VMware ou servidores físicos com Windows/Linux no Azure, será possível cancelar o registro de um servidor de configuração conectado em um cofre da seguinte maneira:
 
 1. Desabilite o proteção da máquina. Em **Itens Protegidos** > **Itens Replicados**, clique com o botão direito na máquina > **Excluir**.
-2. Desassocie todas as políticas. Em **Infraestrutura do Site Recovery** > **Para Máquinas Físicas e de VMWare ** > **Políticas de Replicação**, clique duas vezes na política associada. Clique com botão direito no servidor de configuração > **Desassociar**.
+2. Desassocie todas as políticas. Em **Infraestrutura do Site Recovery** > **Para Máquinas Físicas e de VMWare** > **Políticas de Replicação**, clique duas vezes na política associada. Clique com botão direito no servidor de configuração > **Desassociar**.
 3. Remova qualquer outro processo local ou servidores de destino mestre. Em **Infraestrutura do Site Recovery** > **Para Máquinas Físicas e de VMWare** > **Servidores de Configuração**, clique com o botão direito no servidor > **Excluir**.
 4. Excluir o servidor de configuração.
 5. Desinstale manualmente o serviço Mobilidade que está em execução no servidor de destino mestre (será um servidor separado ou em execução no servidor de configuração).

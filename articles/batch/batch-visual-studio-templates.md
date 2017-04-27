@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -55,7 +55,7 @@ Conforme mostrado no diagrama a seguir, um trabalho de computação que usa esse
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar os modelos do Lote, você precisará do seguinte:
 
-* Um computador com Visual Studio 2015, ou mais recente, instalado.
+* Um computador com o Visual Studio 2015 instalado. Modelos de lote atualmente só têm suporte para o Visual Studio 2015.
 * Os modelos do Lote, disponíveis na [Galeria do Visual Studio][vs_gallery] como extensões do Visual Studio. Há duas maneiras de obter os modelos:
   
   * Instalar os modelos usando a caixa de diálogo **Extensões e Atualizações** no Visual Studio (para saber mais, confira [Localizando e usando extensões do Visual Studio][vs_find_use_ext]). Na caixa de diálogo **Extensões e Atualizações** , procure e baixe as duas extensões a seguir:

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 4e25ec1ece6017dc58c24ce593802293b7fc12b8
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: f15654f621bafb2617bdb456bbda0233db656be5
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -68,7 +68,7 @@ Essas restrições são provenientes dos padrões DNS e não são limitações d
 
 Um conjunto de registros NS é criado automaticamente no ápice de cada zona (nome = '@') e é excluído automaticamente quando a zona é excluída (ele não pode ser excluído separadamente).  Você pode modificar o TTL desse conjunto de registros, mas não pode modificar os registros que são pré-configurados para se referirem aos servidores de nomes do DNS do Azure atribuídos à zona.
 
-Você pode criar e excluir outros registros NS dentro da zona, mas não no ápice da zona.  Isso permite que você configure zonas filho (confira [Delegando subdomínios no DNS do Azure](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns)).
+Você pode criar e excluir outros registros NS dentro da zona, mas não no ápice da zona.  Isso permite que você configure zonas filho (confira [Delegando subdomínios no DNS do Azure](dns-domain-delegation.md)).
 
 ### <a name="soa-records"></a>Registros SOA
 
@@ -78,11 +78,7 @@ Você pode modificar todas as propriedades do registro SOA, exceto a propriedade
 
 ### <a name="spf-records"></a>Registros SPF
 
-Os registros SPF (Sender Policy Framework) são usados para especificar quais servidores de email têm permissão para enviar email em nome de um nome de domínio específico.  A configuração correta dos registros SPF é importante para evitar que os destinatários marquem seu email como 'lixo'.
-
-As RFCs do DNS originalmente introduziram um novo tipo de registro 'SPF' para dar suporte a esse cenário. Para dar suporte a servidores de nomes mais antigos, eles também permitiram o uso do tipo de registro TXT para especificar registros SPF.  Essa ambiguidade causou confusão, que foi resolvida pela [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Ela define que os registros SPF só devem ser criados com o tipo de registro TXT e que o tipo de registro SPF é preterido.
-
-**Os registros SPF têm suporte do DNS do Azure e devem ser criados usando o tipo de registro TXT.** Não há suporte para o tipo de registro SPF obsoleto. Ao [importar um arquivo de zona DNS](dns-import-export.md), eventuais registros SPF que usam o tipo de registro SPF serão convertidos para o tipo de registro TXT.
+[!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
 ### <a name="srv-records"></a>Registros SRV
 
@@ -99,7 +95,7 @@ Os padrões do DNS permitem que um único registro TXT contenha várias cadeias 
 
 Ao chamar a API REST de DNS do Azure, é necessário especificar cada cadeia de caracteres TXT separadamente.  Ao usar interfaces do Portal do Azure, PowerShell ou CLI é necessário especificar uma cadeia de caracteres única por registro, que é dividida automaticamente em segmentos de 254 caracteres, se necessário.
 
-As várias cadeias de caracteres em um registro DNS não devem ser confundidas com os vários registros TXT em um conjunto de registros TXT.  Um conjunto de registros TXT pode conter vários registros e *cada um deles* pode conter várias cadeias de caracteres.  O DNS do Azure dá suporte a um tamanho total de até 1024 caracteres em cada conjunto de registros TXT (entre todos os registros combinados). 
+As várias cadeias de caracteres em um registro DNS não devem ser confundidas com os vários registros TXT em um conjunto de registros TXT.  Um conjunto de registros TXT pode conter vários registros e *cada um deles* pode conter várias cadeias de caracteres.  O DNS do Azure dá suporte a um tamanho total de até 1024 caracteres em cada conjunto de registros TXT (entre todos os registros combinados).
 
 ## <a name="tags-and-metadata"></a>Marcas e metadados
 
@@ -141,5 +137,4 @@ Os limites padrão abaixo se aplicam ao usar o DNS do Azure:
 
 * Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e a [criar registros DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 2703a7ae9274e6bef38e530839c1a7c5ad69fb88
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: cbf4f1a3bce53844e032c49637d4cfd9dd722679
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -47,15 +47,15 @@ A conclusão do processo de migração em sua totalidade pode exigir ações adi
 Esta seção garante que você se prepare para seguir as etapas de migração neste artigo e o ajuda a tomar a melhor decisão quanto a tipos de VM e disco.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-* Você também precisará de uma assinatura do Azure. Se ainda não tiver uma, você poderá criar uma assinatura de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) de um mês ou visitar [Preços do Azure](https://azure.microsoft.com/pricing/) para obter mais opções.
+* Você também precisará de uma assinatura do Azure. Se você ainda não tiver uma, você poderá criar uma assinatura de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) de um mês ou visitar [Preços do Azure](https://azure.microsoft.com/pricing/) para obter mais opções.
 * Para executar os cmdlets PowerShell, você precisará do módulo Microsoft Azure PowerShell. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs) para obter o ponto e as instruções de instalação.
-* Quando planeja usar VMs do Azure em execução no Armazenamento Premium, você precisa usar VMs compatíveis com o Armazenamento Premium. Você pode usar discos de Armazenamento Standard e Premium com VMs compatíveis com o Armazenamento Premium. Os discos de armazenamento Premium estarão disponíveis com mais tipos de VM no futuro. Para obter informações sobre todos os tamanhos e tipos de discos de VM do Azure disponíveis, veja [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md).
+* Quando planeja usar VMs do Azure em execução no Armazenamento Premium, você precisa usar VMs compatíveis com o Armazenamento Premium. Você pode usar discos de Armazenamento Standard e Premium com VMs compatíveis com o Armazenamento Premium. Os discos de armazenamento Premium estarão disponíveis com mais tipos de VM no futuro. Para obter informações sobre todos os tamanhos e tipos de discos de VM do Azure disponíveis, veja [Tamanhos para máquinas virtuais](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Considerações
 Uma VM do Azure dá suporte à anexação vários discos de Armazenamento Premium, para que seus aplicativos possam ter até 64 TB de armazenamento por VM. Com o Armazenamento Premium, seus aplicativos podem atingir 80.000 IOPS (operações de entrada/saída por segundo) por VM e taxa de transferência de disco de 2.000 MB por segundo por VM com latências extremamente baixas para operações de leitura. Você tem opções de várias VMs e Discos. Esta seção se destina a ajudá-lo a encontrar uma opção mais adequada para sua carga de trabalho.
 
 #### <a name="vm-sizes"></a>Tamanhos de VM
-As especificações de tamanho de VM do Azure são listadas em [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Examine as características de desempenho das máquinas virtuais que funcionam com o Armazenamento Premium e escolha o tamanho de VM mais apropriado que melhor atende à sua carga de trabalho. Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco.
+As especificações de tamanho de VM do Azure são listadas em [Tamanhos para máquinas virtuais](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Examine as características de desempenho das máquinas virtuais que funcionam com o Armazenamento Premium e escolha o tamanho de VM mais apropriado que melhor atende à sua carga de trabalho. Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco.
 
 #### <a name="disk-sizes"></a>Tamanhos do disco
 Há três tipos de discos que podem ser usados com a VM e cada um tem IOPs específicos e limites de taxa de transferência. Leve em consideração esses limites ao escolher o tipo de disco para sua VM com base nas necessidades de seu aplicativo em termos de capacidade, desempenho, escalabilidade e cargas de pico.
@@ -66,7 +66,7 @@ Há três tipos de discos que podem ser usados com a VM e cada um tem IOPs espec
 | IOPS por disco |500 |2.300 |5.000 |
 | Taxa de transferência por disco |100 MB por segundo |150 MB por segundo |200 MB por segundo |
 
-Dependendo da carga de trabalho, determine se discos de dados adicionais são necessários para sua VM. Você pode anexar diversos discos de dados persistentes à sua VM. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. (Veja o que é a distribuição de disco [aqui](storage-premium-storage-performance.md#disk-striping).) Se você distribuir discos de dados do Armazenamento Premium usando [Espaços de Armazenamento][4], deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Para as VMs do Linux, você pode usar o utilitário *mdadm* para obter o mesmo resultado. Consulte o artigo [Configurar o Software RAID no Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter detalhes.
+Dependendo da carga de trabalho, determine se discos de dados adicionais são necessários para sua VM. Você pode anexar diversos discos de dados persistentes à sua VM. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. (Veja o que é a distribuição de disco [aqui](storage-premium-storage-performance.md#disk-striping).) Se você distribuir discos de dados do Armazenamento Premium usando [Espaços de Armazenamento][4], deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Para as VMs do Linux, você pode usar o utilitário *mdadm* para obter o mesmo resultado. Consulte o artigo [Configurar o Software RAID no Linux](../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter detalhes.
 
 #### <a name="storage-account-scalability-targets"></a>Metas de escalabilidade da conta de armazenamento
 As contas de Armazenamento Premium têm as seguintes metas de escalabilidade, além das [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](storage-scalability-targets.md). Se as exigências de seu aplicativo exceder as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e particione seus dados nessas contas de armazenamento.
@@ -75,10 +75,10 @@ As contas de Armazenamento Premium têm as seguintes metas de escalabilidade, al
 |:--- |:--- |
 | Capacidade de disco: 35 TB<br />Capacidade do instantâneo: 10 TB |Até 50 gigabits para Entrada + Saída |
 
-Para obter mais informações sobre as especificações do Armazenamento Premium, verifique as [Metas de Escalabilidade e Desempenho ao usar o Armazenamento Premium](storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+Para obter mais informações sobre as especificações do Armazenamento Premium, verifique as [Metas de Escalabilidade e Desempenho ao usar o Armazenamento Premium](storage-premium-storage.md#scalability-and-performance-targets).
 
 #### <a name="disk-caching-policy"></a>Política de cache de disco
-Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leituras de entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo. As configurações de cache existentes para os discos de dados podem ser atualizadas usando o [Portal do Azure](https://portal.azure.com) ou o parâmetro *-HostCaching* do cmdlet *Set-AzureDataDisk*.
+Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de E/Ss dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo. As configurações de cache existentes para os discos de dados podem ser atualizadas usando o [Portal do Azure](https://portal.azure.com) ou o parâmetro *-HostCaching* do cmdlet *Set-AzureDataDisk*.
 
 #### <a name="location"></a>Local
 Escolha um local onde o Armazenamento do Azure Premium está disponível. Confira [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre as localizações disponíveis. As máquinas virtuais na mesma região da conta de armazenamento que armazena os discos da VM fornecerão um desempenho muito melhor em relação a estarem em regiões separadas.
@@ -185,11 +185,11 @@ Usando o AzCopy, é possível carregar o VHD facilmente pela Internet. Dependend
 
     Aqui estão as descrições dos parâmetros usados no comando AzCopy:
 
-   * **/Source:*&lt;source&gt;:*** Local da pasta ou URL do contêiner de armazenamento que contém o VHD.
-   * **/SourceKey:*&lt;source-account-key&gt;:*** Chave da conta de armazenamento de origem.
-   * **/Dest:*&lt;destination&gt;:*** O URL do contêiner de armazenamento para o qual copiar o VHD.
-   * **/DestKey:*&lt;dest-account-key&gt;:*** Chave da conta de armazenamento de destino.
-   * **/Pattern:*&lt;file-name&gt;:*** Especifica o nome de arquivo do VHD a ser copiado.
+   * **/Source: *&lt;source&gt;:*** local da pasta ou URL do contêiner de armazenamento que contém o VHD.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** chave de conta de armazenamento de origem.
+   * **/Dest: *&lt;destination&gt;:*** a URL do contêiner de armazenamento para a qual copiar o VHD.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** chave de conta de armazenamento de destino.
+   * **/Pattern: *&lt;file-name&gt;:*** especifica o nome do arquivo do VHD a ser copiado.
 
 Para obter detalhes sobre como usar a ferramenta AzCopy, consulte [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md).
 
@@ -238,7 +238,7 @@ Se você estiver migrando o VHD do Armazenamento em Nuvem não do Azure, primeir
 Se você estiver migrando o VHD do Armazenamento em Nuvem não do Azure, primeiro deverá exportar o VHD para um diretório local. Copie o caminho de origem completo do diretório local onde o VHD está armazenado.
 
 ##### <a name="copy-a-vhd-from-on-premise"></a>Copiar um VHD do local
-Se você estiver migrando o VHD de um ambiente local, será necessário o caminho de origem completo onde o VHD está armazenado. O caminho de origem pode ser um compartilhamento de arquivo ou local do servidor.
+Se você estiver migrando o VHD de um ambiente local, você precisará do caminho de origem completo em que o VHD está armazenado. O caminho de origem pode ser um compartilhamento de arquivo ou local do servidor.
 
 #### <a name="step-2-create-the-destination-for-your-vhd"></a>Etapa 2. Criar o destino para seu VHD
 Crie uma conta de armazenamento para manter seus VHDs. Considere os seguintes pontos ao planejar onde armazenar seus VHDs:
@@ -270,7 +270,7 @@ Usando o AzCopy, é possível carregar o VHD facilmente pela Internet. Dependend
     ```azcopy
     AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
     ```
-    
+
     Exemplo:
 
     ```azcopy
@@ -279,12 +279,12 @@ Usando o AzCopy, é possível carregar o VHD facilmente pela Internet. Dependend
 
     Aqui estão as descrições dos parâmetros usados no comando AzCopy:
 
-   * **/Source:*&lt;source&gt;:*** Local da pasta ou URL do contêiner de armazenamento que contém o VHD.
-   * **/SourceKey:*&lt;source-account-key&gt;:*** Chave da conta de armazenamento de origem.
-   * **/Dest:*&lt;destination&gt;:*** O URL do contêiner de armazenamento para o qual copiar o VHD.
-   * **/DestKey:*&lt;dest-account-key&gt;:*** Chave da conta de armazenamento de destino.
+   * **/Source: *&lt;source&gt;:*** local da pasta ou URL do contêiner de armazenamento que contém o VHD.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** chave de conta de armazenamento de origem.
+   * **/Dest: *&lt;destination&gt;:*** a URL do contêiner de armazenamento para a qual copiar o VHD.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** chave de conta de armazenamento de destino.
    * **/BlobType: page:** Especifica que o destino é um blob de páginas.
-   * **/Pattern:*&lt;file-name&gt;:*** Especifica o nome de arquivo do VHD a ser copiado.
+   * **/Pattern: *&lt;file-name&gt;:*** especifica o nome do arquivo do VHD a ser copiado.
 
 Para obter detalhes sobre como usar a ferramenta AzCopy, consulte [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md).
 
@@ -459,14 +459,14 @@ O script de automação é fornecido abaixo. Substitua o texto por suas informa�
     .Terms of Use
     Copyright © 2015 Microsoft Corporation.  All rights reserved.
 
-    THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND,
+    THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
     EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY
     AND/OR FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK OF USE, INABILITY TO USE, OR
     RESULTS FROM THE USE OF THIS CODE REMAINS WITH THE USER.
 
     .Example (Save this script as Migrate-AzureVM.ps1)
 
-    .\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location “Southeast Asia”
+    .\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location "Southeast Asia"
 
     .Link
     To find more information about how to set up Azure PowerShell, refer to the following links.
@@ -581,7 +581,7 @@ O script de automação é fornecido abaixo. Substitua o texto por suas informa�
     # check if VM is shut down
     if ( $sourceVM.Status -notmatch "Stopped" )
     {
-        Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you’d like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
+        Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you'd like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
         $ContinueAnswer = Read-Host "`n`tDo you wish to stop $SourceVMName now? Input 'N' if you want to shut down the VM manually and come back later.(Y/N)"
         If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
         $sourceVM | Stop-AzureVM

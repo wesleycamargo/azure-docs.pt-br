@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1db5cd0149374842b0201cd6b820436f3822325
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
 Dados de transmissão são dados consolidados de rede e de desempenho recebidos de computadores com agentes do OMS, incluindo agentes do Operations Manager e agentes conectados com o Windows. Os dados de rede são combinados com os dados de log para ajudá-lo a correlacionar dados. Os agentes do OMS instalados nos computadores de sua infraestrutura de TI monitoram os dados de rede enviados e recebidos desses computadores para os níveis de rede 2 e 3 no [modelo OSI](https://en.wikipedia.org/wiki/OSI_model) , incluindo as várias portas e os vários protocolos usados.
 
 > [!NOTE]
-> Atualmente, a solução de Dados de Transmissão não está disponível para ser adicionada aos espaços de trabalho. Os clientes que já têm a solução de Dados de Transmissão habilitada podem continuar usando a solução.
+> Atualmente, a solução de Wire Data 1.0 não está disponível para ser adicionada aos espaços de trabalho. Os clientes que já têm a solução Wire Data 1.0 habilitada podem continuar usando essa solução. Novos clientes, no entanto, deverão usar a solução [Wire Data 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WireData2OMS?tab=Overview).
 >
 >
 
@@ -106,9 +107,4 @@ Requisitos: para usar o exemplo a seguir, você precisará ter a solução de Se
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquise nos logs](log-analytics-log-searches.md) para exibir registros detalhados da pesquisa de dados de transmissão.
 * Veja [a postagem no blog intitulada Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Usando os dados de transmissão na pesquisa de log do Operations Management Suite), em que Dan mostra outras informações sobre a frequência com que os dados são coletados e como você pode modificar as propriedades de coleção dos agentes do Operations Manager.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

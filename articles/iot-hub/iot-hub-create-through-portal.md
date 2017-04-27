@@ -17,6 +17,7 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
 ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -131,7 +132,7 @@ Clique em **Rotas** para gerenciar como o Hub IoT envia suas mensagens do dispos
 
 ![][14]
 
-Você pode adicionar rotas ao Hub IoT clicando em **Adicionar** na parte superior da folha **Rotas***, inserindo as informações necessárias e clicando em **OK**. A rota é listada na folha **Rotas** principal. Para editar uma rota, clique nela na lista de rotas. Para habilitar uma rota, clique nela na lista de rotas e defina o botão **Habilitar/Desabilitar** como **Desabilitar**. Clique em **OK** na parte inferior da folha para salvar a alteração.
+Você pode adicionar rotas ao Hub IoT clicando em **Adicionar** na parte superior da folha **Rotas***, inserindo as informações necessárias e clicando em**OK**. A rota é listada na folha **Rotas**principal. Para editar uma rota, clique nela na lista de rotas. Para habilitar uma rota, clique nela na lista de rotas e defina o botão**Habilitar/Desabilitar**como **Desabilitar**. Clique em **OK** na parte inferior da folha para salvar a alteração.
 
 ![][15]
 
@@ -179,9 +180,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: b3c8a2d54ea05462db8a873c852a70e64111bc2f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ff5deaa15d1f78df249e9e89b1f0ffc82076fee1
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -72,7 +72,7 @@ Primeiro, crie rapidamente um aplicativo do Sails.js padrão em seu ambiente de 
         logDirectory: iisnode
 
     O registro em log está habilitado para o servidor [iisnode](https://github.com/tjanczuk/iisnode) que o Serviço de Aplicativo do Azure usa para executar aplicativos Node.js. 
-    Para saber mais sobre como isso funciona, confira  [Obter os logs de stdout e stderr do iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
+    Para obter mais informações sobre como isso funciona, consulte  [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-debug.md).
 
 2. Em seguida, configure o aplicativo Sails.js para usar variáveis de ambiente do Azure. Abra config/env/production.js para configurar seu ambiente de produção e definir `port` e `hookTimeout`:
 
@@ -161,7 +161,7 @@ Em seguida, crie o recurso de Serviço de Aplicativo no Azure e implante seu apl
 
 ## <a name="troubleshoot-your-deployment"></a>Solucionar problemas de implantação
 Se seu aplicativo Sails.js falhar por algum motivo no Serviço de Aplicativo, encontre os logs de stderr para ajudar na solução de problemas.
-Para saber mais, confira [Obter os logs de stdout e stderr do iisnode](app-service-web-nodejs-get-started.md#get-stdout-and-stderr-logs-from-iisnode).
+Para obter mais informações, consulte [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-debug.md).
 Se o aplicativo tiver sido iniciado com êxito, o log de stdout deverá mostrar a você a mensagem familiar:
 
                    .-..-.
@@ -273,6 +273,6 @@ Para se conectar a um banco de dados no Azure, crie o banco de dados de sua esco
      Se a API retornar outra entrada nova, seu aplicativo Web do Azure estará falando com seu banco de dados DocumentDB (MongoDB).
 
 ## <a name="more-resources"></a>Mais recursos
-* [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-nodejs-get-started.md)
+* [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-get-started-nodejs.md)
 * [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 

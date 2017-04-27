@@ -16,8 +16,3 @@
 | Número de sites |20 |1 por ouvintes HTTP |
 | Mapas de URL por ouvinte |1 | |
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: f32f61824de6a0195fc57b8cb0d73a89c7a06067
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: acf807538c8c9efdadb95c4b66db9a9d5d1f7a6d
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -32,10 +32,10 @@ Este tutorial fornece uma exploração prática de um cenário de solução de p
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Ferramentas para solucionar problemas de aplicativos de armazenamento do Azure
 Para solucionar problemas de aplicativos cliente que usam o armazenamento do Microsoft Azure, você pode usar uma combinação de ferramentas para determinar quando um problema ocorreu e o que pode ser a causa do problema. Essas ferramentas incluem:
 
-* **Análise de Armazenamento do Azure**. [A Análise de Armazenamento do Azure](/rest/api/storageservices/fileservices/Storage-Analytics) fornece métricas e registro em log para o Armazenamento do Azure.
+* **Análise de Armazenamento do Azure**. [A Análise de Armazenamento do Azure](/rest/api/storageservices/Storage-Analytics) fornece métricas e registro em log para o Armazenamento do Azure.
   
-  * **A métrica de armazenamento** controla as métricas de transação e as métricas de capacidade para sua conta de armazenamento. Usando métricas, você pode determinar o desempenho do seu aplicativo de acordo com uma variedade de medidas diferentes. Consulte o [Esquema da Tabela de Métricas de Análise do Armazenamento](/rest/api/storageservices/fileservices/Storage-Analytics-Metrics-Table-Schema) para obter mais informações sobre os tipos de métricas controladas pela Análise de Armazenamento.
-  * **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](/rest/api/storageservices/fileservices/Storage-Analytics-Log-Format) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
+  * **A métrica de armazenamento** controla as métricas de transação e as métricas de capacidade para sua conta de armazenamento. Usando métricas, você pode determinar o desempenho do seu aplicativo de acordo com uma variedade de medidas diferentes. Consulte o [Esquema da Tabela de Métricas de Análise do Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para obter mais informações sobre os tipos de métricas controladas pela Análise de Armazenamento.
+  * **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
 
 > [!NOTE]
 > As contas de armazenamento com um tipo de replicação de armazenamento com redundância de zona (ZRS) não têm métricas ou funcionalidade de log habilitadas no momento. 
@@ -145,7 +145,7 @@ Você pode usar o Analisador de Mensagem para coletar um rastreamento de rede HT
 1. Instale o [Fiddler](http://www.telerik.com/download/fiddler).
 2. Inicie o Fiddler.
 3. Selecione **Ferramentas| Opções do Fiddler**.
-4. Na caixa de diálogo Opções, verifique se **Capturar CONEXÕES HTTPS** e **Descriptografar Tráfego HTTPS** estão selecionadas, conforme mostrado abaixo.
+4. Na caixa de diálogo Opções, verifique se **Capturar CONEXÕES HTTPS**  e **Descriptografar Tráfego HTTPS** estão selecionadas, conforme mostrado abaixo.
 
 ![Configurar Opções do Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 

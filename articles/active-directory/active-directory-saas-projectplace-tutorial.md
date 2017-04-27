@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: aee8458ef8d6e564685cbf4d56f91af7766d1e2a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: fcf3332a6674524ea5354b96826586c79a4ba3e1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -23,14 +24,14 @@ ms.openlocfilehash: aee8458ef8d6e564685cbf4d56f91af7766d1e2a
 O objetivo deste tutorial é mostrar a integração do Azure com o Projectplace. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
-* Uma assinatura do Projectplace com logon único habilitado
+* Uma assinatura do Projectplace com SSO (logon único) habilitado
 
 Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Projectplace poderão fazer logon único no aplicativo em seu site de empresa do Projectplace (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos com o Projectplace
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
@@ -60,7 +61,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
    ![ProjectPlace](./media/active-directory-saas-projectplace-tutorial/IC790219.png "ProjectPlace")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Projectplace com sua conta do AD do Azure usando federação baseada em protocolo SAML.
 
@@ -80,15 +81,15 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
    ![Configurar Logon Único](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Configurar Logon Único")
 5. Envie o metadatafile para a equipe de suporte do Projectplace.
    
-   > [!NOTE]
-   > A configuração de logon único deve ser executada pela equipe de suporte do Projectplace. Assim que a configuração for concluída, você receberá uma notificação.
+   >[!NOTE]
+   >A configuração de logon único deve ser executada pela equipe de suporte do Projectplace. Assim que a configuração for concluída, você receberá uma notificação.
    > 
    > 
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Configurar Logon Único")
    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Para permitir que os usuários do AD do Azure façam logon no Projectplace, eles devem ser provisionados no Projectplace. No caso do Projectplace, o provisionamento é uma tarefa manual.
 
@@ -108,15 +109,15 @@ Para permitir que os usuários do AD do Azure façam logon no Projectplace, eles
    1. Na caixa de texto **Novos Membros** , digite o endereço de email de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
    2. Clique em **Enviar**.
 
- Um email incluindo um link para confirmar a conta antes que ela se torne ativa é enviado ao titular da conta do Active Directory do Azure.
+Um email incluindo um link para confirmar a conta antes que ela se torne ativa é enviado ao titular da conta do Active Directory do Azure.
 
 
-> [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do Projectplace ou APIs fornecidas pelo Projectplace para provisionar as contas de usuário do AAD.
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do Projectplace ou APIs fornecidas pelo Projectplace para provisionar as contas de usuário do AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 **Para atribuir usuários ao Projectplace, execute as seguintes etapas:**
@@ -129,11 +130,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    
    ![Sim](./media/active-directory-saas-projectplace-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 

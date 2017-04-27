@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 41e04425a291c9f89bc58341c6bad22ad1bdb8ef
-ms.openlocfilehash: 90f962fbd19f125cfb609e439f157c4822acfce4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 078a2ea0db006cf976f89a55c65a536a7b9f04aa
+ms.lasthandoff: 04/03/2017
 
 
 ---
 
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Tutorial: Integração do Active Directory do Azure com o Panopto
-O objetivo deste tutorial é mostrar a integração do Azure com o Panopto. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o Panopto. 
+
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
 * Um locatário do Panopto
@@ -31,13 +34,13 @@ Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Panopt
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos para Panopto
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-panopto-tutorial/IC777665.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-panopto"></a>Habilitando a integração de aplicativos para Panopto
+## <a name="enable-the-application-integration-for-panopto"></a>Habilitar a integração de aplicativos para o Panopto
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Panopto.
 
 **Para habilitar a integração de aplicativos para o Panopto, execute as seguintes etapas:**
@@ -66,10 +69,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Panopto com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
 
-Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base&64;.  
+Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. 
+
 Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-**Para configurar o logon único, execute as seguintes etapas:**
+**Para configurar o SSO, execute as seguintes etapas:**
 
 1. No Portal Clássico do Azure, na página de integração do aplicativo **Panopto**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
@@ -99,33 +103,33 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
    3. Na caixa de texto **Descrição Amigável** , digite uma descrição amigável.
    4. No portal clássico do Azure, na página de diálogo **Configurar logon único no Panopto**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
    5. No portal clássico do Azure, na página de diálogo **Configurar logon único no Panopto**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL de Página de Devolução**.
-   6. Crie um arquivo **codificado em base&64;** usando o certificado baixado.    
+   6. Crie um arquivo **codificado em base 64** usando o certificado baixado.    
    
       >[!TIP]
       >Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
       >
       
-   7. Abra seu certificado codificado em Base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Chave Pública**
+   7. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Chave Pública**
    8. Clique em **Salvar**.
 
  ![Salvar](./media/active-directory-saas-panopto-tutorial/IC777673.png "Salvar")
 9. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
-   ![Configurar logon único](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configurar logon único")
+  ![Configurar logon único](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configurar logon único")
    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Não há nenhum item de ação para a configuração de provisionamento de usuário para o Panopto.  
 Quando um usuário atribuído tenta fazer logon no Panopto usando o painel de acesso, o Panopto verifica se o usuário existe.  
 
 Se ainda não houver nenhuma conta de usuário, ela será criada automaticamente pelo Panopto.
 
-> [!NOTE]
-> Você pode usar quaisquer outras ferramentas de criação de contas de usuários do Panopto ou APIs fornecidas pela Panopto para provisionar contas de usuário do AD do Azure.
-> 
+>[!NOTE]
+>Você pode usar quaisquer outras ferramentas de criação de contas de usuários do Panopto ou APIs fornecidas pela Panopto para provisionar contas de usuário do AD do Azure.
+>
+>
 
-
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 **Para atribuir usuários ao Panopto, execute as seguintes etapas:**
@@ -138,11 +142,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    
    ![Sim](./media/active-directory-saas-panopto-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 

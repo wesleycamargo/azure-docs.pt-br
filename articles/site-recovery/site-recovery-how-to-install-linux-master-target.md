@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: ef4324ebf3c24cdf2ebed58e4938f401b66b9c95
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c75a3a2477f113f17aab7a3e1969f15a4ec88a02
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -37,6 +37,13 @@ Publique comentários ou perguntas no final deste artigo ou no [Fórum dos Servi
 * O destino mestre deve estar em uma rede que pode se comunicar com o servidor de processo e com o servidor de configuração.
 * A versão de destino mestre deve ser igual ou anterior às versões de servidor de processo e o servidor de configuração. Por exemplo, se a versão do servidor de configuração for a 9.4, a versão de destino mestre poderá ser 9.4 ou 9.3 mas não 9.5.
 * O destino mestre só pode ser uma máquina virtual VMware e não um servidor físico.
+* O destino mestre precisa seguir estas diretrizes de dimensionamento
+    * RAM – 6 GB ou mais
+    * Tamanho do disco do sistema operacional – 50 GB ou mais (para instalar o CentOS6.6)
+    * Tamanho de disco adicional para a unidade de retenção – 1 TB
+    * Núcleos de CPU – 4 núcleos ou mais
+
+
 
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>Etapas para implantar o servidor de destino mestre
@@ -401,5 +408,6 @@ Você pode prosseguir com a [nova proteção](site-recovery-how-to-reprotect.md)
 
 * Não ative Storage vMotion em quaisquer componentes de gerenciamento como um destino mestre. Se o destino mestre se mover após um proteger novamente com êxito, os VMDKs (discos de máquina virtual) não poderão ser desanexados e o failback falhará.
 * O destino mestre não deve ter todos os instantâneos na máquina virtual. Se houver instantâneos, o failback falhará.
-* Devido a algumas configurações de NIC personalizadas em alguns clientes, a interface de rede é desabilitada durante a inicialização, e não é possível inicializar o destino mestre. Verifique se as propriedades a seguir foram definidas corretamente. Verifique essas propriedades em /etc/sysconfig/network-scripts/ifcfg-eth* do arquivo da placa Ethernet.       * BOOTPROTO=dhcp * ONBOOT=yes
+* Devido a algumas configurações de NIC personalizadas em alguns clientes, a interface de rede é desabilitada durante a inicialização, e não é possível inicializar o destino mestre. Verifique se as propriedades a seguir foram definidas corretamente. Verifique essas propriedades em /etc/sysconfig/network-scripts/ifcfg-eth* do arquivo da placa Ethernet.
+        * BOOTPROTO=dhcp * ONBOOT=yes
 

@@ -16,9 +16,9 @@ ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: f4a79413bc5e660504b4b6b48fcf496fb0f08ade
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -171,7 +171,7 @@ Dimensionar o banco de dados exige as permissões descritas em [ALTERAR BANCO DE
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os artigos a seguir para ajudar a entender alguns dos principais conceitos de desempenho adicionais:
 
-* [Gerenciamento de carga de trabalho e simultaneidade][Gerenciamento de carga de trabalho e simultaneidade]
+* [Gerenciamento da carga de trabalho e simultaneidade][Workload and concurrency management]
 * [Visão geral do design da tabela][Table design overview]
 * [Distribuição de tabelas][Table distribution]
 * [Indexação de tabelas][Table indexing]

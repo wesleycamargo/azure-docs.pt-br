@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 1c46c40b09ca1923190d3c7109d25bd7525cb577
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 843a3cafd5a00dd4b4de04a43f18d58e60a48b29
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -58,7 +59,7 @@ Você não precisa definir nenhum limite nem configurar regras. Aprendizado de m
 
   * Ainda não. Mas você pode:
   * [Configurar alertas](app-insights-alerts.md) que informam quando uma métrica excede um limite.
-  * [Exporte telemetria](app-insights-export-telemetry.md) para um [banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) ou para o [PowerBI](app-insights-export-power-bi.md) ou para [outras](app-insights-code-sample-export-telemetry-sql-database.md) ferramentas, em que será possível analisá-la por conta própria.
+  * [Exporte a telemetria](app-insights-export-telemetry.md) para um [banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) ou para o [PowerBI](app-insights-export-power-bi.md), em que você mesmo poderá analisá-la.
 * *Com que frequência a análise é executada?*
 
   * As análises são executadas todos os dias a partir da telemetria do dia anterior.
@@ -136,9 +137,4 @@ As detecções inteligentes são totalmente automáticas. Mas talvez você queir
 
 * [Alertas de métrica configurados manualmente](app-insights-alerts.md)
 * [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

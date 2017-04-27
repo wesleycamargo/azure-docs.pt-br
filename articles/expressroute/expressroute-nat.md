@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
-ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a7b3f8addbba21e60be0076784ae954f4cedb0b8
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +27,13 @@ Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, voc
 Consulte a página [Circuitos e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md) para obter uma visão geral dos vários domínios de roteamento. Para atender aos requisitos de endereço IP público para o emparelhamento público do Azure e da Microsoft, recomendamos a configuração de NAT entre sua rede e a Microsoft. Esta seção fornece uma descrição detalhada da infraestrutura NAT que precisa ser configurada.
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>Requisitos de NAT para o emparelhamento público do Azure
-O caminho do emparelhamento público do Azure permite que você se conecte a todos os serviços hospedados no Azure por meio de seus endereços IP públicos. Isso inclui os serviços listados nas [Perguntas Frequentes sobre a Rota Expressa](expressroute-faqs.md) e quaisquer serviços hospedados por ISVs no Microsoft Azure. A conectividade com os serviços do Microsoft Azure no emparelhamento público é sempre iniciada de sua rede para a rede da Microsoft. O tráfego destinado ao Microsoft Azure no emparelhamento público deve estar no modo SNAT para endereços IPv4 públicos válidos antes que eles entrem na rede da Microsoft. A figura abaixo fornece uma imagem de alto nível de como a NAT deve ser configurada para atender ao requisito acima.
+O caminho do emparelhamento público do Azure permite que você se conecte a todos os serviços hospedados no Azure por meio de seus endereços IP públicos. Isso inclui os serviços listados nas [Perguntas Frequentes sobre a Rota Expressa](expressroute-faqs.md) e quaisquer serviços hospedados por ISVs no Microsoft Azure. 
+
+> [!IMPORTANT]
+> A conectividade com os serviços do Microsoft Azure no emparelhamento público é sempre iniciada de sua rede para a rede da Microsoft. Portanto, as sessões não podem ser iniciadas dos serviços do Microsoft Azure para sua rede por ExpressRoute. Se você tentar, os pacotes enviados aos IPs indicados usarão a Internet em vez do ExpressRoute.
+> 
+
+O tráfego destinado ao Microsoft Azure no emparelhamento público deve estar no modo SNAT para endereços IPv4 públicos válidos antes que eles entrem na rede da Microsoft. A figura abaixo fornece uma imagem de alto nível de como a NAT deve ser configurada para atender ao requisito acima.
 
 ![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
@@ -54,7 +61,7 @@ O caminho de emparelhamento da Microsoft permite que você se conecte a serviço
   > 
   > 
 
-### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Tráfego com origem na Microsoft e destinado à sua rede 
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Tráfego com origem na Microsoft e destinado à sua rede
 * Certas situações exigem que a Microsoft inicie a conectividade com os pontos de extremidade do serviço hospedados em sua rede. Um exemplo típico dessa situação seria a conectividade com servidores ADFS hospedados em sua rede desde o Office 365. Nesses casos, você deve vazar os prefixos apropriados de sua rede para o emparelhamento da Microsoft. 
 * Você deve colocar no modo SNAT o tráfego destinado aos endereços IP em sua rede da Microsoft. 
 
@@ -66,10 +73,5 @@ O caminho de emparelhamento da Microsoft permite que você se conecte a serviço
   * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
   * [Configurar o roteamento](expressroute-howto-routing-classic.md)
   * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -17,6 +17,7 @@ ms.author: navale;tomfitz;
 translationtype: Human Translation
 ms.sourcegitcommit: 76864bfc1b59cfc4e6f39094c08394fe32482d17
 ms.openlocfilehash: b7957c52877b262506013a422cd1511dd0ee79a4
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -74,7 +75,7 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
 **Gerando um token de acesso usando Bash:**
 
 ```console
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net/&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
 ```
 
 **Gerando um token de acesso usando o PowerShell:**
@@ -252,9 +253,4 @@ A resposta JSON longa para essa solicitação foi omitida para melhorar a legibi
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como lidar com operações assíncronas de REST, confira [Rastrear operações assíncronas do Azure](resource-manager-async-operations.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

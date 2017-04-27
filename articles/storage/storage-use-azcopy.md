@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: e1c4342897fe6cf57e323a82e04e10473b3ece30
-ms.openlocfilehash: 777b84d9aa59f773345c1925c3c6467dc64d2d34
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f703da63c4243c73cf68d3df9953f73d2462ac1c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -402,7 +402,7 @@ O AzCopy gerará um arquivo de dados JSON no contêiner do blob, seguindo esta c
 
 O arquivo de dados JSON gerado segue o formato de carga para metadados mínimos. Para obter detalhes sobre esse formado de carga, confira [Formato de carga para operações do serviço Tabela](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Observe que ao exportar tabelas para blobs, o AzCopy baixará as entidades de tabela para arquivos de dados temporários locais e, em seguida, carregará essas entidades no blob. Esses arquivos de dados temporários são colocados na pasta de arquivos do diário com o caminho padrão "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>", e você pode especificar a opção /Z:[pasta-de-arquivo-do-diário] para alterar o local da pasta de arquivo do diário e, portanto, alterar o local dos arquivos de dados temporários. O tamanho dos arquivos de dados temporários é decidido pelo tamanho das entidades da tabela e pelo tamanho especificado com a opção /SplitSize, embora o arquivo de dados temporários no disco local será excluído imediatamente depois que ele tiver sido carregado para o blob, verifique que você tem espaço suficiente no disco local para armazenar esses arquivos de dados temporários antes de serem excluídos,
+Observe que ao exportar tabelas para blobs, o AzCopy baixará as entidades de tabela para arquivos de dados temporários locais e, em seguida, carregará essas entidades no blob. Esses arquivos de dados temporários são colocados na pasta de arquivos do diário com o caminho padrão "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>" e você pode especificar a opção /Z:[pasta-de-arquivo-do-diário] para alterar o local da pasta de arquivo do diário e, portanto, alterar o local dos arquivos de dados temporários. O tamanho dos arquivos de dados temporários é decidido pelo tamanho das entidades da tabela e pelo tamanho especificado com a opção /SplitSize, embora o arquivo de dados temporários no disco local será excluído imediatamente depois que ele tiver sido carregado para o blob, verifique que você tem espaço em disco local suficiente para armazenar esses arquivos de dados temporários antes de serem excluídos.
 
 ## <a name="table-import"></a>Tabela: importar
 ### <a name="import-table"></a>Importar tabela
@@ -883,7 +883,7 @@ Você pode criar um arquivo app.config `AzCopy.exe.config` com a propriedade `Az
       </appSettings>
     </configuration>
 
-Para a propriedade "AzureStorageUseV1MD5" • True - valor padrão, o AzCopy usará  a implementação MD5 de .NET.
+Para a propriedade "AzureStorageUseV1MD5" • True – valor padrão, o AzCopy usará a implementação MD5 do .NET.
 • False – o AzCopy usará o algoritmo MD5 compatível com FIPS.
 
 Observe que os algoritmos compatíveis com FIPS estão desabilitados por padrão em seu computador com Windows. Digite secpol.msc na janela Executar e marque essa opção em Configuração de Segurança -> Segurança -> Políticas Locais > Opções de Segurança > Criptografia do Sistema: usar algoritmos compatíveis com FIPS para criptografia, hash e assinatura.

@@ -71,7 +71,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 ## <a name="configuring-single-sign-on"></a>Configurando o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Gigya com a respectiva conta do Azure AD usando a federação baseada no protocolo SAML.  
-Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base&64;.  
+Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base 64.  
 Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
@@ -109,14 +109,14 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
    
     d. No portal clássico do Azure, na página do diálogo **Configurar logon único no Gigya**, copie o valor da **Formato do Identificador de Nome** e cole-o na caixa de texto **Formato da ID de Nome**.
    
-    e. Crie um arquivo **codificado em base&64;** usando o certificado baixado.
+    e. Crie um arquivo **codificado em base 64** usando o certificado baixado.
       
     > [!TIP]
     > Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
     > 
     > 
    
-    f. Abra seu certificado codificado em Base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509** .
+    f. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509** .
    
     g. Clique em **Salvar Configurações**.
 

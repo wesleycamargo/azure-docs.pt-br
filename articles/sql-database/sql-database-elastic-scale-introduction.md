@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: f1f963c1401b785b3d4ee007b6ea61f221f9ec4d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 2a7c761062dcf5da016a2e106274839f5f6c0d13
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -94,7 +94,7 @@ Para ver um aplicativo de exemplo que demonstra a biblioteca de cliente, confira
 
 Para converter os bancos de dados existentes para usar as ferramentas, consulte [Migrar bancos de dados existentes para escala horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Para ver os detalhes do pool elástico, confira [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md) ou crie um novo pool com os [pools elásticos](sql-database-elastic-pool-manage-portal.md).  
+Para ver os detalhes do pool elástico, confira [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool.md) ou crie um novo pool com os [pools elásticos](sql-database-elastic-pool-manage-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

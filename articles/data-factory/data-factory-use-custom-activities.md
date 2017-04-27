@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/30/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: b4b0a8139b69a31e4af40e1f8231d4d7772fee0b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 780c7b90fc97a38b69b9a30abe920e083562e238
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -62,7 +62,7 @@ Para o tutorial, crie uma conta do Lote do Azure com um pool de VMs. Siga estas 
 
 1. Crie uma **conta do Lote do Azure** usando o [Portal do Azure](http://portal.azure.com). Consulte o artigo [Criar e gerenciar uma conta do Lote do Azure][batch-create-account] para obter instruções.
 2. Anote o nome, a chave, o URI e o nome do pool da conta do Lote do Azure. Você vai precisar destes dados para criar um serviço vinculado do Lote do Azure.
-    1. Na home page de conta do Lote do Azure, você verá uma **URL** no seguinte formato: **https://myaccount.westus.batch.azure.com**. Neste exemplo, **myaccount** é o nome da conta do Lote do Azure. O URI usado na definição do serviço vinculado é a URL sem o nome da conta. Exemplo: **https://westus.batch.azure.com**.
+    1. Na home page de conta do Lote do Azure, você verá uma **URL** no seguinte formato: `https://myaccount.westus.batch.azure.com`. Neste exemplo, **myaccount** é o nome da conta do Lote do Azure. O URI usado na definição do serviço vinculado é a URL sem o nome da conta. Por exemplo: `https://westus.batch.azure.com`.
     2. Clique em **Chaves** no menu à esquerda e copie a **CHAVE DE ACESSO PRIMÁRIA**.
     3. Para usar um pool existente, clique em **Pools** no menu e anote a **ID** do pool. Se você não tiver um pool existente, siga para a próxima etapa.     
 2. Crie um pool do **Lote do Azure**.
@@ -71,7 +71,7 @@ Para o tutorial, crie uma conta do Lote do Azure com um pool de VMs. Siga estas 
    2. Selecione sua a conta do Lote do Azure para abrir a folha **Conta do Batch** .
    3. Clique no bloco **Pools** .
    4. Na folha **Pools** , clique no botão Adicionar na barra de ferramentas para adicionar um pool.
-      1. Insira uma ID para o pool (**ID do Pool**). Observe a **ID do pool**; você precisa dela ao criar a solução Data Factory.
+      1. Insira uma ID para o pool (ID do Pool). Observe a **ID do pool**; você precisa dela ao criar a solução Data Factory.
       2. Especifique **Windows Server 2012 R2** para a configuração da família do sistema operacional.
       3. Selecione um **camada de preços de nó**.
       4. Digite **2** como valor para a configuração **Destino Dedicado**.
@@ -419,12 +419,18 @@ Aqui estão as etapas que você executa nesta seção:
    1. Clique em **NOVO** no menu à esquerda.
    2. Clique em **Dados + Análise** na folha **Novo**.
    3. Clique em **Data Factory** na folha **Análise de dados**.
+   
+    ![Novo menu do Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. Na folha **Novo data factory**, insira **CustomActivityFactory** para o Nome. O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome de data factory “CustomActivityFactory” não está disponível**, altere o nome (por exemplo, **yournameCustomActivityFactory**) e tente criá-lo novamente.
+
+    ![Nova folha do Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Clique em **NOME DO GRUPO DE RECURSOS**para selecionar um grupo de recursos existente ou criar um.
 4. Depois de selecionar o grupo de recursos, verifique se que você está usando a **assinatura** correta e a **região** na qual deseja que o data factory seja criado.
 5. Clique em **Criar** na folha **Novo data factory**.
 6. Você vê o data factory sendo criado no **Painel** do portal do Azure.
 7. Após a data factory ter sido criado com êxito, você vê a folha Data Factory, com a exibição do conteúdo.
+    
+    ![Folha Data Factory](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Etapa 2: Criar serviços vinculados
 Serviços vinculados vinculam armazenamentos de dados ou serviços de computação para uma data factory do Azure. Nesta etapa, você vincula a conta de Armazenamento do Azure e a conta do Lote do Azure ao data factory.
@@ -432,22 +438,26 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 #### <a name="create-azure-storage-linked-service"></a>Criar o serviço vinculado do armazenamento do Azure
 1. Clique no bloco **Criar e implantar** na folha **DATA FACTORY** para **CustomActivityFactory**. Você vê o Data Factory Editor.
 2. Clique em **Novo armazenamento de dados** na barra de comandos e escolha **Armazenamento do Azure**. Você deve ver o script JSON para criar um serviço de armazenamento vinculado do Azure no editor.
+    
+    ![Novo armazenamento de dados – Armazenamento do Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
+3. Substitua o `<accountname>` pelo nome de sua conta de armazenamento do Azure e `<accountkey>` pela chave de acesso da conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#manage-your-storage-account).
 
-3. Substitua o **nome da conta** pelo nome de sua conta de armazenamento do Azure e a **chave de conta** pela chave de acesso da conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#manage-your-storage-account).
-
+    ![Serviço vinculado do Armazenamento do Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
 #### <a name="create-azure-batch-linked-service"></a>Crie o serviço vinculado do Lote do Azure
-1. No Editor do Data Factory, clique em **Nova computação** na barra de comandos e selecione **Lote do Azure** no menu.
+1. No Editor de Data Factory, clique em **... Mais** na barra de comandos, clique em **Nova computação** e selecione **Lote do Azure** no menu.
+
+    ![Nova computação – Lote do Azure](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. Faça as alterações a seguir no script JSON:
 
-   1. Especifique o nome da sua conta do Lote do Azure para a propriedade **accountName** . A **URL** da **folha da conta do Lote do Azure** está no seguinte formato: http://**accountname**.region.batch.azure.com. Para a propriedade **batchUri** em JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON **accountName**.
+   1. Especifique o nome da sua conta do Lote do Azure para a propriedade **accountName** . A **URL** da **folha da conta do Lote do Azure** está no seguinte formato: `http://accountname.region.batch.azure.com`. Para a propriedade **batchUri** em JSON, você precisará remover `accountname.` da URL e usar o `accountname` para a propriedade JSON `accountName`.
    2. Especifique a chave de conta do Lote do Azure para a propriedade **accessKey** .
    3. Especifique o nome do pool que você criou como parte dos pré-requisitos para a propriedade **poolName** . Você também pode especificar a ID do pool em vez do nome do pool.
-   4. Especifique a URI do Lote do Azure para a propriedade **batchUri** . Exemplo: https://westus.batch.azure.com.  
+   4. Especifique a URI do Lote do Azure para a propriedade **batchUri** . Exemplo: `https://westus.batch.azure.com`.  
    5. Especifique **AzureStorageLinkedService** for the **linkedServiceName** .
 
-        ```JSON
+        ```json
         {
          "name": "AzureBatchLinkedService",
          "properties": {
@@ -473,10 +483,10 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 Nesta etapa, você cria conjuntos de dados para representar a entrada e saída de dados.
 
 #### <a name="create-input-dataset"></a>Criar conjunto de dados de entrada
-1. No **Editor** do Data Factory, clique no botão **Novo conjunto de dados** na barra de ferramentas e clique em **Armazenamento de Blobs do Azure** no menu suspenso.
+1. No **Editor** do Data Factory, clique em **... Mais** na barra de comandos, clique em **Novo conjunto de dados** e selecione **Armazenamento de Blobs do Azure** no menu suspenso.
 2. Substitua o JSON no painel direito pelo trecho de código JSON a seguir:
 
-    ```JSON
+    ```json
     {
      "name": "InputDataset",
      "properties": {
@@ -506,7 +516,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
 3. Clique em **Implantar** na barra de ferramentas para implantar o **InputDataset**. Confirme que você vê a mensagem **TABELA CRIADA COM ÊXITO** na barra de título do Editor.
 
 #### <a name="create-an-output-dataset"></a>Criar um conjunto de dados de saída
-1. No **Editor Data Factory**, clique em **Novo conjunto de dados** e, em seguida, clique em **Armazenamento de Blobs do Azure** na barra de comandos.
+1. No **Editor de Data Factory**, clique em **... Mais** na barra de comandos, clique em **Novo conjunto de dados** e selecione **Armazenamento de Blobs do Azure**.
 2. Substitua o script JSON no painel direito pelo script JSON a seguir:
 
     ```JSON
@@ -553,7 +563,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
 3. Para implantar o **OutputDataset**, clique em **Implantar** na barra de comando.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Criar e executar um pipeline que usa a atividade personalizada
-1. No Editor Data Factory, clique em **Novo pipeline** na barra de comandos. Se você não vir o comando, clique em **... (Reticências)** para vê-lo.
+1. No Editor de Data Factory, clique em **... Mais**, e selecione **Novo pipeline** na barra de comandos. 
 2. Substitua o JSON no painel direito pelo script JSON a seguir:
 
     ```JSON
@@ -740,20 +750,18 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ```
 
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Lote do Azure
-Você também pode criar um pool de Lotes do Azure com o recurso **autoscale** . Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes:
+Você também pode criar um pool de Lotes do Azure com o recurso **autoscale** . Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes. 
 
-Uma VM por tarefa pendente de cada vez (por exemplo: cinco tarefas pendentes -> cinco VMs):
+A fórmula de exemplo alcança o seguinte comportamento: quando o pool é criado pela primeira vez, ele começa com uma VM. A métrica de $PendingTasks define o número de tarefas em execução + estado ativo (em fila).  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated adequadamente. Isso garante que TargetDedicated nunca ultrapasse 25 VMs. Assim, o pool aumenta automaticamente conforme novas tarefas são enviadas e, conforme as tarefas são concluídas, as VMs se liberam uma a uma e são reduzidas pelo dimensionamento automático. startingNumberOfVMs e maxNumberofVMs podem ser ajustados às suas necessidades.
 
-```
-pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-$TargetDedicated = max(pendingTaskSampleVector);
-```
+Fórmula de dimensionamento automático:
 
-Máximo de uma VM em um momento, independentemente do número de tarefas pendentes:
-
-```
-pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+``` 
+startingNumberOfVMs = 1;
+maxNumberofVMs = 25;
+pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+$TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 ```
 
 Consulte [Dimensionar automaticamente os nós de computação em um pool de Lotes do Azure](../batch/batch-automatic-scaling.md) para obter detalhes.
@@ -869,6 +877,7 @@ No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o
 | [Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo ML do Azure e faz análise de opinião, contagem de pontos, previsão, etc. |
 | [Executar Script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. |
 | [Atividade cruzada do .NET no AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Usa versões de assembly diferente daquelas usadas pelo iniciador do Data Factory |
+| [Reprocessar um modelo no Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Reprocessar um modelo no Azure Analysis Services. |
 
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md

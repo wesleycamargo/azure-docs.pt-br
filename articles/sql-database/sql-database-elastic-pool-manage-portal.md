@@ -11,15 +11,15 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 11/17/2016
+ms.date: 04/18/2016
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 878bb6e792cff555747912a57c1a15632f06b2f7
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 66f7cc63d311b6b5cd223fe0d8a9bf9f636abef1
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -53,7 +53,7 @@ Criar um pool elástico de uma folha de **servidor** existente no portal é a ma
 
     **-OU-**
 
-    Talvez você veja uma mensagem informando que há pools elásticos recomendados para o servidor (somente V12). Clique na mensagem para ver os pools recomendados com base na telemetria de uso histórico do banco de dados e clique na camada para ver mais detalhes e personalizar o pool. Confira [Entender as recomendações de pool](#understand-pool-recommendations) mais adiante neste tópico para saber como a recomendação é feita.
+    Talvez você veja uma mensagem informando que há pools elásticos recomendados para o servidor. Clique na mensagem para ver os pools recomendados com base na telemetria de uso histórico do banco de dados e clique na camada para ver mais detalhes e personalizar o pool. Confira [Entender as recomendações de pool](#understand-pool-recommendations) mais adiante neste tópico para saber como a recomendação é feita.
 
     ![pool recomendado](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
@@ -88,13 +88,12 @@ Depois de definir o tipo de preço, clique em Configurar pool, onde você adicio
 
     Se os bancos de dados nos quais você está trabalhando tiverem telemetria de uso histórico suficiente, o gráfico **Uso estimado de eDTU e GB** e o gráfico de barras **Uso real de eDTU** serão atualizados para ajudá-lo a tomar decisões de configuração. Além disso, o serviço pode fornecer uma mensagem de recomendação para ajudá-lo a planejar o tamanho do pool. Veja [Recomendações dinâmicas](#dynamic-recommendations).
 
-3. Use os controles na página **Configurar pool** para explorar as configurações e configurar o pool. Confira [Limites dos pools elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) para saber mais sobre os limites de cada camada de serviço, e confira as [Considerações de preço e desempenho dos pools elásticos](sql-database-elastic-pool-guidance.md) para obter uma orientação detalhada sobre o tamanho correto de um pool elástico. Para ler mais informações sobre as configurações do pool, confira as [Propriedades do pool elástico](sql-database-elastic-pool.md#elastic-pool-properties).
+3. Use os controles na página **Configurar pool** para explorar as configurações e configurar o pool. Confira [Limites dos pools elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) para saber mais sobre os limites de cada camada de serviço, e confira as [Considerações de preço e desempenho dos pools elásticos](sql-database-elastic-pool.md) para obter uma orientação detalhada sobre o tamanho correto de um pool elástico. Para ler mais informações sobre as configurações do pool, confira as [Propriedades do pool elástico](sql-database-elastic-pool.md#database-properties-for-pooled-databases).
 
     ![Configurar pool elástico](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
 4. Clique em **Selecionar** in the **Configure Pool** depois de alterar as configurações.
 5. Clique em **OK** para criar o pool.
-
 
 ## <a name="understand-elastic-pool-recommendations"></a>Compreensão das recomendações de pool elástico
 
@@ -104,12 +103,13 @@ O serviço do Banco de Dados SQL avalia o histórico de uso e recomenda um ou ma
 
 A recomendação de pool inclui:
 
-- Um tipo de preço para o pool (Basic, Standard ou Premium)
+- Um tipo de preço para o pool (Básico, Standard, Premium ou Premium RS)
 - Os **eDTUs do POOL** apropriados (também chamados de Máx. de eDTUs por pool)
 - O **MÁX. DE eDTU** e o **MÍN. DE eDTU** por banco de dados
 - A lista dos bancos de dados recomendados para o pool
 
-> ![IMPORTANTE] O serviço leva em consideração os últimos 30 dias de telemetria ao recomendar os pools. Para que um banco de dados seja considerado como candidato para um pool elástico, ele deve existir há pelo menos sete dias. Os bancos de dados que já estão em um pool elástico não são considerados candidatos para as recomendações de pool elástico.
+> [!IMPORTANT]
+> O serviço leva em consideração os últimos 30 dias de telemetria ao recomendar os pools. Para que um banco de dados seja considerado como candidato para um pool elástico, ele deve existir há pelo menos sete dias. Os bancos de dados que já estão em um pool elástico não são considerados candidatos para as recomendações de pool elástico.
 >
 
 O serviço avalia os recursos necessários e o custo-benefício de mover os bancos de dados individuais em cada camada de serviço para os pools na mesma camada. Por exemplo, todos os bancos de dados padrão em um servidor são avaliados para sua adaptação em um pool elástico Standard. Isso significa que o serviço não faz recomendações entre camadas diferentes, como mover um banco de dados Standard para um pool Premium.
@@ -260,7 +260,7 @@ Você pode adicionar ou remover bancos de dados de um pool existente. Os bancos 
 
 ## <a name="change-performance-settings-of-an-elastic-pool"></a>Alterar as configurações de desempenho de um pool elástico
 
-À medida que monitora a utilização de recursos de um pool elástico, você pode perceber que alguns ajustes são necessários. Talvez o pool precise de uma alteração nos limites de armazenamento ou de desempenho. Pode ser útil alterar as configurações de banco de dados no pool. Você pode alterar a configuração do pool a qualquer momento para obter o melhor equilíbrio entre desempenho e custo. Veja [Quando um pool elástico deve ser usado?](sql-database-elastic-pool-guidance.md) para saber mais.
+À medida que monitora a utilização de recursos de um pool elástico, você pode perceber que alguns ajustes são necessários. Talvez o pool precise de uma alteração nos limites de armazenamento ou de desempenho. Pode ser útil alterar as configurações de banco de dados no pool. Você pode alterar a configuração do pool a qualquer momento para obter o melhor equilíbrio entre desempenho e custo. Veja [Quando um pool elástico deve ser usado?](sql-database-elastic-pool.md) para saber mais.
 
 Para alterar as eDTUs ou os limites de armazenamento por pool e as eDTUs por banco de dados:
 
@@ -281,7 +281,7 @@ Para alterar as eDTUs ou os limites de armazenamento por pool e as eDTUs por ban
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para entender o que um pool Elástico é, confira [pool elástico do banco de dados SQL](sql-database-elastic-pool.md).
-- Para ler mais diretrizes sobre o uso dos pools elásticos, confira [Considerações de preço e desempenho para pools elásticos](sql-database-elastic-pool-guidance.md).
+- Para ler mais diretrizes sobre o uso dos pools elásticos, confira [Considerações de preço e desempenho para pools elásticos](sql-database-elastic-pool.md).
 - Para usar trabalhos elásticos para execução de scripts Transact-SQL em qualquer quantidade de bancos de dados no pool, confira [Visão geral de trabalhos elásticos](sql-database-elastic-jobs-overview.md).
 - Para pesquisar em qualquer número de bancos de dados no pool, confira [Visão geral de consulta elástica](sql-database-elastic-query-overview.md).
 - Para transações de qualquer número de bancos de dados no pool, confira [Transações elásticas](sql-database-elastic-transactions-overview.md).

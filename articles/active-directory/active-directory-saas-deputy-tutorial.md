@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: c853d61257493d73cd0f8a51a15f0389e1e83cf4
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c3c0079ef9ef7b3be7c8df9280e6ebfb34902801
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -27,7 +27,7 @@ O objetivo deste tutorial é mostrar como integrar o Deputy ao Azure AD (Azure A
 A integração do Deputy ao Azure AD oferece os seguintes benefícios:
 
 * No Azure AD, é possível controlar quem tem acesso ao Deputy
-* Você pode permitir que seus usuários façam logon automaticamente no Deputy (Logon único) com as contas do Azure AD
+* Você pode habilitar seus usuários, com as respectivas contas do Azure AD, a fazer logon automaticamente no Deputy via SSO (*logon único)
 * Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -38,23 +38,23 @@ Para configurar a integração do Azure AD ao Deputy, você precisará dos segui
 * Uma assinatura do AD do Azure
 * Uma assinatura do Deputy habilitada para SSO (logon único)
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 > 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
+O objetivo deste tutorial é permitir que você teste o SSO do Azure AD em um ambiente de teste.
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Deputy da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO do Azure AD
 
 ## <a name="adding-deputy-from-the-gallery"></a>Adicionando o Deputy da galeria
 Para configurar a integração do Deputy ao Azure AD, você precisará adicionar o Deputy da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -81,27 +81,27 @@ Para configurar a integração do Deputy ao Azure AD, você precisará adicionar
    
     ![Seleção do aplicativo na galeria](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_0001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Deputy, com base em um usuário de teste chamado "Brenda Fernandes".
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+O objetivo desta seção é mostrar como configurar e testar o SSO do Azure AD com o Deputy, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Deputy é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Deputy.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do Deputy é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Deputy.
 
 Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor do **Nome de Usuário** no Deputy.
 
-Para configurar e testar o logon único do Azure AD com o Deputy, você precisará concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Deputy, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do Deputy](#creating-a-deputy-test-user)** – Para ter um equivalente de Brenda Fernandes no Deputy que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo Deputy.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único (SSO) em seu aplicativo Deputy.
 
 **Para configurar o logon único do Azure AD com o Deputy, realize as seguintes etapas:**
 
-1. No portal clássico, na página de integração do aplicativo **Deputy**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1. No Portal Clássico, na página de integração do aplicativo **Deputy**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
     ![Configurar Logon Único][6] 
 2. Na página **Como você deseja que os usuários façam logon no Deputy**, selecione **Logon único do Azure AD** e clique em **Avançar**.
@@ -119,14 +119,14 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
    1. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<your-subdomain>.<region>.deputy.com`.
    2. Clique em **Próximo**.
    
-   > [!NOTE]
-   > O sufixo de região do Deputy é opcional, ou ele deve usar uma destas opções: au | na | eu |as |la |af |an |ent-au |ent-na |ent-eu |ent-as | ent-la | ent-af | ent-an
-   > 
-   > 
+     >[!NOTE]
+     > O sufixo de região do Deputy é opcional, ou ele deve usar uma destas opções: au | na | eu |as |la |af |an |ent-au |ent-na |ent-eu |ent-as | ent-la | ent-af | ent-an
+     > 
+
 5. Na página **Configurar logon único no Deputy**, execute as seguintes etapas e clique em **Avançar**:
    
     ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_06.png)
-   1. Clique em **Baixar certificado**e salve o arquivo em seu computador.
+   *  Clique em **Baixar certificado**e salve o arquivo em seu computador.
 6. Navegue até a seguinte URL: https://(your-subdomain).deputy.com/exec/config/system_config. Vá para as **Configurações de Segurança** e clique em **Editar**.
    
     ![Configurar o logon único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)
@@ -136,7 +136,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_005.png)
 
    1. Habilite o **Logon Social**.
-   2. Abra seu certificado codificado de base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado OpenSSL**.
+   2. Abra seu certificado codificado de base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado OpenSSL**.
    3. Na caixa de texto URL de SSO de SAM, digite `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
    4. Na caixa de texto URL de SSO de SAM, substitua `<your subdomain>` pelo seu subdomínio.
    5. Na caixa de texto URL de SSO de SAM, substitua `<saml sso url>` pela URL de SSO de SAML que você copiou do portal clássico do Azure.
@@ -148,7 +148,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -160,8 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/create_aaduser_09.png)
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
-   
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png)
+       ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png)
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/create_aaduser_04.png)
@@ -171,8 +170,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
    1. Em Tipo de Usuário, selecione Novo usuário na organização.
    2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   3. Clique em **Próximo**.
-6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
+   3. Clique em **Novo**.6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/create_aaduser_06.png)
    
@@ -192,7 +190,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    1. Anote o valor da **Nova Senha**.
    2. Clique em **Concluído**.   
 
-### <a name="creating-a-deputy-test-user"></a>Criando um usuário de teste do Deputy
+### <a name="create-a-deputy-test-user"></a>Criar um usuário de teste do Deputy
 Para permitir que os usuários do Azure AD façam logon no Deputy, eles deverão ser provisionados no Deputy. No caso do Deputy, o provisionamento é uma tarefa manual.
 
 #### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
@@ -211,14 +209,11 @@ Para permitir que os usuários do Azure AD façam logon no Deputy, eles deverão
   2. Na caixa de texto **Email** , digite o endereço de email de uma conta do Azure AD que você deseja provisionar.
   3. Na caixa de texto **Trabalha em** , digite o nome da empresa.
   4. Clique no botão **Salvar e Convidar**.
-   
-   > [!NOTE]
-   > O titular da conta do AAD receberá um email e um link para confirmar sua conta antes de se tornar ativo. Você pode usar qualquer outra ferramenta de criação da conta de usuário do Deputy ou as APIs fornecidas pelo Deputy para provisionar as contas de usuário do AAD.
-   > 
-   > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Deputy.
+5. O titular da conta do AAD receberá um email e um link para confirmar sua conta antes de se tornar ativo. Você pode usar qualquer outra ferramenta de criação da conta de usuário do Deputy ou as APIs fornecidas pelo Deputy para provisionar as contas de usuário do AAD.
+    
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+O objetivo desta seção é permitir que Brenda Fernandes use o SSO do Azure, concedendo a ela acesso ao Deputy.
 
 ![Atribuir usuário][200]
 
@@ -238,8 +233,8 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+### <a name="test-single-sign-on"></a>Testar logon único
+O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Deputy no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Deputy.
 

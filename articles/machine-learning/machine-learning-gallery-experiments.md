@@ -12,192 +12,182 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/26/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 66b61e4619518619aac644f6833c597cb9a7408e
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a23c6419e7c4f478bfb1265a8e05c88c0b6af52b
+ms.lasthandoff: 04/15/2017
 
 
 ---
-# <a name="discover-experiments-in-the-cortana-intelligence-gallery"></a>Descubra experimentos na Galeria do Cortana Intelligence
+# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Descubra experimentos na Galeria do Cortana Intelligence
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Experimentos para o Machine Learning Studio
-A Galera contém vários **[Experimentos](https://gallery.cortanaintelligence.com/experiments)** que foram desenvolvidos no [Azure Machine Learning Studio](https://studio.azureml.net). Eles variam de testes de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
+A Galeria contém uma ampla variedade de [experimentos](https://gallery.cortanaintelligence.com/experiments) que foram desenvolvidos no [Azure Machine Learning Studio](https://studio.azureml.net). Eles variam de experimentos de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
 
 > [!NOTE]
-> Um ***experimento*** é uma tela no Azure Machine Learning Studio que permite construir um modelo de análise preditiva, conectando dados junto com vários módulos analíticos. Você pode experimentar ideias diferentes, fazer testes e eventualmente publicar seu modelo como um serviço Web no Azure. Para obter um exemplo de criação de uma experiência simples, consulte [Tutorial de aprendizado de máquina: crie sua primeira experiência no Estúdio de Aprendizado de Máquina do Azure](machine-learning-create-experiment.md). Para obter uma explicação mais completa da criação de uma solução de análise preditiva, consulte [Passo a passo: desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md).
-> 
-> 
+> Um ***experimento*** é uma tela em branco no Machine Learning Studio que você pode usar para construir um modelo de análise de previsão. Crie o modelo conectando dados com vários módulos analíticos. Você pode experimentar ideias diferentes, realizar execuções de teste, eventualmente, implantar seu modelo como um serviço Web no Azure. Para ver um exemplo de criação de um experimento simples, consulte o [Tutorial de aprendizado de máquina: crie seu primeiro experimento no Azure Machine Learning Studio](machine-learning-create-experiment.md). Para ver uma explicação mais abrangente da criação de uma solução de análise preditiva, consulte [Instrução passo a passo: desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+>
+>
 
 ## <a name="discover"></a>Descobrir
-  Para procurar experimentos na Galeria, abra a [Galeria](http://gallery.cortanaintelligence.com) e clique em **Experimentos**
- na parte superior da home page da Galeria.
+Para procurar experimentos [na Galeria](http://gallery.cortanaintelligence.com), na parte superior da home page da Galeria, selecione **Experimentos**.
 
- A página **[Experimentos](https://gallery.cortanaintelligence.com/experiments)**
- exibe uma lista dos experimentos mais populares e recentemente adicionados.
-Clique em **Ver todos** para exibir todos os experimentos.
-Nessa página, você pode procurar todos os experimentos na Galeria. Você também pode pesquisar selecionando critérios de filtragem à esquerda da página e inserindo termos de pesquisa na parte superior.
+A página **[Experimentos](https://gallery.cortanaintelligence.com/experiments)** exibe uma lista dos experimentos mais populares e adicionados recentemente. Para ver todos os experimentos, selecione o botão **Ver todos**. Para procurar um experimento específico, selecione **Ver todos** e selecione os critérios de filtro. Também é possível inserir os termos de pesquisa na caixa **Pesquisar** na parte superior da página da Galeria.
 
- Clique em qualquer experimento para abrir a página de detalhes do experimento e ler as informações sobre o que faz o experimento. Nessa página, você pode dar sua opinião, fazer comentários ou fazer perguntas na seção de opiniões. É possível até mesmo compartilhá-la com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou Twitter. Você também pode enviar um link por email para o experimento a fim de convidar outros usuários para exibir a página.
+Obtenha mais informações sobre um experimento em sua página de detalhes. Para abrir uma página de detalhes do experimento, selecione-o. Na página de detalhes de um experimento, na seção **Comentários**, é possível comentar ou fazer perguntas sobre o experimento. Você pode até mesmo compartilhar o experimento com amigos ou colegas no Twitter ou LinkedIn. Você também pode enviar um link por email para a página de detalhes do experimento a fim de convidar outros usuários para ver a página.
 
 ![Compartilhar este item com amigos](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Adicionar seus próprios comentários](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Baixar
-Você pode baixar uma cópia de qualquer experimento da Galeria em seu espaço de trabalho do Studio e, em seguida, modificar sua cópia para criar suas próprias soluções.
-Há duas maneiras de obter uma cópia do experimento:
+Você pode baixar uma cópia de qualquer experimento da Galeria em seu espaço de trabalho do Machine Learning Studio. Em seguida, você pode modificar sua cópia para criar suas próprias soluções.
 
-* **Da galeria** -se você encontrar um experimento de seu interesse na Galeria, poderá baixar facilmente uma cópia e abri-la em seu espaço de trabalho do Machine Learning Studio.
-* **De dentro do Machine Learning Studio** -no Studio, você pode usar qualquer experimento na Galeria como um modelo para criar um novo experimento.
+A Galeria do Cortana Intelligence oferece duas maneiras de importar uma cópia de um experimento:
+
+* **Da Galeria**. Se você encontrar um experimento de seu interesse na Galeria, baixe uma cópia e abra-a em seu espaço de trabalho do Machine Learning Studio.
+* **Do Machine Learning Studio**. No Machine Learning Studio, você pode usar qualquer experimento na Galeria como um modelo para criar um novo experimento.
 
 ### <a name="from-the-gallery"></a>Da Galeria
-Para baixar uma cópia de um experimento da Galeria:
 
-1. Abra a página de detalhes do experimento na Galeria
-2. Clique em **Abrir no Studio**
-   
+1. Na Galeria, abra a página de detalhes do experimento.
+2. Selecione **Abrir no Studio**.
+
     ![Abrir um experimento da Galeria](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
 
-Quando você clica em **Abrir no Studio**, o experimento é carregado em seu espaço de trabalho do Machine Learning Studio e aberto (se você ainda não entrou no Studio, será solicitado que você entre usando sua conta da Microsoft para que o experimento seja copiado no espaço de trabalho).
+Quando você seleciona **Abrir no Studio**, o experimento é aberto em seu espaço de trabalho do Machine Learning Studio. (Se você ainda não estiver conectado ao Machine Learning Studio, será necessário primeiro entrar usando sua conta da Microsoft.)
 
 ### <a name="from-within-machine-learning-studio"></a>Do Machine Learning Studio
-Você também pode abrir os mesmos experimentos de exemplo enquanto estiver trabalhando no Machine Learning Studio:
 
-1. No Machine Learning Studio, clique em **+NOVO**
-2. Selecione **Experimento** - você pode escolher em uma lista de experimentos da Galeria fornecidos pela Microsoft, ou pode encontrar um experimento específico usando a caixa de pesquisa
-3. Aponte o mouse para um experimento e selecione **Abrir no Studio** - o experimento é copiado em seu espaço de trabalho e aberto (para obter informações sobre o experimento, selecione **Visualizar na Galeria**, o que leva você até a página de detalhes do experimento na Galeria)
-   
+1. No Machine Learning Studio, selecione **NOVO**.
+2. Selecione **Experimento**. Você pode escolher de uma lista de experimentos da Galeria ou encontrar um experimento específico usando a caixa **Pesquisa**.
+3. Aponte o mouse para um experimento e selecione **Abrir no Studio**. (Para ver informações sobre o experimento, selecione **Exibir na Galeria**. Isso levará você para a página de detalhes do experimento na Galeria.)
+
     ![Abrir experimento da Galeria de dentro do Machine Learning Studio](media/machine-learning-gallery-experiments/open-experiment-from-studio.png)
 
-Agora você pode personalizar, iterar e implantar esse experimento como qualquer outro experimento criado no Machine Learning Studio.
+Você poderá personalizar, iterar e implantar um experimento como qualquer outro experimento criado no Machine Learning Studio.
 
 ![Experimento aberto no Studio](media/machine-learning-gallery-experiments/experiment-open-in-studio.png)
 
 ## <a name="contribute"></a>Contribuir
-Quando você entra na Galeria, você vira um membro da comunidade da Galeria. Isso permite a você contribuir com seus próprios experimentos para que outras pessoas possam se beneficiar das soluções descobertas.
+Ao entrar na Galeria, você vira um membro da comunidade da Galeria. Como um membro dessa comunidade, você pode contribuir com seus próprios experimentos, para que outros usuários possam usufruir das soluções que você descobriu.
 
 ### <a name="publish-your-experiment-to-the-gallery"></a>Publicar seu experimento na Galeria
-Siga estas etapas para contribuir com uma experiência na Cortana Intelligence Gallery:
 
 1. Entre no Machine Learning Studio usando sua conta da Microsoft.
 2. Crie seu experimento e execute-o.
-3. Quando você estiver pronto para publicar seu teste na Galeria, clique em **Publicar na Galeria** abaixo da tela do teste.
-   
-    ![Clique em "Publicar na Galeria"](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
-4. Preencha os campos de título e marcas. Seja descritivo, realçando as técnicas usadas ou o problema real que está sendo resolvido, por exemplo, "Classificação binária: análise de sentimento no Twitter”.
-   
-    ![Preencher os campos de título e marca ao publicar](media/machine-learning-gallery-experiments/experiment-description.png)
-5. Escreva um resumo do que o seu conteúdo aborda. Descreva resumidamente o problema que está sendo resolvido e como você o abordou.
-6. Use a caixa de descrição detalhada para percorrer as diferentes partes do seu teste. Alguns tópicos úteis para incluir são:
-   
+3. Quando você estiver pronto para publicar seu experimento na Galeria, selecione **Publicar na Galeria** abaixo da tela do experimento.
+
+    ![Selecione “Publicar na Galeria”](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
+4. Na página **Descrição do Experimento**, insira um título e marcas. Use um título e marcas descritivos. Destaque as técnicas usadas ou o problema real resolvido. Um exemplo de um título de experimento descritivo é “Classificação binária: Análise de Sentimento do Twitter”.
+
+    ![Insira o título e marcas para publicação](media/machine-learning-gallery-experiments/experiment-description.png)
+5. Na caixa **RESUMO**, digite um resumo do seu experimento. Descreva resumidamente o problema que o experimento resolve e como você o abordou.
+6. Na caixa **DESCRIÇÃO DETALHADA**, descreva as etapas executadas em cada parte do seu experimento. Alguns tópicos úteis a serem incluídos são:
    * Captura de tela de gráfico do experimento
    * Explicação e fontes de dados
    * Processamento de dados
    * Engenharia de recursos
    * Descrição do modelo
    * Resultados e avaliação de desempenho do modelo
-     </br>
-     </br>
-     Você pode usar o Markdown para formatar conforme a necessidade. Clique no ícone **Visualização** para ver a aparência das coisas quando publicadas.
-     </br>
-     ![Clique em "Visualizar" para ver a aparência de seu texto](media/machine-learning-gallery-experiments/preview-markdown-text.png)
-     
-     <!-- -->
-     > [!TIP]
-     > A caixa fornecida para a edição e visualização de Markdown é muito pequena. Recomendamos que você escreva a documentação em um editor de Markdown e cole o documento concluído na caixa de texto.  Depois de publicar seu experimento, você poderá usar ferramentas padrão baseadas na Web padrão no Markdown para edição e visualização, a fim de fazer correções e ajustes necessários.
-     > 
-     > 
-7. Carregue uma imagem em miniatura para o item da Galeria. Isso será exibido na parte superior da página do item e no bloco do item quando pesquisado na Galeria. Você pode escolher uma imagem do computador ou selecionar uma das imagens de estoque.
+
+   Você pode usar o Markdown para formatar sua descrição. Para ver qual será a aparência das suas entradas na página de descrição do experimento quando ele for publicado, selecione **Visualização**.
+
+   ![Selecione “Visualizar” para ver a aparência de seu texto](media/machine-learning-gallery-experiments/preview-markdown-text.png)
+
+   > [!TIP]
+   > A caixa fornecida para a edição e visualização de Markdown são pequenas. Recomendamos que você escreva a documentação do experimento em um editor de Markdown, copie e cole o documento concluído na caixa de texto na Galeria. Depois de publicar seu experimento, você poderá fazer correções usando ferramentas Web padrão que usam o Markdown para editar e visualizar.
+
+7. Na página **Seleção de Imagem**, escolha uma imagem em miniatura para o seu experimento. A imagem em miniatura é exibida na parte superior da página de detalhes do experimento e no bloco do experimento. Outros usuários poderão ver a imagem em miniatura quando navegarem na Galeria. Você pode carregar uma imagem do seu computador ou selecionar uma imagem de estoque da Galeria.
     </br>
     ![Carregar ou selecionar uma imagem da Galeria](media/machine-learning-gallery-experiments/select-gallery-image.png)
-8. Escolha se deseja publicar seu conteúdo publicamente ou se ele pode ser acessado somente por pessoas com o link.
-   
+8. Na página **Configurações**, em **Visibilidade**, opte por publicar seu conteúdo publicamente (**Público**) ou que ele seja acessível somente a pessoas que têm um link para a página (**Não listado**).
+
     ![Escolha se deseja publicar publicamente ou como não listado](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
-   
+
     <!-- -->
-   
+
    > [!TIP]
-   > Para verificar se a documentação está correta antes de lançá-la publicamente, publique primeiro como não listada e alterne para Público na página do item.
-   > 
-   > 
-9. Clique na marca de seleção **OK** para publicar o experimento na Galeria.
-   
-    ![Clique na marca de seleção OK para publicar o experimento](media/machine-learning-gallery-experiments/ok-checkmark.png)
+   > Se quiser verificar se a documentação está correta antes de lançá-lo publicamente, primeiro você poderá publicar o experimento como **Não listado**. Posteriormente, você poderá alterar a configuração de visibilidade para **Pública** na página de detalhes do experimento.
+   >
+   >
+9. Para publicar o experimento na Galeria, selecione a marca de seleção **OK**.
 
-Confira a seção a seguir, **Sugestões para publicação e documentação de qualidade**, para obter dicas sobre como publicar um experimento de qualidade da Galeria.
+    ![Selecione a marca de seleção OK para publicar o experimento](media/machine-learning-gallery-experiments/ok-checkmark.png)
 
-É isso: você está pronto.
+Para ver dicas sobre como publicar um experimento de alta qualidade na Galeria, consulte [Dicas para documentar e publicar seu experimento](#tips-for-documenting-and-publishing-your-experiment).
 
-Agora você pode exibir seu teste na Galeria e compartilhar o link com outras pessoas. Se você o publicou como Público, seu teste aparecerá nos resultados de navegação e pesquisa na Galeria. Você também poderá editar a documentação na página do item a qualquer hora em que estiver conectado.
+Tudo pronto.
 
-Para ver a lista de suas contribuições, clique em sua imagem no canto superior direito de qualquer página da Galeria e, em seguida, clique em seu nome para abrir a página da sua conta.
+Agora você pode exibir seu experimento na Galeria e compartilhar o link com outras pessoas. Se você publicou seu experimento usando a configuração de visibilidade **Público**, o experimento aparecerá nos resultados de navegação e pesquisa na Galeria. É possível editar a documentação do experimento na página de detalhes do experimento sempre que você entrar na Galeria.
 
-![Clique no nome da conta](media/machine-learning-gallery-experiments/click-account-name.png)
+Para ver a lista das suas contribuições, selecione a imagem no canto superior direito de qualquer página da Galeria. Em seguida, selecione seu nome para abrir a página da sua conta.
+
+![Selecione o nome da conta](media/machine-learning-gallery-experiments/click-account-name.png)
 
 ### <a name="update-your-experiment"></a>Atualize seu experimento
-Se você precisar alterar o fluxo de trabalho (módulos, parâmetros etc.) em um experimento publicado na Galeria, volte para o experimento no Machine Learning Studio, faça as alterações e publique-o novamente. Seu experimento publicado existente será atualizado com as alterações.
+Se necessário, você pode fazer alterações no fluxo de trabalho (módulos, parâmetros e assim por diante) em um experimento que você publicou na Galeria. No Machine Learning Studio, faça as alterações desejadas no experimento e publique-o novamente. Seu experimento publicado será atualizado com as alterações.
 
-Se você precisar apenas alterar qualquer uma das seguintes informações para o seu experimento, ou se precisar excluir o experimento da galeria, faça todas essas alterações na Galeria:
+Você pode alterar qualquer uma das seguintes informações para o seu experimento diretamente na Galeria:
 
 * Nome do experimento
-* Texto de resumo ou descrição
-* Marcas especificadas
-* Imagem usada
-* Configuração de visibilidade (público ou não listado)
-* Excluir experimento da Galeria
+* Resumo ou descrição
+* Marcas
+* Imagem
+* Configuração de visibilidade (**Público** ou **Não listado**)
 
-Essas alterações podem ser feitas na Galeria, na página de detalhes do experimento, ou na página de seu perfil.
+Você também pode excluir o experimento da Galeria.
 
-#### <a name="from-your-experiments-details-page"></a>Na página de detalhes do experimento
-Na página de detalhes do experimento, clique em "Editar" para alterar os detalhes de seu experimento.
+Você pode fazer essas alterações, ou excluir o experimento, na página de detalhes do experimento ou na página do seu perfil na Galeria.
 
-![Clique em "Editar" para editar o experimento](media/machine-learning-gallery-experiments/edit-button.png)
 
-A página de detalhes entra em modo de edição, e você pode clicar em "Editar" ao lado do nome do experimento, resumo, marcas etc., para fazer alterações neles. Quando você terminar de fazer alterações, clique em "Concluído".
+#### <a name="from-the-experiment-details-page"></a>Na página de detalhes do experimento
+Na página de detalhes do experimento, clique em **Editar** para alterar os detalhes do seu experimento.
 
-![Clique em "Editar" para editar os detalhes, clique em "Concluído" quando terminar](media/machine-learning-gallery-experiments/edit-details-page.png)
+![Selecione Editar para editar o experimento](media/machine-learning-gallery-experiments/edit-button.png)
 
-Você também pode selecionar o ícone de configurações para alterar a visibilidade do experimento (público ou não listado) ou você pode excluir o experimento da Galeria.
+A página de detalhes entra em modo de edição. Para fazer alterações, selecione **Editar** ao lado do nome, resumo ou marcas do experimento. Quando você terminar de fazer alterações, clique em **Concluído**.
 
-![Clique em configurações para alterar a visibilidade ou excluir o experimento](media/machine-learning-gallery-experiments/settings-button.png)
+![Clique em “Editar” para editar os detalhes e selecione “Concluído” quando terminar](media/machine-learning-gallery-experiments/edit-details-page.png)
+
+Para alterar as configurações de visibilidade para o experimento (**Público** ou **Não listado**) para excluí-lo da Galeria, selecione o ícone **Configurações**.
+
+![Selecione “Configurações” para alterar a visibilidade ou excluir o experimento](media/machine-learning-gallery-experiments/settings-button.png)
 
 #### <a name="from-your-profile-page"></a>Na página do perfil
-Na página de seu perfil, você pode clicar na seta para baixo no experimento e selecionar "Editar". Isso levará você até a página de detalhes do experimento no modo de edição. Quando você terminar de fazer alterações, clique em "Concluído".
+Na página do seu perfil, selecione a seta para baixo no experimento e escolha **Editar**. Isso levará você até a página de detalhes do experimento, no modo de edição. Quando terminar de fazer alterações, selecione **Concluído**.
 
-Você também pode clicar em "Excluir" para excluir o experimento da Galeria.
+Para excluir o experimento da Galeria, selecione **Excluir**.
 
-![Clique em "Editar" ou "Excluir"](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
+![Selecione “Editar” ou “Excluir”](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
 
-### <a name="suggestions-for-publishing-and-for-quality-documentation"></a>Sugestões para publicação e documentação de qualidade
-* Embora você possa assumir que o leitor tenha experiência prévia com ciência de dados, ainda é ideal simplificar a linguagem e explicar tudo detalhadamente sempre que possível.
-* Nem todos os leitores estarão familiarizados com o Cortana Intelligence Suite, já que ele é relativamente novo.
-  Então forneça informações suficientes e explicações detalhadas para ajudar os leitores a navegar por seu trabalho.
-* Elementos visuais, incluindo gráficos de teste ou capturas de tela de dados, podem ser muito úteis para leitores interpretarem e usarem o conteúdo da maneira correta. Confira [Publishing Guidelines and Examples collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) (Coleção de diretrizes e de exemplos de publicação) para saber mais sobre como incluir imagens em sua documentação.
-* Se você incluir um conjunto de dados em seu experimento (não importado por meio de um módulo Importar Dados), ele fará parte de seu experimento e será publicado na Galeria. Portanto, verifique se o conjunto de dados que você está publicando tem os termos de licenciamento apropriados para serem compartilhados e baixados por qualquer pessoa. As contribuições à Galeria são tratadas nos [Termos de Uso](https://azure.microsoft.com/support/legal/website-terms-of-use/)do Azure.
+### <a name="tips-for-documenting-and-publishing-your-experiment"></a>Dicas para documentar e publicar seu experimento
+* Você pode supor que o leitor esteja familiarizado com ciência de dados, porém pode ser útil usar uma linguagem simples. Explique as coisas detalhadamente sempre que possível.
+* O Cortana Intelligence Suite é relativamente novo. Nem todos os leitores estão familiarizados com seu uso. Forneça informações e explicações detalhadas suficientes para ajudar os leitores a navegar por seu experimento.
+* Elementos visuais podem ser úteis para os leitores interpretarem e usarem a documentação do seu experimento corretamente. Elementos visuais incluem elementos gráficos do experimento e capturas de tela de dados. Para obter mais informações sobre como incluir imagens na documentação do experimento, consulte o [Diretrizes de publicação e coleção de exemplos](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1).
+* Se você incluir um conjunto de dados em seu experimento (ou seja, não importar o conjunto de dados por meio do módulo Importar Dados), o conjunto de dados fará parte do seu experimento e será publicado na Galeria. Verifique se o conjunto de dados que você publicou tem os termos de licença que permitem compartilhamento e download por qualquer pessoa. As contribuições à Galeria são tratadas nos [Termos de Uso](https://azure.microsoft.com/support/legal/website-terms-of-use/)do Azure.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
-**Quais são os requisitos de imagem para enviar ou editar uma imagem para meu experimento?**
+**Quais são os requisitos para enviar ou editar uma imagem para meu experimento?**
 
-As imagens que você enviar com seu experimento serão usadas para criar um bloco de experimento para sua contribuição. Recomendamos que as imagens tenham menos de 500 KB de tamanho, com uma taxa de proporção de 3:2. Recomendamos uma resolução de 640 x 960
+As imagens que você enviar com seu experimento serão usadas para criar um bloco de experimento para sua contribuição. Recomendamos que as imagens sejam menores do que 500 KB, com uma taxa de proporção de 3:2 e uma resolução de 960 &#215; 640.
 
 **O que acontece com o conjunto de dados que usei no experimento? O conjunto de dados também é publicado na Galeria?**
 
-Se o conjunto de dados fizer parte se seu experimento e não tiver sido importado por meio do módulo Importar Dados, ele fará parte de seu experimento e será publicado na Galeria com o experimento. Por esse motivo, verifique se o conjunto de dados que você está publicando com o experimento tem os termos de licenciamento apropriados, que permitam que qualquer pessoa possa compartilhar e baixá-los.
+Se o conjunto de dados fizer parte se seu experimento e não tiver sido importado por meio do módulo Importar Dados, ele será publicado na Galeria como parte do experimento. Verifique se o conjunto de dados publicado com o experimento tem os termos de licenciamento apropriados. Os termos de licenciamento devem permitir que qualquer pessoa compartilhe e baixe os dados.
 
-**enho um experimento que usa um módulo Importar Dados para puxar do HDInsight ou do SQL. Ele usa minhas credenciais para recuperar os dados. Como publicar um experimento desse tipo e ser ter certeza de que minhas credenciais não serão compartilhadas?**
+**Tenho um experimento que usa um módulo Importar Dados para obter dados do Azure HDInsight ou do SQL Server. Ele usa minhas credenciais para recuperar os dados. Posso publicar esse tipo de experimento? Como pode posso ter certeza de que minhas credenciais não serão compartilhadas?**
 
-No momento, não permitimos a publicação de experimentos que usam credenciais.
+No momento, não é possível publicar um experimento que usa credenciais na Galeria.
 
 **Como inserir várias marcas?**
 
-Depois de inserir uma marca, pressione a tecla Tab para inserir outra marca.
+Depois de inserir uma marcação, pressione a tecla Tab para inserir outra marca.
 
-**[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
+**[Vá para a Galeria](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 

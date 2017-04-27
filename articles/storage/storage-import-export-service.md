@@ -12,17 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 04/17/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: fd2338b73bd82121ed36e286446b07ccd4a8a219
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: b83d44399960137c07494e8fe97ec96fa74df3fb
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de blobs
-
 O serviço de Importação/Exportação do Azure permite a você transferir com segurança grandes quantidades de dados para o armazenamento de blobs do Azure por meio do envio de unidades de disco rígido para um data center do Azure. Você também pode usar esse serviço para transferir dados do armazenamento de Blobs do Azure para as unidades de disco rígido e enviar para seu site local. Esse serviço é adequado em situações em que você deseja transferir vários terabytes (TB) de dados para dentro ou fora do Azure, mas o upload ou download pela rede não é viável devido à largura de banda limitada ou aos os altos custos de rede.
 
 O serviço requer que as unidades de disco rígido sejam criptografadas com BitLocker para a segurança dos seus dados. O serviço oferece suporte às contas de armazenamento Clássica e do Azure Resource Manager (tipo padrão e dinâmico) presentes em todas as regiões do Azure Público. Você deve enviar as unidades de disco rígido para um dos locais com suporte especificados posteriormente neste artigo.
@@ -73,6 +72,7 @@ Baixe a versão mais recente da [ferramenta WAImportExport](http://download.micr
 
 >[!NOTE]
 >**Versão anterior:** [Baixe a versão WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) da ferramenta e consulte [Guia de uso da WAImportExpot V1](storage-import-export-tool-how-to-v1.md). A versão WAImportExpot V1 da ferramenta dá suporte para **Preparação de discos quando os dados já tiverem sido gravados previamente no disco**. Também será necessário usar a ferramenta WAImportExpot V1 se a única chave disponível for a chave de SAS.
+
 >
 
 ### <a name="hard-disk-drives"></a>Unidades de disco rígido
@@ -104,9 +104,11 @@ Locais de envio com suporte:
 * Leste dos EUA
 * Oeste dos EUA
 * Leste dos EUA 2
+* Oeste dos EUA 2
 * Centro dos EUA
 * Centro-Norte dos EUA
 * Centro-Sul dos Estados Unidos
+* Centro-Oeste dos EUA
 * Norte da Europa
 * Europa Ocidental
 * Ásia Oriental
@@ -116,9 +118,18 @@ Locais de envio com suporte:
 * Oeste do Japão
 * Leste do Japão
 * Índia Central
-* Canadá
-* Gov dos EUA
-* China
+* Sul da Índia
+* Canadá Central
+* Leste do Canadá
+* Sul do Brasil
+* Coreia Central
+* Gov. dos EUA – Virgínia
+* Gov do Iowa nos EUA
+* DoD do Leste dos EUA
+* DoD Central dos EUA
+* Leste da China
+* Norte da China
+* Sul do Reino Unido
 
 ### <a name="shipping"></a>Remessa
 **Unidades de envio para o data center:**
@@ -263,7 +274,7 @@ A primeira etapa ao importar os dados usando o serviço de Importação/Exporta�
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
    
-    No exemplo acima, 100M_1.csv.txt será copiado para a raiz do contêiner chamado "containername". Se o nome do contêiner "containername" não existir, será criado um. Todos os arquivos e pastas em 50M_original serão copiados recursivamente em containername. A estrutura de pastas será mantida.
+    No exemplo acima, 100M_1.csv.txt será copiado para a raiz do contêiner chamado “containername”. Se o nome do contêiner “containername” não existir, ele será criado. Todos os arquivos e pastas em 50M_original serão copiados recursivamente em containername. A estrutura de pastas será mantida.
 
     Saiba mais sobre [como preparar o arquivo CSV de conjunto de dados](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     

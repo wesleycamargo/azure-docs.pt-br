@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 531fdbbeab09a67be9636b3a70eabbb4148f7400
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: b817577d835f2f4a912356366ab24d1f812e1e11
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -38,7 +38,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 
     ![prompt de comando][1]
 2. Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
-3. O [Portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
+3. O [Portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor:
 
    ![Confirmação do Visual Studio][2]
 

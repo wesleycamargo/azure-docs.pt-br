@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 04/17/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 44fe2f5c0a3f050a93368589d9ea6b8ea3e35d26
-ms.openlocfilehash: 60a35bbda79a45bd0ac24e76b0a20720afe79774
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 86cb6a979d3aa429c0f501a5ebf37db4bff8ba99
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -31,6 +31,7 @@ O **Servidor Aspera sob demanda** para Azure está disponível para compra no [A
 
 Este tutorial orienta você pelas etapas de carregamento de arquivos em uma conta de armazenamento que está associada a uma conta dos Serviços de Mídia usando o serviço **Servidor Aspera sob demanda** no Azure. 
 
+Você pode encontrar um exemplo que mostra como usar as funções do Azure com o Aspera e os Serviços de Mídia [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
 >Há um limite para o tamanho máximo do arquivo suportado para processamento com processadores de mídia (MPs) dos Serviços de Mídia do Azure. Confira [este](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre a limitação de tamanho de arquivo.

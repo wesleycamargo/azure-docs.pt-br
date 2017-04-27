@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: e24bd626cd950f6e6d9474d1bd5f97c3ea4fb925
-ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a6b6610bb4d4b427f525934146340a9cca6f52cb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,13 +33,13 @@ Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Pictur
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos para Picturepark
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-picturepark-tutorial/IC795055.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-picturepark"></a>Habilitando a integração de aplicativos para Picturepark
+## <a name="enable-the-application-integration-for-picturepark"></a>Habilitar a integração de aplicativos para Picturepark
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o Picturepark.
 
 **Para habilitar a integração de aplicativos com o Picturepark, execute as seguintes etapas:**
@@ -64,11 +65,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
 
 
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Picturepark com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
 
-A configuração do logon único para Picturepark exige que você recupere um valor de impressão digital de um certificado.  
+Configurar o SSO para o Picturepark exige que você recupere um valor de impressão digital de um certificado.  
 
 Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
 
@@ -103,21 +104,23 @@ Se você não estiver familiarizado com esse procedimento, veja [Como recuperar 
    4. No portal clássico do Azure, na página de diálogo **Configurar logon único no Picturepark**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URI do Emissor**.
    5. Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Emissor Confiável**.  
       
-      > [!TIP]
-      > Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
-      > 
+      >[!TIP]
+      >Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
+      >
+      >
 
 9. Clique em **JoinDefaultUsersGroup**.
-10. Para definir o atributo **Emailaddress** na caixa de texto **Declaração**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+10. Para definir o atributo **Emailaddress** na caixa de texto **Declaração**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** e clique em **Salvar**.
 
-      ![Configuração](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuração"). Clique em **Salvar**.
+      ![Configuração](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuração")
 11. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Configurar Logon Único")
 
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 Para permitir que os usuários do AD do Azure façam logon no Picturepark, eles devem ser provisionados no Picturepark.  
-No caso do Picturepark, o provisionamento é uma tarefa manual.
+
+ * No caso do Picturepark, o provisionamento é uma tarefa manual.
 
 **Para provisionar contas de usuário, execute as seguintes etapas:**
 
@@ -136,12 +139,12 @@ No caso do Picturepark, o provisionamento é uma tarefa manual.
   2. Selecione um **Idioma**.
   3. Clique em **Criar**.
 
-> [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do Picturepark ou as APIs fornecidas pelo Picturepark para provisionar as contas de usuário do AAD.
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do Picturepark ou as APIs fornecidas pelo Picturepark para provisionar as contas de usuário do AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 **Para atribuir usuários ao Picturepark, execute as seguintes etapas:**
@@ -154,11 +157,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    
    ![Sim](./media/active-directory-saas-picturepark-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 

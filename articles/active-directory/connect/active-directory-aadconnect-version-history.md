@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: d89135c8f3d5011d7549158a29050e3569defbcc
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: fe01be4f57766a556ff3a27a0cbba0293675cac7
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -34,6 +34,61 @@ Tópico |  Detalhes
 Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](active-directory-aadconnect-upgrade-previous-version.md) do Azure AD Connect.
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Baixar| [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="114860"></a>1.1.486.0
+Lançamento: abril de 2017
+
+**Problemas corrigidos:**
+* Corrigido o problema em que o Azure AD Connect não será instalado com êxito na versão localizada do Windows Server.
+
+## <a name="114840"></a>1.1.484.0
+Lançamento: abril de 2017
+
+**Problemas conhecidos:**
+
+* Essa versão do Azure AD Connect não será instalada com êxito se as seguintes condições forem todas verdadeiras:
+   1. Você está executando a atualização DirSync in-loco ou a nova instalação do Azure AD Connect.
+   2. Você está usando uma versão localizada do Windows Server em que o nome do grupo de Administradores interno no servidor não é "Administradores".
+   3. Você pode usar o SQL Server 2012 Express LocalDB padrão instalado com o Azure AD Connect ou usar seu próprio SQL completo. 
+
+**Problemas corrigidos:**
+
+Sincronização do Azure AD Connect
+* Corrigido um problema em que o agendador de sincronização ignora a etapa de sincronização inteiro se um ou mais conectores estiver sem o perfil de execução para essa etapa de sincronização. Por exemplo, você adicionou manualmente um conector usando Soynchronization Service Manager sem criar um perfil de execução de Importação Delta para ele. Essa correção garante que o agendador de sincronização continua a executar Importação Delta para outros conectores.
+* Corrigido um problema em que o Serviço de Sincronização imediatamente para de processar um perfil de execução quando ele encontra um problema com uma das etapas de execução. Essa correção garante que o Serviço de Sincronização ignora essa etapa de execução e continua processando o restante. Por exemplo, você tem um perfil de execução de Importação Delta para seu conector do AD com várias etapas de execução (uma para cada domínio do AD local). O Serviço de Sincronização executará a Importação Delta com os outros domínios do AD, mesmo que um deles tenha problemas de conectividade de rede.
+* Corrigido um problema que faz com que a atualização do Azure AD Connector seja ignorada durante a Atualização Automática.
+* Corrigido um problema que faz com que o Azure AD Connect determine incorretamente se o servidor é um controlador de domínio durante a instalação o que, por sua vez, faz com que a atualização do DirSync falhe.
+* Corrigido um problema que faz com que a atualização in-loco de DirSync não crie perfis de execução para o Azure AD Connector.
+* Corrigido um problema em que a interface de usuário do Synchronization Service Manager não responde ao tentar configurar o Generic LDAP Connector.
+
+Gerenciamento dos AD FS
+* Corrigido um problema em que o assistente do Azure AD Connect falha se o nó primário do AD FS foi movido para outro servidor.
+
+SSO da Área de Trabalho
+* Corrigido um problema no assistente do Azure AD Connect em que a tela de entrada não permite habilitar o recurso de SSO da Área de Trabalho se você escolheu a Sincronização de Senha como a opção de Entrada durante a nova instalação.
+
+**Novos recursos/melhorias:**
+
+Sincronização do Azure AD Connect
+* Azure AD Connect Sync agora oferecre suporte para uso da Conta de Serviço Virtual, Conta de Serviço Gerenciado e Conta de Serviço Gerenciado de Grupo como sua conta de serviço. Isso se aplica à nova instalação do Azure AD Connect, somente. Ao instalar o Azure AD Connect:
+    * Por padrão, o assistente do Azure AD Connect criará uma Conta de Serviço Virtual e utilizará como sua conta de serviço.
+    * Se você estiver instalando em um controlador de domínio, o Azure AD Connect reverterá para o comportamento anterior onde criará uma conta de usuário de domínio e utilizará como sua conta de serviço.
+    * É possível substituir o comportamento padrão fornecendo uma das seguintes opções:
+      * Uma Conta de Serviço Gerenciado de Grupo
+      * Uma Conta de Serviço Gerenciado
+      * Uma conta de usuário do domínio
+      * Uma conta de usuário local
+* Anteriormente, se você atualizasse para uma nova versão do Azure AD Connect contendo atualizações de conexão ou alterações na regra de sincronização, o Azure AD Connect dispararia um ciclo de sincronização completo. Agora, o Azure AD Connect dispara seletivamente a etapa de Importação Completa somente para conectores com atualização e a etapa de Sincronização Completa somente para conectores com alterações de regra de sincronização.
+* Anteriormente, o limite de exclusão de exportação só se aplicava às exportações disparadas pelo Agendador de Sincronização. Agora, o recurso é estendido para incluir exportações disparadas manualmente pelo cliente usando o Synchronization Service Manager.
+* No seu locatário do Azure AD, há uma configuração de serviço que indica se o recurso de Sincronização de Senha está habilitado para o seu locatário ou não. Anteriormente, era fácil que configuração de serviço fosse configurado incorretamente pelo Azure AD Connect quando havia um servidor de preparo e um ativo. Agora, o Azure AD Connect tentará manter a configuração de serviço consistente com o servidor ativo do Azure AD Connect, somente.
+* O assistente do Azure AD Connect agora detecta e retorna um aviso se o AD local não tiver Lixeira do AD ativada.
+* Anteriormente, Exportar para o Azure AD expirava e falhava se o tamanho combinado dos objetos no lote excedesse um determinado limite. Agora, o Serviço de Sincronização tentará reenviar os objetos em lotes menores se o problema for encontrado.
+* O aplicativo de Gerenciamento de Chaves de Serviço de Sincronização foi removido do Menu Iniciar do Windows. O Gerenciamento de chave de criptografia continuará a oferecer suporte por meio da interface de linha de comando usando miiskmu.exe. Para obter informações sobre o gerenciamento de chave de criptografia, consulte o artigo [Abandonando a chave de criptografia de sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key).
+* Anteriormente, se você alterava a senha da conta de serviço de sincronização do Azure AD Connect, o Serviço de Sincronização não poderia iniciar corretamente até que você tivesse abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. Agora, isso não é mais necessário.
+
+SSO da Área de Trabalho
+
+* O assistente do Azure AD Connect não exige mais porta 9090 para ser aberta na rede ao configurar a Autenticação de Passagem e SSO de Área de Trabalho. Somente a porta 443 é exigida. 
 
 ## <a name="114430"></a>1.1.443.0
 Lançamento: março de 2017
@@ -268,7 +323,14 @@ Lançamento: novembro de 2015
   * Selecionar uma nova UO para incluir na sincronização não exige uma sincronização de senha completa.
   * Quando um usuário desabilitado é habilitado, a senha não é sincronizada.
   * A fila de repetição de senha é infinita e o limite anterior de 5.000 objetos a ser retirado foi removido.
-  * [Solução de problemas avançada](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization).
+<<<<<<< HEAD <<<<<<< HEAD
+  * [Solução de problemas avançada](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+=======
+  * [Solução de problemas avançada](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+>>>>>>> <a name="487b660b6d3bb5ce9e64b6fdbde2ae621cb91922"></a>487b660b6d3bb5ce9e64b6fdbde2ae621cb91922
+=======
+  * [Solução de problemas avançada](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+>>>>>>> 4b2e846c2cd4615f4e4be7195899de11e3957c83
 * Não é possível se conectar ao Active Directory com o nível funcional de floresta do Windows Server 2016.
 * Não é possível alterar o grupo que é usado para filtragem de grupo após a instalação inicial.
 * Não cria mais um novo perfil do usuário no servidor do Azure AD Connect para cada usuário que faz uma alteração de senha com write-back de senha habilitada.

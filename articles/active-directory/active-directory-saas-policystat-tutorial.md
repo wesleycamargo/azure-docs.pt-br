@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 8290d90f22a80d5c585192b17cfa0aeba00aa891
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ecd58d8f1df60aff99d9ac2e0245d06f61e0b6bb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,13 +33,13 @@ Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Policy
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos para PolicyStat
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-policystat-tutorial/IC808662.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-policystat"></a>Habilitando a integração de aplicativos para PolicyStat
+## <a name="enable-the-application-integration-for-policystat"></a>Habilitar a integração de aplicativos para PolicyStat
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o PolicyStat.
 
 **Para habilitar a integração de aplicativos para o PolicyStat, execute as seguintes etapas:**
@@ -64,7 +64,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
    ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no PolicyStat com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
 
@@ -127,19 +127,18 @@ As capturas de tela a seguir mostram um exemplo disso.
    4. Na lista **Email**, selecione **User.mail**.
    5. Clique em **Concluído**.
 
-##<a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+##<a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Para permitir que os usuários do AD do Azure façam logon no PolicyStat, eles devem ser provisionados no PolicyStat.  
 
-O PolicyStat dá suporte ao provisionamento de usuário just in time. Isso significa que não é necessário adicionar usuários manualmente ao PolicyStat.  
-Os usuários serão adicionados automaticamente ao fazerem seu primeiro logon por meio do logon único.
+O PolicyStat dá suporte ao provisionamento de usuário just in time. Isso significa que não é necessário adicionar usuários manualmente ao PolicyStat. Os usuários serão adicionados automaticamente ao fazerem seu primeiro logon por meio do SSO.
 
-> [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do PolicyStat ou as APIs fornecidas pelo PolicyStat para provisionar as contas de usuário do AAD.
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do PolicyStat ou as APIs fornecidas pelo PolicyStat para provisionar as contas de usuário do AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 **Para atribuir usuários ao PolicyStat, execute as seguintes etapas:**
@@ -152,6 +151,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    
    ![Sim](./media/active-directory-saas-policystat-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 

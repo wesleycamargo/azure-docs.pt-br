@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
-ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -63,7 +63,7 @@ Há três produtos Azure CDN: **Azure CDN Standard do Akamai**, **Azure CDN Stan
 | [Limpeza rápida](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Pré-carregamento de ativos](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Análise principal](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [Suporte do HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** | | |
+| [Suporte do HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Relatórios avançados de HTTP](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Estatísticas em tempo real](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Alertas em tempo real](cdn-real-time-alerts.md) | | |**&#x2713;** |

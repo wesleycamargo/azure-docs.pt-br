@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: cab61ee993306e830ae899ed639929b0ee7fba82
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 30ca0f8d06cb1927c19e66035ff485db0fc09e5a
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="repairing-an-export-job"></a>Reparação de um trabalho de exportação
-Após a conclusão de um trabalho de exportação, você pode executar a Ferramenta de Importação/Exportação do Microsoft Azure no local para:  
+Após a conclusão de um trabalho de exportação, você poderá executar a Ferramenta de Importação/Exportação do Microsoft Azure local para:  
   
 1.  Baixar todos os arquivos que o serviço de Importação/Exportação do Azure não conseguiu exportar.  
   

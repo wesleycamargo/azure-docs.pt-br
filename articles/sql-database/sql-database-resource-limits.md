@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 61eac09668b14a98a42b1907a54577d80eb933a6
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a2177926e76b25ceb5ecb4fd9471f961d3fa989f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/29/2017
 O Banco de Dados SQL do Azure gerencia os recursos disponíveis para um banco de dados usando dois mecanismos diferentes: **Governança de Recursos** e **Imposição de Limites**. Este tópico explica essas duas áreas principais do gerenciamento de recursos.
 
 ## <a name="resource-governance"></a>Governança de recursos
-Uma das metas de design das camadas de serviço Básica, Standard e Premium é que o Banco de Dados SQL do Azure se comporte como se o banco de dados estivesse sendo executado em seu próprio computador, isolado de outros bancos de dados. A governança de recursos emula esse comportamento. Se a utilização de recursos agregada atingir o máximo de recursos da CPU, Memória, E/S de Log e de E/S de Dados disponíveis atribuídos ao banco de dados, a governança de recursos colocará na fila as consultas em execução e atribuirá recursos às consultas na fila conforme eles são liberados.
+Uma das metas de design das camadas de serviço Básico, Standard, Premium e Premium RS é que o Banco de Dados SQL do Azure se comporte como se o banco de dados estivesse sendo executado em seu próprio computador, isolado de outros bancos de dados. A governança de recursos emula esse comportamento. Se a utilização de recursos agregada atingir o máximo de recursos da CPU, Memória, E/S de Log e de E/S de Dados disponíveis atribuídos ao banco de dados, a governança de recursos colocará na fila as consultas em execução e atribuirá recursos às consultas na fila conforme eles são liberados.
 
 Assim como ocorre em um computador dedicado, a utilização de todos os recursos disponíveis resultará em uma execução mais longa das consultas em execução, o que poderá resultar em tempos limite de comando no cliente. Aplicativos com uma lógica de repetição agressiva e aplicativos que executam consultas no banco de dados com uma alta frequência podem encontrar mensagens de erro ao tentar executar novas consultas quando o limite de solicitações simultâneas for atingido.
 
@@ -47,7 +47,7 @@ Por exemplo, o número de conexões a um Banco de Dados SQL e o número de solic
 Há camadas de serviço e níveis de desempenho para o banco de dados individual e pools elásticos.
 
 ### <a name="single-databases"></a>Bancos de dados únicos
-Para um banco de dados individual, os limites são definidos pelo nível de serviço e de desempenho do banco de dados. A tabela a seguir descreve as características dos bancos de dados Basic, Standard e Premium em vários níveis de desempenho.
+Para um banco de dados individual, os limites são definidos pelo nível de serviço e de desempenho do banco de dados. A tabela a seguir descreve as características dos bancos de dados Básico, Standard, Premium e Premium RS em vários níveis de desempenho.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
@@ -56,7 +56,7 @@ Para um banco de dados individual, os limites são definidos pelo nível de serv
 >
 
 ### <a name="elastic-pools"></a>Pools elásticos
-[Pools elásticos](sql-database-elastic-pool.md) compartilham recursos entre bancos de dados no pool. A tabela a seguir descreve as características dos pools elásticos Basic, Standard e Premium.
+[Pools elásticos](sql-database-elastic-pool.md) compartilham recursos entre bancos de dados no pool. A tabela a seguir descreve as características dos pools elásticos Básico, Standard, Premium e Premium RS.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -66,8 +66,8 @@ Para obter uma definição expandida de cada recurso listado nas tabelas anterio
 | Área | Limite | Descrição |
 | --- | --- | --- |
 | Bancos de dados usando a exportação Automatizada por assinatura |10 |A exportação automatizada permite que você crie uma agenda personalizada para realização do backup de seus bancos de dados SQL. A visualização desse recurso será encerrada em 1º de março de 2017.  |
-| Bancos de dados por servidor |Até 5.000 |Até 5.000 bancos de dados são permitidos por servidor em servidores V12. |
-| DTUs por servidor |45000 |São permitidas 45.000 DTUs por servidor em servidores V12 para o provisionamento de bancos de dados independentes e pools elásticos. O número total de bancos de dados independentes e pools permitidos por servidor é limitado somente pelo número de DTUs do servidor.  
+| Bancos de dados por servidor |Até 5.000 |Até 5.000 bancos de dados são permitidos por servidor. |
+| DTUs por servidor |45000 |São permitidas 45.000 DTUs por servidor para o provisionamento de bancos de dados autônomos e pools elásticos. O número total de bancos de dados independentes e pools permitidos por servidor é limitado somente pelo número de DTUs do servidor.  
 
 > [!IMPORTANT]
 > A Exportação Automatizada do Banco de Dados SQL do Azure está agora em visualização e será desativada em 1º de março de 2017. A partir de 1º de dezembro de 2016, não será mais possível configurar a exportação automatizada em um banco de dados SQL. Todos os trabalhos de exportação automatizada existentes continuarão funcionando até 1º de março de 2017. Após 1º de dezembro de 2016, você poderá usar a [retenção de backup de longo prazo](sql-database-long-term-retention.md) ou a [Automação do Azure](../automation/automation-intro.md) para arquivar bancos de dados SQL periodicamente, usando o PowerShell periodicamente de acordo com um agendamento de sua escolha. Para obter um script de exemplo, baixe o [script de exemplo no GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).

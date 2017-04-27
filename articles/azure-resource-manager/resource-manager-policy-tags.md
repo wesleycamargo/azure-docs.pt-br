@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 72d398c529fc7dd5eef450da0e134dcdab534ac5
-ms.openlocfilehash: 375a8df763eb6b4b8f7349e0061ab39c076ebfc6
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 6e71fd9eda822478fa0555aa44908a4094fe8de2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -173,13 +174,8 @@ foreach($r in $resources)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Depois de definir uma regra de política (conforme mostrado nos exemplos anteriores), você precisará criar a definição de política e atribuí-la a um escopo. O escopo pode ser uma assinatura, grupo de recursos ou recurso. Para obter exemplos sobre a criação e a atribuição de políticas, confira [Assign and manage policies](resource-manager-policy-create-assign.md) (Atribuir e gerenciar políticas). 
+* Depois de definir uma regra de política (conforme mostrado nos exemplos anteriores), você precisará criar a definição de política e atribuí-la a um escopo. O escopo pode ser uma assinatura, grupo de recursos ou recurso. Para atribuir políticas por meio do portal, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md). Para atribuir políticas por meio da API REST, do PowerShell ou da CLI do Azure, consulte [Atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md).
 * Para ver uma introdução às políticas de recurso, confira [Visão geral da política de recurso](resource-manager-policy.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

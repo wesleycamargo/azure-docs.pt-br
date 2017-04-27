@@ -15,9 +15,9 @@ ms.workload: required
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: ac56273cf85aff550febecf0d75ec87d5c6dbbca
-ms.openlocfilehash: 26547135548dde96e9da601f2e0ccfe96c626880
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -238,25 +238,15 @@ Considere um cenário em que você deseja que apenas um script ative um IP públ
 Você pode usar o mesmo script com planos de recuperação diferentes e fornecer parâmetros diferentes ao armazenar o valor correspondente a diferentes planos de recuperação em outra variável.
 
 ## <a name="sample-scripts"></a>Exemplos de scripts
-Para um repositório de scripts que você pode importar diretamente para sua conta de automação, consulte [Repositório do OMS para scripts de Kristian Nese](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)
+Implante scripts de exemplo em sua conta de automação usando o botão Implantar no Azure abaixo.
 
-O script aqui é um modelo do Azure Resource Manager que implantará todos os seguintes scripts
+[![Implantar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* NSG
+Exiba também um vídeo rápido sobre como recuperar um aplicativo WordPress de duas camadas no Azure.
 
-O runbook do NSG vai atribuir endereços IP públicos a cada VM no Plano de Recuperação e anexar seus adaptadores de rede virtual a um grupo de segurança de rede que permite a comunicação padrão
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
-* PublicIP
 
-O runbook do IP público atribui endereços IP públicos a cada VM no Plano de Recuperação. O acesso a computadores e aplicativos dependerão das configurações de firewall em cada convidado
-
-* CustomScript
-
-O runbook CustomScript atribui endereços IP públicos a cada VM no Plano de Recuperação e instalará uma extensão de script personalizado que efetuará o pull do script que você consultar durante a implantação do modelo
-
-* NSGwithCustomScript
-
-O runbook NSGwithCustomScript atribui endereços IP públicos a cada VM no Plano de Recuperação, instalará um script personalizado usando a extensão e conectará os adaptadores de rede virtual a um NSG que permita comunicação padrão de entrada e saída para acesso remoto
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [Conta Executar como do serviço de Automação do Azure](../automation/automation-sec-configure-azure-runas-account.md)

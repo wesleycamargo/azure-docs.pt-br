@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 6ad9eaf381b93547a3d5f54698f8f6023a5644f2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: dc501a1c7c0d6a1d70ce368f86a967f889394dc7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -25,6 +25,9 @@ ms.lasthandoff: 03/27/2017
 Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um HDFS local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
 Você pode copiar dados de um HDFS para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, a data factory dá suporte apenas para a movimentação de dados de um HDFS local para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para um HDFS local.
+
+> [!NOTE]
+> A Atividade de Cópia não exclui o arquivo de origem depois que ele é copiado com êxito para o destino. Se precisar excluir o arquivo de origem após uma cópia bem-sucedida, crie uma atividade personalizada para excluir o arquivo e use a atividade no pipeline. 
 
 ## <a name="enabling-connectivity"></a>Habilitando a conectividade
 O serviço Data Factory dá suporte à conexão com HDFS local usando o Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway. Use o gateway para se conectar ao HDFS, mesmo se ele estiver hospedado em uma VM IaaS do Azure.
@@ -39,15 +42,15 @@ Você pode criar um pipeline com uma atividade de cópia que mova dados de uma o
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
-Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor: 
+Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
 1. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory.
-2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. 
-3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. 
+2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia.
+3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída.
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados HDFS local, confira a seção [Exemplo de JSON: Copiar dados do HDFS local para o Blob do Azure](#json-example-copy-data-from-on-premises-hdfs-to-azure-blob) deste artigo. 
+Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados HDFS local, confira a seção [Exemplo de JSON: Copiar dados do HDFS local para o Blob do Azure](#json-example-copy-data-from-on-premises-hdfs-to-azure-blob) deste artigo.
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas ao HDFS:
 
@@ -160,12 +163,15 @@ Para a Atividade de Cópia quando a fonte for do tipo **FileSystemSource** , as 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. |True, False (padrão) |Não | 
+| recursiva |Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. |True, False (padrão) |Não |
+
+## <a name="supported-file-and-compression-formats"></a>Formatos de arquivo e de compactação com suporte
+Consulte o artigo [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md) para obter detalhes.
 
 ## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Exemplo de JSON: copiar dados de um HDFS local para um Blob do Azure
 Este exemplo mostra como copiar dados de um HDFS local para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
 
-O exemplo fornece definições de JSON para as entidades de Data Factory a seguir. Você pode usar essas definições para criar um pipeline para copiar dados do HDFS para um Armazenamento de Blobs do Azure usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou ainda o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). 
+O exemplo fornece definições de JSON para as entidades de Data Factory a seguir. Você pode usar essas definições para criar um pipeline para copiar dados do HDFS para um Armazenamento de Blobs do Azure usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou ainda o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
 1. Um serviço vinculado do tipo [OnPremisesHdfs](#linked-service-properties).
 2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -293,7 +299,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 }
 ```
 
-**Uma atividade de cópia em um pipeline com origem de Sistema de Arquivos e coletor Blob:** 
+**Uma atividade de cópia em um pipeline com origem de Sistema de Arquivos e coletor Blob:**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **FileSystemSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados na última hora para copiar.
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: f9e4fededc2bbb069cc653791137f248a7dc3fe8
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: aabc0cf743487752312f5e1b078837545169e964
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -36,8 +36,6 @@ Este artigo aborda o cenário e o monitoramento no nível do recurso. O monitora
 
 O Observador de Rede é um serviço regional que permite monitorar e diagnosticar as condições em um nível do cenário da rede em, para e a partir do Azure. As ferramentas de diagnóstico e visualização da rede disponíveis com o Observador de Rede ajudam a entender, diagnosticar e ter informações para sua rede no Azure.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 O Observador de Rede tem atualmente os seguintes recursos:
 
 * **[Topologia](network-watcher-topology-overview.md)** - fornece uma exibição no nível da rede mostrando as diversas interconexões e associações entre os recursos de rede em um grupo de recursos.
@@ -52,7 +50,7 @@ O Observador de Rede tem atualmente os seguintes recursos:
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controle de Acesso baseado em Funções (RBAC) no Observador de Rede
 
-O Observador de Rede usa o [modelo RBAC (Controle de Acesso baseado em Funções) do Azure](../active-directory/role-based-access-control-what-is.md). As permissões a seguir é necessária para o Observador de Rede na Visualização. É importante verificar se a função usada para iniciar as APIs do Observador de Rede ou usar o Observador de Rede no portal tem o acesso necessário.
+O Observador de Rede usa o [modelo RBAC (Controle de Acesso baseado em Funções) do Azure](../active-directory/role-based-access-control-what-is.md). As permissões a seguir são necessárias para o Observador de Rede. É importante verificar se a função usada para iniciar as APIs do Observador de Rede ou usar o Observador de Rede no portal tem o acesso necessário.
 
 |Recurso| Permissão|
 |---|---|

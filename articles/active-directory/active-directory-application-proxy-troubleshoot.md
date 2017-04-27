@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: f02fbbfb0e8704445d9bfdaba634dbf558ceef02
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -29,8 +29,8 @@ Se ocorrerem erros ao acessar um aplicativo publicado ou em aplicativos de publi
 
 * Abra o console de serviços do Windows e verifique se o serviço de **Conector de Proxy de Aplicativo do Microsoft AAD** está habilitado e em execução. Também convém examinar a página de propriedades do serviço de Proxy de Aplicativo, conforme mostrado na imagem a seguir:   
   ![Captura de tela da janela Propriedades do Conector de Proxy de Aplicativo do Microsoft AAD](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
-* Abra o Visualizador de Eventos e procure eventos de conector do Proxy de Aplicativo em **Logs de Aplicativos e Serviços** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
-* Se você precisar de logs mais detalhados, ative os logs de análise e de depuração e o log de sessão do conector do Proxy de Aplicativo.
+* Abra o Visualizador de Eventos e procure eventos de conector do Proxy de Aplicativo em **Logs de Aplicativos e Serviços**  > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
+* Se necessário, logs mais detalhados estão disponíveis via [ativação dos logs de sessão do conector do Proxy de Aplicativo](application-proxy-understand-connectors.md#under-the-hood).
 
 Para obter mais informações sobre a ferramenta de Solução de problemas do Azure AD, consulte [Ferramenta da solução de problemas para validar os pré-requisitos de rede do conector](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -33,7 +33,7 @@ Há duas maneiras de criar discos padrão para VMs do Azure:
 
 **Discos não gerenciados**: esse é o método original onde você gerencia as contas de armazenamento usadas para armazenar os arquivos VHD que correspondem aos discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Discos não gerenciados podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que usam principalmente o armazenamento Premium, como a série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo que até 64 TB de armazenamento por VM.
 
-[**Azure Managed Disks**](storage-managed-disks-overview.md): esse recurso gerencia as contas de armazenamento usadas para os discos de VM para você. Você só precisa especificar o tipo (Premium ou Standard) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. Você não precisa se preocupar sobre onde colocar os discos em várias contas de armazenamento para garantir que permaneça dentro dos limites de escalabilidade para contas de armazenamento – o Azure cuida disso para você.
+[**Azure Managed Disks**](storage-managed-disks-overview.md): esse recurso gerencia as contas de armazenamento usadas para os discos de VM para você. Você só precisa especificar o tipo (Premium ou Standard) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. Você não precisa se preocupar com o local em que colocará os discos em várias contas de armazenamento para garantir que fique dentro dos limites de escalabilidade das contas de armazenamento – o Azure cuida disso para você.
 
 Embora os dois tipos de discos estejam disponíveis, é recomendável usar o Managed Disks para aproveitar seus muitos recursos.
 
@@ -42,7 +42,7 @@ Para começar a usar o Armazenamento Standard do Azure, visite a página [Introd
 Para obter informações sobre como criar uma VM com Managed Disks, consulte um dos seguintes artigos.
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Recursos do Armazenamento Standard 
 
@@ -52,7 +52,7 @@ Vamos dar uma olhada em alguns dos recursos do Armazenamento Standard. Para sabe
 
 **Discos de armazenamento Standard:** discos de armazenamento Standard podem ser anexados a todas as VMs do Azure, incluindo as VMs da série de tamanho usadas com o armazenamento Premium, como as séries DSv2 e GS. Um disco de armazenamento padrão só pode ser anexado a uma VM. No entanto, você pode anexar um ou mais desses discos em uma VM até a contagem máxima do disco definida para aquele tamanho de VM. Na seção a seguir sobre Metas de desempenho e escalabilidade do Armazenamento Standard, descreveremos as especificações em mais detalhes. 
 
-**Blob de páginas Standard**: blobs de páginas Standard são usados para manter discos persistentes para VMs e também podem ser acessados diretamente por meio do REST como outros tipos de Blobs do Azure. [Blobs de páginas](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) são uma coleção de páginas de 512 bytes otimizadas para leitura aleatória e operações de gravação. 
+**Blob de páginas Standard**: blobs de páginas Standard são usados para manter discos persistentes para VMs e também podem ser acessados diretamente por meio do REST como outros tipos de Blobs do Azure. [Blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) são uma coleção de páginas de 512 bytes otimizadas para leitura aleatória e operações de gravação. 
 
 **Replicação de armazenamento:** na maioria das regiões, dados em uma conta de armazenamento padrão podem ser replicados geograficamente ou replicados localmente em vários data centers. Os quatro tipos de replicação disponíveis são Armazenamento Localmente Redundante (LRS), Armazenamento com Redundância de Zona (ZRS), Armazenamento com Redundância Geográfica (GRS) e Armazenamento com Redundância Geográfica com Acesso de Leitura (RA-GRS). O Managed Disks no Armazenamento Standard atualmente suportam apenas o Armazenamento Localmente Redundante (LRS). Para saber mais, consulte [Replicação de armazenamento](storage-redundancy.md).
 
@@ -99,11 +99,11 @@ Para o serviço de Armazenamento, o arquivo VHD é um blob de páginas. Você po
 
 Você pode criar [instantâneos incrementais](storage-incremental-snapshots.md) para discos Standard não gerenciados da mesma maneira que usa os instantâneos com o Armazenamento Standard. É recomendável que você crie instantâneos e depois os copie para uma conta de armazenamento padrão com redundância geográfica padrão se o seu disco de origem estiver em uma conta de armazenamento localmente redundante. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage-redundancy.md).
 
-Se um disco estiver anexado a uma VM, determinadas operações de API não são permitidas nos discos. Por exemplo, você não pode executar uma operação de [Cópia de Blob](/rest/api/storageservices/fileservices/Copy-Blob) nesse blob enquanto o disco estiver anexado a uma VM. Em vez disso, primeiro crie um instantâneo desse blob usando o método de API REST [Instantâneo de Blob](/rest/api/storageservices/fileservices/Snapshot-Blob) e depois execute a [Cópia de Blob](/rest/api/storageservices/fileservices/Copy-Blob) do instantâneo para copiar o disco anexado. Como alternativa, você pode desanexar o disco e, em seguida, executar as operações necessárias.
+Se um disco estiver anexado a uma VM, determinadas operações de API não são permitidas nos discos. Por exemplo, você não pode executar uma operação de [Cópia de Blob](/rest/api/storageservices/Copy-Blob) nesse blob enquanto o disco estiver anexado a uma VM. Em vez disso, primeiro crie um instantâneo desse blob usando o método de API REST [Instantâneo de Blob](/rest/api/storageservices/Snapshot-Blob) e depois execute a [Cópia de Blob](/rest/api/storageservices/Copy-Blob) do instantâneo para copiar o disco anexado. Como alternativa, você pode desanexar o disco e, em seguida, executar as operações necessárias.
 
-Para manter cópias com redundância geográfica dos seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento com redundância local para uma conta de armazenamento padrão com redundância geográfica usando AzCopy ou Copiar Blob. Para obter mais informações, confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) (Cópia de Blob).
+Para manter cópias com redundância geográfica dos seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento com redundância local para uma conta de armazenamento padrão com redundância geográfica usando AzCopy ou Copiar Blob. Para obter mais informações, confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/Copy-Blob) (Cópia de Blob).
 
-Para obter informações detalhadas sobre como executar operações REST em blobs de páginas nas contas de armazenamento padrão, consulte [API REST de serviços de armazenamento do Azure](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference).
+Para obter informações detalhadas sobre como executar operações REST em blobs de páginas nas contas de armazenamento padrão, consulte [API REST de serviços de armazenamento do Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 ### <a name="managed-disks"></a>Discos gerenciados
 
@@ -125,7 +125,7 @@ Ao usar o Armazenamento Standard, as seguintes considerações de cobrança se a
 
 **Discos gerenciados:** discos gerenciados serão cobrados no tamanho provisionado. Se o seu disco for provisionado como um disco de 10 GB e você estiver usando apenas 5 GB, você ainda será cobrado pelo tamanho de provisão de 10 GB.
 
-**Instantâneos**: os instantâneos de discos padrão serão cobrados pela capacidade adicional usada pelos instantâneos. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](/rest/api/storageservices/fileservices/Creating-a-Snapshot-of-a-Blob).
+**Instantâneos**: os instantâneos de discos padrão serão cobrados pela capacidade adicional usada pelos instantâneos. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Transferências de dados de saída**: as [transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/) (dados saindo dos datacenters do Azure) incorrem em cobrança por uso de largura de banda.
 
@@ -153,4 +153,4 @@ Você também pode usar o serviço de Backup do Azure com o Managed Disks para c
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/linux/quick-create-cli.md)

@@ -12,17 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 03/29/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: edef5fbc015f6b6ba01aa2bfc3d908e6f11159cc
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 06f7b38f5d08f2182f08d38a11dec526042c1828
+ms.lasthandoff: 03/31/2017
 
 
 ---
 
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formatos de arquivo aos quais o Azure Data Factory dá suporte
+*Este tópico se aplica aos seguintes conectores: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Blob do Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [Sistema de Arquivos](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) e [SFTP](data-factory-sftp-connector.md).*
+
 O Azure Data Factory dá suporte aos tipos de formato de arquivo a seguir:
 
 * [Formato de texto](#text-format)
@@ -47,7 +49,7 @@ Se você quiser ler um arquivo de texto ou gravar em um arquivo de texto, defina
 | treatEmptyAsNull |Especifica se uma cadeia de caracteres nula ou vazia será ou não tratada como um valor nulo ao ler dados de um arquivo de entrada. |**True (padrão)**<br/>Falso |Não |
 
 ### <a name="textformat-example"></a>Exemplo de TextFormat
-Na definição de JSON a seguir para um conjunto de dados, algumas das propriedades opcionais são especificadas. 
+Na definição de JSON a seguir para um conjunto de dados, algumas das propriedades opcionais são especificadas.
 
 ```json
 "typeProperties":
@@ -80,7 +82,7 @@ Para usar um `escapeChar` em vez de `quoteChar`, substitua a linha com `quoteCha
 * Você está copiando de um arquivo de texto e deseja ignorar algumas linhas no início que não são informações de dados nem de cabeçalho. Especifique `skipLineCount` para indicar o número de linhas a serem ignoradas. Se o restante do arquivo contiver uma linha de cabeçalho, você também poderá especificar `firstRowAsHeader`. Se `skipLineCount` e `firstRowAsHeader` forem especificados, as linhas serão ignoradas pela primeira vez e, em seguida, as informações de cabeçalho serão lidas do arquivo de entrada
 
 ## <a name="json-format"></a>Formato JSON
-Para **importar/exportar um arquivo JSON como está de/para o DocumentDB**, veja a seção [Importar/exportar documentos JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) no artigo [Mover dados de/para o Azure DocumentDB](data-factory-azure-documentdb-connector.md). 
+Para **importar/exportar um arquivo JSON como está de/para o DocumentDB**, veja a seção [Importar/exportar documentos JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) no artigo [Mover dados de/para o Azure DocumentDB](data-factory-azure-documentdb-connector.md).
 
 Se você quiser analisar os arquivos de JSON ou gravar os dados no formato JSON, defina a propriedade `type` na seção `format` como **JsonFormat**. Você também pode especificar as seguintes propriedades **opcionais** na seção `format`. Veja a seção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
 
@@ -225,7 +227,7 @@ e quiser copiá-lo para uma tabela SQL do Azure no formato a seguir, ao extrair 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte maneira: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção [Especificar a definição de estrutura para conjuntos de dados retangulares](#specifying-structure-definition-for-rectangular-datasets) para obter mais detalhes.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, você pode usar **array[x].property** para extrair o valor da propriedade do objeto xth, ou você pode usar **matriz[*].property** para localizar o valor de qualquer objeto que contém essa propriedade.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, você pode usar **array[x].property** para extrair o valor da propriedade do objeto xth, ou você pode usar  **matriz[*].property** para localizar o valor de qualquer objeto que contém essa propriedade.
 
 ```json
 "properties": {
@@ -452,7 +454,7 @@ Observe os seguintes pontos:
 * Não há suporte para tipos de dados complexos (MAP, LIST)
 * O arquivo Parquet tem as seguintes opções relacionadas à compactação: NONE, SNAPPY, GZIP e LZO. O Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados acima. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo Parquet, o Data Factory escolhe SNAPPY, que é o padrão para o formato Parquet. Não há nenhuma opção para substituir esse comportamento neste momento.
 
-## <a name="compression-support"></a>Suporte à compactação 
+## <a name="compression-support"></a>Suporte à compactação
 O processamento de grandes conjuntos de dados pode causar afunilamentos de E/S e de rede. Portanto, os dados compactados em repositórios não apenas aceleram a transferência de dados pela rede e economizam espaço em disco, mas também oferecem aprimoramentos consideráveis de desempenho no processamento de Big Data. No momento, a compactação tem suporte para repositórios de dados baseados em arquivo, por exemplo, Blob do Azure ou o Sistema de Arquivos Local.  
 
 Para especificar a compactação de um conjunto de dados, use a propriedade **compactação** no conjunto de dados JSON, como no exemplo a seguir:   
@@ -511,3 +513,4 @@ Consulte os artigos a seguir para armazenamentos de dados baseados em arquivo co
 - [HDFS](data-factory-hdfs-connector.md)
 - [Sistema de Arquivos](data-factory-onprem-file-system-connector.md)
 - [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+

@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 3366348e6ea3ae296bc249090e75c16ebe9fc1fb
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -48,20 +48,28 @@ Execute estas etapas para criar um Banco de Dados SQL que contém os dados de ex
 3. Preencha o formulário do Banco de Dados SQL com as informações abaixo, conforme mostrado na imagem anterior:     
    - Nome do banco de dados: **mySampleDatabase**
    - Grupo de recursos: **myResourceGroup**
-   - Fonte: **Exemplo (AdventureWorksLT)**
+   - Origem da fonte: **Exemplo (AdventureWorksLT)**
 
-4. Clique em **Servidor** para criar e configurar o servidor para seu novo banco de dados. Preencha o **formulário Novo servidor** especificando um nome de servidor exclusivo, forneça um nome para o logon de administrador do servidor e especifique a senha escolhida. 
+   > [!IMPORTANT]
+   > Você deve selecionar o banco de dados de exemplo neste formulário porque ele é usado no restante deste início rápido.
+   > 
+
+4. Clique em **Servidor**, em seguida, preencha o **formulário Novo servidor** especificando um nome de servidor exclusivo, forneça um nome para o logon de administrador do servidor e especifique a senha de sua escolha. 
+
+   > [!IMPORTANT]
+   > O logon de administrador do servidor e a senha que você especificar aqui são necessárias para fazer logon no servidor e em seus bancos de dados mais tarde neste início rápido. Lembre-se ou registre essas informações para o uso posterior. 
+   >  
 
     ![criar database-server](./media/sql-database-get-started-portal/create-database-server.png)
-5. Clique em **Selecionar**.
+5. Quando tiver concluído o formulário, clique em **Selecionar**.
 
-6. Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo banco de dados. Para esse início rápido, selecione **20 DTUs** e **250** GB de armazenamento
+6. Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo banco de dados. Use o controle deslizante para selecionar **20 DTUs** e **250** GB de armazenamento. Para obter mais informações sobre as DTUs, consulte [O que é DTU?](sql-database-what-is-a-dtu.md).
 
     ![Criar database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Clique em **Aplicar**.  
+7. Depois de selecionar a quantidade de DTUs, clique em **Aplicar**.  
 
-8. Clique em **Criar** para provisionar o banco de dados. O provisionamento demora alguns minutos. 
+8. Agora que você concluiu o formulário do Banco de Dados SQL, clique em **Criar** para provisionar o banco de dados. O provisionamento demora alguns minutos. 
 
 9. Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
 
@@ -72,27 +80,39 @@ Execute estas etapas para criar um Banco de Dados SQL que contém os dados de ex
 
 O serviço do Banco de Dados SQL cria um firewall no nível do servidor impedindo que os aplicativos e ferramentas externos conectem o servidor ou os bancos de dados no servidor, a menos que uma regra de firewall seja criada para abrir o firewall para endereços IP específicos. Execute estas etapas a fim de criar uma [regra de firewall no nível do servidor do Banco de Dados SQL](sql-database-firewall-configure.md) para o endereço IP do seu cliente e habilitar a conectividade externa por meio do firewall do Banco de Dados SQL somente para seu endereço IP. 
 
-1. Após a conclusão da implantação, clique em **Bancos de dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver20170327.database.windows.net**) e fornece opções para configurações adicionais.
+> [!NOTE]
+> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá conectar seu servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
+>
 
-      ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda e depois clique em **mySampleDatabase** na página Bancos de dados SQL. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver20170411.database.windows.net**) e fornece opções para fazer mais configurações.
+
+   > [!IMPORTANT]
+   > Você precisará desse nome totalmente qualificado do servidor para conectar seu servidor e bancos de dados nos inícios rápidos subsequentes.
+   > 
+
+      ![nome do servidor](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem anterior. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta. 
 
-3. Clique em **Adicionar IP do cliente** na barra de ferramentas e clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para seu endereço IP atual.
+      ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+
+
+3. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
+
+4. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
 
       ![definir regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
 4. Clique em **OK**, em seguida, feche a página **Configurações do Firewall**.
 
-Agora, você pode conectar o servidor do Banco de Dados SQL e seus bancos de dados usando o SQL Server Management Studio ou outra ferramenta de sua escolha neste endereço IP usando a conta do administrador do Servidor criada anteriormente.
+Agora, você pode conectar o servidor do Banco de Dados SQL e seus bancos de dados usando o SQL Server Management Studio ou outra ferramenta de sua escolha neste endereço IP usando a conta do administrador do servidor criada anteriormente.
 
-> [!NOTE]
-> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá conectar seu servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
->
+> [!IMPORTANT]
+> Por padrão, o acesso através do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure. Clique em **DESATIVAR** nesta página para desabilitar todos os serviços do Azure.
 
 ## <a name="query-the-sql-database"></a>Consultar o Banco de Dados SQL
 
-Quando criamos nosso Banco de Dados SQL, preenchemos com o banco de dados de exemplo **AdventureWorksLT** (essa foi uma das opções que selecionamos na interface de usuário Criar anteriormente neste início rápido). Agora vamos usar a ferramenta de consulta interna no portal do Azure para consultar os dados. 
+Agora que você criou um banco de dados de exemplo no Azure, usaremos a ferramenta de consulta interna no portal do Azure para confirmar que você pode conectar o banco de dados e consultar os dados. 
 
 1. Na página do Banco de Dados SQL do seu banco de dados, clique em **Ferramentas** na barra de ferramentas. A página **Ferramentas** é aberta.
 

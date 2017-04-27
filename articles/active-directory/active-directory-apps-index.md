@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6017fa3fe2134452bf24d2fc54c8f82b08862dbb
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 564dd782834898709f89f85e10627d07b17138ce
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -43,7 +43,7 @@ Esta seção fornece acesso rápido às guias de solução de problemas relevant
 | Logon único federado |[Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md) |
 | Logon único baseado em senha |[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md) |
-| Logon único entre o AD local e o AD do Azure |[Solução de problemas de sincronização de senha](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Logon único entre o AD local e o AD do Azure |[Solução de problemas de sincronização de senha](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Associações de grupo dinâmico |[Solucionar problemas de associações a grupos dinâmicos](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>SSO (Logon único)
@@ -109,7 +109,9 @@ Depois de configurar o logon único em seus aplicativos e recursos, aplique uma 
 |:---:| --- |
 | Uma introdução aos recursos de acesso condicional oferecidos no AD do Azure, no Office365 e no Intune |[Gerenciamento de riscos com acesso condicional](active-directory-conditional-access.md) |
 | Como habilitar o acesso condicional aos seguintes tipos de recursos |[Acesso condicional para aplicativos SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Acesso condicional para aplicativos locais](active-directory-conditional-access.md)<br /><br />[Acesso condicional para aplicativos locais publicados por meio do Proxy de Aplicativo do Azure AD](active-directory-application-proxy-conditional-access.md) |
-| Como registrar dispositivos com o Active Directory do Azure a fim de habilitar políticas de acesso condicional baseadas no dispositivo |[Visão geral do registro de dispositivos do Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Como habilitar o registro de dispositivo automático para dispositivos Windows ingressados no domínio](active-directory-conditional-access-automatic-device-registration.md)<br />— [Etapas para dispositivos com Windows 8.1](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices)<br />— [Etapas para dispositivos com Windows 7](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices) |
+
+| Como registrar dispositivos com o Active Directory do Azure a fim de habilitar políticas de acesso condicional baseadas no dispositivo |[Visão geral do registro de dispositivos do Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Como habilitar o registro de dispositivo automático para dispositivos Windows ingressados no domínio](active-directory-conditional-access-automatic-device-registration.md)<br />— [Etapas para dispositivos com Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Etapas para dispositivos com Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
+
 | Como usar o aplicativo Microsoft Authenticator para verificação em duas etapas |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 O Acesso Condicional é um recurso do [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
@@ -202,7 +204,7 @@ O Active Directory do Azure fornece vários relatórios e alertas para ajudar vo
 
 Para ver quais relatórios estão incluídos em edições diferentes do Azure Active Directory, [clique aqui](active-directory-view-access-usage-reports.md#report-editions).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 [O que é o Active Directory do Azure?](active-directory-whatis.md)
 
 [Active Directory B2C do Azure](https://azure.microsoft.com/services/active-directory-b2c/)

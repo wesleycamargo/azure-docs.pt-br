@@ -12,17 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/31/2017
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: 8ea727f7b8d93401b35a7b9dbd2f00a5534c3072
-ms.openlocfilehash: e54c37f688e8d107f5323125ea42d63ec91a4c84
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 965c60ffde55041cc3864d06d81f5590c7ea1c11
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guia de linguagem de especificação de rede neural Net# para Aprendizado de Máquina do Azure
 ## <a name="overview"></a>Visão geral
-Net# é uma linguagem desenvolvida pela Microsoft que é usada para definir arquiteturas de rede neural. Você pode usar Net# em módulos de rede neural no Microsoft Azure Machine Learning ou na função `rxNeuralNetwork()` no [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+Net# é uma linguagem desenvolvida pela Microsoft que é usada para definir arquiteturas de rede neural. Você pode usar Net# em módulos de rede neural no Microsoft Azure Machine Learning.
+
+<!-- This function doesn't currentlyappear in the MicrosoftML documentation. If it is added in a future update, we can uncomment this text.
+
+, or in the `rxNeuralNetwork()` function in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+
+-->
 
 Neste artigo, você aprenderá os conceitos básicos necessários para desenvolver uma rede neural personalizada: 
 
@@ -365,7 +372,7 @@ Este exemplo ilustra vários recursos da linguagem de especificação de redes n
 * A camada *Pixels* é uma camada de origem para dois grupos de conexões, com as camadas de destino *ByRow* e *ByCol*.
 * As camadas *Gather* e *Result* são camadas de destino em múltiplos grupos de conexões.
 * A camada de saída, *Result*, é uma camada de destino em dois grupos de conexões; um com a camada oculta de segundo nível (Gather) como uma camada de destino e o outro com a camada de entrada (MetaData) como uma camada de destino.
-* As camadas ocultas, *ByRow* e *ByCol*, especificam conectividade filtrada usando expressões de predicado. Mais precisamente, o nó em *ByRow *em [x, y] está conectado aos nós em *Pixels*, que têm a primeira coordenada de índice igual à primeira coordenada do nó, x. Da mesma forma, o nó em *ByCol em [x, y] está conectado aos nós em _Pixels*, que têm a segunda coordenada de índice dentro da segunda coordenada do nó, y.  
+* As camadas ocultas, *ByRow* e *ByCol*, especificam conectividade filtrada usando expressões de predicado. Mais precisamente, o nó em *ByRow* em [x, y] está conectado aos nós em *Pixels*, que têm a primeira coordenada de índice igual à primeira coordenada do nó, x. Da mesma forma, o nó em *ByCol em [x, y] está conectado aos nós em _Pixels*, que têm a segunda coordenada de índice dentro da segunda coordenada do nó, y.  
 
 ### <a name="define-a-convolutional-network-for-multiclass-classification-digit-recognition-example"></a>Definir uma rede convolucional para classificação multiclasse: exemplo de reconhecimento de dígitos
 A definição de rede a seguir foi projetada para reconhecer números e ilustra algumas técnicas avançadas para personalizar uma rede neural.  
@@ -402,16 +409,11 @@ A definição de rede a seguir foi projetada para reconhecer números e ilustra 
   * **NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
   * **NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
 * O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5], conforme descrito a seguir: ***MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5*
-* Como **Sharing**[d] é falso somente para *d == 0*, o número de kernels é ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*. 
+* Como **Sharing**[d] é False somente para *d == 0*, o número de kernels é ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*. 
 
 ## <a name="acknowledgements"></a>Confirmações
 A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (arquiteto, Aprendizado de Máquina) e Alexey Kamenev (engenheiro de software, Microsoft Research). Ela é usada internamente para projetos de aprendizado de máquina e aplicativos que vão de detecção de imagem a análise de texto. Para saber mais, veja [Redes neurais no Azure ML — Introdução ao Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

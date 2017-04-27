@@ -16,9 +16,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: a90c412d2d66834cd0df3f348fa488b6ce10c898
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 159e41f3d1b43abc830b79e1ea0bed05e05505a2
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -28,7 +28,7 @@ Sites sociais são uma das forças principais para a adoção de big data. APIs 
 Neste tutorial, você obterá tweets usando o API de streaming do Twitter e, em seguida, usará o Apache Hive no HDInsight do Azure para obter uma lista de usuários do Twitter que enviaram mais tweets contendo uma determinada palavra.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight baseado em Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para obter as etapas específicas para um cluster baseado em Linux, confira [Analisar dados do Twitter usando o Hive no HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
+> As etapas deste documento exigem um cluster HDInsight baseado em Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Para obter as etapas específicas para um cluster baseado em Linux, confira [Analisar dados do Twitter usando o Hive no HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
@@ -563,7 +563,7 @@ Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]:hdinsight-hadoop-use-blob-storage.md#access-blobs-using-azure-powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md

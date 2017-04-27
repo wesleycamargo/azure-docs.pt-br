@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 2a124c42e6c90e9443475e1f46cf3e10b5d53d6a
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: 46240f3dc99a8c8a103a1e7919ad4f5e7a8ea62a
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -70,40 +71,7 @@ Execute as etapas a seguir para criar uma conta. Depois de criar a conta, você 
 DaemonSets são usados pelo Kubernetes para executar uma única instância de um contêiner em cada host no cluster.
 Eles são perfeitos para a execução de agentes de monitoramento.
 
-Aqui está o arquivo DaemonSet YAML. Salve-o em um arquivo chamado `oms-daemonset.yaml` e substitua os valores de espaço reservado de `WSID` e `KEY` abaixo com sua id de espaço de trabalho e a chave do arquivo.
-
-```yaml
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: omsagent
-spec:
-  template:
-    metadata:
-      labels:
-        app: omsagent
-    spec:
-      containers:
-      - env:
-        - name: WSID
-          value: <your workspace ID>
-        - name: KEY
-          value: <your key>
-        image: microsoft/oms
-        name: omsagent
-        ports:
-        - containerPort: 25225
-          protocol: TCP
-        securityContext:
-          privileged: true
-        volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-sock
-      volumes:
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-```
+Este é o arquivo [DaemonSet YAML](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Salve-o em um arquivo chamado `oms-daemonset.yaml` e substitua os valores de espaço reservado `WSID` e `KEY` pela ID de espaço de trabalho e a chave no arquivo.
 
 Depois de adicionar a ID e a chave para a configuração de DaemonSet, você pode instalar o agente do OMS no cluster com o `kubectl` ferramenta de linha de comando:
 
@@ -113,9 +81,4 @@ $ kubectl create -f oms-daemonset.yaml
 
 ### <a name="conclusion"></a>Conclusão
 É isso! Depois de alguns minutos, você deve ser capaz de ver os dados que fluem para o painel do OMS.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

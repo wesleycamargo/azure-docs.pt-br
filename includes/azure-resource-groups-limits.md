@@ -7,9 +7,5 @@
 | Número de marcas (por recurso ou grupo de recursos) |15 |15 |
 | Comprimento da chave de marca |512 |512 |
 | Comprimento do valor da marca |256 |256 |
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+| Recursos em modelos exportados |200 |200 |
 

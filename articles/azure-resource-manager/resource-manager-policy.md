@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 6d459e37b8b39f5d76c4ec86ebb7351c783b81fb
-ms.openlocfilehash: 64cb4be184e02519a6c496f8639035201ebb60f8
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d75088bd83b0b70c889388c95331bb56fe9ba15b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ Há dois conceitos a entender sobre políticas:
 * definição da política - descrevem quando a política é aplicada e qual ação tomar
 * atribuição de política - aplicar a definição de política a um escopo (assinatura ou grupo de recursos)
 
-Este tópico se concentra na definição de política. Para saber mais sobre a atribuição de política, veja [Atribuir e gerenciar políticas](resource-manager-policy-create-assign.md).
+Este tópico se concentra na definição de política. Para obter informações sobre a atribuição de política, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md) ou [Atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md).
 
 O Azure fornece algumas definições de política internas que podem reduzir o número de políticas que você precisa definir. Se uma definição de política interna funciona para seu cenário, use essa definição ao atribuir a um escopo.
 
@@ -239,7 +239,7 @@ Os tópicos a seguir contêm exemplos de política:
 
 * Para obter exemplos de políticas de marca, veja [Aplicar políticas de recursos para marcas](resource-manager-policy-tags.md).
 * Para obter exemplos de políticas de armazenamento, veja [Aplicar políticas de recursos para contas de armazenamento](resource-manager-policy-storage.md).
-* Para obter exemplos de políticas de máquina virtual, veja [Aplicar políticas de recursos a VMs Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) e [Aplicar políticas de recursos a VMs do Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+* Para obter exemplos de políticas de máquina virtual, veja [Aplicar políticas de recursos a VMs Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) e [Aplicar políticas de recursos a VMs do Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ### <a name="allowed-resource-locations"></a>Locais de recursos permitidos
 Para especificar quais locais são permitidos, veja o exemplo da seção [Estrutura da definição de política](#policy-definition-structure). Para atribuir essa definição de política, use a política interna com a ID de recurso `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
@@ -326,7 +326,7 @@ O exemplo a seguir mostra o uso de curingas, que é compatível com a condição
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Depois de definir uma regra de política, atribua um escopo. Para saber mais sobre a atribuição de política, veja [Atribuir e gerenciar políticas](resource-manager-policy-create-assign.md).
+* Depois de definir uma regra de política, atribua um escopo. Para atribuir políticas por meio do portal, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md). Para atribuir políticas por meio da API REST, do PowerShell ou da CLI do Azure, consulte [Atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 * O esquema da política é publicado em [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 

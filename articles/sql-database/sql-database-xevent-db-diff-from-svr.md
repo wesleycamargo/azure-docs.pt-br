@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
-ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 8c94c8789696507d89e08a637067ca040d45246a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
 
 Este tópico explica como a implementação de eventos estendidos no Banco de Dados SQL do Azure é um pouco diferente em comparação aos eventos estendidos no Microsoft SQL Server.
 
-- O Banco de Dados SQL V12 recebeu o recurso de eventos estendidos na segunda metade de 2015.
+- O Banco de Dados SQL recebeu o recurso de eventos estendidos na segunda metade de 2015.
 - O SQL Server já tem eventos estendidos desde 2008.
 - O conjunto de recursos de eventos estendidos no Banco de Dados SQL é um subconjunto robusto dos recursos do SQL Server.
 
@@ -215,9 +216,4 @@ Outros tópicos com exemplos de código para eventos estendidos estão disponív
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

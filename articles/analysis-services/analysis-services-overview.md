@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 3539da8afe5781d74cbf723090050b767373f268
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d1cb0751633f1a190d8ecfe1888ab6cdd8736480
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -33,10 +33,6 @@ Assista a este vídeo para saber mais sobre como o Azure Analysis Services se ad
 >
 >
 
-> [!IMPORTANT]
-> O Azure Analysis Services está em **visualização**. Existem algumas coisas que ainda não funcionam. Não se esqueça de conferir as [expectativas de visualização](#preview-expectations) mais adiante neste artigo. E fique de olho em nosso [blog do Azure Analysis Services](https://go.microsoft.com/fwlink/?linkid=830920) para obter as informações mais recentes.
-> 
-> 
 
 ## <a name="built-on-sql-server-analysis-services"></a>Criado no SQL Server Analysis Services
 O Azure Analysis Services é compatível com o mesmo SQL Server 2016 Analysis Services Enterprise Edition que você já conhece. O Azure Analysis Services dá suporte a modelos tabulares no nível de compatibilidade 1200. DirectQuery, partições, segurança em nível de linha, relações bidirecionais e traduções: todos têm suporte.
@@ -53,14 +49,12 @@ Modelos de dados implantados em servidores no suporte do Azure, conectando a fon
 
 Como o servidor está na nuvem, a conexão com as fontes de dados nela é perfeita. Ao se conectar a fontes de dados locais, o [gateway de dados local](analysis-services-gateway.md) garante conexões rápidas e seguras com o servidor do Analysis Services na nuvem.  
 
- \* Algumas fontes de dados ainda não têm suporte no modo de visualização. Para saber mais, confira as [expectativas de visualização](#preview-expectations) mais adiante neste artigo.
 
 ## <a name="explore-your-data-from-anywhere"></a>Explorar seus dados de qualquer lugar
-Conecte-se e [receba dados](analysis-services-connect.md) de seus servidores em praticamente qualquer lugar. O Azure Analysis Services dá suporte à conexão com o Power BI Desktop, com o Excel, com aplicativos personalizados e com ferramentas baseadas em navegador.
+Conecte-se e obtenha dados de seus servidores em praticamente qualquer lugar. O Azure Analysis Services dá suporte à conexão com o Power BI Desktop, com o Excel, com aplicativos personalizados e com ferramentas baseadas em navegador.
 
 ![Visualizações de dados](./media/analysis-services-overview/aas-overview-visualization.png)
 
- \* O Power BI Embedded ainda não tem suporte no modo de visualização.
 
 ## <a name="secure"></a>Segurança
 #### <a name="user-authentication"></a>Autenticação de usuário
@@ -93,31 +87,6 @@ O Analysis Services tem uma comunidade de usuários vibrante. Participe das conv
 Quer fazer sugestões ou solicitações de recursos? Deixe seus comentários nos [Comentários sobre o Azure Analysis Services](https://aka.ms/azureanalysisservicesfeedback).
 
 Quer fazer sugestões sobre a documentação? Você pode adicionar comentários usando o Disqus na parte inferior de cada artigo.
-
-## <a name="preview-expectations"></a>Expectativas da visualização
-O Azure Analysis Services está atualmente em visualização. Existem alguns aspectos aos quais você deve estar atento.
-
-##### <a name="server-modes"></a>Modos de servidor
-O Azure Analysis Services atualmente dá suporte ao modo Tabular para modelos tabulares no nível de compatibilidade 1200. Não há suporte para os modos Multidimensional e Mineração de Dados e para o Power Pivot para SharePoint.
-
-##### <a name="data-sources"></a>Fontes de dados
-Na visualização, as fontes de dados a seguir têm suporte em modelos tabulares 1200 implantados em um servidor do Azure Analysis Services.
-
-| **Nuvem** | **Local (exige o gateway de dados)** |
-| --- | --- |
-| Banco de dados SQL |SQL Server |
-| SQL Data Warehouse |APS |
-| Oracle | Oracle |
-| Teradata | |
-
-### <a name="data-source-providers"></a>Provedores de fonte de dados
-Os modelos de dados no Azure Analysis Services podem exigir provedores de dados diferentes dos exigidos pelos modelos de dados no SQL Server Analysis Services para se conectarem às fontes de dados. Os requisitos do provedor de dados dependem da localização da fonte de dados ser na nuvem ou local e do tipo de modelo de dados, Consulta Direta ou na memória interna. Para saber mais, confira [Conexões com fonte de dados](analysis-services-datasource.md).
-
-### <a name="client-connections"></a>Conexões de cliente
-
-Os aplicativos cliente exigem os [provedores de dados](analysis-services-data-providers.md) de cliente mais recentes para se conectar ao Analysis Services do Azure.
-
-Não há suporte para pastas de trabalho do Excel com conexões ativas em um servidor do Azure Analysis Services e salvas no OneDrive ou no SharePoint Online.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você sabe mais sobre o Azure Analysis Services, é hora de começar. Aprenda a [criar um servidor](analysis-services-create-server.md) no Azure e a [implantar um modelo tabular](analysis-services-deploy.md) nele.

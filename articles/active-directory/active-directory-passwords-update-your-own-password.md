@@ -16,9 +16,9 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9b7735bbe8d3b2ffc78eba8f1489d70a02fe7342
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -31,7 +31,7 @@ Se os cenários a seguir se aplicam a você, podemos ajudar
 * Você não tem certeza de como acessar sua conta e não lembra da senha
 * Uma senha não foi atribuída e seu administrador o mandou para cá
 
-## <a name="unlock-your-account"></a>Desbloquear sua conta
+## <a name="unlock-my-account"></a>Desbloquear minha conta
 
 Se você está aqui para desbloquear sua conta, siga as etapas abaixo. Quando você vir **Escolher uma nova senha** na etapa 6 abaixo, poderá desbloquear ou alterar sua senha e desbloqueá-la.
 
@@ -43,6 +43,11 @@ Para voltar à sua conta, siga as etapas abaixo.
     ![Não é possível acessar sua conta?][Login]
 
 2. Insira sua **ID de usuário** da conta corporativa ou de estudante e prove que você não é um robô passando no desafio CAPTCHA, inserindo o texto apresentado a você e clicando em **Avançar**
+
+   > [!NOTE]
+   > Se o administrador não habilitou essa funcionalidade, aparecerá um link "entre em contato com seu administrador" para que o administrador possa fornecer assistência via email ou um portal da Web.
+   >
+
 3. Dependendo de como o administrador configurou o sistema, você poderá ver uma ou mais das seguintes opções
     * **Enviar para meu email alternativo**: envia um email com um código de seis dígitos para seu email alternativo ou seu email de autenticação (você escolhe).
     * **Enviar SMS para meu celular**: envia uma mensagem com um código de seis dígitos para seu celular ou seu email de autenticação (você escolhe).
@@ -61,10 +66,6 @@ Para voltar à sua conta, siga as etapas abaixo.
 7. Quando você vir **A senha do usuário foi redefinida.**, poderá entrar com sua nova senha.
 
     ![A senha do usuário foi redefinida][Complete]
-
-> [!NOTE]
-> Se o administrador não habilitou essa funcionalidade, aparecerá um link "entre em contato com seu administrador" para que o administrador possa fornecer assistência via email ou um portal da Web.
->
 
 Após usar esse método para desbloquear ou redefinir sua senha, você receberá um email confirmando que o processo foi concluído vindo de uma conta como "Microsoft em nome da sua organização aqui". Se você receber um email como este e não tiver feito redefinição de senha de autoatendimento para recuperar o acesso à sua conta, entre em contato com o administrador.
 

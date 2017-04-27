@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: e43027cdea291f34aa60ad123e0de86b385efb30
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
@@ -69,7 +70,7 @@ Digite a **URL do ponto de extremidade de autorização**. Para o Active Directo
 
 O **método de solicitação de autorização** especifica como a solicitação de autorização é enviada para o servidor OAuth 2.0. O **GET** é selecionado por padrão.
 
-A seção seguinte está onde a **URL de ponto de extremidade do token**, os **métodos de autenticação do cliente**,** o método de envio de token de acesso** e o **escopo padrão** são especificados.
+A seção seguinte está onde a **URL de ponto de extremidade do token**, os **métodos de autenticação do cliente**,**o método de envio de token de acesso** e o **escopo padrão** são especificados.
 
 ![Novo servidor][api-management-oauth2-server-3]
 
@@ -103,7 +104,7 @@ Depois de configurar seu servidor de autorização OAuth 2.0 e configurar sua AP
 
 ![Portal do desenvolvedor][api-management-developer-portal-menu]
 
-Clique em** APIs** no menu superior e selecione **API de Eco**.
+Clique em**APIs** no menu superior e selecione **API de Eco**.
 
 ![API de Eco][api-management-apis-echo-api]
 
@@ -172,10 +173,5 @@ Para obter mais informações sobre como usar OAuth 2.0 e Gerenciamento de API, 
 [Configure an API to use OAuth 2.0 user authorization]: #step2
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

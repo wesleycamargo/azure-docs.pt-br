@@ -207,7 +207,7 @@ O botão **Implantar no Azure** é ótimo, mas só permite que você implante o 
 6. Apenas para fins de demonstração, vamos adicionar alguns recursos padrão do Application Insight em nosso arquivo JSON, clicando em **Adicionar Recurso**. Se estiver interessado apenas na implantação do arquivo JSON, vá direto para as etapas de implantação.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
-7. Selecione** Application Insights para Aplicativos Web**, certifique-se de que um aplicativo Web e um Plano do Serviço de Aplicativo existentes estão selecionados e, em seguida, clique em **Adicionar**.
+7. Selecione**Application Insights para Aplicativos Web**, certifique-se de que um aplicativo Web e um Plano do Serviço de Aplicativo existentes estão selecionados e, em seguida, clique em **Adicionar**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
