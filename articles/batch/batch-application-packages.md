@@ -202,7 +202,7 @@ No .NET do Lote, especifique um ou mais [CloudPool][net_cloudpool].[ApplicationP
 CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
-        targetDedicated: "1",
+        targetDedicated: 1,
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
