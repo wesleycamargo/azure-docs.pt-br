@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 14b7900a8b4fbf86e8a814def6fa8c7915832376
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: c212df3646dce24eb11542884c6ee5084325cb7d
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -95,7 +95,12 @@ A configuração **disponibilidade** na tabela de dados de saída determina quan
 Pipelines devem agrupar atividades relacionadas. Se os conjuntos de dados que os conectam não forem consumidos por nenhuma outra atividade fora do pipeline, você poderá manter as atividades em um pipeline. Desse modo, você não precisaria encadear períodos ativos do pipeline para que eles se alinhem uns com os outros. Além disso, a integridade dos dados nas tabelas internas ao pipeline é melhor preservada ao atualizar o pipeline. A atualização de pipeline interrompe essencialmente todas as atividades no pipeline, remove-as e cria essas atividades novamente. Da perspectiva de criação, também pode ser mais fácil ver o fluxo de dados nas atividades relacionadas em um arquivo JSON para o pipeline.
 
 ### <a name="what-are-the-supported-data-stores"></a>Quais são os armazenamentos de dados com suporte?
+A Atividade de Cópia no Data Factory copia os dados de um repositório de dados de origem para um repositório de dados de coletor. A Data Factory dá suporte aos repositórios de dados a seguir. Os dados de qualquer origem podem ser gravados em qualquer coletor. Clique em um repositório de dados para saber como copiar dados dentro e fora do repositório.
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+> [!NOTE]
+> Os repositórios de dados com * podem estar no local ou no Azure IaaS e exigem a instalação do [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) em um computador Azure IaaS/local.
 
 ### <a name="what-are-the-supported-file-formats"></a>Quais são os formatos de arquivo com suporte?
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]

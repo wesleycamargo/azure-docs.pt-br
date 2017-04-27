@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 04/19/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 961a3867362d14ab7b6ff99ce4002380d763082f
-
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c0a988a11722cfefb242f573c5a3affe21e6b6b4
+ms.lasthandoff: 04/20/2017
 
 ---
+
 # <a name="connect-operations-manager-to-log-analytics"></a>Conectar o Operations Manager ao Log Analytics
 Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho do OMS.  Isso permite aproveitar as oportunidades do OMS e continuar a usar o Operations Manager para:
 
@@ -35,10 +36,12 @@ O diagrama a seguir ilustra a conexão entre os servidores de gerenciamento e ag
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
+Se suas políticas de segurança não permitem que computadores em sua rede se conectem à Internet, os servidores de gerenciamento podem ser configurados para se conectar ao Gateway do OMS para receber informações de configuração e enviar os dados coletados dependendo da solução habilitada.  Para obter informações adicionais e etapas sobre como configurar o grupo de gerenciamento do Operations Manager para se comunicar através de um Gateway do OMS ao serviço OMS, consulte [Conectar computadores ao OMS usando o Gateway do OMS](log-analytics-oms-gateway.md).  
+
 ## <a name="system-requirements"></a>Requisitos do sistema
 Antes de começar, examine os detalhes a seguir para verificar se você atende aos pré-requisitos necessários.
 
-* O OMS dá suporte apenas ao Operations Manager 2012 SP1 UR6 e superior e ao Operations Manager 2012 R2 UR2 e superior.  Foi adicionado suporte a proxy ao Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
+* O OMS dá suporte apenas ao Operations Manager 2016, Operations Manager 2012 SP1 UR6 e superior e ao Operations Manager 2012 R2 UR2 e superior.  Foi adicionado suporte a proxy ao Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
 * Todos os agentes do Operations Manager devem atender aos requisitos de suporte mínimos. Verifique se os agentes estão em dia pelo menos até a atualização mínima, caso contrário o tráfego de agente do Windows falhará e muitos erros poderão lotar o log de eventos do Operations Manager.
 * Uma assinatura do OMS.  Para obter informações adicionais, leia a [Introdução ao Log Analytics](log-analytics-get-started.md).
 
@@ -137,28 +140,36 @@ Existem algumas maneiras diferentes de verificar se a integração do OMS ao Ope
 ## <a name="remove-integration-with-oms"></a>Remover a Integração com o OMS
 Quando você não precisar mais da integração entre o grupo de gerenciamento do Operations Manager e o espaço de trabalho do OMS, há várias etapas necessárias para remover corretamente a conexão e a configuração do grupo de gerenciamento. O procedimento a seguir orientará você a atualizar seu espaço de trabalho do OMS, excluindo a referência do grupo de gerenciamento, excluindo os conectores do OMS e, em seguida, excluindo os pacotes de gerenciamento com suporte do OMS.   
 
+Não é possível excluir facilmente do grupo de gerenciamento nem os pacotes de gerenciamento para as soluções que você habilitou que se integram com o Operations Manager, tampouco os pacotes de gerenciamento necessários para dar suporte à integração com o serviço OMS.  Isso ocorre porque alguns dos pacotes de gerenciamento de OMS têm dependências em outros pacotes de gerenciamento relacionados.  Para excluir pacotes de gerenciamento com uma dependência em outros pacotes de gerenciamento, baixe o script [remover um pacote de gerenciamento com dependências](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) do TechNet Script Center.  
+
 1. Abra o Shell de Comando do Operations Manager com uma conta que seja membro da função Administradores do Operations Manager.
    
-   > [!WARNING]
-   > Verifique se você não tem pacotes de gerenciamento personalizados com a palavra Advisor ou IntelligencePack no nome antes de prosseguir, caso contrário, as etapas a seguir vão excluí-los do grupo de gerenciamento.
-   > 
-   > 
-2. No prompt de shell de comando, digite `Get-SCOMManagementPack -name "*advisor*" | Remove-SCOMManagementPack`
-3. Em seguida, digite `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack`
-4. Abra o Console de operações do Operations Manager com uma conta que seja membro da função Administradores do Operations Manager.
-5. Em **Administração**, selecione o nó **Pacotes de Gerenciamento** e, na caixa **Procurar por:**, digite **Advisor** e verifique se os seguintes pacotes de gerenciamento ainda foram importados no grupo de gerenciamento:
+    > [!WARNING]
+    > Verifique se você não tem pacotes de gerenciamento personalizados com a palavra Advisor ou IntelligencePack no nome antes de prosseguir, caso contrário, as etapas a seguir vão excluí-los do grupo de gerenciamento.
+    > 
+
+2. No prompt de shell de comando, digite `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+3. Em seguida, digite `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+4. Para remover quaisquer pacotes de gerenciamento restantes que tenham uma dependência de outros pacotes de gerenciamento do System Center Advisor, use o script *RecursiveRemove.ps1* baixado anteriormente do TechNet Script Center.  
+ 
+    > [!NOTE]
+    > Não exclua os pacotes de gerenciamento do Microsoft System Center Advisor ou Microsoft System Center Advisor Interno.  
+    >  
+
+5. Abra o Console de operações do Operations Manager com uma conta que seja membro da função Administradores do Operations Manager.
+6. Em **Administração**, selecione o nó **Pacotes de Gerenciamento** e, na caixa **Procurar por:**, digite **Advisor** e verifique se os seguintes pacotes de gerenciamento ainda foram importados no grupo de gerenciamento:
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Interno
-6. No portal do OMS, clique no bloco **Configurações** .
-7. Selecione **Fontes Conectadas**.
-8. Na tabela na seção System Center Operations Manager, você verá o nome do grupo de gerenciamento que deseja remover do espaço de trabalho.  Na coluna **Últimos Dados**, clique em **Remover**.  
+7. No portal do OMS, clique no bloco **Configurações** .
+8. Selecione **Fontes Conectadas**.
+9. Na tabela na seção System Center Operations Manager, você verá o nome do grupo de gerenciamento que deseja remover do espaço de trabalho.  Na coluna **Últimos Dados**, clique em **Remover**.  
    
-   > [!NOTE]
-   > O link **Remover** não estará disponível até depois de 14 dias, se não for detectada nenhuma atividade pelo grupo de gerenciamento conectado.  
-   > 
-   > 
-9. Uma janela será exibida solicitando que você confirme se deseja continuar com a remoção.  Clique em **Sim** para confirmar. 
+    > [!NOTE]
+    > O link **Remover** não estará disponível até depois de 14 dias, se não for detectada nenhuma atividade pelo grupo de gerenciamento conectado.  
+    > 
+
+10. Uma janela será exibida solicitando que você confirme se deseja continuar com a remoção.  Clique em **Sim** para confirmar. 
 
 Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e o Conector do Advisor, salve o script do PowerShell abaixo em seu computador e execute-o usando os exemplos a seguir.
 
@@ -168,7 +179,7 @@ Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e 
 ```
 
 > [!NOTE]
-> O computador no qual você executará esse script, se não for um servidor de gerenciamento, deverá ter o shell de comando do Operations Manager 2012 SP1 ou R2 instalado, dependendo da versão do seu grupo de gerenciamento.
+> O computador no qual você executará esse script, se não for um servidor de gerenciamento, deverá ter o shell de comando do Operations Manager instalado, dependendo da versão do seu grupo de gerenciamento.
 > 
 > 
 
@@ -263,10 +274,5 @@ No futuro, se você planejar reconectar o grupo de gerenciamento para um espaço
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md) para adicionar funcionalidade e obter dados.
 * [Definir configurações de proxy e firewall no Log Analytics](log-analytics-proxy-firewall.md) se sua organização usar um servidor proxy ou firewall para que os agentes possam se comunicar com o serviço do Log Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

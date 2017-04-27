@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: e066cc2ee99b14d13c5238266513edf61ecbe3e1
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: ad82c1a552d9d77259c44b938975eebc44933b86
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -45,7 +45,7 @@ Este documento orienta você pelo processo passo a passo da criação de uma def
 
 ## <a name="enable"></a>Habilitando suporte à definição de API
 1. Navegue para `your function name` > `API Definition (preview)`
-1. Defina `API Definition Source` como `Internal`
+1. Defina `API Definition Source` como `Function`
   1. Esta etapa permite que um pacote de opções OpenAPI para seu Aplicativo de funções, incluindo um ponto de extremidade para hospedar um arquivo OpenAPI de domínio do seu Aplicativo de funções, uma cópia embutida do [Editor de OpenAPI](http://editor.swagger.io), e um gerador de definição de início rápido.
 ![Definição habilitada](./media/functions-api-definition-getting-started/enabledefinition.png)
 

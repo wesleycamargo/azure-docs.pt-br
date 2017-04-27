@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 1da12abc-0646-43ba-b564-e3b049a6487f
 ms.service: sql-database
-ms.custom: overview
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ef58f595ff58b9156df813cf92e2306654a8b3ed
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 0b53eb34293078ad2ce334583fee88a8c5ac5ccf
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -77,17 +77,17 @@ Para entender as camadas de serviço e eDTUs, consulte [Opções e desempenho de
 Ao contrário dos bancos de dados únicos, o uso da [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) com bancos de dados elásticos não tem um impacto direto no faturamento.  Você só será cobrado pelos eDTUs provisionados para cada um dos pools (o pool primário e o pool secundário)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Como o uso do recurso de auditoria afeta minha fatura?
-A auditoria é interna ao serviço Banco de Dados SQL sem custo extra e está disponível para os bancos de dados Básico, Standard e Premium. No entanto, para armazenar os logs de auditoria, o recurso de auditoria usa uma conta do Armazenamento do Azure e as taxas para tabelas e consultas no Armazenamento do Azure são aplicadas com base no tamanho do seu log de auditoria.
+A auditoria é interna ao serviço de Banco de Dados SQL sem custo extra e está disponível para os bancos de dados Básico, Standard, Premium e Premium RS. No entanto, para armazenar os logs de auditoria, o recurso de auditoria usa uma conta do Armazenamento do Azure e as taxas para tabelas e consultas no Armazenamento do Azure são aplicadas com base no tamanho do seu log de auditoria.
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>Como encontro a camada de serviço e o nível de desempenho corretos para bancos de dados únicos e pools elásticos?
 Existem algumas ferramentas disponíveis para você. 
 
 * Para os bancos de dados locais, use o [Supervisor de dimensionamento de DTU](http://dtucalculator.azurewebsites.net/), para recomendar os bancos de dados e os DTUs necessários, além de avaliar vários bancos de dados para os pools elásticos.
-* Se um banco de dados individual puder se beneficiar de estar em um pool, o mecanismo inteligente do Azure recomendará um pool elástico se perceber um padrão de uso histórico que garanta isso. Consulte [Monitorar e gerenciar um pool elástico com o Portal do Azure](sql-database-elastic-pool-manage-portal.md). Para obter detalhes sobre como fazer os cálculos você mesmo, consulte [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md)
+* Se um banco de dados individual puder se beneficiar de estar em um pool, o mecanismo inteligente do Azure recomendará um pool elástico se perceber um padrão de uso histórico que garanta isso. Consulte [Monitorar e gerenciar um pool elástico com o Portal do Azure](sql-database-elastic-pool-manage-portal.md). Para obter detalhes sobre como fazer os cálculos você mesmo, consulte [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool.md)
 * Para ver se você precisa aumentar ou reduzir um banco de dados único, consulte [diretrizes sobre desempenho para bancos de dados únicos](sql-database-performance-guidance.md).
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>Com que frequência posso alterar a camada de serviço ou o nível de desempenho de um banco de dados único?
-Com bancos de dados da versão&12;, você pode alterar a camada de serviço (entre Básico, Standard e Premium) ou o nível de desempenho dentro de uma camada de serviço (por exemplo, S1 para S2) sempre que desejar. Para bancos de dados de versão anteriores, você pode alterar o nível de desempenho ou de camada de serviço no máximo quatro vezes em um período de 24 horas.
+Você pode alterar a camada de serviço (entre Básico, Standard, Premium e Premium RS) ou o nível de desempenho dentro de uma camada de serviço (por exemplo, S1 para S2) sempre que desejar. Para bancos de dados de versão anteriores, você pode alterar o nível de desempenho ou de camada de serviço no máximo quatro vezes em um período de 24 horas.
 
 ## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>Com que frequência posso ajustar eDTUs por pool?
 Quantas vezes desejar.
@@ -96,13 +96,13 @@ Quantas vezes desejar.
 A alteração da camada de serviço de um banco de dados e a inclusão e a retirada de um pool exige que o banco de dados seja copiado para a plataforma como uma operação em segundo plano. Alterar a camada de serviço pode levar alguns minutos a várias horas, dependendo do tamanho dos bancos de dados. Em ambos os casos, os bancos de dados permanecem online e disponíveis durante a movimentação. Para obter detalhes sobre como alterar os bancos de dados únicos, consulte [Alterar a camada de serviço de um banco de dados](sql-database-service-tiers.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Quando eu devo usar um banco de dados únicos em vez de bancos de dados elásticos?
-Em geral, os pools elásticos são projetados para um típico [padrão de aplicativo de software como serviço (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), em que há um banco de dados por cliente ou locatário. Comprar bancos de dados individuais e provisionar em excesso para atender as demandas variáveis e de pico de cada banco de dados frequentemente não é uma opção com bom custo-benefício. Com os pools, você gerencia o desempenho coletivo do pool e os bancos de dados são escalados e reduzidos verticalmente. O mecanismo inteligente do Azure recomendará um pool para bancos de dados quando perceber um padrão de uso que o garanta. Para obter detalhes, consulte [Diretrizes de pool elástico](sql-database-elastic-pool-guidance.md).
+Em geral, os pools elásticos são projetados para um típico [padrão de aplicativo de software como serviço (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), em que há um banco de dados por cliente ou locatário. Comprar bancos de dados individuais e provisionar em excesso para atender as demandas variáveis e de pico de cada banco de dados frequentemente não é uma opção com bom custo-benefício. Com os pools, você gerencia o desempenho coletivo do pool e os bancos de dados são escalados e reduzidos verticalmente. O mecanismo inteligente do Azure recomendará um pool para bancos de dados quando perceber um padrão de uso que o garanta. Para obter detalhes, consulte [Diretrizes de pool elástico](sql-database-elastic-pool.md).
 
 ## <a name="what-does-it-mean-to-have-up-to-200-of-your-maximum-provisioned-database-storage-for-backup-storage"></a>O que significa ter até 200% de seu armazenamento máximo de banco de dados provisionado para o armazenamento de backup?
 O armazenamento para backup é aquele associado aos seus backups de banco de dados automatizados utilizados para [Restauração Pontual](sql-database-recovery-using-backups.md#point-in-time-restore) e [Restauração Geográfica](sql-database-recovery-using-backups.md#geo-restore). O Banco de Dados SQL do Microsoft Azure fornece até 200% de seu armazenamento máximo de banco de dados provisionado em armazenamento de backup, sem custo adicional. Por exemplo, se você tiver uma instância de banco de dados Standard com tamanho provisionado de 250 GB, serão oferecidos a você 500 GB de espaço de armazenamento para backup sem custo adicional. Se seu banco de dados exceder o armazenamento de backup fornecido, é possível optar por reduzir o período de retenção ao entrar em contato com o Suporte do Azure ou pagar pelo armazenamento de backup adicional com a taxa padrão do Armazenamento com Redundância Geográfica com Acesso de Leitura (RA-GRS). Para saber mais sobre a cobrança de RA-GRS, consulte Detalhes de preços de armazenamento.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Estou mudando de Web/Negócios para novas camadas de serviço, o que eu preciso saber?
-Os bancos de dados SQL Business e Web do Azure foram desativados. As camadas Básico, Standard, Premium e Elástica substituem os bancos de dados Web e Business obsoletos. Temos perguntas frequentes adicionais que deverão ajudar você neste período de transição. [Últimas perguntas frequentes de Web e Business Edition](sql-database-web-business-sunset-faq.md)
+Os bancos de dados SQL Business e Web do Azure foram desativados. As camadas Básico, Standard, Premium, Premium RS e Elástica substituem os bancos de dados Web e Business obsoletos. 
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Qual é o retardo de replicação esperado durante a replicação geográfica de um banco de dados entre duas regiões na mesma região geográfica do Azure?
 Atualmente, damos suporte a um RPO de cinco segundos e o retardo de replicação tem sido menor que isso, desde que o secundário geográfico esteja hospedado na região emparelhada recomendada pelo Azure e esteja na mesma camada de serviço.
