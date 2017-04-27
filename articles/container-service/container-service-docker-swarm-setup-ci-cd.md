@@ -17,6 +17,7 @@ ms.author: jucoriol
 translationtype: Human Translation
 ms.sourcegitcommit: c5e05a8693bd000010013922ed6f2a127e998efe
 ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -53,6 +54,8 @@ Antes de iniciar este tutorial, você precisa concluir as seguintes tarefas:
 - [Criar um registro de contêiner do Azure](../container-registry/container-registry-get-started-portal.md)
 - [Ter uma conta do Visual Studio Team Services e projeto de equipe criados](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [Dividir o repositório GitHub para sua conta do GitHub](https://github.com/jcorioland/MyShop/)
+
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
 
 Você também precisa de um computador Ubuntu (14.04 ou 16.04) com o Docker instalado. Esta máquina é usada pelo Visual Studio Team Services durante os processos de compilação e versão. Uma maneira de criar essa máquina é usar a imagem disponível no [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
 
@@ -227,8 +230,3 @@ Agora que você concluiu a configuração, é hora de testar esse novo pipeline 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre a CI/CD com o Visual Studio Team Services, consulte a [Visão geral da Compilação do VSTS](https://www.visualstudio.com/docs/build/overview).
-
-
-<!--HONumber=Dec16_HO2-->
-
-
