@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 04/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 29e2150c80d86889e5b5099e3f2f8640c2888124
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: abf5a373bc74483944b86bafb00c8a64df792dbe
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -109,10 +109,10 @@ Conforme discutido anteriormente, além do Portal do Azure, a recuperação de b
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | Descrição |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Obtém um ou mais bancos de dados. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) |Obtém um banco de dados excluído que você pode restaurar. |
-| [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) |Obtém um backup com redundância geográfica de um banco de dados. |
-| [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) |Restaura um banco de dados SQL. |
+| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém um ou mais bancos de dados. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Obtém um banco de dados excluído que você pode restaurar. |
+| [Get-AzureRmSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Obtém um backup com redundância geográfica de um banco de dados. |
+| [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Restaura um banco de dados SQL. |
 |  | |
 
 ### <a name="rest-api"></a>API REST

@@ -16,18 +16,14 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 62e8e0299aff517f45c89349ed836ec8a6dabd2b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: b62097f945bc5c595c0893d16bb2c1d9bbfd7a07
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
 O envio de operações em lote para o Banco de Dados SQL do Azure melhora consideravelmente o desempenho e a escalabilidade dos aplicativos. Para compreender os benefícios, a primeira parte deste artigo aborda alguns exemplos de resultados de teste que comparam solicitações sequenciais e em lote para um Banco de Dados SQL. O restante do artigo mostra as técnicas, os cenários e considerações para ajudar você a usar o envio em lote com sucesso em seus aplicativos do Azure.
-
-**Autores**: Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
-
-**Revisores**: Conor Cunningham, Michael Thomassy
 
 ## <a name="why-is-batching-important-for-sql-database"></a>Por que o envio em lote é importante para o Banco de Dados SQL?
 Envio de chamadas em lote para um serviço remoto é uma estratégia conhecida para aumentar o desempenho e a escalabilidade. Há custos de processamento fixos para todas as interações com um serviço remoto, como a serialização, a transferência de rede e a desserialização. O empacotamento de muitas transações separadas em um único lote minimiza esses custos.
@@ -623,6 +619,6 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 * Considere o armazenamento em buffer de acordo com o tamanho e o tempo como uma maneira de implementar o envio em lote para mais cenários.
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados individuais](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md).
+Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados individuais](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool.md).
 
 

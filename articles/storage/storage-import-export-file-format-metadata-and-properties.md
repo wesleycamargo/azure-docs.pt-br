@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: e454140ee0116353f27dc34131fe30041b10e3a3
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 3f728ad94cdcbd32092b677f11a737ae91376720
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -72,5 +72,5 @@ O formato de um arquivo de propriedades é o seguinte:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata) e [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Definição e recuperação de propriedades e de metadados para recursos de blob) para obter as regras detalhadas sobre como definir as propriedades e os metadados do blob.
+Confira [Set Blob Properties](/rest/api/storageservices/set-blob-properties), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) e [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Definição e recuperação de propriedades e de metadados para recursos de blob) para obter as regras detalhadas sobre como definir as propriedades e os metadados do blob.
 
