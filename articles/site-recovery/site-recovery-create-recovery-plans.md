@@ -42,7 +42,7 @@ Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum
 
     - Para a replicação de VMM para VMM, selecione **Tipo de Origem** > **VMM** e os servidores VMM de origem e de destino. Clique em **Hyper-V** para ver as nuvens que estão protegidas.
     - Para o VMM no Azure, selecione **tipo de fonte de** > **VMM**.  Selecione o servidor do VMM de origem e **Azure** como o destino.
-    - Para replicação do Hyper-V no Azure (sem VMM), selecione **tipo de fonte de** > **site Hyper-V**. Selecione o site como a origem e **Azure **como o destino.
+    - Para replicação do Hyper-V no Azure (sem VMM), selecione **tipo de fonte de** > **site Hyper-V**. Selecione o site como a origem e **Azure**como o destino.
     - Para uma VM VMware ou um servidor local físico para o Azure, selecione um servidor de configuração como a origem e **Azure** como o destino.
 2. Em **Selecionar máquinas virtuais**, selecione as máquinas virtuais (ou o grupo de replicação) que deseja adicionar ao grupo padrão (Grupo 1) no plano de recuperação.
 
@@ -52,7 +52,7 @@ Você pode personalizar e estender os planos de recuperação:
 
 - **Adicionar novos grupos**— adicionar grupos de plano de recuperação adicionais (até sete) ao grupo padrão e, em seguida, adicionar mais computadores ou grupos de replicação a esses grupos de plano de recuperação. Os grupos são numerados na ordem em que você os adiciona. Uma máquina virtual ou um grupo de replicação pode ser incluído apenas em um grupo de planos de recuperação.
 - **Adicionar uma ação manual**: você pode adicionar ações manuais que são executadas antes ou depois de um grupo de planos de recuperação. Quando o plano de recuperação é executado, ele parar no ponto em que você inseriu a ação manual. Uma caixa de diálogo solicita que você especificar que a ação manual foi concluída.
-- **Adicionar um script **— você pode adicionar scripts executados antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, ele adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
+- **Adicionar um script**— você pode adicionar scripts executados antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, ele adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
 - **Adicionar runbooks do Azure**— você pode estender os planos de recuperação com runbooks do Azure. Por exemplo, para automatizar tarefas ou criar recuperação de etapa única. [Saiba mais](site-recovery-runbook-automation.md).
 
 ## <a name="add-scripts"></a>Adicionar scripts
@@ -88,7 +88,7 @@ Você pode adicionar um script para o grupo padrão do plano de recuperação de
 1. Abra o plano de recuperação.
 2. Clique em um item de **etapa** lista e, em seguida, clique em **Script** ou **ação Manual**.
 3. Especifique se deseja adicionar o script ou a ação antes ou depois do item selecionado. Use os botões **Mover para Cima** e **Mover para Baixo** para mover o script para cima ou para baixo.
-4. Se você adicionar um script do VMM, selecione **Failover no script do VMM**. Em **caminho do Script de**, digite o caminho relativo para o compartilhamento. No exemplo do VMM abaixo, você pode especificar o caminho: **\rpscripts\rpscript.ps1.**.
+4. Se você adicionar um script do VMM, selecione **Failover no script do VMM**. Em **caminho do Script de**, digite o caminho relativo para o compartilhamento. No exemplo do VMM abaixo, você pode especificar o caminho: **\rpscripts\rpscript.ps1**.
 5. Se você adicionar um runboook da automação do Azure, especifique a Conta de Automação do Azure na qual o runbook está localizado e selecione o script de runbook do Azure apropriado.
 6. Faça um failover do plano de recuperação para garantir que o script funciona conforme esperado.
 

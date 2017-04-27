@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/26/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
@@ -87,19 +87,19 @@ Ao entrar na Galeria, você vira um membro da comunidade da Galeria. Como um mem
     ![Insira o título e marcas para publicação](media/machine-learning-gallery-experiments/experiment-description.png)
 5. Na caixa **RESUMO**, digite um resumo do seu experimento. Descreva resumidamente o problema que o experimento resolve e como você o abordou.
 6. Na caixa **DESCRIÇÃO DETALHADA**, descreva as etapas executadas em cada parte do seu experimento. Alguns tópicos úteis a serem incluídos são:
-    * Captura de tela de gráfico do experimento
-    * Explicação e fontes de dados
-    * Processamento de dados
-    * Engenharia de recursos
-    * Descrição do modelo
-    * Resultados e avaliação de desempenho do modelo
+   * Captura de tela de gráfico do experimento
+   * Explicação e fontes de dados
+   * Processamento de dados
+   * Engenharia de recursos
+   * Descrição do modelo
+   * Resultados e avaliação de desempenho do modelo
 
-    Você pode usar o Markdown para formatar sua descrição. Para ver qual será a aparência das suas entradas na página de descrição do experimento quando ele for publicado, selecione **Visualização**.
+   Você pode usar o Markdown para formatar sua descrição. Para ver qual será a aparência das suas entradas na página de descrição do experimento quando ele for publicado, selecione **Visualização**.
 
-    ![Selecione “Visualizar” para ver a aparência de seu texto](media/machine-learning-gallery-experiments/preview-markdown-text.png)
+   ![Selecione “Visualizar” para ver a aparência de seu texto](media/machine-learning-gallery-experiments/preview-markdown-text.png)
 
-    > [!TIP]
-    > A caixa fornecida para a edição e visualização de Markdown são pequenas. Recomendamos que você escreva a documentação do experimento em um editor de Markdown, copie e cole o documento concluído na caixa de texto na Galeria. Depois de publicar seu experimento, você poderá fazer correções usando ferramentas Web padrão que usam o Markdown para editar e visualizar.
+   > [!TIP]
+   > A caixa fornecida para a edição e visualização de Markdown são pequenas. Recomendamos que você escreva a documentação do experimento em um editor de Markdown, copie e cole o documento concluído na caixa de texto na Galeria. Depois de publicar seu experimento, você poderá fazer correções usando ferramentas Web padrão que usam o Markdown para editar e visualizar.
 
 7. Na página **Seleção de Imagem**, escolha uma imagem em miniatura para o seu experimento. A imagem em miniatura é exibida na parte superior da página de detalhes do experimento e no bloco do experimento. Outros usuários poderão ver a imagem em miniatura quando navegarem na Galeria. Você pode carregar uma imagem do seu computador ou selecionar uma imagem de estoque da Galeria.
     </br>
