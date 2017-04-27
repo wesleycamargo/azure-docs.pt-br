@@ -16,8 +16,3 @@ O armazenamento é restrito pelo espaço em disco ou por um limite rígido do *n
 <sup>1</sup> SKUs gratuitos e em fase de visualização não acompanham os SLAs (Contratos de Nível de Serviço). Os SLAs são aplicados depois que um SKU fica disponível para o público geral.
 
 <sup>2</sup> S3 HD tem um limite rígido de três partições, que é menor do que o limite de partição do S3. O limite de partição inferior é aplicado porque a contagem de índice de S3 HD é consideravelmente maior. Uma vez que há limites de serviço para os recursos de computação (processamento e armazenamento) e de conteúdo (índices e documentos), o limite de conteúdo é atingido primeiro.
-
-
-<!--HONumber=Feb17_HO2-->
-
-
