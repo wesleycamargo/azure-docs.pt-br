@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9c52e9257272c5b0c55c488d2c7ca6fef500260b
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -51,10 +52,5 @@ Quando você clica em **+Novo** > **Serviços de Aplicativos**, um item do **Act
 No entanto, enquanto a página está carregando, o item fica esmaecido e é marcado como **Não Disponível**. Este é um estado temporário. Se você aguardar alguns segundos, o item será disponibilizado. Se o atraso for prolongado, atualizar a página da Web geralmente resolve o problema.
 
 ![Captura de tela: Active Directory não disponível](./media/active-directory-troubleshooting/not-available.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

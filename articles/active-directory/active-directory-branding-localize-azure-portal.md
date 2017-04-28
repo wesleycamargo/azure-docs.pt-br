@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 04/26/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -48,9 +49,4 @@ Pode demorar até uma hora para que apareçam todas as alterações feitas à id
 
 ## <a name="next-steps"></a>Próximas etapas
 [Adicionar identidade visual da empresa à página de entrada](active-directory-branding-custom-signon-azure-portal.md)
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 
