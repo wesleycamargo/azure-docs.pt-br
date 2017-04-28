@@ -72,7 +72,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 **Para configurar o SSO, execute as seguintes etapas:**
 
-1. No Portal Clássico do Azure, na página de integração de aplicativos **Directions on Microsoft**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
+1. No Portal Clássico do Azure, na página de integração de aplicativos **Directions on Microsoft**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
    ![Habilitar logon único](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Habilitar logon único")
 2. Na página **Como você gostaria que os usuários fizessem logon no Directions on Microsoft**, selecione **Logon Único do Microsoft Azure AD**, em seguida, clique em **Próximo**.
@@ -105,7 +105,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 **Para atribuir usuários ao Directions on Microsoft, execute as seguintes etapas:**
 
 1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração de aplicativos **Directions on Microsoft **, clique em **Atribuir usuários**.
+2. Na página de integração de aplicativos **Directions on Microsoft**, clique em **Atribuir usuários**.
    
    ![Atribuir usuários](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Atribuir usuários")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.

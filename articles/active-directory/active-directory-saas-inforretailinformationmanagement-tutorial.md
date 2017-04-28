@@ -94,7 +94,7 @@ Para configurar e testar o logon único do Azure AD com o Infor Retail – Infor
 
 1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
-3. **[Criando um varejo informações – o usuário de teste do gerenciamento de informações](#creating-an-infor-retail---information-management-test-user) ** - para ter um equivalente de Britta Simon no varejo de informações – gerenciamento de informação que é vinculado à representação no AD do Azure.
+3. **[Criando um varejo informações – o usuário de teste do gerenciamento de informações](#creating-an-infor-retail---information-management-test-user)** - para ter um equivalente de Britta Simon no varejo de informações – gerenciamento de informação que é vinculado à representação no AD do Azure.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 

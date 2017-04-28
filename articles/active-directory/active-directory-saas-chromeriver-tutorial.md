@@ -67,7 +67,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 **Para configurar o logon único, execute as seguintes etapas:**
 
-1. No Portal Clássico do Azure, na página de integração de aplicativos **Chromeriver**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
+1. No Portal Clássico do Azure, na página de integração de aplicativos **Chromeriver**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-chromeriver-tutorial/IC802757.png "Configurar Logon Único")
 2. Na página **Como você gostaria que os usuários fizessem logon no Chromeriver**, selecione **Logon Único do Microsoft Azure AD**, em seguida, clique em **Próximo**.

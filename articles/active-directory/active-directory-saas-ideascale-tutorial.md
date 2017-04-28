@@ -56,7 +56,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-ideascale-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
-6. Na **caixa de pesquisa**, digite** IdeaScale**.
+6. Na **caixa de pesquisa**, digite**IdeaScale**.
    
    ![Galeria de Aplicativos](./media/active-directory-saas-ideascale-tutorial/IC790841.png "Galeria de Aplicativos")
 7. No painel de resultados, selecione **IdeaScale** e clique em **Concluir** para adicionar o aplicativo.
@@ -97,7 +97,7 @@ Configurar o logon único para o IdeaScale exige que você recupere um valor de 
    
    ![Configurações de Logon Único](./media/active-directory-saas-ideascale-tutorial/IC790850.png "Configurações de Logon Único")
    
-   1. No portal clássico do Azure, na página de diálogo **Configurar logon único no IdeaScale**, copie o valor da** ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP do SAML**.
+   1. No portal clássico do Azure, na página de diálogo **Configurar logon único no IdeaScale**, copie o valor da**ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP do SAML**.
    2. Copie o conteúdo do arquivo de metadados baixado e cole-o na caixa de texto **Metadados do IdP do SAML** .
    3. No portal clássico do Azure, na página de diálogo **Configurar logon único no IdeaScale**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Êxito de Logoff**.
    4. Clique em **Salvar Alterações**.

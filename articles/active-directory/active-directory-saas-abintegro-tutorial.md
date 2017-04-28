@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 **Para configurar o logon único, execute as seguintes etapas:**
 
-1. No Portal Clássico do Azure, na página de integração de aplicativos **Abintegro**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
+1. No Portal Clássico do Azure, na página de integração de aplicativos **Abintegro**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configurar Logon Único")
 2. Na página **Como você gostaria que os usuários fizessem logon no Abintegro**, selecione **Logon Único do Microsoft Azure AD**, em seguida, clique em **Próximo**.
@@ -104,7 +104,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 **Para atribuir usuários ao Abintegro, execute as seguintes etapas:**
 
 1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração de aplicativos **Abintegro **, clique em **Atribuir usuários**.
+2. Na página de integração de aplicativos **Abintegro**, clique em **Atribuir usuários**.
    
    ![Atribuir Usuários](./media/active-directory-saas-abintegro-tutorial/IC790084.png "Atribuir Usuários")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
