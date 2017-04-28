@@ -59,7 +59,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 6. Na **caixa de pesquisa**, digite **Envoy**.
    
    ![Galeria de aplicativos](./media/active-directory-saas-envoy-tutorial/IC776760.png "Galeria de aplicativos")
-7. No painel de resultados, selecione **Envoy** e clique em** Concluir** para adicionar o aplicativo.
+7. No painel de resultados, selecione **Envoy** e clique em**Concluir** para adicionar o aplicativo.
    
    ![Envoy](./media/active-directory-saas-envoy-tutorial/IC776777.png "Envoy")
    

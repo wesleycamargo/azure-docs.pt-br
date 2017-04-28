@@ -90,10 +90,10 @@ Para configurar e testar o logon único do Azure AD com o Proofpoint on Demand, 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo do Proofpoint on Demand.
 
-1. No portal clássico, na página de integração do aplicativo **Proofpoint on Demand **, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1. No portal clássico, na página de integração do aplicativo **Proofpoint on Demand**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Botão "Configurar logon único"][6]
-2. Na página **Como você deseja que os usuários façam logon no Proofpoint on Demand **, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
+2. Na página **Como você deseja que os usuários façam logon no Proofpoint on Demand**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
     ![Botão de opção "Logon Único do Microsoft Azure AD "](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_03.png)
 3. Na página **Definir Configurações do Aplicativo** , execute as seguintes etapas:
