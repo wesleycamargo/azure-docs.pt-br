@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
-ms.author: curtand
+ms.date: 04/26/2017
+ms.author: curtand;jeffsta
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b344136bdcfba22416933ced9a91ef2a82082d11
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -43,9 +44,4 @@ Este artigo explica como adicionar ou alterar as informações de trabalho, como
 * [Atribuir um usuário às funções de administrador na visualização do Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Adicionar ou alterar as informações de perfil de um usuário na visualização do Azure Active Directory](active-directory-users-profile-azure-portal.md)
 * [Excluir um usuário de um diretório na visualização do Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
