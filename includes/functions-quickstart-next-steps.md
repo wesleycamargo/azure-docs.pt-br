@@ -10,7 +10,3 @@ Este início rápido demonstra uma execução simples de uma função básica di
   Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo. 
 * [O que é o Serviço de Aplicativo do Azure?](../articles/app-service/app-service-value-prop-what-is.md)  
   O Azure Functions utiliza a plataforma Serviço de Aplicativo do Azure para a funcionalidade básica, como implantações, variáveis de ambiente e diagnóstico. 
-
-<!--HONumber=Feb17_HO1-->
-
-
