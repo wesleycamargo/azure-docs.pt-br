@@ -21,8 +21,3 @@
 | Canadá Central |Leste do Canadá |
 | Oeste dos EUA 2 |Centro-Oeste dos EUA |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

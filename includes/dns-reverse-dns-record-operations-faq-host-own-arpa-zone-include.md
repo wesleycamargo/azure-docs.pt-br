@@ -16,8 +16,3 @@ A hospedagem da zona ARPA para o bloco IP atribuído pelo ISP no DNS do Azure é
 ### <a name="can-i-host-arpa-zones-for-both-ipv4-and-ipv6-addresses-in-azure-dns"></a>Posso hospedar zonas ARPA para endereços IPv4 e IPv6 no DNS do Azure?
 
 Sim.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

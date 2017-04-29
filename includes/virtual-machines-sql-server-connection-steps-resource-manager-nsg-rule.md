@@ -24,8 +24,3 @@ Se você quiser ser capaz de se conectar ao SQL Server pela Internet, você prec
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -40,8 +40,3 @@ Não. Para aproveitar os registros DNS reversos para Endereços IP Públicos, vo
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Posso enviar emails a domínios externos de meus Serviços de Computação do Azure?
 
 Não. [Os Serviços de Computação do Azure não oferecem suporte ao envio de emails a domínios externos](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

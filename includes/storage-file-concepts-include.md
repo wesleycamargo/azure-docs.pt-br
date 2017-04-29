@@ -30,8 +30,3 @@ O armazenamento de arquivos contém os seguintes componentes:
   `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 Para obter detalhes sobre como nomear compartilhamentos, diretórios e arquivos, consulte [Nomeando e fazendo referência a compartilhamentos, diretórios, arquivos e metadados](http://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

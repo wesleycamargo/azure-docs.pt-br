@@ -19,8 +19,3 @@ Na maioria das vezes, erros de autenticação são o resultado de definições d
 * Para um aplicativo de API do .NET, inicie uma [sessão de depuração remota](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) e examine os valores das variáveis que são transmitidos para o código que usa o ADAL para adquirir um token de portador ou o código que verifica as declarações em relação à ID da entidade de serviço esperada. Observe que o código pode selecionar valores de configuração de várias fontes diferentes. Dessa forma, é possível que ocorram surpresas. Por exemplo, se você digitar incorretamente `ida:ClientId` como `ida:ClientID` ao definir as configurações do Ambiente do Serviço de Aplicativo do Azure, o código poderá receber o valor `ida:ClientId` procurado no arquivo Web.config, ignorando a configuração do Serviço de Aplicativo do Azure. 
 * Se as coisas não funcionarem em uma janela normal do Internet Explorer, um logon existente poderá estar interferindo; tente usar a navegação InPrivate no Chrome ou Firefox.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

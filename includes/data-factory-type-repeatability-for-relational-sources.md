@@ -29,8 +29,3 @@ Em outros casos, talvez seja conveniente ler a tabela inteira (por exemplo, para
     "sqlReaderQuery": "select * from MyTable"
 },
 ```
-
-
-<!--HONumber=Nov16_HO3-->
-
-
