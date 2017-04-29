@@ -107,8 +107,3 @@ Este artigo fornece uma visão geral dos detalhes de nível de implantação par
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/
 [lnk-logicapps]: https://azure.microsoft.com/services/app-service/logic/
 [lnk-blob]: https://azure.microsoft.com/services/storage/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

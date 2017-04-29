@@ -12,8 +12,3 @@ A tabela a seguir relaciona as cotas e limites específicos para os Hubs de Even
 | Período de retenção máximo dos dados do evento |Entidade |Estático |- |Um a sete dias |
 | Unidades de produtividade máxima |Namespace |Estático |Exceder o limite de unidades de produtividade causará a limitação dos seus dados e gerará um **ServerBusyException**. Você pode solicitar um número maior de unidades de produtividade para uma camada Standard ao preencher um tíquete de suporte. Unidades de produtividade adicionais estão disponíveis em blocos de vinte, em uma base de compra garantida. |20 |
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

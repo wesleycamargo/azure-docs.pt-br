@@ -15,8 +15,3 @@ Os back-end insere dados da solicitação na tabela TodoItem no Banco de Dados S
 Você pode repetir as etapas 3 a 5 para outras plataformas.
 
 [Portal do Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

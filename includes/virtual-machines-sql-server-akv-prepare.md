@@ -32,8 +32,3 @@ Quando você chega à etapa Criar um cofre de chave, observe a propriedade **vau
 
 A URL do cofre de chave será atribuída posteriormente ao parâmetro **$akvURL** no script do PowerShell a fim de habilitar a integração do Cofre da Chave do Azure.
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-
