@@ -30,8 +30,3 @@ Use as etapas a seguir para se conectar ao Banco de Dados SQL do Azure com SSMS 
 ## <a name="troubleshoot-connection-failures"></a>Solucionar falhas de conexão
 O motivo mais comum das falhas de conexão são os erros no nome do servidor (lembre-se, <*nomeservidor*> é o nome do servidor lógico, não do banco de dados), nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança. 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

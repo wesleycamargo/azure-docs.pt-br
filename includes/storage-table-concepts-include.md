@@ -26,8 +26,3 @@ Para obter detalhes sobre a nomenclatura de tabelas e propriedades, confira [No√
 
 [Table1]: ./media/storage-table-concepts-include/table1.png
 [OData.org]: http://www.odata.org/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

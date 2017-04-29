@@ -27,8 +27,3 @@ Para criar um rótulo de DNS, primeiro selecione **Máquinas Virtuais** no porta
    
     ![conexão ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
