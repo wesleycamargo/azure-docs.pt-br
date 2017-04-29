@@ -86,7 +86,3 @@ Para armazenar diversos valores em uma única marca, aplica uma cadeia de caract
     ]
 }
 ```
-
-<!--HONumber=Feb17_HO1-->
-
-
