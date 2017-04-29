@@ -2,8 +2,3 @@ Investigações personalizadas permitem que você tenha um controle mais granula
 
 Esse artigo o orientará para criar um gateway de aplicativo com uma investigação personalizada ou adicionando uma investigação personalizada a um gateway de aplicativo existente. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

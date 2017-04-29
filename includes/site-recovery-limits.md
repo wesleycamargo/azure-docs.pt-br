@@ -31,8 +31,3 @@ Os seguintes limites se aplicam ao Azure Site Recovery:
 | Número de servidores por plano de recuperação |50 |
 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -8,8 +8,3 @@ Este artigo serve para Serviço de Aplicativo do Azure (aplicativos Web, Aplicat
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

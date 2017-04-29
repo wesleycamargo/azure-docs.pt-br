@@ -49,8 +49,3 @@ O data factory dá suporte aos valores de tipo baseados em .NET compatíveis com
 
 Para Datetime e Datetimeoffset, você também pode especificar as cadeias de caracteres para "cultura" e "formato" para facilitar a análise de sua cadeia de caracteres Datetime personalizada. Consulte o exemplo de conversão de tipo abaixo.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -9,8 +9,3 @@ A tabela a seguir lista os requisitos para gateways de VPN PolicyBased e RouteBa
 | **Número máximo de conexões P2S** |Sem suporte |128 |128 |128 |
 | **Suporte ao roteamento ativo (BGP)** |Sem suporte |Sem suporte |Suportado |Suportado |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

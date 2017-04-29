@@ -2,8 +2,3 @@ A configuração de um nome de domínio personalizado em um aplicativo Web no Se
 
 Para obter mais informações sobre os modos do plano de Serviço de Aplicativo, inclusive sobre como alterar o modo do site, consulte [Como dimensionar sites](../articles/app-service-web/web-sites-scale.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
