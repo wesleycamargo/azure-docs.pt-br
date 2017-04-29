@@ -25,8 +25,3 @@
 
 Para assistir a um vídeo que demonstra como criar um novo serviço do StorSimple Manager, clique [aqui](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -5,8 +5,3 @@ Nesse cenário, você criará um emparelhamento entre duas VNets chamadas **VNet
 
 O emparelhamento VNet permitirá conectividade total entre o espaço de endereço inteiro das redes virtuais emparelhadas.    
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

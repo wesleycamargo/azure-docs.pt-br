@@ -227,7 +227,7 @@ Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é 
 ## <a name="more-help-with-algorithms"></a>Obter ajuda com algoritmos
 * Para obter um infográfico para baixar que descreve algoritmos e fornece exemplos, consulte [Infográfico para baixar: conceitos básicos do aprendizado de máquina com exemplos de algoritmo](machine-learning-basics-infographic-with-algorithm-examples.md).
 * Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Machine Learning Studio do Azure, consulte [Inicializar modelo][initialize-model] na Ajuda de algoritmo e módulo do Machine Learning Studio.
-* Para obter uma lista completa em ordem alfabética dos algoritmos e módulos no Machine Learning Studio do Azure, consulte a [Lista de A-Z de módulos do Machine Learning Studio] na Ajuda de algoritmo e módulo do Machine Learning Studio.
+* Para obter uma lista completa em ordem alfabética dos algoritmos e módulos no Machine Learning Studio do Azure, consulte a [Lista de A-Z de módulos do Machine Learning Studio][a-z-list] na Ajuda de algoritmo e módulo do Machine Learning Studio.
 * Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Machine Learning Studio do Azure, consulte [Diagrama de visão geral dos recursos do Machine Learning Studio do Azure](machine-learning-studio-overview-diagram.md).
 
 

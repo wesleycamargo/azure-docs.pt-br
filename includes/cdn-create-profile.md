@@ -14,8 +14,3 @@
 6. Selecione a **Assinatura** para este perfil CDN.
 7. Clique no botão **Criar** para criar um novo perfil. 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
