@@ -38,8 +38,3 @@ O exemplo a seguir mostra como usar o Gerenciador de Armazenamento do Microsoft 
 
 Como você pode ver, ao usar um SAS, você não expõe a chave de sua conta em seu aplicativo. Saiba mais sobre a SAS e as práticas recomendadas sobre o uso do SAS consultando [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-

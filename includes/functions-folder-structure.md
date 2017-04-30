@@ -19,8 +19,3 @@ O arquivo *host.json* contém uma configuração específica de tempo de execuç
 
 Cada função tem uma pasta que contém arquivos de código, a configuração function.json e outras dependências.
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-
