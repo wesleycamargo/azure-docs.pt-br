@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 64af2509036d035c5802f4b1985c3f986b685545
-ms.openlocfilehash: 2b677e684021a873c0bc4db751d8e60d9eaa6f9d
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: 4e620f3d76caa25ac0e5afb134f37ffe263935f0
+ms.lasthandoff: 04/13/2017
 
 
 ---
 
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Diretrizes de licenciamento da colaboração B2B do Azure Active Directory
 
-A colaboração do Azure AD (Azure Active Directory) B2B estende um conjunto selecionado de recursos existentes do Azure AD para usuários convidados no locatário do Azure AD. Portanto, os usuários convidados da colaboração B2B do Azure AD serão licenciados por meio de licenças do Azure AD e se alinham às camadas de licença Free, Basic e Premium P1/P2 conforme visto aqui: https://azure.microsoft.com/en-us/pricing/details/active-directory/.
+A colaboração do Azure AD (Azure Active Directory) B2B estende um conjunto selecionado de recursos existentes do Azure AD para usuários convidados no locatário do Azure AD. Portanto, os usuários convidados da colaboração B2B do Azure AD serão licenciados por meio de licenças do Azure AD e se alinham às camadas de licença Free, Basic e Premium P1/P2 conforme visto aqui: https://azure.microsoft.com/pricing/details/active-directory/.
 
 Não há nenhum custo para convidar usuários B2B e atribuí-los a um aplicativo no Azure AD. Além disso, até 10 aplicativos por usuário convidado e 3 relatórios básicos também são gratuitos para usuários B2B, uma vez que eles fazem parte da camada “Free” do Azure AD.
 Quaisquer recursos do Azure AD pagos, estendidos aos usuários B2B por meio da funcionalidade de colaboração de B2B, precisarão ser licenciados com licenças pagas do Azure AD (Basic, Premium P1 ou Premium P2, dependendo dos recursos que serão usados). O locatário que está convidando obterá cinco direitos de usuário B2B com cada licença paga do Azure AD. Ou seja, cada licença paga do Azure AD que fornece os direitos aos recursos pagos do Azure AD para um usuário funcionário em um locatário também fornecerá os direitos para os mesmos recursos pagos do Azure AD a outros cinco usuários B2B convidados para o locatário.
@@ -45,6 +45,21 @@ O cliente que possui o locatário que está convidando deve ser o único a deter
 - Não é necessário realmente atribuir licenças às contas de usuário B2B. Haverá cálculo e relatórios automáticos.
 - Cada usuário convidado obterá os direitos que a edição do Azure AD Free oferece se não houver uma licença paga do Azure AD no locatário.
 - Se um usuário de colaboração B2B tiver uma licença paga do Azure AD como um funcionário de sua organização, ele não consumirá uma das licenças de colaboração B2B do locatário que está convidando.
+
+## <a name="advanced-discussion-what-are-the-licensing-considerations-when-we-add-users-from-a-conglomerate-organization-as-members-using-your-apis"></a>Discussão avançada: Quais são as considerações de licenciamento quando adicionamos usuários de uma organização de conglomerados como "membros" utilizando suas APIs?
+Um usuário convidado B2B é aquele que é convidado de uma organização parceira para trabalhar com a organização anfitriã. Normalmente, qualquer outro caso além desse não se qualifica como B2B, mesmo que use recursos B2B. Vejamos dois casos em particular:
+
+1. Se um anfitrião convida um funcionário usando um endereço de consumidor
+  1. Isso não é compatível com nossas políticas de licenciamento e atualmente não é recomendado.
+
+2.    Se uma organização anfitriã adiciona um usuário de outra organização de conglomerado
+  1. Esse é o caso onde o usuário é convidado usando APIs B2B, mas não é tradicionalmente B2B. Idealmente, deveríamos dispor a essas organizações convidar os usuários de outras organizações como membros (nossa API permite isso). Nesse caso, as licenças devem ser atribuídas a esses membros para que acessem os recursos na organização emissora do convite.
+
+  2. Como uma política, algumas organizações podem querer que os outros usuários da organização sejam adicionados como "Convidado". Há dois casos distintos aqui:
+      * A organização de conglomerado já está usando o Azure AD e os usuários convidados estão licenciados na outra organização: nesse caso, não esperamos que os usuários convidados precisem seguir a fórmula 1:5 apresentada anteriormente neste documento. 
+
+      * A organização de conglomerado não está usando o Azure AD ou não tem licenças adequadas: nesse caso, siga a fórmula 1: 5 apresentada anteriormente neste documento.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

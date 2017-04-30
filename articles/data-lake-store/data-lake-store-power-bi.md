@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
 ms.openlocfilehash: f965e3a5067dd8dd2ac6dc29446c7f5b50cdd450
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -32,7 +33,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Criar um relatório no Power BI Desktop
 1. Inicie o Power BI Desktop em seu computador.
-2. Na faixa de opções** Início**, clique em **Obter Dados** e clique em Mais. Na caixa de diálogo **Obter Dados**, clique em **Azure**, clique em **Azure Data Lake Store** e clique em **Conectar**.
+2. Na faixa de opções**Início**, clique em **Obter Dados** e clique em Mais. Na caixa de diálogo **Obter Dados**, clique em **Azure**, clique em **Azure Data Lake Store** e clique em **Conectar**.
    
     ![Conectar-se ao Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Conectar ao Data Lake Store")
 3. Se você vir uma caixa de diálogo informando que o conector está em uma fase de desenvolvimento, escolha continuar.
@@ -99,10 +100,5 @@ Depois de criar as visualizações no Power BI Desktop, compartilhe-as com outra
 
 ## <a name="see-also"></a>Confira também
 * [Analisar dados no Repositório Data Lake usando o Análise Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

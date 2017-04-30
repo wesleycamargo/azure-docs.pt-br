@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 04/12/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 6195b80037762a7f71eee9138c765e4d342acd5f
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: ff38f1536bf92911c18e0766ee655583c4d913d6
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2017
 
 Provavelmente você chegou a esta página porque houve um problema ao usar o portal do MyApps. Embora haja casos que exijam que você entre em contato com a assistência técnica ou o administrador para solucionar um problema, capturamos neste tópico etapas para perguntas comuns que você pode experimentar sozinho primeiro.
 
-Se você estiver procurando ajuda relacionada ao gerenciamento de senha, tente [isso](active-directory-passwords-update-your-own-password.md#reset-your-password).
+Se você estiver procurando ajuda relacionada ao gerenciamento de senha, tente [isso](active-directory-passwords-update-your-own-password.md#reset-my-password).
 
 
 ## <a name="what-is-the-myapps-portal"></a>O que é o portal do MyApps?
@@ -49,7 +49,7 @@ MyApps é um portal da Web que permite que você:
 3.    Digite a sua senha antiga, digite uma nova senha e confirme.
 4.    Clique em **Enviar**.
 
-Para obter mais detalhes, confira [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+Para obter mais detalhes, confira [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>Como posso configurar a redefinição de senha?
@@ -58,7 +58,7 @@ Para obter mais detalhes, confira [Como atualizar sua própria senha](active-dir
 2.    Em **Gerenciar Conta**, clique em **Configurar autoatendimento de redefinição de senha**.
 3.    Execute as etapas da caixa de diálogo e envie.
 
-Para obter mais detalhes, consulte [Como redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+Para obter mais detalhes, consulte [Como redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>Como posso adicionar um novo aplicativo?
@@ -84,7 +84,9 @@ Para obter mais detalhes, consulte [Como redefinir sua senha](active-directory-p
 - Clicar em um grupo do qual você é membro permite a exibição de detalhes e também sair do grupo.
 - Clicar em um grupo do qual você é proprietário permite a exibição de detalhes, adicionar ou remover membros e também sair do grupo.
 
+## <a name="next-steps"></a>Próximas etapas
 
+Para solucionar problemas de informações relacionadas, consulte [Problemas ao usar o site do painel de acesso do aplicativo ou o aplicativo móvel](active-directory-application-access-panel-content-map.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-user-help/01.png
