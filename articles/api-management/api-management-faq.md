@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
-ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 7d58748c4b0195246fffafe2e5544678b83dfd60
+ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
@@ -44,6 +44,8 @@ Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Ge
 * [Posso usar um certificado SSL autoassinado para um back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 * [Por que obtenho uma falha de autenticação ao tentar clonar um repositório GIT?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [O Gerenciamento de API funciona com o Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
+* [Por que exigimos uma sub-rede dedicada em Resource Manager tipo VNETs quando o Gerenciamento de API é implantado nelas?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
+* [Qual é o tamanho mínimo de sub-rede necessário ao implantar o Gerenciamento de API em uma VNET?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
 * [Posso mover um serviço de Gerenciamento de API de uma assinatura para outra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Há restrições ou problemas conhecidos com a importação da minha API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
@@ -51,7 +53,7 @@ Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Ge
 Você pode em contato conosco utilizando uma das seguintes opções:
 
 * Poste suas perguntas em nossos [Fórum do MSDN de Gerenciamento de API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Envie um email para <mailto:apimgmt@microsoft.com>.
+* Envie um email a <mailto:apimgmt@microsoft.com>.
 * Envie-nos uma solicitação de recurso no [Fórum de comentários do Azure](https://feedback.azure.com/forums/248703-api-management).
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>O que significa quando um recurso está em visualização?
@@ -114,8 +116,8 @@ O suporte a [Passagem SOAP](http://blogs.msdn.microsoft.com/apimanagement/2016/1
 Nas camadas Standard e Premium, o endereço IP público (VIP) do locatário do Gerenciamento de API é estático para o tempo de vida do locatário, com algumas exceções. O endereço IP é alterado nestas circunstâncias:
 
 * O serviço é excluído e recriado.
-* A assinatura do serviço é suspensa (por exemplo, por falta de pagamento) e restabelecida.
-* Adicionar ou remover a Rede Virtual do Azure (você pode usar a Rede Virtual somente na camada Premium).
+* A assinatura do serviço é [suspensa](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) ou [avisada](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (por exemplo, por não pagamento) e, depois, reintegrada.
+* Adicionar ou remover a Rede Virtual do Azure (você pode usar a Rede Virtual somente na camada Developer e Premium).
 
 Para implantações de várias regiões, o endereço regional é alterado se a região é desocupada e é restabelecido (você pode usar a implantação de várias regiões apenas na camada Premium).
 
@@ -144,6 +146,13 @@ Se usar o Gerenciador de Credenciais do Git ou se estiver tentando clonar um rep
 
 ### <a name="does-api-management-work-with-azure-expressroute"></a>O Gerenciamento de API funciona com o Azure ExpressRoute?
 Sim. O Gerenciamento de API funciona com o Azure ExpressRoute.
+
+### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>Por que exigimos uma sub-rede dedicada em Resource Manager tipo VNETs quando o Gerenciamento de API é implantado nelas?
+O requisito de sub-rede dedicado para o Gerenciamento de API vem do fato de ser desenvolvido no modelo de implantação Clássico (camada PAAS V1). Embora possamos implantar em uma VNET do Resource Manager (camada V2), isso tem consequências. O modelo de implantação Clássico no Azure não é rigorosamente acoplado ao modelo do Resource Manager e, portanto, se você criar um recurso na camada V2, a camada V1 não o reconhecerá e isso acarretará problemas, como o Gerenciamento de API tentar usar um IP que já está alocado a uma NIC (desenvolvido em V2).
+Para saber mais sobre a diferença dos modelos do Resource Manager e Clássico no Azure, consulte [diferença nos modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md).
+
+### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>Qual é o tamanho mínimo de sub-rede necessário ao implantar o Gerenciamento de API em uma VNET?
+O tamanho mínimo de sub-rede necessário para implantar o Gerenciamento de API é [/29](../virtual-network/virtual-networks-faq.md#configuration), que é o tamanho mínimo de sub-rede que o Azure oferece suporte.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>Posso mover um serviço de Gerenciamento de API de uma assinatura para outra?
 Sim. Para saber como, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).

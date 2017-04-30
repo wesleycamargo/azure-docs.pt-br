@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: db3285bcdfb93c0c2b9f8972edb04e7064cfa31c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: e6efa8c05c51b0438912738c3c5fcad4bc12b8f4
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -56,8 +56,16 @@ Quando estiver vendo uma folha ou conjunto de gráficos que é particularmente i
 
 Observe que os gráficos são agrupados em blocos: um bloco pode conter mais de um gráfico. O bloco inteiro é fixado no painel.
 
+O gráfico é atualizado automaticamente com uma frequência que depende do intervalo de tempo do gráfico:
+
+* Intervalo de tempo até 1 hora: atualizar a cada 5 minutos
+* Intervalo de tempo de 1 a 24 horas: atualizar a cada 15 minutos
+* Intervalo de tempo acima de 24 horas: (intervalo de tempo)/60.
+
 ### <a name="pin-any-query-in-analytics"></a>Fixar qualquer consulta no Analytics
 Você também pode [fixar gráficos do Analytics](app-insights-analytics-using.md#pin-to-dashboard) a um painel [compartilhado](#share-dashboards-with-your-team). Isso permite que você adicione gráficos de qualquer consulta arbitrária junto com as métricas padrão. (Há uma cobrança para esse recurso).
+
+Os resultados são automaticamente recalculados a cada hora. Clique no ícone Atualizar no gráfico para recalcular imediatamente. (Atualizar do navegador não é recalculado.)
 
 ## <a name="adjust-a-tile-on-the-dashboard"></a>Ajustar um bloco no painel
 Quando um bloco estiver no painel, você poderá ajustá-lo.

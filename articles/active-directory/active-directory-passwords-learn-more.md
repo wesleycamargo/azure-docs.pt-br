@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: dca6f5189693fc98cec4f92eac81b6985e691889
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: a07051ea0be58cafcf1a7d7ae800b44e7abd05cd
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>Saiba mais sobre Gerenciamento de Senha
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -105,7 +105,7 @@ Quando um usuário federado ou com sincronização de hash de senha redefine ou 
 6. Depois que a mensagem chega ao barramento de serviço, o ponto de extremidade de redefinição de senha é automaticamente reativado e vê que há uma solicitação de redefinição pendente.
 7. O serviço procurará o usuário em questão usando o atributo de âncora de nuvem.  Para que essa pesquisa seja bem-sucedida, o objeto de usuário deve existir no espaço do conector do AD, deve ser vinculado ao objeto de MV correspondente e deve ser vinculado ao objeto de conector AAD correspondente. Finalmente, para a sincronização localizar essa conta de usuário, o link do objeto de conector do AD para MV deve ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` no link.  Isso é necessário porque quando a chamada vem da nuvem, o mecanismo de sincronização usa o atributo cloudAnchor para pesquisar o objeto de espaço do conector AAD, segue o link de volta para o objeto de MV e segue o link de volta para o objeto do AD. Como pode haver vários objetos do AD (várias florestas) para o mesmo usuário, o mecanismo de sincronização depende do `Microsoft.InfromADUserAccountEnabled.xxx` link para escolher o correto. Observe que, como resultado dessa lógica, é necessário conectar o Azure AD Connect ao Controlador de Domínio Primário para que o write-back de senha funcione.  Se precisar fazer isso, poderá configurar o Azure AD Connect para que ele use um Emulador de Controlador de Domínio Primário clicando com o botão direito do mouse nas **propriedades** do conector de sincronização do Active Directory e selecionando **Configurar partições de diretório**. Nesse local, procure a seção **Configurações de conexão do controlador de domínio** e marque a caixa intitulada **Usar somente controladores de domínio preferenciais**. Observação: se o controlador de domínio preferencial não for um emulador de PDC, o Azure AD Connect ainda tentará acessar o PDC para executar o write-back de senha.
 8. Depois que a conta de usuário é encontrada, tentamos redefinir a senha diretamente na floresta do AD pertinente.
-9. Se a operação de definição de senha for bem-sucedida, dizemos ao usuário que sua senha foi modificada e que ele pode seguir o seu caminho tranquilamente.
+9. Se a operação de definição de senha for bem-sucedida, dizemos ao usuário que sua senha foi modificada e que ele pode seguir o seu caminho tranquilamente. No caso em que a senha do usuário é sincronizada com o Azure AD usando a Sincronização de Senha, há uma chance de que a política de senha local seja mais fraca do que a política de senha da nuvem. Nesse caso, nós ainda impomos qualquer política local e, em vez disso, permitimos que a sincronização de hash de senha sincronize o hash dessa senha. Isso garante que a política local é imposta na nuvem, não importa se você usar a sincronização de senha ou federação para fornecer um logon único.
 10. Se a operação de definição de senha falhar, retornamos o erro para o usuário e o deixamos tentar novamente.  A operação pode falhar porque o serviço estava inoperante, porque a senha selecionada não atende às políticas da organização, porque não foi possível encontrar o usuário no AD local ou por vários outros motivos.  Temos uma mensagem específica para muitos desses casos e informamos ao usuário o que podem fazer para resolver o problema.
 
 ## <a name="scenarios-supported-for-password-writeback"></a>Cenários com suporte para write-back de senha
@@ -621,7 +621,7 @@ Not possible in PowerShell V2
 A redefinição e a alteração de senhas têm suporte completo em todas as configurações B2B.  Leia abaixo os três casos B2B explícitos com suporte para redefinição de senha.
 
 1. **Usuários de uma organização parceira com um locatário existente do Azure AD** - se a organização com a qual você está fazendo uma parceria tiver um locatário existente do Azure AD, **respeitaremos quaisquer políticas de redefinição de senha habilitadas no locatário**. Para que a redefinição de senha funcione, a organização parceira só precisa garantie que o Azure AD SSPR esteja habilitado, o que não acarreta custo adicional para os clientes do O365 e pode ser habilitado seguindo as etapas em nosso guia de [Introdução ao gerenciamento de senhas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-2. **Usuários que se inscreveram usando a [assinatura de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)** - se a organização com a qual você está fazendo uma parcerias tiver usado o recurso de [assinatura de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) para obter um locatário, permitiremos que eles redefinam desde o início com o email com o qual se registraram.
+2. **Usuários que se inscreveram usando a [assinatura de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)**  - se a organização com a qual você está fazendo uma parcerias tiver usado o recurso de [assinatura de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) para obter um locatário, permitiremos que eles redefinam desde o início com o email com o qual se registraram.
 3. **Usuários B2B** - novos usuários B2B criados usando os novos [recursos do Azure AD B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) também poderão redefinir suas senhas desde o início com o email com o qual se registraram durante o processo de convite.
 
 Para testar isso, acesse http://passwordreset.microsoftonline.com com um desses usuários parceiros.  Contanto que eles tenham um email alternativo ou um email de autenticação definido, a redefinição de senha funcionará conforme o esperado.  Mais informações sobre os dados usados por sspr aqui podem ser encontradas na visão geral [Quais dados são usados pela redefinição de senha](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset).
@@ -629,10 +629,10 @@ Para testar isso, acesse http://passwordreset.microsoftonline.com com um desses 
 ## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
-* [**Personalizar**](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Personalizar** ](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
 * [**Obter percepções**](active-directory-passwords-get-insights.md) – saiba mais sobre nossos recursos integrados de relatórios
 * [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes

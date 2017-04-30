@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: d55892027a01bc9a1be2455d5d9bfee05b6fb982
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -28,6 +28,7 @@ Exceções em seu aplicativo Web ao vivo são relatadas pelo [Application Insigh
   * Instale o[ SDK do Application Insights](app-insights-asp-net.md) no aplicativo ou
   * Servidores Web IIS: executar o [Agente do Application Insights](app-insights-monitor-performance-live-website-now.md) ou
   * Aplicativos Web do Azure: adicionar a [extensão do Application Insights](app-insights-azure-web-apps.md)
+  * Aplicativos Web Java: instalar o [Agente Java](app-insights-java-agent.md)
 * Instale o [trecho de JavaScript](app-insights-javascript.md) em suas páginas da Web para capturar exceções de navegador.
 * Em algumas estruturas de aplicativo ou com algumas configurações, você precisa executar algumas etapas adicionais para capturar mais exceções:
   * [Formulários da Web](#web-forms)
