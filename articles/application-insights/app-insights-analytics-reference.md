@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 03/22/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b850264ef2b89ad1679ae1e956a58cc849e63c84
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 7f6c71056bca7beebc02313409aabe386d191e23
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -824,7 +824,7 @@ Os elementos na cláusula `with` são comparados ao texto de origem sucessivamen
 * Em uma análise de regex, uma expressão regular pode usar o operador de minimização '?' para passar assim que possível para a correspondência seguinte.
 * Um nome de coluna com um tipo analisa o texto como o tipo especificado. A menos que kind=relaxed, uma análise malsucedida invalida a correspondência do padrão inteiro.
 * Um nome de coluna sem um tipo ou com o tipo 'string' copia o número mínimo de caracteres para obter a correspondência seguinte.
-* ' *' Ignora o número mínimo de caracteres para obter a correspondência seguinte. Você pode usar '*' no início e no final do padrão, ou depois de um tipo diferente de ‘string’ ou entre as correspondências de cadeia de caracteres.
+* '*' ignora o número mínimo de caracteres para ir para a correspondência seguinte. Você pode usar '*' no início e no final do padrão, depois de um tipo diferente de string ou ainda entre as correspondências de cadeia de caracteres.
 
 Todos os elementos em um padrão de análise devem corresponder corretamente. Caso contrário, nenhum resultado será produzido. A exceção a essa regra é que, quando kind=relaxed, se uma análise de uma variável com tipo falhar, o restante da análise continuará.
 
@@ -1035,9 +1035,13 @@ Por exemplo, o resultado de `reduce by city` pode incluir:
 | Paris |27163 |
 
 ### <a name="render-directive"></a>renderizar política
-    T | render [ table | timechart  | barchart | piechart ]
+    T | render [ table | timechart  | barchart | piechart | areachart | scatterchart ] 
+        [kind= default|stacked|stacked100|unstacked]
 
 A renderização instrui a camada de apresentação sobre como mostrar a tabela. Ela deve ser o último elemento do pipe. É uma alternativa conveniente ao uso dos controles de exibição, permitindo que você salve uma consulta com um método de apresentação específico.
+
+Para alguns tipos de gráfico, `kind` fornece opções adicionais. Por exemplo, um gráfico de barras `stacked` segmenta cada barra por uma dimensão escolhida, mostrando a contribuição de valores diferentes da dimensão para o total. Em um gráfico `stacked100`, cada barra tem altura equivalente a 100%, para que você possa comparar as contribuições relativas.
+
 
 ### <a name="restrict-clause"></a>restringir cláusula
 Especifica o conjunto de nomes de tabela disponíveis para os operadores que seguem. Por exemplo:
@@ -1764,6 +1768,12 @@ Verifique se uma cadeia de caracteres pode ser convertida em um tipo específico
     iff(notnull(todouble(customDimensions.myValue)),
        ..., ...)
 
+
+
+
+
+
+
 ### <a name="scalar-comparisons"></a>Comparações escalares
 |  |  |
 | --- | --- |
@@ -2096,6 +2106,12 @@ A função da raiz quadrada.
 ## <a name="date-and-time"></a>Data e hora
 [ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) |  [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
+Um timespan representa um intervalo de tempo como 3 horas ou 1 ano.
+
+Um datetime representa uma data e hora específicas de calendário/relógio em UTC.
+
+Não há nenhum tipo 'data' separado. Para remover a hora de um valor datetime, use uma expressão como `bin(timestamp, 1d)`.
+
 ### <a name="date-and-time-literals"></a>Literais de data e hora
 |  |  |
 | --- | --- |
@@ -2118,22 +2134,22 @@ A função da raiz quadrada.
 | `time("0.12:34:56.7")` |`0d+12h+34m+56.7s` |
 
 ### <a name="date-and-time-expressions"></a>Expressões de data e hora
-| Expression | Result |
-| --- | --- |
-| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` |
-| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` |
-| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` |
-| `2h * 24` |`2d` |
-| `2d` / `2h` |`24` |
-| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |
-| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |
-|  | |
-| `<` |Menor |
-| `<=` |Menor ou igual a |
-| `>` |Maior |
-| `>=` |Maior ou igual a |
-| `<>` |Não é igual a |
-| `!=` |Não é igual a |
+| Expression | Result |Efeito|
+| --- | --- |---|
+| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` | Diferença de horário|
+| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` | Adicionar dias |
+| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` | Subtrair dias|
+| `2h * 24` |`2d` |Múltiplos de timespan|
+| `2d` / `2h` |`24` |Divisão de timespan|
+| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |Hora de um datetime|
+| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |Data de um datetime|
+|  | ||
+| `<` ||Menor |
+| `<=` ||Menor ou igual a |
+| `>` ||Maior |
+| `>=` ||Maior ou igual a |
+| `<>` ||Diferente de |
+| `!=` ||Diferente de |
 
 ### <a name="ago"></a>ago
 Subtrai o período fornecido da hora atual UTC. Assim como `now()`, essa função pode ser usada várias vezes em uma instrução, e a hora UTC referenciada será a mesma para todas as instanciações.

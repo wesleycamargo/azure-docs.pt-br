@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 186b8331d2fcfc16bd41eb08badb200e2abf9e30
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
+ms.openlocfilehash: 1072148f11052a643bdc70239029a651d9d71dda
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -39,7 +39,7 @@ Para saber mais sobre as seguintes funcionalidades da Rede Virtual do Azure, cli
 
 ## <a name = "isolation"></a>Isolamento e segmentação de rede
 
-É possível implementar várias VNets dentro de cada assinatura e região do Azure. Cada VNet é isolada de outras VNets. Para cada VNet, você pode:
+É possível implementar várias VNets dentro de cada [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [região](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) do Azure. Cada VNet é isolada de outras VNets. Para cada VNet, você pode:
 - Especificar um espaço de endereço IP privado personalizado usando endereços públicos e privados (RFC 1918). O Azure atribui aos recursos conectados à VNet um endereço IP privado do espaço de endereço que você atribuiu.
 - Segmentar a VNet em uma ou mais sub-redes e alocar uma parte do espaço de endereço da VNet a cada sub-rede.
 - Usar a resolução de nomes fornecida pelo Azure ou especificar seu próprio servidor DNS que será usado pelos recursos conectados a uma VNet. Para saber mais sobre a resolução de nome em uma VNet, leia o artigo [Resolução de nomes para VMs e Serviços de Nuvem](virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -49,16 +49,16 @@ Por padrão, todos os recursos conectados a uma VNet têm conectividade de saíd
 
 Para comunicar-se internamente com os recursos do Azure da Internet, ou para comunicar-se externamente com a Internet sem SNAT, é necessário atribuir um endereço IP público ao recurso. Para saber mais sobre endereços IP públicos, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md).
 
-## <a name="within-vnet"></a>Conexão dos recursos do Azure
+## <a name="within-vnet"></a>Conectar recursos do Azure
 Você pode conectar vários recursos do Azure a uma VNet, como VMs (máquinas virtuais), Serviços de Nuvem, Ambientes de Serviço de Aplicativo e Conjuntos de dimensionamento de máquinas virtuais. As VMs se conectam a uma sub-rede dentro de uma VNet por meio de uma NIC (interface de rede). Para saber mais sobre NICs, leia o artigo [Interfaces de rede](virtual-network-network-interface.md).
 
-## <a name="connect-vnets"></a>Conexão de redes virtuais
+## <a name="connect-vnets"></a>Conectar redes virtuais
 
 Você pode conectar as VNets entre si, permitindo que os recursos conectados a qualquer VNet se comuniquem entre si através das VNets. Use uma ou as duas opções a seguir para conectar VNets entre si:
 - **Emparelhamento:** permite que os recursos conectados a diferentes VNets do Azure no mesmo local do Azure se comuniquem entre si. A largura de banda e a latência entre as VNets são as mesmas se os recursos estivessem conectados à mesma VNet. Para saber mais sobre emparelhamento, leia o artigo [Emparelhamento de rede virtual](virtual-network-peering-overview.md).
 - **Conexão de VNet para VNet:** permite recursos conectados a uma VNet do Azure diferente dentro dos mesmos locais ou em locais diferentes do Azure. Ao contrário do emparelhamento, a largura de banda é limitada entre as VNets, pois o tráfego deve fluir por um Gateway de VPN do Azure. Para saber mais sobre como conectar VNets a uma conexão VNet para VNet, leia o artigo [Configurar uma conexão de VNet para VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="connect-on-premises"></a>Conexão com uma rede local
+## <a name="connect-on-premises"></a>Conectar-se a uma rede local
 
 Você pode conectar sua rede local a uma VNet usando qualquer combinação das seguintes opções:
 - **VPN (rede virtual privada) de ponto a site:** estabelecida entre um único PC conectado à sua rede e a VNet. Esse tipo de conexão é ótimo se você estiver começando a usar o Azure, ou para os desenvolvedores, pois exige pouca ou nenhuma alteração em sua rede existente. A conexão usa o protocolo SSTP para fornecer comunicação criptografada pela Internet entre o PC e a VNet. A latência de uma VPN ponto a site é imprevisível e criptografada, pois o tráfego atravessa a Internet.
@@ -68,13 +68,11 @@ Você pode conectar sua rede local a uma VNet usando qualquer combinação das s
 Para saber mais sobre todas as opções de conexão anteriores, leia o artigo [Diagramas de topologia de conexão](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams).
 
 ## <a name="filtering"></a>Filtrar o tráfego de rede
-<!---Get confirmation that a UDR on the gateway subnet is supported. Need to provide some additional info as to the key differences between the two options.--->
-
 Filtre o tráfego de rede entre sub-redes usando uma ou as duas opções a seguir:
 - **NSG (Grupos de segurança de rede):** cada NSG pode conter várias regras de segurança de entrada e saída que permitem a filtragem do tráfego por endereço IP de origem e de destino, porta e protocolo. Aplique um NSG a cada NIC em uma VM. Você também pode aplicar um NSG à sub-rede a qual uma NIC, ou outros recursos do Azure, está conectada. Leia o artigo [Grupos de segurança de rede](virtual-networks-nsg.md) para saber mais sobre NSGs.
 - **NVA (Solução de virtualização de rede):** NVA um é uma VM que executa um software responsável por uma função de rede, como um firewall. Veja uma lista de NVAs disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Também há NVAs que fornecem otimização de WAN e outras funções de tráfego de rede. As NVAs são usadas normalmente com rotas BGP ou definidas pelo usuário. Você também pode usar uma NVA para filtrar o tráfego entre VNets.
 
-## <a name="routing"></a>Rotear tráfego de rede
+## <a name="routing"></a>Rotear o tráfego de rede
 
 Por padrão, o Azure cria tabelas de rotas que permitem aos recursos conectados a qualquer sub-rede e em qualquer VNet a comunicação mútua. Você pode implementar uma ou as duas opções a seguir para substituir as rotas padrão criadas pelo Azure:
 - **Rotas definidas pelo usuário:** você pode criar tabelas de rotas personalizadas com rotas que controlam para onde o tráfego será roteado em cada sub-rede. Para saber mais sobre as rotas definidas pelo usuário, leia o artigo [Rotas definidas pelo usuário](virtual-networks-udr-overview.md).

@@ -12,16 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/10/2017
+ms.date: 4/11/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: e579c7fd4547a88c6356c77a220b5f9e1a07e542
-ms.openlocfilehash: deafae1c6f77a655d80ee7bafd220c5b624018bd
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 51b5c32eb73dc70b4019e60342db659959cc93bb
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="march-guest-os"></a>SO convidado de março
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Rel 17-03 |  [4013429] |Aperfeiçoamentos e correções | 5.5 | 14 de março de 2017 |
+| Rel 17-03 |  [4012212] |Atualização de Qualidade Somente de Segurança de março de 2017 para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 |2.60 |14 de março de 2017 |
+| Rel 17-03 |  [4012213] |Atualização de Qualidade Somente de Segurança de março de 2017 para o Windows 8.1 e o Windows Server 2012 R2 |4.40 |14 de março de 2017 |
+| Rel 17-03 |  [4012214] |Atualização de Qualidade Somente de Segurança de março de 2017 para o Windows Server 2012|3.47 |14 de março de 2017 |
+| Rel 17-03 |  [4012204] |Atualização de segurança para o Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 de março de 2017 |
+| N/D |  [4012864] |Alterações de horário de verão no Windows para a região da Mongólia, Cipestre Norte e Saratov, na Rússia |2.60, 3.47, 4.40 |14 de março de 2017 |
+| N/D |  [3212646] |Pacote cumulativo de atualizações de qualidade de segurança mensal de janeiro de 2017 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 de março de 2017 |
+| N/D |  [3205409] |Pacote cumulativo de atualizações de qualidade de segurança mensal de dezembro de 2016 para Windows Server 2012 |3.47 |14 de março de 2017 |
+| N/D |  [3205401] |Pacote cumulativo de atualizações de qualidade de segurança mensal de dezembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.40 |14 de março de 2017 |
+| N/D |  [3211320] |Atualização da pilha de manutenção para o Windows 10 versão 1607 e Windows Server 2016: 24 de janeiro de 2017 |5.5 |14 de março de 2017 |
+
+
 
 ## <a name="january-guest-os"></a>SO convidado de janeiro
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -404,6 +421,18 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[2999802] |Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 
+[4013429]: http://support.microsoft.com/kb/4013429 
+[4012212]: http://support.microsoft.com/kb/4012212 
+[4012213]: http://support.microsoft.com/kb/4012213 
+[4012214]: http://support.microsoft.com/kb/4012214 
+[4012204]: http://support.microsoft.com/kb/4012204 
+[4012864]: http://support.microsoft.com/kb/4012864 
+[3212646]: http://support.microsoft.com/kb/3212646 
+[3205409]: http://support.microsoft.com/kb/3205409 
+[3205401]: http://support.microsoft.com/kb/3205401
+[3211320]: http://support.microsoft.com/kb/3211320
+
+
 [3216771]: https://technet.microsoft.com/library/security/MS17-004
 
 [3204059]: http://support.microsoft.com/kb/3204059 
@@ -718,9 +747,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

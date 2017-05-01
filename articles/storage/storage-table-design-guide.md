@@ -15,9 +15,9 @@ ms.workload: storage
 ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: daff0744d20996014b065b9d4f5fd6b196af923c
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 9da543dbebe8f35178233d91492b0aff21f10986
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -416,7 +416,7 @@ Nas seções anteriores, você viu que algumas discussões detalhadas sobre como
 O mapa padrão acima destaca algumas relações entre padrões (azul) e antipadrões (laranja) documentados neste guia. Certamente há muitos outros padrões que vale a pena considerar. Por exemplo, um dos principais cenários para o serviço Tabela é utilizar o [Padrão de Exibição Materializada](https://msdn.microsoft.com/library/azure/dn589782.aspx) do padrão [CQRS (Segregação de Responsabilidade da Consulta de Comando)](https://msdn.microsoft.com/library/azure/jj554200.aspx).  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Padrão de índice secundário intrapartição
-Armazene várias cópias de cada entidade usando valores diferentes de **RowKey** (na mesma partição) para permitir pesquisas rápidas e eficientes, bem como ordens de classificação alternativas usando valores diferentes de **RowKey**. Atualizações entre as cópias podem ser mantidas consistentes usando do EGTs.  
+Armazene várias cópias de cada entidade usando valores diferentes de **RowKey** (na mesma partição) para permitir pesquisas rápidas e eficientes, bem como ordens de classificação alternativas usando valores diferentes de **RowKey**. Atualizações entre as cópias podem ser mantidas consistentes usando EGTs.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
 O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores de **PartitionKey** e **RowKey**). Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.
@@ -627,7 +627,7 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 
 * Essa solução exige, pelo menos, duas consultas para recuperar entidades correspondentes: uma para consultar as entidades de índice para obter a lista de valores de **RowKey** e consultas para recuperar cada entidade na lista.  
 * Considerando que uma entidade individual tem um tamanho máximo de 1 MB, as opções nº2 e 3 na solução supõem que a lista de ids de funcionário para determinado sobrenome nunca é maior que 1 MB. Se a lista de ids de funcionário é provavelmente maior que 1 MB em tamanho, use a opção nº1 e armazene os dados de índice no armazenamento de blob.  
-* Se você usar a opção nº2(usando EGTs para controlar a adição e exclusão de funcionários e alterar o sobrenome do funcionário) deve avaliar se o volume de transações abordará os limites de escalabilidade em determinada partição. Se esse for o caso, você deve considerar uma solução eventualmente consistente (opção nº1 ou 3) que usa filas para manipular solicitações de atualização e permite que você armazene suas entidades de índice em uma partição separada das entidades de funcionário.  
+* Se você usar a opção n. 2 (usando EGTs para controlar a adição e exclusão de funcionários e alterar o sobrenome do funcionário), você deverá avaliar se o volume de transações abordará os limites de escalabilidade em uma determinada partição. Se esse for o caso, você deve considerar uma solução eventualmente consistente (opção nº1 ou 3) que usa filas para manipular solicitações de atualização e permite que você armazene suas entidades de índice em uma partição separada das entidades de funcionário.  
 * A opção nº2 nesta solução pressupõe que você deseja pesquisar por sobrenome dentro de um departamento: por exemplo, você quer recuperar uma lista de funcionários com um sobrenome Jones no departamento de Vendas. Para pesquisar todos os funcionários com um sobrenome Jones em toda a organização, use a opção nº1 ou 3.
 * É possível implementar uma solução baseada em fila que fornece consistência eventual (veja [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para obter mais detalhes).  
 
@@ -646,7 +646,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 Combine dados relacionados juntos em uma única entidade para que você possa recuperar todos os dados que precisa com uma ponto único de consulta.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Em um banco de dados relacional, você geralmente normaliza dados para remover a duplicação, resultando em consultas que recuperam dados de várias tabelas. Se você normalizar dados em tabelas do Azure, terá de ir e voltar várias vezes do cliente ao servidor para recuperar os dados relacionados. Por exemplo, com a estrutura de tabela mostrada abaixo, você precisa de dois viagens de ida e volta para recuperar os detalhes de um departamento: uma para buscar a entidade do departamento que inclui a ID do gerente e outra solicitação de obter detalhes do gerente em uma entidade de funcionário.  
+Em um banco de dados relacional, você geralmente normaliza dados para remover a duplicação, resultando em consultas que recuperam dados de várias tabelas. Se você normalizar dados em tabelas do Azure, terá de ir e voltar várias vezes do cliente ao servidor para recuperar os dados relacionados. Por exemplo, com a estrutura de tabela mostrada abaixo, você precisa de dois viagens de ida e volta para recuperar os detalhes de um departamento: uma para buscar a entidade do departamento que inclui a ID do gerente e outra solicitação para buscar detalhes do gerente em uma entidade de funcionário.  
 
 ![][16]
 
@@ -877,7 +877,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 Aumente a escalabilidade quando tiver um alto volume de inserções, distribuindo as inserções em várias partições.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-A prefixação ou o acréscimo de entidades às suas entidades armazenadas normalmente fazem com que o aplicativo adicione novas entidades à primeira ou última partição de uma sequência de partições. Nesse caso, todas as inserções em um determinado momento estão ocorrendo na mesma partição, criando um ponto de acesso que impede o serviço Tabela de carregar inserções de balanceamento em vários nós e possivelmente fazendo com que o aplicativo atinja as metas de escalabilidade para partição. Por exemplo, se você tiver um aplicativo que registra acesso a rede e recursos por funcionários, uma estrutura de entidade, conforme mostrado a seguir, pode fazer com que a partição de hora atual se transforme em um ponto de acesso, caso o volume de transações atinja a meta de escalabilidade de uma partição individual:  
+A prefixação ou o acréscimo de entidades às suas entidades armazenadas normalmente fazem com que o aplicativo adicione novas entidades à primeira ou última partição de uma sequência de partições. Nesse caso, todas as inserções em um determinado momento estão ocorrendo na mesma partição, criando um ponto de acesso que impede o serviço Tabela de carregar inserções de balanceamento em vários nós e possivelmente fazendo com que o aplicativo atinja as metas de escalabilidade para partição. Por exemplo, se você tiver um aplicativo que registre acesso a rede e recursos por funcionários, então uma estrutura de entidade, conforme mostrado a seguir, poderá fazer com que a partição de hora atual se transforme em um ponto de acesso, caso o volume de transações atinja a meta de escalabilidade de uma partição individual:  
 
 ![][26]
 
@@ -1513,7 +1513,7 @@ O aplicativo cliente pode chamar vários métodos assíncronos como esse, e cada
 ### <a name="credits"></a>Credits
 Gostaríamos de agradecer os seguintes membros da equipe do Azure por suas contribuições: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah e Serdar Ozler, bem como Tom Hollander da Microsoft DX. 
 
-Também gostaríamos de agradecer aos seguintes MVPs da Microsoft por seus valiosos comentários durante os ciclos de análise: Igor Papirov e Edward Bakker.
+Também gostaríamos de agradecer aos seguintes MVPs da Microsoft por seus valiosos comentários durante os ciclos de revisão: Igor Papirov e Edward Bakker.
 
 [1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
 [2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png

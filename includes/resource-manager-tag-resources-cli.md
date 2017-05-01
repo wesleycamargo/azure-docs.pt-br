@@ -86,8 +86,3 @@ Você pode exibir as marcas existentes em sua assinatura com o seguinte comando:
 ```azurecli
 azure tag list
 ```
-
-
-<!--HONumber=Jan17_HO2-->
-
-

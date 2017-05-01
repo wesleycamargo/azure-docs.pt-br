@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 03/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: c8189af2ebd9cabfa3e20e6b3520ba347d6147ff
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: e7a85813ae5e26f402837774a40fa3630a436bee
+ms.lasthandoff: 03/31/2017
 
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure
 Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](role-based-access-control-manage-access-powershell.md), a [CLI (interface de linha de comando) do Azure](role-based-access-control-manage-access-azure-cli.md) e a [API REST](role-based-access-control-manage-access-rest.md). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure AD e podem ser compartilhadas entre todas as assinaturas que usam esse locatário como o diretório do Azure AD para a assinatura.
+
+Cada locatário pode criar até 2000 funções personalizadas. 
 
 Este é um exemplo de uma função personalizada para monitorar e reiniciar as máquinas virtuais:
 

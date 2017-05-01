@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
+ms.date: 4/10/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: e207ace4eb5722e08f2020078dfea9129ef1deb8
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1c7b4c4b7675bfc33e102c9abb4f942a1dd33ad4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -538,6 +538,28 @@ Neste exemplo, um alerta é emitido para Pagerduty.com quando um limite é ating
 
 
 
+## <a name="patching-and-operations"></a>Aplicação de patch e operações
+
+### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Como fazer para criar um conjunto de dimensionamento em um grupo de recursos existente?
+
+A criação de conjuntos de dimensionamento em um grupo de recursos existente ainda não é possível no portal do Azure, mas você pode especificar um grupo de recursos existente ao implantar um conjunto de dimensionamento de um modelo do Azure Resource Manager. Também é possível especificar um grupo de recursos existente ao criar um conjunto de dimensionamento usando o Azure PowerShell ou a CLI.
+
+### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>É possível mover um conjunto de dimensionamento para outro grupo de recursos?
+
+Sim, é possível mover recursos do conjunto de dimensionamento para uma nova assinatura ou um novo grupo de recursos.
+
+### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Como atualizo meu conjunto de dimensionamento de máquinas virtuais para uma nova imagem? Como gerencio os patches?
+
+Para atualizar o conjunto de dimensionamento de máquinas virtuais para uma nova imagem e gerenciar os patches, consulte [Atualizar um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+
+### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Posso usar a operação de recriação de imagem para redefinir uma VM sem alterar a imagem? (Ou seja, quero redefinir uma VM para as configurações de fábrica, em vez de uma nova imagem.)
+
+Sim, você pode usar a operação de recriação de imagem para redefinir uma VM sem alterar a imagem. No entanto, se o conjunto de dimensionamento de máquinas virtuais fizer referência a uma imagem da plataforma com `version = latest`, sua VM poderá atualizar para uma imagem do SO posterior ao chamar `reimage`.
+
+Para obter mais informações, consulte [Gerenciar todas as VMs em um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
+
+
+
 ## <a name="troubleshooting"></a>Solucionar problemas
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Como ativo o diagnóstico de inicialização?
@@ -561,21 +583,6 @@ Quando uma nova VM for criada, a propriedade InstanceView da VM mostrará os det
     "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
   }
 ```
-
- 
-
-## <a name="updates"></a>Atualizações
-
-### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Como atualizo meu conjunto de dimensionamento de máquinas virtuais para uma nova imagem? Como gerencio os patches?
-
-Para atualizar o conjunto de dimensionamento de máquinas virtuais para uma nova imagem e gerenciar os patches, consulte [Atualizar um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
-
-### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Posso usar a operação de recriação de imagem para redefinir uma VM sem alterar a imagem? (Ou seja, quero redefinir uma VM para as configurações de fábrica, em vez de uma nova imagem.)
-
-Sim, você pode usar a operação de recriação de imagem para redefinir uma VM sem alterar a imagem. No entanto, se o conjunto de dimensionamento de máquinas virtuais fizer referência a uma imagem da plataforma com `version = latest`, sua VM poderá atualizar para uma imagem do SO posterior ao chamar `reimage`.
-
-Para obter mais informações, consulte [Gerenciar todas as VMs em um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
-
 
 
 ## <a name="virtual-machine-properties"></a>Propriedades de máquina virtual

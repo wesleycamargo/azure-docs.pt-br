@@ -35,7 +35,7 @@ Abrir portas adicionais para outros componentes conforme necessário. Para obter
 3. No painel de console, clique em **Protocolos para MSSQLSERVER** (ele padroniza o nome da instância). No painel de detalhes, clique com botão direito em **TCP** e clique em **Habilitar** se essa opção não estiver habilitada.
    
     ![Habilitar TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. No painel do console, clique em **Serviços do SQL Server**. No painel de detalhes, clique com o botão direito do mouse em **SQL Server (*nome da instância*)** (a instância padrão é **SQL Server (MSSQLSERVER)**) e, em seguida, clique em **Reiniciar**, para parar e reiniciar a instância do SQL Server.
+4. No painel do console, clique em **Serviços do SQL Server**. No painel de detalhes, clique com o botão direito do mouse em **SQL Server (*nome da instância*) **(a instância padrão é** SQL Server (MSSQLSERVER)**) e, em seguida, clique em** Reiniciar**, para parar e reiniciar a instância do SQL Server.
    
     ![Reiniciar o Mecanismo de Banco de Dados](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 5. Feche o SQL Server Configuration Manager.
@@ -93,9 +93,4 @@ Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve 
 9. Clique em OK.
 
 Para obter mais informações sobre logons do SQL Server, consulte [Criar um logon (a página pode estar em inglês)](http://msdn.microsoft.com/library/aa337562.aspx).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

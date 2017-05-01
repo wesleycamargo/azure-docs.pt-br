@@ -16,9 +16,9 @@ ms.date: 03/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c9065c3346c924ea21060c9e7e5b297a3cb26941
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -44,9 +44,9 @@ O diagrama a seguir resume os alertas e o que você pode fazer com eles especifi
 Você pode receber alertas com base em:
 
 * **Valores da métrica**: esse alerta dispara quando o valor de uma métrica especificada ultrapassa um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida. Para obter uma lista crescente de métricas disponíveis com suporte do Azure Monitor, consulte [Lista de métricas com suporte no Azure Monitor](monitoring-supported-metrics.md).
-* **Eventos do log de atividades**: Esse alerta pode disparar em cada evento ou somente quando ocorre um determinado número de eventos.
+* **Eventos do log de atividades**: esse alerta pode disparar quando ocorre um evento específico em um recurso ou quando uma notificações de serviço é postada em sua assinatura.
 
-## <a name="what-can-alerts-do"></a>O que os Alertas podem fazer?
+## <a name="what-can-metric-alerts-do"></a>O que os alertas de métrica podem fazer?
 Você pode configurar um alerta para fazer o seguinte:
 
 * Enviar notificações por email para o administrador do serviço, coadministradores e/ou emails adicionais especificados.
@@ -56,12 +56,27 @@ Você pode configurar um alerta para fazer o seguinte:
     - Aplicativo lógico do Azure
     - um serviço de terceiros
 
+## <a name="what-can-activity-log-alerts-do"></a>O que os Alertas de Log de Atividades podem fazer?
+Você pode configurar um alerta para fazer o seguinte:
+* Disparar sempre que um evento específico ocorre em um dos recursos em sua assinatura
+* Disparar sempre que uma notificação de serviço é postada em sua assinatura
+* Alertar membros de um grupo de ações via
+    * sms
+    * Email
+    * webhook
 
 ## <a name="next-steps"></a>Próximas etapas
 Obter informações sobre as regras de alerta e sobre como configurá-las usando:
 
-* [Portal do Azure](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
-* [CLI (Interface da linha de comando)](insights-alerts-command-line-interface.md)
-* [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Saiba mais sobre [Métricas](monitoring-overview-metrics.md)
+* Configurar [alertas de métrica por meio do Portal do Azure](insights-alerts-portal.md)
+* Configurar o [PowerShell de alertas de métrica](insights-alerts-powershell.md)
+* Configurar a [CLI (interface de linha de comando) de alertas de métrica](insights-alerts-command-line-interface.md)
+* Configurar a [API REST do Azure Monitor de alertas de métrica](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Saiba mais sobre o [Log de Atividades](monitoring-overview-activity-logs.md)
+* Configurar [alertas do Log de Atividades por meio do Portal do Azure](monitoring-activity-log-alerts.md)
+* Configurar [alertas do Log de Atividades por meio do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Examine o [esquema do webhook de alertas do Log de Atividade](monitoring-activity-log-alerts-webhook.md)
+* Saiba mais sobre as [Notificações de Serviço](monitoring-service-notifications.md)
+* Saiba mais sobre [Grupos de Ação](monitoring-action-groups.md)
 

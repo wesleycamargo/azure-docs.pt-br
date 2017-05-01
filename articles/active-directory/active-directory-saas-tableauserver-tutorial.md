@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 0849c77c66ac8617e217a69696b5c404be3b5eb4
-ms.openlocfilehash: 3aefb8188880fac5c1fcbe237a1e133584089e6a
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d8845ecb86acef651fdc8d6a64ebcae82b54dcd8
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -27,7 +27,7 @@ O objetivo deste tutorial é mostrar como integrar o Tableau Server ao Azure AD 
 A integração do Tableau Server ao Azure AD oferece os seguintes benefícios:
 
 * Você pode controlar no Azure AD quem tem acesso ao Tableau Server
-* Você pode habilitar os usuários a entrar automaticamente no Tableau Server (Logon Único) com suas contas do Azure AD
+* Você pode habilitar seus usuários, com as respectivas contas do Azure AD, a fazer logon automaticamente no Tableau Server via SSO (logon único)
 * Gerenciar suas contas em um único local com o Portal Clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -36,26 +36,27 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao Tableau Server, você precisa dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada para SSO (logon único) do Tableau Server
+* Uma assinatura do Tableau Servercom SSO habilitado
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+>
+>
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. 
+O objetivo deste tutorial é permitir que você teste o SSO do Azure AD em um ambiente de teste. 
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Tableau Server a partir da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO do Azure AD
 
-## <a name="adding-tableau-server-from-the-gallery"></a>Adição do Tableau Server a partir da galeria
+## <a name="add-tableau-server-from-the-gallery"></a>Adicionar o Tableau Server por meio da galeria
 Para configurar a integração do Tableau Server ao Azure AD, você precisa adicionar o Tableau Server da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o Tableau Server por meio da galeria, execute as seguintes etapas:**
@@ -80,29 +81,29 @@ Para configurar a integração do Tableau Server ao Azure AD, você precisa adic
    
     ![Seleção do aplicativo na galeria](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar SSO do Azure AD
 O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Tableau Server, com base em uma usuária de teste chamada "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Tableau Server é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Tableau Server.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do Tableau Server é equivalente a um determinado usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Tableau Server.
 
 Essa relação de vínculo é estabelecida com a atribuição do valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Tableau Server.
 
 Para configurar e testar o logon único do Azure AD com o Tableau Server, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Tableau Server](#creating-a-tableauserver-test-user)** - para ter um equivalente de Brenda Fernandes no Tableau Server que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
-O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo Tableau Server.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+O objetivo desta seção é habilitar o SSO do Azure AD no Portal Clássico do Azure e configurar o SSO em seu aplicativo Tableau Server.
 
 O aplicativo Tableau Server espera que as declarações SAML estejam em um formato específico. A captura de tela a seguir mostra um exemplo disso. 
 
 ![Configurar Logon Único](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_51.png) 
 
-**Para configurar o logon único do Azure AD com o Tableau Server, execute as seguintes etapas:**
+**Para configurar o SSO do Azure AD com o Tableau Server, execute as seguintes etapas:**
 
 1. No portal clássico do Azure, na página de integração do aplicativo **Tableau Server**, no menu superior, clique em **Atributos**.
    
@@ -132,7 +133,7 @@ O aplicativo Tableau Server espera que as declarações SAML estejam em um forma
    1. Na caixa de texto **URL de Entrada** , digite a URL do Tableau Server. 
    2. Na **caixa Identificador**, copie a URL.
    3. Clique em **Próximo**.
-h
+
 7. Na página **Configurar logon único no Tableau Server**, execute as seguintes etapas e clique em **Avançar**:
    
     ![Configurar Logon Único](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_05.png) 
@@ -163,8 +164,8 @@ h
    
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 * Na lista de usuários, selecione **Brenda Fernandes**.
 
@@ -208,16 +209,18 @@ O objetivo desta seção é criar um usuário de teste no Portal clássico do Az
    1. Anote o valor da **Nova Senha**.
    2. Clique em **Concluído**.   
 
-### <a name="creating-a-tableau-server-test-user"></a>Criação de um usuário de teste do Tableau Server
-O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no Tableau Server. Será necessário provisionar todos os usuários no Tableau Server. Observe também que o nome de usuário deve corresponder ao valor que você configurou no atributo personalizado **username**do Azure AD. Com o mapeamento correto, a integração deve funcionar, conforme [Configuração do Logon Único do Azure AD](#configuring-azure-ad-single-single-sign-on).
+### <a name="create-a-tableau-server-test-user"></a>Criar um usuário de teste do Tableau Server
+O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no Tableau Server. Será necessário provisionar todos os usuários no Tableau Server. 
 
-> [!NOTE]
-> Se precisar criar um usuário manualmente, entre em contato com o administrador do Tableau Server em sua organização.
+O nome de usuário deve corresponder ao valor que você configurou no atributo personalizado **username** do Azure AD. Com o mapeamento correto, a integração deve funcionar, conforme [Configuração do Logon Único do Azure AD](#configuring-azure-ad-single-single-sign-on).
+
+>[!NOTE]
+>Se precisar criar um usuário manualmente, entre em contato com o administrador do Tableau Server em sua organização.
 > 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo-lhe acesso ao Tableau Server.
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+O objetivo desta seção é permitir que Brenda Fernandes use o SSO do Azure, concedendo a ela acesso ao Tableau Server.
 
 ![Atribuir usuário][200] 
 
@@ -237,7 +240,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Tableau Server no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo Tableau Server.

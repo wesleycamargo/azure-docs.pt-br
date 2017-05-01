@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2016
+ms.date: 04/03/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 38728a20527be060e63d2dbdea923263b3d6c7fa
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 59ca9514c4cac97e8dd6dafc7a59406925b7b2df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,6 +38,9 @@ Este tutorial pressupõe que você tenha o seguinte:
 
 ## <a name="add-azure-replica-wizard"></a>Assistente de adição de réplica do Azure
 Esta seção mostra como usar o **Assistente de Adição de Réplica do Azure** para estender sua solução do grupo de disponibilidade AlwaysOn para incluir réplicas do Azure.
+
+> [!IMPORTANT]
+> O **Assistente para Adicionar uma Réplica do Azure** dá suporte apenas a máquinas virtuais criadas com o modelo de implantação Clássico. As novas implantações de VM devem usar o modelo mais novo do Resource Manager. Se você estiver usando VMs com o Resource Manager, deverá adicionar manualmente a réplica secundária do Azure usando comandos Transact-SQL (não mostrados aqui). Esse assistente não funcionará no cenário do Resource Manager.
 
 1. De dentro do SQL Server Management Studio, expanda **Alta Disponibilidade AlwaysOn** > **Grupos de Disponibilidade** > **[Nome do seu Grupo de Disponibilidade]**.
 2. Clique com o botão direito em **Réplicas da Disponibilidade**, em seguida, clique em **Adicionar Réplica**.

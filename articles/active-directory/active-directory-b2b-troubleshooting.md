@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 66c0084c89b5c7510196142afd27b58953d0dc86
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ccd7bb3cab65f95c53489de07479c9750e860040
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,6 @@ ms.lasthandoff: 03/15/2017
 
 Confira aqui algumas correções para problemas comuns da colaboração B2B do Azure Active Directory (Azure AD).
 
-## <a name="i-cant-create-an-external-user-due-to-an-existing-contact"></a>Não consigo criar um usuário externo devido a um contato existente
-
-Se o usuário externo que você está convidando já tiver um objeto de contato pré-existente, não será possível convidar esse usuário até que você resolva o conflito, geralmente pela remoção do objeto de contato. Até que a colaboração B2B esteja disponível para o público geral, o conflito deve ser resolvido manualmente.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Adicionei um usuário externo, mas não consigo vê-lo em meu Catálogo de Endereços Global ou no seletor de pessoas
 
@@ -66,7 +63,7 @@ Para resolver esse problema, o administrador do usuário externo deve sincroniza
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como ‘\#’, que normalmente não é um caractere válido, é sincronizado com o Azure AD?
 
-"\#" é um caractere reservado em UPNs para colaboração B2B do Azure AD ou usuários externos (ou seja, &lt;user@contoso.com&gt; convidado, torna-se &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;) então \# em UPNs locais não podem entrar no portal do Azure.
+“\#” é um caractere reservado em UPNs para colaboração B2B do Azure AD ou usuários externos (ou seja, o user@contoso.com convidado torna-se user_contoso.com#EXT@fabrikam.onmicrosoft.com); portanto, \# em UPNs obtidos localmente não tem permissão para entrar no portal do Azure.
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recebo um erro ao adicionar usuários externos a um grupo sincronizado
 
@@ -74,11 +71,11 @@ Os usuários externos podem ser adicionados apenas a grupos de "Segurança" ou "
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Meu usuário externo não recebeu um email para o resgate
 
-O convidado deve verificar com seu ISP ou o filtro de spam para garantir que o endereço a seguir tenha permissão:&lt;Invites@microsoft.com&gt;
+O convidado deve verificar com seu ISP ou o filtro de spam para garantir que o seguinte endereço tem permissão: Invites@microsoft.com
 
-## <a name="my-recipient-received-multiple-emails-from-me"></a>Meu destinatário recebeu vários emails meus
+## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Observei que, às vezes, a mensagem personalizada não é incluída nas mensagens de convite
 
-Em alguns casos, quando o destinatário do convite tiver vários aliases da conta, eles poderão receber dois convites. Nesses casos, o primeiro link resgatado é a conta que é criada, e o segundo link de resgate perde a validade.
+A fim de estar em conformidade as leis de privacidade, nossas APIs não incluem mensagens personalizadas no convite por email quando o emissor do convite não tem um endereço de email na organização do recurso (também conhecida como o locatário emissor do convite) ou quando uma entidade de serviço de aplicativo envia o convite. Se esse for um cenário importante para você, você poderá suprimir nossa API de enviar o email de convite e enviá-lo por meio de um mecanismo de email de sua escolha. Lembre-se de consultar o departamento jurídico de sua organização para verificar se todo email enviado dessa forma também está em conformidade com as leis de privacidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

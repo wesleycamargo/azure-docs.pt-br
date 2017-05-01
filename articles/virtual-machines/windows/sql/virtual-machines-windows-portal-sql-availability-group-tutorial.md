@@ -17,14 +17,14 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 81de52ac95aaf1b6d02572a70a4c1a84fb541401
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 67663af0913a03f2001b4cce6f9f49ee91195026
+ms.lasthandoff: 04/06/2017
 
 
 ---
 
-# <a name="create-always-on-availability-group-to-improve-availability-and-disaster-recovery"></a>Criar Grupo de Disponibilidade Always On para melhorar a disponibilidade e a recuperação de desastre
+# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupos de disponibilidade Sempre ativo na VM do Azure manualmente
 
 Este tutorial mostra como criar um grupo de disponibilidade Always On do SQL Server em Máquinas Virtuais do Azure. O tutorial completo cria um Grupo de Disponibilidade com uma réplica do banco de dados em dois SQL Servers.
 
@@ -127,7 +127,7 @@ Neste exemplo, o cluster do Windows usa um compartilhamento de arquivos para cri
 
 1. Clique em **Pastas Compartilhadas**.
 
-1. Clique com botão direito do mouse em **Compartilhamentos** e clique em **Novo Compartilhamento...**.
+1. Clique com botão direito do mouse em **Compartilhamentos** e clique em **Novo Compartilhamento...** .
 
    ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
@@ -139,7 +139,7 @@ Neste exemplo, o cluster do Windows usa um compartilhamento de arquivos para cri
 
 1. Em **Permissões de Pasta Compartilhada**, defina **Personalizar permissões**. Clique em **Personalizar...**.
 
-1. Em **Personalizar Permissões**, clique em **Adicionar...**.
+1. Em **Personalizar Permissões**, clique em **Adicionar...** .
 
 1. Verifique se a conta usada para criar o cluster tem controle total.
 
@@ -157,7 +157,7 @@ Em seguida, configure o quorum do cluster.
 
 1. Conecte-se ao primeiro nó de cluster com a área de trabalho remota.
 
-1. Em **Gerenciador de Cluster de Failover**, clique com o botão direito do mouse no cluster, aponte para **Mais Ações**e clique em **Configurar Quorum do Cluster...**.
+1. Em **Gerenciador de Cluster de Failover**, clique com o botão direito do mouse no cluster, aponte para **Mais Ações**e clique em **Configurar Quorum do Cluster...** .
 
    ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/52-configurequorum.png)
 
@@ -229,7 +229,7 @@ Repeat these steps on the second SQL Server.
 
 1. Clique em **Pastas Compartilhadas**.
 
-1. Clique com botão direito do mouse em **Compartilhamentos** e clique em **Novo Compartilhamento...**.
+1. Clique com botão direito do mouse em **Compartilhamentos** e clique em **Novo Compartilhamento...** .
 
    ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
@@ -241,7 +241,7 @@ Repeat these steps on the second SQL Server.
 
 1. Em **Permissões de Pasta Compartilhada**, defina **Personalizar permissões**. Clique em **Personalizar...**.
 
-1. Em **Personalizar Permissões**, clique em **Adicionar...**.
+1. Em **Personalizar Permissões**, clique em **Adicionar...** .
 
 1. Verifique se as contas de serviço do SQL Server e do SQL Server Agent para ambos os servidores têm controle total.
 
@@ -255,7 +255,7 @@ Repeat these steps on the second SQL Server.
 
 Você precisa fazer backup do novo banco de dados para inicializar a cadeia de logs. Se você não fizer um backup do novo banco de dados, ele não poderá ser incluído em um Grupo de Disponibilidade.
 
-1. Em **Pesquisador de Objetos**, clique com o botão direito do mouse no banco de dados, aponte para **Tarefas...** e clique em **Fazer Backup**.
+1. Em **Pesquisador de Objetos**, clique com o botão direito do mouse no banco de dados, aponte para **Tarefas...**  e clique em **Fazer Backup**.
 
 1. Clique em **OK** para realizar um backup completo no local de backup padrão.
 
@@ -296,7 +296,7 @@ Agora você está pronto para configurar um Grupo de Disponibilidade usando as s
 
     ![Novo assistente de AG, selecionar sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Na página **Selecionar Sincronização de Dados Inicial** , selecione **Completo** e especifique um local de rede compartilhada. Para o local, use o [compartilhamento de backup criado](#backupshare). No exemplo, foi **\\\\\<Primeiro SQL Server\>\Backup\**. Clique em**Avançar**.
+8. Na página **Selecionar Sincronização de Dados Inicial** , selecione **Completo** e especifique um local de rede compartilhada. Para o local, use o [compartilhamento de backup criado](#backupshare). No exemplo, era **\\\\\<First SQL Server\>\Backup\**. Clique em **Próximo**.
 
    >[!NOTE]
    >A sincronização completa usa um backup completo do banco de dados na primeira instância do SQL Server e o restaura na segunda instância. Em caso de grandes bancos de dados, a sincronização completa não é recomendada porque pode levar muito tempo. Você pode reduzir esse tempo manualmente usando um backup do banco de dados e restaurando-o com `NO RECOVERY`. Se o banco de dados já foi restaurado com `NO RECOVERY` no segundo SQL Server antes da configuração do Grupo de Disponibilidade, escolha **Somente junção**. Se você quiser usar o backup depois de configurar o Grupo de Disponibilidade, escolha **Ignorar sincronização inicial de dados**.

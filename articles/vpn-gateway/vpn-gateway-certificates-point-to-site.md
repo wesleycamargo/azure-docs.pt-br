@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 20fb95341d6240b883e711cf771c33f6d8978cb9
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 5e63eb6bbbcd130d5ccd87f3155aba8cac518392
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -38,19 +38,22 @@ As etapas abaixo o orientarão na criação de um certificado raiz autoassinado 
 1. Em um computador com Windows 10, abra um console do Windows PowerShell com privilégios elevados.
 2. Use o exemplo a seguir para criar o certificado raiz autoassinado. O exemplo a seguir cria um certificado raiz autoassinado chamado 'P2SRootCert' que é instalado automaticamente em 'Certificates-Current User\Personal\Certificates'. Você pode exibir o certificado abrindo *certmgr.msc*.
 
-        $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-        -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
-        -HashAlgorithm sha256 -KeyLength 2048 `
-        -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
+  ```powershell
+  $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+  -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
+  -HashAlgorithm sha256 -KeyLength 2048 `
+  -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
+  ```
+
 
 ### <a name="cer"></a>Para obter a chave pública
 
 Conexões ponto a site exigem a chave pública (.cer) carregadas no Azure. As etapas a seguir ajudarão você a exportar o arquivo .cer para seu certificado raiz autoassinado.
 
-1. Para obter um arquivo .cer do certificado, abra **certmgr.msc**. Localize o certificado raiz autoassinado, normalmente em 'Certificados – Usuário Atual\Pessoal\Certificados', então clique nele com o botão direito do mouse. Clique em **Todas as Tarefas** e, em seguida, em **Exportar**. Isso abre o **Assistente para Exportação de Certificados**.
+1. Para obter um arquivo .cer do certificado, abra **Gerenciar certificados de usuário**. Localize o certificado raiz autoassinado, normalmente em 'Certificados – Usuário Atual\Pessoal\Certificados', então clique nele com o botão direito do mouse. Clique em **Todas as Tarefas** e, em seguida, em **Exportar**. Isso abre o **Assistente para Exportação de Certificados**.
 2. No Assistente, clique em **Avançar**. Selecione **Não exportar a chave privada** e clique em **Avançar**.
 3. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base 64 (.CER).** e clique em **Avançar**. 
-4. Em **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Próximo**.
+4. Em **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Avançar**.
 5. Clique em **Concluir** para exportar o certificado. Você verá a mensagem **A exportação foi bem-sucedida**. Clique em **OK** para fechar o assistente.
 
 ### <a name="to-export-a-self-signed-root-certificate-optional"></a>Para exportar um certificado raiz autoassinado (opcional)
@@ -72,11 +75,13 @@ Este exemplo usa a variável '$cert' declarada da seção anterior. Se você fec
 
 Modifique e execute o exemplo para gerar um certificado do cliente. Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado do cliente chamado 'P2SChildCert'.  Se você deseja nomear o certificado filho diferentemente, modifique o valor de CN. Não altere a TextExtension ao executar esse exemplo. O certificado do cliente que você gera é instalado automaticamente em 'Certificates - Current User\Personal\Certificates' em seu computador.
 
-    New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-    -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
-    -HashAlgorithm sha256 -KeyLength 2048 `
-    -CertStoreLocation "Cert:\CurrentUser\My" `
-    -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+```powershell
+New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+-Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+-HashAlgorithm sha256 -KeyLength 2048 `
+-CertStoreLocation "Cert:\CurrentUser\My" `
+-Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+```
 
 ### <a name="example-2"></a>Exemplo 2
 
@@ -84,8 +89,9 @@ Se você estiver criando certificados do cliente adicionais ou não estiver usan
 
 1. Identifique o certificado raiz autoassinado instalado no computador. Esse cmdlet retorna uma lista de certificados instalados no seu computador.
 
-        Get-ChildItem -Path “Cert:\CurrentUser\My”
-
+  ```powershell
+  Get-ChildItem -Path “Cert:\CurrentUser\My”
+  ```
 2. Localize o nome da entidade da lista retornada e copie a impressão digital localizada ao lado dela para um arquivo de texto. No exemplo a seguir, há dois certificados. O nome CN é o nome do certificado raiz autoassinado do qual você deseja gerar um certificado filho. Nesse caso, 'P2SRootCert'.
 
         Thumbprint                                Subject
@@ -96,39 +102,44 @@ Se você estiver criando certificados do cliente adicionais ou não estiver usan
 
 3. Declare uma variável para o certificado raiz usando a impressão digital da etapa anterior. Substitua THUMBPRINT pela impressão digital do certificado raiz do qual você deseja gerar um certificado filho.
 
-        $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+  ```powershell
+  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+  ```
 
-    Por exemplo, usando a impressão digital para P2SRootCert na etapa anterior, a variável teria esta aparência:
+  Por exemplo, usando a impressão digital para P2SRootCert na etapa anterior, a variável teria esta aparência:
 
-        $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
-        
+  ```powershell
+  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
+  ```    
 
 4.  Modifique e execute o exemplo para gerar um certificado do cliente. Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado do cliente chamado 'P2SChildCert'. Se você deseja nomear o certificado filho diferentemente, modifique o valor de CN. Não altere a TextExtension ao executar esse exemplo. O certificado do cliente que você gera é instalado automaticamente em 'Certificates - Current User\Personal\Certificates' em seu computador.
 
-        New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-        -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
-        -HashAlgorithm sha256 -KeyLength 2048 `
-        -CertStoreLocation "Cert:\CurrentUser\My" `
-        -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+  ```powershell
+  New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+  -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+  -HashAlgorithm sha256 -KeyLength 2048 `
+  -CertStoreLocation "Cert:\CurrentUser\My" `
+  -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+  ```
 
 ## <a name="clientexport"></a>Exportar um certificado do cliente   
 
 Quando você gerar um certificado do cliente, ele será instalado automaticamente no computador que você usou para gerá-lo. Se você quiser instalar um certificado do cliente em outro computador cliente, será necessário exportar o certificado do cliente que você gerou.                              
 
-1. Para exportar um certificado de cliente, abra **certmgr.msc**. Os certificados do cliente que você gerou são, por padrão, localizados em 'Certificates - Current User\Personal\Certificates'. Clique com o botão direito no certificado do cliente que você deseja exportar, clique em **todas as tarefas** e, em seguida, clique em **exportar**. Isso abre o **Assistente para Exportação de Certificados**.
+1. Para exportar um certificado de cliente, abra **Gerenciar certificados de usuário**. Os certificados do cliente que você gerou são, por padrão, localizados em 'Certificates - Current User\Personal\Certificates'. Clique com o botão direito no certificado do cliente que você deseja exportar, clique em **todas as tarefas** e, em seguida, clique em **Exportar**. Isso abre o **Assistente para Exportação de Certificados**.
 2. No Assistente, clique em **Avançar**, escolha **Sim, exportar a chave privada** e clique em **Avançar**.
-3. Na página **Exportar Formato de Arquivo**, deixe os padrões selecionados. Verifique se a opção “Incluir todos os certificados no caminho de certificação, se possível” está selecionada. Em seguida, clique em **Próximo**.
-4. Na página **Segurança** , você deve proteger a chave privada. Se você optar por usar uma senha, não deixe de anotar ou lembrar da senha definida para esse certificado. Em seguida, clique em **Próximo**.
-5. Em **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Próximo**.
+3. Na página **Formato do Arquivo de Exportação**, deixe os padrões selecionados. Verifique se a opção **Incluir todos os certificados no caminho de certificação, se possível** está selecionada. Selecionar essa opção também exporta as informações de certificado raiz que são necessárias para uma autenticação bem-sucedida. Em seguida, clique em **Avançar**.
+4. Na página **Segurança** , você deve proteger a chave privada. Se você optar por usar uma senha, não deixe de anotar ou lembrar da senha definida para esse certificado. Em seguida, clique em **Avançar**.
+5. Em **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Avançar**.
 6. Clique em **Concluir** para exportar o certificado.    
 
 ## <a name="install"></a>Instalar um certificado do cliente exportado
 
-Se você quiser criar uma conexão P2S de um computador cliente diferente daquele usada para gerar os certificados do cliente, instale um certificado do cliente. Ao instalar um certificado do cliente, você precisará da senha criada durante a exportação do certificado do cliente.
+Se você quiser criar uma conexão P2S de um computador cliente diferente daquele usada para gerar os certificados cliente, instale um certificado de cliente. Ao instalar um certificado do cliente, você precisará da senha criada durante a exportação do certificado do cliente.
 
-1. Localize e copie o arquivo *.pfx* no computador cliente. No computador cliente, clique duas vezes no arquivo *.pfx* para instalá-lo. Deixe **Localização do Repositório** como **Usuário Atual** e clique em **Avançar**.
+1. Localize e copie o arquivo *.pfx* no computador cliente. No computador cliente, clique duas vezes no arquivo *.pfx* para instalá-lo. Deixe o **Local do Repositório** como **Usuário Atual** e clique em **Avançar**.
 2. Na página **Arquivo** a importar, não faça nenhuma alteração. Clique em **Próximo**.
-3. Na página **Proteção da chave privada**, insira a senha do certificado, caso tenha usado uma, ou verifique se a entidade de segurança que está instalando o certificado está correta e clique em **Avançar**.
+3. Na página **Proteção da chave privada**, insira a senha do certificado ou verifique se a entidade de segurança está correta e clique em **Avançar**.
 4. Na página **Repositório de Certificados**, deixe a localização padrão e clique em **Avançar**.
 5. Clique em **Concluir**. No **Aviso de Segurança** da instalação do certificado, clique em **Sim**. Clique em 'Sim' sem medo, pois você gerou o certificado. O certificado foi importado com êxito.
 
@@ -137,5 +148,3 @@ Continue com a configuração de Ponto a Site.
 
 * Para as etapas do modelo de implantação do **Resource Manager**, veja [Configurar uma conexão Ponto a Site a uma VNet](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Para as etapas do modelo de implantação **clássico**, veja [Configurar uma conexão VPN Ponto a Site para uma VNet (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
-
-

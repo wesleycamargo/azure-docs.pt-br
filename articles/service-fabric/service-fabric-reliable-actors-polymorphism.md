@@ -15,22 +15,22 @@ ms.workload: NA
 ms.date: 03/28/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2fbce8754a5e3162e3f8c999b34ff25284911021
-ms.openlocfilehash: 731c6542ba6d1385eeffa89a6f62e5bcf57a5c1e
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 87f99a9e6df2103f70968c10556242ddb268e9e4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfismo na estrutura Reliable Actors
-A estrutura Reliable Actors permite que você crie atores usando muitas das mesmas técnicas que usaria no design orientado a objeto. Uma dessas técnicas é o polimorfismo, que permite que tipos e interfaces herdem de pais mais generalizados. A herança na estrutura de Reliable Actors geralmente segue o modelo de .NET com algumas restrições adicionais.
+A estrutura Reliable Actors permite que você crie atores usando muitas das mesmas técnicas que usaria no design orientado a objeto. Uma dessas técnicas é o polimorfismo, que permite que tipos e interfaces herdem de pais mais generalizados. A herança na estrutura de Reliable Actors geralmente segue o modelo de .NET com algumas restrições adicionais. No caso de Java/Linux, ele segue o modelo de Java.
 
 ## <a name="interfaces"></a>Interfaces
-A estrutura de Reliable Actors exige que você defina pelo menos uma interface a ser implementada pelo seu tipo de ator. Essa interface é usada para gerar uma classe proxy que pode ser usada pelos clientes para se comunicar com seus atores. Interfaces podem herdar de outras interfaces, desde que cada interface implementada por um tipo de ator e todos os seus pais derivem, por fim, de IActor. IActor é a interface base definida pela plataforma para atores. Assim, o exemplo de polimorfismo clássico usando formas pode parecer semelhante ao seguinte:
+A estrutura de Reliable Actors exige que você defina pelo menos uma interface a ser implementada pelo seu tipo de ator. Essa interface é usada para gerar uma classe proxy que pode ser usada pelos clientes para se comunicar com seus atores. Interfaces podem herdar de outras interfaces, desde que cada interface implementada por um tipo de ator e todos os seus pais derivem, por fim, de IActor(C#) ou Actor(Java). IActor(C#) e Actor(Java) são as interfaces base definidas pela plataforma para atores em estruturas .NET e Java, respectivamente. Assim, o exemplo de polimorfismo clássico usando formas pode parecer semelhante ao seguinte:
 
 ![Hierarquia de interface de atores de forma][shapes-interface-hierarchy]
 
 ## <a name="types"></a>Tipos
-Você também pode criar uma hierarquia de tipos de ator, derivados da classe base de ator fornecida pela plataforma. No caso de formas, você pode ter um tipo `Shape` base:
+Você também pode criar uma hierarquia de tipos de ator, derivados da classe base de ator fornecida pela plataforma. No caso de formas, você pode ter um tipo base `Shape`(C#) ou `ShapeImpl`(Java):
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -40,8 +40,16 @@ public abstract class Shape : Actor, IShape
     public abstract Task<double> GetAreaAsync();
 }
 ```
+```Java
+public abstract class ShapeImpl extends FabricActor implements Shape
+{
+    public abstract CompletableFuture<int> getVerticeCount();
 
-Os subtipos de `Shape` podem substituir os métodos da base.
+    public abstract CompletableFuture<double> getAreaAsync();
+}
+```
+
+Os subtipos de `Shape`(C#) ou `ShapeImpl`(Java) podem substituir os métodos da base.
 
 ```csharp
 [ActorService(Name = "Circle")]
@@ -60,6 +68,26 @@ public class Circle : Shape, ICircle
         return Math.PI *
             state.Radius *
             state.Radius;
+    }
+}
+```
+```Java
+@ActorServiceAttribute(name = "Circle")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class Circle extends ShapeImpl implements Circle
+{
+    @Override
+    public CompletableFuture<Integer> getVerticeCount()
+    {
+        return CompletableFuture.completedFuture(0);
+    }
+
+    @Override
+    public CompletableFuture<Double> getAreaAsync()
+    {
+        return (this.stateManager().getStateAsync<CircleState>("circle").thenApply(state->{
+          return Math.PI * state.radius * state.radius;
+        }));
     }
 }
 ```

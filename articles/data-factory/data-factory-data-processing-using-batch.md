@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 03/30/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 9702f179a65754be88646987f868385b02a9f2d7
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: eeaab56b376ffd3123efb95a1223b7344dd6d187
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -868,20 +868,18 @@ Você pode estender este exemplo para saber mais sobre os recursos de Data Facto
 1. Adicione as seguintes subpastas na **inputfolder**: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09 e coloque arquivos de entrada nessas pastas. Altere a hora de término do pipeline de `2015-11-16T05:00:00Z` para `2015-11-16T10:00:00Z`. Na **Exibição de Diagrama**, clique duas vezes em **InputDataset** e confirme se as fatias de entrada estão prontas. Clique duas vezes em **OuptutDataset** para ver o estado das fatias de saída. Se estiverem no estado Pronto, verifique a pasta de saída para os arquivos de saída.
 2. Aumente ou diminua a configuração de **simultaneidade** para entender como ela afeta o desempenho da sua solução, especialmente o processamento que ocorre no Lote do Azure. (Consulte a etapa 4: criar e executar o pipeline para obter mais informações sobre a configuração **simultaneidade** .)
 3. Crie um pool com **Máximo de tarefas por VM**maior/menor. Para usar o novo pool criado, atualize o serviço vinculado do Azure Batch na solução do Data Factory. (Consulte a etapa 4: criar e executar o pipeline para obter mais informações sobre a configuração **Máximo de tarefas por VM** .)
-4. Crie um pool do Lote do Azure com o recurso **dimensionar automaticamente** . O dimensionamento automático de nós de computação em um pool do Lote do Azure é o ajuste dinâmico da potência de processamento usada pelo seu aplicativo. Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes:
+4. Crie um pool do Lote do Azure com o recurso **dimensionar automaticamente** . O dimensionamento automático de nós de computação em um pool do Lote do Azure é o ajuste dinâmico da potência de processamento usada pelo seu aplicativo. 
 
-   Uma VM por tarefa pendente de cada vez (por exemplo: cinco tarefas pendentes -> cinco VMs):
-    
-    ```
-    pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-    $TargetDedicated = max(pendingTaskSampleVector);
-    ```
+    A fórmula de exemplo alcança o seguinte comportamento: quando o pool é inicialmente criado, ele começa com uma VM. A métrica de $PendingTasks define o número de tarefas em execução + estado ativo (em fila).  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated adequadamente. Isso garante que TargetDedicated nunca ultrapasse 25 VMs. Assim, o pool aumenta automaticamente conforme novas tarefas são enviadas e, conforme as tarefas são concluídas, as VMs se liberam uma a uma e são reduzidas pelo dimensionamento automático. startingNumberOfVMs e maxNumberofVMs podem ser ajustados às suas necessidades.
+ 
+    Fórmula de dimensionamento automático:
 
-   Máximo de uma VM em um momento, independentemente do número de tarefas pendentes:
-
-    ```
-    pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-    $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+    ``` 
+    startingNumberOfVMs = 1;
+    maxNumberofVMs = 25;
+    pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+    pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+    $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
     ```
 
    Consulte [Dimensionar automaticamente os nós de computação em um pool de Lotes do Azure](../batch/batch-automatic-scaling.md) para obter detalhes.

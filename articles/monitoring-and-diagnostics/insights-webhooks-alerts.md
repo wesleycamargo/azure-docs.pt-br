@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/03/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
-ms.openlocfilehash: 440bd939f0c7d235d7be210c7fee9f2bc122718c
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7282de704a1053e2052a189990fb2b30b2adad6f
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -34,10 +34,7 @@ Você pode adicionar ou atualizar o URI do webhook na tela Criar/Atualizar Alert
 Você também pode configurar um alerta para publicar no URI de um webhook usando os [Cmdlets do Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [CLI entre plataformas](insights-cli-samples.md#work-with-alerts) ou [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticating-the-webhook"></a>Autenticação do webhook
-O webhook pode autenticar usando um destes métodos:
-
-1. **Autorização baseada em token** - O URI do webhook é salvo com uma ID de token, por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Autorização baseada em senha** - O URI do webhook é salvo com um nome de usuário e senha, por exemplo. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+O webhook pode autenticar usando a autorização baseada em token. O URI do webhook é salvo com uma ID de token, por exemplo `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Esquema de conteúdo
 A operação POST contém o seguinte esquema e conteúdo JSON para todos os alertas baseados em métricas.

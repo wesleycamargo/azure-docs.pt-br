@@ -6,8 +6,3 @@
 > * [De um banco de dados SQL local](../articles/machine-learning/machine-learning-use-data-from-an-on-premises-sql-server.md)
 >  
 
-
-
-<!--HONumber=Dec16_HO2-->
-
-

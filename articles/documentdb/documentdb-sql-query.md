@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/08/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
-ms.openlocfilehash: 4c72a7c7127f2d387926ac2722aeb3f1e5f7c2a6
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: c1360cb76c6fe8fd5177f13ea67f2109b5777521
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -1411,7 +1411,7 @@ As funções matemáticas executam um cálculo, normalmente com base em valores 
 | [FLOOR (num_expr)](#bk_floor) | Retorna o maior inteiro menor ou igual à expressão numérica especificada. |
 | [EXP (num_expr)](#bk_exp) | Retorna o expoente da expressão numérica especificada. |
 | [LOG (num_expr [,base])](#bk_log) | Retorna o logaritmo natural da expressão numérica especificada ou o logaritmo usando a base especificada |
-| [LOG10 (num_expr)](#bk_log10) | Retorna o valor logarítmico de base&10; da expressão numérica especificada. |
+| [LOG10 (num_expr)](#bk_log10) | Retorna o valor logarítmico de base 10 da expressão numérica especificada. |
 | [ROUND (num_expr)](#bk_round) | Retorna um valor numérico, arredondado para o valor inteiro mais próximo. |
 | [TRUNC (num_expr)](#bk_trunc) | Retorna um valor numérico, truncado para o valor inteiro mais próximo. |
 | [SQRT (num_expr)](#bk_sqrt) | Retorna a raiz quadrada de expressão numérica especificada. |
@@ -1769,6 +1769,7 @@ Aqui está uma lista de operadores LINQ com suporte no provedor LINQ incluídos 
 * **Em que**: os filtros são convertidos para SQL WHERE e dão suporte à conversão entre && , || e ! para os operadores SQL
 * **SelectMany**: permite o desenrolamento de matrizes à cláusula SQL JOIN. Pode ser usado para encadear/aninhar expressões para filtrar elementos de matriz
 * **OrderBy e OrderByDescending**: são convertidas em ORDER BY de forma crescente/decrescente
+* Operadores **Count**, **Sum**, **Min**, **Max** e **Average** para agregação e os seus equivalentes assíncronos, **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** e **AverageAsync**.
 * **CompareTo**: é convertido em comparações de intervalo. Normalmente usados para cadeias de caracteres, já que não são comparáveis no .NET
 * **Take**: é convertido em SQL TOP para limitar os resultados de uma consulta
 * **Funções matemáticas**: dão suporte à conversão de Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan e Truncate do .NET nas funções internas do SQL equivalentes.
@@ -1777,11 +1778,6 @@ Aqui está uma lista de operadores LINQ com suporte no provedor LINQ incluídos 
 * **Funções de extensão geoespacial**: dão suporte à conversão dos métodos stub Distance, Within, IsValid e IsValidDetailed nas funções internas do SQL equivalentes.
 * **Função de extensão da função definida pelo usuário**: dá suporte à conversão do método stub UserDefinedFunctionProvider.Invoke na função definida pelo usuário correspondente.
 * **Diversos**: dá suporte à conversão dos operadores de união e condicional. Pode converter Contains para a Cadeia de caracteres CONTAINS, ARRAY_CONTAINS ou para o SQL IN, dependendo do contexto.
-
-> [!NOTE]
-> Os operadores de agregação **Count, Sum, Min, Max e Average** atualmente não têm suporte, mas estarão disponíveis em versões futuras do SDK.  
-> 
-> 
 
 ### <a name="sql-query-operators"></a>Operadores de consulta SQL
 Aqui, temos alguns exemplos que ilustram como alguns dos operadores de consulta padrão do LINQ são traduzidos para consultas do Banco de Dados de Documentos.
