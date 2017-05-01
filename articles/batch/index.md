@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: e36c82b7fb93659ad2fb3b7af5b6660438293bc9
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 4d3ca2b9c1147c74644e9365f97ac3ed4e5c41f5
+ms.lasthandoff: 04/26/2017
 
 ---
 #<a name="batch-documentation"></a>Documentação do Lote
@@ -154,6 +154,20 @@ Saiba como usar o Lote para executar aplicativos paralelos em larga escala de co
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/batchservice">referência da API REST (a página pode estar em inglês)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Lote</h3>
+                        <p><a href="/azure/batch/batch-diagnostics">Logs de diagnóstico do Lote</a></p>
+                        <p><a href="/azure/batch/batch-analytics">Análise de Lote</a></p>
+                        <p><a href="/azure/batch/batch-compute-node-environment-variables">Variáveis de ambiente do nó de computação do Lote</a></p>
                     </div>
                 </div>
             </div>
