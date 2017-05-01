@@ -32,8 +32,3 @@ Como você pode ver no exemplo acima, o modelo de extensão contém duas partes 
 ## <a name="identifying-the-publisher-type-and-typehandlerversion-for-any-extension"></a>Identificando o editor, o tipo e a typeHandlerVersion de qualquer extensão
 As extensões de VM do Azure são publicadas pela Microsoft e por editores terceiros confiáveis, e cada extensão é identificada exclusivamente por seu editor, tipo e typeHandlerVersion. Elas podem ser determinadas da seguinte maneira:  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

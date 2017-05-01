@@ -15,8 +15,3 @@ No artigo, presumimos que você se conectou à sua assinatura no portal e criou 
    
    ![Confirme que o novo rótulo DNS foi definido](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

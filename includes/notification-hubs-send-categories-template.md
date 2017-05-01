@@ -61,8 +61,3 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console para enviar
 [Adicionar notificações push aos Aplicativos Móveis]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [Como utilizar Hubs de Notificação a partir de Java/PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [pacote NuGet Microsoft.Azure.Notification Hubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
-
-
-<!--HONumber=Nov16_HO3-->
-
-

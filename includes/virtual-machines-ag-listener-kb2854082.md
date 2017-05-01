@@ -11,8 +11,3 @@ Na sessão da área de trabalho remota para cada um de nós do cluster, baixe [K
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

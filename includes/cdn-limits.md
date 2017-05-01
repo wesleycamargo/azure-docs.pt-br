@@ -7,8 +7,3 @@
 
 Solicite uma atualização para os limites flexíveis da sua assinatura abrindo um tíquete de suporte.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
