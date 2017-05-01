@@ -36,7 +36,3 @@ O Active Directory do Azure deve autenticar todas as tarefas que podem ser execu
     ```
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-
-<!--HONumber=Nov16_HO3-->
-
-

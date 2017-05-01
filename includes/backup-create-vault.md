@@ -36,8 +36,3 @@ Se você estiver usando o Azure como um ponto de extremidade de armazenamento de
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

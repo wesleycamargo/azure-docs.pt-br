@@ -65,8 +65,3 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 O recurso de procedimento armazenado se beneficia de [parâmetros com valores de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

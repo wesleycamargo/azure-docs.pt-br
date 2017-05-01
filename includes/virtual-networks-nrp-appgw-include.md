@@ -219,8 +219,3 @@ Exemplo de um modelo Json de application gateway:
 ### <a name="additional-resources"></a>Recursos adicionais
 Leitura de [ API REST do application gateway](https://msdn.microsoft.com/library/azure/mt299388.aspx) para obter mais informações.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

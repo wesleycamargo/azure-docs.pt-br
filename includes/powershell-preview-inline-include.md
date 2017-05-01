@@ -4,8 +4,3 @@ Os cmdlets da versão 1.0 seguem o padrão de nomenclatura {verbo}-AzureRm{subst
 
 Os novos recursos só serão adicionados à versão 1.0. Para saber mais sobre a versão 1.0, incluindo como instalar e desinstalar a versão, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -115,8 +115,3 @@ Agora você pode usar sua nova identidade do Active Directory do Azure para usar
     data:    Tags:
     data:
     info:    group create command OK
-
-
-<!--HONumber=Nov16_HO3-->
-
-
