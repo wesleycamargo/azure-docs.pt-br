@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
-ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -89,7 +89,19 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Dispositivos**: impressoras compartilhadas às quais você se conectou |X |X |Outros |
 | **Navegador Edge**: lista de leitura |sync |sync |interno |
 | **Navegador Edge**: favoritos |sync |sync |interno |
-| **Navegador Edge**: todas as outras configurações do Edge |X |X | |
+| **Navegador Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: URLs digitadas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: configurações da barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: mostrar o botão home <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: bloquear pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: perguntar-me o que fazer com cada download <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: oferecer para salvar senhas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: enviar solicitações para não rastrear <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: salvar entradas de formulário <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: mostrar sugestões de pesquisa e de site conforme eu digitar <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: preferência de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: permitir que sites salvem licenças de mídia protegida em meu dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: configuração de leitor de tela <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Alto Contraste**: ativado ou desativado |sync |X |facilidade de acesso |
 | **Alto Contraste**: configurações do Tema |sync |X |facilidade de acesso |
 | **Internet Explorer**: abrir guias (URL e título) |sync |sync |Internet Explorer |
@@ -158,6 +170,9 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Digitação**: tocar sons de tecla ao digitar |sync |backup |idioma |
 | **Digitação**: dados de personalização para teclado de toque |sync |backup |idioma |
 | **Wi-Fi**: perfis de Wi-Fi (somente WPA) |sync |sync |Senhas |
+
+###### <a name="footnote-1"></a>Nota de rodapé 1
+Versão mínima do SO com suporte da Atualização do Windows para Criadores (Build 15063). 
 
 ## <a name="related-topics"></a>Tópicos relacionados
 * [Visão geral do enterprise state roaming](active-directory-windows-enterprise-state-roaming-overview.md)

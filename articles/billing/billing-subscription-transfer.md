@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0ec56111847300833ba92cc9149e8a276ba2c6c1
-ms.openlocfilehash: af7cabf3d5286dc3cd368db191bc5218cd9c5893
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: e64c0336578be2c1a1126f7459775f47d73f9d6e
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
@@ -95,7 +95,7 @@ O Administrador Corporativo pode transferir a propriedade das assinaturas em um 
 
 * **Tudo é transferido? Incluindo grupos de recursos, VMs, discos e outros serviços em execução?**
 
-  Sim, todos os recursos, como VMs, discos,e sites são transferidos para o novo proprietário. No entanto, todas as [funções de administrador](billing-add-change-azure-subscription-administrator.md) e políticas [RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md) que você configurou não são transferidas. 
+  Sim, todos os recursos, como VMs, discos,e sites são transferidos para o novo proprietário. No entanto, todas as [funções de administrador](billing-add-change-azure-subscription-administrator.md) e políticas [RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md) configuradas não são transferidas entre diretórios diferentes.
 
 * <a id="no-button"></a> **Por que não vejo o botão Transferir Assinatura?**
 

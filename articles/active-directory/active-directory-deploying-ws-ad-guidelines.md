@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c6d26aca309597cf9552e97a22e84b6c122fe58b
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0bcde69385b74fa62a629159abfff4bb16d9da89
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -37,7 +37,7 @@ Este artigo pressupõe que o leitor está familiarizado com os seguintes conceit
 * Implantando, configurando e gerenciando aplicativos confiáveis (sites e serviços Web) que podem consumir tokens do AD FS do Windows Server
 * Conceitos gerais de máquina virtual, por exemplo, como configurar uma máquina virtual, discos virtuais e redes virtuais
 
-Este artigo destaca os requisitos para um cenário de implantação híbrida no qual o AD DS ou o AD FS do Windows Server são implantados no local e parcialmente em máquinas virtuais do Azure. O documento aborda primeiro as diferenças críticas entre a execução do AD DS e do AD FS do Windows Server em máquinas virtuais do Azure versus locais e as decisões importantes que afetam o design e a implantação. O restante do artigo explica como aplicar as diretrizes para vários cenários de implantação e para cada um dos pontos de decisão mais detalhadamente.
+Este artigo destaca os requisitos para um cenário de implantação híbrida no qual o AD DS ou o AD FS do Windows Server são implantados no local e parcialmente em máquinas virtuais do Azure. O documento aborda primeiro as diferenças críticas entre a execução do AD DS e do AD FS do Windows Server em máquinas virtuais do Azure versus locais e pontos de decisão importantes que afetam o design e a implantação. O restante do artigo explica como aplicar as diretrizes para vários cenários de implantação e para cada um dos pontos de decisão mais detalhadamente.
 
 Este artigo não aborda a configuração do [Azure Active Directory](http://azure.microsoft.com/services/active-directory/), que é um serviço baseado em REST que fornece recursos de controle de acesso e gerenciamento de identidade para aplicativos em nuvem. O Azure Active Directory (Azure AD) e o AD DS do Windows Server, no entanto, são projetados para funcionar juntos a fim de fornecer uma solução de gerenciamento de identidades e acesso para os ambientes híbridos de TI atuais e aplicativos modernos. Para ajudar a compreender as diferenças e as relações entre o AD DS do Windows Server e o Azure AD, considere o seguinte:
 
@@ -120,7 +120,7 @@ O Azure também é adequado como um substituto para sites de DR (recuperação d
 Finalmente, talvez seja bom implantar um aplicativo de rede no Azure, como o SharePoint, que requer o Active Directory do Windows Server, mas não tem qualquer dependência na rede local ou no Active Directory corporativo do Windows Server. Nesse caso, implantar uma floresta isolada no Azure para atender aos requisitos do SharePoint Server é ideal. Repetimos, também há suporte para a implantação de aplicativos de rede que exigem conectividade com a rede local e o Active Directory corporativo.
 
 > [!NOTE]
-> Como ele fornece uma conexão de camada&3;, o componente VPN que fornece conectividade entre uma rede virtual do Azure e uma rede local também pode habilitar os servidores de membro que são executados no local para aproveitar os controladores de domínio executados como máquinas virtuais do Azure na rede virtual do Azure. Mas, se a VPN estiver disponível, a comunicação entre computadores locais e controladores de domínio baseados no Azure não funcionará, resultando em erros de autenticação e vários outros.  
+> Como ele fornece uma conexão de camada 3, o componente VPN que fornece conectividade entre uma rede virtual do Azure e uma rede local também pode habilitar os servidores de membro que são executados no local para aproveitar os controladores de domínio executados como máquinas virtuais do Azure na rede virtual do Azure. Mas, se a VPN estiver disponível, a comunicação entre computadores locais e controladores de domínio baseados no Azure não funcionará, resultando em erros de autenticação e vários outros.  
 > 
 > 
 

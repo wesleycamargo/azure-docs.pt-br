@@ -1,6 +1,6 @@
 ---
 title: "Controlar alterações com o Azure Log Analytics | Microsoft Docs"
-description: "A solução Controle de Alterações no Log Analytics ajuda a identificar alterações no software e nos Serviços do Windows que ocorrem no ambiente."
+description: "A solução Controle de Alterações no Log Analytics ajuda a identificar alterações no software e nos Serviços Windows que ocorrem no ambiente."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 04/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: becb179da6bc6b6df629a07d3ddb5d50edbaa577
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a3d958e1a37ddf6821d41afe7427faec1b8259b2
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações de software no ambiente com a solução Controle de Alterações
 
-Este artigo ajuda você a usar a solução de Controle de Alterações em Log Analytics para identificar facilmente as alterações em seu ambiente. A solução rastreia as alterações no software Windows e Linux, nos arquivos Windows, nos serviços Windows e nos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
+Este artigo ajuda você a usar a solução de Controle de Alterações em Log Analytics para identificar facilmente as alterações em seu ambiente. A solução rastreia as alterações no software Windows e Linux, nos arquivos Windows e chaves do Registro, nos serviços Windows e nos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
 Instale a solução para atualizar o tipo de agente já instalado. Alterações em software e serviços do Windows instalados e daemons do Linux em servidores monitorados são lidas e, em seguida, os dados são enviados para o serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 
@@ -42,6 +42,15 @@ Use as etapas a seguir para configurar os arquivos para controle em computadores
 3. Em Controle de Alterações do Arquivo do Windows, digite o caminho completo, incluindo o nome do arquivo do arquivo que você deseja rastrear e, em seguida, clique no símbolo **Adicionar**. Por exemplo: C:\Program Files (x86)\Internet Explorer\iexplore.exe ou C:\Windows\System32\drivers\etc\hosts.
 4. Clique em **Salvar**.  
    ![Controle de Alterações de Arquivo do Windows](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
+
+### <a name="configure-windows-registry-keys-to-track"></a>Configurar chaves do Registro do Windows para rastrear
+Use as etapas a seguir para configurar as chaves do Registro para rastrear em computadores Windows.
+
+1. No portal do OMS, clique em **Configurações** (símbolo de engrenagem).
+2. Na página **Configurações**, clique em **Dados** e, em seguida, clique em **Rastreamento de Registro do Windows**.
+3. Em Controle de Alterações do Registro do Windows, digite a chave completa que você deseja rastrear e, em seguida, clique no símbolo **Adicionar**.
+4. Clique em **Salvar**.  
+   ![Controle de alterações de Registro de Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
 ### <a name="limitations"></a>Limitações
 A solução de Controle de Alterações atualmente não suporta o seguinte:
@@ -71,15 +80,54 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 A tabela a seguir mostra a frequência da coleta de dados para os tipos de alterações.
 
-| **change type** | **frequency** | **O** **agente** **envia as diferenças quando encontradas?** |
+| **change type** | **frequency** | **O** **agente** **envia as diferenças quando encontradas?**  |
 | --- | --- | --- |
-| Registro do Windows | 50 minutos | não |
+| Registro do Windows | 50 minutos | Não |
 | Arquivo do Windows | 30 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
 | Arquivo Linux | 15 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
 | Serviços do Windows | 30 minutos | Sim, quando as alterações são encontradas a cada 30 minutos. A cada 24 horas um instantâneo é enviado, independentemente da mudança. Portanto, o instantâneo é enviado até mesmo quando não há nenhuma alteração. |
 | Daemons Linux | 5 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
 | Software do Windows | 30 minutos | Sim, quando as alterações são encontradas a cada 30 minutos. A cada 24 horas um instantâneo é enviado, independentemente da mudança. Portanto, o instantâneo é enviado até mesmo quando não há nenhuma alteração. |
 | Software Linux | 5 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
+
+### <a name="registry-key-change-tracking"></a>Controle de alterações de chave do Registro
+
+O Log Analytics realiza o monitoramento e rastreamento de chaves do Registro do Windows com a solução de Controle de Alterações. O objetivo de monitorar alterações às chaves do registro é identificar os pontos de extensibilidade em que código de terceiros e o malware podem ser ativados. A lista a seguir mostra as chaves do Registro padrão que são rastreadas pela solução e o motivo pelo qual cada uma delas é rastreada.
+
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
+    - Monitora scripts que são executados na inicialização.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
+    - Monitora scripts que são executados no desligamento.
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+    - Monitora as chaves que são carregadas antes de o usuário entrar na sua conta do Windows para programas de 32 bits executados em computadores de 64 bits.
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
+    - Monitora as alterações às configurações do aplicativo.
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
+    - Monitores entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas no processo com o Explorer.exe.
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
+    - Monitores entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas no processo com o Explorer.exe.
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
+    - Monitores entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas no processo com o Explorer.exe.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+    - Monitora o registro do manipulador de sobreposição de ícone.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+    - Monitora o registro do manipulador de sobreposição de ícone para programas de 32 bits executados em computadores de 64 bits.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
+    - Monitora novos plugins de objeto auxiliar de navegador do Internet Explorer, que podem ser usados para acessar o DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
+    - Monitora novos plugins de objeto auxiliar de navegador do Internet Explorer, que podem ser usados para acessar o DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação de programas de 32 bits em execução em computadores de 64 bits.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
+    - Monitora novas extensões do Internet Explorer, tais como menus de ferramentas personalizadas e botões da barra de ferramentas personalizada.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
+    - Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramentas personalizada para programas de 32 bits executados em computadores de 64 bits.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
+    - Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. Semelhante à seção [drivers] no arquivo SYSTEM.INI.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
+    - Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc para programas de 32 bits executados em computadores de 64 bits. Semelhante à seção [drivers] no arquivo SYSTEM.INI.
+- HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
+    - Monitora a lista de DLLs de sistema conhecidas ou comumente usadas; esse sistema impede que pessoas explorem as permissões de diretório de aplicativo fracas via depósito de versões com cavalo de troia das DLLs do sistema.
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
+    - Monitora a lista de pacotes capaz de receber notificações de eventos do Winlogon, o modelo de suporte de logon interativo para o sistema operacional Windows.
 
 
 ## <a name="use-change-tracking"></a>Use o Controle de Alterações

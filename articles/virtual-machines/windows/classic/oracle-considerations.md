@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 04/11/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4f6f8dd109a1f0d395782ba73fd425c7a6ccf0eb
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1a808a83a8ed1162d57f7c5a49e34b2e3be50833
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,18 +29,13 @@ Este artigo aborda considerações sobre máquinas virtuais da Oracle no Azure, 
 * Imagens de máquina virtual no JDK do Oracle
 
 ## <a name="oracle-database-virtual-machine-images"></a>Imagens de máquina virtual no Oracle Database
-### <a name="clustering-rac-is-not-supported"></a>Não há suporte para clustering (RAC)
-Atualmente, o Azure não dá suporte ao Oracle Real Application Clusters (RAC) do Banco de Dados Oracle. Somente instâncias autônomas do Oracle Database são permitidas. Isso ocorre porque atualmente o Azure não dá suporte ao compartilhamento de disco virtual de uma maneira de leitura/gravação entre várias instâncias de máquinas virtuais. O UDP multicast também não tem suporte.
 
 ### <a name="no-static-internal-ip"></a>Nenhum IP interno estático
 O Azure atribui um endereço IP interno a cada máquina virtual. A menos que a máquina virtual faça parte de uma rede virtual, o endereço IP da máquina virtual será dinâmico e poderá ser alterado depois de reiniciar a máquina virtual. Isso pode causar problemas porque o Oracle Database espera que o endereço IP seja estático. Para evitar esse problema, considere adicionar a máquina virtual a uma Rede Virtual do Azure. Veja [Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/) e [Criar uma rede virtual no Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md) para obter mais informações.
 
 ### <a name="attached-disk-configuration-options"></a>Opções de configuração de disco anexado
-Você pode colocar arquivos de dados no disco do sistema operacional da máquina virtual ou em discos anexados, também conhecidos como discos de dados. Os discos anexados podem oferecer melhor desempenho e flexibilidade de tamanho do que o disco do sistema operacional. O disco do sistema operacional pode ser preferível somente para bancos de dados de até 10 gigabytes (GB).
 
-Os discos anexados se baseiam no serviço de armazenamento de Blobs do Azure. Cada disco é capaz de fornecer uma velocidade máxima teórica de aproximadamente 500 operações de entrada/saída por segundo (IOPS). O desempenho dos discos anexados pode não ser o ideal inicialmente, e o desempenho de IOPS pode melhorar consideravelmente após um período de "burn-in" de cerca de 60 a 90 minutos de operação contínua. Se um disco permanecer ocioso depois disso, o desempenho do IOPS poderá ser reduzido até outro período de burn-in na operação contínua. Em resumo, quanto mais ativo for um disco, mais provável é que ele se aproxime do desempenho ideal de IOPS.
-
-Embora a abordagem mais simples seja anexar um disco único à máquina virtual e colocar os arquivos de banco de dados nesse disco, essa abordagem também é mais restritiva em termos de desempenho. Em vez disso, frequentemente é possível melhorar o desempenho do IOPS se você usar vários discos anexados, espalhar os dados do banco de dados entre eles e usar o ASM (Automatic Storage Management) do Oracle. Veja [Visão geral do Armazenamento Automático do Oracle](http://www.oracle.com/technetwork/database/index-100339.html) para obter mais informações. Embora seja possível usar particionamento em vários discos no nível do sistemas operacionais, essa abordagem não é recomendada porque não é comprovado que ela melhore o desempenho de IOPS.
+Os discos anexados se baseiam no serviço de armazenamento de Blobs do Azure. Cada disco padrão pode fornecer uma velocidade máxima teórica de aproximadamente 500 IOPS (operações de entrada/saída por segundo). Nossa oferta de disco premium é preferencial para cargas de trabalho de banco de dados de alto desempenho e pode alcançar até 5.000 IOPS por disco. Embora você possa usar um único disco se isso atender às suas necessidades de desempenho, você poderá melhorar o desempenho efetivo do IOPS se usar vários discos anexados, distribuir os dados do banco de dados entre eles e, em seguida, usar o ASM (Automatic Storage Management) da Oracle. Veja [Visão geral do Armazenamento Automático do Oracle](http://www.oracle.com/technetwork/database/index-100339.html) para obter mais informações. Embora seja possível usar a distribuição de vários discos no nível do sistema operacional, há compensações que são feitas ao usar uma destas rotas. 
 
 Considere duas abordagens diferentes para anexar vários discos com base em se você deseja priorizar o desempenho de operações de leitura ou de gravação do banco de dados:
 
@@ -48,14 +43,16 @@ Considere duas abordagens diferentes para anexar vários discos com base em se v
     ![](media/mysql-2008r2/image2.png)
 
 > [!IMPORTANT]
-> Avalie o equilíbrio entre o desempenho de gravação e leitura caso a caso. Os resultados reais podem variar ao usar essa abordagem.
+> Avalie o equilíbrio entre o desempenho de gravação e leitura caso a caso. Os resultados reais podem variar – faça testes adequados. O ASM privilegia operações de gravação, enquanto a distribuição de disco do sistema operacional privilegia operações de leitura.
 > 
-> 
+
+### <a name="clustering-rac-is-not-supported"></a>Não há suporte para clustering (RAC)
+O RAC (Real Application Clusters) da Oracle foi projetado para atenuar a falha de um único nó em uma configuração de cluster local de vários nós.  Ele se baseia em duas tecnologias locais que não funcionam em ambientes de nuvem pública de hiperescala, como o Microsoft Azure: multicast de rede e disco compartilhado. Se você desejar criar uma configuração de vários nós com redundância geográfica do BD Oracle, precisará implementar a replicação de dados com o Oracle DataGuard.
 
 ### <a name="high-availability-and-disaster-recovery-considerations"></a>Considerações sobre alta disponibilidade e recuperação de desastres
 Ao usar o Banco de Dados Oracle em máquinas virtuais do Azure, você será responsável por implementar uma solução de recuperação de desastres e alta disponibilidade para evitar que haja tempo de inatividade. Você também é responsável pelo backup de seus dados e aplicativos.
 
-É possível obter alta disponibilidade e recuperação de desastre para o Oracle Database Enterprise Edition (sem RAC) no Azure usando o [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) ou o [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), com dois bancos de dados em duas máquinas virtuais separadas. As duas máquinas virtuais devem estar no mesmo [serviço de nuvem](../../linux/classic/connect-vms.md) e na mesma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente.  Além disso, é recomendável colocar as máquinas virtuais no mesmo [conjunto de disponibilidade](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados. Apenas máquinas virtuais no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Cada máquina virtual deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco.
+É possível obter alta disponibilidade e recuperação de desastre para o Oracle Database Enterprise Edition (sem RAC) no Azure usando o [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) ou o [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), com dois bancos de dados em duas máquinas virtuais separadas. As duas máquinas virtuais devem estar na mesma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para garantir que podem se acessar mutuamente por um endereço IP privado persistente.  Além disso, é recomendável colocar as máquinas virtuais no mesmo [conjunto de disponibilidade](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados. Cada máquina virtual deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco.
 
 Com o Oracle Data Guard, a alta disponibilidade pode ser obtida com um banco de dados primário em uma máquina virtual, um banco de dados secundário (em espera) em outra máquina virtual e replicação unidirecional entre eles. O resultado é o acesso de leitura à cópia do banco de dados. Com o Oracle GoldenGate, você pode configurar a replicação bidirecional entre dois bancos de dados. Para saber como configurar uma solução de alta disponibilidade para seus bancos de dados usando essas ferramentas, veja a documentação do [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) e do [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) no site da Oracle. Se precisar de acesso de leitura-gravação à cópia do banco de dados, você poderá usar o [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 

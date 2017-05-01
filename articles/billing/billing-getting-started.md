@@ -1,6 +1,6 @@
 ---
-title: "Diretrizes de gerenciamento de custo e de cobrança do Azure |Microsoft Docs"
-description: "Saiba mais sobre as práticas recomendadas e as primeiras coisas a fazer para otimizar sua fatura"
+title: "Evitar custos inesperados e gerenciar a cobrança – Azure | Microsoft Docs"
+description: Saiba como evitar encargos inesperados em sua conta do Azure. Use recursos de gerenciamento e controle de custos para uma assinatura do Microsoft Azure.
 services: 
 documentationcenter: 
 author: jlian
@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: jlian
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: af53cea83d2e348b2c73e56cf4b6ce5a875bce18
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c69334279e79352e3f7ad58d356f6891dd060b0a
+ms.lasthandoff: 04/03/2017
 
 
 ---

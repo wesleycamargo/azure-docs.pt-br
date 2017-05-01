@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c62f8d077906ce8ad1b5501864a21ee369b2314a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -44,7 +44,7 @@ Este artigo lista os problemas comuns relacionados ao Armazenamento de Arquivos 
 
 **Problemas do cliente Linux**
 
-* [Erro de E/S intermitente – erro de "Host inativo (Erro 112)" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem](#errorhold)
+* [Erro de E/S intermitente – erro de "Host inativo (Erro 112)" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem](#error112)
 * [Erro de montagem 115 ao tentar montar os Arquivos do Azure na VM Linux](#error15)
 * [Compartilhamento de arquivos do Azure montado na VM Linux apresentando um desempenho lento](#delayproblem)
 * [Erro de montagem (11): Recurso temporariamente indisponível durante a montagem no kernel do Ubuntu 4.8+](#ubuntumounterror)
@@ -74,7 +74,7 @@ Reduza o número de identificadores abertos simultâneos fechando alguns identif
 
 ## <a name="slow-performance-when-accessing-file-storage-from-windows-or-linux"></a>Desempenho lento ao acessar o Armazenamento de Arquivos do Windows ou do Linux
 * Se você não tem um requisito de tamanho de E/S mínimo específico, recomendamos que você use 1 MB de tamanho de E/S para um desempenho ideal.
-* Se você sabe o tamanho final de um arquivo que está estendendo com gravação e o software não tem problemas de compatibilidade com o final ainda não escrito que contém zeros, defina o tamanho do arquivo antecipadamente em vez de ter cada gravação sendo uma gravação estendida.
+* Se você sabe o tamanho final de um arquivo que você está estendendo com gravações e o seu software não tem problemas de compatibilidade com o final ainda não escrito desse arquivo que contém zeros, defina o tamanho do arquivo antecipadamente em vez de realizar cada gravação como uma gravação de extensão.
 * Use o método de cópia correto:
       * Use o AZCopy para todas as transferências entre dois compartilhamentos de arquivo. Para obter mais detalhes, veja [Transferir dados com o Utilitário da Linha de Comando AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy).
       * Use o Robocopy entre um compartilhamento de arquivos e um computador local. Veja [Robocopy com multi-thread para cópias mais rápidas](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) para obter mais detalhes.
@@ -101,7 +101,7 @@ Se o hotfix foi instalado, a seguinte saída será exibida:
 
 ### <a name="how-to-trace-the-read-and-write-operations-in-azure-file-storage"></a>Como rastrear as operações de leitura e gravação no Armazenamento de Arquivos do Azure
 
-O [Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226) é capaz de mostrar a você a solicitação de um cliente em texto descriptografado e há uma relação considerável entre solicitações de conexão e transações (supondo o uso de SMB aqui e não de REST).  A desvantagem é que você precisa executar isso em cada cliente, o que será demorado se você tiver muitos trabalhos de VM IaaS.
+O [Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226) é capaz de mostrar a você a solicitação de um cliente em texto descriptografado e há uma relação considerável entre solicitações de transferência e transações (supondo aqui o uso de SMB e não de REST).  A desvantagem é que você precisa executar isso em cada cliente, o que será demorado se você tiver muitos trabalhos de VM IaaS.
 
 Se você usar o Message Analyzer com ProcMon, você poderá obter uma boa ideia de qual código do aplicativo é responsável por transações.
 
@@ -116,13 +116,13 @@ Nunca crie ou abra um arquivo de E/S em cache que esteja solicitando acesso de g
 Esse problema pode ser causado pelas seguintes condições:
 
 ### <a name="cause-1"></a>Causa 1
-"Ocorreu um erro de sistema 53. Acesso negado." Por motivos de segurança, as conexões para compartilhamentos de arquivos do Azure são bloqueadas se o canal de comunicação não está criptografado e a tentativa de conexão não é feita do mesmo data center em que residem os compartilhamentos de arquivos do Azure. Não há criptografia de canal de comunicação quando o sistema operacional do cliente do usuário não dá suporte à criptografia SMB. Isso é indicado por uma mensagem de erro "Ocorreu um erro de sistema 53. Acesso negado" quando um usuário tenta montar um compartilhamento de arquivos local ou de um data center diferente. O Windows 8, o Windows Server 2012 e versões mais recentes de cada solicitação de negociação que inclua o SMB 3.0, que dá suporte à criptografia.
+"Ocorreu um erro de sistema 53. Acesso negado." Por motivos de segurança, as conexões para compartilhamentos de arquivos do Azure são bloqueadas se o canal de comunicação não está criptografado e a tentativa de conexão não é feita da mesma região do Azure em que residem os compartilhamentos de arquivos do Azure. Não há criptografia de canal de comunicação quando o sistema operacional do cliente do usuário não dá suporte à criptografia SMB. Isso é indicado por uma mensagem de erro "Ocorreu um erro de sistema 53. Acesso negado" quando um usuário tenta montar um compartilhamento de arquivos local ou de um data center diferente. O Windows 8, o Windows Server 2012 e versões mais recentes de cada solicitação de negociação que inclua o SMB 3.0, que dá suporte à criptografia.
 
 ### <a name="solution-for-cause-1"></a>Solução para a Causa 1
-Conectar-se de um cliente que atenda aos requisitos do Windows 8, do Windows Server 2012 ou de versões posteriores, ou que se conectem de uma máquina virtual que está no mesmo data center da conta do Armazenamento do Azure que é usada para o compartilhamento de arquivos do Azure.
+Conectar-se de um cliente que atenda aos requisitos do Windows 8, do Windows Server 2012 ou de versões posteriores ou que se conectem de uma máquina virtual que está na mesma região do Azure que a conta de Armazenamento do Azure que é usada para o compartilhamento de arquivos do Azure.
 
 ### <a name="cause-2"></a>Causa 2
-Pode ocorrer um “Erro do Sistema 53” ou “Erro do Sistema 67” ao montar um compartilhamento de arquivos do Azure se a comunicação de saída na porta 445 para o centro de dados dos Arquivos do Azure estiver bloqueada. Clique [aqui](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) para ver o resumo de provedores que permitem ou proíbem o acesso da porta 445.
+Pode ocorrer um “Erro do Sistema 53” ou “Erro do Sistema 67” ao montar um compartilhamento de arquivos do Azure se a comunicação de saída na porta 445 para a região do Azure dos Arquivos do Azure estiver bloqueada. Clique [aqui](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) para ver o resumo de provedores que permitem ou proíbem o acesso da porta 445.
 
 Comcast e algumas organizações de TI bloqueiam essa porta. Para entender se esse é o motivo da mensagem "Erro de sistema 53", você pode usar o Portqry para consultar o ponto de extremidade TCP:445. Se o ponto de extremidade TCP:445 é exibido como filtrado, a porta TCP está bloqueada. Veja um exemplo de consulta:
 
@@ -213,7 +213,7 @@ Para copiar um arquivo para o Armazenamento de Arquivos, você deve primeiro des
 
 No entanto, observe que a definição da chave do registro afeta todas as operações de cópia para compartilhamentos de rede.
 
-<a id="errorhold"></a>
+<a id="error112"></a>
 
 ## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>"Host inativo (Erro 112)" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem
 ### <a name="cause"></a>Causa
@@ -251,7 +251,7 @@ Se você não pode passar para versões do kernel mais recentes, é possível so
 As distribuições do Linux ainda não dão suporte ao recurso de criptografia no SMB 3.0. Em algumas distribuições, o usuário poderá receber uma mensagem de erro "115" se eles tentarem montar Arquivos do Azure usando SMB 3.0 devido a um recurso ausente.
 
 ### <a name="solution"></a>Solução
-Se o cliente Linux SMB usado não dá suporte à criptografia, monte os Arquivos do Azure usando SMB 2.1 de uma VM Linux no mesmo data center da conta do Armazenamento de Arquivos.
+Se o cliente Linux SMB usado não dá suporte à criptografia, monte os Arquivos do Azure usando SMB 2.1 de uma VM Linux na mesma região do Azure da conta de armazenamento de arquivos.
 
 <a id="delayproblem"></a>
 
@@ -275,10 +275,10 @@ Se as opções o cache=strict ou serverino não estão presentes, desmonte e mon
 ## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>Erro de montagem (11): Recurso temporariamente indisponível durante a montagem no kernel do Ubuntu 4.8+
 
 ### <a name="cause"></a>Causa
-Problema conhecido no kernel do Ubuntu 16.10 (v.4.8) quando o cliente declara dar suporte à criptografia, mas isso não ocorre. 
+Problema conhecido no kernel do Ubuntu 16.10 (v.4.8) em que o cliente declara dar suporte à criptografia, mas isso não ocorre. 
 
 ### <a name="solution"></a>Solução
-Até a correção do Ubuntu 16.10, especifique a opção de montagem “vers=2.1” ou use o Ubuntu 16.04.
+Até a correção do Ubuntu 16.10, especifique a opção de montagem "vers=2.1" ou use o Ubuntu 16.04.
 ## <a name="learn-more"></a>Saiba mais
 * [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 * [Introdução ao Armazenamento de Arquivos do Azure no Linux](storage-how-to-use-files-linux.md)

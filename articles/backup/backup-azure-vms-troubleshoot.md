@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 04/05/2017
 ms.author: trinadhk;markgal;jpallavi;
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: e40a31b7226bd94a3d0e07f528a87f4f686e5bdc
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 61f62d606b44b3390e6500ea2b30b20d7d2929ff
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,8 +47,13 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Máquina Virtual do Azure não encontrada. |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li>Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem], <br>(OU) <li> Desative a proteção para esta VM para que os trabalhos de backup não sejam criados. </ol> |
 | O agente de máquina virtual não está presente na máquina virtual - instale qualquer pré-requisito necessário e o agente de VM e, depois, reinicie a operação. |[Leia mais](#vm-agent) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 | Falha na operação de instantâneo devido a Gravadores VSS em estado inválido |Você precisa reiniciar os gravadores VSS (Serviço de Cópias de Sombra de Volume) que estão em estado inválido. Para fazer isso, em um prompt de comandos com privilégios elevados, execute _vssadmin list writers_. A saída contém todos os gravadores VSS e seus estados. Para cada gravador VSS cujo estado não for "[1] estável", reinicie o gravador VSS executando os comandos a seguir em um prompt de comandos com privilégios elevados<br> _net stop serviceName_ <br> _net start serviceName_|
-| Falha na operação de instantâneo devido a uma falha de análise da configuração |Isso acontece devido a permissões alteradas no diretório MachineKeys: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Execute o comando abaixo e verifique se as permissões no diretório MachineKeys são as permissões padrão:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> As permissões padrão são:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>Se você vir permissões no diretório MachineKeys diferentes do padrão, siga etapas a seguir para corrigir as permissões, excluir o certificado e disparar o backup.<ol><li>Corrigir as permissões no diretório MachineKeys.<br>Usando as Propriedades de Segurança do Explorer e as Configurações de Segurança Avançadas no diretório, redefina as permissões para os valores padrão, remova qualquer objeto de usuário adicional (diferente do padrão) do diretório e verifique se as permissões 'Everyone' tinham acesso especial para:<br>– Listar pastas / ler dados <br>– Atributos de leitura <br>– Atributos de leitura estendidos <br>– Criar arquivos / gravar dados <br>– Criar pastas / acrescentar dados<br>– Atributos de gravação<br>– Atributos de gravação estendidos<br>– Permissões de leitura<br><br><li>Excluir o certificado com o campo "Emitido para" = Gerenciamento de Serviços do Microsoft Azure para Extensões<ul><li>[Abra o console de Certificados](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Exclua o certificado (em Pessoal -> Certificados) com o campo "Emitido para" = "Gerenciamento de Serviços do Microsoft Azure para Extensões"</ul><li>Disparar Backup de VM. </ol>|
+| Falha na operação de instantâneo devido a uma falha de análise da configuração |Isso acontece devido a permissões alteradas no diretório MachineKeys: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Execute o comando abaixo e verifique se as permissões no diretório MachineKeys são as permissões padrão:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> As permissões padrão são:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>Se você vir permissões no diretório MachineKeys diferentes do padrão, siga etapas a seguir para corrigir as permissões, excluir o certificado e disparar o backup.<ol><li>Corrigir as permissões no diretório MachineKeys.<br>Usando as Propriedades de Segurança do Explorer e as Configurações de Segurança Avançadas no diretório, redefina as permissões para os valores padrão, remova qualquer objeto de usuário adicional (diferente do padrão) do diretório e verifique se as permissões 'Everyone' tinham acesso especial para:<br>– Listar pastas / ler dados <br>– Atributos de leitura <br>– Atributos de leitura estendidos <br>– Criar arquivos / gravar dados <br>– Criar pastas / acrescentar dados<br>– Atributos de gravação<br>– Atributos de gravação estendidos<br>– Permissões de leitura<br><br><li>Exclua o certificado com o campo "Emitido para" = "Gerenciamento de Serviços do Microsoft Azure para Extensões" ou "Gerador de Certificados CRP do Microsoft Azure".<ul><li>[Abra o console de certificados (computador Local)](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Exclua o certificado (em Pessoal -> Certificados) com o campo "Emitido para" = "Gerenciamento de Serviços do Microsoft Azure para Extensões" ou "Gerador de Certificados CRP do Microsoft Azure".</ul><li>Disparar Backup de VM. </ol>|
 | Falha na validação pois a máquina virtual é criptografada somente com BEK. Os backups podem ser habilitados somente para máquinas virtuais criptografadas com BEK e KEK. |A máquina virtual deve ser criptografado usando a Chave de Criptografia BitLocker e a Chave de Criptografia. Depois disso, o backup deve ser habilitado. |
+|Falha na instalação da extensão do instantâneo com erro – COM+ não pôde se comunicar com o Coordenador de Transações Distribuídas da Microsoft | Tente iniciar o serviço Windows "Aplicativo de Sistema COM+" (em um prompt de comandos com privilégios elevados – _net start-COMSysApp_). <br>Se ele falhar ao iniciar, siga etapas a seguir:<ol><li> Valide que a conta de Logon do serviço "Coordenador de Transações Distribuídas" é "Serviço de Rede". Se não for, altere-a para "Serviço de Rede", reinicie este serviço e, em seguida, tente iniciar o serviço "Aplicativo de Sistema COM+".<li>Se ele ainda falhar ao iniciar, desinstale/instale serviço "Coordenador de Transações Distribuídas" seguindo as etapas a seguir:<br> – Interrompa o serviço MSDTC<br> – Abra um prompt de comando (cmd) <br> – Execute o comando “msdtc -uninstall” <br> – Execute o comando “msdtc -install” <br> – Inicie o serviço MSDTC<li>Inicie o serviço Windows "Aplicativo de Sistema COM+" e, depois de iniciado, dispare o backup do portal.</ol> |
+| Falha ao congelar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de arquivos | <ol><li>Verifique o estado do sistema de arquivos de todos os dispositivos montados usando o comando _'tune2fs'_.<br> Por exemplo: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>Desmonte os dispositivos para qual o estado do sistema de arquivos não é limpo usando o comando _'unmount'_ <li> Execute a verificação de FileSystemConsistency nesses dispositivos usando o comando _'fsck'_ <li> Montar os dispositivos novamente e tente fazer o backup.</ol> |
+| Falha na operação de instantâneo devido a falha na criação do canal de comunicação de rede segura | <ol><Li> Abra o Editor do Registro executando regedit.exe no modo elevado. <li> Identifique todas as versões do .NetFramework presentes no sistema. Eles estão presentes na hierarquia de chave do Registro "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> Para cada .NetFramework presente na chave do Registro, adicione a seguinte chave: <br> "SchUseStrongCrypto"=dword:00000001 </ol>| 
+| Falha na operação de instantâneo devido a uma falha na instalação de Pacotes Redistribuíveis do Visual C++ para Visual Studio 2012 | Navegue até C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64. Certifique-se de que o valor de chave do Registro para permitir a instalação desse serviço esteja definida com o valor correto, ou seja, que o valor da chave do Registro _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ esteja definido como 3 e não como 4. Se você ainda estiver enfrentando problemas com a instalação, reinicie o serviço de instalação executando _MSIEXEC /UNREGISTER_ seguido de _MSIEXEC /REGISTER_ em um prompt de comandos com privilégios elevados.  |
+
 
 ## <a name="jobs"></a>Trabalhos
 | Detalhes do erro | Solução alternativa |
@@ -72,10 +78,8 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | A subrede selecionada não existe - selecione uma subrede que exista |Nenhum |
 | O Serviço de Backup não tem autorização para acessar recursos em sua assinatura. |Para resolver o problema, primeiro restaure discos, usando as etapas mencionadas na seção **Restaurar discos de backup** em [Escolha da configuração da VM](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Depois disso, use as etapas do PowerShell mencionadas em [Criar uma máquina virtual de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar VMs completas de discos restaurados. |
 
-## <a name="policy"></a>Política
-| Detalhes do erro | Solução alternativa |
-| --- | --- |
-| Falha ao criar a política - Reduza as escolhas de retenção para continuar com a configuração da política. |Nenhum |
+## <a name="backup-or-restore-taking-time"></a>Backup ou restauração demorando
+Se você vir seu backup (>12 horas) ou restauração demorando (>6 horas), certifique-se de seguir [as práticas recomendadas de Backup](backup-azure-vms-introduction.md#best-practices). Certifique-se também de que seus aplicativos estão usando o [Armazenamento do Azure de maneira ideal](backup-azure-vms-introduction.md#total-vm-backup-time) para backup. 
 
 ## <a name="vm-agent"></a>Agente de VM
 ### <a name="setting-up-the-vm-agent"></a>Configurando o agente de VM
@@ -98,7 +102,7 @@ Para VMs do Windows:
 
 Para VMs do Linux:
 
-* Siga as instruções em [Atualizando o agente de VM do Linux](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Siga as instruções em [Atualizando o agente de VM do Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 É **altamente recomendável** a atualização do agente somente por meio do repositório de distribuição. Não é recomendável baixar o código do agente diretamente do GitHub e atualizá-lo. Se o agente mais recente não estiver disponível para a sua distribuição, entre em contato com o suporte de distribuição para obter instruções sobre como instalar o agente mais recente. Você pode verificar as informações mais recentes do [agente do Linux do Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) no repositório GitHub.
 
 ### <a name="validating-vm-agent-installation"></a>Validando a instalação do Agente de VM
@@ -151,9 +155,4 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
 > Exiba mais informações sobre [Como definir um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md).
 >
 >
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
