@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/8/2017
+ms.date: 4/18/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 182b03d7075c3161f09f27f265b624897cb7a9cc
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d471f5826cc05fb52ff4c24184628235477c075d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -39,6 +39,12 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## <a name="news-updates"></a>Notícias atualizadas
+###### <a name="april-18-2017"></a>**18 de abril de 2017**
+A distribuição do SO convidado de abril começa em 18 de abril e está projetada para ser lançada em 9 de maio.
+
+###### <a name="april-10-2017"></a>**10 de abril de 2017**
+A distribuição do SO convidado de março começou em 14 de março de 2017, sendo lançada em 10 de abril de 2017.
+
 ###### <a name="january-10-2017"></a>**10 de janeiro de 2017**
 O SO convidado de janeiro contém patches que afetam apenas o família 2 do SO (Windows 2008 Server R2). Portanto, lançamos apenas a imagem da Família de Sistemas Operacionais 2 (WA-GUEST-OS-2.59_201701-01) para este mês. Para todas as outras famílias de sistemas operacionais, o sistema operacional de dezembro (201612-01) permanece como a versão mais recente.
 
@@ -66,9 +72,10 @@ O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.5_201703-01 |10 de abril de 2017 |Post 5.7 |TBD | 
 | WA-GUEST-OS-5.4_201612-01 |10 de janeiro de 2017 |Post 5.6 |TBD | 
 | WA-GUEST-OS-5.3_201611-01 |14 de dezembro de 2016 |Post 5.5 |TBD |
-| WA-GUEST-OS-5.2_201610-02 |1 de novembro de 2016 |Post 5.4 |TBD |
+|~~WA-GUEST-OS-5.2_201610-02~~ |1 de novembro de 2016 |10 de abril de 2017 |TBD |
 
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
@@ -82,9 +89,10 @@ O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.40_201703-01 |10 de abril de 2017 |Post 4.42 |TBD |
 | WA-GUEST-OS-4.39_201612-01 |10 de janeiro de 2017 |Post 4.41 |TBD |
 | WA-GUEST-OS-4.38_201611-01 |14 de dezembro de 2016 |Post 4.40 |TBD |
-| WA-GUEST-OS-4.37_201610-02 |16 de novembro de 2016 |Post 4.39 |TBD |
+|~~WA-GUEST-OS-4.37_201610-02~~ |16 de novembro de 2016 |10 de abril de 2017 |TBD |
 |~~WA-GUEST-OS-4.36_201609-01~~ |13 de outubro de 2016 |Jan 14 2017 |TBD |
 |~~WA-GUEST-OS-4.35_201608-01~~ |13 de setembro de 2016 |16 de dezembro de 2016 |TBD |
 |~~WA-GUEST-OS-4.34_201607-01~~ |8 de agosto de 2016 |13 de novembro de 2016 |TBD |
@@ -93,8 +101,7 @@ O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro
 |~~WA-GUEST-OS-4.31_201604-01~~ |2 de maio de 2016 |13 de agosto de 2016 |TBD |
 |~~WA-GUEST-OS-4.30_201603-01~~ |7 de abril de 2016 |10 de julho de 2016 |TBD |
 |~~WA-GUEST-OS-4.29_201602-02~~ |12 de março de 2016 |2 de junho de 2016 |TBD |
-|~~WA-GUEST-OS-4.28_201601-01~~ |12 de fevereiro de 2016 |7 de maio de 2016 |TBD |
-|~~WA-GUEST-OS-4.27_201512-01~~ |12 de janeiro de 2016 |12 de abril de 2016 |TBD |
+
 
 ## <a name="family-3-releases"></a>Versões da Família 3
 **Windows Server 2012**
@@ -108,9 +115,10 @@ O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.47_201703-01 |10 de abril de 2017 |Post 3.49 |TBD |
 | WA-GUEST-OS-3.46_201612-01 |10 de janeiro de 2017 |Post 3.48 |TBD |
 | WA-GUEST-OS-3.45_201611-01 |14 de dezembro de 2016 |Post 3.47 |TBD |
-| WA-GUEST-OS-3.44_201610-01 |16 de novembro de 2016 |Post 3.46 |TBD |
+| WA-GUEST-OS-3.44_201610-02 |16 de novembro de 2016 |1º de maio de 2017 |TBD |
 | ~~WA-GUEST-OS-3.43_201609-01~~ |13 de outubro de 2016 |Jan 14 2017 |TBD |
 | ~~WA-GUEST-OS-3.42_201608-01~~ |13 de setembro de 2016 |16 de dezembro de 2016 |TBD |
 | ~~WA-GUEST-OS-3.41_201607-01~~ |8 de agosto de 2016 |13 de novembro de 2016 |TBD |
@@ -119,8 +127,7 @@ O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro
 | ~~WA-GUEST-OS-3.38_201604-01~~ |2 de maio de 2016 |13 de agosto de 2016 |TBD |
 | ~~WA-GUEST-OS-3.37_201603-01~~ |7 de abril de 2016 |10 de julho de 2016 |TBD |
 | ~~WA-GUEST-OS-3.36_201602-02~~ |12 de março de 2016 |2 de junho de 2016 |TBD |
-| ~~WA-GUEST-OS-3.35_201601-01~~ |12 de fevereiro de 2016 |7 de maio de 2016 |TBD |
-| ~~WA-GUEST-OS-3.34_201512-01~~ |12 de janeiro de 2016 |12 de abril de 2016 |TBD |
+
 
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
@@ -134,10 +141,11 @@ Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.60_201703-01 |10 de abril de 2017 |Post 2.62 |TBD |
 | WA-GUEST-OS-2.59_201701-01 |10 de janeiro de 2017 |Post 2.61 |TBD |
 | WA-GUEST-OS-2.58_201612-01 |10 de janeiro de 2017 |Post 2.60 |TBD |
-| WA-GUEST-OS-2.57_201611-01 |14 de dezembro de 2016 |Post 2.59 |TBD |
-| WA-GUEST-OS-2.56_201610-01 |16 de novembro de 2016 |10 de fevereiro de 2017 |TBD |
+|~~WA-GUEST-OS-2.57_201611-01~~ |14 de dezembro de 2016 |10 de abril de 2017 |TBD |
+|~~WA-GUEST-OS-2.56_201610-02~~ |16 de novembro de 2016 |10 de fevereiro de 2017 |TBD |
 |~~WA-GUEST-OS-2.55_201609-01~~ |13 de outubro de 2016 |Jan 14 2017 |TBD |
 |~~WA-GUEST-OS-2.54_201608-01~~ |13 de setembro de 2016 |16 de dezembro de 2016 |TBD |
 |~~WA-GUEST-OS-2.53_201607-01~~ |8 de agosto de 2016 |13 de novembro de 2016 |TBD |
@@ -146,8 +154,7 @@ Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 |~~WA-GUEST-OS-2.50_201604-01~~ |2 de maio de 2016 |13 de agosto de 2016 |TBD |
 |~~WA-GUEST-OS-2.49_201603-01~~ |7 de abril de 2016 |10 de julho de 2016 |TBD |
 |~~WA-GUEST-OS-2.48_201602-02~~|12 de março de 2016 |2 de junho de 2016 |TBD |
-|~~WA-GUEST-OS-2.47_201601-01~~|12 de fevereiro de 2016 |7 de maio de 2016 |TBD |
-|~~WA-GUEST-OS-2.46_201512-01~~|12 de janeiro de 2016 |12 de abril de 2016 |TBD |
+
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
 A lista de patches incluídos em cada lançamento mensal de SO convidado está disponível [aqui][patches].

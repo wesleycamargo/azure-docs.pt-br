@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a5084b62a309dba433e2b363322b9a9c362bcdc3
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1bd474cc547ca2f6aa32944c1a1e5a92f917444a
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -58,11 +58,6 @@ As etapas neste procedimento mostram como se conectar ao portal do Azure usando 
 1. Abra seu navegador preferido e conecte-se ao [portal do Azure](https://portal.azure.com/).
 2. Entre no [Portal do Azure](https://portal.azure.com/).
 3. Na página **Entrar** , forneça as credenciais da sua assinatura.
-   
-   ![Entrar](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
 
 ## <a name="view-logical-server-security-information-in-the-azure-portal"></a>Exibir informações de segurança do servidor lógico no portal do Azure
 
@@ -270,7 +265,7 @@ As etapas neste procedimento mostram como criar uma regra de firewall no nível 
     
    ![Conectar-se como user1 sem firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
-3. Clique em **Opções** para especificar o banco de dados ao qual você deseja se conectar e digite **sqldbtutorialdb** na caixa suspensa **Conectar-se ao Banco de Dados** na guia **Propriedades de Conexão**.
+3. Clique em **Opções**, na caixa de diálogo **Conectar ao servidor**, para especificar o banco de dados ao qual você deseja se conectar e digite **sqldbtutorialdb** na caixa suspensa **Conectar-se ao Banco de Dados** na guia **Propriedades da Conexão**.
    
    ![Conectar-se como user1 sem firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
@@ -399,7 +394,7 @@ As etapas deste procedimento mostram como criar um logon e um usuário no banco 
 Para criar logons e usuários, adicioná-los a funções, conceder a eles permissões, criar regras de firewall de nível de banco de dados e criar regras de firewall de nível de servidor, execute as instruções a seguir em bancos de dados apropriados no servidor.
 
 ### <a name="master-database"></a>banco de dados mestre
-Execute essas instruções no banco de dados mestre usando a conta do administrador de servidor, adicionando os endereços IP ou o intervalo apropriado.
+Execute essas instruções no banco de dados mestre usando a conta do administrador de servidor, adicionando os endereços IP ou o intervalo apropriados.
 
 ```
 CREATE LOGIN dbcreator WITH PASSWORD = 'p@ssw0rd';
@@ -410,7 +405,7 @@ EXEC sp_set_firewall_rule @name = N'dbcreatorFirewallRule',
 ```
 
 ### <a name="sqldbtutorialdb-database"></a>sqldbtutorialdb database
-Execute essas instruções no banco de dados sqldbtutorialdb usando a conta do administrador de servidor, adicionando os endereços IP ou o intervalo apropriado.
+Execute essas instruções no banco de dados sqldbtutorialdb usando a conta do administrador de servidor, adicionando os endereços IP ou o intervalo apropriados.
 
 ```
 CREATE USER user1 WITH PASSWORD = 'p@ssw0rd';
@@ -420,7 +415,7 @@ EXEC sp_set_database_firewall_rule @name = N'sqldbtutorialdbFirewallRule',
 ```
 
 ### <a name="blankdb-database"></a>banco de dados blankdb
-Execute essas instruções no banco de dados blankdb usando a conta do administrador de servidor, adicionando os endereços IP ou o intervalo apropriado.
+Execute essas instruções no banco de dados blankdb usando a conta do administrador de servidor, adicionando os endereços IP ou o intervalo apropriados.
 
 ```
 CREATE USER blankdbadmin

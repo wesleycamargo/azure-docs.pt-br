@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 95a927d8c2fbfbcb6aa663985d078d5146c489aa
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: f86336de4e1d5bda1eba12f0f95079b950963bde
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="azure-event-hubs-archive"></a>Arquivamento dos Hubs de Eventos do Azure
-O Arquivamento dos Hubs de Eventos do Azure permite que você forneça automaticamente os dados de streaming em seus Hubs de Eventos para a conta de armazenamento de blobs de sua escolha, com maior flexibilidade para especificar uma hora ou um período de tempo. A configuração do Arquivo Morto é rápida, não há custos administrativos para executá-lo e ele é escalado automaticamente com as [unidades de produtividade](event-hubs-what-is-event-hubs.md#capacity) dos Hubs de Eventos. O Arquivamento dos Hubs de Eventos é a maneira mais fácil de carregar dados de streaming no Azure e permite que você se concentre no processamento de dados em vez de se concentrar na captura de dados.
+O Arquivo Morto dos Hubs de Eventos do Azure permite que você forneça automaticamente os dados de streaming em seus Hubs de Eventos para a conta de armazenamento de blobs de sua escolha, com maior flexibilidade para especificar uma hora ou um período de tempo desejado. A configuração da Arquivo Morto é rápida, não há custos administrativos para executá-lo e ele é escalado automaticamente com as [unidades de produtividade](event-hubs-what-is-event-hubs.md#capacity) dos Hubs de Eventos. O Arquivamento dos Hubs de Eventos é a maneira mais fácil de carregar dados de streaming no Azure e permite que você se concentre no processamento de dados em vez de se concentrar na captura de dados.
 
 O Arquivo Morto dos Hubs de Eventos permite processar pipelines em tempo real e baseados em lote no mesmo fluxo. Isso permite que você crie soluções que podem crescer com suas necessidades ao longo do tempo. Se você estiver criando sistemas baseados em lote com o objetivo de processá-los em tempo real no futuro ou para adicionar um caminho frio eficiente para uma solução em tempo real, o Arquivamento dos Hubs de Eventos facilita o trabalho de transmissão de dados.
 
 ## <a name="how-event-hubs-archive-works"></a>Como funciona o Arquivamento dos Hubs de Eventos
-Os Hubs de Eventos são um buffer de tempo de retenção durável para a entrada de telemetria, semelhante a um log distribuído. A chave para reduzir os Hubs de Eventos horizontalmente é o [modelo de consumidor particionado](event-hubs-what-is-event-hubs.md#partitions). Cada partição é um segmento independente de dados e é consumido de forma independente. Ao longo do tempo, esses dados expiram com base no período de retenção configurável. Assim, um Hub de Eventos específico nunca fica "muito cheio".
+Os Hubs de Eventos são um buffer de tempo de retenção durável para a entrada de telemetria, semelhante a um log distribuído. A chave para reduzir os Hubs de Eventos é o [modelo de consumidor particionado](event-hubs-what-is-event-hubs.md#partitions). Cada partição é um segmento independente de dados e é consumido de forma independente. Ao longo do tempo, esses dados expiram com base no período de retenção configurável. Assim, um Hub de Eventos específico nunca fica “cheio demais”.
 
-O Arquivamento dos Hubs de Eventos permite que você especifique sua própria conta de Armazenamento de Blobs do Azure e o contêiner que será usado para armazenar os dados arquivados. Essa conta pode ser na mesma região que o Hub de Eventos ou em outra região, o que dá flexibilidade ao recurso Arquivamento dos Hubs de Eventos.
+O Arquivamento dos Hubs de Eventos permite que você especifique sua própria conta de Armazenamento de Blobs do Azure e o contêiner que será usado para armazenar os dados arquivados. Essa conta pode estar na mesma região que o hub de eventos ou em outra região, concedendo flexibilidade ao recurso de Arquivo Morto dos Hubs de Eventos.
 
 Os dados arquivados são gravados no formato [Apache Avro][Apache Avro]: um formato compacto, rápido e binário que fornece estruturas de dados avançados com esquema embutido. Esse formato é amplamente usado no ecossistema do Hadoop, pelo Stream Analytics e pelo Azure Data Factory. Mais informações sobre como trabalhar com Avro estão disponíveis neste artigo.
 
@@ -46,14 +46,14 @@ O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](eve
 Uma vez configurado, o Arquivamento dos Hubs de Eventos é executado automaticamente assim que você envia seu primeiro evento. Ele continua sendo executado o tempo todo. Para que o seu processamento downstream saiba que processo está funcionando mais facilmente, os Hubs de Eventos gravam arquivos vazios quando não há nenhum dado. Isso fornece cadência e marcador previsíveis que podem alimentar os processadores em lotes.
 
 ## <a name="setting-up-event-hubs-archive"></a>Configurando o Arquivamento dos Hubs de Eventos
-É possível configurar o Arquivo Morto do Hub de Eventos no momento da criação do Hub de Eventos por meio do portal ou no Azure Resource Manager. Você simplesmente habilitar o Arquivamento clicando no botão **Ativar** . Configure uma conta de armazenamento e o contêiner clicando na seção **Contêiner** da folha. Já que o Arquivamento dos Hubs de Eventos usa a autenticação de serviços com o armazenamento, você não precisa especificar uma cadeia de conexão de armazenamento. O seletor de recurso seleciona automaticamente o URI do recurso para sua conta de armazenamento. Se você usar o Azure Resource Manager, deverá fornecer esse URI explicitamente como uma cadeia de caracteres.
+É possível configurar o Arquivo Morto no momento da criação do hub de eventos por meio do portal ou no Azure Resource Manager. Você simplesmente habilitar o Arquivamento clicando no botão **Ativar** . Configure uma conta de armazenamento e o contêiner clicando na seção **Contêiner** da folha. Já que o Arquivamento dos Hubs de Eventos usa a autenticação de serviços com o armazenamento, você não precisa especificar uma cadeia de conexão de armazenamento. O seletor de recurso seleciona automaticamente o URI do recurso para sua conta de armazenamento. Se você usar o Azure Resource Manager, deverá fornecer esse URI explicitamente como uma cadeia de caracteres.
 
 A janela de tempo padrão é de 5 minutos. O valor mínimo é 1, o máximo é 15. A janela **Tamanho** tem um intervalo de 10 a 500 MB.
 
 ![][1]
 
-## <a name="adding-archive-to-an-existing-event-hub"></a>Adicionando Arquivamento a um Hub de Eventos existente
-O Arquivo Morto pode ser configurado nos Hubs de Eventos existentes que estão em um namespace dos Hubs de Eventos. O recurso não está disponível em namespaces de tipo **Misto** ou de **Mensagens**. Para habilitar o arquivamento em um Hub de Eventos existente ou para alterar as configurações de Arquivamento, clique no namespace para carregar a folha **Essentials** e clique no Hub de Eventos para o qual você deseja habilitar ou alterar a configuração de Arquivamento. Por fim, clique na seção **Propriedades** da folha aberta conforme mostrado na figura a seguir.
+## <a name="adding-archive-to-an-existing-event-hub"></a>Adicionando o Arquivo Morto a um hub de eventos existente
+O Arquivo Morto pode ser configurado nos hubs de eventos existentes que estão em um namespace dos Hubs de Eventos. O recurso não está disponível em namespaces de tipo **Misto** ou de **Mensagens**. Para habilitar o Arquivo Morto em um hub de eventos existente ou alterar as configurações do Arquivo Morto, clique no namespace para carregar a folha **Essentials** e clique no Hub de Eventos para o qual você deseja habilitar ou alterar a configuração de Arquivo Morto. Por fim, clique na seção **Propriedades** da folha aberta conforme mostrado na figura a seguir.
 
 ![][2]
 

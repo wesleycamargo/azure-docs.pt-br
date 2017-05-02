@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 45bf19b4c8406cfc09624bef2b9c0f1c443d8fd6
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: bc87185c56b2dc45f041136474b9fb1bf6afebc3
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -64,10 +64,10 @@ Para criar um pacote, clique com o botão direito do mouse no projeto de aplicat
 
 ![Empacotando um aplicativo no Visual Studio][vs-package-command]
 
-Quando o empacotamento estiver concluído, você encontrará o local do pacote na janela **Saída** . Observe que a etapa de empacotamento ocorre automaticamente quando você implanta ou depura seu aplicativo no Visual Studio.
+Quando o empacotamento estiver concluído, você poderá encontrar o local do pacote na janela **Saída**. A etapa de empacotamento ocorre automaticamente quando você implanta ou depura seu aplicativo no Visual Studio.
 
 ### <a name="build-a-package-by-command-line"></a>Criar um pacote pela linha de comando
-Também é possível empacote seu aplicativo de modo programático usando `msbuild.exe`. Em segundo plano, é isso que o Visual Studio está executando, de modo que a saída será a mesma.
+Também é possível empacote seu aplicativo de modo programático usando `msbuild.exe`. Em segundo plano, é isso que o Visual Studio está executando, de modo que a saída é a mesma.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -75,7 +75,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 
 ## <a name="test-the-package"></a>Teste o pacote
 Você pode verificar a estrutura do pacote localmente por meio do PowerShell usando o comando [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) .
-Esse comando verificará se há problemas de análise de manifesto e também todas as referências. Observe que esse comando só verifica a correção estrutural de diretórios e arquivos no pacote.
+Esse comando verifica se há problemas de análise de manifesto e também todas as referências. Observe que esse comando só verifica a correção estrutural de diretórios e arquivos no pacote.
 Ele não verificará nenhum código ou conteúdo do pacote de dados além de verificar se todos os arquivos necessários estão presentes.
 
 ```
@@ -169,8 +169,9 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 ```
 
 Internamente, o Service Fabric computa somas de verificação para os pacotes de aplicativos para validação. Ao usar a compactação, as somas de verificação são calculadas nas versões compactadas de cada pacote.
-Se você copiou uma versão não compactada do seu pacote de aplicativos e você deseja usar compactação para o mesmo pacote, você deve alterar a versão do manifesto de aplicativo para evitar incompatibilidade de soma de verificação.
-Da mesma forma, se você carregou uma versão compactada do pacote, você deve atualizar a versão do manifesto de aplicativo para usar um pacote descompactado.
+Se você copiou uma versão não compactada do seu pacote de aplicativos e deseja usar compactação para o mesmo pacote, é necessário alterar a versão dos pacotes `code`, `config` e `data` para evitar a incompatibilidade de soma de verificação. Se os pacotes não forem alterados, em vez de alterar a versão, você poderá usar o [provisionamento de comparação](service-fabric-application-upgrade-advanced.md). Com essa opção, não inclua o pacote inalterado, mas apenas faça referência a ele no manifesto do serviço.
+
+Da mesma forma, se você carregou uma versão compactada do pacote e deseja usar um pacote descompactado, é necessário atualizar as versões para evitar a incompatibilidade da soma de verificação.
 
 O pacote agora é empacotado corretamente, validado e compactado (se necessário), para que esteja pronto para [implantação](service-fabric-deploy-remove-applications.md) em um ou mais clusters do Service Fabric.
 

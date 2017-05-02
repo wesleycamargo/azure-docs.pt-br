@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 06a67e4d2134baf54e88708d64981b897ecb74a0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 7490fe7261c760f2945d67a7f819091fd69b04f8
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -55,13 +55,13 @@ E você pode adicionar ou subtrair bancos de dados para o pool. Se um banco de d
 ## <a name="which-databases-go-in-a-pool"></a>Quais bancos de dados vão em um pool?
 ![Os bancos de dados SQL que compartilham eDTUs em um pool elástico.][1]
 
-Os bancos de dados que são ótimos candidatos a pools de banco de dados elásticos normalmente têm períodos de atividade e períodos de inatividade. No exemplo acima, você pode ver a atividade de um banco de dados individual, de 4 bancos de dados e, finalmente, de um pool elástico com 20 bancos de dados. Bancos de dados com diferentes atividades ao longo do tempo são bons candidatos para pools Elásticos porque eles não estão todos ativos ao mesmo tempo e podem compartilhar eDTUs. Nem todos os bancos de dados se encaixam nesse padrão. Bancos de dados com uma demanda de recursos mais constante são mais adequados para as camadas de serviço Basic, Standard e Premium, em que os recursos são atribuídos individualmente.
+Os bancos de dados que são ótimos candidatos a pools de banco de dados elásticos normalmente têm períodos de atividade e períodos de inatividade. No exemplo acima, você pode ver a atividade de um banco de dados individual, de 4 bancos de dados e, finalmente, de um pool elástico com 20 bancos de dados. Bancos de dados com diferentes atividades ao longo do tempo são bons candidatos para pools Elásticos porque eles não estão todos ativos ao mesmo tempo e podem compartilhar eDTUs. Nem todos os bancos de dados se encaixam nesse padrão. Bancos de dados que apresentam uma demanda de recursos mais constante são mais adequados para as camadas de serviço Básico, Standard, Premium e Premium RS, em que os recursos são atribuídos individualmente.
 
 [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md).
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools"></a>eDTU e limites de armazenamento para pools elásticos
 
-A tabela a seguir descreve as características dos pools elásticos Basic, Standard e Premium.
+A tabela a seguir descreve as características dos pools elásticos Básico, Standard, Premium e Premium RS.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -74,7 +74,7 @@ As tabelas a seguir descrevem os limites de pools e bancos de dados em pool.
 ### <a name="limits-for-elastic-pools"></a>Limites para pools elásticos
 | Propriedade | Descrição |
 |:--- |:--- |
-| Camada de serviço |Básica, Standard ou Premium. A camada de serviço determina o intervalo em limites de desempenho e armazenamento que podem ser configurados, bem como opções de continuidade dos negócios. Cada banco de dados dentro de um pool tem a mesma camada de serviço que o pool. A "camada de serviço" também é conhecida como "edição". |
+| Camada de serviço |Básico, Standard, Premium ou Premium RS. A camada de serviço determina o intervalo em limites de desempenho e armazenamento que podem ser configurados, bem como opções de continuidade dos negócios. Cada banco de dados dentro de um pool tem a mesma camada de serviço que o pool. A "camada de serviço" também é conhecida como "edição". |
 | eDTUs por pool |O número máximo de eDTUs que podem ser compartilhados por bancos de dados no pool. Os eDTUs totais usados pelos bancos de dados no pool não podem exceder esse limite no mesmo momento. |
 | Armazenamento máx. por pool (GB) |A quantidade máxima de armazenamento em GBs que pode ser compartilhada por bancos de dados no pool. O armazenamento total usado pelos bancos de dados no pool não pode exceder esse limite. Esse limite é determinado pelos eDTUs por pool. Se esse limite for excedido, todos os bancos de dados se tornarão somente leitura. O armazenamento máximo por pool refere-se ao máximo de armazenamento dos arquivos de dados no pool e não inclui o espaço usado pelos arquivos de log. |
 | Número máximo de bancos de dados por pool |O número máximo de bancos de dados permitidos por pool. |
@@ -106,7 +106,7 @@ A restauração pontual usa backups de banco de dados automáticos para recupera
 A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde está hospedado. Confira [Restaurar um Banco de Dados SQL ou fazer failover para um secundário](sql-database-disaster-recovery.md)
 
 ### <a name="active-geo-replication"></a>Replicação geográfica ativa
-Para aplicativos que têm requisitos de restauração mais agressivos do que a Restauração Geográfica pode oferecer, configure a Replicação Geográfica Ativa usando o [Portal do Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) ou [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+Para aplicativos que têm requisitos de recuperação mais agressivos do que a Restauração Geográfica pode oferecer, configure a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -16,9 +16,9 @@ ms.date: 04/12/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: a78c3877ac64b9376104d853d6b66b90fbb476d8
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c07e7fd218f2ec696e280f0cc6f199a090f424e6
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -203,7 +203,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 * Não no momento.
 
-*Se outro servidor for descoberto após ter adicionado uma solução de avaliação de SQL, ele será avaliado?*
+*Se outro servidor for descoberto após ter adicionado a solução de avaliação do SQL, ele será avaliado?*
 
 * Sim, assim que for descoberto, ele é avaliado a partir de então a cada sete dias.
 

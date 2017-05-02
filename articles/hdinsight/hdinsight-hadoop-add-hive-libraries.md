@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bf15644cbf3a640bb706292c17cddbefa0574605
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: dd5df541c0362b8fe8265fd26dc73908215076ad
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicionar bibliotecas Hive personalizadas ao criar seu cluster HDInsight
@@ -34,8 +34,8 @@ Durante a criação do cluster, o script enumera os arquivos, copia-os para o di
 > [!NOTE]
 > Usar as ações de script neste artigo disponibiliza as bibliotecas nos seguintes cenários:
 >
-> * **HDInsight baseado no Linux** — ao usar a **linha de comando do Hive**, **WebHCat** e **HiveServer2**.
-> * **HDInsight baseado no Windows** — ao usar a **linha de comando do Hive** e **WebHCat**.
+> * **HDInsight baseado em Linux** — ao usar cliente Hive, **WebHCat** e **HiveServer2**.
+> * **HDInsight baseado em Windows** — ao usar cliente Hive e **WebHCat**.
 
 ## <a name="the-script"></a>O script
 

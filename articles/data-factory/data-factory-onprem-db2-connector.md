@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 59a83a62ddee89c44533060b811bc8fc2f144bee
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 6d54203797ad970d590b853b171b383708dbcb5d
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,9 @@ Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Fa
 Atualmente, o Data Factory permite apenas a movimentação de dados de um banco de dados DB2 para [repositórios de dados de coletores com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats), mas não mover dados de outros repositórios de dados para um banco de dados DB2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para que o serviço Azure Data Factory consiga se conectar ao seu banco de dados DB2 local, é necessário instalar o Gateway de Gerenciamento de Dados no mesmo computador que hospeda o banco de dados ou em um computador separado para evitar a concorrência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um componente que conecta as fontes de dados locais aos serviços de nuvem de uma maneira segura e gerenciada. Confira o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados. Consulte o artigo [Mover dados de pontos locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções detalhadas sobre como configurar um pipeline de dados para o gateway a fim de mover dados.
+A Data Factory dá suporte à conexão com banco de dados DB2 local usando o Gateway de Gerenciamento de Dados. Veja o artigo [Gateway de gerenciamento de dados](data-factory-data-management-gateway.md) para saber mais sobre o Gateway de Gerenciamento de Dados e o artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados para mover dados.
 
-Você deve usar o gateway para se conectar a um banco de dados DB2, mesmo se o banco de dados estiver hospedado na nuvem, por exemplo, em uma VM IaaS do Azure. Você pode ter o gateway na mesma VM que hospeda o banco de dados ou em uma VM diferente, desde que o gateway possa se conectar o banco de dados.  
+O gateway é requerido mesmo que o DB2 esteja hospedado em uma VM IaaS do Azure. Você pode instalar o gateway na mesma VM IaaS do armazenamento de dados ou em uma VM diferente, desde que o gateway possa conectar o banco de dados.
 
 O Gateway de Gerenciamento de Dados fornece um driver DB2 interno, portanto, não é necessário instalar manualmente nenhum driver ao copiar dados do DB2.
 
@@ -46,6 +46,9 @@ Este conector DB2 dá suporte às plataformas e versões do IBM DB2 a seguir com
 * IBM DB2 para LUW 11
 * IBM DB2 para LUW 10.5
 * IBM DB2 para LUW 10.1
+
+> [!TIP]
+> Se você encontrar um erro que indica “O pacote correspondente a uma solicitação de execução de instrução SQL não foi encontrado. SQLSTATE=51002 SQLCODE=-805”, um usuário com uma conta de privilégio alto (usuário avançado ou administrador) deverá executar a atividade de cópia uma vez, e os pacotes necessários serão criados automaticamente durante a cópia. Posteriormente, você poderá voltar para o usuário normal para a execução de cópias subsequentes.
 
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local DB2 usando diferentes ferramentas/APIs. 
@@ -350,7 +353,7 @@ Ao mover dados para o DB2 os seguintes mapeamentos serão usados do tipo do DB2 
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Leitura repetida de fontes relacionais
-Ao copiar dados de repositórios de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

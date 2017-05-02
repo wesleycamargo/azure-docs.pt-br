@@ -13,12 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
+ms.date: 03/27/2017
+ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
-ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: ff9f3ee4e44f7d0b51a6724304b0ec0f967f7d88
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -43,7 +43,7 @@ Aplicativos devem instanciar o **ShardMapManager** durante a inicialização, us
 Se um aplicativo não estiver manipulando o mapa de fragmentos, as credenciais usadas no método de fábrica deverão ter permissões somente leitura no banco de dados **Mapa de Fragmento Global** . Essas credenciais são normalmente diferentes das credenciais usadas para abrir conexões com o Gerenciador de mapa do fragmento. Consulte também [Credenciais usadas para acessar a biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-scale-manage-credentials.md). 
 
 ## <a name="call-the-openconnectionforkey-method"></a>Chame o método OpenConnectionForKey
-O método **[ShardMap.OpenConnectionForKey](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx))** retorna uma conexão do ADO.NET pronta para executar comandos para o banco de dados apropriado com base no valor do parâmetro **key**. As informações de fragmentos são armazenadas em cache no aplicativo pelo **ShardMapManager**, portanto, essas solicitações normalmente não envolvem uma pesquisa de banco de dados no banco de dados do **Mapa de Fragmentos Global**. 
+O método **[ShardMap.OpenConnectionForKey](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)** retorna uma conexão do ADO.NET pronta para emitir executar comandos para o banco de dados apropriado com base no valor do parâmetro **key**. As informações de fragmentos são armazenadas em cache no aplicativo pelo **ShardMapManager**, portanto, essas solicitações normalmente não envolvem uma pesquisa de banco de dados no banco de dados do **Mapa de Fragmentos Global**. 
 
     // Syntax: 
     public SqlConnection OpenConnectionForKey<TKey>(

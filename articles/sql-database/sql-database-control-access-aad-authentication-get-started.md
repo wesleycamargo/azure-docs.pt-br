@@ -1,6 +1,6 @@
 ---
 title: "Autenticação do AAD: firewalls de banco de dados SQL do Azure, autenticação, acesso | Microsoft Docs"
-description: "Neste tutorial de introdução, você aprenderá a usar o Transact-SQL e o SQL Server Management Studio para trabalhar com regras de firewall no nível de servidor e banco de dados, autenticação do Azure Active Directory, logons, usuários e funções para conceder acesso e controle para servidores de Banco de Dados SQL e bancos de dados."
+description: "Neste guia de instruções, você aprenderá a usar o Transact-SQL e o SQL Server Management Studio para trabalhar com regras de firewall, autenticação do Azure Active Directory, logons, usuários e funções, no nível de servidor e de banco de dados, para conceder acesso e controle aos servidores e bancos de dados do Banco de Dados SQL do Azure."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b97872ed00746009a800817b345f31937309ed67
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ca679a820eefc7acbb08eed6b8f809f46aacd3a3
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Autenticação, acesso e regras de firewall de nível de banco de dados do Azure AD
-Neste tutorial, você aprenderá como usar o SQL Server Management Studio para trabalhar com a autenticação, os logons, os usuários e as funções de banco de dados do Azure Active Directory que concedem acesso e permissões para servidores e bases de dados do Banco de Dados SQL do Azure. Você aprenderá a:
+Neste guia de instruções, você aprenderá como usar o SQL Server Management Studio para trabalhar com a autenticação, os logons, os usuários e as funções de banco de dados do Azure Active Directory que concedem acesso e permissões para servidores e bancos de dados do Banco de Dados SQL do Azure. Você aprenderá a:
 
 - Exibir permissões de usuário no banco de dados mestre e nos bancos de dados de usuário
 - Criar logons e usuários com base na autenticação do Azure Active Directory
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como usar o SQL Server Management Studio para t
 - Criar regras de firewall de nível de banco de dados para os usuários do banco de dados
 - Criar regras de firewall de nível de servidor para os administradores do servidor
 
-**Tempo estimado**: este tutorial levará cerca de 45 minutos para ser concluído (supondo que você já tenha atendido aos pré-requisitos).
+**Tempo estimado**: este guia de instruções levará cerca de 45 minutos para ser concluído (supondo que você já tenha atendido aos pré-requisitos).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,18 +43,18 @@ Neste tutorial, você aprenderá como usar o SQL Server Management Studio para t
 
 * **SQL Server Management Studio**. Você pode baixar e instalar a versão mais recente do SSMS (SQL Server Management Studio) em [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Sempre use a versão mais recente do SSMS ao se conectar ao Banco de Dados SQL do Azure, já que sempre há o lançamento de novos recursos.
 
-* **Servidor e bancos de dados base** para instalar e configurar um servidor e os dois bancos de dados usados neste tutorial, clique no botão **Implantar no Azure**. Clicar no botão abre a folha **Implantar de um modelo**; crie um novo grupo de recursos e forneça a **Senha de Logon de Administrador** para o novo servidor que será criado:
+* **Servidor base e bancos de dados** para instalar e configurar um servidor e os dois bancos de dados usados neste guia de instruções, clique no botão **Implantar no Azure**. Clicar no botão abre a folha **Implantar de um modelo**; crie um novo grupo de recursos e forneça a **Senha de Logon de Administrador** para o novo servidor que será criado:
 
    [![download](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
    > [!NOTE]
-   > A conclusão do tutorial relacionado para a autenticação do SQL Server, [Autenticação, logons e contas de usuário, funções de banco de dados, permissões, regras de firewall de nível de servidor e regras de firewall de nível de banco de dados do SQL](sql-database-control-access-sql-authentication-get-started.md), é opcional. No entanto, há conceitos abordados nesse tutorial que não são repetidos aqui. Os procedimentos neste tutorial, relacionados a firewalls de nível de servidor e de banco de dados, não são necessários se você concluiu este tutorial relacionado nos mesmos computadores (com os mesmos endereços IP) e, por esse motivo, estão marcados como opcionais. Além disso, as capturas de tela neste tutorial pressupõem que você tenha concluído este tutorial relacionado. 
+   > A conclusão do guia de instrução relacionado para a autenticação do SQL Server, [Autenticação, logons e contas de usuário, funções de banco de dados, permissões, regras de firewall de nível de servidor e regras de firewall de nível de banco de dados do SQL](sql-database-control-access-sql-authentication-get-started.md), é opcional. No entanto, há conceitos abordados nesse guia de instruções que não são repetidos aqui. Os procedimentos neste guia de instruções, relacionados a firewalls de nível de servidor e de banco de dados, não são necessários se você concluiu este guia de instruções relacionado nos mesmos computadores (com os mesmos endereços IP) e, por esse motivo, estão marcados como opcionais. Além disso, as capturas de tela neste guia de instruções pressupõem que você tenha concluído este guia de instruções relacionado. 
    >
 
 * Você criou e populou um Azure Active Directory. Para obter mais informações, consulte [Integrando suas identidades locais no Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-add-domain.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Gerenciar o Azure AD usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) e [Portas e protocolos necessários para a identidade híbrida](../active-directory/active-directory-aadconnect-ports.md).
 
 > [!NOTE]
-> Este tutorial ajuda você a aprender o conteúdo destes tópicos de aprendizado: [Acesso e controle de banco de dados SQL](sql-database-control-access.md), [Logons, usuários e funções de banco de dados](sql-database-manage-logins.md), [Entidades](https://msdn.microsoft.com/library/ms181127.aspx), [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121.aspx), [Regras de firewall de banco de dados SQL](sql-database-firewall-configure.md) e [Autenticação do Azure Active Directory](sql-database-aad-authentication.md). 
+> Este guia de instruções ajuda você a aprender o conteúdo destes tópicos de aprendizado: [Acesso e controle de Banco de Dados SQL](sql-database-control-access.md), [Logons, usuários e funções de banco de dados](sql-database-manage-logins.md), [Entidades de segurança](https://msdn.microsoft.com/library/ms181127.aspx), [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121.aspx), [Regras de firewall de Banco de Dados SQL](sql-database-firewall-configure.md) e [Autenticação do Azure Active Directory](sql-database-aad-authentication.md). 
 >  
 
 ## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Entrar no portal do Azure usando sua conta do Azure
@@ -64,14 +64,9 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
 2. Entre no [Portal do Azure](https://portal.azure.com/).
 3. Na página **Entrar** , forneça as credenciais da sua assinatura.
    
-   ![Entrar](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
-
 ## <a name="provision-an-azure-active-directory-admin-for-your-sql-logical-server"></a>Provisionar um administrador do Azure Active Directory para seu servidor lógico do SQL
 
-Nesta seção do tutorial, você exibe informações sobre a configuração de segurança de seu servidor lógico no portal do Azure.
+Nesta seção do guia de instruções, você exibe informações sobre a configuração de segurança de seu servidor lógico no Portal do Azure.
 
 1. Abra a folha **SQL Server** do servidor lógico e exiba as informações na página **Visão geral**. Observe que não foi configurado um administrador do Azure Active Directory.
 
@@ -90,7 +85,7 @@ Nesta seção do tutorial, você exibe informações sobre a configuração de s
    ![Salvar a conta do administrador do AAD selecionada](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> Para examinar as informações de conexão desse servidor, vá para [Gerenciar servidores](sql-database-manage-servers-portal.md). Para esta série de tutoriais, o nome totalmente qualificado do servidor é 'sqldbtutorialserver.database.windows.net'.
+> Para examinar as informações de conexão desse servidor, acesse [Conectar com SSMS](sql-database-connect-query-ssms.md). Para esta série de guias de instruções, o nome totalmente qualificado do servidor é 'sqldbtutorialserver.database.windows.net'.
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Conectar-se ao SQL server usando o SSMS (SQL Server Management Studio)
@@ -112,7 +107,7 @@ Nesta seção do tutorial, você exibe informações sobre a configuração de s
    ![conectado ao servidor com o aad](./media/sql-database-control-access-aad-authentication-get-started/connected_to_server_with_aad.png)
 
 ## <a name="view-the-server-admin-account-and-its-permissions"></a>Exibir a conta do administrador de servidor e suas permissões 
-Nesta seção do tutorial, você exibe informações sobre a conta do administrador de servidor e suas permissões no banco de dados mestre e nos bancos de dados de usuário.
+Nesta seção do guia de instruções, você exibe informações sobre a conta do administrador servidor e suas permissões no banco de dados mestre e nos bancos de dados de usuário.
 
 1. No Pesquisador de Objetos, expanda **Bancos de dados**, expanda **Bancos de dados do sistema**, expanda **Mestre**, expanda **Segurança** e expanda **Usuários**. Observe que uma conta de usuário foi criada no banco de dados mestre para o administrador do Active Directory. Observe também que não foi criado um logon para a conta de usuário administrador do Active Directory.
 
@@ -193,10 +188,10 @@ Nesta seção do tutorial, você exibe informações sobre a conta do administra
 
 ## <a name="create-a-new-user-in-the-adventureworkslt-database-with-select-permissions"></a>Criar um novo usuário no banco de dados AdventureWorksLT com permissões SELECT
 
-Nesta seção do tutorial, você cria uma conta de usuário no banco de dados AdventureWorksLT com base em um UPN de um usuário do Azure AD ou nome de exibição de um grupo do Azure AD, testa as permissões desse usuário como membro da função pública, concede a ele permissões SELECT e testa as permissões desse usuário novamente.
+Nesta seção do guia de instruções, você cria uma conta de usuário no banco de dados AdventureWorksLT com base em um nome UPN de um usuário do Azure AD ou nome de exibição de um grupo do Azure AD, testa as permissões desse usuário como membro da função pública, concede a ele permissões SELECT e testa as permissões desse usuário novamente.
 
 > [!NOTE]
-> Os usuários de nível de banco de dados ([usuários contidos](https://msdn.microsoft.com/library/ff929188.aspx)) aumentam a portabilidade do banco de dados, um recurso que exploramos em tutoriais posteriores.
+> Os usuários de nível de banco de dados ([usuários contidos](https://msdn.microsoft.com/library/ff929188.aspx)) aumentam a portabilidade do banco de dados, uma funcionalidade que exploramos em guias de instruções posteriores.
 >
 
 1. No Pesquisador de Objetos, clique com o botão direito do mouse em **AdventureWorksLT** e clique em **Nova Consulta** para abrir uma janela de consulta conectada ao banco de dados AdventureWorksLT.
@@ -261,13 +256,13 @@ Nesta seção do tutorial, você cria uma conta de usuário no banco de dados Ad
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>Criar uma regra de firewall no nível de banco de dados para os usuários do banco de dados AdventureWorksLT
 
 > [!NOTE]
-> Você não precisa concluir este procedimento se concluiu o procedimento equivalente no tutorial relacionado da autenticação do SQL Server, [Autenticação e autorização do SQL](sql-database-control-access-sql-authentication-get-started.md), e está aprendendo usando o mesmo computador com o mesmo endereço IP.
+> Você não precisa concluir este procedimento se concluiu o procedimento equivalente no guia de instruções relacionado da autenticação do SQL Server, [Autenticação e autorização do SQL](sql-database-control-access-sql-authentication-get-started.md), e está aprendendo usando o mesmo computador com o mesmo endereço IP.
 >
 
-Nesta seção do tutorial, você tenta fazer logon usando a nova conta de usuário de um computador com um endereço IP diferente, criar uma regra de firewall no nível de banco de dados como o administrador do servidor e fazer logon com êxito usando a nova regra de firewall no nível de banco de dados. 
+Nesta seção do guia de instruções, você tenta fazer logon usando a nova conta de usuário de um computador com um endereço IP diferente, cria uma regra de firewall no nível de banco de dados como o administrador do servidor e faz logon com êxito usando a nova regra de firewall no nível de banco de dados. 
 
 > [!NOTE]
-> [Regras de firewall de nível de banco de dados](sql-database-firewall-configure.md) aumentam a portabilidade do banco de dados, um recurso que exploramos em tutoriais posteriores.
+> [Regras de firewall de nível de banco de dados](sql-database-firewall-configure.md) aumentam a portabilidade do banco de dados, uma funcionalidade que exploramos em tutoriais posteriores.
 >
 
 1. Em outro computador para o qual você ainda não criou uma regra de firewall de nível de servidor, abra o SQL Server Management Studio.
@@ -280,7 +275,7 @@ Nesta seção do tutorial, você tenta fazer logon usando a nova conta de usuár
     
    ![Conectar-se como aaduser1@microsoft.com sem firewall rule1](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
 
-3. Clique em **Opções** para especificar o banco de dados ao qual você deseja se conectar e digite **AdventureWorksLT** na caixa suspensa **Conectar-se ao Banco de Dados** na guia **Propriedades de Conexão**.
+3. Clique em **Opções**, na caixa de diálogo **Conectar ao servidor**, para especificar o banco de dados ao qual você deseja se conectar e digite **AdventureWorksLT** na caixa suspensa **Conectar-se ao Banco de Dados** na guia **Propriedades da Conexão**.
    
    ![Conectar-se como aaduser1 sem firewall rule2](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
 

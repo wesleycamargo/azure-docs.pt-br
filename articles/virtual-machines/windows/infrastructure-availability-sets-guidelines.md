@@ -17,9 +17,9 @@ ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7fad506f2b85404c0b8a2c52ca0d630efdd21387
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 2d146d3a3bd2497a6c1d9b2b924d2e2cd00710de
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -53,7 +53,7 @@ Ao projetar sua infraestrutura de aplicativos, planeje as camadas de aplicativo 
 
 Balanceadores de carga podem ser utilizados antes de cada camada de aplicativo para trabalhar junto com um conjunto de disponibilidade e certificar-se de que o tráfego sempre possa ser roteado para uma instância em execução. Sem um balanceador de carga, as VMs poderão continuar em execução durante eventos de manutenção planejada e não planejada, mas os usuários finais poderão não conseguir resolvê-los se a VM primária não estiver disponível.
 
-Ao usar discos não gerenciados, crie seu aplicativo para alta disponibilidade na camada de armazenamento. A prática recomendada é usar uma conta de armazenamento separada para cada VM em um Conjunto de Disponibilidade. Mantenha todos os discos (sistema operacional e dados) associados a uma VM na mesma conta de armazenamento. Considere os [limites](../../storage/storage-scalability-targets.md) da conta de armazenamento ao adicionar mais VHDs a uma conta de armazenamento. Para o [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), a distribuição dos discos subjacentes é feita para você.
+Projete o aplicativo para alta disponibilidade na camada de armazenamento. A prática recomendada é [usar o Managed Disks para VMs em um conjunto de disponibilidade](../windows/manage-availability.md#use-managed-disks-for-vms-in-availability-set). Se você estiver usando atualmente discos não gerenciados, será altamente recomendável [converter as VMs no conjunto de disponibilidade para usar o Managed Disks](../windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: f62c0ca57bfd15a9ad1f767fa8fd59cc73b71c43
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: f029b2dfaff372b3a8282d056ca52bd5d0893e64
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -28,7 +28,7 @@ Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode r
 
 Para mais informações, consulte [Visão geral de Hubs de Eventos][Event Hubs overview].
 
-Neste tutorial, você aprenderá a enviar eventos para um Hub de Eventos usando um aplicativo de console em C. Para receber eventos, clique na linguagem apropriada de recebimento no sumário à esquerda.
+Neste tutorial, você aprenderá a enviar eventos para um hub de eventos usando um aplicativo de console em C. Para receber eventos, clique na linguagem apropriada de recebimento no sumário à esquerda.
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -37,7 +37,7 @@ Para concluir este tutorial, você precisará do seguinte:
 * Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Enviar mensagens ao Hub de Eventos
-Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de eventos. Usaremos a biblioteca Proton AMQP do projeto [Apache Qpid](http://qpid.apache.org/). Isso é semelhante a usar Tópicos e Filas do Barramento de Serviço com AMQP por meio de C, como mostrado [aqui](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
+Nesta seção, escreveremos um aplicativo C para enviar eventos ao seu hub de eventos. Usaremos a biblioteca Proton AMQP do projeto [Apache Qpid](http://qpid.apache.org/). Isso é semelhante a usar Tópicos e Filas do Barramento de Serviço com AMQP por meio de C, como mostrado [aqui](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
 
 1. Na [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), clique no link **Instalação do Qpid Proton** e siga as instruções dependendo do ambiente.
 2. Para compilar a biblioteca Proton, instale os pacotes a seguir:
@@ -60,7 +60,7 @@ Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de 
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. No seu diretório de trabalho, crie um novo arquivo chamado **sender.c** com o seguinte conteúdo. Lembre-se de substituir o valor para o nome do Hub de Evento e o nome de namespace (o último é geralmente `{event hub name}-ns`). Você também deve substituir uma versão codificada em URL da chave para o **SendRule** criado anteriormente. Você pode codificar a URL [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. No seu diretório de trabalho, crie um novo arquivo chamado **sender.c** com o seguinte conteúdo. Lembre-se de substituir o valor do nome do hub de eventos e do nome de namespace (o último é geralmente `{event hub name}-ns`). Você também deve substituir uma versão codificada em URL da chave para o **SendRule** criado anteriormente. Você pode codificar a URL [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -155,7 +155,7 @@ Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
 <!-- Images. -->
