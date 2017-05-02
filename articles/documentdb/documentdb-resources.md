@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: ec64215bfa3b812cddbed290d343c2d99fb70257
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -408,7 +408,7 @@ O cancelamento do registro de uma UDF é feito simplesmente ao emitir um comando
 Embora os trechos acima mostrem o registro (POST), cancelamento do registro (PUT), leitura/lista (GET) e execução (POST) por meio do [SDK do JavaScript do DocumentDB](https://github.com/Azure/azure-documentdb-js), você também pode usar as [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou outros [SDKs do cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ## <a name="documents"></a>Documentos
-Você pode inserir, substituir, excluir, ler, enumerar e consultar documentos JSON arbitrários em uma coleção. O Banco de Dados de Documentos não exige nenhum esquema nem índices secundários a fim de oferecer suporte a consultas em relação a documentos em uma coleção. Por padrão, o tamanho máximo de um documento é de 2 MB.   
+Você pode inserir, substituir, excluir, ler, enumerar e consultar documentos JSON arbitrários em uma coleção. O Banco de Dados de Documentos não exige nenhum esquema nem índices secundários a fim de oferecer suporte a consultas em relação a documentos em uma coleção. O tamanho máximo de um documento é de 2 MB.   
 
 Sendo um verdadeiro serviço de banco de dados aberto, o Banco de Dados de Documentos não inverte nenhum tipo de dados especializado (p. ex., de data e hora) ou codificações específicas para documentos JSON. Observe que o Banco de Dados de Documentos não requer nenhuma convenção JSON especial para codificar os relacionamentos entre vários documentos; a sintaxe SQL do Banco de Dados de Documentos oferece operadores de consulta hierárquica e relacional bastante poderosos para consultar e projetar documentos sem nenhuma anotação especial ou necessidade de codificar relacionamentos entre documentos usando propriedades distintas.  
 

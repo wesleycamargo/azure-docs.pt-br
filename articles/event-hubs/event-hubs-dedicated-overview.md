@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 9c1756d2c2c4dd73c60a71b24bfb4606cab289ed
-ms.openlocfilehash: 8e718e74443e3d51dc54edaf667e34875bc67c5d
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fa0d49498db74ec81c98f3df9317d42cdd31ab46
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -55,7 +55,7 @@ Os seguintes benefícios estão disponíveis ao usar os Hubs de Eventos Dedicado
 * Sem manutenção – gerenciamos o balanceamento de carga, as atualizações do SO, os patches de segurança e o particionamento.
 * Preço mensal fixo.
 
-O recurso Hubs de Eventos Dedicados também remove algumas limitações de taxa de produtividade da oferta Standard. As TUs (unidades de produtividade) nas camadas Basic e Standard dão ao cliente 1000 eventos por segundo, ou 1 MBps de entrada por TU e duas vezes essa quantidade de saída. A oferta de escala Dedicada não tem restrições de contagens de eventos de entrada e saída. Esses limites são regidos apenas pela capacidade de processamento dos Hubs de Eventos adquiridos.
+O recurso Hubs de Eventos Dedicados também remove algumas limitações de taxa de produtividade da oferta Standard. As TUs (unidades de produtividade) nas camadas Basic e Standard dão ao cliente 1000 eventos por segundo, ou 1 MBps de entrada por TU e duas vezes essa quantidade de saída. A oferta de escala Dedicada não tem restrições de contagens de eventos de entrada e saída. Esses limites são regidos apenas pela capacidade de processamento dos hubs de eventos adquiridos.
 
 Este serviço destina-se aos usuários com maior telemetria e está disponível para clientes com contrato Enterprise.
 

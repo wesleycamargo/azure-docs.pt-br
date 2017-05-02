@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: 8db864801042170fcad947d5b40220eea9c1c307
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 35bf064fdf2a766b8f699bed5c32d30c6c4dcd3c
+ms.lasthandoff: 04/18/2017
 
 ---
 
-## <a name="receive-events-from-azure-event-hubs-using-apache-storm"></a>Receber eventos de Hubs de Eventos do Azure usando o Apache Storm
-[Apache Storm](https://storm.incubator.apache.org) é um sistema de computação distribuído em tempo real que simplifica o processamento confiável de fluxos de dados ilimitados. Esta seção mostra como usar um spout de Hubs de Eventos do Storm para receber eventos de Hubs de Eventos. Usando o Apache Storm, você pode dividir eventos em vários processos hospedados em nós diferentes. A integração de Hubs de Eventos com o Storm simplifica o consumo de eventos pela verificação de forma transparente de seu progresso usando a instalação de Zookeeper do Storm, gerenciando pontos de verificação persistentes e recebimentos paralelos de Hubs de Eventos.
+# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Receber eventos de Hubs de Eventos usando o Apache Storm
+[Apache Storm](https://storm.incubator.apache.org) é um sistema de computação distribuído em tempo real que simplifica o processamento confiável de fluxos de dados ilimitados. Esta seção mostra como usar um spout do Storm de Hubs de Eventos do Azure para receber eventos de Hubs de Eventos. Usando o Apache Storm, você pode dividir eventos em vários processos hospedados em nós diferentes. A integração de Hubs de Eventos com o Storm simplifica o consumo de eventos pela verificação de forma transparente de seu progresso usando a instalação de Zookeeper do Storm, gerenciando pontos de verificação persistentes e recebimentos paralelos de Hubs de Eventos.
 
 Para obter mais informações sobre padrões de recebimento de Hubs de Eventos, consulte [Visão geral de hubs de eventos][Event Hubs overview].
 
@@ -230,13 +231,13 @@ Este tutorial usa uma instalação do [HDInsight Storm][HDInsight Storm], que ac
     }
     ```
 
-    Essa classe cria um novo spout de Hubs de Eventos, usando as propriedades no arquivo de configuração para instanciá-lo. É importante observar que esse exemplo cria quantas tarefas spouts quanto o número de partições no Hub de Eventos, para usar o paralelismo máximo permitido por esse Hub de Eventos.
+    Essa classe cria um novo spout de Hubs de Eventos, usando as propriedades no arquivo de configuração para instanciá-lo. É importante observar que esse exemplo cria tantas tarefas spouts quanto o número de partições no hub de eventos, para usar o paralelismo máximo permitido por esse hub de eventos.
 
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
 <!-- Links -->
@@ -247,8 +248,4 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 <!-- Images -->
 
 [12]: ./media/event-hubs-get-started-receive-storm/create-storm1.png
-
-
-<!--HONumber=Feb17_HO1-->
-
 

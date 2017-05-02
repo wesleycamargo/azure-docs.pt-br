@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 04/16/2017
 ms.author: juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 5b8d989d950c17d867f30a6fa8a464a8750e2303
-ms.openlocfilehash: 98922addf7aa8bfc77033be29bf137b362378661
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 2600c5cec36a8a44a85a62d6672d6ae57343f20c
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -92,7 +92,7 @@ A etapa **Analisar** do fluxo de trabalho de duas etapas utiliza uma entrada de 
           ]
         },
 
-… truncado
+    … truncated
 
 ### <a name="redact-mode"></a>Modo Edição
 A segunda etapa do fluxo de trabalho tem um grande número de entradas que precisam ser combinadas em um único ativo.
@@ -104,7 +104,7 @@ O resultado da etapa Analisar não inclui o vídeo original. O vídeo precisa se
 | Estágio | Nome do Arquivo | Observações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4. O mesmo vídeo da etapa 1. |
-| Ativo de entrada |foo_annotations.json |arquivo de metadados de anotações da fase&1;, com modificações opcionais. |
+| Ativo de entrada |foo_annotations.json |arquivo de metadados de anotações da fase 1, com modificações opcionais. |
 | Ativo de entrada |foo_IDList.txt (opcional) |Nova lista opcional separada por linhas de IDs de rostos para editar. Se deixado em branco, todas as faces são desfocadas. |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'redact'}} |
 | Ativo de saída |foo_redacted.mp4 |Vídeo com desfoque aplicado com base nas anotações |
@@ -114,6 +114,12 @@ O resultado da etapa Analisar não inclui o vídeo original. O vídeo precisa se
 
 [veja este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
+foo_IDList.txt de exemplo
+ 
+     1
+     2
+     3
+ 
 ## <a name="attribute-descriptions"></a>Descrições de atributos
 O MP de edição fornece detecção facial e acompanhamento de alta precisão local de até 64 rostos humanos em um quadro de vídeo. Faces frontais fornecem os melhores resultados, enquanto as faces laterais e faces pequenas (menores ou iguais a 24x24 pixels) têm resultados menos precisos.
 

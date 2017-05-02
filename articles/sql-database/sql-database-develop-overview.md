@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 338fa476377e9ff04c9a1f4e585f790b92a59f87
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure.
 
 > [!TIP]
-> Para obter um tutorial que mostra como criar um servidor, criar um firewall baseado em servidor, exibir propriedades do servidor, conectar-se usando o SQL Server Management Studio, consultar o banco de dados mestre, criar um banco de dados de exemplo e um banco de dados em branco, consultar propriedades de banco de dados, conectar-se usando o SQL Server Management Studio e consultar o banco de dados de exemplo, confira [Tutorial de Introdução](sql-database-get-started.md).
+> Para obter um tutorial que mostra como criar um servidor, criar um firewall baseado em servidor, exibir propriedades do servidor, conectar-se usando o SQL Server Management Studio, consultar o banco de dados mestre, criar um banco de dados de exemplo e um banco de dados em branco, consultar propriedades de banco de dados, conectar-se usando o SQL Server Management Studio e consultar o banco de dados de exemplo, confira [Tutorial de Introdução](sql-database-get-started-portal.md).
 >
 
 ## <a name="language-and-platform"></a>Linguagem e plataforma
@@ -64,8 +65,8 @@ Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu có
 
 ## <a name="network-considerations"></a>Considerações de rede
 * No computador que hospeda o programa cliente, certifique-se de que o firewall permite comunicação TCP de saída na porta 1433.  Mais informações: [Configurar um firewall de Banco de Dados SQL do Azure](sql-database-configure-firewall-settings.md)
-* Se o seu programa cliente se conectar ao Banco de Dados SQL V12 enquanto seu cliente estiver em execução em uma VM (máquina virtual) do Azure, será necessário abrir determinados intervalos de porta na VM. Mais informações: [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Às vezes, as conexões de cliente para o Banco de Dados SQL do Azure V12 ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes. Mais informações: [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Se o programa cliente se conectar ao Banco de Dados SQL enquanto seu cliente estiver em execução em uma VM (máquina virtual) do Azure, será necessário abrir determinados intervalos de porta na VM. Mais informações: [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Às vezes, as conexões de cliente para o Banco de Dados SQL do Azure ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes. Mais informações: [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## <a name="data-sharding-with-elastic-scale"></a>Fragmentação de dados com a escala elástica
 A escala elástica simplifica o processo de escalar horizontalmente (e de reduzir horizontalmente). 
@@ -76,9 +77,4 @@ A escala elástica simplifica o processo de escalar horizontalmente (e de reduzi
 
 ## <a name="next-steps"></a>Próximas etapas
 Explore todos os [recursos do Banco de Dados SQL](sql-database-technical-overview.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

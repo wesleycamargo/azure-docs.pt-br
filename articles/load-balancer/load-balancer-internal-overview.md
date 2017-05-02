@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 47869775365ea517b94cbd5a2eb83c93f4d2b4df
-ms.openlocfilehash: 17b7337ddcfa2671bb3a035de8462e31bfa0c85f
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -72,6 +72,10 @@ Outro cenário para LOB é ter uma VPN site a site para a rede virtual na qual o
 ![Balanceamento de carga interno usando VPN site a site](./media/load-balancer-internal-overview/IC744150.png)
 
 Figura 4 – Tráfego de rede local roteado para o ponto de extremidade ILB
+
+## <a name="limitations"></a>Limitações
+
+As configurações do Balanceador de Carga Interno não dão suporte a SNAT. No contexto deste documento, SNAT refere-se à conversão de endereços de rede de origem simulada de porta.  Isso se aplica a cenários em que a VM em um pool de balanceador de carga precisa alcançar o endereço IP de front-end do respectivo balanceador de carga interno. Não há suporte para cenário no balanceador de carga interno. Falhas de conexão ocorrerão quando a carga do fluxo for balanceada para a VM que originou o fluxo. Você deve usar um balanceador de carga de estilo de proxy para esses cenários.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 052785aa225086e55a40c061765770b9eebaa154
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 9ac43f4ac0a58ae3326c63ab53259d7621577d34
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -48,7 +48,9 @@ Você adiciona uma VM a um laboratório por meio de uma *base* que é uma [image
 1. Selecione **Tamanho da máquina virtual** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
 1. Selecione **Artefatos** e, na lista de artefatos, selecione e configure os artefatos que você deseja adicionar à imagem base.
     **Observação:** se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, veja a seção [Adicionar um artefato existente a uma VM](./devtest-lab-add-vm-with-artifacts.md#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
-1. Selecione **Configurações avançadas** para configurar as opções de expiração e as opções de rede da VM.
+1. Selecione **Configurações avançadas** para configurar as opções de expiração e as opções de rede da VM. 
+
+   Para definir uma opção de expiração, escolha o ícone de calendário para especificar uma data em que a VM será excluída automaticamente.  Por padrão, a VM nunca expirará. 
 1. Se quiser exibir ou copiar o modelo do Azure Resource Manager, veja a seção [Salvar modelo do Azure Resource Manager](./devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) e retorne para cá quando terminar.
 1. Selecione **Criar** para adicionar a VM especificada ao laboratório.
 1. A folha do laboratório exibe o status da criação da VM; primeiro como **Criando** e como **Executando** após a inicialização da VM.

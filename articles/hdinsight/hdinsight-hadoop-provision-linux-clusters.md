@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 1b7772fbf719013d82e5baed1bbbf229d6f2946c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -41,7 +41,7 @@ Atualmente, o Azure HDInsight fornece cinco tipos diferentes de clusters, cada u
 | [Storm](hdinsight-storm-overview.md) |Processamento de eventos em tempo real |
 | [Spark](hdinsight-apache-spark-overview.md) |Processamento na memória, consultas interativas, processamento de transmissão de microlotes |
 | [Hive Interativo (Visualização)](hdinsight-hadoop-use-interactive-hive.md) |Caching na memória para consultas de Hive interativas e mais rápidas |
-| [R Server no Spark (Visualização)](hdinsight-hadoop-r-server-overview.md) |Uma variedade de recursos de estatísticas de Big Data, modelagem preditiva e aprendizado de máquina |
+| [R Server no Spark](hdinsight-hadoop-r-server-overview.md) |Uma variedade de recursos de estatísticas de Big Data, modelagem preditiva e aprendizado de máquina |
 | [Kafka (Visualização)](hdinsight-apache-kafka-introduction.md) | Uma plataforma de streaming distribuída que pode ser usada para compilar pipelines e aplicativos de dados de streaming em tempo real |
 
 Cada tipo de cluster tem seu próprio número de nós, terminologia para nós no cluster, bem como o tamanho da VM padrão para cada tipo de nó. Na tabela a seguir, o número de nós para cada tipo de nó está entre parênteses.
@@ -237,7 +237,7 @@ No modelo de implantação clássica, alguns tamanhos de VM são ligeiramente di
 | Standard_D13_v2 |8 |56 GB |8 |Temporário (SSD) =400 GB |16 |16 x 500 |
 | Standard_D14_v2 |16 |112 GB |8 |Temporário (SSD) =800 GB |32 |32 x 500 |
 
-Para obter as considerações de implantação a serem observadas ao planejar o uso desses recursos, confira [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para obter informações sobre os preços dos vários tamanhos, confira [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
+Para obter as considerações de implantação a serem observadas ao planejar o uso desses recursos, confira [Tamanhos para máquinas virtuais](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para obter informações sobre os preços dos vários tamanhos, confira [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
 > [!IMPORTANT]
 > Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, será preciso escolher um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM.
@@ -252,6 +252,9 @@ Em alguns casos, você pode adicionar mais armazenamento ao cluster. Por exemplo
 Você pode adicionar contas de armazenamento ao criar um cluster do HDInsight ou depois de um cluster ter sido criado.  Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Para saber mais sobre a conta do Azure Storage secundária, confira [Uso do Azure Storage com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para saber mais sobre repositórios Data Lake secundários, veja [Criar clusters HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+> [!WARNING]
+> Não há suporte para o uso de uma conta de armazenamento adicional em um local diferente do cluster HDInsight.
 
 ## <a name="use-hiveoozie-metastore"></a>Usar o Hive/Oozie metastore
 Recomendamos que você use um metastore personalizado se quiser manter suas tabelas Hive depois de excluir o cluster HDInsight. Você poderá anexar esse metastore a outro cluster HDInsight.

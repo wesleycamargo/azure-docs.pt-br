@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 389c01234acff068dc90f3cdfdc4916a9d76d244
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 1937462eef4647b273dfa029c8f18c80d3443ae8
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -50,7 +50,7 @@ A integração entre o SCOM e o Mapa do Serviço é habilitada através da impor
 
     ![Assistente de Configuração do SCOM](media/oms-service-map/scom-configuration.png)
 
-3. A primeira etapa no assistente é a Configuração de Conexão onde você insere as informações para a Entidade de Serviço do Azure. Insira a ID ou nome de Locatário, ID do Aplicativo (ou Nome de Usuário ou ClientID) e a Senha da Entidade de Serviço.  [Mais informações sobre como criar uma Entidade de Serviço](#creating-a-service-principal).
+3. A primeira etapa no assistente é a Configuração de Conexão onde você insere as informações para a Entidade de Serviço do Azure. Insira a ID ou o nome de Locatário, a ID do Aplicativo (também conhecida como Nome de Usuário ou ClientID) e a Senha da Entidade de Serviço.  [Mais informações sobre como criar uma Entidade de Serviço](#creating-a-service-principal).
 
     ![SPN da Configuração do SCOM](media/oms-service-map/scom-config-spn.png)
 
@@ -77,8 +77,8 @@ Quando o espaço de trabalho do OMS for conectado, uma nova pasta Mapa do Servi�
 ![Monitoramento do SCOM](media/oms-service-map/scom-monitoring.png)
 
 A pasta do Mapa do Serviço tem três nós:
-### <a name="all-alerts"></a>Todos os Alertas:
-Exibe todos os alertas sobre a comunicação entre as soluções SCOM e Mapa do Serviço no OMS.
+### <a name="active-alerts"></a>Alertas ativos:
+Exibe todos os alertas ativos sobre a comunicação entre as soluções SCOM e Mapa do Serviço no OMS.
 
 **Observação:** esses não são alertas do OMS que estão sendo exibidos no SCOM.
 ### <a name="servers"></a>Servidores:

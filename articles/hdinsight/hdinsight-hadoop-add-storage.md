@@ -16,9 +16,9 @@ ms.date: 02/23/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0bd6fce848c6d174eb519f8ef8a14f9ead5fa5ce
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -52,7 +52,7 @@ Durante o processamento, o script executa as ações a seguir:
 * Para e reinicia os serviços Oozie, YARN, MapReduce2 e HDFS, para que eles obtenham as novas informações da conta de armazenamento.
 
 > [!WARNING]
-> Se a conta de armazenamento estiver em uma região diferente do cluster do HDInsight, você poderá enfrentar um desempenho ruim. O acesso a dados em uma região diferente envia o tráfego de rede para fora do data center regional do Azure e para a internet pública, o que pode introduzir latência. Além disso, o envio de dados para fora de um data center regional pode custar mais, pois uma cobrança de saída será aplicada quando os dados deixarem um data center.
+> Não há suporte para o uso de uma conta de armazenamento em um local diferente do cluster HDInsight.
 
 ## <a name="the-script"></a>O script
 

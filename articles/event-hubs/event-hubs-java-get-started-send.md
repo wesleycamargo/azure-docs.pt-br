@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: feb466064f2e26a329977240eeafb28148bdf212
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fe10aaca3232e5baa0b726b7262a6e9e8ce6b638
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -27,7 +28,7 @@ Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode r
 
 Para obter mais informações, veja [Visão Geral dos Hubs de Eventos][Event Hubs overview].
 
-Este tutorial mostra como enviar eventos para um Hub de Eventos usando um aplicativo de console em Java. Para receber eventos usando a biblioteca do Host de processador de eventos do Java, veja [neste artigo](event-hubs-java-get-started-receive-eph.md), ou clique no idioma apropriado de recebimento no sumário à esquerda.
+Este tutorial mostra como enviar eventos para um hub de eventos usando um aplicativo de console em Java. Para receber eventos usando a biblioteca do Host de processador de eventos do Java, veja [neste artigo](event-hubs-java-get-started-receive-eph.md), ou clique no idioma apropriado de recebimento no sumário à esquerda.
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -68,7 +69,7 @@ public class Send
     {
 ```
 
-Substitua o namespace e os nomes do Hub de Eventos pelos valores usados durante a criação do Hub de Eventos.
+Substitua o namespace e os nomes do hub de eventos pelos valores usados durante a criação do hub de eventos.
 
 ``` Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
@@ -100,10 +101,5 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Receber eventos usando o EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

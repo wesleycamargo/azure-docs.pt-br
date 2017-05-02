@@ -8,16 +8,16 @@ manager: timlt
 editor: 
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 48abd505b0c8c7b5ef6c6fbf58c45275a82b2da3
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 94bcd9543f231b11930962a0dc86a8ead13ad968
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -25,9 +25,6 @@ ms.lasthandoff: 04/03/2017
 Você pode criar uma VM (máquina virtual) no Azure que tenha várias NICs (interfaces de rede virtual) anexadas a ela. Um cenário comum seria ter sub-redes diferentes para conectividade de front-end e de back-end ou uma rede dedicada a uma solução de monitoramento ou de backup. Este artigo fornece comandos rápidos para criar uma VM com várias NICs anexadas a ela. Para obter informações detalhadas, incluindo como criar várias NICs dentro de seus próprios scripts Bash, leia mais sobre a [implantação de VMs com várias NICs](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Diferentes [tamanhos de VM](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
 
 Este artigo fornece detalhes sobre como criar uma VM com várias NICs com a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-> [!WARNING]
-> Você deverá anexar várias NICs quando criar a VM – não é possível adicionar NICs a uma VM existente. Você pode [criar uma VM com base nos discos virtuais originais](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e criar várias NICs conforme implantar a VM.
 
 
 ## <a name="create-supporting-resources"></a>Criar recursos de suporte
@@ -113,8 +110,4 @@ Você também pode usar um `copyIndex()` para acrescentar um número a um nome d
 Você pode ler um exemplo completo em [Criando várias NICs usando modelos do Gerenciador de Recursos](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Certifique-se de rever os [Tamanhos de VM Linux](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ao tentar criar uma VM com várias NICs. Preste atenção ao número máximo de NICs a que cada VM dá suporte. 
-
-Lembre-se de que você não pode adicionar mais NICs a uma VM existente; você deve criar todas as NICs quando implantar a VM. Tome cuidado ao planejar suas implantações para certificar-se de que tenha toda a conectividade de rede necessária desde o início.
-
-
+Examine [Tamanhos de VM Linux](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ao tentar criar uma VM com várias NICs. Preste atenção ao número máximo de NICs a que cada VM dá suporte. 

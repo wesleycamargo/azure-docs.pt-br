@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 271eca35ad18725306410d1e8b81bdf06712db1f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 4a9a315f5b03e0fb5424713a3ff3757d928ba150
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager
-Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace tipo Hubs de Eventos com um Hub de Eventos e um grupo de consumidores. O artigo mostra como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Criar um namespace de Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager
+Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace do tipo Hubs de Eventos com um Hub de Eventos e um grupo de consumidores. O artigo mostra como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
 
 Para saber mais sobre a criação de modelos, veja [Criando modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Para ver o modelo completo, veja o [Modelo de grupo de consumo e do Hub de Eventos][Event Hub and consumer group template] no GitHub.
+Para ver o modelo completo, consulte o [Modelo de hub de eventos e grupo de consumidores][Event Hub and consumer group template] no GitHub.
 
 > [!NOTE]
 > Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e procure por Hubs de Eventos.
@@ -34,7 +34,7 @@ Para ver o modelo completo, veja o [Modelo de grupo de consumo e do Hub de Event
 > 
 
 ## <a name="what-will-you-deploy"></a>O que você implantará?
-Com este modelo, você implantará um namespace Hubs de Evento com um Hub de Evento e grupo de consumidores.
+Com este modelo, você implantará um namespace Hubs de Evento com um hub de eventos e um grupo de consumidores.
 
 [Hubs de Eventos](event-hubs-what-is-event-hubs.md) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade.
 
@@ -57,7 +57,7 @@ O nome do namespace Hubs de Evento a criar.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-O nome do Hub de Evento criado no namespace Hubs de Evento.
+O nome do hub de eventos criado no namespace Hubs de Eventos.
 
 ```json
 "eventHubName": {
@@ -66,7 +66,7 @@ O nome do Hub de Evento criado no namespace Hubs de Evento.
 ```
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
-O nome do grupo de consumo criado para o Hub de Evento.
+O nome do grupo de consumidores criado para o hub de eventos.
 
 ```json
 "eventHubConsumerGroupName": {
@@ -84,7 +84,7 @@ A versão da API do modelo.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos a implantar
-Cria um namespace do tipo **Hubs de Eventos**, com um Hub de Eventos e um grupo de consumo.
+Cria um namespace do tipo **EventHubs**, com um hub de eventos e um grupo de consumidores.
 
 ```json
 "resources":[  
@@ -146,12 +146,12 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
+[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
