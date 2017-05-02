@@ -136,7 +136,7 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 |"@@"|Uma cadeia de caracteres de 1 caractere que contém '@' será retornada.|  
 |" @"|Uma cadeia de caracteres de 2 caracteres que contém ' @' será retornada.|  
   
-Com *interpolação de cadeia de caracteres*, as expressões também podem aparecer dentro de cadeias de caracteres onde as expressões são encapsuladas em `@{ ... }`. Por exemplo: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`
+Com *interpolação de cadeia de caracteres*, as expressões também podem aparecer dentro de cadeias de caracteres onde as expressões são encapsuladas em `@{ ... }`. Por exemplo: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 O resultado é sempre uma cadeia de caracteres, o que torna esse recurso semelhante à função `concat`. Suponha que você definiu `myNumber` como `42` e `myString` como `sampleString`:  
   
