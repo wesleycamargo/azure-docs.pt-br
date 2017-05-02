@@ -75,7 +75,7 @@ As etapas a seguir mostram como personalizar o Swashbuckle usando o arquivo *Swa
                 }
             }
         }
-2. No arquivo *App_Start\SwaggerConfig.cs`IOperationFilter`, chamar o método * faz com que o Swashbuckle use a nova implementação de `OperationFilter`.
+2. No arquivo *App_Start\SwaggerConfig.cs`IOperationFilter`, chamar o método* faz com que o Swashbuckle use a nova implementação de `OperationFilter`.
    
         c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
    

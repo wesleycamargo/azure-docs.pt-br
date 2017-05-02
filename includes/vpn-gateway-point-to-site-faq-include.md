@@ -35,7 +35,3 @@ Sim, isso é possível. Porém, as redes virtuais não podem ter prefixos IP sob
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Quanta taxa de transferência posso esperar por meio de conexões site a site ou ponto a site?
 É difícil manter a taxa de transferência exata dos túneis de VPN. IPsec e SSTP são protocolos VPN de criptografia pesada. A taxa de transferência também é limitada pela latência e pela largura de banda entre seus locais e na Internet.
-
-<!--HONumber=Feb17_HO3-->
-
-
