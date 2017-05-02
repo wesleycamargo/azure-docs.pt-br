@@ -143,7 +143,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>Criar um registro SRV
 
-Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o * \_serviço* e o * \_protocolo* no nome do conjunto de registros. Não é necessário incluir “@” no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
+Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o *\_serviço* e o * \_protocolo* no nome do conjunto de registros. Não é necessário incluir “@” no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
 
 ```azurecli
 az network dns record srv add --resource-group myresourcegroup --zone-name contoso.com --record-set-name "_sip.tls" --priority 10 --weight 5 --port 8080 --target "sip.contoso.com"

@@ -34,7 +34,7 @@ Este artigo explica como alterar as configurações de um grupo na visualizaçã
 
    ![Abrir a folha de grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.
-5. Na folha **Grupo - *nomedogrupo***, escolha **Propriedades**.
+5. Na folha **Grupo -*nomedogrupo***, escolha **Propriedades**.
 
    ![Abrir a folha Propriedades](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Quando terminar de alterar as propriedades do grupo, escolha **Salvar**.    

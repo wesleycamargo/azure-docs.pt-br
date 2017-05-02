@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 1206d7444f32216597a6f546c71131b2de0ec3f8
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -25,6 +26,8 @@ ms.openlocfilehash: 1206d7444f32216597a6f546c71131b2de0ec3f8
 As etapas neste artigo o orientarão ao longo da configuração de uma rede virtual e de um gateway de rede virtual para uso com ExpressRoute usando o modelo de implantação clássico e o portal clássico.
 
 Se estiver procurando instruções sobre o modelo de implantação do Gerenciador de Recursos, você poderá usar os seguintes artigos: [Criar uma rede virtual usando o PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) e [Adicionar um Gateway de VPN para uma VNet do Gerenciador de Recursos para a ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **Sobre modelos de implantação do Azure**
 
@@ -57,13 +60,13 @@ As etapas a seguir criam uma VNet clássica e um gateway de rede virtual. Se voc
    * **Adicionar sub-rede de gateway** - clique para adicionar a sub-rede de gateway. A sub-rede de gateway é usada apenas para o gateway de rede virtual e é obrigatória para essa configuração.<BR>O CIDR da sub-rede de gateway (contagem de endereços) para a Rota Expressa deve ser /28 ou maior (/27, /26, etc.). Isso permite endereços IP suficientes nessa sub-rede para que a configuração funcione. No portal clássico, se você tiver marcado a caixa de seleção para usar a ExpressRoute, o portal especificará uma sub-rede de gateway com /28.  Você não pode ajustar a contagem de endereços CIDR no portal clássico. A sub-rede de gateway será exibida como **Gateway** no portal clássico, embora o nome real da sub-rede de gateway que é criada seja de fato **GatewaySubnet**. Você pode exibir esse nome usando o PowerShell ou no portal do Azure.
 7. Clique na marca de seleção na parte inferior da página e sua rede virtual começará a ser criada. Quando ela for concluída, você verá **Criada** listada em **Status** na página **Redes** no portal clássico.
 
-## <a name="a-namegwacreate-the-gateway"></a><a name="gw"></a>Criar o gateway
+## <a name="gw"></a>Criar o gateway
 1. Na página **Redes**, clique na rede virtual que você acabou de criar e em **Painel**, na parte superior da página.
 2. Na parte inferior da página **Painel**, clique em **Criar Gateway** e escolha **Roteamento Dinâmico**. Clique em **Sim** para confirmar que deseja criar um gateway.
 3. Quando a criação do gateway for iniciada, você verá uma mensagem informando que o gateway foi iniciado. Pode levar até 45 minutos para que o gateway seja criado.
 4. Vincule sua rede a um circuito. Siga as instruções no artigo [Como vincular VNets a circuitos de Rota Expressa](expressroute-howto-linkvnet-classic.md).
 
-## <a name="a-nameconfigaconfigure-an-existing-classic-vnet-for-expressroute"></a><a name="config"></a>Configurar uma rede virtual clássica existente para a Rota Expressa
+## <a name="config"></a>Configurar uma rede virtual clássica existente para a Rota Expressa
 Se já tiver uma rede virtual clássica, você poderá configurá-la para se conectar à Rota Expressa no portal clássico. As configurações são as mesmas das seções acima. Sendo assim, leia essas seções para se familiarizar com as configurações necessárias. Se quiser criar uma conexão coexistente de ExpressRoute/Site a Site, confira [este artigo](expressroute-howto-coexist-classic.md) para conhecer as etapas. Elas são diferentes das etapas neste artigo.
 
 1. Você precisa criar a rede local antes de atualizar o restante das configurações de rede virtual. Para criar uma nova rede local, que é necessária ao configurar a ExpressRoute por meio do portal clássico, clique em **Novo** **>** **Serviços de Rede** **>** **Rede Virtual** **>** **Adicionar rede local**. Siga as etapas do assistente para criar a rede local.
@@ -73,10 +76,5 @@ Se já tiver uma rede virtual clássica, você poderá configurá-la para se con
 ## <a name="next-steps"></a>Próximas etapas
 * Se quiser adicionar máquinas virtuais à sua rede virtual, consulte [Roteiros de aprendizado sobre máquinas virtuais](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
 * Se quiser saber mais sobre a Rota Expressa, confira a [Visão geral da Rota Expressa](expressroute-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
