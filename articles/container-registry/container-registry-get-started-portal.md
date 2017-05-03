@@ -49,12 +49,11 @@ Para obter mais informações e conceitos, confira a [visão geral](container-re
 
     d. **Usuário administrador**: se desejar, habilite um usuário administrador para acessar o registro. Você pode alterar essa configuração após a criação do registro.
 
-    > [!IMPORTANT]
-    > Além de fornecer acesso por meio de uma conta de usuário administrador, registros de contêiner dão suporte à autenticação com o apoio de entidades de serviço do Azure Active Directory. Para obter mais informações e considerações, confira [Autenticar em um registro de contêiner](container-registry-authentication.md).
-
+      > [!IMPORTANT]
+      > Além de fornecer acesso por meio de uma conta de usuário administrador, registros de contêiner dão suporte à autenticação com o apoio de entidades de serviço do Azure Active Directory. Para obter mais informações e considerações, confira [Autenticar em um registro de contêiner](container-registry-authentication.md).
+      >
 
     e. **Conta de armazenamento**: use a configuração padrão para criar uma [conta de armazenamento](../storage/storage-introduction.md) ou selecione uma conta de armazenamento existente no mesmo local. Atualmente, não há suporte para o Armazenamento Premium.
-
 
 ## <a name="manage-registry-settings"></a>Gerenciar configurações do registro
 Depois de criar o registro, localize as configurações do Registro, iniciando na folha **Registros de Contêiner** no portal. Por exemplo, talvez você precise das configurações para fazer logon em seu registro ou precise habilitar ou desabilitar o usuário administrador.

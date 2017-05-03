@@ -262,8 +262,8 @@ Para alterar a regra criada acima para permitir o tráfego de entrada apenas da 
     -Protocol Tcp `
     -Direction Inbound `
     -Priority 102 `
-    -SourceAddressPrefix * `
-    -SourcePortRange Internet `
+    -SourceAddressPrefix Internet `
+    -SourcePortRange * `
     -DestinationAddressPrefix * `
     -DestinationPortRange 443
     ```
