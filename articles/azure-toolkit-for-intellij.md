@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: d58166140c5de03462df07ea6ea83eb78ffa54ba
-ms.openlocfilehash: 623ec422684fc881cc94d247756e006d4d5dc53a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 4bf61f938f0939fe26257359930a194c3a194858
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -35,25 +36,28 @@ Os artigos a seguir o ajudarão a começar a usar o Kit de Ferramentas do Azure 
 
 * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
 * [Instalação do Kit de Ferramentas do Azure para IntelliJ]
+* [Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]
 * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
 
 ## <a name="using-the-azure-toolkit-for-intellij"></a>Como usar o Kit de Ferramentas do Azure para IntelliJ
 Os artigos a seguir demonstram o uso do Kit de ferramentas do Azure para IntelliJ para adicionar a funcionalidade do Azure a seus projetos Java:
 
-* [Depurar um aplicativo Web Java no Azure no IntelliJ]
+<!-- * [Debug a Java Web App on Azure in IntelliJ] -->
 * [Usar o plug-in Ferramentas do HDInsight para IntelliJ IDEA para criar aplicativos Spark para um cluster HDInsight Spark Linux][HDInsight Tools Plugin for IntelliJ]
 
 ## <a name="see-also"></a>Consulte também
 Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
 
 * [Kit de ferramentas do Azure para Eclipse]
+  * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
   * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
   * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
-  * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
+  * [Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]
 * *Kit de ferramentas do Azure para o IntelliJ (Este artigo)*
+  * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
   * [Instalação do Kit de Ferramentas do Azure para IntelliJ]
   * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
-  * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
+  * [Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]
 
 Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolvedores Java do Azure] e as [Ferramentas Java para Visual Studio Team Services].
 
@@ -65,17 +69,14 @@ Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolv
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Novidades no Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/
 [Ferramentas Java para Visual Studio Team Services]: https://java.visualstudio.com/
 
-[Depurar um aplicativo Web Java no Azure no IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
+<!-- [Debug a Java Web App on Azure in IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md -->
 [HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: cd734c64ba6d1394cb261bace92dee9dd579dd08
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ As páginas de propriedade a seguir estão disponíveis para funções do Azure.
 * [Propriedades de caching](#caching_properties)
 * [Propriedades de certificados](#certificates_properties)
 * [Propriedades de componentes](#components_properties)
-* [Propriedades de depuração](#debugging_properties)
+<!-- * [Debugging properties](#debugging_properties) -->
 * [Propriedades de pontos de extremidade](#endpoints_properties)
 * [Propriedades de variáveis do ambiente](#environment_variables_properties)
 * [Propriedades de balanceamento de carga/afinidade (também conhecidas como "sessões temporárias")](#session_affinity_properties)
@@ -174,14 +175,14 @@ Os componentes são processados na ordem listada. Use os botões **Mover para Ci
 > 
 > 
 
-<a name="debugging_properties"></a> 
+<!-- <a name="debugging_properties"></a> -->
 
-### <a name="debugging-properties"></a>Propriedades de depuração
-Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Depuração**. Nessa caixa de diálogo, você pode habilitar ou desabilitar a depuração remota, bem como criar configurações de depuração, conforme mostra a imagem a seguir.
+<!-- ### Debugging properties -->
+<!-- Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image. -->
 
-![][ic719504]
+<!-- ![][ic719504] -->
 
-Para saber mais sobre depuração, veja [Depuração de aplicativos do Azure no Eclipse][Debugging Azure Applications in Eclipse].
+<!-- For related information about debugging, see [Debugging Azure Applications in Eclipse][Debugging Azure Applications in Eclipse]. -->
 
 <a name="endpoints_properties"></a> 
 
@@ -198,7 +199,7 @@ Insira um nome para o ponto de extremidade, selecione o tipo (**Input**, **Inter
 
 Dependendo do tipo de ponto de extremidade, você pode usar os intervalos de porta da seguinte maneira:
 
-* Para um ponto de extremidade de instância de entrada, a porta pública pode ser um intervalo de portas (por exemplo **2000 a&2010;**) e a porta privada ser um valor fixo.
+* Para um ponto de extremidade de instância de entrada, a porta pública pode ser um intervalo de portas (por exemplo **2000 a 2010**) e a porta privada ser um valor fixo.
 * Para um ponto de extremidade interno, a porta pública não é usada, e a porta privada pode ser um intervalo, pode ser deixada em branco ou ser definida como um asterisco, a fim de indicar que ela será definida automaticamente pelo Azure.
 * Para pontos de extremidade de entrada, a porta pública pode ser apenas um valor fixo e a porta privada pode ser um valor fixo, pode ser deixada em branco ou ser definida como um asterisco, a fim de indicar que ela será definida automaticamente pelo Azure.
 
@@ -206,13 +207,13 @@ Se você quiser usar um único número de porta em vez de um intervalo, deixe a 
 
 Para as portas definidas como automáticas, se você precisar determinar a porta que será realmente usada durante a execução, seu aplicativo poderá usar a API de Tempo de Execução do Serviço do Azure, documentada no resumo de pacote [com.microsoft.windowsazure.serviceruntime][com.microsoft.windowsazure.serviceruntime package summary].
 
-Para ver como os pontos de extremidade de entrada de instância podem ser usados para ajudar na depuração de uma implantação com várias instâncias, veja [Depuração de uma instância de função específica em uma implantação com várias instâncias][Debugging a specific role instance in a multi-instance deployment].
+<!-- To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment]. -->
 
 Para modificar um ponto de extremidade, selecione o ponto de extremidade e clique no botão **Editar** na página de propriedades de **Pontos de extremidade**. Uma caixa de diálogo será aberta permitindo que você modifique o nome, tipo e as portas públicas e privadas do ponto de extremidade. Pressione **OK** para salvar os novos valores de ponto de extremidade modificados.
 
 Para excluir um ponto de extremidade, escolha o ponto de extremidade, clique no botão **Remover** na página de propriedades de **Pontos de extremidade** e clique em **Sim** para confirmar a exclusão.
 
-Para configurar corretamente alguns dos recursos (como Caching, Depuração Remota, Afinidade de Sessão ou Descarregamento de SSL) habilitados pelo usuário em uma função, o kit de ferramentas pode configurar automaticamente os pontos de extremidade especiais que serão listados juntamente com os pontos de extremidade definidos pelo usuário. O kit de ferramentas impede que o usuário edite ou exclua esses pontos de extremidade gerados automaticamente, desde que o recurso associado esteja habilitado.
+Para configurar corretamente algumas das funcionalidades (como Caching, Afinidade de Sessão ou Descarregamento de SSL) habilitadas pelo usuário em uma função, o kit de ferramentas pode configurar automaticamente os pontos de extremidade especiais que serão listados juntamente com os pontos de extremidade definidos pelo usuário. O kit de ferramentas impede que o usuário edite ou exclua esses pontos de extremidade gerados automaticamente, desde que o recurso associado esteja habilitado.
 
 <a name="environment_variables_properties"></a> 
 
@@ -287,7 +288,7 @@ Veja a seguir um exemplo de como você pode especificar um JDK no Windows.
 
 ![][ic780647]
 
-Se você estiver usando o Eclipse no Windows, poderá especificar um JDK a ser usado com o emulador de computação. Para fazer isso, certifique-se de que a opção** Usar o JDK deste caminho de arquivo para testar localmente** esteja marcada na seção **Implantação no emulador**. Em seguida, especifique o caminho local até o JDK; você pode navegar até um JDK diferente se o que você deseja usar não estiver selecionado automaticamente. Você também tem a opção de implantar o JDK em seu serviço de nuvem do Azure. Para fazer isso, escolha a opção **Implantar meu JDK local (carregamento automático no armazenamento em nuvem)** na seção **Implantação de nuvem**.
+Se você estiver usando o Eclipse no Windows, poderá especificar um JDK a ser usado com o emulador de computação. Para fazer isso, certifique-se de que a opção **Usar o JDK deste caminho de arquivo para testar localmente** esteja marcada na seção **Implantação no emulador**. Em seguida, especifique o caminho local até o JDK; você pode navegar até um JDK diferente se o que você deseja usar não estiver selecionado automaticamente. Você também tem a opção de implantar o JDK em seu serviço de nuvem do Azure. Para fazer isso, escolha a opção **Implantar meu JDK local (carregamento automático no armazenamento em nuvem)** na seção **Implantação de nuvem**.
 
 Observação: em sistemas operacionais diferentes do Windows, as configurações da **Implantação no emulador** e a opção **Implantar meu JDK local** não estão disponíveis. O exemplo a seguir ilustra a especificação de um JDK em um Mac ou em outro sistema operacional diferente do Windows que tenha suporte:
 
@@ -457,9 +458,4 @@ Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvo
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

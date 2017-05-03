@@ -11,27 +11,27 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e75099e1ca7e3bbfc427883a8c343d773f3923ae
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3879eb3d0c6fa9d74fff01b07f5c07d3991dfbbd
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Serviço do Lote do Azure para trabalhos do Machine Learning
 
-O processamento Pool do Lote do Machine Learning usa o [Serviço em Lotes do Azure](../batch/batch-technical-overview.md) para fornecer escala gerenciada pelo cliente para o Serviço de Execução em Lotes do Machine Learning do Azure. O processamento em lote clássico ocorre em um ambiente de multilocatário, que limita o número de trabalhos simultâneos que você pode enviar e onde os trabalhos são enfileirados na ordem primeiro a entrar, primeiro a sair. Essa incerteza significa que você não pode prever com exatidão quando seu trabalho será executado.
+O processamento em Pool do Lote do Machine Learning fornece escala gerenciada pelo cliente para o Serviço de Execução em Lotes do Azure Machine Learning. O processamento em lote clássico para o machine learning ocorre em um ambiente multilocatário, que limita o número de trabalhos simultâneos que você pode enviar e no qual os trabalhos são enfileirados na ordem primeiro a entrar, primeiro a sair. Essa incerteza significa que você não pode prever com exatidão quando seu trabalho será executado.
 
-O processamento Pool do Lote permite criar pools de Lote do Azure nos quais é possível enviar trabalhos em lotes. Você controla o tamanho do pool e para qual pool o trabalho é enviado. O trabalho BES é executado em seu próprio espaço de processamento, proporcionando desempenho de processamento previsível e a capacidade de criar pools de recursos que correspondam à carga de processamento que você envia.
+O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes. Você controla o tamanho do pool e para qual pool o trabalho é enviado. O trabalho BES é executado em seu próprio espaço de processamento, proporcionando desempenho de processamento previsível e a capacidade de criar pools de recursos que correspondam à carga de processamento que você envia.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Como usar o processamento Pool do Lote
 
-Para usar o processamento Pool do Lote, você deve ter:
+A configuração de processamento de Pool do Lote não está disponível atualmente pelo Portal do Azure. Para usar o processamento de Pool do Lote, você deve:
 
--   Uma Conta do Pool do Lote que tenha uma URL do Serviço do Pool e uma chave de autorização
--   Um serviço Web baseado no Novo Resource Manager e um plano de cobrança
+-   Chamar o CSS para criar uma Conta do Pool do Lote e obter uma URL do Serviço do Pool e uma chave de autorização
+-   Criar um serviço Web baseado no novo Resource Manager e um plano de cobrança
 
 Para criar sua conta, ligue para o CSS (Serviço de Suporte e Atendimento ao Cliente) Microsoft e forneça a ID da sua Assinatura. Com você, o CSS determina a capacidade apropriada para seu cenário. Assim, o CSS configura sua conta com o número máximo de pools que você pode criar e o número máximo de VMs (máquinas virtuais) que podem ser colocadas em cada pool. Assim que sua conta estiver configurada, você receberá a URL de Serviço do Pool e uma chave de autorização.
 
@@ -49,7 +49,7 @@ Depois de ter criado um pool, você envia o trabalho do BES usando a URL de Soli
 
 "AzureBatchPoolId":"&lt;pool ID&gt;"
 
-Se você não adicionar o parâmetro, o trabalho será executado no ambiente de processo em lotes clássico. Se o pool tiver recursos disponíveis, o trabalho começará a ser executado imediatamente. Se o pool não tiver recursos livres, seu trabalho ficará na fila até que um recurso esteja disponível.
+Se você não adicionar o parâmetro, o trabalho será executado no ambiente de processo em lote clássico. Se o pool tiver recursos disponíveis, o trabalho começará a ser executado imediatamente. Se o pool não tiver recursos livres, seu trabalho ficará na fila até que um recurso esteja disponível.
 
 Caso atinja regularmente a capacidade de seus pools e precise aumentar a capacidade, você poderá chamar o CSS e trabalhar com um representante para aumentar suas cotas.
 
@@ -102,7 +102,7 @@ O processamento Pool do Lote é um serviço faturável sempre ativo que exige qu
 
 Exemplo de cobrança:
 
-Caso você crie um Pool do Lote com 2 máquinas virtuais e o exclua após 24 horas, serão debitadas 48 horas de computação do seu plano de cobrança; independentemente de quantos trabalhos foram executados durante esse período.
+Caso você crie um Pool do Lote com 2 máquinas virtuais e o exclua após 24 horas, serão debitadas 48 horas de computação do seu plano de cobrança, independentemente de quantos trabalhos foram executados durante esse período.
 
 Caso você crie um Pool do Lote com 4 máquinas virtuais e o exclua após 12 horas, também serão debitadas 48 horas de computação do seu plano de cobrança.
 
@@ -111,5 +111,5 @@ Caso você crie um Pool do Lote com 4 máquinas virtuais e o exclua após 12 hor
 
 | **Use o Processamento Pool do Lote quando**    | **Use o processamento em lotes clássico quando**  |
 |---|---|
-|Você precisar executar um grande número de trabalhos<br>Ou<br/>Você precisar saber que seus trabalho serão executados imediatamente<br/>Ou<br/>Você precisar de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo e quer escalar horizontalmente os recursos de computação para atender às suas necessidades.    | Você estiver executando apenas alguns trabalhos<br/>e<br/> Você não precisar que os trabalhos sejam executados imediatamente |
+|Você precisar executar um grande número de trabalhos<br>Ou<br/>Você precisar saber que seus trabalho serão executados imediatamente<br/>Ou<br/>Você precisar de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo e deseja expandir os recursos de computação para atender às suas necessidades.    | Você estiver executando apenas alguns trabalhos<br/>e<br/> Você não precisar que os trabalhos sejam executados imediatamente |
 
