@@ -201,7 +201,7 @@ e quiser copiá-lo para uma tabela SQL do Azure no formato a seguir, ao extrair 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte maneira: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção [Especificar a definição de estrutura para conjuntos de dados retangulares](#specifying-structure-definition-for-rectangular-datasets) para obter mais detalhes.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, você pode usar **array[x].property** para extrair o valor da propriedade do objeto xth, ou você pode usar * *matriz[*].property** para localizar o valor de qualquer objeto que contém essa propriedade.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, você pode usar **array[x].property** para extrair o valor da propriedade do objeto xth, ou você pode usar  **matriz[*].property** para localizar o valor de qualquer objeto que contém essa propriedade.
 
 ```json
 "properties": {
@@ -427,8 +427,3 @@ Observe os seguintes pontos:
 
 * Não há suporte para tipos de dados complexos (MAP, LIST)
 * O arquivo Parquet tem as seguintes opções relacionadas à compactação: NONE, SNAPPY, GZIP e LZO. O Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados acima. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo Parquet, o Data Factory escolhe SNAPPY, que é o padrão para o formato Parquet. Não há nenhuma opção para substituir esse comportamento neste momento.
-
-
-<!--HONumber=Jan17_HO4-->
-
-
