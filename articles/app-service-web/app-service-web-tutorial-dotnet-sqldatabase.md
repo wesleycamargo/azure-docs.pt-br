@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 566a8d7fc595975e065c5a8a42c7f7c94997821b
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d7006a50d35412021f7e475df526661854b23dc8
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ Antes de executar esse exemplo, [baixe e instale o Visual Studio 2017 Community 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---download-the-sample"></a>Etapa 1 - Baixar o exemplo
+## <a name="download-the-sample"></a>Baixar o exemplo
 Nessa etapa, você baixa um aplicativo ASP.NET de exemplo.
 
 ### <a name="get-the-sample-project"></a>Obter o projeto de exemplo
@@ -65,7 +65,7 @@ Você deve ver uma lista de tarefas simples na home page. Tente adicionar alguma
 
 O contexto do banco de dados usa uma cadeia de conexão chamada `MyDbConnection`. Essa cadeia de conexão é definida em `Web.config` e referenciada em `Models\MyDatabaseContext.cs`. O nome da cadeia de conexão é tudo o que você irá precisar posteriormente quando conectar seu aplicativo Web do Azure ao Banco de Dados SQL do Azure. 
 
-## <a name="step-2---publish-to-azure-with-sql-database"></a>Etapa 2 - Publicar ao Azure com Banco de Dados SQL
+## <a name="publish-to-azure-with-sql-database"></a>Publicar no Azure com o banco de dados SQL
 
 No **Gerenciador de Soluções**, clique com botão direito no projeto **DotNetAppSqlD** e selecione **Publicar**.
 
@@ -168,7 +168,7 @@ Tente adicionar alguns itens de tarefas à lista vazia.
 
 Parabéns! Seu aplicativo ASP.NET controlado por dados está em execução em tempo real no Serviço de Aplicativo do Azure.
 
-## <a name="step-3---access-the-sql-database-locally"></a>Etapa 3 - Acessar o Banco de Dados SQL localmente
+## <a name="access-the-sql-database-locally"></a>Acessar o Banco de Dados SQL localmente
 
 O Visual Studio permite pesquisar e gerenciar seu novo Banco de Dados SQL facilmente no **Pesquisador de Objetos do SQL Server**.
 
@@ -204,7 +204,7 @@ Aqui, você pode executar as operações de banco de dados mais comuns, como exe
 
 ![Explorar objetos do Banco de Dados SQL](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
-## <a name="step-4---update-app-with-code-first-migrations"></a>Etapa 4 - Atualizar aplicativo com Migrações do Code First
+## <a name="update-app-with-code-first-migrations"></a>Atualizar aplicativo com Migrações do Code First
 
 Nessa etapa, você usará Migrações do Code First no Entity Framework para fazer uma alteração no seu esquema de banco de dados e publicá-lo no Azure.
 
@@ -329,7 +329,7 @@ Tente criar novos itens de tarefa novamente, selecione **Concluído** e os itens
 >
 >
 
-## <a name="step-6---stream-application-logs"></a>Etapa 6 - Transmitir logs de aplicativos
+## <a name="stream-application-logs"></a>Transmitir logs de aplicativos
 
 É possível transmitir mensagens de rastreamento diretamente do seu aplicativo Web do Azure para o Visual Studio.
 
@@ -389,7 +389,7 @@ Para interromper o serviço de streaming de log, clique no botão **Parar Monito
 
 ![Parar o streaming de log](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="step-7---manage-your-azure-web-app"></a>Etapa 7 - Gerenciar seu aplicativo Web do Azure
+## <a name="manage-your-azure-web-app"></a>Gerenciar seu aplicativo Web do Azure
 
 Vá para o portal do Azure para ver o aplicativo Web que você criou. 
 

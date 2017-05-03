@@ -1,28 +1,26 @@
 ---
-title: "Evento de falha da tarefa – Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
-caps.latest.revision: 3
+title: Eventos de falha de tarefa em lote do Azure | Documentos do Microsoft
+description: "Referência de evento de falha de tarefa de lote."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 880fe1cfb0496311d7c386f25762c5d02a6c91f4
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 08feb4ec34bb1635f8ea744b54a10b677b94ab3e
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="task-fail-event"></a>Evento de falha da tarefa
-Corpo do log do evento de falha da tarefa
 
-## <a name="remarks"></a>Comentários
+# <a name="task-fail-event"></a>Evento de falha da tarefa
+
  Esse evento é emitido quando uma tarefa é concluída com falha. Atualmente, todos os códigos de saída diferente de zero são considerados falhas. Esse evento será emitido *além* de um evento de conclusão de tarefa e pode ser usado para detectar falha de uma tarefa.
 
 

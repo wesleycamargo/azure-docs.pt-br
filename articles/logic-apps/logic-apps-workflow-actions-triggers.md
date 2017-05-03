@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 3f050e2722091aa8b58591cc0c894a6ecb82c3fa
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -406,6 +406,8 @@ Há muitos tipos de ações, cada um com um comportamento exclusivo. As ações 
 -   **Aguardar** \- esta ação simples aguarda um período fixo de tempo ou até uma hora específica.  
   
 -   **Fluxo de trabalho** \- esta ação representa um fluxo de trabalho aninhado.  
+
+-   **Função** \- essa ação representa uma função do Azure.
 
 ### <a name="collection-actions"></a>Ações de coleção
 
@@ -828,6 +830,47 @@ Se o valor da propriedade `from` for uma matriz vazia, a saída será uma tabela
 Uma verificação de acesso é feita no fluxo de trabalho \(mais especificamente, o gatilho\), que significa que você precisa ter acesso ao fluxo de trabalho.  
   
 As saídas da ação `workflow` baseiam-se no que foi definido na ação `response` no fluxo de trabalho filho. Se você não definiu nenhuma ação `response`, então, as saídas estarão vazias.  
+
+## <a name="function-action"></a>Ação de função   
+
+|Nome|Obrigatório|Tipo|Descrição|  
+|--------|------------|--------|---------------|  
+|Id de Função|Sim|string|A ID de recurso da função que você deseja invocar.|  
+|estático|Não|Cadeia de caracteres|O método HTTP usado para invocar a função. Por padrão, ele é `POST` quando não especificada.|  
+|consultas|Não|Objeto|Representa os parâmetros de consulta a ser adicionados à URL. Por exemplo, `"queries" : { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL.|  
+|headers|Não|Objeto|Representa cada um dos cabeçalhos enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us" }`.|  
+|body|Não|Objeto|Representa o conteúdo enviado para o ponto de extremidade.|  
+
+```json
+"myfunc" : {
+    "type" : "Function",
+    "inputs" : {
+        "function" : {
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Web/sites/myfuncapp/functions/myfunc"
+        },
+        "queries" : {
+            "extrafield" : "specialValue"
+        },  
+        "headers" : {
+            "x-ms-date" : "@utcnow()"
+        },
+        "method" : "POST",
+    "body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+Quando você salvar o aplicativo lógico, podemos realizar algumas verificações na função referenciada:
+-   Você precisa ter acesso à função.
+-   Apenas o gatilho HTTP padrão ou gatilho de webhook JSON genérico é permitido.
+-   Ele não deve ter nenhuma rota definida.
+-   Apenas "função" e o nível de autorização "anônimo" é permitido.
+
+A URL do gatilho é recuperada, armazenado em cache e usada em tempo de execução. Portanto, se qualquer operação invalida a URL armazenada em cache, a ação falhará em tempo de execução. Para solucionar esse problema, salve o aplicativo lógico novamente, que fará com que o aplicativo lógico para recuperar e armazenar em cache o URL do gatilho novamente.
 
 ## <a name="collection-actions-scopes-and-loops"></a>Ações da coleção (escopos e loops)
 

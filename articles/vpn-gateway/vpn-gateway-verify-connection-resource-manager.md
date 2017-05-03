@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b5bad71095e4b7e3b26df15780467526200ffa10
-ms.openlocfilehash: 68d94a6402b1497f65c4d03fb987ba800e86c2a3
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 0e9fa1b1397c60985de9d2e60b3f01146036801f
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificar uma conexão de Gateway de VPN
-Você pode verificar a conexão de Gateway de VPN de sua rede virtual usando o portal e o PowerShell. Este artigo contém etapas para os modelos de implantação clássico e do Resource Manager.
+
+Este artigo mostra como verificar sua conexão de gateway de VPN para os modelos de implantação do Resource Manager e clássico.
 
 ## <a name="verify-using-the-azure-portal"></a>Verificar usando o Portal do Azure
 
@@ -52,7 +53,34 @@ Para verificar usando o PowerShell, instale a versão mais recente dos cmdlets d
 
 ### <a name="verify-your-connection"></a>Verificar a conexão
 
-[!INCLUDE [Powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+
+## <a name="verify-using-the-azure-cli"></a>Verificar usando a CLI do Azure
+
+Para verificar usando a CLI do Azure, instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para saber mais sobre como instalar os comandos do CLI, veja [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+### <a name="log-in-to-your-azure-account"></a>Fazer logon na sua conta do Azure
+
+1. Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#login) e siga as instruções na tela.
+
+  ```azurecli
+  az login
+  ```
+2. Se você tiver mais de uma assinatura do Azure, liste as assinaturas para a conta.
+
+  ```azurecli
+  Az account list --all
+  ```
+3. Especifique a assinatura que você quer usar.
+
+  ```azurecli
+  Az account set --subscription
+  <replace_with_your_subscription_id>
+  ```
+
+### <a name="verify-your-connection"></a>Verificar a conexão
+
+[!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="verify-using-the-azure-portal-classic"></a>Verificar usando o Portal do Azure (clássico)
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]

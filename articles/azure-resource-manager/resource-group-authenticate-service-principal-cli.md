@@ -1,6 +1,6 @@
 ---
 title: Criar identidade para o aplicativo do Azure com a CLI do Azure | Microsoft Docs
-description: "Descreve como usar a CLI do Azure para criar um aplicativo do Active Directory e uma entidade de serviço, e conceder acesso a recursos por meio do controle de acesso baseado em função. Ele mostra como autenticar um aplicativo com uma senha ou certificado."
+description: "Descreve como usar a CLI do Azure para criar um aplicativo do Active Directory do Azure e uma entidade de serviço, e conceder acesso a recursos por meio do controle de acesso baseado em função. Ele mostra como autenticar um aplicativo com uma senha ou certificado."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4ea75e08a630ad777444ea3a3cb85f4bb0efe01f
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c8a883dedee31d9efab6e2eb4c0ac67b467afe34
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -37,7 +37,7 @@ Quando você tiver um aplicativo ou script que precisa acessar recursos, poderá
 Este artigo mostra como usar a [CLI do Azure 1.0](../cli-install-nodejs.md) para configurar um aplicativo a ser executado com suas próprias credenciais e identidade. Instale a versão mais recente do [Azure CLI 1.0](../cli-install-nodejs.md) para certificar-se de que seu ambiente corresponde aos exemplos neste artigo.
 
 ## <a name="required-permissions"></a>Permissões necessárias
-Para concluir este tópico, você deve ter permissões suficientes no Azure Active Directory e em sua assinatura do Azure. Especificamente, você deve ser capaz de criar um aplicativo no Active Directory e atribuir a entidade de serviço a uma função. 
+Para concluir este tópico, você deve ter permissões suficientes no Azure Active Directory e em sua assinatura do Azure. Especificamente, você deve ser capaz de criar um aplicativo no Active Directory do Azure e atribuir a entidade de serviço a uma função. 
 
 A maneira mais fácil de verificar se a sua conta tem as permissões adequadas é por meio do portal. Consulte [Verificar permissão necessária no portal](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -72,7 +72,7 @@ Nesta seção, você executará as etapas para criar o aplicativo do AD com uma 
      info:    ad sp create command OK
    ```
 
-3. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo, você adiciona a entidade de serviço à função Leitor , que concede permissão para ler todos os recursos na assinatura. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md). Para obter o parâmetro objectid, forneça o a ID de Objeto que você usou ao criar o aplicativo. Antes de executar esse comando, dê um tempo para a nova entidade de serviço se propagar pelo Active Directory. Geralmente, ao executar esses comandos manualmente, um tempo suficiente já decorreu entre as tarefas. Em um script, adicione uma etapa de espera entre os comandos (como `sleep 15`). Se você vir um erro informando que a entidade não existe no diretório, execute o comando novamente.
+3. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo, você adiciona a entidade de serviço à função Leitor , que concede permissão para ler todos os recursos na assinatura. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md). Para obter o parâmetro objectid, forneça o a ID de Objeto que você usou ao criar o aplicativo. Antes de executar esse comando, dê um tempo para a nova entidade de serviço se propagar pelo Active Directory do Azure. Geralmente, ao executar esses comandos manualmente, um tempo suficiente já decorreu entre as tarefas. Em um script, adicione uma etapa de espera entre os comandos (como `sleep 15`). Se você vir um erro informando que a entidade não existe no diretório, execute o comando novamente.
    
    ```azurecli
    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
@@ -83,7 +83,7 @@ Nesta seção, você executará as etapas para criar o aplicativo do AD com uma 
 ### <a name="provide-credentials-through-azure-cli"></a>Fornecer credenciais por meio da CLI do Azure
 Agora, você precisa fazer logon como o aplicativo para executar as operações.
 
-1. Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Active Directory. Para recuperar a id do locatário para sua assinatura autenticada no momento, use:
+1. Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Active Directory do Azure. Para recuperar a id do locatário para sua assinatura autenticada no momento, use:
    
    ```azurecli
    azure account show
@@ -192,7 +192,7 @@ Para concluir essas etapas, você deve ter o [OpenSSL](http://www.openssl.org/) 
      data:                      https://www.contoso.org/example
      info:    ad sp create command OK
    ```
-6. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo, você adiciona a entidade de serviço à função Leitor , que concede permissão para ler todos os recursos na assinatura. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md). Para obter o parâmetro objectid, forneça o a ID de Objeto que você usou ao criar o aplicativo. Antes de executar esse comando, dê um tempo para a nova entidade de serviço se propagar pelo Active Directory. Geralmente, ao executar esses comandos manualmente, um tempo suficiente já decorreu entre as tarefas. Em um script, adicione uma etapa de espera entre os comandos (como `sleep 15`). Se você vir um erro informando que a entidade não existe no diretório, execute o comando novamente.
+6. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo, você adiciona a entidade de serviço à função Leitor , que concede permissão para ler todos os recursos na assinatura. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md). Para obter o parâmetro objectid, forneça o a ID de Objeto que você usou ao criar o aplicativo. Antes de executar esse comando, dê um tempo para a nova entidade de serviço se propagar pelo Active Directory do Azure. Geralmente, ao executar esses comandos manualmente, um tempo suficiente já decorreu entre as tarefas. Em um script, adicione uma etapa de espera entre os comandos (como `sleep 15`). Se você vir um erro informando que a entidade não existe no diretório, execute o comando novamente.
    
    ```azurecli
    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
@@ -201,7 +201,7 @@ Para concluir essas etapas, você deve ter o [OpenSSL](http://www.openssl.org/) 
 ### <a name="provide-certificate-through-automated-azure-cli-script"></a>Fornecer certificado por meio do script CLI do Azure automatizado
 Agora, você precisa fazer logon como o aplicativo para executar as operações.
 
-1. Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Active Directory. Para recuperar a id do locatário para sua assinatura autenticada no momento, use:
+1. Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Active Directory do Azure. Para recuperar a id do locatário para sua assinatura autenticada no momento, use:
    
    ```azurecli
    azure account show
@@ -263,7 +263,7 @@ Agora, você precisa fazer logon como o aplicativo para executar as operações.
    azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
    ```
 
-Agora, você já deve ser autenticado como a entidade de serviço do aplicativo do Active Directory criado.
+Agora, você já deve ser autenticado como a entidade de serviço do aplicativo do Active Directory do Azure criado.
 
 ## <a name="change-credentials"></a>Alterar credenciais
 
@@ -285,7 +285,7 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 
 Você pode receber os seguintes erros ao criar uma entidade de serviço:
 
-* **"Authentication_Unauthorized"** ou **"Nenhuma assinatura encontrada no contexto".** – Você verá esse erro quando sua conta não tiver as [permissões necessárias](#required-permissions) no Active Directory para registrar um aplicativo. Normalmente, você verá esse erro somente quando os usuários administradores no Active Directory puderem registrar aplicativos e sua conta não for um administrador. Solicite ao administrador para lhe atribuir uma função de administrador ou para permitir que os usuários registrem aplicativos.
+* **"Authentication_Unauthorized"** ou **"Nenhuma assinatura encontrada no contexto".** – Você verá esse erro quando sua conta não tiver as [permissões necessárias](#required-permissions) no Active Directory do Azure para registrar um aplicativo. Normalmente, você verá esse erro somente quando os usuários administradores no Active Directory do Azure puderem registrar aplicativos e sua conta não for um administrador. Solicite ao administrador para lhe atribuir uma função de administrador ou para permitir que os usuários registrem aplicativos.
 
 * Sua conta **"não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no escopo '/subscriptions/{guid}'".**  – Você verá esse erro quando sua conta não tiver permissões suficientes para atribuir uma função a uma identidade. Solicite ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário.
 

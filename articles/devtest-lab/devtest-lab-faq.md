@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 7a9b8037967f0180d2f7d2a7d100d0cc3ad9e4a2
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 519f035b411f254e8412ba9a8868b226c63cccb6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -228,7 +228,7 @@ Grupos de recursos são criados dessa maneira para que o Azure DevTest Labs gere
 Não há nenhum limite específico quanto ao número de laboratórios que podem ser criados por assinatura. No entanto, os recursos usados são limitados por assinatura. Você pode ler sobre os [limites e cotas impostas às assinaturas do Azure](../azure-subscription-service-limits.md) e sobre [como aumentar esses limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>Quantas VMs posso criar por laboratório?
-Não há nenhum limite específico quanto ao número de VMs que podem ser criadas por laboratório. No entanto, atualmente o laboratório dá suporte apenas para cerca de 40 VMs em execução ao mesmo tempo no armazenamento padrão e 25 VMs em execução simultânea no armazenamento premium. Estamos trabalhando para aumentar esses limites.
+Não há nenhum limite específico quanto ao número de VMs que podem ser criadas por laboratório. No entanto, os recursos usados são limitados por assinatura (núcleos de VMs por exemplo, IPs públicos, etc.). Você pode ler sobre os [limites e cotas impostas às assinaturas do Azure](../azure-subscription-service-limits.md) e sobre [como aumentar esses limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Como faço para compartilhar um link direto para o meu laboratório?
 Para compartilhar um link direto para os usuários do laboratório, realize o seguinte procedimento:

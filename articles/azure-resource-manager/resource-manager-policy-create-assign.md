@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: fd15cbc8f6efa788ddaeaee4ab39ce1410c4be5a
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -141,6 +141,8 @@ O exemplo a seguir mostra uma definição de um alias. Como é possível ver, um
 ```
 
 ## <a name="powershell"></a>PowerShell
+
+Antes de continuar com os exemplos do PowerShell, verifique se você tem [instalada a versão mais recente](/powershell/azure/install-azurerm-ps) do PowerShell do Azure. Parâmetros de política foram adicionados na versão 3.6.0. Se você tiver uma versão mais antiga, os exemplos retornam um erro indicando que o parâmetro não pode ser encontrado.
 
 ### <a name="create-policy-definition"></a>Criar definição de política
 Você pode criar uma definição de política usando o cmdlet `New-AzureRmPolicyDefinition`. O exemplo a seguir cria uma definição de política para permitir recursos somente na Europa Setentrional e Ocidental.

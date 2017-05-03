@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 04/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 514319dfcb532ab3708352b2467c095d7775b714
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 30edf20d7fc742da9b42d3ea9baafcce31141259
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,8 +33,8 @@ O Armazenamento do Azure Data Lake é um serviço de armazenamento de nuvem comp
 
 O Data Lake Store aparece para o HDInsight como um sistema de arquivos compatível com HDFS, de modo que você pode usar o bolt HDFS do Storm para gravar nele. Ao trabalhar com o Azure Data Lake no HDInsight, é possível usar um esquema de arquivo `adl://`.
 
-* Se o Armazenamento do Data Lake for o armazenamento primário do cluster, use `adl:///`. Esta é a raiz do armazenamento de cluster no Azure Data Lake. Isso pode ser convertido em um caminho /clusters/CLUSTERNAME na conta de Armazenamento do Data Lake.
-* Se o Armazenamento do Data Lake for o armazenamento secundário do cluster, use `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. Esse URI especifica a conta de Armazenamento do Data Lake na qual os dados são gravados. Os dados são gravados com início na raiz do Data Lake Store.
+* Se o Data Lake Store for o armazenamento primário do cluster, use `adl:///`. Esta é a raiz do armazenamento de cluster no Azure Data Lake. Isso pode ser convertido em um caminho /clusters/CLUSTERNAME na conta do Data Lake Store.
+* Se o Data Lake Store for o armazenamento adicional do cluster, use `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. Esse URI especifica a conta do Data Lake Store na qual os dados são gravados. Os dados são gravados com início na raiz do Data Lake Store.
 
     > [!NOTE]
     > Também é possível usar esse formato de URI para salvar dados na conta do Data Lake Store que contém o armazenamento primário do cluster. Isso permite salvar os dados fora do caminho de diretório que contém o HDInsight.

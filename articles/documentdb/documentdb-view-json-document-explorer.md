@@ -13,17 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 04/18/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
-ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4338fc03664175b7c27a48f1ab682179c1035313
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>Exibir, editar, criar e carregar documentos JSON usando o Gerenciador de Documentos do Banco de Dados de Documentos
-Este artigo fornece uma visão geral do Gerenciador de Documentos do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) , uma ferramenta do portal do Azure que o habilita a exibir, editar, criar, carregar documentos e filtrar JSON com o Banco de Dados de Documentos. 
+# <a name="view-edit-create-and-upload-json-documents"></a>Exibir, editar, criar e carregar documentos JSON 
+
+Este artigo fornece uma visão geral das duas maneiras em que é possível criar, editar e consultar documentos no portal: [Document Explorer](#launch-document-explorer) e [Data Explorer (visualização)](#data-explorer).
 
 > [!NOTE]
 > O Gerenciador de Documentos não está habilitado em contas do DocumentDB com suporte ao protocolo para MongoDB. Esta página será atualizada quando esse recurso estiver habilitado.
@@ -147,6 +148,13 @@ O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais docu
    
     ![Captura de tela dos resultados de ingestão em massa do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 5. Após a conclusão da operação, você poderá selecionar até 100 documentos adicionais para upload.
+
+<a id="data-explorer"></a>
+## <a name="create-a-document-by-using-data-explorer-preview"></a>Criar um documento usando o Data Explorer (visualização)
+
+O outro método para criar, editar e consultar documentos no portal é usar o Data Explorer. Para abrir o Data Exploer, clique em **Data Explorer (visualização)** na barra de navegação no portal, em seguida, expanda o nome do banco de dados, expanda o nome da coleção, clique em **documentos**e, em seguida, clique em **Novo documento**, conforme mostrado na captura de tela a seguir.
+
+![Captura de tela mostrando o botão Nova Coleção no portal](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
 
 ## <a name="work-with-json-documents-outside-the-portal"></a>Trabalhar com documentos JSON fora do portal
 O Gerenciador de Documentos no portal do Azure é apenas uma maneira de trabalhar com documentos no Banco de Dados de Documentos. Você também pode trabalhar com documentos usando a [API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para obter um exemplo de código, consulte os [exemplos de documento do SDK do .NET](documentdb-dotnet-samples.md#document-examples) e os [exemplos de documento do SDK do Node.js](documentdb-nodejs-samples.md#document-examples).

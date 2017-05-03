@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: e39d108e9d6962647cbf76e50299b73939fe5977
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: d4d21297618d34aa301e4e1cc814afb15045d7f7
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,9 @@ Este início rápido usa como ponto de partida os recursos criados em um destes 
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-php-and-database-communications-software"></a>Instalar o software de comunicações do PHP e banco de dados
+
+As etapas nesta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o PHP e começou recentemente a trabalhar com o Banco de Dados SQL do Azure. Se você for novo no desenvolvimento com o PHP, acesse [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) e selecione **PHP** e, em seguida, selecione o seu sistema operacional.
+
 ### <a name="mac-os"></a>**Mac OS**
 Abra seu terminal e digite os seguintes comandos para instalar **brew**, **Microsoft ODBC Driver para Mac** e **PHP Drivers da Microsoft para SQL Server**. 
 
@@ -73,7 +76,7 @@ Nesse ponto, você deve ter a dll registrada com PHP.
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
-Obtenha a cadeia de conexão no Portal do Azure. Use a cadeia de conexão para se conectar ao Banco de Dados SQL do Azure.
+Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
@@ -84,7 +87,7 @@ Obtenha a cadeia de conexão no Portal do Azure. Use a cadeia de conexão para s
 4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.     
     
 ## <a name="select-data"></a>Selecionar dados
-Use o seguinte código para consultar o banco de dados SQL do Azure usando a função [sqlsrv_query ()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) com uma instrução [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) do Transact-SQL. A função sqlsrv_query pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essa função aceita uma consulta e retorna um conjunto de resultados que pode ser repetido com o uso de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT. 
+Use o código a seguir para consultar os 20 principais produtos por categoria usando a função [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query)com a instrução [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) do Transact-SQL. A função sqlsrv_query pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essa função aceita uma consulta e retorna um conjunto de resultados que pode ser repetido com o uso de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT. 
 
 ```PHP
 <?php
@@ -113,7 +116,7 @@ sqlsrv_free_stmt($getResults);
 
 
 ## <a name="insert-data"></a>Inserir dados
-Use o seguinte código para inserir um novo produto na tabela SalesLT.Product no banco de dados especificado usando a função [sqlsrv_query ()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) e a instrução [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT. 
+Use o seguinte código para inserir um novo produto na tabela SalesLT.Product usando a função [sqlsrv_query ()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) e a instrução [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT. 
 
 ```PHP
 <?php
@@ -165,7 +168,7 @@ else{
 ```
 
 ## <a name="delete-data"></a>Excluir dados
-Use o seguinte código para excluir dados no banco de dados SQL do Azure usando a função [sqlsrv_query ()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) com uma instrução [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
+Use o código a seguir para excluir o novo produto que você adicionou anteriormente, usando a função [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) e a instrução [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
 
 ```PHP
 <?php

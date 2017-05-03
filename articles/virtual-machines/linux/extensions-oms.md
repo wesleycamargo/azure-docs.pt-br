@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e890582e790ad9187287e1323159098e19d7325
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c2d14be5f27a775a14039bd63c5ccb5cd7b10f9a
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -36,11 +36,11 @@ A extensão do agente do OMS pode ser executada nessas distribuições do Linux.
 
 | Distribuição | Versão |
 |---|---|
-| CentOS Linux | 5,6 e 7 |
-| Oracle Linux | 5,6 e 7 |
-| Red Hat Enterprise Linux Server | 5,6 e 7 |
+| CentOS Linux | 5, 6 e 7 |
+| Oracle Linux | 5, 6 e 7 |
+| Red Hat Enterprise Linux Server | 5, 6 e 7 |
 | Debian GNU/Linux | 6, 7 e 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 e 12 |
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
@@ -49,7 +49,7 @@ A extensão do Agente do OMS para Linux requer que a máquina virtual de destino
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão do Agente do OMS. A extensão requer a ID e a chave do espaço de trabalho do OMS de destino, que podem ser encontradas no portal do OMS. Como a chave do espaço de trabalho deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O JSON a seguir mostra o esquema para a extensão do Agente do OMS. A extensão requer a ID e a chave do espaço de trabalho do OMS de destino, que esses valores podem ser encontrados no portal do OMS. Como a chave do espaço de trabalho deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -63,7 +63,7 @@ O JSON a seguir mostra o esquema para a extensão do Agente do OMS. A extensão 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -81,7 +81,7 @@ O JSON a seguir mostra o esquema para a extensão do Agente do OMS. A extensão 
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1,3 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -106,7 +106,7 @@ O exemplo a seguir pressupõe que a extensão OMS esteja aninhada dentro do recu
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -131,7 +131,7 @@ Ao inserir o JSON da extensão na raiz do modelo, o nome do recurso inclui uma r
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -148,7 +148,7 @@ A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do OMS 
 
 ```azurecli
 azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
+  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.3 \
   --public-config-path public.json  \
   --private-config-path protected.json
 ```
@@ -168,6 +168,30 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 ```
 /opt/microsoft/omsagent/bin/stdout
 ```
+
+### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
+
+| Código do Erro | Significado | Ação possível |
+| :---: | --- | --- |
+| 2 | Opção inválida fornecida para o pacote de shell | |
+| 3 | Nenhuma opção fornecida para o pacote de shell | |
+| 4 | Tipo de pacote inválido | |
+| 5 | O pacote de shell deve ser executado como raiz | |
+| 6 | Arquitetura de pacote inválida | |
+| 10 | A VM já está conectada a um espaço de trabalho do OMS | Para conectar a VM ao espaço de trabalho especificado no esquema de extensão, defina stopOnMultipleConnections como falso nas configurações públicas ou remova esta propriedade. Essa VM é cobrada uma vez para cada espaço de trabalho ao qual está conectada. |
+| 11 | Configuração inválida fornecida para a extensão | Siga os exemplos anteriores para definir todos os valores de propriedade necessários para a implantação. |
+| 20 | Falha na instalação do SCX/OMI | |
+| 21 | Falha na instalação dos kits SCX/Provedor | |
+| 22 | Falha na instalação do pacote único | |
+| 23 | Pacote SCX ou OMI já instalado | |
+| 30 | Erro interno do pacote | |
+| 51 | Não há suporte para essa extensão no sistema operacional da VM | |
+| 60 | Versão sem suporte do OpenSSL | Instale uma versão do OpenSSL que atenda aos [requisitos de pacote](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#package-requirements). |
+| 61 | Biblioteca de ctypes do Python ausente | Instale a biblioteca ou pacote ctypes do Python (python-ctypes). |
+| 62 | Programa tar ausente | Instale o tar. |
+| 63 | Programa sed ausente | Instale o sed. |
+
+Informações adicionais podem ser encontradas no [Guia de solução de problemas do OMS-Agent-for-Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
 
 ### <a name="support"></a>Suporte
 

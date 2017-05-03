@@ -13,25 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 3d12aaf19326c45cba1a214f1d68f41f0db8ccf6
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 3c49af42332dc62db80889f1625b243473559cd1
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conectar redes virtuais de diferentes modelos de implantação usando o portal
+
+Este artigo mostra como conectar redes virtuais clássicas para VNets do Gerenciador de recursos para permitir que os recursos localizados nos modelos de implantação separado para se comunicar entre si. As etapas neste artigo usam o PowerShell, mas você também pode criar essa configuração usando o portal do Azure, selecionando o artigo desta lista.
+
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 > 
 > 
 
-Atualmente, o Azure tem dois modelos de gerenciamento: o clássico e o Resource Manager. Se você já usa o Azure há algum tempo, provavelmente terá as VMs do Azure e as funções de instância em execução em uma Rede Virtual clássica. Suas VMs e instâncias de função mais recentes podem estar em execução em uma Rede Virtual criada no Resource Manager. Este artigo ajuda você a criar uma conexão de gateway de VPN por um túnel VPN IPsec/IKE entre as redes virtuais.
+Conectar uma rede virtual clássica a outra rede virtual do Resource Manager é semelhante a conectar uma rede virtual a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE. Você pode criar uma conexão entre redes virtuais em assinaturas e regiões diferentes. Você também pode conectar redes virtuais que já têm conexões com redes locais, desde que o gateway com o qual foram configuradas seja dinâmico ou baseado em rota. Para saber mais sobre conexões de Rede Virtual a Rede Virtual, consulte as [Perguntas frequentes sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo. 
 
-Para saber mais sobre Rede Virtual a Rede Virtual, confira [Considerações sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo. Talvez você queira exibir o artigo [Emparelhamento de rede virtual](../virtual-network/virtual-network-peering-overview.md). O emparelhamento de rede virtual é outra maneira de criar uma conexão entre redes virtuais, além de trazer algumas vantagens de conexão para determinadas configurações.
+Se suas redes virtuais estiverem na mesma região, convém considerar conectá-las usando o emparelhamento de redes virtuais. O emparelhamento Vnet não usa um gateway de VPN. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md). 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +43,8 @@ Para saber mais sobre Rede Virtual a Rede Virtual, confira [Considerações sobr
 * Instale os cmdlets mais recentes do PowerShell para o Resource Manager e o Gerenciamento de Serviços (clássico). Neste artigo, usamos o portal do Azure e o PowerShell. O PowerShell é necessário para criar a conexão da VNet clássica com a VNet do Resource Manager. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs): 
 
 ### <a name="values"></a>Configurações de exemplo
-Você pode usar as configurações de exemplo como uma referência ou usá-las para criar uma configuração de teste.
+
+Você pode usar esses valores para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo.
 
 **VNet Clássica**
 
@@ -79,6 +83,7 @@ A seguinte tabela mostra um exemplo de como as VNets e os sites locais de exempl
 | RMVNet | (192.168.0.0/16) |Leste dos EUA |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>1. Definir as configurações da VNet clássica
+
 Nesta seção, você cria a rede local (site local) e o gateway de rede virtual para sua VNet clássica. Caso não tenha uma VNet clássica e esteja executando estas etapas como um exercício, você pode criar uma VNet usando [este artigo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e os valores de configurações de [Exemplo](#values) acima. Caso já tenha uma VNet com um gateway de VPN, verifique se o gateway é Dinâmico. Se for Estático, você deverá excluir o gateway de VPN primeiro e depois continuar.
 
 Capturas de tela são fornecidas como exemplos. Não se esqueça de substituir os valores pelos seus próprios valores ou use os valores de [Exemplo](#values).
@@ -99,6 +104,7 @@ Abra o [portal do Azure](https://ms.portal.azure.com) e entre com sua conta do A
 8. Clique em **OK** para salvar os valores e retornar para o **nova conexão VPN** folha.
 
 ### <a name="part-2---create-the-virtual-network-gateway"></a>Parte 2 - Criar o gateway de rede virtual
+
 1. Sobre o **nova conexão VPN** folha, selecione o **criar gateway imediatamente** caixa de seleção e clique em **configuração de gateway opcional** para abrir o **configuração de Gateway** folha. 
 
     ![Folha de configuração do gateway abra](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "folha de configuração de gateway aberto")
@@ -109,6 +115,7 @@ Abra o [portal do Azure](https://ms.portal.azure.com) e entre com sua conta do A
 6. Sobre o **nova conexão VPN** folha, clique em **OK** para começar a criar seu gateway de VPN. A criação de um gateway de VPN pode demorar até 45 minutos para ser concluída.
 
 ### <a name="ip"></a>Parte 3 – Copiar o endereço IP público do gateway de rede virtual
+
 Após a criação do gateway de rede virtual, você pode exibir o endereço IP do gateway. 
 
 1. Navegue até sua rede virtual clássica e clique em **visão geral**.
@@ -123,14 +130,15 @@ Nesta seção, você cria o gateway de rede virtual e o gateway de rede local pa
 Capturas de tela são fornecidas como exemplos. Não se esqueça de substituir os valores pelos seus próprios valores ou use os valores de [Exemplo](#values).
 
 ### <a name="part-1---create-a-gateway-subnet"></a>Parte 1 - Criar uma sub-rede de gateway
+
 Antes de criar um gateway de rede virtual, você precisa primeiro criar a sub-rede de gateway. Criar uma sub-rede de gateway com a contagem CIDR de /28 ou maior. (/ 27, / 26, etc.)
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ### <a name="part-2---create-a-virtual-network-gateway"></a>Parte 2 - Criar um gateway de Rede Virtual
+
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ### <a name="createlng"></a>Parte 3 - Criar um gateway de rede local
@@ -188,20 +196,28 @@ Nestas etapas, você configura a conexão da VNet clássica com a VNet do Resour
 ### <a name="1-connect-to-your-azure-account"></a>1. Conectar-se à sua conta do Azure
 
 Abra o console do PowerShell com direitos elevados e faça logon em sua conta do Azure. O cmdlet a seguir solicita as credenciais de logon para sua conta do Azure. Depois de entrar, as configurações da conta são baixadas para que estejam disponíveis para o Azure PowerShell.
-   
-    Login-AzureRmAccount 
+
+```powershell
+Login-AzureRmAccount
+```
    
 Obtenha uma lista de suas assinaturas do Azure, se você tiver mais de uma assinatura.
-   
-    Get-AzureRmSubscription
-   
+
+```powershell
+Get-AzureRmSubscription
+```
+
 Especifique a assinatura que você quer usar. 
-   
-    Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+
+```powershell
+Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+```
 
 Adicione sua Conta do Azure para usar os cmdlets do PowerShell clássicos. Para fazer isso, use o seguinte comando:
-   
-    Add-AzureAccount
+
+```powershell
+Add-AzureAccount
+```
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Exibir os valores do arquivo de configuração de rede
 
@@ -209,7 +225,9 @@ Quando você cria uma rede virtual no portal do Azure, o nome completo que o Azu
 
 Crie um diretório em seu computador e exporte o arquivo de configuração de rede para o diretório. Neste exemplo, o arquivo de configuração de rede é exportado para C:\AzureNet.
 
-    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+```powershell
+Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+```
 
 Abra o arquivo com um editor de texto e exiba o nome da rede virtual clássica. Use os nomes no arquivo de configuração de rede ao executar os cmdlets do PowerShell.
 
@@ -218,16 +236,19 @@ Abra o arquivo com um editor de texto e exiba o nome da rede virtual clássica. 
 
 ### <a name="3-create-the-connection"></a>3. Criar a conexão
 
-Defina a chave compartilhada e crie a conexão da VNet clássica com a VNet do Resource Manager.
+Defina a chave compartilhada e crie a conexão da VNet clássica com a VNet do Resource Manager. Não é possível definir a chave compartilhada usando o portal. Certifique-se de que executar essas etapas enquanto estiver conectado usando a versão clássica dos cmdlets do PowerShell. Para fazer isso, use **Add-AzureAccount**. Caso contrário, você não poderá definir o '-AzureVNetGatewayKey'.
 
 - Neste exemplo, **-VNetName** é o nome da VNet clássica como encontrado no arquivo de configuração de rede. 
 - O **-LocalNetworkSiteName** é o nome que você especificou para o site local, como encontrado no arquivo de configuração de rede.
 - O **-SharedKey** é um valor que você gera e especifica. Neste exemplo, usamos *abc123*, mas você pode gerar algo mais complexo. O importante é que o valor que você especifica aqui deve ser o mesmo valor que especificou ao criar a conexão do Resource Manager com o clássico.
 
-        Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
-        -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
+```powershell
+Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
+-LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
+```
 
 ##<a name="verify"></a>6. Verificar as conexões
+
 Você pode verificar a conexão usando o portal do Azure ou o PowerShell. Ao verificar, talvez seja necessário aguardar um minuto ou dois como a conexão está sendo criado. Quando uma conexão é bem-sucedida, o estado da conectividade muda de "Conectando" para "Conectado".
 
 ### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>Para verificar a conexão de sua VNET clássica para sua VNET do Resource Manager
@@ -238,6 +259,6 @@ Você pode verificar a conexão usando o portal do Azure ou o PowerShell. Ao ver
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
-## <a name="faq"></a>Considerações de Rede Virtual para Rede Virtual
+## <a name="faq"></a>Perguntas frequentes sobre Rede Virtual para Rede Virtual
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 04/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b16d8607ca0dbb08421b332df11e462267eb80f5
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 68d74cfde8146007930a4c340b7412fca00afc39
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -49,7 +49,7 @@ Depois de definir uma política de segurança, a Central de Segurança analisa o
 
 Para ver os detalhes de cada recomendação:
 
-1. Clique no **bloco Recomendações** na folha **Central de Segurança**. A folha **Recomendações** será aberta.
+Selecione o bloco **Recomendações** na folha **Central de Segurança**. A folha **Recomendações** será aberta.
 
 As recomendações são mostradas em um formato de tabela, em que cada linha representa uma recomendação específica. As colunas da tabela são:
 
@@ -98,7 +98,7 @@ Use a tabela a seguir como referência para ajudar a entender as recomendações
 
 Você pode filtrar e ignorar as recomendações.
 
-1. Clique em **Filtro** na folha **Recomendações**. A folha **Filtro** é aberta e você seleciona os valores de gravidade e de estado que deseja ver.
+1. Selecione **Filtro** na folha **Recomendações**. A folha **Filtro** é aberta e você seleciona os valores de gravidade e de estado que deseja ver.
 
     ![Recomendações de filtro][2]
 2. Se você determinar que uma recomendação não se aplica, poderá ignorar a recomendação e removê-la da exibição. Há duas maneiras de ignorar uma recomendação. Uma das maneiras consiste em clicar com o botão direito do mouse em um item e selecionar **Ignorar**. A outra maneira é passar o mouse sobre um item, clicar nos três pontos que aparecem à direita e selecionar **Ignorar**. Você pode exibir as recomendações ignoradas ao clicar em **Filtro** e selecionar **Ignoradas**.

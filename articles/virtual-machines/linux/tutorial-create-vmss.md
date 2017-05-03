@@ -1,9 +1,9 @@
 ---
-title: "Criar um aplicativo altamente disponível no Azure usando conjuntos de dimensionamento de máquinas virtuais | Microsoft Docs"
-description: "Crie e implante um aplicativo altamente disponível em VMs Linux usando um conjunto de dimensionamento de máquinas virtuais e a CLI do Azure."
+title: "Criar um conjunto de escala de máquina Virtual para Linux no Azure | Documentos do Microsoft"
+description: "Criar e implantar um aplicativo em VMs do Linux usando um conjunto de escala de máquina virtual altamente disponível"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: Thraka
+author: iainfoulds
 manager: timlt
 editor: 
 tags: 
@@ -13,33 +13,33 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: adegeo
+ms.date: 04/18/2017
+ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 4c76fb202f501f671504646395b800aeb90d8e69
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 73167924f95c8cea0ac3cb4651cb3571fb24cc01
+ms.lasthandoff: 04/21/2017
 
 ---
 
-# <a name="create-a-highly-available-application-on-linux-with-virtual-machine-scale-sets"></a>Criar um aplicativo altamente disponível no Linux com Conjunto de Dimensionamento de Máquinas Virtuais
-Este tutorial mostra como criar um aplicativo altamente disponível em um conjunto de dimensionamento de máquinas virtuais. Você também aprenderá a automatizar a configuração das máquinas virtuais no conjunto de dimensionamento. 
+# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Criar um conjunto de escala de máquina Virtual e implantar um aplicativo altamente disponível no Linux
+Neste tutorial, você aprenderá como conjuntos de escala de máquina virtual no Azure permitem que você dimensionar rapidamente o número de máquinas virtuais (VMs) que executam seu aplicativo. Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Você pode dimensionar o número de VMs no conjunto de escala manualmente ou definir regras para dimensionamento automático com base no uso da CPU, a demanda por memória ou tráfego de rede. Para ver uma escala de máquina virtual definido em ação, você deve criar um aplicativo Node. js que é executado em várias VMs do Linux.
+
+As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [CLI do Azure 2.0](/cli/azure/install-azure-cli).
 
 
-## <a name="step-1---create-a-resource-group"></a>Etapa 1 – Criar um grupo de recursos
-Para concluir este tutorial, certifique-se de que a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-azure-cli) esteja instalada. Se você ainda não estiver conectado à sua assinatura do Azure, faça logon com [az login](/cli/azure/#login) e siga as instruções na tela.
+## <a name="scale-set-overview"></a>Visão geral do conjunto de escala
+Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Conjuntos de escala usam os mesmos componentes que você aprendeu no tutorial anterior para [criar máquinas virtuais altamente disponíveis](tutorial-availability-sets.md). As VMs em um conjunto de escala são criadas em um conjunto e distribuídas entre domínios de falha e atualização de lógica de disponibilidade.
 
-Crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroupVMSS` no local `westus`:
+VMs são criadas conforme necessário em um conjunto de escala. Você pode definir regras de dimensionamento automático para controlar como e quando as VMs são adicionadas ou removidas do conjunto de escala. Essas regras podem ser disparados com base em métricas como carga de CPU, utilização de memória ou tráfego de rede.
 
-```azurecli
-az group create --name myResourceGroupVMSS --location westus
-```
+Escala define suporte até 1.000 VMs quando você usar uma imagem da plataforma Windows Azure. Para cargas de trabalho de produção, convém [criar uma imagem VM personalizada](tutorial-custom-images.md). Você pode criar até 100 VMs em uma escala definida ao usar uma imagem personalizada.
 
 
-## <a name="step-2---define-your-app"></a>Etapa 2 – Definir o aplicativo
-Use a mesma configuração **cloud-init** do tutorial em que criou um aplicativo altamente disponível com balanceamento de carga. Para saber mais sobre como usar **cloud_init**, consulte [Usar cloud-init para personalizar uma VM Linux durante a criação](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="create-an-app-to-scale"></a>Criar um aplicativo para escala
+Para uso em produção, você poderá [criar uma imagem VM personalizada](tutorial-custom-images.md) que inclui o aplicativo instalado e configurado. Para este tutorial, permite personalizar as VMs na primeira inicialização para ver rapidamente uma escala definida em ação.
 
-Crie um arquivo chamado `cloud-init.txt` e cole a seguinte configuração:
+Um tutorial anterior, você aprendeu [como personalizar uma máquina virtual de Linux na primeira inicialização](tutorial-automate-vm-deployment.md) com cloud-init. Você pode utilizar o mesmo arquivo de configuração de inicialização de nuvem para instalar o NGINX e executar um aplicativo simples do Node. js 'Hello, World'. Crie um arquivo chamado `cloud-init.txt` e cole a seguinte configuração:
 
 ```yaml
 #cloud-config
@@ -76,7 +76,7 @@ write_files:
         console.log('Hello world app listening on port 3000!')
       })
 runcmd:
-  - nginx -s reload
+  - service nginx restart
   - cd "/home/azureuser/myapp"
   - npm init
   - npm install express -y
@@ -84,16 +84,18 @@ runcmd:
 ```
 
 
-## <a name="step-3---create-scale-set"></a>Etapa 3 – Criar um conjunto de dimensionamento
-Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Os conjuntos de dimensionamento usam os mesmos componentes sobre os quais você aprendeu no tutorial para [Criar um aplicativo altamente disponível no Azure](tutorial-load-balance-nodejs.md). Esses componentes incluem conjuntos de disponibilidade, domínios de falha e atualização e balanceadores de carga.
+## <a name="create-a-scale-set"></a>Criar um conjunto de escala
+Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroupScaleSet` no local `westus`:
 
-Com um conjunto de dimensionamento, esses recursos são criados e gerenciados para você. O número de VMs no conjunto de dimensionamento pode aumentar ou diminuir automaticamente de acordo com as regras definidas. É possível [usar uma imagem personalizada](capture-image.md) como a origem da máquina virtual ou configurar as VMs durante a implantação com **cloud-init** como neste tutorial.
+```azurecli
+az group create --name myResourceGroupScaleSet --location westus
+```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#create). O seguinte exemplo cria um conjunto de dimensionamento chamado `myScaleSet`:
+Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#create). O exemplo a seguir cria uma conjunto nomeada de escala `myScaleSet`, usa o arquivo de nuvem-int para personalizar a VM e gera chaves SSH, se não existirem:
 
 ```azurecli
 az vmss create \
-  --resource-group myResourceGroupVMSS \
+  --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
   --image Canonical:UbuntuServer:14.04.4-LTS:latest \
   --upgrade-policy-mode automatic \
@@ -105,12 +107,14 @@ az vmss create \
 Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjunto de dimensionamento.
 
 
-## <a name="step-4---configure-firewall"></a>Etapa 4 – Configurar o firewall
-Um balanceador de carga foi criado automaticamente como parte do conjunto de dimensionamento de máquinas virtuais. O balanceador de carga distribui o tráfego entre um conjunto de VMs definidas usando regras do balanceador de carga. Para permitir que o tráfego acesse o aplicativo Web, crie uma regra com [az network lb probe create](/cli/azure/network/lb/probe#create). O exemplo a seguir cria uma regra chamada `myLoadBalancerRuleWeb`:
+## <a name="allow-web-traffic"></a>Permitir o tráfego da web
+Um balanceador de carga foi criado automaticamente como parte do conjunto de dimensionamento de máquinas virtuais. O balanceador de carga distribui o tráfego entre um conjunto de VMs definidas usando regras do balanceador de carga. Você pode aprender mais sobre conceitos de Balanceador de carga e a configuração no próximo tutorial, [como carga de máquinas virtuais de saldo no Azure](tutorial-load-balancer.md).
+
+Para permitir o tráfego acessar o aplicativo web, crie uma regra com [criar regra de balanceamento de carga de rede az](/cli/azure/network/lb/rule#create). O exemplo a seguir cria uma regra chamada `myLoadBalancerRuleWeb`:
 
 ```azurecli
 az network lb rule create \
-  --resource-group myResourceGroupVMSS \
+  --resource-group myResourceGroupScaleSet \
   --name myLoadBalancerRuleWeb \
   --lb-name myScaleSetLB \
   --backend-pool-name myScaleSetLBBEPool \
@@ -120,12 +124,12 @@ az network lb rule create \
   --protocol tcp
 ```
 
-## <a name="step-5---test-your-app"></a>Etapa 5 – Testar o aplicativo
-Obtenha o endereço IP público de seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip#show). O seguinte exemplo obtém o endereço IP de `myScaleSetLBPublicIP`, criado como parte do conjunto de dimensionamento:
+## <a name="test-your-app"></a>Testar seu aplicativo
+Para ver seu aplicativo Node. js na web, obter o endereço IP público de sua balanceador de carga com [az rede ip público exibir](/cli/azure/network/public-ip#show). O seguinte exemplo obtém o endereço IP de `myScaleSetLBPublicIP`, criado como parte do conjunto de dimensionamento:
 
 ```azurecli
 az network public-ip show \
-    --resource-group myResourceGroupVMSS \
+    --resource-group myResourceGroupScaleSet \
     --name myScaleSetLBPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -133,19 +137,52 @@ az network public-ip show \
 
 Insira o endereço IP público em um navegador da Web. O aplicativo é exibido, incluindo o nome do host da VM para a qual o balanceador de carga distribui o tráfego:
 
-![Executar o aplicativo Node.js](./media/tutorial-load-balance-nodejs/running-nodejs-app.png)
+![Executar o aplicativo Node.js](./media/tutorial-create-vmss/running-nodejs-app.png)
 
-Force a atualização do navegador da Web para ver o balanceador de carga distribuir o tráfego entre todas as VMs no conjunto de dimensionamento que executa o aplicativo.
+Para ver a escala definida em ação, você pode forçar atualização seu navegador da web para ver o balanceador de carga distribuir tráfego entre todas as VMs que executam seu aplicativo.
 
 
-## <a name="step-6---management-tasks"></a>Etapa 6 – Tarefas de gerenciamento
+## <a name="management-tasks"></a>Tarefas de gerenciamento
 Durante todo o ciclo de vida do conjunto de dimensionamento, você poderá precisar executar uma ou mais tarefas de gerenciamento. Além disso, talvez você deseje criar scripts que automatizam várias tarefas do ciclo de vida. A CLI 2.0 do Azure fornece uma maneira rápida de realizar essas tarefas. Estas são algumas tarefas comuns.
 
+### <a name="view-vms-in-a-scale-set"></a>Exibição de VMs em um conjunto de escala
+Para exibir uma lista de VMs em execução no seu conjunto de escala, use [instâncias de lista az vmss](/cli/azure/vmss#list-instances) da seguinte maneira:
+
+```azurecli
+az vmss list-instances \
+  --resource-group myResourceGroupScaleSet \
+  --name myScaleSet \
+  --output table
+```
+
+A saída deverá ser semelhante ao seguinte exemplo:
+
+```azurecli
+  InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
+------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
+           1  True                  westus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
+           3  True                  westus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
+```
+
+
 ### <a name="increase-or-decrease-vm-instances"></a>Aumentar ou diminuir as instâncias de VM
+Para ver o número de instâncias que você fez em um conjunto de escala, use [show do az vmss](/cli/azure/vmss#show) e consultar em `sku.capacity`:
+
+```azurecli
+az vmss show \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
+    --query [sku.capacity] \
+    --output table
+```
+
 Manualmente, é possível aumentar ou diminuir o número de máquinas virtuais no conjunto de dimensionamento com [az vmss scale](/cli/azure/vmss#scale). O seguinte exemplo aumenta o número de VMs no conjunto de dimensionamento para `5`:
 
 ```azurecli
-az vmss scale --resource-group myResourceGroupVMSS --name myScaleSet --new-capacity 5
+az vmss scale \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
+    --new-capacity 5
 ```
 
 As regras de dimensionamento automático permitem definir como escalar e reduzir verticalmente o número de VMs no conjunto de dimensionamento em resposta à demanda, como tráfego de rede ou uso da CPU. Atualmente, essas regras não podem ser definidas na CLI 2.0 do Azure. Use o [portal do Azure](https://portal.azure.com) para configurar o dimensionamento automático.
@@ -154,22 +191,12 @@ As regras de dimensionamento automático permitem definir como escalar e reduzir
 Para obter informações de conexão sobre as VMs nos conjuntos de dimensionamento, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). Esse comando gera o endereço IP público e as portas para cada VM que permite a conexão com o SSH:
 
 ```azurecli
-az vmss list-instance-connection-info --resource-group myResourceGroupVMSS --name myScaleSet
-```
-
-### <a name="delete-resource-group"></a>Excluir grupo de recursos
-Excluir um grupo de recursos exclui todos os recursos contidos nele.
-
-```azurecli
-az group delete --name myResourceGroupVMSS
+az vmss list-instance-connection-info --resource-group myResourceGroupScaleSet --name myScaleSet
 ```
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, definimos o aplicativo Web com **cloud-init** e configuramos cada VM durante a implantação. Para obter informações sobre como capturar uma VM para usar como a imagem de origem no conjunto de dimensionamento, consulte [Como generalizar e capturar uma máquina virtual Linux](capture-image.md).
+Neste tutorial, você aprendeu como criar um conjunto de escala de máquina virtual. Avança para o próximo tutorial para saber mais sobre conceitos de máquinas virtuais de balanceamento de carga.
 
-Para saber mais sobre alguns dos recursos do conjunto de dimensionamento de máquinas virtuais apresentados neste tutorial, consulte as seguintes informações:
+[Balancear carga de máquinas virtuais](tutorial-load-balancer.md)
 
-- [Visão geral dos conjuntos de dimensionamento de máquinas virtuais do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
-- [Visão geral do Azure Load Balancer](../../load-balancer/load-balancer-overview.md)
-- [Controlar o fluxo de tráfego de rede com grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md)

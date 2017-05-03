@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: c75a3a2477f113f17aab7a3e1969f15a4ec88a02
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 22a86001fe93dcb11e180dbdd75045b49b85b58f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -37,13 +37,14 @@ Publique comentários ou perguntas no final deste artigo ou no [Fórum dos Servi
 * O destino mestre deve estar em uma rede que pode se comunicar com o servidor de processo e com o servidor de configuração.
 * A versão de destino mestre deve ser igual ou anterior às versões de servidor de processo e o servidor de configuração. Por exemplo, se a versão do servidor de configuração for a 9.4, a versão de destino mestre poderá ser 9.4 ou 9.3 mas não 9.5.
 * O destino mestre só pode ser uma máquina virtual VMware e não um servidor físico.
-* O destino mestre precisa seguir estas diretrizes de dimensionamento
+
+## <a name="master-target-sizing-guideline"></a>Orientação de dimensionamento de destino mestre
+
+O destino mestre precisa ser criado com as diretrizes de dimensionamento a seguir
     * RAM – 6 GB ou mais
-    * Tamanho do disco do sistema operacional – 50 GB ou mais (para instalar o CentOS6.6)
+    * Tamanho do disco do sistema operacional – 100 GB ou mais (para instalar o CentOS6.6)
     * Tamanho de disco adicional para a unidade de retenção – 1 TB
     * Núcleos de CPU – 4 núcleos ou mais
-
-
 
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>Etapas para implantar o servidor de destino mestre

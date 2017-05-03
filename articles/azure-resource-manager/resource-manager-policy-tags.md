@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6e71fd9eda822478fa0555aa44908a4094fe8de2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,83 +31,53 @@ A aplicação de uma política de marca a um grupo de recursos ou a uma assinatu
 
 Um requisito comum é o de que todos os recursos em um grupo de recursos tenham uma marca e um valor específicos. Esse requisito geralmente é necessário para controlar custos por departamento. As seguintes condições devem ser atendidas:
 
-* A marca e o valor necessários são acrescentados a recursos novos e atualizados que não têm marcas existentes.
-* A marca e o valor necessários são acrescentados a recursos novos e atualizados que têm outras marcas, mas não a marca e o valor necessários.
+* A marca necessária e o valor são acrescentados aos recursos novos e atualizados que não têm a marca.
 * A marca e o valor necessários não podem ser removidos de nenhum recurso existente.
 
-Você pode atender a esse requisito aplicando a um grupo de recursos as três seguintes políticas:
+Você pode atender a esse requisito aplicando a um grupo de recursos.
 
-* [Acrescentar marca](#append-tag) 
-* [Acrescentar marca com outras marcas](#append-tag-with-other-tags)
-* [Exigir marca e valor](#require-tag-and-value)
+| ID | Descrição |
+| ---- | ---- |
+| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Aplica uma marca necessária e seu valor padrão quando não for especificado pelo usuário. |
+| 1e30110a-5ceb-460c-a204-c1c3969c6d62 | Impõe uma marca necessária e seu valor. |
 
-### <a name="append-tag"></a>Acrescentar marca
+### <a name="powershell"></a>PowerShell
 
-A seguinte regra de política acrescentará a marca costCenter com um valor predefinido quando nenhuma marca estiver presente:
+O seguinte script PowerShell atribui as duas definições de diretiva interna para um grupo de recursos. Antes de executar o script, atribua todas as marcas necessárias para o grupo de recursos. Cada marca no grupo de recursos é necessária para os recursos do grupo. Para atribuir a todos os grupos de recursos em sua assinatura, não fornece o `-Name` parâmetro ao obter os grupos de recursos.
 
-```json
+```powershell
+$appendpolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '2a0e14a6-b0a6-4fab-991a-187a4f81c498'}
+$denypolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '1e30110a-5ceb-460c-a204-c1c3969c6d62'}
+
+$rgs = Get-AzureRMResourceGroup -Name ExampleGroup
+
+foreach($rg in $rgs)
 {
-  "if": {
-    "field": "tags",
-    "exists": "false"
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags",
-        "value": {"costCenter":"myDepartment" }
-      }
-    ]
-  }
-}
-```
-
-### <a name="append-tag-with-other-tags"></a>Acrescentar marca com outras marcas
-
-A seguinte regra de política acrescentará a marca costCenter com um valor predefinido quando marcas estiverem presentes, mas a marca costCenter não estiver definida:
-
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "tags",
-        "exists": "true"
-      },
-      {
-        "field": "tags.costCenter",
-        "exists": "false"
-      }
-    ]
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags.costCenter",
-        "value": "myDepartment"
-      }
-    ]
-  }
-}
-```
-
-### <a name="require-tag-and-value"></a>Exigir marca e valor
-
-A regra de política a seguir nega a atualização ou criação de recursos que não têm a marca costCenter atribuída ao valor predefinido.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "tags.costCenter",
-      "equals": "myDepartment"
+    $tags = $rg.Tags
+    foreach($key in $tags.Keys){
+        $key 
+        $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("append"+$key+"tag") -PolicyDefinition $appendpolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("denywithout"+$key+"tag") -PolicyDefinition $denypolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
     }
-  },
-  "then": {
-    "effect": "deny"
-  }
+}
+```
+
+Depois de atribuir as políticas, você pode disparar uma atualização para todos os recursos existentes para impor as políticas de marca que você adicionou. O script a seguir mantém outras marcas que existiam nos recursos:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
 }
 ```
 
@@ -150,26 +120,6 @@ A seguinte política nega as solicitações que não têm uma marca contendo a c
   "then" : {
     "effect" : "deny"
   }
-}
-```
-
-## <a name="trigger-updates-to-existing-resources"></a>Disparar atualizações para recursos existentes
-
-O script do PowerShell a seguir dispara uma atualização para recursos existentes de modo a impor políticas de marca que você adicionou.
-
-```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
-
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
-
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($_.Tags -eq $NULL) { @{}} else {$_.Tags}) -Force -UsePatchSemantics
-    }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
-    }
 }
 ```
 

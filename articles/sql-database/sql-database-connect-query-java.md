@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: andrela;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 17202bfc03e9b60d12f1a071eff427520a0dce83
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ Este início rápido usa como ponto de partida os recursos criados em um destes 
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-java-software"></a>Instalar o software Java
+
+As etapas nesta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o Java e começou recentemente a trabalhar com o Banco de Dados SQL do Azure. Se você for novo no desenvolvimento com o Java, acesse [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) e selecione **Java** e, em seguida, selecione o seu sistema operacional.
 
 ### <a name="mac-os"></a>**Mac OS**
 Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto Java. Digite os comandos a seguir para instalar **brew** e **Maven**. 
@@ -50,11 +52,11 @@ sudo apt-get install maven
 ```
 
 ### <a name="windows"></a>**Windows**
-Instale o [Maven](https://maven.apache.org/download.cgi) usando o instalador oficial.  
+Instale o [Maven](https://maven.apache.org/download.cgi) usando o instalador oficial. Maven pode ser usado para ajudar a gerenciar dependências, compilar, testar e executar seu projeto Java. 
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
-Obtenha a cadeia de conexão no Portal do Azure. Use a cadeia de conexão para se conectar ao Banco de Dados SQL do Azure.
+Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
@@ -67,7 +69,7 @@ Obtenha a cadeia de conexão no Portal do Azure. Use a cadeia de conexão para s
 
 6. Examine a cadeia de conexão completa do **JDBC**.
 
-    ![Cadeia de conexão JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)
+    ![Cadeia de conexão JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)    
 
 ### <a name="create-maven-project"></a>**Criar projeto Maven**
 No terminal, crie um novo projeto Maven. 
@@ -87,7 +89,7 @@ Adicione o **Microsoft JDBC Driver para SQL Server** às dependências em ***pom
 
 ## <a name="select-data"></a>Selecionar dados
 
-Use o seguinte código para consultar o banco de dados SQL do Azure usando a classe de [conexão](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) com uma instrução [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) do Transact-SQL. Substitua os parâmetros de hostHame, dbName, usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. 
+Use o código a seguir para consultar os 20 principais produtos por categoria usando a [classe de conexão](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection)com a instrução [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) do Transact-SQL. Substitua os parâmetros de hostHame, dbName, usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;
@@ -144,7 +146,7 @@ public class App {
 
 ## <a name="insert-data"></a>Inserir dados
 
-Use o seguinte código para inserir um novo produto na tabela SalesLT.Product no banco de dados especificado usando a classe de [Instruções Preparadas](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) com uma instrução [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) do Transact-SQL. Substitua os parâmetros de hostHame, dbName, usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. 
+Use o seguinte código para inserir um novo produto na tabela SalesLT.Product no banco usando a classe de [Instruções Preparadas](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) com uma instrução [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) do Transact-SQL. Substitua os parâmetros de hostHame, dbName, usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;
@@ -174,7 +176,7 @@ public class App {
                 System.out.println("=========================================");
 
                 // Prepared statement to insert data
-                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, " 
                     + " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
                 java.util.Date date = new java.util.Date();
@@ -200,7 +202,7 @@ public class App {
 ```
 ## <a name="update-data"></a>Atualizar dados
 
-Use o seguinte código para atualizar os dados em seu banco de dados SQL do Azure, usando a classe de [Instruções Preparadas](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) com uma instrução [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) do Transact-SQL. Substitua os parâmetros de hostHame, dbName, usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. 
+Use o código a seguir para atualizar o produto novo adicionado anteriormente, usando a classe de [Instruções Preparadas](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) com uma instrução [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) do Transact-SQL para atualizar dados no seu Banco de .dados SQL do Azure. Substitua os parâmetros de hostHame, dbName, usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;
@@ -251,7 +253,7 @@ public class App {
 
 ## <a name="delete-data"></a>Excluir dados
 
-Use o seguinte código para excluir dados no banco de dados SQL do Azure, usando as [Instruções Preparadas](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) com uma instrução [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) do Transact-SQL. Substitua os parâmetros de hostHame, dbName, usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. 
+Use o código a seguir para excluir o novo produto que você adicionou anteriormente usando [Instruções Peparadas](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) com uma instrução [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) do Transact-SQL. Substitua os parâmetros de hostHame, dbName, usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;

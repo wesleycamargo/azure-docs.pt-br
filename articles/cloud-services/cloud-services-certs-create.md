@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 885180e9759d0702d4e0988a7a1b4eb9097d4433
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 7e68a738feff2eb2330b74d942b0a7f42d07df78
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -58,8 +58,10 @@ Você pode usar qualquer ferramenta disponível para criar um certificado autoas
 * Um certificado X.509.
 * Contém uma chave privada.
 * Criado para troca de chaves (arquivo. pfx).
-* O nome de assunto deve corresponder ao domínio usado para acessar o serviço de nuvem. 
+* O nome de assunto deve corresponder ao domínio usado para acessar o serviço de nuvem.
+
     > Você não pode adquirir um certificado SSL para o domínio cloudapp.net (ou para qualquer um relacionado ao Azure); o nome de assunto do certificado deve corresponder ao nome do domínio personalizado usado para acessar o aplicativo. Por exemplo, **contoso.net** e não **contoso.cloudapp.net**.
+
 * Mínimo de criptografia de 2048 bits.
 * **Apenas Certificado de Serviço**: o certificado do cliente deve residir no repositório de certificados *Pessoal* .
 
@@ -77,8 +79,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 > [!NOTE]
 > Se você quiser usar o certificado com um endereço IP em vez de um domínio, use o endereço IP no parâmetro - DnsName.
-> 
-> 
+
 
 Se você quiser usar este [certificado com o portal de gerenciamento](../azure-api-management-certs.md), exporte-o para um arquivo **.cer** :
 
@@ -98,11 +99,6 @@ Você pode usar o Java para [criar um certificado](../app-service-web/java-creat
 ## <a name="next-steps"></a>Próximas etapas
 [Carregue seu certificado de serviço no Portal Clássico do Azure](cloud-services-configure-ssl-certificate.md) (ou no [Portal do Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
-Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.md) no portal clássico do Azure.
-
-> [!NOTE]
-> O portal do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
-> 
-> 
+Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.md) no portal clássico do Azure. O portal do Azure não usa certificados de gerenciamento para autenticação.
 
 
