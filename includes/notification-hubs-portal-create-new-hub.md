@@ -19,8 +19,3 @@
    
       ![Portal do Azure - cadeias de conexão do hub de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

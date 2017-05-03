@@ -15,8 +15,3 @@ Ao selecionar uma SKU, considere o seguinte:
 * Configurações de coexistência de ExpressRoute-Gateway de VPN não têm suporte na SKU Básica.
 * As conexões de Gateway de VPN S2S ativa-ativa só podem ser configuradas na SKU HighPerformance.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

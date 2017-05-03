@@ -3,8 +3,3 @@ A Rota Expressa do Microsoft Azure permite que você estenda suas redes locais a
 
 ![](./media/expressroute-intro-include/expressroute-basic.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
