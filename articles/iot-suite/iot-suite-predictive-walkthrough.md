@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/25/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 719f9810abb12cbe8645651d35cbff936cecd158
-ms.openlocfilehash: 57531b609b095359c8bf0ea3685af40124f46311
-ms.lasthandoff: 02/01/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -63,8 +63,8 @@ O Hub IoT fornece reconhecimento de comando do dispositivo.
 ## <a name="event-processor"></a>Processador de eventos
 O **host do processador de eventos** é executado em um trabalho de Web do Azure. O **processador de eventos** obtém os valores do sensor médios para um ciclo completo. Ele passa esses valores para uma API que expõe o modelo treinado para calcular a RUL para um motor. A API é exposta por um espaço de trabalho do Machine Learning é provisionado como parte da solução.
 
-## <a name="machine-learning"></a>Aprendizado de Máquina
-O componente de Machine Learning usa um modelo derivado dos dados coletados de mecanismos de aeronave real. Você pode navegar até o Espaço de Trabalho do Machine Learning na página [azureiotsuite.com][lnk-azureiotsuite] para sua solução provisionada quando ela está no estado **Pronto**.
+## <a name="machine-learning"></a>Machine Learning
+O componente de Machine Learning usa um modelo derivado dos dados coletados de mecanismos de aeronave real. Você pode navegar até o espaço de trabalho do Machine Learning no bloco na página [azureiotsuite.com][lnk-azureiotsuite] para sua solução provisionada quando a solução está no estado **Pronto**.
 
 
 ## <a name="next-steps"></a>Próximas etapas

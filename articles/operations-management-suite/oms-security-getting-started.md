@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -33,14 +33,14 @@ A solução de Segurança e Auditoria do OMS fornece uma exibição abrangente d
 
 1. No painel principal **Microsoft Operations Management Suite**, clique no bloco **Configurações** à esquerda.
 2. Na folha **Configurações**, em **Soluções**, clique na opção **Segurança e Auditoria**.
-3. O painel **Segurança e Auditoria** será exibido:
+3. O painel **Segurança e Auditoria** é exibido:
    
     ![Painel Segurança e Auditoria do OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
 Se você estiver acessando esse painel pela primeira vez e não tiver dispositivos monitorados pelo OMS, os blocos não serão populados com os dados obtidos do agente. Depois de instalar o agente, poderá demorar para que eles sejam populados e, portanto, o que é visto inicialmente pode ter alguns dados ausentes, já que eles ainda estão sendo carregados para a nuvem.  Nesse caso, é normal ver alguns blocos sem informações tangíveis. Leia [Conectar computadores com Windows diretamente ao OMS](https://technet.microsoft.com/library/mt484108.aspx) para obter mais informações sobre como instalar o agente do OMS em um sistema Windows e [Conectar computadores com Linux ao OMS](https://technet.microsoft.com/library/mt622052.aspx) para obter mais informações sobre como executar essa tarefa em um sistema Linux.
 
 > [!NOTE]
-> O agente coletará as informações com base nos eventos atuais que são habilitados, por exemplo, nome do computador, nome de usuário e endereço IP. No entanto, nenhum documento/arquivo, nome de banco de dados ou dado privado será coletado.   
+> O agente coleta as informações com base nos eventos atuais que são habilitados, por exemplo, nome do computador, nome de usuário e endereço IP. No entanto, nenhum documento/arquivo, nome de banco de dados ou dado privado será coletado.   
 > 
 > 
 
@@ -99,12 +99,12 @@ Assim como ocorre com qualquer outro bloco dinâmico disponível no Painel do OM
 Se você clicar no nome do computador, você terá a exibição cronológica do status da proteção deste computador. Isso é muito útil para cenários em que você precisa entender se o antimalware foi instalado uma vez e se, em algum momento, foi removido.   
 
 ### <a name="update-assessment"></a>Avaliação de atualização
-Essa opção permite que você determine rapidamente a exposição geral a problemas potenciais de segurança, bem como se essas atualizações são críticas e até que ponto são críticas para seu ambiente. A solução de Segurança e Auditoria do OMS fornece apenas a visualização dessas atualizações; os dados reais são fornecidos pelas [Soluções de Atualizações do Sistema](https://technet.microsoft.com/library/mt484096.aspx), que é um módulo diferente no OMS. Este é um exemplo das atualizações:
+Essa opção permite que você determine rapidamente a exposição geral a problemas potenciais de segurança, bem como se essas atualizações são críticas e até que ponto são críticas para seu ambiente. A solução de Segurança e Auditoria do OMS fornece apenas a visualização dessas atualizações; os dados reais são fornecidos pelas [Soluções de Gerenciamento de Atualizações](oms-solution-update-management.md), que é um módulo diferente no OMS. Este é um exemplo das atualizações:
 
-![atualizações do sistema](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![atualizações do sistema](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> para obter mais informações sobre a solução de Atualizações, leia [Atualizar servidores com a solução de Atualizações do Sistema](https://technet.microsoft.com/library/mt484096.aspx).
+> Para obter mais informações sobre soluções de Gerenciamento de Atualizações, leia [Solução de Gerenciamento de Atualizações no OMS](oms-solution-update-management.md).
 > 
 > 
 
@@ -135,6 +135,14 @@ Este bloco pode ser usado para acessar todos os computadores que têm eventos de
 
 Você pode continuar a investigação clicando em cada computador e examinar os eventos de segurança sinalizados.
 
+### <a name="threat-intelligence"></a>Inteligência contra ameaças
+
+Ao usar a opção Inteligência contra Ameaças disponível na Segurança e Auditoria do OMS, os administradores de TI podem identificar as ameaças à segurança no ambiente, por exemplo, identificar se determinado computador faz parte de um botnet. Os computadores podem se tornar nós em um botnet quando os invasores instalam de forma ilícita malware que se conecta secretamente esse computador ao comando e controle. Ela também pode identificar ameaças potenciais recebidas de canais de comunicação underground, como darknet. Saiba mais sobre o Threat Intelligence lendo o artigo [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md).
+
+### <a name="baseline-assessment"></a>Avaliação de linha de base
+
+A Microsoft, juntamente com organizações governamentais e do setor no mundo todo, define uma configuração do Windows que representa implantações de servidor altamente seguras. Essa configuração é um conjunto de chaves do registro, configurações de política de auditoria e configurações de política de segurança, juntamente com os valores recomendados da Microsoft para essas configurações. Esse conjunto de regras é conhecido como linha de base de Segurança. Leia [Avaliação de Linha de Base na Solução de Auditoria e Segurança do Operations Management Suite](oms-security-baseline.md) para saber mais informações sobre esta opção.
+
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 Basicamente, este bloco é um atalho para acessar o painel da Central de Segurança do Azure. Leia [Introdução à Central de Segurança do Azure](../security-center/security-center-get-started.md) para obter mais informações sobre essa solução.
 
@@ -153,7 +161,7 @@ O objetivo principal dessa opção é permitir que a TI identifique rapidamente 
 Essa opção também pode ser usada durante uma [investigação de resposta a incidentes](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) para realizar a avaliação e obter mais informações sobre o ataque.
 
 > [!NOTE]
-> Para obter mais informações sobre como usar o OMS para resposta a incidentes, assista a [Como utilizar a Central de Segurança do Azure e o Microsoft Operations Management Suite para uma resposta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
+> Para obter mais informações sobre como usar o OMS para resposta a incidentes, assista a este vídeo: [Como utilizar a Central de Segurança do Azure e o Microsoft Operations Management Suite para uma resposta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 > 
 > 
 

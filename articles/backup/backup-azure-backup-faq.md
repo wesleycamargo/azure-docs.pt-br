@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: aabd0481e6dd264e9a5e91c2e4b2b83f01227db1
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -187,7 +187,7 @@ Sim. Você pode executar os trabalhos de backup no Windows Server ou em estaçõ
  Todos os dados dos quais é feito backup do Azure Backup Agent, SCDPM ou Servidor de Backup do Azure são compactados e criptografados antes de serem transferidos. Depois que a compactação e a criptografia forem aplicadas, os dados no cofre de backup serão de 30 a 40% menores.
 
  ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Há uma maneira de ajustar a quantidade de largura de banda usada pelo serviço de Backup?<br/>
-  Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Você pode ajustar a quantidade de largura de banda e os horários quando usar essa largura de banda. Para obter instruções passo a passo, consulte **[Habilitar limitação de rede](backup-configure-vault.md#enable-network-throttling)**.
+  Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Você pode ajustar a quantidade de largura de banda e os horários quando usar essa largura de banda. Para obter instruções passo a passo, consulte  **[Habilitar limitação de rede](backup-configure-vault.md#enable-network-throttling)**.
 
 
 
@@ -205,6 +205,7 @@ O Backup do Azure dá suporte à seguinte lista de sistemas operacionais para ba
 | Windows Server 2016 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 e SPs mais recentes |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 e SPs mais recentes |64 bits |Datacenter, Foundation, Standard |
+| Windows Storage Server 2016 e SPs mais recentes |64 bits |Standard, Workgroup | 
 | Windows Storage Server 2012 R2 e SPs mais recentes |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 e SPs mais recentes |64 bits |Standard, Workgroup |
 | Windows Server 2012 R2 e SPs mais recentes |64 bits |Essential |

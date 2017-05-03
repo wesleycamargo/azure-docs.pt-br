@@ -16,9 +16,9 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -73,11 +73,12 @@ Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch
 
 Você pode criar uma conta do Lote do Azure usando o [portal do Azure](batch-account-create-portal.md) ou por meio de programação, como com a [biblioteca .NET do Gerenciamento de Lote](batch-management-dotnet.md). Ao criar a conta, você poderá associar uma conta do Armazenamento do Azure.
 
-O Lote dá suporte a duas configurações de conta, com base na propriedade *modo de alocação de pool*. As duas configurações oferecem opções diferentes para autenticar com o serviço Lote e para provisionar e gerenciar [pools](#pool) do Lote (mais adiante neste artigo). 
+O Lote dá suporte a duas configurações de conta, com base na propriedade *modo de alocação de pool*. As duas configurações dão acesso aos diferentes capacidades relacionadas aos [pools](#pool) do Lote (consulte mais adiante neste artigo). 
 
 
-* **Serviço Lote** (padrão): você pode acessar as APIs do Lote usando a autenticação de chave compartilhada ou a [autenticação do Azure Active Directory](batch-aad-auth.md). Os recursos de computação no Lote são alocados em segundo plano em uma conta gerenciada pelo Azure.   
-* **Assinatura do usuário**: só é possível acessar as APIs do Lote usando a [autenticação do Azure Active Directory](batch-aad-auth.md). Os recursos de computação do Lote são alocados diretamente na sua assinatura do Azure. Esse modo oferece mais flexibilidade para configurar os nós de computação e integrar com outros serviços. Esse modo exige que você configure mais um Azure Key Vault para sua conta do Lote.
+* **Serviço de Lote**: : Essa é a opção padrão, com as VMs do pool de Lote sendo alocadas nos bastidores durante as assinaturas gerenciadas do Azure. Essa configuração de conta deve ser usada se os pools de Serviços de Nuvem forem necessários, mas não podem ser usados se forem necessários pools de Máquina Virtual que são criados a partir de imagens de VM personalizadas ou que usam uma rede virtual. Você pode acessar as APIs do Lote usando a autenticação de chave compartilhada ou a [autenticação do Azure Active Directory](batch-aad-auth.md). 
+
+* **Assinatura do usuário**: Essa configuração de conta deve ser usada se forem necessários pools de Máquina Virtual que são criados a partir de imagens de VM personalizadas ou que usam uma rede virtual. Só é possível acessar as APIs do Lote usando a [autenticação do Azure Active Directory](batch-aad-auth.md) e não há suporte para os pools de Serviços de Nuvem. As VMs de computação do Lote são alocadas diretamente na sua assinatura do Azure. Esse modo exige que você configure mais um Azure Key Vault para sua conta do Lote.
  
 
 ## <a name="compute-node"></a>Nó de computação
@@ -141,7 +142,7 @@ Ao criar um pool, você pode especificar os seguintes atributos. Algumas configu
 
     Na maioria dos cenários, as tarefas operam de forma independente e não precisam comunicar-se umas com as outras. No entanto, há alguns aplicativos em que as tarefas precisam se comunicar, como os [cenários MPI](batch-mpi.md).
 
-    Você pode configurar um pool para permitir a **comunicação entre os nós**, de modo que os nós em um pool possam comunicar-se durante a execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
+    Você pode configurar um pool para permitir a  **comunicação entre os nós**, de modo que os nós em um pool possam comunicar-se durante a execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
 
     Observe que habilitar a comunicação entre nós também afeta a colocação dos nós nos clusters e pode limitar o número máximo de nós em um pool devido às restrições da implantação. Se seu aplicativo não precisar da comunicação entre os nós, o serviço de Lote poderá alocar um número potencialmente grande de nós para o pool a partir de vários clusters e data centers diferentes para permitir uma capacidade maior do processamento paralelo.
 * **Tarefa inicial** para nós de computação

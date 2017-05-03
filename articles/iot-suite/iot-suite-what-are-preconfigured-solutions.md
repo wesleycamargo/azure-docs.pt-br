@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 04/24/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a3657f8bb60cd1181740b0700f503b5bd1bd559f
-ms.openlocfilehash: a3847f83af1f28e40572af95ff31f44d2f3d6dc4
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -42,7 +42,8 @@ A tabela a seguir mostra como essas soluções são mapeadas para recursos espec
 | Solução | Ingestão de dados | Identidade do dispositivo | Gerenciamento de dispositivos | Comando e controle | Regras e ações | Análise preditiva |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Monitoramento remoto][lnk-getstarted-preconfigured] |Sim |Sim |Sim |Sim |Sim |- |
-| [Manutenção preditiva][lnk-predictive-maintenance] |Sim |Sim |- |Sim |Sim |sim |
+| [Manutenção preditiva][lnk-predictive-maintenance] |Sim |Sim |- |Sim |Sim |Sim |
+| [Fábrica conectada][lnk-getstarted-factory] |Sim |Sim |Sim |Sim |sim |- |
 
 * *Ingestão de dados*: entrada de dados em escala para a nuvem.
 * *Identidade do dispositivo*: gerenciar identidades exclusivas de dispositivo e controlar o acesso do dispositivo à solução.
@@ -130,7 +131,7 @@ Um [dispositivo gêmeo][lnk-device-twin] é um documento JSON gerenciado pelo Hu
 
 Essa solução usa dispositivos gêmeos para gerenciar metadados do dispositivo. A solução também usa um banco de dados DocumentDB para armazenar dados adicionais de dispositivo, específicos da solução, como os comandos aos quais cada dispositivo dá suporte e o histórico de comandos.
 
-A solução também deverá manter as informações no registro de identidade do dispositivo sincronizadas com os conteúdos do banco de dados do Banco de Dados de Documentos. O **EventProcessorHost** usa os dados do trabalho de análise de fluxo de **DeviceInfo** para gerenciar a sincronização.
+A solução também deverá manter as informações no registro de identidade do dispositivo sincronizadas com os conteúdos do banco de dados do DocumentDB. O **EventProcessorHost** usa os dados do trabalho de análise de fluxo de **DeviceInfo** para gerenciar a sincronização.
 
 ## <a name="solution-portal"></a>Portal de solução
 ![portal da solução][img-dashboard]
@@ -166,4 +167,4 @@ Agora você sabe o que é uma solução pré-configurada, poderá começar pela 
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-
+[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md

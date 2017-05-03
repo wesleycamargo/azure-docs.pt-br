@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: d051382954db989ce4152602d249383e7b9dfa46
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: b26d3952adc4d0bb1993bb46cabf6c7d0850666a
+ms.lasthandoff: 04/21/2017
 
 ---
 
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual Linux com a CLI do Azure
 
-A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso da CLI do Azure para implantar uma máquina virtual executando Ubuntu 16.04 LTS. Depois que o servidor for implantado, podemos realizar SSH na VM para instalar o NGINX. 
+A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso da CLI do Azure para implantar uma máquina virtual executando Ubuntu 16.04 LTS. Depois que o servidor for implantado, usaremos o SSH na VM para instalar o NGINX. 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) antes de começar.
 
