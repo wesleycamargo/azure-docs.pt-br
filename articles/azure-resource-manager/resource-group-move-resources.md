@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ Você não pode alterar o local do recurso. Mover um recurso só o move para um 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
 Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao verificar essas condições, é possível evitar erros.
 
-1. As assinaturas de origem e de destino devem existir no mesmo [locatário do Active Directory](../active-directory/active-directory-howto-tenant.md). Para verificar se as duas assinaturas têm a mesma ID de locatário, use o Azure PowerShell ou a CLI do Azure.
+1. As assinaturas de origem e de destino devem existir no mesmo [locatário do Azure Active Directory](../active-directory/active-directory-howto-tenant.md). Para verificar se as duas assinaturas têm a mesma ID de locatário, use o Azure PowerShell ou a CLI do Azure.
 
   Para o Azure PowerShell, use:
 
@@ -50,7 +50,7 @@ Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao 
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Se as IDs do locatário para as assinaturas de origem e de destino não forem iguais, tente alterar o diretório da assinatura. No entanto, essa opção só está disponível para Administradores de Serviço conectados a uma conta da Microsoft (e não uma conta corporativa). Para tentar alterar o diretório, faça logon no [portal clássico](https://manage.windowsazure.com/) e selecione **Configurações** para selecionar a assinatura. Se o ícone **Editar Diretório** estiver disponível, selecione-o para alterar o Active Directory associado. 
+  Se as IDs do locatário para as assinaturas de origem e de destino não forem iguais, tente alterar o diretório da assinatura. No entanto, essa opção só está disponível para Administradores de Serviço conectados a uma conta da Microsoft (e não uma conta corporativa). Para tentar alterar o diretório, faça logon no [portal clássico](https://manage.windowsazure.com/) e selecione **Configurações** para selecionar a assinatura. Se o ícone **Editar Diretório** estiver disponível, selecione-o para alterar o Azure Active Directory associado. 
 
   ![editar diretório](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -67,7 +67,7 @@ Você pode mover a maioria dos recursos por meio de operações de autoatendimen
 
 Telefonar para o suporte quando você precisa:
 
-* Mover os recursos para uma nova conta do Azure (e locatário do Active Directory).
+* Mova os recursos para uma nova conta do Azure (e locatário do Azure Active Directory).
 * Mover recursos clássicos, mas está tendo problemas com as limitações.
 
 ## <a name="services-that-enable-move"></a>Serviços que permitem mover
@@ -87,7 +87,7 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 * Análises Data Lake
 * Repositório Data Lake
 * DNS
-* Banco de Dados de Documentos
+* DocumentDB
 * Hubs de Eventos
 * Clusters HDInsight – veja [Limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
@@ -96,14 +96,14 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 * Aplicativos Lógicos
 * Machine Learning
 * Serviços de mídia
-* Mobile Engagement
+* Engajamento Móvel
 * Hubs de Notificação
 * Insights Operacionais
 * Gerenciamento de Operações
 * Power BI
 * Cache Redis
 * Agendador
-* Pesquisar
+* Search
 * Gerenciamento do Servidor
 * Barramento de Serviço
 * Service Fabric

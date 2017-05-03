@@ -1,6 +1,6 @@
 ---
-title: "Autenticação do Active Directory e Resource Manager | Microsoft Docs"
-description: "Guia do desenvolvedor para autenticação com a API do Azure Resource Manager e o Active Directory para integrar um aplicativo a outras assinaturas do Azure."
+title: "Autenticação do Azure Active Directory e Resource Manager | Microsoft Docs"
+description: "Guia do desenvolvedor para autenticação com a API do Azure Resource Manager e o Azure Active Directory para integrar um aplicativo a outras assinaturas do Azure."
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: de1355a8dc4b0099dca3efc2109ccfb9facf7269
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 8a8a28e6491855434c4445bedd5644d7da109f8a
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -71,7 +71,7 @@ Gerencie as assinaturas conectadas:
 ## <a name="register-application"></a>Registrar aplicativo
 Antes de iniciar a codificação, registre o aplicativo Web com o Azure AD (Active Directory). O registro do aplicativo cria uma identidade central para seu aplicativo no Azure AD. Ele contém informações básicas sobre seu aplicativo, como ID do Cliente OAuth, URLs de Resposta e credenciais que o aplicativo usa para autenticar e acessar as APIs do Azure Resource Manager. O registro do aplicativo também registra as várias permissões delegadas de que seu aplicativo precisa para acessar APIs da Microsoft em nome do usuário.
 
-Como o aplicativo acessa outra assinatura, você deve configurá-lo como um aplicativo multilocatário. Para passar na validação, forneça um domínio associado ao Active Directory. Para ver os domínios associados ao Active Directory, faça logon no [portal clássico](https://manage.windowsazure.com). Escolha o Active Directory e os **Domínios**.
+Como o aplicativo acessa outra assinatura, você deve configurá-lo como um aplicativo multilocatário. Para passar na validação, forneça um domínio associado ao Azure Active Directory. Para ver os domínios associados ao Azure Active Directory, faça logon no [Portal Clássico](https://manage.windowsazure.com). Selecione o Azure Active Directory e depois **Domínios**.
 
 O exemplo a seguir mostra como registrar o aplicativo usando o Azure PowerShell. Você deve ter a versão mais recente (agosto de 2016) do Azure PowerShell para que esse comando funcione.
 
@@ -93,7 +93,7 @@ O Azure AD também dá suporte a credenciais de certificado para aplicativos: cr
 Para saber mais sobre como criar um aplicativo do AD com um certificado, confira [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) (Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos) ou [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate) (Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos).
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Obter ID de locatário da ID de assinatura
-Para solicitar um token que possa ser usado para chamar o Resource Manager, seu aplicativo precisa saber a ID do locatário do Azure AD que hospeda a assinatura do Azure. É bem provável que os usuários saibam as respectivas IDs de assinatura, mas talvez não saibam as IDs de seus locatários para o Active Directory. Para obter a ID de locatário do usuário, peça ao usuário a ID de assinatura. Forneça essa ID de assinatura ao enviar uma solicitação sobre a assinatura:
+Para solicitar um token que possa ser usado para chamar o Resource Manager, seu aplicativo precisa saber a ID do locatário do Azure AD que hospeda a assinatura do Azure. É bem provável que os usuários saibam as respectivas IDs de assinatura, mas talvez não saibam as IDs de seus locatários para o Azure Active Directory. Para obter a ID de locatário do usuário, peça ao usuário a ID de assinatura. Forneça essa ID de assinatura ao enviar uma solicitação sobre a assinatura:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 

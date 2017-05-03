@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2016
+ms.date: 4/20/2017
 ms.author: saurse;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 2876f3a7e8e83dc05801d914c7582a4f1fd92e98
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 4f5e58713d925d2f7477dc072ecec455dec70792
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -48,7 +49,7 @@ Depois que o upload dos dados de backup no Azure for concluído, o Backup do Azu
   * O agente de Backup do Azure foi instalado no Windows Server/cliente do Windows ou no servidor do System Center Data Protection Manager e o computador é registrado no Cofre de Backup do Azure.
 * [Baixe as configurações do arquivo de publicação do Azure](https://manage.windowsazure.com/publishsettings) no computador por meio do qual você planeja fazer backup dos nossos dados.
 * Configure um local de preparo, que pode ser um compartilhamento de rede ou um disco adicional no computador. O local de preparo é um “armazenamento provisório” e é usado temporariamente durante esse fluxo de trabalho. Certifique-se de que o local de preparo tenha espaço em disco suficiente para armazenar sua cópia inicial. Por exemplo, se você estiver tentando fazer backup de um servidor de arquivos de 500 GB, certifique-se de que a área de preparo tenha pelo menos 500 GB. (Um valor menor é usado devido à compactação).
-* Verifique se você está usando uma unidade com suporte. Somente discos rígidos SATA II de 3,5 polegadas dão suporte ao uso com o serviço Importação/Exportação. Não há suporte para discos rígidos com mais de 8 TB. Você pode anexar um disco SATA II/III externamente a maioria dos computadores usando um adaptador USB para SATA II/III. Consulte a documentação da Importação/Exportação do Azure para saber o conjunto mais recente de unidades com suporte do serviço.
+* Verifique se você está usando uma unidade com suporte. Somente discos rígidos internos SSD de 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas têm suporte para uso com o serviço de Importação/Exportação. Você pode usar discos rígidos de até 10 TB. Confira a [documentação da Importação/Exportação do Azure](../storage/storage-import-export-service.md#hard-disk-drives) para saber o conjunto mais recente de unidades às quais o serviço dá suporte.
 * Habilite o BitLocker no computador ao qual o gravador de unidade SATA está conectado.
 * [Baixe a ferramenta de Importação/Exportação](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) para o computador ao qual o gravador de unidade SATA está conectado. Esta etapa não será necessária se você tiver baixado e instalado a atualização de agosto de 2016 do Backup do Azure (ou posterior).
 
@@ -209,9 +210,4 @@ Depois que os dados de backup iniciais estão disponíveis em sua conta de armaz
 ## <a name="next-steps"></a>Próximas etapas
 * Para qualquer dúvida sobre o fluxo de trabalho de Importação/Exportação do Azure, veja [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de Blobs](../storage/storage-import-export-service.md).
 * Consulte a seção sobre o backup offline das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

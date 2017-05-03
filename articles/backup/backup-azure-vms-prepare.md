@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 4/25/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2eb88bd81a46dbff9842887976c59d150ae4dad6
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 045dfff9a439674c220a962907d2fe91f2fe0b35
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -83,7 +83,7 @@ Ao decidir qual opção usar, desvantagens entre a capacidade de gerenciamento, 
 | Opção | Vantagens | Desvantagens |
 | --- | --- | --- |
 | Intervalos de IPs na lista de autorizados |Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i>. |É complexo para gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br><br>Fornece acesso ao Azure por completo, não somente ao Armazenamento. |
-| Proxy HTTP |É permitido o controle granular no proxy em relação às URLs de armazenamento.<br>Único ponto de acesso à Internet para VMs.<br>Não está sujeito a alterações do endereço IP do Azure |Custos adicionais para a execução de uma VM com o software do proxy |
+| Proxy HTTP |É permitido o controle granular no proxy em relação às URLs de armazenamento. Para um controle granular de instalação no proxy, o padrão de URL https://\*.blob.core.windows.net/\* deve ser colocado na lista de permissões. Para colocar na lista de permissões somente a conta de armazenamento usada pela VM, o padrão de URL https://\<storageAccount\>.blob.core.windows.net/\* deve ser colocado na lista de permissões. <br>Único ponto de acesso à Internet para VMs.<br>Não está sujeito a alterações do endereço IP do Azure |Custos adicionais para a execução de uma VM com o software do proxy |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>lista de autorizados de intervalos de IP de datacenter do Azure
 Para colocar os intervalos IP do datacenter do Azure na lista de autorizados, consulte o [site do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
