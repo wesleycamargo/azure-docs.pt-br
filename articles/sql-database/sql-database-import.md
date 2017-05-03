@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3602a1a5f281bec79937dc20e44f447527be8377
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 8ef393e414559ed6c7a2a3b41a0c8cf060f8d4da
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -44,7 +44,7 @@ Quando você precisa importar um banco de dados de um arquivo ou ao migrar de ou
 
 Este artigo fornece instruções para criar um Banco de Dados SQL Azure de um arquivo BACPAC armazenado no Armazenamento de Blobs do Azure usando o [Portal do Azure](https://portal.azure.com). Importar usando o Portal do Azure dá suporte somente à importação de um arquivo BACPAC do Armazenamento de Blobs do Azure.
 
-Para importar um banco de dados usando o Portal do Azure, abra a página do banco de dados e clique em **Importar** na barra de ferramentas. Especifique o nome do arquivo *.bacpac, forneça a conta de Armazenamento do Azure e o contêiner para o bacpac e forneça as credenciais para conectar-se ao banco de dados de origem.  
+Para importar um banco de dados usando o Portal do Azure, abra a página do banco de dados e clique em **Importar** na barra de ferramentas. Especifique a conta de armazenamento e o contêiner e selecione o arquivo *.bacpac que você deseja importar. Selecione o tamanho do novo banco de dados (normalmente, o mesmo que o de origem) e forneça credenciais do SQL Server de destino.  
 
    ![Importação de banco de dados](./media/sql-database-import/import.png)
 

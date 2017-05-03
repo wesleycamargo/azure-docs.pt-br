@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: f819992125f77897545ce3194870b1eadf400852
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fc6e4eaa34694e2b20cb53b3e457803c59bf76b9
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -609,6 +609,85 @@ Exemplo:
     Type=Event | Dedup EventID | sort TimeGenerated DESC
 
 Este exemplo retorna um evento (evento mais recente) por EventID.
+
+### <a name="join"></a>Ingressar
+Junta os resultados de duas consultas para formar um único conjunto de resultados.  Oferece suporte a vários tipos de junção descritos na tabela a seguir.
+  
+| Tipo de junção | Descrição |
+|:--|:--|
+| interna | Retorna somente os registros com um valor correspondente em ambas as consultas. |
+| externa | Retorna todos os registros de ambas as consultas.  |
+| esquerda  | Retorna todos os registros de consulta à esquerda e os registros correspondentes de consulta à direita. |
+
+
+- Junções atualmente não dão suporte a consultas que incluem o **na** palavra-chave ou o comando **Medida**.
+- No momento, você pode incluir apenas um único campo em uma junção.
+- Uma única pesquisa pode não incluir mais de uma junção.
+
+**Sintaxe**
+
+```
+<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
+```
+
+**Exemplos**
+
+Para ilustrar os tipos de junção diferentes, considere a possibilidade de ingressar em um tipo de dados coletados de um log personalizado chamado MyBackup_CL com a pulsação para cada computador.  Esses tipos de dados têm os dados a seguir.
+
+`Type = MyBackup_CL`
+
+| TimeGenerated | Computador | LastBackupStatus |
+|:---|:---|:---|
+| 20/04/2017 01:26:32.137 AM | srv01.contoso.com | Sucesso |
+| 20/04/2017 02:13:12.381 AM | srv02.contoso.com | Sucesso |
+| 20/04/2017 02:13:12.381 AM | srv03.contoso.com | Failure |
+
+`Type = Hearbeat`(Apenas um subconjunto dos campos mostrados)
+
+| TimeGenerated | Computador | ComputerIP |
+|:---|:---|:---|
+| 21/04/2017 12:01:34.482 PM | srv01.contoso.com | 10.10.100.1 |
+| 21/04/2017 12:02:21.916 PM | srv02.contoso.com | 10.10.100.2 |
+| 21/04/2017 12:01:47.373 PM | srv04.contoso.com | 10.10.100.4 |
+
+#### <a name="inner-join"></a>junção interna
+
+`Type=MyBackup_CL | join inner Computer (Type=Heartbeat) Computer`
+
+Retorna os seguintes registros onde o campo do computador corresponde para ambos os tipos de dados.
+
+| Computador| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 20/04/2017 01:26:32.137 AM | Sucesso | 21/04/2017 12:01:34.482 PM | 10.10.100.1 | Pulsação |
+| srv02.contoso.com | 20/04/2017 02:13:12.381 AM | Sucesso | 21/04/2017 12:02:21.916 PM | 10.10.100.2 | Pulsação |
+
+
+#### <a name="outer-join"></a>junção externa
+
+`Type=MyBackup_CL | join outer Computer (Type=Heartbeat) Computer`
+
+Retorna os seguintes registros para ambos os tipos de dados.
+
+| Computador| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 20/04/2017 01:26:32.137 AM | Sucesso  | 21/04/2017 12:01:34.482 PM | 10.10.100.1 | Pulsação |
+| srv02.contoso.com | 20/04/2017 02:14:12.381 AM | Sucesso  | 21/04/2017 12:02:21.916 PM | 10.10.100.2 | Pulsação |
+| srv03.contoso.com | 20/04/2017 01:33:35.974 AM | Failure  | 21/04/2017 12:01:47.373 PM | | |
+| srv04.contoso.com |                           |          | 21/04/2017 12:01:47.373 PM | 10.10.100.2 | Pulsação |
+
+
+
+#### <a name="left-join"></a>associação à esquerda
+
+`Type=MyBackup_CL | join left Computer (Type=Heartbeat) Computer`
+
+Retorna os seguintes registros de MyBackup_CL com todos os campos correspondentes de pulsação.
+
+| Computador| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 20/04/2017 01:26:32.137 AM | Sucesso | 21/04/2017 12:01:34.482 PM | 10.10.100.1 | Pulsação |
+| srv02.contoso.com | 20/04/2017 02:13:12.381 AM | Sucesso | 21/04/2017 12:02:21.916 PM | 10.10.100.2 | Pulsação |
+| srv03.contoso.com | 20/04/2017 02:13:12.381 AM | Failure | | | |
 
 
 ### <a name="extend"></a>Extend

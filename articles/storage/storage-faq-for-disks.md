@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1a462b8d557ad23bda912ddf9431195a8cfe909e
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -33,7 +33,7 @@ Managed Disks é um recurso que simplifica o gerenciamento de disco para VMs Iaa
 
 **Se eu criar um disco gerenciado standard com base em um VHD existente que tinha 80 GB de tamanho, quanto isso custará?**
 
-Um disco gerenciado standard criado com base em um VHD de 80 GB será tratado como o próximo tamanho de disco premium disponível, um disco S10. Você será cobrado de acordo com os preços do disco S10. Verifique a [página de preços](https://azure.microsoft.com/pricing/details/storage) para obter detalhes.
+Um disco gerenciado standard criado com base em um VHD de 80 GB será tratado como o próximo tamanho de disco standard disponível, um disco S10. Você será cobrado de acordo com os preços do disco S10. Verifique a [página de preços](https://azure.microsoft.com/pricing/details/storage) para obter detalhes.
 
 **Existem custos de transação de discos gerenciados standard?**
 
@@ -121,6 +121,11 @@ Sim.
 
 O Azure Managed Disks atualmente suporta apenas o armazenamento LRS (localmente redundante).
 
+**osso reduzir/diminuir o tamanho de meus Managed Disks?**
+Não. Não há suporte para esse recurso no momento. 
+
+**Posso alterar a propriedade de nome do computador ao usar um disco de SO especializado (sem Sysprep ou generalizado) para provisionar uma VM** Não. Não é possível atualizar a propriedade de nome do computador. A nova VM a herdará da VM pai que foi usada para criar o disco do sistema operacional. 
+
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks e porta 8443
 
 **Por que os clientes têm que desbloquear o tráfego de saída na porta 8443 para VMs usando o Azure Managed Disks?**
@@ -189,8 +194,13 @@ Os limites combinados para cache e SSD local para um item da série DS são 4000
 
 O SSD local é um armazenamento temporário fornecido com uma VM de discos gerenciados. Não há custo adicional para esse armazenamento temporário. É recomendável que você não use esse SSD local para armazenar os dados do aplicativo, pois eles não são persistidos no armazenamento de Blobs do Azure.
 
+**Há alguma repercussão do uso de CORTE em Discos Premium?**
+
+Não há nenhuma desvantagem em usar CORTE nos Discos do Azure Premium ou Standard.
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
 
 Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta. Você pode publicar uma pergunta no final deste artigo, nos comentários ou no [Fórum do armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) do MSDN para entrar em contato com a equipe de Armazenamento do Azure e outros membros da comunidade sobre este artigo.
 
 Para fazer uma solicitação de recurso, envie suas solicitações e ideias para o [Fórum de comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage).
+

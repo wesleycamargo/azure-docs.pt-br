@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
+ms.date: 04/20/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
-ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="best-practices-autoscaling-virtual"></a>Práticas recomendadas do dimensionamento automático virtual
+# <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
 Este artigo ensina práticas recomendadas para o dimensionamento automático no Azure. Ela serve para máquinas virtuais, conjunto de dimensionamento de máquinas virtuais e serviços de nuvem.  Outros serviços do Azure usam métodos de dimensionamento diferentes.
 
 ## <a name="autoscale-concepts"></a>Conceitos de dimensionamento automático
@@ -149,9 +150,4 @@ O dimensionamento automático notificará os administradores e os colaboradores 
 * As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
 * As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala.
   Além das condições acima, você pode configurar notificações por email ou webhook para obter notificações de ações de dimensionamento bem-sucedido.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

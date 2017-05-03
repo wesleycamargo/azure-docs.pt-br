@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 8ded51e2e34aa1583b249af11a260eaa4304f79f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -83,6 +83,9 @@ Antes de fazer backup, é necessário definir as configurações de armazenament
 Use o cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
 
 ## <a name="restore"></a>Restaurar
+Durante a restauração, o arquivo de backup deve ser na conta de armazenamento que você configurou para o servidor. Se você precisar mover um arquivo de backup de um local para sua conta de armazenamento, use [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) ou [AzCopy](../storage/storage-use-azcopy.md) utilitário de linha de comando. 
+
+Se você estiver restaurando um banco de dados de 1200 modelo tabular de um servidor do SQL Server Analysis Services local, deve primeiro remover todos os usuários de domínio de funções do modelo e adicioná-los de volta para as funções como usuários do Active Directory do Azure. As funções serão iguais.
 
 ### <a name="to-restore-by-using-ssms"></a>Para restaurar usando o SSMS
 
@@ -103,5 +106,8 @@ Use o cmdlet [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-servic
 
 
 ## <a name="related-information"></a>Informações relacionadas
-[Contas de Armazenamento do Azure](../storage/storage-create-storage-account.md)   
+
+[Contas de Armazenamento do Azure](../storage/storage-create-storage-account.md)  
+[Alta disponibilidade](analysis-services-bcdr.md)     
 [Gerenciar Azure Analysis Services](analysis-services-manage.md)
+

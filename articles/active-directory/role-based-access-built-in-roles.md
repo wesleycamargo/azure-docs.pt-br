@@ -16,9 +16,9 @@ ms.date: 02/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bb8d390a6ab045dc418bf80ec4fc218e0a35282b
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o Controle de Acesso Baseado em Função do Azure
@@ -40,6 +40,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador de Backup](#backup-contributor) | Pode gerenciar o backup no cofre dos Serviços de Recuperação |
 | [Operador de Backup](#backup-operator) | Pode gerenciar o backup, exceto a remoção de backup, no cofre dos Serviços de Recuperação |
 | [Leitor de Backup](#backup-reader) | Pode exibir todos os serviços de gerenciamento de backup  |
+| [Leitor de cobrança](#billing-reader) | Pode exibir todas as informações de cobranças  |
 | [Colaborador do BizTalk](#biztalk-contributor) |Pode gerenciar os serviços BizTalk |
 | [Colaborador do DB MySQL ClearDB](#cleardb-mysql-db-contributor) |Pode gerenciar bancos de dados MySQL ClearDB |
 | [Colaborador](#contributor) |Pode gerenciar tudo, exceto o acesso. |
@@ -215,6 +216,15 @@ Pode monitorar o gerenciamento de backup em um cofre de Serviços de Recuperaç�
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Ler resultados de operações executadas em itens registrados do cofre |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Ler itens registrados do cofre |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Ler o uso do cofre de Serviços de Recuperação |
+
+## <a name="billing-reader"></a>Leitor de cobrança
+Pode exibir todas as informações de Cobranças
+
+| **Ações** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Ler funções e atribuições de função |
+| Microsoft.Billing/*/read |Ler Informações de cobrança |
+| Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="biztalk-contributor"></a>Colaborador do BizTalk
 Pode gerenciar os serviços BizTalk

@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: c7127f4bd89bf00a4ef72e54dc7694a1766e5762
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -49,7 +49,7 @@ Um gateway é instalado em um computador em sua rede. É necessário instalar um
 * Em alguns casos, modelos de tabela que se conectam a fontes de dados usando provedores nativos, como o SQL Server Native Client (SQLNCLI11), podem retornar um erro. Para saber mais, confira [Conexões com fonte de dados](analysis-services-datasource.md).
 
 ## <a name="supported-on-premises-data-sources"></a>Fontes de dados locais com suporte
-Para a versão de visualização, o gateway oferece suporte a conexões entre o servidor do Azure Analysis Services e fontes de dados locais:
+O gateway oferece suporte a conexões entre o servidor do Analysis Services do Azure e fontes de dados do local a seguir:
 
 * SQL Server
 * SQL Data Warehouse

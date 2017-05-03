@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c62f8d077906ce8ad1b5501864a21ee369b2314a
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 0635120c4e16f3b8531039eee4c6651e7cdeca40
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -261,15 +261,17 @@ Um possível motivo do desempenho lento poderia ser o cache desabilitado. Para v
 
 Em alguns cenários, a opção de montagem serverino pode fazer com que o comando ls execute stat em todas as entradas de diretório e esse comportamento resulta na degradação de desempenho ao listar um diretório grande. Você pode verificar as opções de montagem na sua entrada de "/etc/fstab":
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//<storage-account-name>.file.core.windows.net/<file-share-name> <mount-point> cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Você também pode verificar as opções corretas estão sendo usadas, apenas executando o comando **sudo mount | grep cifs** e verificando sua saída:
+Você também pode verificar as opções corretas estão sendo usadas, apenas executando o comando `sudo mount | grep cifs` (exemplo de saída abaixo).
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs
-(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
-dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//<storage-account-name>.file.core.windows.net/<file-share-name> on <mount-point> type cifs
+(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,
+noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
+dir_mode=0777,persistenthandles,nounix,serverino,
+mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Se as opções o cache=strict ou serverino não estão presentes, desmonte e monte arquivos do Azure novamente executando o comando mount da [documentação](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) e verifique novamente se a entrada "/etc/fstab" tem as opções corretas.
+.Se as opções o cache=strict ou serverino não estão presentes, desmonte e monte arquivos do Azure novamente executando o comando mount da [documentação](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) e verifique novamente se a entrada "/etc/fstab" tem as opções corretas.
 
 <a id="ubuntumounterror"></a>
 ## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>Erro de montagem (11): Recurso temporariamente indisponível durante a montagem no kernel do Ubuntu 4.8+

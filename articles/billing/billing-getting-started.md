@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: jlian
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c69334279e79352e3f7ad58d356f6891dd060b0a
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -44,7 +44,7 @@ Para saber mais, confira [Perguntas frequentes sobre preço](https://azure.micro
 
 ### <a name="check-your-subscription-and-access"></a>Verificar assinatura e acesso
 
-A exibição dos custos exige [acesso no nível das assinaturas](../active-directory/role-based-access-control-configure.md), mas somente o Administrador da conta pode acessar o [Centro de Contas](https://account.windowsazure.com/Home/Index), alterar informações de cobrança e gerenciar assinaturas. O Administrador da conta é a pessoa que passou pelo processo de inscrição. Para saber mais, confira [Como adicionar ou alterar as funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md).
+A exibição dos custos exige [acesso no nível das assinaturas a informações de cobrança](billing-manage-access.md), mas somente o Administrador da conta pode acessar o [Centro de Contas](https://account.windowsazure.com/Home/Index), alterar informações de cobrança e gerenciar assinaturas. O Administrador da conta é a pessoa que passou pelo processo de inscrição. Para gerenciar essas funções, consulte [Adicionar ou alterar as funções de administrador do Azure que gerenciam a assinatura ou serviços](billing-add-change-azure-subscription-administrator.md).
 
 Para ver se você é o Administrador da conta, vá para a [folha Assinaturas no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e examine a lista de assinaturas a que você tem acesso. Procure **Minha Função**. Se estiver indicado *Administrador de conta*, tudo bem. Se estiver indicado *Proprietário*, você não tem todos os privilégios.
 

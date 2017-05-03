@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 10/08/2015
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a7f5a4afa8b00801f58776e2cf9d7bff9748925
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -41,7 +42,7 @@ A caixa de diálogo **Selecionar Cluster do Service Fabric** valida automaticame
 1. Verifique se você pode acessar um dos certificados de cliente nos quais o cluster de destino confia. Normalmente, o certificado é compartilhado como um arquivo de Troca de Informações Pessoais (.pfx). Veja [Configurando um cluster do Service Fabric do Portal do Azure](service-fabric-cluster-creation-via-portal.md) para saber como configurar o servidor para conceder acesso a um cliente.
 2. Instale o certificado confiável. Para fazer isso, clique duas vezes no arquivo .pfx ou use o script do PowerShell, Import-PfxCertificate, para importar os certificados. Instale o certificado em **Cert:\LocalMachine\My**. É possível aceitar todas as configurações padrão durante a importação do certificado.
 3. Escolha o comando **Publicar...** no menu de atalho do projeto para abrir a caixa de diálogo **Publicar Aplicativo do Azure** e selecione o cluster de destino. A ferramenta resolve automaticamente a conexão e salva os parâmetros da conexão segura no perfil de publicação.
-4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
+4. Opcional: edite o perfil de publicação para especificar uma conexão segura de cluster.
    
    Como você está editando manualmente o arquivo XML do Perfil de Publicação a fim de especificar as informações do certificado, anote o nome do repositório de certificados, do local de armazenamento e a impressão digital do certificado. Você precisará fornecer esses valores para o nome e o local do repositório do certificado. Confira [Como recuperar a impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para saber mais.
    
@@ -71,9 +72,4 @@ Para saber mais sobre como acessar os clusters do Service Fabric, confira [Visua
 <!--Image references-->
 [publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

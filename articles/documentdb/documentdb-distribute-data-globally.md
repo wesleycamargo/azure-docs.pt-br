@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 203648d999032d86dca10f9b47c40a2208ab79e9
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 746fefab12aae11774a7d582e39ac2bc7eb9c88b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -58,7 +58,7 @@ O DocumentDB foi projetado para ter recursos de isolamento geográfico com base 
 O DocumentDB permite que você adicione (associe) ou remova (dissocie) regiões para sua conta de banco de dados a qualquer momento (confira a [figura anterior](#UnlimitedRegionsPerAccount)). Em virtude da replicação de dados em partições em paralelo, o DocumentDB garante que quando uma nova região ficar online, o DocumentDB esteja disponível em 30 minutos em qualquer lugar do mundo para até 100 TB. 
 
 ### <a id="FailoverPriorities"></a>Prioridades de failover
-Para controlar a sequência exata de failovers regionais quando houver uma interrupção de várias regiões, o DocumentDB permite associar a prioridade a várias regiões associadas à conta de banco de dados (confira a figura a seguir). O DocumentDB garante que a sequência de failover automático ocorra na ordem de prioridade que você especificou.
+Para controlar a sequência exata de failovers regionais quando houver uma interrupção de várias regiões, o DocumentDB permite associar a prioridade a várias regiões associadas à conta de banco de dados (confira a figura a seguir). O DocumentDB garante que a sequência de failover automático ocorra na ordem de prioridade que você especificou. Para obter mais informações sobre failovers regionais, consulte [Failovers automáticos regionais para continuidade de negócios em banco de dados de documentos](documentdb-regional-failovers.md).
 
 **Um locatário do DocumentDB pode configurar a ordem de prioridade de failover (painel direito) para regiões associados a uma conta de banco de dados**
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 56a460fa8132d310352fbb7e085091c3ee7fa848
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 9c9135e200cd1676b01895af4611bc71d5d27c4a
+ms.lasthandoff: 04/21/2017
 
 ---
 
@@ -58,7 +58,7 @@ New-AzureRmResourceGroup -Location westus2 -Name vmss-test-1
 
 ## <a name="create-from-azure-cli"></a>Criar com a CLI do Azure
 
-Com a CLI do Azure, você pode criar um conjunto de dimensionamento de máquinas virtuais com esforço mínimo. Se você omitir os valores padrão, eles serão fornecidos para você. Por exemplo, se você não especificar as informações de rede virtual, uma rede virtual será criada para você. Se você omitir as seguintes partes, elas serão criadas para você: 
+Com a CLI do Azure, você pode criar um conjunto de dimensionamento de máquinas virtuais com esforço mínimo. Se você omitir valores padrão, eles serão fornecidos para você. Por exemplo, se você não especificar as informações de rede virtual, uma rede virtual será criada para você. Se você omitir as seguintes partes, elas serão criadas para você: 
 - Um balanceador de carga
 - Uma rede virtual
 - Um endereço IP público

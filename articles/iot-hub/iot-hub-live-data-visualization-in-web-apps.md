@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1d1eec1457917baef1acab27f7c60bdb048837a9
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f3bb01da7764e467963a47d3d5485679411c9167
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-azure-web-apps"></a>Visualizar dados de sensor em tempo real do Hub IoT do Azure usando Aplicativos Web do Azure
 
-![Conexão entre o sensor, dispositivo IoT, Hub IoT e aplicativo Web do Azure](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
+![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/5.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -42,7 +42,7 @@ Nesta lição, você aprenderá como visualizar dados de sensor em tempo real qu
 
 ## <a name="what-you-need"></a>O que você precisa
 
-- O tutorial [Conectar a ESP8266 ao Hub IoT do Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) foi concluído e abordou os seguintes requisitos:
+- Tutorial [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluído que aborda os seguintes requisitos:
   - Uma assinatura ativa do Azure.
   - Um hub IoT do Azure em sua assinatura.
   - O aplicativo cliente que envia mensagens para o Hub IoT do Azure.
@@ -57,16 +57,7 @@ Nesta lição, você aprenderá como visualizar dados de sensor em tempo real qu
 
    ![Criar um aplicativo Web do Azure](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao Hub IoT
-
-Os grupos de consumidores são utilizados pelas aplicações para obter dados do Hub IoT do Azure. Nesta lição, você criará um grupo de consumidores a ser usado pelo aplicativo Web para ler dados de seu Hub IoT.
-
-Para adicionar um grupo de consumidores ao Hub IoT, siga estas etapas:
-
-1. No [portal do Azure](https://ms.portal.azure.com/), abra o hub IoT.
-1. Clique em **Pontos de extremidade** no painel esquerdo, selecione **Eventos** no painel do meio, insira um nome de **Grupos de consumidores** no painel direito e clique em **Salvar**.
-
-   ![Criar grupo de consumidores no Hub IoT do Azure](media/iot-hub-live-data-visualization-in-web-apps/3_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="configure-the-web-app-to-read-data-from-your-iot-hub"></a>Configurar o aplicativo Web para ler dados de sensor de seu Hub IoT
 
@@ -75,8 +66,8 @@ Para adicionar um grupo de consumidores ao Hub IoT, siga estas etapas:
 
    | Chave                                   | Valor                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | Obtido do Gerenciador do Hub IoT                               |
-   | Azure.IoT.IoTHub.DeviceId             | Obtido do Gerenciador do Hub IoT                               |
+   | Azure.IoT.IoTHub.ConnectionString     | Obtido de iothub-explorer                                |
+   | Azure.IoT.IoTHub.DeviceId             | Obtido de iothub-explorer                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | O nome do grupo de consumidores que você adiciona ao seu Hub IoT  |
 
    ![Adicionar configurações ao aplicativo Web do Azure com pares chave-valor](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)

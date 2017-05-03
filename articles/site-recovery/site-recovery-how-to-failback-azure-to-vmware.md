@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: b054245de2c5bf6019c2cb29409289f2ac8766ec
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 6629666eaa913321db3855438bb66d349d5c52bf
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -93,6 +93,12 @@ Você não pode efetuar novamente uma máquina virtual até que tenha pelo menos
 
 Se você selecionar o ponto de recuperação consistente de aplicativo, um único failback de máquina virtual será recuperado para o ponto de recuperação consistente de aplicativo disponível mais recente. No caso de um plano de recuperação com um grupo de replicação, cada grupo de replicação será recuperado para o ponto de recuperação disponível comum.
 Observe que os pontos de recuperação consistentes de aplicativo podem ser anteriores no tempo, e pode haver perda de dados.
+
+### <a name="what-happens-to-vmware-tools-post-failback"></a>O que acontece com o failback de postagem de ferramentas VMware?
+
+Durante o failover no Azure, as ferramentas do VMware não podem estar em execução na máquina virtual do Azure. No caso de uma máquina virtual do Windows, o ASR desabilita as ferramentas VMware durante o failover. No caso de uma máquina virtual do Linux, o ASR desabilita as ferramentas VMware durante o failover. 
+
+Durante o failback da máquina virtual do Windows, as ferramentas do VMware são habilitadas novamente após o failback. Da mesma forma, para uma máquina virtual do linux, as ferramentas do VMware são reinstaladas na máquina durante o failback.
 
 ## <a name="next-steps"></a>Próximas etapas
 

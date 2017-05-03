@@ -17,9 +17,9 @@ ms.workload:
 ms.date: 03/30/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 933b262f3c587229a194c3259fc5c13b75ecd050
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 0d02954829ebac9275c014f7dac7e1ec423b0fc1
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -30,11 +30,11 @@ Neste tutorial, você criará um banco de dados para uma universidade acompanhar
 
 Para concluir este tutorial, certifique-se de ter instalado a versão mais recente do SSMS [(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx). 
 
-## <a name="step-1-log-in-to-the-azure-portal"></a>Etapa 1: Fazer logon no Portal do Azure
+## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
 Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="step-2-create-a-blank-sql-database-in-azure"></a>Etapa 2: criar um banco de dados SQL em branco no Azure
+## <a name="create-a-blank-sql-database-in-azure"></a>Criar um banco de dados SQL em branco no Azure
 
 Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](sql-database-features.md). 
 
@@ -70,7 +70,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
     ![notificação](./media/sql-database-get-started-portal/notification.png)
 
 
-## <a name="step-3-create-a-server-level-firewall-rule"></a>Etapa 3: Criar uma regra de firewall no nível de servidor
+## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 
 Os Banco de Dados SQL do Azure são protegidos por um firewall. Por padrão, todas as conexões com o servidor e com os bancos de dados dentro do servidor são rejeitadas. Siga estas etapas para criar uma [regra de firewall de nível de servidor do Banco de Dados SQL](sql-database-firewall-configure.md) para que o servidor permita conexões de seu endereço IP de cliente. 
 
@@ -92,7 +92,7 @@ Agora você pode se conectar ao banco de dados e ao seu servidor usando o SQL Se
 > O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá conectar seu servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
-## <a name="step-4---get-connection-information"></a>Etapa 4 – Obter informações de conexão
+## <a name="get-connection-information"></a>Obter informações de conexão
 
 Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Dados SQL do Azure no Portal do Azure. Use o nome do servidor totalmente qualificado para se conectar ao servidor usando o SQL Server Management Studio.
 
@@ -102,7 +102,7 @@ Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Da
 
     ![informações da conexão](./media/sql-database-connect-query-ssms/connection-information.png) 
 
-## <a name="step-5---connect-to-your-database-using-sql-server-management-studio"></a>Etapa 5 – Conectar ao banco de dados usando o SQL Server Management Studio
+## <a name="connect-to-your-database-using-sql-server-management-studio"></a>Conectar ao banco de dados usando o SQL Server Management Studio
 
 Use o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma conexão com seu servidor do Banco de Dados SQL do Azure.
 
@@ -128,7 +128,7 @@ Use o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
    ![objetos de banco de dados](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="step-6---create-tables-in-the-database"></a>Etapa 6 – Criar tabelas no banco de dados 
+## <a name="create-tables-in-the-database"></a>Criar tabelas no banco de dados 
 
 Criar um esquema de banco de dados com quatro tabelas que modelam um sistema de gerenciamento de aluno para universidades, usando o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -199,7 +199,7 @@ O diagrama a seguir mostra como essas tabelas estão relacionadas. Algumas dessa
 
    ![ssms tabelas criadas](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="step-7---load-data-into-the-tables"></a>Etapa 7 – Carregar dados nas tabelas
+## <a name="load-data-into-the-tables"></a>Carregar dados nas tabelas
 
 1. Crie uma pasta chamada **SampleTableData** na pasta Downloads para armazenar os dados de exemplo de seu banco de dados. 
 
@@ -223,7 +223,7 @@ O diagrama a seguir mostra como essas tabelas estão relacionadas. Algumas dessa
 
 Agora, você carregou dados de exemplo nas tabelas que criou anteriormente.
 
-## <a name="step-8---query-the-tables"></a>Etapa 8 – Consultar as tabelas
+## <a name="query-the-tables"></a>Consultar as tabelas
 
 Execute as seguintes consultas para recuperar as informações das tabelas do banco de dados. Veja [Escrevendo consultas SQL](https://technet.microsoft.com/library/bb264565.aspx) para saber mais sobre como escrever consultas SQL. A primeira consulta une todas as quatro tabelas para localizar todos os alunos ensinados por 'Dominick Pope' e que têm uma nota superior a 75% em sua classe. A segunda consulta une todas as quatro tabelas e localiza todos os cursos em que 'Noe Coleman' já se registrou.
 
@@ -260,7 +260,7 @@ Execute as seguintes consultas para recuperar as informações das tabelas do ba
         AND person.LastName = 'Coleman'
    ```
 
-## <a name="step-9---restore-a-database-to-a-previous-point-in-time"></a>Etapa 9 – Restaurar um banco de dados em um ponto anterior no tempo 
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restaurar um banco de dados em um ponto anterior no tempo 
 
 Imagine que você excluiu acidentalmente uma tabela. Isso é algo que você não pode se recuperar facilmente. O Banco de Dados SQL do Azure lhe permite voltar para qualquer ponto no tempo, até os últimos 35 dias, e restaurar esse ponto no tempo em um novo banco de dados. Você pode usar esse banco de dados para recuperar os dados excluídos. As etapas a seguir restauram o banco de dados de exemplo para um ponto anterior à adição das tabelas.
 

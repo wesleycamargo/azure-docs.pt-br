@@ -9,40 +9,21 @@ ms.date: 04/04/2017
 ms.topic: article
 ms.service: app-service-web
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 63bfc6922de224f56186003991f4a51d8f99ed35
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 8d9b4a4fa3b62659fc7e2aa1c6329fdc5e01fe39
+ms.lasthandoff: 04/21/2017
 
 ---
 # <a name="monitor-app-service"></a>Monitorar o Serviço de Aplicativo
-Este tutorial mostra como usar as ferramentas internas da plataforma para monitorar e diagnosticar o aplicativo hospedado no Serviço de Aplicativo. 
+Este tutorial orienta você por meio de monitoramento do aplicativo e usar as ferramentas de plataforma interno para resolver problemas quando eles ocorrerem.
 
-## <a name="in-this-tutorial"></a>Neste Tutorial
-
-1. [Gerenciador de Processos](#explorer)
-    - Obter informações detalhadas sobre o aplicativo em execução entre instâncias do seu plano de Serviço de Aplicativo
-1. [Métricas de Serviço de Aplicativo](#metrics) 
-   - Saiba como monitorar seu aplicativo usando os gráficos internos
-   - Configurar gráficos para atender às suas necessidades
-   - Criar um painel personalizado fixando os gráficos personalizados
-1. [Configurar Alertas](#alerts)
-    - Saiba como configurar alertas tanto para o plano do Serviço de Aplicativo como para o Aplicativo
-1. [Complemento do Serviço de Aplicativo](#Companion)
-    - Monitorar e solucionar problemas do aplicativo usando um dispositivo móvel.
-1. [Configurar o Registro em Log](#logging)
-    - Saiba como coletar os logs do aplicativo e do servidor.
-    - Saiba mais sobre os diferentes locais para armazenar seus logs e como alcançá-los.
-1. [Streaming de Log](#streaming)
-    - Use logs de Streaming para exibir o aplicativo e os logs wc3 conforme são emitidos.
-1. [Depuração Remota](#remote)
-    - Use o Visual Studio para depurar remotamente o projeto em execução no serviço de aplicativo.
-1. [Diagnosticar e resolver problemas](#diagnose)
-    - Identificar problemas com o aplicativo e obter informações sobre como resolvê-los.
-1. [Application Insights](#insights)
-    - Criação de perfil avançado e monitoramento do seu aplicativo
+Cada seção deste documento será um recurso específico. Usando os recursos juntos permitem que você:
+- Identificar um problema em seu aplicativo.
+- Determinando quando o problema é causado por seu código ou a plataforma.
+- Restrinja a origem do problema em seu código.
+- Depure e corrija o problema.
 
 ## <a name="before-you-begin"></a>Antes de começar
-
 - Você precisa de um aplicativo Web para monitorar e seguir as etapas destacadas. 
     - É possível criar um aplicativo seguindo as etapas descritas no tutorial [Criar um aplicativo ASP.NET no Azure com Banco de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md).
 
@@ -50,77 +31,73 @@ Este tutorial mostra como usar as ferramentas internas da plataforma para monito
     - Se ainda não tiver o Visual Studio 2017 instalado, é possível baixar e usar o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gratuito. 
     - Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
-## <a name="explorer"></a> Etapa 1 - Gerenciador de Processos
+## <a name="metrics"></a>Etapa 1 - Métricas de exibição
+**Métricas** são úteis para entender: 
+- Integridade do aplicativo
+- Desempenho do apliativo
+- Consumo de recursos
 
-O Gerenciador de Processos é uma ferramenta que permite obter informações detalhadas sobre o funcionamento interno de seu plano de Serviço de Aplicativo.
+Ao investigar um problema de aplicativo, revisar as métricas é um bom lugar para começar. O portal do Azure tem uma maneira rápida para inspecionar visualmente as métricas de seu aplicativo, usando o **Azure Monitor**.
 
-Use **Gerenciador de Processos** para:
+Métricas fornecem uma exibição histórica entre várias agregações chave para seu aplicativo. Para qualquer aplicativo hospedado no serviço de aplicativo, será necessário monitorar o aplicativo Web e o plano de Serviço de Aplicativo.
 
-- Enumere todos os processos entre diferentes instâncias do seu plano de Serviço de Aplicativo.
-- Analise detalhadamente e exiba os identificadores e módulos associados a cada processo. 
-- Exibir CPU, Conjunto de trabalho e contagem de Threads no nível de processo para ajudá-lo a identificar processos sem controle
-- Localize identificadores de arquivos abertos e, até mesmo, encerre uma instância de processo específico.
+> [!NOTE]
+> Um plano do Serviço de Aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do Serviço de Aplicativo compartilham os recursos definidos por ele, permitindo que você economize ao hospedar vários aplicativos.
+>
+> Os Planos do Serviço de Aplicativo definem:
+> * Região: Norte da Europa, Leste dos EUA, Sudeste da Ásia, etc.
+> * Tamanho da instância: Pequeno, médio, grande, etc.
+> * Contagem da Escala: uma, duas ou três instâncias, etc.
+> * SKU: Gratuito, Compartilhado, Básico, Standard, Premium, etc.
 
-O Gerenciador de Processos pode estar em **Monitoramento** > **Explorador de Processos**.
+Para revisar as métricas para seu aplicativo Web, vá para a folha **Visão geral** do aplicativo que você deseja monitorar. A partir daqui, você pode exibir um gráfico de métricas do seu aplicativo como um **bloco de monitoramento**. Clique no bloco para editar e configurar as métricas e o intervalo de tempo a serem exibidos. 
 
-![Gerenciador de Processos](media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)
-
-## <a name="metrics"></a> Etapa 2 - Exibir métricas de Serviço de Aplicativo
-As **Métricas** fornecem informações detalhadas sobre o aplicativo Web e suas interações com os usuários e a plataforma.
-
-É possível usar métricas para obter informações sobre:
-- quantos recursos seu aplicativo está usando
-- volume de tráfego para seu aplicativo
-- falhas/solicitações gerais
-- volume de dados de entrada/saída
-
-Para qualquer aplicativo hospedado no serviço de aplicativo, será necessário monitorar o aplicativo Web e o plano de Serviço de Aplicativo.
-
-- Métricas de **Aplicativo** fornecem informações sobre falhas/solicitações http e tempo médio de resposta.
-- Métricas do **Plano de Serviço de Aplicativo** fornecem informações sobre a utilização de recursos.
-
-O portal do Azure tem uma maneira rápida para inspecionar visualmente as métricas de seu aplicativo, usando o **Azure Monitor**.
-
-- Vá para a folha **Visão Geral** do aplicativo que deseja monitorar.
-
+Por padrão a folha de recursos fornece uma exibição para as solicitações do aplicativo e os erros de última hora.
 ![Monitorar o aplicativo](media/app-service-web-tutorial-monitoring/app-service-monitor.png)
 
-- É possível exibir as métricas como um bloco **Monitoramento**.
-- Clique no bloco para editar e configurar as métricas e o intervalo de tempo a serem exibidos.
-
-![Configurar o Gráfico](media/app-service-web-tutorial-monitoring/app-service-monitor-configure.png)
-
-- É possível fixar gráficos personalizados ao painel para referência rápida e de fácil acesso.
-
-![Gráfico de PIN](media/app-service-web-tutorial-monitoring/app-service-monitor-pin.png)
+Como você pode ver no exemplo, temos um aplicativo que está gerando muitos **erros do servidor HTTP**. Alto volume de erros é a indicação primeiro precisamos investigar esse aplicativo.
 
 > [!TIP]
 > Saiba mais sobre o Azure Monitor com os seguintes links:
 > - [Introdução ao Azure Monitor](..\monitoring-and-diagnostics\monitoring-overview.md)
 > - [Métricas do Azure](..\monitoring-and-diagnostics\monitoring-overview-metrics.md)
 > - [Métricas compatíveis com o Azure Monitor](..\monitoring-and-diagnostics\monitoring-supported-metrics.md#microsoftwebsites-including-functions)
-> - [Painéis do portal do Azure](..\azure-portal\azure-portal-dashboards.md)
+> - [Painéis do Azure](..\azure-portal\azure-portal-dashboards.md)
 
-## <a name="alerts"></a>Etapa 3 - Configurar Alertas
+## <a name="alerts"></a>Etapa 2 - Configurar Alertas
+**Alertas** podem ser configurados para serem acionados com condições específicas para seu aplicativo.
 
-**Alertas** permitem automatizar o monitoramento do aplicativo.
+Em [etapa 1 - visualizar métricas](#metrics), vimos que o aplicativo tinha um grande número de erros. 
 
-Use alertas para ser notificado quando condições interessantes que afetam o aplicativo forem detectadas.
+Permite configurar um alerta para ser notificado automaticamente quando ocorrem erros. Nesse caso, queremos que o alerta para enviar e email sempre que o número de erros HTTP 50 X fica acima de um determinado limite.
 
-Para criar um alerta:
-- Vá para a folha **Visão Geral** do aplicativo que deseja monitorar.
-- A partir do menu, navegue até **Monitoramento** > **Alertas**
-- Selecione **[+] Adicionar Alerta**
-- Configure o alerta, conforme necessário.
+Para criar um alerta, navegue até **monitoramento** > **alertas** e clique em **[+] Adicionar alerta**.
 
 ![Alertas](media/app-service-web-tutorial-monitoring/app-service-monitor-alerts.png)
+
+Forneça valores para a configuração de alertas:
+- **Recurso:** o site para monitorar com o alerta. 
+- **Nome:** um nome para o alerta, nesse caso: *HTTP alta 50 X*.
+- **Descrição:** explicação de texto sem formatação do que esse alerta está observando.
+- **Alerta sobre:** alertas podem examinar eventos ou métricas, para este exemplo Estamos analisando as métricas.
+- **Métrica:** que métrica para monitorar, nesse caso: *erros do servidor HTTP*.
+- **Condição:** quando um alerta, selecione nesse caso o *maior* opção.
+- **Limite:** o que é o valor a ser procurado, nesse caso: *400*.
+- **Período:** alertas operam sobre o valor médio de uma métrica. Períodos menores geram alertas mais importantes. Neste caso temos *5 minutos*. 
+- **Os proprietários e colaboradores de e-mail:** nesse caso: *Habilitado*.
+
+Agora que o alerta foi criado um email é enviado sempre que o aplicativo fica acima do limite configurado. Alertas ativos também podem ser analisados no portal do Azure.
+
+![Acionado alertas](media/app-service-web-tutorial-monitoring/app-service-monitor-alerts-triggered.png)
+
 
 > [!TIP]
 > Saiba mais sobre Alertas do Azure com os seguintes links:
 > - [O que são alertas no Microsoft Azure?](..\monitoring-and-diagnostics\monitoring-overview-alerts.md)
 > - [Executar uma Ação com Base nas Métricas](..\monitoring-and-diagnostics\monitoring-overview.md)
+> - [Criar alertas de métricas](..\monitoring-and-diagnostics\insights-alerts-portal.md)
 
-## <a name="companion"></a> Etapa 4 - Complemento do Serviço de Aplicativo
+## <a name="companion"></a> Etapa 3 - Complemento do Serviço de Aplicativo
 O **Complemento do Serviço de Aplicativo** oferece uma maneira conveniente para monitorar o aplicativo com uma experiência nativa no dispositivo móvel (iOS ou Android).
 
 Use o Complemento do Serviço de Aplicativo para:
@@ -136,25 +113,24 @@ Use o Complemento do Serviço de Aplicativo para:
 
 É possível instalar o complemento do Serviço de Aplicativo pela [App Store](https://itunes.apple.com/app/azure-app-service-companion/id1146659260) ou pelo [Google Play](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
 
-## <a name="logging"></a> Etapa 5 - Registrar em Log
-O registro em log permite coletar ambos os logs do **Diagnóstico de Aplicativos** e do **Diagnóstico de Servidor Web** para seu aplicativo Web.
+## <a name="diagnose"></a> Etapa 4 - Diagnosticar e resolver problemas
+**Diagnosticar e resolver problemas** ajuda a separar questões de aplicativo forma a problemas de plataforma. Ele também pode sugerir possíveis atenuações para deixar seu aplicativo Web para íntegro.
+ 
+![Diagnosticar e Resolver Problemas](media/app-service-web-tutorial-monitoring/app-service-monitor-diagnosis.png)
 
-Use Logs de Diagnóstico para compreender o comportamento do aplicativo, solucionar problemas de aplicativos e entender as condições de falha.
+Continuar com as etapas anteriores do formulário de exemplo, podemos ver que o aplicativo tenha sido com disponível problemas. Por outro lado, a disponibilidade de plataforma não foi movida de 100%.
+
+Quando o aplicativo está tendo problemas e a plataforma permaneça em funcionamento, é uma indicação clara de que estamos lidando com um problema de aplicativo.
+
+## <a name="logging"></a> Etapa 5 - Registrar em Log
+Agora que podemos ter limitados as falhas para um problema de aplicativo, podemos ver os logs de aplicativo e servidor para obter mais informações.
+
+O registro em log permite coletar ambos os logs do **Diagnóstico de Aplicativos** e do **Diagnóstico de Servidor Web** para seu aplicativo Web.
 
 ### <a name="application-diagnostics"></a>Diagnóstico de Aplicativos
 O diagnóstico de aplicativo permite capturar rastreamentos produzidos pelo aplicativo em tempo de execução. 
 
-Para habilitar o Log de Aplicativo:
-
-- Vá para **Monitoramento** > **Logs de Diagnóstico**. 
-- Habilite o Log de Aplicativo usando as alternâncias.
-
-Os Logs de Aplicativo podem ser armazenados em um sistema de arquivos do Aplicativo Web ou enviados para armazenamento de blobs.
-
-> [!TIP]
-> Para cenários de produção, é recomendável usar o armazenamento de blobs
-
-![Monitorar o aplicativo](media/app-service-web-tutorial-monitoring/app-service-monitor-applogs.png)
+Adicionar rastreamento para seu aplicativo muito melhora a capacidade de depurar e problemas de Pinpoint.
 
 No ASP.NET, é possível registrar rastreamentos de aplicativo usando [System.Diagnostics.Trace clase](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) para gerar eventos que são capturados pela infraestrutura de log. Você também pode especificar a severidade do rastreamento para filtragem mais fácil.
 
@@ -177,21 +153,28 @@ public ActionResult Delete(Guid? id)
     return View(todo);
 }
 ```
+Para habilitar o log de aplicativo, vá para **monitoramento** > **Logs de diagnóstico** e habilitar o log de aplicativo usando a alterna.
+
+![Monitorar o aplicativo](media/app-service-web-tutorial-monitoring/app-service-monitor-applogs.png)
+
+Os Logs de Aplicativo podem ser armazenados em um sistema de arquivos do Aplicativo Web ou enviados para armazenamento de blobs. Para cenários de produção, é recomendável usar o armazenamento de blobs.
 
 > [!IMPORTANT]
 > Habilitar o registro no log tem um impacto sobre o desempenho do aplicativo e a utilização de recursos. Para cenários de produção, logs de erros são recomendados. Somente habilite o registro no log mais detalhado quando investigar problemas.
 
  ### <a name="web-server-diagnostics"></a>Diagnóstico de Servidor Web
-O Serviço de Aplicativo pode coletar três tipos diferentes de logs do servidor:
+Logs do servidor Web são gerados, mesmo que seu aplicativo não é instrumentado. O Serviço de Aplicativo pode coletar três tipos diferentes de logs do servidor:
 
 - **Log do Servidor Web** 
     - Informações sobre transações HTTP usando o [formato do arquivo de log estendido do W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). 
     - Útil ao determinar métricas globais do site como o número de solicitações processadas ou a quantidade de solicitações de um endereço IP específico.
 - **Logs de Erros Detalhados** 
     - Informações detalhadas de erros para códigos de status HTTP que indiquem uma falha (código de status 400 ou superior). 
+    - [Saiba mais sobre o log de erro detalhado](https://www.iis.net/learn/troubleshoot/diagnosing-http-errors/how-to-use-http-detailed-errors-in-iis)
 - **Rastreamento de Solicitações com Falha** 
     - Informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. 
     - O logs de solicitações com falha são úteis ao tentar isolar a causa de um erro HTTP específico.
+    - [Saiba mais sobre falha de solicitação de rastreamento](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis)
 
 Para habilitar o Log de Servidor:
 - vá para **Monitoramento** > **Logs de Diagnóstico**. 
@@ -203,31 +186,26 @@ Para habilitar o Log de Servidor:
 > Habilitar o registro no log tem um impacto sobre o desempenho do aplicativo e a utilização de recursos. Para Cenários de Produção, os Logs de Erros são recomendados, Somente habilite o registro no log mais detalhado quando investigar problemas.
 
 ### <a name="accessing-logs"></a>Acessar Logs
-Os logs armazenados no armazenamento de blobs são acessados usando o Gerenciador de Armazenamento do Azure.
+Os logs armazenados no armazenamento de blobs são acessados usando o Gerenciador de Armazenamento do Azure. Os logs armazenados no sistema de arquivos do aplicativo Web são acessados por meio de FTP nos seguintes caminhos:
 
-Os logs armazenados no sistema de arquivos do aplicativo Web são acessados por meio de FTP nos seguintes caminhos:
-
-- **Logs do aplicativo** - /LogFiles/Application/. 
+- **Logs de aplicativos** - `%HOME%/LogFiles/Application/`.
     - Essa pasta contém um ou mais arquivos de texto que contêm informações produzidas pelo log do aplicativo.
-- **Rastreamento de Solicitação Falha** - /LogFiles/W3SVC#########/. 
+- **Falha de solicitação de rastreamento** - `%HOME%/LogFiles/W3SVC#########/`. 
     - Esta pasta contém um arquivo XSL e um ou mais arquivos XML. 
-- **Logs de erro do aplicativo** - /LogFiles/DetailedErrors/. 
+- **Logs de erro detalhadas** - `%HOME%/LogFiles/DetailedErrors/`. 
     - Esta pasta contém um ou mais arquivos .htm com informações abrangentes sobre erros HTTP gerados pelo aplicativo.
-- **Logs do Web Server** - /LogFiles/http/RawLogs. 
+- **Logs do Web Server** - `%HOME%/LogFiles/http/RawLogs`. 
     - Esta pasta contém um ou mais arquivos de texto formatados usando o formato do arquivo de log estendido do W3C.
 
 ## <a name="streaming"></a> Etapa 6 - Streaming de Log
-O Serviço de Aplicativo pode fazer streaming de **Logs do Aplicativo** e **Logs do Servidor Web** conforme eles são gerados. 
+Logs de streaming são convenientes durante a depuração de um aplicativo uma vez que ele economiza tempo em comparação comparado [acessar os logs de](#Accessing-Logs) por meio de FTP.
 
-Logs de streaming são convenientes ao depurar um aplicativo, uma vez que economiza tempo em comparação com o acesso aos logs através de outros métodos FTP.
+O Serviço de Aplicativo pode fazer streaming de **Logs do Aplicativo** e **Logs do Servidor Web** conforme eles são gerados. 
 
 > [!TIP]
 > Antes de tentar fazer streaming de logs certifique-se de que você habilitou a coleta de logs, conforme descrito na seção [Registrar em Log](#logging).
 
-Para fazer streaming de logs:
-- vá para **Monitoramento**> **Fluxo de Log**
-- Selecione **Logs do Aplicativo** ou **Logs do Servidor Web**, dependendo de quais informações você está procurando.
-- A partir daqui, também será possível pausar, reiniciar e limpar o buffer.
+Para transmitir logs, vá para **monitoramento**> **fluxo de Log**. Selecione **Logs do Aplicativo** ou **Logs do Servidor Web**, dependendo de quais informações você está procurando. A partir daqui, também será possível pausar, reiniciar e limpar o buffer.
 
 ![Logs de streaming](media/app-service-web-tutorial-monitoring/app-service-monitor-logstream.png)
 
@@ -235,9 +213,9 @@ Para fazer streaming de logs:
 > Os logs são gerados apenas quando há tráfego no aplicativo, também é possível aumentar o nível de detalhes dos logs para obter mais eventos ou informações.
 
 ## <a name="remote"></a> Etapa 7 - Depuração Remota
-A **Depuração remota** permite anexar um depurador ao seu aplicativo Web em execução na nuvem. É possível pode definir pontos de interrupção, manipular a memória diretamente, percorrer o código e até mesmo alterar o caminho do código, exatamente como para um aplicativo executado localmente.
+Após você ter pin pontas a origem dos problemas de aplicativos, use **depuração remota** para percorrer o código.
 
-Use a depuração remota juntamente com logs de diagnóstico para localizar e corrigir problemas com o aplicativo.
+A Depuração remota permite anexar um depurador ao seu aplicativo Web em execução na nuvem. É possível pode definir pontos de interrupção, manipular a memória diretamente, percorrer o código e até mesmo alterar o caminho do código, exatamente como para um aplicativo executado localmente.
 
 Para anexar o depurador ao seu aplicativo em execução na nuvem:
 
@@ -253,14 +231,24 @@ Para anexar o depurador ao seu aplicativo em execução na nuvem:
 O Visual Studio configura seu aplicativo para depuração remota e inicia uma janela do navegador que navega até o aplicativo. Navegue pelo aplicativo para disparar pontos de interrupção e percorrer o código.
 
 > [!WARNING]
-> A execução em modo de depuração em produção não é recomendada. Se o aplicativo de produção não for dimensionado para várias instâncias de servidor, a depuração impedirá que o servidor Web responda a outras solicitações. Para solucionar problemas de produção, os melhores recursos são [configurar o registro em log](#logging) e [Application Insight](#insights)
+> A execução em modo de depuração em produção não é recomendada. Se o aplicativo de produção não for dimensionado para várias instâncias de servidor, a depuração impedirá que o servidor Web responda a outras solicitações. Para solucionar problemas de produção, os melhores recursos são [configurar o registro em log](#logging) e [Application Insight](#insights).
 
-## <a name="diagnose"></a> Etapa 8 - Diagnosticar e resolver problemas
-**Diagnosticar e resolver problemas** é uma ferramenta interna que verifica as últimas 24 horas de atividade do seu aplicativo Web. A Experiência de Usuário apresenta uma visão resumida de todos os problemas identificados.
 
-Use esse recurso para ajudá-lo a distinguir os problemas de aplicativo dos problemas da plataforma e encontrar possíveis atenuações para melhorar seu Aplicativo Web.
 
-![Diagnosticar e Resolver Problemas](media/app-service-web-tutorial-monitoring/app-service-monitor-diagnosis.png)
+## <a name="explorer"></a> Etapa 8 - Gerenciador de Processos
+Quando seu aplicativo é dimensionado para mais de uma instância, **o process explorer** pode ajudar a identificar problemas específicos da instância.
+
+Use **Gerenciador de Processos** para:
+
+- Enumere todos os processos entre diferentes instâncias do seu plano de Serviço de Aplicativo.
+- Analise detalhadamente e exiba os identificadores e módulos associados a cada processo. 
+- Exibir CPU, Conjunto de trabalho e contagem de Threads no nível de processo para ajudá-lo a identificar processos sem controle
+- Localize identificadores de arquivos abertos e, até mesmo, encerre uma instância de processo específico.
+
+O Gerenciador de Processos pode estar em **Monitoramento** > **Explorador de Processos**.
+
+![Gerenciador de Processos](media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)
+
 
 ## <a name="insights"></a> Etapa 9 - Application Insights
 O **Application Insights** fornece perfil de aplicativo e recursos avançados de monitoramento para seu aplicativo. 

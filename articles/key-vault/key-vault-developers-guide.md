@@ -1,6 +1,6 @@
 ---
 title: Guia do desenvolvedor do Cofre de Chaves | Microsoft Docs
-description: 'Os desenvolvedores podem usar o Cofre da Chave do Azure para gerenciar chaves de criptografia no ambiente do Microsoft Azure. '
+description: Os desenvolvedores podem usar o Cofre da Chave do Azure para gerenciar chaves de criptografia no ambiente do Microsoft Azure.
 services: key-vault
 documentationcenter: 
 author: BrucePerlerMS
@@ -12,25 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/17/2017
+ms.date: 04/18/2017
 ms.author: bruceper
 translationtype: Human Translation
-ms.sourcegitcommit: 74de2165ea3a66cd0babc9f6d6d451522988bbe6
-ms.openlocfilehash: b3fc845812e8a4a2729f026baa82b58319d5c5f3
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6ae0909faf0711b1ad25df48f626630644c5df7
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
+
 Usando o Key Vault, você pode acessar informações confidenciais em seus aplicativos com segurança, de modo que:
 
 * As chaves e os segredos são protegidos sem que você mesmo precise escrever código e você pode usá-los facilmente em seus aplicativos.
 * Você pode fazer com que seus clientes possuam e gerenciem suas próprias chaves e se concentrar em fornecer os principais recursos do software. Dessa forma, os aplicativos não serão responsáveis ou potencialmente responsáveis pelas chaves e segredos do locatário de seus clientes.
-* Seu aplicativo pode usar chaves para assinatura e criptografia, mas ainda manter o gerenciamento de chaves fora de seu aplicativo, de modo que a solução seja adequada a um aplicativo distribuído geograficamente.
+* Seu aplicativo pode usar chaves para assinatura e criptografia, mas ainda manter o gerenciamento de chaves fora de seu aplicativo, permitindo que sua solução seja adequada a um aplicativo distribuído geograficamente.
 * Com o lançamento de setembro de 2016 do Cofre de Chaves, seus aplicativos agora podem fazer uso dos certificados do Cofre de Chaves. Para obter mais informações, consulte o artigo **Sobre chaves, segredos e certificados** na [Referência REST](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
 Para obter mais informações gerais sobre o Cofre de Chaves do Azure, confira [O que é o Cofre de Chaves](key-vault-whatis.md).
 
 ## <a name="videos"></a>Vídeos
+
 Este vídeo mostra como criar seu próprio cofre de chaves e como usá-lo por meio do aplicativo de exemplo “Hello Key Vault”.
 
 
@@ -39,12 +42,13 @@ Este vídeo mostra como criar seu próprio cofre de chaves e como usá-lo por me
 
 Links para os recursos mencionados no vídeo:
 
-* [PowerShell do Azure](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+* [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
 * [Código de exemplo do Cofre de Chaves do Azure](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 Para saber mais, você pode seguir o [Blog do Cofre de Chaves](http://aka.ms/kvblog) e participar do [Fórum do Cofre de Chaves](http://aka.ms/kvforum).
 
 ## <a name="creating-and-managing-key-vaults"></a>Criando e gerenciando Cofres da Chave
+
 Antes de trabalhar com o Cofre da Chave do Azure em seu código, você pode criar e gerenciar cofres por meio de REST, modelos de Gerenciador de Recursos, PowerShell ou CLI, conforme descrito nos seguintes artigos:
 
 * [Criar e gerenciar Cofres de Chaves com a CLI](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -54,17 +58,16 @@ Antes de trabalhar com o Cofre da Chave do Azure em seu código, você pode cria
 
 > [!NOTE]
 > Operações em relação a cofres de chaves são autenticadas por meio do AAD e autorizadas por meio da própria política de acesso do Cofre da Chave, definido por cofre.
->
->
 
 ## <a name="coding-with-key-vault"></a>Codificação com o Cofre da Chave
+
 O sistema de gerenciamento do Cofre de Chaves para programadores consiste em várias interfaces, com o REST como base, [Referência da API REST do Cofre de Chaves](https://msdn.microsoft.com/library/azure/dn903609.aspx).
 
-Você pode, sujeito a uma autorização bem-sucedida, fazer o seguinte:
+Você pode, se tiver autorização, realizar uma das seguintes operações.
 
 * Gerenciar chaves de criptografia usando [Criar](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Importar](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Atualizar](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Excluir](https://msdn.microsoft.com/library/azure/dn903611.aspx) e outras operações
 * Gerenciar segredos usando [Obter](https://msdn.microsoft.com/library/azure/dn903633.aspx), [Atualizar](https://msdn.microsoft.com/library/azure/dn986818.aspx), [Excluir](https://msdn.microsoft.com/library/azure/dn903613.aspx) e outras operações
-* Usar chaves de criptografia com as operações [Assinar](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Verificar](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) e [Criptografar](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Descriptografar](https://msdn.microsoft.com/library/azure/dn878097.aspx)
+* Usar chaves de criptografia com as operações [Sign](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Verify](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) e [Encrypt](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Decrypt](https://msdn.microsoft.com/library/azure/dn878097.aspx)
 
 Os seguintes SDKs estão disponíveis para funcionar com o Cofre da Chave:
 
@@ -76,12 +79,14 @@ Os seguintes SDKs estão disponíveis para funcionar com o Cofre da Chave:
 Para obter mais informações sobre a versão 2.x do SDK do .NET, consulte as [Notas de versão](key-vault-dotnet2api-release-notes.md).
 
 ## <a name="example-code"></a>Código de exemplo
+
 Para obter exemplos completos sobre como usar o Cofre de Chaves com seus aplicativos, confira:
 
 * Aplicativo de exemplo .NET *HelloKeyVault* e um exemplo de serviço Web do Azure. [Exemplos de código de Cofre da Chave do Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 * Tutorial para ajudá-lo a saber como usar o Cofre da Chave do Azure por meio de um aplicativo Web no Azure. [Usar cofre da chave do Azure em um aplicativo Web](key-vault-use-from-web-application.md)
 
 ## <a name="how-tos"></a>Instruções
+
 Os artigos e cenários a seguir fornecem diretrizes específicas da tarefa para trabalhar com o Azure Key Vault:
 
 * [Alterar a ID de locatário do cofre de chaves depois de mover a assinatura](key-vault-subscription-move-fix.md) - quando você mover sua assinatura do Azure do locatário A para o locatário B, os cofres de chaves existentes não poderão ser acessados pelas entidades (usuários e aplicativos) no locatário B. Corrija isso usando este guia.
@@ -97,6 +102,7 @@ Os artigos e cenários a seguir fornecem diretrizes específicas da tarefa para 
 Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os Cofres de Chaves com o Azure, consulte os [Exemplos de modelo do Azure Resource Manager do Ryan Jones para o Cofre de Chaves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
 ## <a name="integrated-with-key-vault"></a>Introdução ao Cofre de Chaves
+
 Estes artigos abordam outros cenários e serviços que usam ou se integram ao Key Vault.
 
 * A [Azure Disk Encryption](../security/azure-security-disk-encryption.md) aproveita o recurso padrão da indústria [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o SO e os discos de dados. A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre de chaves, garantindo ao mesmo tempo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
@@ -105,15 +111,12 @@ Estes artigos abordam outros cenários e serviços que usam ou se integram ao Ke
 
 
 ## <a name="supporting-libraries"></a>Bibliotecas de Suporte
-* A [Biblioteca Principal do Cofre de Chaves do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fornece as interfaces `IKey` e `IKeyResolver` para localizar chaves com base em identificadores e realizar operações com chaves.
+
+* A [Biblioteca Principal do Microsoft Azure Key Vault](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fornece as interfaces **IKey** e **IKeyResolver** para localizar chaves com base em identificadores e realizar operações com chaves.
 * As [Extensões do Cofre de Chaves do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornecem recursos estendidos para o Cofre de Chaves do Azure.
 
 ## <a name="other-key-vault-resources"></a>Outros recursos do Cofre de Chaves
+
 * [Blog do Cofre de Chaves](http://aka.ms/kvblog)
 * [Fórum do Cofre de Chaves](http://aka.ms/kvforum)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -13,19 +13,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 04/21/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 767698f12a5cb58fafc70c58e3d36a65194c2999
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
+ms.openlocfilehash: 87486f94bee474b13680e9a90716f09399a95e16
+ms.lasthandoff: 04/23/2017
 
 
 ---
 # <a name="use-the-azure-documentdb-emulator-for-development-and-testing"></a>Usar o Emulador do Azure DocumentDB para desenvolvimento e teste
 
-[**Baixar o Emulador**](https://aka.ms/documentdb-emulator)
-
+<table>
+<tr>
+  <td><strong>Binários</strong></td>
+  <td>[Baixar MSI](https://aka.ms/documentdb-emulator)</td>
+</tr>
+<tr>
+  <td><strong>Docker</strong></td>
+  <td>[Hub de Docker](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+</tr>
+<tr>
+  <td><strong>Fonte de Docker</strong></td>
+  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+</tr>
+</table>
+  
 O Emulador do Azure DocumentDB fornece um ambiente local que emula o serviço do Azure DocumentDB para fins de desenvolvimento. Com o Emulador do DocumentDB, você pode desenvolver e testar seu aplicativo localmente sem criar uma assinatura do Azure ou incorrer em custos. Quando você estiver satisfeito com o funcionamento de seu aplicativo no Emulador do DocumentDB, alterne para uma conta do DocumentDB do Azure na nuvem.
 
 É recomendável começar assistindo ao vídeo a seguir, onde Kirill Gavrylyuk mostra como começar a usar o Emulador do DocumentDB.
@@ -56,7 +69,7 @@ O emulador do DocumentDB pode ser executado no Docker para Windows. O emulador n
 Depois de ter instalado o [Docker para Windows](https://www.docker.com/docker-windows) é possível, do Hub do Docker, efetuar pull da imagem do emulador executando o comando a seguir do seu shell favorito (cmd.exe, PowerShell, etc.).
 
 ```      
-docker pull mominag/documentdb_emulator 
+docker pull microsoft/azure-documentdb-emulator 
 ```
 Para iniciar a imagem, execute os comandos a seguir.
 
@@ -277,7 +290,7 @@ Se você tentar criar uma coleção depois que a contagem de partição atual ti
 
 Para alterar o número de coleções disponíveis para o Emulador do DocumentDB, faça o seguinte:
 
-1. Exclua todos os dados locais do Emulador do DocumentDB clicando com o ícone do **Emulador do DocumentDB** na bandeja do sistema e clicando em **Redefinir Dados...** .
+1. Exclua todos os dados locais do Emulador do DocumentDB clicando com o ícone do **Emulador do DocumentDB** na bandeja do sistema e clicando em **Redefinir Dados...**.
 2. Exclua todos os dados de emulador desta pasta C:\Users\user_name\AppData\Local\DocumentDBEmulator.
 3. Saia de todas as instâncias clicando no ícone do **Emulador do DocumentDB** na bandeja do sistema e clicando em **Sair**. Pode levar um minuto para que todas as instâncias saiam.
 4. Instale a versão mais recente do [Emulador do DocumentDB](https://aka.ms/documentdb-emulator).

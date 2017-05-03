@@ -16,13 +16,16 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6a99749a96a6239428e5b018a26a6e8fd440c9d2
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: ba25cdee46ce4ceb5acd5ff9da683a057f2bd733
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensor em tempo real do Hub IoT usando o Power BI
+
+![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/4.png)
+
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,22 +41,13 @@ Você aprenderá a visualizar dados do sensor em tempo real que recebe o hub IoT
 
 ## <a name="what-you-need"></a>O que você precisa
 
-- O tutorial [Conectar a ESP8266 ao Hub IoT do Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) foi concluído e abordou os seguintes requisitos:
+- Tutorial [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluído que aborda os seguintes requisitos:
   - Uma assinatura ativa do Azure.
   - Um hub IoT do Azure em sua assinatura.
   - O aplicativo cliente que envia mensagens para o hub IoT do Azure.
 - Uma conta do Power BI. ([Experimente gratuitamente o Power BI](https://powerbi.microsoft.com/))
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao hub IoT
-
-Os grupos de consumidores são utilizados pelas aplicações para obter dados do Hub IoT do Azure. Nesta lição, você criará um grupo de consumidores a ser usado por um trabalho do Stream Analytics para ler dados de seu hub IoT.
-
-Para adicionar um grupo de consumidores ao hub IoT, siga estas etapas:
-
-1. No [portal do Azure](https://ms.portal.azure.com/), abra o hub IoT.
-1. Clique em **Pontos de extremidade** no painel esquerdo, selecione **Eventos** no painel do meio, insira um nome de **Grupos de consumidores** no painel direito e clique em **Salvar**.
-
-   ![Criar grupo de consumidores no Hub IoT do Azure](media/iot-hub-live-data-visualization-in-power-bi/1_iot-hub-create-consumer-group-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Criar, configurar e executar um trabalho do Stream Analytics
 

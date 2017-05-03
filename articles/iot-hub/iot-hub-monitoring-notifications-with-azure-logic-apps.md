@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 00f45f2bc1a7e15d93980779c23c8aa287cd25bb
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 2cdfbadfc4cc28afe34b4d558f40bba6451f7388
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoramento remoto IoT e notificações com o Aplicativo Lógico do Azure conectando o hub IoT e a caixa de correio
+
+![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/7.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -40,7 +42,7 @@ Aprenda a criar um aplicativo lógico que conecta o hub IoT e a caixa de correio
 
 ## <a name="what-you-need"></a>O que você precisa
 
-* O tutorial [Conectar a ESP8266 ao Hub IoT do Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) foi concluído e abordou os seguintes requisitos:
+* Tutorial [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluído que aborda os seguintes requisitos:
   * Uma assinatura ativa do Azure.
   * Um hub IoT do Azure em sua assinatura.
   * O aplicativo cliente que envia mensagens para o hub IoT do Azure.
