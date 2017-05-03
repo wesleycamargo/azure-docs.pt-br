@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -35,7 +35,7 @@ Este início rápido usa como ponto de partida os recursos criados em um destes 
 
 Antes de começar, verifique se você instalou a versão mais recente do [Visual Studio Code](https://code.visualstudio.com/Download) e carregou a [extensão mssql](https://aka.ms/mssql-marketplace). Para obter orientações de instalação para a extensão mssql, consulte [Instalar o VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) e consulte [mssql para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-## <a name="configure-vs-code-mac-os-only"></a>Configurar o VS Code (somente Mac OS)
+## <a name="configure-vs-code"></a>Configurar o VS Code 
 
 ### <a name="mac-os"></a>**Mac OS**
 Para o macOS, você precisa instalar o OpenSSL, que é um pré-requisito do DotNet Core a extensão mssql usa. Abra seu terminal e digite os seguintes comandos para instalar o **brew** e o **OpenSSL**. 
@@ -49,9 +49,17 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+
+Nenhuma configuração especial é necessária.
+
+### <a name="windows"></a>**Windows**
+
+Nenhuma configuração especial é necessária.
+
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
-Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Dados SQL do Azure no Portal do Azure. Use o nome do servidor totalmente qualificado para se conectar ao servidor usando o Visual Studio Code.
+Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
@@ -108,7 +116,7 @@ Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco
 
 ## <a name="query-data"></a>Consultar dados
 
-Use a instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de Transact-SQL para consultar dados no Banco de Dados SQL do Azure.
+Use o seguinte código para consultar os 20 principais produtos por categoria usando a instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) do Transact-SQL.
 
 1. Na janela **Editor**, insira a seguinte consulta na janela de consulta vazia:
 
@@ -125,7 +133,7 @@ Use a instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de 
 
 ## <a name="insert-data"></a>Inserir dados
 
-Use a instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de Transact-SQL para inserir dados no Banco de Dados SQL do Azure.
+Use o código a seguir para inserir um novo produto na tabela SalesLT.Product usando a instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) do Transact-SQL.
 
 1. Na janela **Editor**, exclua a consulta anterior e insira a seguinte consulta:
 
@@ -153,7 +161,7 @@ Use a instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de 
 
 ## <a name="update-data"></a>Atualizar dados
 
-Use a instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) de Transact-SQL para atualizar dados no Banco de Dados SQL do Azure.
+Use o código a seguir para atualizar o novo produto que você adicionou anteriormente usando a instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) do Transact-SQL.
 
 1.  Na janela **Editor**, exclua a consulta anterior e insira a seguinte consulta:
 
@@ -167,7 +175,7 @@ Use a instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) de 
 
 ## <a name="delete-data"></a>Excluir dados
 
-Use a instrução [ELETE](https://msdn.microsoft.com/library/ms189835.aspx) de Transact-SQL para excluir dados no Banco de Dados SQL do Azure.
+Use o código a seguir para excluir o novo produto que você adicionou anteriormente usando a instrução [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) do Transact-SQL.
 
 1. Na janela **Editor**, exclua a consulta anterior e insira a seguinte consulta:
 

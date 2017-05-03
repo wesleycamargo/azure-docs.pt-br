@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ A figura abaixo mostra um exemplo das rotas definidas pelo usuário e do encamin
 ![Rotas de sistema no Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Rotas definidas pelo usuário só se aplicam ao tráfego que sai de uma sub-rede. Não é possível criar rotas para especificar como o tráfego entra em uma sub-rede da Internet, por exemplo. Além disso, o dispositivo para onde você está encaminhando o tráfego não pode estar na mesma sub-rede onde se origina o tráfego. Sempre crie uma sub-rede separada para seus dispositivos. 
+> Rotas definidas pelo usuário são aplicadas ao tráfego que deixam uma sub-rede de qualquer recurso (como interfaces de rede conectadas às máquinas virtuais) na sub-rede. Não é possível criar rotas para especificar como o tráfego entra em uma sub-rede a partir da Internet, por exemplo. O dispositivo para onde você está encaminhando o tráfego não pode estar na mesma sub-rede onde se origina o tráfego. Sempre crie uma sub-rede separada para seus dispositivos. 
 > 
 > 
 

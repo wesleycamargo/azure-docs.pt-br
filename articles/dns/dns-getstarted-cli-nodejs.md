@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 75ddb1ff6dde4a83e775b54c15c86b18d2b1cf7a
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
+ms.lasthandoff: 04/21/2017
 
 ---
 
@@ -36,6 +36,13 @@ Uma zona DNS é usada para hospedar os registros DNS para um domínio específic
 
 Essas instruções pressupõem que você já instalou e entrou na CLI do Azure 1.0. Para obter ajuda, confira [Como gerenciar as zonas DNS usando a CLI do Azure 1.0](dns-operations-dnszones-cli-nodejs.md).
 
+## <a name="create-the-resource-group"></a>Criar o grupo de recursos
+
+Antes de criar a zona DNS, um grupo de recursos é criado para conter a zona DNS. O código a seguir mostra o comando.
+
+```azurecli
+azure group create --name MyResourceGroup --location "West US"
+```
 
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
@@ -98,6 +105,13 @@ info:    network dns zone show command OK
 
 Esses servidores de nome devem ser configurados com o registrador de nome de domínio (onde você adquiriu o nome de domínio). Seu registrador oferecerá a opção de configurar os servidores de nome do domínio. Para saber mais, confira [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Excluir todos os recursos
+ 
+Para excluir todos os recursos criados neste artigo, execute as seguintes etapas:
+
+```azurecli
+azure group delete --name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

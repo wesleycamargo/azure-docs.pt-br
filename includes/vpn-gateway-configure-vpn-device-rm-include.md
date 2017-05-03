@@ -8,14 +8,6 @@ As conexões Site a Site para uma rede local exigem um dispositivo VPN. Enquanto
 
 Ao configurar seu dispositivo VPN, você precisará dos seguintes itens:
 
-- O endereço IP público do seu gateway de rede virtual.
+- Uma chave compartilhada. Essa é a mesma chave compartilhada especificada ao criar a conexão VPN Site a Site. Em nossos exemplos, usamos uma chave compartilhada básica. Recomendamos gerar uma chave mais complexa para uso.
 
-    -  Para localizar o endereço IP público usando o portal do Azure, navegue até **gateways de rede virtual** e clique no nome do seu gateway. 
-    - Para localizar o endereço IP público do seu gateway de rede virtual usando o PowerShell, use o exemplo a seguir substituindo os valores pelos seus próprios.
-
-            Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
-- Uma chave compartilhada. Essa é a mesma chave compartilhada especificada ao criar a conexão VPN Site a Site. Em nossos exemplos, usamos uma chave compartilhada muito básica. Você deve gerar uma chave mais complexa para uso.
-
-
-
-
+- O endereço IP público do seu gateway de rede virtual. Você pode exibir o endereço IP público usando o portal do Azure, o PowerShell ou a CLI.
