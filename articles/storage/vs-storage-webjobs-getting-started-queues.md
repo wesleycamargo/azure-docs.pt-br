@@ -17,6 +17,7 @@ ms.author: tarcher
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: adbcd4f04c890412f0136636afb081ba9baf51bd
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -225,7 +226,7 @@ Você pode usar o atributo **Queue** nos seguintes tipos de parâmetros:
 * **CloudQueue** (para a criação de mensagens manualmente usando a API de Armazenamento do Azure diretamente)
 
 ### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Usar atributos do SDK de Trabalhos Web no corpo de uma função
-Se precisar realizar algum trabalho em sua função antes de usar um atributo do SDK de Trabalhos Web como **Queue**, **Blob **ou **Table**, você poderá usar a interface **IBinder**.
+Se precisar realizar algum trabalho em sua função antes de usar um atributo do SDK de Trabalhos Web como **Queue** , **Blob** ou **Table** , você poderá usar a interface **IBinder** .
 
 O exemplo a seguir usa uma mensagem da fila de entrada e cria uma nova mensagem com o mesmo conteúdo em uma fila de saída. O nome da fila de saída é definido pelo código no corpo da função.
 
@@ -512,10 +513,5 @@ Em uma tabela do Azure, os logs de **Console.Out** e **Console.Error** têm esta
 
 ## <a name="next-steps"></a>Próximas etapas
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar o Azure WebJobs e o SDK do WebJobs, consulte [Recursos de documentação do Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
