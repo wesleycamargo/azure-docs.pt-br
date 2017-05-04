@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 43ad434b21fd358b8d72702445126dea5ce179cb
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -82,7 +83,7 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
 [Introdução]: app-service-mobile-ios-get-started.md
-[Armazenamento de Tabelas do Azure]: ../storage/storage-getting-started-guide.md
+[Armazenamento de Tabelas do Azure]: ../storage/storage-dotnet-how-to-use-tables.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [recursos de autenticação]: ./app-service-mobile-auth.md
 [recursos de dados]: ./app-service-mobile-offline-data-sync.md
@@ -101,9 +102,4 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 [ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [Ambientes do Serviço de Aplicativo]: ../app-service-web/app-service-app-service-environment-intro.md
 [mapa de aprendizagem]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

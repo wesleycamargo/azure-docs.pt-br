@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3d52c0f5faf90dedf587fb270e9a160a374ed558
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19cd1cf60a14f4a2087bcfdbb4b223039c82dec3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,8 +29,8 @@ Este artigo mostra como criar uma conexão de gateway de VPN entre redes virtuai
 > [!div class="op_single_selector"]
 > * [Resource Manager - portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Clássico - portal do Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Conectar modelos de implantação diferentes - portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Clássico – portal do Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Conectar modelos de implantação diferentes – portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Conectar modelos de implantação diferentes - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
@@ -66,7 +66,7 @@ As etapas neste artigo usam variáveis declaradas no início de cada seção. Se
 ![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Antes de começar
-Antes de começar, você precisa instalar os cmdlets de PowerShell do Azure Resource Manager. Para saber mais sobre como instalar os cmdlets do PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+Antes de começar, você precisa instalar os cmdlets de PowerShell do Azure Resource Manager. Para saber mais sobre como instalar os cmdlets do PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="Step1"></a>Etapa 1 – Planejar os intervalos de endereços IP
 Nas etapas a seguir, criaremos duas redes virtuais juntamente com as respectivas configurações e sub-redes de gateway. Em seguida, criaremos uma conexão VPN entre as duas VNets. É importante planejar os intervalos de endereços IP para sua configuração de rede. Lembre-se de que você deve garantir que nenhum de seus intervalos de VNet ou intervalos de rede local se sobreponham de forma alguma.

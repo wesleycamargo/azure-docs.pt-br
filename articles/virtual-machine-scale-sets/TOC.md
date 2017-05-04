@@ -44,7 +44,7 @@
 ### [Perguntas frequentes do conjunto de dimensionamento](virtual-machine-scale-sets-faq.md)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [CLI do Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

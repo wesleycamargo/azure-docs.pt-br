@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Há várias abordagens que podem ser usadas para configurar os pré-requisitos e
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Instalar e configurar o PowerShell do Azure
-Você precisa do Azure PowerShell versão 1.2.1, ou superior, instalado no computador. O artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) contém todas as etapas necessárias para provisionar o computador para trabalhar com o Azure PowerShell. A abordagem mais simples é usar a abordagem de instalação do Web PI mencionado no artigo. Mesmo que você já tenha instalado o Azure PowerShell, instale novamente usando a abordagem do Web PI para que você tenha a versão mais recente do PowerShell do Azure.
+Você precisa do Azure PowerShell versão 1.2.1, ou superior, instalado no computador. O artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) contém todas as etapas necessárias para provisionar o computador para trabalhar com o Azure PowerShell. A abordagem mais simples é usar a abordagem de instalação do Web PI mencionado no artigo. Mesmo que você já tenha instalado o Azure PowerShell, instale novamente usando a abordagem do Web PI para que você tenha a versão mais recente do PowerShell do Azure.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Obtenha e execute o script de configuração de pré-requisitos de criptografia de disco do Azure.
 O Script de Configuração de Pré-requisitos de Azure Disk Encryption configurará todos os pré-requisitos necessários para a criptografia de suas Máquinas Virtuais do Azure.

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0ccde30b93214b161558daf8e2b4e37e58711da
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d340210d799f995cb10a20cf48a9245bbd3bc8d3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -68,7 +68,7 @@ Nós usamos os seguintes valores para esta configuração. Definimos as variáve
 
 ## <a name="before-beginning"></a>Antes de começar
 * Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para saber mais sobre como instalar cmdlets do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para saber mais sobre como instalar cmdlets do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). 
 
 ## <a name="declare"></a>Parte 1 - Faça logon e defina as variáveis
 Nesta seção, faça logon e declare os valores usados para esta configuração. Os valores declarados são usados nos scripts de exemplo. Altere os valores para refletir seu próprio ambiente. Ou, você pode usar os valores declarados e percorrer as etapas como um exercício.
@@ -244,7 +244,7 @@ Para se conectar a uma rede virtual usando uma VPN Ponto a Site, cada cliente de
 
 Se você quiser criar uma conexão P2S de um computador cliente diferente daquele usada para gerar os certificados cliente, instale um certificado de cliente. Ao instalar um certificado do cliente, você precisará da senha criada durante a exportação do certificado do cliente.
 
-1. Localize e copie o arquivo *.pfx* no computador cliente. No computador cliente, clique duas vezes no arquivo *.pfx* para instalá-lo. Deixe **Localização do Repositório** como **Usuário Atual** e clique em **Avançar**.
+1. Localize e copie o arquivo *.pfx* no computador cliente. No computador cliente, clique duas vezes no arquivo *.pfx* para instalá-lo. Deixe o **Local do Repositório** como **Usuário Atual** e clique em **Avançar**.
 2. Na página **Arquivo** a importar, não faça nenhuma alteração. Clique em **Próximo**.
 3. Na página **Proteção da chave privada**, insira a senha do certificado ou verifique se a entidade de segurança está correta e clique em **Avançar**.
 4. Na página **Repositório de Certificados**, deixe a localização padrão e clique em **Avançar**.
@@ -284,7 +284,7 @@ Se estiver tendo problemas para se conectar, verifique os seguintes itens:
 
 ## <a name="connectVM"></a>Conectar-se a uma máquina virtual
 
-1. Depois de se conectar à rede virtual, você poderá se conectar a uma VM em sua conexão P2S. Para se conectar à máquina virtual, você precisará ter o endereço IP privado da máquina virtual. O exemplo a seguir ajuda a obter o endereço IP privado com [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). Os resultados retornam uma lista de máquinas virtuais e endereços IP privados correspondentes em todos os grupos de recursos. 
+1. Depois de se conectar à rede virtual, você poderá se conectar a uma VM em sua conexão P2S. Para se conectar à máquina virtual, você precisará ter o endereço IP privado da máquina virtual. O exemplo a seguir ajuda a obter o endereço IP privado com [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). Os resultados retornam uma lista de máquinas virtuais e endereços IP privados correspondentes em todos os grupos de recursos. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -424,3 +424,4 @@ Você pode restabelecer um certificado de cliente removendo a impressão digital
 
 ## <a name="next-steps"></a>Próximas etapas
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para saber mais sobre redes e máquinas virtuais, consulte [Visão geral de rede do Azure e VM Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+

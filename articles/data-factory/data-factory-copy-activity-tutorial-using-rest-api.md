@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f4d2535e929996101f6e22ffbd0b2105e8fbf2a8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ Este tutorial mostra como criar e monitorar um data factory do Azure usando a AP
   2. Obtenha a **ID do cliente** e a **chave secreta**. 
   3. Obtenha a **ID do locatário**. 
   4. Atribua o aplicativo **ADFCopyTutorialApp** à função de **Colaborador do Data Factory**.  
-* Instale o [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Instale o [Azure PowerShell](/powershell/azure/overview).  
 * Inicie **PowerShell** e siga as etapas a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechar e reabrir, precisará executar os comandos novamente.
   
   1. Execute o comando abaixo e insira o nome de usuário e a senha que você usa para entrar no portal do Azure:

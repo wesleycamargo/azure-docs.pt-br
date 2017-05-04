@@ -19,9 +19,9 @@ ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -245,7 +245,7 @@ Você poderá usar o PowerShell para atualizar a conta de automação existente 
 O script tem os seguintes pré-requisitos:
 
 * O script pode ser executado somente no Windows 10 e no Windows Server 2016 com módulos do Azure Resource Manager 2.01 e posterior. Não há suporte nas versões anteriores do Windows.
-* Azure PowerShell 1.0 e posterior. Para obter informações sobre a versão 1.0 do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 e posterior. Para obter informações sobre a versão 1.0 do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 * Uma conta de Automação, que é referenciada como o valor para os parâmetros *–AutomationAccountName* e *-pplicationDisplayName* no script do PowerShell a seguir.
 
 Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, que são parâmetros obrigatórios para os scripts, faça o seguinte:
@@ -515,7 +515,7 @@ Você pode usar o código de exemplo atualizado a seguir, obtido do runbook *Azu
          }
     }
 
-Para ajudá-lo a trabalhar facilmente entre várias assinaturas, o script inclui duas linhas de código adicionais que dão suporte à referência a um contexto de assinatura. Um ativo de variável chamado *SubscriptionId* contém a ID da assinatura. Após a instrução de cmdlet `Add-AzureRmAccount`, o cmdlet [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) é declarado com o conjunto de parâmetros *-SubscriptionId*. Se o nome da variável for muito genérico, você poderá revisá-lo para incluir um prefixo ou usar outra convenção de nomenclatura para torná-lo mais fácil de identificar. Como alternativa, você pode usar o conjunto de parâmetros *-SubscriptionName* em vez de *-SubscriptionId* com um ativo de variável correspondente.
+Para ajudá-lo a trabalhar facilmente entre várias assinaturas, o script inclui duas linhas de código adicionais que dão suporte à referência a um contexto de assinatura. Um ativo de variável chamado *SubscriptionId* contém a ID da assinatura. Após a instrução de cmdlet `Add-AzureRmAccount`, o cmdlet [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) é declarado com o conjunto de parâmetros *-SubscriptionId*. Se o nome da variável for muito genérico, você poderá revisá-lo para incluir um prefixo ou usar outra convenção de nomenclatura para torná-lo mais fácil de identificar. Como alternativa, você pode usar o conjunto de parâmetros *-SubscriptionName* em vez de *-SubscriptionId* com um ativo de variável correspondente.
 
 O cmdlet que você usa para se autenticar no runbook, `Add-AzureRmAccount`, usa o conjunto de parâmetros *ServicePrincipalCertificate*. Realiza a autenticação usando o certificado de entidade de serviço, não as credenciais do usuário.
 
