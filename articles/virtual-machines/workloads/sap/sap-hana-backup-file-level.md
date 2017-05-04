@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f2449ffda80ec7cb7a73a6eac229d09c3a4a96cc
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 047d9191e2c844a591c35279ff7b143906087f56
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -105,7 +105,7 @@ Ao contrário do backup de disco de dados de VM manual, nessa abordagem a pessoa
 
 ![Todos os VHDs envolvidos foram copiados usando o comado do PowerShell **start-azurestorageblobcopy**](media/sap-hana-backup-file-level/image031.png)
 
-Após a conclusão do backup no RAID de software local, todos os VHDs envolvidos foram copiados usando o comando do PowerShell **start-azurestorageblobcopy** (confira [Start-AzureStorageBlobCopy](/powershell/storage/azure.storage/v2.1.0/start-azurestorageblobcopy)). Como afeta somente o sistema de arquivos dedicado para manter os arquivos de backup, não há preocupações sobre a consistência do arquivo de dados ou de log do SAP HANA no disco. Um benefício desse comando é que ele trabalha enquanto a VM está online. Para ter certeza de que nenhum processo grava o conjunto de backup distribuído, desmonte-o antes da cópia de blob e monte-o novamente depois. Ou é possível usar uma forma apropriada de &quot;congelar&quot; o sistema de arquivos. Por exemplo, via xfs\_freeze para o sistema de arquivos XFS.
+Após a conclusão do backup no RAID de software local, todos os VHDs envolvidos foram copiados usando o comando do PowerShell **start-azurestorageblobcopy** (confira [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy)). Como afeta somente o sistema de arquivos dedicado para manter os arquivos de backup, não há preocupações sobre a consistência do arquivo de dados ou de log do SAP HANA no disco. Um benefício desse comando é que ele trabalha enquanto a VM está online. Para ter certeza de que nenhum processo grava o conjunto de backup distribuído, desmonte-o antes da cópia de blob e monte-o novamente depois. Ou é possível usar uma forma apropriada de &quot;congelar&quot; o sistema de arquivos. Por exemplo, via xfs\_freeze para o sistema de arquivos XFS.
 
 ![Esta captura de tela mostra a lista de blobs no contêiner de vhds no Portal do Azure](media/sap-hana-backup-file-level/image032.png)
 

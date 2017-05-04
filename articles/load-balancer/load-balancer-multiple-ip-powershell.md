@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: fb6a74ba476d410f7545a3cfcbaf23190f0bd402
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 70cf84918898a65560ecd40d501b5fdc3775b0f6
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -36,7 +36,7 @@ Este artigo descreve como usar o Azure Load Balancer com vários endereços IP e
 
 Execute as etapas abaixo para obter o cenário descrito neste artigo:
 
-1. Instale o PowerShell do Azure. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
+1. Instale o PowerShell do Azure. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 2. Crie um grupo de recursos usando as seguinte configurações:
 
     ```powershell

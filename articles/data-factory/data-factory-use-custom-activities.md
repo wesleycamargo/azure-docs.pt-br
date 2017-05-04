@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 114a8cb31d2bd24baea12f7393bbc7f95c59e16e
-ms.lasthandoff: 04/22/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 864526efd2bc90bdd4beeb4c81173e85eee6f34b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -732,7 +732,7 @@ Você pode declarar propriedades estendidas na atividade JSON, conforme mostrado
 ```
 
 
-No exemplo, há duas propriedades estendidas: **SliceStart** e **DataFactoryName**. O valor de SliceStart baseia-se na variável de sistema SliceStart. Consulte [Variáveis de Sistema](data-factory-scheduling-and-execution.md#data-factory-functions-and-system-variables) para obter uma lista das variáveis de sistema com suporte. O valor de DataFactoryName é embutido no código como CustomActivityFactory.
+No exemplo, há duas propriedades estendidas: **SliceStart** e **DataFactoryName**. O valor de SliceStart baseia-se na variável de sistema SliceStart. Consulte [Variáveis de Sistema](data-factory-functions-variables.md) para obter uma lista das variáveis de sistema com suporte. O valor de DataFactoryName é embutido no código como CustomActivityFactory.
 
 Para acessar essas propriedades estendidas no método **Execute**, use um código semelhante ao seguinte:
 
