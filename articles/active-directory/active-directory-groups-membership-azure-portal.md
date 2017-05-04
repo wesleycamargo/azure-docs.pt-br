@@ -34,7 +34,7 @@ Os grupos podem conter outros grupos na visualização do Azure Active Directory
 
    ![Abrir a folha de grupos](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
 4. Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.
-5. Na folha **Grupo -* groupname* **, selecione** Associações de grupo**.
+5. Na folha **Grupo -* groupname* **selecione** Associações de grupo**.
 
    ![Abrir a folha de associações de grupo](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
 6. Para adicionar seu grupo como membro de outro grupo, na folha **Grupo - Associações de grupo**, selecione o comando **Adicionar**.
