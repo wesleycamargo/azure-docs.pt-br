@@ -34,7 +34,7 @@ Este artigo explica como gerenciar os membros de um grupo na visualização do A
 
    ![Abrir a folha de grupos](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
 4. Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.
-5. Na folha **rupo -*groupname***, selecione **Membros**.
+5. Na folha **rupo -* groupname* **selecione** Membros**.
 
    ![Abrir a folha Membros](./media/active-directory-groups-members-azure-portal/view-group-members.png)
 6. Para adicionar membros ao grupo, na folha **Grupo - Membros**, selecione **Adicionar Membros**.
