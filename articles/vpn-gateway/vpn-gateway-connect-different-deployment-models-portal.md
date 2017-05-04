@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3c49af42332dc62db80889f1625b243473559cd1
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9e0dbb028c668aad182e2c1c54fb397ffe99a0a0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ Se suas redes virtuais estiverem na mesma região, convém considerar conectá-l
 
 * Estas etapas pressupõem que ambas as redes virtuais já tenham sido criadas. Se estiver usando este artigo como um exercício e você não possui VNets, há links nas etapas que ajudam a criá-las.
 * Verifique se os intervalos de endereços das VNets não se sobrepõem, nem sobrepõem qualquer um dos intervalos para outras conexões às quais os gateways podem estar conectados.
-* Instale os cmdlets mais recentes do PowerShell para o Resource Manager e o Gerenciamento de Serviços (clássico). Neste artigo, usamos o portal do Azure e o PowerShell. O PowerShell é necessário para criar a conexão da VNet clássica com a VNet do Resource Manager. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs): 
+* Instale os cmdlets mais recentes do PowerShell para o Resource Manager e o Gerenciamento de Serviços (clássico). Neste artigo, usamos o portal do Azure e o PowerShell. O PowerShell é necessário para criar a conexão da VNet clássica com a VNet do Resource Manager. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview): 
 
 ### <a name="values"></a>Configurações de exemplo
 
@@ -262,3 +262,4 @@ Você pode verificar a conexão usando o portal do Azure ou o PowerShell. Ao ver
 ## <a name="faq"></a>Perguntas frequentes sobre Rede Virtual para Rede Virtual
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+

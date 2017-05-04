@@ -15,9 +15,9 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 6041c627d87f0223b9c718f3883a709ff81c28e1
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d5e9a300dcea137bf0d3db2da2dfb5c2e6a152af
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ Usando esses scripts, você pode provisionar versões personalizadas (também co
 
 Você não precisa do SDK do Azure para gerar scripts para projetos Web. Esse recurso é para projetos Web, não as funções Web nos serviços de nuvem.
 
-* Azure PowerShell 0.7.4 ou posterior. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações.
+* Azure PowerShell 0.7.4 ou posterior. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações.
 * [Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) ou posterior.
 
 ## <a name="additional-tools"></a>Ferramentas adicionais
@@ -47,7 +47,7 @@ O Visual Studio gera uma pasta de nível de solução chamada **PublishScripts**
 O script de publicação contém etapas específicas de publicação para implantar em um site ou em uma máquina virtual. O Visual Studio fornece sintaxe colorida para o desenvolvimento do Windows PowerShell. Ajuda para as funções estão disponíveis e você pode editar livremente as funções no script para atender às necessidades de mudanças.
 
 ### <a name="windows-powershell-module"></a>Módulo do Windows PowerShell
-O módulo do Windows PowerShell que o Visual Studio gera contém funções que o script de publicação usa. Essas são funções do Azure PowerShell e não se destinam a serem modificadas. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações.
+O módulo do Windows PowerShell que o Visual Studio gera contém funções que o script de publicação usa. Essas são funções do Azure PowerShell e não se destinam a serem modificadas. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações.
 
 ### <a name="json-configuration-file"></a>Arquivo de configuração JSON
 O arquivo JSON é criado na pasta **Configurações** pasta e contém dados de configuração que especificam exatamente quais recursos implantar no Azure. O nome do arquivo que o Visual Studio gera é project-name-WAWS-dev.json se você tiver criado um site, ou o projeto name-VM-dev.json se você tiver criado uma máquina virtual. Aqui está um exemplo de um arquivo de configuração JSON é gerado quando você cria um site. A maior parte dos valores é autoexplicativa. O nome do site é gerado pelo Azure, portanto não pode coincidir com o nome do projeto.
@@ -168,7 +168,7 @@ Consulte [Como criar um pacote de implantação na Web no Visual Studio](https:/
 
     Quando solicitado, forneça seu nome de usuário e senha.
 
-    Observe que quando você automatiza o script, esse método para fornecer credenciais do Azure não funciona. Em vez disso, você deve usar o arquivo .publishsettings para fornecer credenciais. Uma vez apenas, você usa o comando **Get-AzurePublishSettingsFile** para baixar o arquivo do Azure e depois usa **Import-AzurePublishSettingsFile** para importar o arquivo. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+    Observe que quando você automatiza o script, esse método para fornecer credenciais do Azure não funciona. Em vez disso, você deve usar o arquivo .publishsettings para fornecer credenciais. Uma vez apenas, você usa o comando **Get-AzurePublishSettingsFile** para baixar o arquivo do Azure e depois usa **Import-AzurePublishSettingsFile** para importar o arquivo. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 4. (Opcional) Se você quiser criar recursos do Azure, como máquina virtual, banco de dados e site sem publicar o aplicativo Web, use o comando **Publish-WebApplication.ps1** com o argumento **-Configuration**, definido para o arquivo de configuração JSON. Essa linha de comando usa o arquivo de configuração JSON para determinar quais recursos criar. Como ela usa configurações padrão para outros argumentos de linha de comando, ela cria os recursos, mas não publica seu aplicativo Web. A opção –Verbose fornece mais informações sobre o que está acontecendo.
 

@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e2e751886407a1fceffa0c09b6f7fb5664c03b1d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1e3b1e39eff0676e06985f212e33e2e9754f5523
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ Para obter a versão do Resource Manager desse tópico, consulte [Provisionar um
 
 ### <a name="install-and-configure-powershell"></a>Instalar e configurar o PowerShell:
 1. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-2. [Baixe e instale os comandos mais recentes do Azure PowerShell](/powershell/azureps-cmdlets-docs).
+2. [Baixe e instale os comandos mais recentes do Azure PowerShell](/powershell/azure/overview).
 3. Em seguida, conecte o Windows PowerShell à sua assinatura do Azure usando o comando **Add-AzureAccount** .
    
         Add-AzureAccount

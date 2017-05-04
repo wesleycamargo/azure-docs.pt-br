@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d2887e255e59c164bb6d733988053f514a118c7b
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 35a86a91ee60a81b5c743067fcd97da0f2dcc8f1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -359,7 +359,7 @@ Depois de terminar de carregar o PFX, implante um certificado no cofre de chaves
  ```
 
 #### <a name="set-up-the-key-vault-access-policy-for-the-azure-ad-application"></a>Configurar a política de acesso do cofre de chaves para o aplicativo do Azure AD
-Seu aplicativo Azure AD precisa de direitos para acessar as chaves ou os segredos no cofre. Use o cmdlet [`Set-AzureKeyVaultAccessPolicy`](https://msdn.microsoft.com/library/azure/dn903607.aspx) para conceder permissões para o aplicativo usando a ID do cliente (que foi gerada quando o aplicativo foi registrado) como o valor do parâmetro _–ServicePrincipalName_. Para saber mais, confira a postagem de blog [Azure Key Vault - passo a passo](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). Aqui está um exemplo de como executar essa tarefa por meio do PowerShell:
+Seu aplicativo Azure AD precisa de direitos para acessar as chaves ou os segredos no cofre. Use o cmdlet [`Set-AzureKeyVaultAccessPolicy`](/powershell/module/azure/set-azurekeyvaultaccesspolicy?view=azuresmps-3.7.0) para conceder permissões para o aplicativo usando a ID do cliente (que foi gerada quando o aplicativo foi registrado) como o valor do parâmetro _–ServicePrincipalName_. Para saber mais, confira a postagem de blog [Azure Key Vault - passo a passo](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). Aqui está um exemplo de como executar essa tarefa por meio do PowerShell:
 
     $keyVaultName = '<yourKeyVaultName>'
     $aadClientID = '<yourAadAppClientID>'
@@ -382,7 +382,7 @@ Para entender alguns dos termos comuns usados por essa tecnologia, use a seguint
 | CLI | Confira [Interface de linha de comando do Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) é o subsistema de criptografia de disco transparente baseado em Linux usado para habilitar a criptografia de disco nas VMs de IaaS do Linux. |
 | KEK | A criptografia de chave é a chave assimétrica (RSA 2048) que pode ser usada para proteger ou encapsular o segredo. Você pode fornecer uma chave protegida por HSM (módulos de segurança de hardware) ou uma chave protegida por software. Para obter mais detalhes, confira a [documentação do Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
-| Cmdlets de DNS | Confira [Cmdlets do Azure PowerShell](/powershell/azureps-cmdlets-docs). |
+| Cmdlets de DNS | Confira [Cmdlets do Azure PowerShell](/powershell/azure/overview). |
 
 ### <a name="set-up-and-configure-your-key-vault-for-azure-disk-encryption"></a>Instalar e configurar o cofre de chaves de Azure Disk Encryption
 o Azure Disk Encryption ajuda a proteger as chaves e os segredos da criptografia de disco no cofre de chaves. Para configurar o cofre de chaves para o Azure Disk Encryption, conclua as etapas em cada uma das seções a seguir.
@@ -391,7 +391,7 @@ o Azure Disk Encryption ajuda a proteger as chaves e os segredos da criptografia
 Para criar um cofre de chaves, use uma das seguintes opções:
 
 * [Modelo "101-Key-Vault-Create" do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-* [Cmdlets do cofre de chaves do Azure PowerShell](https://msdn.microsoft.com/library/dn868052.aspx)
+* [Cmdlets do cofre de chaves do Azure PowerShell](/powershell/module/azurerm.keyvault/#key_vault)
 * Gerenciador de Recursos do Azure
 * Como [ Proteger o key vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
 
@@ -401,7 +401,7 @@ Para criar um cofre de chaves, use uma das seguintes opções:
 ![Cofre da Chave do Azure](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
 
 #### <a name="set-up-a-key-encryption-key-optional"></a>Configurar uma chave de criptografia de chave (opcional)
-Se quiser usar um KEK para uma camada adicional de segurança para as chaves de criptografia do BitLocker, adicione o KEK ao cofre de chaves. Use o cmdlet [`Add-AzureKeyVaultKey`](https://msdn.microsoft.com/library/dn868048.aspx) para criar uma chave de criptografia de chave no cofre de chaves. Você também pode importar a KEK do HSM do gerenciamento de chaves local. Para obter mais detalhes, confira a [Documentação do Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
+Se quiser usar um KEK para uma camada adicional de segurança para as chaves de criptografia do BitLocker, adicione o KEK ao cofre de chaves. Use o cmdlet [`Add-AzureKeyVaultKey`](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) para criar uma chave de criptografia de chave no cofre de chaves. Você também pode importar a KEK do HSM do gerenciamento de chaves local. Para obter mais detalhes, confira a [Documentação do Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
 
     Add-AzureKeyVaultKey [-VaultName] <string> [-Name] <string> -Destination <string> {HSM | Software}
 
@@ -494,7 +494,7 @@ A tabela a seguir lista os parâmetros de modelo do Gerenciador de Recursos para
 | vmName | Nome da VM IaaS. |
 
 #### <a name="using-powershell-cmdlets"></a>Usando os cmdlets do PowerShell
-Você pode habilitar a criptografia de disco em seu VHD criptografado usando o cmdlet do PowerShell [`Set-AzureRmVMOSDisk`](https://msdn.microsoft.com/library/azure/mt603746.aspx).  
+Você pode habilitar a criptografia de disco em seu VHD criptografado usando o cmdlet do PowerShell [`Set-AzureRmVMOSDisk`](/powershell/module/azurerm.compute/set-azurermvmosdisk).  
 
 #### <a name="using-cli-commands"></a>Usando comandos da CLI
 Para habilitar a criptografia de disco para esse cenário usando os comandos da CLI, faça o seguinte:
@@ -630,7 +630,7 @@ Você pode habilitar a criptografia de disco em seu VHD criptografado instalando
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>Obter o status da criptografia de uma VM IaaS criptografada
-É possível obter o status da criptografia usando o Azure Resource Manager, [cmdlets do PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) ou comandos da CLI. As seções a seguir explicam como usar o portal clássico do Azure e os comandos da CLI para obter o status de criptografia.
+É possível obter o status da criptografia usando o Azure Resource Manager, [cmdlets do PowerShell](/powershell/azure/overview) ou comandos da CLI. As seções a seguir explicam como usar o portal clássico do Azure e os comandos da CLI para obter o status de criptografia.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Obter o status da criptografia de uma VM do Windows criptografada usando o Azure Resource Manager
 Você pode obter o status de criptografia da VM IaaS do Azure Resource Manager fazendo o seguinte:
@@ -713,7 +713,7 @@ A tabela a seguir lista os parâmetros de modelo do Gerenciador de Recursos para
 | sequenceVersion | Versão de sequência da operação de BitLocker. Aumente esse número de versão cada vez que uma operação de descriptografia de disco for executada na mesma VM. |
 
 ##### <a name="disable-encryption-on-an-existing-or-running-iaas-vm"></a>Desabilitar a criptografia em uma VM IaaS existente ou em execução
-Para desabilitar a criptografia em uma VM IaaS existente ou em execução usando o cmdlet do PowerShell, confira [`Disable-AzureRmVMDiskEncryption`](https://msdn.microsoft.com/library/azure/mt715776.aspx). Esse cmdlet dá suporte a VMs do Linux e do Windows. Para desabilitar a criptografia, ele instala uma extensão na máquina virtual. Se o parâmetro _Name_ não for especificado, será criada uma extensão com o nome padrão _AzureDiskEncryption for Windows VMs_.
+Para desabilitar a criptografia em uma VM IaaS existente ou em execução usando o cmdlet do PowerShell, confira [`Disable-AzureRmVMDiskEncryption`](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). Esse cmdlet dá suporte a VMs do Linux e do Windows. Para desabilitar a criptografia, ele instala uma extensão na máquina virtual. Se o parâmetro _Name_ não for especificado, será criada uma extensão com o nome padrão _AzureDiskEncryption for Windows VMs_.
 
 Em VMs do Linux, a extensão AzureDiskEncryptionForLinux é usada.
 
@@ -1149,7 +1149,7 @@ O segredo de criptografia de disco que você obteve anteriormente deve ser carre
 
 
 #### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Segredo de criptografia de disco não criptografado com uma KEK
-Para configurar o segredo no cofre de chaves, use [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx). Se você tem uma máquina virtual do Windows, o arquivo bek é codificado como uma cadeia de caracteres em base64 e carregado no cofre de chaves usando o cmdlet `Set-AzureKeyVaultSecret`. Para o Linux, a senha é codificada como uma cadeia de caracteres base64 e carregada para o cofre de chaves. Além disso, verifique se as seguintes marcas estão definidas ao criar o segredo no cofre de chaves.
+Para configurar o segredo no cofre de chaves, use [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret). Se você tem uma máquina virtual do Windows, o arquivo bek é codificado como uma cadeia de caracteres em base64 e carregado no cofre de chaves usando o cmdlet `Set-AzureKeyVaultSecret`. Para o Linux, a senha é codificada como uma cadeia de caracteres base64 e carregada para o cofre de chaves. Além disso, verifique se as seguintes marcas estão definidas ao criar o segredo no cofre de chaves.
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
@@ -1165,7 +1165,7 @@ Para configurar o segredo no cofre de chaves, use [Set-AzureKeyVaultSecret](http
 Use o `$secretUrl` na próxima etapa para [anexar o disco do sistema operacional sem usar KEK](#without-using-a-kek).
 
 #### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segredo de criptografia de disco criptografado com uma KEK
-Antes de carregar o segredo no cofre de chaves, opcionalmente, você pode criptografá-lo usando uma chave de criptografia de chave. Use a [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de encapsulamento para primeiro criptografar o segredo usando a chave de criptografia de chave. A saída dessa operação wrap é uma cadeia de caracteres de URL codificada em base64, que você pode carregar como um segredo usando o cmdlet [`Set-AzureKeyVaultSecret`](https://msdn.microsoft.com/library/dn868050.aspx).
+Antes de carregar o segredo no cofre de chaves, opcionalmente, você pode criptografá-lo usando uma chave de criptografia de chave. Use a [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de encapsulamento para primeiro criptografar o segredo usando a chave de criptografia de chave. A saída dessa operação wrap é uma cadeia de caracteres de URL codificada em base64, que você pode carregar como um segredo usando o cmdlet [`Set-AzureKeyVaultSecret`](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret).
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"

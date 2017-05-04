@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3a3734fba72c42ee4e6f14069faf2d3396c06dd1
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: de39e768697425b98fb615697e57918c8c5d3853
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -65,7 +65,7 @@ Para saber mais sobre conexões de Rede Virtual a Rede Virtual, confira as [Cons
 
 ### <a name="before-you-begin"></a>Antes de começar
 
-Antes de iniciar este exercício, baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Service Management (SM). Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs): Podemos usar o portal para a maioria das etapas, mas você deve usar o PowerShell para criar conexões entre as redes virtuais. Você não pode criar as conexões usando o portal do Azure.
+Antes de iniciar este exercício, baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Service Management (SM). Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview): Podemos usar o portal para a maioria das etapas, mas você deve usar o PowerShell para criar conexões entre as redes virtuais. Você não pode criar as conexões usando o portal do Azure.
 
 ## <a name="step1"></a>Etapa 1 – Planejar os intervalos de endereços IP
 
@@ -202,7 +202,7 @@ Quando você cria VNets clássicas no portal do Azure, o nome que você vê não
 
 Nas etapas a seguir, você vai se conectar à sua conta do Azure, bem como baixar e exibir o arquivo de configuração de rede para obter os valores que são necessários para as conexões.
 
-1. Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs):
+1. Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
 
 2. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
@@ -278,3 +278,4 @@ Nos exemplos, observe que a chave compartilhada é exatamente a mesma. A chave c
 
 ## <a name="next-steps"></a>Próximas etapas
 Verifique as conexões. Confira [Verificar uma conexão de Gateway de VPN](vpn-gateway-verify-connection-resource-manager.md).
+

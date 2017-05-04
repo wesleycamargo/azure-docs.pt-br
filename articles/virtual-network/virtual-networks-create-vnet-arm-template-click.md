@@ -17,9 +17,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1a1488215a654a3a07b6cd8be02eaa0cdf8ebf28
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a179f184b7d6a425d0fed4b58551b08bb937ea87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -112,7 +112,7 @@ No GitHub, você pode baixar o modelo existente para criar uma rede virtual e du
 
 Conclua as etapas abaixo para implantar o modelo baixado usando o PowerShell:
 
-1. Instalar e configurar o Azure PowerShell executando as etapas do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Instalar e configurar o Azure PowerShell executando as etapas do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 2. Execute o seguinte comando para criar um novo grupo de recursos:
 
     ```powershell

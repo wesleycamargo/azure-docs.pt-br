@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5274ffe641768e0725623c2acf38d432a97eea9f
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9e65a61b2b156611e998f266068ab5e1e306143d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ Este artigo explica como trabalhar com endereços IP públicos. Este artigo apli
 
 As seções restantes deste artigo listam as etapas para concluir todas as tarefas relacionadas ao endereço IP público. Cada seção lista:
 - As etapas para concluir a tarefa no portal do Azure. Para concluir as etapas, você deve estar conectado ao [portal do Azure](http://portal.azure.com). Inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free), caso ainda não tenha uma.
-- Os comandos para concluir a tarefa usando o Azure PowerShell com os links para a referência do comando. Execute as etapas do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) para instalar e configurar o PowerShell. Para obter ajuda com os comandos do PowerShell, com exemplos, digite `get-help <command> -full`.
+- Os comandos para concluir a tarefa usando o Azure PowerShell com os links para a referência do comando. Execute as etapas do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar e configurar o PowerShell. Para obter ajuda com os comandos do PowerShell, com exemplos, digite `get-help <command> -full`.
 - Os comandos para concluir a tarefa usando a interface de linha de comando (CLI) do Azure, com links para a referência do comando. Para instalar a CLI do Azure, siga as etapas do artigo [Como instalar e configurar a CLI 2.0 do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Para obter ajuda com os comandos da CLI, digite `az <command> -h`.
 
 Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses). Há limites para o número de endereços IP públicos que você pode usar em uma assinatura. Para ver os limites, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
@@ -61,7 +61,7 @@ Para criar um endereço IP público, conclua as seguintes etapas:
 |**Ferramenta**|**Comando**|
 |---|---|
 |**CLI**|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="change"></a>Alterar configurações ou excluir um endereço IP público
 
@@ -80,7 +80,7 @@ Para alterar ou excluir um endereço IP público, conclua as seguintes etapas:
 |**Ferramenta**|**Comando**|
 |---|---|
 |**CLI**|[az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) para atualizar; [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) para excluir|
-|**PowerShell**|[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para atualizar; [Remove-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para excluir|
+|**PowerShell**|[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para atualizar; [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) para excluir|
 
 ## <a name="next-steps"></a>Próximas etapas
 Atribua endereços IP públicos ao criar os seguintes recursos do Azure:
@@ -90,3 +90,4 @@ Atribua endereços IP públicos ao criar os seguintes recursos do Azure:
 - [Application Gateway do Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Conexão site a site usando um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Conjunto de Dimensionamento de Máquinas Virtuais do Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+

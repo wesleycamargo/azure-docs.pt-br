@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d011223dbb1ad7b5752875e94a4822be1b6cbe6e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7a9ef4098fec7b464e654a429c8c854ed4bb73fd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 1. Crie uma máquina virtual do Azure. Consulte [Criar uma Máquina Virtual Executando o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Criar e Gerenciar Máquinas Virtuais do Azure no Visual Studio](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 2. Na [página do portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), exiba o painel da máquina virtual para conferir a **IMPRESSÃO DIGITAL DO CERTIFICADO RDP**da máquina virtual. Esse valor é usado como o valor de `ServerThumbprint` na configuração da extensão.
 3. Crie um certificado cliente conforme descrito em [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md) (mantenha o .pfx e a impressão digital do certificado RDP).
-4. Instale e configure o Azure PowerShell (versão 0.7.4 ou posterior) conforme descrito em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs)
+4. Instale e configure o Azure PowerShell (versão 0.7.4 ou posterior) conforme descrito em [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 5. Execute o script a seguir para habilitar a extensão RemoteDebug. Substitua os caminhos e os dados pessoais por seus dados, como seu nome da assinatura, nome do serviço e impressão digital.
    
    > [!NOTE]

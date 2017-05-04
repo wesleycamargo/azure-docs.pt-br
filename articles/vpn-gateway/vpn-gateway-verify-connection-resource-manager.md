@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 0e9fa1b1397c60985de9d2e60b3f01146036801f
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a67ea630cc8b5a3e9deab7733aa5cd2055949ec0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Este artigo mostra como verificar sua conexão de gateway de VPN para os modelos
 
 ## <a name="verify-using-powershell"></a>Verificar usando o PowerShell
 
-Para verificar usando o PowerShell, instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell. Para saber mais sobre como usar cmdlets do Resource Manager, confira [Usando o Windows PowerShell com o Resource Manager](../powershell-azure-resource-manager.md).
+Para verificar usando o PowerShell, instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para saber mais sobre como instalar os cmdlets do PowerShell. Para saber mais sobre como usar cmdlets do Resource Manager, confira [Usando o Windows PowerShell com o Resource Manager](../powershell-azure-resource-manager.md).
 
 ### <a name="log-in-to-your-azure-account"></a>Fazer logon na sua conta do Azure
 1. Abra o console do PowerShell com privilégios elevados e conecte-se à sua conta.
@@ -66,7 +66,7 @@ Para verificar usando a CLI do Azure, instale a versão mais recente dos comando
   ```azurecli
   az login
   ```
-2. Se você tiver mais de uma assinatura do Azure, liste as assinaturas para a conta.
+2. Se tiver mais de uma assinatura do Azure, liste as assinaturas para a conta.
 
   ```azurecli
   Az account list --all
@@ -87,7 +87,7 @@ Para verificar usando a CLI do Azure, instale a versão mais recente dos comando
 
 
 ## <a name="verify-using-powershell-classic"></a>Verificar usando o PowerShell (clássico)
-Para verificar usando o PowerShell, instale as versões mais recente dos cmdlets do Azure PowerShell. Baixe e instale as versões do Resource Manager e do Gerenciamento de Serviço (SM). Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell. 
+Para verificar usando o PowerShell, instale as versões mais recente dos cmdlets do Azure PowerShell. Baixe e instale as versões do Resource Manager e do Gerenciamento de Serviço (SM). Confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para saber mais sobre como instalar os cmdlets do PowerShell. 
 
 ### <a name="log-in-to-your-azure-account"></a>Fazer logon na sua conta do Azure
 1. Abra o console do PowerShell com privilégios elevados e conecte-se à sua conta.

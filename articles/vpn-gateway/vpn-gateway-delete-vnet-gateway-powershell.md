@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d2bb2422a8458f1577c14bad8d24d8c9cb3ead1b
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f3b464350f027bb1966638542fcc64d6fdc00a71
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ Há duas abordagens diferentes que podem ser executadas quando você deseja excl
 ## <a name="before-beginning"></a>Antes de começar
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Baixe a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager.
-Baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para obter mais informações sobre como baixar e instalar os cmdlets do PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para obter mais informações sobre como baixar e instalar os cmdlets do PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Conectar-se à sua conta do Azure. 
 Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
@@ -325,3 +325,4 @@ O resultado retornado mostra 'Êxito'.
     ResourceGroupName : RG1
     Location          : eastus
     ProvisioningState : Succeeded
+

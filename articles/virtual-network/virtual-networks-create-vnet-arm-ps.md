@@ -17,9 +17,9 @@ ms.date: 01/03/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: d229d6add2c06952eaf662bdacc92a5163b1e945
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e0fb1e3fc87e3a3a93d42f9f2722696e0f9aae57
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Este artigo explica como criar uma rede virtual por meio do modelo de implantaç
 
 Para criar uma rede virtual usando o PowerShell, conclua as seguintes etapas:
 
-1. Instalar e configurar o Azure PowerShell executando as etapas a seguir no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Instalar e configurar o Azure PowerShell executando as etapas a seguir no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 2. Se necessário, crie um novo grupo de recursos, como mostrado abaixo. Para esse cenário, crie um grupo de recursos chamado *TestRG*. Para saber mais sobre grupos de recursos, acesse [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 4437c8cb9f428bea54505dc4949410d361f77c11
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 57063b17dd122509cefd1d215cfa2a9234b103bc
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +36,7 @@ Você pode excluir um gateway de VPN no modelo de implantação clássico usando
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale os cmdlets mais recentes do PowerShell.
 
-Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs):
+Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Conectar-se à sua conta do Azure. 
 
@@ -180,3 +180,4 @@ Se for bem-sucedido, o retorno mostrará algo semelhante a este exemplo:
      OperationDescription        OperationId                      OperationStatus                                                
      --------------------        -----------                      ---------------                                                
      Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded
+

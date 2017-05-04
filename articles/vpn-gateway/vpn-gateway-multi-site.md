@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: bc39944e9232dffbc7dd02e2a300a90a23ec5273
-ms.lasthandoff: 04/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c000669f4a45c7c4292154ce537c451dc70766e7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -60,7 +60,7 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 
 * Hardware de VPN compatível para cada caminho no local. Confira [Sobre dispositivos VPN para conectividade de rede virtual](vpn-gateway-about-vpn-devices.md) para verificar se o dispositivo que você deseja usar é sabidamente compatível.
 * Um endereço IP IPv4 público voltado para o exterior para cada dispositivo VPN. O endereço IP não pode estar localizado atrás de um NAT. Isso é obrigatório.
-* Você precisará instalar a versão mais recente dos cmdlets do Azure PowerShell. Instale a versão do Gerenciamento de Serviços (SM) além da versão do Resource Manager. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações.
+* Você precisará instalar a versão mais recente dos cmdlets do Azure PowerShell. Instale a versão do Gerenciamento de Serviços (SM) além da versão do Resource Manager. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações.
 * Alguém que seja proficiente na configuração de seu hardware de VPN. Você precisará ter um grande conhecimento de como configurar seu dispositivo VPN ou trabalhar com alguém que tenha.
 * Os intervalos de endereços IP que você deseja usar na sua rede virtual (se ainda não tiver criado uma).
 * Os intervalos de endereços IP para cada um dos sites de rede local aos quais se conectará. Você precisará certificar-se de que os intervalos de endereço IP para cada um dos sites de rede local aos quais quer se conectar não se sobrepõem. Caso contrário, o portal ou a API REST rejeitará a configuração que está sendo carregada.<br>Por exemplo, se você tiver dois sites de rede local que contenham o intervalo de endereço IP 10.2.3.0/24 e tiver um pacote com um endereço de destino 10.2.3.3, o Azure não saberá para qual site você deseja enviar o pacote porque os intervalos de endereço estão sobrepostos. Para evitar problemas de roteamento, o Azure não permite carregar um arquivo de configuração com sobreposição de intervalos.

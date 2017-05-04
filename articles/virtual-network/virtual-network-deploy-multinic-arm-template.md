@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e2e10d3531fbbe2ed09dc34a6c3b14ff5df1a937
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -247,7 +247,7 @@ A figura a seguir mostra o conteúdo do novo grupo de recursos, após a implanta
 ![Grupo de recursos Back-end](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
 ## <a name="deploy-the-template-by-using-powershell"></a>Implantar o modelo usando o PowerShell
-Para implantar o modelo que você baixou usando o PowerShell, instale e configure o PowerShell concluindo as etapas no artigo [Instalar e configurar o PowerShell](/powershell/azureps-cmdlets-docs) e, em seguida, conclua as seguintes etapas:
+Para implantar o modelo que você baixou usando o PowerShell, instale e configure o PowerShell concluindo as etapas no artigo [Instalar e configurar o PowerShell](/powershell/azure/overview) e, em seguida, conclua as seguintes etapas:
 
 Execute o cmdlet **`New-AzureRmResourceGroup`** para criar um grupo de recursos usando o modelo.
 

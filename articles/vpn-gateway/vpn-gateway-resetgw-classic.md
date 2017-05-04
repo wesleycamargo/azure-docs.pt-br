@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c63af2de6272604f4d2d1ee694ccc4272192ef9a
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0065a4a73ddd7eb9877359626bac231ec3fdef7c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -61,7 +61,7 @@ Você pode redefinir um gateway de VPN do Resource Manager usando o Portal do Az
 
 ### <a name="resource-manager-deployment-model"></a>Modelo de implantação do Gerenciador de Recursos
 
-Será necessário baixar a versão mais recente dos cmdlets do PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações. O cmdlet do PowerShell Resource Manager para redefinir o gateway é `Reset-AzureRmVirtualNetworkGateway`. O exemplo a seguir redefine o gateway de VPN do Azure, "VNet1GW", no grupo de recursos "TestRG1".
+Será necessário baixar a versão mais recente dos cmdlets do PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações. O cmdlet do PowerShell Resource Manager para redefinir o gateway é `Reset-AzureRmVirtualNetworkGateway`. O exemplo a seguir redefine o gateway de VPN do Azure, "VNet1GW", no grupo de recursos "TestRG1".
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
@@ -70,7 +70,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="resetclassic"></a> Modelo de implantação clássico
 
-Será necessário baixar a versão mais recente dos cmdlets do PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações. O cmdlet do PowerShell para redefinir o gateway de VPN do Azure é **Reset-AzureVNetGateway**. O exemplo a seguir redefine o gateway de VPN do Azure para a rede virtual chamada "ContosoVNet".
+Será necessário baixar a versão mais recente dos cmdlets do PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações. O cmdlet do PowerShell para redefinir o gateway de VPN do Azure é **Reset-AzureVNetGateway**. O exemplo a seguir redefine o gateway de VPN do Azure para a rede virtual chamada "ContosoVNet".
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”
