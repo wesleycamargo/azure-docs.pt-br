@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: f1a03a0553bc1acd013918f527458603d08cb0f7
-ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1549eb40b0ca79522cc5475057c3af7ff4c7fd1c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ A política de controle de acesso do Key Vault dá suporte apenas a 16 entradas.
 
 Veja os pré-requisitos:
 * [Instalar o módulo do PowerShell do Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-* [Instalar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Instalar o Azure PowerShell](/powershell/azure/overview).
 * Para executar os comandos a seguir, você precisa ter permissões para criar/editar grupos no locatário do Azure Active Directory. Se não tiver permissões, você poderá precisar entrar em contato com o administrador do Azure Active Directory.
 
 Agora, execute os seguintes comandos no PowerShell.
@@ -57,9 +58,4 @@ Se você precisar conceder um conjunto diferente de permissões para um grupo de
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [Proteger seu Key Vault](key-vault-secure-your-key-vault.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

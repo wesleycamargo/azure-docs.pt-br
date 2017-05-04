@@ -16,9 +16,9 @@ ms.date: 04/12/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 04bab3024474ae521090a8693b6c095e1704d4dc
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 350aa79cf1f41084c33e16b6fcf2ada971b22626
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,9 +74,9 @@ Os recursos do Azure que dão suporte ao [Azure Monitor](../monitoring-and-diagn
 * Para obter os detalhes dos logs disponíveis, consulte [serviços e esquema com suporte para logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Habilitar diagnóstico com PowerShell
-Você precisa da versão de novembro de 2016 (v2.3.0) ou posterior do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Você precisa da versão de novembro de 2016 (v2.3.0) ou posterior do [Azure PowerShell](/powershell/azure/overview).
 
-O exemplo do PowerShell a seguir mostra como usar [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting) para habilitar o diagnóstico em um grupo de segurança de rede. A mesma abordagem funciona para todos os recursos com suporte: defina `$resourceId` para a ID do recurso para a qual você quer habilitar os diagnósticos.
+O exemplo do PowerShell a seguir mostra como usar [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) para habilitar o diagnóstico em um grupo de segurança de rede. A mesma abordagem funciona para todos os recursos com suporte: defina `$resourceId` para a ID do recurso para a qual você quer habilitar os diagnósticos.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

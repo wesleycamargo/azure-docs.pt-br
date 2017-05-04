@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
 translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 38c342802ed687985ac6f84f5a590a1a0dcc6c6a
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ Depois de criar o cofre de chaves, você poderá começar a usá-lo para armazen
 Este artigo apresenta um exemplo de uso do Cofre de Chaves do Azure para armazenar um segredo, neste caso, uma chave de Conta de Armazenamento do Azure que é acessada por um aplicativo. Ele também demonstra a implementação de uma rotação agendada dessa chave de conta de armazenamento. Por fim, ele percorre uma demonstração de como monitorar os logs de auditoria do Cofre de Chaves e gerar alertas quando são feitas solicitações inesperadas.
 
 > [!NOTE]
-> Este tutorial não se destina a explicar em detalhes a configuração inicial do cofre de chaves. Para obter essas informações, confira [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md). Para obter instruções sobre a Interface de Linha de Comando de Plataforma Cruzada, confira [Gerenciar Cofre de Chaves usando a CLI](key-vault-manage-with-cli.md).
+> Este tutorial não se destina a explicar em detalhes a configuração inicial do cofre de chaves. Para obter essas informações, confira [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md). Para obter instruções sobre a Interface de Linha de Comando de Plataforma Cruzada, confira [Gerenciar Cofre de Chaves usando a CLI](key-vault-manage-with-cli2.md).
 >
 >
 

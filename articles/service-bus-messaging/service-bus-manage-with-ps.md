@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 04/06/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: b4acb01f4939b55317ac0c78eb467159d872f47a
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o módulo do PowerShell para gerenciar recursos do Barramento de Serviço
 
-O PowerShell do Microsoft Azure é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento dos serviços do Azure. Este artigo descreve como usar o [Módulo do PowerShell do Resource Manager do Barramento de Serviço](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) para provisionar e gerenciar entidades do Barramento de Serviço (namespaces, filas, tópicos e assinaturas) usando um script ou console local do Azure PowerShell.
+O PowerShell do Microsoft Azure é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento dos serviços do Azure. Este artigo descreve como usar o [Módulo do PowerShell do Resource Manager do Barramento de Serviço](/powershell/module/azurerm.servicebus) para provisionar e gerenciar entidades do Barramento de Serviço (namespaces, filas, tópicos e assinaturas) usando um script ou console local do Azure PowerShell.
 
 Também é possível gerenciar entidades do Barramento de Serviço usando modelos do Azure Resource Manager. Para obter mais informações, consulte o artigo [Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md).
 
@@ -158,11 +158,11 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## <a name="provisioning-other-service-bus-entities"></a>Provisionamento de outras entidades do Barramento de Serviço
 
-Você pode usar o [Módulo do PowerShell do Barramento de Serviço](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) para provisionar outras entidades, como tópicos e assinaturas. Esses cmdlets são sintaticamente semelhantes aos cmdlets de criação de fila demonstrados na seção anterior.
+Você pode usar o [Módulo do PowerShell do Barramento de Serviço](/powershell/module/azurerm.servicebus) para provisionar outras entidades, como tópicos e assinaturas. Esses cmdlets são sintaticamente semelhantes aos cmdlets de criação de fila demonstrados na seção anterior.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte a documentação completa sobre o módulo do PowerShell do Resource Manager do Barramento de Serviço [aqui](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus). Esta página lista todos os cmdlets disponíveis.
+- Consulte a documentação completa sobre o módulo do PowerShell do Resource Manager do Barramento de Serviço [aqui](/powershell/module/azurerm.servicebus). Esta página lista todos os cmdlets disponíveis.
 - Para obter informações sobre o uso de modelos do Azure Resource Manager, consulte o artigo [Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md).
 - Informações sobre [Bibliotecas de gerenciamento .NET do Barramento de Serviço](service-bus-management-libraries.md).
 

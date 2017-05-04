@@ -16,9 +16,9 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 76077d39f17df63abe6c08f91991095c53f5dbb8
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a635b214fcc9b37ac426df227420b643e2a02cc7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ Este tópico descreve os comandos do PowerShell para executar muitas das tarefas
 Esses comandos são paralelos às opções de gerenciamento disponíveis na [API REST de Gerenciamento da Pesquisa do Azure](http://msdn.microsoft.com/library/dn832684.aspx).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* É necessário ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
+* É necessário ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 * É necessário estar conectado à sua assinatura do Azure no PowerShell, conforme descrito abaixo.
 
 Primeiro, faça logon no Azure com este comando:

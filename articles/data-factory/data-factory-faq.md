@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: c212df3646dce24eb11542884c6ee5084325cb7d
-ms.lasthandoff: 04/20/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6af34cf24a8fb7d2dd8f4c44392e0e6c3ed46b1a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -156,7 +156,7 @@ Pipeline 1: dataset4->activity4->dataset5
 Se a propriedade external estiver definida corretamente, verifique se os dados de entrada existem no local especificado na definição de conjunto de dados de entrada.
 
 ### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>Como executar uma fatia em outro horário que não à meia-noite quando a fatia é produzida diariamente?
-Use a propriedade **offset** para especificar a hora em que você deseja que a fatia seja produzida. Confira a seção [Disponibilidade do conjunto de dados](data-factory-create-datasets.md#Availability) para obter detalhes sobre essa propriedade. Aqui está um exemplo rápido:
+Use a propriedade **offset** para especificar a hora em que você deseja que a fatia seja produzida. Confira a seção [Disponibilidade do conjunto de dados](data-factory-create-datasets.md#dataset-availability) para obter detalhes sobre essa propriedade. Aqui está um exemplo rápido:
 
 ```json
 "availability":
@@ -193,7 +193,7 @@ Você também pode fazer o seguinte no portal do Azure:
 6. Você deve ver o campo **DURAÇÃO** com um valor. Esse valor é o tempo necessário para processar a fatia.   
 
 ### <a name="how-to-stop-a-running-slice"></a>Como parar uma fatia em execução?
-Se você precisar interromper a execução do pipeline, poderá usar o cmdlet [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) . Atualmente, suspender o pipeline não interrompe as execuções de fatia que estão em andamento. Depois de concluir as execuções em andamento, nenhuma fatia extra é coletada.
+Se você precisar interromper a execução do pipeline, poderá usar o cmdlet [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) . Atualmente, suspender o pipeline não interrompe as execuções de fatia que estão em andamento. Depois de concluir as execuções em andamento, nenhuma fatia extra é coletada.
 
 Se você realmente desejar parar todas as execuções imediatamente, a única maneira seria excluir o pipeline e criá-lo novamente. Se você optar por excluir o pipeline, não é necessário excluir tabelas e serviços vinculados usados pelo pipeline.
 

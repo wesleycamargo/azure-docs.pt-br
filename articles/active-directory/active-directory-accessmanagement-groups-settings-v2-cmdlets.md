@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
-ms.author: curtand
+ms.date: 04/26/2017
+ms.author: curtand;rodejo
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: f4aeeaf13604443e0902112b4cc998ae1dcce4c2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 9342ecff33ca60d39c55042238ea563dd1a82da6
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -45,7 +45,7 @@ Para verificar se o módulo de visualização foi instalado, use o seguinte coma
     ---------- -------    ----                                ----------------
     Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
 
-Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, confira a [documentação de referência online](https://docs.microsoft.com/en-us/powershell/azuread/).
+Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, confira a [documentação de referência online](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## <a name="connecting-to-the-directory"></a>Conectando-se ao diretório
 Antes de começar a gerenciar grupos usando cmdlets do PowerShell do Azure AD, você deve conectar a sessão do PowerShell ao diretório que deseja gerenciar. Para isso, use o seguinte comando:
@@ -226,7 +226,7 @@ Se você quer remover um proprietário de um grupo, use Remove-AzureADGroupOwner
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](https://docs.microsoft.com/en-us/powershell/azuread/).
+Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)

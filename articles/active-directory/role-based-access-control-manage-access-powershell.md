@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32c6224b36c73394c6bbd2aa5f6439f54f39f306
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,8 +31,8 @@ Você pode usar o RBAC (Controle de Acesso Baseado em Função) no portal do Azu
 
 Antes de poder usar o PowerShell para gerenciar o RBAC, você precisa dos seguintes pré-requisitos:
 
-* PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a última versão e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Cmdlets do Azure Resource Manager. Instale os [cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) no PowerShell.
+* PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a última versão e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+* Cmdlets do Azure Resource Manager. Instale os [cmdlets do Azure Resource Manager](/powershell/azure/overview) no PowerShell.
 
 ## <a name="list-roles"></a>Listar funções
 ### <a name="list-all-available-roles"></a>Relacionar todas as funções disponíveis
@@ -87,7 +87,7 @@ Para listar as atribuições para administrador e coadministradores da assinatur
 ### <a name="search-for-object-ids"></a>Pesquisar IDs de objeto
 Para atribuir uma função, você precisa identificar o objeto (usuário, grupo ou aplicativo) e o escopo.
 
-Se você não souber a ID da assinatura, poderá encontrá-la na folha **Assinaturas** no portal do Azure. Para saber como consultar a ID da assinatura, consulte [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) no MSDN.
+Se você não souber a ID da assinatura, poderá encontrá-la na folha **Assinaturas** no portal do Azure. Para saber como consultar a ID da assinatura, consulte [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) no MSDN.
 
 Para obter a ID de objeto para um grupo do Azure AD, use:
 

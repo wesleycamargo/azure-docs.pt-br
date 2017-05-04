@@ -17,9 +17,9 @@ ms.date: 02/27/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1fc13142d3e4f54e0945032a404eb497746ee5a0
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 985f14ce7b8249c8e80deb1851cfee8c89651786
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Usar as UDF (Funções Definidas pelo Usuário) do Python com o Hive e o Pig no HDInsight
@@ -268,7 +268,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 
 ### <a name="powershell"></a>PowerShell
 
-Essas etapas usam o PowerShell do Azure. Para obter mais informações sobre como usar o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Essas etapas usam o PowerShell do Azure. Para obter mais informações sobre como usar o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 1. Usando os exemplos do Python [streaming.py](#streamingpy) e [pig_python.py](#jythonpy), crie cópias locais dos arquivos em seu computador de desenvolvimento.
 2. Use o seguinte script do PowerShell para transferir os arquivos **streaming.py** e **pig\_python.py** para o servidor. Substitua o nome do seu cluster HDInsight do Azure e o caminho para os arquivos **streaming.py** e **pig\_python.py** nas três primeiras linhas do script.

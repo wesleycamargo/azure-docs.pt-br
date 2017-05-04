@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: e9215bdd02c9d1b595f65997840926080d6d7d01
-ms.lasthandoff: 04/20/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -188,7 +188,7 @@ Você pode especificar mais de um conjunto de dados de entrada para a Atividade 
 Confira o artigo [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md)que descreve os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory. Ele também lista o desempenho observado durante os testes internos e discute várias maneiras de otimizar o desempenho da Atividade de Cópia.
 
 ## <a name="scheduling-and-sequential-copy"></a>Agendamento e cópia sequencial
-Confira [Agendamento e execução](data-factory-scheduling-and-execution.md) para obter informações detalhadas sobre como funcionam o agendamento e a execução no Data Factory. É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Veja a seção [Copiar sequencialmente](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence).
+Confira [Agendamento e execução](data-factory-scheduling-and-execution.md) para obter informações detalhadas sobre como funcionam o agendamento e a execução no Data Factory. É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Veja a seção [Copiar sequencialmente](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="type-conversions"></a>Conversões de tipo
 Armazenamentos de dados diferentes têm sistemas de tipo nativo diferentes. A Atividade de Cópia executa conversões de tipo automáticas dos tipos de origem para os tipos de coletor a seguinte abordagem de duas etapas:

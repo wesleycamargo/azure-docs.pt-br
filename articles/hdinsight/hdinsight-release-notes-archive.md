@@ -17,9 +17,9 @@ ms.date: 4/06/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 8f82690170f4a861adf2fcb3a889919df6fa5d0d
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5e1538ae0d4b1270040bd593cae66c1dd1046201
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -1249,7 +1249,7 @@ Para obter mais informações sobre as configurações de memória usadas pelo Y
 Sobre a mensagem de erro do Azure PowerShell e do SDK do HDInsight: “*O cluster não foi configurado para acessar os serviços HTTP*”:
 
 * Esse erro é um [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conhecido que pode ocorrer devido a uma diferença entre a versão do SDK do HDInsight ou Azure PowerShell e a versão do cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK do HDInsight ou Azure PowerShell. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar as APIs do SDK do HDInsight ou os cmdlets do Azure PowerShell (**Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob**) para enviar trabalhos, essas operações podem falhar com a mensagem de erro "*O cluster <clustername> não está configurado para acessar os serviços HTTP*". Ou, dependendo da operação, você pode receber outras mensagens de erro, como “*Não é possível se conectar ao cluster*”.
-* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e ao Azure PowerShell Tools em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e ao Azure PowerShell Tools em [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>Notas da versão de 12/09/2014 do HDInsight 3.1
 * Esta versão é baseada na HDP (plataforma de dados Hortonworks) 2.1.5. Para obter uma lista de bugs corrigidos nesta versão, consulte a página [Corrigido nesta versão](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) no site da Hortonworks.
