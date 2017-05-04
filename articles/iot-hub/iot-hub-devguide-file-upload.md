@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 05/04/2017
 ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
@@ -157,7 +157,7 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 
 * [Como carregar arquivos de dispositivos para a nuvem com o Hub IoT][lnk-fileupload-tutorial]
 
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
