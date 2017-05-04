@@ -15,10 +15,6 @@ As instâncias de NC têm a tecnologia do Tesla K80 da NVIDIA. Agora, os usuári
 
 1 GPU = metade de um cartão M60.
 
-**Sistemas operacionais com suporte**
-
-* Windows Server 2016, Windows Server 2012 R2 - confira a [instalação do driver N-series para Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-
 ## <a name="nc-instances"></a>Instâncias de NC
 
 | Tamanho | Núcleos de CPU | Memória: GiB | SSD local: GiB | GPU |
@@ -32,10 +28,4 @@ As instâncias de NC têm a tecnologia do Tesla K80 da NVIDIA. Agora, os usuári
 
 *Compatível com RDMA
 
-**Sistemas operacionais com suporte**
-
-* Windows Server 2016, Windows Server 2012 R2 - confira a [instalação do driver N-series para Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-* Ubuntu 16.04 LTS - confira a [instalação do driver N-series para Linux](../articles/virtual-machines/linux/n-series-driver-setup.md)
-
-<br>
 

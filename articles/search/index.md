@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: d8bf549455e427549a81ff5476a00cdfb836b5ff
-ms.openlocfilehash: aa0c12a669b6b2a1602b9d2f6698f65535b4f7d4
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 7fffe78bebd6799cad544c12c20eb1926975a68f
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="azure-search-documentation"></a>Documentação do Azure Search
@@ -143,8 +143,8 @@ Saiba mais sobre como adicionar recursos de pesquisa a seus aplicativos Web pers
                 <div class="card">
                     <div class="cardText">
                         <h3>Linguagens</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (Gerenciamento)</a></p>
+                        <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p>
+                        <p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Gerenciamento)</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Gerenciamento)</a></p>
                    </div>
                 </div>

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ Use o procedimento a seguir para habilitar o MFA para os usuários.
 Depois de habilitar os usuários, você deve notificá-los por email. Na próxima vez que eles tentarem fazer logon, serão solicitados a registrar sua conta para a verificação em duas etapas. Depois de começar a usar a verificação em duas etapas, eles também precisam configurar senhas de aplicativo para evitar o bloqueio de aplicativos sem navegador.
 
 ## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Usar o PowerShell para automatizar a ativação da verificação em duas etapas
-Para alterar o [estado](multi-factor-authentication-whats-next.md) usando o [PowerShell do Azure AD](/powershell/azureps-cmdlets-docs), você poderá usar o seguinte.  É possível alterar `$st.State` para ser igual a um dos estados a seguir:
+Para alterar o [estado](multi-factor-authentication-whats-next.md) usando o [PowerShell do Azure AD](/powershell/azure/overview), você poderá usar o seguinte.  É possível alterar `$st.State` para ser igual a um dos estados a seguir:
 
 * habilitado
 * Imposto
