@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 04/24/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5a648173e8088b58ac5a38f4a3c9d3df06157c58
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: dcb7b326cbb4ed18769010d8061f80dc9f941c87
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -59,7 +59,7 @@ Para usar o Backup Automatizado, considere os seguintes pré-requisitos:
 
 **Azure PowerShell**:
 
-- [Instalar os comandos mais recentes do Azure PowerShell](/powershell/azureps-cmdlets-docs) se você planeja configurar o Backup Automatizado com o PowerShell.
+- [Instalar os comandos mais recentes do Azure PowerShell](/powershell/azure/overview) se você planeja configurar o Backup Automatizado com o PowerShell.
 
 > [!NOTE]
 > O Backup Automatizado conta com a Extensão do agente IaaS do SQL Server. As imagens atuais da galeria da máquina virtual do SQL adicionam essa extensão por padrão. Para obter mais informações, consulte [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).

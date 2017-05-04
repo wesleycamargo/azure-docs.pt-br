@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 81f755dcb1ee9e8fee7bf172467cb9c2d4c5fb66
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d5233e71863a47988ab3458ba15dba7b53025db9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ Caso use o PowerShell, verifique se você tem a versão mais recente do módulo 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Para saber mais, confira [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Controle de versão do Azure PowerShell).
+Para saber mais, confira [Azure PowerShell Versioning](/powershell/azure/overview) (Controle de versão do Azure PowerShell).
 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM Windows usando Sysprep
@@ -69,7 +69,7 @@ Verifique se as funções de servidor em execução no computador são suportada
 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Se você ainda não tiver a versão 1.4 ou superior do PowerShell instalada, leia [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Se você ainda não tiver a versão 1.4 ou superior do PowerShell instalada, leia [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 1. Abra o Azure PowerShell e conecte-se à sua conta do Azure. Uma janela pop-up é aberta para inserir as credenciais da conta do Azure.
    
@@ -114,7 +114,7 @@ Se você precisa criar uma conta de armazenamento, siga estas etapas:
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Crie uma conta de armazenamento com o nome **mystorageaccount** neste grupo de recursos usando o cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx):
+2. Crie uma conta de armazenamento com o nome **mystorageaccount** neste grupo de recursos usando o cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount):
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `

@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: fa5467f38944435cc21d4d3ebd5a645c4f268b9b
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c4948d83b5eff5280f6a0d16535f3eb29d680f04
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Esse cenário é uma boa escolha por sua simplicidade no Azure, não pela econom
 O objetivo deste tutorial é mostrar as etapas necessárias para configurar a solução descrita acima sem detalhar demais cada etapa. Portanto, em vez de fornecer as etapas de configuração da GUI, ele usa scripts do PowerShell para percorrer rapidamente cada etapa. Este tutorial pressupõe o seguinte:
 
 * Você já tem uma conta do Azure com a assinatura de máquina virtual.
-* Você instalou os [cmdlets do Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Você instalou os [cmdlets do Azure PowerShell](/powershell/azure/overview).
 * Você já tem uma compreensão sólida dos grupos de disponibilidade Always On para soluções locais. Para obter mais informações, confira [Grupos de disponibilidade Always On (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Conectar-se à sua assinatura do Azure e criar a rede virtual

@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 561a3b3f9c90274cfff95ab27c6cd745582f15e0
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 8f814708c4536e709fbe85b8a3a7bfb44e44e81f
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -43,7 +43,7 @@ As funções da Janela Deslizante, diferentemente das Janelas em Cascata e de Sa
 ![Introdução às funções de Janela deslizante do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="getting-help-with-window-functions"></a>Obtendo ajuda com funções de janela
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

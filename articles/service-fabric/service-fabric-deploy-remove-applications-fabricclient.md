@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/10/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 4c7a92352d4fef6a0e55b608bf5c957cd2c40332
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e6c6b4acbc48cfbb8c26d09852f8b4c86fd6ea27
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -57,7 +57,7 @@ FabricClient fabricClient = new FabricClient();
 Suponha que você crie e empacote um aplicativo chamado *MyApplication* no Visual Studio. Por padrão, o nome do tipo de aplicativo listado no ApplicationManifest.xml é "MyApplicationType".  O pacote de aplicativos, que contém o manifesto do aplicativo necessário, manifestos de serviço e os pacotes de códigos/configurações/dados, está localizado em *C:\Users\nome de usuário\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*.
 
 O carregamento do pacote de aplicativos coloca-o em um local acessível por componentes internos do Service Fabric.
-Se quiser verificar o pacote de aplicativos localmente, use o cmdlet [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage).
+Se quiser verificar o pacote de aplicativos localmente, use o cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
 
 O método [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) carrega o pacote de aplicativos para o repositório de imagens do cluster. 
 

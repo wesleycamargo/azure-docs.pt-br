@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 9c9135e200cd1676b01895af4611bc71d5d27c4a
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,7 +34,7 @@ Este tutorial mostra como criar um conjunto de dimensionamento de máquinas virt
 
 Se você estiver usando a CLI 2.0 do Azure ou o Azure PowerShell para criar um conjunto de dimensionamento, primeiro precisará se conectar à sua assinatura.
 
-Para obter mais informações sobre como instalar, configurar e se conectar ao Azure com a CLI do Azure ou o PowerShell, consulte [Introdução à CLI 2.0 do Azure](/cli/azure/get-started-with-azure-cli.md) ou [Introdução aos cmdlets do Azure PowerShell](/powershell/resourcemanager/).
+Para obter mais informações sobre como instalar, configurar e se conectar ao Azure com a CLI do Azure ou o PowerShell, consulte [Introdução à CLI 2.0 do Azure](/cli/azure/get-started-with-azure-cli.md) ou [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview).
 
 ```azurecli
 az login
@@ -184,3 +184,4 @@ O portal do Azure é uma maneira conveniente de criar rapidamente um conjunto de
 Saiba mais sobre [discos de dados](virtual-machine-scale-sets-attached-disks.md).
 
 Saiba como [gerenciar seus aplicativos](virtual-machine-scale-sets-deploy-app.md).
+

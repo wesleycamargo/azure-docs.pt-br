@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 69a976f1f019cb89780d00c6bc730fae30e92378
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: ad872828443dd795dd6c45bd2957bbf0f48f6cdd
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/08/2016
 Saiba como monitorar e gerenciar os recursos do Stream Analytics com os cmdlets do Azure PowerShell e script do PowerShell que executam tarefas básicas de análise de fluxo.
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Pré-requisitos para a execução de cmdlets do PowerShell do Azure para Stream Analytics
-* Crie um grupo de recursos do Azure em sua assinatura. O seguinte é um exemplo de script do PowerShell do Azure. Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).  
+* Crie um grupo de recursos do Azure em sua assinatura. O seguinte é um exemplo de script do PowerShell do Azure. Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).  
 
 Azure PowerShell 0.9.8:  
 
@@ -451,7 +451,7 @@ Azure PowerShell 1.0:
 Esse comando do PowerShell testa o status de conexão da entrada Output no StreamingJob.  
 
 ## <a name="get-support"></a>Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) 
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

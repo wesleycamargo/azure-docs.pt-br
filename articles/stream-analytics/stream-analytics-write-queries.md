@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4889a2c810dfd6b1cccd00cb72a5c126f09efe99
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: e77a1ce586b3c0d1e7fef27cd56402774ab7bbe3
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -62,7 +62,7 @@ Você pode testar se sua consulta se comporta conforme esperado executando-a no 
    ![Resumo da Consulta](./media/stream-analytics-write-queries/6-stream-analytics-write-queries.png)  
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

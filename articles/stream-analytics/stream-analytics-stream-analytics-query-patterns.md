@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 4c3f32cd6159052f17557c51e08e7e3f611aa338
-ms.openlocfilehash: 7a1e705e40cd8f7b260c38f41e81e2f199555059
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 976e765a906896c236497d074ca2a8c5fb1f1c53
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -503,7 +503,7 @@ Por exemplo, gere eventos a cada 5 segundos que relatam o ponto de dados visto m
 **Explicação**: esta consulta gerará ventos a cada 5 segundos e produzirá o último evento recebido antes. [Janela de salto](https://msdn.microsoft.com/library/dn835041.aspx "Janela de salto - Azure Stream Analytics") determina o quanto no passado a consulta buscará para localizar o evento mais recente (300 segundos neste exemplo).
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

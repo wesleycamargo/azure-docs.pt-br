@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5e91f640ab72fd3a5fffcb0f9d7bac1e9e031249
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5b26aecc7b9797d7bf604ea5e3d8bdece5bea17b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,7 +77,7 @@ As instruções a seguir o ajudarão a criar uma VM de várias NICs contendo 3 N
 
 * Uma assinatura do Azure.
 * Uma rede virtual configurada. Confira a [Visão geral da Rede Virtual](virtual-networks-overview.md) para saber mais sobre VNets.
-* A versão mais recente do Azure PowerShell baixada e instalada. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
+* A versão mais recente do Azure PowerShell baixada e instalada. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
 Para criar uma VM com várias NICs, conclua as etapas a seguir, inserindo cada comando em uma única sessão do PowerShell:
 

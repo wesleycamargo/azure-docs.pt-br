@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: b6319266d2b2cb664f5673b1365600ae8e974342
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0e5ca582714a80da8c0f63e1b06f6c3019efe849
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +36,7 @@ Este artigo explica como conectar redes virtuais clássicas a redes virtuais do 
 
 Conectar uma rede virtual clássica a outra rede virtual do Resource Manager é semelhante a conectar uma rede virtual a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE. Você pode criar uma conexão entre redes virtuais em assinaturas e regiões diferentes. Você também pode conectar redes virtuais que já têm conexões com redes locais, desde que o gateway com o qual foram configuradas seja dinâmico ou baseado em rota. Para saber mais sobre conexões de Rede Virtual a Rede Virtual, consulte as [Perguntas frequentes sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo. 
 
-Se suas redes virtuais estiverem na mesma região, convém considerar conectá-las usando o emparelhamento de redes virtuais. O emparelhamento de Rede Virtual não usa um gateway de Rede Virtual. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md). 
+Se suas redes virtuais estiverem na mesma região, convém considerar conectá-las usando o emparelhamento de redes virtuais. O emparelhamento Vnet não usa um gateway de VPN. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md). 
 
 ## <a name="before-beginning"></a>Antes de começar
 
@@ -46,7 +46,7 @@ As etapas a seguir mostrarão as configurações necessárias para configurar um
 
 * Ambas as redes virtuais já foram criadas.
 * Os intervalos de endereços das redes virtuais não se sobrepõem entre eles ou aos intervalos de outras conexões às quais os gateways podem estar conectados.
-* Você instalou os últimos cmdlets do PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações. Instale os dois cmdlets do Resource Manager (RM) e do Gerenciamento de Serviços (SM). 
+* Você instalou os últimos cmdlets do PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações. Instale os dois cmdlets do Resource Manager (RM) e do Gerenciamento de Serviços (SM). 
 
 ### <a name="exampleref"></a>Configurações de exemplo
 
