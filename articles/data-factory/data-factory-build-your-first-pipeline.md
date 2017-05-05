@@ -75,7 +75,7 @@ adfgetstarted/partitioneddata/year=2016/month=2/000000_0
 adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 ```
 
-Das linhas de exemplo mostradas acima, a primeira (com 2016-01-01) é gravada no arquivo 000000_0 na pasta month=1. Da mesma forma, a segunda é gravada no arquivo na pasta do mês =&2; e a terceira é gravada no arquivo na pasta do mês =&3;.  
+Das linhas de exemplo mostradas acima, a primeira (com 2016-01-01) é gravada no arquivo 000000_0 na pasta month=1. Da mesma forma, a segunda é gravada no arquivo na pasta do mês = 2 e a terceira é gravada no arquivo na pasta do mês = 3.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
