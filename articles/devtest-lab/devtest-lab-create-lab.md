@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
-ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -40,9 +41,11 @@ As etapas a seguir ilustram como usar o portal do Azure para criar um laboratór
    2. Selecione a **Assinatura** para associar ao laboratório.
    3. Selecione um **Local** no qual o laboratório será armazenado.
    4. Selecione **Desligamento Automático** para especificar se você deseja ativar e definir os parâmetros de desligamento automático de todas as VMs do laboratório. 
-   5. Selecione **Criar**.
-      
-      ![Criar uma folha de laboratório](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+   5. Selecione **Fixar no painel** se você deseja exibir um atalho do laboratório no painel do portal.
+   6. Selecione **Opções de automação** para obter modelos do Azure Resource Manager para automação da configuração. 
+   7. Selecione **Criar**.
+    
+    ![Criar uma folha de laboratório](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -54,10 +57,5 @@ Depois de criar seu laboratório, aqui estão algumas das próximas etapas a ser
 * [Criar um modelo de laboratório](devtest-lab-create-template.md).
 * [Criar artefatos personalizados para suas VMs](devtest-lab-artifact-author.md).
 * [Adicionar uma VM com artefatos a um laboratório](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -27,8 +27,3 @@ Para criar uma Rede Virtual no modelo de implantação do Gerenciador de Recurso
     
     ![Criar bloco de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Creating virtual network tile")
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

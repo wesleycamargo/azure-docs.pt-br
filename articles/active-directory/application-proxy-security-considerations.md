@@ -1,5 +1,5 @@
 ---
-title: "Considerações de segurança para acessar aplicativos remotamente usando o Proxy de Aplicativo do Azure AD | Microsoft Docs"
+title: "Considerações de segurança para o Proxy de Aplicativo do Azure AD | Microsoft Docs"
 description: "Aborda considerações de segurança para usar o Proxy de Aplicativo do Azure AD"
 services: active-directory
 documentationcenter: 
@@ -11,34 +11,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4019b379939e43e4e974552f1f0be245c5b1d33e
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 52704b3259ddad85db12b8bb81c4992ece2f37a4
+ms.lasthandoff: 04/21/2017
 
 
 ---
 
-# <a name="security-considerations-for-accessing-apps-remotely-by-using-azure-ad-application-proxy"></a>Considerações de segurança para acessar aplicativos remotamente usando o Proxy de Aplicativo do Azure AD
-
->[!NOTE]
->O Proxy de Aplicativo é um recurso que estará disponível somente se você tiver atualizado para a edição Premium ou Basic do Azure Active Directory. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+# <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para acessar aplicativos remotamente com o Proxy de Aplicativo do Azure AD
 
 Este artigo explica como o Proxy de Aplicativo do Azure AD (Azure Active Directory) fornece um serviço seguro para publicar e acessar aplicativos remotamente.
+
+O diagrama a seguir mostra como o Azure AD permite acesso remoto seguro aos aplicativos locais.
+
+ ![Diagrama de acesso remoto por meio do Proxy de Aplicativo do Azure AD](./media/application-proxy-security-considerations/secure-remote-access.png)
 
 O Proxy de Aplicativo do Azure AD oferece os seguintes benefícios de segurança:
 
 **Acesso autenticado:** somente as conexões autenticadas podem acessar sua rede.
 
-* Proxy de Aplicativo do Azure AD depende do Azure AD serviço de token de segurança (STS) para todas as autenticações. Para aplicativos que são publicados com pré-autenticação, o tráfego não pode passar por meio do serviço de Proxy de Aplicativo para seu ambiente sem um token válido do STS.
-* A pré-autenticação, por sua própria natureza, bloqueia um número significativo de ataques anônimos, pois somente identidades autenticadas podem acessar o aplicativo de back-end.
+* Proxy de Aplicativo do Azure AD depende do Azure AD serviço de token de segurança (STS) para todas as autenticações.  A pré-autenticação, por sua própria natureza, bloqueia um número significativo de ataques anônimos, pois somente identidades autenticadas podem acessar o aplicativo de back-end.
 
 **Acesso condicional:** aplique controles de política mais rígidos antes que as conexões com sua rede sejam estabelecidas.
 
-* Com acesso condicional, é possível definir mais restrições em relação ao que o tráfego pode acessar nos seus aplicativos de back-end. É possível definir restrições com base no local, na força da autenticação e no perfil de risco do usuário.
-* Esse recurso permite estabelecer barreiras adicionais contra os invasores. Para saber mais sobre o acesso condicional, consulte [Introdução ao acesso condicional do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-azuread-connected-apps).
+* Com [acesso condicional](active-directory-conditional-access-azuread-connected-apps.md), você pode definir restrições de qual tráfego é permitido para acessar seus aplicativos back-end, com base na localização, no nível de autenticação e no perfil de risco do usuário.
 
 **Encerramento de tráfego:** todo o tráfego é encerrado na nuvem.
 
@@ -46,38 +45,24 @@ O Proxy de Aplicativo do Azure AD oferece os seguintes benefícios de segurança
 
 **Todo o acesso é de saída:** não é necessário abrir as conexões de entrada para a rede corporativa.
 
-* Conectores de Azure AD mantêm conexões de saída para o serviço de Proxy de Aplicativo do Azure AD, o que significa que não há necessidade de abrir portas de firewall para conexões de entrada.
-* As abordagens tradicionais necessária uma rede de perímetro (também conhecido como *DMZ*, *zona desmilitarizada*, e *sub-rede filtrada*) e a abertura de acesso a conexões não autenticadas na borda da rede. Esse cenário resultou na necessidade de muitos investimentos adicionais em produtos WAF (firewall de aplicativo Web) para analisar o tráfego e oferecer proteções extras ao ambiente. Com o Proxy de Aplicativo, você pode evitar esse cenário. Você pode até mesmo considerar sem rede de perímetro, porque todas as conexões são de saída e ocorrem em um canal seguro.
+* Conectores de Azure AD mantêm conexões de saída para o serviço de Proxy de Aplicativo do Azure AD, o que significa que não há necessidade de abrir portas de firewall para conexões de entrada. As abordagens tradicionais exigiam uma rede de perímetro (também conhecida como *DMZ*, *zona desmilitarizada*, ou *sub-rede filtrada*) e permitiam acesso a conexões não autenticadas na borda da rede. Esse cenário resultou na necessidade de muitos investimentos adicionais em produtos WAF (firewall de aplicativo Web) para analisar o tráfego e oferecer proteções extras ao ambiente. Com o Proxy de Aplicativo, você não precisa de uma rede de perímetro porque todas as conexões são de saída e ocorrem por um canal seguro.
 
 **Inteligência baseada na linguagem de máquina e análise de segurança:** proteção com segurança de ponta.
 
-* O Azure AD Identity Protection com inteligência orientada ao aprendizado de máquina com dados alimentados da nossa Unidade de Crimes Digitais e do Microsoft Security Response Center. Juntos, identificamos proativamente contas comprometidas e oferecemos proteção em tempo real em conexões de alto risco. Levamos em consideração vários fatores, como acesso de dispositivos infectados por meio de redes que mantêm o anonimato, bem como de locais atípicos e improváveis.
+* O [Azure AD Identity Protection](active-directory-identityprotection.md) com inteligência baseada em aprendizado de máquina com os dados é alimentado de nossa Unidade de Crimes Digitais e do Microsoft Security Response Center. Juntos, identificamos proativamente contas comprometidas e oferecemos proteção em tempo real em conexões de alto risco. Levamos em consideração vários fatores, como acesso de dispositivos infectados por meio de redes que mantêm o anonimato, bem como de locais atípicos e improváveis.
 * Muitos desses relatórios e eventos já estão disponíveis por meio de uma API para integração com as informações de segurança e sistemas de gerenciamento (SIEM) do evento.
-* Para saber mais, veja [Azure AD Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection).
 
 **Acesso remoto como um serviço:** você não precisa se preocupar com a manutenção e a aplicação de patches em servidores locais.
 
-* O Proxy de Aplicativo do Azure AD é um serviço de escala de Internet da Microsoft. Sendo assim, você pode ter a certeza de que sempre obterá os patches e atualizações de segurança mais recentes.
-* A não aplicação de patches no software ainda é responsável por um grande número de ataques. Com nosso modelo de serviço, você não tem mais que carregar o peso de gerenciar servidores de borda.
+* A não aplicação de patches no software ainda é responsável por um grande número de ataques. O Proxy de Aplicativo do Azure AD é um serviço de escala de Internet da Microsoft. Sendo assim, você pode ter a certeza de que sempre obterá os patches e atualizações de segurança mais recentes.
+* Para melhorar a segurança dos aplicativos publicados pelo Proxy de Aplicativo do Azure AD, bloquearemos robôs do rastreador da Web de indexação e o arquivamento de seus aplicativos. Cada vez que um robô rastreador da Web tentar recuperar as configurações de robôs para um aplicativo publicado, o Proxy de Aplicativo responderá com um arquivo robots.txt que inclui `User-agent: * Disallow: /`.
 
-Os serviços de acesso remoto fornecidos com o Azure AD operam de acordo com as diretrizes e os padrões descritos na [Central de Confiabilidade do Azure](https://azure.microsoft.com/support/trust-center).
-
-O diagrama a seguir mostra como o Azure AD permite acesso remoto seguro aos aplicativos locais.
-
- ![Diagrama de acesso remoto por meio do Proxy de Aplicativo do Azure AD](./media/application-proxy-security-considerations/secure-remote-access.png)
-
->[!NOTE]
->Para melhorar a segurança dos aplicativos publicados pelo Proxy de Aplicativo do Azure AD, bloquearemos robôs do rastreador da Web de indexação e o arquivamento de seus aplicativos. Cada vez que um robô de rastreador da Web tentar recuperar as configurações de robôs para um aplicativo publicado, o Proxy de Aplicativo responderá com um arquivo robots.txt que inclui o seguinte texto:
->
->_User-agent: *_  
->_Disallow: /_
-
-## <a name="components-of-the-azure-ad-application-proxy-solution"></a>Componentes da solução de Proxy de Aplicativo do Azure AD
+## <a name="under-the-hood"></a>Nos bastidores
 
 O Proxy de Aplicativo do Azure AD consiste em duas partes:
 
 * O serviço baseado em nuvem: este serviço é onde as conexões de cliente/usuário externo são feitas.
-* O conector de Proxy de Aplicativo do Azure AD: um componente de local, o conector escuta solicitações das conexões de serviço e identificadores de Proxy de Aplicativo do Azure AD para aplicativos internos. O serviço inclui cuidando de itens como a delegação de restrita de Kerberos (KCD) para o SSO.
+* O conector de Proxy de Aplicativo do Azure AD: um componente de local, o conector escuta solicitações das conexões de serviço e identificadores de Proxy de Aplicativo do Azure AD para aplicativos internos. 
 
 Um fluxo entre o conector e o serviço de Proxy de Aplicativo é estabelecido quando:
 
@@ -112,46 +97,51 @@ Sempre que o serviço de Proxy de Aplicativo atualiza as definições de configu
 
 Quando os usuários acessam um aplicativo publicado, ocorrem estes eventos de fluxo:
 
-1. O serviço de Proxy de Aplicativo verifica as definições de configuração para o aplicativo. Se o aplicativo estiver configurado para usar a Pré-autenticação com o Azure AD, os usuários são redirecionados para o STS do Azure AD para autenticação. Se você publicar o aplicativo usando passagem, esta etapa será ignorada.
+#### <a name="the-application-proxy-service-checks-the-configuration-settings-for-the-app"></a>O serviço de Proxy de Aplicativo verifica as definições de configuração para o aplicativo. 
 
- a. Durante a autenticação com o Azure AD, o Proxy de Aplicativo verificará todos os requisitos da política de acesso condicional para o aplicativo específico. Esta etapa é garantir que o usuário foi atribuído ao aplicativo. Se a autenticação multifator (MFA) for necessária, a sequência de autenticação solicita ao usuário uma autenticação de dois fatores.
+Se o aplicativo estiver configurado para usar a Pré-autenticação com o Azure AD, os usuários são redirecionados para o STS do Azure AD para autenticação. Se você configurar o aplicativo para usar passagem, esta etapa será ignorada.
 
- b. Depois de realizadas todas as verificações, o STS do Azure AD emite um token assinado para o aplicativo e redireciona o usuário de volta ao serviço de Proxy de Aplicativo.
+1. O Proxy de Aplicativo verifica todos os requisitos da política de acesso condicional para o aplicativo específico. Esta etapa garante que o usuário foi atribuído ao aplicativo. Se uma verificação em duas etapas for necessária, a sequência de autenticação solicitará ao usuário um segundo método de autenticação.
 
- c. O Proxy de Aplicativo valida o token para garantir que ele foi emitido para o aplicativo ao qual o usuário estava solicitando acesso. Ele também faz outras verificações, como ao garantir que o token foi assinado pelo Azure AD, e que ainda está dentro da janela de validade.
+2. Depois de realizadas todas as verificações, o STS do Azure AD emite um token assinado para o aplicativo e redireciona o usuário de volta ao serviço de Proxy de Aplicativo.
 
- d. O Proxy de Aplicativo define um cookie de autenticação criptografado (como um cookie não persistente) para indicar que a autenticação para o aplicativo ocorreu. Esse cookie inclui um carimbo de data/hora de expiração com base no token do Azure AD e outros dados, como o nome do usuário na qual se baseia a autenticação. O cookie é criptografado com uma chave privada conhecida apenas pelo serviço de Proxy de Aplicativo.
+3. O Proxy de Aplicativo verifica se o token foi emitido para corrigir o aplicativo. Ele também faz outras verificações, como ao garantir que o token foi assinado pelo Azure AD, e que ainda está dentro da janela de validade.
 
- e. O Proxy de Aplicativo redireciona o usuário de volta para a URL originalmente solicitada.
+4. O Proxy de Aplicativo define um cookie de autenticação criptografado para indicar que a autenticação para o aplicativo ocorreu. Esse cookie inclui um carimbo de data/hora de expiração com base no token do Azure AD e outros dados, como o nome do usuário na qual se baseia a autenticação. O cookie é criptografado com uma chave privada conhecida apenas pelo serviço de Proxy de Aplicativo.
 
- >[!NOTE]
- >Se qualquer parte das etapas da pré-autenticação falhar, a solicitação do usuário será negada e o usuário verá uma mensagem indicando a origem do problema.
- >
+5. O Proxy de Aplicativo redireciona o usuário de volta para a URL originalmente solicitada.
 
-2. Depois de receber a solicitação do cliente, o Proxy de Aplicativo valida que a condição de pré-autenticação foi atendida e que o cookie ainda é válido (conforme necessário). Então, o Proxy de Aplicativo coloca uma solicitação na fila apropriada para que um conector local trate dela. 
+Se qualquer parte das etapas da pré-autenticação falhar, a solicitação do usuário será negada e o usuário verá uma mensagem indicando a origem do problema.
 
- >[!NOTE]
- >Todas as solicitações do conector são emitidas para o serviço de Proxy de Aplicativo. Os conectores mantêm uma conexão de saída aberta com o Proxy de Aplicativo. Quando uma solicitação chega, o Proxy de Aplicativo enfileira a solicitação em uma das conexões abertas para escolha do conector.
 
- * A solicitação inclui itens do aplicativo, como os cabeçalhos da solicitação, os dados do cookie criptografado, o usuário que faz a solicitação e a ID de solicitação. Entretanto, o cookie de autenticação criptografado não é enviado ao conector.
+#### <a name="application-proxy-places-a-request-in-the-appropriate-queue-for-an-on-premises-connector-to-handle"></a>O Proxy de Aplicativo coloca uma solicitação na fila apropriada para ser manipulada por um conector local. 
 
-3. O conector recebe a solicitação da fila, com base em uma conexão de saída de vida longa. Com base na solicitação, o Proxy de Aplicativo executa uma das seguintes ações:
+Todas as solicitações do conector são emitidas para o serviço de Proxy de Aplicativo. Os conectores mantêm uma conexão de saída aberta com o Proxy de Aplicativo. Quando uma solicitação chega, o Proxy de Aplicativo enfileira a solicitação em uma das conexões abertas para escolha do conector.
 
- * O conector confirma se ele pode identificar o aplicativo. Se ele não é possível identificar o aplicativo, o conector estabelece uma conexão para o serviço de Proxy de Aplicativo para obter detalhes sobre o aplicativo e armazena em cache o aplicativo localmente.
+A solicitação inclui itens do aplicativo, como os cabeçalhos da solicitação, os dados do cookie criptografado, o usuário que faz a solicitação e a ID de solicitação. Entretanto, o cookie de autenticação criptografado não é enviado ao conector.
 
- * Se a solicitação for uma operação simples (por exemplo, não há dados no corpo como acontece com uma solicitação *GET* RESTful), o conector fará uma conexão com o recurso interno de destino e aguardará uma resposta.
+#### <a name="the-connector-receives-the-request-from-the-queue"></a>O conector recebe a solicitação da fila. 
 
- * Se a solicitação tiver dados associados a ela no corpo, por exemplo, uma operação *POST* RESTful, o conector fará uma conexão de saída usando o certificado de cliente com a instância do Proxy de Aplicativo. Ele faz essa conexão para solicitar os dados e abrir uma conexão com o recurso interno. No recebimento da solicitação do conector, o serviço de Proxy de Aplicativo começa aceitando o conteúdo do usuário e encaminha os dados ao conector. O conector, por sua vez, encaminha os dados para o recurso interno.
+Com base na solicitação, o Proxy de Aplicativo executa uma das seguintes ações:
 
-4. Depois de concluída a solicitação/transmissão de todo o conteúdo ao back-end, o conector espera uma resposta.
+* O conector confirma se ele pode identificar o aplicativo. Se ele não é possível identificar o aplicativo, o conector estabelece uma conexão para o serviço de Proxy de Aplicativo para obter detalhes sobre o aplicativo e armazena em cache o aplicativo localmente.
 
-5. Depois de receber a resposta, o conector faz uma conexão de saída com o serviço de Proxy de Aplicativo para retornar os detalhes do cabeçalho e iniciar a transmissão dos dados de retorno.
+* Se a solicitação for uma operação simples (por exemplo, não há dados no corpo como acontece com uma solicitação *GET* RESTful), o conector fará uma conexão com o recurso interno de destino e aguardará uma resposta.
 
-6. O Proxy de Aplicativo "transmite" os dados ao usuário. Parte do processamento dos cabeçalhos pode ocorrer aqui, conforme a necessidade e definição do aplicativo.
+* Se a solicitação tiver dados associados a ela no corpo, por exemplo, uma operação *POST* RESTful, o conector fará uma conexão de saída usando o certificado de cliente com a instância do Proxy de Aplicativo. Ele faz essa conexão para solicitar os dados e abrir uma conexão com o recurso interno. No recebimento da solicitação do conector, o serviço de Proxy de Aplicativo começa aceitando o conteúdo do usuário e encaminha os dados ao conector. O conector, por sua vez, encaminha os dados para o recurso interno.
 
-Se precisar de ajuda na comunicação de um aplicativo Web do Azure por meio de um navegador cliente com um ponto de extremidade SOAP local autenticado pelo Windows, confira o [Blog Azure Field Notes](http://www.azurefieldnotes.com/2016/12/02/claims-to-windows-identity-translation-solutions-and-its-flaws-when-using-azure-ad-application-proxy).
+#### <a name="after-the-request-and-transmission-of-all-content-to-the-back-end-is-complete-the-connector-waits-for-a-response"></a>Depois de concluída a solicitação/transmissão de todo o conteúdo ao back-end, o conector espera uma resposta.
+
+Depois de receber a resposta, o conector faz uma conexão de saída com o serviço de Proxy de Aplicativo para retornar os detalhes do cabeçalho e iniciar a transmissão dos dados de retorno.
+
+#### <a name="application-proxy-streams-the-data-to-the-user"></a>O Proxy de Aplicativo "transmite" os dados ao usuário. 
+
+Parte do processamento dos cabeçalhos pode ocorrer aqui, conforme a necessidade e definição do aplicativo.
+
 
 ## <a name="next-steps"></a>Próximas etapas
+
+[Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure AD](application-proxy-network-topology-considerations.md)
 
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md)
 

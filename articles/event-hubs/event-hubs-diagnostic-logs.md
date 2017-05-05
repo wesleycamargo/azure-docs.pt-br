@@ -1,6 +1,6 @@
 ---
 title: "Logs de diagnóstico dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Saiba como configurar logs de diagnóstico para Hubs de Eventos no Azure."
+description: "Saiba como configurar logs de diagnóstico para hub de eventos no Azure."
 keywords: 
 documentationcenter: 
 services: event-hubs
@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/27/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 8b0484b2d4f6474be728531fbda65896f30eccc4
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: bb8679b733e9ebd8d6a95a618d4ab8deab18ece4
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -45,7 +45,7 @@ Os logs de diagnóstico estão **desativados** por padrão. Para habilitar logs 
 
     ![Alterar o status dos logs de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.    Defina o destino de arquivamento desejado; por exemplo, uma conta de armazenamento, um Hub de Eventos ou o Azure Log Analytics.
+5.    Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um hub de eventos ou o Log Analytics do Azure.
 
 6.    Selecione as categorias de logs que você deseja coletar, por exemplo, **Execução** ou **Criação**.
 
@@ -59,7 +59,7 @@ Para saber mais sobre como configurar um diagnóstico, confira a [visão geral d
 Os Hubs de Eventos capturam os logs de diagnóstico de duas categorias:
 
 * **ArchivalLogs**: logs relacionados aos arquivamentos de Hubs de Eventos, especificamente os logs relacionados a erros de arquivo morto.
-* **OperationalLogs**: informações sobre o que está acontecendo durante a operação dos Hubs de Eventos, especificamente o tipo de operação, incluindo a criação do Hub de Eventos, os recursos usados e o status da operação.
+* **OperationalLogs**: informações sobre o que está acontecendo durante a operação dos Hubs de Eventos, especificamente o tipo de operação, incluindo a criação do hub de eventos, os recursos usados e o status da operação.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
 Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito nos exemplos a seguir.

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 16e1276d5c0cc7eb8a8a868fa3b31fd51fbb1b96
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 8922c65a1755343e19072a0594b800838a5e1cf9
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -205,7 +205,7 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 [Saiba mais sobre testes de disponibilidade via web.][availability]
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
-Se você estiver usando Logback ou Log4J (v&1;.2 ou&2;.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
+Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
 
 [Saiba mais sobre logs de diagnóstico][javalogs]
 
@@ -225,7 +225,7 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 
 #### <a name="track-usage"></a>Acompanhar uso
 * [Adicione telemetria do cliente Web][usage] para monitorar modos de exibição de página e métricas de usuário básico.
-* [Acompanhe métricas e eventos personalizados][track] para saber mais sobre como o aplicativo é usado, tanto no cliente quanto no servidor.
+* [Acompanhe métricas e eventos personalizados](app-insights-web-track-usage.md) para saber mais sobre como o aplicativo é usado, tanto no cliente quanto no servidor.
 
 <!--Link references-->
 
@@ -235,5 +235,5 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

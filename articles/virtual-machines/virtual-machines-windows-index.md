@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b0f97779c2cf8bf3e7535afa8a2ab1ee45958ad1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: fd7b14d16a0654dc1368ddb00ea047aa7dd36a4c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 ## <a name="environment-setup"></a>Configuração do ambiente
 [Conta gratuita](https://azure.microsoft.com/free/)
 
-[Instale o Azure PowerShell](/powershell/azureps-cmdlets-docs)
+[Instale o Azure PowerShell](/powershell/azure/overview)
 
 [Instalar a CLI do Azure.](../cli-install-nodejs.md)
 
@@ -152,7 +152,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [API .NET de Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
-[Documentação de referência de cmdlet do PowerShell de Gerenciamento de Serviços do Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+[Documentação de referência de cmdlet do PowerShell de Gerenciamento de Serviços do Azure](/powershell/azure/overview?view=azuresmps-3.7.0)
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

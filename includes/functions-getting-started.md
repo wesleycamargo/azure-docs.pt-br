@@ -2,8 +2,3 @@ As Funções do Azure consistem em uma experiência de computação sob demanda 
 
 Este vídeo de introdução mostra como criar um aplicativo de função, modificar o código e interagir com os disparadores e as associações.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

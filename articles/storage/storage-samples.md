@@ -15,9 +15,9 @@ ms.workload: storage
 ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
-ms.openlocfilehash: dc466ed5dbd7ad14dd1c84760d9205b940acf504
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: dd11ad70efd8f78805e74ad193fb9000abf6a3a8
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -28,9 +28,12 @@ Use os links abaixo para exibir e baixar exemplos de como trabalhar com o Armaze
 ## <a name="azure-code-samples-library"></a>Biblioteca de Exemplos de Código do Azure
 A biblioteca de [Exemplos de Código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage) inclui exemplos do Armazenamento do Azure que você pode baixar e executar localmente. A Biblioteca de Exemplo de Código fornece exemplo de código em formato .zip. Como alternativa, você pode navegar e clonar o repositório GitHub para cada exemplo.
 
-## <a name="getting-started-samples"></a>Exemplos de introdução
-* [Introdução ao Armazenamento do Azure em cinco minutos](storage-getting-started-guide.md)
-* [Inícios Rápidos do Visual Studio para o Armazenamento do Azure](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
+<!--## Getting started samples-->
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+* [Visual Studio Quick Starts for Azure Storage](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
+-->
 
 ## <a name="net-samples"></a>Amostras do .NET
 Para explorar os exemplos do .NET, baixe a [Biblioteca do Cliente de Armazenamento do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) do NuGet. A biblioteca de cliente de armazenamento do .NET também está disponível no [SDK do Azure para .NET](https://azure.microsoft.com/downloads/).

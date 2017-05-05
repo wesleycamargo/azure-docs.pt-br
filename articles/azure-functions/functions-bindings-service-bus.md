@@ -17,16 +17,18 @@ ms.workload: na
 ms.date: 04/01/2017
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6644f6b879e48787249111c5e02b75b963f1e1cd
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1afc4d0c04929fdf55cc9f336e50d90ff7c66172
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Associações do Barramento de Serviço do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e trabalhar com associações do Barramento de Serviço do Azure no Azure Functions. O Azure Functions dá suporte a gatilhos e a associações de saída para filas e tópicos do Barramento de Serviço.
+Este artigo explica como configurar e trabalhar com associações do Barramento de Serviço do Azure no Azure Functions. 
+
+O Azure Functions dá suporte a gatilhos e a associações de saída para filas e tópicos do Barramento de Serviço.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -66,14 +68,14 @@ Os gatilhos de fila e de tópico do Barramento de Serviço são definidos pelos 
 
 Observe o seguinte:
 
-* Para `connection`, [crie uma configuração de aplicativo em seu aplicativo de função](functions-how-to-use-azure-function-app-settings.md) que contenha a cadeia de conexão até o namespace de seu Hub de Serviço, depois especifique o nome da configuração de aplicativo na propriedade `connection` em seu gatilho. Obtenha a cadeia de conexão, seguindo as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Para `connection`, [crie uma configuração de aplicativo em seu aplicativo de função](functions-how-to-use-azure-function-app-settings.md) que contenha a cadeia de conexão até o namespace de seu Barramento de Serviço, depois especifique o nome da configuração de aplicativo na propriedade `connection` em seu gatilho. Obtenha a cadeia de conexão, seguindo as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico.
   Se você deixar `connection` vazio, o gatilho assumirá que uma cadeia de conexão do Barramento de Serviço padrão foi especificada em uma configuração de aplicativo chamada `AzureWebJobsServiceBus`.
 * Para `accessRights`, os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como `listen`. Caso contrário, o tempo de execução do Functions talvez falhe ao tentar executar operações que exigem o gerenciamento de direitos.
 
 ## <a name="trigger-behavior"></a>Comportamento do gatilho
 * **Threading simples** - por padrão, o tempo de execução do Functions processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar uma única fila ou mensagem de tópico de cada vez, defina `serviceBus.maxConcurrentCalls` como 1 em *host.json* . 
-  Para saber mais sobre *host.json*, consulte [Estrutura de Pastas](functions-reference.md#folder-structure) e [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+  Para obter informações sobre *host.json*, consulte [Estrutura da pasta](functions-reference.md#folder-structure) e [host.json](https://git.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Manipulação de mensagens suspeitas** - o Barramento de Serviço faz seu próprio tratamento de mensagens suspeitas que não pode ser controlado ou definido na configuração ou código do Azure Functions. 
 * **Comportamento PeekLock** - o tempo de execução do Functions recebe uma mensagem no modo [`PeekLock` ](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) e chama `Complete` na mensagem se a função for concluída com êxito, ou chama `Abandon` se a função falhar. 
   Se a função for executada por mais tempo que o limite `PeekLock` , o bloqueio é renovado automaticamente.
@@ -81,7 +83,7 @@ Observe o seguinte:
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Uso de gatilho
-Esta seção mostra como usar o gatilho do Hub de Serviço no código de sua função. 
+Esta seção mostra como usar o gatilho do Barramento de Serviço no código de sua função. 
 
 Em C# e F#, a mensagem do gatilho do Barramento de Serviço pode ser desserializada para qualquer um destes tipos de entrada:
 
@@ -183,7 +185,7 @@ A saída da fila e do tópico do Barramento de Serviço para uma função usa os
 
 Observe o seguinte:
 
-* Para `connection`, [crie uma configuração de aplicativo em seu aplicativo de função](functions-how-to-use-azure-function-app-settings.md) que contenha a cadeia de conexão até o namespace de seu Hub de Serviço, depois especifique o nome da configuração de aplicativo na propriedade `connection` em sua associação de saída. Obtenha a cadeia de conexão, seguindo as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Para `connection`, [crie uma configuração de aplicativo em seu aplicativo de função](functions-how-to-use-azure-function-app-settings.md) que contenha a cadeia de conexão até o namespace de seu Barramento de Serviço, depois especifique o nome da configuração de aplicativo na propriedade `connection` em sua associação de saída. Obtenha a cadeia de conexão, seguindo as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico.
   Se você deixar `connection` vazio, a associação da saída assumirá que uma cadeia de conexão do Barramento de Serviço padrão foi especificada em uma configuração de aplicativo chamada `AzureWebJobsServiceBus`.
 * Para `accessRights`, os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como `listen`. Caso contrário, o tempo de execução do Functions talvez falhe ao tentar executar operações que exigem o gerenciamento de direitos.

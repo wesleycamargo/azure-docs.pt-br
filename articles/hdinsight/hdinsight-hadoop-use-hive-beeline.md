@@ -14,68 +14,93 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 04/05/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b015e3d99c72c1840a31bacee5d9655fa9f48da7
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7a1757a7ef2881b9e09389745a8e5aeaea2abf9d
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="use-hive-with-hadoop-in-hdinsight-with-beeline"></a>Usar o Hive com o Hadoop no HDInsight com Beeline
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Neste artigo, você aprenderá a usar o SSH (Secure Shell) para se conectar a um cluster HDInsight baseado em Linux e enviar interativamente consultas Hive usando a ferramenta de linha de comando [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) .
+Saiba como usar o [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) para executar consultas Hive no HDInsight.
+
+O Beeline é uma ferramenta de linha de comando que está incluída em nós de cabeçalho do cluster HDInsight. Ele usa o JDBC para se conectar ao HiveServer2, um serviço hospedado no seu cluster HDInsight. A tabela a seguir fornece as cadeias de caracteres de conexão para uso com o Beeline:
+
+| De que local você executa o Beeline | Cadeia de conexão | Outros parâmetros |
+| --- | --- | --- |
+| Uma conexão SSH a um nó de cabeçalho | `jdbc:hive2://localhost:10001/;transportMode=http` | `-n admin` |
+| Um nó de borda | `jdbc:hive2://headnodehost:10001/;transportMode=http` | `-n admin` |
+| Fora do cluster | `jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2` | `-n admin -p password` |
 
 > [!NOTE]
-> A Beeline usa JDBC para se conectar ao Hive. Para saber mais sobre como usar o JDBC com o Hive, confira [Conectar ao Hive no Azure HDInsight usando o driver JDBC do Hive](hdinsight-connect-hive-jdbc-driver.md).
+> Substitua 'admin' com a conta de logon do cluster para o cluster.
+>
+> Substitua 'password' pela senha da conta de logon do cluster.
+>
+> Substitua `clustername` pelo nome do cluster HDInsight.
 
 ## <a id="prereq"></a>Pré-requisitos
-Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um cluster do Hadoop no HDInsight baseado em Linux.
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Substituição do HDInsight versão 3.2 e 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-* Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* Um cliente SSH. Para saber mais sobre como usar SSH, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="ssh"></a>Conexão com o SSH
-Conecte-se com o FQDN (nome de domínio totalmente qualificado) do cluster HDInsight usando o comando SSH. O FQDN será o nome que você atribuiu ao cluster, depois será **.azurehdinsight.net**. Por exemplo, o exibido a seguir se conectaria a um cluster chamado **myhdinsight**:
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net
+Conecte-se ao cluster usando o SSH com o seguinte comando:
+
+```bash
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```
+
+Substitua `sshuser` pela conta de usuário SSH para o cluster. Substitua `myhdinsight` pelo nome do cluster HDInsight.
+
+**Se você tiver fornecido uma senha para autenticação SSH** ao criar o cluster HDInsight, você precisará fornecer a senha quando solicitado.
 
 **Se você tiver fornecido uma chave de certificado para autenticação de SSH** ao criar o cluster HDInsight, talvez seja necessário especificar o local da chave privada no sistema cliente:
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
-
-**Se você forneceu uma senha para autenticação SSH** ao criar o cluster HDInsight, você precisará fornecer a senha quando solicitado.
+    ssh -i ~/.ssh/mykey.key ssh@myhdinsight-ssh.azurehdinsight.net
 
 Para saber mais sobre como usar o SSH com HDInsight, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="beeline"></a>Usar o comando Beeline
-1. Uma vez conectado, use o seguinte para iniciar a Beeline:
-   
-        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
-   
-    Isso vai iniciar o cliente Beeline e conectar à URL JDBC. Aqui, `localhost` é usado, pois HiveServer2 é executado em ambos os nós principais do cluster, e estamos executando Beeline diretamente no nó de cabeçalho primário.
-   
+
+1. Na sessão de SSH, use o seguinte comando para iniciar o Beeline:
+
+    ```bash
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    ```
+
+    Esse comando inicia o cliente Beeline e conecta-se ao HiveServer2 no nó de cabeçalho do cluster. O parâmetro `-n` é usado para fornecer a conta de logon do cluster. O logon padrão é `admin`. Se durante a criação do cluster você usou um nome diferente, use-o no lugar de `admin`.
+
     Quando o comando for concluído, você chegará a um prompt `jdbc:hive2://localhost:10001/>`.
-2. Os comandos Beeline normalmente começam com um caractere `!`, por exemplo `!help` exibe a ajuda. No entanto, geralmente, o `!` pode ser omitido. Por exemplo, `help` também funcionará.
-   
-    Se você exibir a ajuda, observará `!sql`, que é usado para executar instruções HiveQL. No entanto, o HiveQL é tão usado que é possível omitir o `!sql`anterior. As duas instruções a seguir têm exatamente os mesmos resultados; a exibição das tabelas atualmente disponíveis por meio do Hive:
-   
-        !sql show tables;
-        show tables;
-   
-    Em um novo cluster, somente uma tabela deverá ser listada: **hivesampletable**.
-3. Use o seguinte para exibir o esquema para a hivesampletable:
-   
-        describe hivesampletable;
-   
-    Isso retornará informações semelhantes às seguintes:
-   
+
+2. Os comandos Beeline normalmente começam com um caractere `!`, por exemplo, `!help` exibe a ajuda. No entanto, o `!` pode ser omitido para alguns comandos. Por exemplo, `help` também funciona.
+
+    Há um `!sql`, que é usado para executar instruções HiveQL. No entanto, o HiveQL é tão usado que é possível omitir o `!sql`anterior. As duas instruções a seguir são equivalentes:
+
+    ```hiveql
+    !sql show tables;
+    show tables;
+    ```
+
+    Em um novo cluster, somente uma tabela é listada: **hivesampletable**.
+
+3. Use o comando a seguir para exibir o esquema para a hivesampletable:
+
+    ```bash
+    describe hivesampletable;
+    ```
+
+    Esse comando retorna as informações a seguir:
+
         +-----------------------+------------+----------+--+
         |       col_name        | data_type  | comment  |
         +-----------------------+------------+----------+--+
@@ -91,95 +116,109 @@ Para saber mais sobre como usar o SSH com HDInsight, confira [Usar SSH com HDIns
         | sessionid             | bigint     |          |
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
-   
-    Isso exibe as colunas da tabela. Embora possamos executar algumas consultas nestes dados, vamos criar uma nova tabela para demonstrarmos como carregar os dados no Hive e como aplicar um esquema.
-4. Insira as instruções a seguir para criar uma nova tabela chamada **log4jLogs** usando os dados de exemplo fornecidos com o cluster HDInsight:
-   
-        DROP TABLE log4jLogs;
-        CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
-        SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-   
-    As instruções executam as seguintes ações:
-   
-   * **DROP TABLE** - exclui a tabela e o arquivo de dados caso a tabela já exista.
-   * **CREATE EXTERNAL TABLE** - cria uma nova tabela “externa" em Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.
-   * **ROW FORMAT** - informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
-   * **STORED AS TEXTFILE LOCATION** - informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
-   * **SELECT** - Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
-   * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Normalmente, você teria somente os dados com o mesmo esquema dentro da mesma pasta durante a consulta com o hive, mas este arquivo de log de exemplo é armazenado com outros formatos de dados.
-     
-     > [!NOTE]
-     > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa, como um processo automático de carregamento de dados, ou outra operação MapReduce, mas sempre quer que as consultas Hive utilizem os dados mais recentes.
-     > 
-     > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
-     > 
-     > 
-     
-     A saída desse comando deve ser semelhante ao seguinte:
 
-     ```
-     INFO  : Tez session hasn't been created yet. Opening session
-     INFO  :
-     
-     INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
-     
-     INFO  : Map 1: -/-      Reducer 2: 0/1
-     INFO  : Map 1: 0/1      Reducer 2: 0/1
-     INFO  : Map 1: 0/1      Reducer 2: 0/1
-     INFO  : Map 1: 0/1      Reducer 2: 0/1
-     INFO  : Map 1: 0/1      Reducer 2: 0/1
-     INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-     INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-     INFO  : Map 1: 1/1      Reducer 2: 0/1
-     INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
-     INFO  : Map 1: 1/1      Reducer 2: 1/1
-     +----------+--------+--+
-     |   sev    | count  |
-     +----------+--------+--+
-     | [ERROR]  | 3      |
-     +----------+--------+--+
-     1 row selected (47.351 seconds)
-     ```
-5. Para sair do Beeline, use `!quit`.
+    Essas informações descrevem as colunas na tabela. Embora possamos executar algumas consultas nestes dados, vamos criar uma nova tabela para demonstrarmos como carregar os dados no Hive e como aplicar um esquema.
+
+4. Insira as instruções a seguir para criar uma tabela chamada **log4jLogs** usando os dados de exemplo fornecidos com o cluster HDInsight:
+
+    ```hiveql
+    DROP TABLE log4jLogs;
+    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    ```
+
+    As instruções executam as seguintes ações:
+
+    * **DROP TABLE** – se a tabela existir, ela será excluída.
+
+    * **CREATE EXTERNAL TABLE** – cria uma tabela **externa** em Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.
+
+    * **ROW FORMAT** – o modo como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+
+    * **STORED AS TEXTFILE LOCATION** – o local em que os dados são armazenados e em qual formato de arquivo.
+
+    * **SELECT** - Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Essa consulta deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
+
+    * **INPUT__FILE__NAME LIKE '%.log'** – o arquivo de dados de exemplo é armazenado com outros arquivos. Essa instrução limita a consulta aos dados armazenados em arquivos que terminam em .log.
+
+  > [!NOTE]
+  > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de upload de dados automatizado ou uma operação MapReduce.
+  >
+  > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
+
+    A saída desse comando é semelhante ao texto a seguir:
+
+        INFO  : Tez session hasn't been created yet. Opening session
+        INFO  :
+
+        INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
+
+        INFO  : Map 1: -/-      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+        INFO  : Map 1: 1/1      Reducer 2: 0/1
+        INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
+        INFO  : Map 1: 1/1      Reducer 2: 1/1
+        +----------+--------+--+
+        |   sev    | count  |
+        +----------+--------+--+
+        | [ERROR]  | 3      |
+        +----------+--------+--+
+        1 row selected (47.351 seconds)
+
+5. Para sair do Beeline, use `!exit`.
 
 ## <a id="file"></a>Executar um arquivo HiveQL
-O Beeline também pode ser usado para executar um arquivo com instruções HiveQL. Use as etapas a seguir para criar um arquivo e  executá-lo usando o Beeline.
+
+Use as etapas a seguir para criar um arquivo e  executá-lo usando o Beeline.
 
 1. Use o comando a seguir para criar um novo arquivo chamado **query.hql**:
-   
-        nano query.hql
-2. Assim que o editor abrir, use o seguinte como o conteúdo do arquivo. Essa consulta criará uma nova tabela 'interna' chamada **errorLogs**:
-   
-        CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-        INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
-   
+
+    ```bash
+    nano query.hql
+    ```
+
+2. Use o texto a seguir como conteúdo do arquivo. Essa consulta cria uma nova tabela 'interna' chamada **errorLogs**:
+
+    ```hiveql
+    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+    ```
+
     As instruções executam as seguintes ações:
-   
-   * **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Como a palavra-chave **EXTERNAL** não é usada, esta é uma tabela interna, que é armazenada no data warehouse do Hive e totalmente gerenciada pelo Hive.
-   * **STORES AS ORC** : armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
-   * **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
-     
-     > [!NOTE]
-     > Ao contrário das tabelas externas, remover uma tabela interna excluirá também os dados subjacentes.
-     > 
-     > 
+
+    * **CREATE TABLE IF NOT EXISTS** – criará uma tabela, se ela ainda não existir. Uma vez que a palavra-chave **EXTERNAL** não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e totalmente gerenciadas por ele.
+    * **STORES AS ORC** : armazena os dados no formato ORC (Optimized Row Columnar). O formato ORC é altamente otimizado e eficiente para o armazenamento de dados do Hive.
+    * **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
+
+    > [!NOTE]
+    > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
+
 3. Para salvar o arquivo, use **Ctrl**+**_X**, insira **Y** e, por fim, **Enter**.
+
 4. Use o seguinte para executar o arquivo usando Beeline. Substitua **HOSTNAME** pelo nome obtido anteriormente para o nó do cabeçalho, e **PASSWORD** pela senha da conta de administrador:
-   
-        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
-   
-   > [!NOTE]
-   > O parâmetro `-i` inicia Beeline, executa as instruções no arquivo query.hql e permanece no Beeline no prompt `jdbc:hive2://localhost:10001/>`. Você também pode executar um arquivo usando o parâmetro `-f` , que retorna ao Bash depois que o arquivo foi processado.
-   > 
-   > 
+
+    ```bash
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
+    ```
+
+    > [!NOTE]
+    > O parâmetro `-i` inicia o Beeline e executa as instruções no arquivo query.hql. Quando a consulta for concluída, você verá um prompt `jdbc:hive2://localhost:10001/>`. Você também pode executar um arquivo usando o parâmetro `-f`, que fechará o Beeline após a conclusão da consulta.
+
 5. Para verificar se a tabela **errorLogs** foi criada, use a seguinte instrução para retornar todas as linhas de **errorLogs**:
-   
-        SELECT * from errorLogs;
-   
+
+    ```hiveql
+    SELECT * from errorLogs;
+    ```
+
     Três linhas de dados devem ser devolvidas, todas contendo **[ERROR]** na coluna t4:
-   
+
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
@@ -189,30 +228,40 @@ O Beeline também pode ser usado para executar um arquivo com instruções HiveQ
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-## <a name="more-about-beeline-connectivity"></a>Mais sobre a conectividade do Beeline
-As etapas deste documento usam `localhost` para se conectar ao HiveServer2 em execução no nó principal do cluster. Embora você também possa usar o nome do host ou o nome de domínio totalmente qualificado do nó principal, são necessárias etapas adicionais para o processo (etapas para localizar o nome de host ou FQDN). Usar `localhost` é suficiente ao usar o Beeline do nó principal.
+## <a name="edge-nodes"></a>Nós de borda
 
-Caso tenha um nó de borda no seu cluster, com o Beeline instalado, você precisará usar o nome de host ou FQDN do nó principal para se conectar.
+Se o cluster tem um nó de borda, é recomendável usar sempre o nó de borda em vez do nó de cabeçalho durante a conexão com o SSH. Para iniciar o Beeline de uma conexão SSH em um nó de borda, use o seguinte comando:
 
-Se você tiver o Beeline instalado em um cliente fora do cluster, é possível se conectar usando o comando a seguir. Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight. Substitua **PASSWORD** pela senha da conta de administrador (logon HTTP).
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
+```
 
-    beeline -u 'jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=hive2' -n admin -p PASSWORD
+## <a name="remote-clients"></a>Clientes remotos
 
-Observe que os parâmetros/URI são diferentes de quando a execução ocorre diretamente em um nó principal ou em um nó de borda no cluster. Isso ocorre porque a conexão com o cluster da internet usa um gateway público que encaminha o tráfego pela porta 443. Além disso, vários outros serviços são expostos por meio do gateway público na porta 443, portanto o URI é diferente de quando a conexão ocorre de forma direta. Ao conectar-se pela internet, que você também deve autenticar a sessão fornecendo a senha.
+Se você tiver Beeline instalado localmente ou são usá-lo por meio de uma imagem de Docker como [sutoiku/beeline](https://hub.docker.com/r/sutoiku/beeline/), você deverá usar os seguintes parâmetros:
+
+* __Cadeia de conexão__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
+
+* __Nome de logon do cluster__: `-n admin`
+
+* __Senha de logon do cluster__ `-p 'password'`
+
+Substitua o `clustername` na cadeia de conexão pelo nome do seu cluster HDInsight.
+
+Substitua `admin` pelo nome de logon do cluster e substitua `password` pela senha para o logon do cluster.
 
 ## <a id="summary"></a><a id="nextsteps"></a>Próximas etapas
-Como você pode ver, o comando do Beeline fornece uma maneira fácil de executar consultas Hive interativamente em um cluster HDInsight.
 
-Para informações gerais sobre o Hive no HDInsight:
+Para obter mais informações gerais sobre como usar o Hive no HDInsight, veja o seguinte documento:
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 
-Para obter informações sobre outras maneiras que você pode trabalhar com Hadoop no HDInsight:
+Para saber mais sobre outras maneiras pelas quais você pode trabalhar com o Hadoop no HDInsight, veja os seguintes documentos:
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para as informações de depuração:
+Se você estiver usando o Tez com o Hive, consulte os seguintes documentos:
 
 * [Usar a interface de usuário do Tez no HDInsight baseado em Windows](hdinsight-debug-tez-ui.md)
 * [Usar a exibição de Ambari Tez no HDInsight baseado em Linux](hdinsight-debug-ambari-tez-view.md)
@@ -236,11 +285,10 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
 

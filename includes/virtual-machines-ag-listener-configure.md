@@ -14,7 +14,7 @@ O ouvinte do Grupo de Disponibilidade é um nome de rede e endereço IP que o Gr
 
 As seções a seguir fornecem instruções detalhadas para cada uma dessas etapas. 
 
-#### <a name="a-namegetnetaget-the-name-of-the-cluster-network-resource"></a><a name="getnet"></a>Obter o nome do recurso da rede de clusters
+#### <a name="getnet"></a>Obter o nome do recurso da rede de clusters
 
 1. Use o RDP para se conectar à máquina virtual do Azure que hospeda a réplica primária. 
 
@@ -26,7 +26,7 @@ As seções a seguir fornecem instruções detalhadas para cada uma dessas etapa
 
    ![Nome da rede de clusters](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-#### <a name="a-nameaddcapaadd-the-client-access-point"></a><a name="addcap"></a>Adicionar o ponto de acesso de cliente
+#### <a name="addcap"></a>Adicionar o ponto de acesso de cliente
 
 O ponto de acesso do cliente é o nome da rede que os aplicativos usam para se conectar aos bancos de dados em um grupo de disponibilidade. Crie o ponto de acesso de cliente no Gerenciador de Cluster de Failover. 
 
@@ -42,7 +42,7 @@ O ponto de acesso do cliente é o nome da rede que os aplicativos usam para se c
    
    Para concluir a criação do ouvinte, clique em **Próximo** duas vezes e, em seguida, clique em **Concluir**. Não coloque o ouvinte ou o recurso online neste momento.
    
-#### <a name="a-namecongroupaconfigure-the-ip-resource-for-the-availability-group"></a><a name="congroup"></a>Configure o recurso de IP do Grupo de Disponibilidade
+#### <a name="congroup"></a>Configure o recurso de IP do Grupo de Disponibilidade
 
 1. Clique na guia **Recursos**e , em seguida, expanda o ponto de acesso para cliente que você acabou de criar. O ponto de acesso para cliente está offline.
 
@@ -58,7 +58,7 @@ O ponto de acesso do cliente é o nome da rede que os aplicativos usam para se c
 1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
 ------------------------->
 
-#### <a name="a-name--dependencygroupamake-the-sql-server-availability-group-resource-dependent-on-the-client-access-point"></a><a name = "dependencyGroup"></a>Torne o recurso do grupo de disponibilidade do SQL Server dependente do ponto de acesso para cliente
+#### <a name = "dependencyGroup"></a>Torne o recurso do grupo de disponibilidade do SQL Server dependente do ponto de acesso para cliente
 
 1. No Gerenciador de Cluster de Failover, clique em **Funções** e em seu Grupo de Disponibilidade.
 
@@ -70,7 +70,7 @@ O ponto de acesso do cliente é o nome da rede que os aplicativos usam para se c
 
 1. Clique em **OK**.
 
-#### <a name="a-namelistnameamake-the-client-access-point-resource-dependent-on-the-ip-address"></a><a name="listname"></a>Torne o recurso de ponto de acesso para cliente dependente do endereço IP
+#### <a name="listname"></a>Torne o recurso de ponto de acesso para cliente dependente do endereço IP
 
 1. No Gerenciador de Cluster de Failover, clique em **Funções** e em seu Grupo de Disponibilidade. 
 
@@ -84,7 +84,7 @@ O ponto de acesso do cliente é o nome da rede que os aplicativos usam para se c
 
 1. Clique com o botão direito do mouse no nome do ouvinte e clique em **Trazer online**. 
 
-#### <a name="a-namesetparamaset-the-cluster-parameters-in-powershell"></a><a name="setparam"></a>Defina os parâmetros de cluster no PowerShell
+#### <a name="setparam"></a>Defina os parâmetros de cluster no PowerShell
 
 1. Copie o seguinte script do PowerShell para um de seus Servidores SQL. Atualize as variáveis para o seu ambiente.     
    ```PowerShell
@@ -102,10 +102,5 @@ O ponto de acesso do cliente é o nome da rede que os aplicativos usam para se c
 
 > [!NOTE]
 > Se seus servidores SQL estiverem em regiões separadas, você precisará executar o script do PowerShell duas vezes. Na primeira vez, use o `$ILBIP` e `$ProbePort` da primeira região. Na primeira vez, use o `$ILBIP` e `$ProbePort` da primeira região. O nome de rede do cluster e o nome de recurso de IP de cluster são os mesmos. 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

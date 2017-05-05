@@ -1,6 +1,6 @@
 Existem dois tipos de contas de armazenamento:
 
-### <a name="generalpurpose-storage-accounts"></a>Contas de armazenamento de uso geral
+### <a name="general-purpose-storage-accounts"></a>Contas de armazenamento de uso geral
 Uma conta do armazenamento de uso geral fornece a você acesso aos serviços do Armazenamento do Azure, como Tabelas, Filas, Arquivos, Blobs e discos de máquina virtual do Azure, em uma única conta. Esse tipo de conta de armazenamento tem dois níveis de desempenho:
 
 * Um nível de desempenho de armazenamento standard, que permite o armazenamento de Tabelas, Filas, Arquivos, discos de máquina virtual do Azure e Blobs.
@@ -26,9 +26,4 @@ Para saber mais sobre contas de Armazenamento de Blobs, confira [Armazenamento d
 Antes de criar uma conta de armazenamento, você deve ter uma assinatura do Azure, que é um plano que dá acesso a uma variedade de serviços do Azure. Você pode começar com o Azure com uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/). Quando decidir adquirir um plano de assinatura, você poderá escolher entre uma variedade de [opções de compra](https://azure.microsoft.com/pricing/purchase-options/). Se for um [assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), você obterá créditos mensais gratuitos que podem se usados com os serviços do Azure, incluindo o Armazenamento do Azure. Consulte [Preços do Armazenamento do Azure ](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre preço por volume.
 
 Para saber como criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../articles/storage/storage-create-storage-account.md#create-a-storage-account) para obter mais detalhes. Você pode criar até 100 contas de armazenamento nomeadas exclusivamente com uma única assinatura. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md) para obter detalhes sobre os limites da conta de armazenamento.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

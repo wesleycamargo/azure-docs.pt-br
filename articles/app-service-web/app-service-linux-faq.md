@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 148bc76b7f3e09745cbecfa41710a5e949704948
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -72,6 +72,14 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **R:** Montamos um compartilhamento SMB no diretório \home\. Isso substitui todo o conteúdo existente nele.
 
+**P:** Qual é o formato da URL do servidor do Registro privado?
+
+**R:** Você precisa digitar a URL do Registro completa, incluindo "http://" ou "https://".
+
+**P:** Qual é o formato do nome da imagem na opção de Registro privado?
+
+**R:** Você precisa adicionar o nome de imagem completo, incluindo a URL do Registro privado (por exemplo, myacr.azurecr.io/dotnet:latest)
+
 **P:** que quero expor mais de uma porta em minha imagem de contêiner personalizados. Isso é possível?
 
 **R:** No momento, não há suporte para esse recurso.
@@ -87,6 +95,10 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 **P:** Meu contêiner personalizado escuta uma porta diferente da porta 80. Como configurar meu aplicativo para rotear as solicitações para essa porta?
 
 **R:** É possível especificar uma configuração de aplicativo chamada **PORT** e fornecer a ela o valor do número da porta esperada.
+
+**P:** É necessário implementar o HTTPS no meu contêiner personalizado?
+
+**R:** Não, a plataforma manipula a terminação HTTPS nos front-ends compartilhados.
 
 ## <a name="pricing-and-sla"></a>Preço e SLA
 

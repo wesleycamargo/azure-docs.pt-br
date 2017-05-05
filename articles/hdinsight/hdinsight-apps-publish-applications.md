@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 35a6c06bc4850f3fcfc6221d62998465f3b38251
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 1a7dabcbfdc1977e747fd30cfc0383d6c5f7f5a0
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -58,14 +60,10 @@ Há duas etapas envolvidas na publicação de aplicativos no Azure Marketplace. 
 | camadas |As camadas de cluster com as quais o aplicativo é compatível. |Standard, Premium (ou ambos) |
 | versões |Os tipos de cluster HDInsight com os quais o aplicativo é compatível. |3.4 |
 
-## <a name="package-application"></a>Aplicativo de pacote
-Crie um arquivo zip que contém todos os arquivos necessários para instalar os aplicativos do HDInsight. Você precisará do arquivo zip no [aplicativo Publicar](#publish-application).
-
-* [createUiDefinition.json](#define-application).
-* mainTemplate.json. Confira um exemplo em [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
-  
+## <a name="application-install-script"></a>Script de instalação do aplicativo
+Sempre que um aplicativo é instalado em um cluster (já existente ou um novo), um nó de borda é criado e o script de instalação do aplicativo é executado nele.
   > [!IMPORTANT]
-  > O nome dos nomes de script de instalação de aplicativo deve ser exclusivo para determinado cluster com o formato a seguir. Além disso, quaisquer ações de script de instalação ou de desinstalação devem ser idempotentes, o que significa que os scripts podem ser chamados repetidamente, produzindo o mesmo resultado.
+  > O nome dos nomes de script de instalação de aplicativo deve ser exclusivo para determinado cluster com o formato a seguir.
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -77,12 +75,22 @@ Crie um arquivo zip que contém todos os arquivos necessários para instalar os 
   > 
   > O exemplo acima acaba se tornando: hue-install-v0-4wkahss55hlas na lista de ação de script persistente. Para uma carga JSON de exemplo, consulte [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
-  > 
+O script de instalação deve ter as seguintes características:
+1. Certifique-se de que o script seja idempotente. Várias chamadas para o script devem produzir o mesmo resultado.
+2. O script deve ter um controle de versão apropriado. Use um local diferente para o script quando você estiver atualizando ou testando alterações, para que os clientes que estão tentando instalar o aplicativo não sejam afetados. 
+3. Adicione um registro em log adequado para os scripts em cada ponto. Normalmente, os logs de script são a única maneira de depurar problemas de instalação do aplicativo.
+4. Verifique se as chamadas para serviços ou recursos externos têm repetições adequadas, para que a instalação não seja afetada por problemas temporários de rede.
+5. Se o script estiver iniciando serviços em nós, certifique-se de que os serviços sejam monitorados e configurados para iniciar automaticamente no caso de reinicializações de nó.
+
+## <a name="package-application"></a>Aplicativo de pacote
+Crie um arquivo zip que contém todos os arquivos necessários para instalar os aplicativos do HDInsight. Você precisará do arquivo zip no [aplicativo Publicar](#publish-application).
+
+* [createUiDefinition.json](#define-application).
+* mainTemplate.json. Confira um exemplo em [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
 * Todos os scripts obrigatórios.
 
 > [!NOTE]
 > Os arquivos do aplicativo (incluindo arquivos de aplicativo Web, se houver) podem estar localizados em qualquer ponto de extremidade publicamente acessível.
-> 
 > 
 
 ## <a name="publish-application"></a>aplicativo Publicar
@@ -104,10 +112,5 @@ Siga as etapas a seguir para publicar um aplicativo do HDInsight:
 * [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
 * [Personalizar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do Resource Manager para criar clusters HDInsight.
 * [Usar nós de borda vazios no HDInsight](hdinsight-apps-use-edge-node.md): saiba como usar um nó de borda vazio para acessar o cluster HDInsight, testar e hospedar aplicativos HDInsight.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 272b5eade0a80b1f46af4e4df1c7801d86fee175
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 9fb1d12f5895e27929b2698edbf8c207aa2ee377
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -34,7 +34,7 @@ Em ambos os casos, você precisa garantir que o banco de dados de origem seja co
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: migração com tempo de inatividade durante a migração
 
- Use esse método se você puder ter algum tempo de inatividade ou se estiver executando um teste de migração de um banco de dados de produção para migração posterior.
+ Use esse método se você puder ter algum tempo de inatividade ou se estiver executando um teste de migração de um banco de dados de produção para migração posterior. Para ver um tutorial, consulte [Migrar um Banco de Dados do SQL Server](sql-database-migrate-your-sql-server-database.md).
 
 A lista a seguir contém o fluxo de trabalho geral para uma migração de banco de dados SQL Server usando esse método.
 
@@ -45,7 +45,7 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 3. Faça uma cópia transacionalmente consistente do banco de dados de origem que está sendo migrado e verifique se não há mais alterações sendo feitas no banco de dados de origem (ou você pode aplicar essas alterações manualmente após a migração). Há vários métodos para fechar um banco de dados para novas sessões, desde desabilitar a conectividade do cliente até criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implante os scripts Transact-SQL para aplicar as correções à cópia do banco de dados.
 5. [Exporte](sql-database-export.md) a cópia do banco de dados para um arquivo .BACPAC em uma unidade local.
-6. [Importe](sql-database-import-sqlpackage.md) o arquivo .BACPAC como um novo banco de dados Azure SQL usando qualquer uma das várias ferramentas de importação de BACPAC, sendo que SQLPackage.exe é a ferramenta recomendada para obter o melhor desempenho.
+6. [Importe](sql-database-import.md) o arquivo .BACPAC como um novo banco de dados Azure SQL usando qualquer uma das várias ferramentas de importação de BACPAC, sendo que SQLPackage.exe é a ferramenta recomendada para obter o melhor desempenho.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Otimizando o desempenho de transferência de dados durante a migração 
 

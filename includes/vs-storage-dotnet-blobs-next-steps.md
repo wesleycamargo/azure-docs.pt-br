@@ -8,8 +8,3 @@ Agora que você aprendeu os conceitos básicos do Armazenamento de Blobs do Azur
   * Para trabalhar com Filas de Armazenamento do Azure, veja a [Introdução ao Armazenamento de Filas do Azure usando o .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
   * Para armazenar dados relacionais, consulte [Conectar-se ao Banco de Dados SQL usando .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

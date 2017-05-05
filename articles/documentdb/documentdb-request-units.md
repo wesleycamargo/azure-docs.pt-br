@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/17/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b098e3087cb08528c5fbdc2d0d768ce40e7ffe0d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6185c703e9148c71d9995b92540b8ea72fba5cc0
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -132,37 +132,37 @@ Por exemplo, veja uma tabela que mostra quantas unidades de solicitação provis
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1) + (100* 5) = 1.000 RU/s</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1.000 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *5) + (100* 5) = 3.000 RU/s</p></td>
+            <td valign="top"><p>(500 * 1) + (500 * 5) = 3.000 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1,3) + (100* 7) = 1.350 RU/s</p></td>
+            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1.350 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *1,3) + (500* 7) = 4.150 RU/s</p></td>
+            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4.150 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *10) + (100* 48) = 9.800 RU/s</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9.800 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *10) + (500* 48) = 29.000 RU/s</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29.000 RU/s</p></td>
         </tr>
     </tbody>
 </table>
@@ -249,7 +249,7 @@ A maneira mais simples de obter uma boa estimativa dos encargos da unidade de so
 ![Métricas do portal da API para MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Um exemplo de estimativa de unidade de solicitação
-Considere o seguinte documento de aproximadamente&1; KB:
+Considere o seguinte documento de aproximadamente 1 KB:
 
 ```json
 {
@@ -310,18 +310,18 @@ A tabela a seguir mostra os encargos de unidade de solicitação aproximados par
 
 | Operação | Encargo de Unidade de Solicitação |
 | --- | --- |
-| Criar documento |Cerca de&15; RUs |
-| Ler documento |Cerca de&1; RU |
-| Consultar documento por id |Cerca de&2;,5 RUs |
+| Criar documento |Cerca de 15 RUs |
+| Ler documento |Cerca de 1 RU |
+| Consultar documento por id |Cerca de 2,5 RUs |
 
 Adicionalmente, a tabela mostra os encargos de unidade de solicitação aproximados para consultas típicas usadas no aplicativo:
 
 | Consultar | Encargo de Unidade de Solicitação | # Número de Documentos Retornados |
 | --- | --- | --- |
-| Selecionar alimentos por id |Cerca de&2;,5 RUs |1 |
-| Selecionar alimentos por fabricante |Cerca de&7; RUs |7 |
-| Selecionar por grupo de alimentos e solicitar por peso |Cerca de&70; RUs |100 |
-| Selecionar os 10 alimentos principais em um grupo de alimentos |Cerca de&10; RUs |10 |
+| Selecionar alimentos por id |Cerca de 2,5 RUs |1 |
+| Selecionar alimentos por fabricante |Cerca de 7 RUs |7 |
+| Selecionar por grupo de alimentos e solicitar por peso |Cerca de 70 RUs |100 |
+| Selecionar os 10 alimentos principais em um grupo de alimentos |Cerca de 10 RUs |10 |
 
 > [!NOTE]
 > Os encargos de RU variam com base no número de documentos retornados.
@@ -336,7 +336,7 @@ Com essas informações, podemos estimar os requisitos de RU para o aplicativo, 
 | Ler documento |100 |100 |
 | Selecionar alimentos por fabricante |25 |175 |
 | Selecionar por grupo de alimentos |10 |700 |
-| Selecionar os 10 principais |15 |Total de&150; |
+| Selecionar os 10 principais |15 |Total de 150 |
 
 Nesse caso, esperamos um requisito de taxa de transferência médio de 1.275 RUs/s.  Arredondando para a centena mais próxima, vamos provisionar 1.300 RUs/s para a coleção desse aplicativo.
 

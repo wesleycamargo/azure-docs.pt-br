@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
 translationtype: Human Translation
-ms.sourcegitcommit: 54cf67bf630a9de30d4ccafdb09a3f8986c04145
-ms.openlocfilehash: 4415af41cfaf7230f398016e37b8a8cde453fa54
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 06ac75a40ed1dc97046836388bb7938dabd2b9ac
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -74,6 +74,14 @@ Se você estiver replicando as máquinas virtuais VMware, observe o seguinte:
 10. Em **Propriedades** > **Configurar propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de Mobilidade no computador. Por padrão, todos os discos são replicados. Clique em **Todos os Discos** e desmarque os discos que você não deseja replicar. Em seguida, clique em **OK**. Você pode definir propriedades adicionais posteriormente.
 
     ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/enable-replication6.png)
+
+
+> [!NOTE]
+> Por padrão, todos os discos em um computador são replicados. É possível [excluir discos da replicação](site-recovery-exclude-disk.md). Por exemplo, talvez você não queira replicar discos com dados temporários ou dados atualizados cada vez que um computador ou um aplicativo é reiniciado (por exemplo, pagefile.sys ou SQL Server tempdb).
+>
+
+
+
 11. Em **Configurações de replicação** > **Definir configurações de replicação**, verifique se a política de replicação correta está selecionada. Você pode modificar as configurações da política de replicação em **Configurações** > **Políticas de replicação** > nome da política > **Editar Configurações**. Alterações aplicadas a uma política serão aplicadas a computadores novos e de replicação.
 12. Habilite **Consistência de várias VMs** se você quiser reunir computadores em um grupo de replicação e especifique um nome para o grupo. Em seguida, clique em **OK**. Observe que:
 
@@ -94,7 +102,26 @@ Se você estiver replicando as máquinas virtuais VMware, observe o seguinte:
 1. Clique em **Configurações** > **Itens replicados** > e selecione o computador. A folha **Conceitos básicos** mostra as informações sobre as configurações e o status dos computadores.
 2. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
 3. Em **Computação e Rede** > **Propriedades de computação**, você pode especificar o nome da VM do Azure e o tamanho de destino. Modifique o nome para que ele fique em conformidade com os requisitos do Azure, se for necessário.
-   Você também pode exibir e adicionar as informações sobre a rede de destino, a sub-rede e o endereço IP que será atribuído à VM do Azure. Observe o seguinte:
+![Habilitar a replicação](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
+
+*Grupo de recursos*
+   
+  * É possível selecionar um [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) do qual o computador fará parte do pós-failover. Você pode alterar essa configuração a qualquer momento antes do failover. 
+  
+> [!NOTE]
+> Após o failover, se você migrar o computador para outro grupo de recursos, as configurações de proteção de um computador serão interrompidas.
+ 
+*Conjuntos de Disponibilidade*
+
+É possível selecionar um [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se o computador precisar fazer parte de um pós-failover. Durante a seleção do conjunto de disponibilidade, tenha em mente que:
+
+* Apenas os conjuntos de disponibilidade que pertencem ao grupo de recursos especificado serão listados  
+* Computadores com redes virtuais diferentes não podem fazer parte do mesmo conjunto de disponibilidade 
+* Somente as máquinas virtuais do mesmo tamanho podem fazer parte do mesmo conjunto de disponibilidade 
+
+*Propriedades de rede*
+
+Você também pode exibir e adicionar as informações sobre a rede de destino, a sub-rede e o endereço IP que será atribuído à VM do Azure. Observe o seguinte:
 
    * Você pode definir o endereço IP de destino. Se você não fornecer um endereço, o computador com failover usará o DHCP. Se você definir um endereço que não esteja disponível no failover, o failover não funcionará. O mesmo endereço IP de destino poderá ser usado para failover de teste caso o endereço esteja disponível na rede de failover de teste.
    * O número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino, como a seguir:
@@ -116,5 +143,7 @@ Se você estiver replicando as máquinas virtuais VMware, observe o seguinte:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Quando a proteção é concluída, você pode tentar o failover de teste para verificar se seu aplicativo é mostrado no Azure ou não.
+Quando a proteção for concluída, você poderá tentar o [failover](site-recovery-failover.md) para verificar se o aplicativo é mostrado ou não no Azure.
+
+Caso você deseje desabilitar a proteção, confira como [limpar as configurações de registro e de proteção](site-recovery-manage-registration-and-protection.md)
 

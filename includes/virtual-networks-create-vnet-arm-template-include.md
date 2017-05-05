@@ -56,8 +56,3 @@ No github, você pode baixar o modelo ARM existente para criar uma rede virtual 
         }
 11. Salve o arquivo.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

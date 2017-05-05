@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 349252e6629c0eda4d603399345206903d530578
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: bf11a8580500f78c4a96a02953f221501eeffe6c
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -80,13 +81,15 @@ Há dois métodos de instalação do Kit de Ferramentas do Azure para IntelliJ, 
 Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
 
 * [Kit de ferramentas do Azure para Eclipse]
-  * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
-  * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
   * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
+  * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
+  * [Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]
+  * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
 * [Kit de Ferramentas do Azure para IntelliJ]
-  * *Instalação do Kit de Ferramentas do Azure para IntelliJ (Este artigo)*
-  * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
   * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
+  * *Instalação do Kit de Ferramentas do Azure para IntelliJ (Este artigo)*
+  * [Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]
+  * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
 
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
@@ -98,6 +101,8 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Novidades no Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
@@ -114,9 +119,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [05]: ./media/azure-toolkit-for-intellij-installation/05-restart-intellij.png
 [06]: ./media/azure-toolkit-for-intellij-installation/06-intellij-settings-dialog.png
 [07]: ./media/azure-toolkit-for-intellij-installation/07-restart-intellij.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

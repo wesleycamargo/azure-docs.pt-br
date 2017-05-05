@@ -8,17 +8,18 @@
 ## [Assistir a uma introdução](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Introdução
-## [Replicar VMs do VMware no Azure](site-recovery-vmware-to-azure.md)
-## [Replicar VMs do VMware no Azure em uma implantação multilocatária (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Replicar VMs do VMware para o Azure](site-recovery-vmware-to-azure.md)
+## [Replicar servidores físicos para o Azure](site-recovery-physical-servers-to-azure.md) 
 ## [Replicar VMs Hyper-V no Azure (com VMM)](site-recovery-vmm-to-azure.md)
 ## [Replicar VMs do Hyper-V para o Azure](site-recovery-hyper-v-site-to-azure.md)
-## [Replicar VMs VMware e servidores físicos para um site secundário](site-recovery-vmware-to-vmware.md)
 ## [Replicar VMs do Hyper-V para um site secundário (com VMM)](site-recovery-vmm-to-vmm.md)
+## [Replicar VMs VMware e servidores físicos para um site secundário](site-recovery-vmware-to-vmware.md)
+## [Replicar VMs do VMware no Azure em uma implantação multilocatária (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
-# Como:
+# Como
 ## Plano
 ### [Pré-requisitos de implantação](site-recovery-prereq.md)
-### [Considerações sobre infraestrutura de rede](site-recovery-network-design.md)
+### [Planejar infraestrutura de rede](site-recovery-network-design.md)
 ### [Planejar a capacidade e dimensionamento de replicação do VMware no Azure](site-recovery-plan-capacity-vmware.md)
 ### [Planejador de Implantação para a replicação do VMware no Azure](site-recovery-deployment-planner.md)
 ### [Planejador de Capacidade para replicação do Hyper-V](site-recovery-capacity-planner.md)
@@ -66,8 +67,8 @@
 ## [Monitorar e solucionar problemas](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
-## [Implantação clássica do PowerShell](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [PowerShell](/powershell/module/azurerm.siterecovery)
+## [Implantação clássica do PowerShell](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Relacionados

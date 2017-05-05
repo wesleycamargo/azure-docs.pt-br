@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao armazenamento de tabelas e aos serviços conectados do Visual Studio (ASP.NET 5) | Microsoft Docs"
-description: "Como começar a usar o armazenamento de Tabela do Azure em um projeto do ASP.NET 5 no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio"
+title: "Introdução ao armazenamento de tabelas e aos serviços conectados do Visual Studio (ASP.NET Core) | Microsoft Docs"
+description: "Como começar a usar o armazenamento de Tabela do Azure em um projeto do ASP.NET Core no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5067bd03961387593c37a8d3b7eeae4e1e586539
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b64d4f7e55977c7ce144987f7600e5ddcb25596c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 5067bd03961387593c37a8d3b7eeae4e1e586539
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Visão geral
-Este artigo descreve como começar a usar o armazenamento de Tabelas do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET 5 usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio.
+Este artigo descreve como começar a usar o Armazenamento de Tabelas do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET Core, usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio.
 
 O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um armazenamento de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
 
@@ -34,12 +35,12 @@ Para obter mais informações sobre como usar o Armazenamento de Tabelas do Azur
 
 Para começar, primeiramente, você precisa criar uma tabela em sua conta de armazenamento. Mostraremos como criar uma tabela do Azure em código. Também mostraremos como realizar operações básicas de tabela e entidade, como adicionar, modificar, ler e ler entidades de tabela. Os exemplos são escritos em C\# e usam a biblioteca do cliente de armazenamento do Azure para .NET.
 
-**OBSERVAÇÃO** - algumas APIs que executam chamadas para o armazenamento do Azure no ASP.NET 5 são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para saber mais. O código a seguir pressupõe que os métodos de programação Assíncrona estão sendo usados.
+**OBSERVAÇÃO** – algumas APIs que executam chamadas para o armazenamento do Azure no ASP.NET Core são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para saber mais. O código a seguir pressupõe que os métodos de programação Assíncrona estão sendo usados.
 
 ## <a name="access-tables-in-code"></a>Acessar tabelas em código
-Para acessar tabelas em projetos do ASP.NET 5, você precisa incluir os itens a seguir para quaisquer arquivos de origem de C# que acessam o armazenamento de tabela do Azure.
+Para acessar tabelas em projetos do ASP.NET Core, você precisa incluir os itens a seguir para quaisquer arquivos de origem de C# que acessam o armazenamento de tabelas do Azure.
 
-1. Verifique se as declarações de namespace na parte superior do arquivo C# incluem estas instruções de **uso** .
+1. Verifique se as declarações de namespace na parte superior do arquivo de C# incluem estas instruções de **uso** .
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
@@ -142,7 +143,7 @@ Para consultar uma tabela de todas as entidades em uma partição, use um objeto
     } while (token != null);
 
 ## <a name="get-a-single-entity"></a>Obter uma única entidade
-Você pode escrever uma consulta para obter uma entidade única e específica. O código a seguir usa um objeto **TableOperation** para especificar o cliente chamado 'Ben Smith'. Este método retorna uma única entidade, em vez de uma coleção e o valor retornado no **TableResult.Result** é um objeto **CustomerEntity**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade de serviço **Table** .
+Você pode escrever uma consulta para obter uma entidade única e específica. O código a seguir usa um objeto **TableOperation** para especificar o cliente chamado 'Ben Smith'. Esse método retorna uma única entidade, em vez de uma coleção, e o valor retornado no **TableResult.Result** é um objeto **CustomerEntity**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade de serviço **Table** .
 
     // Create a retrieve operation that takes a customer entity.
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
@@ -184,10 +185,5 @@ Você poderá excluir uma entidade facilmente depois de encontrá-la. O código 
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

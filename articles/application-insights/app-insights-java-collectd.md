@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5a39d4ec9bbf1c7672267c7e89c957ebc49f1f3a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -125,6 +125,14 @@ Diretivas separadas por uma nova linha.
 * Abra um terminal e inicie collectd no modo detalhado para ver todos os problemas que ele está reportando:
   * `sudo collectd -f`
 
+## <a name="known-issue"></a>Problema conhecido
+
+O plug-in de Gravação do Application Insights é incompatível com determinados plugins de Leitura. Alguns plugins às vezes enviam "NaN" onde o plug-in do Application Insights espera um número de ponto flutuante.
+
+Sintoma: o log coletado mostra erros que incluem "AI: ... SyntaxError: token N" inexperado.
+
+Solução alternativa: exclua dados coletados pelo problema de plugins de Gravação. 
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -135,7 +143,6 @@ Diretivas separadas por uma nova linha.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
 
 
 

@@ -46,7 +46,7 @@
 ### [Solução dos erros no Gateway de Aplicativo](application-gateway-troubleshooting-502.md)
 ### [Log de diagnóstico e métrica](application-gateway-diagnostics.md)
 # Referência
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [CLI 2.0 do Azure](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)

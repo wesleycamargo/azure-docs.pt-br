@@ -99,7 +99,7 @@ Se for aceitável usar um VIP diferente, exclua as VMs originais paradas (desalo
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Cenário de alocação: implantações de preparo/produção (apenas plataforma como serviço)
 **Erro**
 
-New_General* ou New_VMSizeNotSupported*
+New_General *ou New_VMSizeNotSupported*
 
 **Causa de fixação de cluster**
 
@@ -112,7 +112,7 @@ Exclua a primeira implantação e o serviço de nuvem original e reimplante o se
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Cenário de alocação: grupo de afinidades (proximidade de serviço/VM)
 **Erro**
 
-New_General* ou New_VMSizeNotSupported*
+New_General *ou New_VMSizeNotSupported*
 
 **Causa de fixação de cluster**
 
@@ -125,7 +125,7 @@ Se um grupo de afinidades não for necessário, não use o grupo de afinidades o
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Cenário de alocação: rede virtual com base em grupo de afinidades
 **Erro**
 
-New_General* ou New_VMSizeNotSupported*
+New_General *ou New_VMSizeNotSupported*
 
 **Causa de fixação de cluster**
 
@@ -151,7 +151,7 @@ Em geral, se o erro não indicar "não há suporte para o tamanho de VM solicita
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Cenário de alocação: redimensionar uma VM ou adicionar VMs a um conjunto de disponibilidade existente
 **Erro**
 
-Upgrade_VMSizeNotSupported* ou GeneralError*
+Upgrade_VMSizeNotSupported *ou GeneralError*
 
 **Causa de fixação de cluster**
 
@@ -205,9 +205,4 @@ Selecione um novo tamanho de VM para alocar. Se isso não funcionar, tente novam
 **GeneralError***
 
 "O servidor encontrou um erro interno. Repita a solicitação." Ou "Falha na produção de uma alocação para o serviço."
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

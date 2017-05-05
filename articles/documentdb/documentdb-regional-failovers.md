@@ -16,9 +16,9 @@ ms.date: 02/09/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e23c5849cb89d0d72052e3ebaace14a55f9c6f71
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -28,7 +28,7 @@ O Azure DocumentDB simplifica a distribuição global de dados oferecendo [conta
 O Azure DocumentDB dá suporte tanto a failovers explícitos quanto àqueles controlados por política, que permitem controlar o comportamento do sistema de ponta a ponta em caso de falhas. Neste artigo, veremos:
 
 * Como funcionam os failovers manuais no DocumentDB?
-* Como funcionam os failovers automáticos no DocumentDB?
+* Como funcionam os failovers automáticos no DocumentDB, e o que acontece quando um data center fica indisponível?
 * Como você pode usar failovers manuais em arquiteturas de aplicativo?
 
 Saiba mais sobre failovers regionais nesse vídeo do Azure Friday com Scott Hanselman e o gerente de engenharia Karthik Raman.
@@ -72,7 +72,7 @@ O diagrama de arquitetura a seguir mostra uma implantação de aplicativo de vá
 Agora, vejamos como o serviço DocumentDB lida com falhas regionais por meio de failovers automáticos. 
 
 ## <a id="AutomaticFailovers"></a>Failovers Automáticos
-No caso de uma interrupção regional do Azure, o DocumentDB aciona automaticamente failovers de todas as contas de DocumentDB com uma presença na região afetada. 
+No caso raro de uma interrupção regional do Azure ou falha do data center, o DocumentDB aciona automaticamente failovers de todas as contas de DocumentDB com uma presença na região afetada. 
 
 **O que acontece se uma região de leitura sofre uma interrupção?**
 
@@ -112,7 +112,7 @@ Estes são alguns dos cenários comuns em que o failover manual pode ser útil:
 
 **Atualização de serviço**: determinada implantação de aplicativos distribuídos globalmente pode envolver o redirecionamento de tráfego para uma região diferente por meio do Gerenciador de Tráfego durante sua atualização de serviço planejada. Essa implantação de aplicativo agora pode usar o failover manual para manter o status de gravação para a região em que haverá tráfego ativo durante a janela de tempo da atualização de serviço.
 
-**Simulações de BCDR (continuidade dos negócios e recuperação de desastre) detalhada**: a maioria dos aplicativos empresariais incluem testes de continuidade de negócios como parte do seu processo de desenvolvimento e lançamento. Testes de BCDR geralmente são uma etapa importante no que se refere a certificações de conformidade e garantia da disponibilidade do serviço no caso de interrupções regionais. Você pode testar a preparação para BCDR de seus aplicativos que usam o DocumentDB para armazenamento disparando um failover manual de sua conta do DocumentDB e/ou adicionando e removendo uma região dinamicamente.
+**Simulações de BCDR (continuidade dos negócios e recuperação de desastre) e HADR (Alta disponibilidade e recuperação de desastres)**: a maioria dos aplicativos empresariais incluem testes de continuidade de negócios como parte do seu processo de desenvolvimento e lançamento. Testes de BCDR e HADR geralmente são uma etapa importante no que se refere a certificações de conformidade e garantia da disponibilidade do serviço no caso de interrupções regionais. Você pode testar a preparação para BCDR de seus aplicativos que usam o DocumentDB para armazenamento disparando um failover manual de sua conta do DocumentDB e/ou adicionando e removendo uma região dinamicamente.
 
 Neste artigo, examinamos como failovers manuais e automáticos funcionam no Azure DocumentDB e como você pode configurar suas contas e aplicativos do DocumentDB para que estejam disponíveis globalmente. Usando o suporte de replicação global do Azure DocumentDB, você pode melhorar a latência de ponta a ponta e garantir que eles estejam altamente disponíveis, até mesmo no caso de falhas regionais. 
 

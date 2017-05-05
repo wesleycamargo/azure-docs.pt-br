@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
-ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 7d666b81f6c836e161d3c97512767638c088d3c8
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -52,7 +53,7 @@ Se a interrupção foi temporária, é possível que a região primária seja re
 
 * Cancele todas as solicitações de restauração geográfica pendentes.   
 * Faça o failover dos bancos de dados de gerenciamento para a região primária (5). Observação: após a recuperação da região, os antigos primários se tornarão secundários automaticamente. Agora, eles alternarão funções novamente. 
-* Mude a cadeia de conexão do aplicativo para apontar novamente para a região primária. Agora, todas as novas contas e bancos de dados de locatário serão criados na região primária. Alguns clientes existentes verão seus dados como temporariamente indisponíveis.   
+* Altere a cadeia de conexão do aplicativo para apontar de volta para a região primária. Agora, todas as novas contas e bancos de dados de locatário serão criados na região primária. Alguns clientes existentes verão seus dados como temporariamente indisponíveis.   
 * Defina todos os bancos de dados no pool da recuperação de desastres como somente leitura a fim de garantir que eles não poderão ser modificados na região da recuperação de desastres (6). 
 * Para cada banco de dados no pool da recuperação de desastres que foi alterado desde a recuperação, renomeie ou exclua os bancos de dados correspondentes no pool primário (7). 
 * Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (8). 
@@ -172,10 +173,5 @@ Este artigo aborda as estratégias de recuperação de desastres para a camada d
 * Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
 * Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)  
 * Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

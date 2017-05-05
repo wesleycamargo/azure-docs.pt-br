@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 229dd21f3ab1ae716cd49611e720450ae5939eb8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -123,9 +123,16 @@ Veja abaixo o que é possível fazer para reduzir o volume de dados:
 * Desative os módulos de coleção que você não precisa [editando o ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
 * Divida a telemetria para separar as chaves de instrumentação. 
 * Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou então, você pode usar um [pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs).
-* Por fim, você pode reduzir o limite de volume diário que limita os dados coletados, mas resultará em uma perda de dados pelo restante do dia. Para alterá-lo, abra **Recursos + preços**, **Gerenciamento de dados**.
 
-    ![Ajustar o limite de volume de telemetria diária](./media/app-insights-pricing/daily-cap.png) 
+## <a name="managing-the-maximum-daily-data-volume"></a>Gerenciar o volume diário máximo de dados
+
+Você pode usar o limite do volume diário para limitar os dados coletados, mas se o limite for atingido, isso resultará em perda de toda a telemetria enviada do seu aplicativo durante o restante do dia. **Não é aconselhável** que o aplicativo atinja o limite diário, pois você não pode controlar a integridade e o desempenho do seu aplicativo após esse limite ser atingido. 
+
+Em vez disso, use [Amostragem](app-insights-sampling.md) para ajustar o volume de dados para o nível que você desejar e use o limite diário apenas como "último recurso" caso o aplicativo comece a enviar volumes de telemetria muito mais altos inesperadamente. 
+
+Para alterar o limite diário, abra **Recursos + preços**, **Gerenciamento de dados**.
+
+![Ajustar o limite de volume de telemetria diária](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>amostragem
 [Sampling](app-insights-sampling.md) é um método de redução da taxa na qual a telemetria é enviada para seu aplicativo, ao mesmo tempo que ainda retém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico, retendo também as contagens de eventos corretas. 

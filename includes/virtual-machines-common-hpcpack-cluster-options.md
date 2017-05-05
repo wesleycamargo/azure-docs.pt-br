@@ -2,8 +2,3 @@ Crie e gerencie um cluster HPC (computação de alto desempenho) baseado em nuve
 
 Para obter mais opções para executar cargas de trabalho de HPC em lote e paralelas em grande escala no Azure, consulte [Recursos técnicos para computação em lote e de alto desempenho](../articles/batch/big-compute-resources.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

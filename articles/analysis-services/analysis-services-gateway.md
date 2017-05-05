@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 90584f60864589744888817ea71d0eb0d4d170ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -49,7 +49,7 @@ Um gateway é instalado em um computador em sua rede. É necessário instalar um
 * Em alguns casos, modelos de tabela que se conectam a fontes de dados usando provedores nativos, como o SQL Server Native Client (SQLNCLI11), podem retornar um erro. Para saber mais, confira [Conexões com fonte de dados](analysis-services-datasource.md).
 
 ## <a name="supported-on-premises-data-sources"></a>Fontes de dados locais com suporte
-Para a versão de visualização, o gateway oferece suporte a conexões entre o servidor do Azure Analysis Services e fontes de dados locais:
+O gateway oferece suporte a conexões entre o servidor do Analysis Services do Azure e fontes de dados do local a seguir:
 
 * SQL Server
 * SQL Data Warehouse
@@ -129,6 +129,25 @@ Nos bastidores, o gateway de dados local usado para conectar o Azure Analysis Se
 Se você estiver enfrentando problemas para instalar e configurar um gateway, confira [Solução de problemas do Gateway do Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). Se você achar que está enfrentando um problema com o seu firewall, consulte as seções de proxy ou firewall.
 
 Se você achar que você está encontrando problemas de proxy, com o gateway, consulte [Definir as configurações de proxy para os Gateways do Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+
+### <a name="telemetry"></a>Telemetria
+Telemetria pode ser usada para monitorar e solucionar problemas. 
+
+**Para ativar a telemetria**
+
+1.    Verifique o diretório do cliente de gateway de dados local no computador. Normalmente, é %systemdrive%\Program Files\On-premises data gateway. Ou, você pode abrir um console de Serviços e verificar o Caminho para o executável: uma propriedade do serviço do gateway de dados local.
+2.    No arquivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config do diretório do cliente. Altere a configuração SendTelemetry para true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.    Salve suas alterações e reinicie o serviço do Windows: serviço do gateway de dados local.
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Gerenciar o Analysis Services](analysis-services-manage.md)

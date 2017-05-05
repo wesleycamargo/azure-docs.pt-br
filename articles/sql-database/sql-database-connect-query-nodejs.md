@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: lbosq
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 7365945818c56279bd5945fee8d0048ef425bfc7
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ Este início rápido usa como ponto de partida os recursos criados em um destes 
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-nodejs"></a>Instalar o Node. js 
+
+As etapas nesta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o Node.js e começou recentemente a trabalhar com o Banco de Dados SQL do Azure. Se você for novo no desenvolvimento com o Node.js, acesse [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) e selecione **Node.js** e, em seguida, selecione o seu sistema operacional.
 
 ### <a name="mac-os"></a>**Mac OS**
 Insira os seguintes comandos para instalar **brew**, um gerenciador de pacotes fácil de usar para Mac OS X e **Node. js**.
@@ -63,7 +65,7 @@ npm install tedious
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
-Obtenha a cadeia de conexão no Portal do Azure. Use a cadeia de conexão para se conectar ao Banco de Dados SQL do Azure.
+Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
@@ -75,7 +77,7 @@ Obtenha a cadeia de conexão no Portal do Azure. Use a cadeia de conexão para s
     
 ## <a name="select-data"></a>Selecionar dados
 
-Use o seguinte código para consultar o banco de dados SQL do Azure. Primeiro importe as classes de Conexão e Solicitação de driver da biblioteca de drivers do tedious. Depois, crie o objeto de configuração e substitua as variáveis **nome de usuário**, **senha**, **servidor** e **banco de dados** pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. Criar um objeto `Connection` usando o objeto `config` especificado. Depois disso, defina o retorno de chamada para o evento `connect` do objeto `connection` para executar a função `queryDatabase()`.
+Use o código a seguir para consultar o banco de dados SQL do Azure para os 20 principais produtos por categoria. Primeiro importe as classes de Conexão e Solicitação de driver da biblioteca de drivers do tedious. Depois, crie o objeto de configuração e substitua as variáveis **nome de usuário**, **senha**, **servidor** e **banco de dados** pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. Criar um objeto `Connection` usando o objeto `config` especificado. Depois disso, defina o retorno de chamada para o evento `connect` do objeto `connection` para executar a função `queryDatabase()`.
 
 ```js
 var Connection = require('tedious').Connection;
@@ -125,7 +127,7 @@ function queryDatabase(){
 ```
 
 ## <a name="insert-data-into-the-database"></a>Inserir dados no banco de dados
-Use o código a seguir para inserir um novo produto na tabela SalesLT.Product. Substitua as variáveis **nome de usuário**, **senha**, **servidor** e **banco de dados** pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. Dessa vez, use uma **instrução INSERT** na função `insertIntoDatabase()`.
+Use o código a seguir para inserir um novo produto na tabela SalesLT.Product usando `insertIntoDatabase()`a função e a instrução[ INSERT ](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) do Transact-SQL. Substitua as variáveis **nome de usuário**, **senha**, **servidor** e **banco de dados** pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. 
 
 ```js
 var Connection = require('tedious').Connection;
@@ -167,7 +169,7 @@ function insertIntoDatabase(){
 ```
 
 ## <a name="update-data-in-the-database"></a>Atualizar dados no banco de dados
-Use o seguinte código para atualizar dados no banco de dados. Substitua as variáveis **nome de usuário**, **senha**, **servidor** e **banco de dados** pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. Dessa vez, use uma **instrução UPDATE** na função `updateInDatabase()`. Este exemplo usa o nome do produto inserido no exemplo anterior.
+Use o código a seguir para atualizar o novo produto que você adicionou anteriormente usando a `updateInDatabase()` função e a instrução [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) do Transact-SQL. Substitua as variáveis **nome de usuário**, **senha**, **servidor** e **banco de dados** pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. Este exemplo usa o nome do produto inserido no exemplo anterior.
 
 ```js
 var Connection = require('tedious').Connection;

@@ -295,7 +295,7 @@ Também queremos uma subcadeia de caracteres do nome do autor da ordem, porque o
       "defaultValue": {
         "quantity": 10,
         "id": "myorder1",
-        "orderer": "NAME=St�ph�n__�?�i?ian�"
+        "orderer": "NAME=Contoso"
       },
       "type": "Object"
     }

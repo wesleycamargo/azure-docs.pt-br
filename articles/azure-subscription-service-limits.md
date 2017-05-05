@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/19/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e26a37fbe783c2ca95679b5bdcc9b0ba0beec76b
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 2450eada5a49763542c95799a381f2029fec7575
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -49,7 +49,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Active Directory](#active-directory-limits)
 * [Gerenciamento da API](#api-management-limits)
 * [Serviço de Aplicativo](#app-service-limits)
-* [Application Gateway](#application-gateway-limits)
+* [Gateway de Aplicativo](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automação](#automation-limits)
 * [Cache Redis do Azure](#azure-redis-cache-limits)
@@ -63,21 +63,22 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Análises Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [Banco de Dados de Documentos](#documentdb-limits)
+* [DocumentDB](#documentdb-limits)
 * [Hubs de Evento](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Cofre da Chave](#key-vault-limits)
 * [Log Analytics/Insights Operacionais](#log-analytics-limits)
 * [Serviços de Mídia](#media-services-limits)
-* [Mobile Engagement](#mobile-engagement-limits)
+* [Engajamento Móvel](#mobile-engagement-limits)
 * [Serviços Móveis](#mobile-services-limits)
-* [Monitoramento](#monitoring-limits)
-* [Multi-Factor Authentication](#multi-factor-authentication)
+* [Monitorar](#monitor-limits)
+* [Autenticação Multifator](#multi-factor-authentication)
 * [Rede](#networking-limits)
+* [Observador de Rede](#network-watcher-limits)
 * [Serviço de hub de notificação](#notification-hub-service-limits)
 * [Grupo de recursos](#resource-group-limits)
 * [Agendador](#scheduler-limits)
-* [Pesquisar](#search-limits)
+* [Search](#search-limits)
 * [Barramento de Serviço](#service-bus-limits)
 * [Recuperação de Site](#site-recovery-limits)
 * [Banco de Dados SQL](#sql-database-limits)
@@ -123,6 +124,9 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 #### <a name="application-gateway-limits"></a>Limites do Gateway de Aplicativo
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
+#### <a name="network-watcher-limits"></a>Limites do Observador de Rede
+[!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
 
 #### <a name="traffic-manager-limits"></a>Limites do Gerenciador de Tráfego
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
@@ -174,14 +178,14 @@ A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
-### <a name="documentdb-limits"></a>Limites do Banco de Dados de Documentos
+### <a name="documentdb-limits"></a>Limites do DocumentDB
 O DocumentDB é um banco de dados de escala global no qual armazenamento e taxa de transferência podem ser dimensionados para manipular qualquer solicitação de seu aplicativo. Se você tiver alguma dúvida sobre a escala fornecida pelo DocumentDB, envie um email para askdocdb@microsoft.com.
 
-### <a name="mobile-engagement-limits"></a>Limites do Mobile Engagement
+### <a name="mobile-engagement-limits"></a>Limites do Engajamento Móvel
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
-### <a name="search-limits"></a>Limites de pesquisa
-Os tipos de preço determinam a capacidade e os limites de seu serviço de pesquisa. Eles incluem:
+### <a name="search-limits"></a>Limites do Search
+Os tipos de preço determinam a capacidade e os limites de seu serviço Search. Eles incluem:
 
 * *Gratuito* serviço multilocatário, compartilhado com outros assinantes do Azure, destinado à avaliação e a pequenos projetos de desenvolvimento.
 * *Básico* fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor, com até três réplicas para cargas de trabalho de consulta altamente disponíveis.
@@ -191,7 +195,7 @@ Os tipos de preço determinam a capacidade e os limites de seu serviço de pesqu
 
 [!INCLUDE [azure-search-limits-per-subscription](../includes/azure-search-limits-per-subscription.md)]
 
-**Limites por serviço de pesquisa**
+**Limites por serviço Search**
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
@@ -206,7 +210,7 @@ Para saber mais sobre limites em um nível mais granular, como o tamanho do docu
 ### <a name="mobile-services-limits"></a>Limites de Serviços Móveis
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitoring-limits"></a>Limites de monitoramento
+### <a name="monitor-limits"></a>Monitorar limites
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### <a name="notification-hub-service-limits"></a>Limites de serviço de hub de notificação
@@ -263,7 +267,7 @@ Para saber mais sobre limites em um nível mais granular, como o tamanho do docu
 ### <a name="key-vault-limits"></a>Limites do Cofre da Chave
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Autenticação Multifator
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### <a name="automation-limits"></a>Limites de automação

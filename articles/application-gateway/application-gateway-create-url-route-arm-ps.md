@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/15/2016
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
-ms.openlocfilehash: 54ec0b039b14246e3c64d1721b4562035e39efa5
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 76dfd1c2b2f17e6bc798f4313c4dc4817d2136a4
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -26,12 +27,9 @@ ms.openlocfilehash: 54ec0b039b14246e3c64d1721b4562035e39efa5
 > * [Portal do Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
 
-O Roteamento com base em caminho de URL permite que você associe rotas com base no caminho de URL da solicitação Http. Ele verifica se há uma rota para um pool de back-end configurado para as listas de URLs no Application Gateway, e envia o tráfego de rede para o pool de back-end definido. Um uso comum para o roteamento com base em URL é balancear a carga das solicitações para tipos de conteúdo diferentes para pools de servidores back-end diferentes.
+O roteamento com base em caminho de URL permite que você associe rotas com base no caminho de URL de uma solicitação Http. Ele verifica se há uma rota para um pool de back-end configurado para a URL apresentada no Gateway de Aplicativo e envia o tráfego de rede para o pool de back-end definido. Um uso comum para o roteamento com base em URL é balancear a carga das solicitações para tipos de conteúdo diferentes para pools de servidores back-end diferentes.
 
 O roteamento com base em URL apresenta um novo tipo de regra ao application gateway. O application gateway tem dois tipos de regra: básica e PathBasedRouting. O tipo de regra básica fornece o serviço de round robin para os pools de back-end, enquanto o PathBasedRouting também leva em consideração, além de distribuição round robin, o padrão de caminho da URL da solicitação ao escolher o pool de back-end.
-
-> [!IMPORTANT]
-> PathPattern: a lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar no qual um "\*" é permitido é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*. A cadeia de caracteres inserida no correspondente de caminho não inclui qualquer texto após o primeiro “?” ou “#”, e esses caracteres não são permitidos. 
 
 ## <a name="scenario"></a>Cenário
 
@@ -103,7 +101,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 Crie um grupo de recursos (ignore esta etapa se você estiver usando um grupo de recursos existente).
 
 ```powershell
-New-AzureRmResourceGroup -Name appgw-RG -Location "West US"
+$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US"
 ```
 
 Como alternativa, também é possível pode criar marcas para um grupo de recursos para o gateway de aplicativo:
@@ -123,11 +121,11 @@ No exemplo anterior, criamos um grupo de recursos denominado "appgw-RG" e o loca
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Criar uma rede virtual e uma sub-rede para o gateway de aplicativo
 
-O exemplo a seguir mostra como criar uma rede virtual usando o Gerenciador de Recursos.
+O exemplo a seguir mostra como criar uma rede virtual usando o Gerenciador de Recursos. Este exemplo cria uma VNET para o Gateway de Aplicativo. O Gateway de Aplicativo requer sua própria sub-rede e é por esse motivo que a sub-rede criada para o Gateway de Aplicativo é menor do que o espaço de endereço da rede virtual. Isso permite outros recursos, incluindo, dentre outras coisas, que servidores Web sejam configurados na mesma rede virtual.
 
 ### <a name="step-1"></a>Etapa 1
 
-Atribua o intervalo de endereços 10.0.0.0/24 à variável de sub-rede a ser usada para criar uma rede virtual.
+Atribua o intervalo de endereços 10.0.0.0/24 à variável de sub-rede a ser usada para criar uma rede virtual.  Isso cria o objeto de configuração de sub-rede para o Gateway de Aplicativo que é usado no exemplo a seguir.
 
 ```powershell
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
@@ -135,7 +133,7 @@ $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10
 
 ### <a name="step-2"></a>Etapa 2
 
-Crie uma rede virtual chamada **appgwvnet** no grupo de recursos **appgw-rg** para a região Oeste dos EUA usando o prefixo 10.0.0.0/16 com a sub-rede 10.0.0.0/24.
+Crie uma rede virtual chamada **appgwvnet** no grupo de recursos **appgw-rg** para a região Oeste dos EUA usando o prefixo 10.0.0.0/16 com a sub-rede 10.0.0.0/24. Isso conclui a configuração da rede virtual com uma única sub-rede em que o Gateway de Aplicativo deve residir.
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
@@ -143,7 +141,7 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -L
 
 ### <a name="step-3"></a>Etapa 3
 
-Atribua uma variável de sub-rede para as próximas etapas, o que criará um gateway de aplicativo.
+Atribua a variável de sub-rede para as próximas etapas, a qual será passada para o cmdlet `New-AzureRMApplicationGateway` em uma etapa futura.
 
 ```powershell
 $subnet=$vnet.Subnets[0]
@@ -151,7 +149,7 @@ $subnet=$vnet.Subnets[0]
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
 
-Crie um recurso IP público **publicIP01** no grupo de recursos **appgw-rg** para a região Oeste dos EUA.
+Crie um recurso IP público **publicIP01** no grupo de recursos **appgw-rg** para a região Oeste dos EUA. O Gateway de Aplicativo pode usar um endereço IP público, interno ou de ambos os tipos para receber solicitações de balanceamento de carga.  Este exemplo usa apenas um endereço IP público. No exemplo a seguir, nenhum nome DNS é configurado para criar o endereço IP público.  O Gateway de Aplicativo não dá suporte a nomes DNS personalizados em endereços IP públicos.  Se um nome personalizado for exigido para o ponto de extremidade público, um registro CNAME deve ser criado a fim de apontar para o nome DNS gerado automaticamente para o endereço IP público.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
@@ -173,19 +171,19 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 
 ### <a name="step-2"></a>Etapa 2
 
-Configure o pool de endereços IP de back-end denominado **pool01** e **pool2** com os endereços IP **134.170.185.46**, **134.170.188.221**, **134.170.185.50** para o **pool1** e **134.170.186.46**, **134.170.189.221**, **134.170.186.50** para o **pool2**.
+Configure o pool de endereços IP de back-end denominado **pool01** e **pool2** com os endereços IP para o **pool1** e **pool2**. Esses endereços IP são os endereços IP dos recursos que estão hospedando o aplicativo Web que será protegido pelo Gateway de Aplicativo. A integridade desses membros do pool de back-end é validada por investigações, sejam básicas ou personalizadas.  O tráfego é encaminhado para eles quando a solicitação chega no Gateway de Aplicativo. Os pools de back-end podem ser usados por várias regras dentro do Gateway de Aplicativo, o que significa que um pool de back-end pode ser usado para vários aplicativos Web que residem no mesmo host.
 
 ```powershell
-$pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+$pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
 
-$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.46, 134.170.189.221,134.170.186.50
+$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.47, 134.170.189.222, 134.170.186.51
 ```
 
 Neste exemplo, haverá dois pools de back-end para rotear o tráfego de rede com base no caminho da URL. Um pool recebe o tráfego do caminho de URL "/video", e o outro pool recebe o tráfego do caminho "/image". Substitua os endereços IP anteriores para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo. 
 
 ### <a name="step-3"></a>Etapa 3
 
-Defina as configurações de **poolsetting01** e **poolsetting02** do gateway de aplicativo para o tráfego de rede com carga balanceada no pool de back-end. Neste exemplo, defina as configurações diferentes de pool de back-end para os pools de back-end. Cada pool de back-end pode ter sua própria configuração de pool de back-end.
+Defina as configurações de **poolsetting01** e **poolsetting02** do gateway de aplicativo para o tráfego de rede com carga balanceada no pool de back-end. Neste exemplo, defina as configurações diferentes de pool de back-end para os pools de back-end. Cada pool de back-end pode ter sua própria configuração de pool de back-end.  As configurações HTTP de back-end são usadas pelas regras para rotear o tráfego para os membros do pool de back-end corretos. Isso determina o protocolo e a porta usados ao enviar tráfego para os membros do pool de back-end. As sessões baseadas em cookies também são determinadas pelas configurações HTTP de back-end.  Se habilitada, a afinidade de sessão baseada em cookies enviará o tráfego para o mesmo back-end das solicitações anteriores para cada pacote.
 
 ```powershell
 $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
@@ -195,7 +193,7 @@ $poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetti
 
 ### <a name="step-4"></a>Etapa 4
 
-Configure o IP front-end com o ponto de extremidade IP público.
+Configure o IP front-end com o ponto de extremidade IP público. O objeto de configuração de IP front-end é usado por um ouvinte para relacionar o endereço IP voltado para fora com o ouvinte.
 
 ```powershell
 $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
@@ -203,7 +201,7 @@ $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -
 
 ### <a name="step-5"></a>Etapa 5
 
-Configure a porta front-end para um gateway de aplicativo.
+Configure a porta front-end para um gateway de aplicativo. O objeto de configuração de porta front-end é usado por um ouvinte para definir a porta cujo tráfego deverá ser ouvido pelo Gateway de Aplicativo.
 
 ```powershell
 $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
@@ -211,7 +209,7 @@ $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
 
 ### <a name="step-6"></a>Etapa 6
 
-Crie o ouvinte. Esta etapa configura o ouvinte para o endereço IP público, e a porta usada para receber o tráfego de rede. 
+Crie o ouvinte. Esta etapa configura o ouvinte para o endereço IP público, e a porta usada para receber o tráfego de rede. O exemplo a seguir usa a configuração de IP de front-end definida anteriormente, uma configuração de porta front-end e um protocolo (http ou https) e configura o ouvinte. Neste exemplo, o ouvinte ouve o tráfego HTTP na porta 80 no endereço IP público que foi criado anteriormente.
 
 ```powershell
 $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
@@ -221,7 +219,10 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 
 Configure os caminhos de regra de URL para os pools de back-end. Esta etapa configura o caminho relativo usado pelo application gateway para definir o mapeamento entre o caminho da URL e qual pool de back-end será atribuído para lidar com o tráfego de entrada.
 
-O exemplo a seguir cria duas regras: uma para o tráfego do caminho de roteamento "/imagem/" para o back-end "pool1" e outra para o tráfego do caminho de roteamento "/video/" para o back-end "pool2".
+> [!IMPORTANT]
+> Cada caminho deve começar com /, sendo que o único lugar no qual um "\*" é permitido é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*. A cadeia de caracteres inserida no correspondente de caminho não inclui qualquer texto após o primeiro “?” ou “#”, e esses caracteres não são permitidos. 
+
+O exemplo a seguir cria duas regras: uma para o tráfego do caminho de roteamento "/imagem/" para o back-end "pool1" e outra para o tráfego do caminho de roteamento "/video/" para o back-end "pool2". Essas regras garantem que o tráfego para cada conjunto de URLs seja roteado para o back-end. Por exemplo, http://contoso.com/image/figure1.jpg irá para o pool1 e http://contoso.com/video/example.mp4 irá para o pool2.
 
 ```powershell
 $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
@@ -229,7 +230,7 @@ $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -
 $videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
 ```
 
-A configuração de mapa do caminho de regra também configurará um pool de endereços de back-end padrão se o caminho não corresponder a nenhuma das regras de caminho predefinidas. 
+A configuração de mapa do caminho de regra também configurará um pool de endereços de back-end padrão se o caminho não corresponder a nenhuma das regras de caminho predefinidas. Por exemplo, http://contoso.com/shoppingcart/test.html irá para o pool1, já que ele está definido como o pool padrão para tráfego sem correspondência.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
@@ -237,7 +238,7 @@ $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -
 
 ### <a name="step-8"></a>Etapa 8
 
-Crie uma configuração de regra. Esta etapa configura o application gateway a fim de usar o roteamento de com base no caminho de URL.
+Crie uma configuração de regra. Esta etapa configura o application gateway a fim de usar o roteamento de com base no caminho de URL. A variável `$urlPathMap` definida na etapa anterior é usada agora para criar a regra com base no caminho. Nesta etapa, associe a regra com um ouvinte e o mapeamento de caminho de URL criado anteriormente.
 
 ```powershell
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
@@ -292,10 +293,5 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser aprender sobre o descarregamento de protocolo SSL, consulte [Configurar um Application Gateway para o descarregamento SSL](application-gateway-ssl-arm.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

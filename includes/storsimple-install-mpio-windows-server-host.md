@@ -23,8 +23,3 @@
      
        ![Adicionar Assistente de Funções e Recursos 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

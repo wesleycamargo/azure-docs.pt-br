@@ -4,7 +4,7 @@ description: Saiba como migrar seu banco de dados do SQL Server para o banco de 
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/04/2017
+ms.date: 04/20/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 842ca29e46aefbd58638ac642f000ef39c1202d1
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: c6d965351f6f131ee342cea672fc4fa8771f8ede
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -40,7 +40,7 @@ Para concluir este tutorial, verifique se você tem:
 - O [Assistente de migração de dados](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
 - Um banco de dados a migrar. Este tutorial usa o banco de dados [SQL Server 2008R2 AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) em uma instância do SQL Server 2008R2 ou mais recente, mas você pode usar qualquer banco de dados de sua escolha. 
 
-## <a name="step-1---prepare-for-migration"></a>Etapa 1: preparar para a migração
+## <a name="prepare-for-migration"></a>Preparar para a migração
 
 Você está pronto para preparar para a migração. Siga estas etapas para usar o  **[Assistente de migração de dados](https://www.microsoft.com/download/details.aspx?id=53595)**  para avaliar a preparação do banco de dados para migração para o banco de dados SQL do Azure.
 
@@ -85,7 +85,7 @@ Você está pronto para preparar para a migração. Siga estas etapas para usar 
 10. Opcionalmente, clique em **Exportar relatório** para salvar o relatório como um arquivo JSON.
 11. Feche o Assistente de migração de dados.
 
-## <a name="step-2---export-to-bacpac-file"></a>Etapa 2 – Exportar para um arquivo BACPAC 
+## <a name="export-to-bacpac-file"></a>Exportar para um arquivo BACPAC 
 
 Um arquivo BACPAC é um arquivo ZIP com uma extensão BACPAC que contém os metadados e dados de um banco de dados do SQL Server. Um arquivo BACPAC pode ser armazenado no armazenamento de blobs do Azure ou no armazenamento local de arquivamento ou para a migração – como do SQL Server para o banco de dados SQL do Azure. Para uma exportação transacionalmente consistente, você deve garantir que nenhuma atividade de gravação está ocorrendo durante a exportação.
 
@@ -103,11 +103,11 @@ Siga estas etapas para usar o utilitário de linha de comando SQLPackage para ex
 
 Depois que a execução for concluída, o arquivo BCPAC gerado é armazenado no diretório no qual o executável do sqlpackage está localizado. Neste exemplo, C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin. 
 
-## <a name="step-3-log-in-to-the-azure-portal"></a>Etapa 3: Fazer logon no Portal do Azure
+## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
 Faça logon no [Portal do Azure](https://portal.azure.com/). Logon do computador do qual você estiver executando o utilitário de linha de comando do SQLPackage facilita a criação de regra de firewall na etapa 5.
 
-## <a name="step-4-create-a-sql-database-logical-server"></a>Etapa 4: Criar um servidor lógico do Banco de Dados SQL
+## <a name="create-a-sql-database-logical-server"></a>Criar um servidor lógico do Banco de Dados SQL
 
 Um [servidor lógico do Banco de Dados SQL do Azure](sql-database-features.md) atua como um ponto administrativo central para vários bancos de dados. Siga estas etapas para criar um servidor lógico do Banco de Dados SQL para conter o banco de dados migrado do Adventure Works OLTP SQL Server. 
 
@@ -133,7 +133,7 @@ Um [servidor lógico do Banco de Dados SQL do Azure](sql-database-features.md) a
 
 5. Clique em **Criar** para provisionar o servidor lógico. O provisionamento demora alguns minutos. 
 
-## <a name="step-5-create-a-server-level-firewall-rule"></a>Etapa 5: Criar uma regra de firewall no nível de servidor
+## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 
 O serviço do Banco de Dados SQL cria um [firewall no nível do servidor](sql-database-firewall-configure.md) impedindo que os aplicativos e ferramentas externos conectem o servidor ou os bancos de dados no servidor, a menos que uma regra de firewall seja criada para abrir o firewall para endereços IP específicos. Siga estas etapas para criar uma regra de firewall de nível de servidor do banco de dados SQL para o endereço IP do computador do qual você estiver executando o utilitário de linha de comando SQLPackage. Isso permite que o SQLPackage se conecte ao servidor lógico do Banco de Dados SQL por meio do firewall do banco de dados SQL do Azure. 
 
@@ -155,7 +155,7 @@ Agora você pode se conectar a todos os bancos de dados e em seu servidor usando
 > O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá conectar seu servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
-## <a name="step-6---import-bacpac-file-to-azure-sql-database"></a>Etapa 6: importar o arquivo BACPAC para o banco de dados SQL do Azure 
+## <a name="import-bacpac-file-to-azure-sql-database"></a>Importar o arquivo BACPAC para o banco de dados SQL do Azure 
 
 As versões mais recentes do utilitário de linha de comando SQLPackage oferecem suporte à criação de um banco de dados SQL do Azure em determinado [nível de desempenho e da camada de serviço](sql-database-service-tiers.md). Para melhor desempenho durante a importação, selecione um alto nível de desempenho e da camada de serviço e, então, reduza após a importação, se o nível de desempenho e da camada de serviço for maior do que o necessário, imediatamente.
 
@@ -173,7 +173,7 @@ Siga essas etapas, use o utilitário de linha de comando SQLPackage para importa
 > Um servidor lógico do Banco de Dados SQL do Azure escuta na porta 1433. Se você estiver tentando conectar um servidor lógico do Banco de Dados SQL do Azure de dentro de um firewall corporativo, essa porta deverá estar aberta no firewall corporativo para que você possa conectar-se com êxito.
 >
 
-## <a name="step-7---connect-using-sql-server-management-studio-ssms"></a>Etapa 7 – Conectar-se usando o SQL Server Management Studio (SSMS)
+## <a name="connect-using-sql-server-management-studio-ssms"></a>Conectar-se usando o SQL Server Management Studio (SSMS)
 
 Use o SQL Server Management Studio para estabelecer uma conexão com seu servidor do Banco de Dados SQL do Azure e o novo banco de dados migrado. Se você estiver executando o SQL Server Management Studio em um computador diferente do qual você executou o SQLPackage, crie uma regra de firewall para este computador usando as etapas no procedimento anterior.
 
@@ -192,7 +192,7 @@ Use o SQL Server Management Studio para estabelecer uma conexão com seu servido
 
 4. No Pesquisador de Objetos, expanda **Bancos de Dados** e expanda **myMigratedDatabase** para exibir os objetos no banco de dados de exemplo.
 
-## <a name="step-8---change-database-properties"></a>Etapa 8 – Alterar as propriedades de banco de dados
+## <a name="change-database-properties"></a>Alterar as propriedades de banco de dados
 
 Você pode alterar a camada de serviço, o nível de desempenho e o nível de compatibilidade usando o SQL Server Management Studio.
 

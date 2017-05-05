@@ -26,8 +26,3 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
    
    ![Entrar](./media/azure-getting-started-portal-login/login.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

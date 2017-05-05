@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
-ms.openlocfilehash: 5c595bd2175f1cbc650bd1a757eeacc80cf39e23
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 407d50afe3470f5a9e84026eaa2dcccea4d06641
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -45,7 +46,7 @@ Para obter a URL de clone do repositório GitHub e token de acesso pessoal, siga
 4. Selecione a imagem de perfil no canto superior direito do GitHub e, em seguida, **Configurações**.
 5. No menu **Configurações pessoais** à esquerda, selecione **Tokens de acesso pessoal**.
 6. Selecione **Gerar novo token**.
-7. Na página **Novo token de acesso pessoal**, insira uma **Descrição do token**, aceite os itens padrão em **Selecionar escopos** e escolha **Gerar Token**.
+7. Sobre o **Novo token de acesso pessoal**, insira uma **Descrição do token**. Caso se trate de um repositório público, aceite os itens padrão em **Selecionar escopos**; caso contrário, selecione escopo **repo**. Em seguida, escolha **Gerar Token**. [Leia mais sobre os escopos OAuth no GitHub](https://developer.github.com/v3/oauth/#scopes).
 8. Salve o token gerado, pois você precisará dele mais tarde.
 9. Você pode fechar o GitHub agora.   
 10. Continue para a seção [Conectar seu laboratório ao repositório de artefatos](#connect-your-lab-to-the-artifact-repository) .
@@ -95,10 +96,5 @@ Para obter a URL de clone do repositório do Visual Studio Team Services e token
 ## <a name="related-blog-posts"></a>Postagens de blogs relacionadas
 * [Como solucionar problemas de falha de Artefatos no AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
 * [Ingressar uma VM ao domínio de AD existente usando o modelo do ARM no Laboratório de Teste de Desenvolvimento do Azure](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

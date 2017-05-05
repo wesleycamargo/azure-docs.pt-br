@@ -18,8 +18,3 @@ Essas etapas pressupõem que você esteja conectado ao Banco de Dados SQL no Pes
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

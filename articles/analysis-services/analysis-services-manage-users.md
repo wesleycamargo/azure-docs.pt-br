@@ -40,7 +40,7 @@ Os Administradores do Analysis Services podem ser diferentes dos administradores
 
 ### <a name="to-add-administrators-using-azure-portal"></a>Adicionar administradores usando o portal do Azure
 1. Na folha de controle do seu servidor, clique em **os administradores de serviços de análise de**.
-2. Na folha ** \<nomedoservidor >- Administradores de Serviços de Análise**, clique em **Adicionar**.
+2. Na folha **\<nomedoservidor >- Administradores de Serviços de Análise**, clique em **Adicionar**.
 3. Na folha **Adicionar Administradores de Servidor**, selecione as contas de usuários a adicionar.
 
 ## <a name="database-users"></a>Usuários de banco de dados

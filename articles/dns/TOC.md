@@ -1,6 +1,8 @@
 # Visão geral
 ## [O que é o DNS do Azure?](dns-overview.md)
 ## [Registros e zonas DNS](dns-zones-records.md)
+## [Delegação de DNS com o DNS do Azure](dns-domain-delegation.md)
+## [PERGUNTAS FREQUENTES SOBRE O DNS](dns-faq.md)
 
 # Introdução
 
@@ -10,7 +12,7 @@
 ### [CLI 1.0 do Azure](dns-getstarted-cli-nodejs.md)
 ### [CLI 2.0 do Azure](dns-getstarted-cli.md)
 
-## [Delegar seu domínio ao DNS do Azure](dns-domain-delegation.md)
+## [Delegar seu domínio ao DNS do Azure](dns-delegate-domain-azure-dns.md)
 ## [Criar registros DNS personalizados para um aplicativo Web](dns-web-sites-custom-domain.md)
 
 # Como
@@ -37,7 +39,7 @@
 ### [Guia de Solução de problemas](dns-troubleshoot.md)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
+## [PowerShell](/powershell/module/azurerm.dns)
 ## [CLI do Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
@@ -59,3 +61,4 @@
 ## [Preços](https://azure.microsoft.com/pricing/details/dns/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog de rede](http://azure.microsoft.com/blog/topics/networking)
+## [Solicitações de recursos](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)

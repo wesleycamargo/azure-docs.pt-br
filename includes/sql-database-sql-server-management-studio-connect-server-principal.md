@@ -34,8 +34,3 @@ Os problemas de conectividade de rede também podem causar erros de conexão e d
 
 Para obter detalhes e mais informações sobre problemas de conectividade, veja [Solucionar problemas, diagnosticar e evitar erros de conexão SQL e erros transitórios para o Banco de Dados SQL](../articles/sql-database/sql-database-connectivity-issues.md).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

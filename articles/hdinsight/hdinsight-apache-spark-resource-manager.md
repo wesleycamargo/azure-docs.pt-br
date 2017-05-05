@@ -85,7 +85,7 @@ Para aplicativos em execução no bloco de notas Jupyter, você pode usar a mág
 O trecho de código abaixo mostra como alterar a configuração para um aplicativo em execução no Jupyter.
 
     %%configure
-    {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
 Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na linha seguinte, logo após a mágica, conforme mostrado na coluna de exemplo.
 

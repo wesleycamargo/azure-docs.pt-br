@@ -12,32 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 05/03/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 25dd25d8f8f0388ed7ef11bb26344ad7199fde2e
-ms.openlocfilehash: 3f0487fba592426c835d81a46a752697ecf34d8b
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5e37870f932ce775293b913504f2530d1d8935e1
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="event-hubs-archive-walkthrough-python"></a>Passo a passo do Arquivamento dos Hubs de Eventos: Python
-O Arquivamento dos Hubs de Eventos é um novo recurso dos Hubs de Eventos que permite que você forneça automaticamente os dados de streaming no Hub de Eventos a uma conta de Armazenamento de Blobs do Azure desejada. Isso facilita a execução de processamento em lote na transmissão de dados em tempo real. Este artigo descreve como usar o Arquivamento dos Hubs de Eventos com o Python. Para saber mais sobre Arquivamento dos Hubs de Eventos, confira o [artigo de visão geral](event-hubs-archive-overview.md).
+O Arquivo Morto dos Hubs de Eventos é um novo recurso dos Hubs de Eventos que habilita o fornecimento automático dos dados de streaming no Hub de Eventos para uma conta de armazenamento do Blob do Azure desejada. Isso facilita a execução de processamento em lote na transmissão de dados em tempo real. Este artigo descreve como usar o Arquivamento dos Hubs de Eventos com o Python. Para saber mais sobre Arquivamento dos Hubs de Eventos, confira o [artigo de visão geral](event-hubs-archive-overview.md).
 
-Este exemplo usa o [SDK para Python do Azure](https://azure.microsoft.com/develop/python/) para demonstrar o recurso de Arquivamento. O programa sender.py envia telemetria de ambiente simulado para os Hubs de Eventos no formato JSON. O Hub de Eventos está configurado para usar o recurso Arquivamento a fim de gravar esses dados em armazenamento de blobs em lotes. Em seguida, o aplicativo archivereader.py lê esses blobs e cria um arquivo de acréscimo por dispositivo e grava os dados em arquivos. csv.
+Este exemplo usa o [SDK para Python do Azure](https://azure.microsoft.com/develop/python/) para demonstrar o recurso de Arquivamento. O programa sender.py envia telemetria de ambiente simulado para os Hubs de Eventos no formato JSON. O Hub de Eventos está configurado para usar o recurso de Arquivo Morto a fim de gravar esses dados no armazenamento de blobs em lotes. Em seguida, o aplicativo archivereader.py lê esses blobs e cria um arquivo de acréscimo por dispositivo e grava os dados em arquivos. csv.
 
 O que será realizado
 
 1. Criar uma conta de Armazenamento de Blobs do Azure e um contêiner de blobs dentro dela, usando o portal do Azure.
 2. Criar um namespace do Hub de Eventos usando o portal do Azure.
-3. Criar um Hub de Eventos com o recurso de Arquivamento habilitado, usando o portal do Azure.
-4. Enviar dados para o Hub de Eventos com um script Python.
+3. Crie um Hub de Eventos com o recurso de Arquivo Morto habilitado usando o Portal do Azure.
+4. Envie dados para o Hub de Eventos com um script Python.
 5. Ler os arquivos do arquivamento e processá-los com outro script Python.
 
 Pré-requisitos
 
 - Python 2.7.x
 - Uma assinatura do Azure
-- Um [Namespace de Hubs de Eventos e o Hub de Eventos](event-hubs-create.md) ativo.
+- Um [Namespace de Hubs de Eventos e Hub de Eventos ativos.](event-hubs-create.md)
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -52,7 +53,7 @@ Pré-requisitos
 
 ## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Criar um script Python para enviar eventos a seu Hub de Eventos
 1. Abra seu editor de Python favorito, como o [Visual Studio Code][Visual Studio Code].
-2. Crie um script chamado **sender.py**. Esse script enviará 200 eventos para seu Hub de Eventos. Eles são simples leituras de ambiente enviadas em JSON.
+2. Crie um script chamado **sender.py**. Esse script enviará 200 eventos para seu hub de eventos. Eles são simples leituras de ambiente enviadas em JSON.
 3. Cole o seguinte código em sender.py:
    
    ```python
@@ -74,7 +75,7 @@ Pré-requisitos
            sbs.send_event('INSERT YOUR EVENT HUB NAME', s)
        print y
    ```
-4. Atualize o código anterior para usar o nome do namespace, o valor de chave e o nome do Hub de Eventos que você obteve quando criou o namespace dos Hubs de Eventos.
+4. Atualize o código anterior para usar o nome do namespace, o valor de chave e o nome do hub de eventos obtidos ao criar o namespace dos Hubs de Eventos.
 
 ## <a name="create-a-python-script-to-read-your-archive-files"></a>Criar um script Python para ler os arquivos no arquivo
 1. Preencha a folha e clique em **Criar**.
@@ -172,9 +173,4 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

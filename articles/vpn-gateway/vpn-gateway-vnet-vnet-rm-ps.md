@@ -13,44 +13,38 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 900e104574c4250adc2a0d3f5abf3749da4a578b
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19cd1cf60a14f4a2087bcfdbb4b223039c82dec3
+ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-connection-using-powershell"></a>Configurar uma conexão entre redes virtuais usando o PowerShell
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 
-Conectar uma rede virtual a outra rede virtual é semelhante a conectar uma rede virtual (Rede Virtual para Rede Virtual) a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE. Você pode até combinar a comunicação VNet a VNet com as configurações de conexão de vários sites. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual.
-
-
-![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
-
-Este artigo explica as etapas para criar uma conexão entre redes virtuais no modelo de implantação do Resource Manager usando o Gateway de VPN. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. 
-
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]Se você quiser criar uma conexão VNet a VNet usando um modelo de implantação diferente, entre diferentes modelos de implantação, ou usando uma ferramenta de implantação diferente, poderá selecionar uma opção na lista suspensa de artigos a seguir:
+Este artigo mostra como criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. As etapas neste artigo se aplicam ao modelo de implantação do Gerenciador de Recursos e usa o PowerShell. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Clássico - portal do Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Conectar modelos de implantação diferentes - portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Clássico – portal do Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Conectar modelos de implantação diferentes – portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Conectar modelos de implantação diferentes - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
-[!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
+![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
+Conectar uma rede virtual a outra rede virtual é semelhante a conectar uma rede virtual (Rede Virtual para Rede Virtual) a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE. Se suas VNets estiverem na mesma região, convém considerar conectá-las usando o emparelhamento VNet. O emparelhamento Vnet não usa um gateway de VPN. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="about-vnet-to-vnet-connections"></a>Sobre conexões de rede virtual a rede virtual
-Conectar uma rede virtual a outra rede virtual é semelhante a conectar uma rede virtual (Rede Virtual para Rede Virtual) a um site local. Os dois tipos de conectividade usam um gateway de VPN do Azure para fornecer um túnel seguro usando IPsec/IKE. As redes virtuais que você conecta podem estar em diferentes regiões. Ou em assinaturas diferentes. Você pode até combinar a comunicação de rede virtual com rede virtual a configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual, conforme mostrado no diagrama a seguir:
+Você pode combinar a comunicação de VNet a VNet usando configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual, conforme mostrado no diagrama a seguir:
 
 ![Sobre as conexões](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
 
 ### <a name="why-connect-virtual-networks"></a>Por que conectar redes virtuais?
+
 Você talvez queira conectar redes virtuais pelos seguintes motivos:
 
 * **Redundância geográfica entre regiões e presença geográfica**
@@ -61,7 +55,7 @@ Você talvez queira conectar redes virtuais pelos seguintes motivos:
   
   * Na mesma região, você pode configurar aplicativos multicamadas com várias redes virtuais conectadas devido aos requisitos administrativos ou de isolamento.
 
-Para saber mais sobre conexões de Rede Virtual a Rede Virtual, confira as [Considerações sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo.
+Para saber mais sobre conexões de Rede Virtual a Rede Virtual, consulte as [Perguntas frequentes sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo.
 
 ## <a name="which-set-of-steps-should-i-use"></a>Qual conjunto de etapas devo usar?
 Neste artigo, você verá dois conjuntos de etapas diferentes. Um conjunto de etapas para [VNets que residem na mesma assinatura](#samesub), e outro para [VNets que residem em assinaturas diferentes](#difsub). A principal diferença entre os conjuntos é a possibilidade de criar e configurar todos os recursos de gateway e de rede virtual dentro da mesma sessão do PowerShell.
@@ -72,7 +66,7 @@ As etapas neste artigo usam variáveis declaradas no início de cada seção. Se
 ![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Antes de começar
-Antes de começar, você precisa instalar os cmdlets de PowerShell do Azure Resource Manager. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
+Antes de começar, você precisa instalar os cmdlets de PowerShell do Azure Resource Manager. Para saber mais sobre como instalar os cmdlets do PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="Step1"></a>Etapa 1 – Planejar os intervalos de endereços IP
 Nas etapas a seguir, criaremos duas redes virtuais juntamente com as respectivas configurações e sub-redes de gateway. Em seguida, criaremos uma conexão VPN entre as duas VNets. É importante planejar os intervalos de endereços IP para sua configuração de rede. Lembre-se de que você deve garantir que nenhum de seus intervalos de VNet ou intervalos de rede local se sobreponham de forma alguma.
@@ -113,7 +107,7 @@ Usamos os seguintes valores nos exemplos:
 * ConnectionType: VNet2VNet
 
 ### <a name="Step2"></a>Etapa 2: Criar e configurar o TestVNet1
-1. Declare as variáveis
+1. Declare as variáveis.
    
     Comece declarando variáveis. Este exemplo declara as variáveis usando os valores para este exercício. Na maioria dos casos, substitua os valores pelos seus próprios. No entanto, se você estiver executando as etapas para se familiarizar com esse tipo de configuração, poderá usar essas variáveis. Modifique as variáveis, se for necessário, e depois copie e cole em seu console do PowerShell.
 
@@ -137,7 +131,7 @@ Usamos os seguintes valores nos exemplos:
   $Connection14 = "VNet1toVNet4"
   $Connection15 = "VNet1toVNet5"
   ```
-2. Conecte-se as suas assinaturas
+2. Conecte-se à sua assinatura.
    
     Alterne para o modo do PowerShell para usar os cmdlets do Resource Manager. Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
@@ -157,12 +151,12 @@ Usamos os seguintes valores nos exemplos:
   Select-AzureRmSubscription -SubscriptionName $Sub1
   ```
 
-3. Criar um novo grupo de recursos
+3. Crie um novo grupo de recursos.
 
   ```powershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-4. Crie as configurações de sub-rede para TestVNet1
+4. Crie as configurações de sub-rede para TestVNet1.
    
     Este exemplo cria uma rede virtual denominada TestVNet1 e três sub-redes, uma chamada GatewaySubnet, outra FrontEnd e outra Backend. Ao substituir valores, é importante você sempre nomear sua sub-rede de gateway especificamente como GatewaySubnet. Se você usar outro nome, a criação do gateway falhará. 
    
@@ -173,13 +167,13 @@ Usamos os seguintes valores nos exemplos:
   $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
   $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
   ```
-5. Criar TestVNet1
+5. Crie a TestVNet1.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
-6. Solicitar um endereço IP público
+6. Solicite um endereço IP público.
    
   Solicite um endereço IP público para ser alocado ao gateway que você criará para sua VNet. Observe que o AllocationMethod é dinâmico. Você não pode especificar o endereço IP que deseja usar. Ele é alocado dinamicamente ao gateway. 
    
@@ -187,7 +181,7 @@ Usamos os seguintes valores nos exemplos:
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
-7. Criar a configuração do gateway
+7. Crie a configuração do gateway.
    
     A configuração do gateway define a sub-rede e o endereço IP público a serem usados. Use o exemplo para criar a configuração do gateway.
 
@@ -197,7 +191,7 @@ Usamos os seguintes valores nos exemplos:
   $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
-8. Criar o gateway para TestVNet1
+8. Crie o gateway para TestVNet1.
    
     Nesta etapa, você criará o gateway de rede virtual para sua TestVNet1. As configurações de rede virtual com rede virtual exigem um VpnType RouteBased. Criar um gateway pode levar 45 minutos ou mais, dependendo do SKU de gateway selecionado.
 
@@ -210,7 +204,7 @@ Usamos os seguintes valores nos exemplos:
 ### <a name="step-3---create-and-configure-testvnet4"></a>Etapa 3: criar e configurar TestVNet4
 Depois de configurar TestVNet1, crie TestVNet4. Siga as etapas abaixo, substituindo os valores pelos seus próprios quando necessário. Esta etapa pode ser feita dentro da mesma sessão do PowerShell, porque ela está na mesma assinatura.
 
-1. Declare as variáveis
+1. Declare as variáveis.
    
     Não se esqueça de substituir os valores com aqueles que você deseja usar para sua configuração.
 
@@ -234,31 +228,31 @@ Depois de configurar TestVNet1, crie TestVNet4. Siga as etapas abaixo, substitui
   ```
    
     Antes de continuar, verifique se que você ainda está conectado à Assinatura 1.
-2. Criar um novo grupo de recursos
+2. Crie um novo grupo de recursos.
 
   ```powershell
   New-AzureRmResourceGroup -Name $RG4 -Location $Location4
   ```
-3. Crie as configurações de sub-rede para TestVNet4
+3. Crie as configurações de sub-rede para TestVNet4.
 
   ```powershell
   $fesub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
   $besub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
   $gwsub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
   ```
-4. Criar TestVNet4
+4. Crie a TestVNet4.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AddressPrefix $VnetPrefix41,$VnetPrefix42 -Subnet $fesub4,$besub4,$gwsub4
   ```
-5. Solicitar um endereço IP público
+5. Solicite um endereço IP público.
 
   ```powershell  
   $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
-6. Criar a configuração do gateway
+6. Crie a configuração do gateway.
 
   ```powershell
   $vnet4 = Get-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
@@ -274,7 +268,7 @@ Depois de configurar TestVNet1, crie TestVNet4. Siga as etapas abaixo, substitui
   ```
 
 ### <a name="step-4---connect-the-gateways"></a>Etapa 4 - Conectar os gateways
-1. Obter ambos os gateways de rede virtual
+1. Obter ambos os gateways de rede virtual.
    
     Neste exemplo, porque ambos os gateways estão na mesma assinatura, esta etapa pode ser concluída na mesma sessão do PowerShell.
    
@@ -282,7 +276,7 @@ Depois de configurar TestVNet1, crie TestVNet4. Siga as etapas abaixo, substitui
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
-2. Criar a conexão TestVNet1 para TestVNet4
+2. Crie a conexão de TestVNet1 a TestVNet4.
    
     Nesta etapa, você criará a conexão de TestVNet1 para TestVNet4. Você verá uma chave compartilhada referenciada nos exemplos. Você pode usar seus próprios valores para a chave compartilhada. O importante é que a chave compartilhada deve corresponder em ambas as conexões. Criar uma conexão pode levar alguns minutos para ser concluída.
    
@@ -291,7 +285,7 @@ Depois de configurar TestVNet1, crie TestVNet4. Siga as etapas abaixo, substitui
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-3. Criar a conexão TestVNet4 para TestVNet1
+3. Crie a conexão de TestVNet4 a TestVNet1.
    
     Esta etapa é semelhante à etapa mostrada acima, exceto que você está criando a conexão de TestVNet4 para TestVNet1. Verifique se que as chaves compartilhadas correspondem.
 
@@ -341,7 +335,7 @@ Neste exemplo, as redes virtuais podem pertencer a organizações diferentes. Pa
 ### <a name="step-6---create-and-configure-testvnet5"></a>Etapa 6: criar e configurar TestVNet5
 Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser executada pelo administrador em uma organização diferente que possui a assinatura.
 
-1. Declare as variáveis
+1. Declare as variáveis.
    
     Não se esqueça de substituir os valores com aqueles que você deseja usar para sua configuração.
 
@@ -364,7 +358,7 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
   $GWIPconfName5 = "gwipconf5"
   $Connection51 = "VNet5toVNet1"
   ```
-2. Conecte-se à assinatura 5
+2. Conecte-se à assinatura 5.
    
     Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar com a conexão:
 
@@ -383,38 +377,38 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub5
   ```
-3. Criar um novo grupo de recursos
+3. Crie um novo grupo de recursos.
 
   ```powershell
   New-AzureRmResourceGroup -Name $RG5 -Location $Location5
   ```
-4. Crie as configurações de sub-rede para TestVNet4
+4. Crie as configurações de sub-rede para TestVNet4.
 
   ```powershell
   $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
   $besub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
   $gwsub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
   ```
-5. Criar TestVNet5
+5. Crie a TestVNet5.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
   -AddressPrefix $VnetPrefix51,$VnetPrefix52 -Subnet $fesub5,$besub5,$gwsub5
   ```
-6. Solicitar um endereço IP público
+6. Solicite um endereço IP público.
 
   ```powershell
   $gwpip5 = New-AzureRmPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
   -Location $Location5 -AllocationMethod Dynamic
   ```
-7. Criar a configuração do gateway
+7. Crie a configuração do gateway.
 
   ```powershell
   $vnet5 = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
   $subnet5  = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
   $gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
   ```
-8. Criar o gateway TestVNet5
+8. Crie o gateway de TestVNet5.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
@@ -424,7 +418,7 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
 ### <a name="step-7---connecting-the-gateways"></a>Etapa 7: conectar os gateways
 Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos esta etapa em duas sessões do PowerShell marcadas como [Assinatura 1] e [Assinatura 5].
 
-1. **[Assinatura 1]** Obter o gateway de rede virtual para a Assinatura 1
+1. **[Assinatura 1]** Obter o gateway de rede virtual para a Assinatura 1.
    
     Certifique-se de fazer logon e se conectar à Assinatura 1.
 
@@ -447,7 +441,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
   PS D:\> $vnet1gw.Id
   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
-2. **[Assinatura 5]** Obter o gateway de rede virtual para a Assinatura 5
+2. **[Assinatura 5]** Obter o gateway de rede virtual para a Assinatura 5.
    
     Certifique-se de fazer logon e se conectar à Assinatura 5.
 
@@ -470,7 +464,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
   PS C:\> $vnet5gw.Id
   /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
   ```
-3. **[Assinatura 1]** Criar a conexão TestVNet1 para TestVNet5
+3. **[Assinatura 1]** Criar a conexão TestVNet1 para TestVNet5.
    
     Nesta etapa, você criará a conexão de TestVNet1 para TestVNet5. A diferença aqui é que não é possível obter $vnet5gw diretamente, porque ele está em uma assinatura diferente. Você precisará criar um novo objeto do PowerShell com os valores comunicados na Assinatura 1 nas etapas acima. Use o exemplo abaixo. Substitua o Nome, a ID e a chave compartilhada por seus próprios valores. O importante é que a chave compartilhada deve corresponder em ambas as conexões. Criar uma conexão pode levar alguns minutos para ser concluída.
    
@@ -483,7 +477,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
   $Connection15 = "VNet1toVNet5"
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-4. **[Assinatura 5]** Criar a conexão TestVNet5 para TestVNet1
+4. **[Assinatura 5]** Criar a conexão TestVNet5 para TestVNet1.
    
     Esta etapa é semelhante à etapa mostrada acima, exceto que você está criando a conexão de TestVNet5 para TestVNet1. O mesmo processo de criação de um objeto do PowerShell com base nos valores obtidos na Assinatura 1 se aplica aqui também. Nesta etapa, certifique-se de que as chaves compartilhadas correspondam.
    
@@ -501,7 +495,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-### <a name="faq"></a>Considerações de Rede Virtual para Rede Virtual
+## <a name="faq"></a>Perguntas frequentes sobre Rede Virtual para Rede Virtual
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas

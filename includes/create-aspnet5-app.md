@@ -5,8 +5,3 @@
 5. Em **Modelos do ASP.NET Core**, selecione **Aplicativo Web** e selecione **OK**.
 6. Desmarque **Host na nuvem**. Você usará o Docker como a solução de implantação.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

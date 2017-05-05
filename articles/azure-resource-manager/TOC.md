@@ -10,6 +10,12 @@
 ## [Crie seu primeiro modelo](resource-manager-create-first-template.md)
 ## [Visual Studio com o Gerenciador de Recursos](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Exemplos
+## PowerShell
+### [Implantar modelo](resource-manager-samples-powershell-deploy.md)
+## CLI do Azure
+### [Implantar modelo](resource-manager-samples-cli-deploy.md)
+
 # Como
 ## Criar modelos
 ### [Práticas recomendadas para modelos](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Compartilhar estado entre modelos vinculados](best-practices-resource-manager-state.md)
 ### [Padrões para projetar modelos](best-practices-resource-manager-design-templates.md)
 ## Implantar
-### [PowerShell](resource-group-template-deploy.md)
-### [CLI do Azure](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Implantar modelo](resource-group-template-deploy.md)
+#### [Implantar modelo particular com o token SAS](resource-manager-powershell-sas-token.md)
+### CLI do Azure
+#### [Implantar modelo](resource-group-template-deploy-cli.md)
+#### [Implantar modelo particular com o token SAS](resource-manager-cli-sas-token.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Integração contínua com o Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

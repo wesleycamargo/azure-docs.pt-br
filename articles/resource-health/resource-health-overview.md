@@ -2,7 +2,7 @@
 title: "Visão geral do Azure Resource Health | Microsoft Docs"
 description: "Visão geral do Azure Resource Health"
 services: Resource health
-documentationcenter: dev-center-name
+documentationcenter: 
 author: BernardoAMunoz
 manager: 
 editor: 
@@ -15,101 +15,84 @@ ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
 translationtype: Human Translation
-ms.sourcegitcommit: d777bc6bd477c5b6645fc8bd7b6d57a5d2f89e22
-ms.openlocfilehash: e465e2c1503add186a4b134e85bd9aab61d5c0ad
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: d54979995ca97a70ba92c64915b919da09f548ec
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-resource-health-overview"></a>Visão geral do Azure Resource Health
-O Azure Resource Health é um serviço que expõe a integridade de recursos individuais do Azure e fornece diretrizes acionáveis para solucionar problemas. Em um ambiente de nuvem em que não é possível acessar diretamente os servidores ou elementos da infraestrutura, a meta do Resource Health é reduzir o tempo que os clientes gastam na solução de problemas, reduzindo especialmente o tempo gasto para determinar se a raiz do problema reside no aplicativo ou se o problema foi causado por algum evento na plataforma do Azure.
+ 
+O Resource Health ajuda a diagnosticar e obter suporte quando um problema do Azure afeta seus recursos. Ele informa sobre a integridade atual e anterior de seus recursos e ajuda a reduzir os problemas. O Resource Health fornece suporte técnico quando você precisa de ajuda com problemas de serviço do Azure.
 
-## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-the-resource-is-healthy-or-not"></a>O que é considerado um recurso e como o Resource Health decide se o recurso está íntegro ou não?
-Um recurso é uma instância criada pelo usuário de um tipo de recurso fornecido por um serviço; por exemplo: uma máquina virtual, um aplicativo Web ou um banco de dados SQL. 
+Enquanto o [Status do Azure](https://status.azure.com) informa sobre problemas de serviço que afetam um amplo conjunto de clientes do Azure, o Resource Health fornece um painel personalizado referente à integridade de seus recursos. O Resource Health mostra todos os horários em que seus recursos não estavam disponíveis no passado devido a problemas do serviço do Azure. Isso simplifica a tarefa de compreender se um SLA foi violado. 
 
-O Resource Health se baseia em sinais emitidos pelo recurso e/ou pelo serviço para determinar se um recurso está íntegro ou não. É importante observar que, no momento, o Resource Health só indica a integridade de um tipo específico de recurso e não leva em consideração outros elementos que podem contribuir para a integridade geral. Por exemplo, ao relatar o status de uma máquina virtual, somente a parte de computação da infraestrutura é considerada, ou seja, problemas na rede não são mostrados no Resource Health, a menos que haja uma interrupção de serviço declarada. Nesse caso, ela será mostrada por meio da faixa na parte superior da folha. Mais informações sobre a interrupção de serviço são fornecidas mais adiante neste artigo. 
+## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-a-resource-is-healthy-or-not"></a>O que é considerado um recurso e como o Resource Health decide se um recurso está íntegro ou não?
+Um recurso é uma instância criada de um tipo de recurso oferecido por um serviço do Azure por meio do Azure Resource Manager, por exemplo: uma máquina virtual, um aplicativo Web ou um banco de dados SQL.
 
-## <a name="how-is-resource-health-different-from-service-health-dashboard"></a>Como o Resource Health é diferente do Painel de Integridade de Serviço?
-As informações fornecidas pelo Resource Health são mais granulares do que aquelas fornecidas pelo Painel de Integridade de Serviço. Embora o SHD comunique eventos que afetam a disponibilidade de um serviço em uma região, o Resource Health expõe informações relevantes a um recurso específico. Por exemplo, ela expõe eventos que afetam a disponibilidade de uma máquina virtual, um aplicativo Web ou um banco de dados SQL. Por exemplo, se um nó for reiniciado inesperadamente, os clientes cujas máquinas virtuais estavam em execução nesse nó poderão obter a razão pela qual suas VMs não estiveram disponíveis por um período de tempo.   
+O Resource Health se baseia em sinais emitidos pelos diferentes serviços do Azure para avaliar se um recurso está íntegro ou não. Se um recurso não está íntegro, o Resource Health analisa informações adicionais para determinar a origem do problema. Ele também identifica ações que a Microsoft está tomando para corrigir o problema ou as ações que você pode tomar para resolver a causa do problema. 
 
-## <a name="how-to-access-resource-health"></a>Como acessar o Resource Health
-Para os serviços disponíveis por meio do Resource Health, há duas maneiras de acessar o Resource Health.
+Examine a lista completa de tipos de recursos e verificações de integridade em [Azure Resource Health](resource-health-checks-resource-types.md) para obter detalhes adicionais sobre como a integridade é avaliada.
 
-### <a name="azure-portal"></a>Portal do Azure
-A folha Integridade de recursos no Portal do Azure fornece informações detalhadas sobre a integridade do recurso, bem como ações recomendadas, que variam dependendo da integridade atual do recurso. Essa folha fornece a melhor experiência ao se consultar o Resource Health, pois facilita o acesso a outros recursos no portal. Como mencionado anteriormente, o conjunto de ações recomendadas na folha Integridade de recursos varia com base na integridade atual:
-
-* Recursos íntegros: como não foi detectado nenhum problema que possa afetar a integridade do recurso, as ações são voltadas para ajudar no processo de solução de problemas. Por exemplo, fornece acesso direto à folha Solução de problemas, que oferece orientação sobre como resolver os mais problemas comuns enfrentados pelos clientes.
-* Recurso não íntegro: para problemas causados pelo Azure, a folha exibirá ações que a Microsoft está executando (ou executou) para recuperar o recurso. Para problemas causados por ações iniciadas pelo usuário, a folha mostrará uma lista de clientes de ações que os clientes podem executar para solucionar o problema e recuperar o recurso.  
-
-Após fazer logon no Portal do Azure, há duas maneiras de acessar a folha Integridade de recursos: 
-
-### <a name="open-the-resource-blade"></a>Abrir a folha Recursos
-Abra a folha Recursos de um recurso específico. Na folha à esquerda que é aberta próxima à folha Recurso, clique em Integridade do Recurso em Suporte + Solução de Problemas para abrir a folha Integridade do recurso. 
-
-![Folha Integridade de recursos](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
-
-### <a name="help-and-support-blade"></a>Folha de Ajuda e Suporte
-Abra a folha Ajuda e Suporte clicando no ponto de interrogação no canto superior direito e selecionando Ajuda + Suporte. 
-
-**Na barra de navegação superior**
-
-![Ajuda + suporte](./media/resource-health-overview/HelpAndSupport.png)
-
-Na folha à esquerda que é aberta próxima à folha Ajuda + Suporte, clique em Integridade de Recurso em Suporte + Solução de Problemas. Clicar nessa opção abre a folha de assinatura de Integridade do recurso, que lista todos os recursos em sua assinatura. Ao lado de cada recurso, há um ícone que indica sua integridade. Clicar em cada recurso abrirá a folha Integridade de recursos.
-
-**Bloco de integridade de recursos**
-
-![Bloco de integridade de recursos](./media/resource-health-overview/resourceHealthTile.png)
-
-## <a name="what-does-my-resource-health-status-mean"></a>O que significa o status de integridade do recurso?
-Há quatro status de integridade diferentes que você pode ver para o recurso.
+## <a name="health-status-provided-by-resource-health"></a>Status de integridade fornecida pelo Resource Health
+A integridade de um recurso é um dos status a seguir:
 
 ### <a name="available"></a>Disponível
-O serviço não detectou problemas na plataforma que possam afetar a disponibilidade do recurso. Isso é indicado por um ícone de marca de seleção verde. 
+O serviço não detectou nenhum evento que afete a integridade do recurso. Nos casos em que o recurso tiver se recuperado de tempo de inatividade não planejado nas últimas 24 horas, você verá a notificação **recuperado recentemente**.
 
-![O recurso está disponível](./media/resource-health-overview/Available.png)
+![Máquina virtual disponível do Resource Health](./media/resource-health-overview/Available.png)
 
 ### <a name="unavailable"></a>Indisponível
-Nesse caso, o serviço detectou um problema contínuo na plataforma que está afetando a disponibilidade deste recurso; por exemplo, o nó em que a VM está em execução foi reiniciado inesperadamente. Isso é indicado por um ícone de aviso vermelho. Informações adicionais sobre o problema são fornecidas na seção no meio da folha, incluindo: 
+O serviço detectou um evento de plataforma ou não plataforma em andamento que afeta a integridade do recurso.
 
-1. As ações que a Microsoft está executando para recuperar o recurso 
-2. Uma linha do tempo detalhada do problema, incluindo o tempo de resolução esperado
-3. Uma lista de ações recomendadas para usuários 
+#### <a name="platform-events"></a>Eventos de plataforma
+Esses eventos são disparados por vários componentes da infraestrutura do Azure e incluem tanto ações agendadas, tais como manutenção planejada, quanto incidentes inesperados, assim como uma reinicialização não planejada do host.
 
-![O recurso não está disponível](./media/resource-health-overview/Unavailable.png)
+O Resource Health fornece detalhes adicionais sobre o evento, o processo de recuperação e permite que você entre em contato com o suporte mesmo que você não tenha um contrato de suporte da Microsoft ativo.
 
-### <a name="unavailable--customer-initiated"></a>Não disponível - iniciado pelo cliente
-O recurso não está disponível devido a uma solicitação de cliente, como a interrupção de um recurso ou a solicitação de uma reinicialização. Isso é indicado por um ícone azul informativo. 
+![Máquina virtual do Resource Health indisponível devido a evento de plataforma](./media/resource-health-overview/Unavailable.png)
 
-![O recurso não está disponível devido a uma ação iniciada pelo usuário](./media/resource-health-overview/userInitiated.png)
+#### <a name="non-platform-events"></a>Eventos de não plataforma
+Esses eventos são disparados por ações executadas por usuários, por exemplo, parar uma máquina virtual ou alcançar o número máximo de conexões para um Cache Redis.
+
+![Máquina virtual do Resource Health indisponível devido a evento de não plataforma](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
 ### <a name="unknown"></a>Desconhecido
-O serviço não recebeu informações sobre esse recurso por mais de cinco minutos. Isso é indicado por um ícone de ponto de interrogação cinza. 
+Esse status de integridade indica que o Resource Health não recebeu informações sobre este recurso há mais de 10 minutos. Embora esse status não seja uma indicação definitiva do estado do recurso, é um ponto de dados importantes no processo de solução de problemas:
+* Se o recurso estiver sendo executado como esperado, o status do recurso será atualizado para disponível depois de alguns minutos.
+* Se você está tendo problemas com o recurso, o status de integridade Desconhecido pode sugerir que um evento na plataforma está afetando o recurso.
 
-É importante observar que isso não é uma indicação definitiva de que há algo errado com um recurso. Portanto, os clientes devem seguir estas recomendações:
+![Máquina virtual desconhecida do Resource Health](./media/resource-health-overview/Unknown.png)
 
-* Se o recurso está sendo executado conforme o esperado, mas sua integridade está definida como Desconhecida no Resource Health, não há problemas e você pode esperar que o status do recurso seja atualizado para Íntegro após alguns minutos.
-* Se houver problemas ao acessar o recurso e sua integridade estiver definida como Desconhecida no Resource Health, isso poderá ser uma indicação inicial de que pode haver um problema, e investigações adicionais deverão ser realizadas até que a integridade seja atualizada para Íntegro ou Não íntegro
+## <a name="report-an-incorrect-status"></a>Relatar um status incorreto
+Se a qualquer momento você acredita que o status de integridade atual está incorreto, você pode nos informar a respeito clicando em **Relatar o status de integridade incorreto**. Em casos nos quais você será afetado por um problema do Azure, recomendamos que você entre em contato com o suporte por meio da folha do Resource Health. 
 
-![A integridade do recurso é desconhecida](./media/resource-health-overview/unknown.png)
+![Status incorreto do Relatório do Resource Health](./media/resource-health-overview/incorrect-status.png)
 
-## <a name="service-impacting-events"></a>Eventos que afetam o serviço
-Se o recurso puder ser afetado por um Evento que Afeta o Serviço em andamento, será exibida uma faixa na parte superior da folha Integridade de recursos. Clicar na faixa abrirá a folha Eventos de Auditoria, que exibirá informações adicionais sobre a interrupção.
+## <a name="historical-information"></a>Informações de histórico
+Você pode acessar até 14 dias de dados de integridade históricos clicando em **Exibir Histórico** na folha do Resource Health. 
 
-![A integridade de recursos pode ser afetada por um SIE](./media/resource-health-overview/serviceImpactingEvent.png)
+![Histórico do Relatórios do Resource Health](./media/resource-health-overview/history-blade.png)
 
-## <a name="what-else-do-i-need-to-know-about-resource-health"></a>O que mais preciso saber sobre o Resource Health?
-### <a name="signal-latency"></a>Latência de sinal
-Os sinais que são usados pelo Resource Health podem ter um atraso de até 15 minutos, o que pode causar discrepâncias entre o status de integridade atual do recurso e sua disponibilidade real. É importante ter isso em mente, pois ajudará a eliminar o tempo desnecessário gasto na investigação de possíveis problemas. 
+## <a name="getting-started"></a>Introdução
+Para abrir o Resource Health para um recurso
+1.    Entre no Portal do Azure.
+2.    Navegue até seu recurso.
+3.    No menu do recurso localizado no lado esquerdo, clique em **Resource Health**.
 
-### <a name="special-case-for-sql"></a>Caso especial para o SQL
-O Resource Health relata o status do banco de dados SQL, não do SQL Server. Embora essa opção forneça uma imagem mais realista da integridade, requer que vários componentes e serviços sejam levados em consideração para determinar a integridade do banco de dados. O sinal atual se baseia em logons no banco de dados, o que significa que, para bancos de dados que recebem logons regulares (o que inclui, entre outras coisas, receber solicitações de execução de consulta), o status de integridade será exibido regularmente. Se o banco de dados não tiver sido acessado por um período de 10 minutos ou mais, será movido para o estado desconhecido. Isso não significa que o banco de dados esteja indisponível, apenas que nenhum sinal foi emitido porque nenhum logon foi executado. Conectar-se ao banco de dados e executar uma consulta emitirá os sinais necessários para determinar e atualizar o status de integridade do banco de dados.
+![Abra o Resource Health na folha Recurso](./media/resource-health-overview/from-resource-blade.png)
 
-## <a name="feedback"></a>Comentários
-Estamos sempre abertos a comentários e sugestões! Envie-nos suas [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, você pode interagir conosco pelo [Twitter](https://twitter.com/azuresupport) ou nos [fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Você também pode acessar o Resource Health clicando em **Mais serviços**e digitando **Resource Health** na caixa de texto de filtro para abrir a folha **Ajuda + Suporte**. Finalmente, clique em [**Resource Health**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+
+![Abra o Resource Health em Mais serviços](./media/resource-health-overview/FromOtherServices.png)
+
+## <a name="next-steps"></a>Próximas etapas
+
+Confira estes recursos para saber mais sobre o Resource Health:
+-  [Tipos de recursos e verificações de integridade no Azure Resource Health](resource-health-checks-resource-types.md)
+-  [Perguntas frequentes sobre o Azure Resource Health](resource-health-faq.md)
 
 
 
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a423975e8a091183154217678706817694f3e346
-ms.openlocfilehash: d5256250d6d3a6d7df3a90ae4a0801af131b830e
-ms.lasthandoff: 12/21/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 2b8638ffc3287346a71f591370367655c450e376
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -29,25 +29,25 @@ Você pode executar seu aplicativo .NET do Azure HDInsight na própria identidad
 Em seu aplicativo .NET não interativo, você precisa:
 
 * Da sua ID de locatário da assinatura do Azure (também conhecida como ID de diretório). Veja [Obter a ID de locatário](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* Da ID de cliente do aplicativo do Azure Active Directory. Consulte [Criar um aplicativo do Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-active-directory-application) e [Obter uma ID de aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
-* Da chave secreta do aplicativo do Azure Active Directory. Consulte [Obter chave de autenticação do aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* A ID de cliente do aplicativo do Azure Active Directory. Consulte [Criar um aplicativo do Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) e [Obter uma ID de aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* A chave secreta do aplicativo do Azure Active Directory. Consulte [Obter chave de autenticação do aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Cluster HDInsight. Consulte [tutorial de introdução](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 
 
-## <a name="assign-ad-application-to-role"></a>Atribuir o aplicativo do AD à função
+## <a name="assign-azure-ad-application-to-role"></a>Atribuir o aplicativo do Azure AD à função
 Você deve atribuir o aplicativo a uma [função](../active-directory/role-based-access-built-in-roles.md) para conceder a ele permissões para executar ações. Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissões são herdadas de níveis inferiores do escopo (por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contiver). Neste tutorial, você definirá o escopo no nível de grupo de recursos. Para obter mais informações, consulte [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md)
 
-**Para adicionar a função de Proprietário ao aplicativo do AD**
+**Adicionar a função de Proprietário ao aplicativo do Azure AD**
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique no **Grupo de Recursos** no painel esquerdo.
 3. Clique no grupo de recursos que contém o cluster HDInsight, no qual você executará a consulta Hive posteriormente neste tutorial. Se houver muitos grupos de recursos, você poderá usar o filtro.
 4. Clique em **Controle de acesso (IAM)** no menu do grupo de recursos.
 5. Clique em **Adicionar** na folha **Usuários**.
-6. Siga as instruções para adicionar a função **Proprietário** ao aplicativo do AD que você criou no último procedimento. Ao concluir a tarefa com êxito, você deverá ver o aplicativo listado na folha Usuários com a função de Proprietário.
+6. Siga as instruções para adicionar a função **Proprietário** ao aplicativo do Azure AD que você criou no último procedimento. Ao concluir a tarefa com êxito, você deverá ver o aplicativo listado na folha Usuários com a função de Proprietário.
 
 ## <a name="develop-hdinsight-client-application"></a>Desenvolver aplicativos do cliente HDInsight
 
@@ -125,7 +125,7 @@ Você deve atribuir o aplicativo a uma [função](../active-directory/role-based
         }
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [Criar o aplicativo do Azure Active Directory e a entidade de serviço usando o portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Autenticação de uma entidade de serviço com o Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md)
 

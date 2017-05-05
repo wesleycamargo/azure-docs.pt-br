@@ -17,6 +17,7 @@ ms.author: tarcher
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 76bcb201bb8d862426048b828c0c4cce0335455c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -251,7 +252,7 @@ Se você estiver investigando um problema com um serviço de nuvem que já está
    
     Para obter informações sobre as definições de configuração, consulte **Configurar fontes de dados de diagnóstico** neste tópico. Para obter informações sobre como exibir os dados de diagnóstico, consulte **Exibir os dados de diagnóstico** neste tópico.
    
-    Se você alterar a coleta de dados no **Gerenciador de Servidores**, essas alterações permanecerão em vigor até que você reimplante totalmente o seu serviço de nuvem. Se você usar as configurações de publicação padrão, as alterações não são substituídas, uma vez que a configuração de publicação padrão é atualizar a implantação existente, em vez de fazer uma reimplantação completa. Para verificar se as configurações estão limpas no momento da implantação, vá para a guia **Configurações avançadas** no Assistente de publicação e limpe a caixa de seleção** Atualização de implantação**. Quando você reimplanta com essa caixa de seleção desmarcada, as configurações revertem aquelas no arquivo .wadcfgx (ou wadcfg) conforme definido no Editor de propriedades da função. Se você atualizar a implantação, o Azure mantém as configurações antigas.
+    Se você alterar a coleta de dados no **Gerenciador de Servidores**, essas alterações permanecerão em vigor até que você reimplante totalmente o seu serviço de nuvem. Se você usar as configurações de publicação padrão, as alterações não são substituídas, uma vez que a configuração de publicação padrão é atualizar a implantação existente, em vez de fazer uma reimplantação completa. Para verificar se as configurações estão limpas no momento da implantação, vá para a guia **Configurações avançadas** no Assistente de publicação e limpe a caixa de seleção **Atualização de implantação** . Quando você reimplanta com essa caixa de seleção desmarcada, as configurações revertem aquelas no arquivo .wadcfgx (ou wadcfg) conforme definido no Editor de propriedades da função. Se você atualizar a implantação, o Azure mantém as configurações antigas.
 
 ## <a name="troubleshoot-azure-cloud-service-issues"></a>Solucionar problemas do serviço de nuvem do Azure
 Se você tiver problemas com seus projetos de serviço de nuvem, como uma função travar no status "ocupado", repetidamente recicla ou lança um erro interno do servidor, existem ferramentas e técnicas que você pode usar para diagnosticar e corrigir esses problemas. Para obter exemplos específicos de problemas e soluções comuns, bem como uma visão geral dos conceitos e ferramentas usadas para diagnosticar e corrigir esses erros, consulte [Dados de diagnóstico de computação de PaaS do Azure](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
@@ -301,10 +302,5 @@ Agora, na janela **Propriedades**, defina a propriedade **Copiar para Diretório
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o registro em log de diagnósticos no Azure, consulte [Habilitando o diagnóstico nos Serviços de Nuvem do Azure e Máquinas Virtuais](cloud-services/cloud-services-dotnet-diagnostics.md) e [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service-web/web-sites-enable-diagnostic-log.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

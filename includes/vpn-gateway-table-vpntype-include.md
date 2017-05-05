@@ -18,8 +18,3 @@
 | **Ponto a Site** |Suportado |Sem suporte |
 | **Clássico para o Gerenciador de Recursos** |Suportado |Sem suporte |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7b7177faa9fa571d3a62ee15b4a0fbfdab3a097f
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: a655c7bf1ea5ca1439d4353df5067c0e07f2d49f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ A seguir estão as etapas de pré-requisito que você deve levar em conta ou rea
         * Uma máquina virtual Windows precisa de um servidor de destino mestre do Windows. Você pode usar o servidor de processo local e os computadores de servidor de destino mestre novamente.
 * O servidor de configuração é necessário localmente para fazer um failback. Durante o failback, a máquina virtual deve existir no banco de dados do servidor de configuração. Caso contrário, o failback não será bem-sucedido. Faça o backup agendado regular de seu servidor. Em caso de desastre, você precisará restaurar o servidor com o mesmo endereço IP para que o failback funcione.
 * Verifique se você definiu a configuração disk.EnableUUID=true nos parâmetros de configuração da máquina virtual de destino mestre no VMware. Se essa linha não existir, adicione-a. Essa configuração é necessária para fornecer um UUID consistente para o VMDK (disco de máquina virtual) para que ele monte corretamente.
-* *Você não pode usar vMaster de armazenamento para o servidor de destino mestre*. Isso pode causar a falha do failback. A máquina virtual não será iniciada porque os discos não estarão disponíveis para ela.
+* *Você não pode usar Storage vMotion no servidor de destino mestre*. Isso pode causar a falha do failback. A máquina virtual não será iniciada porque os discos não estarão disponíveis para ela. Para evitar isso, exclua os servidores de destino mestre de sua lista de vMotion.
 * Você precisa adicionar uma nova unidade ao servidor de destino mestre. Essa unidade é chamada de uma unidade de retenção. Adicione um novo disco e formate a unidade.
 * O destino mestre tem outros pré-requisitos listados em [Tarefas comuns para verificar em um destino mestre antes de proteger novamente](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
@@ -76,6 +76,11 @@ Lembre-se de que a replicação ocorrerá somente pela VPN S2S ou pelo emparelha
 
 Leia mais sobre como instalar um [servidor de processo do Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
+> [!TIP]
+> É sempre recomendável usar o Azure com base em servidor de processo durante o failback. O desempenho de replicação será maior se o servidor de processo estiver mais próximo da máquina virtual de replicação (a máquina no Azure com failover). No entanto, durante a prova de conceitos ou demonstrações, você pode usar o servidor de processo local junto com o ExpressRoute com emparelhamento privado para concluir a prova de conceito mais rapidamente.
+
+
+
 ### <a name="what-are-the-ports-to-be-open-on-different-components-so-that-reprotect-can-work"></a>Quais são as portas a serem abertas em diferentes componentes para que a nova proteção possa funcionar?
 
 ![Failover-failback de todas as portas](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
@@ -94,9 +99,12 @@ Clique nos links a seguir para ler sobre como instalar um servidor de destino me
 
 * Se a máquina virtual está presente no local no servidor vCenter, o servidor de destino mestre precisa acessar o VMDK da máquina virtual local. O acesso é necessário para gravar os dados replicados nos discos da máquina virtual. Verifique se o armazenamento de dados da máquina virtual local está montado no host de destino mestre com acesso de leitura/gravação.
 
-* Se a máquina virtual não está presente no local no servidor vCenter, você precisa criar uma nova máquina virtual durante o Proteja Novamente. Essa máquina virtual será criada no host ESX em que você criou o destino mestre. Escolha o host ESX com cuidado para que a máquina virtual de failback seja criada no host desejado.
+* Se a máquina virtual não está presente no local no servidor vCenter, o serviço de recuperação do site precisa criar uma nova máquina virtual durante o Proteja Novamente. Essa máquina virtual será criada no host ESX em que você criou o destino mestre. Escolha o host ESX com cuidado para que a máquina virtual de failback seja criada no host desejado.
 
 * *Você não pode usar Storage vMotion para o servidor de destino mestre*. Isso pode causar a falha do failback. A máquina virtual não será iniciada porque os discos não estarão disponíveis para ela.
+
+> [!WARNING]
+> No caso de um destino mestre sofrer uma nova proteção de postagem de vMotion de armazenamento, os discos das máquinas virtuais protegidas que estiverem anexados ao destino mestre serão migrados para o destino do vMotion. Se você tentar fazer failback após isso, desanexar do disco resultará em falha e a mensagem de erro informará que os discos não foram encontrados. Depois disso, ficará muito difícil localizar os discos em suas contas de armazenamento. Você precisará localizá-los manualmente e anexá-los à máquina virtual. Depois disso, a máquina virtual local poderá ser inicializada.
 
 * Você precisa adicionar uma nova unidade ao servidor de destino mestre do Windows. Essa unidade é chamada de uma unidade de retenção. Adicione um novo disco e formate a unidade. A unidade de retenção é usada para interromper os pontos no tempo em que a máquina virtual replica para o site local. Abaixo vemos alguns dos critérios de uma unidade de retenção sem os quais a unidade não será listada para o servidor de destino mestre.
 
@@ -113,6 +121,11 @@ Clique nos links a seguir para ler sobre como instalar um servidor de destino me
    * O volume de retenção padrão para o Windows é o volume R.
 
    * O volume de retenção padrão para o Linux é /mnt/retention.
+   
+   > [!IMPORTANT]
+   > Você precisa adicionar uma nova unidade caso esteja usando uma máquina CS+PS existente ou uma escala ou máquina PS+MT. A nova unidade deve atender aos requisitos acima. Se a unidade de retenção não estiver presente, nenhuma será listada no menu suspenso no portal. Depois de adicionar uma unidade ao destino mestre local, levará no máximo 15 minutos para a unidade se refletir na seleção no portal. Você também poderá atualizar o servidor de configuração se a unidade não aparecer depois de quinze minutos.
+
+
 
 * Uma máquina virtual do Linux após failover precisa de um servidor de destino mestre do Linux. Uma máquina virtual do Windows após failover precisa de um servidor de destino mestre do Windows.
 

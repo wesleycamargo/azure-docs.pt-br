@@ -16,8 +16,3 @@ Este tutorial exige o seguinte:
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

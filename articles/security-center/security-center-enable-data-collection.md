@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 04/12/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 57c0228c398ba4ba3fd18a1088472749bed3ac69
-ms.openlocfilehash: 9ebbed56bdbc8385bb651c7aa1e77f369da1d727
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: b942f934ecb25083d779096dc628e342870edc26
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Habilitar coleta de dados na Central de Segurança do Azure
-Para ajudar os clientes a evitar, detectar e responder a ameaças, a Central de Segurança do Azure coleta e processa dados sobre as máquinas virtuais do Azure, incluindo informações de configuração, metadados, logs de eventos e muito mais. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as máquinas virtuais em sua assinatura. A coleta de dados é recomendada, mas você pode recusar desativando-a na política da Central de Segurança (confira [Desabilitar a coleta de dados](#disabling-data-collection)). Se você desativar a coleta de dados, a Central de Segurança recomendará ativar a coleta de dados na política de segurança dessa assinatura.
+Para ajudar os clientes a evitar, detectar e responder a ameaças, a Central de Segurança do Azure coleta e processa dados sobre as máquinas virtuais do Azure, incluindo informações de configuração, metadados e logs de eventos. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as máquinas virtuais em sua assinatura. A coleta de dados é recomendada, mas você pode recusar desativando-a na política da Central de Segurança (confira [Desabilitar a coleta de dados](#disabling-data-collection)). Se você desativar a coleta de dados, a Central de Segurança recomendará ativar a coleta de dados na política de segurança dessa assinatura.
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
@@ -56,7 +56,7 @@ A coleta de dados é habilitada por meio do agente de monitoramento do Azure e d
 Você pode desabilitar a coleta de dados a qualquer momento, o que removerá automaticamente os Agentes de Monitoramento instalados anteriormente pela Central de Segurança. Você deve selecionar uma assinatura para desativar a coleta de dados.
 
 > [!NOTE]
-> As políticas de segurança podem ser definidas no nível de assinatura do Azure e no nível do grupo de recursos, mas você precisa selecionar uma assinatura para desativar a coleta de dados.
+> As políticas de segurança podem ser definidas no nível da assinatura e do grupo de recursos do Azure, mas é necessário selecionar uma assinatura para desligar a coleta de dados.
 >
 >
 

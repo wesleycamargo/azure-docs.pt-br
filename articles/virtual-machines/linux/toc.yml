@@ -13,20 +13,30 @@
     href: quick-create-portal.md
   - name: "Criar VM - PowerShell"
     href: quick-create-powershell.md
+- name: "Tutoriais"
+  items:
+  - name: "1 - Criar / gerenciar VMs"
+    href: tutorial-manage-vm.md
+  - name: "1 - Criar / gerenciar discos"
+    href: tutorial-manage-disks.md
+  - name: "3 - Automatizar a configuração"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 - Criar imagens da VM"
+    href: tutorial-custom-images.md
+  - name: "5 - VMs altamente disponíveis"
+    href: tutorial-availability-sets.md
+  - name: "6 - Criar um conjunto de dimensionamento de VM"
+    href: tutorial-create-vmss.md
+  - name: "7 - VMs de balanceamento de carga"
+    href: tutorial-load-balancer.md
+  - name: "8 - Gerenciar a rede"
+    href: tutorial-virtual-network.md
 - name: "Exemplos"
   items:
   - name: "CLI do Azure"
     href: cli-samples.md
   - name: "PowerShell"
     href: powershell-samples.md
-- name: "Tutoriais"
-  items:
-  - name: "Criar e gerenciar uma VM"
-    href: tutorial-manage-vm.md
-  - name: "Balancear carga de VMs altamente disponíveis"
-    href: tutorial-load-balance-nodejs.md
-  - name: "Criar um Conjunto de Dimensionamento de VM do Linux"
-    href: tutorial-create-vmss.md
 - name: "Conceitos"
   items:
   - name: "Distribuições endossadas do Azure"

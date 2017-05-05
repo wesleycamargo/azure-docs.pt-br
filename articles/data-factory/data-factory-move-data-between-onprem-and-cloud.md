@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 05/04/2017
 ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
 ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -219,7 +220,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
             }
         }
     }     
-    ```     
+    ```       
    Observe os seguintes pontos:
 
    * **type** é definido como **SqlServerTable**.
@@ -396,9 +397,4 @@ Nesta etapa, você utiliza o portal do Azure para monitorar o que está acontece
 ## <a name="next-steps"></a>Próximas etapas
 * Confira o artigo [Data Management Gateway](data-factory-data-management-gateway.md) (Gateway de Gerenciamento de Dados) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados.
 * Confira [Copiar dados do Blob do Azure para o SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber mais sobre como usar a Atividade de Cópia para mover dados de um repositório de dados de origem para um repositório de dados de coletor.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -11,7 +11,7 @@ Este artigo descreve todas essas três opções.
 * [Usando o Active Directory do Azure](#ad)
 * [Usando o Controle de Acesso do Active Directory do Azure](#ac)
 
-## <a name="a-nameadinvmarunning-windows-server-active-directory-in-virtual-machines"></a><a name="adinvm"></a>Executando o Active Directory do Windows Server em máquinas virtuais
+## <a name="adinvm"></a>Executando o Active Directory do Windows Server em máquinas virtuais
 Executar o AD do Windows Server em máquinas virtuais do Azure é muito semelhante a executá-lo localmente. [Figura 1](#fig1) mostra um exemplo típico de como isso acontece.
 
 ![Active Directory do Azure na Máquina Virtual](./media/identity/identity_01_ADinVM.png)
@@ -36,7 +36,7 @@ Executar o AD do Windows Server em VMs do Azure pode fazer sentido em várias si
 
 Existem também outras possibilidades. Por exemplo, não é necessário que você conecte o AD do Windows Server na nuvem a um datacenter local. Se desejar executar um farm do SharePoint que serviu um conjunto específico de usuários, por exemplo, todos os quais efetuariam logon exclusivamente com identidades baseadas na nuvem, você pode criar uma floresta autônoma no Azure. A maneira como você usa essa tecnologia depende de quais são suas metas. (Para obter orientações mais detalhadas sobre como usar o AD do Windows Server com o Azure, [clique aqui](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).)
 
-## <a name="a-nameadausing-azure-active-directory"></a><a name="ad"></a>Usando o Active Directory do Azure
+## <a name="ad"></a>Usando o Active Directory do Azure
 Conforme os aplicativos SaaS tornam-se cada vez mais comuns, eles geram uma questão óbvia: que tipo de serviço de diretório esses aplicativos baseados em nuvem devem usar? A resposta da Microsoft para essa pergunta é: o Active Directory do Azure.
 
 Existem duas opções principais para usar esse serviço de diretório na nuvem:
@@ -73,7 +73,7 @@ Para usar o AD do Azure, o usuário primeiro faz logon no seu domínio local do 
 
 Hoje em dia, o AD do Azure AD não é uma substituição completa do AD do Windows Server local. Como já mencionado, o diretório de nuvem tem um esquema muito mais simples e também não possui itens como diretiva de grupo, a capacidade de armazenar informações sobre computadores e suporte a LDAP. (Na verdade, uma máquina Windows não pode ser configurada para permitir aos usuários fazer logon usando apenas o AD do Azure — este não é um cenário aceito.) Em vez disso, as metas iniciais do AD do Azure incluem permitir que usuários corporativos acessem aplicativos na nuvem sem manter um logon separado e liberar os administradores de diretório local da sincronização manual de seu diretório local com todos os aplicativos SaaS que sua organização usa. No entanto, ao longo do tempo, o esperado é que esse serviço de diretório de nuvem atenda a uma grande variedade de cenários.
 
-## <a name="a-nameacausing-azure-active-directory-access-control"></a><a name="ac"></a>Usando o Controle de Acesso do Active Directory do Azure
+## <a name="ac"></a>Usando o Controle de Acesso do Active Directory do Azure
 Tecnologias de identidade baseada em nuvem podem ser usadas para resolver uma variedade de problemas. O Active Directory do Azure pode fornecer aos usuários da organização um logon único para múltiplos aplicativos SaaS, por exemplo. Mas tecnologias de identidade na nuvem também podem ser usadas de outras maneiras.
 
 Suponha, por exemplo, que um aplicativo deseja permitir que seus usuários efetuem logon usando tokens emitidos por vários *provedores de identidade (IdPs)*. Existem diversos provedores de identidade diferentes atualmente, incluindo Facebook, Google, Microsoft e outros, e frequentemente os aplicativos permitem que os usuários entrem usando uma dessas identidades. Por que um aplicativo deve se preocupar em manter a sua própria lista de usuários e senhas quando, em vez disso, pode basear-se em identidades que já existem? Aceitar identidades existentes facilita a vida dos usuários, que possuem um nome de usuário e senha a menos para se lembrar, e das pessoas que criam o aplicativo, que não precisam mais manter suas próprias listas de nomes de usuário e senhas.
@@ -101,9 +101,4 @@ Trabalhar com identidade é importante em praticamente todos os aplicativos. O o
 
 ## <a name="about-the-author"></a>Sobre o autor
 David Chappell é diretor da Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) em São Francisco, Califórnia.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

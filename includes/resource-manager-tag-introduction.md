@@ -4,13 +4,9 @@ Após a aplicação de marcas, você pode recuperar todos os recursos em sua ass
 
 As seguintes limitações se aplicam a marcas:
 
-* Cada recurso ou grupo de recursos pode ter no máximo 15 marcas. 
+* Cada recurso ou grupo de recursos pode ter um máximo de 15 pares chave/valor de marca. Essa limitação se aplica somente a marcas aplicadas diretamente ao grupo de recursos ou recurso. Um grupo de recursos pode conter muitos recursos que possuem 15 pares de chave/valor de marca. 
 * O nome da marca é limitado a 512 caracteres.
 * O valor da marca é limitado a 256 caracteres. 
 * Marcas aplicadas ao grupo de recursos não são herdadas pelos recursos desse grupo de recursos. 
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+Se você tiver mais de 15 valores que você precisa associar a um recurso, use uma cadeia de caracteres JSON para o valor da marca. A cadeia de caracteres JSON pode conter vários valores que são aplicados a uma única chave de marca. Um exemplo de atribuição de uma cadeia de caracteres JSON para a chave de marca é mostrado neste artigo.

@@ -20,8 +20,3 @@ Após os registros do nome de domínio terem sido propagados, você deverá asso
 
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

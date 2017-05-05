@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 96fb170e7a079fbb4bcfb4a6b1e98970a709406f
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0fb7e8fe778c8d6f7e12b1c8a75c95941da3d4d9
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory
 
-Para usar o [Acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-azure-portal.md), seus computadores devem estar registrados no Azure Active Directory (Azure AD). Você pode obter uma lista dos dispositivos registrados na sua organização usando o cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) no [módulo do Azure Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/). 
+Para usar o [Acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-azure-portal.md), seus computadores devem estar registrados no Azure Active Directory (Azure AD). Você pode obter uma lista dos dispositivos registrados na sua organização usando o cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) no [módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0). 
 
 Este artigo fornece as etapas para configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure AD em sua organização.
 
@@ -302,7 +302,7 @@ Na declaração acima,
 
 
 Para obter mais detalhes sobre nomes de domínio verificados, confira [Adicionar um nome de domínio ao Azure Active Directory](active-directory-add-domain.md).  
-Para obter uma lista dos domínios da empresa verificados, você pode usar o cmdlet [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 
+Para obter uma lista dos domínios da empresa verificados, você pode usar o cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0). 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
@@ -418,7 +418,7 @@ O script a seguir o ajudará com a criação das regras de transformação de em
     ]
     => issue(
         Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", 
-        Value = "http://<verified-domain-name>/adfs/services/trust/"
+        Value = "http://' + $oneOfVerifiedDomainNames + '/adfs/services/trust/"
     );'
     }
 
@@ -461,7 +461,7 @@ O script a seguir o ajudará com a criação das regras de transformação de em
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-- Se você já tiver emitido uma declaração **ImmutableID** para contas de usuário, defina o valor de **$oneOfVerifiedDomainNames** no script para **$true**.
+- Se você já tiver emitido uma declaração **ImmutableID** para contas de usuário, defina o valor de **$immutableIDAlreadyIssuedforUsers** no script para **$true**.
 
 ## <a name="step-3-enable-windows-down-level-devices"></a>Etapa 3: habilitar dispositivos de nível inferior do Windows
 
@@ -479,7 +479,7 @@ Para registrar dispositivos de nível inferior do Windows, você precisa garanti
 
 `Azure Active Directory > Users and groups > Device settings`
     
-A política a seguir deve ser definida como **Todos**: **os usuários podem registrar seus dispositivos com o Azure AD**
+A política a seguir deve ser definida como **Todos** : **os usuários podem registrar seus dispositivos com o Azure AD**
 
 ![Registrar dispositivos](./media/active-directory-conditional-access-automatic-device-registration-setup/23.png)
 
@@ -511,7 +511,7 @@ No AD FS, você precisa adicionar uma regra de transformação de emissão que p
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. No servidor de federação, digite o comando do PowerShell abaixo após substituir **\<RPObjectName\>** pelo nome do objeto da terceira parte confiável para o seu objeto de terceira parte confiável do Azure AD. Geralmente, este objeto é nomeado como **Plataforma de Identidade do Microsoft Office 365**.
+8. No servidor de federação, digite o comando do PowerShell abaixo após substituir  **\<RPObjectName\>**  pelo nome do objeto da terceira parte confiável para o seu objeto de terceira parte confiável do Azure AD. Geralmente, este objeto é nomeado como **Plataforma de Identidade do Microsoft Office 365**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -565,7 +565,7 @@ O instalador cria uma tarefa agendada no sistema que é executada no contexto do
 
 ## <a name="step-5-verify-registered-devices"></a>Etapa 5: verificar os dispositivos registrados
 
-Você pode obter uma lista dos dispositivos registrados com sucesso na sua organização usando o cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) no [módulo do Azure Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/).
+Você pode obter uma lista dos dispositivos registrados com sucesso na sua organização usando o cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) no [módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 A saída deste cmdlet mostra os dispositivos registrados no Azure AD. Para obter todos os dispositivos, use o parâmetro **-Todos** e, em seguida, filtre-os usando a propriedade **deviceTrustType**. Dispositivos associados ao domínio possuem um valor de **Associado ao domínio**.
 

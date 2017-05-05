@@ -13,19 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9cf87aa75b2ef65719a38e446a81086d265e7f4d
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d04c670daac243119b47cece2df18335c7af972c
+ms.lasthandoff: 04/18/2017
 
 
 ---
 
 # <a name="documentdb-nosql-database-security"></a>Segurança de banco de dados NoSQL do DocumentDB
 
- Este artigo discute as práticas recomendadas de segurança de banco de dados NoSQL e os principais recursos oferecidos pelo Azure DocumentDB para ajudar você a evitar, detectar e responder a falhas do banco de dados.
+Este artigo discute as práticas recomendadas de segurança de banco de dados NoSQL e os principais recursos oferecidos pelo Azure DocumentDB para ajudar você a evitar, detectar e responder a falhas do banco de dados.
+ 
+## <a name="whats-new-in-documentdb-security"></a>Novidades na segurança do DocumentDB
+
+A criptografia em repouso agora está disponível para documentos armazenados no DocumentDB em todas as regiões do Azure, exceto regiões do governo, o Azure na China e o Azure na Alemanha. As regiões restantes serão habilitadas na próxima semana, juntamente com a criptografia em repouso em backups. A criptografia em repouso é aplicada automaticamente para clientes novos e existentes nessas regiões. Não é necessário configurar nada e você obtém a mesma latência, taxa de transferência, disponibilidade e funcionalidade excelentes de antes, com o benefício de saber que seus dados estão seguros e protegidos com a criptografia em repouso.
 
 ## <a name="how-do-i-secure-my-nosql-database"></a>Como proteger o meu banco de dados NoSQL? 
 
@@ -72,7 +76,7 @@ Vamos examinar cada um deles em detalhes.
 |Replicação local|Mesmo em um único data center, o DocumentDB replica automaticamente os dados para proporcionar alta disponibilidade, proporcionando a você a opção de [níveis de consistência](documentdb-consistency-levels.md). Isso garante um  [SLA de disponibilidade de tempo de atividade de 99,99%](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) e vem com uma garantia financeira, algo que nenhum outro serviço de banco de dados NoSQL pode oferecer.|
 |Backups online automatizados|Os bancos de dados do DocumentDB passam por backup e são armazenados regularmente em um repositório com redundância geográfica. <br><br>Saiba mais em [Backup e restauração online automáticos com o DocumentDB](documentdb-online-backup-and-restore.md).|
 |Restaurar dados excluídos|Os backups online automatizados podem ser usados para recuperar dados que você pode ter excluído acidentalmente até 30 dias após o evento. <br><br>Saiba mais em [Backup e restauração online automáticos com o DocumentDB](documentdb-online-backup-and-restore.md)|
-|Proteger e isolar dados confidenciais|As informações de identificação pessoal e outros dados confidenciais podem ser isolados em coleções específicas, e o acesso de leitura/gravação ou somente leitura pode ser limitado a usuários específicos.|
+|Proteger e isolar dados confidenciais|Todos os dados nas regiões listadas em [Novidades](#whats-new) agora serão criptografados em repouso.<br><br>As informações de identificação pessoal e outros dados confidenciais podem ser isolados em coleções específicas, e o acesso de leitura/gravação ou somente leitura pode ser limitado a usuários específicos.|
 |Monitorar ataques|Com o registro em log de auditoria e os logs de atividade, você pode monitorar as atividades normais e anormais de sua conta. Veja as operações que foram executadas em seus recursos, quem iniciou a operação, quando a operação ocorreu, o status da operação e muito mais.<br><br>![Logs de atividade para o Azure DocumentDB](./media/documentdb-nosql-database-security/nosql-database-security-application-logging.png)|
 |Responder a ataques|Depois de contatar o suporte do Azure para relatar um possível ataque, começa um processo de resposta ao incidente com cinco etapas. O objetivo do processo de cinco etapas é restaurar a segurança normal do serviço e as operações o mais rápido possível após a detecção de um problema e o início de uma investigação.<br><br>Saiba mais em [Resposta da segurança do Microsoft Azure na nuvem](https://aka.ms/securityresponsepaper).|
 |Isolamento geográfico|O DocumentDB garante o controle dos dados e a conformidade para regiões soberana (por exemplo, Alemanha, China, Gov. dos EUA).|
@@ -87,3 +91,4 @@ Vamos examinar cada um deles em detalhes.
 Para obter mais detalhes sobre chaves mestras e tokens de recurso, confira [Proteção do acesso aos dados do DocumentDB](documentdb-secure-access-to-data.md).
 
 Para obter mais detalhes sobre as certificações da Microsoft, confira [Central de Confiabilidade do Azure](https://azure.microsoft.com/en-us/support/trust-center/).
+

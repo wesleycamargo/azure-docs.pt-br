@@ -66,14 +66,14 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no AppDynamics com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.  
 
-Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base&64;. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 **Para configurar o logon único, execute as seguintes etapas:**
 
 1. No Portal Clássico do Azure, na página de integração do aplicativo **AppDynamics**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Configurar Logon Único")
-2. Na página **Como você deseja que os usuários entrem no AppDynamics**, selecione **Logon Único do Microsoft Azure AD** e clique em** Avançar**.
+2. Na página **Como você deseja que os usuários entrem no AppDynamics**, selecione **Logon Único do Microsoft Azure AD** e clique em**Avançar**.
    
    ![Configurar Logon Único](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Configurar Logon Único")
 3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do AppDynamics**, digite a sua URL usada pelos usuários para entrar no AppDynamics ("*https://companyname.saas.appdynamics.com*") e clique em **Avançar**.
@@ -95,12 +95,12 @@ Como parte deste procedimento, é necessário criar um arquivo de certificado co
    1. Como **Provedor de Autenticação**, selecione **SAML**.
    2. No portal clássico do Azure, na página do diálogo **Configurar logon único no AppDynamics**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
    3. No portal clássico do Azure, na página do diálogo **Configurar logon único no AppDynamics**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
-   4. Crie um arquivo **codificado em base&64;** usando o certificado baixado.  
+   4. Crie um arquivo **codificado em base 64** usando o certificado baixado.  
    
       >[!TIP]
       >Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
       > 
-   5. Abra seu certificado codificado em Base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado**
+   5. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado**
    6. Clique em **Salvar**.
 
      ![Salvar](./media/active-directory-saas-appdynamics-tutorial/IC777673.png "Salvar")

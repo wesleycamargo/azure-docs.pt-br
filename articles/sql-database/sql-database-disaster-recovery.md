@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 164f3affdf0622653a0a7dcc2a5e886ab855ced1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: dab476db32b2274049140144847fba24b55856b0
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -63,16 +63,11 @@ Para restaurar a disponibilidade do(s) banco(s) de dados, você precisa iniciar 
 Use um dos guias a seguir para fazer failover para um banco de dados de secundário replicado geograficamente:
 
 * [Fazer failover para um secundário replicado geograficamente usando o Portal do Azure](sql-database-geo-replication-portal.md)
-* [Fazer failover para um secundário replicado geograficamente usando o PowerShell](sql-database-geo-replication-powershell.md)
+* [Fazer failover para um secundário replicado geograficamente usando o PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 * [Fazer failover para um secundário replicado geograficamente usando o T-SQL](sql-database-geo-replication-transact-sql.md)
 
 ## <a name="recover-using-geo-restore"></a>Recuperação usando a restauração geográfica
-Se o tempo de inatividade do aplicativo não resultar em responsabilidade de negócios, você poderá usar a restauração geográfica como método para recuperar os bancos de dados do aplicativo. Ela cria uma cópia do banco de dados com base em seu último backup com redundância geográfica.
-
-Use um dos seguintes guias para realizar a restauração geográfica de um banco de dados para uma nova região:
-
-* [Restauração geográfica de um banco de dados para uma nova região usando o Portal do Azure](sql-database-geo-restore-portal.md)
-* [Restauração geográfica de um banco de dados para uma nova região usando o PowerShell](sql-database-geo-restore-powershell.md)
+Se o tempo de inatividade do aplicativo não resultar em responsabilidade de negócios, você poderá usar a [restauração geográfica](sql-database-recovery-using-backups.md) como método de recuperar os bancos de dados do aplicativo. Ela cria uma cópia do banco de dados com base em seu último backup com redundância geográfica.
 
 ## <a name="configure-your-database-after-recovery"></a>Configurar o banco de dados após a recuperação
 Se estiver usando failover de replicação geográfica ou a restauração geográfica para se recuperar de uma interrupção, você deverá se certificar de que a conectividade com os novos bancos de dados esteja configurada corretamente para que o funcionamento normal do aplicativo possa ser retomado. Esta é uma lista de verificação de tarefas para preparar para produção o seu banco de dados recuperado.

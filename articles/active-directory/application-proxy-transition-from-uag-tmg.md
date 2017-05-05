@@ -11,24 +11,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 04/17/2017
 ms.author: kgremban
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: c887adaae811972efd7fcea86eaa67a899f3f4c2
-ms.openlocfilehash: 542dd7df7e0b887298522f29cb597f1df73709cb
-ms.lasthandoff: 02/27/2017
-
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 6e95e9abac988ae54a401927a92bdb397dd63eed
+ms.lasthandoff: 04/21/2017
 
 ---
 # <a name="transition-to-azure-ad-application-proxies-from-microsoft-forefront"></a>Fazer a transição do Microsoft Forefront para proxies de aplicativo do Azure AD
 
-Este artigo descreve como fazer a transição das soluções TMG (Threat Management Gateway) e UAG (Unified Access Gateway) do Microsoft Forefront para estes proxies de aplicativo do Azure AD (Azure Active Directory): Proxy de Aplicativo Web e Proxy de Aplicativo do Azure AD.
+Este artigo descreve como fazer a transição das soluções Microsoft Forefront TMG (Threat Management Gateway) e UAG (Unified Access Gateway) para o Proxy de Aplicativo do Azure AD.
 
-> [!NOTE]
-> O proxy de aplicativo do Azure AD é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Basic do Azure AD. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
-
-
-Para obter informações detalhadas sobre a transição do Forefront TMG e UAG para os novos proxies de aplicativo, [baixe um white paper relacionado da Microsoft](http://download.microsoft.com/download/3/E/3/3E335D93-6DB8-4834-90A8-B86105419F05/Microsoft%20TMG%20and%20UAG%20EOL%20and%20transitioning%20to%20WAP%20and%20AADAP.docx).
+Para obter informações detalhadas sobre a transição do Forefront TMG e UAG para o Proxy de Aplicativo, você pode [ler um white paper relacionado da Microsoft](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).
 
 ## <a name="functionality-details-for-the-conversion"></a>Detalhes de funcionalidade da conversão
 

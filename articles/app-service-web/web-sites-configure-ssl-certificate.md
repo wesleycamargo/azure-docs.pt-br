@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 0d909f6272cc9dcfd13bd9c18affa8d1e249efe4
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/17/2017
 
 Este artigo mostra como habilitar HTTPS para um aplicativo Web, back-end de aplicativo móvel ou aplicativo de API no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) usando um nome de domínio personalizado. O artigo aborda a autenticação somente de servidor. Se você precisar de informações sobre autenticação mútua (incluindo autenticação de cliente), consulte [Como configurar a autenticação mútua TLS para o Serviço de Aplicativo](app-service-web-configure-tls-mutual-auth.md).
 
-Para proteger com HTTPS um aplicativo com nome de domínio personalizado, adicione um certificado para esse nome de domínio. Por padrão, o Azure protege o domínio curinga **\*. azurewebsites.net** com um único certificado SSL, de modo que seus clientes possam acessar o aplicativo em **https://*&lt;appname>*.azurewebsites.net**. Mas se você quiser usar um domínio personalizado, como**contoso.com**, **www.contoso.com**e**\*.contoso.com**, o certificado padrão não poderá protegê-lo. Além disso, assim como todos os [certificados curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), o certificado padrão não é tão seguro quanto usar um domínio personalizado e um certificado para esse domínio personalizado.   
+Para proteger com HTTPS um aplicativo com nome de domínio personalizado, adicione um certificado para esse nome de domínio. Por padrão, o Azure protege o domínio curinga **\*. azurewebsites.net** com um único certificado SSL, de modo que seus clientes possam acessar o aplicativo em **https://*&lt;appname>*.azurewebsites.net**. Mas se você quiser usar um domínio personalizado, como **contoso.com**, **www.contoso.com** e **\*.contoso.com**, o certificado padrão não poderá protegê-lo. Além disso, assim como todos os [certificados curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), o certificado padrão não é tão seguro quanto usar um domínio personalizado e um certificado para esse domínio personalizado.   
 
 > [!NOTE]
 > Obtenha ajuda dos especialistas do Azure a qualquer momento nos [fóruns do Azure](https://azure.microsoft.com/support/forums/). Para obter um suporte mais personalizado, vá até [Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
@@ -44,7 +44,7 @@ Para proteger com HTTPS um aplicativo com nome de domínio personalizado, adicio
 Para proteger o seu nome de domínio personalizado com HTTPS, associe um certificado SSL personalizado a esse domínio personalizado no Azure. Antes de associar um certificado personalizado, você precisa fazer o seguinte:
 
 * **Configurar o domínio personalizado** - o Serviço de Aplicativo só permite adicionar um certificado para um nome de domínio que já está configurado no seu aplicativo. Para obter instruções, consulte [Mapear um nome de domínio personalizado para um aplicativo do Azure](web-sites-custom-domain-name.md). 
-* **Escalar verticalmente até a camada Básica ou superior** – planos do Serviço de Aplicativo em camadas de preços inferiores não dão suporte a certificados SSL personalizados. Para obter instruções, consulte [Escalar verticalmente um aplicativo no Azure](web-sites-scale.md). 
+* **Escalar verticalmente até a camada Básica ou superior** - planos do Serviço de Aplicativo em camadas de preços inferiores não dão suporte a certificados SSL personalizados. Para obter instruções, consulte [Escalar verticalmente um aplicativo no Azure](web-sites-scale.md). 
 * **Obter um certificado SSL** – se ainda não tiver, você precisará obter um de uma [AC](http://en.wikipedia.org/wiki/Certificate_authority) (autoridade de certificação) confiável. O certificado deve atender todos os requisitos a seguir:
   
   * ser assinado por uma AC confiável (sem o uso de servidores de AC).

@@ -70,8 +70,3 @@ Com os Grupos de Segurança de Rede, essa função de encaminhamento de porta é
 
 > [!NOTE]
 > Quando você implementa um balanceador de carga, normalmente não atribui à própria VM um endereço IP público. Em vez disso, o balanceador de carga tem um endereço IP público atribuído a ele. Você ainda precisa criar o Grupo de Segurança de Rede e a regra de ACL para definir o fluxo de tráfego que entra e sai de sua VM. As regras de NAT do balanceador de carga são basicamente para definir quais portas têm permissão no balanceador de carga e como elas são distribuídas entre as VMs de back-end. Assim, você precisa criar uma regra NAT para o tráfego por meio do balanceador de carga. Para permitir que o tráfego chegue à VM, crie uma regra de ACL de Grupo de Segurança de Rede.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

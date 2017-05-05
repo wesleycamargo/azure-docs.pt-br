@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: dcf8a88ebd66f5e4a5a06538532fbfbae7ce852e
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 9c7ce71674a851d598ef48eb430127c9a6bddb84
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -57,7 +57,7 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | PlatformInActive | Há um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
 | NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| Não|
-| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| Sim|
+| ConnectionsNotConnected | As conexões não estão conectadas. Isso é apenas um aviso.| Sim|
 | GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | Sim |
 
 ### <a name="connection"></a>Conexão

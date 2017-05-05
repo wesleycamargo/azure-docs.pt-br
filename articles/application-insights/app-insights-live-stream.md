@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc6acf7b24bb017e4a93df1c15ed493a4442d6b5
-ms.openlocfilehash: 917261e32845b53f2f2f3d12f60ca5fa87d441c7
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 11b9f52801e9a62b9c52f0f622fdcae761cc122a
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,7 +26,7 @@ O Live Metrics Stream mostra as métricas do [Application Insights](app-insights
 
 Ao contrário do [Metrics Explorer](app-insights-metrics-explorer.md), o Live Metrics Stream exibe um conjunto fixo de métricas. Os dados persistem somente durante o período em que estão no gráfico e, em seguida, são descartados.
 
-Os dados do Live Metrics Stream são gratuitos: não são acrescentados à sua fatura.
+Os dados do Live Metrics Stream são gratuitos: não são acrescentados à sua fatura. Isso está disponível para aplicativos Java e ASP.NET.
 
 ![Vídeo do Live Metrics Stream](./media/app-insights-live-stream/youtube.png) [Vídeo do Live Metrics Stream](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
@@ -57,7 +57,7 @@ Não há dados? O Live Metrics Stream usa uma porta diferente da usada pela Appl
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Monitorando o uso com o Application Insights](app-insights-overview-usage.md)
+* [Monitorando o uso com o Application Insights](app-insights-web-track-usage.md)
 * [Usando a Pesquisa de diagnóstico](app-insights-diagnostic-search.md)
 
 
