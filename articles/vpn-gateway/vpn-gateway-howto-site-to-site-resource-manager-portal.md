@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e839f99d599d682c31bd4c6d03a6a58268f05b7c
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: ae91d49bf4f715847bcef5d6b00e3798e6a02500
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -83,7 +84,7 @@ O DNS não é necessário para conexões Site a Site. No entanto, se você quise
 
 O gateway de rede virtual usa uma sub-rede de gateway que contém os endereços IP que são usados pelos serviços de gateway de VPN. Quando você cria uma sub-rede de gateway, ela deve ser nomeada como 'GatewaySubnet'. Se você usar outro nome, a configuração de conexão falhará.
 
-O tamanho da sub-rede de gateway que você especifica depende da configuração do gateway de VPN que deseja criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando /27 ou /28. O tamanho da sub-rede de gateway que você especifica depende da configuração do gateway de VPN que deseja criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando /27 ou /28. Usar uma sub-rede de gateway maior permite endereços IP suficientes para acomodar as possíveis configurações futuras.
+O tamanho da sub-rede de gateway que você especifica depende da configuração do gateway de VPN que deseja criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando /27 ou /28. Usar uma sub-rede de gateway maior permite endereços IP suficientes para acomodar as possíveis configurações futuras.
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
@@ -113,8 +114,9 @@ Crie a conexão VPN Site a Site entre o gateway de rede virtual e o dispositivo 
 
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
+
 ## <a name="next-steps"></a>Próximas etapas
-*  Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+
 *  Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
-
-
+*  Para obter informações sobre Túneis Forçados, consulte [Sobre o Túnel Forçado](vpn-gateway-forced-tunneling-rm.md)
+*  Para obter informações sobre Conexões Altamente Disponíveis Ativo-Ativo, consulte [Conectividade Altamente Disponível entre locais e Rede Virtual para Rede Virtual](vpn-gateway-highlyavailable.md).

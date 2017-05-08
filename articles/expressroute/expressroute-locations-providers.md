@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 32b8cd51c983b2a66f3631ec399aa88e34555196
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: b7cb18fcfda5b829b72b2ded6a1ea9e996e771d7
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros da Rota Expressa
@@ -41,7 +42,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de Rota Expr
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
 | --- | --- | --- |
-| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal, Cidade de Quebec, Toronto |
+| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal, Cidade de Quebec, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
 | **Europa** |Europa Setentrional, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Dublin, Londres, Newport(Gales), Paris |
 | **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Cingapura |
@@ -55,7 +56,7 @@ A tabela a seguir fornece informações sobre regiões e limites geopolíticos p
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
 | --- | --- | --- | --- |
-| **Nuvem do Governo dos EUA** |Gov. EUA - Iowa, Gov. EUA - Virgínia, US DoD Central, US DoD Leste  |Chicago, Los Angeles, Nova York, Vale do Silício, Washington, D.C. |
+| **Nuvem do Governo dos EUA** |Gov. EUA - Iowa, Gov. EUA - Virgínia, US DoD Central, US DoD Leste  |Chicago, Dallas, Nova Iorque, Seattle, Vale do Silício, Washington D.C. |
 | **China** |Norte da China, Leste da China |Pequim, Xangai |
 | **Alemanha** |Alemanha Central, Alemanha Oriental |Berlim+, Frankfurt |
 
@@ -109,7 +110,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Dallas** |Equinix, Megaport, Verizon |
 | **Nova Iorque** |Equinix, Level 3 Communications+, Verizon |
 | **Vale do Silício** | Equinix |
-| **Seattle** | Equinix+ |
+| **Seattle** | Equinix |
 | **Washington, D.C.** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>China

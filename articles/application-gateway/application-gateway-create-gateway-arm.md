@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ No exemplo anterior, criamos um grupo de recursos denominado **appgw-RG** e a lo
 > [!NOTE]
 > Se você precisar configurar uma investigação personalizada para o gateway de aplicativo, visite [Criar um gateway de aplicativo com investigações personalizadas usando o PowerShell](application-gateway-create-probe-ps.md). Confira [investigações personalizadas e monitoramento de integridade](application-gateway-probe-overview.md) para saber mais.
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Criar uma rede virtual e uma sub-rede para o gateway de aplicativo
+## <a name="create-a-virtual-network-and-a-subnet"></a>Criar uma rede virtual e uma sub-rede
 
 O exemplo a seguir mostra como criar uma rede virtual usando o Gerenciador de Recursos. Este exemplo cria uma VNET para o Gateway de Aplicativo. O Gateway de Aplicativo requer sua própria sub-rede e é por esse motivo que a sub-rede criada para o Gateway de Aplicativo é menor do que o espaço de endereço da rede virtual. O uso de uma sub-rede menor permite outros recursos, incluindo, dentre outras coisas, que servidores Web sejam configurados na mesma rede virtual.
 
@@ -135,7 +136,7 @@ Atribuir a variável de sub-rede para as próximas etapas. Essa variável é pas
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
+## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
 
 Crie um recurso IP público **publicIP01** no grupo de recursos **appgw-rg** para a região Oeste dos EUA. O Gateway de Aplicativo pode usar um endereço IP público, interno ou de ambos os tipos para receber solicitações de balanceamento de carga.  Este exemplo usa apenas um endereço IP público. No exemplo a seguir, nenhum nome DNS é configurado para criar o endereço IP público.  O Gateway de Aplicativo não dá suporte a nomes DNS personalizados em endereços IP públicos.  Se um nome personalizado for exigido para o ponto de extremidade público, um registro CNAME deve ser criado a fim de apontar para o nome DNS gerado automaticamente para o endereço IP público.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > O valor padrão para **InstanceCount** é 2, com um valor máximo de 10. O valor padrão para **GatewaySize** é Medium. Você pode escolher entre **Standard_Small**, **Standard_Medium** e **Standard_Large**.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Criar um gateway de aplicativo usando New-AzureRmApplicationGateway
+## <a name="create-the-application-gateway"></a>Criar o gateway de aplicativo
 
 Crie um gateway de aplicativo com todos os itens de configuração das etapas anteriores. Neste exemplo, o gateway de aplicativo é chamado de **appgwtest**.
 
@@ -233,7 +234,7 @@ Recupere os detalhes de DNS e VIP do gateway de aplicativo do recurso de IP púb
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Excluir um gateway de aplicativo
+## <a name="delete-the-application-gateway"></a>Excluir o gateway de aplicativo
 
 Para excluir um gateway de aplicativo, siga estas etapas:
 
@@ -270,7 +271,7 @@ Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Application Gateway
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para encontrar o nome DNS criado dinamicamente, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do Application Gateway.
+Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para encontrar o nome DNS criado dinamicamente, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -298,11 +299,19 @@ DnsSettings              : {
                             }
 ```
 
+## <a name="delete-all-resources"></a>Excluir todos os recursos
+
+Para excluir todos os recursos criados neste artigo, conclua as seguintes etapas:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Se desejar configurar o descarregamento SSL, visite [Configurar um Gateway de Aplicativo para descarregamento SSL](application-gateway-ssl.md).
 
-Para configurar um gateway de aplicativo para usar com um balanceador de carga interno, visite [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
+Para configurar um Gateway de Aplicativo para usar com um balanceador de carga interno, visite [Criar um Gateway de Aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
 Se deseja saber mais sobre as opções de balanceamento de carga no geral, visite:
 

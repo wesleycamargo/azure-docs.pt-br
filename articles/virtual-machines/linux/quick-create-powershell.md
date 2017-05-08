@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: bffbeb5238ec69d763e1cc7ad3c8a6e4fad34306
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: cfbd863ca7e65ddad585d4305d5e24b8f6bb744a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -29,9 +30,9 @@ O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) antes de começar.
 
-Além disso, verifique se a versão mais recente do módulo do Azure PowerShell foi instalada. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs):
+Além disso, verifique se a versão mais recente do módulo do Azure PowerShell foi instalada. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
 
-Por fim, uma chave SSH pública com o nome `id_rsa.pub` precisa ser armazenada no diretório `.ssh` de seu perfil de usuário do Windows. Para obter informações detalhadas sobre a criação de chaves SSH para o Azure, consulte [Criar chaves SSH do Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Por fim, uma chave SSH pública com o nome *id_rsa.pub* precisa ser armazenada no diretório *.ssh* do seu perfil de usuário do Windows. Para obter informações detalhadas sobre a criação de chaves SSH para o Azure, consulte [Criar chaves SSH do Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -43,10 +44,10 @@ Login-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
+New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
 ```
 
 ## <a name="create-networking-resources"></a>Criar recursos de rede
@@ -58,11 +59,11 @@ Crie uma rede virtual, sub-rede e um endereço IP público. Esses recursos são 
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope `
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus `
 -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope `
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus `
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
@@ -80,15 +81,15 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 -DestinationPortRange 80 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope `
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus `
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Criar uma placa de rede para a máquina virtual. A placa de rede conecta a máquina virtual a uma sub-rede, um grupo de segurança de rede e um endereço IP público.
+Crie uma placa de rede com [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) para a máquina virtual. A placa de rede conecta a máquina virtual a uma sub-rede, um grupo de segurança de rede e um endereço IP público.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location westeurope `
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus `
 -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
@@ -112,17 +113,17 @@ $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Crie a máquina virtual.
+Crie a máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus -VM $vmConfig
 ```
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 
 Após a implantação, crie uma conexão SSH com a máquina virtual.
 
-Execute os comandos a seguir para retornar o endereço IP público da máquina virtual.
+Utilize o comando [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para retornar o endereço IP público da máquina virtual.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -134,7 +135,7 @@ De um sistema com o SSH instalado, use o comando a seguir para se conectar à m�
 ssh <Public IP Address>
 ```
 
-Quando solicitado, o nome de usuário de logon é `azureuser`. Se uma frase secreta tiver sido inserida durante a criação de chaves SSH, você precisará digitá-la também.
+Quando solicitado, o nome de usuário de logon é *azureuser*. Se uma frase secreta tiver sido inserida durante a criação das chaves SSH, você precisará digitá-la também.
 
 
 ## <a name="install-nginx"></a>Instalar o NGINX
@@ -153,12 +154,12 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Exibir a página de boas-vindas do NGIX
 
-Com o NGINX instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do NGINX padrão. Use `publicIpAddress` que você documentou acima para visitar a página padrão. 
+Com o NGINX instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do NGINX padrão. Certifique-se de usar o endereço IP público que você documentou acima para visitar a página padrão. 
 
 ![Site padrão NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Excluir máquina virtual
 
-Quando não é mais necessário, o comando a seguir pode ser usado para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
+Quando não for mais necessário, você pode usar o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

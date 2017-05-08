@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -98,8 +99,6 @@ Ao criar uma conta de Automação no portal do Azure, você cria automaticamente
 
 O controle de acesso baseado em função está disponível com o Azure Resource Manager para conceder ações permitidas a uma conta de usuário do Azure AD e uma conta Executar como e autenticar essa entidade de serviço.  Leia o [artigo Controle de acesso baseado em função da Automação do Azure](automation-role-based-access-control.md) para obter mais informações que o ajudarão a desenvolver seu modelo para gerenciar permissões de Automação.  
 
-
-
 #### <a name="authentication-methods"></a>Métodos de autenticação
 A tabela a seguir resume os métodos de autenticação diferentes para cada ambiente com suporte da automação do Azure.
 
@@ -136,6 +135,13 @@ Se você tem uma conta de Automação definida para uma região específica e de
 | Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net |
 | Sul do Reino Unido | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Gov. dos EUA – Virgínia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Para obter uma lista de endereços IP em vez de nomes, baixe e leia o arquivo xml [Endereço IP de Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) no Centro de Download da Microsoft. 
+
+> [!NOTE]
+> Esse arquivo contém intervalos de endereços IP (inclusive intervalos de Computação, SQL e Armazenamento) usados em Datacenters do Microsoft Azure. Um arquivo atualizado é postado semanalmente que reflete os intervalos atualmente implantados e quaisquer alterações futuras para os intervalos de IP. Novos intervalos que aparecem no arquivo não serão usados em datacenters por pelo menos uma semana. Baixe o novo arquivo xml semanalmente e faça as alterações necessárias no seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Express Route podem observar esse arquivo usado para atualizar o anúncio de BGP de espaço do Azure na primeira semana de cada mês. 
+> 
+
 
 ## <a name="implementation"></a>Implementação
 
@@ -191,27 +197,6 @@ O método recomendado para a automação integrada é selecionando a oferta de A
 8. Clique em **Criar** para prosseguir com a automação de integração e um espaço de trabalho do OMS. Todas as configurações são validadas e, em seguida, ele tenta implantar a oferta em sua assinatura.  Esse processo pode levar vários segundos e você pode acompanhar o progresso no menu **Notificações**. 
 
 Depois que a oferta está incorporada, você pode começar a criar runbooks, trabalhar com as soluções de gerenciamento que você habilitou ou começar a trabalhar com o [Log Analytics](https://docs.microsoft.com/azure/log-analytics) para coletar dados gerados pelos recursos em seus ambientes de nuvem ou no local.   
-
-### <a name="resources-included"></a>Recursos incluídos
-Quando a criação da conta de Automação tiver sido criada com êxito, vários recursos serão criados automaticamente para você. Os recursos estão resumidos nas duas seguintes tabelas:<br>
-
-#### <a name="run-as-account-resources"></a>Recursos da conta Executar como
-
-| Recurso | Descrição |
-| --- | --- |
-| Runbook AzureAutomationTutorial | Um exemplo de runbook gráfico que demonstra como autenticar usando a conta Executar como e que obtém todos os recursos do Resource Manager. |
-| Runbook do AzureAutomationTutorialScript | Um exemplo de runbook do PowerShell que demonstra como autenticar usando a conta Executar como e que obtém todos os recursos do Resource Manager. |
-| AzureRunAsCertificate | O ativo de certificado é criado automaticamente quando você cria uma conta de Automação ou usa o script do PowerShell a seguir para uma conta existente. O certificado permite autenticar-se com o Azure para que você possa gerenciar recursos do Azure Resource Manager de runbooks. O certificado tem um tempo de vida de um ano. |
-| AzureRunAsConnection | O ativo de conexão é criado automaticamente quando você cria uma conta de Automação ou usa o script do PowerShell para uma conta existente. |
-
-#### <a name="classic-run-as-account-resources"></a>Recursos de conta Executar como clássica
-
-| Recurso | Descrição |
-| --- | --- |
-| Runbook do AzureClassicAutomationTutorial | Um exemplo de runbook gráfico que obtém todas as VMs que são criadas usando o modelo de implantação clássico em uma assinatura usando a conta Executar como Clássica (certificado) e grava o nome da VM e o status. |
-| Runbook do script AzureClassicAutomationTutorial | Um runbook do PowerShell de exemplo que obtém todas as VMs clássicas em uma assinatura usando a conta Executar como Clássica (certificado) e grava o nome e o status da VM. |
-| AzureClassicRunAsCertificate | O ativo de certificado criado automaticamente que você usou para se autenticar no Azure para que possa gerenciar recursos clássicos do Azure por meio de runbooks. O certificado tem um tempo de vida de um ano. |
-| AzureClassicRunAsConnection | O ativo de conexão criado automaticamente e usado para se autenticar no Azure para que você possa gerenciar recursos clássicos do Azure por meio de runbooks.|
 
 ## <a name="next-steps"></a>Próximas etapas
 * Você pode confirmar que a sua nova conta de automação pode autenticar em recursos do Azure em [Como testar a autenticação da conta Executar como de Automação do Azure](automation-verify-runas-authentication.md).

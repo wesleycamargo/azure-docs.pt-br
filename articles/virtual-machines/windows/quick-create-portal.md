@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: df6f1b86b706d58a5c07a4f3de43a1872da61511
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -36,7 +37,7 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
 2. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
 
-3. Selecione **Computação** na folha **Novo**, selecione **Datacenter do Windows Server 2016** na folha **Computação** e, em seguida, clique no botão **Criar**.
+3. Selecione **Computação** na folha **Novo**, selecione *Datacenter do Windows Server 2016* na folha **Computação** e, em seguida, clique no botão **Criar**.
 
 4. Preencha o formulário **Básico** da máquina virtual. O nome do usuário e a senha inseridos aqui são usados para fazer logon na máquina virtual. Para **Grupo de Recursos**, crie um novo. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são criados e gerenciados coletivamente. Ao concluir, clique em **OK**.
 
@@ -46,21 +47,21 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
     ![A captura de tela que mostra os tamanhos da VM](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. Na folha de configurações, selecione **Sim** em **Usar discos gerenciados**, mantenha os padrões para o restante das configurações e clique em **OK**.
+6. Na folha de configurações, selecione *Sim* em **Usar discos gerenciados**, mantenha os padrões para o restante das configurações e clique em **OK**.
 
 7. Na página de resumo, clique em **OK** para iniciar a implantação da máquina virtual.
 
-8. Para monitorar o status de implantação, clique na máquina virtual. A VM pode ser encontrada no painel do Portal do Azure ou selecionando **Máquinas Virtuais** no menu esquerdo. Quando a VM tiver sido criada, o status será alterado para **Em implantação** ou **Em execução**.
+8. Para monitorar o status de implantação, clique na máquina virtual. A VM pode ser encontrada no painel do Portal do Azure ou selecionando **Máquinas Virtuais** no menu esquerdo. Quando a VM tiver sido criada, o status será alterado para *Em implantação* ou *Em execução*.
 
 ## <a name="open-port-80-for-web-traffic"></a>Abra a porta 80 para tráfego da Web 
 
 Para permitir o tráfego para o IIS, você precisa abrir a porta 80 para tráfego da Web. Esta etapa orienta a criação de uma regra NSG (grupo de segurança de rede) para permitir conexões de entrada na porta 80.
 
 1. Na folha da máquina virtual, na seção **Conceitos básicos**, clique no nome do **Grupo de recursos**.
-2. Na folha do grupo de recursos, clique no **Grupo de segurança da rede** na lista de recursos. O nome NSG deve ser o nome da VM com - nsg acrescentado ao final.
+2. Na folha do grupo de recursos, clique no **Grupo de segurança da rede** na lista de recursos. O nome NSG deve ser o nome da VM com *- nsg* acrescentado ao final.
 3. Clique no cabeçalho **Regra de Segurança de Entrada** para abrir a lista de regras de entrada. Você deve ver uma regra de RDP já na lista.
 4. Clique em **+ Adicionar** para abrir a folha **Adicionar regra de segurança de entrada**.
-5. Em **Nome**, digite **IIS**. Verifique se o **Intervalo de portas** está definido para 80 e a **Ação** está definida para **Permitir**. Clique em **OK**.
+5. Em **Nome**, digite *IIS*. Verifique se o **Intervalo de portas** está definido para *80* e a **Ação** está definida para *Permitir*. Clique em **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
@@ -88,7 +89,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Exibir a página de boas-vindas do IIS
 
-Com o IIS instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do IIS padrão. Obtenha o **Endereço IP público** da folha para a VM e use-o para visitar a página Web padrão. 
+Com o IIS instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do IIS padrão. Obtenha o *Endereço IP público* da folha para a VM e use-o para visitar a página Web padrão. 
 
 ![Site do IIS padrão](./media/quick-create-powershell/default-iis-website.png) 
 

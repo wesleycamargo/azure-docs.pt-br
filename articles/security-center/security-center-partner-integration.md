@@ -4,7 +4,7 @@ description: "Este documento explica como a Central de segurança do Azure se in
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/28/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
-ms.lasthandoff: 12/02/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -37,10 +38,10 @@ Os quatro principais motivos para utilizar a integração de parceiros na Centra
 ## <a name="what-partners-are-integrated-with-security-center"></a>Quais os parceiros estão integrados à Central de Segurança?
 A Central de Segurança no momento se integra com os seguintes parceiros:
 
-- Endpoint Protection (Trend Micro), 
-- Firewall do aplicativo Web (Barracuda, F5, Imperva e em breve Microsoft WAF e Fortinet), 
-- Soluções de firewall de próxima geração (ponto de verificação, Barracuda e em breve Fortinet e Cisco). 
-- Soluções de avaliação de vulnerabilidade (Qualys – visualização). 
+- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
+- Firewall do Aplicativo Web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+- Firewall da Próxima Geração ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) e [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
+- Avaliação de Vulnerabilidade ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) – visualização)  
 
 Ao longo do tempo, a Central de Segurança expandirá o número de parceiros dentro dessas categorias existentes e adicionará novas categorias. 
 

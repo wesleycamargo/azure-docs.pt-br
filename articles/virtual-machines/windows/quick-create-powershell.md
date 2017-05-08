@@ -15,21 +15,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 91ef7f432d0954cc8456e5d98c48943aa0ad72a7
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 94a1a7eb8da74925dbe4b50fffb5c61b5287c014
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
 
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>Aprenda rapidamente a criar máquinas virtuais Windows com o PowerShell
 
-O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do PowerShell ou em scripts. Este guia detalha o uso do PowerShell para criar uma máquina virtual do Azure executando Windows Server 2016.  Depois que a implantação for concluída, nos conectamos ao servidor e instalamos o IIS.  
+O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do PowerShell ou em scripts. Este guia detalha o uso do PowerShell para criar uma máquina virtual do Azure executando Windows Server 2016. Depois que a implantação for concluída, nos conectamos ao servidor e instalamos o IIS.  
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Além disso, verifique se a versão mais recente do módulo do Azure PowerShell foi instalada. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs):
+Além disso, verifique se a versão mais recente do módulo do Azure PowerShell foi instalada. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -41,10 +42,10 @@ Login-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-networking-resources"></a>Criar recursos de rede
@@ -57,40 +58,40 @@ Esses recursos são usados para fornecer conectividade de rede para a máquina v
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope `
--Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location EastUS `
+    -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope `
--AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location EastUS `
+    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Crie um grupo de segurança de rede e uma regra de grupo de segurança de rede. 
-O grupo de segurança de rede protege a máquina virtual usando regras de entrada e saída. Nesse caso, uma regra de entrada é criada para a porta 3389, que permite conexões de área de trabalho remota.  Também queremos criar uma regra de entrada para a porta 80, que permite o tráfego de entrada da Web.
+O grupo de segurança de rede protege a máquina virtual usando regras de entrada e saída. Nesse caso, uma regra de entrada é criada para a porta 3389, que permite conexões de área de trabalho remota. Também queremos criar uma regra de entrada para a porta 80, que permite o tráfego de entrada da Web.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
 $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
--Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 3389 -Access Allow
+    -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+    -DestinationPortRange 3389 -Access Allow
 
 # Create an inbound network security group rule for port 80
 $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
--Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 80 -Access Allow
+    -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+    -DestinationPortRange 80 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope `
--Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location EastUS `
+    -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>Criar uma placa de rede para a máquina virtual. 
-A placa de rede conecta a máquina virtual a uma sub-rede, um grupo de segurança de rede e um endereço IP público.
+Crie uma placa de rede com [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) para a máquina virtual. A placa de rede conecta a máquina virtual a uma sub-rede, um grupo de segurança de rede e um endereço IP público.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location westeurope `
--SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location EastUS `
+    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
@@ -103,28 +104,28 @@ $cred = Get-Credential
 
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
+    Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
+    Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
+    -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
 ```
 
-Crie a máquina virtual.
+Crie a máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroup -Location EastUS -VM $vmConfig
 ```
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 
 Após a implantação, crie uma conexão de área de trabalho remota com a máquina virtual.
 
-Execute os comandos a seguir para retornar o endereço IP público da máquina virtual.  Anote esse endereço IP para se conectar a ele com o navegador para testar a conectividade à Web em uma etapa futura.
+Utilize o comando [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para retornar o endereço IP público da máquina virtual. Anote esse endereço IP para se conectar a ele com o navegador para testar a conectividade à Web em uma etapa futura.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Use o seguinte comando para criar uma sessão de área de trabalho remota com a máquina virtual. Substitua o endereço IP pelo `publicIPAddress` de sua máquina virtual. Quando solicitado, insira as credenciais usadas ao criar a máquina virtual.
+Use o seguinte comando para criar uma sessão de área de trabalho remota com a máquina virtual. Substitua o endereço IP pelo *publicIPAdress* da sua máquina virtual. Quando solicitado, insira as credenciais usadas ao criar a máquina virtual.
 
 ```bash 
 mstsc /v:<publicIpAddress>
@@ -132,7 +133,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>Instalar o IIS por meio do PowerShell
 
-Agora que você fez logon na VM do Azure, pode usar uma única linha do PowerShell para instalar o IIS e habilitar a regra de firewall local para permitir o tráfego da Web.  Abra um promt do PowerShell e execute o seguinte comando:
+Agora que você fez logon na VM do Azure, pode usar uma única linha do PowerShell para instalar o IIS e habilitar a regra de firewall local para permitir o tráfego da Web. Abra um promt do PowerShell e execute o seguinte comando:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -140,13 +141,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Exibir a página de boas-vindas do IIS
 
-Com o IIS instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do IIS padrão. Use `publicIpAddress` que você documentou acima para visitar a página padrão. 
+Com o IIS instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do IIS padrão. Certifique-se de usar o *publicIPAdress* que você documentou acima para visitar a página padrão. 
 
 ![Site do IIS padrão](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="delete-virtual-machine"></a>Excluir máquina virtual
 
-Quando não é mais necessário, o comando a seguir pode ser usado para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
+Quando não for mais necessário, você pode usar o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -157,3 +158,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [Tutorial de instalação de uma função e configuração do firewall](hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Explorar amostras do PowerShell de implantação de VM](powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+

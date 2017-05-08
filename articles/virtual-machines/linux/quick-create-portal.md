@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8bfc4892343dd62c958ce6937c4879a2b029cb88
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -46,9 +47,9 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
 1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
 
-2. Selecione **Computação** na folha **Novo**, selecione **Ubuntu Server 16.04 LTS** na folha **Computação** e, em seguida, clique no botão **Criar**.
+2. Selecione **Computação** na folha **Novo**, selecione *Ubuntu Server 16.04 LTS* na folha **Computação** e, em seguida, clique no botão **Criar**.
 
-3. Preencha o formulário **Básico** da máquina virtual. Para **Tipo de autenticação**, selecione **SSH**. Ao colar na sua **chave pública SSH**, tome cuidado para remover qualquer espaço em branco à direita ou à esquerda. Para **Grupo de Recursos**, crie um novo. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são criados e gerenciados coletivamente. Ao concluir, clique em **OK**.
+3. Preencha o formulário **Básico** da máquina virtual. Para **Tipo de autenticação**, selecione *SSH*. Ao colar na sua **chave pública SSH**, tome cuidado para remover qualquer espaço em branco à direita ou à esquerda. Para **Grupo de Recursos**, crie um novo. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são criados e gerenciados coletivamente. Ao concluir, clique em **OK**.
 
     ![Insira as informações básicas sobre sua VM na folha do portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
@@ -56,11 +57,11 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
     ![A captura de tela que mostra os tamanhos da VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Na folha de configurações, selecione **Sim** em **Usar discos gerenciados**, mantenha os padrões para o restante das configurações e clique em **OK**.
+5. Na folha de configurações, selecione *Sim* em **Usar discos gerenciados**, mantenha os padrões para o restante das configurações e clique em **OK**.
 
 6. Na página de resumo, clique em **OK** para iniciar a implantação da máquina virtual.
 
-7. Para monitorar o status de implantação, clique na máquina virtual. A VM pode ser encontrada no painel do Portal do Azure ou selecionando **Máquinas Virtuais** no menu esquerdo. Quando a VM tiver sido criada, o status será alterado para **Em implantação** ou **Em execução**.
+7. Para monitorar o status de implantação, clique na máquina virtual. A VM pode ser encontrada no painel do Portal do Azure ou selecionando **Máquinas Virtuais** no menu esquerdo. Quando a VM tiver sido criada, o status será alterado para *Em implantação* ou *Em execução*.
 
 
 ## <a name="open-port-80-for-web-traffic"></a>Abra a porta 80 para tráfego da Web 
@@ -68,10 +69,10 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 Por padrão, somente as conexões de SSH são permitidas em máquinas virtuais Linux implantadas no Azure. Se essa VM for se transformar em um servidor Web, você precisará abrir a porta 80 para o tráfego da Web. Esta etapa orienta a criação de uma regra NSG (grupo de segurança de rede) para permitir conexões de entrada na porta 80.
 
 1. Na folha da máquina virtual, na seção **Conceitos básicos**, clique no nome do **Grupo de recursos**.
-2. Na folha do grupo de recursos, clique no **Grupo de segurança da rede** na lista de recursos. O nome NSG deve ser o nome da VM com - nsg acrescentado ao final.
+2. Na folha do grupo de recursos, clique no **Grupo de segurança da rede** na lista de recursos. O nome NSG deve ser o nome da VM com *- nsg* acrescentado ao final.
 3. Clique no cabeçalho **Regra de Segurança de Entrada** para abrir a lista de regras de entrada. Você deve ver uma regra de RDP já na lista.
 4. Clique em **+ Adicionar** para abrir a folha **Adicionar regra de segurança de entrada**.
-5. Em **Nome**, digite **nginx**. Verifique se o **Intervalo de portas** está definido para 80 e a **Ação** está definida para **Permitir**. Clique em **OK**.
+5. Em **Nome**, digite *nginx*. Verifique se o **Intervalo de portas** está definido para *80* e a **Ação** está definida para *Permitir*. Clique em **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
@@ -104,7 +105,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Exibir a página de boas-vindas do NGIX
 
-Com o NGINX instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do NGINX padrão. Use `publicIpAddress` que você documentou para visitar a página padrão. 
+Com o NGINX instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do NGINX padrão. Obtenha o *Endereço IP público* da folha para a VM e use-o para visitar a página Web padrão.
 
 ![Site padrão NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Excluir máquina virtual
