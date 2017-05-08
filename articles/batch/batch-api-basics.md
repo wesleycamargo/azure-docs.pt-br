@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -337,7 +338,7 @@ Quando você cria um pool de nós de computação no Lote do Azure, pode usar as
 
 * A sub-rede especificada deve permitir a comunicação do serviço do Lote para que seja capaz de agendar tarefas nos nós de computação. Se a comunicação com os nós de computação for negada por um **NSG (grupo de segurança de rede)** associado com a VNet, o serviço de lote definirá o estado de nós de computação para **inutilizável**. 
 
-* Se a rede virtual especificada tiver NSGs associados, a comunicação de entrada deverá estar habilitada. Para um pool de Linux, as portas 29876, 29877 e 22 devem estar habilitadas. Para um pool do Windows, a porta 3389 deve estar habilitada.
+* Se a rede virtual especificada tiver NSGs associados, a comunicação de entrada deverá estar habilitada. Para pools de Linux e Windows, as portas 29876 e 29877 devem ser habilitadas. Você pode, opcionalmente, habilitar (ou filtrar seletivamente) as portas 22 ou 3389 para SSH em pools de Linux ou RDP em pools de Windows, respectivamente.
 
 As configurações adicionais para a VNet dependem do modo de alocação de pool da conta do Lote.
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ HDInsight inclui uma opção de R Server para ser integrada ao seu cluster HDIns
 > As etapas neste documento pressupõem que você esteja usando uma senha.
 
 
-### <a name="access-control-requirements"></a>Requisitos de controle de acesso
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>Criação de cluster automatizada
 
-Você pode automatizar a criação de HDInsight R Servers usando modelos do ARM, SDK e também PowerShell.
+Você pode automatizar a criação de HDInsight R Servers usando modelos do Azure Resource Manager, SDK e também PowerShell.
 
 * Para criar um R Server usando um modelo de gerenciamento de recursos do Azure, confira [Como implantar um cluster do HDInsight do R Server](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 * Para criar um R Server usando o SDK do .NET, confira [Como criar clusters baseados em Linux no HDInsight usando o SDK do .NET.](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
@@ -589,7 +586,7 @@ remoteLogin(
 )
 ```
 
-## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Como dimensionar nós de computação de operacionalização do Microsoft R Server em nós de trabalho do HDInsight?
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Como dimensionar nós de computação de operacionalização do Microsoft R Server em nós de trabalho do HDInsight
 
 
 ### <a name="decommission-the-worker-nodes"></a>Encerrar os nós de trabalho
@@ -629,6 +626,10 @@ Depois que todos os nós de trabalho encerrados forem configurados para executar
 * Procure a seção "URIs" e adicione o IP do nó de trabalho e detalhes de porta.
 
 ![encerrar nós de trabalho cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Solucionar problemas
+
+Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Próximas etapas
 

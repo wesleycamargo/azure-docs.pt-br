@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 15c47d6641e6f5198f88dbe83980f098510916f8
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 6f4e6629b6058eec292f13e236eba8a91679d5b4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -42,7 +43,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de Rota Expr
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
 | --- | --- | --- |
-| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal, Cidade de Quebec, Toronto |
+| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal, Cidade de Quebec, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
 | **Europa** |Europa Setentrional, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Dublin, Londres, Newport(Gales), Paris |
 | **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Cingapura |
@@ -56,7 +57,7 @@ A tabela a seguir fornece informações sobre regiões e limites geopolíticos p
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
 | --- | --- | --- | --- |
-| **Nuvem do Governo dos EUA** |Gov. EUA - Iowa, Gov. EUA - Virgínia, US DoD Central, US DoD Leste  |Chicago, Los Angeles, Nova York, Vale do Silício, Washington, D.C. |
+| **Nuvem do Governo dos EUA** |Gov. EUA - Iowa, Gov. EUA - Virgínia, US DoD Central, US DoD Leste  |Chicago, Dallas, Nova Iorque, Seattle, Vale do Silício, Washington D.C. |
 | **China** |Norte da China, Leste da China |Pequim, Xangai |
 | **Alemanha** |Alemanha Central, Alemanha Oriental |Berlim+, Frankfurt |
 
@@ -125,7 +126,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **Provedor de serviços** | **Microsoft Azure** | **Office 365** | **Locais** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportado |Chicago, Washington D.C. |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Nova Iorque, Seattle+, Vale do Silício, Washington D.C. |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Nova Iorque, Seattle, Vale do Silício, Washington D.C. |
 | **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Chicago, Nova York+, Washington, D.C. |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado | Suportado | Chicago, Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Suportado |Suportado |Chicago, Dallas, Nova York, Washington, D.C. |

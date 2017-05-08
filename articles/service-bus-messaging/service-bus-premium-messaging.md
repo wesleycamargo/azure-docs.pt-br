@@ -1,5 +1,5 @@
 ---
-title: "Visão geral das camadas de preço do Sistema de mensagens Premium e Standard do Barramento de Serviço | Microsoft Docs"
+title: "Visão geral das camadas de preço do Sistema de Mensagens Premium e Standard do Barramento de Serviço do Azure | Microsoft Docs"
 description: "Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/19/2017
+ms.date: 04/28/2017
 ms.author: darosa;sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 606838dbeec5e9762f67159ece1bbc8a78769420
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 72e4c59e1282d97cfc5aa5f55861c6f70d419ce8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +48,7 @@ As seções a seguir discutem algumas diferenças entre as camadas dos sistemas 
 
 ### <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
-Há suporte para filas e tópicos no Sistema de Mensagens Premium, mas elas não funcionam da mesma forma nas camadas Standard e Basic do Sistema de Mensagens do Barramento de Serviço. O Sistema de Mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário para o desempenho. Além disso, a contagem de partições foi alterada, de 16 partições no Sistema de Mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
+Filas e tópicos particionados têm suporte no Sistema de Mensagens Premium; na verdade essas entidades são particionadas sempre (e não podem ser desabilitadas). No entanto, as filas e tópicos particionados não funcionam da mesma forma nas camadas Standard e Basic do Sistema de Mensagens do Barramento de Serviço. O sistema de mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário para melhorar o desempenho. Além disso, a contagem de partições foi alterada, de 16 partições no Sistema de Mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades expressas
 
