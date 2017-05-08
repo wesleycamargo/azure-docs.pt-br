@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 04/11/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b37aecc5ac13210234efee624018ae783dea7820
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8c40a0d44463c75e92444b393336db1daf270ee1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +91,7 @@ O script de implantação do HPC Pack IaaS é outra forma versátil para implant
 
 **Pré-requisitos adicionais**
 
-* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azureps-cmdlets-docs) (versão 0.8.10 ou posterior) no computador cliente.
+* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azure/overview) (versão 0.8.10 ou posterior) no computador cliente.
 * **Script de implantação do Pacote HPC IaaS** : baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.5.0 ou posterior do script.
 
 **Criar o arquivo de configuração**

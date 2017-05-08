@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9ae8852c02361ff11c302f86cb5c53e01a48068a
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 590e2bc759567cf3d679e261592dff1e699ba295
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Integração do Azure AD a um aplicativo Android
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+> [!TIP]
+> Experimente a versão de visualização de nosso novo [portal do desenvolvedor](https://identity.microsoft.com/Docs/Android), que ajudará você a executar o Azure AD em apenas alguns minutos. O portal do desenvolvedor orientará você pelo processo de registro de um aplicativo e integração do Azure AD em seu código. Quando terminar, você terá um aplicativo simples que pode autenticar os usuários em seu locatário e um back-end que pode aceitar tokens e executar a validação.
+>
+>
 
 Se você estiver desenvolvendo um aplicativo da área de trabalho, o Azure AD (Azure Active Directory) simplificará a autenticação dos usuários com as próprias contas do Active Directory locais. Ele também permite que seu aplicativo consuma com segurança qualquer API da Web protegida pelo AD do Azure, como as APIs do Office 365 ou a API do Azure.
 
@@ -35,11 +38,6 @@ Para os clientes Android que precisam acessar recursos protegidos, o Azure AD fo
 * Desconecta usuários.
 
 Para começar, você precisa de um locatário do Azure AD no qual possa criar usuários e registrar um aplicativo. Se você ainda não tiver um locatário [saiba como obter um](active-directory-howto-tenant.md).
-
-> [!TIP]
-> Experimente a versão de visualização de nosso novo [portal do desenvolvedor](https://identity.microsoft.com/Docs/Android), que ajudará você a executar o Azure AD em apenas alguns minutos. O portal do desenvolvedor orientará você pelo processo de registro de um aplicativo e integração do Azure AD em seu código. Quando terminar, você terá um aplicativo simples que pode autenticar os usuários em seu locatário e um back-end que pode aceitar tokens e executar a validação.
->
->
 
 ## <a name="step-1-download-and-run-the-nodejs-rest-api-todo-sample-server"></a>Etapa 1: Baixe e execute o servidor de exemplo API REST TODO do Node. js
 O servidor de exemplo REST API TODO do Node.js é escrito especificamente para funcionar em nosso exemplo, a fim de criar uma API REST de tarefas pendentes de locatário único para o Azure AD. Este é um pré-requisito para o Início Rápido.

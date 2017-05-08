@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 916722d64f191bc482b50ad4338f6a1da1045b77
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6f4189cb30d528a106dd8889c06acd621aebb699
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Você deve ter os seguintes itens para percorrer este tutorial:
 * Familiarize-se com o [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) e sua estrutura de [preços](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 * Certifique-se de que sua assinatura está na lista de permissões para essa visualização pública. Você pode fazer isso enviando um email para hdipreview@microsoft.com com sua ID da assinatura.
 * Um certificado SSL assinado por uma autoridade de autenticação para seu domínio. O certificado é necessário para configurar o LDAP seguro. Os certificados autoassinados não podem ser usados.
-* PowerShell do Azure.  Confira [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* PowerShell do Azure.  Confira [Instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Crie uma VNet clássica do Azure para o Azure AD.
 Para instruções, confira [aqui](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).

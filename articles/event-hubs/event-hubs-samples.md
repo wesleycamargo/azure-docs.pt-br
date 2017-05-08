@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 05/01/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2eaf642d3d6617c8500aee283809209a5f31ef88
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 89049688ab60842910f1bab8e56c349029dd17a7
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -28,7 +28,7 @@ Os exemplos de Hubs de Eventos do Azure demonstram os recursos principais dos [H
 No momento da redação deste artigo, exemplos de Hubs de Eventos estão localizados em vários lugares diferentes:
 
 - [Exemplos de código do desenvolvedor do MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples)
+- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
 Para saber mais sobre as diferentes versões do .NET Framework, veja [estruturas e destinos](/dotnet/articles/standard/frameworks).
 
@@ -40,11 +40,11 @@ Os exemplos a seguir demonstram como enviar e receber eventos usando o [cliente 
 
 ### <a name="send-events"></a>Enviar eventos 
 
-O exemplo de [Introdução ao envio](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) mostra como escrever um aplicativo de console do .NET Core que envia eventos para um hub de eventos.
+O exemplo de [Introdução ao envio](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) mostra como escrever um aplicativo de console do .NET Core que envia eventos para um hub de eventos.
 
 ### <a name="receive-events"></a>Receber eventos 
 
-O exemplo de [Introdução ao recebimento com o Host do Processador de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) é um aplicativo de console do .NET Core que recebe mensagens de um hub de eventos usando o `Event Processor Host`.
+O exemplo de [Introdução ao recebimento com o Host do Processador de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) é um aplicativo de console do .NET Core que recebe mensagens de um hub de eventos usando o `Event Processor Host`.
 
 ## <a name="net-framework"></a>.NET Framework    
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 translationtype: Human Translation
-ms.sourcegitcommit: bdde0988bbaa3868c4acadfec0b81a2413e8a14b
-ms.openlocfilehash: f9a687ce5dd381e27ed9b784c3644528f000de2d
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 243c1cd5ebf34f2d8a8fda234fa3875298390336
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -78,7 +79,7 @@ Antes que o tráfego da Internet possa acessar as redes virtuais do Azure, há d
 
 1.    **Proteção DDoS**: a proteção DDoS é uma camada de rede física do Azure que protege a plataforma do Azure em si contra ataques em larga escala baseados na Internet. Esses ataques usam vários nós de "bot" em uma tentativa de sobrecarregar um serviço de Internet. O Azure tem uma malha de proteção sólida contra DDoS em todas as conexões de entrada, saída e entre regiões do Azure. Essa camada de proteção contra DDoS não tem atributos configuráveis pelo usuário e não é acessível ao cliente. A camada de proteção contra DDoS protege o Azure como uma plataforma de ataques em grande escala, além de monitorar o tráfego de saída e o tráfego entre regiões do Azure. Usando soluções de virtualização de rede na VNet, camadas adicionais de resiliência podem ser configuradas pelo cliente contra um ataque de menor escala que não ative a proteção no nível de plataforma. Um exemplo de DDoS em ação: se um endereço IP voltado para a Internet fosse atacado por um ataque de DDoS em larga escala, o Azure detectaria as origens dos ataques e eliminaria o tráfego ofensivo antes que este atingisse seu destino pretendido. Em quase todos os casos, o ponto de extremidade atacado não é afetado pelo ataque. Nos raros casos em que um ponto de extremidade é afetado, nenhum tráfego é afetado para outros pontos de extremidade, apenas para o ponto de extremidade atacado. Assim, outros clientes e serviços não veem nenhum impacto vindo desse ataque. É fundamental observar que o Azure DDoS está procurando apenas por ataques em grande escala. É possível que seu serviço específico seja sobrecarregado antes que os limites de proteção no nível de plataforma sejam excedidos. Por exemplo, um site da Web em um único servidor IIS A0 poderia ficar offline devido a um ataque de DDoS antes que a proteção contra DDoS no nível de plataforma do Azure registrasse uma ameaça.
 
-2.  **Endereços IP públicos**: endereços IP públicos (habilitados por meio de pontos de extremidade de serviço, endereços IP públicos, Gateway de Aplicativo e outros recursos do Azure que apresentam um endereço IP público para a Internet roteado para o seu recurso) permitem que serviços de nuvem ou grupos de recursos tenham portas e endereços IP públicos de Internet expostos. O ponto de extremidade usa NAT (Conversão de Endereços de Rede) para rotear o tráfego para a porta e endereço internos na rede virtual do Azure. Esse caminho é a principal rota para que o tráfego externo passe para dentro da rede virtual. Os endereços IP públicos são configuráveis pelo usuário para determinar tanto qual tráfego pode passar quanto como e para onde esse tráfego deve ser convertido na rede virtual.
+2.    **Endereços IP públicos**: endereços IP públicos (habilitados por meio de pontos de extremidade de serviço, endereços IP públicos, Gateway de Aplicativo e outros recursos do Azure que apresentam um endereço IP público para a Internet roteado para o seu recurso) permitem que serviços de nuvem ou grupos de recursos tenham portas e endereços IP públicos de Internet expostos. O ponto de extremidade usa NAT (Conversão de Endereços de Rede) para rotear o tráfego para a porta e endereço internos na rede virtual do Azure. Esse caminho é a principal rota para que o tráfego externo passe para dentro da rede virtual. Os endereços IP públicos são configuráveis pelo usuário para determinar tanto qual tráfego pode passar quanto como e para onde esse tráfego deve ser convertido na rede virtual.
 
 Depois que o tráfego alcança a rede virtual, há muitos recursos que entram em cena. Redes virtuais do Azure são a base para que clientes possam anexar suas cargas de trabalho e o local em que a segurança no nível da rede básica se aplica. É uma rede privada (uma sobreposição de rede virtual) no Azure para clientes com os seguintes recursos e características:
 
@@ -514,7 +515,7 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 ## <a name="references"></a>Referências
 ### <a name="helpful-websites-and-documentation"></a>Sites úteis e documentação
 * Acesse o Azure com o Azure Resource Manager:
-* Acessando o Azure com o PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azureps-cmdlets-docs)
+* Acessando o Azure com o PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
 * Documentação de rede virtual: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
 * Documentação do grupo de segurança de rede: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
 * Documentação do roteamento definido pelo usuário: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
@@ -551,9 +552,4 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

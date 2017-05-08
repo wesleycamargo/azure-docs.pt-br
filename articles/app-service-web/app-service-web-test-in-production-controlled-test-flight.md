@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e652218e6579ef430a5dc49f77a26a7d97b8b966
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +26,7 @@ Este tutorial mostra como realizar *implantações de liberação de versões de
 
 *Flighting* é um processo de implantação que valida um novo recurso ou alteração com um número limitado de clientes reais, e é um teste importante no cenário de produção. É semelhante ao teste beta e às vezes é conhecido como “voo de teste controlado”. Muitas grandes empresas com uma presença na Web usam essa abordagem para obter validação antecipada sobre suas atualizações de aplicativo em sua prática de [desenvolvimento ágil](https://en.wikipedia.org/wiki/Agile_software_development). O Serviço de Aplicativo do Azure permite a integração de teste em produção com a publicação contínua e o Application Insights para implementar o mesmo cenário de DevOps. Entre os benefícios dessa abordagem estão:
 
-* **Obtenha comentários reais*antes* que as atualizações sejam lançadas na produção** - a única coisa melhor do que obter comentários após o lançamento é obter comentários antes dele. Você pode testar atualizações com o tráfego e comportamentos de usuário real em qualquer etapa desejada do ciclo de vida do produto.
+* **Obtenha comentários reais *antes* que as atualizações sejam lançadas na produção** - a única coisa melhor do que obter comentários após o lançamento é obter comentários antes dele. Você pode testar atualizações com o tráfego e comportamentos de usuário real em qualquer etapa desejada do ciclo de vida do produto.
 * **Aprimore o [CTDD (desenvolvimento contínuo controlado por testes)](https://en.wikipedia.org/wiki/Continuous_test-driven_development)** - ao integrar o teste em produção com a integração e instrumentação contínuas com o Application Insights, a validação do usuário ocorre automaticamente e desde o início do ciclo de vida do produto. Isso ajuda a reduzir os investimentos em tempo na execução de teste manual.
 * **Otimizar o fluxo de trabalho de teste** - ao automatizar o teste em produção com a instrumentação de monitoramento contínuo, é possível potencialmente atingir os objetivos de vários tipos de testes em um único processo, como [integração](https://en.wikipedia.org/wiki/Integration_testing), [regressão](https://en.wikipedia.org/wiki/Regression_testing), [usabilidade](https://en.wikipedia.org/wiki/Usability_testing), acessibilidade, localização, [desempenho](https://en.wikipedia.org/wiki/Software_performance_testing), [segurança](https://en.wikipedia.org/wiki/Security_testing) e[ aceitação](https://en.wikipedia.org/wiki/Acceptance_testing).
 
@@ -299,7 +299,7 @@ Volte ao aplicativo que você deseja melhorar.
 Agora que a alteração está em execução no slot beta, você está pronto para realizar uma implantação flighting.
 
 ## <a name="validate-route-traffic-to-the-beta-app"></a>Validar: encaminhar o tráfego para o aplicativo beta
-Nesta seção, você encaminhará o tráfego para o aplicativo beta. Para fins de clareza de demonstração, vamos encaminhar uma parte significativa do tráfego de usuário para ele. Na realidade, a quantidade de tráfego que você deseja encaminhar dependerá de sua situação específica. Por exemplo, se o seu site estiver na escala do microsoft.com, talvez seja necessário menos de&1;% do tráfego total para obter dados úteis.
+Nesta seção, você encaminhará o tráfego para o aplicativo beta. Para fins de clareza de demonstração, vamos encaminhar uma parte significativa do tráfego de usuário para ele. Na realidade, a quantidade de tráfego que você deseja encaminhar dependerá de sua situação específica. Por exemplo, se o seu site estiver na escala do microsoft.com, talvez seja necessário menos de 1% do tráfego total para obter dados úteis.
 
 1. Em sua sessão do Git Shell, execute os seguintes comandos para encaminhar metade do tráfego de produção para o slot beta:
 
@@ -355,6 +355,6 @@ O Serviço de Aplicativo do Azure facilita para as empresas de pequeno a médio 
 * [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - o validador JSON](http://jsonlint.com/)
 * [Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* [PowerShell do Azure](/powershell/azureps-cmdlets-docs)
+* [PowerShell do Azure](/powershell/azure/overview)
 * [Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 

@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -125,7 +125,7 @@ Com o Apache Storm no HDInsight, os clientes implantam e monitoram um cluster in
 O preço do Stream Analytics é calculado pelo volume de dados processados e o número de unidades de streaming (por hora de execução do trabalho) necessário.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Mais informações sobre preços podem ser encontradas aqui.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Mais informações sobre preços podem ser encontradas aqui.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -133,7 +133,7 @@ O preço do Stream Analytics é calculado pelo volume de dados processados e o n
 Para Apache Storm no HDInsight, a unidade de compra é baseada em cluster e é cobrada com base no tempo de execução do cluster, independentemente dos trabalhos implantados.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Mais informações sobre preços podem ser encontradas aqui.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Mais informações sobre preços podem ser encontradas aqui.</a>
                 </p>
             </td>
         </tr>

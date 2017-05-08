@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +27,7 @@ Use as tarefas neste artigo para gerenciar as máquinas virtuais no conjunto de 
 
 A maior parte das tarefas que envolvem o gerenciamento de uma máquina virtual em um conjunto de dimensionamento exigem que você conheça a ID da instância do computador que deseja gerenciar. Você pode usar o [Gerenciador de Recursos do Azure](https://resources.azure.com) para localizar a ID da instância de uma máquina virtual em um conjunto de escala. Você também pode usar o Gerenciador de Recursos para verificar o status das tarefas que você concluir.
 
-Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
+Confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
 ## <a name="display-information-about-a-scale-set"></a>Exibir informações sobre um conjunto de dimensionamento
 Você pode obter informações gerais sobre um conjunto de escala, que também é conhecido como a exibição de instância. Ou então, você pode obter informações mais específicas, tais como informações sobre os recursos no conjunto de dimensionamento.
@@ -212,10 +213,5 @@ Você pode adicionar ou remover máquinas virtuais, alterando a capacidade do co
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 Se você estiver removendo máquinas virtuais do conjunto de dimensionamento, as máquinas virtuais com as ids de mais altas são removidas primeiro.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

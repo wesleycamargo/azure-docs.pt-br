@@ -17,9 +17,9 @@ ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d38adc6104337aa6cea9ee0f8042c22434624c9a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -118,7 +118,7 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 
 Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
-1. Caso você nunca tenha usado o Azure PowerShell, siga as etapas do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Caso você nunca tenha usado o Azure PowerShell, siga as etapas do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 2. Em um console do PowerShell, execute o cmdlet `New-AzureRmResourceGroup` para criar um novo grupo de recursos, se necessário. Se você já tiver criado um grupo de recursos, vá para a etapa 3.
 
     ```powershell

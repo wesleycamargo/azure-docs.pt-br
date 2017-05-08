@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1e897d98f561b24eafb95dfb620c3b5c7622ba0a
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1b2b013fb29c66817aab2ea5e63917b59726b4e8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,8 +31,8 @@ Este artigo mostra como usar a ferramenta AZCopy para criar uma cópia do VHD de
 ## <a name="before-you-begin"></a>Antes de começar
 Lembre-se de:
 
-* Ter as informações sobre as **contas de armazenamento de origem e destino**. Para a VM de origem, você precisa ter os nomes da conta de armazenamento e do contêiner. Normalmente, o nome do contêiner será **vhds**. Você também precisa ter uma conta de armazenamento de destino. Se não tiver uma, você poderá criá-la usando o portal (**Mais serviços** > Contas de armazenamento > Adicionar) ou usando o cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx). 
-* Instalar o [Azure PowerShell 1.0](/powershell/azureps-cmdlets-docs) (ou posterior).
+* Ter as informações sobre as **contas de armazenamento de origem e destino**. Para a VM de origem, você precisa ter os nomes da conta de armazenamento e do contêiner. Normalmente, o nome do contêiner será **vhds**. Você também precisa ter uma conta de armazenamento de destino. Se não tiver uma, você poderá criá-la usando o portal (**Mais serviços** > Contas de armazenamento > Adicionar) ou usando o cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
+* Instalar o [Azure PowerShell 1.0](/powershell/azure/overview) (ou posterior).
 * Baixar e instalar a [ferramenta AzCopy](../../storage/storage-use-azcopy.md). 
 
 ## <a name="deallocate-the-vm"></a>Desalocar a VM

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cc61146e0353455c5c763297a002afb86b76887a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2bf6bd76b653e30f38595631eff576d8eeb8efda
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -88,7 +88,7 @@ A tabela a seguir lista as ações disponíveis para cada entidade:
 | Nó | Desativar (reiniciar) | Mova todos os serviços na memória de um nó com segurança e feche os serviços persistentes. Normalmente usado quando os processos de host ou o computador precisam ser reiniciados. | |
 | Nó | Desativar (remover dados) | Feche com segurança todos os serviços em execução no nó após a criação de réplicas de reposição suficientes. Normalmente usado quando um nó (ou pelo menos seu armazenamento) é desabilitado permanentemente. | |
 | Nó | Remover o estado do nó | Remova o conhecimento das réplicas do nó do cluster. Normalmente usado quando um nó com falha já é considerado irrecuperável. | |
-| Nó | Reiniciar | Simule a falha de nó reiniciando o nó. Mais informações podem ser obtidas [aqui](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) | |
+| Nó | Reiniciar | Simule a falha de nó reiniciando o nó. Mais informações podem ser obtidas [aqui](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
 
 Como muitas ações são destrutivas, talvez seja necessário confirmar sua intenção antes que a ação seja concluída.
 

@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: f3154968710384e3f6186b277c4cae33b25c77d2
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -47,10 +48,5 @@ Para usar a Amazon como um provedor de identidade no Azure AD (Azure Active Dire
 5. Clique em **Tipo de provedor de identidade**, selecione **Amazon** e clique em **OK**.
 6. Clique em **Configurar esse provedor de identidade** e insira a ID e o segredo do cliente do aplicativo Amazon que você criou anteriormente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração da Amazon.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

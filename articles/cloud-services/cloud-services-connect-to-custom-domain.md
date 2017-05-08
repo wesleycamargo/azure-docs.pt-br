@@ -1,6 +1,6 @@
 ---
 title: "Conectar um Serviço de Nuvem em um Controlador de Domínio personalizado | Microsoft Docs"
-description: "Saiba como conectar suas funções web/de trabalho a um domínio do AD personalizado usando o PowerShell e a Extensão de Domínio do AD"
+description: "Saiba como conectar suas funções web/de trabalho a um domínio do AD personalizado usando o PowerShell e a extensão de domínio do AD"
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 39ee9cc1027958d85b2af2781adab0fe06c9a433
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5489762a7a392e4e4098d85cba22d560e9858267
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ Primeiro iremos definir a uma Rede Virtual (VNet) no Azure. Em seguida, adiciona
 
 Antes de começar, algumas das coisas que você precisa ter em mente:
 
-1. Este tutorial usa o PowerShell; portanto, certifique-se de que o Azure PowerShell esteja instalado e pronto. Para obter ajuda na configuração do Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Este tutorial usa o PowerShell; portanto, certifique-se de que o Azure PowerShell esteja instalado e pronto. Para obter ajuda na configuração do Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 2. As instâncias do controlador de domínio do AD e a função web/de trabalho precisam estar na VNet.
 
 Siga este guia passo a passo e, se tiver algum problema, deixe um comentário abaixo. Alguém entrará em contato com você (sim, lemos comentários).
@@ -155,9 +156,4 @@ Os serviços de nuvem agora devem ser ingressados no seu controlador de domínio
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

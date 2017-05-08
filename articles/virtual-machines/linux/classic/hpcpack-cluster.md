@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 868026150e81347aa3a7914f63bc19c3a878c586
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c65a932d0bf9bfb00f138997babc1bd642bcf879
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -59,7 +59,7 @@ Para obter mais informações sobre as opções de implantação de cluster do H
 Pré-requisitos adicionais para implantar o cluster usando o script de implantação de IaaS do HPC Pack:
 
 * **Computador cliente** – você precisa de um computador cliente com Windows para executar o script de implantação do cluster.
-* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azureps-cmdlets-docs) (versão 0.8.10 ou posterior) no computador cliente.
+* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azure/overview) (versão 0.8.10 ou posterior) no computador cliente.
 * **Script de implantação de IaaS do HPC Pack** – baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `.\New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.1 ou posterior do script.
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Opção de implantação 1. Use um modelo do Resource Manager
@@ -87,7 +87,7 @@ Pré-requisitos adicionais para implantar o cluster usando o script de implanta�
 A seguir estão pré-requisitos adicionais para implantar o cluster usando o script de implantação de IaaS do HPC Pack:
 
 * **Computador cliente** – você precisa de um computador cliente com Windows para executar o script de implantação do cluster.
-* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azureps-cmdlets-docs) (versão 0.8.10 ou posterior) no computador cliente.
+* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azure/overview) (versão 0.8.10 ou posterior) no computador cliente.
 * **Script de implantação de IaaS do HPC Pack** – baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `.\New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.1 ou posterior do script.
 
 **Arquivo de configuração XML**

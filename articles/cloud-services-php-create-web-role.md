@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
-ms.openlocfilehash: b6b802092165926cdfeab67849df26167ad96ebf
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 89092e75d10ece044be61ceba0baf16c9e1599be
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ O Azure fornece três modelos de computação para a execução de aplicativos: 
 Para obter mais informações sobre essas opções, consulte [Opções de hospedagem de computação fornecidas pelo Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Baixar o SDK do Azure para PHP
-O [SDK do Azure para PHP] consiste em vários componentes. Este artigo usará dois deles: o Azure PowerShell e os emuladores do Azure. Esses dois componentes podem ser instalados pelo Microsoft Web Platform Installer. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+O [SDK do Azure para PHP] consiste em vários componentes. Este artigo usará dois deles: o Azure PowerShell e os emuladores do Azure. Esses dois componentes podem ser instalados pelo Microsoft Web Platform Installer. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Criar um projeto de Serviço de Nuvem
 A primeira etapa na criação de uma função Web ou de trabalho do PHP é criar um projeto de Serviço do Azure. um projeto de Serviço do Azure serve como um contêiner lógico para as funções da Web e de trabalho, e contém os arquivos de [definição do serviço (.csdef) ] e [configuração do serviço (.cscfg)] do projeto.
@@ -201,7 +201,7 @@ Para parar os emuladores, execute este comando:
     PS C:\MyProject> Stop-AzureEmulator
 
 ## <a name="publish-your-application"></a>Publicar seu aplicativo
-Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação usando o cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) . Em seguida, você pode publicar o aplicativo usando o cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) . Para obter informações sobre como entrar, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação usando o cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) . Em seguida, você pode publicar o aplicativo usando o cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) . Para obter informações sobre como entrar, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: e8a092bc398e314a111973b6978012909aedc16e
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -77,13 +78,8 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 **O AD do Azure é implantado em data centers em todo o mundo e é gerenciado e monitorado ininterruptamente.**  O AD do Azure é o sistema de gerenciamento de identidade para ambos o Microsoft Azure e o Office 365, e é implantado em 28 datacenters em todo o mundo.  É garantido que dados de diretório serão replicados para pelo menos três datacenters.  Balanceadores de carga global garantem o acesso de usuários à cópia mais próxima do AD do Azure que contém seus dados e rotearão automaticamente solicitações para outros datacenters, se algum problema for detectado.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Introdução à escrita de código](active-directory-developers-guide.md#getting-started).
+[Introdução à escrita de código](active-directory-developers-guide.md#get-started).
 
 [Conectar usuários usando o AD do Azure](active-directory-authentication-scenarios.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

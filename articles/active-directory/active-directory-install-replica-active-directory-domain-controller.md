@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6e03b6072b5244aca2810f704c485384de5aedf8
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7b267f11a2989b1e621906a46ea4e3bf7f58ca2b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -45,7 +45,7 @@ Os DCs se replicam entre si e com os DCs locais por meio da replicação do Acti
 3. Crie uma sub-rede e associe-a ao novo site: clique duas vezes em **Sites** > clique com o botão direito do mouse em **Sub-redes** > **Nova sub-rede** > digite o intervalo de endereços IP da rede virtual (como 10.1.0.0/16 no diagrama do cenário) > selecione o novo site do Azure > **OK**.
 
 ## <a name="create-an-azure-virtual-network"></a>Crie uma rede virtual do Azure
-1. No [portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo** > **Serviços de Rede** > **Rede Virtual** > **Criação Personalizada** e use os seguintes valores para concluir o assistente.
+1. No [portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo** > **Serviços de Rede** > **Rede Virtual** >  **Criação Personalizada** e use os seguintes valores para concluir o assistente.
 
    | Nesta página do assistente… | Especifique esses valores |
    | --- | --- |
@@ -70,7 +70,7 @@ Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface
    |  **Configuração de máquina virtual** |<p>Selecione <b>Instalar o Agente de VM</b> e quaisquer outras extensões que você precisa.</p> |
 2. Anexe um disco a cada máquina virtual que executará a função de servidor de controlador de domínio. O disco adicional é necessário para armazenar o banco de dados, logs e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixe a **Preferência de Cache do Host** definida como **Nenhum**. Consulte [Como anexar um disco de dados a uma máquina virtual Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Depois de entrar na VM pela primeira vez, abra o **Gerenciador do Servidor** > **Serviços de Arquivo e Armazenamento** para criar um volume nesse disco usando o NTFS.
-4. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](/powershell/azureps-cmdlets-docs) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
+4. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](/powershell/azure/overview) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
@@ -96,7 +96,7 @@ Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN si
 
 Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Para obter mais informações sobre como usar o Windows PowerShell, consulte [Introdução aos Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) e [Referência de Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
+Para obter mais informações sobre como usar o Windows PowerShell, consulte [Introdução aos Cmdlets do Azure](/powershell/azure/overview) e [Referência de Cmdlets do Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
@@ -105,8 +105,8 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 * [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md)
 * [Microsoft Azure IaaS para profissionais de TI: (01) conceitos básicos de máquina virtual](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Cmdlets de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/jj152841)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Cmdlets de gerenciamento do Azure](/powershell/module/azurerm.compute/#virtual_machines)
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png

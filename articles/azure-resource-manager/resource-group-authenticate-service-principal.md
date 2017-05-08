@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 775734ea55d1136e64afc713356b0f0bfc81ea9f
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: eb6bddbe4220418f7c525985ab6a15524589829e
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +34,7 @@ Quando você tiver um aplicativo ou script que precisa acessar recursos, poderá
 * Atribuir permissões à identidade do aplicativo que são diferentes de suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
 * Use um certificado para a autenticação ao executar um script autônomo.
 
-Este tópico mostra como usar o [Azure PowerShell](/powershell/azureps-cmdlets-docs) para configurar tudo que você precisa para um aplicativo ser executado com suas próprias credenciais e identidade.
+Este tópico mostra como usar o [Azure PowerShell](/powershell/azure/overview) para configurar tudo que você precisa para um aplicativo ser executado com suas próprias credenciais e identidade.
 
 ## <a name="required-permissions"></a>Permissões necessárias
 Para concluir este tópico, você deve ter permissões suficientes no Azure Active Directory e em sua assinatura do Azure. Especificamente, você deve ser capaz de criar um aplicativo no Active Directory do Azure e atribuir a entidade de serviço a uma função. 
@@ -345,7 +345,7 @@ Se precisar recuperar a ID do aplicativo, use:
 
 ## <a name="change-credentials"></a>Alterar credenciais
 
-Para alterar as credenciais para um aplicativo do AD, por causa de uma violação de segurança ou expiração de credencial, use os cmdlets [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) e [New-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermadappcredential).
+Para alterar as credenciais para um aplicativo do AD, por causa de uma violação de segurança ou expiração de credencial, use os cmdlets [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) e [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
 
 Para remover todas as credenciais de um aplicativo, use:
 

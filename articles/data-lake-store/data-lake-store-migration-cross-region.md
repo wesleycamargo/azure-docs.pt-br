@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 34b449b251672619aec6e86b9343343a9404126a
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a0eecbb50b001325c91d1d721bf8de7244f04674
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Outros detalhes importantes a considerar no planejamento da migração são:
 
 * **Encargos de largura de banda**. Os [encargos de largura de banda](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) se aplicam, pois os dados são transferidos para fora de uma região do Azure.
 
-* **ACLs nos dados**. Proteja seus dados na nova região aplicando ACLs a arquivos e pastas. Para obter mais informações, consulte [Protegendo dados armazenados no Azure Data Lake Store](data-lake-store-secure-data.md). Recomendamos o uso da migração para atualizar e ajustar as ACLs. Talvez você deseje usar configurações semelhantes para as configurações atuais. É possível exibir as ACLs aplicadas a um arquivo usando o portal do Azure, [cmdlets do PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/get-azurermdatalakestoreitempermission) ou SDKs.  
+* **ACLs nos dados**. Proteja seus dados na nova região aplicando ACLs a arquivos e pastas. Para obter mais informações, consulte [Protegendo dados armazenados no Azure Data Lake Store](data-lake-store-secure-data.md). Recomendamos o uso da migração para atualizar e ajustar as ACLs. Talvez você deseje usar configurações semelhantes para as configurações atuais. É possível exibir as ACLs aplicadas a um arquivo usando o portal do Azure, [cmdlets do PowerShell](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission) ou SDKs.  
 
 * **Localização dos serviços de análise**. Para obter o melhor desempenho, os serviços de análise, como o Azure Data Lake Analytics ou o Azure HDInsight, devem estar na mesma região dos dados.  
 

@@ -17,6 +17,7 @@ ms.author: saah;kenhoff
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 90006121e4b3392f6e3ecffb4a56aca330feb02f
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -26,10 +27,5 @@ Este relatório indica os usuários que realizaram uma entrada bem-sucedida em s
 Os resultados desse relatório mostrarão o número de vezes que um usuário realizou uma entrada bem-sucedida em seu diretório por meio desse endereço e o endereço IP do proxy.
 
 ![Entradas de fontes desconhecidas](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

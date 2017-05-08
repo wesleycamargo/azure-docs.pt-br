@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 993404815b557452898d045910a80fe1e87a4924
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: a5083a5216efbfd76fd912ec48c2f0ec3b30c4a1
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -31,8 +31,8 @@ Na pilha do Azure Resource Manager, os certificados/segredos são modelados como
 > [!NOTE]
 > 1. Para que um Cofre de Chaves seja usado com máquinas virtuais do Azure Resource Manager, a propriedade **EnabledForDeployment** no Cofre de Chaves deverá ser definida como true. Você pode fazer isso em vários clientes.
 > 2. O Cofre de Chaves precisa ser criado na mesma assinatura e na mesma localização que a Máquina Virtual.
-> 
-> 
+>
+>
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>Usar o PowerShell para configurar o Cofre de Chaves
 Para criar um Cofre de Chaves usando o PowerShell, consulte [Introdução ao Cofre de Chaves do Azure](../../key-vault/key-vault-get-started.md#vault).
@@ -46,7 +46,7 @@ Para cofres de chaves existentes, você pode usar este cmdlet do PowerShell:
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="us-cli-to-set-up-key-vault"></a>Usar a CLI para configurar o Cofre de Chaves
-Para criar um cofre de chaves usando a CLI (interface de linha de comando), consulte [Gerenciar Cofre da Chave usando a CLI](../../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+Para criar um cofre de chaves usando a CLI (interface de linha de comando), consulte [Gerenciar Cofre da Chave usando a CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
 Para a CLI, você precisa criar o cofre de chaves antes de atribuir a política de implantação. Faça isso usando este comando:
 
@@ -68,5 +68,4 @@ Ao usar um modelo, você precisa definir a propriedade `enabledForDeployment` co
     }
 
 Para saber outras opções que você pode configurar ao criar um cofre de chaves usando modelos, consulte [Criar um cofre de chave](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-
 

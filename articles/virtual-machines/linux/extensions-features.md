@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2017
+ms.date: 04/26/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0182d0d600af691daf8c2ac7a5cb93d7755f61da
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 2b25b4f4925962b1e4de681d268e78909a93eccd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Para saber mais sobre os sistemas operacionais com suporte e as instruções de 
 Muitas extensões de VM diferentes estão disponíveis para uso com as máquinas virtuais do Azure. Para ver uma lista completa, execute o seguinte comando com a CLI do Azure, substituindo o local do exemplo pelo local de sua escolha.
 
 ```azurecli
-azure vm extension-image list westus
+az vm extension image list --location westus -o table
 ```
 
 ## <a name="run-vm-extensions"></a>Executar extensões de VM
@@ -67,12 +67,15 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma máquin
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões da máquina virtual do Azure podem ser executadas em uma máquina virtual existente usando o comando `azure vm extension set`. Este exemplo executa a extensão de script personalizado em uma máquina virtual.
+As extensões da máquina virtual do Azure podem ser executadas em uma máquina virtual existente usando o comando `az vm extension set`. Este exemplo executa a extensão de script personalizado em uma máquina virtual.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set `
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 O script produz uma saída semelhante ao texto a seguir:
@@ -205,18 +208,15 @@ As etapas de solução de problemas a seguir aplicam-se a todas as extensões da
 Após a execução da extensão da máquina virtual em uma máquina virtual, use o seguinte comando da CLI do Azure para retornar o status da extensão. Substitua os nomes de parâmetro de exemplo por seus próprios valores.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 A saída se parece com o seguinte texto:
 
 ```azurecli
-info:    Executing command vm extension get
-+ Looking up the VM "myVM"
-data:    Publisher                   Name             Version  State
-data:    --------------------------  ---------------  -------  ---------
-data:    Microsoft.Azure.Extensions  DockerExtension  1.0      Succeeded
-info:    vm extension get command OK         :
+AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publisher                   ResourceGroup      TypeHandlerVersion  VirtualMachineExtensionType
+-------------------------  ----------  ------------  -------------------  --------------------------  ---------------  --------------------  -----------------------------
+True                       westus      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
 O status de execução da extensão também pode ser encontrado no Portal do Azure. Para exibir o status de uma extensão, selecione a máquina virtual, escolha **Extensões** e selecione a extensão desejada.
@@ -226,7 +226,7 @@ O status de execução da extensão também pode ser encontrado no Portal do Azu
 Pode haver casos nos quais uma extensão da máquina virtual precisa ser executada novamente. Você pode executar novamente uma extensão removendo-a e, em seguida, executando novamente a extensão com um método de execução de sua escolha. Para remover uma extensão, execute o seguinte comando com a CLI do Azure. Substitua os nomes de parâmetro de exemplo por seus próprios valores.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
 Você pode remover uma extensão usando as seguintes etapas no Portal do Azure:

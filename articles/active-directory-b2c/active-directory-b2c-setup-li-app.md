@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: 3b22dee95d064de8190d7429cc4118884fb81172
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -50,10 +51,5 @@ Para usar o LinkedIn como provedor de identidade no Azure AD (Azure Active Direc
 5. Clique em **Tipo do provedor de identidade**, selecione **LinkedIn** e clique em **OK**.
 6. Clique em **Configurar esse provedor de identidade** e insira a ID e o segredo do cliente do aplicativo do LinkedIn que você criou anteriormente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do LinkedIn.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 
