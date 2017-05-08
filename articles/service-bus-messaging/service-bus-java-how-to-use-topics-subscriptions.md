@@ -14,9 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
 ms.openlocfilehash: 7132d1e42963d2e419d2bf1b7866ca5888f8719d
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/24/2017
 
 
@@ -151,7 +152,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-As mensagens enviadas aos Tópicos de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage]*têm um conjunto de métodos padrão (como**setLabel**e**TimeToLive**), um dicionário usado para manter propriedades específicas do aplicativo personalizado e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor da [BrokeredMessage][BrokeredMessage], assim o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, um **java.io.InputStream** pode ser fornecido.
+As mensagens enviadas aos Tópicos de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage] *têm um conjunto de métodos padrão (como* *setLabel* *e* *TimeToLive** ), um dicionário usado para manter propriedades específicas do aplicativo personalizado e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor da [BrokeredMessage][BrokeredMessage], assim o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, um **java.io.InputStream** pode ser fornecido.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para `TestTopic` **MessageSender** que obtivemos no trecho de código acima.
 Observe como o valor da propriedade **MessageNumber** de cada mensagem varia de acordo com a iteração do loop (isso determinará quais assinaturas o receberá):
