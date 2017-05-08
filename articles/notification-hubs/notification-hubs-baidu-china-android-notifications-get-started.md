@@ -14,9 +14,10 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
+ms.contentlocale: pt-br
 ms.lasthandoff: 12/08/2016
 
 
