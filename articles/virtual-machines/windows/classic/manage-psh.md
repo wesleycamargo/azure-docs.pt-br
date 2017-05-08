@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 44235e32b7cf5b2be90f6d460ac22d7c0350f894
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ba02fb8385afeefd0162ff79074352bb02275b55
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/27/2017
 Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automatizadas usando cmdlets do Azure PowerShell. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
 
 > [!NOTE]
-> Se você ainda não instalou e configurou o Azure PowerShell, você pode obter instruções no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> Se você ainda não instalou e configurou o Azure PowerShell, você pode obter instruções no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 > 
 > 
 

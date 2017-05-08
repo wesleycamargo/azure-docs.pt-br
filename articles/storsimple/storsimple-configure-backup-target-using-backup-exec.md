@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
-ms.openlocfilehash: db05fb35fdcbcf6691cc3ffc99d201383706592f
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 38a5bee31483cbb91b0278ea6c750e5ff7780b7c
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -257,7 +258,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Mensal completo | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
-| Cota adicional  | 4  |   | Requisito total de GFS&42;  |
+| Cota adicional  | 4  |   | Requisito total de GFS 42  |
 \* O multiplicador GFS é o número de cópias que você precisa proteger e manter para atender aos requisitos da política de backup.
 
 ## <a name="set-up-backup-exec-storage"></a>Configurar o armazenamento de Backup Exec
@@ -444,7 +445,7 @@ A seção a seguir descreve como criar um script curto para iniciar e excluir in
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar ou excluir um instantâneo de nuvem
 
-1.  [Instale o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/).
+1.  [Instale o Azure PowerShell](/powershell/azure/overview).
 2.  [Baixar e importar informações de assinatura e configurações de publicação](https://msdn.microsoft.com/library/dn385850.aspx).
 3.  No portal clássico do Azure, obtenha o nome do recurso e a [chave de registro para o serviço StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 4.  No servidor que executa o script, execute o PowerShell como administrador. Digite este comando:
@@ -523,9 +524,4 @@ Os documentos a seguir foram mencionados neste artigo:
 
 - Saiba mais sobre como [restaurar de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Sobre mais sobre como executar [failover e recuperação de desastre no dispositivo](storsimple-device-failover-disaster-recovery.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

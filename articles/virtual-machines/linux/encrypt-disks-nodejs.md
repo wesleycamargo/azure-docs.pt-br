@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5108df1ef407132de4c685d35f1c453d30d1aa96
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -114,7 +114,7 @@ A CLI do Azure não fornece erros detalhados durante o processo de criptografia.
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
-  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
+  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \
   --disk-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
   --key-encryption-key-url https://myKeyVault.vault.azure.net/keys/myKey/6f5fe9383f4e42d0a41553ebc6a82dd1 \
   --key-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResoureGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
@@ -142,11 +142,11 @@ O processo de criptografia de uma VM é o seguinte:
 ## <a name="supporting-services-and-encryption-process"></a>Suporte a serviços e processo de criptografia
 A criptografia de disco depende dos seguintes componentes adicionais:
 
-* **Cofre de Chaves do Azure** – usado para proteger chaves criptográficas e segredos usados para o processo de criptografia/descriptografia do disco. 
+* **Cofre de Chaves do Azure** – usado para proteger chaves criptográficas e segredos usados para o processo de criptografia/descriptografia do disco.
   * Se houver um, você pode usar um Cofre de Chaves do Azure existente. Não é necessário dedicar um Cofre de Chaves para criptografar discos.
   * Para separar os limites administrativos e visibilidade de chave, crie um Cofre de Chaves dedicado.
-* **Azure Active Directory** – realiza a troca segura de chaves criptográficas necessárias e a autenticação para ações solicitadas. 
-  * Normalmente, você pode usar uma instância existente do Azure Active Directory para hospedar seu aplicativo. 
+* **Azure Active Directory** – realiza a troca segura de chaves criptográficas necessárias e a autenticação para ações solicitadas.
+  * Normalmente, você pode usar uma instância existente do Azure Active Directory para hospedar seu aplicativo.
   * O aplicativo é mais um ponto de extremidade para os serviços de Máquina Virtual e Cofre de chaves para solicitar e receber as chaves criptográficas apropriadas. Você não está desenvolvendo um aplicativo real que se integra ao Azure Active Directory.
 
 ## <a name="requirements-and-limitations"></a>Requisitos e limitações
@@ -172,7 +172,7 @@ azure config mode arm
 
 Em todos os exemplos de comando, substitua todos os parâmetros de exemplo pelos seus próprios valores de nome, localização e chave. Os seguintes exemplos usam uma convenção de `myResourceGroup`, `myKeyVault`, `myAADApp` etc.
 
-A primeira etapa é criar um Cofre de Chaves do Azure para armazenar as chaves criptográficas. O Cofre de Chaves do Azure pode armazenar chaves, segredos ou senhas que permitem implementá-los de forma segura em seus aplicativos e serviços. Para criptografia de disco virtual, use o Cofre de chaves para armazenar uma chave de criptografia que é usada para criptografar ou descriptografar seus discos virtuais. 
+A primeira etapa é criar um Cofre de Chaves do Azure para armazenar as chaves criptográficas. O Cofre de Chaves do Azure pode armazenar chaves, segredos ou senhas que permitem implementá-los de forma segura em seus aplicativos e serviços. Para criptografia de disco virtual, use o Cofre de chaves para armazenar uma chave de criptografia que é usada para criptografar ou descriptografar seus discos virtuais.
 
 Habilite o provedor do Cofre de Chaves do Azure em sua assinatura do Azure e crie um grupo de recursos. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `WestUS`:
 
@@ -188,7 +188,7 @@ azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
   --location WestUS
 ```
 
-É possível armazenar chaves de criptografia usando a proteção do Modelo de segurança de Hardware (HSM) ou software. Usar um HSM requer um Cofre de Chaves premium. Há um custo adicional para a criação de um Cofre de Chaves premium em vez do Cofre de Chaves padrão que armazena as chaves protegidas por software. Para criar um Cofre de Chaves premium, na etapa anterior, adicione `--sku Premium` ao comando. O exemplo a seguir usa chaves protegidas por software, desde que criamos um Cofre de Chaves padrão. 
+É possível armazenar chaves de criptografia usando a proteção do Modelo de segurança de Hardware (HSM) ou software. Usar um HSM requer um Cofre de Chaves premium. Há um custo adicional para a criação de um Cofre de Chaves premium em vez do Cofre de Chaves padrão que armazena as chaves protegidas por software. Para criar um Cofre de Chaves premium, na etapa anterior, adicione `--sku Premium` ao comando. O exemplo a seguir usa chaves protegidas por software, desde que criamos um Cofre de Chaves padrão.
 
 Para ambos os modelos de proteção, a plataforma do Azure deve ter acesso para solicitar as chaves criptográficas quando a VM é inicializada para descriptografar os discos virtuais. Crie uma chave de criptografia dentro de seu Cofre de Chaves e habilite-a para uso com criptografia de disco virtual. O exemplo a seguir cria uma chave chamada `myKey` e, em seguida, a habilita para a criptografia de disco:
 
@@ -203,7 +203,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
 ## <a name="create-the-azure-active-directory-application"></a>Criar o aplicativo Azure Active Directory
 Quando os discos virtuais são criptografados ou descriptografados, use um ponto de extremidade para lidar com a autenticação e a troca de chaves criptográficas do Cofre de Chaves. Esse ponto de extremidade, um aplicativo do Azure Active Directory, permite que a plataforma do Azure solicite as chaves criptográficas apropriadas em nome da VM. Uma instância do Azure Active Directory padrão está disponível em sua assinatura, embora muitas organizações tenham diretórios do Azure Active Directory dedicados.
 
-Como você não está criando um aplicativo completo do Azure Active Directory, os parâmetros `--home-page` e `--identifier-uris` no exemplo a seguir não precisam ser um endereço roteável real. O exemplo a seguir também especifica um segredo baseado em senha, em vez de gerar chaves de dentro do portal do Azure. Neste momento, a geração de chaves não pode ser feita na CLI do Azure. 
+Como você não está criando um aplicativo completo do Azure Active Directory, os parâmetros `--home-page` e `--identifier-uris` no exemplo a seguir não precisam ser um endereço roteável real. O exemplo a seguir também especifica um segredo baseado em senha, em vez de gerar chaves de dentro do portal do Azure. Neste momento, a geração de chaves não pode ser feita na CLI do Azure.
 
 Crie seu próprio aplicativo do Azure Active Directory. O exemplo a seguir cria um aplicativo chamado `myAADApp` e usa uma senha de `myPassword`. Especifique sua própria senha da seguinte maneira:
 
@@ -214,7 +214,7 @@ azure ad app create --name myAADApp \
   --password myPassword
 ```
 
-Anote o `applicationId` que é retornado na saída do comando anterior. A ID desse aplicativo é usada em algumas das etapas restantes. Em seguida, crie um nome da entidade de serviço (SPN) para que o aplicativo possa ser acessado no seu ambiente. Para criptografar ou descriptografar discos virtuais com êxito, as permissões na chave de criptografia armazenada no Cofre de chaves devem ser definidas para permitir que o aplicativo do Azure Active Directory leia as chaves. 
+Anote o `applicationId` que é retornado na saída do comando anterior. A ID desse aplicativo é usada em algumas das etapas restantes. Em seguida, crie um nome da entidade de serviço (SPN) para que o aplicativo possa ser acessado no seu ambiente. Para criptografar ou descriptografar discos virtuais com êxito, as permissões na chave de criptografia armazenada no Cofre de chaves devem ser definidas para permitir que o aplicativo do Azure Active Directory leia as chaves.
 
 Crie o SPN e defina as permissões adequadas da seguinte maneira:
 
@@ -273,7 +273,7 @@ Como o comando anterior tem muitas variáveis, o exemplo a seguir é o comando c
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
-  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
+  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \
   --disk-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
   --key-encryption-key-url https://myKeyVault.vault.azure.net/keys/myKey/6f5fe9383f4e42d0a41553ebc6a82dd1 \
   --key-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResoureGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
@@ -314,7 +314,6 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais informações sobre como gerenciar o Cofre de Chaves do Azure, incluindo a exclusão de chaves criptográficas e cofres, consulte [Gerenciar Cofres de Chaves usando a CLI](../../key-vault/key-vault-manage-with-cli.md).
+* Para obter mais informações sobre como gerenciar o Cofre de Chaves do Azure, incluindo a exclusão de chaves criptográficas e cofres, consulte [Gerenciar Cofres de Chaves usando a CLI](../../key-vault/key-vault-manage-with-cli2.md).
 * Para obter mais informações sobre criptografia de disco, como preparar uma VM personalizada criptografada para carregar no Azure, consulte [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
-
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: efdec32e565bf1d11b562d283e56bd8ed5d292b9
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a0ce5cf6a48d3dfd68e1696d93aac7c55a442900
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -45,7 +45,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.  
 
 ### <a name="step-2-install-the-latest-versions-of-the-azure-service-management-sm-powershell-modules"></a>Etapa 2. Instalar as versões mais recentes dos módulos do PowerShell do SM (Gerenciamento de Serviços) do Azure
-Siga as instruções em [Introdução aos cmdlets do Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
+Siga as instruções em [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
 
 ### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>Etapa 3. Entre em sua conta do Azure e selecione uma assinatura
 1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:

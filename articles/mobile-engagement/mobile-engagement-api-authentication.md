@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 716d2d95b5d68dbb7fdd2ef50d220a8c8c2c9f5e
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bf8cd0d645d8a5992864c8a3820ac2049a3ff630
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +44,7 @@ Há várias maneiras de obter um token. Como as APIs geralmente são chamadas de
 ### <a name="one-time-setup-using-script"></a>Configuração única (usando script)
 Você deve seguir o conjunto de instruções abaixo para executar a configuração usando um script do PowerShell, que leva o tempo mínimo para a configuração e usa os padrões mais permissivos. Você também pode seguir as instruções de [configuração manual](mobile-engagement-api-authentication-manual.md) para fazer isso diretamente do portal do Azure e chegar a uma configuração mais sofisticada. 
 
-1. Obtenha a versão mais recente do Azure PowerShell [aqui](http://aka.ms/webpi-azps). Para obter mais informações sobre as instruções de download, consulte este [link](/powershell/azureps-cmdlets-docs).  
+1. Obtenha a versão mais recente do Azure PowerShell [aqui](http://aka.ms/webpi-azps). Para obter mais informações sobre as instruções de download, consulte este [link](/powershell/azure/overview).  
 2. Depois de instalar o Azure PowerShell, use os seguintes comandos para garantir que o **módulo do Azure** esteja instalado:
    
     a. Verifique se o módulo do Azure PowerShell está disponível na lista de módulos disponíveis. 
@@ -150,10 +151,5 @@ Agora que você tem um token válido, você está pronto para fazer as chamadas 
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

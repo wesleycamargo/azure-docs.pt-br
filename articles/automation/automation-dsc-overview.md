@@ -15,9 +15,9 @@ ms.workload: TBD
 ms.date: 02/02/2017
 ms.author: magoedte;eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: f0d3a5c1929bb6dafef735ae3f4291e329861cc9
-ms.openlocfilehash: b750878703baf143a2e8247bdd01f358e462e598
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 852284ce7e82d782c31bb085d4878de25412411a
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="azure-automation-dsc-overview"></a>Visão geral do DSC da Automação do Azure
@@ -116,7 +116,7 @@ A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de
 
 * [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 * [Configurações de compilação no DSC de Automação do Azure](automation-dsc-compile.md)
-* [cmdlets do DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
+* [cmdlets do DSC de Automação do Azure](/powershell/module/azurerm.automation/#automation)
 * [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 * [Implantação contínua em VMs de IaaS usando o DSC de Automação do Azure e o Chocolatey](automation-dsc-cd-chocolatey.md)
 

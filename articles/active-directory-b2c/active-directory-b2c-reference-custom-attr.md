@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: f7b21cc941f17d0815316dfe7013e9f97a95c223
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -54,10 +55,5 @@ Você pode usar o recurso "Executar agora" da política para verificar a experi�
 ## <a name="notes"></a>Observações
 * Juntamente com as políticas de inscrição, os atributos personalizados também podem ser usados nas políticas de inscrição ou de entrada e também nas políticas de edição de perfil.
 * Há uma limitação conhecida de atributos personalizados. Esse tipo de atributo só é criado na primeira vez que é usado em qualquer política, e não quando você o adiciona à lista de **Atributos de usuário**.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

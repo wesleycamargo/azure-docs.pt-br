@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 5b6782bbcf7c02d1e34b40ffaab7baf60df104e4
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6dd7c03220e08741c9b6a65c148f247bf56c0979
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -52,7 +52,7 @@ Veja a seguir algumas das práticas que recomendamos durante a avaliação de mi
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Etapa 2: instalar a versão mais recente do Azure PowerShell
 Há duas opções principais para instalar o Azure PowerShell, a [Galeria do PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) e o [WebPI (Web Platform Installer)](http://aka.ms/webpi-azps). WebPI recebe atualizações mensais. A Galeria do PowerShell receberá atualizações continuamente. Este artigo tem base no Azure PowerShell versão 2.1.0.
 
-Para obter instruções de instalação, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Para obter instruções de instalação, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 <br>
 

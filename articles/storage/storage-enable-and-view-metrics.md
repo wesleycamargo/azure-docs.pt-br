@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 4036c994cb5be68b372a4f244f65a17ce173ecc2
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 78bb4826a8c487576a06b3fd3c9fab333be72ace
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -62,7 +62,7 @@ O comando a seguir recupera o nível de métricas por hora atual e dias de reten
 Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
-Para saber mais sobre como configurar os cmdlets do PowerShell do Azure para funcionar com sua assinatura do Azure e como selecionar a conta de armazenamento padrão para usar, consulte: [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
+Para saber mais sobre como configurar os cmdlets do PowerShell do Azure para funcionar com sua assinatura do Azure e como selecionar a conta de armazenamento padrão para usar, consulte: [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>Como habilitar métricas de armazenamento por meio de programação
 O trecho em C# a seguir mostra como habilitar métricas e a criação de log para o serviço Blob usando a biblioteca de cliente de armazenamento para .NET:
@@ -215,3 +215,4 @@ A capacidade usada pelas tabelas de métricas também é faturável. Você pode 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Habilitando o armazenamento de log e acessando os dados de log](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
+

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: aced1550a7b5b41b0a430c26f82c31c023f4d2d4
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5fd017b6f7645220ee7572e50c02265de41e938c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -35,7 +35,7 @@ Usando o Observador de Rede, Alertas e Funções de dentro do ecossistema do Azu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale a versão mais recente do [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-3.8.0)
+* Instale a versão mais recente do [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 * Ter uma instância existente do Gerenciador da rede ou [Criar uma instância do Gerenciador da rede](network-watcher-create.md)
 * Ter uma máquina virtual existente na mesma região que o Geenciador de rede anterior com a [extensão Windows](../virtual-machines/windows/extensions-nwa.md) ou [extensão de máquina virtual Linux](../virtual-machines/linux/extensions-nwa.md).
 

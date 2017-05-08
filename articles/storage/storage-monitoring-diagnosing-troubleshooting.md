@@ -328,19 +328,19 @@ O seu problema está relacionado à disponibilidade de um dos serviços de armaz
 * [O cliente está recebendo mensagens HTTP 409 (Conflito)]
 
 ---
-[As métricas mostram uma baixa PercentSuccess ou as entradas de log analíticas têm operações com status de transação de ClientOtherErrors]
+[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
 ---
 [As métricas de capacidade mostram um aumento inesperado em uso de capacidade de armazenamento]
 
 ---
-[Você está enfrentando reinicializações inesperadas das máquinas virtuais que contêm um grande número de VHDs anexados]
+[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
 ---
 [Seu problema apareceu por usar o emulador de armazenamento para desenvolvimento ou teste]
 
 ---
-[Você encontrou problemas ao instalar o SDK do Azure para .NET]
+[You are encountering problems installing the Azure SDK for .NET]
 
 ---
 [Você tem um problema diferente com um serviço de armazenamento]

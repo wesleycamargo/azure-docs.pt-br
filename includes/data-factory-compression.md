@@ -47,8 +47,3 @@ Quando você especifica a propriedade `compression` em um conjunto de dados de e
 * Ler dados de um arquivo de texto sem formatação do Sistema de arquivos local, compactá-los usando o formato GZip e gravar os dados compactados em um blob do Azure. Você define um conjunto de dados de Blob do Azure de saída com a `compression` `type` propriedade JSON como GZip.
 * Leia o arquivo .zip de servidor FTP, descompacte-o para obter os arquivos contidos nele e inclua-os no Azure Data Lake Store. Você define um conjunto de dados FTP de entrada com a `compression` `type` propriedade JSON como ZipDeflate.
 * Ler dados compactados em GZIP de um blob do Azure, descompactá-los, compactá-los usando BZIP2 e gravar os dados de resultado em um blob do Azure. Você define o conjunto de dados de Blob do Azure entradas com `compression` `type` definido como GZIP e o conjunto de dados de saída com `compression` `type` definido como BZIP2 nesse caso.   
-
-
-<!--HONumber=Jan17_HO3-->
-
-
