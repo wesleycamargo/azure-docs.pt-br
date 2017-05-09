@@ -9,14 +9,14 @@
 ## Guias de Início Rápido
 ### [Compilar um aplicativo iOS](active-directory-b2c-devquickstarts-ios.md)
 ### [Compilar um aplicativo Android](active-directory-b2c-devquickstarts-android.md)
-### [Compilar uma API Web do Node.Js](active-directory-b2c-devquickstarts-api-node.md)
-### [Compilar um aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Inscreva-se e entre em um aplicativo Web ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### Compilar um aplicativo Web do .NET
+#### [Inscreva-se e entre em um aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [Chamar uma API Web em um aplicativo Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ### [Compilar uma API Web do .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Compilar um aplicativo da área de trabalho do Windows](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Chamar uma API Web em um aplicativo Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Compilar um aplicativo Web do Node.Js](active-directory-b2c-devquickstarts-web-node.md)
+### [Compilar uma API Web do Node.Js](active-directory-b2c-devquickstarts-api-node.md)
+### [Compilar um aplicativo de área de trabalho do .NET](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Usar a API do Graph do Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Adicionar credenciais a um aplicativo Web do Node JS](active-directory-b2c-devquickstarts-web-node.md)
 ## [Perguntas frequentes](active-directory-b2c-faqs.md)
 
 # Como:
@@ -53,7 +53,7 @@
 
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Fórum de comentários do Azure](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Fórum de comentários do Azure AD B2C](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Suporte](active-directory-b2c-support.md)

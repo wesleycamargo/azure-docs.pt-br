@@ -7,11 +7,14 @@
 ## [Criar uma conta do Lote](batch-account-create-portal.md)
 ## [Tutorial de .NET em lote](batch-dotnet-get-started.md)
 ## [Tutorial do Python em Lote](batch-python-tutorial.md)
-# Como
+## [Tutorial de Node.js do Lote](batch-nodejs-get-started.md)
+# Como:
 ## Desenvolver
 ### [Pacotes de aplicativos](batch-application-packages.md)
 ### [Dimensionar nós de computação automaticamente](batch-automatic-scaling.md)
-### [Autenticação do Azure AD](batch-aad-auth.md)
+### Autenticação do Azure AD
+#### [Azure AD com serviço do Lote](batch-aad-auth.md)
+#### [Azure AD com o Gerenciamento de Lote](batch-aad-auth-management.md)
 ### [Tarefas de nó simultâneas](batch-parallel-node-tasks.md)
 ### [Consultas de lista eficientes](batch-efficient-list-queries.md)
 ### [Tarefas de preparação e conclusão de trabalho](batch-job-prep-release.md)
@@ -27,7 +30,7 @@
 ### [CLI do Azure](batch-cli-get-started.md)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [CLI do Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)

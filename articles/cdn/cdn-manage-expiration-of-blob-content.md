@@ -14,9 +14,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: f44119d651767881cfd999808925b0066a5e502b
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
 
 

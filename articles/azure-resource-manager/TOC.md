@@ -29,15 +29,19 @@
 ### [Definir local](resource-manager-template-location.md)
 ### [Atribuir marcas](resource-manager-template-tags.md)
 ### [Definir o nome e tipo do recurso filho](resource-manager-template-child-resource.md)
+### [Atualizar recurso](resource-manager-update.md)
+### [Usar objetos de parâmetros](resource-manager-objects-as-parameters.md)
 ### [Compartilhar estado entre modelos vinculados](best-practices-resource-manager-state.md)
 ### [Padrões para projetar modelos](best-practices-resource-manager-design-templates.md)
 ## Implantar
 ### PowerShell
 #### [Implantar modelo](resource-group-template-deploy.md)
 #### [Implantar modelo particular com o token SAS](resource-manager-powershell-sas-token.md)
+#### [Exportar modelo e reimplantar](resource-manager-export-template-powershell.md)
 ### CLI do Azure
 #### [Implantar modelo](resource-group-template-deploy-cli.md)
 #### [Implantar modelo particular com o token SAS](resource-manager-cli-sas-token.md)
+#### [Exportar modelo e reimplantar](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Integração contínua com o Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +76,13 @@
 
 # Referência
 ## [Funções de modelo](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Funções de objeto e matriz](resource-group-template-functions-array.md)
+### [Funções de comparação](resource-group-template-functions-comparison.md)
+### [Funções de implantação](resource-group-template-functions-deployment.md)
+### [Funções numéricas](resource-group-template-functions-numeric.md)
+### [Funções de recurso](resource-group-template-functions-resource.md)
+### [Funções de cadeia de caracteres](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [CLI do Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

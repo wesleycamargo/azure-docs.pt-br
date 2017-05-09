@@ -30,6 +30,7 @@
 
 ## Use as soluções
 ### [Soluções de gerenciamento](operations-management-suite-solutions.md)
+### [Soluções de destino](operations-management-suite-solution-targeting.md)
 ### Insight e análises
 #### [Avaliação do AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Status de replicação do AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -58,6 +59,7 @@
 ### [Recursos de automação](operations-management-suite-solutions-resources-automation.md)
 ### [Pesquisas de log e alertas](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Modos de exibição](operations-management-suite-solutions-resources-views.md)
+### [práticas recomendadas](operations-management-suite-solutions-best-practices.md)
 
 ## [Integrar com o OMS](operations-management-suite-integration.md)
 
