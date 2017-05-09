@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/03/2017
 
 
@@ -44,7 +45,7 @@ Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes
 ## <a name="why-would-i-request-an-ilpip"></a>Por que solicitar um ILPIP?
 Se você quiser ser capaz de conectar a sua VM ou instância de função por um endereço IP atribuído diretamente a ela, em vez de usar o &lt;número da porta&gt; do VIP de serviço de nuvem, solicite um ILPIP para sua VM ou instância de função.
 
-* **FTP Ativo** – com a atribuição de um ILPIP a uma VM, ele pode receber o tráfego em qualquer porta. Pontos de extremidade não são necessários para que a VM receba o tráfego.  Consulte (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[Visão geral do protocolo FTP] para obter detalhes sobre o protocolo FTP.
+* **FTP Ativo** – com a atribuição de um ILPIP a uma VM, ele pode receber o tráfego em qualquer porta. Pontos de extremidade não são necessários para que a VM receba o tráfego.  Consulte (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] para obter detalhes sobre o protocolo FTP.
 * **IP de saída** – O tráfego de saída proveniente da VM é mapeado para o ILPIP, conforme a fonte e o ILPIP identificam exclusivamente a VM para entidades externas.
 
 > [!NOTE]
