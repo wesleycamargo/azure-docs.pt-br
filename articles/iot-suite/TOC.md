@@ -11,12 +11,22 @@
 ## [Visão geral da solução da fábrica conectada](iot-suite-connected-factory-overview.md)
 ## [Passo a passo da solução de monitoramento remoto](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Passo a passo da solução de manutenção preditiva](iot-suite-predictive-walkthrough.md)
+## [Conectar seu Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
+### Usar C
+#### [Dados simulados](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Usar sensores reais](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Implementar atualização de firmware](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Usar o Node.js
+#### [Dados simulados](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Usar sensores reais](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Implementar atualização de firmware](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
 
 # Como:
-## [Conectar seu dispositivo à solução de monitoramento remoto (Windows)](iot-suite-connecting-devices.md)
-## [Conectar seu dispositivo à solução de monitoramento remoto (Linux)](iot-suite-connecting-devices-linux.md)
-## [Conectar seu dispositivo à solução de monitoramento remoto (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Conectar seu dispositivo à solução de monitoramento remoto (Node)](iot-suite-connecting-devices-node.md)
+## Conectar um dispositivo simulado
+### [C em Windows](iot-suite-connecting-devices.md)
+### [C em Linux](iot-suite-connecting-devices-linux.md)
+### [Node.js](iot-suite-connecting-devices-node.md)
+## [Conectar seu dispositivo mbed](iot-suite-connecting-devices-mbed.md)
 ## [Conectar um Aplicativo Lógico à solução de monitoramento remoto](iot-suite-logic-apps-tutorial.md)
 ## [Personalizar uma solução pré-configurada](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Usar telemetria dinâmica com a solução de monitoramento remoto](iot-suite-dynamic-telemetry.md)

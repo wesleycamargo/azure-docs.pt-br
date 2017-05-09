@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: owend
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: dbe1dba78fb2597dc595f9e6895d0a15181c1f05
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
 
 
