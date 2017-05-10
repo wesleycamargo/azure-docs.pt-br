@@ -14,10 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 758c9112539ebaedc6c8180b7e6642d5d26fa16d
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 18501fc0fdb3174b3ec74e3dde3422b27898bf10
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -27,11 +28,11 @@ Este é um guia com cinco partes de arquitetura e implantação técnica que for
 
 As cinco partes deste guia abrangem os seguintes tópicos:
 
-- [Visão geral e arquitetura](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infraestrutura e conectividade](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Instalação do SAP HANA](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Alta Disponibilidade e Recuperação de Desastre](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Solução de problemas e monitoramento](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Infraestrutura e conectividade do SAP HANA (instâncias grandes) no Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Como instalar e configurar o SAP HANA (instâncias grandes) no Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Alta disponibilidade e recuperação de desastre do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Solução de problemas e monitoramento do SAP HANA (instâncias grandes) no Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="definitions"></a>Definições
 
@@ -132,7 +133,7 @@ No entanto, existem diferenças significativas entre executar o SAP HANA no HANA
 - Ao contrário do Azure, o servidor do servidor do SAP HANA no Azure (Instâncias Grandes) é dedicado a um cliente específico. Uma reinicialização ou desligamento do servidor não leva para o sistema operacional e SAP HANA que está sendo implantado em outro servidor. (A única exceção é quando um servidor pode encontrar problemas e a reimplantação precisa ser executada em outra folha).
 - Ao contrário do Azure, em que tipos de host do processador são selecionados para melhor taxa de preço e desempenho, os tipos de processador escolhidos para o SAP HANA no Azure (Instâncias Grandes) têm o melhor desempenho da linha de processadores Intel E7v3.
 
-Haverá vários clientes implantando no hardware do SAP HANA no Azure (Instâncias Grandes) e cada um está blindado em relação aos outros por meio da implantação em suas próprias VLANs. Para se conectar ao HANA em Instâncias Grandes em uma rede Virtual do Azure (VNet), os componentes de rede no local executam conversão de endereços de rede (NAT) entre o intervalo de endereços IP de rede virtual do Azure e o espaço de endereço IP VLAN dentro da infraestrutura de hardware.
+Haverá vários clientes implantando no hardware do SAP HANA no Azure (Instâncias Grandes) e cada um está blindado em relação aos outros por meio da implantação em suas próprias VLANs. Para conectar as Instâncias Grandes do HANA com uma VNet (Rede Virtual) do Azure, os componentes de rede em vigor conectam as unidades de Instância Grande do HANA dos locatários de maneira isolada com as VNets do Azure dos locatários da assinatura do Azure. 
 
 ## <a name="operations-model-and-responsibilities"></a>Responsabilidades e modelo de operações
 
@@ -146,7 +147,7 @@ No entanto, esse serviço é otimizado para SAP HANA, portanto, há áreas onde 
 
 A lista a seguir fornece mais detalhes sobre cada uma das camadas e suas responsabilidades:
 
-**Rede:** todas as redes internas para o carimbo de Instância Grande executando o SAP HANA, seu acesso a conectividade com o Azure, armazenamento e conectividade entre as instâncias (para expansão e outras funções), conectividade para o cenário em que a camada do aplicativo SAP é hospedada em máquinas virtuais do Azure. Ele também inclui conectividade WAN entre Data Centers do Azure para replicação de objetivos de Recuperação de Desastre. Todas as redes são particionadas pelo locatário e aplicou QOS.
+**Rede:** todas as redes internas do carimbo de Instância Grande que executa o SAP HANA, seu acesso ao armazenamento, a conectividade entre as instâncias (para expansão e outras funções), a conectividade com o cenário e a conectividade com o Azure no qual a camada do aplicativo SAP é hospedada em Máquinas Virtuais do Azure. Ele também inclui conectividade WAN entre Data Centers do Azure para replicação de objetivos de Recuperação de Desastre. Todas as redes são particionadas pelo locatário e aplicou QOS.
 
 **Armazenamento:** o virtualizado particionada armazenamento para todos os volumes necessários pelos servidores do SAP HANA, bem como para instantâneos.
 
@@ -179,11 +180,11 @@ Configurações para o SAP HANA Veja o [SLA para o SAP HANA no Azure (Instância
 
 O dimensionamento do HANA em Instâncias Grandes não é diferente de dimensionamento para o HANA em geral. Existentes e a implantação de sistemas, você deseja mover de outros RDBMS para HANA, SAP fornece vários relatórios que são executados em seus sistemas SAP existentes. Eles verificam os dados e calculam os requisitos de memória de tabela se o banco de dados é movido HANA. Leia as seguintes observações do SAP para obter mais informações sobre como executar esses relatórios e como obter seus patches/versões mais recentes:
 
-- SAP Note nº 1793345 - dimensionamento do SAP Suite no HANA
-- SAP Note nº 1872170 - relatório de dimensionamento do Suite no HANA e S/4 HANA
-- SAP Note nº 2121330 - perguntas frequentes: relatório de dimensionamento do SAP BW no HANA
-- SAP Note nº 1736976 - relatório de dimensionamento para BW no HANA
-- SAP Note nº 2296290 - novo relatório de dimensionamento para BW no HANA
+- [Nota SAP nº 1793345 – Dimensionamento do SAP Suite no HANA](https://launchpad.support.sap.com/#/notes/1793345)
+- [Nota SAP nº 1872170 – Relatório de dimensionamento do Suite no HANA e S/4 HANA](https://launchpad.support.sap.com/#/notes/1872170)
+- [Nota SAP nº 2121330 – Perguntas frequentes: relatório de dimensionamento do SAP BW no HANA](https://launchpad.support.sap.com/#/notes/2121330)
+- [Nota SAP nº 1736976 – Relatório de dimensionamento do BW no HANA](https://launchpad.support.sap.com/#/notes/1736976)
+- [Nota SAP nº 2296290 – Novo relatório de dimensionamento do BW no HANA](https://launchpad.support.sap.com/#/notes/2296290)
 
 Para implementações de campo verde Sizer rápida SAP está disponível para calcular os requisitos de memória da implementação de software SAP sobre HANA.
 
@@ -201,7 +202,7 @@ Estes são os requisitos para execução SAP HANA no Azure (instâncias maiores)
 
 **Conectividade de rede:**
 
-- Azure ExpressRoute entre locais no Azure: solicite pelo menos uma conexão de 1 Gbps do seu ISP para conectar seu data center local ao Azure
+- Azure ExpressRoute entre o local para o Azure: solicite pelo menos uma conexão de 1 Gbps do ISP para conectar seu datacenter local ao Azure
 
 **Sistema operacional:**
 
@@ -217,7 +218,9 @@ Estes são os requisitos para execução SAP HANA no Azure (instâncias maiores)
 > O sistema operacional fornecido pela Microsoft não está registrado no Red Hat, nem está conectado a uma instância do gerenciador de assinaturas do Red Hat.
 
 - Gerenciador do Red Hat assinatura implantado no Azure em uma VM do Azure. Isso fornece a capacidade para o SAP HANA no Azure (Instâncias Grandes) ser registrado e atualizado respectivamente pelo Red Hat (pois não há nenhum acesso direto à Internet de dentro do locatário implantado no carimbo de Instância Grande do Azure).
-- Contrato de serviço e suporte com o provedor do Linux que está implicitamente incluído na assinatura da versão específica do Linux ou outro contrato de serviço e suporte que esteja cobrindo a versão específica do Linux usada e que atenda aos critérios da SAP.
+- A SAP também exige que você tenha um contrato de suporte com seu provedor do Linux. Esse requisito não é apagado pela solução de Grandes Instâncias do HANA nem pelo fato de você executar o Linux no Azure. Ao contrário de algumas das imagens da galeria do Azure no Linux, a taxa de serviço NÃO está incluída na oferta da solução das Grandes Instâncias do HANA. Como cliente, cabe a você atender aos requisitos da SAP no que diz respeito aos contratos de suporte com o distribuidor do Linux.   
+   - Para o SUSE Linux, procure os requisitos do contrato de suporte em [Nota SAP nº 1984787 – SUSE LINUX Enterprise Server 12: Notas de instalação](https://launchpad.support.sap.com/#/notes/1984787) e [Nota SAP nº 1056161 – Suporte de prioridade do SUSE para aplicativos SAP](https://launchpad.support.sap.com/#/notes/1056161).
+   - Para o Red Hat Linux, é necessário ter os níveis de assinatura corretos que incluem suporte e serviço (atualizações nos sistemas operacionais das Instâncias Grandes do HANA). O Red Hat recomenda obter uma assinatura do “RHEL for SAP Business Applications” em relação a suporte e serviços. Confira [Nota SAP nº 2002167 – Red Hat Enterprise Linux 7.x: Instalação e atualização](https://launchpad.support.sap.com/#/notes/2002167) e [Nota SAP nº 1496410 – Red Hat Enterprise Linux 6.x: Instalação e atualização](https://launchpad.support.sap.com/#/notes/1496410) para obter detalhes.
 
 **Banco de dados:**
 
@@ -235,6 +238,19 @@ Estes são os requisitos para execução SAP HANA no Azure (instâncias maiores)
 - Instalação do SAP HANA certificados pessoal.
 - As habilidades de arquiteto do SAP para design de Alta Disponibilidade e Recuperação de Desastre no SAP HANA.
 
+
+## <a name="storage"></a>Armazenamento
+
+O layout de armazenamento do SAP HANA no Azure (Instâncias Grandes) é configurado pelo SAP HANA no Gerenciamento de Serviços do Azure por meio das práticas recomendadas do SAP. Confira o white paper [Requisitos de armazenamento do SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
+
+Normalmente, as Instâncias Grandes do HANA são fornecidas com 4 vezes o volume de memória que o volume de armazenamento. As unidades são fornecidas com um volume que deve ser usado para armazenar os backups de log do HANA. Encontre mais detalhes em [Como instalar e configurar o SAP HANA (instâncias grandes) no Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+Como cliente, você pode optar por usar instantâneos de armazenamento para fins de backup/restauração e recuperação de desastre. Mais detalhes sobre esse tópico são fornecidos em [Alta disponibilidade e recuperação de desastre do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+### <a name="encryption-of-data-at-rest"></a>Criptografia de dados em repouso
+O armazenamento usado para as Instâncias Grandes do HANA permite uma criptografia transparente dos dados, conforme eles são armazenados nos discos. No momento da implantação de uma Unidade de Instância Grande do HANA, você tem a opção de habilitar esse tipo de criptografia. Você também pode optar por alterar para volumes criptografados logo após a implantação. A movimentação de volumes não criptografados para criptografados é transparente e não exige nenhum tempo de inatividade. 
+
+
 ## <a name="networking"></a>Rede
 
 A arquitetura de Rede do Azure é um componente-chave para a implantação bem-sucedida de aplicativos SAP. Normalmente, as implantações do SAP HANA no Azure (Instâncias Grandes) têm uma estrutura SAP maior com diversas soluções SAP com vários tamanhos de bancos de dados, consumo de recursos de CPU e a utilização de memória. É muito provável que apenas um ou dois desses sistemas SAP se baseiem no SAP HANA, de forma que seu cenário SAP provavelmente seja um híbrido que utiliza:
@@ -251,23 +267,26 @@ Rede no contexto de sistemas SAP implantados no Azure o Azure não é complicado
 - Redes virtuais do Azure (VNets) precisa estar conectado ao circuito do ExpressRoute do Azure que se conecta à rede local.
 - Geralmente, um circuito do ExpressRoute deve ter uma largura de banda de 1 Gbps ou superior. Isso permite que a largura de banda adequada para transferir dados entre sistemas locais e em execução em máquinas virtuais do Azure (bem como conexão com sistemas do Azure de usuários finais locais).
 - Todos os sistemas SAP no Azure precisam ser configurado em redes virtuais do Azure para se comunicar entre si.
-- O Active Directory e DNS hospedados em locais são estendidos para o Azure por meio do ExpressRoute.
+- O Active Directory e o DNS hospedados localmente são estendidos para o Azure por meio do ExpressRoute por meio do local.
 
-**Recomendação:** implante a paisagem completa do SAP no Azure em uma única assinatura do Azure. Muitos procedimentos dentro de uma estrutura SAP requerem conectividade de rede transparente e possivelmente em menor, entre o desenvolvimento, teste e instâncias de produção e a arquitetura tem muitos automatisms que contam com essa rede transparente entre esses diferentes instâncias do SAP NetWeaver SAP. Portanto, tendo a estrutura completa do SAP em uma assinatura do Azure, mesmo quando o ambiente é implantado em várias regiões do Azure, é altamente recomendável.
-
-A arquitetura e os processos em torno do SAP HANA no Azure (Instâncias Grandes) baseia a recomendação acima.
 
 > [!NOTE] 
 > Uma única assinatura do Azure pode ser vinculada somente a um único locatário em um carimbo de Instância Grande em uma determinada região do Azure e, por outro lado, um único locatário de carimbo de Instância Grande pode ser vinculado somente a uma assinatura do Azure.
 
-A implantação do SAP HANA no Azure (Instâncias Grandes) em duas regiões diferentes do Azure fará com que um locatário separado seja implantado no carimbo de Instância Grande. No entanto, você pode esperar que ambos acabará sob a mesma assinatura do Azure desde que essas instâncias são parte do mesmo cenário SAP.
+A implantação do SAP HANA no Azure (Instâncias Grandes) em duas regiões diferentes do Azure fará com que um locatário separado seja implantado no carimbo de Instância Grande. No entanto, você pode executar ambos na mesma assinatura do Azure, desde que essas instâncias façam parte do mesmo cenário SAP. 
 
 > [!IMPORTANT] 
 > Implantação de gerenciamento de recursos do Azure só é compatível com SAP HANA no Azure (Instâncias Grandes).
 
+### <a name="internet-connectivity-of-hana-large-instances"></a>Conectividade com a Internet das Instâncias Grandes do HANA
+As Instâncias Grandes do HANA NÃO têm conectividade direta com a Internet. Isso restringe sua capacidade de, por exemplo, registrar a imagem do sistema operacional diretamente no fornecedor do sistema operacional. Portanto, talvez você precise trabalhar com o servidor SMT SLES local ou o Gerenciador de Assinaturas RHEL
+
+### <a name="data-encryption-between-azure-vms-and-hana-large-instances"></a>Criptografia de dados entre VMs do Azure e Instâncias Grandes do HANA
+Os dados transferidos entre as Instâncias Grandes do HANA e as VMs do Azure não são criptografados. No entanto, apenas para a troca entre o lado do DBMS do HANA e aplicativos baseados em JDBC/ODBC, é possível habilitar criptografia do tráfego. Consulte [esta documentação da SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false)  
+
 ### <a name="additional-azure-vnet-information"></a>Informações adicionais de rede virtual do Azure
 
-Para conectar uma rede virtual do Azure a ExpressRoute, um gateway do Azure deve ser criado (consulte [sobre gateways de rede virtual para ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Um gateway do Azure pode ser usado com a ExpressRoute para uma infraestrutura fora do Azure (ou um carimbo da instância do Azure grande), ou para se conectar entre redes virtuais do Azure (consulte [configurar uma conexão de VNet para VNet para o Gerenciador de recursos usando o PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Você pode conectar o gateway a um máximo de quatro diferentes conexões do ExpressRoute do Azure, desde aqueles são provenientes de diferentes MS Enterprise trocas (MSEE).
+Para conectar uma rede virtual do Azure a ExpressRoute, um gateway do Azure deve ser criado (consulte [sobre gateways de rede virtual para ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Um gateway do Azure pode ser usado com a ExpressRoute para uma infraestrutura fora do Azure (ou um carimbo da instância do Azure grande), ou para se conectar entre redes virtuais do Azure (consulte [configurar uma conexão de VNet para VNet para o Gerenciador de recursos usando o PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Você pode conectar o gateway do Azure com um máximo de quatro conexões diferentes do ExpressRoute, desde que elas sejam provenientes de diferentes MSEE (MS Enterprise Edges).  Consulte [Infraestrutura e conectividade do SAP HANA (instâncias grandes) no Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais detalhes. 
 
 > [!NOTE] 
 > A taxa de transferência fornece um gateway do Azure é diferente para os dois casos de uso (consulte [sobre o Gateway de VPN](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). A taxa de transferência máxima que podemos conseguir com um gateway de rede virtual é de 10 Gbps, usando uma conexão do ExpressRoute. Tenha em mente que copiar arquivos entre uma VM do Azure que residem em uma rede virtual do Azure e um sistema local (como um fluxo de cópia única) não atingirá a taxa de transferência total de SKUs de gateway diferente. Para aproveitar a largura de banda completa do gateway de rede virtual, você deve usar vários fluxos ou copiar arquivos diferentes fluxos paralelos de um único arquivo.
@@ -296,7 +315,12 @@ Este é um exemplo simples de um sistema SAP, onde a camada de aplicativo SAP é
 
 ### <a name="multiple-sap-systems-or-large-sap-systems"></a>Vários sistemas SAP ou grandes sistemas SAP
 
-Se vários sistemas SAP ou grandes sistemas SAP forem implantados e se conectem ao SAP HANA no Azure (Instâncias Grandes), é razoável presumir que a taxa de transferência do SKU de gateway de rede virtual HighPerformance poderá se tornar um gargalo. Nesse caso, escolha o SKU UltraPerformance, se estiver disponível. No entanto, se apenas o SKU HighPerformance (até 2 Gbps) está disponível ou é possível que o SKU UltraPerformance (até 10 Gbps) não seja suficiente, você precisará dividir as camadas do aplicativo em várias redes virtuais do Azure.
+Se vários sistemas SAP ou grandes sistemas SAP forem implantados e se conectem ao SAP HANA no Azure (Instâncias Grandes), é razoável presumir que a taxa de transferência do SKU de gateway de rede virtual HighPerformance poderá se tornar um gargalo. Nesse caso, escolha o SKU UltraPerformance, se estiver disponível. No entanto, se apenas o SKU HighPerformance (até 2 Gbps) está disponível ou é possível que o SKU UltraPerformance (até 10 Gbps) não seja suficiente, você precisará dividir as camadas do aplicativo em várias redes virtuais do Azure. Também é recomendável criar VNets especiais que se conectam às Instâncias Grandes do HANA em casos como:
+
+- Execução de backups diretamente por meio das Instâncias do HANA nas Instâncias Grandes do HANA para uma VM no Azure que hospeda compartilhamentos NFS
+- Cópia de backups grandes ou de outros arquivos de unidades de Instância Grande do HANA com o espaço em disco gerenciado no Azure.
+
+O uso de VNets separadas que hospedam VMs que gerenciam o armazenamento evitará o impacto da transferência de dados ou arquivos grandes das Instâncias Grandes do HANA para o Azure no Gateway da VNET que atende às VMs que executam a camada do aplicativo SAP. 
 
 Uma arquitetura de rede mais escalonável:
 
@@ -307,55 +331,27 @@ Uma arquitetura de rede mais escalonável:
 
 ![Implantação de camada do aplicativo SAP em várias redes virtuais do Azure](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-Implantar a camada de aplicativos, ou componentes, SAP em várias redes virtuais do Azure, como mostrado acima, introduziu sobrecarga de latência inevitável que ocorreu durante a comunicação entre os aplicativos hospedados nessas redes virtuais do Azure. Por padrão, o tráfego de rede entre VMs do Azure localizadas em diferentes redes virtuais ocorrerá por meio de Roteadores MSEE nessa configuração. No entanto, desde setembro de 2016, isso pode ser evitado e otimizado. Para otimizar e reduzir a latência na comunicação entre duas redes virtuais basta emparelhar as redes virtuais do Azure na mesma região. Mesmo que elas estejam em assinaturas diferentes. Com o emparelhamento VNet do Azure na comunicação entre VMs em duas redes virtuais diferentes do Azure, estas podem usar o backbone da rede para se comunicarem diretamente entre si. Desse modo, a latência observada é semelhante a de VMs que estão na mesma rede virtual. Enquanto isso, o tráfego que inclui intervalos de endereço IP que são conectados por meio do gateway da rede virtual do Azure é roteado pelo gateway da rede virtual individual da rede virtual. Você pode obter detalhes sobre o emparelhamento de rede virtual do Azure no artigo [Emparelhamento VNet](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
-### <a name="minimal-deployment"></a>Implantação mínima
+A implantação da camada de aplicativos ou componentes, SAP em várias VNets do Azure, como mostrado acima, introduziu uma sobrecarga de latência inevitável que ocorreu durante a comunicação entre os aplicativos hospedados nessas VNets do Azure. Por padrão, o tráfego de rede entre VMs do Azure localizadas em diferentes redes virtuais ocorrerá por meio de Roteadores MSEE nessa configuração. No entanto, desde setembro de 2016, isso pode ser evitado e otimizado. Para otimizar e reduzir a latência na comunicação entre duas redes virtuais basta emparelhar as redes virtuais do Azure na mesma região. Mesmo que elas estejam em assinaturas diferentes. Com o emparelhamento VNet do Azure, a comunicação entre VMs em duas VNets diferentes do Azure pode usar o backbone da rede do Azure para se comunicar diretamente entre si. Desse modo, a latência observada é semelhante a de VMs que estão na mesma VNet. Enquanto isso, o tráfego que inclui intervalos de endereço IP que são conectados por meio do gateway da rede virtual do Azure é roteado pelo gateway da rede virtual individual da rede virtual. Você pode obter detalhes sobre o emparelhamento de rede virtual do Azure no artigo [Emparelhamento VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-Para um pequeno sistema SAP (implantação mínima), as VMs do Azure hospedam a camada do aplicativo SAP no Azure nativo (em uma única rede de virtual) e se conectam ao carimbo de Instância Grande por meio do ExpressRoute. Siga estas etapas para obter o SAP HANA em pronto do Azure (Instâncias Grandes) para usar:
-
-- Colete informações específicas relacionadas a quatro diferentes intervalos de endereços IP:
-
-  1. Um intervalo de endereços /29 para conexões P2P a ser usado para os circuitos do ExpressRoute de endereços.
-  
-  2. Um bloco CIDR /24 (recomendado) exclusivo para ser usado para atribuir os endereços IP específicos necessários ao SAP HANA no Azure (Instâncias Grandes).
-  3. Um ou mais blocos CIDR /24 (recomendado) para suas sub-redes de locatário de rede virtual do Azure. Essas são sub-redes na assinatura do Azure do cliente onde as VMs do Azure relacionados ao SAP residirão; os endereços poderão acessar o SAP HANA no Azure (Instâncias Grandes). Deve haver um bloco de endereço de locatário por sub-rede e os blocos podem ser agregados se eles forem contíguos e se estiverem mesma rede virtual.
-  4. Um /28 de suas sub-redes de gateway de rede virtual (um /27 deve ser usado se quisermos rede P2S).
-
-  - Os dois primeiros intervalos são necessários (um por assinatura e região do Azure). Os intervalos de endereços IP definidos nos itens 3 e 4 são necessários como o mínimo por rede virtual do Azure, e se várias sub-redes/locatários em uma rede virtual forem desejados, vários intervalos devem ser especificados para o item 3.
-![Intervalos de endereços IP necessários na implantação mínima do SAP HANA no Azure (Instâncias Grandes)](./media/hana-overview-architecture/image5-ip-address-range-a.png)
-
-  -  Se você estiver configurando várias sub-redes de locatário em uma rede virtual do Azure: ![intervalos de endereços IP com espaço de endereço adjacente para rede virtual do Azure](./media/hana-overview-architecture/image6-ip-address-range-b.png)
-
-> [!IMPORTANT] 
-> Cada intervalo de endereços IP especificado acima não deve sobrepor outro intervalo; cada um deve ser discreto e não uma sub-rede de qualquer outro intervalo. Somente o endereço definido nos itens de 3 e 4 deve ser aplicado às redes virtuais do Azure, todos os outros são usados para conectividade e roteamento de Instância Grande. Além disso, como uma prática recomendada, os intervalos de endereços do espaço de endereço devem corresponder os intervalos de sub-rede e não têm espaço vazio ou não atribuído. Se ocorrerem sobreposições entre intervalos definidos nos itens 1 e 2 com intervalos definidos para 3 e 4, a rede virtual do Azure não se conectará ao circuito do ExpressRoute.
-
-- Um circuito do ExpressRoute é criado pela Microsoft entre sua assinatura do Azure e o carimbo de Instância Grande.
-- Crie um locatário de rede no carimbo de Instância Grande.
-- Configure a rede na infraestrutura do SAP HANA no Azure (Instâncias Grandes) para aceitar os endereços IP do intervalo especificado em sua rede virtual do Azure que irá se comunicar com o HANA em Instâncias Grandes.
-- Configure a NAT no locatário do cliente do carimbo de Instância Grande (para que o endereço IP interno do locatário seja mapeado para um endereço IP definido pelo locatário do Azure).
-- Dependendo do SKU específico do SAP HANA no Azure (Instâncias Grandes) adquirido, atribua uma unidade de computação em uma rede de locatário, alocar e montar o armazenamento e instalar o sistema operacional (SUSE ou RedHat Linux).
-
-Implantação mínima da arquitetura de rede do SAP HANA no Azure (Instâncias Grandes):
-
-![Implantação mínima com intervalos de endereços IP](./media/hana-overview-architecture/image7-minimal-deployment.png)
 
 ### <a name="routing-in-azure"></a>Roteamento no Azure
 
 Há duas considerações de roteamento de rede importantes para SAP HANA no Azure (Instâncias Grandes):
 
-1. O SAP HANA no Azure (Instâncias Grandes) só pode ser acessado pelas VMs do Azure na conexão do ExpressRoute dedicada; não diretamente do local. Dessa forma, os clientes de administração e quaisquer aplicativos que precisem de acesso direto, como o SAP Solution Manager em execução no local, não podem se conectar ao banco de dados do SAP HANA.
+1. O SAP HANA no Azure (Instâncias Grandes) só pode ser acessado pelas VMs do Azure na conexão do ExpressRoute dedicada; não diretamente do local. Alguns clientes de administração e os aplicativos que precisam de acesso direto, como o SAP Solution Manager em execução local, não conseguem se conectar ao banco de dados do SAP HANA.
 
-2. O SAP HANA no Azure (Instâncias Grandes) tem um endereço IP de um conjunto definido de NAT. Esse endereço IP é acessível por meio da assinatura do Azure e o ExpressRoute. Como o endereço IP faz parte de um pool de NAT, você precisará executar a configuração de rede adicional dentro do ambiente. Veja o artigo relacionado na instalação do SAP HANA para obter detalhes.
+2. As unidades do SAP HANA no Azure (Instâncias Grandes) têm um endereço IP atribuído do intervalo de endereços do Pool de IPs do Servidor como enviado pelo cliente (consulte [Infraestrutura e conectividade do SAP HANA (instâncias grandes) no Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter detalhes).  Esse endereço IP é acessível por meio da assinatura do Azure e do ExpressRoute que conecta as VNets do Azure ao HANA no Azure (Instâncias Grandes). O endereço IP atribuído fora desse intervalo de endereços do Pool de IPs do Servidor é diretamente atribuído à unidade de hardware e não usa mais o NAT como era o caso nas primeiras implantações dessa solução. 
 
 > [!NOTE] 
-> Se você precisar se conectar ao SAP HANA no Azure (Instâncias Grandes) em um _do data warehouse_ cenário, onde aplicativos e/ou usuários finais precisam se conectar no banco de dados SAP HANA (executando diretamente), outro componente de rede deve ser usado: um proxy reverso para dados da rota, de e para. Por exemplo, F5 BIG-IP com o Gerenciador de tráfego implantado no Azure como uma solução de roteamento de tráfego/firewall virtual.
+> Se você precisar se conectar ao SAP HANA no Azure (Instâncias Grandes) em um _do data warehouse_ cenário, onde aplicativos e/ou usuários finais precisam se conectar no banco de dados SAP HANA (executando diretamente), outro componente de rede deve ser usado: um proxy reverso para dados da rota, de e para. Por exemplo, F5 BIG-IP, NGINX com o Gerenciador de Tráfego implantado no Azure como uma solução de roteamento de tráfego/firewall virtual.
 
 ### <a name="leveraging-in-multiple-regions"></a>Utilização em várias regiões
 
-Você pode ter outros motivos para implantar SAP HANA no Azure (Instâncias Grandes) em várias regiões do Azure, além de DR. Talvez você queira acessar o HANA em Instâncias Grandes de cada uma das máquinas virtuais implantadas nas redes virtuais diferentes nas regiões. Como os endereços IP com NAT de diferentes servidores HANA em Instâncias Grandes não são propagados além de redes virtuais do Azure (que estão diretamente conectadas por meio de seu gateway para as instâncias), há uma pequena alteração no design de rede virtual introduzido acima: um gateway de rede virtual do Azure pode lidar com quatro diferentes circuitos do ExpressRoute sem MSEEs diferentes, e cada rede virtual conectada a um dos carimbos de Instância Grande pode ser conectada ao carimbo de Instância Grande em outra região do Azure.
+Você pode ter outros motivos para implantar SAP HANA no Azure (Instâncias Grandes) em várias regiões do Azure, além de DR. Talvez você queira acessar o HANA em Instâncias Grandes de cada uma das máquinas virtuais implantadas nas redes virtuais diferentes nas regiões. Como os endereços IP atribuídos às diferentes unidades de Instâncias Grandes do HANA não são propagados além das VNets do Azure (que estão diretamente conectadas por meio de seu gateway às instâncias), há uma pequena alteração no design da VNet apresentado acima: um gateway de VNet do Azure pode manipular quatro circuitos diferentes do ExpressRoute de MSEEs diferentes e cada VNet conectada a um dos carimbos de Instância Grande pode ser conectada ao carimbo de Instância Grande em outra região do Azure.
 
 ![Redes virtuais do Azure conectadas ao carimbos de Instância Grande do Azure em diferentes regiões do Azure](./media/hana-overview-architecture/image8-multiple-regions.png)
 
-A figura acima mostra como as diferentes redes virtuais do Azure em ambas as regiões estão conectadas a dois circuitos do ExpressRoute diferentes que são usados para se conectar ao SAP HANA no Azure (Instâncias Grandes) em ambas as regiões do Azure. As conexões recém-introduzidas são as linhas vermelhas retangulares. Com essas conexões fora de redes virtuais do Azure, as VMs em execução em uma dessas redes virtuais podem acessar cada unidade do HANA em Instâncias Grandes diferente implantada em duas regiões (supondo que você use a mesma assinatura). Como você pode ver nos gráficos acima, presume-se que você tenha duas conexões do ExpressRoute do local em duas regiões do Azure; recomendada por motivos de Recuperação de Desastre.
+A figura acima mostra como as diferentes redes virtuais do Azure em ambas as regiões estão conectadas a dois circuitos do ExpressRoute diferentes que são usados para se conectar ao SAP HANA no Azure (Instâncias Grandes) em ambas as regiões do Azure. As conexões recém-introduzidas são as linhas vermelhas retangulares. Com essas conexões, fora das VNets do Azure, as VMs em execução em uma dessas VNets podem acessar cada uma das diferentes unidades de Instâncias Grandes do HANA implantadas nas duas regiões (supondo que você use a mesma assinatura). Como você pode ver nos gráficos acima, presume-se que você tenha duas conexões do ExpressRoute do local em duas regiões do Azure; recomendada por motivos de Recuperação de Desastre.
 
 > [!IMPORTANT] 
 > Se forem usados vários circuitos do ExpressRoute, as configurações de prefixação do AS Path e de BGP de Preferência Local deverão ser usadas para garantir o roteamento apropriado do tráfego.
