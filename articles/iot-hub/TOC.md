@@ -81,6 +81,7 @@
 ### Usar métodos diretos
 #### [Back-end do Node.js/Dispositivo do Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-direct-methods.md)
+#### [Dispositivo Java/Back-end de Java](iot-hub-java-java-direct-methods.md)
 ### Introdução ao gerenciamento de dispositivos
 #### [Back-end do Node.js/Dispositivo do Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-device-management-get-started.md)
@@ -105,6 +106,7 @@
 ### Configurar o upload de arquivo
 #### [Usar o portal](iot-hub-configure-file-upload.md)
 #### [Usar o PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Usar a CLI 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Métricas de uso](iot-hub-metrics.md)
 ### [Monitoramento de operações](iot-hub-operations-monitoring.md)
