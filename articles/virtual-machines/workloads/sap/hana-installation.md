@@ -14,47 +14,92 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 61d191b5b2cc18731caacb6d192b851b6b49b22c
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: b791be369016dd52d95ec727e46fd8b554c09047
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar SAP HANA (instâncias grandes) no Azure
 
-A instalação do SAP HANA é responsabilidade sua, e você pode fazer isso imediatamente após a entrega de um novo SAP HANA no servidor do Azure (Instâncias Grandes). Observe que, de acordo com a política do SAP, a instalação do SAP HANA deve ser executada pelo instalador do certificado do SAP HANA (alguém que tenha sido aprovado no exame de certificação de instalação Certified SAP Technology Associate – SAP HANA) ou por um SI (integrador de sistema) certificado pela SAP.
+A instalação do SAP HANA é sua responsabilidade e você pode iniciar a atividade após a entrega de um novo servidor SAP HANA no Azure (Instâncias Grandes) e depois de estabelecida a conectividade entre as VNets do Azure e as unidades de Instância Grande do HANA. Observe que, de acordo com a política do SAP, a instalação do SAP HANA deve ser executada por uma pessoa certificada a realizar instalações do SAP HANA – alguém que tenha sido aprovado no exame de certificação de Instalação Certified SAP Technology Associate – SAP HANA ou por um SI (integrador de sistemas) certificado pela SAP.
 
-Há considerações de conectividade específicas relacionadas ao SAP HANA (lado do servidor) e ao SAP HANA (lado do cliente) que precisam ser levadas em conta. Em muitos casos, o servidor SAP HANA envia seu endereço IP ao cliente em que está armazenado em cache e a utiliza para tentativas de conexão subsequentes. Como o SAP HANA no Azure (Instâncias Grandes) utiliza NAT para o endereço IP do servidor interno usado na rede do locatário para um intervalo de endereços IP fornecido para VNets do Azure especificadas, por design, o servidor de banco de dados do SAP HANA envia o intervalo de endereços IP &quot;interno&quot;. Por exemplo, para a resolução de nome de host, em vez de o HANA SAP fornecer o endereço IP NATed, é usado o endereço IP interno em cache. Portanto, um aplicativo que usa um cliente SAP HANA (ODBC, JDBC etc.) não seria capaz de se conectar com esse endereço IP. Para instruir o servidor SAP HANA a propagar o endereço IP NATed para o cliente, o arquivo de configuração do sistema global SAP HANA (global.ini) deve ser editado.
+## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Primeiras etapas depois de receber as Unidades de Instância Grande do HANA
 
-Adicione o seguinte a global.ini (diretamente ou por meio do SAP HANA Studio):
-```
-[public\_hostname\_resolution]
-use\_default\_route = no
-map\_<hostname of SAP HANA on Azure (Large Instances) tenant> = <NAT IP Address (IP address that can be accessed in Azure)>
-```
-Confira a seção _Mapeamento de nomes de host para acesso de cliente de banco de dados_ no [Guia de Administração do SAP HANA](http://help.sap.com/hana/sap_hana_administration_guide_en.pdf) para obter mais detalhes e exemplos.
+A **Primeira Etapa** depois de receber a Instância Grande do HANA e ter estabelecido o acesso e a conectividade com as instâncias é registrar o sistema operacional da instância no provedor do sistema operacional. Isso inclui o registro do sistema operacional SUSE Linux em uma instância do SUSE SMT que você precisa ter implantada. Ou o sistema operacional RedHat precisa ser registrado no Gerenciador de Assinaturas do Red Hat ao qual você precisa se conectar. Consulte também os comentários neste [documento](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essa etapa também é necessária para corrigir o sistema operacional no futuro. Uma tarefa que é responsabilidade do cliente. 
 
-No lado do cliente (para servidores de aplicativos SAP no Azure), edite o arquivo /etc/hosts (no Linux) ou /system32/drivers/etc/hosts (no Windows Server) e inclua uma entrada para o nome do host do SAP HANA no locatário do Azure (Instâncias Grandes) e seu respectivo endereço IP NATed.
+A **Segunda Etapa** é verificar se há novos patches e correções da versão específica do sistema operacional. Verifique se o nível de patch da Instância Grande do HANA está no estado mais recente. Com base no tempo do patch e das versões do sistema operacional e das alterações na imagem, a Microsoft pode implantar nesse local. Pode haver casos em que os últimos patches não são incluídos. Portanto, depois de obter uma unidade de Instância Grande do HANA e registrar a instalação do sistema operacional no distribuidor do Linux, é uma etapa obrigatória verificar se, no momento, foram liberados patches relevantes para a segurança, funcionalidade, disponibilidade e o desempenho pelo fornecedor específico do Linux e se eles precisam ser aplicados.
 
->[!NOTE] 
->Ao instalar o cliente de banco de dados do SAP HANA, se houver erros durante a conexão ao SAP HANA no Azure (Instâncias Grandes) durante a instalação do Cliente de Banco de Dados do SAP HANA, use o endereço IP NAT do locatário de Instâncias Grandes HANA implicitamente, em vez do nome do host.
+A **Terceira Etapa** é verificar as Notas SAP relevantes para a instalação e configuração do SAP HANA na versão específica do sistema operacional. Devido à alteração de recomendações ou às alterações das Notas SAP ou de configurações que dependem de cenários de instalação individuais, a Microsoft nem sempre poderá ter uma unidade de Instância Grande do HANA configurada perfeitamente. Portanto, é obrigatório que você, como cliente, leia as Notas SAP (no mínimo, as listadas abaixo), verifique as configurações da versão do sistema operacional necessárias e aplique as definições de configurações nos casos em que elas não foram feitas.
+
+Em particular, verifique os seguintes parâmetros e, eventualmente, ajuste-os para:
+
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
+
+A partir do SLES12 SP1 e RHEL 7.2, esses parâmetros devem ser definidos em um arquivo de configuração no diretório /etc/sysctl.d. Por exemplo, deve-se criar um arquivo de configuração com o nome 91-NetApp-HANA.conf. Para versões mais antigas do SLES e RHEL, esses parâmetros devem ser definidos como in/etc/sysctl.conf.
+
+Para todas as versões do RHEL e a partir do SLES12, o 
+- sunrpc.tcp_slot_table_entries = 128
+
+parâmetro deve ser definido como in/etc/modprobe.d/sunrpc-local.conf. Se o arquivo não existir, primeiro ele deverá ser criado com a adição da seguinte entrada: 
+- options sunrpc tcp_max_slot_table_entries=128
+
+A **Quarta Etapa** é verificar a hora do sistema da Unidade de Instância Grande do HANA. As instâncias serão implantadas com um fuso horário do sistema que representa a localização da região do Azure em que o Carimbo da Instância Grande do HANA está localizado. Você tem a liberdade para alterar a hora do sistema ou o fuso horário das instâncias que possui. Ao fazer isso e solicitar mais instâncias para seu locatário, prepare-se, pois você precisará adaptar o fuso horário das instâncias recém-entregues. As operações da Microsoft não têm nenhuma informação sobre o fuso horário do sistema configurado com as instâncias após a entrega. Portanto, as instâncias recém-implantadas podem não estar definidas com o mesmo fuso horário para o qual você alterou. Como resultado, é sua responsabilidade como cliente verificar e, se necessário, adaptar o fuso horário das instâncias entregues. 
+
+A **Quinta Etapa** é verificar etc/hosts. Conforme as folhas são entregues, elas têm diferentes endereços IP atribuídos para finalidades diferentes (consulte a próxima seção). Verifique etc/hosts. Nos casos em que as unidades são adicionadas a um locatário existente, não espere ter etc/hosts dos sistemas recém-implantados mantidos corretamente com os endereços IP dos sistemas entregues anteriormente. Portanto, como cliente, cabe a você verificar as configurações corretas, de forma que uma instância recém-implantada possa interagir e resolver os nomes das unidades implantadas anteriormente no locatário. 
+
+## <a name="networking"></a>Rede
+Supomos que você seguiu as recomendações de design das VNets do Azure e de conexão delas com as Instâncias Grandes do HANA, conforme descrito nestes documentos:
+
+- [Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [Infraestrutura e conectividade do SAP HANA (instâncias grandes) no Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+Há alguns detalhes que vale a pena mencionar sobre a rede das unidades individuais. Cada unidade de Instância Grande do HANA é fornecida com dois ou três endereços IP atribuídos a dois ou três portas NIC da unidade. Três endereços IP são usados em configurações de expansão do HANA e no cenário de Replicação de Sistema do HANA. Um dos endereços IP atribuídos à NIC da unidade está fora do pool de IPs do Servidor descrito na [Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+
+A distribuição de unidades com dois endereços IP atribuídos deve ser parecida com esta:
+
+- eth0.xx deve ter um endereço IP atribuído que está fora do intervalo de endereços do Pool de IPs do Servidor enviado para a Microsoft. Esse endereço IP deve ser usado para ser mantido em /etc/hosts do sistema operacional.
+- eth1.xx deve ter um endereço IP atribuído usado para a comunicação com o NFS. Portanto, esses endereços **NÃO** precisam ser mantidos em etc/hosts para permitir o tráfego entre instâncias no locatário.
+
+Para casos de implantação de Replicação de Sistema do HANA ou de expansão do HANA, uma folha de configuração com dois endereços IP atribuídos não é adequada. Caso você tenha apenas dois endereços IP atribuídos e deseje implantar uma configuração como essa, contate o Gerenciamento de Serviços da Microsoft para obter um terceiro endereço IP em uma terceira VLAN atribuída. Para as unidades de Instância Grande do HANA que têm três endereços IP atribuídos em três portas NIC, o seguinte se aplica:
+
+- eth0.xx deve ter um endereço IP atribuído que está fora do intervalo de endereços do Pool de IPs do Servidor enviado para a Microsoft. Portanto, esse endereço IP não deve ser usado para ser mantido em /etc/hosts do sistema operacional.
+- eth1.xx deve ter um endereço IP atribuído usado para a comunicação com o armazenamento NFS. Portanto, esse tipo de endereço não deve ser mantido em etc/hosts.
+- eth2.xx deve ser usado exclusivamente para ser mantido em etc/hosts para a comunicação entre instâncias diferentes. Esses também seriam os endereços IP que precisam ser mantidos em configurações em expansão do HANA como os endereços IP usados pelo HANA para a configuração entre nós.
+
+
 
 ## <a name="storage"></a>Armazenamento
 
-O layout de armazenamento do SAP HANA no Azure (Instâncias Grandes) é configurado pelo SAP HANA no Gerenciamento de Serviços do Azure por meio das práticas recomendadas do SAP. Confira o white paper [Requisitos de armazenamento do SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
+O layout de armazenamento do SAP HANA no Azure (Instâncias Grandes) é configurado pelo SAP HANA no Gerenciamento de Serviços do Azure por meio das práticas recomendadas do SAP. Confira o white paper [Requisitos de armazenamento do SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Conforme você lê o documento e examina uma unidade de Instância Grande do HANA, descobrirá que as unidades são fornecidas com um volume de disco bem generoso para HANA/data e que temos um HANA/log/backup. O motivo pelo qual dimensionamos HANA/data para um tamanho tão grande é que os instantâneos de armazenamento que oferecemos para você, como cliente, estão usando o mesmo volume de disco. Isso significa que quanto mais instantâneos de armazenamento você executar, mais espaço para eles será necessário. O volume de HANA/log/backup não é considerado como sendo o volume no qual os backups de banco de dados serão colocados, mas para utilizá-lo como volume de backup para o log de transações do HANA. Em versões futuras do armazenamento de instantâneos de autoatendimento, direcionaremos esse volume específico para que ele tenha instantâneos mais frequentes e, com essas replicações mais frequentes no site de recuperação de desastre, caso você deseje aceitar a funcionalidade de recuperação de desastre fornecida pela infraestrutura de Instância Grande do HANA. Consulte os detalhes em [Alta disponibilidade e recuperação de desastre do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 
-As configurações exatas de armazenamento para diferentes Instâncias Grandes do HANA é semelhante a:
+Além do armazenamento fornecido, você pode adquirir uma capacidade de armazenamento adicional em incrementos de 1 TB. Esse armazenamento adicional pode ser incluído como novos volumes para Instâncias Grandes HANA.
 
-| Tamanho da memória | HANA/data | HANA/log | HANA/compartilhado | HANA/log/backups |
-| --- | --- | --- | --- | --- |
-| 768 GB | 1280 GB | 512 GB | 768 GB | 512 GB |
-| 1536 GB | 3456 GB | 768 GB | 1024 GB | 768 GB |
-| 3072 GB | 7680 GB | 1536 GB | 1024 GB | 1536 GB |
-
-Além disso, os clientes podem adquirir capacidade de armazenamento adicional em incrementos de 1 TB. Esse armazenamento adicional pode ser incluído como novos volumes para Instâncias Grandes HANA.
+Durante a integração com o Gerenciamento de Serviços da Microsoft, o cliente especifica uma UID (ID de Usuário) e a GID (ID de Grupo) para o grupo de usuários e sapsys do <SID>ADM (por exemplo: 1000,500). É necessário que, durante a instalação do sistema SAP HANA, esses mesmos valores sejam usados.
 
 O controlador de armazenamento e os nós nos carimbos de Instância Grande são sincronizados com os servidores NTP. Quando você sincroniza SAP HANA em unidades do Azure (Instâncias Grandes) e VMs do Azure em relação a um servidor NTP, não deve haver um descompasso de tempo significativo entre a infraestrutura e as unidades de computação no Azure ou carimbos de Instância Grande.
+
+Para otimizar o SAP HANA para o armazenamento usado de forma subjacente, você deve também definir os seguintes parâmetros de configuração do SAP HANA:
+
+- max_parallel_io_requests 128
+- async_read_submit on
+- async_write_submit_active on
+- async_write_submit_blocks all
+ 
+Para as versões 1.0 do SAP HANA até SPS12, esses parâmetros podem ser definidos durante a instalação do banco de dados SAP HANA, conforme descrito em [Nota SAP nº 2267798 – Configuração do banco de dados SAP HANA](https://launchpad.support.sap.com/#/notes/2267798)
+
+Você também pode configurar os parâmetros após a instalação do banco de dados SAP HANA usando a estrutura hdbparam. 
+
+Com o SAP HANA 2.0, a estrutura hdbparam foi preterida. Como resultado, os parâmetros devem ser definidos com comandos SQL. Para obter detalhes, consulte [Nota SAP nº 2399079: Eliminação de hdbparam no HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
+
 
 ## <a name="operating-system"></a>Sistema operacional
 
