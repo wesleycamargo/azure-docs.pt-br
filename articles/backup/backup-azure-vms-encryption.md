@@ -15,10 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 04/24/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: da6c497e10d31dbc98703090a8f7699d0841faa8
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: d76fb43a1b045b98a14ae91ac339d53e9a48f1de
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -83,11 +84,11 @@ Use as etapas a seguir para definir o objetivo do backup, definir a política, c
 Use as etapas mencionadas no artigo [Fazer backup das VMs do Azure no cofre de serviços de recuperação](backup-azure-arm-vms.md) para disparar o trabalho de backup.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>Continuar os backups de VMs cujo backup já foi realizado com a criptografia habilitada  
-Se você tiver VMs cujo backup já estiver sendo realizado no cofre de serviços de recuperação e tiverem sido habilitadas para criptografia em um momento posterior, você deverá conceder permissões para o serviço de backup acessar o cofre de chaves para que os backups continuem. Você pode fornecer essas permissões no PowerShell usando as etapas mencionadas na seção **Habilitar Backup** da [documentação do PowerShell](backup-azure-vms-automation.md#backup-azure-vms). 
+Se você tiver VMs cujo backup já estiver sendo realizado no cofre de serviços de recuperação e tiverem sido habilitadas para criptografia em um momento posterior, você deverá conceder permissões para o serviço de backup acessar o cofre de chaves para que os backups continuem. Você pode fornecer essas permissões no PowerShell usando as etapas mencionadas na seção **Habilitar Backup** da [documentação do PowerShell](backup-azure-vms-automation.md). 
 
 ## <a name="restore-encrypted-vm"></a>Restauração a VM criptografada
 Para restaurar a VM criptografada, primeiro restaure discos, usando as etapas mencionadas na seção **restauração do backup discos** na [restaurar configuração da VM escolhendo](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Depois disso, você pode usar uma das seguintes opções:
-* Use as etapas do PowerShell mencionadas em [Criar uma VM de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar uma VM completa de discos restaurados. 
+* Use as etapas do PowerShell mencionadas em [Criar uma VM de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar uma VM completa de discos restaurados.
 * OU [Usar modelo gerado como parte de discos de restauração](backup-azure-arm-restore-vms.md#use-templates-to-customize-restore-vm) para criar VMs de discos restaurados. Modelos podem ser usados somente para pontos de recuperação criados após 26 de abril de 2017.
 
 ## <a name="troubleshooting-errors"></a>Solucionar erros
