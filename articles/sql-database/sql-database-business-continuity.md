@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/07/2017
 ms.author: sashan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: 2ddbe1766a978f9849c310a72086f95cbb68cd83
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/14/2017
 
 
@@ -68,8 +69,7 @@ Se o banco de dados primário ficar offline inesperadamente ou se precisar coloc
 
 > [!IMPORTANT]
 > Para usar a replicação geográfica ativa e grupos de failover automático, você deverá ser o proprietário da assinatura ou ter permissões administrativas no SQL Server. Você pode configurar e fazer failover usando o Portal do Azure, o PowerShell ou a API REST utilizando permissões na assinatura, ou utilizando o Transact-SQL com permissões no SQL Server.
->
->
+> 
 
 Use a replicação geográfica ativa caso seu aplicativo atenda a qualquer um desses critérios:
 
@@ -131,8 +131,8 @@ Se você não se planejar e se preparar corretamente, colocar seus aplicativos o
 Se você estiver usando a replicação geográfica ativa e os grupos de failover automático como mecanismos de recuperação, você poderá configurar uma política de failover automático ou usar o [failover manual](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Depois de iniciado, o failover faz com que o secundário se torne o novo primário e fique pronto para registrar novas transações e responder à consultas, com perda mínima de dados, para os dados que ainda não haviam sido replicados. Para obter informações sobre como criar o processo de failover, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
-> Quando o data center volta a ficar online, os primários antigos reconectam-se automaticamente ao novo primário e se tornam bancos de dados secundários. Se você precisar realocar o primário de volta para a região original, poderá iniciar um failover planejado manualmente (failback).
->
+> Quando o data center volta a ficar online, os primários antigos reconectam-se automaticamente ao novo primário e se tornam bancos de dados secundários. Se você precisar realocar o primário de volta para a região original, poderá iniciar um failover planejado manualmente (failback). 
+> 
 
 ### <a name="perform-a-geo-restore"></a>Executar uma restauração geográfica
 Se você estiver usando backups automatizados com a replicação de armazenamento com redundância geográfica como o mecanismo de recuperação, [inicie uma recuperação de banco de dados usando a restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore). A recuperação normalmente ocorre em 12 horas, com perda de dados de até uma hora determinada pela ocasião em que o último backup diferencial ocorreu e foi replicado. Até que a recuperação seja concluída, o banco de dados não poderá registrar nenhuma transação ou responder a qualquer consulta.

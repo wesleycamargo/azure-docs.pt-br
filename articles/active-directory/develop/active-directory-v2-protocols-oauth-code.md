@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: e9da636d5dbe95ea7d0bd8cf186af30247ca8bd8
+ms.contentlocale: pt-br
+ms.lasthandoff: 01/18/2017
 
 
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos v2.0 - Fluxo de código de autorização do OAuth 2.0
 A concessão de código de autorização OAuth 2.0 pode ser usada em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web.  Com a implementação do modelo de aplicativo v2.0 do OAuth 2.0, você pode adicionar conexão e acesso à API aos seus aplicativos móveis e de área de trabalho.  Este guia independe do idioma e descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
-
-<!-- TODO: Need link to libraries -->
 
 > [!NOTE]
 > Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0.  Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
@@ -303,10 +303,5 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 | correlation_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
 
 Para obter uma descrição dos códigos de erro e a ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de token](#error-codes-for-token-endpoint-errors).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
