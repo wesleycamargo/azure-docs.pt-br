@@ -11,10 +11,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 631eb4c8aa3a41e03cf623fcc5610d3e84f18ec4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: fee83e309ce10c4b42c8a31a2b3908d3a12db66d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 ---
 <div class="content">
@@ -63,8 +64,15 @@ ms.lasthandoff: 04/22/2017
    <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Criar e gerenciar VMs Windows</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Criar e gerenciar discos de VM</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automatizar a configuração da VM</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-custom-images">Criar imagens de VM personalizada</a></li> 
+    <li><a href="/azure/virtual-machines/windows/tutorial-availability-sets">Criar VMs altamente disponíveis</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-create-vmss">Criar um conjunto de dimensionamento da VM</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">VMs de balanceamento de carga</a></li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Gerenciar rede de VM</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Gerencie VMs com redes virtuais</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-backup-vms">Fazer backup das VMs</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-monitoring">Monitorar VMs</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-azure-security">Gerenciar segurança nas VMs</a></li>
+    
 </ol>
 
 <h2 style="margin-top: 36px">Treinamento em vídeo PluralSight gratuito</h2>
@@ -156,7 +164,7 @@ ms.lasthandoff: 04/22/2017
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
                         <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
                     </div>
                 </div>
             </div>
