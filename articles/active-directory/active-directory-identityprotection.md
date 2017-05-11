@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 05/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 483e77f598beaeb924197e3eb301a26da33a3f1f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -70,6 +71,25 @@ O Azure Active Directory Identity Protection é mais do que apenas uma ferrament
 * Política para reduzir entradas arriscadas ao bloquear entradas ou exigir desafios de autenticação multifator.
 * Política para bloquear ou proteger contas de usuário arriscadas
 * Política para exigir o registro para autenticação multifator
+
+
+
+## <a name="identity-protection-roles"></a>Funções da proteção de identidade
+
+Para equilibrar as atividades de gerenciamento em torno de sua implementação da proteção de identidade, você pode atribuir várias funções. O Azure AD Identity Protection dá suporte a três funções do diretório:
+
+| Função                         | O que ele pode fazer                          | O que não pode fazer
+| :--                          | ---                                |  ---   |
+| Administrador global         | Acesso completo à Proteção de Identidade, Proteção de Identidade integrada| |
+| Administrador de segurança       | Acesso total à proteção de identidade | Proteção de Identidade integrada, redefinir senhas para um usuário |
+| Leitor de segurança              | Acesso somente de leitura para a Proteção de Identidade | Proteção de Identidade integrada, corrigir usuários, configurar políticas, redefinir senhas |
+
+
+
+
+Para saber mais detalhes, consulte [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+
+
 
 ## <a name="detection"></a>Detecção
 

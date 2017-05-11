@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
-ms.openlocfilehash: 7d509e9606c0a2f599f511c011ab775b2ea6f7b0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 55fc4e5c88568cca8a2842590dfd24e082139699
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -76,7 +78,7 @@ Para criar um registro CNAME, você deve adicionar uma nova entrada na tabela DN
        ![seção rapidamente mostrando a URL do site][csurl]
      
        **OR**
-   * Instale e configure o [Azure Powershell](/powershell/azureps-cmdlets-docs)e use o seguinte comando:
+   * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -97,7 +99,7 @@ Por exemplo, o seguinte registro CNAME encaminha todo o tráfego de **www.contos
 > [!NOTE]
 > Um visitante de **www.contoso.com** nunca verá o host verdadeiro (contoso.cloudapp.net) e, portanto, o processo de encaminhamento será invisível ao usuário final.
 > 
-> O exemplo acima aplica-se somente ao tráfego no subdomínio **www** . Uma vez que não é possível usar caracteres curinga com registros CNAME, você deve criar um CNAME para cada domínio/subdomínio. Se você quiser direcionar o tráfego dos subdomínios, como *.contoso.com, para o endereço cloudapp.net, poderá configurar uma entrada **Redirecionamento da URL** ou **Encaminhamento da URL** em suas configurações DNS ou criar um registro A.
+> O exemplo acima aplica-se somente ao tráfego no subdomínio **www** . Uma vez que não é possível usar caracteres curinga com registros CNAME, você deve criar um CNAME para cada domínio/subdomínio. Se você quiser direcionar o tráfego a partir dos subdomínios, como *.contoso.com, para o endereço cloudapp.net, poderá configurar uma entrada **Redirecionamento da URL** ou **Encaminhamento da URL** em suas configurações DNS, ou criar um registro A.
 > 
 > 
 
@@ -111,7 +113,7 @@ Para criar um registro, primeiro você deve encontrar o endereço IP do seu serv
        ![seção rapidamente mostrando a VIP][vip]
      
        **OR**
-   * Instale e configure o [Azure Powershell](/powershell/azureps-cmdlets-docs)e use o seguinte comando:
+   * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -153,9 +155,4 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você q
 [portal do Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ad82c1a552d9d77259c44b938975eebc44933b86
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 9fd5b63259c7771d8b1e346ba3a6c10a4399532a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -120,5 +121,5 @@ Existem ferramentas de teste integradas para o modo de exibição da interface d
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
   * Referência do programador para codificação de funções e definição de gatilhos e de associações.
 * [Repositório de GitHub do Azure Functions](https://github.com/Azure/Azure-Functions/)
-  * Confira as funções de Github para fornecer comentários sobre a versão prévia de suporte de definição de API! Execute o github para qualquer coisa que você gostaria de ver atualizada.
+  * Confira as funções de GitHub para fornecer comentários sobre a versão prévia de suporte de definição de API! Execute o GitHub para qualquer coisa que você gostaria de ver atualizada.
 

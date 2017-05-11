@@ -4,17 +4,18 @@ description:
 keywords: 
 author: jeffgilb
 manager: femila
-ms.date: 3/28/2017
+ms.date: 5/1/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.reviewer: jsnow
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 222259e1f7c5a8796fd9f652cf5e050e75d4ce49
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: bc67058d026219d676430a55fe8cfdd3f09cf295
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -53,7 +54,8 @@ As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a
 
 O sistema de acesso condicional no Azure AD Premium fornece a você, o administrador corporativo, a capacidade de criar regras de acesso baseado em políticas para qualquer aplicativo do Azure conectada AD (aplicativos SaaS, aplicativos personalizados em execução em aplicativos da web de nuvem ou local). O Azure AD avalia essas políticas em tempo real e as impõe sempre que um usuário tenta acessar um aplicativo. Políticas de proteção de identidade do Azure permitem que você entre em ação se a atividade suspeita é descoberta incluindo bloqueando o acesso a usuários em risco, impor a autenticação multifator e redefinir senhas se parece que credenciais foram comprometidas automaticamente.
 
-## <a name="azure-active-directory-privileged-identify-management"></a>Gerenciamento de identidades privilegiadas do Azure Active Directory
+
+## <a name="azure-active-directory-privileged-identity-management"></a>Gerenciamento de identidades privilegiadas do Active Directory do Azure
 
 [Com o Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started), incluído com a oferta do Azure Active Directory Premium P2, permite que você descubra, restringir e monitorar contas administrativas e o acesso a recursos no Active Directory do Azure e outros serviços online da Microsoft. Ele também ajuda a administrar o acesso administrativo sob demanda para o período exato que é necessário.
 

@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 04/23/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 3dba9ebc8eb23be00f9b52907ba4bc565eeb5688
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 58b289530e16c2a2e9bbe59b372c858ff22ad5ac
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/29/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Integrar sua infraestrutura existente do NPS à Autenticação Multifator do Azure - Visualização pública
 
 A extensão do Servidor de Políticas de Rede (NPS) para o Azure MFA adiciona recursos MFA baseados em nuvem à sua infraestrutura de autenticação usando os seus servidores existentes. Com a extensão do NPS, você pode adicionar verificação por chamada telefônica, SMS ou aplicativo ao fluxo de autenticação existente sem a necessidade de instalar, configurar e manter novos servidores. 
- 
+
+Esta extensão foi criada para organizações que desejam proteger conexões VPN sem implantar o Servidor do Azure MFA. A extensão NPS atua como um adaptador entre RADIUS e Azure MFA baseado em nuvem para fornecer um segundo fator de autenticação para usuários federados ou sincronizados. 
+
 Ao usar a extensão do NPS para o Azure MFA, o fluxo de autenticação inclui os seguintes componentes: 
 
 1. **Servidor VPN/NAS** recebe solicitações de clientes VPN e converte-os em solicitações RADIUS para servidores NPS. 
@@ -108,6 +111,8 @@ Use estas etapas para iniciar uma conta de teste:
 2. Acesse qualquer site que inicie uma autenticação do Azure AD, como o https://portal.azure.com.
 3. [Registre-se para a verificação em duas etapas](./end-user/multi-factor-authentication-end-user-first-time.md).
 
+Os usuários também precisam seguir estas etapas para se autenticar com a extensão NPS.
+
 ## <a name="install-the-nps-extension"></a>Instalar a extensão NPS
 
 > [!IMPORTANT]
@@ -144,6 +149,8 @@ A menos que você deseje usar seus próprios certificados (em vez dos certificad
 5. Entre no Azure AD como administrador.
 6. O PowerShell mostra uma mensagem de êxito quando o script é concluído.  
 
+Repita essas etapas em quaisquer servidores NPS adicionais em que você deseja configurar o balanceamento de carga. 
+
 ## <a name="configure-your-nps-extension"></a>Configurar sua extensão do NPS
 
 Esta seção inclui considerações sobre o design e sugestões para implantações bem-sucedidas da extensão do NPS.
@@ -167,7 +174,7 @@ Se você tiver usuários que não são registrados na MFA, determine o que acont
 
 A finalidade dessa configuração é determinar o que fazer quando um usuário não estiver inscrito na MFA. Quando a chave não existir, não estiver definida ou estiver definida como TRUE e o usuário não estiver registrado, a extensão falha no desafio da MFA. Quando a chave estiver definida como FALSE e o usuário não estiver registrado, a autenticação continuará sem executar a MFA.
 
-Você pode optar por criar essa chave e defini-la como FALSE durante a integração do usuário. Como definir a chave permite que os usuários que não são registrados na MFA se conectem, você deve remover essa chave antes de ir para a produção.
+Você pode optar por criar essa chave e defini-la como FALSE, e os usuários estão carregando e ainda não podem se inscrever no Azure MFA. Porém, como definir a chave permite que os usuários que não são registrados na MFA se conectem, você deve remover essa chave antes de ir para a produção.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 

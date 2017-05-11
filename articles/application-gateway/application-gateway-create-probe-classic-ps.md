@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/26/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bf190741b10c10e885d927ad21a9f2b25107943f
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,8 +30,7 @@ ms.lasthandoff: 01/24/2017
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-
-[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente com o PowerShell. As investigações personalizadas são úteis para aplicativos que tenham uma página de verificação de integridade específica ou para aplicativos que não forneçam uma resposta bem-sucedida no aplicativo Web padrão.
 
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
@@ -43,9 +43,9 @@ Para criar um Application Gateway:
 
 1. Criar um recurso de gateway de aplicativo.
 2. Crie um arquivo XML de configuração ou um objeto de configuração.
-3. Confirme a configuração do recurso de Application Gateway recém-criado.
+3. Confirme a configuração do recurso de gateway de aplicativo recém-criado.
 
-### <a name="create-an-application-gateway-resource"></a>Criar um recurso de Application Gateway
+### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Criar um recurso de gateway de aplicativo com uma investigação personalizada
 
 Para criar o gateway, use o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
@@ -68,15 +68,9 @@ Get-AzureApplicationGateway AppGwTest
 
 *VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Esses valores serão criados depois que o gateway estiver em estado de execução.
 
-## <a name="configure-an-application-gateway"></a>Configurar um Application Gateway
-
-Você pode configurar o Application Gateway usando XML ou um objeto de configuração.
-
-## <a name="configure-an-application-gateway-by-using-xml"></a>Configurar um Application Gateway usando XML
+### <a name="configure-an-application-gateway-by-using-xml"></a>Configurar um Application Gateway usando XML
 
 No exemplo a seguir, você usará um arquivo XML para definir todas as configurações do Application Gateway e confirmá-las para o recurso do Application Gateway.  
-
-### <a name="step-1"></a>Etapa 1
 
 Copie o seguinte texto no bloco de notas.
 
@@ -155,32 +149,30 @@ Um novo item de configuração \<Probe\> é adicionado para configurar investiga
 
 Os parâmetros de configuração são:
 
-* **Name** : nome de referência da investigação personalizada.
-* **Protocol** : protocolo usado (os valores possíveis são HTTP ou HTTPS).
-* **Host** e **Path**: caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.
-* **Interval** : configura as verificações de intervalo de investigação em segundos.
-* **Timeout** : define o tempo limite da investigação para uma verificação de resposta HTTP.
-* **UnhealthyThreshold** : o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.
+|Parâmetro|Descrição|
+|---|---|
+|**Nome** |Nome de referência da investigação personalizada. |
+* **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|
+| **Host** e **Path** | Caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.|
+| **Intervalo** | Configura as verificações de intervalo de investigação em segundos.|
+| **Tempo limite** | Define o tempo limite da investigação para uma verificação de resposta HTTP.|
+| **UnhealthyThreshold** | O número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.|
 
 O nome da investigação é referenciado na configuração \<BackendHttpSettings\> para atribuir qual pool de back-end usa as configurações da investigação personalizada.
 
-## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Adicionar uma configuração de investigação personalizada a um Application Gateway existente
+## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Adicionar uma investigação personalizada a um gateway de aplicativo existente
 
 Alterar a configuração atual de um Application Gateway exige três etapas: obter o arquivo de configuração XML atual, modificar para ter uma investigação personalizada e configurar o Application Gateway com as novas configurações de XML.
 
-### <a name="step-1"></a>Etapa 1
+1. Obtenha o arquivo XML usando `Get-AzureApplicationGatewayConfig`. Este cmdlet exporta o XML de configuração a ser modificado para adicionar uma configuração de investigação.
 
-Obtenha o arquivo XML usando `Get-AzureApplicationGatewayConfig`. Este cmdlet exporta o XML de configuração a ser modificado para adicionar uma configuração de investigação.
+  ```powershell
+  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+  ```
 
-```powershell
-Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-```
+1. Abra o arquivo XML em um editor de texto. Adicione uma seção `<probe>` após `<frontendport>`.
 
-### <a name="step-2"></a>Etapa 2
-
-Abra o arquivo XML em um editor de texto. Adicione uma seção `<probe>` após `<frontendport>`.
-
-```xml
+  ```xml
 <Probes>
     <Probe>
         <Name>Probe01</Name>
@@ -192,11 +184,11 @@ Abra o arquivo XML em um editor de texto. Adicione uma seção `<probe>` após `
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
 </Probes>
-```
+  ```
 
-Na seção backendHttpSettings do XML, adicione o nome da investigação como mostrado no exemplo a seguir:
+  Na seção backendHttpSettings do XML, adicione o nome da investigação como mostrado no exemplo a seguir:
 
-```xml
+  ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -205,13 +197,11 @@ Na seção backendHttpSettings do XML, adicione o nome da investigação como mo
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-```
+  ```
 
-Salve o arquivo XML.
+  Salve o arquivo XML.
 
-### <a name="step-3"></a>Etapa 3
-
-Atualize a configuração do Gateway de Aplicativo com o novo arquivo XML usando `Set-AzureApplicationGatewayConfig`. Este cmdlet atualiza seu Gateway de Aplicativo com a nova configuração.
+1. Atualize a configuração do Gateway de Aplicativo com o novo arquivo XML usando `Set-AzureApplicationGatewayConfig`. Este cmdlet atualiza seu Gateway de Aplicativo com a nova configuração.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
