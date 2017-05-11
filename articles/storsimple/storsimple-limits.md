@@ -54,7 +54,7 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 
 &#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
 
-&42;&#42; Os números de desempenho antes da Atualização 3 podem ser menores.
+&#42;&#42; Os números de desempenho antes da Atualização 3 podem ser menores.
 
 ## <a name="next-steps"></a>Próximas etapas
 Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md). 
