@@ -12,12 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c4eb1162edc42baafe96e6c33699805ffc121204
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: d71bf041585af101d6aa67ba2697f5192bdfd048
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,11 +36,10 @@ Embora seja raro, um data center do Azure pode sofrer uma interrupção. Quando 
 
 Em ambos os casos, se o servidor primário sofre uma interrupção, você deve alterar as cadeias de conexão em clientes de relatório para se conectar ao servidor em um datacenter regional diferente. Essa alteração deve ser considerada um último recurso e apenas caso ocorra uma interrupção catastrófica de data center regional. É mais provável que, após uma interrupção, o data center que hospeda o servidor primário fique online novamente antes de você poder atualizar conexões em todos os clientes. 
 
-Ao determinar como a sua organização lida com uma interrupção do serviço, considere o modo como você pode garantir que seus dados sejam mantidos atualizados e protegidos. 
 
 
 ## <a name="related-information"></a>Informações relacionadas
-[Backup e restauração](analysis-services-backup.md) 
-[Gerenciar o Azure Analysis Services](analysis-services-manage.md) 
+[Fazer backup e restaurar](analysis-services-backup.md)   
+[Gerenciar Azure Analysis Services](analysis-services-manage.md) 
 
 

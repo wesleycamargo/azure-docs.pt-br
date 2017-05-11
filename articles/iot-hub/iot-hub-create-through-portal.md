@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: ddf69b7256ae9665363ee0f491a6475c69d6d555
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -132,7 +133,7 @@ Clique em **Rotas** para gerenciar como o Hub IoT envia suas mensagens do dispos
 
 ![][14]
 
-Você pode adicionar rotas ao Hub IoT clicando em **Adicionar** na parte superior da folha **Rotas***, inserindo as informações necessárias e clicando em**OK**. A rota é listada na folha **Rotas**principal. Para editar uma rota, clique nela na lista de rotas. Para habilitar uma rota, clique nela na lista de rotas e defina o botão**Habilitar/Desabilitar**como **Desabilitar**. Clique em **OK** na parte inferior da folha para salvar a alteração.
+Você pode adicionar rotas ao Hub IoT clicando em **Adicionar** na parte superior da folha **Rotas***, inserindo as informações necessárias e clicando em **OK**. A rota é listada na folha **Rotas** principal. Para editar uma rota, clique nela na lista de rotas. Para habilitar uma rota, clique nela na lista de rotas e defina o botão **Habilitar/Desabilitar** como **Desabilitar**. Clique em **OK** na parte inferior da folha para salvar a alteração.
 
 ![][15]
 

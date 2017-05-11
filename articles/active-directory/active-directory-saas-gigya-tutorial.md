@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
-ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
-ms.lasthandoff: 02/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 21372b8554901594f6770ef1ad18467801ef5fea
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -126,36 +127,15 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
    
 ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 
-Para permitir que os usuários do Azure AD façam logon no Gigya, eles devem ser provisionados no Gigya.  
-No caso do Gigya, o provisionamento é uma tarefa manual.
+Os usuários do AD do Azure são provisionados automaticamente pela primeira vez quando fazem logon no Gigya.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para provisionar contas de usuário, execute as seguintes etapas:
-1. Faça logon em seu site de empresa do **Gigya** como administrador.
-2. Acesse **Administrador \> Gerenciar Usuários** e clique em **Convidar Usuários**.
-   
-    ![Gerenciar Usuários](./media/active-directory-saas-gigya-tutorial/IC789535.png "Gerenciar Usuários")
-
-3. Na caixa de diálogo Convidar Usuários, execute as seguintes etapas:
-   
-    ![Convidar Usuários](./media/active-directory-saas-gigya-tutorial/IC789536.png "Convidar Usuários")
-   
-    a. Na caixa de texto **Email** , digite o alias de email de uma conta válida do Active Directory do Azure que você deseja provisionar.
-    
-    b. Clique em **Convidar Usuário**.
-      
-    > [!NOTE]
-    > O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
-    > 
-    > 
-
- 
 
 ## <a name="assigning-users"></a>Atribuindo usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ### <a name="to-assign-users-to-gigya-perform-the-following-steps"></a>Para atribuir usuários ao Gigya, execute as seguintes etapas:
 1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração de aplicativos do **Gigya**, clique em **Atribuir usuários**.
+2. Na página de integração de aplicativos do **Gigya **, clique em **Atribuir usuários**.
    
     ![Atribuir Usuários](./media/active-directory-saas-gigya-tutorial/IC789537.png "Atribuir Usuários")
 

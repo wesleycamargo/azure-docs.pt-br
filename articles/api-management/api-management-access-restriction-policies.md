@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
-ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 4c9991baf3fbcf3b8ea01f8dd573e2336db88b68
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameaccessrestrictionpoliciesa-access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Políticas de restrição de acesso  
+##  <a name="AccessRestrictionPolicies"></a> Políticas de restrição de acesso  
   
 -   [Verificar cabeçalho HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) - Impõe a existência e/ou valor de um cabeçalho HTTP.  
   
@@ -38,7 +40,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) - Impõe a existência e a validade de JWT extraída de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.  
   
-##  <a name="a-namecheckhttpheadera-check-http-header"></a><a name="CheckHTTPHeader"></a> Verificar cabeçalho HTTP  
+##  <a name="CheckHTTPHeader"></a> Verificar cabeçalho HTTP  
  Use a política `check-header` para impor que uma solicitação tem um cabeçalho HTTP especificado. Você pode, opcionalmente, verificar se o cabeçalho tem um valor específico ou procurar um intervalo de valores permitidos. Se a verificação falhar, a política encerrará o processamento da solicitação e retornará a mensagem de erro e código de status HTTP especificada pela política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -81,7 +83,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namelimitcallratea-limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limitar a taxa de chamadas por assinatura  
+##  <a name="LimitCallRate"></a> Limitar a taxa de chamadas por assinatura  
  A política `rate-limit` impede picos de uso da API para cada assinatura, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. Quando essa política é disparada, o chamador recebe um código de status de resposta `429 Too Many Requests`.  
   
 > [!IMPORTANT]
@@ -136,7 +138,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** produto  
   
-##  <a name="a-namelimitcallratebykeya-limit-call-rate-by-key"></a><a name="LimitCallRateByKey"></a> Limitar a taxa de chamadas por chave  
+##  <a name="LimitCallRateByKey"></a> Limitar a taxa de chamadas por chave  
  A política `rate-limit-by-key` impede picos de uso da API para cada chave, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção do limite. Quando essa política é disparada, o chamador recebe um código de status de resposta `429 Too Many Requests`.  
   
  Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -194,7 +196,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namerestrictcalleripsa-restrict-caller-ips"></a><a name="RestrictCallerIPs"></a> Restringir IPs do chamador  
+##  <a name="RestrictCallerIPs"></a> Restringir IPs do chamador  
  A política `ip-filter` filtra (permite/recusa) chamadas de endereços IP específicos e/ou intervalos de endereços.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -237,7 +239,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namesetusagequotaa-set-usage-quota-by-subscription"></a><a name="SetUsageQuota"></a> Definir a cota de uso por assinatura  
+##  <a name="SetUsageQuota"></a> Definir a cota de uso por assinatura  
  A política `quota` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada assinatura.  
   
 > [!IMPORTANT]
@@ -293,7 +295,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** produto  
   
-##  <a name="a-namesetusagequotabykeya-set-usage-quota-by-key"></a><a name="SetUsageQuotaByKey"></a> Definir uma cota de uso por chave  
+##  <a name="SetUsageQuotaByKey"></a> Definir uma cota de uso por chave  
  A política `quota-by-key` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção da cota.  
   
  Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -354,7 +356,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, produto, API, operação  
   
-##  <a name="a-namevalidatejwta-validate-jwt"></a><a name="ValidateJWT"></a> Validar JWT  
+##  <a name="ValidateJWT"></a> Validar JWT  
  A política `validate-jwt` impõe a existência e a validade de um JWT extraído de um Cabeçalho HTTP ou um parâmetro de consulta especificado.  
   
 > [!IMPORTANT]
@@ -419,7 +421,27 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ```xml  
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
-    <openid-config url="https://login.windows.net/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <audiences>
+        <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
+    </audiences>
+    <required-claims>  
+        <claim name="id" match="all">  
+            <value>insert claim here</value>  
+        </claim>  
+    </required-claims>  
+</validate-jwt>  
+```  
+
+  
+#### <a name="azure-active-directory-b2c-token-validation"></a>Validação de token do Azure Active Directory B2C  
+  
+```xml  
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
+    <openid-config url="https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
+    <audiences>
+        <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
+    </audiences>
     <required-claims>  
         <claim name="id" match="all">  
             <value>insert claim here</value>  
@@ -495,7 +517,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |require-expiration-time|Booliano. Especifica se uma declaração de expiração é necessária no token.|Não|verdadeiro|
 |require-scheme|O nome do esquema do token, por exemplo, "Portador". Quando esse atributo for definido, a política garantirá que o esquema especificado esteja presente no valor do cabeçalho de Autorização.|Não|N/D|
 |require-signed-tokens|Booliano. Especifica se é necessário que um determinado token seja assinado.|Não|verdadeiro|  
-|url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. Para o Azure Active Directory, use a seguinte URL: `https://login.windows.net/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/D|  
+|url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. Para o Azure Active Directory, use a seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -506,9 +528,4 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

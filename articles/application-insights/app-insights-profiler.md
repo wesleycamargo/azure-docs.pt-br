@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ed685f0a4ed26fb8d1c766f87210a99d2b5270ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 13a2883c59092c964cf3c353e767839c5f9ef788
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,6 +44,8 @@ Em [https://portal.azure.com](https://portal.azure.com), abra o recurso Applicat
 Se você precisar parar ou reiniciar o criador de perfil, você o encontrará **no recurso de serviço de aplicativo**, na **trabalhos Web**. Para excluí-lo, procure em **extensões**.
 
 Se você usar WebDeploy para implantar as alterações ao seu aplicativo Web, certifique-se de que você exclua o **App_Data** pasta sejam excluídas durante a implantação. Caso contrário, os arquivos de extensão do criador de perfil serão excluídos quando você implanta em seguida o aplicativo Web no Azure.
+
+**[Atualização]**  A Extensão de Site do Application Insights integrou o agente do criador de perfis da versão 2.3. Ele substitui a Extensão de Site do Criador de Perfis do Application Insights original. Você pode migrar para a versão mais recente por meio do assistente de **Configuração**.
 
 ## <a name="viewing-profiler-data"></a>Exibindo dados do criador de perfil
 
@@ -172,7 +175,7 @@ Quando você configura o criador de perfil, as seguintes atualizações são fei
 2. Definir ".Net Framework versão" para v 4.6.
 3. Defina "sempre" para em.
 4. Adicionar configuração de aplicativo "__APPINSIGHTS_INSTRUMENTATIONKEY__" e defina o valor para a mesma chave de instrumentação usada pelo SDK.
-5. Em **Extensões**, adicione “Application Insights Profiler”. Levará 2 ou 3 minutos para instalar.
+5. Em **Extensões**, adicione "Application Insights". Levará alguns minutos para instalar.
 
 ## <a id="aspnetcore"></a>Suporte do ASP.NET Core
 

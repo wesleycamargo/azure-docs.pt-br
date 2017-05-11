@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2017
 ms.author: v-dabosl
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 63153ca5c0f5e3c68db09d0e59fa26ee8cb1e465
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: e168e9610cbe493618121c688e349064c877fc8a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -26,6 +27,8 @@ ms.lasthandoff: 04/04/2017
 
 >[!NOTE]
 >Somente administradores
+
+Esta seção mostrará como acessar o Portal do Seller Insights pela primeira vez.
 
 ###<a name="overview-of-roles"></a>Visão geral das funções
 
@@ -44,7 +47,7 @@ Antes de fazer logon no Portal do Seller Insights, o ideal é que o Administrado
 Para ativar o serviço, o Administrador deve navegar até a URL listada no email do convite (https://reports.azure.com)
 
 >[!NOTE]
->Observação: se o email do Administrador estiver listado como uma Conta da Microsoft e você não criou uma Conta da Microsoft associada ao endereço de email no qual recebeu o convite, será preciso fazer isso antes de entrar navegando para https://signup.live.command e utilizando esse endereço de email ao criar sua Conta da Microsoft.
+>Se o email do Administrador estiver listado como uma Conta da Microsoft e você não criou uma Conta da Microsoft associada ao endereço de email no qual recebeu o convite, será preciso fazer isso antes de entrar navegando para https://signup.live.command e utilizando esse endereço de email ao criar sua Conta da Microsoft.
 
 ###<a name="sign-in-to-the-portal"></a>Entrar no portal
 
@@ -61,7 +64,13 @@ Para ativar o serviço, o Administrador deve navegar até a URL listada no email
 O administrador deve avisá-lo por email que sua conta foi criada e compartilhar com você a URL para o Portal do Seller Insights (https://reports.azure.com).
 
 >[!NOTE]
->O administrador é o proprietário da conta que publica de fato as soluções no Azure Marketplace.  O proprietário dessa conta pode fornecer acesso a outras pessoas.  
+>O administrador é o proprietário da conta que publica de fato as soluções no Azure Marketplace.  O proprietário dessa conta pode fornecer acesso a outras pessoas.  Se tiver acesso ao Portal de Publicação como coadministrador, você poderá encontrar o endereço do administrador seguindo estas etapas:
+>1. Fazer logon no Portal de Publicação
+>2. Clicar na guia Editores
+>3. Abrir o editor em questão (normalmente há apenas um)
+>4. Clique em "Administradores" no canto inferior esquerdo
+>5. O endereço de email do administrador que você está procurando é rotulado "Proprietário".
+
 
 Você pode fazer logon no Portal do Seller Insights usando uma conta da Microsoft pessoal ou usando uma conta corporativa dependendo de qual conta seu administrador usou ao configurar seu perfil.  O administrador deve lhe aconselhar sobre qual conta usar.
 
@@ -153,7 +162,7 @@ D. *Painel D*: esse painel fornece dados relacionados à cada assinatura individ
 
   ![Mapa do painel d][13]
 
-  1. O painel "Detalhes do Pedido" apresenta dados detalhados do pedido.
+  1. O painel Detalhes do Pedido apresenta dados detalhados do pedido.
   2. Use os filtros na parte superior de cada coluna para filtrar os dados usando uma ampla variedade de comandos e valores.
 
   ![Filtros da exibição mensal de pedidos, painel d][20]
@@ -195,7 +204,7 @@ D. *Painel D*: esse painel fornece dados relacionados à cada assinatura individ
 
   ![Mapa do painel c][12]
 
-  1. Selecione "Exibição de Tendência".
+  1. Selecione Exibição de Tendência.
   2. Selecione os itens que quer exibir na lista suspensa "Área de Assunto"; clique em "Aplicar".  O padrão é "Selecionar Tudo".
 
   ![Lista suspensa de área de assunto na exibição mensal de uso, painel c][17]
@@ -212,19 +221,19 @@ D. *Painel D*: esse painel fornece dados relacionados à cada assinatura individ
 
   ![Mapa do painel d][13]
 
-  1. O painel "Detalhes de Uso" apresenta dados detalhados do pedido.
+  1. O painel Detalhes de Uso apresenta dados detalhados do pedido.
   2. Use os filtros na parte superior de cada coluna para filtrar os dados usando uma ampla variedade de comandos e valores.
 
   ![Filtros da exibição mensal de uso, painel d][20]
   3. Selecione o número de itens por página que quer exibir – 10, 20 ou 50.
   4. Baixe os dados no formato csv ou Excel para análise offline.
 
-![Exibição mensal de uso, painel d 1][24]
-![Exibição mensal de uso, painel d 2][25]
+![Painel de exibição do uso mensal d][24]
+![Painel de exibição do uso mensal d – baixar resultado][25]
 
 ###<a name="accessing-detailed-customer-data"></a>Acessando dados detalhados do cliente
 
-  1. No painel "Detalhes do Pedido" em "Pedidos" ou "Uso", clique na ID de assinatura do Azure na qual está interessado.  Observe que apenas os Tipos de Licença do Marketplace não BYOL serão clicáveis e as IDs de assinatura BYOL serão discutidas por motivos de segurança.
+  1. No painel Detalhes do Pedido em Pedidos ou Uso, clique na ID de assinatura do Azure na qual está interessado.  Observe que apenas os Tipos de Licença do Marketplace não BYOL serão clicáveis e as IDs de assinatura BYOL serão discutidas por motivos de segurança.
 
   ![Detalhe do painel de detalhes de pedidos e uso do cliente][26]
   2. Você será redirecionado para a guia "Cliente" e os dados detalhados do cliente ao qual a ID da assinatura está associada serão recuperados.
@@ -249,6 +258,8 @@ D. *Painel D*: esse painel fornece dados relacionados à cada assinatura individ
 
 >[!NOTE]
 >Somente administradores
+
+Esta seção mostrará como você adiciona novos usuários ou altera as permissões no Portal do Seller Insights.
 
 ###<a name="add-user"></a>Adicionar usuário
 
@@ -340,7 +351,7 @@ Tente redefinir sua senha usando o Assistente de Redefinição de Senha por Auto
 
 
 
-[1]: ./media/marketplace-publishing-report-seller-insights-user-guide/type-of-account.png
+[1]: ./media/marketplace-publishing-report-seller-insights-user-guide/type-of-account-v2.png
 [2]: ./media/marketplace-publishing-report-seller-insights-user-guide/default-sign-in-page.png
 [3]: ./media/marketplace-publishing-report-seller-insights-user-guide/password-reset-microsoft-account.png
 [4]: ./media/marketplace-publishing-report-seller-insights-user-guide/password-reset-work-or-school-account.png

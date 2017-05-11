@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
-ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
-ms.lasthandoff: 02/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 24f56b68a9313ed1bce859b9343a14de83d9b600
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,6 +35,7 @@ Quando os atributos de um usuário são alterados, o sistema avalia todas as reg
 > * O administrador que gerencia a regra em um grupo
 > * Todos os membros do grupo
 >
+> Embora possa criar um grupo dinâmico para dispositivos ou usuários, você não pode criar uma regra que seleciona os objetos de usuário e dispositivo. 
 
 ## <a name="to-create-the-advanced-rule"></a>Para criar a regra avançada
 1. No [portal clássico do Azure](https://manage.windowsazure.com), selecione **Active Directory**e abra o diretório da sua organização.
@@ -171,7 +173,7 @@ Operadores permitidos
 | Properties | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Um valor de cadeia de caracteres. |(user.otherMails -contains "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+| proxyAddresses |SMTP:alias@domainsmtp:alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="use-of-null-values"></a>Uso de valores nulos
 

@@ -1,6 +1,6 @@
 ---
 title: Mensagens de erro de rastreamento de pilha do Hadoop | Microsoft Docs
-description: "Índice das mensagens de erro de rastreamento de pilha do Hadoop no HDInsight. Localize o erro na lista para ver as informações de solução de problemas."
+description: "Índice das mensagens de erro de rastreamento de pilha do Hadoop no Azure HDInsight. Localize o erro na lista para ver as informações de solução de problemas."
 keywords: rastreamento de pilha, mensagens de erro
 services: hdinsight
 documentationcenter: NA
@@ -14,12 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 02/22/2017
-ms.author: rashimg;jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35e11e1f48abd9b8ed8dbc9a00c2d752533cdd75
-ms.lasthandoff: 11/17/2016
+ms.date: 04/26/2017
+ms.author: gao
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: bc6f7904e6307477eb90bb0ca74be19a9c76eb35
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 11/17/2016
 Os artigos são organizados por tipos de erro.
 
 ## <a name="out-of-memory-error"></a>Erro de memória insuficiente
-* [Corrigir um erro de OOM (memória insuficiente) com configurações de Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md): corrija um erro de OOM (memória insuficiente) de uma consulta de Hive. O cenário de cliente inclui uma consulta em várias tabelas grandes.
+* [Corrigir um erro de falta de memória do Hive no HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): corrija um erro de falta de memória (OOM) de uma consulta do Hive. O cenário de cliente inclui uma consulta em várias tabelas grandes.
 
 ## <a name="hive-query-performance"></a>Desempenho de consulta de Hive
 * [Otimizar consultas do Hive para Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md): este artigo inclui alguns métodos comuns de otimização de desempenho do Hive que você pode aplicar às consultas do Hive.

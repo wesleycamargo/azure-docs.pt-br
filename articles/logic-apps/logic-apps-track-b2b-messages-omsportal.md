@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 2aa32d692da81dc34fafbc9cb6ea72a806f31e5c
-ms.openlocfilehash: a4068c70a01f80086ff3fb55f8e101c7dce95dea
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 4d68fde29e85fcf9aa623b4d798262bcd486a8bb
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -80,7 +81,7 @@ A comunicação B2B envolve a troca de mensagens entre dois processos de negóci
 | Remetente | O parceiro convidado definido nas configurações de recebimento ou o parceiro de host definido nas configurações de envio para um contrato AS2. |
 | Receptor | O parceiro de host definido nas configurações de recebimento ou o parceiro convidado definido nas configurações de envio para um contrato AS2. |
 | Aplicativo Lógico | O aplicativo Lógico no qual as ações do AS2 estão configuradas. |
-| Status | Status de mensagem AS2 <br>Sucesso = Recebeu ou enviou uma mensagem AS2 correta, nenhum MDN está configurado <br>Sucesso = Recebeu ou enviou uma mensagem AS2 correta, o MDN é configurado e recebido ou o MDN é enviado <br>Falha = Recebeu uma mensagem AS2 incorreta, nenhum MDN está configurado <br>Pendente = Recebeu ou enviou uma mensagem AS2 correta, o MDN é configurado e uma confirmação funcional é esperada |
+| Status | Status de mensagem AS2 <br>Sucesso = Recebeu ou enviou uma mensagem AS2 correta, nenhum MDN está configurado <br>Sucesso = Recebeu ou enviou uma mensagem AS2 correta, o MDN é configurado e recebido ou o MDN é enviado <br>Falha = Recebeu uma mensagem AS2 incorreta, nenhum MDN está configurado <br>Pendente = Recebeu ou enviou uma mensagem AS2 correta, o MDN é configurado e MDN é esperado |
 | Ack | Status de mensagem MDN <br>Aceito = Recebeu ou enviou um MDN positivo <br>Pendente = Aguardando para receber ou enviar um MDN <br>Rejeitado = Recebeu ou enviou um MDN negativo <br>Não Obrigatório = MDN não está configurado no contrato |
 | Direção | Direção de mensagem AS2. |
 | ID de Correlação | ID para correlacionar todos os gatilhos e ações em um Aplicativo lógico. |

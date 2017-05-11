@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: bed8e0c2b5d4d42fb0510f6b55cfab7404c01b11
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4918648906212ea9708b6c6f0e89d1f4bb7bdcc5
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -129,29 +130,15 @@ O Hub IoT expõe um ponto de extremidade compatível com o Hub de Eventos intern
       ![Adicionar um armazenamento de tabelas ao Aplicativo de Funções no Portal do Azure](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
    1. Insira as informações necessárias.
 
+      **Nome do parâmetro da tabela**: use `outputTable` para o nome que será usado no código do Azure Functions.
+      
       **Nome da tabela**: use `deviceData` para o nome.
 
-      **Conexão da conta de armazenamento**: clique em **novo** e selecione sua conta de armazenamento.
+      **Conexão da conta de armazenamento**: clique em **novo** e selecione a conta de armazenamento.
    1. Clique em **Salvar**.
 1. Em **Gatilhos**, clique em **Hub de Eventos do Azure (myEventHubTrigger)**.
 1. Em **Grupo de consumidores do Hub de Eventos**, digite o nome do grupo de consumidores que você criou anteriormente e clique em **Salvar**.
 1. Clique em **Desenvolver** e, em seguida, clique em **Exibir arquivos**.
-1. Clique em **Adicionar** para adicionar um novo arquivo chamado `package.json`, cole as informações a seguir e, em seguida, clique em **Salvar**.
-
-   ```json
-   {
-      "name": "iothub_save_message_to_table",
-      "version": "0.0.1",
-      "private": true,
-      "main": "index.js",
-      "author": "Microsoft Corp.",
-      "dependencies": {
-         "azure-iothub": "1.0.9",
-         "azure-iot-common": "1.0.7",
-         "moment": "2.14.1"
-      }
-   }
-   ```
 1. Substitua o código em `index.js` pelo exibido a seguir e clique em **Salvar**.
 
    ```javascript
@@ -159,34 +146,20 @@ O Hub IoT expõe um ponto de extremidade compatível com o Hub de Eventos intern
 
    // This function is triggered each time a message is revieved in the IoTHub.
    // The message payload is persisted in an Azure Storage Table
-   var moment = require('moment');
-
+ 
    module.exports = function (context, iotHubMessage) {
-      context.log('Message received: ' + JSON.stringify(iotHubMessage));
-      context.bindings.outputTable = {
-      "partitionKey": moment.utc().format('YYYYMMDD'),
-         "rowKey": moment.utc().format('hhmmss') + process.hrtime()[1] + '',
-         "message": JSON.stringify(iotHubMessage)
-      };
-      context.done();
+    context.log('Message received: ' + JSON.stringify(iotHubMessage));
+    var date = Date.now();
+    var partitionKey = Math.floor(date / (24 * 60 * 60 * 1000)) + '';
+    var rowKey = date + '';
+    context.bindings.outputTable = {
+     "partitionKey": partitionKey,
+     "rowKey": rowKey,
+     "message": JSON.stringify(iotHubMessage)
+    };
+    context.done();
    };
    ```
-1. Clique em **Configurações do Aplicativo de Funções** > **Abrir console de desenvolvimento**.
-
-   Você deve estar na pasta `wwwroot` do Aplicativo de Funções.
-1. Vá para a pasta da função, executando o seguinte comando:
-
-   ```bash
-   cd <your function name>
-   ```
-1. Execute o comando a seguir para instalar o pacote npm:
-
-   ```bash
-   npm install
-   ```
-
-   > [!Note]
-   > A instalação pode levar algum tempo para ser concluída.
 
 A essa altura, você já criou o Aplicativo de Funções. Ele armazena as mensagens que o Hub IoT recebe em seu Armazenamento de Tabelas do Azure.
 
@@ -207,3 +180,4 @@ A essa altura, você já criou o Aplicativo de Funções. Ele armazena as mensag
 Você criou com êxito sua conta de armazenamento do Azure e o Aplicativo de Funções do Azure para armazenar mensagens que o Hub IoT recebe em seu Armazenamento de Tabelas do Azure.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

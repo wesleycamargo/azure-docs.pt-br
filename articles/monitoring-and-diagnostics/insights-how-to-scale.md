@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,10 +36,8 @@ Você pode reduzir horizontalmente no portal e também pode usar a [API REST](ht
 
 ## <a name="scaling-manually"></a>Dimensionando manualmente
 1. No [Portal do Azure](https://portal.azure.com/), clique em **Procurar**, navegue até o recurso que você deseja dimensionar, como um **plano do Serviço de Aplicativo**.
-2. O bloco **Dimensionar** em **Operações** informará o status do dimensionamento: **Desativado** para quando você estiver dimensionando manualmente, **Ativado** para quando você estiver dimensionando de acordo com uma ou mais métricas de desempenho. 
-   
-    ![Bloco Dimensionar](./media/insights-how-to-scale/Insights_UsageLens.png)
-3. Clicar no bloco abrirá a folha **Dimensionar** . Na parte superior da folha Dimensionar, você pode ver um histórico das ações de dimensionamento automático do serviço.
+2. Clique em **Configurações > Escalar horizontalmente (Plano do Serviço de Aplicativo).**
+3. Na parte superior da folha **Escala**, você pode ver um histórico das ações de dimensionamento automático do serviço.
    
     ![Lâmina Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -129,10 +129,5 @@ No entanto, você talvez queira ter um dimensionamento mais agressivo durante o 
 * [Monitore o desempenho do aplicativo](../application-insights/app-insights-azure-web-apps.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * [Exiba eventos e logs de atividade](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

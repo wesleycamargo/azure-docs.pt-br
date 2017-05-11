@@ -15,16 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 0f81ac0d19cd0f20c1f2214042eda391a3e68a7d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0740bc1f9e8b8be3c59518d9b23b8a1411c6d16a
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 ---
 
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemplos de sintaxe de consulta Lucene para criar consultas na Pesquisa do Azure
 Ao construir consultas do Azure Search, você pode usar a [sintaxe de consulta simples](https://msdn.microsoft.com/library/azure/dn798920.aspx) padrão ou a alternativa [Lucene Query Parser no Azure Search](https://msdn.microsoft.com/library/azure/mt589323.aspx). O Analisador de Consulta Lucene dá suporte a construções de consulta mais complexas, como consultas com escopo de campo, pesquisa difusa, pesquisa por proximidade, aumento de termos e pesquisa de expressão regular.
 
-Neste artigo, você pode percorrer os exemplos que exibem a sintaxe de consulta Lucene e os resultados lado a lado. Os exemplos são executados em um índice pré-carregado da Pesquisa no [JSFiddle](https://jsfiddle.net/), um editor de código online para testar o script e o HTML.
+Neste artigo, você pode percorrer os exemplos que exibem a sintaxe de consulta Lucene e os resultados lado a lado. Os exemplos são executados em um índice pré-carregado da Pesquisa no [JSFiddle](https://jsfiddle.net/), um editor de código online para testar o script e o HTML. Para saber o contexto do processamento da consulta, consulte [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md).
 
 Clique com botão direito do mouse nas URLs de exemplo de consulta para abrir o JSFiddle em uma janela separada do navegador.
 
@@ -120,9 +122,4 @@ Tente especificar o Analisador de Consulta Lucene em seu código. Os links a seg
 
 * [Consultar seu índice da Pesquisa do Azure usando o SDK do .NET](search-query-dotnet.md)
 * [Consultar seu índice da Pesquisa do Azure usando a API REST](search-query-rest-api.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

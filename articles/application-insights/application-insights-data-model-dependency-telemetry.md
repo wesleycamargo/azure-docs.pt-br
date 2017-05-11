@@ -4,7 +4,7 @@ description: "Modelo de dados do Application Insights para telemetria de depend�
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: b86b1e1ff7c0370918b2509f98ad65265eb4186e
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e71730ffe7e42ce5658189baca92ced3a54d269d
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependências: modelo de dados do Application Insights
 
-A telemetria de dependência representa uma interação do componente monitorado com um componente remoto como SQL ou um ponto de extremidade HTTP.
+A telemetria de dependência (em [Application Insights](app-insights-overview.md)) representa uma interação do componente monitorado com um componente remoto como SQL ou um ponto de extremidade HTTP.
 
 ## <a name="name"></a>Nome
 
@@ -29,7 +30,7 @@ Nome do comando iniciado com esta chamada de dependência. Valor de baixa cardin
 
 ## <a name="id"></a>ID
 
-Identificador de uma instância de chamada de dependência. Usado para correlação com o item de telemetria de solicitação correspondente a essa chamada de dependência. Para obter mais informações, consulte a página de [correlação](/correlation.md).
+Identificador de uma instância de chamada de dependência. Usado para correlação com o item de telemetria de solicitação correspondente a essa chamada de dependência. Para obter mais informações, consulte a página de [correlação](application-insights-correlation.md).
 
 ## <a name="data"></a>Dados
 
@@ -41,7 +42,7 @@ Nome do tipo de dependência. Valor de baixa cardinalidade para agrupamento lóg
 
 ## <a name="target"></a>Destino
 
-Site de destino de uma chamada de dependência. Os exemplos são o nome do servidor e o endereço do host. Para obter mais informações, consulte a página de [correlação](/correlation.md).
+Site de destino de uma chamada de dependência. Os exemplos são o nome do servidor e o endereço do host. Para obter mais informações, consulte a página de [correlação](application-insights-correlation.md).
 
 ## <a name="duration"></a>Duração
 
@@ -66,8 +67,9 @@ Indicação de chamada bem-sucedida ou malsucedida.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte [modelo de dados](/application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
-- Configurar o acompanhamento de dependência para [.NET](/app-insights-asp-net-dependencies.md).
-- Configurar o acompanhamento de dependência para [Java](/app-insights-java-agent.md).
-- Confira as [plataformas](/app-insights-platforms.md) com suporte do Application Insights.
+- Configurar o acompanhamento de dependência para [.NET](app-insights-asp-net-dependencies.md).
+- Configurar o acompanhamento de dependência para [Java](app-insights-java-agent.md).
+- [Escrever telemetria de dependência personalizada](app-insights-api-custom-events-metrics.md#trackdependency)
+- Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
+- Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.
 

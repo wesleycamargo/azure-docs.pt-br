@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 63818878e01dd52a988e10a6e4f624638ea1cfae
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +93,7 @@ Em uma tomada de controle externo, você já tem um diretório gerenciado e dese
 
 Como administrador de um diretório gerenciado, você adiciona um domínio que tem um diretório não gerenciado associado a ele.
 
-Por exemplo, digamos que você é um administrador de TI e você já tem um diretório gerenciado para Contoso.com, um nome de domínio registrado em sua organização. Você descobre que os usuários de sua organização fizeram uma inscrição de autoatendimento para uma oferta usando o nome de domínio de email user@contoso.co.uk,, que é outro nome de domínio possuído por sua organização. Atualmente, esses usuários têm contas em um diretório não gerenciado para contoso.co.uk.
+Por exemplo, digamos que você é um administrador de TI e você já tem um diretório gerenciado para Contoso.com, um nome de domínio registrado em sua organização. Você descobre que os usuários de sua organização fizeram uma inscrição de autoatendimento para uma oferta usando o nome de domínio de email user@contoso.co.uk, que é outro nome de domínio possuído por sua organização. Atualmente, esses usuários têm contas em um diretório não gerenciado para contoso.co.uk.
 
 Você não quer gerenciar dois diretórios separados, portanto, você mescla o diretório não gerenciado para contoso.co.uk com seu diretório gerenciado por TI existente para contoso.com.
 
@@ -193,19 +195,14 @@ O fluxograma a seguir explica todas as combinações diferentes desses parâmetr
 
 ![][1]
 
-Para obter mais informações e exemplos de como usar esses parâmetros, consulte [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
+Para obter mais informações e exemplos de como usar esses parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## <a name="see-also"></a>Consulte também
-* [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs)
-* [PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Referência de Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
-* [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
+* [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
+* [PowerShell do Azure](/powershell/azure/overview)
+* [Referência de Cmdlets do Azure](/powershell/azure/get-started-azureps)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
