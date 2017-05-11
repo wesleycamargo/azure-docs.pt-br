@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d53fb9003ed3b6805c3ee5cfda966e556844e0ff
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f9dc195040d0fa1321dff9ec97d9ca1e4770d325
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="password-writeback-overview"></a>Visão geral de write-back de senha
 
-O write-back de senha permite que você configure o Azure AD para o write-back de senhas no Active Directory local. Ele remove a necessidade de configurar e gerenciar uma solução complicada de autoatendimento de redefinição de senha local e fornece uma maneira conveniente baseada em nuvem para que os usuários redefinam suas senhas locais onde quer que estejam. O write-back de senha é um componente do [Azure Active Directory Connect](connect/active-directory-aadconnect.md) que pode ser habilitado e usado pelos assinantes atuais das [Edições do Azure Active Directory](active-directory-editions.md) Premium.
+O write-back de senha permite que você configure o Azure AD para o write-back de senhas no Active Directory local. Ele remove a necessidade de configurar e gerenciar uma solução complicada de autoatendimento de redefinição de senha local e fornece uma maneira conveniente baseada em nuvem para que os usuários redefinam suas senhas locais onde quer que estejam. O write-back de senha é um componente do [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) que pode ser habilitado e usado pelos assinantes atuais das [Edições do Azure Active Directory](active-directory-editions.md) Premium.
 
 O write-back de senha fornece os seguintes recursos
 
 * **Comentários sem atraso** – o write-back de senha é uma operação síncrona. Os usuários serão notificados imediatamente se suas senhas não atenderem à política ou se não puderem ser redefinidas nem alteradas por qualquer motivo.
 * **Dá suporte à redefinição de senhas de usuários que usam o AD FS ou outras tecnologias de federação** – com o write-back de senha, desde que as contas dos usuários federados sejam sincronizadas no locatário do Azure AD, eles poderão gerenciar suas instalações senhas do AD local na nuvem.
-* **Dá suporte à redefinição de senhas de usuários que usam a [sincronização de hash de senha](/connect/active-directory-aadconnectsync-implement-password-synchronization.md)** – quando o serviço de redefinição de senha detecta que uma conta de usuário sincronizado está habilitada para a sincronização de hash de senha, redefinimos a senha local e na nuvem dessa conta simultaneamente.
+* **Dá suporte à redefinição de senhas de usuários que usam a [sincronização de hash de senha](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)** – quando o serviço de redefinição de senha detecta que uma conta de usuário sincronizado está habilitada para a sincronização de hash de senha, redefinimos a senha local e na nuvem dessa conta simultaneamente.
 * **Dá suporte à alteração de senhas no painel de acesso e no Office 365** – quando os usuários federados ou sincronizados com senha alteram suas senhas expiradas ou não expiradas, fazemos o write-back das senhas no ambiente do AD local.
 * **Dá suporte ao write-back de senhas quando um administrador as redefine no portal do Azure** – sempre que um administrador redefine uma senha de usuário no [portal do Azure](https://portal.azure.com), se esse usuário for federado ou sincronizado com senha, definiremos a senha escolhida pelo administrador no AD local também. Isso não é suportado atualmente no Portal de Administração do Office.
 * **Impõe políticas de senha do AD local** – quando um usuário redefine sua senha, verificamos se ele atende à política do AD local antes de confirmá-la nesse diretório. Isso inclui histórico, complexidade, tempo, filtros de senha e qualquer outra restrição de senha que você tenha definido no AD local.
@@ -76,7 +76,7 @@ Quando um usuário federado ou sincronizado com hash de senha redefine ou altera
 
 ## <a name="scenarios-supported-for-password-writeback"></a>Cenários com suporte para write-back de senha
 
-Recomendamos que você use o recurso de atualização automática do [Azure AD Connect](/connect/active-directory-aadconnect-get-started-express.md) se desejar usar o write-back de senha.
+Recomendamos que você use o recurso de atualização automática do [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) se desejar usar o write-back de senha.
 
 Mais informações sobre o [ciclo de vida de suporte do DirSync e do Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md)
 
@@ -170,17 +170,17 @@ O tamanho de cada uma das mensagens descritas acima normalmente é inferior a 1 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem mais informações sobre a redefinição de senha com o Azure AD
+Os links a seguir fornecem mais informações sobre a redefinição de senha usando o Azure AD
 
-* [**Início Rápido**](active-directory-passwords-getting-started.md) – comece agora mesmo a usar o gerenciamento de senhas de autoatendimento do Azure AD 
-* [**Licenciamento**](active-directory-passwords-licensing.md) – configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md) – entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md) – planeje e implante o SSPR em seus usuários usando as diretrizes descritas aqui
-* [**Personalizar**](active-directory-passwords-customize.md) – personalize a aparência da experiência do SSPR em sua empresa.
-* [**Política**](active-directory-passwords-policy.md) – entenda e defina políticas de senha do Azure AD
-* [**Relatórios**](active-directory-passwords-reporting.md) – descubra se, quando e onde os usuários estão acessando a funcionalidade do SSPR
-* [**Aprofundamento Técnico**](active-directory-passwords-how-it-works.md) – vá para os bastidores para entender como ele funciona
-* [**Perguntas frequentes**](active-directory-passwords-faq.md) – Como? Por quê? O que? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
-* [**Resolver problemas**](active-directory-passwords-troubleshoot.md) – saiba como resolver problemas comuns encontrados no SSPR
+* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
+* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
+* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
+* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
+* [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
+* [**Política** ](active-directory-passwords-policy.md) - Como entender e definir políticas de senha do Azure AD
+* [**Relatórios**](active-directory-passwords-reporting.md): descubra se, quando e onde os usuários estão acessando a funcionalidade SSPR
+* [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
+* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
+* [**Solucionar problemas**](active-directory-passwords-troubleshoot.md): saiba como resolver problemas comuns encontrados no SSPR
 
 

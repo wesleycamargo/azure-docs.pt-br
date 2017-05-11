@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 90846b3bd83b65a3fdfef2a1c8183b7143b5b247
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 4dae8b87904fff2f2f8665d235bf790fb1e073d0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -33,7 +33,7 @@ Se você estiver tendo problemas com o autoatendimento de redefinição de senha
 | --- | --- |
 | Não consigo ver a seção **Redefinição de Senha** no Azure AD no portal do Azure | Isso poderá ocorrer se você não tiver uma licença do Azure AD Premium ou Básico atribuída ao administrador que realiza a operação. <br> Isso pode ser resolvido com a atribuição de uma licença à conta de administrador em questão usando o artigo [Atribuir, verificar e resolver problemas com licenças](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Não consigo ver uma opção de configuração específica | Vários elementos da interface do usuário ficam ocultos até que sejam necessários. Tente habilitar todas as opções que você deseja ver. |
-| Não consigo ver a guia **Integração local** | Essa opção só fica visível se você baixou o Azure AD Connect e configurou o write-back de senha. Para obter mais informações sobre esse tópico, consulte o artigo [Introdução ao Azure AD Connect usando configurações expressas](/connect/active-directory-aadconnect-get-started-express.md). |
+| Não consigo ver a guia **Integração local** | Essa opção só fica visível se você baixou o Azure AD Connect e configurou o write-back de senha. Para obter mais informações sobre esse tópico, consulte o artigo [Introdução ao Azure AD Connect usando configurações expressas](./connect/active-directory-aadconnect-get-started-express.md). |
 
 ## <a name="troubleshoot-password-reset-reporting"></a>Solução de problemas de relatório de redefinição de senha
 
@@ -226,16 +226,16 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem mais informações sobre a redefinição de senha com o Azure AD
+Os links a seguir fornecem mais informações sobre a redefinição de senha usando o Azure AD
 
-* [**Início Rápido**](active-directory-passwords-getting-started.md) – comece agora mesmo a usar o gerenciamento de senhas de autoatendimento do Azure AD 
-* [**Licenciamento**](active-directory-passwords-licensing.md) – configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md) – entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md) – planeje e implante o SSPR em seus usuários usando as diretrizes descritas aqui
-* [**Personalizar**](active-directory-passwords-customize.md) – personalize a aparência da experiência do SSPR em sua empresa.
-* [**Política**](active-directory-passwords-policy.md) – entenda e defina políticas de senha do Azure AD
-* [**Write-back de Senha**](active-directory-passwords-writeback.md) – como o write-back de senha funciona com o diretório local
-* [**Relatórios**](active-directory-passwords-reporting.md) – descubra se, quando e onde os usuários estão acessando a funcionalidade do SSPR
-* [**Aprofundamento Técnico**](active-directory-passwords-how-it-works.md) – vá para os bastidores para entender como ele funciona
-* [**Perguntas frequentes**](active-directory-passwords-faq.md) – Como? Por quê? O que? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
+* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
+* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
+* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
+* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
+* [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
+* [**Política** ](active-directory-passwords-policy.md) - Como entender e definir políticas de senha do Azure AD
+* [**Write-back de senha** ](active-directory-passwords-writeback.md) - Como o write-back de senha opera com o seu diretório local
+* [**Relatório** ](active-directory-passwords-reporting.md) - Descubra se, quando e onde os usuários estão acessando a funcionalidade da SSPR
+* [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
+* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
 
