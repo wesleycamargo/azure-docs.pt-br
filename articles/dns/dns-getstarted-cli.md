@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -62,7 +63,7 @@ Para criar um registro DNS, use o comando `az network dns record-set [record typ
 O exemplo a seguir cria um registro com o nome relativo "www" na Zona DNS "contoso.com", no grupo de recursos "MyResourceGroup". O nome totalmente qualificado do conjunto de registros é “www.contoso.com”. O tipo de registro é "A", com o endereço IP "1.2.3.4", e um TTL padrão de 3600 segundos (1 hora) é usado.
 
 ```azurecli
-az network dns record-set A add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
+az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
 
 Para outros tipos de registros, para conjuntos de registros com mais de um registro, para valores de TTL alternativos e para modificar registros existentes, veja [Gerenciar registros DNS e conjuntos de registros usando a CLI do Azure 2.0](dns-operations-recordsets-cli.md).

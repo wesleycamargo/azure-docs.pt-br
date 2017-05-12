@@ -8,19 +8,19 @@
 ## [Integração com o SAP Netweaver](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [Integração com o SAP Business ByDesign](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 # Soluções SAP no Azure
-## SAP HANA
+## Instâncias Grandes do SAP HANA
 ### [Visão geral e arquitetura](hana-overview-architecture.md)
 ### [Infraestrutura e conectividade](hana-overview-infrastructure-connectivity.md)
 ### [Instalar SAP HANA](hana-installation.md)
 ### [Alta disponibilidade e recuperação de desastres](hana-overview-high-availability-disaster-recovery.md)
 ### [Solucionar problemas e monitorar](troubleshooting-monitoring.md)
+## SAP HANA em máquinas virtuais
 ### [Única instância SAP HANA](hana-get-started.md)
 ### [Guia de implantação do HANA S/4 ou HANA BW/4](cal-s4h.md)
-### Backup
-#### [Visão geral](sap-hana-backup-guide.md)
-#### [Backup em nível do arquivo](sap-hana-backup-file-level.md)
-#### [Instantâneos de armazenamento](sap-hana-backup-storage-snapshots.md)
-
+### [Alta disponibilidade nas VMs](sap-hana-high-availability.md)
+### [Visão geral do Backup](sap-hana-backup-guide.md)
+### [Backup em nível do arquivo](sap-hana-backup-file-level.md)
+### [Backups de instantâneos de armazenamento](sap-hana-backup-storage-snapshots.md)
 ## SAP NetWeaver
 ### [Visão geral e arquitetura](suse-quickstart.md)
 ### [Planejar e implementar](planning-guide.md)

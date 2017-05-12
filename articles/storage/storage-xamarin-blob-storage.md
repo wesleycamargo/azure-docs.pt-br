@@ -3,20 +3,21 @@ title: Como usar o Armazenamento de Blobs do Xamarin | Microsoft Docs
 description: "A Biblioteca de Cliente do Armazenamento do Azure para Xamarin permite que os desenvolvedores criem aplicativos iOS, Android e da Windows Store com suas interfaces de usuário nativo. Este tutorial mostra como usar o Xamarin para criar um aplicativo que usa o Armazenamento de Blobs do Azure."
 services: storage
 documentationcenter: xamarin
-author: seguler
-manager: jahogg
+author: michaelhauss
+manager: vamshik
 editor: tysonn
 ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: seguler
-translationtype: Human Translation
+ms.date: 05/11/2017
+ms.author: michaelhauss
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 2ef27dc58e12d1b9e8eed54239332a53860ddd52
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/27/2017
 
 

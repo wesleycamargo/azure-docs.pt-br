@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
 ms.openlocfilehash: 59bff7e1f7bdfc1786c4ee47ab2a652e2df85289
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -114,10 +116,5 @@ Se você quer ver os novos recursos incluídos no Data Lake Store, envie seus co
 * [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 * [Introdução ao Data Lake Store](data-lake-store-get-started-portal.md)
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
