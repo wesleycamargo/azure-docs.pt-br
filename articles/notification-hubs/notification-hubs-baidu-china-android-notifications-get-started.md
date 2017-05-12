@@ -119,7 +119,7 @@ Quando você cria um projeto de envio na nuvem Baidu, você recebe sua ID de apl
     
     ![][33]
 
-Você verá o **保存成功! ** Mensagem (**salva com êxito!**).
+Você verá o **保存成功!** Mensagem (**salva com êxito!**).
 
 ## <a name="configure-your-notification-hub"></a>Configurar seu Hub de Notificação
 1. Entre no [Portal Clássico do Azure]e clique em **+NOVO** na parte inferior da tela.
