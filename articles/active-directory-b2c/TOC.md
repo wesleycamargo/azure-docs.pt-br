@@ -44,6 +44,7 @@
 ## [Estrutura de política extensível](active-directory-b2c-reference-policies.md)
 ## [Protocolos de autenticação](active-directory-b2c-reference-protocols.md)
 ## [Tokens](active-directory-b2c-reference-tokens.md)
+## [Personalização de linguagem](active-directory-b2c-reference-language-customization.md)
 
 ## [Gerenciamento de Ameaças](active-directory-b2c-reference-threat-management.md)
 

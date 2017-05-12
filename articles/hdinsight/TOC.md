@@ -132,8 +132,9 @@
 ## Estender clusters
 ### [Personalizar clusters usando Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Personalizar clusters usando a Ação de script](hdinsight-hadoop-customize-cluster-linux.md)
-### [Adicionar bibliotecas do Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Desenvolver ações de script](hdinsight-hadoop-script-actions-linux.md)
+### [Instalar ou atualizar Mono](hdinsight-hadoop-install-mono.md)
+### [Adicionar bibliotecas do Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Usar o Giraph](hdinsight-hadoop-giraph-install-linux.md)
 ### [Usar Matiz](hdinsight-hadoop-hue-linux.md)
 ### [Usar R](hdinsight-hadoop-r-scripts-linux.md)
@@ -165,6 +166,7 @@
 #### [Usar API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Adicionar contas de armazenamento](hdinsight-hadoop-add-storage.md)
 ### [Carregar dados para trabalhos Hadoop](hdinsight-upload-data.md)
+### [Vários clusters HDInsight com o Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Importar e exportar dados com Sqoop](hdinsight-use-sqoop.md)
 #### [Conexão com o SSH](hdinsight-use-sqoop-mac-linux.md)
 #### [Executar usando cURL](hdinsight-hadoop-use-sqoop-curl.md)
@@ -190,7 +192,7 @@
 #### [Desempenho de consulta de Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
