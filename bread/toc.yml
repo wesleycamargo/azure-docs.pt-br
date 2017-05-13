@@ -130,7 +130,7 @@
   - name: "DNS"
     tocHref: /azure/dns/
     topicHref: /azure/dns/
-  - name: "Banco de Dados de Documentos"
+  - name: "DocumentDB"
     tocHref: /azure/documentdb/
     topicHref: /azure/documentdb/
   - name: "Hubs de Eventos"
@@ -191,6 +191,9 @@
   - name: "Observador de Rede"
     tocHref: /azure/network-watcher/
     topicHref: /azure/network-watcher/
+  - name: "Rede"
+    tocHref: /azure/networking/
+    topicHref: /azure/networking/networking-overview
   - name: "Hubs de Notificação"
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/

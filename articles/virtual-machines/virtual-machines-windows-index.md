@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: fd7b14d16a0654dc1368ddb00ea047aa7dd36a4c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 11ffd3df669c805297eee5085145f4ce27a09e15
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="overview"></a>Visão geral
-[Sobre máquinas virtuais](windows/about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Sobre máquinas virtuais](windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Perguntas frequentes sobre as Máquinas Virtuais do Azure criadas com o modelo de implantação clássico](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

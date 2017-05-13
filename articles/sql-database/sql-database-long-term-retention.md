@@ -16,10 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 043a1779ac694b0b3cbb5f1fd00117f716583669
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: e47c10c2c979622fba254757d3f7b9f19d3240f8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -99,10 +100,6 @@ O Serviço de Recuperação manipula automaticamente a limpeza dos backups com b
 
 > [!NOTE]
 > Os backups que já estão no cofre não são afetados. Eles são excluídos automaticamente pelo Serviço de Recuperação quando seu período de retenção expirar.
-
-## <a name="removing-long-term-backup-retention-backups-from-the-azure-recovery-services-vault"></a>Removendo backups com retenção de longo prazo do cofre dos Serviços de Recuperação do Azure
-
-Para remover backups com retenção de longo prazo do cofre, confira [Excluir backups com retenção de longo prazo](sql-database-long-term-backup-retention-configure.md)
 
 ## <a name="long-term-backup-retention-faq"></a>Perguntas frequentes sobre retenção de backup de longo prazo:
 
