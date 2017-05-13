@@ -1,0 +1,128 @@
+- name: "Documentação do Functions"
+  href: index.yml
+- name: "Visão geral"
+  items:
+  - name: "Sobre o Functions"
+    href: functions-overview.md
+  - name: "Tempo de execução do Functions"
+    href: functions-runtime-overview.md
+  - name: "Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs"
+    href: functions-compare-logic-apps-ms-flow-webjobs.md
+- name: "Guia de início rápido"
+  expanded: true
+  items:
+  - name: "Criar função - portal"
+    href: functions-create-first-azure-function.md
+  - name: "Criar função - CLI do Azure"
+    href: functions-create-first-azure-function-azure-cli.md
+#  - name: Create function - Visual Studio
+#    href: functions-create-your-first-function-visual-studio.md
+  - name: "Gatilhos"
+    items:
+    - name: "Timer"
+      href: functions-create-scheduled-function.md
+    - name: "Webhook do GitHub"
+      href: functions-create-github-webhook-triggered-function.md
+    - name: "Armazenamento de blob"
+      href: functions-create-storage-blob-triggered-function.md
+    - name: "Armazenamento de filas"
+      href: functions-create-storage-queue-triggered-function.md
+  - name: "Integração"
+    items:
+    - name: "Armazenamento"
+      href: functions-integrate-storage-queue-output-binding.md
+#    - name: Cosmos DB
+#      href: functions-integrate-store-unstructured-data-cosmosdb.md
+- name: "Exemplos"
+  items:
+  - name: "CLI do Azure"
+    href: functions-cli-samples.md
+- name: "Tutoriais"
+  items:
+  - name: "1 - Functions com Aplicativos Lógicos"
+    href: functions-twitter-email.md
+  - name: "2 - Criar uma API sem servidor"
+    href: functions-create-serverless-api.md
+- name: "Conceitos"
+  items:
+  - name: "Planos de hospedagem"
+    href: functions-scale.md
+  - name: "Gatilhos e associações"
+    href: functions-triggers-bindings.md
+- name: "Guias de instruções"
+  items:
+  - name: "Testando os Azure Functions"
+    href: functions-test-a-function.md
+  - name: "Desenvolver e depurar localmente"
+    href: functions-run-local.md
+  - name: "Definir configurações para um aplicativo de funções"
+    href: functions-how-to-use-azure-function-app-settings.md
+  - name: "Implantação contínua para Azure Functions"
+    href: functions-continuous-deployment.md
+  - name: "Implantar o Functions usando a infraestrutura como código"
+    href: functions-infrastructure-as-code.md
+  - name: "Monitoramento do Azure Functions"
+    href: functions-monitoring.md
+  - name: "Instalar o tempo de execução do Functions"
+    href: functions-runtime-install.md
+- name: "Referência"
+  items:
+  - name: "Desenvolver aplicativos de função"
+    href: functions-reference.md
+    items:
+    - name: "Abrir a API 2.0"
+      href: functions-api-definition.md
+  - name: "Práticas recomendadas do Azure Functions"
+    href: functions-best-practices.md
+  - name: "Associações"
+    items:
+    - name: "Associações do DocumentDB"
+      href: functions-bindings-documentdb.md
+    - name: "Associações do Hub de Eventos"
+      href: functions-bindings-event-hubs.md
+    - name: "Associações HTTP e webhook"
+      href: functions-bindings-http-webhook.md
+    - name: "Associações de Aplicativos Móveis"
+      href: functions-bindings-mobile-apps.md
+    - name: "Associação de saída do Hub de Notificação do Azure"
+      href: functions-bindings-notification-hubs.md
+    - name: "Gatilhos e associações do Barramento de Serviço para filas e tópicos"
+      href: functions-bindings-service-bus.md
+    - name: "Associações do SendGrid"
+      href: functions-bindings-sendgrid.md
+    - name: "Associações do armazenamento"
+      items:
+      - name: "Associações de blob"
+        href: functions-bindings-storage-blob.md
+      - name: "Associações de fila"
+        href: functions-bindings-storage-queue.md
+      - name: "Associações de tabela"
+        href: functions-bindings-storage-table.md
+      - name: "Associações de arquivo externo"
+        href: functions-bindings-external-file.md
+    - name: "Associações do SendGrid"
+      href: functions-bindings-sendgrid.md
+    - name: "Gatilho de temporizador"
+      href: functions-bindings-timer.md
+    - name: "Associação de saída do Twilio"
+      href: functions-bindings-twilio.md
+  - name: "Estruturas"
+    items:
+    - name: "C#"
+      href: functions-reference-csharp.md
+    - name: "F#"
+      href: functions-reference-fsharp.md
+    - name: "JavaScript"
+      href: functions-reference-node.md
+- name: "Recursos"
+  items:
+  - name: "Preços"
+    href: https://azure.microsoft.com/pricing/details/functions/
+  - name: "Fórum do MSDN"
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: "Stack Overflow"
+    href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: "Repositório de GitHub do Azure Functions"
+    href: https://github.com/Azure/Azure-Functions/
+  - name: "Atualizações de serviço"
+    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=

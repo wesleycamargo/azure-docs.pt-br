@@ -43,7 +43,7 @@
 ### [Indexador do Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 ### [Indexador do Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 ### [Indexador do SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indexador do DocumentDB do Azure](search-howto-index-documentdb.md)
+### [Indexador de Banco de dados do Azure Cosmos](search-howto-index-documentdb.md)
 ### [Indexar blobs do CSV](search-howto-index-csv-blobs.md)
 ### [Indexar blobs do JSON](search-howto-index-json-blobs.md)
 ### [Configurar conexões do indexador para o SQL Server na VM do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)

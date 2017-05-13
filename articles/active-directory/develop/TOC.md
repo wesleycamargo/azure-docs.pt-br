@@ -78,32 +78,27 @@
 ## [Limites de serviço](../active-directory-service-limits-restrictions.md)
 # Ponto de extremidade v2.0
 ## [Visão geral](active-directory-appmodel-v2-overview.md)
-### [Diferenças](active-directory-v2-compare.md)
 ### [Tipos de aplicativos](active-directory-v2-flows.md)
 ### [Limitações](active-directory-v2-limitations.md)
-## Guia de início rápido
-### Aplicativos Móveis
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### APIs e aplicativos Web
-#### [AngularJS com NodeJS](active-directory-v2-devquickstarts-angular-node.md)
-#### [Angular JS com o .NET](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [Aplicativo Web .NET](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [API da Web .NET](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [API do NodeJS](active-directory-v2-devquickstarts-node-api.md)
+### [Comparação v1-v2](active-directory-v2-compare.md)
+## Introdução
+### Aplicativos móveis e de desktop
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [.NET da Área de trabalho do Windows](guidedsetups/active-directory-windesktop.md)
+### Aplicativos Web
+#### [JavaScript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Servidor Web do ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [Aplicativo Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
-#### [API Web em um Aplicativo Web .NET](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## Guias
 ### [Registrar um aplicativo](active-directory-v2-app-registration.md)
 ## Referência
-### [Referência de registro de aplicativo](active-directory-v2-registration-portal.md)
 ### [Bibliotecas de autenticação](active-directory-v2-libraries.md)
 ### [Protocolos de Autenticação v 2.0](active-directory-v2-protocols.md)
-#### [Referência do token](active-directory-v2-tokens.md)
-#### [Fluxo de código de autorização do OAuth2.0](active-directory-v2-protocols-oauth-code.md)
-#### [Conexão do OpenID](active-directory-v2-protocols-oidc.md)
-#### [Fluxo implícito](active-directory-v2-protocols-implicit.md)
-#### [Credenciais de cliente do Oauth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
+#### [Concessão de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
+#### [Concessão implícita do Oauth 2.0](active-directory-v2-protocols-implicit.md)
+#### [Concessão de credenciais do cliente do OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Fluxo Em nome de do OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [Referência do token](active-directory-v2-tokens.md)
 ### [Escopos](active-directory-v2-scopes.md)

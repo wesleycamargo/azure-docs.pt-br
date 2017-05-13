@@ -1,270 +1,298 @@
-- name: "Documentação de Aplicativos Web"
-  href: index.md
-- name: "Visão geral"
+- name: Documentação de Aplicativos Web
+  href: index.yml
+- name: Visão geral
   items:
-  - name: "Sobre os Aplicativos Web"
+  - name: Sobre os Aplicativos Web
     href: app-service-web-overview.md
-  - name: "Comparar opções de hospedagem"
+  - name: Comparar opções de hospedagem
     href: choose-web-site-cloud-service-vm.md
-- name: "Guia de início rápido"
+- name: Guia de início rápido
   expanded: true
   items:
-  - name: "Criar aplicativo .NET"
+  - name: Criar aplicativo .NET
     href: app-service-web-get-started-dotnet.md
-  - name: "Criar aplicativo Node.js"
+  - name: Criar aplicativo Node.js
     href: app-service-web-get-started-nodejs.md
-  - name: "Criar aplicativo PHP"
+  - name: Criar aplicativo PHP
     href: app-service-web-get-started-php.md
-  - name: "Criar aplicativo Java"
+  - name: Criar aplicativo Java
     href: app-service-web-get-started-java.md
-  - name: "Criar aplicativo Python"
+  - name: Criar aplicativo Python
     href: app-service-web-get-started-python.md
-  - name: "Criar site HTML estático"
+  - name: Criar site HTML estático
     href: app-service-web-get-started-html.md
-- name: "Tutoriais"
+- name: Tutoriais
   items:
-  - name: "1 - .NET com Banco de Dados SQL"
+  - name: 1 - .NET com Banco de Dados SQL
     href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "1 - Node.js com o MongoDB"
+  - name: 1 - Node.js com o MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: "2 - Mapear Domínio Personalizado"
+  - name: 1 - PHP com MySQL
+    href: app-service-web-tutorial-php-mysql.md 
+  - name: 1 - WordPress com MySQL
+    href: app-service-web-create-web-app-from-marketplace.md
+  - name: 1 - Python com PostgreSQL
+    href: app-service-web-tutorial-docker-python-postgresql-app.md
+  - name: 2 - Mapear Domínio Personalizado
     href: app-service-web-tutorial-custom-domain.md
-  - name: "3 - Associar Certificado SSL"
+  - name: 3 - Associar Certificado SSL
     href: app-service-web-tutorial-custom-ssl.md
-- name: "Exemplos"
+  - name: 4 - Adicionar Rede de Distribuição de Conteúdo
+    href: app-service-web-tutorial-content-delivery-network.md
+#  - name: 5 - Monitor your app
+#    href: app-service-web-tutorial-monitoring.md
+- name: Exemplos
   items:
-  - name: "CLI do Azure"
+  - name: CLI do Azure
     href: app-service-cli-samples.md
-  - name: "PowerShell"
+  - name: PowerShell
     href: app-service-powershell-samples.md
-- name: "Conceitos"
+- name: Conceitos
   items:
-  - name: "Como funciona o Serviço de Aplicativo"
+  - name: Como funciona o Serviço de Aplicativo
     href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: "Planos do Serviço de Aplicativo"
+  - name: Planos do Serviço de Aplicativo
     href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: "Ambientes de Serviço de Aplicativo"
+  - name: Ambientes de Serviço de Aplicativo
     href: app-service-app-service-environment-intro.md
-  - name: "Autenticação e autorização"
+  - name: Autenticação e autorização
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: "Autenticação com o AD local"
+  - name: Autenticação com o AD local
     href: web-sites-authentication-authorization.md
-- name: "Guias de Instruções"
+- name: Guias de Instruções
   items:
-  - name: "Desenvolver seu aplicativo"
+  - name: Desenvolver seu aplicativo
     items:
-    - name: "ASP.NET"
+    - name: ASP.NET
       items:
-      - name: "Aplicativo ASP.NET com o Banco de dados SQL"
+      - name: Aplicativo ASP.NET com o Banco de dados SQL
         href: web-sites-dotnet-get-started.md
-      - name: "Desenvolver um aplicativo ASP.NET Core com o Código VS"
+      - name: Desenvolver um aplicativo ASP.NET Core com o Código VS
         href: web-sites-create-web-app-using-vscode.md
-    - name: "PHP"
+    - name: PHP
       items:
-      - name: "Aplicativo Laravel com MySQL"
+      - name: Aplicativo Laravel com MySQL
         href: app-service-web-php-get-started.md
-      - name: "Configurar o seu projeto em PHP"
+      - name: Configurar o seu projeto em PHP
         href: web-sites-php-configure.md
-      - name: "Configurar um multissite em WordPress"
+      - name: Configurar um multissite em WordPress
         href: web-sites-php-convert-wordpress-multisite.md
-    - name: "Node.js"
+    - name: Node.js
       items:
-      - name: "Aplicativo Sails.js com o Banco de dados NOSQL"
+      - name: Aplicativo Sails.js com o Banco de dados NOSQL
         href: app-service-web-nodejs-sails.md
-      - name: "Usar io.js"
+      - name: Usar io.js
         href: web-sites-nodejs-iojs.md
-      - name: "Depurar aplicativo Node.js"
+      - name: Depurar aplicativo Node.js
         href: web-sites-nodejs-debug.md
-    - name: "Java"
+    - name: Java
       items:
-      - name: "Aplicativo Java com Eclipse"
+      - name: Aplicativo Java com Eclipse
         href: app-service-web-eclipse-create-hello-world-web-app.md
-      - name: "Aplicativo Java com IntelliJ"
+      - name: Aplicativo Java com IntelliJ
         href: app-service-web-intellij-create-hello-world-web-app.md
-      - name: "Usar SDK do Azure para Java"
+      - name: Usar SDK do Azure para Java
         href: java-create-azure-website-using-java-sdk.md
-      - name: "Carregar aplicativo existente"
+      - name: Carregar aplicativo existente
         href: web-sites-java-add-app.md
-      - name: "Depuração remota do Eclipse"
+      - name: Depuração remota do Eclipse
         href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: "Depuração remota do IntelliJ"
+      - name: Depuração remota do IntelliJ
         href: app-service-web-debug-java-web-app-in-intellij.md
-    - name: "Python"
+    - name: Python
       items:
-      - name: "Aplicativo do Django com o MySQL"
+      - name: Aplicativo do Django com o MySQL
         href: web-sites-python-ptvs-django-mysql.md
-    - name: "Enviar emails com SendGrid"
+    - name: Enviar emails com SendGrid
       href: sendgrid-dotnet-how-to-send-email.md
-    - name: "Configurar tempo de execução"
+    - name: Configurar tempo de execução
       items:
-      - name: "PHP no Windows"
+      - name: PHP no Windows
         href: web-sites-php-configure.md
-      - name: "Java"
+      - name: Java
         href: web-sites-java-add-app.md
-      - name: "Node.js no Linux"
-        href: app-service-linux-using-nodejs-pm2.md
-      - name: "Python"
+      - name: Python
         href: web-sites-python-configure.md
-    - name: "Configurar o aplicativo"
+    - name: Configurar o aplicativo
       items:
-      - name: "Usar configurações do aplicativo"
+      - name: Usar configurações do aplicativo
         href: web-sites-configure.md
-  - name: "Implantar no Azure"
+    - name: Aplicativo Web no Linux
+      items:
+      - name: Visão geral
+        href: app-service-linux-intro.md
+      - name: Criar um aplicativo Web no Linux
+        href: app-service-linux-how-to-create-web-app.md
+      - name: Aplicativo Web Ruby no Linux
+        href: app-service-linux-ruby-get-started.md
+      - name: Aplicativo Web Node.js no Linux
+        href: app-service-linux-using-nodejs-pm2.md
+      - name: Aplicativo Web .NET Core no Linux
+        href: app-service-linux-using-dotnetcore.md
+      - name: Aplicativo Web Docker Personalizado no Linux
+        href: app-service-linux-using-custom-docker-image.md
+      - name: Conectar-se usando o SSH
+        href: app-service-linux-ssh-support.md
+      - name: Implantação contínua
+        href: app-service-linux-ci-cd.md
+      - name: Aplicativo Web no Linux - Perguntas frequentes
+        href: app-service-linux-faq.md
+  - name: Implantar no Azure
     href: web-sites-deploy.md
     items:
-    - name: "Implantar por FTP"
+    - name: Implantar por FTP
       href: app-service-deploy-content-sync.md
-    - name: "Implantar por sincronização de nuvem"
+    - name: Implantar por sincronização de nuvem
       href: web-sites-deploy.md
-    - name: "Implantar continuamente"
+    - name: Implantar continuamente
       href: app-service-continuous-deployment.md
-    - name: "Implantar no preparo"
+    - name: Implantar no preparo
       href: web-sites-staged-publishing.md
-    - name: "Implantar a partir do Git local"
+    - name: Implantar a partir do Git local
       href: app-service-deploy-local-git.md
-    - name: "Implantar com modelo"
+    - name: Implantar com modelo
       href: app-service-deploy-complex-application-predictably.md
-    - name: "Implantação agile"
+    - name: Implantação agile
       href: app-service-agile-software-development.md
-    - name: "Teste beta"
+    - name: Teste beta
       href: app-service-web-test-in-production-controlled-test-flight.md
-    - name: "Definir credenciais de implantação"
+    - name: Definir credenciais de implantação
       href: app-service-deployment-credentials.md
-    - name: "Mapear domínio personalizado"
+    - name: Mapear domínio personalizado
       items:
-      - name: "Comprar domínio"
+      - name: Comprar domínio
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: "Mapear domínio de terceiros"
+      - name: Mapear domínio de terceiros
         href: web-sites-custom-domain-name.md
-      - name: "Mapear domínios com o Gerenciador de Tráfego"
+      - name: Mapear domínios com o Gerenciador de Tráfego
         href: web-sites-traffic-manager-custom-domain-name.md
-      - name: "Mapear domínios GoDaddy"
+      - name: Mapear domínios GoDaddy
         href: web-sites-godaddy-custom-domain-name.md
-      - name: "Migrar um domínio ativo"
+      - name: Migrar um domínio ativo
         href: app-service-custom-domain-name-migrate.md
-    - name: "Migrar do IIS"
+    - name: Migrar do IIS
       href: web-sites-migration-from-iis-server.md
-    - name: "Teste em produção"
+    - name: Teste em produção
       href: app-service-web-test-in-production-get-start.md
-    - name: "Adicionar funcionalidade a um aplicativo Web"
+    - name: Adicionar funcionalidade a um aplicativo Web
       href: app-service-web-get-started-2.md
-  - name: "Conectar ao banco de dados/recursos"
+  - name: Conectar ao banco de dados/recursos
     items:
-    - name: "Conectar-se a dados locais"
+    - name: Conectar-se a dados locais
       href: web-sites-hybrid-connection-get-started.md
-    - name: "Conectar à Rede Virtual do Azure"
+    - name: Conectar à Rede Virtual do Azure
       href: web-sites-integrate-with-vnet.md
-    - name: "Conectar à Rede Virtual do Azure com o PowerShell"
+    - name: Conectar à Rede Virtual do Azure com o PowerShell
       href: app-service-vnet-integration-powershell.md
-    - name: "Conectar ao MongoDB na VM do Azure"
+    - name: Conectar ao MongoDB na VM do Azure
       href: web-sites-dotnet-store-data-mongodb-vm.md
-  - name: "Proteger o aplicativo"
+  - name: Proteger o aplicativo
     items:
-    - name: "Autenticar usuários"
+    - name: Autenticar usuários
       items:
-      - name: "Autenticar com o Azure AD"
+      - name: Autenticar com o Azure AD
         href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Autenticar com o Facebook"
+      - name: Autenticar com o Facebook
         href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Autenticar com o Google"
+      - name: Autenticar com o Google
         href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Autenticar com a conta da Microsoft"
+      - name: Autenticar com a conta da Microsoft
         href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Autenticar com o Twitter"
+      - name: Autenticar com o Twitter
         href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Autenticar com o AD local"
+      - name: Autenticar com o AD local
         href: web-sites-authentication-authorization.md
-      - name: "Aplicativo com um banco de dados multilocatário"
+      - name: Aplicativo com um banco de dados multilocatário
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: "Atribuir SSL personalizado"
+    - name: Atribuir SSL personalizado
       items:
-      - name: "Configurar certificado SSL de terceiros"
+      - name: Configurar certificado SSL de terceiros
         href: web-sites-configure-ssl-certificate.md
-    - name: "Impor HTTPS"
+    - name: Impor HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
-    - name: "Configurar a autenticação mútua TLS"
+    - name: Configurar a autenticação mútua TLS
       href: app-service-web-configure-tls-mutual-auth.md
-  - name: "Escalar aplicativo"
+  - name: Escalar aplicativo
     items:
-    - name: "Escalar verticalmente"
+    - name: Escalar verticalmente
       href: web-sites-scale.md
-    - name: "Expansão"
+    - name: Expansão
       href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: "Balanceamento de carga com o Gerenciador de Tráfego"
+    - name: Balanceamento de carga com o Gerenciador de Tráfego
       href: web-sites-traffic-manager.md
-    - name: "Escala elevada com Ambientes do Serviço de Aplicativo"
+    - name: Escala elevada com Ambientes do Serviço de Aplicativo
       href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: "Usar o CDN do Azure para alcance global"
+    - name: Usar o CDN do Azure para alcance global
       href: cdn-websites-with-cdn.md
-    - name: "Conectar ao Cache Redis por meio do protocolo Memcache"
+    - name: Conectar ao Cache Redis por meio do protocolo Memcache
       href: web-sites-connect-to-redis-using-memcache-protocol.md
-    - name: "Criar um Cache Redis"
+    - name: Criar um Cache Redis
       href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: "Estado de sessão com o cache Redis do Azure"
+    - name: Estado de sessão com o cache Redis do Azure
       href: web-sites-dotnet-session-state-caching.md
-  - name: "Monitoramento"
+  - name: Monitoramento
     items:
-    - name: "Monitorar aplicativos"
+    - name: Monitorar aplicativos
       href: web-sites-monitor.md
-    - name: "Habilitar logs"
+    - name: Habilitar logs
       href: web-sites-enable-diagnostic-log.md
-    - name: "Transmitir logs"
+    - name: Transmitir logs
       href: web-sites-streaming-logs-and-console.md
-  - name: "Fazer backup do conteúdo"
+  - name: Fazer backup do conteúdo
     items:
-    - name: "Fazer backup de seu aplicativo"
+    - name: Fazer backup de seu aplicativo
       href: web-sites-backup.md
-    - name: "Restaurar seu aplicativo a partir do backup"
+    - name: Restaurar seu aplicativo a partir do backup
       href: web-sites-restore.md
-    - name: "Fazer backup com a API REST"
+    - name: Fazer backup com a API REST
       href: websites-csm-backup.md
-  - name: "Gerenciar recursos de aplicativos"
+  - name: Gerenciar recursos de aplicativos
     items:
-    - name: "Clonar aplicativo com o PowerShell"
+    - name: Clonar aplicativo com o PowerShell
       href: app-service-web-app-cloning.md
-    - name: "Clonar aplicativo com o portal"
+    - name: Clonar aplicativo com o portal
       href: app-service-web-app-cloning-portal.md
-    - name: "Mover recursos"
+    - name: Mover recursos
       href: app-service-move-resources.md
-    - name: "Usar o Azure Resource Manager com PowerShell"
+    - name: Usar o Azure Resource Manager com PowerShell
       href: app-service-web-app-azure-resource-manager-powershell.md
-    - name: "Gerenciar aplicativos usando a Automação do Azure"
+    - name: Gerenciar aplicativos usando a Automação do Azure
       href: automation-manage-web-app.md
-- name: "Referência"
+- name: Referência
   items:
-  - name: "CLI 2.0"
+  - name: CLI 2.0
     href: /cli/azure/appservice
-  - name: "PowerShell"
+  - name: PowerShell
     href: /powershell
-  - name: "API REST"
+  - name: API REST
     href: /rest/api/appservice/
-- name: "Recursos"
+- name: Recursos
   items:
-  - name: "Solucionar problemas"
+  - name: Solucionar problemas
     items:
-    - name: "Solucionar problemas com o Visual Studio"
+    - name: Solucionar problemas com o Visual Studio
       href: web-sites-dotnet-troubleshoot-visual-studio.md
-    - name: "Solucionar problemas de aplicativo do Node.js"
+    - name: Solucionar problemas de aplicativo do Node.js
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
-    - name: "Solucionar problemas HTTP 502 e 503"
+    - name: Solucionar problemas HTTP 502 e 503
       href: app-service-web-troubleshoot-http-502-http-503.md
-    - name: "Solucionar problemas de desempenho"
+    - name: Solucionar problemas de desempenho
       href: app-service-web-troubleshoot-performance-degradation.md
-  - name: "Preços"
+  - name: Preços
     href: https://azure.microsoft.com/pricing/details/app-service/
-  - name: "Informações de cota"
+  - name: Informações de cota
     href: ../azure-subscription-service-limits.md#app-service-limits
-  - name: "Atualizações de serviço e Notas de versão"
+  - name: Atualizações de serviço e Notas de versão
     href: https://azure.microsoft.com/updates/?product=app-service
-  - name: "Práticas recomendadas"
+  - name: Práticas recomendadas
     href: app-service-best-practices.md
-  - name: "Exemplos"
+  - name: Exemplos
     href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: "Vídeos"
+  - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-  - name: "Guias"
+  - name: Guias
     items:
-    - name: "Arquiteturas de referência"
+    - name: Arquiteturas de referência
       href: ../guidance/guidance-ra-app-service.md
-    - name: "Scripts de Implantação"
+    - name: Scripts de Implantação
       href: https://azure.microsoft.com/documentation/scripts/

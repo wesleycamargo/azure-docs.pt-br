@@ -1,4 +1,5 @@
 # Matriz Virtual do StorSimple
+
 ## Visão geral
 ### [Qual é a solução?](storsimple-ova-overview.md)
 
@@ -8,7 +9,7 @@
 #### [Entender os limites](storsimple-ova-limits.md)
 #### [Examinar práticas recomendadas](storsimple-ova-best-practices.md)
 
-### Implantar (Portal do Azure)
+### Implantar
 #### [Preparar-se para implantar](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Implantar um serviço do StorSimple Manager](storsimple-virtual-array-manage-service.md)
 #### [Provisionar no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
@@ -16,17 +17,10 @@
 #### [Configurar como servidor de arquivos](storsimple-virtual-array-deploy3-fs-setup.md)
 #### [Configurar como servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
 
-### Implantar (Portal Clássico)
-#### [Preparar-se para implantar](storsimple-ova-deploy1-portal-prep.md)
-##### [Implantar um serviço do StorSimple Manager](storsimple-ova-manage-service.md)
-#### [Provisionar no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-#### [Provisionar no VMware](storsimple-ova-deploy2-provision-vmware.md)
-#### [Configurar como servidor de arquivos](storsimple-ova-deploy3-fs-setup.md)
-#### [Configurar como servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
-
 ## Como
 ### [Gerenciar via Portal do Azure](storsimple-virtual-array-manager-service-administration.md)
-#### [Instalar a atualização mais recente](storsimple-virtual-array-install-update-04.md)
+#### [Instalar a atualização mais recente](storsimple-virtual-array-install-update-05.md)
+##### [Instalar a Atualização 0.4](storsimple-virtual-array-install-update-04.md)
 ##### [Instalar a Atualização 0.3](storsimple-virtual-array-install-update.md)
 #### [Criar e gerenciar backups](storsimple-virtual-array-backup.md)
 #### [Clonar de backups](storsimple-virtual-array-clone.md)
@@ -44,22 +38,11 @@
 #### [Diagnosticar e solucionar problemas](storsimple-virtual-array-diagnose-problems.md)
 #### [Solicitação de suporte de log](storsimple-virtual-array-log-support-ticket.md)
 
-### [Gerenciar através do Portal Clássico do Azure](storsimple-ova-manager-service-administration.md)
-#### [Instalar a atualização mais recente](storsimple-ova-install-update-01.md)
-#### [Criar e gerenciar backups](storsimple-ova-backup.md)
-#### [Restaurar de backups](storsimple-ova-restore.md)
-#### [Failover e DR](storsimple-ova-failover-dr.md)
-#### [Desativar e excluir](storsimple-ova-deactivate-and-delete-device.md)
-#### [Monitorar o painel de serviço](storsimple-ova-service-dashboard.md)
-#### [Alterar a senha de dispositivo](storsimple-ova-change-device-admin-password.md)
-#### [Gerenciar ACRs](storsimple-ova-manage-acrs.md)
-#### [Gerenciar contas de armazenamento](storsimple-ova-manage-storage-accounts.md)
-#### [Gerenciar trabalhos](storsimple-ova-manage-jobs.md)
-#### [Configurar o MPIO no host do Windows Server](storsimple-ova-configure-mpio-windows-server.md)
 ### [Configurar via Interface de usuário da Web local](storsimple-ova-web-ui-admin.md)
 
 ## Notas de versão
-### [Atualização 0.4 – atual](storsimple-virtual-array-update-04-release-notes.md)
+### [Atualização 0.5 – atual](storsimple-virtual-array-update-05-release-notes.md)
+### [Atualização 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [Atualização 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Atualizações 0.2 e 0.1](storsimple-ova-update-01-release-notes.md)
 
@@ -71,6 +54,7 @@
 ### [Considerações de segurança](storsimple-security.md)
 
 ## Introdução
+
 ### Plano
 #### [Examinar os requisitos](storsimple-system-requirements.md)
 #### [Examinar as especificações técnicas](storsimple-technical-specifications-and-compliance.md)
@@ -80,7 +64,6 @@
 ### Instalar
 #### [Examinar a segurança](storsimple-safety.md)
 #### [Desempacotar, montar em rack, cabear um 8100](storsimple-8100-hardware-installation.md)
-
 #### [Desempacotar, montar em rack, cabear um 8600](storsimple-8600-hardware-installation.md)
 #### [Hardware com suporte para interfaces de rede de 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -96,6 +79,7 @@
 #### [Adaptador do StorSimple para SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## Como
+
 ### Gerenciar
 #### [Usar o serviço do StorSimple Manager](storsimple-manager-service-administration.md)
 ##### [Restaurar de um backup](storsimple-restore-from-backup-set-u2.md)
@@ -214,6 +198,7 @@
 ### [Alterar o caminho de blob padrão](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple para parceiros
+
 ## Visão geral
 ### [Qual é a solução?](storsimple-partner-csp-overview.md)
 
