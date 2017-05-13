@@ -19,6 +19,7 @@
 ### [Consultas de lista eficientes](batch-efficient-list-queries.md)
 ### [Tarefas de preparação e conclusão de trabalho](batch-job-prep-release.md)
 ### [Nós de computação do Linux](batch-linux-nodes.md)
+### [VMs de baixa prioridade](batch-low-pri-vms.md)
 ### [Gerenciar contas do Lote com o Lote Management .NET](batch-management-dotnet.md)
 ### [Persistir saída de tarefa e de trabalho](batch-task-output.md)
 ### [Executar trabalhos MPI em Lote](batch-mpi.md)

@@ -18,6 +18,7 @@
 ### [Java no Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# em Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Implantar aplicativos em um cluster local](service-fabric-get-started-with-a-local-cluster.md)
+## [Implantar aplicativos .NET em um contêiner](service-fabric-host-app-in-a-container.md)
 ## [Criar seu primeiro cluster no Azure](service-fabric-get-started-azure-cluster.md)
 ## [Criar seu primeiro cluster autônomo](service-fabric-get-started-standalone-cluster.md)
 ## [Crie seu primeiro aplicativo de contêiner](service-fabric-get-started-containers.md)
@@ -28,6 +29,7 @@
 ### Conceitos
 #### [Modelos de programação com suporte](service-fabric-choose-framework.md)
 #### [Modelo de aplicativo](service-fabric-application-model.md)
+#### [Modelo de hospedagem](service-fabric-hosting-model.md)
 #### [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md)
 #### [Estado do serviço](service-fabric-concepts-state.md)
 #### [Particionamento de serviço](service-fabric-concepts-partitioning.md)
@@ -45,6 +47,8 @@
 #### [Visão geral](service-fabric-containers-overview.md)
 #### [Implantar contêiner do Windows](service-fabric-deploy-container.md)
 #### [Implantar contêiner do Linux](service-fabric-deploy-container-linux.md)
+#### [Docker compose (visualização)](service-fabric-docker-compose.md)
+#### [Governança de recursos para serviços e contêineres](service-fabric-resource-governance.md)
 
 ### Compilar um serviço de Reliable Service
 #### [Visão geral](service-fabric-reliable-services-introduction.md)
@@ -57,6 +61,8 @@
 ##### [Recomendações e Diretrizes de coleções confiáveis](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
 ##### [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Fila simultânea confiável](service-fabric-reliable-services-reliable-concurrent-queue.md)
+##### [Serialização de coleção confiável](service-fabric-reliable-services-reliable-collections-serialization.md)
 ##### [Gerenciador de estado confiável e Aspectos internos confiáveis da coleção](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Introdução
@@ -100,6 +106,7 @@
 
 ### Comunicar-se com os serviços
 #### [Comunicação de serviço](service-fabric-connect-and-communicate-with-services.md)
+#### [Serviço DNS](service-fabric-dnsservice.md)
 #### [Proxy reverso](service-fabric-reverseproxy.md)
 
 ### [Adicionar um front-end da web](service-fabric-add-a-web-frontend.md)
