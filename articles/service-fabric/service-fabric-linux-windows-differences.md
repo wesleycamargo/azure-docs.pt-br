@@ -14,23 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5faf7dc0b544f6fe2f83565cc368e218c6df35af
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Diferenças entre o Service Fabric no Linux (visualização) e no Windows (geralmente disponível)
 
-Como o Service Fabric no Linux é uma visualização, há alguns recursos que têm suporte no Windows, mas não no Linux. Eventualmente, os conjuntos de recursos serão iguais quando o Service Fabric ficar disponível no Linux.
+Como o Service Fabric no Linux é uma visualização, há alguns recursos que têm suporte no Windows, mas ainda não têm no Linux. Eventualmente, os conjuntos de recursos serão iguais quando o Service Fabric ficar disponível no Linux.
 
 * Não há suporte para Coleções Confiáveis (e os Serviços Confiáveis com Estado) no Linux.
 * O ReverseProxy não está disponível no Linux.
 * O instalador autônomo não está disponível no Linux.
 * A validação de esquema XML para arquivos de manifesto não é executada no Linux. 
 * O redirecionamento de console não tem suporte no Linux. 
-* O FAS (Serviço de Análise de Falha) não está disponível no Linux.
+* O Serviço de Análise de Falha (FAS) não está disponível no Linux.
 * O suporte do Azure Active Directory não está disponível no Linux.
 * Alguns equivalentes de comando de CLI do Powershell não estão disponíveis.
 * Somente um subconjunto de comandos do Powershell pode ser executado em um cluster do Linux (como explicado na próxima seção).
@@ -38,7 +39,7 @@ Como o Service Fabric no Linux é uma visualização, há alguns recursos que t�
 >[!NOTE]
 >O redirecionamento de console não tem suporte em clusters de produção, mesmo no Windows.
 
-As ferramentas de desenvolvimento são diferentes, com VisualStudio, Powershell, VSTS e ETW em uso no Windows e Yeoman, Eclipse, Jenkins e LTTng em uso no Linux.
+As ferramentas de desenvolvimento também são diferente entre o Windows e o Linux. VisualStudio, Powershell, VSTS e ETW são usados no Windows, enquanto Yeoman, Eclipse, Jenkins e LTTng são usados no Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlets do PowerShell que não funcionam em um cluster Linux do Service Fabric
 
