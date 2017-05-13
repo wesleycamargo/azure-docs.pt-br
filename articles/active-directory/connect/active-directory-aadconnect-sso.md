@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 04/26/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 294a7b7de5c0a95f9f0784f315f202ae2c062e57
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b3eebdd714b38ffd9432404944829d05ef3c3dc6
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>O que é o Logon Único Contínuo do Azure Active Directory?
 
-O Logon Único Contínuo do Azure Active Directory (SSO contínuo do Azure AD) fornece o verdadeiro logon único para usuários entrando nos computadores corporativos deles conectados à rede corporativa. Quando habilitado, os usuários não precisam digitar as senhas para entrar no Azure AD; na maioria dos casos, não precisam nem mesmo digitar os nomes de usuário. Essa funcionalidade fornece aos usuários acesso fácil a seus serviços baseados em nuvem sem a necessidade de nenhum componente local adicional.
+O Logon Único Contínuo do Azure Active Directory (SSO contínuo do Azure AD) fornece o verdadeiro logon único para usuários entrando nos desktops corporativos deles conectados à rede corporativa. Quando habilitado, os usuários não precisam digitar as senhas para entrar no Azure AD; na maioria dos casos, não precisam nem mesmo digitar os nomes de usuário. Essa funcionalidade fornece aos usuários acesso fácil a seus serviços baseados em nuvem sem a necessidade de nenhum componente local adicional.
 
 O SSO contínuo pode ser habilitado por meio do Azure AD Connect e pode ser combinado com a [sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) ou então a [autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md).
 
@@ -48,41 +49,47 @@ Se qualquer uma das condições anteriores não for atendida, será solicitado q
 >[!NOTE]
 >O SSO Contínuo do Azure AD está atualmente em visualização. Essa é uma funcionalidade gratuita e você não precisa de nenhuma edição paga do Azure AD para usá-la.
 
-O SSO Contínuo tem suporte via clientes baseados em navegador da Web e clientes do Office que dão suporte à [autenticação moderna](https://aka.ms/modernauthga) em computadores desktop que são compatíveis com a autenticação Kerberos, como computadores baseados em Windows. A matriz a seguir fornece detalhes dos clientes baseados em navegador em vários sistemas operacionais.
+O SSO Contínuo tem suporte via clientes baseados em navegador da Web e clientes do Office que dão suporte à [autenticação moderna](https://aka.ms/modernauthga) em computadores desktop que são compatíveis com a autenticação Kerberos, como desktops baseados em Windows. A matriz a seguir fornece detalhes dos clientes baseados em navegador em vários sistemas operacionais.
 
-| Sistema operacional\Navegador |Internet Explorer|Chrome|Firefox|Edge
+| Sistema operacional\Navegador |Internet Explorer|Google Chrome|Mozilla Firefox|Edge
 | --- | --- |--- | --- | --- |
-|Windows 10|Sim|Sim|Sim*|Não
-|Windows 8.1|Sim|Sim|Sim*|N/D
-|Windows 8|Sim|Sim|Sim*|N/D
-|Windows 7|Sim|Sim|Sim*|N/D
-|Mac|N/D|Não|Não|N/D
+|Windows 10|Sim|Sim|Sim\*|Não
+|Windows 8.1|Sim|Sim|Sim\*|N/D
+|Windows 8|Sim|Sim|Sim\*|N/D
+|Windows 7|Sim|Sim|Sim\*|N/D
+|Mac OS X|N/D|Sim\*|Sim\*|N/D 
 
 \*Exige configuração adicional.
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é usar o [Ingresso do Azure AD](../active-directory-azureadjoin-overview.md) para obter a experiência ideal com o Azure AD.
 
+Se uma solicitação de entrada do Azure AD inclui o parâmetro `domain_hint` ou `login_hint` (iniciada por um aplicativo em seu Locatário), o SSO contínuo aproveitará isso e o usuário não precisará inserir seu nome de usuário e senha.
+
 ## <a name="how-does-azure-ad-seamless-sso-work"></a>Como funciona o SSO contínuo do Azure AD?
 
 Você pode habilitar o SSO contínuo no Azure AD Connect conforme demonstrado [abaixo](#how-to-enable-azure-ad-seamless-sso?). Uma vez habilitado, uma conta de computador chamada AZUREADSSOACCT é criada no AD (Active Directory) local e a respectiva chave de descriptografia Kerberos é compartilhada com segurança com o Azure AD. Além disso, os dois SPNs (nomes de entidade de serviço) Kerberos são criados para representar duas URLs de nuvem que são usadas durante a entrada no Azure AD.
+
+>[!NOTE]
+> A conta do computador e os SPNs Kerberos precisam ser criados em para cada floresta do AD que você sincronizar ao Azure AD (por meio do Azure AD Connect) e para cujos usuários você deseja habilitar o SSO contínuo. Se sua floresta do AD tiver UOs (unidades organizacionais) para contas de computador, depois de habilitar o recurso de SSO contínuo, mova a conta de computador AZUREADSSOACCT para uma UO a fim de garantir que não seja excluída e seja gerenciada da mesma maneira que outras contas de computador.
 
 Quando essa configuração é concluída, entrar no Azure AD funciona da mesma maneira que qualquer outra entrada que usa a IWA (autenticação integrada do Windows). O processo de SSO contínuo funciona da seguinte maneira:
 
 Digamos que o usuário tenta acessar um recurso baseado em nuvem que é protegido pelo Azure AD, por exemplo, o SharePoint Online. O SharePoint Online redireciona o navegador do usuário para o Azure AD para entrar.
 
-- Se a solicitação de entrada ao Azure AD incluir um parâmetro `domain_hint` (identifica o locatário do Azure AD; por exemplo, contoso.onmicrosoft.com) ou `login_hint` (identifica o nome de usuário; por exemplo, user@contoso.onmicrosoft.com ou user@contoso.com), as etapas a seguir ocorrerão.
-- Se algum desses dois parâmetros não estiver incluído na solicitação de entrada do Azure AD, será solicitado que o usuário forneça o nome de usuário dele; após isso, ocorrerão as etapas a seguir.
+Se a solicitação de entrada ao Azure AD incluir um parâmetro `domain_hint` (identifica o locatário do Azure AD; por exemplo, contoso.onmicrosoft.com) ou `login_hint` (identifica o nome de usuário; por exemplo, user@contoso.onmicrosoft.com ou user@contoso.com), as etapas um a cinco ocorrerão.
+
+Se um desses dois parâmetros não estiver incluído na solicitação, o usuário receberá uma solicitação para fornecer o nome de usuário na página de entrada do Azure AD. As etapas um a cinco só ocorrem depois que o usuário pressiona TAB para sair do campo de nome de usuário ou clica no botão "Continuar".
 
 1. O Azure AD desafia o cliente, por meio da resposta 401 Não autorizado, para fornecer um tíquete Kerberos.
 2. O cliente solicita um tíquete do Active Directory para o Azure AD (representado pela conta de computador que foi configurada anteriormente).
-3. Active Directory localiza a conta do computador e retorna um tíquete Kerberos para o cliente criptografado com o segredo da conta do computador. O tíquete inclui a identidade do usuário atualmente conectado ao computador desktop.
+3. O Active Directory localiza a conta do computador e retorna um tíquete Kerberos para o cliente criptografado com o segredo da conta do computador. O tíquete inclui a identidade do usuário atualmente conectado ao computador desktop.
 4. O cliente envia o tíquete Kerberos que adquiriu do Active Directory para o Azure AD.
 5. O Azure AD descriptografa o tíquete Kerberos usando a chave compartilhada anteriormente. Se for bem-sucedido, o Azure AD retornará um token ou solicitará que o usuário execute provas adicionais como a autenticação multifator, conforme exigido pelo recurso.
 
-O SSO contínuo é uma funcionalidade oportunista, o que significa que, se ele falhar por algum motivo, o usuário precisará apenas digitar sua senha na página de logon como fazia antes.
+O SSO contínuo é um recurso oportunista, ou seja, se ele falhar por algum motivo, a experiência de entrada do usuário retorna ao comportamento normal, no qual o usuário precisará digitar sua senha na página de entrada.
 
-O processo completo também é mostrado no diagrama a seguir:
+O processo também está ilustrado no diagrama abaixo:
 
 ![Logon Único Contínuo](./media/active-directory-aadconnect-sso/sso2.png)
 
@@ -96,9 +103,10 @@ Se você estiver habilitando o SSO contínuo com sincronização de senha e se h
 
 - O servidor do Azure AD Connect possa se comunicar com URLs do `*.msappproxy.net`.
 - O Azure AD Connect (versões 1.1.484.0 ou superiores) pode fazer solicitações HTTPS para o Azure AD pela porta 443. Isso é usado somente para habilitar a funcionalidade, e não para as entradas de usuário reais.
+- O Azure AD Connect também estabelece conexões IP diretas com os [intervalos de IP do data center do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Novamente, isso só é usado para habilitar o recurso.
 
 >[!NOTE]
-> Versões mais antigas do Azure AD Connect (inferiores a 1.1.484.0) precisam conseguir se comunicar com o Azure AD pela porta 9090.
+> As versões mais antigas do Azure AD Connect (inferiores a 1.1.484.0) precisam conseguir se comunicar com o Azure AD pela porta 9090.
 
 ### <a name="enabling-the-azure-ad-seamless-sso-feature"></a>Habilitando a funcionalidade SSO contínuo do Azure AD
 
@@ -118,9 +126,15 @@ Neste ponto, o SSO contínuo está habilitado no seu locatário. Observe que voc
 
 ## <a name="rolling-the-feature-out-to-your-users"></a>Distribuindo a funcionalidade para os usuários
 
+Para distribuir o recurso SSO contínuo para seus usuários, você precisará adicionar duas URLs do Azure AD (https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net) às configurações de zona de Intranet dos usuários por meio da política de grupo no Active Directory. Observe que isso funciona apenas para o Internet Explorer e o Google Chrome (se compartilhar o mesmo conjunto de URLs de sites confiáveis que o Internet Explorer). Você precisará configurar separadamente para o Mozilla Firefox.
+
+### <a name="why-do-you-need-this"></a>Por que você precisa fazer isso?
+
 Por padrão, os navegadores não enviam tíquetes Kerberos para um ponto de extremidade de nuvem, a menos que a URL seja definida como parte da zona de Intranet do navegador. O navegador calcula automaticamente a zona correta (Internet ou Intranet) segundo a URL. Por exemplo, http://contoso/ será mapeada para a zona da Intranet, enquanto http://intranet.contoso.com/ será mapeada para a zona da Internet (porque a URL contém um ponto).
 
-Já que as URLs de serviço usadas para SSO contínuo no Azure AD contêm um ponto, elas precisam ser adicionadas explicitamente às configurações de zona de Intranet de cada usuário. Isso faz com que o navegador envie automaticamente os tíquetes Kerberos do usuário atualmente conectado para o Azure AD. Embora você possa fazer isso manualmente em cada computador, a maneira mais fácil de adicionar as URLs necessárias à zona da Intranet para todos os usuários é simplesmente criar uma política de grupo no Active Directory.
+Já que as URLs do Azure AD usadas para SSO contínuo contêm um ponto, elas precisam ser adicionadas explicitamente às configurações de zona de Intranet de cada navegador. Isso faz com que o navegador envie automaticamente os tíquetes Kerberos do usuário atualmente conectado para o Azure AD. Embora você possa fazer isso manualmente em cada desktop, a maneira mais fácil de adicionar as URLs necessárias à zona da Intranet para todos os usuários é simplesmente criar uma política de grupo no Active Directory.
+
+### <a name="detailed-steps"></a>Etapas detalhadas
 
 1. Abra a ferramenta de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo aplicada a todos os usuários, por exemplo a **Política de Domínio Padrão**.
@@ -134,7 +148,9 @@ Já que as URLs de serviço usadas para SSO contínuo no Azure AD contêm um pon
         Data: 1  
 5. Clique em **OK** e em **OK** novamente.
 
-O resultado deve ser assim: ![Logon único](./media/active-directory-aadconnect-sso/sso7.png)
+O resultado deve ser assim:
+
+![Logon único](./media/active-directory-aadconnect-sso/sso7.png)
 
 >[!NOTE]
 >Por padrão, o Chrome usa o mesmo conjunto de URLs de sites confiáveis que o Internet Explorer. Se tiver definido configurações diferentes para o Chrome, você precisará atualizá-las separadamente.
@@ -147,10 +163,11 @@ Use a lista de verificação a seguir para solucionar problemas de SSO contínuo
 2. Ambas as URLs de serviço https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net são definidas como parte das configurações da zona de Intranet.
 3. Certifique-se de que o computador desktop corporativo seja ingressado no domínio do AD.
 4. Certifique-se de que o usuário faça logon no computador desktop usando uma conta de domínio do AD.
-5. Certifique-se de que o computador desktop esteja conectado à rede corporativa.
-6. Certifique-se de que a hora do computador desktop esteja sincronizada com a hora do Active Directory e a dos controladores de domínio e também que elas tenham 5 minutos ou menos de diferença entre si.
-7. Limpe os tíquetes Kerberos existentes dos computadores desktop. Isso pode ser feito executando o comando **klist purge** em um prompt de comando.
-8. Examine os logs do console do navegador (em "Ferramentas de Desenvolvedor)" para ajudar a determinar problemas potenciais.
+5. Verifique se a conta do usuário é de uma floresta do AD na qual o SSO contínuo foi configurado.
+6. Certifique-se de que o computador desktop esteja conectado à rede corporativa.
+7. Certifique-se de que a hora do computador desktop esteja sincronizada com a hora do Active Directory e a dos controladores de domínio e também que elas tenham 5 minutos ou menos de diferença entre si.
+8. Limpe os tíquetes Kerberos existentes dos computadores desktop. Isso pode ser feito executando o comando **klist purge** em um prompt de comando.
+9. Examine os logs do console do navegador (em "Ferramentas de Desenvolvedor)" para ajudar a determinar problemas potenciais.
 
 ### <a name="domain-controller-logs"></a>Logs do controlador de domínio
 

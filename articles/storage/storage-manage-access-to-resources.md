@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar o acesso de leitura anônimo aos contêineres e blobs | Microsoft Docs"
+title: "Habilitar o acesso de leitura público para contêineres e blobs no Armazenamento de Blobs do Azure | Microsoft Docs"
 description: "Saiba como disponibilizar os contêineres e blobs para acesso anônimo e como acessá-los programaticamente."
 services: storage
 documentationcenter: 
@@ -12,47 +12,50 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 4fe41c3aabf5e6d9ae899cea0b9f9b6c9c305cf0
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c7b83667b58649c156a62fa68cebd854c13e2cba
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 ---
-# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerenciar o acesso de leitura anônimo aos contêineres e blobs
-## <a name="overview"></a>Visão geral
-Por padrão, somente o proprietário da conta de armazenamento pode acessar os recursos de armazenamento nessa conta. Para o armazenamento de Blob somente, você pode definir as permissões de um contêiner para permitir o acesso de leitura anônimo ao contêiner e seus blobs, de modo que você pode conceder acesso a esses recursos sem compartilhar sua chave de conta.
 
-O acesso anônimo é ideal para cenários em que você deseja que determinados blobs sempre estejam disponíveis para acesso de leitura anônimo. Para um controle mais refinado, você pode criar uma assinatura de acesso compartilhado, que permite delegar o acesso restrito usando diferentes permissões e em um intervalo de tempo especificado. Para saber mais sobre como criar assinaturas de acesso compartilhado, veja [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
+# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerenciar o acesso de leitura anônimo aos contêineres e blobs
+Você pode habilitar o acesso de leitura anônimo, público para um contêiner e seus blobs no Armazenamento de Blobs do Azure. Ao fazer isso, você pode conceder acesso somente leitura a esses recursos sem compartilhar a chave da conta e sem exigir uma SAS (assinatura de acesso compartilhado).
+
+O acesso de leitura público é ideal para cenários em que você quer que determinados blobs sempre estejam disponíveis para acesso de leitura anônimo. Para ter um controle mais refinado, você pode criar uma assinatura de acesso compartilhado. As assinaturas de acesso compartilhado permitem fornecer acesso restrito usando permissões diferentes, por um período específico. Para saber mais sobre como criar assinaturas de acesso compartilhado, veja [Usando SAS (Assinaturas de Acesso Compartilhado) no Armazenamento do Azure](storage-dotnet-shared-access-signature-part-1.md).
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Conceder permissões de usuários anônimos a contêineres e blobs
 Por padrão, um contêiner e todos os blobs dentro dele podem ser acessados somente pelo proprietário da conta de armazenamento. Para dar aos usuários anônimos permissões de leitura a um contêiner e seus blobs, é possível definir as permissões de contêiner para permitir acesso público. Usuários anônimos podem ler blobs dentro de um contêiner publicamente acessível sem autenticar a solicitação.
 
-Os contêineres fornecem as seguintes opções para gerenciar o acesso do contêiner:
+Você pode configurar um contêiner com as seguintes permissões:
 
-* **Acesso completo de leitura pública:** os dados de contêiner e blob podem ser lidos por solicitação anônima. Os clientes podem enumerar os blobs no contêiner por meio de uma solicitação anônima, mas não podem enumerar os contêineres em uma conta de armazenamento.
-* **Acesso de leitura pública somente para blobs:** os dados blob nesse contêiner podem ser lidos por solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner por meio de uma solicitação anônima.
-* **Sem acesso de leitura público:** os dados de contêiner e de blob podem ser lidos por apenas o proprietário da conta.
+* **Sem acesso de leitura público:** o contêiner e seus blobs podem ser acessados somente pelo proprietário da conta de armazenamento. Esse é o padrão para todos os novos contêineres.
+* **Acesso de leitura público somente para blobs:** os blobs nesse contêiner podem ser lidos por solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner.
+* **Acesso de leitura público completo:** todos os dados de contêiner e blob podem ser lidos por solicitação anônima. Os clientes podem enumerar os blobs no contêiner por meio solicitação anônima, mas não podem enumerar os contêineres na conta de armazenamento.
 
-Você pode definir permissões de contêiner das seguintes maneiras:
+Você pode usar os seguintes recursos para definir permissões de contêiner:
 
-* No [portal do Azure](https://portal.azure.com).
-* Programaticamente, usando a biblioteca de cliente de armazenamento ou a API REST.
-* Usando o PowerShell. Para obter informações sobre como configurar permissões de contêiner do Azure PowerShell, consulte [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
+* [Portal do Azure](https://portal.azure.com)
+* [Azure PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
+* [CLI 2.0 do Azure](storage-azure-cli.md#create-and-manage-blobs)
+* De modo programático, usando uma das bibliotecas de cliente de armazenamento ou a API REST
 
-### <a name="setting-container-permissions-from-the-azure-portal"></a>Definindo permissões de contêiner no Portal do Azure
-Para definir permissões de contêiner no [portal do Azure](https://portal.azure.com), siga estas etapas:
+### <a name="set-container-permissions-in-the-azure-portal"></a>Definir permissões de contêiner no Portal do Azure
+Para definir permissões de contêiner no [Portal do Azure](https://portal.azure.com), siga estas etapas:
 
-1. Navegue até o painel da sua conta de armazenamento.
-2. Selecione o nome do contêiner na lista. Clicar no nome expõe os blobs no contêiner escolhido
-3. Selecione **Política de acesso** na barra de ferramentas.
-4. No campo **Tipo de acesso** , selecione o nível desejado de permissões conforme mostrado na captura de tela abaixo.
+1. Abra a folha **Conta de armazenamento** no portal. Você pode localizar sua conta de armazenamento selecionando **Contas de armazenamento** na folha de menu do portal principal.
+1. Em **SERVIÇO BLOB** na folha de menu, selecione **Contêineres**.
+1. Clique com o botão direito do mouse na linha do contêiner ou selecione as reticências para abrir o **Menu de contexto** do contêiner.
+1. Selecione **Política de acesso** no menu de contexto.
+1. Selecione um **Tipo de acesso** no menu suspenso.
 
     ![Caixa de diálogo Editar Metadados do Contêiner](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
-### <a name="setting-container-permissions-programmatically-using-net"></a>Definindo permissões do contêiner de maneira programática usando .NET
-Para definir permissões para um contêiner usando a biblioteca cliente .NET, primeiro recupere as permissões existentes do contêiner chamando o método **GetPermissions** . Em seguida, defina a propriedade **PublicAccess** para o objeto **BlobContainerPermissions** que é retornado pelo método **GetPermissions**. Por fim, chame o método **SetPermissions** com as permissões atualizadas.
+### <a name="set-container-permissions-with-net"></a>Definir permissões de contêiner com .NET
+A fim de definir permissões para um contêiner usando C# e a Biblioteca de Cliente de Armazenamento para .NET, primeiro recupere as permissões existentes do contêiner chamando o método **GetPermissions**. Em seguida, defina a propriedade **PublicAccess** para o objeto **BlobContainerPermissions** que é retornado pelo método **GetPermissions**. Por fim, chame o método **SetPermissions** com as permissões atualizadas.
 
 O exemplo a seguir define as permissões do contêiner para acesso de leitura público completo. Para definir as permissões como acesso de leitura público somente para os blobs, defina a propriedade **PublicAccess** como **BlobContainerPublicAccessType.Blob**. Para remover todas as permissões para usuários anônimos, defina a propriedade como **BlobContainerPublicAccessType.Off**.
 
@@ -104,7 +107,6 @@ public static void ListBlobsAnonymously()
 }
 ```
 
-
 ### <a name="reference-a-blob-anonymously"></a>Fazer referência a um blob anonimamente
 Se tiver a URL para um blob que está disponível para acesso anônimo, você pode fazer referência ao blob diretamente usando esta URL:
 
@@ -148,14 +150,9 @@ A tabela a seguir mostra quais operações podem ser chamadas por usuários anô
 | Get Page Ranges |Todos |Todos |
 | Acrescentar blob |Somente proprietário |Somente proprietário |
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
+
 * [Autenticação para os Serviços de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md)
 * [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

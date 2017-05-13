@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 0f54fb7d2d8cf010baf79409bc6a528d34982500
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: d3c3f6ba0da73a8297f437a56f190f90274957ab
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,6 +35,7 @@ A autenticação de Passagem do Azure AD fornece uma solução simples para essa
 - Fácil de usar
   - A validação de senha é realizada sem a necessidade de implantações locais ou configuração de rede complexas.
   - Ele utiliza somente um conector local leve que escuta e responde a solicitações de validação de senha.
+  - O conector local tem o recurso de atualização automática para que possa receber os aprimoramentos de recursos e as correções de bugs automaticamente.
   - Ele pode ser configurado com o [Azure AD Connect](active-directory-aadconnect.md). O conector local leve é instalado no mesmo servidor que o Azure AD Connect.
 - Segurança
   - Senhas locais nunca são armazenadas na nuvem, em formato nenhum.
@@ -63,7 +65,7 @@ Os cenários a seguir NÃO têm suporte durante a visualização:
 - Ingresso do Azure AD para dispositivos Windows 10.
 
 >[!IMPORTANT]
->Como alternativa para cenários aos quais a autenticação de passagem não dá suporte atualmente (aplicativos cliente do Office herdados, Ingresso do Azure AD e Exchange ActiveSync para dispositivos Windows 10), a sincronização de senha também é habilitada por padrão quando você habilita a Autenticação de Passagem. A sincronização de senha funciona como um fallback apenas nesses cenários específicos. Se isso não for necessário, você poderá desligar a sincronização de senha na página [Recursos Opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) no Azure AD Connect.
+>Como alternativa para cenários aos quais o recurso de autenticação de passagem não dá suporte atualmente (aplicativos cliente do Office herdados, Ingresso do Azure AD e Exchange ActiveSync para dispositivos Windows 10), a sincronização de senha também é habilitada por padrão quando você habilita a autenticação de passagem. A sincronização de senha funciona como um fallback apenas nesses cenários específicos. Se isso não for necessário, você poderá desligar a sincronização de senha na página [Recursos Opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) no assistente do Azure AD Connect.
 
 ## <a name="how-to-enable-azure-ad-pass-through-authentication"></a>Como habilitar a Autenticação de Passagem do Azure AD?
 
@@ -74,25 +76,27 @@ Antes que você possa habilitar a autenticação de passagem do Azure AD, você 
 - Um locatário do Azure AD para o qual você é um administrador global.
 
 >[!NOTE]
->É recomendável que a conta seja uma conta de administrador global somente de nuvem, para que você possa gerenciar a configuração do locatário se os serviços locais falharem ou ficarem não disponíveis. Você pode adicionar uma conta de Administrador Global somente de nuvem conforme demonstrado [aqui](../active-directory-users-create-azure-portal.md).
+>É altamente recomendável que a conta seja uma conta de administrador global somente de nuvem, para que você possa gerenciar a configuração do locatário se os serviços locais falharem ou ficarem não disponíveis. Você pode adicionar uma conta de Administrador Global somente de nuvem conforme demonstrado [aqui](../active-directory-users-create-azure-portal.md).
 
-- Azure AD Connect versão 1.1.484.0 ou superior. É recomendável que você use o [versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+- Azure AD Connect versão 1.1.486.0 ou superior. É recomendável que você use o [versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 - Um servidor executando o Windows Server 2012 R2 ou superior no qual executar a ferramenta Azure AD Connect.
   - Esse servidor deve ser um membro da mesma floresta do AD que os usuários cujas senhas precisam ser validadas.
-  - Observe que um conector é instalado no mesmo servidor que o Azure AD Connect.
+  - Observe que o conector de autenticação de passagem é instalado no mesmo servidor do Azure AD Connect. Verifique se a versão do conector é a 1.5.58.0 ou superior.
 
 >[!NOTE]
 >Ambientes de várias florestas têm suporte se há relações de confiança entre as florestas do AD e o roteamento de sufixo de nome está corretamente configurado.
 
-- Se desejar alta disponibilidade, você precisará de mais servidores executando o Windows Server 2012 R2 ou superior para instalar os conectores autônomos.
+- Se desejar alta disponibilidade, você precisará de mais servidores executando o Windows Server 2012 R2 ou superior para instalar os conectores autônomos (a versão precisa ser 1.5.58.0 ou superior).
 - Se houver um firewall entre qualquer um dos conectores e o Azure AD, certifique-se do seguinte:
     - Se a filtragem de URL estiver habilitada, verifique se o conector pode se comunicar com as URLs a seguir:
         -  \*.msappproxy.net
         -  \*.servicebus.windows.net
     - Os conectores também estabelecem conexões IP diretas com os [intervalos de IP do data center do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
     - Verifique se o firewall não executa a inspeção SSL, pois os conectores usam certificados de cliente para se comunicar com o Azure AD.
-    - Certifique-se de que o conector possa fazer solicitações HTTPS (TCP) para o Azure AD nas portas 80 e 443.
+    - Certifique-se de que o conector possa fazer solicitações de saída para o Azure AD nas portas 80 e 443.
       - Se o firewall impõe as regras de acordo com os usuários de origem, abra essas portas para o tráfego proveniente de serviços do Windows em execução como um serviço de rede.
+      - Os conectores fazem solicitações HTTP pela porta 80 para baixar listas de revogação de certificado SSL. Isso também é necessário para o recurso de atualização automática funcionar corretamente.
+      - Os conectores fazem solicitações HTTPS pela porta 443 para todas as outras operações, como habilitar e desabilitar o recurso, registrar conectores, baixar atualizações do conector e manipular todas as solicitações de entrada do usuário.
 
 >[!NOTE]
 >Recentemente, fizemos melhorias para reduzir o número de portas exigidas pelos conectores para comunicação com o serviço. Se você estiver executando versões mais antigas dos conectores autônomos e/ou do Azure AD Connect, você deverá continuar a manter as portas adicionais (5671, 8080, 9090, 9091, 9350, 9352, 10100 10120) abertas.
@@ -122,7 +126,7 @@ Siga as instruções a seguir para implantar um conector autônomo:
 
 Nesta etapa, você pode baixar e instalar o software do conector no servidor.
 
-1.    [Baixe](https://go.microsoft.com/fwlink/?linkid=837580) o conector mais recente.
+1.    [Baixe](https://go.microsoft.com/fwlink/?linkid=837580) o conector mais recente. Verifique se a versão do conector é a 1.5.58.0 ou superior.
 2.    Abra um prompt de comando como administrador.
 3.    Execute o seguinte comando (/q significa instalação silenciosa: a instalação não solicitará que você aceite o Contrato de Licença de Usuário Final):
 
@@ -173,7 +177,7 @@ Um conector de autenticação de passagem não pode ser instalado no mesmo servi
 
 #### <a name="an-unexpected-error-occured"></a>Erro inesperado
 
-[Colete logs do conector](#how-to-collect-pass-through-authentication-connector-logs?) do servidor e contate o Suporte da Microsoft com o seu problema.
+[Colete logs do conector](#collecting-pass-through-authentication-connector-logs) do servidor e contate o Suporte da Microsoft com o seu problema.
 
 ### <a name="issues-during-registration-of-connectors"></a>Problemas durante o registro de conectores
 
@@ -181,9 +185,13 @@ Um conector de autenticação de passagem não pode ser instalado no mesmo servi
 
 Certifique-se de que o servidor no qual o conector foi instalado possa se comunicar com as URLs e portas de nosso serviço listadas [aqui](#pre-requisites).
 
+#### <a name="registration-of-the-connector-failed-due-to-token-or-account-authorization-errors"></a>Falha no registro do conector devido a erros de autorização de token ou conta
+
+Use uma conta de Administrador Global somente de nuvem para todas as operações de registro e instalação de conector do Azure AD Connect ou autônomo. Há um problema conhecido com contas de Administrador Global habilitadas para MFA; desative a MFA temporariamente como uma solução alternativa (somente para concluir as operações).
+
 #### <a name="an-unexpected-error-occurred"></a>Erro inesperado
 
-[Colete logs do conector](#how-to-collect-pass-through-authentication-connector-logs?) do servidor e contate o Suporte da Microsoft com o seu problema.
+[Colete logs do conector](#collecting-pass-through-authentication-connector-logs) do servidor e contate o Suporte da Microsoft com o seu problema.
 
 ### <a name="issues-during-un-installation-of-connectors"></a>Problemas durante a desinstalação de conectores
 
@@ -197,11 +205,15 @@ Você precisa ter uma instalação com [alta disponibilidade](#ensuring-high-ava
 
 #### <a name="the-enabling-of-the-feature-failed-because-there-were-no-connectors-available"></a>A habilitação da funcionalidade falhou porque não havia nenhum conector disponível
 
-Você precisa ter pelo menos um servidor de conector ativo para poder habilitar a autenticação de passagem no locatário. Você pode instalar um conector instalando o Azure AD Connect ou um conector autônomo.
+Você precisa ter pelo menos um conector ativo para habilitar a autenticação de passagem no locatário. Você pode instalar um conector instalando o Azure AD Connect ou um conector autônomo.
 
 #### <a name="the-enabling-of-the-feature-failed-due-to-blocked-ports"></a>A habilitação da funcionalidade falhou devido a portas bloqueadas
 
 Certifique-se de que o servidor no qual o Azure AD Connect está instalado possa se comunicar com as URLs e portas de nosso serviço listadas [aqui](#pre-requisites).
+
+#### <a name="the-enabling-of-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Falha na habilitação do registro devido a erros de autorização de token ou conta
+
+Use uma conta de Administrador Global somente de nuvem ao habilitar o recurso. Há um problema conhecido com contas de Administrador Global habilitadas para MFA (autenticação multifator); desative a MFA temporariamente como uma solução alternativa (somente para concluir as operações).
 
 ### <a name="issues-while-operating-the-pass-through-authentication-feature"></a>Problemas ao operar a funcionalidade de autenticação de passagem
 
@@ -217,7 +229,7 @@ A funcionalidade relata os erros voltados para o usuário a seguir na tela de en
 |AADSTS80005|Validação encontrou WebException imprevisível|Esse é provavelmente um problema temporário. Tente novamente a solicitação. Caso a falha persista, contate o Suporte da Microsoft.
 |AADSTS80007|Erro na comunicação com o Active Directory|Confira os logs de conector para obter mais informações e verifique se o Active Directory está funcionando conforme o esperado.
 
-### <a name="how-to-collect-pass-through-authentication-connector-logs"></a>Como coletar logs do conector de autenticação de passagem?
+### <a name="collecting-pass-through-authentication-connector-logs"></a>Coletar logs do conector de autenticação de passagem
 
 Dependendo do tipo de problema você tiver, você precisará examinar locais diferentes em busca de logs de autenticação de passagem do conector.
 

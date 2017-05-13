@@ -12,19 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/28/2017
 ms.author: sethm;hillaryc
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 946f3ac069db436828427e575be5a14efac9dda9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
-O Barramento de Serviço do Azure emprega vários agentes de mensagens para processar mensagens e vários repositórios de mensagens para armazenar mensagens. Uma fila ou um tópico convencional é manipulado por um único agente de mensagem e armazenado em um repositório de mensagens. As *partições* do Barramento de Serviço permitem que filas ou tópicos sejam particionados entre diversos agentes e repositórios de mensagens. Isso significa que a produtividade geral de uma fila ou um tópico particionado não é mais limitada pelo desempenho de um único agente ou repositório de mensagens. Além disso, uma interrupção temporária de um repositório de mensagens não torna uma fila ou um tópico particionado indisponível. Filas e tópicos particionados podem conter todos os recursos avançados do Barramento de Serviço, como o suporte a transações e sessões.
+O Barramento de Serviço do Azure emprega vários agentes de mensagens para processar mensagens e vários repositórios de mensagens para armazenar mensagens. Uma fila ou um tópico convencional é manipulado por um único agente de mensagem e armazenado em um repositório de mensagens. As *partições* do Barramento de Serviço permitem que filas ou tópicos, ou *entidades de mensagens*, sejam particionados entre diversos agentes e repositórios de mensagens. Isso significa que a taxa de transferência geral de uma entidade particionada não é mais limitada pelo desempenho de um único agente ou repositório de mensagens. Além disso, uma interrupção temporária de um repositório de mensagens não torna uma fila ou um tópico particionado indisponível. Filas e tópicos particionados podem conter todos os recursos avançados do Barramento de Serviço, como o suporte a transações e sessões.
 
 Para saber mais sobre aspectos internos do Barramento de Serviço, confira o artigo [Arquitetura do Barramento de Serviço][Service Bus architecture].
+
+O particionamento é habilitado por padrão na criação da entidade em todos os tópicos e filas de mensagens Standard e Premium. Você pode criar entidades da camada de mensagens Standard sem particionamento, mas filas e tópicos em um namespace Premium são sempre particionados; essa opção não pode ser desabilitada. 
+
+Não é possível alterar a opção de particionamento em uma fila ou um tópico existente nas camadas Standard e Premium. Você pode definir a opção apenas quando cria a entidade.
 
 ## <a name="how-it-works"></a>Como ele funciona
 Cada fila ou tópico particionado consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente e manipulado por um agente de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. A seleção é feita aleatoriamente pelo Barramento de Serviço ou por uma chave de partição que pode ser especificada pelo remetente.
@@ -36,9 +41,19 @@ Não há custo adicional ao enviar ou receber uma mensagem de uma fila ou um tó
 ## <a name="enable-partitioning"></a>Habilitar particionamento
 Para usar filas e tópicos particionados com o Barramento de Serviço do Azure, use o SDK do Azure versão 2.2 ou posterior, ou especifique `api-version=2013-10` em suas solicitações HTTP.
 
-Você pode criar filas e tópicos do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado, o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 \* 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Azure portal].
+### <a name="standard"></a>Standard
 
-Há várias maneiras de criar uma fila ou um tópico particionado. Ao criar a fila ou o tópico de seu aplicativo, você pode habilitar o particionamento de fila ou tópico definindo respectivamente a propriedade [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] ou [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] como **true**. Essas propriedades devem ser definidas no momento em que a fila ou o tópico é criado. Não é possível alterar essas propriedades em uma fila ou um tópico existente. Por exemplo:
+Na camada de mensagens Standard, é possível criar filas e tópicos do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado, o Barramento de Serviço cria 16 cópias (16 partições) da entidade para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 \* 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Azure portal], na folha **Visão Geral** da entidade em questão.
+
+### <a name="premium"></a>Premium
+
+Em um namespace de camada Premium, você pode criar filas e tópicos do Barramento de Serviços em tamanhos de 1, 2, 3, 4, 5, 10, 20, 40 ou 80 GB (o padrão é 1 GB). Com o particionamento habilitado por padrão, o Barramento de Serviço cria duas partições por entidade. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Azure portal], na folha **Visão Geral** da entidade em questão.
+
+Para saber mais sobre o particionamento na camada de mensagens Premium, confira [Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço](service-bus-premium-messaging.md). 
+
+### <a name="create-a-partitioned-entity"></a>Criar uma entidade particionada
+
+Há várias maneiras de criar uma fila ou um tópico particionado. Ao criar a fila ou o tópico de seu aplicativo, você pode habilitar o particionamento de fila ou tópico definindo respectivamente a propriedade [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] ou [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] como **true**. Essas propriedades devem ser definidas no momento em que a fila ou o tópico é criado. Conforme declarado anteriormente, não é possível alterar essas propriedades em uma fila ou um tópico existente. Por exemplo:
 
 ```csharp
 // Create partitioned topic
@@ -48,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Como alternativa, você pode criar uma fila ou um tópico particionado no Visual Studio ou no [Portal do Azure][Azure portal]. Ao criar uma fila ou um novo tópico no portal, defina a opção **Habilitar Particionamento** na folha **Configurações gerais** da janela **Configurações** da fila ou do tópico como **verdadeiro**. No Visual Studio, clique na caixa de seleção **Habilitar Particionamento** na caixa de diálogo **Nova Fila** ou **Novo Tópico**.
+Como alternativa, você pode criar uma fila ou um tópico particionado no [Portal do Azure][Azure portal] ou no Visual Studio. Ao criar uma fila ou um tópico no portal, a opção **Habilitar particionamento** na folha **Criar** da fila ou do tópico é marcada por padrão. Você só pode desabilitar essa opção em uma entidade da camada Standard; na camada Premium, o particionamento está sempre habilitado. No Visual Studio, clique na caixa de seleção **Habilitar Particionamento** na caixa de diálogo **Nova Fila** ou **Novo Tópico**.
 
 ## <a name="use-of-partition-keys"></a>Uso de chaves de partição
 Quando uma mensagem é enfileirada em uma fila ou um tópico particionado, o Barramento de Serviço verifica a presença de uma chave de partição. Se encontrar uma, ele selecionará o fragmento com base na chave. Se não encontrar uma chave de partição, ele selecionará o fragmento com base em um algoritmo interno.
