@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: lvargas
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1bbcc8517b0e7bf3836e79a3861f83e181eb67e7
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c5d0b7b466c65fb218acd010c13bde061a3abfbf
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -171,7 +172,7 @@ A maioria dos clientes que estão executando código de produção no Azure mant
 Para obter informações abrangentes e tutoriais sobre técnicas de alta disponibilidade e recuperação de desastres, veja [Alta disponibilidade e recuperação de desastre para o SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>Duas e três camadas usando Serviços de Nuvem e VMs do Azure
-Nesse padrão de aplicativo, você implanta um aplicativo de duas ou três camadas no Azure usando os [Serviços de Nuvem do Azure](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (funções web e de trabalho – PaaS (Plataforma como serviço)) e as [Máquinas Virtuais do Azure](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (IaaS (Infraestrutura como serviço)). Usar os [Serviços de Nuvem do Azure](https://azure.microsoft.com/documentation/services/cloud-services/) para a camada de negócios/camada de apresentação e o SQL Server nas [Máquinas Virtuais do Azure](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para a camada de dados é útil para a maioria dos aplicativos em execução no Azure. O motivo é que ter uma instância de computação em execução nos Serviços de Nuvem facilita o gerenciamento, a implantação, o monitoramento e o dimensionamento.
+Nesse padrão de aplicativo, você implanta um aplicativo de duas ou três camadas no Azure usando os [Serviços de Nuvem do Azure](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (funções web e de trabalho – PaaS (Plataforma como serviço)) e as [Máquinas Virtuais do Azure](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (IaaS (Infraestrutura como serviço)). Usar os [Serviços de Nuvem do Azure](https://azure.microsoft.com/documentation/services/cloud-services/) para a camada de negócios/camada de apresentação e o SQL Server nas [Máquinas Virtuais do Azure](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para a camada de dados é útil para a maioria dos aplicativos em execução no Azure. O motivo é que ter uma instância de computação em execução nos Serviços de Nuvem facilita o gerenciamento, a implantação, o monitoramento e o dimensionamento.
 
 Com os Serviços de Nuvem, o Azure mantém a infraestrutura para você, executa a manutenção de rotina, aplica patches aos sistemas operacionais e tenta se recuperar de falhas do serviço e do hardware. Quando seu aplicativo precisa ser escala horizontalmente, há opções de escalamento horizontal automático e manual disponíveis para seu projeto de serviço de nuvem, aumentando ou diminuindo o número de instâncias ou máquinas virtuais que são usadas pelo aplicativo. Além disso, você pode usar o Visual Studio local para implantar o aplicativo em um projeto de serviço de nuvem no Azure.
 
