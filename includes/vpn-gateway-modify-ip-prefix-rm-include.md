@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Modificar prefixos - nenhuma conexão de gateway
+### <a name="noconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - sem conexão de gateway
 
 - Para adicionar prefixos de endereço adicional:
 
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- Para remover um prefixo de endereço:<br>
+- Para remover os prefixo de endereço:<br>
   Exclua os prefixos de que você não precisa mais. Neste exemplo, não é mais necessário prefixar 20.0.0.0/24 (do exemplo anterior), portanto, atualizaremos o gateway de rede local e excluiremos o prefixo.
 
   ```powershell
@@ -17,13 +17,10 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>Modificar prefixos - com uma conexão de gateway existente
-Se você possui uma conexão de gateway e deseja adicionar ou remover os prefixos do endereço IP contidos no gateway de rede local, você precisará executar as etapas a seguir nessa ordem. Isso resulta em algum tempo de inatividade para a conexão VPN.
+### <a name="withconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - conexão de gateway existente
 
-> [!IMPORTANT]
-> Não exclua o gateway de VPN. Se você fizer isso, você precisa percorrer as etapas para recriá-lo. Além disso, você deve atualizar seu dispositivo VPN local pelo novo endereço IP de gateway de VPN.
-> 
-> 
+Se você possui uma conexão de gateway e deseja adicionar ou remover os prefixos do endereço IP contidos no gateway de rede local, você precisará executar as etapas a seguir nessa ordem. Isso resulta em algum tempo de inatividade para a conexão VPN. Ao modificar prefixos de endereço IP, você não precisa excluir o gateway de VPN. Você precisa apenas remover a conexão.
+
 
 1. Remova a conexão.
 
