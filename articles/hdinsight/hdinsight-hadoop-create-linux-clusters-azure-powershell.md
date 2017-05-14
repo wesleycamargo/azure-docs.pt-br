@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a9bd1938c6b0aad2c08d063fd892fea2f8aad56e
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: f22fc9e9306d34b66e89966a0f4485461539899d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,16 +37,12 @@ O Azure PowerShell é um ambiente de script poderoso que você pode usar para co
 Você deve ter o seguinte antes de iniciar este procedimento:
 
 * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+* [PowerShell do Azure](/powershell/azure/install-azurerm-ps)
 
     > [!IMPORTANT]
     > O suporte do Azure PowerShell para gerenciar os recursos do HDInsight usando o Gerenciador de Serviços do Azure está **preterido** e foi removido em 1º de janeiro de 2017. As etapas neste documento usam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
     >
     > Siga as etapas em [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) para instalar a versão mais recente do Azure PowerShell. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets que funcionam com o Azure Resource Manager, confira [Migrando para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) para obter mais informações.
-
-### <a name="access-control-requirements"></a>Requisitos de controle de acesso
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>Criar cluster
 
@@ -181,6 +178,10 @@ O script a seguir cria um objeto de configuração para configurar um R Server n
 ## <a name="delete-the-cluster"></a>Excluir o cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot"></a>Solucionar problemas
+
+Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Próximas etapas
 
