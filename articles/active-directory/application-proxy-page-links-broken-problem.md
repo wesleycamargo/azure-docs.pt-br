@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: e4b2556533fcb22556ca526d5815908fdefb0788
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
 
 
@@ -44,7 +45,7 @@ Há três maneiras de resolver esse problema. As escolhas abaixo estão listadas
 
 3.  Se nenhuma dessas opções for viável, você ingressa na visualização para um novo recurso que faz conversão/regravação de URL. Com essa opção, as URLs internas ou os links existentes no corpo HTML de seus aplicativos serão convertidos ou “mapeados” para URLs de Proxy de Aplicativo externas publicadas. Isso só funciona para links em HTML ou CSS, e não irá ajudar se seu link for gerado através de JS. 
 
-Como um resultado, é altamente recomendável usar a solução [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains), se possível. Se você deseja ingressar na visualização, envie um email < aadapfeedback@microsoft.com > com o applicationId(s).
+Como um resultado, é altamente recomendável usar a solução [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains), se possível. Se você deseja ingressar na visualização, envie um email <aadapfeedback@microsoft.com> com o applicationId(s).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md)
