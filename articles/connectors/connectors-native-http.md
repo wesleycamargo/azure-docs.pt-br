@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/11/2017
 
 
@@ -199,7 +200,7 @@ O seguinte objeto de autenticação é necessário para a autenticação OAuth d
 | Secret* |segredo |O segredo do cliente que está solicitando o token |
 
 > [!TIP]
-> Você pode usar um parâmetro `securestring` e a função de definição do fluxo de trabalho `@parameters()` [](http://aka.ms/logicappdocs) para usar um parâmetro que não será legível na definição depois de salvar.
+> Você pode usar um parâmetro `securestring` e a `@parameters()` [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs) para usar um parâmetro que não será legível na definição depois de salvar.
 > 
 > 
 
