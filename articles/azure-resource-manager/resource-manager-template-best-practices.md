@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fe52ced5e4dc829b5d1421bf0edcd58cffcaad19
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -48,7 +49,7 @@ Você deve fornecer um nome de recurso exclusivo para qualquer tipo de recurso q
 
 <sup>1</sup> Os nomes de conta de armazenamento devem estar em letras minúsculas, ter até 24 caracteres e não incluir hifens.
 
-Se você fornecer um parâmetro para um nome de recurso, será preciso fornecer um nome exclusivo na implantação do recurso. Como opção, você pode criar uma variável que use a função [uniqueString()](resource-group-template-functions.md#uniquestring) para gerar um nome. 
+Se você fornecer um parâmetro para um nome de recurso, será preciso fornecer um nome exclusivo na implantação do recurso. Como opção, você pode criar uma variável que use a função [uniqueString()](resource-group-template-functions-string.md#uniquestring) para gerar um nome. 
 
 Também convém adicionar um prefixo ou sufixo ao resultado **uniqueString**. Modificar o nome exclusivo pode ajudar você a identificar mais facilmente o tipo de recurso pelo nome. Por exemplo, você pode gerar um nome exclusivo para uma conta de armazenamento usando a seguinte variável:
 
@@ -174,7 +175,7 @@ As seguintes informações podem ser úteis quando você trabalha com parâmetro
 As seguintes informações podem ser úteis quando você trabalha com variáveis:
 
 * Use variáveis para valores que você precisa usar mais de uma vez em um modelo. Se um valor for usado apenas uma vez, um valor embutido em código facilita a leitura do modelo.
-* Não é possível usar a função [reference](resource-group-template-functions.md#reference) na seção de **variables** do modelo. A função **reference** deriva seu valor do estado de tempo de execução do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que precisam da função **reference** diretamente na seção **resources** ou **outputs** do modelo.
+* Não é possível usar a função [reference](resource-group-template-functions-resource.md#reference) na seção de **variables** do modelo. A função **reference** deriva seu valor do estado de tempo de execução do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que precisam da função **reference** diretamente na seção **resources** ou **outputs** do modelo.
 * Inclua variáveis em nomes de recurso que devem ser exclusivos, conforme descrito em [Nomes de recurso](#resource-names).
 * Você pode agrupar variáveis em objetos complexos. Use o formato **variable.subentry** para fazer referência a um valor de um objeto complexo. O agrupamento de variáveis pode ajudar a rastrear variáveis relacionadas. Ele também melhora a legibilidade do modelo. Aqui está um exemplo:
    

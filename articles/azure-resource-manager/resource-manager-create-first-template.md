@@ -14,10 +14,11 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -184,7 +185,7 @@ Novamente, o VS Code ajuda você sugerindo as funções disponíveis.
 
 ![mostrar funções](./media/resource-manager-create-first-template/show-functions.png)
 
-Observe que a função é delimitada por colchetes. A função [resourceGroup](resource-group-template-functions.md#resourcegroup) retorna um objeto com uma propriedade chamada `location`. O grupo de recursos contém todos os recursos relacionados para sua solução. Você pode codificar a propriedade location para um valor como "EUA Central", mas precisaria alterar manualmente o modelo reimplantar em um local diferente. A função `resourceGroup` facilita a reimplantação desse modelo para um grupo de recursos diferente em um local diferente.
+Observe que a função é delimitada por colchetes. A função [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) retorna um objeto com uma propriedade chamada `location`. O grupo de recursos contém todos os recursos relacionados para sua solução. Você pode codificar a propriedade location para um valor como "EUA Central", mas precisaria alterar manualmente o modelo reimplantar em um local diferente. A função `resourceGroup` facilita a reimplantação desse modelo para um grupo de recursos diferente em um local diferente.
 
 O modelo agora se parece com:
 
@@ -216,7 +217,7 @@ O modelo agora se parece com:
 ## <a name="add-parameters-and-variables"></a>Adicionar parâmetros e variáveis
 Há somente dois valores restantes para definir em seu modelo - **name** e **sku.name**. Para essas propriedades, adicione parâmetros que permitem a personalização desses valores durante a implantação. 
 
-Os nomes de conta de armazenamento têm várias restrições que os tornam difíceis de definir. O nome deve ter entre três e 24 caracteres de comprimento e usar somente números e letras minúsculas, além de ser exclusivo. Em vez de tentar adivinhar um valor exclusivo que corresponda às restrições, use a função [uniqueString](resource-group-template-functions.md#uniquestring) para gerar um valor de hash. Para dar mais significado a esse valor de hash, adicione um prefixo que ajuda a identificá-lo como uma conta de armazenamento após a implantação. 
+Os nomes de conta de armazenamento têm várias restrições que os tornam difíceis de definir. O nome deve ter entre três e 24 caracteres de comprimento e usar somente números e letras minúsculas, além de ser exclusivo. Em vez de tentar adivinhar um valor exclusivo que corresponda às restrições, use a função [uniqueString](resource-group-template-functions-string.md#uniquestring) para gerar um valor de hash. Para dar mais significado a esse valor de hash, adicione um prefixo que ajuda a identificá-lo como uma conta de armazenamento após a implantação. 
 
 1. Para passar um prefixo para o nome que corresponda às suas convenções de nomenclatura, acesse a seção **parameters** de seu modelo. Adicione um parâmetro para o modelo que aceite um prefixo para o nome da conta de armazenamento:
 
