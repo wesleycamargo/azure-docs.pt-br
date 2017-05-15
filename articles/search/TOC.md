@@ -15,13 +15,12 @@
 ### [portal do Azure](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
-## [Controlar os resultados da pesquisa](search-pagination-page-layout.md)
-## Tutoriais
-### [.NET](search-howto-dotnet-sdk.md)
-### [Visualização de sinônimos do .NET](search-synonyms-tutorial-sdk.md)
-### [Portal](search-get-started-portal.md)
-### [NodeJS](search-get-started-nodejs.md)
-### [Java](search-get-started-java.md)
+# Tutoriais
+## [.NET](search-howto-dotnet-sdk.md)
+## [Visualização de sinônimos do .NET](search-synonyms-tutorial-sdk.md)
+## [Portal](search-get-started-portal.md)
+## [Node.js](search-get-started-nodejs.md)
+## [Java](search-get-started-java.md)
 # Como
 ## Planejar e projetar
 ### [Limites de serviço](search-limits-quotas-capacity.md)
@@ -44,7 +43,7 @@
 ### [Indexador do Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 ### [Indexador do Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 ### [Indexador do SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indexador do DocumentDB do Azure](search-howto-index-documentdb.md)
+### [Indexador de Banco de dados do Azure Cosmos](search-howto-index-documentdb.md)
 ### [Indexar blobs do CSV](search-howto-index-csv-blobs.md)
 ### [Indexar blobs do JSON](search-howto-index-json-blobs.md)
 ### [Configurar conexões do indexador para o SQL Server na VM do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -59,14 +58,16 @@
 ### Pesquisa Personalizada
 #### [Analisadores de linguagem](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### [Resultados da paginação](search-pagination-page-layout.md)
 ### [Pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Sugestões](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Navegação facetada](search-faceted-navigation.md)
 ### [Visualização de sinônimos](search-synonyms.md)
 
 # Referência
-## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET (Gerenciamento)](/dotnet/api/microsoft.azure.management.search)
+
+## [.NET](/dotnet/api/?term=microsoft.azure.search)
+## [.NET (Gerenciamento)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Gerenciamento)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (Gerenciamento)](/rest/api/searchmanagement)

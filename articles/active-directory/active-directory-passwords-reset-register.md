@@ -1,8 +1,8 @@
 ---
-title: "Azure AD: registro de redefinição de senha de autoatendimento | Microsoft Docs"
-description: "Registrar dados de autenticação para redefinição de senha de autoatendimento"
+title: 'Azure AD: registro SSPR | Microsoft Docs'
+description: "Registrar dados de autenticação para redefinição de senha de autoatendimento do Azure AD"
 services: active-directory
-keywords: "Gerenciamento de senha do Active Directory, gerenciamento de senha, redefinição de senha de autoatendimento do Azure AD, SSPR"
+keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
@@ -11,30 +11,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/16/2017
+ms.topic: article
+ms.date: 04/26/2017
 ms.author: joflore
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c6d3d9d8f399816928e794e8956bc35825462fb9
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: bd0175558a94a146a365e8c1a32522f1e54c184e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="register-for-self-service-password-reset"></a>Registro de redefinição de senha de autoatendimento
 
-Como um usuário final, se o administrador tiver habilitado essa opção, você poderá redefinir sua senha ou desbloquear sua conta sem precisar falar com uma pessoa usando a SSPR (redefinição de senha de autoatendimento). Antes de usar essa funcionalidade, você precisa registrar métodos de autenticação ou confirmar os métodos de autenticação predefinidos que administrador preencheu.
+Como um usuário final, você poderá redefinir sua senha ou desbloquear sua conta sem precisar falar com uma pessoa usando a SSPR (redefinição de senha de autoatendimento). Antes de usar essa funcionalidade, você precisa registrar métodos de autenticação ou confirmar os métodos de autenticação predefinidos que administrador preencheu.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registrar ou confirmar dados de autenticação com SSPR
 
 1. Abra o navegador da web em seu dispositivo e vá para o [página de registro de redefinição de senha](http://aka.ms/ssprsetup)
 2. Insira seu nome de usuário e senha fornecidos pelo administrador
-3. Dependendo das opções que o administrador aprovou, você verá um ou mais itens a seguir para configurar ou verificar e ser usados se você precisar redefinir sua senha
-    * Telefone do escritório - esta opção só é capaz de ser definida pelo administrador
-    * Autenticação de telefone - esta opção deve ser definida como outro número de telefone que você pode acessar, como um telefone celular que possa receber uma chamada (o administrador pode preencher isso para você com o número do telefone celular se ele tiver permissão para usar essas informações)
-    * Email de autenticação - esta opção deve ser definida como um endereço de email alternativo que você pode acessar sem a senha que será redefinida
-    * Perguntas de segurança - esta opção fornece uma lista de perguntas aprovadas pelo administrador para que você responda. Você não pode usar a mesma resposta para mais de uma pergunta.
+3. Dependendo de como sua equipe de TI tiver configurado as coisas, uma ou mais das seguintes opções estão disponíveis para configurar e verificar. O administrador pode preencher algumas para você caso eles tenham permissão para usar as informações.
+    * O telefone do escritório só é capaz de ser definida pelo administrador
+    * O Telefone de Autenticação deve ser definido como outro número de telefone a que você teria acesso como um telefone celular que possa receber uma chamada ou um texto.
+    * O email de autenticação deve ser definido como um endereço de email alternativo que você pode acessar sem a senha que será redefinida.
+    * As perguntas de segurança fornecem uma lista de perguntas aprovadas pelo administrador para que você responda. Você não pode usar a mesma resposta para mais de uma pergunta.
 4. Forneça e verifique as informações exigidas pelo seu administrador. Se houver mais de uma opção, sugerimos que você registre vários métodos para fornecer flexibilidade quando outro método não estiver disponível (exemplo: viajando e sem poder acessar seu telefone comercial)
 
     ![Registre os métodos de autenticação e clique em Concluir][Register]
@@ -53,4 +54,5 @@ Os administradores podem exigir que você confirme os métodos de autenticação
 * [Você não consegue acessar a sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Página de registro de redefinição de senha mostrando métodos registrados e botão Concluir"
+
 

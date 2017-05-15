@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
 ms.openlocfilehash: 18dcb3a319f78639b27f9e70a2177423192e5958
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/13/2017
 
 
@@ -123,9 +124,9 @@ Para usar repositórios Data Lake com sua conta do HDInsight, você precisa dar 
 Você pode acessar um repositório Data Lake usando uma Entidade de Serviço do Azure AD (Azure Active Directory) que está associada ao cluster do HDInsight.
 
 ### <a name="to-add-a-service-principal"></a>Para adicionar uma entidade de serviço
-1. Ao criar o cluster HDInsight, selecione **Identidade AAD do Cluster** na guia **Fonte de Dados**.
+1.Ao criar o cluster HDInsight, selecione **Identidade AAD do Cluster** na guia **Fonte de Dados**.
 
-2. Na caixa de diálogo **Identidade AAD do Cluster**, em **Selecionar Entidade de Serviço do AD**, selecione **Criar novo**.
+2.Na caixa de diálogo **Identidade AAD do Cluster**, em **Selecionar Entidade de Serviço do AD**, selecione **Criar novo**.
 
 Depois de dar um nome à Entidade de Serviço e criar uma senha para ela, clique em **Gerenciar Acesso de ADLS** para associar a Entidade de Serviço aos seus repositórios Data Lake Store.
 

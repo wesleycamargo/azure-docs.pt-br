@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/18/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 5da21de1f7b51a6ca38a3fe443531bab4091dd60
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9489fdc3c5388a7510bc4411b4abb05fa72fbf4f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -52,7 +53,7 @@ A lista a seguir contém informações sobre o processo de usar o Kafka no HDIns
 
 ## <a name="create-using-powershell"></a>Criar usando o PowerShell
 
-As etapas desta seção criam a seguinte configuração usando o [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/):
+As etapas desta seção criam a seguinte configuração usando o [Azure PowerShell](/powershell/azure/overview):
 
 * Rede Virtual do Azure
 * Gateway de VPN ponto a site
@@ -229,7 +230,7 @@ Por padrão, o Zookeeper retorna o nome de domínio dos agentes do Kafka aos cli
 
     Quando solicitado, use o nome de usuário e a senha HTTPS para o cluster. A Interface de Usuário Ambari Web para o cluster é exibida.
 
-2. Para exibir informações sobre o Kafka, selecione __Kafka__ na lista à esquerda. 
+2. Para exibir informações sobre o Kafka, selecione __Kafka__ na lista à esquerda.
 
     ![Lista de serviços com Kafka realçado](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
@@ -271,7 +272,7 @@ Por padrão, o Zookeeper retorna o nome de domínio dos agentes do Kafka aos cli
 
 ## <a name="connect-to-the-vpn-gateway"></a>Conectar-se ao gateway de VPN
 
-Para se conectar ao gateway de VPN usando um __cliente Windows__, use a seção __Conectar ao Azure__ do documento [Configurar uma conexão Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameconnectapart-7---connect-to-azure).
+Para se conectar ao gateway de VPN usando um __cliente Windows__, use a seção __Conectar ao Azure__ do documento [Configurar uma conexão Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate).
 
 ## <a name="remote-kafka-client"></a>Cliente remoto do Kafka
 
@@ -319,7 +320,7 @@ Para se conectar ao Kafka do computador cliente, você deve usar o endereço IP 
   ```
 
     Substitua as entradas `'ip_address'` pelos endereços retornados da etapa 1 nesta seção.
-    
+
     > [!NOTE]
     > Esse código envia a cadeia de caracteres `test message` para o tópico `testtopic`. A configuração padrão do Kafka no HDInsight é criar o tópico se ele não existir.
 

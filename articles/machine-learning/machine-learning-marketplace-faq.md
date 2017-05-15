@@ -1,23 +1,12 @@
 ---
-title: '(preterido) Perguntas frequentes: publicar e usar aplicativos do Machine Learning no Azure Marketplace | Microsoft Docs'
-description: "(preterido) Perguntas frequentes sobre a publicação de aplicativos do Machine Learning no Azure Marketplace"
-services: machine-learning
-documentationcenter: 
-author: bharaths
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 26b3a1e7-8b9a-4004-98bc-17456d4c25e8
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
-ms.author: bharaths
+
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
-ms.openlocfilehash: 9e2d4a2d46bd461a71217cd2b2d75f5a50e8b617
+redirect_url: https://gallery.cortanaintelligence.com/
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 4f6e2816a55eb48fe947cc5bf21ee466e8116feb
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -76,10 +65,5 @@ No momento, não há suporte para o modo de entrada de lote em serviços Web do 
 **6. Quem devo contatar para obter ajuda se tiver dúvidas sobre como me tornar um editor de dados ou se tiver problemas durante a publicação?**
 
 Entre em contato com a equipe do Azure Marketplace em <mailto:datamarketbd@microsoft.com> para obter mais informações.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

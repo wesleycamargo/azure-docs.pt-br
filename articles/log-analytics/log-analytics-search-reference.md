@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fc6e4eaa34694e2b20cb53b3e457803c59bf76b9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 47fb74c608315b256e88dd774af7cb5260529607
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -620,7 +621,7 @@ Junta os resultados de duas consultas para formar um único conjunto de resultad
 | esquerda  | Retorna todos os registros de consulta à esquerda e os registros correspondentes de consulta à direita. |
 
 
-- Junções atualmente não dão suporte a consultas que incluem o **na** palavra-chave ou o comando **Medida**.
+- As junções não dão suporte a consultas que incluam a palavra-chave **EM**, o comando **Medir** ou **Estender** caso se destine a um campo na consulta certa.
 - No momento, você pode incluir apenas um único campo em uma junção.
 - Uma única pesquisa pode não incluir mais de uma junção.
 

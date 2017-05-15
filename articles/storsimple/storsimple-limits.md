@@ -15,9 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dd9e7f672a9f991fd06530a968a3369b752148a2
 ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/01/2017
 
 ---
@@ -49,11 +50,11 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 | Taxa de processamento de instantâneos de nuvem |15 minutos/TB |<ul><li>O tempo mínimo para preparar o instantâneo de nuvem para upload, de acordo com os TB dos dados do volume alocado no backup. </li><li> O tempo total do instantâneo de nuvem é calculado pela adição desse tempo ao tempo de upload do instantâneo, que é afetado pela largura de banda da Internet para a nuvem. |
 | Taxa de transferência máxima de leitura/gravação do cliente (quando servida da camada SSD)* |920/720 MB/s com uma única interface de rede de 10 GbE |Até 2 vezes com MPIO e duas interfaces de rede. |
 | Taxa de transferência máxima de leitura/gravação do cliente (quando servida da camada HDD)* |120/250 MB/s | |
-| Taxa de transferência máxima de leitura/gravação do cliente (quando originada da camada de nuvem)*para a Atualização 3 e posterior** |40/60 MB/s para volumes em camadas<br><br>60/80 MB/s para volumes em camadas com a opção de arquivamento selecionada durante a criação do volume |A taxa de transferência de leitura depende dos clientes que geram e mantêm profundidade suficiente de fila de E/S. <br><br>A velocidade obtida depende da velocidade da conta de armazenamento subjacente usada. |
+| Taxa de transferência máxima de leitura/gravação do cliente (quando originada da camada de nuvem) *para a Atualização 3 e posterior** |40/60 MB/s para volumes em camadas<br><br>60/80 MB/s para volumes em camadas com a opção de arquivamento selecionada durante a criação do volume |A taxa de transferência de leitura depende dos clientes que geram e mantêm profundidade suficiente de fila de E/S. <br><br>A velocidade obtida depende da velocidade da conta de armazenamento subjacente usada. |
 
 &#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
 
-&42;&#42; Os números de desempenho antes da Atualização 3 podem ser menores.
+&#42;&#42; Os números de desempenho antes da Atualização 3 podem ser menores.
 
 ## <a name="next-steps"></a>Próximas etapas
 Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md). 

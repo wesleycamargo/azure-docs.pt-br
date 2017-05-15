@@ -10,18 +10,19 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f22b6dbdcc02b1182163f140d9ff13d2876dc0d8
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5036ce23e602c7723f5fafef60ab45d533c1fe7d
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de solicitações: modelo de dados do Application Insights
 
-A telemetria de solicitação representa a execução de código disparado externamente e encapsulando a execução do código lógico. Toda execução de solicitação é identificada por um `ID` e `url` exclusivos que contêm todos os parâmetros de execução. Você pode agrupar solicitações por `name` lógico e definir a `source` dessa solicitação. A execução de código pode resultar em `success` ou falhar e tem uma certa `duration`. Ambos – execuções com êxito e falha podem ser agrupadas ainda mais pelo `resultCode`. Hora de início para a telemetria de solicitação definida no nível de envelope.
+Um item de telemetria de solicitação (em [Application Insights](app-insights-overview.md)) representa a sequência lógica de execução acionada por uma solicitação externa a seu aplicativo. Toda execução de solicitação é identificada por um `ID` e `url` exclusivos que contêm todos os parâmetros de execução. Você pode agrupar solicitações por `name` lógico e definir a `source` dessa solicitação. A execução de código pode resultar em `success` ou `fail` e tem um determinado `duration`. Execuções com êxito e falha podem ser agrupadas ainda mais pelo `resultCode`. Hora de início para a telemetria de solicitação definida no nível de envelope.
 
 A solicitação de telemetria dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements` personalizadas.
 
@@ -35,7 +36,7 @@ Comprimento máximo: 1.024 caracteres
 
 ## <a name="id"></a>ID
 
-Identificador de uma instância de chamada de solicitação. Usada para a correlação entre a solicitação e outros itens de telemetria. A ID deve ser globalmente exclusiva. Para obter mais informações, consulte a página de [correlação](/correlation).
+Identificador de uma instância de chamada de solicitação. Usada para a correlação entre a solicitação e outros itens de telemetria. A ID deve ser globalmente exclusiva. Para obter mais informações, consulte a página de [correlação](application-insights-correlation.md).
 
 Comprimento máximo: 128 caracteres
 
@@ -47,7 +48,7 @@ Comprimento máximo: 2.048 caracteres
 
 ## <a name="source"></a>Fonte
 
-A origem da solicitação. Os exemplos são a chave de instrumentação do chamador ou o endereço IP do chamador. Para obter mais informações, consulte a página de [correlação](/correlation.md).
+A origem da solicitação. Os exemplos são a chave de instrumentação do chamador ou o endereço IP do chamador. Para obter mais informações, consulte a página de [correlação](application-insights-correlation.md).
 
 Comprimento máximo: 1.024 caracteres
 
@@ -81,7 +82,8 @@ Você pode ler mais sobre código de status e código de resultados de solicita�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte [modelo de dados](/application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
-- Saiba como [configurar o aplicativo ASP.NET Core](/app-insights-asp-net-core.md) com o Application Insights.
-- Confira as [plataformas](/app-insights-platforms.md) com suporte do Application Insights.
+- [Escrever uma telemetria de solicitação personalizada](app-insights-api-custom-events-metrics.md#trackrequest)
+- Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
+- Saiba como [configurar o aplicativo ASP.NET Core](app-insights-asp-net.md) com o Application Insights.
+- Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.
 

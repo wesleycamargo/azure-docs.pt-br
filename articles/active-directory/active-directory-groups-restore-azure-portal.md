@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 325d669f11891bf070d9bbb468af7427adda46d3
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +37,7 @@ Usuário | Pode restaurar qualquer grupo do Office 365 excluído que era proprie
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Como exibir grupos do Office 365 excluídos que estão disponíveis para restauração
-Os cmdlets a seguir podem ser usados para exibir os grupos excluídos para verificar que aqueles em que você está interessado ainda não foram permanentemente removidos. Esses cmdlets fazem parte do [módulo de Visualização do Azure Active Directory PowerShell V2](https://www.powershellgallery.com/packages/AzureADPreview). Mais informações sobre esse módulo podem ser encontradas no artigo [Azure Active Directory PowerShell Versão 2](https://docs.microsoft.com/powershell/azuread/).
+Os cmdlets a seguir podem ser usados para exibir os grupos excluídos para verificar que aqueles em que você está interessado ainda não foram permanentemente removidos. Esses cmdlets fazem parte do [módulo de Visualização do Azure Active Directory PowerShell V2](https://www.powershellgallery.com/packages/AzureADPreview). Mais informações sobre esse módulo podem ser encontradas no artigo [Azure Active Directory PowerShell Versão 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 Observe que os cmdlets para gerenciamento de recuperação e exclusão reversível estão em Visualização Pública e, às vezes, precisamos fazer alterações significativas para visualizar os cmdlets. Por esse motivo, não é recomendado usar esses cmdlets em um ambiente de produção.
 
 1.    Execute o cmdlet a seguir para exibir todos os grupos do Office 365 excluídos em seu locatário que ainda estão disponíveis para restauração.

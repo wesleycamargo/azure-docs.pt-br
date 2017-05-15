@@ -1,5 +1,6 @@
 # Visão geral
-## [Visão Geral do Azure Monitor](monitoring-overview.md)
+## [Ferramentas de monitoramento no Azure](monitoring-overview.md)
+## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [Métricas](monitoring-overview-metrics.md)
 ## [Alertas](monitoring-overview-alerts.md)
 ## [Autoescala](monitoring-overview-autoscale.md)
@@ -7,12 +8,14 @@
 ## [Grupos de Ação](monitoring-action-groups.md)
 ## [Logs de Diagnóstico](monitoring-overview-of-diagnostic-logs.md)
 ## [Integrações de parceiro](monitoring-partners.md)
-## [Diagnóstico do Azure](azure-diagnostics.md)
+## [Extensão de Diagnóstico do Azure](azure-diagnostics.md)
 
 
 # Introdução
 ## [Introdução ao Azure Monitor](monitoring-get-started.md)
+## [Introdução ao Dimensionamento Automático](monitoring-autoscale-get-started.md)
 ## [Permissões e segurança de funções](monitoring-roles-permissions-security.md)
+
 
 # Como
 ## Usar alertas
@@ -24,6 +27,8 @@
 ## Usar autoescala
 ### [Práticas recomendadas para dimensionamento automático](insights-autoscale-best-practices.md)
 ### [Métricas comuns para dimensionamento automático](insights-autoscale-common-metrics.md)
+### [Padrões comuns de dimensionamento automático](monitoring-autoscale-common-scale-patterns.md)
+### [Dimensionamento automático usando uma métrica personalizada](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Dimensionar automaticamente Conjuntos de Dimensionamento de VMs usando modelos do Resource Manager](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Dimensionar automaticamente máquinas em um conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configurar webhooks e notificações por email em dimensionamento automático](insights-autoscale-to-webhook-email.md)
@@ -48,7 +53,7 @@
 ### [Habilitar configurações de diagnóstico usando modelos do Resource Manager](monitoring-enable-diagnostic-logs-using-template.md)
 ## Usar a API REST
 ### [Passo a passo usando a API REST](monitoring-rest-api-walkthrough.md)
-## Usar Diagnóstico do Azure
+## Use a extensão de Diagnóstico do Azure
 ### [Enviar para o Application Insights](azure-diagnostics-configure-application-insights.md)
 ### [Enviar para Hubs de Eventos](azure-diagnostics-streaming-event-hubs.md)
 ### [Solução de problemas](azure-diagnostics-troubleshooting.md)
@@ -56,15 +61,16 @@
 # Referência
 ## [Lista de métricas com suporte](monitoring-supported-metrics.md)
 ## [Fontes de dados de monitoramento](monitoring-data-sources.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
-## [Histórico de Versões do Diagnóstico do Azure](azure-diagnostics-versioning-history.md)
-## [Esquema de Diagnóstico do Azure](azure-diagnostics-schema.md)
-### [Esquema de Diagnóstico 1.0](azure-diagnostics-schema-1dot0.md)
-### [Esquema de Diagnóstico 1.2](azure-diagnostics-schema-1dot2.md)
-### [Esquema de Diagnóstico 1.3 a 1.7](azure-diagnostics-schema-1dot3-and-later.md)
+## [Histórico de versões de extensão do Diagnóstico do Azure](azure-diagnostics-versioning-history.md)
+## [Esquema de extensão do Diagnóstico do Azure](azure-diagnostics-schema.md)
+### [1.0](azure-diagnostics-schema-1dot0.md)
+### [1.2](azure-diagnostics-schema-1dot2.md)
+### [1.3 para 1.7](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Recursos
 ## [Exemplos do PowerShell](insights-powershell-samples.md)
 ## [Exemplos de CLI 1.0 do Azure](insights-cli-samples.md)
+## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=monitor)

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: df4340ce5185405334f08f6098590f84b067dafd
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 2e7c1ddedaa11fb614f2e8cf6d1644ae2a2beae3
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -86,7 +87,7 @@ O alerta de fraude pode ser informado de duas maneiras.  Seja por meio do aplica
 3. Encerre a chamada.
 
 ### <a name="view-fraud-reports"></a>Exibir relatórios de fraude
-1. Entre no [portal clássico do Azure](https://portal.azure.com/).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Selecione Active Directory à esquerda.
 3. Na parte de cima, selecione **Provedores de autenticação multifator**. Isso trará uma lista de seus provedores de autenticação multifator.
 4. Selecione o provedor de autenticação multifator e clique em **Gerenciar** na parte inferior da página. O Portal de Gerenciamento da Autenticação Multifator do Azure é aberto.
@@ -98,7 +99,7 @@ O alerta de fraude pode ser informado de duas maneiras.  Seja por meio do aplica
 Um bypass avulso permite que um usuário se autentique uma única vez ao sem executar uma verificação em duas etapas. O bypass é temporário e expira após um número de segundos especificado. Quando o aplicativo móvel ou o telefone não estiver recebendo notificações ou chamadas telefônicas, você poderá habilitar um bypass avulso para que o usuário possa acessar o recurso desejado.
 
 ### <a name="create-a-one-time-bypass"></a>Criar um bypass avulso
-1. Entre no [portal clássico do Azure](https://portal.azure.com/).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
 3. No Portal de Gerenciamento da Autenticação Multifator do Azure, se você vir o nome do locatário ou do provedor de MFA do Azure à esquerda com um **+** ao lado dele, clique no **+** para ver grupos os diferentes grupos de replicação do Servidor MFA e o grupo Padrão do Azure. Selecione o grupo apropriado.
 4. Em Administração do Usuário, clique em **Bypass Avulso**.
@@ -110,7 +111,7 @@ Um bypass avulso permite que um usuário se autentique uma única vez ao sem exe
 7. Como o limite de tempo começa a contar imediatamente, o usuário precisa entrar antes que o bypass avulso expire. 
 
 ### <a name="view-the-one-time-bypass-report"></a>Para exibir o relatório de bypass avulso
-1. Entre no [portal clássico do Azure](https://portal.azure.com/).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Selecione Active Directory à esquerda.
 3. Na parte de cima, selecione **Provedores de autenticação multifator**. Isso trará uma lista de seus provedores de autenticação multifator.
 4. Selecione o provedor de autenticação multifator e clique em **Gerenciar** na parte inferior da página. O Portal de Gerenciamento da Autenticação Multifator do Azure é aberto.
@@ -134,7 +135,7 @@ Há duas etapas para criar uma mensagem personalizada. Primeiro, carregue a mens
 Para carregar uma mensagem personalizada:
 
 1. Crie uma mensagem de voz personalizada usando um dos formatos de arquivo compatíveis.
-2. Entre no [portal clássico do Azure](https://portal.azure.com/).
+2. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 3. Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
 4. No Portal de Gerenciamento da Autenticação Multifator do Azure, clique em **Mensagens de Voz** na seção Configurar.
 5. Na página Configurar: Mensagens de Voz, clique em **Nova Mensagem de Voz**.
@@ -164,7 +165,7 @@ O cache permite que você defina um período específico para que as próximas t
 Observe que o cache não deve ser usado para acessar o Azure AD.
 
 ### <a name="set-up-caching"></a>Configurar o cache 
-1. Entre no [portal clássico do Azure](https://portal.azure.com/).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
 3. No Portal de Gerenciamento da Autenticação Multifator do Azure, clique em **Cache** na seção Configurar.
 4. Na página Configurar cache, clique em **Novo cache**.
@@ -193,7 +194,7 @@ Quando o recurso IPs confiáveis estiver habilitado, a verificação em duas eta
 Não importa se o recurso IPs confiáveis está habilitado ou não, será necessário utilizar a verificação em duas etapas para fluxos de navegador e senhas de aplicativo para antigos aplicativos clientes avançados. 
 
 ### <a name="to-enable-trusted-ips"></a>Para habilitar IPs confiáveis
-1. Entre no [portal clássico do Azure](https://portal.azure.com/).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até a página de configurações do serviço MFA de acordo com as instruções fornecidas no início deste artigo.
 3. Na página Configurações do Serviço, em IPs Confiáveis, há duas opções:
    
@@ -255,7 +256,7 @@ O Azure AD oferece suporte à federação (logon único) com os Serviços de Dom
 ### <a name="allow-app-password-creation"></a>Permitir a criação de senha de aplicativo
 Por padrão, os usuários não podem criar senhas de aplicativo. Esse recurso deve ser ativado. Para permitir que os usuários criem senhas de aplicativo, faça o seguinte:
 
-1. Entre no [portal clássico do Azure](https://portal.azure.com/).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até a página de configurações do serviço MFA de acordo com as instruções fornecidas no início deste artigo.
 3. Selecione o botão de opção ao lado de **Permitir que usuários criem senhas de aplicativo para entrarem em aplicativos que não são navegadores**.
 
@@ -283,7 +284,7 @@ Portanto, lembrar o MFA em dispositivos confiáveis reduz o número de autentica
 >Esse recurso não é compatível com o recurso "Manter-me conectado" do AD FS quando os usuários executam uma verificação em duas etapas para o AD FS por meio do Servidor MFA do Azure ou uma solução MFA de terceiros. Se os usuários selecionarem "Manter-me conectado" no AD FS e também marcarem seus dispositivos como confiáveis para o MFA, eles não poderão verificar depois que o número de dias de "Lembrar do MFA" expirar. O Azure AD solicita uma nova verificação em duas etapas, mas o AD FS retorna um token com a declaração e a data originais do MFA em vez de realizar a verificação em duas etapas novamente. Isso define um loop de verificação entre o Azure AD e AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitar a opção Lembrar autenticação multifator
-1. Entre no [portal clássico do Azure](https://portal.azure.com/).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até a página de configurações do serviço MFA de acordo com as instruções fornecidas no início deste artigo.
 3. Na página Configurações do Serviço, em Gerenciar configurações do dispositivo do usuário, marque a caixa de seleção **Permitir que os usuários lembrem a autenticação multifator em dispositivos que eles confiam**.
    ![Lembrar dispositivos](./media/multi-factor-authentication-whats-next/remember.png)
@@ -310,7 +311,7 @@ Quando os usuários registram suas contas na MFA, eles escolhem o método de ver
 | Código de verificação de aplicativo móvel |O aplicativo Microsoft Authenticator gera um novo código de verificação OATH a cada 30 segundos. O usuário digita o código de verificação na interface de acesso.<br>O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Como habilitar/desabilitar métodos de autenticação
-1. Entre no [portal clássico do Azure](https://portal.azure.com/).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até a página de configurações do serviço MFA de acordo com as instruções fornecidas no início deste artigo.
 3. Na página Configurações do Serviço, em Opções de verificação, marque/desmarque as opções que deseja usar.
    ![Opções de verificação](./media/multi-factor-authentication-whats-next/authmethods.png)

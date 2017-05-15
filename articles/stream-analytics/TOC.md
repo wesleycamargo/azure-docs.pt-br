@@ -32,23 +32,33 @@
 
 ## Gerenciar
 ### [Confiabilidade do trabalho](stream-analytics-job-reliability.md)
-### [Monitorar trabalhos](stream-analytics-monitoring.md)
-### [Logs de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 ### [Monitorar trabalhos de maneira programática](stream-analytics-monitor-jobs.md)
 ### [Monitorar trabalhos com o PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Escalar para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
 ### [Escalar para funções de Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Girar credenciais de entrada/saída](stream-analytics-login-credentials-inputs-outputs.md)
 
+## Solucionar problemas
+### [Guia de Solução de problemas](stream-analytics-troubleshooting-guide.md)
+### [Monitorar trabalhos](stream-analytics-monitoring.md)
+### [Folha Integridade de recursos](stream-analytics-resource-health.md)
+### [Diagrama de trabalho e métricas](stream-analytics-job-diagram-with-metrics.md)
+### [Consultas de teste](stream-analytics-test-query.md)
+### [Dados de entrada de exemplo](stream-analytics-sample-data-input.md)
+### [SELECIONE PARA depuração](stream-analytics-select-into.md)
+### [Manipulação de ordem de eventos](stream-analytics-out-of-order-and-late-events.md)
+### [Limites de leitor de hub de eventos](stream-analytics-event-hub-consumer-groups.md)
+### [Otimizar unidades de streaming](stream-analytics-streaming-unit-consumption.md)
+### [Logs de diagnóstico](stream-analytics-job-diagnostic-logs.md)
+
 ## Automatizar
 ### [PowerShell com um clique](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Linguagem da consulta](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # Recursos
 ## [Notas de versão](stream-analytics-release-notes.md)

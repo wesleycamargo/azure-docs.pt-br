@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: e73334373e9909069641cd4ad2c3280e51b5e2db
-ms.lasthandoff: 12/06/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c2792287ef8b25a57beb4af069ffc5a3eed85e15
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Você tem duas opções: excluir o grupo de recursos do qual o cluster faz parte
 Essa é a maneira mais fácil de garantir que todos os recursos associados ao seu cluster serão excluídos, incluindo o grupo de recursos. Você pode excluir o grupo de recursos usando o PowerShell ou por meio do portal do Azure. Caso o grupo de recursos tenha recursos não relacionados ao cluster do Service Fabric, você poderá excluir recursos específicos.
 
 ### <a name="delete-the-resource-group-using-azure-powershell"></a>Excluir o grupo de recursos usando o Azure PowerShell
-Também é possível excluir o grupo de recursos executando os seguintes cmdlets do Azure PowerShell. Certifique-se de que o Azure PowerShell 1.0 ou superior está instalado em seu computador. Se não tiver feito isso antes, siga as etapas descritas em [Como instalar e configurar o Azure PowerShell.](/powershell/azureps-cmdlets-docs)
+Também é possível excluir o grupo de recursos executando os seguintes cmdlets do Azure PowerShell. Certifique-se de que o Azure PowerShell 1.0 ou superior está instalado em seu computador. Se não tiver feito isso antes, siga as etapas descritas em [Como instalar e configurar o Azure PowerShell.](/powershell/azure/overview)
 
 Abra uma janela do PowerShell e execute os seguintes cmdlets do PS:
 
@@ -78,7 +79,7 @@ Caso você tenha implantado o cluster usando o portal ou um dos modelos do Resou
     ![Recursos marcados][TaggedResources]
 
 ### <a name="delete-the-resources-using-azure-powershell"></a>Excluir os recursos usando o Azure PowerShell
-É possível excluir os recursos um por um executando os seguintes cmdlets do Azure PowerShell. Certifique-se de que o Azure PowerShell 1.0 ou superior está instalado em seu computador. Se não tiver feito isso antes, siga as etapas descritas em [Como instalar e configurar o Azure PowerShell.](/powershell/azureps-cmdlets-docs)
+É possível excluir os recursos um por um executando os seguintes cmdlets do Azure PowerShell. Certifique-se de que o Azure PowerShell 1.0 ou superior está instalado em seu computador. Se não tiver feito isso antes, siga as etapas descritas em [Como instalar e configurar o Azure PowerShell.](/powershell/azure/overview)
 
 Abra uma janela do PowerShell e execute os seguintes cmdlets do PS:
 

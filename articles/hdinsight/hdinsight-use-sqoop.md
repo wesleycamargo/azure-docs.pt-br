@@ -17,10 +17,11 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 3f053d4c94d48630252f7c80fa8077c8ae5feb2d
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 1901613b3e0db19f86247ee78828eccd58fb026b
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +37,8 @@ O [Sqoop][sqoop-user-guide-1.4.4] é uma ferramenta desenvolvida para transferir
 Para as versões do Sqoop com suporte em clusters HDInsight, confira [Novidades nas versões de clusters fornecidas pelo HDInsight][hdinsight-versions].
 
 ## <a name="understand-the-scenario"></a>Compreender o cenário
-O cluster HDInsight é fornecido com alguns dados de exemplo. Você irá usar as seguintes amostras:
+
+O cluster HDInsight é fornecido com alguns dados de exemplo. Você usa estas duas amostras:
 
 * Um arquivo de log log4j localizado em */example/data/sample.log*. Os seguintes logs são extraídos do arquivo:
   
@@ -60,7 +62,7 @@ O cluster HDInsight é fornecido com alguns dados de exemplo. Você irá usar as
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-Primeiro, você exportará o *sample.log* e a *hivesampletable* para o banco de dados SQL do Azure ou SQL Server e, em seguida, importará a tabela que contém os dados de dispositivos móveis de volta para o HDInsight usando o seguinte caminho:
+Primeiro, você exporta o *sample.log* e a *hivesampletable* para o banco de dados SQL do Azure ou SQL Server e, em seguida, importa a tabela que contém os dados de dispositivos móveis de volta para o HDInsight usando o seguinte caminho:
 
     /tutorials/usesqoop/importeddata
 
@@ -82,7 +84,7 @@ Se você preferir usar o Azure PowerShell para criar o cluster e o Banco de Dado
     - **Subscription:** insira sua assinatura do Azure.
     - **Grupo de Recursos**: crie um novo grupo de recursos do Azure ou escolha um grupo de recursos existente.  Um grupo de recursos é para fins de gerenciamento.  Ele é um contêiner para objetos.
     - **Localização**: selecione uma região.
-    - **ClusterName**: insira um nome para o cluster Hadoop que você criará.
+    - **ClusterName**: insira um nome para o cluster Hadoop.
     - **Nome e senha de logon do cluster**: o nome de logon padrão é admin.
     - **Nome de usuário e senha de SSH**.
     - **Nome de logon e senha do servidor de banco de dados SQL**.
@@ -105,7 +107,7 @@ Se você preferir usar o Azure PowerShell para criar o cluster e o Banco de Dado
 
 5. Clique em **Termos legais** e em **Criar**.
 
-6. Clique em **Criar**. Você verá um novo bloco intitulado Como enviar a implantação para a implantação do modelo. É preciso sobre cerca de 20 minutos para criar o cluster e o banco de dados SQL.
+6. Clique em **Criar**. Você poderá ver um novo bloco intitulado Como enviar a implantação para a implantação do modelo. É preciso sobre cerca de 20 minutos para criar o cluster e o banco de dados SQL.
 
 Se você optar por usar o banco de dados SQL do Azure existente ou o Microsoft SQL Server
 
@@ -131,7 +133,7 @@ Se você optar por usar o banco de dados SQL do Azure existente ou o Microsoft S
       > 
       > 
     * Ao usar o SQL Server em uma Máquina Virtual do Azure, qualquer configuração de rede virtual pode ser usada, desde que a máquina virtual que hospeda o SQL Server seja membro da mesma rede virtual que o HDInsight.
-  * Para criar um cluster HDInsight em uma rede virtual, confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md)
+  * Para criar um cluster HDInsight em uma rede virtual, confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-hadoop-provision-linux-clusters.md)
     
     > [!NOTE]
     > O SQL Server também deve permitir autenticação. Você deve usar um logon do SQL Server para as etapas neste artigo.
@@ -149,7 +151,7 @@ O HDInsight pode executar trabalhos do Sqoop usando vários métodos. Use a tabe
 
 ## <a name="limitations"></a>Limitações
 * Exportação em massa — com HDInsight baseado em Linux, o conector Sqoop usado para exportar dados no Microsoft SQL Server ou no Banco de Dados SQL do Azure, atualmente, não permite inserções em massa.
-* Envio em lote — com HDInsight baseado em Linux, ao usar o comutador `-batch` na execução de inserções, Sqoop executará várias inserções em vez de operações de inserção em lotes.
+* Envio em lote — Com HDInsight baseado em Linux, ao usar o comutador `-batch` ao executar inserções, o Sqoop realizará várias inserções em vez de operações de inserção em lotes.
 
 ## <a name="next-steps"></a>Próximas etapas
 Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
@@ -197,7 +199,7 @@ O exemplo do PowerShell executa as seguintes etapas:
     Para examinar o cluster, você pode usar o portal do Azure ou o Azure PowerShell.
 5. Pré-processe o arquivo de dados de origem.
    
-    Neste tutorial, você exportará um arquivo de log log4j (um arquivo delimitado) e uma tabela Hive para o banco de dados SQL do Azure. O arquivo delimitado é */example/data/sample.log*. No início do tutorial, você vê alguns exemplos de logs de log4j. No arquivo de log, há algumas linhas vazias e algumas outras linhas semelhantes a:
+    Neste tutorial, você exporta um arquivo de log log4j (um arquivo delimitado) e uma tabela Hive para o banco de dados SQL do Azure. O arquivo delimitado é */example/data/sample.log*. No início do tutorial, você vê alguns exemplos de logs de log4j. No arquivo de log, há algumas linhas vazias e algumas outras linhas semelhantes a:
    
         java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
             at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
@@ -213,7 +215,7 @@ O exemplo do PowerShell executa as seguintes etapas:
    > Além das informações de cadeia de conexão, as etapas nesta seção devem funcionar para o Banco de Dados SQL do Azure ou SQL Server. Essas etapas foram testadas com relação à seguinte configuração:
    > 
    > * **Configuração ponto a site da rede virtual do Azure**: uma rede virtual conectando o cluster HDInsight a um SQL Server em um datacenter privado. Consulte [Configurar um VPN ponto a site no Portal de Gerenciamento](../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
-   > * **Azure HDInsight 3.1**: confira [Crie clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md) para saber mais sobre a criação de um cluster em uma rede virtual.
+   > * **Azure HDInsight 3.1**: confira [Crie clusters Hadoop no HDInsight usando opções de personalização](hdinsight-hadoop-provision-linux-clusters.md) para saber mais sobre a criação de um cluster em uma rede virtual.
    > * **SQL Server 2014**: configurado para permitir Autenticação SQL e executando o pacote de configuração do cliente VPN para conectar-se com segurança à rede virtual
    > 
    > 
@@ -618,7 +620,7 @@ O exemplo do PowerShell executa as seguintes etapas:
 [azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md

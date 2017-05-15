@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 05/08/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -89,7 +90,7 @@ O Azure Site Recovery ajuda a proteger as implantações do SharePoint, da segui
 * Simplifica o desenvolvimento de aplicativos do SharePoint e teste criando um ambiente de réplica sob demanda com cópia de produção para o teste e a depuração.
 * Simplifica a transição para a nuvem usando o Site Recovery para migrar as implantações do SharePoint para o Azure.
 
-[Saiba mais](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) sobre como proteger o SharePoint.
+[Saiba mais](site-recovery-sharepoint.md) sobre como proteger o SharePoint.
 
 ## <a name="protect-dynamics-ax"></a>Proteger o Dynamics AX
 O Azure Site Recovery ajuda a proteger sua solução ERP do Dynamics AX:
@@ -98,7 +99,7 @@ O Azure Site Recovery ajuda a proteger sua solução ERP do Dynamics AX:
 * Simplificando a migração das implantações do Dynamics AX para a nuvem (Azure).
 * Simplificando o desenvolvimento de aplicativos Dynamics AX e teste criando uma cópia de produção sob demanda para o teste e a depuração.
 
-[Saiba mais](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) sobre como proteger o Dynamic AX.
+[Saiba mais](site-recovery-dynamicsax.md) sobre como proteger o Dynamic AX.
 
 ## <a name="protect-rds"></a>Proteger o RDS
 O RDS (Serviços da Área de Trabalho Remota) habilita a infraestrutura da área de trabalho virtual (VDI), áreas de trabalho baseadas em sessão e aplicativos, permitindo que os usuários trabalhem de qualquer lugar. Com o Azure Site Recovery, você pode:

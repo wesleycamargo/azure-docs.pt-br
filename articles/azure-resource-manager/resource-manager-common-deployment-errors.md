@@ -11,15 +11,16 @@ keywords: "erro de implantação, implantação do azure, implante no azure"
 ms.assetid: c002a9be-4de5-4963-bd14-b54aa3d8fa59
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 7dfd3f7f0bebd0dbe20ffc9952d83cb8b4fcfe3e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -285,7 +286,7 @@ Caso você esteja tentando implantar o recurso ausente no modelo, verifique se v
 
 Para obter sugestões sobre como solucionar erros de dependência, veja [Verificar a sequência de implantação](#check-deployment-sequence).
 
-Você também vê esse erro quando o recurso existe em um grupo de recursos diferente daquele que está sendo implantado. Nesse caso, use a [função resourceId](resource-group-template-functions.md#resourceid) para obter o nome totalmente qualificado do recurso.
+Você também vê esse erro quando o recurso existe em um grupo de recursos diferente daquele que está sendo implantado. Nesse caso, use a [função resourceId](resource-group-template-functions-resource.md#resourceid) para obter o nome totalmente qualificado do recurso.
 
 ```json
 "properties": {
@@ -294,7 +295,7 @@ Você também vê esse erro quando o recurso existe em um grupo de recursos dife
 }
 ```
 
-Se tentar usar as funções [reference](resource-group-template-functions.md#reference) ou [listKeys](resource-group-template-functions.md#listkeys) com um recurso que não pode ser resolvido, você receberá o seguinte erro:
+Se tentar usar as funções [reference](resource-group-template-functions-resource.md#reference) ou [listKeys](resource-group-template-functions-resource.md#listkeys) com um recurso que não pode ser resolvido, você receberá o seguinte erro:
 
 ```
 Code=ResourceNotFound;
@@ -339,7 +340,7 @@ Code=StorageAccountAlreadyTaken
 Message=The storage account named mystorage is already taken.
 ```
 
-Você pode criar um nome exclusivo concatenando a convenção de nomenclatura com o resultado da função [uniqueString](resource-group-template-functions.md#uniquestring) .
+Você pode criar um nome exclusivo concatenando a convenção de nomenclatura com o resultado da função [uniqueString](resource-group-template-functions-string.md#uniquestring) .
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
@@ -349,7 +350,7 @@ Você pode criar um nome exclusivo concatenando a convenção de nomenclatura co
 Se você implantar uma conta de armazenamento com o mesmo nome que uma conta de armazenamento existente na sua assinatura, mas fornecer um local diferente, você receberá um erro indicando que a conta de armazenamento já existe em um local diferente. Exclua a conta de armazenamento existente ou forneça o mesmo local da conta de armazenamento existente.
 
 ### <a name="accountnameinvalid"></a>AccountNameInvalid
-Você verá o erro **AccountNameInvalid** ao tentar conceder um nome que inclui caracteres proibidos a uma conta de armazenamento. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas. O [uniqueString](resource-group-template-functions.md#uniquestring) função retorna 13 caracteres. Se você concatenar um prefixo para o **uniqueString** resultar, forneça um prefixo de 11 caracteres ou menos.
+Você verá o erro **AccountNameInvalid** ao tentar conceder um nome que inclui caracteres proibidos a uma conta de armazenamento. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas. O [uniqueString](resource-group-template-functions-string.md#uniquestring) função retorna 13 caracteres. Se você concatenar um prefixo para o **uniqueString** resultar, forneça um prefixo de 11 caracteres ou menos.
 
 ### <a name="badrequest"></a>BadRequest
 
@@ -626,7 +627,7 @@ Ou, vamos supor que você esteja enfrentando erros de implantação, os quais vo
 
 Muitos erros de implantação ocorrem quando os recursos são implantados em uma sequência inesperada. Esses erros surgem quando as dependências não são definidas corretamente. Quando você não tiver uma dependência necessária, um recurso tenta usar um valor para outro recurso, mas o outro ainda não existir. Você obterá um erro informando que um recurso não foi encontrado. Você pode encontrar esse tipo de erro intermitente porque o tempo de implantação para cada recurso pode variar. Por exemplo, sua primeira tentativa de implantar seus recursos é bem-sucedida pois aleatoriamente conclui um recurso necessário no tempo. No entanto, a segunda tentativa falha porque o recurso necessário não foi concluída no tempo. 
 
-Mas, para evitar definindo dependências que não são necessários. Quando você tiver dependências desnecessárias, você prolongar a duração da implantação, impedindo que os recursos que não são dependentes entre si seja implantado em paralelo. Além disso, você pode criar dependências circulares que bloqueiam a implantação. O [referência](resource-group-template-functions.md#reference) função cria uma dependência implícita do recurso que você especificar como um parâmetro na função, se esse recurso for implantado no mesmo modelo. Portanto, você pode ter dependências mais que as dependências especificada no **dependsOn** propriedade. O [resourceId](resource-group-template-functions.md#resourceid) função não cria uma dependência implícita ou validar que o recurso existe.
+Mas, para evitar definindo dependências que não são necessários. Quando você tiver dependências desnecessárias, você prolongar a duração da implantação, impedindo que os recursos que não são dependentes entre si seja implantado em paralelo. Além disso, você pode criar dependências circulares que bloqueiam a implantação. O [referência](resource-group-template-functions-resource.md#reference) função cria uma dependência implícita do recurso que você especificar como um parâmetro na função, se esse recurso for implantado no mesmo modelo. Portanto, você pode ter dependências mais que as dependências especificada no **dependsOn** propriedade. O [resourceId](resource-group-template-functions-resource.md#resourceid) função não cria uma dependência implícita ou validar que o recurso existe.
 
 Quando você encontrar problemas de dependência, você precisa obter informações sobre a ordem de implantação de recursos. Para exibir a ordem das operações de implantação:
 

@@ -1,5 +1,5 @@
 ---
-title: "Personalizar a página de entrada na visualização do Azure Active Directory | Microsoft Docs"
+title: "Personalizar a página de entrada do Azure Active Directory | Microsoft Docs"
 description: "Saiba como adicionar uma identidade visual à página de entrada do Azure"
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 48f85fd7e50c1cb3ece7f8b75779fe7cde92c7da
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 27590c018ea55e9793246c7a4cab10f934ea502b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="add-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Adicionar identidade visual à sua página de entrada na visualização do Azure Active Directory
-Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. A visualização do Azure Active Directory fornece esse recurso, permitindo que você personalize a aparência da página de entrada com esquemas de cores e o logotipo da empresa. [O que há na visualização?](active-directory-preview-explainer.md)  A página de entrada é a página que aparece quando você entra no Office 365 ou em outros aplicativos baseados na Web que estejam usando o Azure AD como provedor de identidade. Você interage com essa página para inserir suas credenciais.
+# <a name="add-company-branding-to-your-sign-in-page-in-the-azure-active-directory"></a>Adicionar identidade visual à sua página de entrada no Azure Active Directory
+Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. O Azure Active Directory fornece esse recurso, permitindo que você personalize a aparência da página de entrada com esquemas de cores e o logotipo da empresa. A página de entrada é a página que aparece quando você entra no Office 365 ou em outros aplicativos baseados na Web que estejam usando o Azure AD como provedor de identidade. Você interage com essa página para inserir suas credenciais.
 
 Se você quiser mostrar a marca da empresa, cores e outros elementos personalizáveis nessa página, consulte as imagens a seguir para compreender a diferença entre as duas experiências.
 
@@ -81,9 +83,4 @@ Pode demorar até uma hora para que apareçam todas as alterações feitas à id
 
 ## <a name="next-steps"></a>Próximas etapas
 [Adicionar identidade visual da empresa específica a um idioma](active-directory-branding-localize-azure-portal.md)
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

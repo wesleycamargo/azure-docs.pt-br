@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o Controle de Acesso Baseado em Função do Azure
@@ -27,14 +28,21 @@ O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seg
 ## <a name="roles-in-azure"></a>Funções no Azure
 A tabela a seguir fornece breves descrições das funções internas. Clique no nome da função para ver sua lista detalhada de **ações** e de **não ações**. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade das **não ações** especifica as ações excluídas das ações permitidas.
 
+A ação define o tipo das operações que você pode executar em um determinado tipo de recurso. Por exemplo:
+- **Gravar** permite que você execute operações PUT, POST, PATCH e DELETE.
+- **Ler** permite que você execute operações GET. 
+
+Este artigo aborda apenas as diferentes funções que existem atualmente. Quando atribui uma função a um usuário, no entanto, você pode limitar mais as ações permitidas definindo um escopo. Isso será útil se você quiser tornar alguém um colaborador do site, mas apenas para um grupo de recursos. 
+
 > [!NOTE]
-> As definições de função do Azure estão em constante evolução. Este artigo é mantido tão atualizado quanto possível, mas você sempre poderá encontrar as últimas definições de funções no Azure PowerShell. Usar os cmdlets `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` como aplicável.
->
->
+> As definições de função do Azure estão em constante evolução. Este artigo é mantido tão atualizado quanto possível, mas você sempre poderá encontrar as últimas definições de funções no Azure PowerShell. Use o cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para listar todas as funções atuais. Você pode se aprofundar em uma função específica usando `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` conforme aplicável. Use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) para listar operações de provedores de recursos do Azure específicos. 
+
 
 | Nome da função | Descrição |
 | --- | --- |
-| [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) |Pode gerenciar os serviços de gerenciamento de API |
+| [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) |Poder gerenciar o serviço de gerenciamento da API e as APIs |
+| [Função do operador de serviço de gerenciamento da API](#api-management-service-operator-role) | Poder gerenciar o serviço de gerenciamento da API, mas não as APIs propriamente ditas |
+| [Função do leitor do serviço de gerenciamento da API](#api-management-service-reader-role) | Acesso somente leitura ao serviço de gerenciamento da API e às APIs |
 | [Colaborador de componente do Application Insights](#application-insights-component-contributor) |Pode gerenciar os componentes do Application Insights |
 | [Operador de automação](#automation-operator) |Capaz de iniciar, parar, suspender e reiniciar trabalhos |
 | [Colaborador de Backup](#backup-contributor) | Pode gerenciar o backup no cofre dos Serviços de Recuperação |
@@ -79,7 +87,41 @@ Pode gerenciar os serviços de gerenciamento de API
 
 | **Ações** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/* |Criar e gerenciar Serviços de Gerenciamento de API |
+| Microsoft.ApiManagement/Service/* |Criar e gerenciar o serviço de gerenciamento da API |
+| Microsoft.Authorization/*/read |Ler autorização |
+| Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Ler funções e atribuições de função |
+| Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
+
+### <a name="api-management-service-operator-role"></a>Função do operador de serviço de gerenciamento da API
+Pode gerenciar os serviços de gerenciamento de API
+
+| **Ações** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Ler instâncias do serviço de gerenciamento da API |
+| Microsoft.ApiManagement/Service/backup/action | Fazer backup do Serviço de Gerenciamento de API para o contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
+| Microsoft.ApiManagement/Service/delete | Excluir uma instância do Serviço de Gerenciamento de API |
+| Microsoft.ApiManagement/Service/managedeployments/action | Alterar SKU/unidades; adicionar ou remover implantações regionais do Serviço de Gerenciamento de API |
+| Microsoft.ApiManagement/Service/read | Ler metadados de uma instância do Serviço de Gerenciamento de API |
+| Microsoft.ApiManagement/Service/restore/action | Restaurar o Serviço de Gerenciamento de API do contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
+| Microsoft.ApiManagement/Service/updatehostname/action | Configurar, atualizar ou remover nomes de domínio personalizado para um Serviço de Gerenciamento de API |
+| Microsoft.ApiManagement/Service/write | Criar uma nova instância do Serviço de Gerenciamento de API |
+| Microsoft.Authorization/*/read |Ler autorização |
+| Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Ler funções e atribuições de função |
+| Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
+
+### <a name="api-management-service-reader-role"></a>Função de leitor do Serviço de Gerenciamento de API
+Pode gerenciar os serviços de gerenciamento de API
+
+| **Ações** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Ler instâncias do serviço de gerenciamento da API |
+| Microsoft.ApiManagement/Service/read | Ler metadados de uma instância do Serviço de Gerenciamento de API |
 | Microsoft.Authorization/*/read |Ler autorização |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |

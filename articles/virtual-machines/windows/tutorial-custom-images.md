@@ -1,0 +1,180 @@
+---
+title: Criar imagens personalizadas da VM com o Azure PowerShell | Microsoft Docs
+description: Tutorial - Criar uma imagem personalizada da VM usando o Azure PowerShell.
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: cynthn
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 05/02/2017
+ms.author: cynthn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: ab19073735816ebb32a9840ec03b31b358ccb565
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
+
+---
+
+# <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Criar uma imagem personalizada de uma VM do Azure usando o PowerShell
+
+Neste tutorial, você aprenderá a definir sua própria imagem personalizada de uma máquina virtual do Azure. As imagens personalizadas permitem criar VMs usando uma imagem que você já tenha configurado. As imagens personalizadas podem ser usadas para inicializar o pré-carregamento de binários e aplicativos, configurações de aplicativos, definições do disco de dados da VM e outras configurações do sistema operacional. Ao criar uma imagem personalizada, a VM que você personaliza e todos os discos anexados são incluídos na imagem.
+
+As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [Azure PowerShell](/powershell/azure/overview).
+
+## <a name="before-you-begin"></a>Antes de começar
+
+As etapas abaixo detalham como pegar uma máquina virtual existente e transformá-la em uma imagem personalizada reutilizável que você pode usar para criar novas instâncias de VM.
+
+Para concluir o exemplo neste tutorial, você deverá ter uma máquina virtual. Se necessário, este [exemplo de script](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) pode criar uma para você. Ao trabalhar com este tutorial, substitua o grupo de recursos e os nomes de VM onde for necessário.
+
+## <a name="prepare-vm"></a>Preparar VM
+
+Para criar uma imagem de uma máquina virtual, você precisará preparar a VM generalizando a VM, desalocando e, em seguida, marcando a VM de origem como generalizada no Azure.
+
+### <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM Windows usando Sysprep
+
+O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [Como usar o Sysprep: uma introdução](http://technet.microsoft.com/library/bb457073.aspx).
+
+
+1. Conectar-se à máquina virtual.
+2. Abra uma janela de prompt de comando como administrador. Altere o diretório para *%windir%\system32\sysprep* e, a seguir, execute *sysprep.exe*.
+3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione *Entrar na Configuração Inicial pelo Usuário do Sistema (OOBE)* e verifique se a caixa de seleção *Generalizar* está marcada.
+4. Em **Opções de Desligamento**, selecione *Desligar* e em **OK**.
+5. Quando o Sysprep for concluído, desligará a máquina virtual. **Não reinicie a VM**.
+
+### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Desalocar e marcar a VM como generalizada
+
+Para criar uma imagem, a VM precisa ser desalocada e marcada como generalizada no Azure.
+
+Desaloque a VM usando [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm).
+
+```powershell
+Stop-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Force
+```
+
+Defina o status da máquina virtual como `-Generalized` usando [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
+   
+```powershell
+Set-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Generalized
+```
+
+
+## <a name="create-the-image"></a>Criar a imagem
+
+Agora, você pode criar uma imagem da VM usando [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) e [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). O exemplo a seguir cria uma imagem chamada *myImage* por meio de uma VM chamada *myVM*.
+
+Obtenha a máquina virtual. 
+
+```powershell
+$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroupImages
+```
+
+Crie a configuração de imagem.
+
+```powershell
+$image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
+```
+
+Crie a imagem.
+
+```powershell
+New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroupImages
+```    
+
+ 
+## <a name="create-vms-from-the-image"></a>Criar VMs por meio da imagem
+
+Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da imagem. A criação de uma VM por meio de uma imagem personalizada é muito semelhante à criação de uma VM usando uma imagem do Marketplace. Quando usa uma imagem do Marketplace, você precisa obter informações sobre a imagem, o provedor da imagem, a oferta, a SKU e a versão. Com uma imagem personalizada, você apenas precisa fornecer a ID do recurso da imagem personalizada. 
+
+No script a seguir, criamos uma variável *$image* para armazenar informações sobre a imagem personalizada usando [Get-AzureRmImage](/powershell/module/azurerm.compute/get-azurermimage) e, em seguida, usamos [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) e especificamos a ID usando a variável *$image* que acabamos de criar. 
+
+O script cria uma VM chamada *myVMfromImage* por meio de nossa imagem personalizada em um novo grupo de recursos chamado *myResourceGroupFromImage* no local *Oeste dos EUA*.
+
+
+```powershell
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+New-AzureRmResourceGroup -Name myResourceGroupFromImage -Location EastUS
+
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+    -Name mySubnet `
+    -AddressPrefix 192.168.1.0/24
+
+$vnet = New-AzureRmVirtualNetwork `
+    -ResourceGroupName myResourceGroupFromImage `
+    -Location EastUS `
+    -Name MYvNET `
+    -AddressPrefix 192.168.0.0/16 `
+    -Subnet $subnetConfig
+
+$pip = New-AzureRmPublicIpAddress `
+    -ResourceGroupName myResourceGroupFromImage `
+    -Location EastUS `
+    -Name "mypublicdns$(Get-Random)" `
+    -AllocationMethod Static `
+    -IdleTimeoutInMinutes 4
+
+  $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+    -Name myNetworkSecurityGroupRuleRDP `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 1000 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389 `
+    -Access Allow
+
+  $nsg = New-AzureRmNetworkSecurityGroup `
+    -ResourceGroupName myResourceGroupFromImage `
+    -Location EastUS `
+    -Name myNetworkSecurityGroup `
+    -SecurityRules $nsgRuleRDP
+
+$nic = New-AzureRmNetworkInterface `
+    -Name myNic `
+    -ResourceGroupName myResourceGroupFromImage `
+    -Location EastUS `
+    -SubnetId $vnet.Subnets[0].Id `
+    -PublicIpAddressId $pip.Id `
+    -NetworkSecurityGroupId $nsg.Id
+
+$vmConfig = New-AzureRmVMConfig `
+    -VMName myVMfromImage `
+    -VMSize Standard_D1 | Set-AzureRmVMOperatingSystem -Windows `
+        -ComputerName myComputer `
+        -Credential $cred 
+
+# Here is where we create a variable to store information about the image 
+$image = Get-AzureRmImage `
+    -ImageName myImage `
+    -ResourceGroupName myResourceGroupImages
+
+# Here is where we specify that we want to create the VM from and image and provide the image ID
+$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
+
+$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+
+New-AzureRmVM `
+    -ResourceGroupName myResourceGroupFromImage `
+    -Location EastUS `
+    -VM $vmConfig
+```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Neste tutorial, você aprendeu sobre a criação de imagens de VM personalizadas. Avance para o próximo tutorial para saber mais sobre a alta disponibilidade das máquinas virtuais.
+
+[Criar VMs altamente disponíveis](tutorial-availability-sets.md)
+
+
+
+

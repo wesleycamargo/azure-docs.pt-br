@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/1/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: a6241afa7398684d9315ab401ecdb5b2abd824c5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 1370fa64c2ddc25d3121c567ceea4828b1e50921
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -117,7 +118,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com a URL de Resposta real. Para obter esse valor, entre em contato com a [equipe de suporte do Nexonia](http://www.nexonia.com/contact-us/). 
+    > Esse valor não é real. Atualize esse valor com a URL de Resposta real. Para obter esse valor, entre em contato com a [equipe de suporte do Nexonia](https://nexonia.zendesk.com/hc/requests/new). 
 
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
@@ -132,7 +133,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar Logon Único](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
 
-7. Para que o SSO seja configurado para seu aplicativo, entre em contato com a [equipe de suporte do Nexonia](http://www.nexonia.com/contact-us/) e forneça o seguinte:
+7. Para que o SSO seja configurado para seu aplicativo, entre em contato com a [equipe de suporte do Nexonia](https://nexonia.zendesk.com/hc/requests/new) e forneça o seguinte:
 
     • O **certificado**
 
@@ -180,7 +181,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-nexonia-test-user"></a>Criar um usuário de teste do Nexonia
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Nexonia. Trabalhe com a [equipe de suporte do Nexonia](http://www.nexonia.com/contact-us/) para adicionar os usuários na plataforma do Nexonia. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Nexonia. Trabalhe com a [equipe de suporte do Nexonia](https://nexonia.zendesk.com/hc/requests/new) para adicionar os usuários na plataforma do Nexonia. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure

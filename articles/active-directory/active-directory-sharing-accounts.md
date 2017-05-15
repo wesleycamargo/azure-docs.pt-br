@@ -3,7 +3,7 @@ title: Compartilhando contas usando o Azure AD | Microsoft Docs
 description: "Descreve como o Active Directory do Azure permite que as organizações compartilhem com segurança contas para aplicativos locais e serviços de nuvem do consumidor."
 services: active-directory
 documentationcenter: 
-author: msStevenPo
+author: curtand
 manager: femila
 editor: 
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
-ms.author: stevenpo
+ms.date: 05/04/2017
+ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b689a0033103231d560c9ba4b349e675f304e35c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -73,10 +74,5 @@ Você também pode tornar sua conta compartilhada mais segura com a MFA (Autenti
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Proteger aplicativos com acesso condicional](active-directory-conditional-access.md)
 * [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

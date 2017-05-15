@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: 4e620f3d76caa25ac0e5afb134f37ffe263935f0
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/13/2017
 
 
@@ -52,7 +53,7 @@ Um usuário convidado B2B é aquele que é convidado de uma organização parcei
 1. Se um anfitrião convida um funcionário usando um endereço de consumidor
   1. Isso não é compatível com nossas políticas de licenciamento e atualmente não é recomendado.
 
-2.    Se uma organização anfitriã adiciona um usuário de outra organização de conglomerado
+2. Se uma organização anfitriã adiciona um usuário de outra organização de conglomerado
   1. Esse é o caso onde o usuário é convidado usando APIs B2B, mas não é tradicionalmente B2B. Idealmente, deveríamos dispor a essas organizações convidar os usuários de outras organizações como membros (nossa API permite isso). Nesse caso, as licenças devem ser atribuídas a esses membros para que acessem os recursos na organização emissora do convite.
 
   2. Como uma política, algumas organizações podem querer que os outros usuários da organização sejam adicionados como "Convidado". Há dois casos distintos aqui:

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/02/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mova os circuitos da Rota Expressa do clássico para o modelo de implantação do Gerenciador de Recursos
 Este artigo fornece uma visão geral do que significa mover um circuito da Rota Expressa do clássico para o modelo de implantação do Azure Resource Manager.
-
-[!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Você pode usar um único circuito da Rota Expressa para conectar as redes virtuais implantadas nos modelos clássico e de implantação do Gerenciador de Recursos. Um circuito da Rota Expressa, independentemente de como é criado, agora pode ser vinculado às redes virtuais nos dois modelos de implantação.
 
@@ -87,11 +87,11 @@ Esta seção descreve o que tem suporte para os circuitos da Rota Expressa:
 * Depois de um circuito da Rota Expressa ser movido para o modelo de implantação do Gerenciador de Recursos, você poderá gerenciar o ciclo de vida desse circuito usando apenas o modelo de implantação do Gerenciador de Recursos. Isso significa que você pode realizar operações como adicionar/atualizar/excluir emparelhamentos, atualizar as propriedades do circuito (como largura de banda, SKU e tipo de cobrança) e excluir os circuitos apenas no modelo de implantação do Gerenciador de Recursos.
 * O circuito da Rota Expressa atua como uma ponte entre os modelos de implantação clássico e do Gerenciador de Recursos. O tráfego entre as máquinas virtuais nas redes virtuais no modelo de implantação clássico e aquelas nas redes virtuais no modelo de implantação do Gerenciador Recursos fluirá pela Rota Expressa se ambas as redes virtuais estiverem vinculadas ao mesmo circuito da Rota Expressa.
 * A conectividade entre as assinaturas é suportada nos modelos de implantação clássico e do Gerenciador de Recursos.
+* Depois de mover um circuito do ExpressRoute do modelo clássico para o modelo do Azure Resource Manager, você pode [migrar as redes virtuais vinculadas ao circuito do ExpressRoute](expressroute-migration-classic-resource-manager.md).
 
 ## <a name="whats-not-supported"></a>O que não tem suporte
 Esta seção descreve o que não tem suporte para os circuitos da Rota Expressa:
 
-* Mover os links do circuito, gateways e redes virtuais do clássico para o modelo de implantação do Gerenciador de Recursos.
 * Gerenciar o ciclo de vida de um circuito da Rota Expressa a partir do modelo de implantação clássico.
 * Suporte RBAC (Controle de Acesso Baseado em Funções) para o modelo de implantação clássico. Não é possível executar os controles RBAC para um circuito no modelo de implantação clássico. Nenhum administrador/coadministrator da assinatura pode vincular ou desvincular as redes virtuais para o circuito.
 
@@ -99,16 +99,12 @@ Esta seção descreve o que não tem suporte para os circuitos da Rota Expressa:
 Siga as instruções descritas em [Mover um circuito da Rota Expressa do clássico para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-move-arm.md).
 
 ## <a name="next-steps"></a>Próximas etapas
+* [Migrar as redes virtuais vinculadas ao circuito do ExpressRoute a partir do modelo clássico para o modelo do Azure Resource Manager](expressroute-migration-classic-resource-manager.md)
 * Para obter informações sobre o fluxo de trabalho, consulte [Fluxos de trabalho de provisionamento e estados do circuito da Rota Expressa](expressroute-workflows.md)
 * Para configurar sua conexão da Rota Expressa:
   
   * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md)
   * [Configurar o roteamento](expressroute-howto-routing-arm.md)
   * [Vincular uma rede virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

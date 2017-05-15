@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: dbc544ad4dbb651aeb24faf2f89074c7aa59cf2a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -58,10 +60,5 @@ Para usar o Google+ como um provedor de identidade no Azure AD (Azure Active Dir
 5. Clique em **Tipo de provedor de identidade**, selecione **Google** e clique em **OK**.
 6. Clique em **Configurar este provedor de identidade** e insira a ID do cliente e o segredo do cliente do aplicativo do Google+ criado anteriormente.
 7. Clique em **OK** e em **Criar** para salvar a configuração do Google+.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

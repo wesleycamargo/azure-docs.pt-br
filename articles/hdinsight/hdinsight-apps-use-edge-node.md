@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 05/01/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: ff1013840c220c54a9120572d16946ab6c5c5b07
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: ab888881a841f5a9bf2d47aea946022e6603c585
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -58,7 +59,7 @@ Você pode adicionar um nó de borda vazio a um cluster HDInsight existente ou a
         }
     ],
 
-Conforme mostrado no exemplo, você pode, opcionalmente, chamar uma [ação do script](hdinsight-hadoop-customize-cluster-linux.md) para executar configurações adicionais, como a instalação do [Apache Hue](hdinsight-hadoop-hue-linux.md) no nó de borda.
+Conforme mostrado no exemplo, você pode, opcionalmente, chamar uma [ação do script](hdinsight-hadoop-customize-cluster-linux.md) para executar configurações adicionais, como a instalação do [Apache Hue](hdinsight-hadoop-hue-linux.md) no nó de borda. O script de ação de script deve ser publicamente acessível na web.  Por exemplo, se o script for armazenado no armazenamento do Azure, use contêineres públicos ou blobs públicos.
 
 O tamanho de máquina virtual do nó de borda deve atender aos requisitos de tamanho de VM do nó de trabalho do cluster HDInsight. Para obter os tamanhos recomendados de VM do nó de trabalho, consulte [Criar clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
@@ -98,7 +99,7 @@ Nesta seção, você pode usar um modelo do Resource Manager para criar um clust
    * **Grupo de Recursos**: Criar um novo grupo de recursos usado para o cluster.
    * **Local**: selecione um local para o grupo de recursos.
    * **Nome do Cluster**: insira um nome para o novo cluster a ser criado.
-   * **Nome de Usuário de Logon do Cluster**: insira o nome de usuário HTTP do Hadoop.  O nome padrão é **admin**.
+   * **Nome de Usuário de Logon do Cluster** : insira o nome de usuário HTTP do Hadoop.  O nome padrão é **admin**.
    * **Senha de Logon do Cluster**: digite a senha do usuário HTTP do Hadoop.
    * **Nome de Usuário Ssh**: digite o nome de usuário SSH. O nome padrão é **sshuser**.
    * **Senha do Ssh**: digite a senha de usuário do SSH.

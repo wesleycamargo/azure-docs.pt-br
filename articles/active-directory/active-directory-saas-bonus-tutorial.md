@@ -76,7 +76,7 @@ Configurar o SSO para o Bonus.ly exige que você recupere um valor de impressão
 2. Na página **Como você deseja que os usuários façam logon no Bonus.ly**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
    ![Configurar logon único](./media/active-directory-saas-bonus-tutorial/IC773683.png "Configurar logon único")
-*3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL do Locatário do Bonus.ly**, digite sua URL usando o padrão a seguir **https://\<nome do locatário\>.Bonus.ly** e clique em **Avançar**: 
+*3. Na página **Configurar URL do Aplicativo** , na caixa de texto **URL do Locatário do Bonus.ly** , digite sua URL usando o padrão a seguir **https://\<nome do locatário\>.Bonus.ly** e clique em **Avançar** : 
    
    ![Configurar URL do Aplicativo](./media/active-directory-saas-bonus-tutorial/IC773684.png "Configurar URL do Aplicativo")
 4. Na página **Configurar logon único no Bonus.ly**, clique em **Baixar certificado** e salve o arquivo de certificado localmente como **c:\\Bonusly.cer**.

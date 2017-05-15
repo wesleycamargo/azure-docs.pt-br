@@ -1,5 +1,5 @@
 ---
-title: PingAccess para o Proxy de Aplicativo do Azure AD | Microsoft Docs
+title: "Autenticação baseada em cabeçalho com o PingAccess para Proxy de Aplicativo do Azure AD | Microsoft Docs"
 description: "Publique aplicativos com o PingAccess e o Proxy de Aplicativo a fim de oferecer suporte à autenticação baseada em cabeçalho."
 services: active-directory
 documentationcenter: 
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 173607c481d0ba7ceece6310fcd131ff622a0677
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 8db76d1f83cdf1cf53ddd1e9c69c56400d04af2d
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/29/2017
 
 ---
 
-# <a name="publish-applications-that-support-header-based-authentication-with-pingaccess-for-azure-ad"></a>Publicar aplicativos que oferecem suporte a autenticação baseada em cabeçalho com o PingAccess para Azure AD
+# <a name="publish-applications-that-support-header-based-authentication-with-azure-ad-application-proxy-and-pingaccess"></a>Publicar aplicativos que oferecem suporte a autenticação baseada em cabeçalho com o Proxy de Aplicativo do Azure AD e o PingAccess para Azure AD
 
 O Proxy de Aplicativo do Azure Active Directory e o PingAccess fizeram uma parceria para fornecer aos clientes do Azure Active Directory acesso a ainda mais aplicativos. O PingAccess expande as [ofertas existentes do Proxy de Aplicativo](active-directory-application-proxy-get-started.md) para incluir acesso remoto a aplicativos que usam cabeçalhos para autenticação. 
 
@@ -36,14 +37,14 @@ Como os conectores do Proxy de Aplicativo direcionam o tráfego remoto a todos o
 
 Como esse cenário é oferecido por meio de uma parceria entre o Azure Active Directory e o PingAccess, você precisa de licenças para os dois serviços. As assinaturas do Azure Active Directory Premium vêm com uma licença inicial do PingAccess para que você possa configurar até 20 aplicativos com esse fluxo. 
 
-Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+Para obter mais informações, consulte [Edições do Azure Active Directory](active-directory-editions.md).
 
 ## <a name="publish-your-first-application"></a>Publicar seu primeiro aplicativo
 
 Este artigo destina-se a pessoas que estão publicando um aplicativo com esse cenário pela primeira vez. Ele explica como começar com o Aplicativo e o PingAccess, além das etapas de publicação. Se você já configurou ambos os serviços, mas quer relembrar as etapas de publicação, ignore as duas seções de registro.
 
 >[!NOTE]
->Como esse cenário é uma parceria entre o Azure AD e o PingAccess, algumas das instruções estão no site da Identidade do Ping. 
+>Como esse cenário é uma parceria entre o Azure AD e o PingAccess, algumas das instruções estão no site do Ping Identity. 
 
 ### <a name="install-an-application-proxy-connector"></a>Instalar um conector do Proxy de Aplicativo
 
@@ -52,7 +53,7 @@ Se o Proxy de Aplicativo já estiver habilitado, e um conector estiver instalado
 O conector do Proxy de Aplicativo é um serviço do Windows Server que direciona o tráfego de seus funcionários remotos para seus aplicativos publicados. Para obter informações mais detalhadas, confira [Habilitar o Proxy de Aplicativo no Portal do Azure](active-directory-application-proxy-enable.md).
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global. 
-2. Selecione **Azure Active Directory** > **Proxy de aplicativo**.
+2. Selecione **Azure Active Directory** > **Proxy de aplicativo** .
 3. Selecione **Baixar Conector** para iniciar o download do conector do Proxy de Aplicativo. Siga as instruções de instalação. 
 4. O download do conector deve habilitar automaticamente o Proxy de Aplicativo para seu diretório, mas se isso não acontecer, selecione **Habilitar Proxy de Aplicativo**. 
 
@@ -110,7 +111,7 @@ Essas etapas orientarão você durante o processo de obtenção de uma conta do 
 
 ### <a name="test-your-app"></a>Testar seu aplicativo
 
-Depois de concluir todas essas etapas, seu aplicativo entrar em execução. Para testá-lo, abra um navegador e navegue até a URL externa que você criou quando publicou o aplicativo no Azure. Entre com a conta de teste que você atribuiu ao aplicativo. 
+Depois de concluir todas essas etapas, seu aplicativo estará pronto para execução. Para testá-lo, abra um navegador e navegue até a URL externa que você criou quando publicou o aplicativo no Azure. Entre com a conta de teste que você atribuiu ao aplicativo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

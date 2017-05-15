@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/9/2017
 ms.author: cwatson
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 620c9223106c06cf6ea2b80fce87d81ea44d02ca
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bb913050fd3388d4632e6f75b36415006f370cbd
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +33,7 @@ Caso use o PowerShell, verifique se você tem a versão mais recente do módulo 
 ```
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Para saber mais, confira [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Controle de versão do Azure PowerShell).
+Para saber mais, confira [Azure PowerShell Versioning](/powershell/azure/overview) (Controle de versão do Azure PowerShell).
 
 ## <a name="copy-the-vhd-with-a-snapshot"></a>Copiar o VHD com um instantâneo
 Use o Portal do Azure ou o PowerShell para criar um instantâneo do Disco Gerenciado.

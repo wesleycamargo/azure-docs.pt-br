@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: padmavc; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: c444f3b33908927c5d6567f87931856b4f721644
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 89cd987cee841ea24dce85c0249e0eb3489c8d90
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -40,7 +41,6 @@ O gateway de dados local permite gerenciar dados e acessar com segurança recurs
         - SAP ECC 6.0 com EHP 7.0 e todas as versões anteriores do EHP
  
     - Cliente SAP
-        - SAP RFC SDK 7.20 UNICODE
         - Conector SAP do .NET (NCo) 3.0
 
 ## <a name="add-triggers-and-actions-for-connecting-to-your-sap-system"></a>Adicionar gatilhos e ações para conectar ao sistema SAP

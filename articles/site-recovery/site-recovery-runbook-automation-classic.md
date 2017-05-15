@@ -14,10 +14,11 @@ ms.topic: article
 ms.workload: required
 ms.date: 02/06/2017
 ms.author: ruturajd@microsoft.com
-translationtype: Human Translation
-ms.sourcegitcommit: 44b6ff6e588d529fd833a4a7fdd61df7e933ddd8
-ms.openlocfilehash: b4105e98323b5161a22fa65707d376a7155611d6
-ms.lasthandoff: 01/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c91a1210e84d215449b98aae14bda490aa2cb156
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +92,7 @@ Agora, essas duas configurações estão disponíveis em seus ativos.
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Para saber mais sobre como se conectar à sua assinatura por meio do PowerShell clique [aqui](/powershell/azureps-cmdlets-docs).
+Para saber mais sobre como se conectar à sua assinatura por meio do PowerShell clique [aqui](/powershell/azure/overview).
 
 Em seguida, você criará um runbook na Automação do Azure que pode adicionar um ponto de extremidade à máquina virtual front-end após o failover.
 

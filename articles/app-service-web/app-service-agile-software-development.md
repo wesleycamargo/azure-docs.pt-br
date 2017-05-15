@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5ea7af4744876f1085e14de800d599e001c3f3dd
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 452a50ef4a01ac328c4c2de8767181107eb57cd6
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -269,7 +270,7 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 * [ARMClient – configurar publicação do GitHub no site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Blog de David Ebbo](http://blog.davidebbo.com/)
-* [PowerShell do Azure](/powershell/azureps-cmdlets-docs)
+* [PowerShell do Azure](/powershell/azure/overview)
 * [Ferramentas de linha de comando de plataformas cruzadas do Azure](../cli-install-nodejs.md)
 * [Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

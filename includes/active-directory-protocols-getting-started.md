@@ -31,8 +31,3 @@ Primeiro, você precisará registrar seu aplicativo em seu locatário do Azure A
   * Para os Aplicativos Nativos, forneça um **URI de redirecionamento**, que será usado pelo Azure AD para retornar respostas de token. Insira um valor específico para seu aplicativo, por exemplo, `http://MyFirstAADApp`
 * Depois de concluir o registro, o Azure AD atribuirá a seu aplicativo um identificador de cliente único, a ID do Aplicativo. Você precisará desse valor nas próximas seções, então copie-o da página do aplicativo.
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

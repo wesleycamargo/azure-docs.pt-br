@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 14e2f51476a36ab0a759a9a53f17e08a930f1820
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 6f1a016a296d7304ce68e8f3622c34ae0346dd6b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -31,8 +32,8 @@ ms.lasthandoff: 04/03/2017
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>Outros tamanhos
-- [Propósito geral](../windows/sizes-general.md)
-- [Computação otimizada](../windows/sizes-compute.md)
+- [Propósito geral](sizes-general.md)
+- [Computação otimizada](sizes-compute.md)
 - [Memória otimizada](sizes-memory.md)
 - [Armazenamento otimizado](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
@@ -40,9 +41,9 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações e considerações sobre o uso desses tamanhos, confira [Sobre VMs série H ou série A com computação intensiva](../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Para obter informações e considerações sobre o uso desses tamanhos, confira [Sobre VMs série H ou série A com computação intensiva](a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-- Saiba mais sobre como as [ACUs (unidade de computação do Azure)](../windows/acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
+- Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
 
 
 

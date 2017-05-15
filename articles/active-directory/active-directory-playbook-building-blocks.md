@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 4/12/2017
 ms.author: dstefan
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 03b7e184d26ceccd12f40b4935d7c451b7eee01e
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b6f26a338450619cef012467bf78b9469622ba08
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -395,7 +395,7 @@ Tempo estimado para Conclusão: 15 minutos
 | Forneça os dados de redefinição de senha de Autoatendimento, conforme configurado na etapa 2 | http://aka.ms/ssprsetup |
 | Feche o navegador |  |
 | Inicie o processo de logon como o operador de informações que você usou na etapa 4 |  |
-| Redefinir a senha | [Atualizar sua própria senha: Redefinir a minha senha](active-directory-passwords-update-your-own-password.md#reset-my-password) |
+| Redefinir a senha | [Atualizar sua própria senha: Redefinir a minha senha](active-directory-passwords-update-your-own-password.md) |
 | Tente efetuar logon com sua nova senha no Azure AD, bem como para recursos locais |  |
 
 ### <a name="considerations"></a>Considerações

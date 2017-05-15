@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: monicar
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1842d55e2275560581cf2766cdf74e0939e68c98
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1cf6be168c3e87bfd567c216679f608593673340
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,8 +48,8 @@ Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usa
 Uma [interface de linha de comando](cli-install-nodejs.md) que pode ser usada para gerenciar os serviços do Azure em PCs com Windows, OSX e Linux.
 
 ### <a name="powershell"></a>Azure PowerShell
-Uma [interface de linha de comando](/powershell/azureps-cmdlets-docs) para gerenciar os serviços do Azure por meio de uma linha de comando em PCs com Windows. Alguns serviços, ou recursos do serviço, podem ser gerenciados apenas por meio do PowerShell ou da CLI. A orientação para cada recurso individual do Azure detalha com quais modelos um recurso pode ser implantado.   
-Confira também [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs)
+Uma [interface de linha de comando](/powershell/azure/overview) para gerenciar os serviços do Azure por meio de uma linha de comando em PCs com Windows. Alguns serviços, ou recursos do serviço, podem ser gerenciados apenas por meio do PowerShell ou da CLI. A orientação para cada recurso individual do Azure detalha com quais modelos um recurso pode ser implantado.   
+Confira também [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 
 ### <a name="arm-model"></a>modelo de implantação do Azure Resource Manager
 Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usados para implantar recursos no Microsoft Azure (o outro é o modelo de implantação clássico). Alguns recursos do Azure podem ser implantados apenas em um modelo ou no outro, enquanto outros podem ser implantados nos dois modelos. A orientação para recursos individuais do Azure detalha com quais modelos um recurso pode ser implantado.

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: a655c7bf1ea5ca1439d4353df5067c0e07f2d49f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,6 +26,10 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="overview"></a>Visão geral
 Este artigo descreve como proteger novamente as máquinas virtuais do Azure para o site local. Quando achar que está pronto, siga as instruções neste artigo, para fazer o failback de suas máquinas virtuais VMware ou de servidores físicos Windows/Linux após a realização do failover do site local para o Azure usando [Replicar máquinas virtuais VMware e servidores físicos para o Azure com o Azure Site Recovery](site-recovery-failover.md).
+
+> [!WARNING]
+> Se você tiver [concluído a migração](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), movido a máquina virtual para outro grupo de recursos ou excluídos a máquina virtual do Azure, não será possível aplicar failback depois disso.
+
 
 Depois que o Proteja Novamente for concluído e da replicação de máquinas virtuais protegidas, você pode iniciar um failback nas máquinas virtuais para trazê-las ao site local.
 
@@ -38,8 +43,11 @@ Para obter uma visão geral, assista a este vídeo sobre como fazer failover do 
 A seguir estão as etapas de pré-requisito que você deve levar em conta ou realizar quando se preparar para proteger novamente.
 
 * Se as máquinas virtuais para as quais você deseja realizar o failback forem gerenciadas por um servidor vCenter, você precisará das permissões necessárias para a descoberta das máquinas virtuais nos servidores vCenter. [Leia mais](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-* Se houver instantâneos em uma máquina virtual local, o Proteja Novamente falhará. Você pode excluir os instantâneos antes de prosseguir para o Proteja Novamente.
-* Antes de realizar o failback, será necessário criar dois componentes adicionais:
+
+> [!WARNING] 
+> Se houver instantâneos na máquina virtual local ou na máquina virtual, a nova proteção falhará. Você pode excluir os instantâneos no destino mestre antes de prosseguir para uma nova proteção. Os instantâneos na máquina virtual serão mesclados automaticamente durante o trabalho de nova proteção.
+
+* Antes do failback, será necessário criar dois componentes adicionais:
   * **Criar um servidor de processo**. O servidor de processo recebe dados da máquina virtual protegida no Azure e envia dados para o site local. Uma rede de baixa latência é necessária entre o servidor de processo e a máquina virtual protegida. Assim, você poderá ter um servidor de processo local se estiver usando uma conexão Azure ExpressRoute, ou um servidor de processo do Azure se estiver usando VPN.
   * **Criar um servidor de destino mestre**: o servidor de destino mestre envia e recebe dados do failback. O servidor de gerenciamento local criado tem um servidor de destino mestre instalado por padrão. No entanto, dependendo do volume do tráfego de failback, talvez seja necessário criar um servidor de destino mestre separado para o failback.
         * [Uma máquina virtual Linux precisa de um servidor de destino mestre do Linux](site-recovery-how-to-install-linux-master-target.md).
@@ -176,6 +184,8 @@ Também é possível proteger novamente no nível de um plano de recuperação. 
 > [!NOTE]
 > Um grupo de replicação deve ser protegido novamente usando o mesmo destino mestre. Se ele é protegido usando um servidor de destino mestre diferente, o servidor não pode fornecer um ponto comum no tempo.
 
+> [!NOTE]
+> A máquina virtual local será desativada durante uma nova proteção. Isso é para garantir a consistência dos dados durante a replicação. Não ative a máquina virtual após a conclusão de uma nova proteção.
 
 Depois que o Proteja Novamente for bem-sucedido, a máquina virtual entrará no estado protegido.
 

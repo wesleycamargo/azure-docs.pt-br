@@ -12,6 +12,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Medidas personalizadas associadas ao item de telemetria ao qual estas pertencem. E elas são sujeitas à amostragem com o item de telemetria que contém essas medidas. Use a [Telemetria de Métrica](#metric-telemetry) para controlar a medida que possui valor independente de outro tipo de telemetria. 
+ > As medidas personalizadas são associadas ao item de telemetria ao qual estas pertencem. Elas são sujeitas à amostragem com o item de telemetria que contém essas medidas. Para controlar a medida que possui valor independente de outros tipos de telemetria, use [Telemetria metrica](../articles/application-insights/app-insights-api-custom-events-metrics.md#send-metrics).
 
 Comprimento de chave máximo: 150

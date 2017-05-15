@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/30/2016
+ms.date: 05/01/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 84a04f71ffde07e9caa439c03b55920d0bb0ef16
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: af45d745bccb02ce9fd45320e83284a8b33d99bd
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -51,6 +52,14 @@ ms.lasthandoff: 04/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG).
+* Adição de uma opção para desabilitar a verificação do SSL quando executada no Emulador do DocumentDB.
+* Removida a restrição do módulo de solicitações dependentes para serem exatamente 2.10.0.
+* Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
+* Adicionado suporte para habilitar o registro em log de script durante a execução do procedimento armazenado.
+* Versão da API REST aumentado para '2017-01-19' nesta versão.
+
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
 * Alterações editoriais feitas a comentários de documentação.
 
@@ -114,6 +123,7 @@ Qualquer solicitação feita ao DocumentDB usando um SDK obsoleto será rejeitad
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |1º de maio de 2017 |--- |
 | [2.0.1](#2.0.1) |30 de outubro de 2016 |--- |
 | [2.0.0](#2.0.0) |29 de setembro de 2016 |--- |
 | [1.9.0](#1.9.0) |07 de julho de 2016 |--- |

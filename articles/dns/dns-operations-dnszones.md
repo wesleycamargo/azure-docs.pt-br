@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: c86004a14983e9eea543fbd3aa09f2a447414291
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: fc2da5800988fb262990d3a630f25c6252da5f3b
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Como gerenciar as zonas DNS usando o PowerShell
@@ -166,11 +168,6 @@ Saiba como [gerenciar conjuntos de registros e registros](dns-operations-records
 <br>
 Saiba como [delegar seu domínio ao DNS do Azure](dns-domain-delegation.md).
 <br>
-Examine a [documentação de referência do PowerShell do DNS do Azure](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
+Examine a [documentação de referência do PowerShell do DNS do Azure](/powershell/module/azurerm.dns).
 
 

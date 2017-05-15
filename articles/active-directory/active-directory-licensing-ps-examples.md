@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9078689d9b2cc66c9674cb5728b7e2f7d669bc43
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 36ea3356648a1a6333c2a1e2c042d27ae2f829b4
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +33,7 @@ Toda a funcionalidade de licenciamento baseado em grupo está disponível por me
 > Antes de começar a executar os cmdlets, certifique-se de se conectar ao seu locatário primeiro, executando o cmdlet `Connect-MsolService`.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Exibir as licenças de produto atribuídas a um grupo
-O cmdlet [Get-MsolGroup](https://docs.microsoft.com/powershell/msonline/v1/get-msolgroup) pode ser usado para recuperar o objeto de grupo e verificar a propriedade *Licenças*: ele lista todas as licenças de produto atualmente atribuídas ao grupo.
+O cmdlet [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) pode ser usado para recuperar o objeto de grupo e verificar a propriedade *Licenças*: ele lista todas as licenças de produto atualmente atribuídas ao grupo.
 ```
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/27/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
-ms.openlocfilehash: 17270815b6278ec6b36a134c313cd543622dd9f4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 76f59384db37967a9210ba5efa49b25788d21cdc
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,7 +79,7 @@ Existem dois pré-requisitos essenciais para uma troca de implantação bem-suce
 
 - Se quiser usar um endereço IP estático para o slot de produção, você também deverá reservar um para o slot de preparo. Caso contrário, a troca falhará.
 
-- Todas as instâncias de suas funções devem estar em execução para que você possa executar a troca. Você pode verificar o status de suas instâncias no Portal Clássico do Azure ou usando [o comando Get-AzureRole no Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- Todas as instâncias de suas funções devem estar em execução para que você possa executar a troca. Você pode verificar o status de suas instâncias no Portal Clássico do Azure ou usando [o comando Get-AzureRole no Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
 
 Observe que as atualizações do SO convidado e as operações de recuperação de serviço também podem fazer com que as trocas de implantação falhem. Confira [Solucionar problemas de implantação do serviço de nuvem](cloud-services-troubleshoot-deployment-problems.md) para obter mais detalhes.
 
@@ -153,9 +155,4 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

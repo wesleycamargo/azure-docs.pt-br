@@ -5,7 +5,6 @@
 # Introdução
 ## [Inscrever-se no Log Analytics](log-analytics-get-started.md)
 ## [Gerenciar acesso](log-analytics-manage-access.md)
-## [Proxy e firewall](log-analytics-proxy-firewall.md)
 ## [Dados de uso](log-analytics-usage.md)
 ## [Perguntas frequentes do Log Analytics](log-analytics-faq.md)
 ## [Provedores de serviço](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## Coletar dados
 ### Fontes conectadas
 #### [Agentes do Windows](log-analytics-windows-agents.md)
-#### [Agentes do Linux](log-analytics-linux-agents.md)
+#### [Agentes do Linux](log-analytics-agent-linux.md)
 #### [Máquinas Virtuais do Azure](log-analytics-azure-vm-extension.md)
 #### [Recursos do Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### Fontes de dados
 #### [Visão geral de fontes de dados](log-analytics-data-sources.md)
 #### [Eventos do Windows](log-analytics-data-sources-windows-events.md)
+#### [Dados JSON personalizados](log-analytics-data-sources-json.md)
+#### [Dados de desempenho coletados](log-analytics-data-sources-collectd.md)
+#### [Alertas do Nagios e do Zabbix](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [Contadores de desempenho](log-analytics-data-sources-performance-counters.md)
+#### [Desempenho do aplicativo Linux](log-analytics-data-sources-linux-applications.md)
 #### [Logs do IIS](log-analytics-data-sources-iis-logs.md)
 #### [Logs personalizados](log-analytics-data-sources-custom-logs.md)
 #### [Campos Personalizados](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [Visão geral das pesquisas de log](log-analytics-log-searches.md)
 ### [Referência de pesquisa](log-analytics-search-reference.md)
 #### [Expressões regulares](log-analytics-log-searches-regex.md)
+### [Execute a ação nos resultados da pesquisa](log-analytics-log-search-takeaction.md)
 ### [Grupos de computadores](log-analytics-computer-groups.md)
 ## Analisar dados
 ### [Painéis](log-analytics-dashboards.md)
@@ -48,6 +52,7 @@
 ### [Solução de Gerenciamento de Alertas](log-analytics-solution-alert-management.md)
 ## Use as soluções
 ### [Visão geral das soluções](log-analytics-add-solutions.md)
+### [Soluções de destino](../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Log Analytics de Atividade](log-analytics-activity.md)
 ### [Avaliação do AD](log-analytics-ad-assessment.md)
 ### [Status de replicação do AD](log-analytics-ad-replication-status.md)
@@ -57,6 +62,8 @@
 ### [Controle de alterações](log-analytics-change-tracking.md)
 ### [Contêineres](log-analytics-containers.md)
 ### [Análise DNS](log-analytics-dns.md)
+### [Conector de gerenciamento do serviço de TI no OMS](log-analytics-itsmc-overview.md)
+#### [Conexões de gerenciamento do serviço de TI no OMS](log-analytics-itsmc-connections.md)
 ### [Cofre da Chave](log-analytics-azure-key-vault.md)
 ### Mensagens dos Aplicativos Lógicos B2B
 #### [Solução de Mensagens dos Aplicativos Lógicos B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -84,7 +91,7 @@
 ### [API de Alerta](log-analytics-api-alerts.md)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [PowerShell](/powershell/module/azurerm.operationalinsights)
 ## [REST](/rest/api/loganalytics)
 
 # Recursos

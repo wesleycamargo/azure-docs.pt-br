@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/26/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7f6c71056bca7beebc02313409aabe386d191e23
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 93831bb163f67bbf40026faf3096ff5b7c581dfe
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -664,7 +665,7 @@ Obtenha atividades estendidas a partir de um log em que algumas entradas marcam 
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-    | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+    | project City, ActivityId, StartTime, StopTime, Duration=StopTime-StartTime
 
 ```
 
@@ -2750,7 +2751,8 @@ Para criar um literal dinâmico, use `parsejson` (alias `todynamic`) com um argu
 * `parsejson('21')` - um único valor de tipo dinâmico que contém um número
 * `parsejson('"21"')` - um único valor de tipo dinâmico que contém uma cadeia de caracteres
 
-Observe que, diferentemente do JavaScript, o JSON exige o uso de aspas duplas (`"`) ao redor de cadeias de caracteres. Portanto, é geralmente mais fácil citar literais de uma cadeia de caracteres codificada em JSON usando aspas simples (`'`).
+> ![OBSERVAÇÃO] Aspas duplas (`"`) devem ser usadas entre rótulos e valores de cadeia de caracteres em JSON. Portanto, é geralmente mais fácil citar literais de uma cadeia de caracteres codificada em JSON usando aspas simples (`'`).
+> 
 
 Este exemplo cria um valor dinâmico e então usa seus campos:
 
@@ -2927,21 +2929,23 @@ Um objeto do tipo `dynamic` especificado por *json*.
 
 **Exemplo**
 
-No exemplo a seguir, quando `context_custom_metrics` é um `string` que se parece com isto: 
+No exemplo a seguir, `customDimensions.person` é um `string` que se parece com isto: 
 
 ```
-{"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
+"\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
 então, o fragmento a seguir recupera o valor do slot `duration` no objeto e, por meio disso, recupera dois slots, `duration.value` e  `duration.min` (`118.0` e `110.0`, respectivamente).
 
 ```AIQL
-T
-| ...
+customEvents
+| where name == "newMember"
 | extend d=parsejson(context_custom_metrics) 
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
+> ![OBSERVAÇÃO] Caracteres de aspas duplas devem ser usados entre rótulos e valores de cadeia de caracteres em JSON. 
+>
 
 
 ### <a name="range"></a>range

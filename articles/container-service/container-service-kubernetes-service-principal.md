@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
-ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: b76020e3e5855a63c416851d9b9adefdbdc5874a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 02/22/2017
 
 
 
-No Serviço de Contêiner do Azure, o Kubernetes requer uma [entidade de serviço do Azure Active Directory](../active-directory/active-directory-application-objects.md) como uma conta de serviço para interagir com as APIs do Azure. A entidade de serviço é necessária para gerenciar dinamicamente recursos como rotas definidas pelo usuário e o Azure Load Balancer da Camada 4.
+No Serviço de Contêiner do Azure, o Kubernetes requer uma [entidade de serviço do Azure Active Directory](../active-directory/active-directory-application-objects.md) como uma conta de serviço para interagir com as APIs do Azure. A entidade de serviço é necessária para gerenciar dinamicamente recursos como [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md) e o [Azure Load Balancer da Camada 4](../load-balancer/load-balancer-overview.md).
 
 Este artigo mostra diferentes opções para especificar uma entidade de serviço para o cluster Kubernetes. Por exemplo, se você instalou e configurou a [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), poderá executar o comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para criar o cluster Kubernetes e a entidade de serviço ao mesmo tempo.
 

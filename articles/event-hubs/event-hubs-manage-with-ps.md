@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 9ca861788d9c327237c8637e11312fb099837e56
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a3ba385e15510139929735adb5e50b6291846356
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Usar o PowerShell para gerenciar recursos dos Hubs de Eventos
 
-O PowerShell do Microsoft Azure é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento dos serviços do Azure. Este artigo descreve como usar o [Módulo do PowerShell do Gerenciador de Recursos dos Hubs de Eventos](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub) para provisionar e gerenciar entidades dos Hubs de Eventos (grupos de consumidor, namespaces e Hubs de Eventos) usando um script ou console local do Azure PowerShell.
+O PowerShell do Microsoft Azure é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento dos serviços do Azure. Este artigo descreve como usar o [Módulo do PowerShell do Gerenciador de Recursos dos Hubs de Eventos](/powershell/module/azurerm.eventhub) para provisionar e gerenciar entidades dos Hubs de Eventos (grupos de consumidor, namespaces e Hubs de Eventos) usando um script ou console local do Azure PowerShell.
 
 Também é possível gerenciar recursos dos Hubs de Eventos usando modelos do Azure Resource Manager. Para obter mais informações, consulte o artigo [Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
@@ -151,7 +152,7 @@ Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $N
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte a documentação completa sobre o módulo do PowerShell do Gerenciador de Recursos dos Hubs de Eventos [aqui](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub). Esta página lista todos os cmdlets disponíveis.
+- Consulte a documentação completa sobre o módulo do PowerShell do Gerenciador de Recursos dos Hubs de Eventos [aqui](/powershell/module/azurerm.eventhub). Esta página lista todos os cmdlets disponíveis.
 - Para obter informações sobre como usar modelos do Azure Resource Manager, consulte o artigo [Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 - Informações sobre [Bibliotecas de gerenciamento .NET dos Hubs de Eventos](event-hubs-management-libraries.md).
 

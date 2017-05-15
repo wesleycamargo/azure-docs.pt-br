@@ -4,7 +4,7 @@ description: "Este artigo fornece informações sobre como instalar e usar Runbo
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
 ms.service: automation
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2017
+ms.date: 05/02/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3a958b790b4501153aad86310c3783d49733dd90
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 66e749106ba1031eef19b12f06d5bd16ffa9d09e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -69,6 +70,7 @@ Se você tem uma conta de Automação definida para uma região específica e de
 | --- | --- |
 | Centro-Sul dos Estados Unidos |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Leste dos EUA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| Centro-Oeste dos EUA | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | Europa Ocidental |we-jobruntimedata-prod-su1.azure-automation.net |
 | Norte da Europa |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net |
@@ -76,6 +78,14 @@ Se você tem uma conta de Automação definida para uma região específica e de
 | Índia Central |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Leste do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net |
+| Sul do Reino Unido | uks-jobruntimedata-prod-su1.azure-automation.net |
+| Gov. dos EUA – Virgínia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Para obter uma lista de endereços IP em vez de nomes, baixe e leia o arquivo xml [Endereço IP de Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) no Centro de Download da Microsoft. 
+
+> [!NOTE]
+> Esse arquivo contém intervalos de endereços IP (inclusive intervalos de Computação, SQL e Armazenamento) usados em Datacenters do Microsoft Azure. Um arquivo atualizado é postado semanalmente que reflete os intervalos atualmente implantados e quaisquer alterações futuras para os intervalos de IP. Novos intervalos que aparecem no arquivo não serão usados em datacenters por pelo menos uma semana. Baixe o novo arquivo xml semanalmente e faça as alterações necessárias no seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Express Route podem observar esse arquivo usado para atualizar o anúncio de BGP de espaço do Azure na primeira semana de cada mês. 
+> 
 
 ## <a name="installing-hybrid-runbook-worker"></a>Instalando o Runbook Worker Híbrido
 

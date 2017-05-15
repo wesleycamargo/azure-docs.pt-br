@@ -4,7 +4,7 @@
   items:
   - name: "Sobre Máquinas Virtuais"
     href: overview.md
-- name: "Início rápido"
+- name: "Guia de início rápido"
   expanded: true
   items:
   - name: "Criar VM - Portal"
@@ -21,10 +21,23 @@
     href: tutorial-manage-data-disk.md
   - name: "3 - Automatizar a configuração"
     href: tutorial-automate-vm-deployment.md
-  - name: "4 - VMs de balanceamento de carga"
+  - name: "4 - Criar imagens da VM"
+    href: tutorial-custom-images.md
+  - name: "5 - VMs altamente disponíveis"
+    href: tutorial-availability-sets.md
+  - name: "6 - Criar um conjunto de dimensionamento de VM"
+    href: tutorial-create-vmss.md
+  - name: "7 - VMs de balanceamento de carga"
     href: tutorial-load-balancer.md
-  - name: "5 - Gerenciar a rede"
+  - name: "8 - Gerenciar a rede"
     href: tutorial-virtual-network.md
+  - name: "9 - Fazer o backup de máquinas virtuais"
+    href: tutorial-backup-vms.md
+  - name: "10 - Monitorar máquinas virtuais"
+    href: tutorial-monitoring.md
+  - name: "11 - Gerenciar a segurança da VM"
+    href: tutorial-azure-security.md
+
 - name: "Exemplos"
   items:
   - name: "PowerShell"
@@ -193,7 +206,7 @@
       - name: "Azure PowerShell"
         href: attach-disk-ps.md
       - name: "Portal do Azure"
-        href: attach-disk-portal.md
+        href: attach-managed-disk-portal.md
     - name: "Desanexar o disco de dados"
       href: detach-disk.md
     - name: "Expandir o disco do sistema operacional"
@@ -214,6 +227,8 @@
         href: vhd-copy.md
       - name: "Criar uma VM com base em um VHD especializado"
         href: create-vm-specialized.md
+      - name: "Anexar um disco não gerenciado"
+        href: attach-disk-portal.md
   - name: "Rede de VM"
     href: ps-common-network-ref.md
     items:
@@ -383,9 +398,9 @@
   - name: "Java"
     href: /java/api
   - name: "Node.js"
-    href: https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: "Python"
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: "REST de computação"
     href: /rest/api/compute
   - name: "Managed Disks REST"

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5c7c6c8568115093f3a7568b6d318f985705691c
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 6f91f732b7579c9f14458dab9be49c027debfac1
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ Para obter informações sobre como você pode obter o provedor de identidade do
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
 * [Sign&go 5.3](#signgo-53) 
-* [SoftBank](#softbank)
-* [VMware Identity Manager](#vmware-identity-manager)
+* [SoftBank Technology Online Service Gate](#softbank)
+* [VMware Workspace One](#vmware-workspace-one)
 * [Portal do Espaço de Trabalho do VMware versão 2.1](#vmware--workspace-portal-version-21) 
 
 
@@ -340,7 +341,7 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 O Sign&go 5.3 oferece suporte à autenticação Kerberos por meio da configuração de um Kerberos Contract.  Para obter assistência com essa configuração, contate a Ilex ou leia o guia de instalação [aqui.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
-## <a name="softbank"></a>SoftBank
+## <a name="softbank-technology-online-service-gate"></a>SoftBank Technology Online Service Gate
 
 A seguir, a matriz de suporte de cenário para esta experiência de logon único:
 
@@ -350,9 +351,9 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 | Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM |Suportado |Não há suporte para a Autenticação Integrada do Windows |
 | Clientes de email avançados, como o Outlook e o ActiveSync |Suportado |Nenhum |
 
-Para obter mais informações sobre o BitGlass, veja [aqui.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
+Para obter mais informações sobre o SoftBank Technology Online Service Gate, consulte [aqui.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
 
-## <a name="vmware-identity-manager"></a>VMware Identity Manager
+## <a name="vmware-workspace-one"></a>VMware Workspace One
 
 A seguir, a matriz de suporte de cenário para esta experiência de logon único:
 

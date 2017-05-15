@@ -1,24 +1,12 @@
 ---
-title: "(preterido) Previsão - Média de Movimentação Integrada de Regressão Automática (ARIMA) - Azure | Microsoft Docs"
-description: "(preterido) Previsão - Média de Movimentação Integrada de Regressão Automática (ARIMA)"
-services: machine-learning
-documentationcenter: 
-author: yijichen
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1e0d525f-8a9e-4b42-87e0-c9423f059f8c
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
-ms.author: yijichen
+
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: b1ee1eae91185c1893b55be2046343d78dd6c48b
-ms.openlocfilehash: 169331fc08c8d378fbb0c9869e69a9eb132224ba
-ms.lasthandoff: 02/17/2017
+redirect_url: https://gallery.cortanaintelligence.com/
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: be75a60762674ab347ab7adaddfb17c4208a2b9e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---

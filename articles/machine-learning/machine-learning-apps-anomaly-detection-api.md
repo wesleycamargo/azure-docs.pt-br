@@ -138,9 +138,9 @@ A API executa esses detectores em seus dados da série temporal e retorna as pon
 | TSpike |Indicador binário para indicar se um pico é detectado pelo Detector TSpike |
 | ZSpike |Indicador binário para indicar se um pico é detectado pelo Detector ZSpike |
 | rpscore |Um número flutuante que representa a pontuação de anomalias na alteração bidirecional no nível |
-| rpalert |Valor&1;/0 indicando que há uma anomalia na alteração de nível bidirecional baseada na sensibilidade de entrada |
+| rpalert |Valor 1/0 indicando que há uma anomalia na alteração de nível bidirecional baseada na sensibilidade de entrada |
 | tscore |um número flutuante que representa a pontuação de anomalias na tendência positiva |
-| talert |Valor&1;/0 indicando que há uma anomalia de tendência positiva baseada na sensibilidade de entrada |
+| talert |Valor 1/0 indicando que há uma anomalia de tendência positiva baseada na sensibilidade de entrada |
 
 ## <a name="scorewithseasonality-api"></a>API ScoreWithSeasonality
 A API ScoreWithSeasonality é usada para executar a detecção de anomalias na série temporal que têm padrões sazonais. Essa API é útil para detectar desvios nos padrões sazonais.  
@@ -182,11 +182,11 @@ A API executa esses detectores em seus dados da série temporal e retorna as pon
 | TSpike |Indicador binário para indicar se um pico é detectado pelo Detector TSpike |
 | ZSpike |Indicador binário para indicar se um pico é detectado pelo Detector ZSpike |
 | BiLevelChangeScore |Um número flutuante que representa a pontuação de anomalias na alteração de nível |
-| BiLevelChangeAlert |Valor&1;/0 indicando que há uma anomalia na alteração de nível baseada na sensibilidade de entrada |
+| BiLevelChangeAlert |Valor 1/0 indicando que há uma anomalia na alteração de nível baseada na sensibilidade de entrada |
 | PosTrendScore |um número flutuante que representa a pontuação de anomalias na tendência positiva |
-| PosTrendAlert |Valor&1;/0 indicando que há uma anomalia de tendência positiva baseada na sensibilidade de entrada |
+| PosTrendAlert |Valor 1/0 indicando que há uma anomalia de tendência positiva baseada na sensibilidade de entrada |
 | NegTrendScore |Um número flutuante que representa a pontuação de anomalias na tendência negativa |
-| NegTrendAlert |Valor&1;/0 indicando que há uma anomalia de tendência negativa baseada na sensibilidade de entrada |
+| NegTrendAlert |Valor 1/0 indicando que há uma anomalia de tendência negativa baseada na sensibilidade de entrada |
 
 [1]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-seasonal.png

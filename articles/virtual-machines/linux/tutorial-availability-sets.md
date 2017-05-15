@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 65a7872e0880cc74a00ca1c05baae2b34b407a61
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d082b37a2e070136178259c54ada8dc141f81e13
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -37,7 +38,7 @@ Os conjuntos de disponibilidade oferecem alta disponibilidade às VMs. Você tam
 
 ## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade usando [az vm availability-set create](/cli/azure/availability-set#create). Nesse exemplo, definimos o número de domínios de atualização e de falha como **2** para o conjunto de disponibilidade chamado **myAvailabilitySet** no grupo de recursos **myResourceGroupAvailability**.
+Crie um conjunto de disponibilidade usando [az vm availability-set create](/cli/azure/availability-set#create). Nesse exemplo, definimos o número de domínios de atualização e de falha como *2* para o conjunto de disponibilidade chamado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
 
 ```azurecli
 az vm availability-set create \
@@ -73,7 +74,7 @@ Agora temos duas máquinas virtuais distribuídas entre o hardware subjacente.
 
 ## <a name="check-for-available-vm-sizes"></a>Conferir os tamanhos de VM disponíveis 
 
-Você pode adicionar posteriormente outras VMs ao conjunto de disponibilidade, mas você precisa saber quais tamanhos de VM estão disponíveis no hardware. Use `az vm availability-set list-sizes` para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade.
+Você pode adicionar posteriormente outras VMs ao conjunto de disponibilidade, mas você precisa saber quais tamanhos de VM estão disponíveis no hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade.
 
 ```azurecli
 az vm availability-set list-sizes \

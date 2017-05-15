@@ -100,7 +100,7 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 
 ### <a name="step-3"></a>Etapa 3
 
-Verifique a configuração do balanceador de carga usando o `azure vm show`nome da máquina virtual**
+Verifique a configuração do balanceador de carga usando o `azure vm show` *nome da máquina virtual*
 
 ```azurecli
 azure vm show DB1

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d04c670daac243119b47cece2df18335c7af972c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 71668ceedca16647f814866ea9cf068f73e5daf6
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -82,6 +83,7 @@ Vamos examinar cada um deles em detalhes.
 |Isolamento geográfico|O DocumentDB garante o controle dos dados e a conformidade para regiões soberana (por exemplo, Alemanha, China, Gov. dos EUA).|
 |Instalações protegidas|Os dados no DocumentDB são armazenados em SSDs em centros data centers protegidos do Azure.<br><br>Saiba mais em [Datacenters globais da Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |Criptografia HTTPS/SSL/TLS|Todas as interações do cliente com o serviço do DocumentDB são impostas por SSL/TLS 1.2. Além disso, toda replicação dentro do datacenter e entre datacenters é imposta por SSL/TLS 1.2.|
+|Criptografia em repouso|Todos os dados armazenados em DocumentDB são criptografado em repouso. Saiba mais em [Criptografia DocumentDB em repouso](.\documentdb-nosql-database-encryption-at-rest.md)|
 |Servidores com patches|Por ser um banco de dados NoSQL gerenciado, o DocumentDB elimina a necessidade de gerenciar e corrigir servidores, o que é feito automaticamente para você.|
 |Contas administrativas com senhas fortes|É difícil de acreditar que precisamos mencionar esse requisito, mas ao contrário de alguns de nossos concorrentes, é impossível ter uma conta administrativa sem senha no DocumentDB.<br><br> A segurança via autenticação baseada em segredo de SSL e HMAC está incorporada por padrão.|
 |Certificações de proteção de dados e de segurança|O DocumentDB tem as certificações [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [EUMC (European Model Clauses)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) e [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) certificações. Outras certificações estão em andamento.|

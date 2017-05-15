@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: femila
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 0bcde69385b74fa62a629159abfff4bb16d9da89
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e76a20c7c7eef9a51c6c0373785fd810c09e34a
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -394,7 +395,7 @@ Por razões de desempenho e tolerância a falhas, é ideal instalar o serviço D
 
 As máquinas virtuais registram automaticamente seu nome DNS na inicialização ou quando há uma alteração no nome.
 
-Para saber mais sobre este exemplo e outro exemplo que mostra como provisionar a primeira VM e instalar o AD DS, confira [Instalar uma nova floresta do Active Directory no Microsoft Azure](active-directory-new-forest-virtual-machine.md). Para saber mais sobre como usar o Windows PowerShell, confira [Instalar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlets de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/jj152841).
+Para saber mais sobre este exemplo e outro exemplo que mostra como provisionar a primeira VM e instalar o AD DS, confira [Instalar uma nova floresta do Active Directory no Microsoft Azure](active-directory-new-forest-virtual-machine.md). Para saber mais sobre como usar o Windows PowerShell, confira [Instalar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlets de gerenciamento do Azure](/powershell/module/azurerm.compute/#virtual_machines).
 
 ### <a name="BKMK_DistributedDCs"></a>Controladores de domínio distribuídos geograficamente
 O Azure oferece vantagens ao hospedar vários controladores de domínio em redes virtuais diferentes:

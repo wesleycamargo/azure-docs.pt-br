@@ -12,7 +12,6 @@
 ## [Pré-requisitos](expressroute-prerequisites.md)
 ## [Fluxos de trabalho](expressroute-workflows.md)
 ## [Requisitos de roteamento](expressroute-routing.md)
-## [Requisitos de NAT](expressroute-nat.md)
 ## [Requisitos de QoS](expressroute-qos.md)
 ## [Sobre a movimentação de circuitos do clássico para o Gerenciador de Recursos](expressroute-move.md)
 
@@ -38,8 +37,9 @@
 
 ## Práticas Recomendadas
 ### [Práticas recomendadas para segurança de rede e serviços de nuvem](../best-practices-network-security.md)
-## [Otimizar roteamento](expressroute-optimize-routing.md)
+### [Otimizar roteamento](expressroute-optimize-routing.md)
 ### [Roteamento assimétrico](expressroute-asymmetric-routing.md)
+### [NAT para ExpressRoute](expressroute-routing-nat.md)
 
 ## Solucionar problemas
 ### [Verificando a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
@@ -47,7 +47,7 @@
 ### [Como obter tabelas ARP (Clássico)](expressroute-troubleshooting-arp-classic.md)
 
 # Referência
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (clássico)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -63,7 +63,7 @@
 ## [Blog de rede](https://azure.microsoft.com/blog/topics/networking/)
 ## [Estudos de Caso](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
-## [Limites de Serviço e Assinatura](../azure-subscription-service-limits.md)
+## [Limites de Serviço e Assinatura](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Criar um circuito do ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Como configurar Emparelhamento Privado para seu circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
