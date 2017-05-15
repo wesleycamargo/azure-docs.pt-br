@@ -4,24 +4,25 @@ description: "Modelo de dados do Application Insights para telemetria de métric
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: e27301a4815d16396518ddfc7487b064892e7631
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1bedede1934141927a770c97b61aeb5218652b3e
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métricas: modelo de dados do Application Insights
 
-Há dois tipos de telemetria de métricas com suporte do Application Insights – medida única e métrica agregada previamente. A medida única é apenas um nome e valor. A métrica agregada previamente especifica os valores mínimo e máximo da métrica no intervalo de agregação e o desvio padrão desses valores.
+Há dois tipos de telemetria de métricas com suporte do [Application Insights](app-insights-overview.md): medida única e métrica agregada previamente. A medida única é apenas um nome e valor. A métrica agregada previamente especifica os valores mínimo e máximo da métrica no intervalo de agregação e o desvio padrão desses valores.
 
 A telemetria de métrica agregada previamente supõe que esse período de agregação foi de um minuto.
 
@@ -71,7 +72,7 @@ Desvio padrão da métrica agregada. Não deve ser definido para uma medida.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte [modelo de dados](/application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
-- Saiba como usar a [API do Application Insights para métricas e eventos personalizados](/app-insights-asp-net-dependencies.md).
-- Confira as [plataformas](/app-insights-platforms.md) com suporte do Application Insights.
+- Saiba como usar a [API do Application Insights para métricas e eventos personalizados](app-insights-api-custom-events-metrics.md#send-metrics).
+- Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
+- Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.
 

@@ -1,5 +1,5 @@
 ---
-title: " Gerenciar um servidor de processo em execução em Azure(Classic) | Doc da Microsofts"
+title: " Gerenciar um servidor de processo em execução em Azure(Classic) | Microsoft Docs"
 description: Este artigo descreve como configurar um failback Server(Classic) do processo no Azure.
 services: site-recovery
 documentationcenter: 
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: bb24e1c79f6a77ec157fa05a8a212109ce8ae7ad
-ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: cceda131fc9eaa74f6328c8dd68a8e3885877061
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -28,7 +30,7 @@ ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
 Durante o failback, é recomendável implantar o servidor de processo no Azure se houver alta latência entre a rede Virtual do Azure e sua rede local. Este artigo descreve como você pode definir, configurar e gerenciar os servidores de processo em execução no Azure.
 
 > [!NOTE]
-> Use este artigo se você tiver utilizado o **Resource Manager** como o modelo de implantação para as máquinas virtuais durante o failover. Se você usou **clássico** como o modelo de implantação, siga as etapas em [como configurar um servidor de processo de Failback (Gerenciador de recursos)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
+> Use este artigo se você tiver utilizado o Classic como o modelo de implantação para as máquinas virtuais durante o failover. Se você usou o Gerenciador de Recursos como o modelo de implantação, siga as etapas em [Como configurar um servidor de processo de Failback (Gerenciador de recursos)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,9 +62,4 @@ Durante o failback, é recomendável implantar o servidor de processo no Azure s
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Cancelando o registro de servidor de processo (em execução no Azure) de um servidor de configuração (em execução local)
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

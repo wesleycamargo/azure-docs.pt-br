@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 437e343425da5c8cfe71d4ae67c423fcc2b794c2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,7 +106,7 @@ Uma definição de versão do Team Services descreve um fluxo de trabalho compos
     1. Selecione **Novo Ponto de Extremidade de Serviço** e, em seguida, selecione **Azure Service Fabric** no menu.
     2. Selecione o tipo de autenticação usada pelo cluster direcionada por esse ponto de extremidade.
     3. Defina um nome para a conexão no campo **Nome da Conexão** .  Normalmente, você poderia usar o nome do cluster.
-    4. Definir a URL de ponto de extremidade de conexão do cliente no campo **Ponto de Extremidade do Cluster** .  Exemplo: https://contoso.westus.cloudapp.azure.com:19000.
+    4. Definir a URL de ponto de extremidade de conexão do cliente no campo **Ponto de Extremidade do Cluster** .  Exemplo: tcp://contoso.westus.cloudapp.azure.com:19000.
     5. Para as credenciais do Azure Active Directory, defina as credenciais que você deseja usar para se conectar ao cluster nos campos **Nome de Usuário** e **Senha**.
     6. Para a autenticação baseada em certificado, defina a codificação de Base64 do arquivo de certificado do cliente no campo **Certificado de Cliente** .  Consulte o pop-up de ajuda nesse campo para obter informações sobre como obter esse valor.  Se seu certificado for protegido por senha, defina a senha no campo **Senha** .
     7. Confirme suas alterações clicando em **OK**. Depois de navegar de volta para a definição de versão, clique no ícone para atualizar no campo **Conexão do Cluster** para ver o ponto de extremidade que você acabou de adicionar.
@@ -130,10 +132,5 @@ Para saber mais sobre a integração contínua com aplicativos do Service Fabric
 * [Início da documentação do Team Services](https://www.visualstudio.com/docs/overview)
 * [Gerenciamento de build no Team Services](https://www.visualstudio.com/docs/build/overview)
 * [Gerenciamento de versão no Team Services](https://www.visualstudio.com/docs/release/overview)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

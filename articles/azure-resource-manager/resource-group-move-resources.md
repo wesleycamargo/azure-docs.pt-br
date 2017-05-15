@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -75,6 +76,7 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 
 * Gerenciamento da API
 * Aplicativos do Serviço de Aplicativo (aplicativos Web) - consulte [Limitações do Serviço de Aplicativo](#app-service-limitations)
+* Application Insights
 * Automação
 * Batch
 * Bing Mapas
@@ -124,7 +126,6 @@ Os serviços que atualmente não permitem mover um recurso são:
 
 * Serviço de Integridade Híbrida do AD
 * Gateway de Aplicativo
-* Application Insights
 * Serviços do BizTalk
 * Serviço de Contêiner
 * Rota Expressa
@@ -147,12 +148,12 @@ Ao trabalhar com aplicativos do Serviço de Aplicativo, você não pode mover um
 * Mova o plano do Serviço de Aplicativo e todos os outros recursos do Serviço de Aplicativo nesse grupo de recursos para um novo grupo de recursos que ainda não têm os recursos do Serviço de Aplicativo. Esse requisito significa que você precisa mover até mesmo os recursos do Serviço de Aplicativo que não estão associados ao plano do Serviço de Aplicativo. 
 * Mova os aplicativos para um grupo de recursos diferente, mas mantenha todos os planos do Serviço de Aplicativo no grupo de recursos original.
 
-Se o grupo de recursos original também incluir um recurso do Application Insights, não será possível mover esse recurso, pois, atualmente, o Application Insights não permite a operação de movimentação. Se você incluir o recurso Application Insights ao mover aplicativos do Serviço de Aplicativo, toda a operação de movimentação falhará. No entanto, para que o aplicativo funcione corretamente, o Application Insights e o plano do Serviço de Aplicativo não precisam residir no mesmo grupo de recursos que o aplicativo.
+O plano do Serviço de Aplicativo não precisam residir no mesmo grupo de recursos que o aplicativo.
 
 Por exemplo, se o grupo de recursos contém:
 
-* **web-a**, que está associado a **plan-a** e **app-insights-a**
-* **web-b**, que está associado a **plan-b** e **app-insights-b**
+* **web-a** associado a **plan-a**
+* **web-b** associado a **plan-b**
 
 Suas opções são:
 
@@ -161,7 +162,7 @@ Suas opções são:
 * Mover **web-a**
 * Mover **web-b**
 
-Todas as outras combinações envolvem a movimentação de um tipo de recurso que não pode ser movido (Application Insights) ou deixar para trás um tipo de recurso que não pode ser deixado para trás ao mover um plano do Serviço de Aplicativo (qualquer tipo de recurso do Serviço de Aplicativo).
+Todas as outras combinações envolvem deixar para trás um tipo de recurso que não pode ser deixado para trás ao mover um plano do Serviço de Aplicativo (qualquer tipo de recurso do Serviço de Aplicativo).
 
 Caso o aplicativo Web resida em um grupo de recursos diferente de seu plano do Serviço de Aplicativo, mas você desejar mover ambos para um novo grupo de recursos, será necessário realizar a movimentação em duas etapas. Por exemplo:
 

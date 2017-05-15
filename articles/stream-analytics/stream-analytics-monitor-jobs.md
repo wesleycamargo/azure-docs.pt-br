@@ -1,6 +1,6 @@
 ---
 title: Monitorar trabalhos programaticamente no Stream Analytics | Microsoft Docs
-description: Saiba como monitorar programaticamente os trabalhos do Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do Powershell.
+description: Saiba como monitorar programaticamente os trabalhos do Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do PowerShell.
 keywords: monitor .net, monitor de trabalhos, aplicativo de monitoramento
 services: stream-analytics
 documentationcenter: 
@@ -13,27 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/04/2017
+ms.date: 04/20/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: dc19bec960edff15feffc41bee1bbc63eeff5c6d
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 9cc2b35fa54c1fccb0e50840d0d6484c42edc5af
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/01/2017
 
 
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Criar programaticamente um monitor de trabalhos do Stream Analytics
- Este artigo demonstra como habilitar o monitoramento para um trabalho do Stream Analytics. Os trabalhos de Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do Powershell não têm monitoramento habilitado por padrão.  Você pode habilitá-lo manualmente no Portal do Azure navegando até a página de Monitor do trabalho e clicando no botão Habilitar ou então pode automatizar esse processo seguindo as etapas neste artigo. Os dados de monitoramento serão exibidos na guia Métricas no Portal do Azure para o trabalho do Stream Analytics.
+
+Este artigo demonstra como habilitar o monitoramento para um trabalho do Stream Analytics. Os trabalhos de Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do PowerShell não têm monitoramento habilitado por padrão. Você pode habilitá-lo manualmente no Portal do Azure indo até a página de Monitor do trabalho e clicando no botão Habilitar ou então pode automatizar esse processo seguindo as etapas neste artigo. Os dados de monitoramento serão exibidos na guia Métricas no Portal do Azure para o trabalho do Stream Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este artigo, você deve ter o seguinte:
 
-* Visual Studio 2017 ou 2015.
-* Baixe e instale o [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Um trabalho de Stream Analytics existente que precisa de monitoramento habilitado.
+Antes de começar este processo, você deve ter o seguinte:
+
+* Visual Studio 2017 ou 2015
+* [SDK do Azure .NET](https://azure.microsoft.com/downloads/) baixado e instalado
+* Um trabalho de Stream Analytics existente que precisa ter monitoramento habilitado
 
 ## <a name="create-a-project"></a>Criar um projeto
-1. Crie um aplicativo de console do Visual Studio C# .Net.
+
+1. Crie um aplicativo de console do Visual Studio C# .NET.
 2. No Console do Gerenciador de pacotes, execute os seguintes comandos para instalar os pacotes do NuGet. O primeiro é o SDK .NET do Azure Stream Analytics Management. O segundo é o SDK do Azure Monitor que será usado para habilitar o monitoramento. O último é o cliente do Active Directory do Azure que será usado para autenticação.
    
    ```
@@ -116,6 +120,7 @@ Antes de começar este artigo, você deve ter o seguinte:
      }
 
 ## <a name="create-management-clients"></a>Criar clientes de gerenciamento
+
 O código a seguir configurará as variáveis necessárias e os clientes de gerenciamento.
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
@@ -137,16 +142,17 @@ O código a seguir configurará as variáveis necessárias e os clientes de gere
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Habilitar o monitoramento para um trabalho de Stream Analytics existente
-O código a seguir habilitará o monitoramento para um trabalho de Stream Analytics **existente** . A primeira parte do código realiza uma solicitação GET em relação ao serviço de Stream Analytics para recuperar informações sobre o trabalho específico do Stream Analytics. Ele usa a propriedade "Id" (recuperada da solicitação GET) como um parâmetro para o método Put na segunda metade do código que envia uma solicitação PUT ao serviço Insights para habilitar o monitoramento para o trabalho de Stream Analytics.
 
-> [!WARNING]
-> Se você habilitou o monitoramento de um trabalho diferente do Stream Analytics anteriormente, por meio do Portal do Azure ou programaticamente por meio do código abaixo, **é recomendável que você forneça o mesmo nome de conta de armazenamento que indicou quando o habilitou.**
+O código a seguir habilita o monitoramento para um trabalho de Stream Analytics **existente**. A primeira parte do código realiza uma solicitação GET em relação ao serviço de Stream Analytics para recuperar informações sobre o trabalho específico do Stream Analytics. Ele usa a propriedade *Id* (recuperada da solicitação GET) como um parâmetro para o método Put na segunda metade do código que envia uma solicitação PUT ao serviço Insights para habilitar o monitoramento para o trabalho de Stream Analytics.
+
+>[!WARNING]
+>Se você habilitou o monitoramento de um trabalho diferente do Stream Analytics anteriormente, por meio do Portal do Azure ou programaticamente por meio do código abaixo, **recomendamos que você forneça o mesmo nome de conta de armazenamento que usou quando o habilitou.**
 > 
 > A conta de armazenamento está vinculada à região em que você criou o trabalho do Stream Analytics, não especificamente ao trabalho em si.
 > 
-> Todos os trabalhos do Stream Analytics (e todos os outros recursos do Azure) na mesma região compartilham essa conta de armazenamento para armazenar dados de monitoramento. Se você fornecer uma conta de armazenamento diferente, isso poderá causar efeitos colaterais indesejados no monitoramento de seus outros trabalhos do Stream Analytics e/ou outros recursos do Azure.
+> Todos os trabalhos do Stream Analytics (e todos os outros recursos do Azure) na mesma região compartilham essa conta de armazenamento para armazenar dados de monitoramento. Se você fornecer uma conta de armazenamento diferente, isso poderá causar efeitos colaterais indesejados no monitoramento de seus outros trabalhos do Stream Analytics ou outros recursos do Azure.
 > 
-> O nome da conta de armazenamento usado para substituir ```“<YOUR STORAGE ACCOUNT NAME>”``` abaixo deve ser uma conta de armazenamento que esteja na mesma assinatura que o trabalho do Stream Analytics para o qual você estiver habilitando o monitoramento.
+> O nome da conta de armazenamento que você usa para substituir `<YOUR STORAGE ACCOUNT NAME>` no código a seguir deve ser uma conta de armazenamento que esteja na mesma assinatura que o trabalho do Stream Analytics para o qual você estiver habilitando o monitoramento.
 > 
 > 
 
@@ -170,9 +176,11 @@ O código a seguir habilitará o monitoramento para um trabalho de Stream Analyt
 
 
 ## <a name="get-support"></a>Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)

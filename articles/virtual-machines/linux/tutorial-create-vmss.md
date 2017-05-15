@@ -15,10 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 73167924f95c8cea0ac3cb4651cb3571fb24cc01
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 6be49be9e4321075aa76b3abcf4695d0e7b45f6e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -31,7 +32,7 @@ As etapas neste tutorial podem ser concluídas usando o módulo mais recente do 
 ## <a name="scale-set-overview"></a>Visão geral do conjunto de escala
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Conjuntos de escala usam os mesmos componentes que você aprendeu no tutorial anterior para [criar máquinas virtuais altamente disponíveis](tutorial-availability-sets.md). As VMs em um conjunto de escala são criadas em um conjunto e distribuídas entre domínios de falha e atualização de lógica de disponibilidade.
 
-VMs são criadas conforme necessário em um conjunto de escala. Você pode definir regras de dimensionamento automático para controlar como e quando as VMs são adicionadas ou removidas do conjunto de escala. Essas regras podem ser disparados com base em métricas como carga de CPU, utilização de memória ou tráfego de rede.
+VMs são criadas conforme necessário em um conjunto de escala. Você define regras de dimensionamento automático para controlar como e quando as VMs são adicionadas ou removidas do conjunto de dimensionamento. Essas regras podem ser disparados com base em métricas como carga de CPU, utilização de memória ou tráfego de rede.
 
 Escala define suporte até 1.000 VMs quando você usar uma imagem da plataforma Windows Azure. Para cargas de trabalho de produção, convém [criar uma imagem VM personalizada](tutorial-custom-images.md). Você pode criar até 100 VMs em uma escala definida ao usar uma imagem personalizada.
 
@@ -39,7 +40,7 @@ Escala define suporte até 1.000 VMs quando você usar uma imagem da plataforma 
 ## <a name="create-an-app-to-scale"></a>Criar um aplicativo para escala
 Para uso em produção, você poderá [criar uma imagem VM personalizada](tutorial-custom-images.md) que inclui o aplicativo instalado e configurado. Para este tutorial, permite personalizar as VMs na primeira inicialização para ver rapidamente uma escala definida em ação.
 
-Um tutorial anterior, você aprendeu [como personalizar uma máquina virtual de Linux na primeira inicialização](tutorial-automate-vm-deployment.md) com cloud-init. Você pode utilizar o mesmo arquivo de configuração de inicialização de nuvem para instalar o NGINX e executar um aplicativo simples do Node. js 'Hello, World'. Crie um arquivo chamado `cloud-init.txt` e cole a seguinte configuração:
+Um tutorial anterior, você aprendeu [como personalizar uma máquina virtual de Linux na primeira inicialização](tutorial-automate-vm-deployment.md) com cloud-init. Você pode utilizar o mesmo arquivo de configuração de inicialização de nuvem para instalar o NGINX e executar um aplicativo simples do Node. js 'Hello, World'. Crie um arquivo chamado *cloud-init.txt* e cole a seguinte configuração:
 
 ```yaml
 #cloud-config
@@ -85,13 +86,13 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
-Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroupScaleSet` no local `westus`:
+Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group#create). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupScaleSet* no local *westus*:
 
 ```azurecli
 az group create --name myResourceGroupScaleSet --location westus
 ```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#create). O exemplo a seguir cria uma conjunto nomeada de escala `myScaleSet`, usa o arquivo de nuvem-int para personalizar a VM e gera chaves SSH, se não existirem:
+Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#create). O exemplo a seguir cria uma conjunto nomeada de escala *myScaleSet*, usa o arquivo de nuvem-int para personalizar a VM e gera chaves SSH, se não existirem:
 
 ```azurecli
 az vmss create \
@@ -110,7 +111,7 @@ Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjun
 ## <a name="allow-web-traffic"></a>Permitir o tráfego da web
 Um balanceador de carga foi criado automaticamente como parte do conjunto de dimensionamento de máquinas virtuais. O balanceador de carga distribui o tráfego entre um conjunto de VMs definidas usando regras do balanceador de carga. Você pode aprender mais sobre conceitos de Balanceador de carga e a configuração no próximo tutorial, [como carga de máquinas virtuais de saldo no Azure](tutorial-load-balancer.md).
 
-Para permitir o tráfego acessar o aplicativo web, crie uma regra com [criar regra de balanceamento de carga de rede az](/cli/azure/network/lb/rule#create). O exemplo a seguir cria uma regra chamada `myLoadBalancerRuleWeb`:
+Para permitir o tráfego acessar o aplicativo web, crie uma regra com [criar regra de balanceamento de carga de rede az](/cli/azure/network/lb/rule#create). O exemplo a seguir cria uma regra chamada *myLoadBalancerRuleWeb*:
 
 ```azurecli
 az network lb rule create \
@@ -125,7 +126,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Testar seu aplicativo
-Para ver seu aplicativo Node. js na web, obter o endereço IP público de sua balanceador de carga com [az rede ip público exibir](/cli/azure/network/public-ip#show). O seguinte exemplo obtém o endereço IP de `myScaleSetLBPublicIP`, criado como parte do conjunto de dimensionamento:
+Para ver seu aplicativo Node. js na web, obter o endereço IP público de sua balanceador de carga com [az rede ip público exibir](/cli/azure/network/public-ip#show). O seguinte exemplo obtém o endereço IP de *myScaleSetLBPublicIP*, criado como parte do conjunto de dimensionamento:
 
 ```azurecli
 az network public-ip show \
@@ -166,7 +167,7 @@ A saída deverá ser semelhante ao seguinte exemplo:
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>Aumentar ou diminuir as instâncias de VM
-Para ver o número de instâncias que você fez em um conjunto de escala, use [show do az vmss](/cli/azure/vmss#show) e consultar em `sku.capacity`:
+Para ver o número de instâncias que você fez em um conjunto de escala, use [az vmss show](/cli/azure/vmss#show) e consulte *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -176,7 +177,7 @@ az vmss show \
     --output table
 ```
 
-Manualmente, é possível aumentar ou diminuir o número de máquinas virtuais no conjunto de dimensionamento com [az vmss scale](/cli/azure/vmss#scale). O seguinte exemplo aumenta o número de VMs no conjunto de dimensionamento para `5`:
+Manualmente, é possível aumentar ou diminuir o número de máquinas virtuais no conjunto de dimensionamento com [az vmss scale](/cli/azure/vmss#scale). O seguinte exemplo aumenta o número de VMs no conjunto de dimensionamento para *5*:
 
 ```azurecli
 az vmss scale \
@@ -191,7 +192,51 @@ As regras de dimensionamento automático permitem definir como escalar e reduzir
 Para obter informações de conexão sobre as VMs nos conjuntos de dimensionamento, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). Esse comando gera o endereço IP público e as portas para cada VM que permite a conexão com o SSH:
 
 ```azurecli
-az vmss list-instance-connection-info --resource-group myResourceGroupScaleSet --name myScaleSet
+az vmss list-instance-connection-info \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet
+```
+
+
+## <a name="use-data-disks-with-scale-sets"></a>Usar discos de dados com conjuntos de dimensionamento
+Você pode criar e usar discos de dados com conjuntos de dimensionamento. Em um tutorial anterior, você aprendeu como [Gerenciar discos do Azure](tutorial-manage-disks.md) que descreve as práticas recomendadas e as melhorias de desempenho para a criação de aplicativos em discos de dados, em vez do disco do sistema operacional.
+
+### <a name="create-scale-set-with-data-disks"></a>Criar conjunto de dimensionamento com discos de dados
+Para criar um conjunto de dimensionamento e anexar discos de dados, adicione o parâmetro `--data-disk-sizes-gb` ao comando [az vmss create](/cli/azure/vmss#create). O exemplo a seguir cria um conjunto de dimensionamento com discos de dados de *50*Gb anexados a cada instância:
+
+```azurecli
+az vmss create \
+  --resource-group myResourceGroupScaleSet \
+  --name myScaleSetDisks \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --upgrade-policy-mode automatic \
+  --custom-data cloud-init.txt \
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 50
+```
+
+Quando as instâncias são removidas de um conjunto de dimensionamento, todos os discos de dados anexados também são removidos.
+
+### <a name="add-data-disks"></a>Adicionar discos de dados
+Para adicionar um disco de dados a instâncias no conjunto de dimensionamento, use [az vmss disk attach](/cli/azure/vmss/disk#attach). O exemplo a seguir adiciona um disco de *50*Gb a cada instância:
+
+```azurecli
+az vmss disk attach `
+    --resource-group myResourceGroupScaleSet `
+    --name myScaleSet `
+    --size-gb 50 `
+    --lun 2
+```
+
+### <a name="detach-data-disks"></a>Desanexar discos de dados
+Para remover um disco de dados para instâncias no conjunto de dimensionamento, use [az vmss disk detach](/cli/azure/vmss/disk#detach). O exemplo a seguir remove o disco de dados no LUN *2* de cada instância:
+
+```azurecli
+az vmss disk detach `
+    --resource-group myResourceGroupScaleSet `
+    --name myScaleSet `
+    --lun 2
 ```
 
 
