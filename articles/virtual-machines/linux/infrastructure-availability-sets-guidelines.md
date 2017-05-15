@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 05d5ae485f5a345ade59326ab77cb38127f06580
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2c4c44cc0f1f55a46d797b78ab56f88ddcf3953e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Ao projetar sua infraestrutura de aplicativos, planeje as camadas de aplicativo 
 
 Balanceadores de carga podem ser utilizados antes de cada camada de aplicativo para trabalhar junto com um conjunto de disponibilidade e certificar-se de que o tráfego sempre possa ser roteado para uma instância em execução. Sem um balanceador de carga, as VMs poderão continuar em execução durante eventos de manutenção planejada e não planejada, mas os usuários finais poderão não conseguir resolvê-los se a VM primária não estiver disponível.
 
-Projete o aplicativo para alta disponibilidade na camada de armazenamento. A prática recomendada é [usar o Managed Disks para VMs em um conjunto de disponibilidade](../linux/manage-availability.md#use-managed-disks-for-vms-in-availability-set). Se você estiver usando atualmente discos não gerenciados, será altamente recomendável [converter as VMs no conjunto de disponibilidade para usar o Managed Disks](../linux/convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks).
+Projete o aplicativo para alta disponibilidade na camada de armazenamento. A prática recomendada é [usar o Managed Disks para VMs em um conjunto de disponibilidade](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). Se você estiver usando atualmente discos não gerenciados, será altamente recomendável [converter as VMs no conjunto de disponibilidade para usar o Managed Disks](convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
