@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
-ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7562fbee15e4450542c2c17d8ae2a763a556a44f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -49,8 +51,10 @@ Aqui estão três cenários de exemplo:
 
 Observe que os preços usados nos exemplos são aplicáveis somente durante o período de versão prévia e estão sujeitos à alteração quando as Conexões Híbridas entrarem em disponibilidade geral.
 
-### <a name="how-are-wcf-relay-hours-calculated"></a>Como as horas de Retransmissão do WCF são calculadas?
-As horas de retransmissão são cobradas de acordo com a quantidade de tempo acumulado durante o qual cada Retransmissão do Barramento de Serviço fica "aberta". Uma Retransmissão é implicitamente instanciada e aberta em determinado endereço do Barramento de Serviço (URL do namespace do serviço) quando um serviço WCF habilitado para retransmissão ou "Ouvinte de retransmissão", se conectar pela primeira vez a esse endereço. Ela será fechada apenas quando o último ouvinte se desconectar do endereço. Portanto, para fins de cobrança, uma retransmissão é considerada "aberta" a partir do momento em que o primeiro ouvinte de Retransmissão se conecta até o momento em que o último ouvinte de Retransmissão se desconecta do endereço do Barramento de Serviço dessa Retransmissão.
+### <a name="how-are-relay-hours-calculated"></a>Como as horas de Retransmissão são calculadas?
+As horas de retransmissão do WCF da Conexão Híbrida são cobradas de acordo com a quantidade de tempo acumulado durante o qual cada Retransmissão do Barramento de Serviço fica "aberta". Uma Retransmissão é implicitamente instanciada e aberta em determinado endereço do Barramento de Serviço (URL do namespace do serviço) quando um serviço habilitado para retransmissão ou "Ouvinte de retransmissão", se conectar pela primeira vez a esse endereço. Ela será fechada apenas quando o último ouvinte se desconectar do endereço. Portanto, para fins de cobrança, uma retransmissão é considerada "aberta" a partir do momento em que o primeiro ouvinte de Retransmissão se conecta até o momento em que o último ouvinte de Retransmissão se desconecta do endereço do Barramento de Serviço dessa Retransmissão.
+
+As retransmissões do WCF estão disponíveis apenas nos namespaces da camada Standard. Caso contrário, os preços e as [cotas de conexão](../service-bus-messaging/service-bus-quotas.md) para retransmissões permanecem inalteradas. Isso significa que as retransmissões continuarão a ser cobradas sobre o número de mensagens (não operações) e horas de retransmissão. Para obter mais informações, consulte a tabela [Conexões Híbridas e Retransmissões do WCF](https://azure.microsoft.com/pricing/details/service-bus/) na página de detalhes de preços.
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-given-relay"></a>E se eu tiver mais de um ouvinte conectado a uma determinada Retransmissão?
 Em alguns casos, uma única Retransmissão pode ter vários ouvintes conectados. Uma Retransmissão é considerada "aberta" quando pelo menos um ouvinte de Retransmissão está conectado a ele. Adicionar mais ouvintes a uma Retransmissão aberta resultará em horas de retransmissão adicionais. O número de remetentes de Retransmissão (clientes que invocam ou enviam mensagens para Retransmissões) conectados a uma Retransmissão também não afeta o cálculo de horas de Retransmissão.
@@ -107,9 +111,4 @@ Sim. O cliente de Retransmissão faz conexões com o serviço de Retransmissão 
 * [Criar um namespace](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

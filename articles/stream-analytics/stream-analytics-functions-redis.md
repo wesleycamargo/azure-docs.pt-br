@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: ryancraw
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -51,7 +52,7 @@ Agora, vamos conectar a fila no trabalho do Stream Analytics que foi criado no p
    * **Codificação**: UTF8
    * **FORMATO**: linha separada
 4. Clique no botão **Criar** para adicionar essa fonte e verificar se o Stream Analytics pode se conectar com êxito à conta de armazenamento.
-5. Na guia **Consulta** , substitua a consulta atual pela seguinte. Substitua *[SEU NOME DO BARRAMENTO DE SERVIÇO] * pelo nome de saída que você criou na etapa 3. 
+5. Na guia **Consulta** , substitua a consulta atual pela seguinte. Substitua *[SEU NOME DO BARRAMENTO DE SERVIÇO]* pelo nome de saída que você criou na etapa 3. 
    
     ```    
    
@@ -188,7 +189,7 @@ Estamos empolgados sobre as novas coisas que o Azure Functions e o Stream Analyt
 
 Se for novo no Microsoft Azure, convidamos você para testá-lo se inscrevendo com uma [conta de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). Se for novo no Stream Analytics, convidamos você para [criar seu primeiro trabalho do Stream Analytics](stream-analytics-create-a-job.md).
 
-Caso precise de ajuda ou se tiver dúvidas, poste-as nos fóruns do [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) ou do [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
+Caso precise de ajuda ou se tiver dúvidas, poste-as nos fóruns do [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) ou do [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
 
 Você também pode ver os seguintes recursos:
 

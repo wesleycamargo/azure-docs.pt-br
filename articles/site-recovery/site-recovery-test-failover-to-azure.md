@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2aed07ff82c33111ef1abc9c9cc6b0ba2a9d3718
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 0df4b3535449c88f11fa7a58811f68c82549558f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -71,6 +72,24 @@ Quando é disparado, um failover de teste envolve as seguintes etapas:
 1. Verificação de pré-requisitos: essa etapa garante que todas as condições necessárias para o failover sejam atendidas
 1. Failover: essa etapa processa os dados, deixando-os prontos para que uma máquina virtual do Azure seja criada a partir deles. Se você tiver escolhido o ponto de recuperação **Mais recente**, essa etapa cria um ponto de recuperação dos dados que foram enviados para o serviço.
 1. Início: essa etapa cria uma máquina virtual do Azure usando os dados processados na etapa anterior.
+
+## <a name="time-taken-for-failover"></a>Tempo necessário para failover
+
+Em certos casos, o failover de máquinas virtuais requer uma etapa intermediária extra que geralmente leva cerca de oito a 10 minutos para ser concluída. Esses casos são os seguintes:
+
+* Máquinas virtuais VMware usando o serviço de mobilidade da versão anterior a 9.8
+* Servidores físicos 
+* Máquinas virtuais VMware Linux
+* Máquinas virtuais Hyper-V protegidas como servidores físicos
+* Máquinas virtuais VMware em que os drivers a seguir não estão presentes como drivers de inicialização 
+    * storvsc 
+    * vmbus 
+    * storflt 
+    * intelide 
+    * atapi
+* Máquinas virtuais VMware que não têm o serviço DHCP habilitado, independentemente de estarem usando endereços DHCP ou IP estáticos
+
+Em todos outros casos, essa etapa intermediária não é necessária, e o tempo necessário para o failover é significativamente menor. 
 
 
 ## <a name="creating-a-network-for-test-failover"></a>Criar uma rede para failover de teste

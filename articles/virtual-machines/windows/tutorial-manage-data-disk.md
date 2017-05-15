@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/21/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 6bc28290f5ae0466b8e1a260d411b7eab6f12439
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d68fc54f3fd08b3d7d66a9cd1ddb91c340191468
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -26,15 +27,15 @@ ms.lasthandoff: 04/26/2017
 
 Neste tutorial, você aprenderá sobre os diferentes tipos de disco de VM, como selecionar uma configuração de disco e como criar e anexar discos a VMs do Azure. Este tutorial também aborda como tirar instantâneos de disco.  
 
-As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="default-azure-disks"></a>Discos padrão do Azure
 
 Quando uma máquina virtual do Azure é criada, dois discos são automaticamente anexados à máquina virtual. 
 
-**Disco do sistema operacional**: os discos do sistema operacional podem ser dimensionados para até 1 terabyte e hospedar o sistema operacional das VMs.  O disco do SO é atribuído à letra de unidade `c:` por padrão. A configuração de cache do disco do SO é otimizada para desempenho do SO. O disco do SO **não deve** hospedar aplicativos nem dados. Para aplicativos e dados, use um disco de dados, que é detalhado posteriormente neste artigo.
+**Disco do sistema operacional**: os discos do sistema operacional podem ser dimensionados para até 1 terabyte e hospedar o sistema operacional das máquinas virtuais.  O disco do SO é atribuído à letra de unidade *c:* por padrão. A configuração de cache do disco do SO é otimizada para desempenho do SO. O disco do SO **não deve** hospedar aplicativos nem dados. Para aplicativos e dados, use um disco de dados, que é detalhado posteriormente neste artigo.
 
-**Disco temporário**: discos temporários usam uma unidade de estado sólido localizada no mesmo host do Azure que a VM. Os discos temporários são altamente eficazes e podem ser usados para operações como o processamento de dados temporário. No entanto, se a VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo tamanho da VM. Os discos temporários são atribuídos à letra de unidade `d:` por padrão.
+**Disco temporário**: discos temporários usam uma unidade de estado sólido localizada no mesmo host do Azure que a VM. Os discos temporários são altamente eficazes e podem ser usados para operações como o processamento de dados temporário. No entanto, se a VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo tamanho da máquina virtual. Os discos temporários são atribuídos à letra de unidade *d:* por padrão.
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 
@@ -60,9 +61,9 @@ Os discos de dados extras podem ser adicionados para instalação de aplicativos
 | [Memória otimizada](../virtual-machines-windows-sizes-memory.md) | Série D e G | 64 |
 | [Armazenamento otimizado](../virtual-machines-windows-sizes-storage.md) | Série L | 64 |
 | [GPU](sizes-gpu.md) | Série N | 48 |
-| [Alto desempenho](sizes-hpc.md) | Séries A e H | 32 |
+| [Alto desempenho](sizes-hpc.md) | Série A e H | 32 |
 
-## <a name="vm-disk-types"></a>Tipos de disco da VM
+## <a name="vm-disk-types"></a>Tipos de disco da máquina virtual
 
 O Azure fornece dois tipos de disco.
 
@@ -72,7 +73,7 @@ Armazenamento padrão é apoiado por HDDs e oferece armazenamento econômico e e
 
 ### <a name="premium-disk"></a>Disco Premium
 
-Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS e FS. Os discos Premium são apresentados em três tipos (P10, P20, P30), o tamanho do disco determina o tipo de disco. Na seleção do tamanho de um disco, o valor é arredondado para o próximo tipo. Por exemplo, se o tamanho for inferior a 128 GB, o tipo de disco será P10, entre 129 e 512, será P20 e acima de 512, será P30. 
+Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS e FS. Os discos Premium são apresentados em três tipos (P10, P20 e P30), o tamanho do disco determina o tipo de disco. Na seleção do tamanho de um disco, o valor é arredondado para o próximo tipo. Por exemplo, se o tamanho for inferior a 128 GB, o tipo de disco será P10, entre 129 e 512, será P20 e acima de 512, será P30. 
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 
@@ -91,7 +92,7 @@ Para concluir o exemplo neste tutorial, você deverá ter uma máquina virtual. 
 Crie a configuração inicial com [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). O exemplo a seguir configura um disco com tamanho de 128 gigabytes.
 
 ```powershell
-$diskConfig = New-AzureRmDiskConfig -Location westus -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
 Crie o disco de dados com o comando [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk).
@@ -135,6 +136,7 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre discos da VM. Passe para o próximo tutorial para saber como automatizar a configuração da VM.
+Neste tutorial, você aprendeu sobre discos da máquina virtual. Vá para o próximo tutorial para saber como automatizar a configuração da máquina virtual.
 
 [Automatizar a configuração da VM](./tutorial-automate-vm-deployment.md)
+

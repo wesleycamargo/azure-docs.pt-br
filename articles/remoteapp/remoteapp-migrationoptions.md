@@ -11,12 +11,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 25ba53a1047863d01ba1fc2647af51fdd582feb1
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 11254a9bd82885701b457ba3b4ec0ef0aad710e6
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -186,7 +187,7 @@ A [Acuutech](http://www.acuutech.com) é especialista no fornecimento de soluç�
 >   
 > Loughton, Essex IG10 3TQ
 >   
-> **Telefone: +44 (0) 20 8502 2155
+> Telefone: +44 (0) 20 8502 2155
 > 
 > **Cingapura**:
 >   
@@ -194,7 +195,7 @@ A [Acuutech](http://www.acuutech.com) é especialista no fornecimento de soluç�
 >   
 > Todo o mundo, Cingapura, 069532
 > 
-> **Telefone: +65 6709 4933
+> Telefone: +65 6709 4933
 >   
 > **América do Norte**:
 >   
@@ -202,7 +203,7 @@ A [Acuutech](http://www.acuutech.com) é especialista no fornecimento de soluç�
 >   
 > Suite 200, Houston, Texas 77098
 >   
-> **Telefone: +1 713 691 0800
+> Telefone: +1 713 691 0800
 
 #### <a name="saasplaza"></a>**SaaSplaza**
 O [SaaSplaza](http://www.saasplaza.com/) oferece um portfólio completo do Microsoft Dynamics (NAV, AX, GP, SL, CRM) em nuvem privada e pública (Azure).
@@ -217,7 +218,7 @@ O [SaaSplaza](http://www.saasplaza.com/) oferece um portfólio completo do Micro
 > 
 > Oferece soluções de área de trabalho e RemoteApp com base em sessão: sim, ambos
 > 
-> **EMEA**
+> **EMEA**:
 > 
 > Prins Mauritslaan 29-35
 > 
@@ -227,7 +228,7 @@ O [SaaSplaza](http://www.saasplaza.com/) oferece um portfólio completo do Micro
 > 
 > Telefone: +31 20 547 8060 
 > 
->  **Américas**
+>  **Américas**:
 > 
 > 171 Saxony Road, Suite 105
 > 
@@ -239,7 +240,7 @@ O [SaaSplaza](http://www.saasplaza.com/) oferece um portfólio completo do Micro
 > 
 > Telefone: +1 858 385 8900 
 > 
-> **APAC**
+> **APAC**:
 > 
 > 105 Cecil Street
 >    

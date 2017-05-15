@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 3e47c917774245f8b321b5cd94def24b7f523a94
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 84ce4b288c23c7005ac92f18ee26af70479deb8d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -32,9 +33,9 @@ As etapas deste tutorial podem ser concluídas usando o módulo mais recente do 
 
 Quando uma máquina virtual do Azure é criada, dois discos são automaticamente anexados à máquina virtual. 
 
-**Disco do sistema operacional**: os discos do sistema operacional podem ser dimensionados para até 1 terabyte e hospedar o sistema operacional das máquinas virtuais. O disco do sistema operacional é rotulado `/dev/sda` por padrão. A configuração de cache do disco do SO é otimizada para desempenho do SO. Devido a essa configuração, o disco do sistema operacional **não deve** hospedar aplicativos ou dados. Para aplicativos e dados, utilize um disco de dados, que é detalhado posteriormente neste artigo. 
+**Disco do sistema operacional**: os discos do sistema operacional podem ser dimensionados para até 1 terabyte e hospedar o sistema operacional das máquinas virtuais. O disco do sistema operacional é rotulado */dev/sda* por padrão. A configuração de cache do disco do SO é otimizada para desempenho do SO. Devido a essa configuração, o disco do sistema operacional **não deve** hospedar aplicativos ou dados. Para aplicativos e dados, utilize um disco de dados, que é detalhado posteriormente neste artigo. 
 
-**Disco temporário** - Discos temporários utilizam uma unidade de estado sólido localizada no mesmo host do Azure que a máquina virtual. Os discos temporários são altamente eficazes e podem ser usados para operações como o processamento de dados temporário. No entanto, se a VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo tamanho da máquina virtual. Discos temporários são rotulados `/dev/sdb` e têm um ponto de montagem de `/mnt`.
+**Disco temporário** - Discos temporários utilizam uma unidade de estado sólido localizada no mesmo host do Azure que a máquina virtual. Os discos temporários são altamente eficazes e podem ser usados para operações como o processamento de dados temporário. No entanto, se a VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo tamanho da máquina virtual. Os discos temporários são rotulados */dev/sdb* e têm um ponto de montagem de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 
@@ -45,7 +46,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 | [Memória otimizada](../virtual-machines-windows-sizes-memory.md) | Série D e G | 6144 |
 | [Armazenamento otimizado](../virtual-machines-windows-sizes-storage.md) | Série L | 5630 |
 | [GPU](sizes-gpu.md) | Série N | 1440 |
-| [Alto desempenho](sizes-hpc.md) | Série A e H | 2000 |
+| [Alto desempenho](sizes-hpc.md) | Séries A e H | 2000 |
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
@@ -79,7 +80,7 @@ Os discos Premium são apoiados por disco de baixa latência e alto desempenho b
 |Tipo de disco de armazenamento Premium | P10 | P20 | P30 |
 | --- | --- | --- | --- |
 | Tamanho do disco (arredondado) | 128 GB | 512 GB | 1.024 GB (1 TB) |
-| IOPS máxima por disco | 500 | 2,300 | 5.000 |
+| IOPS máxima por disco | 500 | 2.300 | 5.000 |
 Taxa de transferência por disco | 100 MB/s | 150 MB/s | 200 MB/s |
 
 Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto de desempenho pode ser obtido com a distribuição de vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80.000 IOPS. Para obter informações detalhadas sobre o máximo de IOPS por VM, veja [Tamanhos da VM Linux](sizes.md).
@@ -93,7 +94,7 @@ Discos de dados podem ser criados e anexados no momento da criação de VM ou a 
 Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
 ```azurecli
-az group create --name myResourceGroupDisk --location westus
+az group create --name myResourceGroupDisk --location eastus
 ```
 
 Crie uma máquina virtual com o comando [az vm create]( /cli/azure/vm#create). O `--datadisk-sizes-gb` argumento é utilizado para especificar que um disco adicional deve ser criado e anexado à máquina virtual. Para criar e anexar mais de um disco, utilize uma lista delimitada por espaço dos valores de tamanho de disco. No exemplo a seguir, uma VM é criada com dois discos de dados, ambos os 128 GB. Como os tamanhos de disco são 128 GB, esses discos são configurados como P10, que fornecem o máximo de 500 IOPS por disco.
@@ -146,13 +147,13 @@ Monte o novo disco para que ele seja acessível no sistema operacional.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-O disco agora pode ser acessado por meio do `datadrive` ponto de montagem, que pode ser verificado ao executar o comando `df -h` . 
+O disco agora pode ser acessado por meio do ponto de montagem *datadrive*, que pode ser verificado ao executar o comando `df -h`. 
 
 ```bash
 df -h
 ```
 
-A saída mostra a nova unidade montada em `/datadrive`.
+A saída mostra a nova unidade montada em */datadrive*.
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
@@ -161,7 +162,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
-Para garantir que a unidade seja remontada após uma reinicialização, ela deve ser adicionada ao `/stc/fstab` arquivo. Para fazer isso, obtenha o UUID do disco com o `blkid` utilitário.
+Para garantir que a unidade seja remontada após uma reinicialização, ela deve ser adicionada ao arquivo */etc/fstab*. Para fazer isso, obtenha o UUID do disco com o `blkid` utilitário.
 
 ```bash
 sudo -i blkid
@@ -173,7 +174,7 @@ A saída exibe o UUID da unidade, `/dev/sdc1` nesse caso.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Adicione uma linha semelhante à seguinte para o `/etc/fstab` arquivo. Observe também que as barreiras de gravação podem ser desabilitadas utilizando `barrier=0`, essa configuração pode melhorar o desempenho do disco. 
+Adicione uma linha semelhante à seguinte para o arquivo */etc/fstab*. Observe também que as barreiras de gravação podem ser desabilitadas utilizando *barrier=0*, essa configuração pode melhorar o desempenho do disco. 
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
@@ -192,7 +193,7 @@ Após a implantação de uma máquina virtual, o disco do sistema operacional ou
 Antes de aumentar o tamanho de um disco, é necessário ter a ID ou o nome do disco. Utilize o comando [az disk list](/cli/azure/vm/disk#list) para retornar todos os discos em um grupo de recursos. Anote o nome do disco que você deseja redimensionar.
 
 ```azurecli
- az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
 A máquina vitual também deve ser desalocada. Utilize o comando [az vm deallocate]( /cli/azure/vm#deallocate) para parar e desalocar a máquina virtual.
@@ -201,7 +202,7 @@ A máquina vitual também deve ser desalocada. Utilize o comando [az vm dealloca
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Utilize o comando [az disk update](/cli/azure/vm/disk#update) para redimensionar o disco. Este exemplo redimensiona um disco chamado `myDataDisk` para 1 terabyte.
+Utilize o comando [az disk update](/cli/azure/vm/disk#update) para redimensionar o disco. Este exemplo redimensiona um disco chamado *myDataDisk* para 1 terabyte.
 
 ```azurecli
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -259,7 +260,7 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 Todos os discos de dados precisam ser anexados novamente à máquina virtual.
 
-Primeiro, utilize o comando [az disk list](https://docs.microsoft.com/cli/azure/disk#list) para encontrar o nome do disco de dados. Este exemplo coloca o nome do disco em uma variável chamada `datadisk`, que será usada na próxima etapa.
+Primeiro, utilize o comando [az disk list](https://docs.microsoft.com/cli/azure/disk#list) para encontrar o nome do disco de dados. Este exemplo coloca o nome do disco em uma variável chamada *datadisk*, que será usada na próxima etapa.
 
 ```azurecli
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)

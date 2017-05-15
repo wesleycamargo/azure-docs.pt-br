@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 59dc5340ca8ac02b1d99205ad8f1d44fa60148c0
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 7f572adf499dd1fcd0db19500c9049af1e31cdea
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,17 +45,15 @@ O SSH é um protocolo de conexão criptografada que permite logons seguros por c
 Se não quiser usar chaves SSH, você ainda pode fazer logon em suas VMs Linux usando uma senha. Se a VM não for exposta à Internet, o uso de senhas pode ser suficiente. No entanto, é preciso gerenciar as senhas para cada VM Linux, bem como manter políticas e práticas íntegras de senha, como comprimento mínimo e atualização regular. O uso de chaves SSH reduz a complexidade do gerenciamento de credenciais individuais em várias VMs.
 
 ## <a name="windows-packages-and-ssh-clients"></a>Pacotes do Windows e clientes SSH
-Você se conecta às VMs Linux e as gerencia no Azure usando um **cliente SSH**. Os computadores Windows geralmente não têm um cliente SSH instalado. Os clientes SSH comuns do Windows que você pode instalar estão incluídos nos seguintes pacotes:
+Você se conecta às VMs Linux e as gerencia no Azure usando um **cliente SSH**. Os computadores Windows geralmente não têm um cliente SSH instalado. A Atualização de Aniversário do Windows 10 adicionou o Bash for Windows, e a Atualização do Windows 10 para Criadores fornece atualizações adicionais. Esse Subsistema do Windows para Linux permite executar e acessar utilitários como um cliente SSH nativamente dentro de um shell do Bash. Você pode seguir qualquer um dos documentos do Linux, como [Gerar pares de chaves SSH para Linux](mac-create-ssh-keys.md). O Bash para Windows ainda está em desenvolvimento e é considerado uma versão beta. Para saber mais sobre o Bash para Windows, confira [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash no Ubuntu no Windows).
+
+Se quiser usar algo diferente do Bash for Windows, entre os clientes do Windows SSH que pode instalar estarão os seguintes pacotes:
 
 * [Git for Windows](https://git-for-windows.github.io/)
 * [puTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [MobaXterm](http://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
-> [!NOTE]
-> A última Atualização de Aniversário do Windows 10 inclui Bash for Windows. Esse recurso permite executar o Subsistema do Windows para Linux e acessar utilitários como um cliente SSH. O Bash para Windows ainda está em desenvolvimento e é considerado uma versão beta. Para saber mais sobre o Bash para Windows, confira [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash no Ubuntu no Windows).
->
->
 
 ## <a name="which-key-files-do-you-need-to-create"></a>Quais arquivos de chave você precisa criar?
 O Azure requer chaves públicas e privadas de pelo menos 2048 bits em formato **ssh-rsa**. Se estiver gerenciando recursos do Azure usando o modelo de implantação Clássico, você também precisará gerar um PEM (arquivo `.pem`).

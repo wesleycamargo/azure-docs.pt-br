@@ -15,10 +15,11 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9e038bfeee023b26aa80046fe877db007baa1816
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: b34cfe18ac3d03802173605f5483879217d1fe1f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -304,11 +305,11 @@ O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a e
 
 Para concluir as etapas neste artigo, você precisa dos seguintes itens:
 
-* Um pool elástico. Para criar um elástico, veja [Criar um pool elástico com o C#](sql-database-elastic-pool-manage-csharp.md).
+* Um pool elástico. Para criar um pool de elástico, veja [Criar um pool elástico com o C#](sql-database-elastic-pool-manage-csharp.md).
 * Visual Studio. Para obter uma cópia gratuita do Visual Studio, consulte a página [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Mover um banco de dados para um pool elástico
-Você pode mover um banco de dados autônomo para dentro ou para fora de um elástico.  
+Você pode mover um banco de dados autônomo para dentro ou para fora de um pool de elástico.  
 
     // Retrieve current database properties.
 
@@ -332,7 +333,7 @@ Você pode mover um banco de dados autônomo para dentro ou para fora de um elá
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
 ## <a name="list-databases-in-an-elastic-pool"></a>Listar bancos de dados em um pool elástico
-Para recuperar todos os bancos de dados em um elástico, chame o método [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases) .
+Para recuperar todos os bancos de dados em um pool de elástico, chame o método [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases) .
 
     //List databases in the elastic pool
     DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");

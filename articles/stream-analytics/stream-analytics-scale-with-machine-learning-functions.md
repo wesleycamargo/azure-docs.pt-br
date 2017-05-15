@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: b36fd0b4a52ae2e13a5b5dcde412994a0656e3d3
-ms.openlocfilehash: 27f2ac3d54226501e254d9a8fef6cc378eb9a860
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 90be27584e22740d92d149810f5d0a6991cfa20b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -31,7 +32,7 @@ Uma função do Aprendizado de Máquina no Stream Analytics pode ser usada como 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurar seu trabalho do Stream Analytics com funções de Aprendizado de Máquina
 Ao configurar uma função do Aprendizado de Máquina para um trabalho do Stream Analytics, há dois parâmetros a serem considerados, o tamanho do lote das chamadas de função do Aprendizado de Máquina e as Unidades de Streaming (SUs) provisionadas para o trabalho do Stream Analytics. Para determinar seus valores apropriados, é necessário tomar uma decisão primeiro entre a latência e a produtividade, ou seja, latência do trabalho do Stream Analytics e a produtividade de cada SU. As SUs podem ser adicionadas sempre a um trabalho a fim de aumentar a produtividade de uma consulta do Stream Analytics bem particionada, embora SUs adicionais aumentem o custo da execução do trabalho.
 
-Portanto, é importante determinar a *tolerância* de latência da execução de um trabalho do Stream Analytics. A latência adicional proveniente da execução de solicitações de serviço do Aprendizado de Máquina do Azure aumenta naturalmente com o tamanho do lote, que vai compor a latência do trabalho do Stream Analytics. Por outro lado, o aumento do tamanho do lote permite que o trabalho do Stream Analytics processe *mais eventos com o*mesmo número* de solicitações de serviço Web do Machine Learning. Geralmente, o aumento da latência do serviço Web do Aprendizado de Máquina é sub-linear ao aumento do tamanho do lote. Portanto, é importante considerar o tamanho de lote mais econômico e eficiente para um serviço Web do Aprendizado de Máquina em qualquer situação. O tamanho de lote padrão para as solicitações de serviço Web é 1.000 e pode ser modificado usando a [API REST do Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API REST do Stream Analytics") ou o [Cliente PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Cliente PowerShell para Stream Analytics").
+Portanto, é importante determinar a *tolerância* de latência da execução de um trabalho do Stream Analytics. A latência adicional proveniente da execução de solicitações de serviço do Aprendizado de Máquina do Azure aumenta naturalmente com o tamanho do lote, que vai compor a latência do trabalho do Stream Analytics. Por outro lado, o aumento do tamanho do lote permite que o trabalho do Stream Analytics processe *mais eventos com o *mesmo número* de solicitações de serviço Web do Machine Learning. Geralmente, o aumento da latência do serviço Web do Aprendizado de Máquina é sub-linear ao aumento do tamanho do lote. Portanto, é importante considerar o tamanho de lote mais econômico e eficiente para um serviço Web do Aprendizado de Máquina em qualquer situação. O tamanho de lote padrão para as solicitações de serviço Web é 1.000 e pode ser modificado usando a [API REST do Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API REST do Stream Analytics") ou o [Cliente PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Cliente PowerShell para Stream Analytics").
 
 Depois de determinar um tamanho de lote, a quantidade de Unidades de Streaming (SUs) pode ser determinada, com base no número de eventos que a função precisa processar por segundo. Para saber mais sobre Unidades de Streaming, confira o artigo [Trabalhos de escala do Stream Analytics](stream-analytics-scale-jobs.md#configuring-streaming-units).
 
@@ -74,7 +75,7 @@ Com a segunda opção, seria necessário provisionar mais SUs e, portanto, gerar
 Vamos supor que a latência do serviço Web do Aprendizado de Máquina de análise de sentimento seja de 200 ms para lotes com 1000 eventos ou menos, 250 ms para lotes com 5.000 eventos, 300 ms para lotes com 10.000 eventos ou 500 ms para lotes com 25.000 eventos.
 
 1. Usando a primeira opção (**não** provisionando mais SUs), o tamanho do lote pode ser aumentado para **25.000**. Isso, por sua vez, permitiria que o trabalho processasse 1.000.000 de eventos com 20 conexões simultâneas para o serviço Web do Aprendizado de Máquina (com uma latência de 500 ms por chamada). Portanto, a latência adicional do trabalho do Stream Analytics causada pelas solicitações de função de sentimento aumentaria de **200 ms** para **500 ms** em comparação com as solicitações de serviço Web do Machine Learning. No entanto, observe que **não é possível** aumentar o tamanho do lote infinitamente, pois os serviços Web do Aprendizado de Máquina exige que o tamanho da carga de uma solicitação seja de 4 MB ou menos e o tempo limite das solicitações de serviço Web esgota após 100 segundos de operação.
-2. Usando a segunda opção, o tamanho do lote é deixado como 1000, com latência de serviço Web de 200 ms, e cada 20 conexões simultâneas com o serviço Web seriam capazes de processar 1000 *20* 5 eventos = 100.000 por segundo. Então, para processar 1.000.000 eventos por segundo, o trabalho precisaria de 60 SUs. Comparando com a primeira opção, o trabalho do Stream Analytics faria mais solicitações em lote do serviço Web, gerando um aumento do custo.
+2. Usando a segunda opção, o tamanho do lote é deixado como 1000, com latência de serviço Web de 200 ms, e cada 20 conexões simultâneas com o serviço Web seriam capazes de processar 1000 * 20 * 5 eventos = 100.000 por segundo. Então, para processar 1.000.000 eventos por segundo, o trabalho precisaria de 60 SUs. Comparando com a primeira opção, o trabalho do Stream Analytics faria mais solicitações em lote do serviço Web, gerando um aumento do custo.
 
 Veja abaixo uma tabela sobre a produtividade do trabalho do Stream Analytics para SUs e tamanhos de lote diferentes (em número de eventos por segundo).
 
@@ -113,7 +114,7 @@ Para resumir os principais pontos, para dimensionar um trabalho do Stream Analyt
 2. A latência tolerada para execução do trabalho do Stream Analytics (e, portanto, o tamanho do lote das solicitações de serviço Web do Aprendizado de Máquina)
 3. As SUs do Stream Analytics provisionadas e o número de solicitações de serviço Web do Aprendizado de Máquina (os custos adicionais relacionados à função)
 
-Uma consulta do Stream Analytics totalmente particionada foi usada como exemplo. Caso seja necessária uma consulta mais complexa, o [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) é um excelente recurso para obter mais ajuda da equipe do Stream Analytics.
+Uma consulta do Stream Analytics totalmente particionada foi usada como exemplo. Caso seja necessária uma consulta mais complexa, o [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) é um excelente recurso para obter mais ajuda da equipe do Stream Analytics.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Stream Analytics, confira:

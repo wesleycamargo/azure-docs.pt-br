@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 04/26/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 875b4e3cab6eb4b45ed2d4b6160c60f320703dd8
-ms.openlocfilehash: 1c8ebf2e1dd9400ad153f5b42e7b72f36d28feac
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 5adffb0d461503b57ff9152671c44716dd044b1e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter o Azure Multi-Factor Authentication
@@ -37,7 +38,7 @@ A tabela a seguir descreve as diferenças entre as três versões de autenticaç
 | Versão | Descrição |
 | --- | --- |
 | Autenticação Multifator para Office 365 |Esta versão funciona exclusivamente com os aplicativos do Office 365 e é gerenciada a partir do portal do Office 365. Os administradores podem [proteger recursos do Office 365 com a verificação de duas etapas](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Esta versão faz parte de uma assinatura do Office 365. |
-| Autenticação Multifator para administradores do Azure | Administradores do Azure podem habilitar a verificação em duas etapas para suas contas de administrador sem custo adicional.|
+| Autenticação Multifator para administradores do Azure | Administradores globais do Azure podem habilitar a verificação em duas etapas para suas contas de administrador globais sem custo adicional.|
 | Autenticação Multifator do Azure | Geralmente conhecida como a versão "completa", a Autenticação Multifator do Azure oferece o conjunto mais avançado de recursos. Ela fornece opções de configuração adicionais por meio do [portal clássico do Azure](https://manage.windowsazure.com), relatórios avançados e suporte para uma variedade de aplicativos locais e na nuvem. A Autenticação Multifator do Azure e está incluída no Azure Active Directory Premium (planos P1 e P2) e Enterprise Mobility + Security (planos E3 e E5) e pode ser implantado [na nuvem ou no local](multi-factor-authentication-get-started.md). |
 
 ## <a name="feature-comparison-of-versions"></a>Comparação de recursos dasversões
@@ -49,7 +50,7 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 
 | Recurso | Autenticação Multifator para Office 365 | Autenticação Multifator para administradores do Azure | Autenticação Multifator do Azure |
 | --- |:---:|:---:|:---:|
-| Proteger contas de administrador com MFA |● |● (Disponível apenas para contas de Administrador do Azure) |● |
+| Proteger contas de administrador com MFA |● |● (Apenas para contas de Administrador Global) |● |
 | Aplicativos móveis como um fator secundário |● |● |● |
 | Chamada telefônica como um fator secundário |● |● |● |
 | SMS como um fator secundário |● |● |● |
@@ -83,7 +84,7 @@ Se você usar essa opção, só deverá criar um Provedor de Autenticação Mult
 
 ### <a name="option-3---mfa-consumption-based-model"></a>Opção 3 - modelo baseado no consumo de MFA
 
-Crie um Provedor do Azure Multi-Factor Authentication em uma assinatura do Azure. Provedores de MFA do Azure são recursos do Azure que são cobrados em relação a seu Enterprise Agreement, Azure compromisso monetário ou cartão de crédito, assim como todos os outros recursos do Azure. Esses provedores podem ser criados somente em assinaturas do Azure completo, sem limitação, assinaturas do Azure que tenha um&0; $ limite de gastos. As assinaturas limitadas são criadas quando você ativa licenças, como nas opções 1 e 2. 
+Crie um Provedor do Azure Multi-Factor Authentication em uma assinatura do Azure. Provedores de MFA do Azure são recursos do Azure que são cobrados em relação a seu Enterprise Agreement, Azure compromisso monetário ou cartão de crédito, assim como todos os outros recursos do Azure. Esses provedores podem ser criados somente em assinaturas do Azure completo, sem limitação, assinaturas do Azure que tenha um 0 $ limite de gastos. As assinaturas limitadas são criadas quando você ativa licenças, como nas opções 1 e 2. 
 
 Ao usar um Provedor de Autenticação Multifator do Azure, há dois modelos de uso disponíveis que são cobrados por meio de sua assinatura do Azure:  
 

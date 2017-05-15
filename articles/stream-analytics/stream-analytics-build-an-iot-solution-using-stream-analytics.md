@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 01850cbf8967fd5f79db64103fb18c6ec01babea
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 637473db37985a4a89ddb19e02eebc377902c942
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +38,7 @@ Depois de concluir este tutorial, você poderá:
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
-* A versão mais recente do [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* A versão mais recente do [Azure PowerShell](/powershell/azure/overview)
 * Visual Studio 2017, 2015 ou o [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) gratuito
 * Uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilégios administrativos no computador
@@ -138,7 +139,7 @@ Você pode usar o script Setup.ps1 na pasta TollApp no GitHub para criar todos o
 
 Baixe e salve os arquivos e pastas [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) de suporte.
 
-Abra uma janela do **Microsoft Azure PowerShell***como administrador*. Se ainda não tiver o Azure PowerShell, siga as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalá-lo.
+Abra uma janela do **Microsoft Azure PowerShell***como administrador*. Se ainda não tiver o Azure PowerShell, siga as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalá-lo.
 
 Como o Windows bloqueia automaticamente arquivos .ps1, .dll e .exe, você precisa definir a política de execução antes de executar o script. Verifique se a janela do Azure PowerShell está em execução *como administrador*. Execute **Set-ExecutionPolicy unrestricted**. Quando solicitado, digite **Y**.
 
@@ -255,7 +256,7 @@ No entanto, se estiver interessado nos detalhes da implementação, você encont
 6. A Fonte é **Hub de eventos**.
 7. O **Namespace do barramento de serviço** deve ser o TollData no menu suspenso.
 8. O **Nome do hub de eventos** deve ser definido como **entrada**.
-9. O **Nome da política do hub de eventos* é**RootManageSharedAccessKey** (o valor padrão).
+9. **Nome da política do hub de eventos*é **RootManageSharedAccessKey**  (o valor padrão).
 10. Selecione **JSON** como **FORMATO DE SERIALIZAÇÃO DO EVENTO** e **UTF8** como **CODIFICAÇÃO**.
    
     As configurações ficarão semelhantes:

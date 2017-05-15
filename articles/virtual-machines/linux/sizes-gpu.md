@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d1be33680d91fd3179c7af84c9726592d6c91dd5
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: e0cd2a14b4102797024925a72783ecaf56919aec
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -27,14 +28,22 @@ ms.lasthandoff: 04/03/2017
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+
+Para sistemas operacionais compatíveis e requisitos de driver, consulte [Instalação do driver da série N para Linux](n-series-driver-setup.md).
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
+[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
+
+* Não recomendamos instalar o X server nem outros sistemas que usam o driver nouveau em VMs do Ubuntu NC. Antes de instalar os drivers de GPU NVIDIA, você precisa desabilitar o driver nouveau.  
+
 ## <a name="other-sizes"></a>Outros tamanhos
-- [Propósito geral](../windows/sizes-general.md)
-- [Computação otimizada](../windows/sizes-compute.md)
+- [Propósito geral](sizes-general.md)
+- [Computação otimizada](sizes-compute.md)
 - [Memória otimizada](sizes-memory.md)
 - [Armazenamento otimizado](sizes-storage.md)
 - [Computação de alto desempenho](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como as [ACUs (unidade de computação do Azure)](../windows/acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
+Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

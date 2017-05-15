@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/26/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 1fcec43ad50b9c78443ada116b9ca444605c4730
-ms.openlocfilehash: fa2a2f8ee61b6edf92db8d1f92ab9aca8bc673c5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: b0454ad51a2d0edecb6f7e7748ec3b74eeefa1da
+ms.contentlocale: pt-br
+ms.lasthandoff: 04/28/2017
 
 ---
 
@@ -25,7 +27,7 @@ ms.openlocfilehash: fa2a2f8ee61b6edf92db8d1f92ab9aca8bc673c5
 
 O Proxy de Aplicativo do Azure Active Directory o ajuda a aprimorar a produtividade ao publicar aplicativos locais de forma que funcionários remotos também possam acessá-los com segurança. No Portal do Azure, você também pode configurar o logon único (SSO) para esses aplicativos. Agora, os usuários só precisam autenticar com o Azure AD, assim podem acessar seu aplicativo corporativo sem precisar entrar novamente.
 
-Neste artigo, usaremos o exemplo de um aplicativo baseado em senha para mostrar como o cofre de senha fornece uma experiência de SSO simples. 
+Neste artigo, usamos o exemplo de um aplicativo baseado em senha para mostrar como o cofre de senha fornece uma experiência de SSO simples. 
 
 Você já deve ter publicado e testado seu aplicativo com o Proxy de Aplicativo. Caso contrário, siga as etapas em [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD - Visualização pública](application-proxy-publish-azure-portal.md) e depois volte para este artigo. 
 
@@ -35,7 +37,7 @@ Ou, se você for iniciante com o Proxy de Aplicativo, aprenda mais sobre este re
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
 2. Selecione **Azure Active Directory** > **Aplicativos Empresariais** > **Todos os Aplicativos**.
-3. Na lista, selecione o aplicativo para o qual deseja configurar o SSO. Se tiver muitos aplicativos, pode usar a caixa de pesquisa para filtrar o aplicativo correto.  
+3. Na lista, selecione o aplicativo para o qual deseja configurar o SSO. Se tiver muitos aplicativos, você poderá usar a caixa de pesquisa para filtrar o aplicativo correto.  
 4. Na seção Gerenciar, selecione **Logon único**.
 
    ![Selecione Logon único](./media/application-proxy-sso-azure-portal/select-sso.png)
@@ -58,9 +60,4 @@ Vá para o [site MyApps](https://myapps.microsoft.com) e selecione o aplicativo 
 ## <a name="next-steps"></a>Próximas etapas
 
 Leia sobre outras maneiras de implementar o [Logon único com o Proxy de aplicativo](active-directory-application-proxy-sso-using-kcd.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
