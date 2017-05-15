@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2017
 ms.author: juanpere
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
 ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/06/2017
 
 
@@ -60,7 +61,7 @@ Nesta seção, você criará um aplicativo do console Node.js que inicia uma atu
 2. No prompt de comando na pasta **triggerfwupdateondevice**, execute o seguinte comando para instalar os pacotes do SDK do Dispositivo **azure-iot-hub** e **azure-iot-device-mqtt**:
    
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iothub --save
     ```
 3. Usando um editor de texto, crie um arquivo **dmpatterns_getstarted_service.js** na pasta **triggerfwupdateondevice**.
 4. Adicione as seguintes instruções "require" no início do arquivo **dmpatterns_getstarted_service.js**:
