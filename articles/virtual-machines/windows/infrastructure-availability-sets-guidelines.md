@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 2d146d3a3bd2497a6c1d9b2b924d2e2cd00710de
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d8a586834034460932516e352560b570141d9cda
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Ao projetar sua infraestrutura de aplicativos, planeje as camadas de aplicativo 
 
 Balanceadores de carga podem ser utilizados antes de cada camada de aplicativo para trabalhar junto com um conjunto de disponibilidade e certificar-se de que o tráfego sempre possa ser roteado para uma instância em execução. Sem um balanceador de carga, as VMs poderão continuar em execução durante eventos de manutenção planejada e não planejada, mas os usuários finais poderão não conseguir resolvê-los se a VM primária não estiver disponível.
 
-Projete o aplicativo para alta disponibilidade na camada de armazenamento. A prática recomendada é [usar o Managed Disks para VMs em um conjunto de disponibilidade](../windows/manage-availability.md#use-managed-disks-for-vms-in-availability-set). Se você estiver usando atualmente discos não gerenciados, será altamente recomendável [converter as VMs no conjunto de disponibilidade para usar o Managed Disks](../windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
+Projete o aplicativo para alta disponibilidade na camada de armazenamento. A prática recomendada é [usar o Managed Disks para VMs em um conjunto de disponibilidade](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). Se você estiver usando atualmente discos não gerenciados, será altamente recomendável [converter as VMs no conjunto de disponibilidade para usar o Managed Disks](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

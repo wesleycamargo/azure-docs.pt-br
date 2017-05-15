@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -72,7 +73,7 @@ Você pode especificar um rótulo de nome de domínio DNS para um recurso IP pú
 >
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-Você pode associar um endereço IP público a uma VM [Windows](../virtual-machines/windows/about.md) ou [Linux](../virtual-machines/virtual-machines-linux-about.md) atribuindo-o à sua **interface de rede**. No caso de uma VM com várias interfaces de rede, você pode atribuí-la apenas à interface de rede *primária*. Você pode atribuir um endereço IP público dinâmico ou estático a uma VM.
+Você pode associar um endereço IP público a uma VM [Windows](../virtual-machines/windows/overview.md) ou [Linux](../virtual-machines/virtual-machines-linux-about.md) atribuindo-o à sua **interface de rede**. No caso de uma VM com várias interfaces de rede, você pode atribuí-la apenas à interface de rede *primária*. Você pode atribuir um endereço IP público dinâmico ou estático a uma VM.
 
 ### <a name="internet-facing-load-balancers"></a>Balanceadores de carga para Internet
 Você pode associar um endereço IP público com um [Azure Load Balancer](../load-balancer/load-balancer-overview.md), atribuindo-o à configuração de **front-end** do balanceador de carga. Este endereço IP público serve como um balanceamento de carga de endereço VIP (IP virtual). Você pode atribuir um endereço IP público estático ou dinâmico a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um front-end de balanceador de carga, que permite cenários [multi-VIP](../load-balancer/load-balancer-multivip.md) como um ambiente de multilocatário com sites baseados em SSL.
@@ -116,7 +117,7 @@ Os endereços IP privados estáticos costumam ser usados para:
 * Recursos acessados por outros aplicativos/recursos por meio de um endereço IP.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-Um endereço IP privado é atribuído à **interface de rede** de uma VM [Windows](../virtual-machines/windows/about.md) ou [Linux](../virtual-machines/virtual-machines-linux-about.md). No caso de uma VM com várias interfaces de rede, é atribuído um endereço IP privado a cada interface. Você pode especificar o método de alocação como dinâmico ou estático para uma interface de rede.
+Um endereço IP privado é atribuído à **interface de rede** de uma VM [Windows](../virtual-machines/windows/overview.md) ou [Linux](../virtual-machines/virtual-machines-linux-about.md). No caso de uma VM com várias interfaces de rede, é atribuído um endereço IP privado a cada interface. Você pode especificar o método de alocação como dinâmico ou estático para uma interface de rede.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>Resolução do nome do host DNS interno (para VMs)
 Todas as VMs do Azure são configuradas com [servidores DNS gerenciados Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) por padrão, a menos que você explicitamente configure servidores DNS personalizados. Esses servidores DNS fornecem resolução de nomes interna para VMs que residem na mesma VNet.

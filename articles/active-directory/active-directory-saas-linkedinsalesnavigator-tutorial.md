@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 69143ccdbfbf50701d44e0342e8eb4ebe68b22da
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ddf4affe72c6413501ffa00747c110f8761ed70e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -141,11 +142,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | --- | --- |    
     | department| user.department |
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
 
     a. Clique em **Adicionar atributo** para abrir o a caixa de diálogo do atributo
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
    
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
     

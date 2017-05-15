@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="about-azure-storage-accounts"></a>Sobre as contas de armazenamento do Azure
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Visão geral
 Uma conta de armazenamento do Azure fornece um namespace exclusivo para armazenar e acessar os objetos de dados do Armazenamento do Azure. Todos os objetos em uma conta de armazenamento são cobrados juntos como um grupo. Por padrão, os dados em sua conta estão disponíveis somente para você, o proprietário da conta.
@@ -154,6 +155,7 @@ Se a conta de armazenamento usar o modelo de implantação Clássico, você pode
 Para saber mais, veja a [Documentação da Máquina Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="next-steps"></a>Próximas etapas
+* [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 * [Armazenamento de Blobs do Azure: camadas estáticas e dinâmicas](storage-blob-storage-tiers.md)
 * [Replicação de Armazenamento do Azure](storage-redundancy.md)
 * [Configurar cadeias de conexão do Armazenamento do Azure](storage-configure-connection-string.md)
