@@ -32,7 +32,7 @@ Para garantir que você possa se conectar à internet de seu IP secundário conf
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Você só poderá executar o ping na Internet se o endereço IP privado usado acima tiver um IP público associado a ele.
+>Para configurações de IP secundárias, você só pode executar ping para a Internet se a configuração tiver um endereço IP público associado a ela. Para configurações de IP primárias, um endereço IP público não é necessário executar ping na Internet.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
@@ -161,7 +161,7 @@ Para garantir que você possa se conectar à internet de seu IP secundário conf
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Você só poderá executar o ping na Internet se o endereço IP privado usado acima tiver um IP público associado a ele.
+>Para configurações de IP secundárias, você só pode executar ping para a Internet se a configuração tiver um endereço IP público associado a ela. Para configurações de IP primárias, um endereço IP público não é necessário executar ping na Internet.
 
 Para VMs do Linux, ao tentar validar a conectividade de saída de uma NIC secundária, talvez seja necessário adicionar rotas apropriadas. Há várias maneiras de fazer isso. Veja a documentação apropriada para sua distribuição do Linux. Este é um método para fazer isso:
 

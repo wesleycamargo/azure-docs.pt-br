@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 975084c19909b0829b6f93cab05373fb71b10cf3
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -65,9 +67,4 @@ Essa transferência contínua de conhecimento do grupo faz parte do processo de 
 Às vezes, esses especialistas de dados se esforçarão para documentar seu conhecimento, compartilhando-o por email ou em documentos do Word em um site SharePoint da equipe. Embora isso possa ser útil, há um novo problema de descoberta: como as pessoas sabem quais documentos existem e onde encontrá-los?
 
 O Catálogo de Dados do Azure fornece um local para compartilhar esse conhecimento de grupo, tornando-o facilmente identificável. Especialistas em dados podem anotar diretamente os ativos de dados e também incluir links para a documentação existente. Isso não apenas captura o conhecimento em si, mas também o coloca na mesma experiência usada para descoberta de fonte de dados. Quando alguém usa o catálogo para descobrir um fonte de dados, não encontrará apenas a fonte em si, mas também o conhecimento do especialista que anteriormente existia somente na mente do próprio especialista.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

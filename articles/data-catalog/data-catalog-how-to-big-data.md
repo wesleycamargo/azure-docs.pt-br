@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8cf7ea7ca69753c12469dff9dc352d616c276ddd
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -67,9 +69,4 @@ Os padrões descritos acima são apenas duas maneiras possíveis em que um armaz
 
 ## <a name="summary"></a>Resumo
 Registrar fontes de dados com o **Catálogo de Dados do Azure** facilita a descoberta e a compreensão. Registrando e anotando os diretórios e arquivos de big data que representam os conjuntos de dados lógicos, você pode ajudar os usuários a localizar e usar as fontes de big data de que precisam.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

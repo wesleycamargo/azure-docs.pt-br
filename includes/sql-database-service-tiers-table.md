@@ -10,8 +10,8 @@ sql-database-service-tiers.md
 | --- | :---: |
 | Número máximo de DTUs | 5 |
 | Tamanho máximo do banco de dados* |2 GB|
-| Armazenamento máximo OLTP na memória |N/D |
-| Máximo de trabalhos simultâneos |30 |
+| Armazenamento máximo OLTP na memória |N/D  |
+| Máximo de trabalhos simultâneos (solicitações) |30 |
 | Máximo de logons simultâneos |30 |
 | Máximo de sessões simultâneas |300 |
 |||
@@ -21,8 +21,8 @@ sql-database-service-tiers.md
 | --- |---:| ---:|---:|---:|---:|
 | Número máximo de DTUs | 10 | 20 | 50 | 100 |
 | Tamanho máximo do banco de dados* | 250 GB| 250 GB | 250 GB | 250 GB |
-| Armazenamento máximo OLTP na memória | N/D | N/D | N/D | N/D |
-| Máximo de trabalhos simultâneos | 60 | 90 | 120 | 200 |
+| Armazenamento máximo OLTP na memória | N/D | N/D | N/D | N/D  |
+| Máximo de trabalhos simultâneos (solicitações)| 60 | 90 | 120 | 200 |
 | Máximo de logons simultâneos | 60 | 90 | 120 | 200 |
 | Máximo de sessões simultâneas |600 | 900 | 1.200 | 2400 |
 ||||||
@@ -31,9 +31,9 @@ sql-database-service-tiers.md
 | **Nível de desempenho** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | --- |---:|---:|---:|---:|---:|---:|
 | Número máximo de DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Tamanho máximo do banco de dados* | 500 GB | 500 GB | 500 GB | 500 GB | 4 TB* | 4 TB* |
+| Tamanho máximo do banco de dados* | 500 GB | 500 GB | 500 GB | 500 GB | 4 TB | 4 TB |
 | Armazenamento máximo OLTP na memória | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
-| Máximo de trabalhos simultâneos | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Máximo de trabalhos simultâneos (solicitações)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Máximo de logons simultâneos | 200 | 400| 800| 1600| 2400| 6400 |
 | Máximo de sessões simultâneas | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
@@ -44,7 +44,7 @@ sql-database-service-tiers.md
 | Número máximo de DTUs | 125 | 250 | 500 | 1000 |
 | Tamanho máximo do banco de dados* | 500 GB | 500 GB | 500 GB | 500 GB |
 | Armazenamento máximo OLTP na memória | 1 GB | 2 GB | 4 GB | 8 GB |
-| Máximo de trabalhos simultâneos | 200 | 400 | 800 | 1600 |
+| Máximo de trabalhos simultâneos (solicitações)| 200 | 400 | 800 | 1600 |
 | Máximo de logons simultâneos | 200 | 400| 800| 1600|
 | Máximo de sessões simultâneas | 30000| 30000| 30000| 30000|
 |||||||

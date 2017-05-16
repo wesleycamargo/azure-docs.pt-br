@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8e625a346c9495d436a99fcf9eadf8ffeffcfdff
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 910ca62c331df0825e1403c19fe2f53672a7359d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -73,7 +74,8 @@ E, para outras contas da Microsoft, a tela é semelhante ao exemplo mostrado aba
 
 Para obter informações sobre o gerenciamento de senhas no Azure Active Directory, confira [Como funciona o gerenciamento de senha](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-how-it-works).
 
-  >![OBSERVAÇÃO] Se você é administrador do Azure AD, convém usar o [Windows Hello](https://www.microsoft.com/en-us/windows/windows-hello) para evitar que os usuários criem senhas tradicionais.
+  >[!NOTE]
+  >Se você é administrador do Azure AD, convém usar o [Windows Hello](https://www.microsoft.com/en-us/windows/windows-hello) para evitar que os usuários criem senhas tradicionais.
   >
 
 ## <a name="next-steps"></a>Próximas etapas

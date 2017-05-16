@@ -13,23 +13,23 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 08fcde4f5bddccb9de5564455937a637054ebb60
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 83b72b046605f6076302d4347afa70707060929e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual Linux com a CLI do Azure
 
-A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso da CLI do Azure para implantar uma máquina virtual executando Ubuntu 16.04 LTS. Depois que o servidor for implantado, usamos o SSH para conectar-se à VM para instalar o NGINX. 
+A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso da CLI do Azure para implantar uma máquina virtual executando um servidor do Ubuntu. Depois que o servidor for implantado, uma conexão SSH é criada e um servidor Web NGINX é instalado.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Além disso, verifique se a CLI do Azure foi instalada. Para obter mais informações, consulte o [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure 
 
@@ -43,10 +43,10 @@ az login
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
-O seguinte exemplo cria um grupo de recursos chamado *myResourceGroup* no local *westeurope*.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
 ```azurecli
-az group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
@@ -65,7 +65,7 @@ Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes a
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westeurope",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -121,7 +121,9 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial Criar máquinas virtuais altamente disponíveis](create-cli-complete.md)
+Neste início rápido, você implantou uma máquina virtual simples, uma regra de grupo de segurança de rede e instalou um servidor Web. Para saber mais sobre máquinas virtuais do Azure, continue o tutorial para VMs do Linux.
 
-[Explorar as amostras de CLI de implantação de VM](cli-samples.md)
+
+> [!div class="nextstepaction"]
+> [Tutoriais de máquina virtual do Linux Azure](./tutorial-manage-vm.md)
 

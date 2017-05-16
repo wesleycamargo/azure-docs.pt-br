@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 94a1a7eb8da74925dbe4b50fffb5c61b5287c014
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7cdbd8d9fbca20d53c8b920b6bc44851b95d2a07
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -30,7 +30,7 @@ O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Além disso, verifique se a versão mais recente do módulo do Azure PowerShell foi instalada. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
+Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -155,7 +155,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial de instalação de uma função e configuração do firewall](hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Neste início rápido, você implantou uma máquina virtual simples, uma regra de grupo de segurança de rede e instalou um servidor Web. Para saber mais sobre máquinas virtuais do Azure, continue o tutorial para VMs do Windows.
 
-[Explorar amostras do PowerShell de implantação de VM](powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> [!div class="nextstepaction"]
+> [Tutoriais de máquina virtual do Windows Azure](./tutorial-manage-vm.md)
 

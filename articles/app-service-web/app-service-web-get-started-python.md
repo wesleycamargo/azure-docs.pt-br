@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -29,7 +30,7 @@ Este tutorial de início rápido orienta como desenvolver e implantar um aplicat
 
 Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux. Deve levar apenas cerca de cinco minutos para concluir todas as etapas abaixo.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de executar este exemplo, instale localmente os seguintes pré-requisitos:
 
@@ -107,7 +108,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Criar um Serviço de Aplicativo do Azure
 
-Criar um Plano do Serviço de Aplicativo baseado no Linux com o comando [az appservice plan create](/cli/azure/appservice/plan#create).
+Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan#create).
 
 > [!NOTE]
 > Um plano do Serviço de Aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do Serviço de Aplicativo compartilham os recursos definidos por ele, permitindo que você economize ao hospedar vários aplicativos.
@@ -119,7 +120,7 @@ Criar um Plano do Serviço de Aplicativo baseado no Linux com o comando [az apps
 > * SKU (Gratuito, Compartilhado, Básico, Standard, Premium)
 >
 
-O exemplo a seguir cria um Plano do Serviço de Aplicativo nos Trabalhos do Linux denominado `quickStartPlan` usando o tipo de preço **FREE**.
+O exemplo a seguir cria um Plano do Serviço de Aplicativo denominado `quickStartPlan` usando o tipo de preço **GRATUITO**.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -152,7 +153,7 @@ Quando o Plano do Serviço de Aplicativo for criado, a CLI do Azure mostrará in
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-Agora que um plano do Serviço de Aplicativo foi criado, crie um Aplicativo Web no `quickStartPlan` plano do Serviço de Aplicativo. O aplicativo Web nos dá um espaço de hospedagem para implantar nosso código, bem como fornece uma URL para exibir o aplicativo implantado. Use o comando [az appservice web create](/cli/azure/appservice/web#create) para criar o Aplicativo Web.
+Agora que um plano do Serviço de Aplicativo foi criado, crie um aplicativo Web no `quickStartPlan` plano do Serviço de Aplicativo. O aplicativo Web nos dá um espaço de hospedagem para implantar nosso código, bem como fornece uma URL para exibir o aplicativo implantado. Use o comando [az appservice web create](/cli/azure/appservice/web#create) para criar o aplicativo Web.
 
 No comando abaixo, substitua o espaço reservado `<app_name>` por seu próprio nome exclusivo de aplicativo. O `<app_name>` será usado como o site DNS padrão para o aplicativo Web, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. Posteriormente, você poderá mapear qualquer entrada DNS personalizada para o aplicativo Web antes de expor para seus usuários.
 
@@ -290,7 +291,7 @@ http://<app_name>.azurewebsites.net
 
 Neste momento, a página que exibe a mensagem Hello World está em execução usando nosso código Python executado como um aplicativo Web do Serviço de Aplicativo do Azure.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>Atualizando e Implantando o Código
 
@@ -309,7 +310,7 @@ git push azure master
 
 Depois que a implantação for concluída, troque para a janela do navegador aberta na etapa Navegar até o aplicativo e clique em Atualizar.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Gerenciar seu novo aplicativo Web do Azure
 
@@ -319,13 +320,13 @@ Para fazer isso, entre em [https://portal.azure.com](https://portal.azure.com).
 
 No menu à esquerda, clique em **Serviço de Aplicativos** e, em seguida, clique no nome do seu aplicativo Web do Azure.
 
-![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-python/app-service-list.png)
 
 Você foi para a _folha_ de seu aplicativo Web (uma página do portal que abre horizontalmente).
 
 Por padrão, a folha de seu aplicativo Web mostra a página **Visão Geral**. Esta página fornece uma visão de como está seu aplicativo. Aqui, você também pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. As guias no lado esquerdo da folha mostram as páginas de configuração diferentes que você pode abrir.
 
-![Folha Serviço de Aplicativo no portal do Azure](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Folha Serviço de Aplicativo no portal do Azure](media/app-service-web-get-started-python/app-service-detail.png)
 
 Essas guias na folha mostram muitos recursos excelentes que você pode adicionar ao seu aplicativo Web. A lista a seguir fornece algumas possibilidades:
 
@@ -341,4 +342,6 @@ Essas guias na folha mostram muitos recursos excelentes que você pode adicionar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore os [scripts da CLI de aplicativos Web](app-service-cli-samples.md) pré-criados.
+> [!div class="nextstepaction"]
+> [Explore os scripts da CLI dos aplicativos Web de exemplo](app-service-cli-samples.md)
+

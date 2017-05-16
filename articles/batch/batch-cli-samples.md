@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/01/2017
 ms.author: antisch
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
 ms.openlocfilehash: 228bde2aeffdf56b80fe3fa2a160d99971be1eb5
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/24/2017
 
 ---
@@ -37,4 +38,3 @@ A tabela a seguir inclui links para scripts bash compilados com a CLI do Azure. 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
-
