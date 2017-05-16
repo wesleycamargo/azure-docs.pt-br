@@ -14,12 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/03/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 90761317944b935b76df65d25a2035bfabe71c09
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: dbed7fe1f6ffdb40d445a66890b63baaf7a57f54
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -143,11 +144,8 @@ Agora que você criou um banco de dados de exemplo no Azure, usaremos a ferramen
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Outros inícios rápidos nessa coleção aproveitam esse início rápido. 
+Se não precisar desses recursos para outro início rápido/tutorial (consulte [Próximas etapas](#next-steps)), você pode excluí-los executando o seguinte comando:
 
-> [!TIP]
-> Se você planeja continuar trabalhando com os inícios rápidos subsequentes, não limpe os recursos criados nesse início rápido. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse início rápido no Portal do Azure.
->
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e clique em **myResourceGroup**. 
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite **myResourceGroup** na caixa de texto e clique **Excluir**.

@@ -13,18 +13,19 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar .NET (C#) para conectar e consultar dados
 
-Este guia rápido demonstra como usar o [C# e ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) para conectar um banco de dados SQL do Azure, então, usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados nas plataformas Windows, Mac OS e Ubuntu Linux.
+Este guia rápido demonstra como usar o [C# e ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) para conectar um banco de dados SQL do Azure, em seguida, usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados nas plataformas Windows, Mac OS e Ubuntu Linux.
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
@@ -37,9 +38,9 @@ As etapas nesta seção pressupõem que você esteja familiarizado com o desenvo
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework e .NET Core**
 
-A Comunidade do Visual Studio 2017 é um IDE completo, extensível, gratuito para a criação de aplicativos modernos para Android, iOS, Windows, bem como aplicativos da Web e do banco de dados, e serviços de nuvem. Você pode instalar o .NET Framework completo ou apenas o .NET Core. Os trechos de código no início rápido funcionam com qualquer um. Se você já tiver o Visual Studio instalado em seu computador, ignore as próximas etapas.
+A Comunidade do Visual Studio 2017 é um IDE completo, extensível, gratuito para a criação de aplicativos modernos para Android, iOS, Windows, bem como aplicativos da Web e de banco de dados, e serviços de nuvem. Você pode instalar o .NET Framework completo ou apenas o .NET Core. Os trechos de código no início rápido funcionam com qualquer um. Se você já tiver o Visual Studio instalado em seu computador, ignore as próximas etapas.
 
-1. Baixe o [instalador](https://go.microsoft.com/fwlink/?LinkId=691978). 
+1. Baixe o [instalador do Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Execute o instalador e siga os prompts de instalação para concluir a instalação.
 
 ### <a name="mac-os"></a>**Mac OS**
@@ -54,7 +55,7 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-Instale o .NET Core no macOS. Baixe o [instalador oficial](https://go.microsoft.com/fwlink/?linkid=843444). Esse instalador instalará as ferramentas e as colocará em seu PATH para que você possa executar dotnet do Console
+Instale o .NET Core no macOS. Baixe o [instalador oficial](https://go.microsoft.com/fwlink/?linkid=843444). Esse instalador instalará as ferramentas e as colocará em seu PATH para que você possa executar o dotnet a partir do Console
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto .NET Core. Digite os comandos a seguir para instalar o **.NET Core**.
@@ -72,11 +73,11 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. Na página **Visão geral** do banco de dados, examine o nome totalmente qualificado do servidor, como mostrado na imagem abaixo. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**. 
+3. Na página **Visão geral** do banco de dados, analise o nome totalmente qualificado do servidor, como mostrado na imagem abaixo. Passe o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**. 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL, navegue até a página do servidor para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.
+4. Se você esquecer as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.
 
 5. Clique em **Mostrar cadeias de conexão de banco de dados**.
 
@@ -308,13 +309,9 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+- [Criar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
+- [Documentação do .NET](https://docs.microsoft.com/dotnet/).
+- [Conectar e consultar com SSMS](sql-database-connect-query-ssms.md)
+- [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
 
-- Para obter a documentação do .NET, consulte [Documentação do .NET](https://docs.microsoft.com/dotnet/).
-- Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md)
-- Para conectar e consultar usando o Visual Studio, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectar e consultar usando o PHP, veja [Conectar e consultar com o PHP](sql-database-connect-query-php.md).
-- Para conectar e consultar usando o Node.js, veja [Conectar e consultar com o Node.js](sql-database-connect-query-nodejs.md).
-- Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
-- Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
-- Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).
 

@@ -1,6 +1,7 @@
 ---
-title: "Relatório de segurança de usuários em risco no portal do Azure Active Directory – versão prévia | Microsoft Docs"
-description: "Saiba mais sobre o relatório de segurança de usuários em risco no portal do Azure Active Directory – versão prévia"
+
+title: "Relatório de segurança de usuários em risco no portal do Azure Active Directory | Microsoft Docs"
+description: "Saiba mais sobre o relatório de segurança de usuários em risco no portal do Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,18 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 48c504a9ed5bc4ef9f0bff889df031962c5bf6e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal---preview"></a>Relatório de segurança de usuários em risco no portal do Azure Active Directory – versão prévia
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Relatório de segurança de usuários em risco no portal do Azure Active Directory
 
-Com os relatórios de segurança na [visualização](active-directory-preview-explainer.md) do Azure Active Directory, você pode obter informações sobre a probabilidade de contas de usuário comprometidas em seu ambiente. 
+Com os relatórios de segurança no Azure Active Directory (Azure AD) você pode obter informações sobre a probabilidade de contas de usuário comprometidas em seu ambiente. 
 
 O Azure Active Directory detecta ações suspeitas relacionadas às suas contas de usuário. Para cada ação detectada, um registro chamado *evento de risco* é criado. Para obter mais detalhes, veja [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 

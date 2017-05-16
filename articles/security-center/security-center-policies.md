@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -66,7 +67,7 @@ Por exemplo, os recursos usados para o desenvolvimento ou teste podem ter requis
    >
 9. Na folha **Política de Segurança**, clique em **Ativar** para habilitar as recomendações de segurança que você deseja usar nesta assinatura. Clique em **Política de prevenção** para ver opções como as mostradas na seguinte captura de tela:
 
-    ![Selecionar as políticas de segurança](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Selecionar as políticas de segurança](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 Use a tabela a seguir como referência para entender cada opção:
 
@@ -82,6 +83,7 @@ Use a tabela a seguir como referência para entender cada opção:
 | Auditoria e detecção de ameaças do SQL |Recomenda que a auditoria de acesso ao Banco de Dados do Azure esteja habilitada para conformidade, e também para detecção de ameaça avançada, para fins de investigação. |
 | Transparent data encryption do SQL |Recomenda que a criptografia em repouso seja habilitada para o Banco de Dados SQL, backups associados e arquivos do log de transação. Mesmo se seus dados sejam violados, eles não poderão ser lidos. |
 | Avaliação de vulnerabilidade |Recomenda que você instale uma solução de avaliação de vulnerabilidade na VM. |
+| Criptografia do Armazenamento |Atualmente, este recurso está disponível para arquivos e blobs do Azure. Observe que, depois de habilitar a Criptografia do Serviço de Armazenamento, apenas os novos dados serão criptografados e quaisquer arquivos existentes nesta conta de armazenamento permanecerão não criptografados. |
 
 Depois de configurar todas as opções, clique em **OK** na folha **Política de Segurança** com as recomendações e clique em **Salvar** na folha **Política de Segurança** com as configurações iniciais.
 

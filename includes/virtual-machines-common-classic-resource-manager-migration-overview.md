@@ -76,7 +76,9 @@ Atualmente, não há suporte para os seguintes recursos. Se preferir, você pode
 | Computação |Discos de máquina virtual não associados. | Os blobs VHD por trás desses discos serão migrados quando a Conta de Armazenamento for migrada |
 | Computação |Imagens de máquinas virtuais. | Os blobs VHD por trás desses discos serão migrados quando a Conta de Armazenamento for migrada |
 | Rede |ACLs de ponto de extremidade. | Remova as ACLs de Ponto de Extremidade e repita a migração. |
-| Rede |ExpressRoute com links de autorização (confira as Perguntas Frequentes), Gateway de Aplicativo | Remova o Gateway antes de iniciar a migração e crie novamente após a conclusão da migração. |
+| Rede |Rede virtual com o Gateway de ExpressRoute e Gateway de VPN  | Remova o Gateway de VPN antes de iniciar a migração e crie novamente o Gateway de VPN após a conclusão da migração. Saiba mais sobre a [migração do ExpressRoute](../articles/expressroute/expressroute-migration-classic-resource-manager.md).|
+| Rede |ExpressRoute com links de autorização  | Remova o circuito do ExpressRoute para a conexão de rede virtual antes de iniciar a migração e recriar a conexão após a conclusão da migração. Saiba mais sobre a [migração do ExpressRoute](../articles/expressroute/expressroute-migration-classic-resource-manager.md). |
+| Rede |Gateway de Aplicativo | Remova o Gateway de Aplicativo antes de iniciar a migração e crie novamente o Gateway de Aplicativo após a conclusão da migração. |
 | Rede |Redes virtuais usando Emparelhamento VNet. | Migre a Rede Virtual para o Gerenciador de Recursos e depois emparelhe. Saiba mais sobre [Emparelhamento de VNet](../articles/virtual-network/virtual-network-peering-overview.md). | 
 
 ### <a name="unsupported-configurations"></a>Configurações sem suporte

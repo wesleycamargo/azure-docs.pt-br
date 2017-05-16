@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -29,7 +30,7 @@ Este Início Rápido ajuda a implantar seu primeiro aplicativo Web ASP.NET para 
 
 ![Aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como usar o Visual Studio 2017 para compilar e implantar um aplicativo Web ASP.NET no Azure. Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio 2017 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
@@ -37,7 +38,7 @@ Este tutorial demonstra como usar o Visual Studio 2017 para compilar e implantar
 
 ## <a name="create-an-aspnet-web-app"></a>Criar um aplicativo Web ASP .NET
 
-No Visual Studio, crie um novo projeto com `Ctrl`+`Shift`+`N`.
+No Visual Studio, crie um projeto com `Ctrl`+`Shift`+`N`.
 
 Na caixa de diálogo **Novo Projeto**, clique em **Visual C# > Web > Aplicativo Web ASP .NET (.NET Framework)**.
 
@@ -95,7 +96,7 @@ Seu aplicativo Web também precisa de um _plano do Serviço de Aplicativo_.
 >
 > - Região (Europa Setentrional, Leste dos EUA, Sudeste Asiático)
 > - Tamanha da Instância (Pequena, Média, Grande)
-> - Contagem da Escala (uma, duas, três instâncias etc.) 
+> - Contagem da Escala (uma, duas ou três instâncias etc.) 
 > - SKU (Gratuito, Compartilhado, Básico, Standard, Premium)
 >
 >
@@ -110,7 +111,7 @@ Na caixa de diálogo **Configurar Plano do Serviço de Aplicativo**, configure o
 
 Clique em **OK**.
 
-![Criar um novo plano do Serviço de Aplicativo](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Criar plano de Serviço de Aplicativo](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>Publicar e publicar o aplicativo Web
 
@@ -145,7 +146,7 @@ Encontre a marcação HTML `<div class="jumbotron">` próximo à parte superior 
 </div>
 ```
 
-Para reimplantar no Azure, clique com o botão direito no projeto **myFirstAzureWebApp** no **Gerenciador de Soluções** e selecione **Publicar**.
+Para implantar novamente no Azure, clique com o botão direito do mouse no projeto **myFirstAzureWebApp** no **Gerenciador de Soluções** e selecione **Publicar**.
 
 Na página de publicação, clique em **Publicar**.
 
@@ -165,11 +166,11 @@ No menu à esquerda, clique em **Serviço de Aplicativos** e, em seguida, clique
 
 Você foi para a _folha_ de seu aplicativo Web (uma página do portal que abre horizontalmente). 
 
-Por padrão, a folha de seu aplicativo Web mostra a página **Visão Geral**. Esta página fornece uma visão de como está seu aplicativo. Aqui, você também pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. As guias no lado esquerdo da folha mostram as páginas de configuração diferentes que você pode abrir. 
+Por padrão, a folha de seu aplicativo Web mostra a página **Visão Geral**. Esta página fornece uma visão de como está seu aplicativo. Aqui, você também pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.  
 
 ![Folha Serviço de Aplicativo no portal do Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Essas guias na folha mostram muitos recursos excelentes que você pode adicionar ao seu aplicativo Web. A lista a seguir fornece algumas possibilidades:
+As guias no lado esquerdo da folha mostram as páginas de configuração diferentes que você pode abrir. A lista a seguir fornece algumas possibilidades:
 
 - mapear um nome DNS personalizado
 - associar um certificado SSL personalizado
@@ -193,5 +194,9 @@ Na folha de confirmação, confirme digitando o nome do grupo de recursos **myRe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore os [scripts do PowerShell dos aplicativos Web](app-service-powershell-samples.md) criados previamente.
+> [!div class="nextstepaction"]
+> [Saiba como criar um aplicativo ASP.NET no Azure com Banco de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Explore os scripts do PowerShell dos aplicativos Web de exemplo](app-service-powershell-samples.md)
 

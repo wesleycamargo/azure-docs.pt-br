@@ -3,8 +3,8 @@ title: "Visão geral da do Microsoft Azure Data Lake Analytics | Microsoft Docs"
 description: "O Data Lake Analytics é um serviço de computação de Big Data do Azure que permite usar dados para impulsionar seus negócios com as informações obtidas de seus dados na nuvem, independentemente de onde eles estiverem e de seu tamanho."
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/28/2017
+ms.date: 05/06/2017
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 12d6fe834ed2b31a756123351288eec7ba2a72f7
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cb2da3515cfe5fd460e16b019d3738f4a9a050bb
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -52,25 +53,17 @@ O Azure Data Lake Analytics é um serviço de análise sob demanda que simplific
   * [Introdução à Análise Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
   * [Introdução à Análise Data Lake usando o SDK do .NET do Azure](data-lake-analytics-get-started-net-sdk.md)
   * [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-  * [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-* U-SQL e desenvolvimento
-  
-  * [Usar funções da janela do U-SQL para trabalhos da Análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
-  * [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos do Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+  * [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md)
+
 * Gerenciamento
   
   * [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md)
   * [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
   * [Monitorar e solucionar problemas em trabalhos do Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-  * [Acessando os logs de diagnóstico do Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
-* Tutorial de ponta a ponta
-  
-  * [Usar tutoriais interativos da Análise Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
-  * [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
+
 * Queremos saber sua opinião
   
-  <!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. Hyperlink text: Comment on our documentation backlog. Referenced file: data-lake-analytics-documentation-backlog.md -->
   * [Enviar uma solicitação de recurso](http://aka.ms/adlafeedback)
-  * [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
+  * [Obter ajuda nos fóruns do MSDN](http://aka.ms/adlaforums)
 
 
