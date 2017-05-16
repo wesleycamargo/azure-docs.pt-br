@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e9e1009bc20679a907e4bd2387865a6000b4a898
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -82,9 +84,4 @@ Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados 
 ## <a name="see-also"></a>Confira também
 * [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md)  - Este artigo fornece uma visão geral do serviço do Catálogo de Dados do Azure, a vantagem que ele oferece e os cenários aos quais ele dá suporte.
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) - este artigo apresenta um tutorial completo que mostra como usar o Catálogo de Dados do Azure para a descoberta de fonte de dados.  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
