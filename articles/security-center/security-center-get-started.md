@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 0ca7382ed64fd548f8a086893ea2e3187dd26929
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -80,8 +81,8 @@ Você pode configurar políticas de segurança para suas assinaturas e grupos de
    ![Recomendações na Central de Segurança do Azure][5]
 2. Selecione uma recomendação na folha **Recomendação** para exibir mais informações e/ou tomar medidas para resolver o problema.
 
-### <a name="view-the-health-and-security-state-of-your-resources"></a>Exibir o estado de integridade e segurança de seus recursos
-1. Volte para a folha **Central de segurança** . O bloco **Integridade de segurança do recurso** contém indicadores do estado da segurança para as máquinas virtuais, rede, dados e aplicativos.
+### <a name="view-the-security-state-of-your-resources"></a>Exiba o estado de segurança de seus recursos
+1. Volte para a folha **Central de segurança** . A seção **Prevenção** do painel contém indicadores do estado da segurança para máquinas virtuais, rede, dados e aplicativos.
 2. Selecione **Computação** para exibir mais informações. A folha **Computação** será aberta mostrando três guias:
 
   - **Visão geral** - Contém recomendações de monitoramento e da máquina virtual.

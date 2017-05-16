@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -112,10 +113,10 @@ As VMs de Armazenamento Premium podem ser restauradas para o Armazenamento Premi
 O Backup do Azure protege VMs de disco gerenciado. Os discos gerenciados liberam você do gerenciamento de contas de armazenamento de máquinas virtuais e simplificam muito o provisionamento de VM.
 
 ### <a name="back-up-managed-disk-vms"></a>Fazer backup de VMs de disco gerenciado
-O backup de VMs em discos gerenciados não é diferente de fazer backup de VMs do Resource Manager. No Portal do Azure é possível configurar o trabalho de backup diretamente na exibição da Máquina Virtual ou na exibição do cofre de Serviços de Recuperação. Você pode fazer backup de VMs em discos gerenciados por meio de coleções de RestorePoint criadas com base em discos gerenciados. Atualmente o Backup do Azure não oferece suporte ao backup de VMs de disco gerenciado criptografadas usando o ADE (Azure Disk Encryption).
+O backup de VMs em discos gerenciados não é diferente de fazer backup de VMs do Resource Manager. No Portal do Azure é possível configurar o trabalho de backup diretamente na exibição da Máquina Virtual ou na exibição do cofre de Serviços de Recuperação. Você pode fazer backup de VMs em discos gerenciados por meio de coleções de RestorePoint criadas com base em discos gerenciados. O Backup do Azure também oferece suporte ao backup de VMs de disco gerenciado criptografadas usando o ADE (Azure Disk Encryption).
 
 ### <a name="restore-managed-disk-vms"></a>Restaurar máquinas virtuais de disco gerenciado
-O Backup do Azure permite que você restaure uma VM completa com discos gerenciados ou restaure discos gerenciados para uma conta de armazenamento do Resource Manager. O Azure gerencia os discos gerenciados durante o processo de restauração. Você (o cliente) gerencia a conta de armazenamento criada como parte do processo de restauração.
+O Backup do Azure permite que você restaure uma VM completa com discos gerenciados ou restaure discos gerenciados para uma conta de armazenamento do Resource Manager. O Azure gerencia os discos gerenciados durante o processo de restauração. Você (o cliente) gerencia a conta de armazenamento criada como parte do processo de restauração. Para restaurar VMs criptografadas gerenciadas, as chaves e os segredos da VM já devem existir no cofre da chave antes da restauração.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Quais são os recursos de cada componente do Backup?
 As seções a seguir fornecem as tabelas que resumem a disponibilidade ou o suporte de vários recursos em cada componente do Backup do Azure. Confira as informações de cada tabela a seguir para obter suporte adicional ou detalhes.

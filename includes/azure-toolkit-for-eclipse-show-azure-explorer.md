@@ -1,12 +1,12 @@
-## <a name="displaying-the-azure-explorer-view"></a>Modo de exibição do Azure Explorer
+## <a name="display-the-azure-explorer-view"></a>Exibir o modo de exibição do Azure Explorer
 
-Se a exibição do **Azure Explorer** ainda não estiver visível no Eclipse, execute as seguintes etapas para exibi-lo:
+Se o modo de exibição do **Azure Explorer** ainda não estiver visível no Eclipse, exiba-o fazendo o seguinte:
 
-1. Clique em **Janela**, em **Mostrar Exibição** e em **Outros**.
+1. Clique em **Janela**, em **Mostrar Modo de Exibição** e em **Outros**.
 
-   ![Menu Mostrar Exibição](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
+   ![Mostrar comando do Modo de Exibição](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
 
-2. Quando a caixa de diálogo **Mostrar Exibição** for exibida, selecione **Azure Explorer** e clique em **OK**.
+2. Na caixa de diálogo **Mostrar Modo de Exibição** selecione **Azure Explorer** e clique em **OK**.
 
-   ![Caixa de Diálogo de Mostrar Exibição](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
+   ![Caixa de Diálogo Mostrar Modo de Exibição](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
 

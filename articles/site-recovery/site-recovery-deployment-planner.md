@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Planejador de implantação do Azure Site Recovery
-Este artigo é o guia do usuário do Azure Site Recovery para implantações de produção do VMware para o Azure.
+Este artigo é o guia do usuário do Planejador de Implantação do Azure Site Recovery para implantações de produção do VMware para o Azure.
 
 ## <a name="overview"></a>Visão geral
 
@@ -36,7 +37,7 @@ A ferramenta fornece os seguintes detalhes:
 
 **Avaliação de compatibilidade**
 
-* Avaliação de qualificação de uma VM com base no número de discos, no tamanho do disco, no IOPS e na variação
+* Avaliação de qualificação de uma VM com base no número de discos, no tamanho do disco, no IOPS, variação e tipo de inicialização (EFI/BIOS)
 * A largura de banda de rede estimada que é necessária para a replicação delta
 
 **Largura de banda de rede necessária versus avaliação de RPO**
@@ -204,6 +205,10 @@ Após a conclusão da criação de perfil, você poderá executar a ferramenta n
 | -StartDate | (Opcional) A data e a hora de início em MM-DD-YYYY:HH:MM (formato de 24 horas). *StartDate* deve ser especificado junto com *EndDate*. Quando StartDate é especificado, o relatório é gerado para os dados de criação de perfil que são coletados entre StartDate e EndDate. |
 | -EndDate | (Opcional) A data e a hora de término em MM-DD-YYYY:HH:MM (formato de 24 horas). *EndDate* deve ser especificado junto com *StartDate*. Quando EndDate é especificado, o relatório é gerado para os dados de criação de perfil que são coletados entre StartDate e EndDate. |
 | -GrowthFactor | (Opcional) O fator de crescimento, expressado como uma porcentagem. O padrão é 30%. |
+| -UseManagedDisks | (Opcional) UseManagedDisks - Sim/Não. O padrão é Sim. O número de máquinas virtuais que pode ser colocado em uma única conta de armazenamento é calculado com base em se o disco gerenciado está selecionado para Failover/Teste de failover. |
+
+para uma única conta de armazenamento a colocação é calculada considerando que o Failover/Teste de failover das máquinas virtuais é realizado em um disco gerenciado em vez de um disco não gerenciado. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: gerar um relatório com os valores padrão quando os dados de criação de perfil estiverem na unidade local
 ```
@@ -480,7 +485,7 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 
 **NICs**: o número de NICs na VM.
 
-**Tipo de inicialização**: é o tipo de inicialização da máquina virtual. Pode ser o BIOS ou EFI. Atualmente o Azure Site Recovery dá suporte apenas ao tipo de inicialização BIOS. Todas as máquinas virtuais do tipo de inicialização EFI estão listadas na planilha de VMs Incompatível. 
+**Tipo de inicialização**: é o tipo de inicialização da máquina virtual. Pode ser o BIOS ou EFI. Atualmente o Azure Site Recovery dá suporte apenas ao tipo de inicialização BIOS. Todas as máquinas virtuais do tipo de inicialização EFI estão listadas na planilha de VMs Incompatível.
 
 **Tipo de sistema operacional**: o tipo de SO da VM. Ele pode ser Windows, Linux ou outros.
 
@@ -517,7 +522,7 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 
 **NICs**: o número de NICs na VM.
 
-**Tipo de inicialização**: é o tipo de inicialização da máquina virtual. Pode ser o BIOS ou EFI. Atualmente o Azure Site Recovery dá suporte apenas ao tipo de inicialização BIOS. Todas as máquinas virtuais do tipo de inicialização EFI estão listadas na planilha de VMs Incompatível. 
+**Tipo de inicialização**: é o tipo de inicialização da máquina virtual. Pode ser o BIOS ou EFI. Atualmente o Azure Site Recovery dá suporte apenas ao tipo de inicialização BIOS. Todas as máquinas virtuais do tipo de inicialização EFI estão listadas na planilha de VMs Incompatível.
 
 **Tipo de sistema operacional**: o tipo de SO da VM. Ele pode ser Windows, Linux ou outros.
 
@@ -558,6 +563,15 @@ Para atualizar o planejador de implantação, faça o seguinte:
 
 
 ## <a name="version-history"></a>Histórico de versão
+
+### <a name="13"></a>1,3
+Atualização: 9 de maio de 2017
+
+O novo recurso a seguir foi adicionado:
+
+* Foi adicionado suporte de disco gerenciado na geração de relatórios. O número de máquinas virtuais que pode ser colocado em uma única conta de armazenamento é calculado com base em se o disco gerenciado está selecionado para Failover/Teste de failover.        
+
+
 ### <a name="12"></a>1.2
 Última atualização: 7 de abril de 2017
 

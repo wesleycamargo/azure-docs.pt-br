@@ -4,7 +4,7 @@ description: "Este artigo o ajuda a se familiarizar com o monitoramento de recur
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -28,18 +29,17 @@ Este artigo o ajuda a usar os recursos de monitoramento na Central de segurança
 Costumamos pensar em monitoramento como assistir e esperar até que um evento ocorra para poder reagir à situação. Monitoramento de segurança refere-se a ter uma estratégia proativa que audita seus recursos para identificar sistemas que não atendem aos padrões organizacionais ou práticas recomendadas.
 
 ## <a name="monitoring-security-health"></a>Monitoramento de integridade da segurança
-Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Pode levar uma hora ou mais para que informações sobre a configuração de máquina virtual, como segurança de atualização de status e configuração do sistema operacional, se tornem disponíveis. Você pode exibir o estado de segurança de seus recursos com os problemas na folha **Integridade da Segurança do Recurso** . Você também pode exibir uma lista desses problemas na folha **Recomendações** .
+Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Pode levar uma hora ou mais para que informações sobre a configuração de máquina virtual, como segurança de atualização de status e configuração do sistema operacional, se tornem disponíveis. Você pode exibir o estado de segurança de seus recursos e quaisquer problemas na seção **Prevenção**. Você também pode exibir uma lista desses problemas no bloco **Recomendações** .
 
 Para obter mais informações sobre como aplicar recomendações, leia [Implementar as recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).
 
-No bloco **Integridade da segurança do recurso**, você pode monitorar o estado de segurança de seus recursos. No exemplo a seguir, você pode ver que vários problemas têm severidade média e alta e exigem atenção. As políticas de segurança que são habilitadas terão impacto sobre os tipos de controles que são monitorados.
+Na seção **Prevenção**, você pode monitorar o estado de segurança dos seus recursos. No exemplo a seguir, você pode ver que no bloco de cada recurso (Computação, Rede, Armazenamento e dados, e Aplicativo) há o número total de problemas que foram identificados.
 
-![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
+![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
-Se a Central de Segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma máquina virtual sem atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](/virtual-network/virtual-networks-nsg.md), ela será listada aqui.
 
 ### <a name="monitor-compute"></a>Monitorar a computação
-Quando você clica em **Computação** no bloco **Integridade da segurança dos recursos**, a folha **Computação** aberta mostra três guias:
+Quando você clica no bloco **Computação**, a folha **Computação** que abre mostra três guias:
 
 - **Visão geral**: recomendações de monitoramento e da máquina virtual.
 - **Máquinas Virtuais**: lista todas as máquinas virtuais e seu estado de segurança atual.
@@ -119,7 +119,7 @@ Para ver uma explicação mais detalhada sobre essa recomendação, clique em **
 ![Recomendações dos serviços de nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Monitorar redes virtuais
-Quando você clica em **Rede** no bloco **Integridade da segurança de recursos**, a folha **Rede** é aberta com mais detalhes, conforme mostrado na seguinte captura de tela:
+Quando você clica no bloco **Rede** a folha **Rede** é aberta com mais detalhes, conforme mostrado na seguinte captura de tela:
 
 ![Blog da rede](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -170,11 +170,11 @@ Nessa exibição da topologia, o primeiro nível tem as [redes virtuai](../virtu
 
 A parte inferior da folha tem as recomendações para essa máquina virtual, que é semelhante ao que foi descrito anteriormente. Você pode clicar em uma recomendação para obter mais informações ou aplicar a configuração ou controle de segurança necessário.
 
-### <a name="monitor-data"></a>Dados de monitoramento
+### <a name="monitor-storage--data"></a>Monitorar Armazenamento e dados
 
-Quando você clica em **SQL e Dados** no bloco **Integridade de segurança de recursos** a folha **Recursos de Dados** é aberta com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
+Quando você clica em **Armazenamento e dados** na seção **Prevenção** a folha **Recursos de Dados** é aberta com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
 
-![Recursos de dados](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
+![Recursos de dados](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
 Em **Recomendações de SQL**, você pode clicar em qualquer recomendação e obter mais detalhes sobre uma ação adicional para resolver um problema. O exemplo a seguir mostra a expansão da recomendação **Auditoria e Detecção de ameaças do banco de dados em bancos de dados SQL**.
 

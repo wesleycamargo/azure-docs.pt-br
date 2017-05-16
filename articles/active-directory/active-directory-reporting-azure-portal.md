@@ -1,6 +1,7 @@
 ---
-title: "Relatórios do Azure Active Directory – versão prévia | Microsoft Docs"
-description: "Lista os diversos relatórios disponíveis na visualização do Azure Active Directory"
+
+title: "Relatórios do Azure Active Directory | Microsoft Docs"
+description: "Lista os diversos relatórios disponíveis no Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Relatórios do Azure Active Directory - visualização
+# <a name="azure-active-directory-reporting"></a>Relatórios do Azure Active Directory
 
 
 *Esta documentação é parte do [Guia de Relatórios do Azure Active Directory](active-directory-reporting-guide.md).*
 
-Com o relatório na visualização do Azure Active Directory, você obtém todas as informações de que precisa determinar como seu ambiente está se comportando. [O que há na visualização?](active-directory-preview-explainer.md)
+Com os relatórios no Azure Active Directory (Azure AD) você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando.
 
 Há duas áreas principais de relatórios:
 
