@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 31574a82d190b9b157f8df3308fac298924eada5
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -63,10 +65,5 @@ Com a Junção do Azure AD, você obtém o seguinte:
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

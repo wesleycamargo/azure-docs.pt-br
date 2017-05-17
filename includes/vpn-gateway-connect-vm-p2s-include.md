@@ -7,15 +7,15 @@ Você pode se conectar a uma VM que é implantada em sua rede virtual criando um
   - PowerShell - Use o exemplo para exibir uma lista de VMs e endereços de IP privados dos seus grupos de recursos. Você não precisa modificar esse exemplo antes de usá-lo.
 
     ```powershell
-    $vms = get-azurermvm
-    $nics = get-azurermnetworkinterface | where VirtualMachine -NE $null
+    $VMs = Get-AzureRmVM
+    $Nics = Get-AzureRmNetworkInterface | Where VirtualMachine -ne $null
 
-    foreach($nic in $nics)
+    foreach($Nic in $Nics)
     {
-      $vm = $vms | where-object -Property Id -EQ $nic.VirtualMachine.id
-      $prv = $nic.IpConfigurations | select-object -ExpandProperty PrivateIpAddress
-      $alloc = $nic.IpConfigurations | select-object -ExpandProperty PrivateIpAllocationMethod
-      Write-Output "$($vm.Name): $prv,$alloc"
+      $VM = $VMs | Where-Object -Property Id -eq $Nic.VirtualMachine.Id
+      $Prv = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAddress
+      $Alloc = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAllocationMethod
+      Write-Output "$($VM.Name): $Prv,$Alloc"
     }
     ```
 

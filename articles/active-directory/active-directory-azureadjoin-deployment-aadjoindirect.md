@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3ba238e246c7a41f6489a2b3ac4e1c749267290d
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -81,10 +83,5 @@ Você pode preparar seus funcionários e usuários para usarem seus dispositivos
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

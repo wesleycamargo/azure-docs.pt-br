@@ -12,12 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 5dd6701f25c69f5e870d3add79c312f9aeec6bf4
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -118,10 +120,5 @@ Em um dispositivo Samsung Android, os privilégios de administrador do dispositi
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 Se o **Erro do Repositório de Chaves** for exibido, ele poderá ocorrer por você não ter a tela de bloqueio configurada com um PIN. Para contornar esse problema, desinstale o aplicativo Azure Authenticator, configure um PIN para a tela de bloqueio e reinstale o aplicativo.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

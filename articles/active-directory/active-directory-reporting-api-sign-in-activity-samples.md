@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -87,10 +89,5 @@ O script retorna a saída do relatório de entradas no formato JSON. Ele também
 * Você gostaria de personalizar os exemplos deste tópico? Confira a [referência da API de atividade de entrada do Azure Active Directory](active-directory-reporting-api-sign-in-activity-reference.md). 
 * Se você quiser uma visão geral de como usar a API de relatório do Azure Active Directory, confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Se você quiser saber mais sobre os relatórios do Azure Active Directory, confira o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).  
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

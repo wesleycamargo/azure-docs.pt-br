@@ -14,11 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: aa6e78feb7ffaefcb8bce9c7f2293421c4859898
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -35,10 +37,5 @@ Os tópicos a seguir fornecem informações sobre recursos diferentes de disposi
 | Introdução |[Usando dispositivos com Windows 10 no local de trabalho](active-directory-azureadjoin-windows10-devices.md) <br> <br> [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Azure Active Directory](active-directory-azureadjoin-overview.md) <br> <br> [Autenticando identidades sem senhas com o Microsoft Passport](active-directory-azureadjoin-passport.md) |
 | Implantação |[Cenários de uso e considerações de implantação para a Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Conectando dispositivos ingressados no domínio ao Azure AD para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Habilitando o Microsoft Passport for Work na organização](active-directory-azureadjoin-passport-deployment.md)<br><br> [Habilitando o Roaming de Estado da Empresa para Windows 10](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Tarefas do usuário |[Configurando um novo dispositivo com Windows 10 com o Azure AD durante a instalação](active-directory-azureadjoin-user-frx.md) <br><br> [Configurando um dispositivo com Windows 10 com o Azure AD no menu de configurações](active-directory-azureadjoin-user-upgrade.md) <br><br> [Ingressar um dispositivo Windows 10 pessoal na sua organização](active-directory-azureadjoin-personal-device.md) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
