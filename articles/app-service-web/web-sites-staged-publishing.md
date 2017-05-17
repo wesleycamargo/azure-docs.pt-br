@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a51be4038ef6f9890645a71cd10cc86cb58929f3
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: dd0382aaec0cdcbd6688d99f7bc0245fae5b963f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
 
-Ao implantar seu aplicativo Web, back-end móvel e aplicativo de API no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), você pode implantar em um slot de implantação separado em vez de no slot de produção padrão quando estiver executando no modo do plano do Serviço de Aplicativo **Standard** ou **Premium**. Os slots de implantação são, na verdade, aplicativos online com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. Implantar o seu aplicativo em um slot de implantação tem os seguintes benefícios:
+Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel e aplicativo de API no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), você pode implantar em um slot de implantação separado em vez de no slot de produção padrão quando estiver executando no modo do plano do Serviço de Aplicativo **Standard** ou **Premium**. Os slots de implantação são, na verdade, aplicativos online com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. Implantar o seu aplicativo em um slot de implantação tem os seguintes benefícios:
 
 * É possível validar as alterações no aplicativo em um slot de implantação de preparo antes de permutá-lo pelo slot de produção.
 * Implantar um aplicativo em um slot inicial e depois permutá-lo, enviando-o para produção, garante que todas as instâncias do slot estejam prontas antes dessa troca. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo. O redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada como resultado de operações de permuta. Todo esse fluxo de trabalho pode ser automatizado por meio da configuração de [Permuta Automática](#Auto-Swap) quando a validação de pré-permuta não é necessária.
@@ -119,6 +120,9 @@ Você pode trocar os slots de implantação na exibição **Visão geral** ou **
 Troca com visualização, ou troca de várias fases, simplifica a validação de elementos de configuração específicos ao slot, como cadeias de conexão.
 Para cargas de trabalho críticas, convém validar se o aplicativo está se comportando conforme o esperado quando a configuração do slot de produção é aplicada, e você deve executar essa validação *antes* de o aplicativo ser trocado para produção. A troca com visualização é o que você precisa.
 
+> [!NOTE]
+> Não há suporte para a troca com visualização em aplicativos Web no Linux.
+
 Quando você usa a opção **Troca com visualização** (consulte [Trocar slots de implantação](#Swap)), o Serviço de Aplicativo faz o seguinte:
 
 - Mantém o slot de destino inalterado para que a carga de trabalho existente nesse slot (por exemplo, produção) não seja afetada.
@@ -140,6 +144,9 @@ A Troca Automática simplifica cenários DevOps em q você deseja implantar cont
 > Ao habilitar a Permuta Automática para um slot, verifique se a configuração do slot é exatamente a configuração pretendida para o slot de destino (geralmente o slot de produção).
 > 
 > 
+
+> [!NOTE]
+> Não há suporte para a troca automática em aplicativos Web no Linux.
 
 Configurar a Permuta Automática para um slot é fácil. Siga as etapas abaixo:
 
@@ -276,8 +283,8 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Aplicativo Web do Serviço de Aplicativo do Azure – bloquear o acesso Web a slots de implantação não sejam de produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
+[Aplicativo Web do Serviço de Aplicativo do Azure – bloquear o acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[Introdução ao Serviço de Aplicativo no Linux](./app-service-linux-intro.md)
 [Avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

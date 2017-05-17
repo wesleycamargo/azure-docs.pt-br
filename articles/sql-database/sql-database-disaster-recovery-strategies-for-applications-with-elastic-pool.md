@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/16/2016
-ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 7d666b81f6c836e161d3c97512767638c088d3c8
-ms.lasthandoff: 04/13/2017
+ms.date: 04/07/2017
+ms.author: sashan;carlrab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4abcfa777c08cec25770dc92f38e530f1ddb1d89
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,16 +35,16 @@ No restante do artigo, discutiremos as estratégias de recuperação de desastre
 ## <a name="scenario-1-cost-sensitive-startup"></a>Cenário 1. Inicialização econômica
 <i>Sou uma startup e dependo muito do custo das coisas.  Quero simplificar a implantação e o gerenciamento do aplicativo e desejo ter um SLA limitado para clientes individuais. No entanto, quero garantir que o aplicativo como um todo nunca fique offline.</i>
 
-Para satisfazer o requisito de simplicidade, você deveria implantar todos os bancos de dados do locatário em um pool elástico na região do Azure de sua escolha e implantar os bancos de dados de gerenciamento como bancos de dados únicos replicados geograficamente. Na recuperação de desastres de locatários, use a restauração geográfica, que é fornecida sem custo adicional. Para garantir a disponibilidade dos bancos de dados de gerenciamento, eles deverão ser replicados geograficamente em outra região (etapa 1). O custo da configuração da recuperação de desastres neste cenário é igual ao custo total dos bancos de dados secundários. Essa configuração está ilustrada no diagrama a seguir.
+Para satisfazer o requisito de simplicidade, você deveria implantar todos os bancos de dados do locatário em um pool elástico na região do Azure de sua escolha e implantar os bancos de dados de gerenciamento como bancos de dados únicos replicados geograficamente. Na recuperação de desastres de locatários, use a restauração geográfica, que é fornecida sem custo adicional. Para garantir a disponibilidade dos bancos de dados de gerenciamento, eles deverão ser replicados geograficamente em outra região usando um grupo de failover automático (etapa 1). O custo da configuração da recuperação de desastres neste cenário é igual ao custo total dos bancos de dados secundários. Essa configuração está ilustrada no diagrama a seguir.
 
 ![A figura 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
 No caso de uma interrupção na região primária, as etapas de recuperação para colocar seu aplicativo online estão ilustradas no diagrama a seguir.
 
-* Faça o failover imediatamente dos bancos de dados de gerenciamento para a região da recuperação de desastres (2). 
-* Altere a cadeia de conexão do aplicativo para apontar para a região da recuperação de desastres. Todas as novas contas e bancos de dados de locatário serão criados na região da recuperação de desastres. Os clientes existentes verão seus dados como temporariamente indisponíveis.
-* Crie o pool elástico com a mesma configuração do pool original (3). 
-* Use a restauração geográfica para criar cópias dos bancos de dados de locatário (4). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
+* O grupo de failover inicia o failover automático do banco de dados de gerenciamento para a região de DR. O aplicativo será reconectado automaticamente às novas contas primárias e os bancos de dados de locatário serão criados na região de DR. Os clientes existentes verão seus dados como temporariamente indisponíveis.
+* Crie o pool elástico com a mesma configuração do pool original (2).
+* Use a restauração geográfica para criar cópias dos bancos de dados de locatário (3). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
+
 
 Neste momento, seu aplicativo está novamente online na região da recuperação de desastres, mas alguns clientes acessarão seus dados com algum atraso.
 
