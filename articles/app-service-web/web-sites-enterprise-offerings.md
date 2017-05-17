@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: anwestg
-translationtype: Human Translation
-ms.sourcegitcommit: 4d3b3096e42736fddd3bb5b9f39376271d193c58
-ms.openlocfilehash: 980eb9ff0990d532a77614be571e3f6d24a1dfee
-ms.lasthandoff: 12/07/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4d46654f42a3fd5c9b491f1b565c2acfa0dc52c4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -112,7 +113,7 @@ Depois de esses tópicos serem considerados, seu aplicativo Web deverá estar pr
 
 As próximas etapas no processo de migração são para criar um aplicativo Web do Serviço de Aplicativo e um Banco de Dados SQL do Azure. Há vários tamanhos de instâncias do Aplicativos Web com vários núcleos de CPU e quantidades de RAM disponíveis para seleção com base em suas necessidades de aplicativos Web. Para obter mais informações sobre preços, consulte [https://azure.microsoft.com/pricing/details/app-service/](https://azure.microsoft.com/pricing/details/app-service/). Da mesma forma, o Banco de Dados SQL do Microsoft Azure atenta para todas as necessidades de uma empresa com vários níveis de serviço e níveis de desempenho para atender aos requisitos. Informações adicionais podem ser encontradas em [https://azure.microsoft.com/pricing/details/sql-database/](https://azure.microsoft.com/pricing/details/sql-database/). Depois de criado, o aplicativo é carregado no Aplicativos Web do Serviço de Aplicativo, por meio de FTP ou WebDeploy e, em seguida, é movido para o banco de dados.
 
-Nessa migração, a solução usa o Banco de Dados SQL do Azure, mas esse não é o único banco de dados que tem suporte no Azure. As empresas também podem fazer uso do MySQL, MongoDB, Banco de Dados de Documentos do Azure e muito mais por meio de complementos que podem ser adquiridos na [Azure Store](/marketplace/partner-program/).
+Nessa migração, a solução usa o Banco de Dados SQL do Azure, mas esse não é o único banco de dados que tem suporte no Azure. As empresas também podem fazer uso do MySQL, MongoDB, Banco de Dados do Azure Cosmos e muito mais por meio de complementos que podem ser adquiridos na [Azure Store](/marketplace/partner-program/).
 
 Ao criar um Banco de Dados SQL do Azure, várias opções estão disponíveis para importar um banco de dados existente de um servidor local, da geração de um script de banco de dados existente até o uso da [Importação e exportação de aplicativo da camada de dados](http://aka.ms/dacpac).
 

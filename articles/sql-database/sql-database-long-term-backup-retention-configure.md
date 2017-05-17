@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5fea9dfcd323ecf497742173a66119be4f734909
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: a293c06f2e9bca8790832ecb851c89b04e76bb24
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,10 +34,6 @@ As próximas seções mostram como usar o portal do Azure para configurar o cofr
 ### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Configurar o cofre, registrar o servidor e selecionar bancos de dados
 
 Você [configura um cofre dos Serviços de Recuperação do Azure para reter os backups automatizados](sql-database-long-term-retention.md) por um período maior que o período de retenção da camada de serviços. 
-
-> [!TIP]
-> Para excluir backups na retenção de longo prazo, consulte [Configurar e usar a retenção de backup de longo prazo](sql-database-long-term-backup-retention-configure.md).
->
 
 1. Abra a página **SQL Server** do servidor.
 
@@ -217,9 +213,6 @@ $policyState = "enabled"
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 ```
 
-> [!IMPORTANT]
-> Uma vez configurados, os backups aparecerão no cofre nos próximos sete dias. Continue este tutorial depois que os backups forem mostrados no cofre.
-
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Exibir informações de backup e backups de retenção de longo prazo
 
 Exiba informações sobre os backups de banco de dados na [retenção de backup de longo prazo](sql-database-long-term-retention.md). 
@@ -270,7 +263,7 @@ $restoredDb
 
 
 > [!NOTE]
-> A partir daqui, você pode conectar o banco de dados restaurado usando o SQL Server Management Studio para executar as tarefas necessárias, tais como, [extrair um pouco de dados do banco de dados restaurado para copiar para o banco de dados existente ou excluir o banco de dados existente e renomear o banco de dados restaurado com o nome do banco de dados existente](sql-database-recovery-using-backups.md#point-in-time-restore).
+> A partir daqui, você pode conectar o banco de dados restaurado usando o SQL Server Management Studio para executar as tarefas necessárias, tais como, extrair um pouco de dados do banco de dados restaurado para copiar para o banco de dados existente ou excluir o banco de dados existente e renomear o banco de dados restaurado com o nome do banco de dados existente. Confira [recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="next-steps"></a>Próximas etapas
 
