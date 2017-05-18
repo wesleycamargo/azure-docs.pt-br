@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 24f56b68a9313ed1bce859b9343a14de83d9b600
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: d00375d9bc696b41a074eebe6d205e6907a54c4b
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -28,7 +28,7 @@ O portal clássico do Azure fornece a capacidade de criar regras avançadas para
 Quando os atributos de um usuário são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração do atributo do usuário dispararia adições ou remoções de grupo. Se um usuário atender a uma regra em um grupo, ele será adicionado como membro a esse grupo. Se ele não satisfizer mais à regra de um grupo do qual é membro, será removido do grupo.
 
 > [!NOTE]
-> Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365. Atualmente não há suporte a associações de grupo aninhadas para atribuição com base em grupo para aplicativos.
+> Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365. 
 >
 > As associações dinâmicas de grupos exigem que uma licença do Azure AD Premium seja atribuída a
 >
