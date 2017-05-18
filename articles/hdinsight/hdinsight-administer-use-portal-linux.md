@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 3c1021ec8c8dc4488f86ba89f6ae31d6ed75e9f5
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 939571e7c4ce2c26249b5fb21a09a93e4a51a680
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -322,7 +322,9 @@ A seção **Uso** da folha do cluster do HDInsight exibe informações sobre o n
 >
 
 ## <a name="connect-to-a-cluster"></a>Conectar a um cluster
-Confira [Usar o Hive com Hadoop no HDInsight com SSH](hdinsight-hadoop-use-hive-beeline.md#a-idsshaconnect-with-ssh).
+
+* [Usar o Hive com o HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Use o SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e como abrir a ferramenta de linha de comando do Hadoop. Para saber mais, consulte os seguintes artigos:

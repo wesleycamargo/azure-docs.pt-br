@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: darosa;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: f86336de4e1d5bda1eba12f0f95079b950963bde
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 03756c15d0cd46731e66df3d81c97099f13dcd17
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="azure-event-hubs-archive"></a>Arquivamento dos Hubs de Eventos do Azure
-O Arquivo Morto dos Hubs de Eventos do Azure permite que você forneça automaticamente os dados de streaming em seus Hubs de Eventos para a conta de armazenamento de blobs de sua escolha, com maior flexibilidade para especificar uma hora ou um período de tempo desejado. A configuração da Arquivo Morto é rápida, não há custos administrativos para executá-lo e ele é escalado automaticamente com as [unidades de produtividade](event-hubs-what-is-event-hubs.md#capacity) dos Hubs de Eventos. O Arquivamento dos Hubs de Eventos é a maneira mais fácil de carregar dados de streaming no Azure e permite que você se concentre no processamento de dados em vez de se concentrar na captura de dados.
+O Arquivo Morto dos Hubs de Eventos do Azure permite que você forneça automaticamente os dados de streaming em seus Hubs de Eventos para a conta de armazenamento de blobs de sua escolha, com maior flexibilidade para especificar uma hora ou um período de tempo desejado. A configuração da Arquivo Morto é rápida, não há custos administrativos para executá-lo e ele é escalado automaticamente com as [unidades de produtividade](event-hubs-features.md#capacity) dos Hubs de Eventos. O Arquivamento dos Hubs de Eventos é a maneira mais fácil de carregar dados de streaming no Azure e permite que você se concentre no processamento de dados em vez de se concentrar na captura de dados.
 
 O Arquivo Morto dos Hubs de Eventos permite processar pipelines em tempo real e baseados em lote no mesmo fluxo. Isso permite que você crie soluções que podem crescer com suas necessidades ao longo do tempo. Se você estiver criando sistemas baseados em lote com o objetivo de processá-los em tempo real no futuro ou para adicionar um caminho frio eficiente para uma solução em tempo real, o Arquivamento dos Hubs de Eventos facilita o trabalho de transmissão de dados.
 
 ## <a name="how-event-hubs-archive-works"></a>Como funciona o Arquivamento dos Hubs de Eventos
-Os Hubs de Eventos são um buffer de tempo de retenção durável para a entrada de telemetria, semelhante a um log distribuído. A chave para reduzir os Hubs de Eventos é o [modelo de consumidor particionado](event-hubs-what-is-event-hubs.md#partitions). Cada partição é um segmento independente de dados e é consumido de forma independente. Ao longo do tempo, esses dados expiram com base no período de retenção configurável. Assim, um Hub de Eventos específico nunca fica “cheio demais”.
+Os Hubs de Eventos são um buffer de tempo de retenção durável para a entrada de telemetria, semelhante a um log distribuído. A chave para reduzir os Hubs de Eventos é o [modelo de consumidor particionado](event-hubs-features.md#partitions). Cada partição é um segmento independente de dados e é consumido de forma independente. Ao longo do tempo, esses dados expiram com base no período de retenção configurável. Assim, um Hub de Eventos específico nunca fica “cheio demais”.
 
 O Arquivamento dos Hubs de Eventos permite que você especifique sua própria conta de Armazenamento de Blobs do Azure e o contêiner que será usado para armazenar os dados arquivados. Essa conta pode estar na mesma região que o hub de eventos ou em outra região, concedendo flexibilidade ao recurso de Arquivo Morto dos Hubs de Eventos.
 
@@ -41,7 +42,7 @@ O Arquivo Morto dos Hubs de Eventos permite que você defina uma “janela” pa
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Dimensionamento de unidades de produtividade
-O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](event-hubs-what-is-event-hubs.md#capacity). Uma única unidade de produtividade permite o ingresso de 1 MB por segundo ou 1.000 eventos por segundo e duas vezes essa quantidade de saída. Os Hubs de Evento Standard podem ser configurados com 1 a 20 unidades de produtividade e outras podem ser adquiridas por meio de uma [solicitação de suporte][support request] para aumento de cota. O uso além das unidades de produtividade adquiridas é restringido. O Arquivo Morto dos Hubs de Eventos copia os dados diretamente do armazenamento interno dos Hubs de Eventos, ignorando as cotas de saída das unidades de produtividade e salvando a saída de outros leitores de processamento, como o Stream Analytics ou o Spark.
+O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](event-hubs-features.md#capacity). Uma única unidade de produtividade permite o ingresso de 1 MB por segundo ou 1.000 eventos por segundo e duas vezes essa quantidade de saída. Os Hubs de Evento Standard podem ser configurados com 1 a 20 unidades de produtividade e outras podem ser adquiridas por meio de uma [solicitação de suporte][support request] para aumento de cota. O uso além das unidades de produtividade adquiridas é restringido. O Arquivo Morto dos Hubs de Eventos copia os dados diretamente do armazenamento interno dos Hubs de Eventos, ignorando as cotas de saída das unidades de produtividade e salvando a saída de outros leitores de processamento, como o Stream Analytics ou o Spark.
 
 Uma vez configurado, o Arquivamento dos Hubs de Eventos é executado automaticamente assim que você envia seu primeiro evento. Ele continua sendo executado o tempo todo. Para que o seu processamento downstream saiba que processo está funcionando mais facilmente, os Hubs de Eventos gravam arquivos vazios quando não há nenhum dado. Isso fornece cadência e marcador previsíveis que podem alimentar os processadores em lotes.
 

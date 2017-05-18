@@ -10,15 +10,16 @@ tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 5b4b3c6fdebfa32224772f36212ee073f688f054
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5c467f35351a9e0c6261967b6ed6e6b58cfab682
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -30,7 +31,7 @@ Nesse cenário, você criará um grupo de recursos, dois planos de serviço de a
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "escala geográfica")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "escala geográfica")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -51,3 +52,4 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicat
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Os exemplos de script da CLI do Serviço de Aplicativo adicionais podem ser encontrados na [documentação do Serviço de Aplicativo do Azure](../app-service-cli-samples.md).
+
