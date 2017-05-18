@@ -25,7 +25,7 @@
      * [Redefinição de senha por autoatendimento](../articles/active-directory/active-directory-playbook-implementation.md#self-service-password-reset)
      * [Acesso a aplicativos de autoatendimento](../articles/active-directory/active-directory-playbook-implementation.md#self-service-access-to-applications)
 4. [Blocos de construção](../articles/active-directory/active-directory-playbook-building-blocks.md)
-   * [Catálogo de atores](../articles/active-directory/active-directory-playbook-building-blocks.md#catalog-of-actors)
+   * [Catálogo de atores](../articles/active-directory/active-directory-playbook-building-blocks.md)
    * [Pré-requisitos comuns para todos os blocos de construção](../articles/active-directory/active-directory-playbook-building-blocks.md#common-prerequisites-for-all-building-blocks)
    * [Sincronização de diretórios - PHS (sincronização de hash de senha) - nova instalação](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation)
    * [Identidade visual](../articles/active-directory/active-directory-playbook-building-blocks.md#branding)
