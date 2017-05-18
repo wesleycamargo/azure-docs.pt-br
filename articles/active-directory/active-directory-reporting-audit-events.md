@@ -4,7 +4,7 @@ description: "Eventos de auditoria que estão disponíveis para exibição e dow
 services: active-directory
 documentationcenter: 
 author: dhanyahk
-manager: mbaldwin
+manager: femila
 editor: 
 ms.assetid: 307eedf7-05bc-448d-a84d-bead5a4c5770
 ms.service: active-directory
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6950072b8970dfc1b80674efe0be6cb7496fd5ce
 ms.openlocfilehash: 2dda60160bbcaa729bc8e5cec4f47efc10d120cf
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -325,10 +327,5 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | PasswordValidityPeriodDays |O número de dias que uma senha valerá antes de ter de ser alterada. |
 
 Registros de auditoria são um controle necessário para muitas regulamentações de conformidade. Para clientes que usam o Relatório de Auditoria do Azure Active Directory para atender aos seus regulamentos de conformidade, recomenda-se que o cliente envie uma cópia deste tópico de ajuda com a cópia do relatório de auditoria exportado do cliente para ajudar a explicar os detalhes do relatório. Se o auditor gostaria de entender os regulamentos de conformidade que o Azure atende atualmente, indique a [Página de conformidade](https://azure.microsoft.com/support/trust-center/compliance/) da Central de confiabilidade do Microsoft Azure ao auditor.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

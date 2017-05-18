@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/14/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1005f776ae85a7fc878315225c45f2270887771f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ Este artigo mostra como configurar a replicação geográfica ativa para um Banc
 Para iniciar o failover usando o Transact-SQL, veja [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 > [!NOTE]
-> A replicação geográfica ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis.
+> Ao usar a Replicação geográfica ativa (secundários legíveis) para recuperação de desastres, você deve configurar um grupo de failover para todos os bancos de dados dentro de um aplicativo para habilitar o failover automático e transparente. Essa funcionalidade está em visualização. Para saber mais, confira [Grupos de failover automático e Replicação geográfica](sql-database-geo-replication-overview.md).
 > 
 > 
 
@@ -53,23 +54,6 @@ Depois do banco de dados secundário ser criado e propagado, os dados começarã
 > [!NOTE]
 > Se existir um banco de dados no servidor do parceiro especificado com o mesmo nome do banco de dados primário, o comando falhará.
 > 
-> 
-
-### <a name="add-non-readable-secondary-single-database"></a>Adicionar um secundário não legível (banco de dados individual)
-Use as seguintes etapas para criar um secundário não legível como um banco de dados individual.
-
-1. Com a versão 13.0.600.65 ou posterior do SQL Server Management Studio.
-   
-   > [!IMPORTANT]
-   > Baixe a versão [mais recente](https://msdn.microsoft.com/library/mt238290.aspx) do SQL Server Management Studio. É recomendável usar sempre a versão mais recente do Management Studio para continuar em sincronia com as atualizações do portal do Azure.
-   > 
-   > 
-2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
-3. Use a instrução **ALTER DATABASE** a seguir para transformar um banco de dados local em uma Replicação Geográfica primária com um banco de dados secundário não legível em MySecondaryServer1, no qual MySecondaryServer1 é o nome amistoso do servidor.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
-4. Clique em **Execute** para executar a consulta.
 
 ### <a name="add-readable-secondary-single-database"></a>Adicionar um secundário legível (banco de dados individual)
 Use as seguintes etapas para criar um secundário legível como um banco de dados individual.
@@ -80,18 +64,6 @@ Use as seguintes etapas para criar um secundário legível como um banco de dado
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
-4. Clique em **Execute** para executar a consulta.
-
-### <a name="add-non-readable-secondary-elastic-pool"></a>Adicionar um secundário não legível (pool elástico)
-Use as seguintes etapas para criar um secundário não legível em um pool elástico.
-
-1. No Management Studio, conecte seu servidor lógico do Banco de Dados SQL do Azure.
-2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
-3. Use a seguinte instrução **ALTER DATABASE** para transformar um banco de dados local em uma Replicação Geográfica primária com um banco de dados secundário não legível em um servidor secundário em um pool elástico.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
-           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. Clique em **Execute** para executar a consulta.
 
 ### <a name="add-readable-secondary-elastic-pool"></a>Adicionar um secundário legível (pool elástico)
@@ -141,22 +113,6 @@ Use as etapas a seguir para monitorar uma parceria de replicação geográfica a
         SELECT * FROM sys.dm_operation_status where major_resource_id = 'MyDB'
         ORDER BY start_time DESC
 9. Clique em **Execute** para executar a consulta.
-
-## <a name="upgrade-a-non-readable-secondary-to-readable"></a>Atualizar um secundário não legível para legível
-Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis. Se você estiver usando secundários não legíveis atualmente e desejar atualizá-los para serem legíveis, será possível usar as etapas simples a seguir para cada secundário.
-
-> [!IMPORTANT]
-> Não há nenhum método de autoatendimento de atualização in-loco de um secundário não legível para legível. Se você remover seu único secundário, o banco de dados primário permanecerá desprotegido até que o novo secundário esteja totalmente sincronizado. Se o SLA do seu aplicativo exigir que o primário esteja protegido sempre, você deverá considerar criar um secundário paralelo em um servidor diferente antes de aplicar as etapas de atualização acima. Observe que cada primário pode ter até quatro bancos de dados secundários.
-> 
-> 
-
-1. Primeiro, conecte o servidor *secundário* e remova o banco de dados secundário não legível:  
-   
-        DROP DATABASE <MyNonReadableSecondaryDB>;
-2. Agora se conecte ao servidor *primário* e adicione um novo secundário legível
-   
-        ALTER DATABASE <MyDB>
-            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a replicação geográfica ativa, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)

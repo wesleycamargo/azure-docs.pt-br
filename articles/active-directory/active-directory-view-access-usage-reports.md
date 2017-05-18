@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2016
-ms.author: dhanyahk
-translationtype: Human Translation
+ms.date: 05/16/2017
+ms.author: dhanyahk;markvi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 8b3835d354512645cd47ffa4541d6155c80e77ee
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -242,10 +244,5 @@ Para saber mais sobre as notificações de relatórios do Azure AD, confira [Not
 ## <a name="whats-next"></a>O que vem a seguir
 * [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

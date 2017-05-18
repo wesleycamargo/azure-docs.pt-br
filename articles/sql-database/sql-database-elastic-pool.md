@@ -11,15 +11,16 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 04/19/2017
+ms.date: 05/15/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: cc81b842833942019d5afec9b9dc33813ac48964
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 448bdbd2ae12d325781587846c812995cae33774
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -128,7 +129,7 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools"></a>eDTU e limites de armazenamento para pools elásticos
 
-A tabela a seguir descreve as características dos pools elásticos Básico, Standard, Premium e Premium RS.
+As tabelas a seguir descrevem os limites de recursos dos pools elásticos.  Observe que os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço.  Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120.  Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -167,3 +168,4 @@ Para aplicativos que têm requisitos de recuperação mais agressivos do que a R
 * Você pode criar e gerenciar um pool elástico usando o [Portal do Azure](sql-database-elastic-pool-manage-portal.md), o [PowerShell](sql-database-elastic-pool-manage-powershell.md), o [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), o [C#](sql-database-elastic-pool-manage-csharp.md)e a API REST.
 * Para obter um vídeo, confira [Curso em vídeo da Microsoft Virtual Academy sobre os recursos elásticos do Banco de Dados SQL do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
+

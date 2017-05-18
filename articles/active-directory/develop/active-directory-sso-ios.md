@@ -3,7 +3,7 @@ title: Como habilitar o SSO entre aplicativos no iOS usando o ADAL | Microsoft D
 description: "Como usar os recursos do SDK do ADAL para habilitar o Logon Único em seus aplicativos. "
 services: active-directory
 documentationcenter: 
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: xerners
-translationtype: Human Translation
+ms.author: brandwe
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 5f10f6dc878d92337a37bbc4b16edf3962d53cc6
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/26/2017
 
 

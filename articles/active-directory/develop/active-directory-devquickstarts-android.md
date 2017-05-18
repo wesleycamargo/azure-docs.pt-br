@@ -3,7 +3,7 @@ title: "Introdução a Android no AD do Azure | Microsoft Docs"
 description: Como compilar um aplicativo para Android que se integre ao Azure AD para entrada e que chame as APIs protegidas do Azure AD usando o OAuth.
 services: active-directory
 documentationcenter: android
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343

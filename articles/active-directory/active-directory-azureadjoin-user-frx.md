@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a6227096559af9b9beba7081ba770db80189dc18
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -56,10 +58,5 @@ Se o Windows 10 Professional ou Windows 10 Enterprise Edition estiver insta
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

@@ -14,15 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 71d07e64480d4b4eaff7fdef53c8f5ff7a97a944
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 49aa35a42e4f6dab2f8d556f7b1b10bfdef7b7db
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar um aplicativo no Serviço de Aplicativo do Azure
-Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) do qual você fez backup anteriormente (veja [Fazer backup de seu aplicativo no Azure](web-sites-backup.md)). É possível restaurar seu aplicativo com seus bancos de dados vinculados (Banco de Dados SQL ou MySQL) sob demanda para um estado anterior ou criar um novo aplicativo com base em um backup de seu aplicativo original. A criação de um novo aplicativo que é executado em paralelo à versão mais recente pode ser útil para testes A/B.
+Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) do qual você fez backup anteriormente (veja [Fazer backup de seu aplicativo no Azure](web-sites-backup.md)). É possível restaurar seu aplicativo com seus bancos de dados vinculados sob demanda para um estado anterior ou criar um novo aplicativo com base em um backup de seu aplicativo original. O Serviço de Aplicativo do Azure oferece suporte aos seguintes bancos de dados para backup e restauração:
+- [Banco de Dados SQL](https://azure.microsoft.com/en-us/services/sql-database/)
+- [Banco de Dados do Azure para MySQL (Visualização)](https://azure.microsoft.com/en-us/services/mysql)
+- [Banco de Dados do Azure para PostgreSQL (Visualização)](https://azure.microsoft.com/en-us/services/postgres)
+- [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
+- [MySQL no aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 A restauração usando backups está disponível para aplicativos que são executados nas camadas **Standard** e **Premium**. Para obter informações sobre como escalar verticalmente seu aplicativo, veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). A camada **Premium** permite um número maior de backups diários do que a camada **Standard**.
 
@@ -44,22 +50,19 @@ A restauração usando backups está disponível para aplicativos que são execu
     ![](./media/web-sites-restore/022ChooseDestination.png)
    
    > [!WARNING]
-   > Se você escolher **Substituir**, todos os dados existentes em seu aplicativo atual serão apagados. Antes de clicar em **OK**, certifique-se de que isso é exatamente o que você deseja fazer.
+   > Se você escolher **Substituir**, todos os dados existentes em seu aplicativo atual serão apagados e substituídos. Antes de clicar em **OK**, certifique-se de que isso é exatamente o que você deseja fazer.
    > 
    > 
    
-    Você pode selecionar um **Aplicativo Existente** para restaurar o backup do aplicativo para outro aplicativo no mesmo grupo de recursos. Antes de usar essa opção, você já precisa ter criado outro aplicativo em seu grupo de recursos com o espelhamento da configuração de banco de dados para aquele definido no backup do aplicativo.
+    Você pode selecionar um **Aplicativo Existente** para restaurar o backup do aplicativo para outro aplicativo no mesmo grupo de recursos. Antes de usar essa opção, você já precisa ter criado outro aplicativo em seu grupo de recursos com o espelhamento da configuração para aquele definido no backup do aplicativo.
+
 4. Clique em **OK**.
 
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Baixar ou excluir um backup de uma conta de armazenamento
-1. Na folha principal **Procurar** do portal do Azure, selecione **Contas de armazenamento**.
-   
-    Uma lista de suas contas de armazenamento existentes será exibida.
-2. Selecione a conta de armazenamento que contém o backup que você deseja baixar ou excluir.
-   
-    Será exibida a folha da conta de armazenamento.
+1. Na folha principal **Procurar** do Portal do Azure, selecione **Contas de armazenamento**. Uma lista de suas contas de armazenamento existentes é exibida.
+2. Selecione a conta de armazenamento que contém o backup que você deseja baixar ou excluir. A folha da conta de armazenamento é exibida.
 3. Na folha da conta de armazenamento, selecione o contêiner desejado
    
     ![Exibir contêineres][ViewContainers]
@@ -71,20 +74,16 @@ A restauração usando backups está disponível para aplicativos que são execu
 <a name="OperationLogs"></a>
 
 ## <a name="monitor-a-restore-operation"></a>Monitorar uma operação de restauração
-1. Para ver detalhes sobre o sucesso ou a falha da operação de restauração do aplicativo, navegue até a folha **Log de Atividades** no portal do Azure.
-   
-    A folha **Log de Atividades** exibe todas as suas operações com detalhes de nível, status, recursos e tempo.
-2. Role para baixo para encontrar a operação de restauração desejada e clique para selecioná-la.
+Para ver detalhes sobre o sucesso ou a falha da operação de restauração do aplicativo, navegue até a folha **Log de Atividades** no portal do Azure.  
+ 
 
-A folha de detalhes exibirá as informações disponíveis relacionadas à operação de restauração.
+Role para baixo para encontrar a operação de restauração desejada e clique para selecioná-la.
+
+A folha de detalhes exibe as informações disponíveis relacionadas à operação de restauração.
 
 ## <a name="next-steps"></a>Próximas etapas
-Você também pode fazer backup e restaurar aplicativos do Serviço de Aplicativo usando a API REST (veja [Usar a REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
+Você pode fazer backup e restaurar aplicativos do Serviço de Aplicativo usando a API REST (veja [Usar a REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
 
-> [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-> 
-> 
 
 <!-- IMAGES -->
 [ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png

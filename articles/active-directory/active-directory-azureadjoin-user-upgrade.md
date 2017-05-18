@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 70610ec2c5a056d63ed854b33d84e29951940c2f
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -46,10 +48,5 @@ Se já estiver usando o Windows 7 ou Windows 8 e o computador ou dispositivo tiv
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 * [Autenticando identidades sem senhas com o Microsoft Passport](active-directory-azureadjoin-passport.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

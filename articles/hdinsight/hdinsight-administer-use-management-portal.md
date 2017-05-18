@@ -189,7 +189,7 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
 
     A IU da Web do Storm está disponível no cluster HDInsight:
 
-    ![HDInsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
 
