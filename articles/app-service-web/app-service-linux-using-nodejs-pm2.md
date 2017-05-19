@@ -1,6 +1,6 @@
 ---
-title: "Usando a configuração PM2 para Node.js em aplicativos Web no Linux | Microsoft Docs"
-description: "Usando a configuração PM2 para Node.js em aplicativos Web no Linux"
+title: "Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux | Microsoft Docs"
+description: "Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux"
 keywords: "serviço de aplicativo do Azure, aplicativo web, nodejs, pm2, linux, oss"
 services: app-service
 documentationcenter: 
@@ -15,15 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: c4af07e79ae066f916c15aa239cb5dfdd3fef2a8
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7ad48d42f8cc847ece199a2372c20430c4c8424e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="use-pm2-configuration-for-nodejs-in-web-apps-on-linux"></a>Usar a configuração PM2 para Node.js em aplicativos Web no Linux
-Se você definir a pilha de aplicativos para o Node.js para aplicativos Web no Linux, poderá ter a opção de definir um arquivo de inicialização do Node.js, como mostrado na imagem a seguir:
+# <a name="use-pm2-configuration-for-nodejs-in-azure-web-app-on-linux"></a>Usar a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+Se definir a pilha de aplicativos como o Node.js para o Aplicativo Web do Azure no Linux, você terá a opção de definir um arquivo de inicialização do Node.js, como mostrado na imagem a seguir:
 
 ![Definir um arquivo de inicialização do Node.js][1]
 
@@ -61,8 +66,8 @@ Os aspectos importantes a observar nessa configuração são:
 * No momento, para "watch_options", é necessário especificar "usePolling" como true devido ao modo como o conteúdo do aplicativo é montado.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [O que é Serviço de Aplicativo no Linux?](app-service-linux-intro.md)
-* [Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
+* [O que é um Aplicativo Web do Azure no Linux?](app-service-linux-intro.md)
+* [Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png

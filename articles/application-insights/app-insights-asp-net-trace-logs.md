@@ -4,19 +4,20 @@ description: Pesquise logs gerados com Trace, NLog ou Log4Net.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f803b44172b068b7ba65047c769421e39445ce10
-ms.lasthandoff: 03/15/2017
+ms.date: 05/3/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1b0c902adff1d60a04fb3cddef5862256d54f813
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -48,7 +49,6 @@ Se você estiver usando System.Diagnostics.Trace, precisará adicionar uma entra
      </system.diagnostics>
    </configuration>
 ```
-
 ## <a name="configure-application-insights-to-collect-logs"></a>Configurar o Application Insights para coletar logs
 **[Adicione o Application Insights ao seu projeto](app-insights-asp-net.md)** se ainda não tiver feito isso. Você verá uma opção para incluir o coletor de logs.
 
@@ -62,11 +62,11 @@ Use este método se o tipo de projeto não tiver suporte no instalador do Applic
 1. Se você planeja usar o log4Net ou NLog, instale-o em seu projeto.
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e escolha **Gerenciar Pacotes NuGet**.
 3. Pesquise “Application Insights”
-
-    ![Obtenha a versão de pré-lançamento do adaptador correto](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 4. Selecione o pacote apropriado entre:
 
    * Microsoft.ApplicationInsights.TraceListener (para capturar chamadas do System.Diagnostics.Trace)
+   * Microsoft.ApplicationInsights.EventSourceListener (para capturar EventSource)
+   * Microsoft.ApplicationInsights.EtwListener (para capturar eventos ETW)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
@@ -81,6 +81,41 @@ Se você preferir log4net ou NLog:
 
     logger.Warn("Slow response - database01");
 
+## <a name="using-eventsource-events"></a>Usando eventos EventSource
+É possível configurar eventos [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) para que eles sejam enviados para o Application Insights como rastreamentos. Primeiro, instale o pacote NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+      <Sources>
+        <Add Name="MyCompany" Level="Verbose" />
+      </Sources>
+    </Add>
+```
+
+Para cada fonte, você pode definir os seguintes parâmetros:
+ * `Name` especifica o nome do EventSource a ser coletado.
+ * `Level` especifica o nível de registro em log a ser coletado. Pode ser `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose` ou `Warning`.
+ * `Keywords` (opcional) especifica o valor inteiro das combinações de palavras-chave a serem usadas.
+
+## <a name="using-etw-events"></a>Usando eventos ETW
+É possível configurar os eventos ETW a serem enviados ao Application Insights como rastreamentos. Primeiro, instale o pacote NuGet `Microsoft.ApplicationInsights.EtwCollector`. Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
+> [!NOTE] 
+> Eventos ETW só podem ser coletados se o processo que hospeda o SDK estiver em execução em uma identidade que é membro dos administradores ou "Usuários de log de desempenho".
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
+      <Sources>
+        <Add ProviderName="MyCompanyEventSourceName" Level="Verbose" />
+      </Sources>
+    </Add>
+```
+
+Para cada fonte, você pode definir os seguintes parâmetros:
+ * `ProviderName` é o nome do provedor de ETW a ser coletado.
+ * `ProviderGuid` especifica o GUID do provedor de ETW a ser coletado, pode ser usado em vez de `ProviderName`.
+ * `Level` define o nível de registro em log a ser coletado. Pode ser `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose` ou `Warning`.
+ * `Keywords` (opcional) define o valor inteiro das combinações de palavras-chave a serem usadas.
 
 ## <a name="using-the-trace-api-directly"></a>Usando a API de rastreamento diretamente
 Você pode chamar a API de rastreamento do Application Insights diretamente. Os adaptadores de log usam essa API.

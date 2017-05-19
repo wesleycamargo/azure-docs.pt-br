@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Serviço de Aplicativo no Linux | Microsoft Docs"
-description: "Saiba mais sobre o Serviço de Aplicativo no Linux."
+title: "Introdução ao Aplicativo Web do Azure no Linux | Microsoft Docs"
+description: Saiba mais sobre o Aplicativo Web do Azure no Linux.
 keywords: "serviço de aplicativo do azure, linux, oss"
 services: app-service
 documentationcenter: 
@@ -16,21 +16,22 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 94aaca68827ea847be02d879088a85d96dd24663
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 036e5691ecc435da54f381563b5d798f065bfb7f
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="introduction-to-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo no Linux
-Atualmente, o Serviço de Aplicativo do Azure no Linux está em visualização pública e dá suporte nativamente a aplicativos Web em execução no Linux.
+# <a name="introduction-to-azure-web-app-on-linux"></a>Introdução ao Aplicativo Web do Azure no Linux
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 ## <a name="overview"></a>Visão geral
-Os clientes podem usar o Serviço de Aplicativo no Linux para hospedar aplicativos Web nativos no Linux para as pilhas de aplicativos com suporte. A seção a seguir lista as pilhas de aplicativos que têm suporte no momento. 
+Os clientes podem usar o Aplicativo Web no Linux para hospedar aplicativos Web nativos no Linux para as pilhas de aplicativos com suporte. A seção a seguir lista as pilhas de aplicativos que têm suporte no momento. 
 
 ## <a name="features"></a>Recursos
-Atualmente, o Serviço de Aplicativo no Linux dá suporte a estas pilhas de aplicativos:
+Atualmente, o Aplicativo Web no Linux dá suporte a estas pilhas de aplicativos:
 
 * Node.js
     * 4.4
@@ -56,40 +57,48 @@ Os clientes podem implantar seus aplicativos usando:
 
 Para o dimensionamento de aplicativos:
 
-* Os clientes podem escalar ou reduzir verticalmente seus aplicativos Web, alterando a camada em seu plano do Serviço de Aplicativo.
-* Os clientes podem escalar horizontalmente seus aplicativos e executar seu várias instâncias do aplicativo dentro dos limites de seu SKU.
+* Os clientes podem escalar ou reduzir verticalmente seus aplicativos Web, alterando a camada em seu plano do Serviço de Aplicativo
+* Os clientes podem escalar horizontalmente seus aplicativos e executar várias instâncias do aplicativo dentro dos limites de seu SKU
 
-Para o Kudu, algumas das funcionalidades básicas funcionam com o seguinte:
+Para o Kudu, algumas das funcionalidades básicas:
 
 * Ambientes
 * Implantações
 * Consoles básicos
+* SSH
+
+Para DevOps:
+
+* Ambientes de preparo
+* DockerHub CI/CD
 
 ## <a name="limitations"></a>Limitações
-O portal do Azure mostra somente as funcionalidades que funcionam para o Serviço de Aplicativo no Linux e oculta as demais. Conforme habilitarmos mais recursos, eles ficarão visíveis no portal.
+O portal do Azure mostra somente os recursos que funcionam atualmente para o Aplicativo Web no Linux e oculta os demais. Conforme habilitarmos mais recursos, eles ficarão visíveis no portal.
 
-Alguns recursos como a integração de rede virtual, a autenticação do Azure Active Directory/de terceiros ou as extensões de site do Kudu não estão completos. Mas quando eles estiverem concluídos, atualizaremos nossa documentação e faremos uma postagem de blog sobre as alterações.
+Alguns recursos, como a integração de rede virtual, a autenticação do Azure Active Directory/de terceiros ou as extensões de site do Kudu, ainda não estão disponíveis. Quando esses recursos estiverem disponíveis, atualizaremos nossa documentação e nosso blog sobre as alterações.
 
 Esta visualização pública está disponível atualmente nas seguintes regiões:
 
 * Oeste dos EUA
 * Europa Ocidental 
 * Sudeste Asiático
+* Leste da Austrália
 
 No Linux, os aplicativos Web só têm suporte nos planos de serviço de aplicativo Dedicados e não têm uma camada Gratuita ou Compartilhada. Além disso, planos de Serviço de Aplicativo para aplicativos Web Linux e regulares são mutuamente exclusivos e, portanto, você não pode criar um aplicativo Linux em um plano do serviço de aplicativo não Linux.
 
 Os Aplicativos Web no Linux devem ser criados em um grupo de recursos que não contenha aplicativos Web não Linux na mesma região.
 
-Os Aplicativos Web no Linux ainda não dão suporte à implantação de aplicativos .NET Core de fonte não compilada. Você precisará primeiro publicar/compilar seu aplicativo .NET Core localmente e depois enviar por push os bits de site publicados para seu aplicativo.
-
 ## <a name="next-steps"></a>Próximas etapas
 Veja os links a seguir para começar a usar o Serviço de Aplicativo no Linux. Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Como criar Aplicativos Web no Serviço de Aplicativo no Linux](app-service-linux-how-to-create-a-web-app.md)
-* [Como usar uma imagem personalizada do Docker para o Serviço de Aplicativo no Linux](app-service-linux-using-custom-docker-image.md)
-* [Usando a configuração PM2 para Node.js em Aplicativos Web no Linux](app-service-linux-using-nodejs-pm2.md)
-* [Usando o .NET Core em Aplicativos Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-using-dotnetcore.md)
-* [Usando o Ruby em Aplicativos Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-using-ruby.md)
-* [Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
+* [Criando Aplicativos Web no Aplicativo Web do Azure no Linux](app-service-linux-how-to-create-web-app.md)
+* [Como usar uma imagem personalizada do Docker para o Aplicativo Web do Azure no Linux](app-service-linux-using-custom-docker-image.md)
+* [Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux](app-service-linux-using-nodejs-pm2.md)
+* [Usando o .NET Core no Aplicativo Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-using-dotnetcore.md)
+* [Usando o Ruby em aplicativos Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-ruby-get-started.md)
+* [Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
+* [Suporte de SSH para o Aplicativo Web do Azure no Linux](./app-service-linux-ssh-support.md)
+* [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](./web-sites-staged-publishing.md)
+* [Implantação contínua do Hub do Docker com o Aplicativo Web do Azure no Linux](./app-service-linux-ci-cd.md)
 
 

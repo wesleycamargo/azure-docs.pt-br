@@ -1,6 +1,6 @@
 ---
-title: "Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
-description: "Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux."
+title: "Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
+description: "Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux."
 keywords: "serviço de aplicativo do azure, aplicativo web, perguntas frequentes, linux, oss"
 services: app-service
 documentationCenter: 
@@ -13,19 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
-ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
-ms.lasthandoff: 04/22/2017
+ms.date: 05/04/2017
+ms.author: aelnably;wesmc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="azure-app-service-web-apps-on-linux-faq"></a>Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux
+# <a name="azure-app-service-web-app-on-linux-faq"></a>Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux
 
-Com a liberação do Serviço de Aplicativo do Azure no Linux (atualmente em visualização), estamos trabalhando para adicionar recursos e fazer melhorias em nossa plataforma. Estas são algumas perguntas frequentes que nossos clientes têm feito nos últimos meses.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+Com a liberação do Aplicativo Web no Linux, estamos trabalhando para adicionar recursos e fazer melhorias em nossa plataforma. Estas são algumas perguntas frequentes que nossos clientes têm feito nos últimos meses.
 Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 ## <a name="built-in-images"></a>Imagens internas
@@ -40,41 +44,43 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 ## <a name="management"></a>Gerenciamento
 
-**P:** Pressionei o botão de reinicialização no portal do Azure, mas meu aplicativo Web não foi reiniciado. Por quê?
+**P:** O que acontece quando eu pressiono o botão de reinicialização no Portal do Azure?
 
-**R:** Estamos trabalhando para habilitar o botão de reinicialização em um futuro próximo. No momento, você tem duas opções:
-- Adicionar ou alterar uma configuração de aplicativo fictício. Isso forçará o aplicativo Web a ser reiniciado.
-- Pare e inicie o aplicativo Web.
+**R:** Isso equivale à reinicialização do Docker.
 
 **P:** Posso usar o SSH (Secure Shell) para me conectar à VM (máquina virtual) do contêiner de aplicativo?
 
-**R:** Não. Forneceremos uma maneira de usar o SSH para se conectar ao contêiner de aplicativo em uma versão futura.
+**R:** Sim, você pode fazer isso por meio do site do SCM; verifique o artigo a seguir para obter mais informações [Suporte de SSH para o Aplicativo Web no Linux](./app-service-linux-ssh-support.md)
 
 ## <a name="continuous-integrationdeployment"></a>Integração/implantação contínua
 
 **P:** Meu aplicativo Web ainda usa uma imagem de contêiner antiga do Docker depois que atualizei a imagem no Hub do Docker. Há suporte para implantação/integração contínua de contêineres personalizados?
 
-**R:** É possível atualizar o contêiner parando e, em seguida, iniciando o aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner. Estamos planejando ter um recurso de integração/implantação contínua para contêineres personalizados em uma versão futura.
+**R:** Para configurar a integração/implantação contínua para imagens do Hub do Docker, verifique o seguinte artigo [Implantação contínua do DockerHub com o Aplicativo Web no Linux](./app-service-linux-ci-cd.md). Para registros privados, é possível atualizar o contêiner parando e, em seguida, iniciando o Aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner.
+
+**P:** Há suporte para ambientes de preparo?
+
+**R:** Sim.
 
 ## <a name="language-support"></a>Suporte ao idioma
 
 **P:** Há suporte para aplicativos .NET Core não compilados?
 
-**R:** Não. Você precisa implantar aplicativos .NET Core compilados com todas as dependências. Estamos planejando uma experiência completa de implantação e build em uma versão futura.
+**R:** Sim.
 
 **P:** Há suporte para o Criador como um gerenciador de dependências para aplicativos PHP?
 
-**R:** Não. É necessário implantar os aplicativos PHP com todas as dependências. Estamos planejando uma experiência completa de implantação em uma versão futura.
+**R:** Não. Será necessário implantar os aplicativos PHP com todas as dependências. Estamos planejando uma experiência completa de implantação em uma versão futura.
 
 ## <a name="custom-containers"></a>Contêineres personalizados
 
-**P:** Estou usando meu próprio contêiner personalizado. Meu aplicativo reside no diretório \home\, mas não consigo encontrar meus arquivos ao navegar pelo conteúdo usando o [site do SCM](https://github.com/projectkudu/kudu) ou um cliente FTP. Onde estão meus arquivos?
+**P:** Estou usando meu próprio contêiner personalizado. Meu aplicativo reside no diretório `\home\`, mas não consigo encontrar meus arquivos ao navegar pelo conteúdo usando o [site do SCM](https://github.com/projectkudu/kudu) ou um cliente FTP. Onde estão meus arquivos?
 
-**R:** Montamos um compartilhamento SMB no diretório \home\. Isso substitui todo o conteúdo existente nele.
+**R:** Montamos um compartilhamento SMB no diretório `\home\`. Isso substituirá todo o conteúdo existente nele.
 
 **P:** Qual é o formato da URL do servidor do Registro privado?
 
-**R:** Você precisa digitar a URL do Registro completa, incluindo "http://" ou "https://".
+**R:** Você precisa fornecer a URL completa do registro, incluindo `http://` ou `https://`.
 
 **P:** Qual é o formato do nome da imagem na opção de Registro privado?
 
@@ -94,7 +100,7 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **P:** Meu contêiner personalizado escuta uma porta diferente da porta 80. Como configurar meu aplicativo para rotear as solicitações para essa porta?
 
-**R:** É possível especificar uma configuração de aplicativo chamada **PORT** e fornecer a ela o valor do número da porta esperada.
+**R:** Nós temos a detecção automática da porta, além disso, é possível especificar uma configuração de aplicativo chamada **PORT** e fornecer a ela o valor do número da porta esperada.
 
 **P:** É necessário implementar o HTTPS no meu contêiner personalizado?
 
@@ -117,6 +123,9 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 **R:** É possível enviar sua ideia para o [fórum de comentários dos Aplicativos Web](https://aka.ms/webapps-uservoice). Adicione “[Linux]” ao título de sua ideia.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [O que é Serviço de Aplicativo no Linux?](app-service-linux-intro.md)
-* [Criando aplicativos Web no Serviço de Aplicativo no Linux](app-service-linux-how-to-create-a-web-app.md)
+* [O que é um Aplicativo Web do Azure no Linux?](app-service-linux-intro.md)
+* [Criando Aplicativos Web no Aplicativo Web do Azure no Linux](app-service-linux-how-to-create-web-app.md)
+* [Suporte de SSH para o Aplicativo Web do Azure no Linux](./app-service-linux-ssh-support.md)
+* [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](./web-sites-staged-publishing.md)
+* [Implantação contínua do Hub do Docker com o Aplicativo Web do Azure no Linux](./app-service-linux-ci-cd.md)
 
