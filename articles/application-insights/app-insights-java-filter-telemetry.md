@@ -3,7 +3,7 @@ title: Filtrar a telemetria do Application Insights do Azure no aplicativo Web J
 description: "Reduza o tráfego da telemetria filtrando os eventos que você não precisa monitorar."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

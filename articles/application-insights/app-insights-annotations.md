@@ -3,7 +3,7 @@ title: "Anotações de versão para o Application Insights | Microsoft Docs"
 description: "Adicione uma implantação ou compile marcadores para seus gráficos do gerenciador de métricas no Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
 ms.service: application-insights

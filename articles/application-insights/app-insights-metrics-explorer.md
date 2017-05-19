@@ -3,7 +3,7 @@ title: "Explorando métricas no Azure Application Insights | Microsoft Docs"
 description: "Como interpretar os gráficos no gerenciador de métricas e como personalizar as folhas do gerenciador de métricas."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights

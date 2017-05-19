@@ -3,7 +3,7 @@ title: "Criação de perfil de aplicativos Web ao vivo no Azure com o Applicatio
 description: "Identifique o afunilamento em seu código de servidor da Web com um criador de perfil de baixa capacidade."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
