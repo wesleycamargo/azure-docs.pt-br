@@ -1,6 +1,6 @@
 
 > [!div class="op_single_selector"]
-> * [Banco de Dados de Documentos](../articles/azure-functions/functions-bindings-documentdb.md)  
+> * [BD Cosmos](../articles/azure-functions/functions-bindings-documentdb.md)  
 > * [Hubs de Evento](../articles/azure-functions/functions-bindings-event-hubs.md)  
 > * [HTTP/webhook](../articles/azure-functions/functions-bindings-http-webhook.md)  
 > * [Aplicativos Móveis](../articles/azure-functions/functions-bindings-mobile-apps.md)  

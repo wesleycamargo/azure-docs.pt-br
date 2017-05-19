@@ -15,4 +15,3 @@ Especifique a assinatura que você quer usar.
 ```azurecli
 az account set --subscription <replace_with_your_subscription_id>
 ```
-
