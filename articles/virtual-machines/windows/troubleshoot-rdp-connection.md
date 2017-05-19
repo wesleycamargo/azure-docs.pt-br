@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 02/09/2017
+ms.date: 05/18/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
@@ -46,8 +46,7 @@ Caso você precise de etapas e explicações mais detalhadas, continue lendo. Ve
 
 > [!TIP]
 > Se o botão **Conectar** para a VM estiver esmaecido e você não estiver conectado ao Azure por meio de uma [Rota Expressa](../../expressroute/expressroute-introduction.md) ou de uma conexão [VPN Site a Site](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), será necessário criar um endereço IP público e atribui-lo à VM antes que seja possível usar o RDP. Leia mais sobre [endereços IP públicos no Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
-> 
-> 
+
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Maneiras de solucionar problemas com RDP
 Usando um dos seguintes métodos, você pode solucionar problemas de VMs criadas com o modelo de implantação do Resource Manager:
@@ -121,8 +120,6 @@ Os exemplos a seguir usam variáveis como `myResourceGroup`, `myVM` e `myVMAcces
 
 > [!NOTE]
 > Você redefine as credenciais do usuário e a configuração de RDP usando o cmdlet [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) do PowerShell. Nos exemplos a seguir, `myVMAccessExtension` é um nome que você especifica como parte do processo. Caso você tenha trabalhado anteriormente com o VMAccessAgent, será possível obter o nome da extensão existente usando `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` para verificar as propriedades da VM. Veja a seção 'Extensões' da saída para exibir o nome.
-> 
-> 
 
 Após cada etapa de solução de problemas, tente se conectar à VM novamente. Caso você ainda não consiga conectar, tente a próxima etapa.
 
