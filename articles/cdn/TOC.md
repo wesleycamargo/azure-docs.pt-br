@@ -36,6 +36,7 @@
 ### [Gerar relatórios HTTP avançados](cdn-advanced-http-reports.md)
 ### [Exibir estatísticas em tempo real](cdn-real-time-stats.md)
 ### [Analisar o desempenho do nó de borda](cdn-edge-performance.md)
+### [Exportar métricas com os Logs de Diagnóstico](cdn-log-analysis.md)
 
 ## Desenvolver
 ### [.NET](cdn-app-dev-net.md)

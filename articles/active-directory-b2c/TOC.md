@@ -7,25 +7,24 @@
 ### [Visão geral](active-directory-b2c-reference-oauth-code.md)
 ### iOS
 #### [iOS Swift usando MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
-#### [iOS ObjC usando AppAuth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth)
+#### [iOS ObjC usando AppAuth](active-directory-b2c-devquickstarts-ios.md)
 ### Android
 #### [Android usando MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
-#### [Android usando AppAuth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth)
+#### [Android usando AppAuth](active-directory-b2c-devquickstarts-android.md)
 ### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Aplicativos Web
 ### [Visão geral](active-directory-b2c-reference-oidc.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-### [NodeJS](active-directory-b2c-devquickstarts-web-node.md)
-## Aplicativos de Página Única
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
+## Aplicativos de página única
 ### [Visão geral](active-directory-b2c-reference-spa.md)
-### [JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-### [.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-### [NodeJS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
+### [JavaScript usando MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [JavaScript usando Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## APIs da Web
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [NodeJS](active-directory-b2c-devquickstarts-api-node.md)
+### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Chamar uma API Web do .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guias
@@ -48,28 +47,28 @@
 ## [Personalizando a interface do usuário](active-directory-b2c-reference-ui-customization.md)
 ### [Ferramenta auxiliar para personalização](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Personalização de linguagem](active-directory-b2c-reference-language-customization.md)
+## [Usar a API de relatórios](active-directory-b2c-refererence-usage-reporting-api.md)
 ## [Configurar redefinição de senha por autoatendimento](active-directory-b2c-reference-sspr.md)
 
-# Mecanismo de Experiência de Identidade
+# Identity Experience Framework
 ## [Políticas personalizadas](active-directory-b2c-overview-custom.md)
 ## Guias
 ### [Introdução](active-directory-b2c-get-started-custom.md)
-### Configurar provedores OIDC
+### Configurar provedores de OIDC
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
-### Configurar provedores SAML
+### Configurar provedores de SAML
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrar APIs RESTful
 #### [Obter declarações adicionais](active-directory-b2c-rest-api-step-custom.md)
 #### [Validar entrada do usuário](active-directory-b2c-rest-api-validation-custom.md)
-### Personalizar Logon
+### Personalizar o logon
 #### [Configurar a entrada do usuário](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Personalizar a interface do usuário](active-directory-b2c-ui-customization-custom.md)
-#### [Personalizar Token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Personalizar tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Solucionar problemas
 #### [Coletar logs usando o Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referência
 ### [Notas de versão](active-directory-b2c-developer-notes-custom.md)
-
 
 # Referência
 ## Glossário
@@ -78,8 +77,9 @@
 ### [Políticas internas](active-directory-b2c-reference-policies.md)
 ### [Tokens](active-directory-b2c-reference-tokens.md)
 ## [Disponibilidade de região e residência dos dados](active-directory-b2c-reference-tenant-type.md)
-## [Gerenciamento de Ameaças](active-directory-b2c-reference-threat-management.md)
-## [Limitações e Restrições](active-directory-b2c-limitations.md)
+## [Habilitar a cobrança](active-directory-b2c-how-to-enable-billing.md)
+## [Gerenciamento de ameaças](active-directory-b2c-reference-threat-management.md)
+## [Limitações e restrições](active-directory-b2c-limitations.md)
 ## [Problemas ao criar um diretório](active-directory-b2c-support-create-directory.md)
 
 # Relacionados
