@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/14/2017
 ms.author: donnam
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: ed0ade96cc1cf6afc82787133d3fbcf874c43e0f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f7d0ed4f43c68c73c967a401509f1a5ccac7da0b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -387,7 +388,7 @@ Para saber mais sobre uma associação específica, consulte os artigos a seguir
 - [Armazenamento de tabelas](functions-bindings-storage-table.md)
 - [Hub de Evento](functions-bindings-event-hubs.md)
 - [Barramento de Serviço](functions-bindings-service-bus.md)
-- [Banco de Dados de Documentos](functions-bindings-documentdb.md)
+- [BD Cosmos](functions-bindings-documentdb.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
 - [Hubs de Notificação](functions-bindings-notification-hubs.md)
