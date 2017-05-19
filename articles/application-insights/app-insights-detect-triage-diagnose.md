@@ -1,7 +1,7 @@
 ---
 title: Detectar e diagnosticar problemas no aplicativo Web - Azure Application Insights | Microsoft Docs
 description: Analise as falhas, detecte e diagnostique problemas de desempenho em seus aplicativos
-author: alancameronwills
+author: CFreemanwa
 services: application-insights
 documentationcenter: 
 manager: carmonm

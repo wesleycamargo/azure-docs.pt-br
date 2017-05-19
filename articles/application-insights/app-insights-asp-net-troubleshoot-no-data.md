@@ -3,7 +3,7 @@ title: "Solução de problemas de ausência de dados - Application Insights para
 description: "Não consegue ver os dados no Application Insights do Azure? Tente aqui."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights

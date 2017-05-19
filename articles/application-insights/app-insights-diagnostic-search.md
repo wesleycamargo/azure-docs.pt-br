@@ -3,7 +3,7 @@ title: Usar a Pesquisa no Azure Application Insights | Microsoft Docs
 description: Pesquise e filtre telemetria bruta enviada pelo seu aplicativo Web.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
