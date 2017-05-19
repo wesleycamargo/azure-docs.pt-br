@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 6926b0a594b29cb3b3fff7a76a258d11bd82ded8
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b11a729d935936c3abf34649c34a27b2ce7a7c45
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -281,7 +281,7 @@ Também é possível encadear atividades que estão em pipelines diferentes.
 
 Neste exemplo, Pipeline1 tem apenas uma atividade que usa Dataset1 como entrada e gera Dataset2 como saída. O Pipeline2 também tem apenas uma atividade que usa Dataset2 como entrada e Dataset3 como saída. 
 
-Para saber mais, confira [agendamento e execução](#chaining-activities). 
+Para saber mais, confira [agendamento e execução](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## <a name="create-and-monitor-pipelines"></a>Criar e monitorar pipelines
 Você pode criar pipelines usando uma destas ferramentas ou SDKs. 

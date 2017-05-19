@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/16/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: b005d0fb25483f3dce14133038d7759dff07fc7c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -148,7 +149,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Para pesquisar usando um operador booliano
-* No campo pesquisar consulta, digite `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* No campo pesquisar consulta, digite `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![pesquisar com booliano](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Embora você pode controlar o intervalo de tempo graficamente, e talvez queira fazer isso na maioria das vezes, há vantagens em incluir um filtro de tempo diretamente na consulta. Por exemplo, isso funciona muito bem com painéis em você pode substituir o tempo para cada bloco, independentemente do seletor de tempo *global* na página do painel. Para saber mais, confira [Assuntos de tempo no Painel](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).

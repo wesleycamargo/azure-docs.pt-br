@@ -17,10 +17,10 @@ ms.workload: data-management
 wms.date: 04/26/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 0ab804ee1dc25f1e44be856564ac8ffa87c54dea
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 3300c4e79ddc6c8e04c3b4d80b3ee07bd6aeea9d
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,8 +50,11 @@ Primeiro, decida se deseja executar um único banco de dados com uma quantidade 
 | **Recursos de camada de serviço** | **Básico** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Tamanho máximo de banco de dados individual | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Tamanho máximo do banco de dados em um pool elástico | 156 GB | 2.9 TB | 500 GB | 500 GB |
+| Tamanho máximo do pool elástico | 156 GB | 2.9 TB | 4 TB* | 750 GB |
+| Tamanho máximo do banco de dados em um pool elástico | 2 GB | 250 GB | 500 GB | 500 GB |
 | Número máximo de bancos de dados por pool | 500  | 500 | 100 | 100 |
+| Máximo de DTUs de um banco de dados individual | 5 | 100 | 4000 | 1000 |
+| Máximo de DTUs por banco de dados em um pool elástico | 5 | 100 | 4000 | 1000 |
 | Período de retenção do backup de banco de dados | 7 dias | 35 dias | 35 dias | 35 dias |
 ||||||
 
@@ -93,11 +96,9 @@ A duração de todo o processo de expansão depende a camada tamanho e de servi�
 
 Os pools permitem que esses bancos de dados compartilhem e consumam os recursos de eDTU sem a necessidade de atribuir um nível de desempenho específico para todos os bancos de dados no pool. Por exemplo, um banco de dados individual em um pool Standard pode usar de 0 eDTUs até o máximo de eDTU de banco de dados configurado por você durante a definição do pool. Os pools permitem que vários bancos de dados com diferentes cargas de trabalho usem os recursos de eDTU disponíveis para todo o pool de forma eficiente. Confira [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool.md) para obter detalhes.
 
-A tabela a seguir descreve as características das camadas de serviço do pool.
+As tabelas a seguir descrevem os limites de recursos dos pools elásticos.  Observe que os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço.  Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120.  Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-Cada banco de dados dentro de um pool também cumpre as características do banco de dados individual para essa camada. Por exemplo, o pool Basic tem um limite máximo de sessões por pool de 4800 a 28800, mas um banco de dados individual dentro de um pool Básico tem um limite de banco de dado de 300 sessões.
 
 ## <a name="scaling-up-or-scaling-down-an-elastic-pool"></a>Escalar verticalmente ou reduzir um pool Elástico
 
@@ -137,7 +138,7 @@ Ao criar ou atualizar um banco de dados P11/P15 em uma região sem suporte, a op
 ## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB
 
 - Ao criar ou atualizar um banco de dados P11 ou P15, você só pode escolher entre 1 TB e 4 TB de tamanho máximo. Atualmente, não há suporte para tamanhos de armazenamento intermediários.
-- O tamanho máximo do banco de dados de 4 TB não pode ser alterado para 1 TB, mesmo que o armazenamento real usado esteja abaixo de 1 TB. Portanto, não é possível transformar um P11-4TB/P15-4TB em um P11-1TB/P15-1TB ou um nível de desempenho mais baixo (por exemplo, para P1-P6) até que estejamos fornecendo opções adicionais de armazenamento para o restante dos níveis de desempenho. Esta restrição também se aplica aos cenários de restauração e de cópia, incluindo restauração pontual e geográfica, retenção de backup a longo prazo e cópia de banco de dados. Quando um banco de dados é configurado com a opção de 4 TB, todas as operações de restauração desse banco de dados devem estar em um P11/P15 com tamanho máximo de 4 TB.
+- O tamanho máximo do banco de dados de 4 TB não pode ser alterado para 1 TB, mesmo que o armazenamento real usado esteja abaixo de 1 TB. Portanto, não é possível transformar um P11-4TB/P15-4TB em um P11-1TB/P15-1TB ou um nível de desempenho mais baixo (por exemplo, para P1-P6) até que estejamos fornecendo opções adicionais de armazenamento para o restante dos níveis de desempenho. Esta restrição também se aplica aos cenários de restauração e de cópia, incluindo restauração pontual e geográfica, retenção de backup a longo prazo e cópia de banco de dados. Quando um banco de dados é configurado com a opção de 4 TB, todas as operações de restauração desse banco de dados devem ser executadas em um P11/P15 com tamanho máximo de 4 TB.
 - Para cenários com Replicação Geográfica Ativa:
    - Configurar uma relação de replicação geográfica: se o banco de dados primário for P11 ou P15, os secundários também devem ser P11 ou P15; os níveis de desempenho inferiores serão rejeitadas como secundários porque não são capazes de dar suporte a 4 TB.
    - Atualizando o banco de dados primário em uma relação de replicação geográfica: alterar o tamanho máximo de 4 TB em um banco de dados primário disparará a mesma alteração no banco de dados secundário. As duas atualizações devem ser bem-sucedidas para que a alteração no primário entre em vigor. Limitações de região para a opção de 4TB se aplicam (confira acima). Se o secundário estiver em uma região que não oferece suporte a 4 TB, o primário não será atualizado.

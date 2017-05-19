@@ -2,6 +2,7 @@
 ## [O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
 ## [Métodos de roteamento](traffic-manager-routing-methods.md)
 ### [Hierarquia de País/Região usada pelo Gerenciador de Tráfego](traffic-manager-geographic-regions.md)
+## [Perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md)
 ## [Tipos de ponto de extremidade](traffic-manager-endpoint-types.md)
 ## [Monitoramento do ponto de extremidade](traffic-manager-monitoring.md)
 ## [Perguntas frequentes](traffic-manager-FAQs.md)

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 844f42e61ba443a4b74a52f622113e87a7781913
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -130,7 +131,7 @@ Observe o seguinte sobre o código JSON realçado:
 * Os recursos aninhados dentro de `“resources”: […]`, em que o banco de dados e as regras de firewall são definidas, têm um elemento `dependsOn` que especifica a ID de recurso do recurso SQLServer no nível de raiz. Isso informa ao Gerenciador de Recursos do Azure que, "antes de você criar esse recurso, o outro recurso já deve existir; e se o outro recurso estiver definido no modelo, crie-o primeiro".
   
   > [!NOTE]
-  > Para obter informações detalhadas sobre como usar a função `resourceId()`, consulte [Funções do Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md).
+  > Para obter informações detalhadas sobre como usar a função `resourceId()`, consulte [Funções do Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
   > 
   > 
 * O efeito do elemento `dependsOn` é que o Gerenciador de Recursos do Azure pode saber quais recursos podem ser criados em paralelo e quais recursos devem ser criados sequencialmente. 
@@ -207,7 +208,7 @@ O botão **Implantar no Azure** é ótimo, mas só permite que você implante o 
 6. Apenas para fins de demonstração, vamos adicionar alguns recursos padrão do Application Insight em nosso arquivo JSON, clicando em **Adicionar Recurso**. Se estiver interessado apenas na implantação do arquivo JSON, vá direto para as etapas de implantação.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
-7. Selecione**Application Insights para Aplicativos Web**, certifique-se de que um aplicativo Web e um Plano do Serviço de Aplicativo existentes estão selecionados e, em seguida, clique em **Adicionar**.
+7. Selecione **Application Insights para Aplicativos Web**, certifique-se de que um aplicativo Web e um Plano do Serviço de Aplicativo existentes estão selecionados e, em seguida, clique em **Adicionar**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    

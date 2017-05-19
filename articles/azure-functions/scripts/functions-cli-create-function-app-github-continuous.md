@@ -6,12 +6,12 @@ keywords:
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
-ms.topic: functions
+ms.topic: sample
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 9d51c709f2afa051420a9faa24729fc922ade275
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 152dfe6a9bafada83457d3518fbc3758dd34cde0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 # <a name="create-an-app-service"></a>Criar um Serviço de Aplicativo
@@ -27,7 +27,7 @@ Este exemplo de script cria um aplicativo de funções usando o [plano de consum
 
 Este exemplo cria um Aplicativo de funções do Azure e implanta o código da função do GitHub.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Serviço do Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Serviço do Azure")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -47,3 +47,4 @@ Cada comando na tabela redireciona para a documentação específica do comando.
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Exemplos adicionais de scripts da CLI do Azure Functions podem ser encontrados na [Documentação do Azure Functions](../functions-cli-samples.md).
+

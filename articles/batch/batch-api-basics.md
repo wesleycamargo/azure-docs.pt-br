@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/03/2017
 
 Nesta visão geral dos componentes principais do serviço de Lote do Azure, vamos abordar os recursos do serviço primário que os desenvolvedores do Lote podem usar para criar soluções de computação paralela em grande escala.
 
-Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST][batch_rest_api] ou estiver usando um dos [SDKs de Lote](batch-apis-tools.md#batch-development-apis), usará muitos dos recursos analisados neste artigo.
+Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST][batch_rest_api] ou estiver usando um dos [SDKs de Lote](batch-apis-tools.md#azure-accounts-for-batch-development), usará muitos dos recursos analisados neste artigo.
 
 > [!TIP]
 > Para obter uma introdução de nível superior do serviço de Lote, consulte os [Fundamentos do Lote do Azure](batch-technical-overview.md).
@@ -74,16 +74,15 @@ Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch
 
 Você pode criar uma conta do Lote do Azure usando o [portal do Azure](batch-account-create-portal.md) ou por meio de programação, como com a [biblioteca .NET do Gerenciamento de Lote](batch-management-dotnet.md). Ao criar a conta, você poderá associar uma conta do Armazenamento do Azure.
 
-O Lote dá suporte a duas configurações de conta, com base na propriedade *modo de alocação de pool*. As duas configurações dão acesso aos diferentes capacidades relacionadas aos [pools](#pool) do Lote (consulte mais adiante neste artigo). 
+O Lote dá suporte a duas configurações de conta, com base na propriedade *modo de alocação de pool*. As duas configurações dão acesso aos diferentes capacidades relacionadas aos [pools](#pool) do Lote (consulte mais adiante neste artigo).
 
 
-* **Serviço de Lote**: : Essa é a opção padrão, com as VMs do pool de Lote sendo alocadas nos bastidores durante as assinaturas gerenciadas do Azure. Essa configuração de conta deve ser usada se os pools de Serviços de Nuvem forem necessários, mas não podem ser usados se forem necessários pools de Máquina Virtual que são criados a partir de imagens de VM personalizadas ou que usam uma rede virtual. Você pode acessar as APIs do Lote usando a autenticação de chave compartilhada ou a [autenticação do Azure Active Directory](batch-aad-auth.md). 
+* **Serviço de Lote**: : Essa é a opção padrão, com as VMs do pool de Lote sendo alocadas nos bastidores durante as assinaturas gerenciadas do Azure. Essa configuração de conta deve ser usada se os pools de Serviços de Nuvem forem necessários, mas não podem ser usados se forem necessários pools de Máquina Virtual que são criados a partir de imagens de VM personalizadas ou que usam uma rede virtual. Você pode acessar as APIs do Lote usando a autenticação de chave compartilhada ou a [autenticação do Azure Active Directory](batch-aad-auth.md). Você pode usar nós de computação de baixa prioridade ou dedicados em pools na configuração da conta de serviço de Lote.
 
-* **Assinatura do usuário**: Essa configuração de conta deve ser usada se forem necessários pools de Máquina Virtual que são criados a partir de imagens de VM personalizadas ou que usam uma rede virtual. Só é possível acessar as APIs do Lote usando a [autenticação do Azure Active Directory](batch-aad-auth.md) e não há suporte para os pools de Serviços de Nuvem. As VMs de computação do Lote são alocadas diretamente na sua assinatura do Azure. Esse modo exige que você configure mais um Azure Key Vault para sua conta do Lote.
- 
+* **Assinatura do usuário**: Essa configuração de conta deve ser usada se forem necessários pools de Máquina Virtual que são criados a partir de imagens de VM personalizadas ou que usam uma rede virtual. Só é possível acessar as APIs do Lote usando a [autenticação do Azure Active Directory](batch-aad-auth.md) e não há suporte para os pools de Serviços de Nuvem. As VMs de computação do Lote são alocadas diretamente na sua assinatura do Azure. Esse modo exige que você configure mais um Azure Key Vault para sua conta do Lote. Você pode usar somente nós de computação dedicados em pools na configuração da conta de assinatura do usuário. 
 
 ## <a name="compute-node"></a>Nó de computação
-Um nó de computação é uma máquina virtual (VM) do Azure dedicada ao processamento de uma parte da carga de trabalho do aplicativo. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de arquivos local alocado para o nó. Você pode criar pools de nós do Windows ou do Linux usando os Serviços de Nuvem ou as imagens de Marketplace das Máquinas Virtuais. Consulte o seguinte seção [Pool](#pool) para obter mais informações sobre essas opções.
+Um nó de computação é uma máquina virtual (VM) do Azure ou VM do serviço de nuvem que é dedicada ao processamento de uma parte da carga de trabalho do aplicativo. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de arquivos local alocado para o nó. Você pode criar pools de nós do Windows ou do Linux usando os Serviços de Nuvem ou as imagens de Marketplace das Máquinas Virtuais. Consulte o seguinte seção [Pool](#pool) para obter mais informações sobre essas opções.
 
 Os nós podem executar qualquer executável ou script que tenha suporte no ambiente do sistema operacional do nó. Isso inclui \*.exe, \*.cmd, \*.bat e os scripts do PowerShell para Windows e binários, shell e scripts Python para Linux.
 
@@ -117,6 +116,25 @@ Ao criar um pool, você pode especificar os seguintes atributos. Algumas configu
   * A *Família de SO* também determina quais versões do .NET são instaladas com o sistema operacional.
   * Assim como ocorre com as funções de trabalho nos Serviços de Nuvem, você pode especificar uma *Versão do SO* (para obter mais informações sobre as funções de trabalho, consulte a seção [Sobre os serviços de nuvem](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) na [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md)).
   * Assim como ocorre com as funções de trabalho, é recomendável especificar `*` para a *Versão do SO* de forma que os nós sejam automaticamente atualizados e não haja nenhum trabalho necessário para atender as versões recém-lançadas. O caso de uso principal para selecionar uma versão específica do SO é garantir a compatibilidade dos aplicativos, permitindo que os testes de compatibilidade retroativa sejam executados antes de permitir que a versão seja atualizada. Após a validação, a *Versão do SO* para o pool pode ser atualizada e a nova imagem do SO pode ser instalada – as tarefas em execução serão interrompidas e colocadas novamente na fila.
+
+* **Tipo de nó de computação** e **número de nós de destino**
+
+    Quando você cria um pool, você pode especificar os tipos de nós de computação que você deseja e o número de destino para cada um. Os dois tipos de nós de computação são:
+
+    - **Nós de computação de baixa prioridade.** Nós de baixa prioridade aproveitam a capacidade excedente no Azure para executar cargas de trabalho de Lote. Nós de baixa prioridade são mais econômicos do que nós dedicados e permitem cargas de trabalho que exigem muita capacidade de computação. Para obter mais informações, consulte [Usar VMs de baixa prioridade com o Lote](batch-low-pri-vms.md).
+
+        Pode ocorrer preempção de nós de computação de baixa prioridade quando o Azure tem capacidade excedente insuficiente. Se ocorrer preempção de um nó durante a execução de tarefas, as tarefas serão retiradas da fila e executadas novamente depois que um nó de computação ficar disponível novamente. Nós de baixa prioridade são uma boa opção para cargas de trabalho nas quais o tempo para conclusão do trabalho é flexível e o trabalho é distribuído entre muitos nós.
+
+        Nós de computação de baixa prioridade estão disponíveis apenas para contas de Lote criadas com o modo de alocação do pool definido para **Serviço em Lotes**.
+
+    - **Nós de computação dedicados.** Nós de computação dedicados são reservados para suas cargas de trabalho. Eles são mais caros que os nós de baixa prioridade, mas é garantido que nunca sofrerão preempção.    
+
+    Você pode ter nós de computação de baixa prioridade e dedicados no mesmo pool. Cada tipo de nó &mdash; dedicado e de baixa prioridade &mdash; tem sua própria configuração de destino, para que você pode especificar o número desejado de nós. 
+        
+    O número de nós de computação é conhecido como um *destino* porque, em algumas situações, o pool pode não alcançar o número desejado de nós. Por exemplo, um pool talvez não alcance o destino se ele atingir a [cota de núcleo](batch-quota-limit.md) da conta do Lote primeiro. Ou então, o pool poderá não alcançar o destino se você tiver aplicado uma fórmula de dimensionamento automático que limita o número máximo de nós ao pool.
+
+    Para informações sobre preços de ambos os nós de computação de baixa prioridade e dedicado, consulte [Preços de Lote](https://azure.microsoft.com/pricing/details/batch/).
+
 * **Tamanho dos nós**
 
     **Configuração dos Serviços de Nuvem** são listados em [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). O Lote dá suporte a todos os tamanhos de Serviços de Nuvem, exceto `ExtraSmall`, `STANDARD_A1_V2` e `STANDARD_A2_V2`.
@@ -126,12 +144,11 @@ Ao criar um pool, você pode especificar os seguintes atributos. Algumas configu
     Ao selecionar um tamanho de nó de computação, considere as características e os requisitos dos aplicativos que você vai executar nos nós. Os aspectos como se o aplicativo tem multithread e quanta memória ele consome podem ajudar a determinar o tamanho do nó mais adequado e econômico. Geralmente, você seleciona um tamanho de nó supondo que uma tarefa seja executada no nó por vez. No entanto, é possível ter várias tarefas (e, portanto, várias instâncias do aplicativo) [executadas em paralelo](batch-parallel-node-tasks.md) em nós de computação durante a execução do trabalho. Nesse caso, é comum escolher um tamanho maior de nó para acomodar a demanda crescente de execução de tarefas paralelas. Confira [Política de agendamento](#task-scheduling-policy) de tarefas para obter mais informações.
 
     Todos os nós em um pool têm o mesmo tamanho. Se você pretende executar aplicativos com diferentes requisitos de sistema e/ou níveis de carga, é recomendável usar pools separados.
-* **Número de nós de destino**
 
-    Esse é o número de nós de computação que você deseja implantar no pool. Isso é conhecido como um *destino* porque, em algumas situações, o pool pode não alcançar o número desejado de nós. Um pool pode não alcançar o número desejado de nós se atingir a [cota de núcleos](batch-quota-limit.md) de sua conta do Lote ou se houver uma fórmula de dimensionamento automático que você aplicou no pool que limita o número máximo de nós (consulte a seguinte seção “Política de dimensionamento”).
 * **Política de dimensionamento**
 
     Para as cargas de trabalho dinâmicas, você pode gravar e aplicar uma [fórmula de dimensionamento automático](#scaling-compute-resources) em um pool. O serviço de Lote avalia periodicamente a fórmula e ajusta o número de nós no pool com base em vários parâmetros do pool, trabalho e tarefa que você pode especificar.
+
 * **Política de agendamento de tarefas**
 
     A opção de configuração [máx. de tarefas por nó](batch-parallel-node-tasks.md) determina o número máximo de tarefas que podem ser executadas em paralelo em cada nó de computação no pool.
@@ -336,7 +353,7 @@ Quando você cria um pool de nós de computação no Lote do Azure, pode usar as
 
 * A VNet deve ter **endereços IP** livres suficientes para acomodar a propriedade `targetDedicated` do pool. Se a sub-rede não tiver endereços IP suficientes livres, o serviço de Lote alocará parcialmente os nós de computação no pool e retornará um erro de redimensionamento.
 
-* A sub-rede especificada deve permitir a comunicação do serviço do Lote para que seja capaz de agendar tarefas nos nós de computação. Se a comunicação com os nós de computação for negada por um **NSG (grupo de segurança de rede)** associado com a VNet, o serviço de lote definirá o estado de nós de computação para **inutilizável**. 
+* A sub-rede especificada deve permitir a comunicação do serviço do Lote para que seja capaz de agendar tarefas nos nós de computação. Se a comunicação com os nós de computação for negada por um **NSG (grupo de segurança de rede)** associado com a VNet, o serviço de lote definirá o estado de nós de computação para **inutilizável**.
 
 * Se a rede virtual especificada tiver NSGs associados, a comunicação de entrada deverá estar habilitada. Para pools de Linux e Windows, as portas 29876 e 29877 devem ser habilitadas. Você pode, opcionalmente, habilitar (ou filtrar seletivamente) as portas 22 ou 3389 para SSH em pools de Linux ou RDP em pools de Windows, respectivamente.
 
@@ -345,7 +362,7 @@ As configurações adicionais para a VNet dependem do modo de alocação de pool
 ### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>VNets para pools provisionados no serviço Lote
 
 No modo de alocação do serviço Lote, apenas os pools da **configuração dos serviços de nuvem** podem ser atribuídos a uma rede virtual. Além disso, a VNet especificada deve ser uma VNet **clássica**. Não há suporte para VNets criadas com o modelo de implantação do Azure Resource Manager.
-   
+
 
 
 * A entidade de serviço *MicrosoftAzureBatch* deve ter a função de RBAC (controle de acesso baseado em função) [Colaborador de Máquina Virtual Clássica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) para a VNet especificada. No Portal do Azure:
@@ -368,7 +385,7 @@ Com o [dimensionamento automático](batch-automatic-scaling.md), você pode deix
 
 Você habilita o dimensionamento automático escrevendo uma [fórmula de dimensionamento automático](batch-automatic-scaling.md#automatic-scaling-formulas) e associando-a a um pool. O serviço de Lote usa a fórmula para determinar o número de nós no pool de destino para o próximo intervalo de dimensionamento (um intervalo que você pode configurar). Você pode especificar as configurações de dimensionamento automático para um pool ao criá-lo ou habilitar o dimensionamento mais tarde em um pool. Você também pode atualizar as configurações de dimensionamento em um pool com dimensionamento habilitado.
 
-Por exemplo, talvez um trabalho exija que você envie um grande número de tarefas a serem executadas. Você pode atribuir uma fórmula de dimensionamento ao pool que ajusta o número de nós nele com base no número atual de tarefas enfileiradas e a taxa de conclusão das tarefas no trabalho. Periodicamente, o serviço de Lote avalia a fórmula e redimensiona o pool com base na carga de trabalho e em outras configurações da fórmula. O serviço adiciona nós conforme necessário quando há um grande número de tarefas em fila e remove os nós quando não existem tarefas em execução ou fila. 
+Por exemplo, talvez um trabalho exija que você envie um grande número de tarefas a serem executadas. Você pode atribuir uma fórmula de dimensionamento ao pool que ajusta o número de nós nele com base no número atual de tarefas enfileiradas e a taxa de conclusão das tarefas no trabalho. Periodicamente, o serviço de Lote avalia a fórmula e redimensiona o pool com base na carga de trabalho e em outras configurações da fórmula. O serviço adiciona nós conforme necessário quando há um grande número de tarefas em fila e remove os nós quando não existem tarefas em execução ou fila.
 
 Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
 

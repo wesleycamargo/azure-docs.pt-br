@@ -1,0 +1,5 @@
+Agora que seu aplicativo está em execução, você desejará assegurar a continuidade de negócios e observar o acesso do usuário para assegurar a alta disponibilidade para seus usuários. Você pode usar o portal do Azure para examinar a disponibilidade, latência, taxa de transferência e consistência da sua coleção. Cada gráfico que é associado com os [Contratos de Nível de Serviço (SLAs) do BD Cosmos do Azure](https://azure.microsoft.com/support/legal/sla/documentdb/) fornece uma linha mostrando a cota necessária para atender o SLA e o uso real, fornecendo transparência sobre o desempenho de seu banco de dados. Métricas adicionais como o uso de armazenamento e o número de solicitações por minuto também estão incluídas no portal
+
+* No Portal do Azure, no menu à esquerda, em **Monitoramento**, clique em **Métrica**.
+
+   ![Aplicativo de tarefas pendentes com os dados de exemplo](./media/cosmosdb-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
