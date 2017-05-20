@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/20/2017
+ms.date: 05/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: c6d965351f6f131ee342cea672fc4fa8771f8ede
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cf128e84cfa69a259ff529caebb910840dcbaede
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure
 
-Neste tutorial, você pode migrar um banco de dados existente do SQL Server para o banco de dados SQL do Azure usando o Assistente de migração de dados da Microsoft e percorrer as etapas necessárias de preparação para migração para executar a migração de dados reais e conectar-se ao banco de dados migrado depois de concluída a migração. 
+Mover o banco de dados do SQL Server para o Banco de Dados SQL do Azure é um processo de três partes - preparar, exportar e importar o banco de dados. Neste tutorial, você aprenderá a:
 
-> [!IMPORTANT]
-> Para corrigir problemas de compatibilidade, use as [Ferramentas de dados do Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). 
->
+> [!div class="checklist"]
+> * Prepare um banco de dados em um SQL Server para a migração para o Banco de Dados SQL do Azure usando o [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Assistente de Migração de Dados)
+> * Exportar o banco de dados para um arquivo BACPAC
+> * Importar o arquivo BACPAC para um Banco de Dados SQL do Azure
 
-Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-Para concluir este tutorial, verifique se você tem:
+Antes de começar, verifique se você tem o seguinte:
 
 - A versão mais recente do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Instalar o SSMS também instala a versão mais recente do SQLPackage, um utilitário de linha de comando que pode ser usado para automatizar uma variedade de tarefas de desenvolvimento de banco de dados. 
 - O [Assistente de migração de dados](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- Um banco de dados a migrar. Este tutorial usa o banco de dados [SQL Server 2008R2 AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) em uma instância do SQL Server 2008R2 ou mais recente, mas você pode usar qualquer banco de dados de sua escolha. 
+- Um banco de dados a migrar. Este tutorial usa o banco de dados [SQL Server 2008R2 AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) em uma instância do SQL Server 2008R2 ou mais recente, mas você pode usar qualquer banco de dados de sua escolha. Para corrigir problemas de compatibilidade, use as [Ferramentas de Dados do Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## <a name="prepare-for-migration"></a>Preparar para a migração
 
@@ -222,15 +222,17 @@ Você pode alterar a camada de serviço, o nível de desempenho e o nível de co
    ![alterar nível de compatibilidade](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
 ## <a name="next-steps"></a>Próximas etapas 
+Neste tutorial, você preparou, exportou e importou seu banco de dados. Você aprendeu a:
 
-- Para obter uma visão geral de migração, consulte [migração de banco de dados](sql-database-cloud-migrate.md).
-- Para uma discussão sobre as diferenças de T-SQL, consulte [diferenças de resolução de Transact-SQL durante a migração para o banco de dados SQL](sql-database-transact-sql-information.md).
-- Para conectar e consultar usando o Visual Studio Code, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectar e consultar usando o .NET, veja [Conectar e consultar com o .NET](sql-database-connect-query-dotnet.md).
-- Para conectar e consultar usando o PHP, veja [Conectar e consultar com o PHP](sql-database-connect-query-php.md).
-- Para conectar e consultar usando o Node.js, veja [Conectar e consultar com o Node.js](sql-database-connect-query-nodejs.md).
-- Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
-- Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
-- Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).
+> [!div class="checklist"]
+> * Preparar um banco de dados em um SQL Server para a migração para o Banco de Dados SQL do Azure
+> * Exportar o banco de dados para um arquivo BACPAC
+> * Importar o arquivo BACPAC para um Banco de Dados SQL do Azure
+
+Avance para o próximo tutorial para saber como proteger seu banco de dados.
+
+> [!div class="nextstepaction"]
+> [Proteja o Banco de Dados SQL do Azure](sql-database-security-tutorial.md).
+
 
 

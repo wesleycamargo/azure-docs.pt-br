@@ -13,18 +13,19 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: meetb;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: d4d21297618d34aa301e4e1cc814afb15045d7f7
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2c0dc1bef0bf2b7b78e8858943ad6e0ede214681
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-sql-database-use-php-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: use PHP para se conectar e consultar dados
 
-Este início rápido demonstra como usar o [PHP](http://php.net/manual/en/intro-whatis.php) para se conectar a um banco de dados SQL do Azure e usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados por meio das plataformas Mac OS, Ubuntu Linux e Windows.
+Este início rápido demonstra como usar o [PHP](http://php.net/manual/en/intro-whatis.php) para se conectar a um banco de dados SQL do Azure; em seguida, use as instruções Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados por meio das plataformas Mac OS, Ubuntu Linux e Windows.
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
@@ -72,7 +73,7 @@ sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | s
       extension=php_sqlsrv.dll
       extension=php_pdo_sqlsrv.dll
 
-Nesse ponto, você deve ter a dll registrada com PHP.
+Nesse ponto, você deve ter a dll registrada no PHP.
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
@@ -84,7 +85,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.     
+4. Se você se esquecer das informações de logon do servidor, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.     
     
 ## <a name="select-data"></a>Selecionar dados
 Use o código a seguir para consultar os 20 principais produtos por categoria usando a função [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query)com a instrução [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) do Transact-SQL. A função sqlsrv_query pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essa função aceita uma consulta e retorna um conjunto de resultados que pode ser repetido com o uso de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT. 
@@ -193,14 +194,8 @@ else{
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
+- [Drivers PHP Microsoft para SQL Server](https://github.com/Microsoft/msphpsql/)
+- [Relatar problemas/fazer perguntas](https://github.com/Microsoft/msphpsql/issues)
 
-- Mais informações sobre o [Microsoft PHP Driver para SQL Server](https://github.com/Microsoft/msphpsql/).
-- [Registre problemas/faça perguntas](https://github.com/Microsoft/msphpsql/issues).
-- Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md)
-- Para conectar e consultar usando o Visual Studio, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectar e consultar usando o .NET, veja [Conectar e consultar com o .NET](sql-database-connect-query-dotnet.md).
-- Para conectar e consultar usando o Node.js, veja [Conectar e consultar com o Node.js](sql-database-connect-query-nodejs.md).
-- Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
-- Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
-- Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).
 

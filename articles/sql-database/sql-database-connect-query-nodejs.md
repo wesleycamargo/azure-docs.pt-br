@@ -13,18 +13,19 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: lbosq
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 99c1ce93f30a54fcf0d76b1367c2f9545258c1f9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-sql-database-use-nodejs-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: usar Node.js para se conectar e consultar dados
 
-Este início rápido demonstra como se conectar a um banco de dados SQL do Azure usando [Node. js](https://nodejs.org/en/) e instruções Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados por meio das plataformas Windows, Ubuntu Linux e Mac.
+Este início rápido demonstra como se conectar a um banco de dados SQL do Azure usando [Node.js](https://nodejs.org/en/); em seguida, use instruções Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados por meio das plataformas Windows, Ubuntu Linux e Mac.
 
 Este início rápido usa como ponto de partida os recursos criados em um destes guias:
 
@@ -211,7 +212,7 @@ function updateInDatabase(){
 ```
 
 ## <a name="delete-data-from-the-database"></a>Excluir dados do banco de dados
-Use o código a seguir para excluir dados do banco de dados. Substitua as variáveis **nome de usuário**, **senha**, **servidor** e **banco de dados** pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. Dessa vez, use uma **instrução DELETE** na função `deleteFromDatabase()`. Este exemplo também usa o nome do produto inserido no exemplo anterior.
+Use o código a seguir para excluir dados do banco de dados. Substitua as variáveis **nome de usuário**, **senha**, **servidor** e **banco de dados** pelos valores que você especificou ao criar o banco de dados com os dados de exemplo de AdventureWorksLT. Desta vez, use uma **instrução DELETE** na função `deleteFromDatabase()`. Este exemplo também usa o nome do produto inserido no exemplo anterior.
 
 ```js
 var Connection = require('tedious').Connection;
@@ -254,14 +255,10 @@ function deleteFromDatabase(){
 
 
 ## <a name="next-steps"></a>Próximas etapas
+- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
+- [Driver do Microsoft Node.js para SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
+- [Conectar e consultar com SSMS](sql-database-connect-query-ssms.md)
+- [Conecte e consulte com o Visual Studio Code](sql-database-connect-query-vscode.md).
 
-- Mais informações sobre o [Microsoft Node.js Driver para SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md)
-- Para conectar e consultar usando o Visual Studio, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectar e consultar usando o .NET, veja [Conectar e consultar com o .NET](sql-database-connect-query-dotnet.md).
-- Para conectar e consultar usando o PHP, veja [Conectar e consultar com o PHP](sql-database-connect-query-php.md).
-- Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
-- Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
-- Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).
 
 
