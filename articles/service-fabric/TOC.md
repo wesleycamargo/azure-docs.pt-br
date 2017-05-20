@@ -70,9 +70,9 @@
 ##### [Java no Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Ciclo de vida de Reliable Services
-#### [Configurar](service-fabric-reliable-services-configuration.md)
-#### [Enviar notificações](service-fabric-reliable-services-notifications.md)
-#### [Backup e restauração](service-fabric-reliable-services-backup-restore.md)
+##### [Configurar](service-fabric-reliable-services-configuration.md)
+##### [Enviar notificações](service-fabric-reliable-services-notifications.md)
+##### [Backup e restauração](service-fabric-reliable-services-backup-restore.md)
 
 #### Comunicar-se com os serviços
 ##### [Comunicar-se com o Reliable Services](service-fabric-reliable-services-communication.md)
@@ -215,6 +215,7 @@
 ### [Conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md)
 
 ### [Gerenciar um cluster usando a CLI do Azure](service-fabric-azure-cli.md)
+### [Nós de cluster de patch](service-fabric-patch-orchestration-application.md)
 
 ### Gerenciar e orquestrar recursos do cluster
 #### [Visão geral do Resource Manager de cluster](service-fabric-cluster-resource-manager-introduction.md)
@@ -249,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Coletar logs de um processo de serviço](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Monitorar contêineres do Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Diagnóstico em Reliable Services com estado](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnósticos em Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Solucionar problemas do seu cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referência
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [API Java](/java/api/)
 ## [.NET](/dotnet/api/)

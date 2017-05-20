@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 1895c271483ee17ded6022c049d41f87b49f93e3
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: d7f6274b6c72827c0f73da816a524bc35a30bb27
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 ---
 
-# <a name="iot-hub-documentation"></a>Documentação do Hub IoT
+# <a name="iot-hub-documentation"></a>Documentação do Hub IoT 
 
 Saiba como usar o Hub IoT para conectar, monitorar e controlar bilhões de ativos da Internet das Coisas. Tutoriais, referências de API, vídeos e outras documentações o ajudam a implantar comunicação confiável e bidirecional entre dispositivos IoT e uma solução de back-end. 
 
@@ -163,7 +164,7 @@ Saiba como usar o Hub IoT para conectar, monitorar e controlar bilhões de ativo
                         <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">Nó (Serviço)</a></p>
                         <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">Nó (Dispositivos)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">SDKs do Azure IoT</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">SDK do gateway</a></p>
+                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
             </div>

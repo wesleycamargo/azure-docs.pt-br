@@ -1,6 +1,7 @@
 # Visão geral
 ## [O que são Hubs de Eventos?](event-hubs-what-is-event-hubs.md)
-## [Perguntas frequentes](event-hubs-faq.md)
+## [Recursos de Hubs de eventos](event-hubs-features.md)
+## [PERGUNTAS FREQUENTES](event-hubs-faq.md)
 
 # Introdução
 ## [Criar um hub de eventos](event-hubs-create.md)

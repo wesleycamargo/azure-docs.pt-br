@@ -71,9 +71,11 @@
 ### [Lentidão de backup de arquivos e pastas no Backup do Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Conceitos
+## [Visão geral de cofres de Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md)
+## [Atualizando um cofre de Backup para um cofre de Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Excluir um cofre de Backup do Azure](backup-azure-delete-vault.md)
 ## [Controle de acesso baseado em função](backup-rbac-rs-vault.md)
 ## [Segurança para backups híbridos](backup-azure-security-feature.md)
-## [Excluir um cofre de Backup do Azure](backup-azure-delete-vault.md)
 ## [Configurar o backup offline](backup-azure-backup-import-export.md)
 ## [Substitua sua biblioteca de fitas](backup-azure-backup-cloud-as-tape.md)
 ## [Backups consistentes do aplicativo das VMs Linux](backup-azure-linux-app-consistent.md)
