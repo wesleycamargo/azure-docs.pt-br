@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/062/2016
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 78dbbaa272d9889add5bc833c7557618f41056db
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 64babace9ec5aa61acb396edf86f889e96a52c71
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -84,7 +85,7 @@ O comando mudará imediatamente o banco de dados secundário para a função pri
 Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. Se o banco de dados primário tiver vários bancos de dados secundários, o comando reconfigurará automaticamente os outros secundários para se conectarem ao novo primário. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. 
 
 > [!NOTE]
-> Se o primário estiver online e realizando transações quando o comando for emitido, alguma perda de dados poderá ocorrer.
+> Este comando destina-se à recuperação rápida do banco de dados em caso de interrupção. Ele dispara o failover sem sincronização de dados (failover forçado).  Se o primário estiver online e realizando transações quando o comando for emitido, alguma perda de dados poderá ocorrer. 
 > 
 > 
 

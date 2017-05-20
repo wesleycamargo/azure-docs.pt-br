@@ -13,19 +13,20 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: c8700b16f91f014205acb93d6b57f9b972546268
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 56f1b57798b073622d273b16975981b23a0ad55d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="azure-sql-database-use-ruby-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar o Ruby para conectar e consultar dados
 
-Este guia de início rápido demonstra como usar o [Ruby](https://Ruby.org) para conectar-se a um banco de dados SQL do Azure e, em seguida, usar as instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados em plataformas Mac OS e Linux Ubuntu.
+Este guia de início rápido demonstra como usar o [Ruby](https://Ruby.org) para conectar-se a um banco de dados SQL do Azure; em seguida, use as instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados em plataformas Mac OS e Linux Ubuntu.
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
@@ -70,7 +71,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.
+4. Se você se esquecer das informações de logon do servidor, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.
     
 
 ## <a name="select-data"></a>Selecionar dados
@@ -187,15 +188,9 @@ delete('BrandNewProduct', client)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
+- [Repositório GitHub do TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
+- [Relatar problemas/fazer perguntas](https://github.com/rails-sqlserver/tiny_tds/issues)
+- [Drivers Ruby para SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
 
-- Repositório GitHub do [TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
-- [Registre problemas/faça perguntas](https://github.com/rails-sqlserver/tiny_tds/issues).        
-- Mais informações sobre o [Driver do Ruby para SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).
-- Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md)
-- Para conectar e consultar usando o Visual Studio, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectar e consultar usando o .NET, veja [Conectar e consultar com o .NET](sql-database-connect-query-dotnet.md).
-- Para conectar e consultar usando o PHP, veja [Conectar e consultar com o PHP](sql-database-connect-query-php.md).
-- Para conectar e consultar usando o Node.js, veja [Conectar e consultar com o Node.js](sql-database-connect-query-nodejs.md).
-- Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
-- Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
 

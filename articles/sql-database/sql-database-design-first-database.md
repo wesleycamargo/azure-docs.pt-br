@@ -4,7 +4,7 @@ description: Aprenda a criar seu primeiro banco de dados SQL do Azure.
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,19 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 03/30/2017
+ms.date: 05/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 0d02954829ebac9275c014f7dac7e1ec423b0fc1
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: a78284276b600172ad9fd6de2f30702a6f05e79b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="design-your-first-azure-sql-database"></a>Criar seu primeiro banco de dados SQL do Azure
 
-Neste tutorial, você criará um banco de dados para uma universidade acompanhar as notas de alunos e os registros em cursos. Este tutorial mostra como usar o [Portal do Azure](https://portal.azure.com/) e o [SSMS](https://msdn.microsoft.com/library/ms174173.aspx) (SQL Server Management Studio) para criar um banco de dados SQL do Azure em um servidor lógico do Banco de Dados SQL, adicionar tabelas ao banco de dados, carregar dados nas tabelas e consultar o banco de dados. Ele também demonstra como usar os recursos de [Recuperação Pontual](sql-database-recovery-using-backups.md#point-in-time-restore) do Banco de Dados SQL para restaurar o banco de dados em um ponto anterior no tempo.
+O Banco de Dados SQL do Azure é um banco de dados como serviço relacional usando o Mecanismo do Microsoft SQL Server. Este tutorial aborda tarefas básicas de banco de dados, como a criação de um banco de dados e tabelas, a carga e a consulta de dados e a restauração do banco de dados para um ponto anterior no tempo. Você aprenderá como: 
+
+> [!div class="checklist"]
+> * Criar um banco de dados
+> * Configurar uma regra de firewall
+> * Conecte-se ao banco de dados com o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS.exe)
+> * Criar tabelas
+> * Carregar dados em massa
+> * Consultar os dados
+> * Restaurar o banco de dados para um ponto anterior no tempo usando os recursos de [recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore) do Banco de Dados SQL
 
 Para concluir este tutorial, certifique-se de ter instalado a versão mais recente do SSMS [(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx). 
 
@@ -280,7 +290,19 @@ Imagine que você excluiu acidentalmente uma tabela. Isso é algo que você não
 
 3. Clique em **OK** para restaurar o banco de dados [a um ponto no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) anterior à adição das tabelas. A restauração de um banco de dados para um ponto diferente no tempo cria um banco de dados duplicado no mesmo servidor do banco de dados original do ponto no tempo que você especificar, desde que esteja dentro do período de retenção da sua [camada de serviço](sql-database-service-tiers.md).
 
-## <a name="next-steps"></a>Próximas etapas 
 
-Para obter amostras do PowerShell para tarefas comuns, consulte [Amostras do PowerShell de Banco de Dados SQL](sql-database-powershell-samples.md)
+
+## <a name="next-steps"></a>Próximas etapas 
+Neste tutorial, você aprendeu as tarefas básicas de banco de dados, como criar um banco de dados e tabelas, carregar e consultar dados e restaurar o banco de dados para um ponto anterior no tempo. Você aprendeu como:
+> [!div class="checklist"]
+> * Criar um banco de dados
+> * Configurar uma regra de firewall
+> * Conecte-se ao banco de dados com o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS.exe)
+> * Criar tabelas
+> * Carregar dados em massa
+> * Consultar os dados
+> * Restaure o banco de dados para um ponto anterior no tempo usando os recursos de [recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore) do Banco de Dados SQL. Avance para o próximo tutorial para aprender como migrar seus dados.
+
+> [!div class="nextstepaction"]
+>[Migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure](sql-database-migrate-your-sql-server-database.md)
 
