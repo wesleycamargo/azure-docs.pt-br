@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -89,7 +89,7 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 * Análises Data Lake
 * Repositório Data Lake
 * DNS
-* DocumentDB
+* Azure Cosmos DB
 * Hubs de Eventos
 * Clusters HDInsight – veja [Limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
@@ -126,19 +126,20 @@ Os serviços que atualmente não permitem mover um recurso são:
 
 * Serviço de Integridade Híbrida do AD
 * Gateway de Aplicativo
+* Conjuntos de disponibilidade com Máquinas Virtuais com o Managed Disks
 * Serviços do BizTalk
 * Serviço de Contêiner
 * Rota Expressa
 * Laboratórios DevTest – Habilita a mudança para um novo grupo de recursos na mesma assinatura, mas desabilita a troca entre assinaturas.
 * Dynamics LCS
+* Imagens criadas no Managed Disks
+* Managed Disks
+* Aplicativos gerenciados
 * Cofre de Serviços de Recuperação – não mova os recursos de Computação, Rede e Armazenamento associados ao cofre dos Serviços de Recuperação. Consulte [Limitações dos Serviços de Recuperação](#recovery-services-limitations).
 * Segurança
+* Instantâneos criados no Managed Disks
 * Máquinas Virtuais com certificado armazenado no Cofre de Chaves
 * Máquinas virtuais com o Managed Disks
-* Conjuntos de disponibilidade com Máquinas Virtuais com o Managed Disks
-* Managed Disks
-* Imagens criadas no Managed Disks
-* Instantâneos criados no Managed Disks
 * Redes Virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 * Máquinas Virtuais criadas em recursos do Marketplace — não podem ser movidas entre assinaturas. O recurso precisa ser desprovisionado na assinatura atual e implantado novamente na nova assinatura
 
@@ -214,7 +215,7 @@ Ao mover recursos para uma nova assinatura, as seguintes restrições se aplicar
 * A assinatura de destino não deve conter nenhum outro recurso clássico.
 * A movimentação pode ser solicitada apenas por meio de uma API REST separada para movimentações clássicas. Os comandos de movimentação padrão do Gerenciador de Recursos não funcionam quando há uma movimentação dos recursos clássicos para uma nova assinatura.
 
-Para mover recursos clássicos para uma nova assinatura, use operações REST ou do portal que sejam específicas para recursos clássicos. Para saber mais sobre como mover recursos clássicos por meio do portal, confira [Usar portal](#use-portal). Para usar REST, execute as seguintes etapas:
+Para mover recursos clássicos para uma nova assinatura, use operações REST específicas para recursos clássicos. Para usar REST, execute as seguintes etapas:
 
 1. Verifique se a assinatura de origem pode participar de uma movimentação entre assinaturas. Use a operação a seguir:
 
