@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e1c65060c2862736c76b36676f95a88d8dbab4c6
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 39049c7a1e2a4d61ef62bd06cda9ef1bb2c50c0b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/05/2017
 
 ---
 
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups---public-preview"></a>Publicar aplicativos em redes e locais separados usando grupos de Conectores – Visualização pública
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicativos em redes e locais separados usando grupos de conectores
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-application-proxy-connectors.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/02/2017
 
 ## <a name="azure-ad-application-proxy-and-connector-groups"></a>Proxy de Aplicativo do Azure e grupos de conectores
 
-Os clientes utilizam o Proxy de Aplicativo do Azure AD para cada vez mais cenários e aplicativos. Então, tornamos o Proxy de Aplicativo ainda mais flexível por meio de mais topologias. Você pode criar grupos de conectores de Proxy de Aplicativo – um novo recurso para atribuir conectores específicos a fim de atender a aplicativos específicos. Esse recurso gera muitos casos de uso para o Proxy de Aplicativo que antes não eram possíveis. Durante a fase de visualização privada, vimos clientes de grande porte habilitar os grupos de conectores a fim de impulsionar suas implantações do Proxy de Aplicativo. 
+Os clientes utilizam o Proxy de Aplicativo do Azure AD para cada vez mais cenários e aplicativos. Então, tornamos o Proxy de Aplicativo ainda mais flexível por meio de mais topologias. Você pode criar grupos de conectores de Proxy de Aplicativo – um novo recurso para atribuir conectores específicos a fim de atender a aplicativos específicos. Esse recurso gera muitos casos de uso para o Proxy de Aplicativo que antes não eram possíveis. 
 
 O conceito básico é que cada conector do Proxy de Aplicativo é atribuído a um grupo de conectores. Todos os conectores que pertencem ao mesmo grupo de conectores agem como um grupo separado com relação à alta disponibilidade e ao balanceamento de carga. Por padrão, todos os conectores pertencem a um grupo padrão. O administrador pode criar novos grupos e alterar essas atribuições no Portal do Azure. 
 
