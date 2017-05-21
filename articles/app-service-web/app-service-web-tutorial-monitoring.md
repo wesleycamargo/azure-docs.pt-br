@@ -8,10 +8,11 @@ ms.author: byvinyal
 ms.date: 04/04/2017
 ms.topic: article
 ms.service: app-service-web
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8d9b4a4fa3b62659fc7e2aa1c6329fdc5e01fe39
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 29df824062d00e01b786533033097948c008588f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 # <a name="monitor-app-service"></a>Monitorar o Serviço de Aplicativo
@@ -24,15 +25,15 @@ Cada seção deste documento será um recurso específico. Usando os recursos ju
 - Depure e corrija o problema.
 
 ## <a name="before-you-begin"></a>Antes de começar
-- Você precisa de um aplicativo Web para monitorar e seguir as etapas destacadas. 
+- Você precisa de um aplicativo Web para monitorar e seguir as etapas destacadas.
     - É possível criar um aplicativo seguindo as etapas descritas no tutorial [Criar um aplicativo ASP.NET no Azure com Banco de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md).
 
-- Caso queira testar a **Depuração Remota** do seu aplicativo, você precisará do Visual Studio. 
-    - Se ainda não tiver o Visual Studio 2017 instalado, é possível baixar e usar o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gratuito. 
+- Caso queira testar a **Depuração Remota** do seu aplicativo, você precisará do Visual Studio.
+    - Se ainda não tiver o Visual Studio 2017 instalado, é possível baixar e usar o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gratuito.
     - Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
 ## <a name="metrics"></a>Etapa 1 - Métricas de exibição
-**Métricas** são úteis para entender: 
+**Métricas** são úteis para entender:
 - Integridade do aplicativo
 - Desempenho do apliativo
 - Consumo de recursos
@@ -50,7 +51,7 @@ Métricas fornecem uma exibição histórica entre várias agregações chave pa
 > * Contagem da Escala: uma, duas ou três instâncias, etc.
 > * SKU: Gratuito, Compartilhado, Básico, Standard, Premium, etc.
 
-Para revisar as métricas para seu aplicativo Web, vá para a folha **Visão geral** do aplicativo que você deseja monitorar. A partir daqui, você pode exibir um gráfico de métricas do seu aplicativo como um **bloco de monitoramento**. Clique no bloco para editar e configurar as métricas e o intervalo de tempo a serem exibidos. 
+Para revisar as métricas para seu aplicativo Web, vá para a folha **Visão geral** do aplicativo que você deseja monitorar. A partir daqui, você pode exibir um gráfico de métricas do seu aplicativo como um **bloco de monitoramento**. Clique no bloco para editar e configurar as métricas e o intervalo de tempo a serem exibidos.
 
 Por padrão a folha de recursos fornece uma exibição para as solicitações do aplicativo e os erros de última hora.
 ![Monitorar o aplicativo](media/app-service-web-tutorial-monitoring/app-service-monitor.png)
@@ -61,13 +62,13 @@ Como você pode ver no exemplo, temos um aplicativo que está gerando muitos **e
 > Saiba mais sobre o Azure Monitor com os seguintes links:
 > - [Introdução ao Azure Monitor](..\monitoring-and-diagnostics\monitoring-overview.md)
 > - [Métricas do Azure](..\monitoring-and-diagnostics\monitoring-overview-metrics.md)
-> - [Métricas compatíveis com o Azure Monitor](..\monitoring-and-diagnostics\monitoring-supported-metrics.md#microsoftwebsites-including-functions)
+> - [Métricas compatíveis com o Azure Monitor](..\monitoring-and-diagnostics\monitoring-supported-metrics.md)
 > - [Painéis do Azure](..\azure-portal\azure-portal-dashboards.md)
 
 ## <a name="alerts"></a>Etapa 2 - Configurar Alertas
 **Alertas** podem ser configurados para serem acionados com condições específicas para seu aplicativo.
 
-Em [etapa 1 - visualizar métricas](#metrics), vimos que o aplicativo tinha um grande número de erros. 
+Em [etapa 1 - visualizar métricas](#metrics), vimos que o aplicativo tinha um grande número de erros.
 
 Permite configurar um alerta para ser notificado automaticamente quando ocorrem erros. Nesse caso, queremos que o alerta para enviar e email sempre que o número de erros HTTP 50 X fica acima de um determinado limite.
 
@@ -76,14 +77,14 @@ Para criar um alerta, navegue até **monitoramento** > **alertas** e clique em *
 ![Alertas](media/app-service-web-tutorial-monitoring/app-service-monitor-alerts.png)
 
 Forneça valores para a configuração de alertas:
-- **Recurso:** o site para monitorar com o alerta. 
+- **Recurso:** o site para monitorar com o alerta.
 - **Nome:** um nome para o alerta, nesse caso: *HTTP alta 50 X*.
 - **Descrição:** explicação de texto sem formatação do que esse alerta está observando.
 - **Alerta sobre:** alertas podem examinar eventos ou métricas, para este exemplo Estamos analisando as métricas.
 - **Métrica:** que métrica para monitorar, nesse caso: *erros do servidor HTTP*.
 - **Condição:** quando um alerta, selecione nesse caso o *maior* opção.
 - **Limite:** o que é o valor a ser procurado, nesse caso: *400*.
-- **Período:** alertas operam sobre o valor médio de uma métrica. Períodos menores geram alertas mais importantes. Neste caso temos *5 minutos*. 
+- **Período:** alertas operam sobre o valor médio de uma métrica. Períodos menores geram alertas mais importantes. Neste caso temos *5 minutos*.
 - **Os proprietários e colaboradores de e-mail:** nesse caso: *Habilitado*.
 
 Agora que o alerta foi criado um email é enviado sempre que o aplicativo fica acima do limite configurado. Alertas ativos também podem ser analisados no portal do Azure.
@@ -115,7 +116,7 @@ Use o Complemento do Serviço de Aplicativo para:
 
 ## <a name="diagnose"></a> Etapa 4 - Diagnosticar e resolver problemas
 **Diagnosticar e resolver problemas** ajuda a separar questões de aplicativo forma a problemas de plataforma. Ele também pode sugerir possíveis atenuações para deixar seu aplicativo Web para íntegro.
- 
+
 ![Diagnosticar e Resolver Problemas](media/app-service-web-tutorial-monitoring/app-service-monitor-diagnosis.png)
 
 Continuar com as etapas anteriores do formulário de exemplo, podemos ver que o aplicativo tenha sido com disponível problemas. Por outro lado, a disponibilidade de plataforma não foi movida de 100%.
@@ -128,7 +129,7 @@ Agora que podemos ter limitados as falhas para um problema de aplicativo, podemo
 O registro em log permite coletar ambos os logs do **Diagnóstico de Aplicativos** e do **Diagnóstico de Servidor Web** para seu aplicativo Web.
 
 ### <a name="application-diagnostics"></a>Diagnóstico de Aplicativos
-O diagnóstico de aplicativo permite capturar rastreamentos produzidos pelo aplicativo em tempo de execução. 
+O diagnóstico de aplicativo permite capturar rastreamentos produzidos pelo aplicativo em tempo de execução.
 
 Adicionar rastreamento para seu aplicativo muito melhora a capacidade de depurar e problemas de Pinpoint.
 
@@ -165,19 +166,19 @@ Os Logs de Aplicativo podem ser armazenados em um sistema de arquivos do Aplicat
  ### <a name="web-server-diagnostics"></a>Diagnóstico de Servidor Web
 Logs do servidor Web são gerados, mesmo que seu aplicativo não é instrumentado. O Serviço de Aplicativo pode coletar três tipos diferentes de logs do servidor:
 
-- **Log do Servidor Web** 
-    - Informações sobre transações HTTP usando o [formato do arquivo de log estendido do W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). 
+- **Log do Servidor Web**
+    - Informações sobre transações HTTP usando o [formato do arquivo de log estendido do W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
     - Útil ao determinar métricas globais do site como o número de solicitações processadas ou a quantidade de solicitações de um endereço IP específico.
-- **Logs de Erros Detalhados** 
-    - Informações detalhadas de erros para códigos de status HTTP que indiquem uma falha (código de status 400 ou superior). 
+- **Logs de Erros Detalhados**
+    - Informações detalhadas de erros para códigos de status HTTP que indiquem uma falha (código de status 400 ou superior).
     - [Saiba mais sobre o log de erro detalhado](https://www.iis.net/learn/troubleshoot/diagnosing-http-errors/how-to-use-http-detailed-errors-in-iis)
-- **Rastreamento de Solicitações com Falha** 
-    - Informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. 
+- **Rastreamento de Solicitações com Falha**
+    - Informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente.
     - O logs de solicitações com falha são úteis ao tentar isolar a causa de um erro HTTP específico.
     - [Saiba mais sobre falha de solicitação de rastreamento](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis)
 
 Para habilitar o Log de Servidor:
-- vá para **Monitoramento** > **Logs de Diagnóstico**. 
+- vá para **Monitoramento** > **Logs de Diagnóstico**.
 - Habilite os diferentes tipos de Diagnóstico de Servidor Web usando as alternâncias.
 
 ![Monitorar o aplicativo](media/app-service-web-tutorial-monitoring/app-service-monitor-serverlogs.png)
@@ -190,17 +191,17 @@ Os logs armazenados no armazenamento de blobs são acessados usando o Gerenciado
 
 - **Logs de aplicativos** - `%HOME%/LogFiles/Application/`.
     - Essa pasta contém um ou mais arquivos de texto que contêm informações produzidas pelo log do aplicativo.
-- **Falha de solicitação de rastreamento** - `%HOME%/LogFiles/W3SVC#########/`. 
-    - Esta pasta contém um arquivo XSL e um ou mais arquivos XML. 
-- **Logs de erro detalhadas** - `%HOME%/LogFiles/DetailedErrors/`. 
+- **Falha de solicitação de rastreamento** - `%HOME%/LogFiles/W3SVC#########/`.
+    - Esta pasta contém um arquivo XSL e um ou mais arquivos XML.
+- **Logs de erro detalhadas** - `%HOME%/LogFiles/DetailedErrors/`.
     - Esta pasta contém um ou mais arquivos .htm com informações abrangentes sobre erros HTTP gerados pelo aplicativo.
-- **Logs do Web Server** - `%HOME%/LogFiles/http/RawLogs`. 
+- **Logs do Web Server** - `%HOME%/LogFiles/http/RawLogs`.
     - Esta pasta contém um ou mais arquivos de texto formatados usando o formato do arquivo de log estendido do W3C.
 
 ## <a name="streaming"></a> Etapa 6 - Streaming de Log
 Logs de streaming são convenientes durante a depuração de um aplicativo uma vez que ele economiza tempo em comparação comparado [acessar os logs de](#Accessing-Logs) por meio de FTP.
 
-O Serviço de Aplicativo pode fazer streaming de **Logs do Aplicativo** e **Logs do Servidor Web** conforme eles são gerados. 
+O Serviço de Aplicativo pode fazer streaming de **Logs do Aplicativo** e **Logs do Servidor Web** conforme eles são gerados.
 
 > [!TIP]
 > Antes de tentar fazer streaming de logs certifique-se de que você habilitou a coleta de logs, conforme descrito na seção [Registrar em Log](#logging).
@@ -219,7 +220,7 @@ A Depuração remota permite anexar um depurador ao seu aplicativo Web em execu�
 
 Para anexar o depurador ao seu aplicativo em execução na nuvem:
 
-- Usando o Visual Studio 2017, abra a solução para o aplicativo que deseja depurar 
+- Usando o Visual Studio 2017, abra a solução para o aplicativo que deseja depurar
 - Defina alguns pontos de interrupção, exatamente como faria para desenvolvimento local.
 - Abra o **cloud explorer** (ctr + /, ctrl + x).
 - Faça logon com suas credenciais do Azure, conforme necessário.
@@ -241,7 +242,7 @@ Quando seu aplicativo é dimensionado para mais de uma instância, **o process e
 Use **Gerenciador de Processos** para:
 
 - Enumere todos os processos entre diferentes instâncias do seu plano de Serviço de Aplicativo.
-- Analise detalhadamente e exiba os identificadores e módulos associados a cada processo. 
+- Analise detalhadamente e exiba os identificadores e módulos associados a cada processo.
 - Exibir CPU, Conjunto de trabalho e contagem de Threads no nível de processo para ajudá-lo a identificar processos sem controle
 - Localize identificadores de arquivos abertos e, até mesmo, encerre uma instância de processo específico.
 
@@ -251,11 +252,11 @@ O Gerenciador de Processos pode estar em **Monitoramento** > **Explorador de Pro
 
 
 ## <a name="insights"></a> Etapa 9 - Application Insights
-O **Application Insights** fornece perfil de aplicativo e recursos avançados de monitoramento para seu aplicativo. 
+O **Application Insights** fornece perfil de aplicativo e recursos avançados de monitoramento para seu aplicativo.
 
 Use o Insights de Aplicativos para detectar e diagnosticar exceções e problemas de desempenho no Aplicativo Web.
 
-É possível habilitar o Application Insights para seu aplicativo Web em **Monitoramento** > **Application Insights** 
+É possível habilitar o Application Insights para seu aplicativo Web em **Monitoramento** > **Application Insights**
 
 > [!NOTE]
 > O Application Insights pode solicitar a instalação da extensão de site do Application Insights para iniciar a coleta de dados. Instalar a extensão de site causa o reinício do aplicativo.
@@ -269,3 +270,4 @@ O Application Insights possui um avançado conjunto de recursos, para saber mais
  - [O que é o Application Insights](..\application-insights\app-insights-overview.md)
  - [Monitorar o desempenho do aplicativo Web do Azure com o Application Insights](..\application-insights\app-insights-azure-web-apps.md)
  - [Monitorar a disponibilidade e capacidade de resposta de qualquer site da Web com o Application Insights](..\application-insights\app-insights-monitor-web-app-availability.md)
+
