@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: fc97b01c04be81b89cadf1f16c87dcb2069d7b64
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 12b4fda8a8805d49ad1318af3367a53e97ddf48b
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +33,7 @@ Esse script cria uma Máquina Virtual do Azure e usa a Extensão de Script Perso
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Criação rápida de VM")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Criação rápida de VM")]
 
 ## <a name="custom-script-extension"></a>Extensão de script personalizado
 

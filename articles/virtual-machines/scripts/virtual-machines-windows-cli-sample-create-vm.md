@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 1c485e73f36eed44fdd375ad5071adb686a5ab61
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: c4f498cba8862ac631caa0b61bd385ad0e8e065d
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +33,7 @@ Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.sh "Criação rápida de VM")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.sh "Criação rápida de VM")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 5874c0648c599a797d971a82e1b125f4a028c506
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 32cce7a919537d3a557ce40133c6c454ccd93c63
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +33,7 @@ Este script cria duas máquinas virtuais e protege o tráfego de entrada para am
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/virtual-machine/create-vm-nsg/create-vm-nsg.sh "Criar VM com NSG")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/create-vm-nsg/create-vm-nsg.sh "Criar VM com NSG")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
