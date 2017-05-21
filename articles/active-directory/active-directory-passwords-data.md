@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6638d9f6c38fe25a99ae6d82eaae958edc3370f2
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f7ecb22ee46d83867453e035f8a639bc7f7f2d81
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
-A implantação do SSPR (Autoatendimento de Redefinição de Senha) exige que os dados de autenticação estejam presentes. Algumas organizações precisam que seus próprios usuários insiram os respectivos dados de autenticação, mas muitas organizações preferem sincronizar com dados existentes no Active Directory. Se você tiver formatado corretamente os dados no diretório local e configurar [Azure AD Connect usando as configurações expressas](/connect/active-directory-aadconnect-get-started-express.md), esses dados serão disponibilizados para o Azure AD e o SSPR sem exigir qualquer interação do usuário.
+A implantação do SSPR (Autoatendimento de Redefinição de Senha) exige que os dados de autenticação estejam presentes. Algumas organizações precisam que seus próprios usuários insiram os respectivos dados de autenticação, mas muitas organizações preferem sincronizar com dados existentes no Active Directory. Se você tiver formatado corretamente os dados no diretório local e configurar [Azure AD Connect usando as configurações expressas](./connect/active-directory-aadconnect-get-started-express.md), esses dados serão disponibilizados para o Azure AD e o SSPR sem exigir qualquer interação do usuário.
 
 Todos os números de telefone devem estar no formato +CountryCode PhoneNumber (por exemplo: +1 4255551234) para que funcione corretamente.
 
@@ -143,7 +143,7 @@ Os links a seguir fornecem mais informações sobre a redefinição de senha usa
 * [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
 * [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
 * [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
-* [**Política**](active-directory-passwords-policy.md): entenda e defina políticas de senha do Azure AD
+* [**Política** ](active-directory-passwords-policy.md) - Como entender e definir políticas de senha do Azure AD
 * [**Relatórios**](active-directory-passwords-reporting.md): descubra se, quando e onde os usuários estão acessando a funcionalidade SSPR
 * [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
 * [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
