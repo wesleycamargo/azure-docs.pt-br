@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 59e12d70d46d45fb7dc4244ac2968838cb29dbec
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9d10ebf9d7bd07bd126302a6ecf442d809e00196
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -368,20 +368,9 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 * [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
-## <a name="azure-ad-preview-features"></a>Recursos de visualização do AD do Azure
-Além dos recursos disponíveis das edições Gratuita, Básica e Premium (P1 e P2), o Azure AD também fornece um conjunto de recursos de visualização. Você pode usar os recursos de visualização para obter uma impressão das novidades que serão lançadas no futuro próximo e para determinar se esses recursos podem ajudar a melhorar seu ambiente.
-
-**Recursos de visualização disponíveis:**
-
-* [Colaboração B2B](active-directory-b2b-collaboration-overview.md)
-* [Unidades Administrativas](active-directory-administrative-units-management.md)
-* [Integração de aplicativo de RH](active-directory-saas-workday-inbound-tutorial.md)
-* [Autenticação baseada em certificado no iOS](active-directory-certificate-based-authentication-ios.md)
-* [Autenticação baseada em certificado no Android](active-directory-certificate-based-authentication-android.md)
-
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
+* [Adicionar identidade visual da empresa às páginas de entrada e do Painel de acesso](active-directory-add-company-branding.md)
 * [Exibir relatórios de acesso e de uso](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
