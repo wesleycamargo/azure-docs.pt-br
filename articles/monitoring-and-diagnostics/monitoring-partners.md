@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/5/2017
+ms.date: 5/9/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 39345bdef6aeebb25fab87a17db683af78782e4f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 18a45dd16e51e477758c3ba08f936a2e831dddb3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/08/2017
 | --- | --- | --- |
 | [![Logotipo do Parceiro][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Logotipo do Parceiro][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Logotipo do Parceiro][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
 | [![Logotipo do Parceiro][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Logotipo do Parceiro][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Logotipo do Parceiro][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |
-| [![Logotipo do Parceiro][datadog-logo]<br/>**DataDog**][datadog-anchor] | [![Logotipo do Parceiro][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Logotipo do Parceiro][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
+| [![Logotipo do Parceiro][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Logotipo do Parceiro][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Logotipo do Parceiro][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
 | [![Logotipo do Parceiro][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Logotipo do Parceiro][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Logotipo do Parceiro][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |
 | [![Logotipo do Parceiro][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Logotipo do Parceiro][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
@@ -61,7 +61,7 @@ O Cloudyn gerencia e otimiza as implantações multiplataforma e de nuvem híbri
 
 [Vá para a documentação.][cloudyn-doc]
 
-## <a name="datadog"></a>DataDog
+## <a name="datadog"></a>Datadog
 O Datadog é líder mundial no monitoramento de serviços para aplicativos de escala na nuvem, reunindo dados de servidores, bancos de dados, ferramentas e serviços para apresentar uma exibição unificada da pilha inteira. Esses recursos são fornecidos em uma plataforma de análise de dados com base no SaaS que permite às equipes de desenvolvimento e operações trabalharem em colaboração para evitar a inatividade, resolver problemas de desempenho e garantir que os ciclos de desenvolvimento e implantação terminem no prazo. Integrando o Datadog e o Azure, você pode coletar e exibir as métricas de toda a infraestrutura, correlacionar as métricas da VM com as métricas no nível do aplicativo, fatiar e organizar suas métricas usando qualquer combinação de propriedades e marcações personalizadas.
 
 [Vá para a documentação.][datadog-doc]
@@ -115,7 +115,7 @@ O Sumo Logic é um serviço de análise de dados do computador seguro e nativo d
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
-[datadog-anchor]: #datadog "DataDog"
+[datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
@@ -147,7 +147,7 @@ O Sumo Logic é um serviço de análise de dados do computador seguro e nativo d
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introdução ao CloudMonix."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introdução ao Cloudyn."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentação do DataDog."
+[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentação do Datadog."
 [dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Documentação do Dynatrace."
 [newrelic-doc]: https://newrelic.com/azure "Documentação do NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentação do OpsGenie."

@@ -24,7 +24,6 @@
 ### [Vincular a outros modelos](resource-group-linked-templates.md)
 ### [Definir dependência entre recursos](resource-group-define-dependencies.md)
 ### [Criar múltiplas instâncias](resource-group-create-multiple.md)
-### [Loop sequencial](resource-manager-sequential-loop.md)
 ### [Definir local](resource-manager-template-location.md)
 ### [Atribuir marcas](resource-manager-template-tags.md)
 ### [Definir o nome e tipo do recurso filho](resource-manager-template-child-resource.md)
@@ -44,7 +43,7 @@
 #### [Exportar modelo e reimplantar](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
-### [Implantação de grupo de recursos](resource-manager-cross-resource-group-deployment.md)
+### [Implantação entre grupos de recursos](resource-manager-cross-resource-group-deployment.md)
 ### [Integração contínua com o Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md)
 
