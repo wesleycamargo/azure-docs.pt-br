@@ -56,6 +56,7 @@ Para alterar as configurações em seus tempos de vida de token, você precisa a
 ```XML
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```
+
 **Declaração do emissor (iss)** Se você quiser alterar a declaração do emissor (iss), modifique o valor no `<Item>` com Key="IssuanceClaimPattern".  Os valores aplicáveis são `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
 
 **Configuração de declaração que representa a ID de política** As opções para definir esse valor são TFP (política de confiança da estrutura) e ACR (referência do contexto de autenticação).  
@@ -88,5 +89,8 @@ Para alterar o comportamento da sessão e as configurações de SSO, será neces
 </UserJourneyBehaviors>
 ```
 **Configuração de logon único (SSO)** Para alterar a configuração de logon único, você precisa modificar o valor de `<SingleSignOn>`.  Os valores aplicáveis são `Tenant`, `Application`, `Policy` e `Disabled`. 
+
 **Tempo de vida de sessão do aplicativo Web (minutos)** Para alterar o tempo de vida de sessão do aplicativo Web, você precisa modificar o valor do elemento `<SessionExpiryInSeconds>`.  O valor padrão em políticas internas é de 86400 segundos (1440 minutos).
+
 **Tempo limite de sessão de aplicativo Web** Para alterar o tempo limite de sessão do aplicativo Web, será necessário modificar o valor de `<SessionExpiryType>`.  Os valores aplicáveis são `Absolute` e `Rolling`.
+
