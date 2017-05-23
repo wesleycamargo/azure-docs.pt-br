@@ -13,10 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 6304f01fd5f97dd528054f8c4909593dd062e16b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 258ccee349e07448ebebaebe64cd6fb6888d7ed4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/20/2017
 
 
 ---
@@ -206,30 +207,39 @@ Os itens a seguir são prefixados com [A] – aplicável a todos os nós, [1] �
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # <a name="write-down-the-id-of-devvghanadatahanadata-devvghanaloghanalog-and-devvghanasharedhanashared"></a>write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
-    sudo blkid  </code></pre>
-        * Crie entradas fstab para os três volumes lógicos  <pre><code>
-    sudo vi /etc/fstab  </code></pre>
-   Insira esta linha para /etc/fstab  <pre><code>
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2 /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2 /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2  </code></pre>
-        * Monte os novos volumes  <pre><code>
-    sudo mount -a  </code></pre>
+    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    sudo blkid
+    </code></pre>
+        * Crie entradas fstab para os três volumes lógicos
+    <pre><code>
+    sudo vi /etc/fstab
+    </code></pre>
+    Insira esta linha para /etc/fstab
+    <pre><code>
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2
+    </code></pre>
+        * Monte os novos volumes
+    <pre><code>
+    sudo mount -a
+    </code></pre>
     1. Discos simples  
        Para sistemas pequenos ou de demonstração, você pode colocar os arquivos de log e dados do HANA em um disco. Os comandos a seguir criam uma partição em /dev/sdc e a formatam com xfs.
     ```bash
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # write down the id of /dev/sdc1
-    sudo /sbin/blkid
-    sudo vi /etc/fstab
+    # <a name="write-down-the-id-of-devsdc1"></a>escreva a id de /dev/sdc1
+    sudo /sbin/blkid  sudo vi /etc/fstab
     ```
 
-    Insira esta linha para /etc/fstab  <pre><code>
+    Insert this line to /etc/fstab
+    <pre><code>
     /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
     </code></pre>
 
-    Crie o diretório de destino e monte o disco.
+    Create the target directory and mount the disk.
 
     ```bash
     sudo mkdir /hana
@@ -366,11 +376,13 @@ Siga o capítulo 4 do [guia Cenário Otimizado para Desempenho da SR SAP HANA][s
     hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
-1. [A] Crie entrada de repositório de chaves (como raiz)  <pre><code>
+1. [A] Criar entrada de repositório de chaves (como raiz)
+    <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
-1. [1] Faça backup do banco de dados backup (como raiz)  <pre><code>
+1. [1] Faça o backup do banco de dados backup (como raiz)
+    <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
     </code></pre>
