@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9093bf30a67fd762b237faa61071137fd83d048f
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 540cd10066e055e2dc132445b9adba5a4112d63a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -35,11 +35,14 @@ Na inicialização, o Azure Cloud Shell solicita sua assinatura para criar uma c
 Esse compartilhamento de arquivos será montado como `clouddrive` em seu diretório $Home. Esse compartilhamento de arquivos também é usado para armazenar uma imagem de 5 GB criada para você que atualiza e persiste automaticamente seu diretório $Home. Trata-se de uma ação única que é montada automaticamente nas sessões posteriores.
 
 ### <a name="cloud-shell-persists-files-with-both-methods-below"></a>O Cloud Shell persiste arquivos com os dois métodos abaixo:
-1. Crie uma imagem de disco de seu diretório $Home para persistir arquivos em $Home. Essa imagem de disco é salva no compartilhamento de arquivos especificado como `<User>.img` em `fileshare.storage.windows.net/fileshare/.cloudconsole/<User>.img`
+1. Crie uma imagem de disco de seu diretório $Home para persistir arquivos em $Home. Essa imagem de disco é salva no compartilhamento de arquivos especificado como `acc_<User>.img` em `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`
 
 2. Monte o compartilhamento de arquivos especificado como `clouddrive` no diretório $Home para que haja interação direta com o compartilhamento de arquivos. 
 `/Home/<User>/clouddrive` é mapeado para `fileshare.storage.windows.net/fileshare`.
  
+> [!Note]
+> Todos os arquivos em seu diretório $Home como chaves SSH são mantidos em sua imagem de disco do usuário armazenada no compartilhamento de arquivo montados. Aplique as práticas recomendadas ao manter informações em seu diretório $Home e no compartilhamento de arquivos montado.
+
 ## <a name="using-clouddrive"></a>Usando clouddrive
 O Cloud Shell permite que os usuários executem um comando chamado `clouddrive` que permite atualizar manualmente o compartilhamento de arquivos montado no Cloud Shell.
 ![](media/clouddrive-h.png)
@@ -110,26 +113,23 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-## <a name="upload-or-download-local-files"></a>Carregar ou baixar arquivos locais
-Use o portal do Azure para gerenciar a transferência de arquivos locais de ou para o compartilhamento de arquivos.
-A atualização de arquivos de dentro do Cloud Shell é refletida na GUI do Armazenamento de Arquivos após a atualização de folha.
+## <a name="transfer-local-files-to-cloud-shell"></a>Transferir arquivos locais para o Cloud Shell
+O diretório `clouddrive` é sincronizado com a folha de armazenamento do portal do Azure. Use isto para transferir arquivos locais de ou para o compartilhamento de arquivo. A atualização de arquivos de dentro do Cloud Shell é refletida na GUI do Armazenamento de Arquivos após a atualização de folha.
 
-1. Navegue até o compartilhamento de arquivos montado ![](media/touch-txt-storage.png)
+### <a name="download-files"></a>Baixar arquivos
+![](media/download.gif)
+1. Navegue até o compartilhamento de arquivos montado
 2. Selecione o arquivo de destino no Portal
-3. Clique em "Baixar" ![](media/download-storage.png)
+3. Clique em "Baixar"
 
-Se precisar baixar um arquivo que existe fora do `clouddrive`:
-1. Copie o arquivo para `/<User>/clouddrive` <br>
-2. Siga as [etapas anteriores](#upload-or-download-local-files) <br>
+### <a name="upload-files"></a>Carregar arquivos
+![](media/upload.gif)
+1. Navegue até o compartilhamento de arquivos montado
+2. Escolha "Carregar"
+3. Escolha o arquivo que deseja carregar
+4. Confirme o upload
 
-## <a name="cloud-shell-tagging"></a>Marcação do Cloud Shell
-O Cloud Shell adiciona uma "marcação" a contas de armazenamento montadas usando o formato: <br>
-
-| Chave | Valor |
-|:-------------:|:-------------:|
-|cloud-console-files-for-user@domain.com|fileshareName|
-
-Use essas marcações para ver quais usuários são mapeados para determinados compartilhamentos de arquivos e nos quais determinadas imagens de $Home podem ser encontradas.
+Agora você deve ver o arquivo acessível em seu diretório do clouddrive no Cloud Shell.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Início rápido do Cloud Shell](quickstart.md) 

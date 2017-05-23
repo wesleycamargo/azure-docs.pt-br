@@ -1,6 +1,6 @@
 ---
-title: Implantar no Azure Analysis Services | Microsoft Docs
-description: Saiba como implantar um modelo de tabela em um servidor do Azure Analysis Services.
+title: Implantar no Azure Analysis Services usando o SSDT | Microsoft Docs
+description: Saiba como implantar um modelo de tabela em um servidor do Azure Analysis Services usando SSDT.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -10,35 +10,35 @@ tags:
 ms.assetid: 5f1f0ae7-11de-4923-a3da-888b13a3638c
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/17/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 766120913d419ec8090a4f25d304f2d3cf9b6693
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 04b809a6fdd7b993a048a67f66a9851c2a7bf3d2
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="deploy-to-azure-analysis-services"></a>Implantar no Azure Analysis Services
-Depois de criar um servidor em sua assinatura do Azure, você estará pronto para implantar nele um banco de dados de modelo de tabela. Você pode usar o SSDT (SQL Server Data Tools) para criar e implantar um projeto de modelo de tabela no qual você está trabalhando. Ou, você pode usar o SSMS (SQL Server Management Studio) para implantar um banco de dados do modelo de tabela existente a partir de uma instância do Analysis Services.
+# <a name="deploy-a-model-from-ssdt"></a>Implantar um modelo a partir do SSDT
+Depois de criar um servidor em sua assinatura do Azure, você estará pronto para implantar nele um banco de dados de modelo de tabela. Você pode usar o SSDT (SQL Server Data Tools) para criar e implantar um projeto de modelo de tabela no qual você está trabalhando. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para começar, você precisa do seguinte:
 
 * **Servidor do Analysis Services** no Azure. Para saber mais, consulte [Criar um Analysis Services no Azure](analysis-services-create-server.md).
-* **Projeto de modelo de tabela** no SSDT ou em um modelo de tabela existente no nível de compatibilidade 1200 em uma instância do Analysis Services. Nunca criou um? Experimente o [Tutorial da Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Projeto de modelo de tabela** no SSDT ou em um modelo de tabela existente no nível de compatibilidade 1200 ou posterior em uma instância do Analysis Services. Nunca criou um? Experimente o [Tutorial da Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
 * **Gateway local** - se uma ou mais fontes de dados estiverem no local na rede de sua organização, você precisará instalar um [Gateway de dados local](analysis-services-gateway.md). O gateway é necessário para que seu servidor na nuvem conecte-se às suas fontes de dados locais, a fim de processar e atualizar os dados no modelo.
-
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Para implantar um modelo de tabela do SSDT
-Para implantar do SSDT, certifique-se de estar usando a [versão mais recente](https://msdn.microsoft.com/library/mt204009.aspx).
 
 > [!TIP]
 > Antes de implantar, verifique se que você pode processar os dados nas tabelas. No SSDT, clique em **Modelo** > **Processo** > **Processar Tudo**. Se o processamento falhar, a implantação também falhará.
 > 
 > 
+
+## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Para implantar um modelo de tabela do SSDT
 
 1. Antes de implantar, você precisa obter o nome do servidor. No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, copie o nome do servidor.
    
@@ -56,9 +56,6 @@ Para implantar do SSDT, certifique-se de estar usando a [versão mais recente](h
 
 Isso é tudo!
 
-## <a name="to-deploy-using-xmla-script"></a>Para implantar usando o script XMLA
-1. No SSMS, clique com o botão direito no banco de dados de modelo de tabela que você quer implantar, clique em **Script** > **Gerar Script de Banco de Dados como** > **CRIAR para** e escolha um local.
-2. Execute a consulta na instância do servidor no qual você quer implantar. Se você estiver implantando no mesmo servidor, altere pelo menos a propriedade **name** no script XMLA.  
 
 ## <a name="but-something-went-wrong"></a>Mas algo deu errado
 Se a implantação falhar durante a implantação dos metadados, provavelmente o SSDT não conseguiu se conectar ao servidor. Verifique se você consegue se conectar ao servidor usando o SSMS. Em seguida, verifique se a propriedade do Servidor de Implantação do projeto está correta.

@@ -7,6 +7,7 @@ O Hub IoT do Azure é um bloco de construção fundamental na implementação de
 
 * A solução *monitoramento remoto* permite que você monitore o status de dispositivos como máquinas de venda automáticas.
 * A solução *manutenção preditiva* ajuda a prever as necessidades de manutenção de dispositivos, como bombas em estações de bombeamento remotas, e a evitar o tempo de inatividade não programado.
+* A solução *fábrica conectada* ajuda você a se conectar e monitorar os dispositivos industriais.
 
 ## <a name="iot-solution-architecture"></a>Arquitetura da solução de IoT
 

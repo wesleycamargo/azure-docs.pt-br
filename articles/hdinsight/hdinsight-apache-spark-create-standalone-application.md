@@ -1,5 +1,5 @@
 ---
-title: "Criar aplicativos Maven Scala para execução em clusters do Azure Spark | Microsoft Docs"
+title: "Criar aplicativos Scala para execução em clusters do Azure HDInsight Spark | Microsoft Docs"
 description: "Saiba como criar um aplicativo Spark autônomo usando o Maven para executar em clusters do HDInsight Spark."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 3cc921bdd6c9b374bda7bbfc3781f7a1327ae438
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -66,7 +66,7 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
    * Especifique um **SDK do projeto**. Clique em Novo e navegue até o diretório de instalação do Java, normalmente `C:\Program Files\Java\jdk1.8.0_66`.
    * Selecione a opção **Criar do Arquétipo** .
    * Na lista de arquétipos, selecione **org.scala-tools.archetypes:scala-archetype-simple**. Isso criará a estrutura de diretório certa e baixará as dependências padrão necessárias para gravar o programa Scala.
-2. Forneça os valores relevantes para **GroupId**, **ArtifactId** e **versão**. Clique em **Próximo**.
+2. Forneça os valores relevantes para **GroupId**, **ArtifactId** e **versão**. Clique em **Avançar**.
 3. Na caixa de diálogo seguinte, na qual você especificará o diretório inicial do Maven e outras configurações do usuário, aceite os padrões e clique em **Avançar**.
 4. Na última caixa de diálogo, especifique um nome de projeto e local e, em seguida, clique em **Concluir**.
 5. Exclua o arquivo **MySpec.Scala** em **src\test\scala\com\microsoft\spark\example**. Você não precisa disso para o aplicativo.

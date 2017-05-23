@@ -1,6 +1,6 @@
 ---
-title: Topologias Apache Storm com Visual Studio e C# | Microsoft Docs
-description: Aprenda a criar topologias Storm em C# criando uma topologia de contagem de palavras simples no Visual Studio usando as ferramentas do HDInsight para Visual Studio.
+title: "Topologias Apache Storm com Visual Studio e C# – Azure | Microsoft Docs"
+description: Aprenda a criar topologias Storm em C# criando uma topologia de contagem de palavras simples no Visual Studio usando as ferramentas do Hadoop para Visual Studio.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: cc6b16b559c4d1eafc570d0361c710487021f175
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 7b267ba427da276f53326c9068417521c8976e63
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-on-hdinsight-using-hadoop-tools-for-visual-studio"></a>Desenvolver topologias C# para Apache Storm no HDInsight usando ferramentas do Hadoop para Visual Studio
 
-Saiba como criar uma topologia Storm C# usando as ferramentas do HDInsight para Visual Studio. Este documento orienta o processo de criar um projeto do Storm no Visual Studio, testá-lo localmente e implantá-lo em um Apache Storm no cluster HDInsight.
+Saiba como criar uma topologia Storm C# usando as ferramentas do Data Lake (Hadoop) para Visual Studio. Este documento orienta o processo de criar um projeto do Storm no Visual Studio, testá-lo localmente e implantá-lo em um Apache Storm no cluster HDInsight.
 
 Você também aprende a criar topologias híbridas que usam componentes C# e Java.
 
@@ -53,10 +54,10 @@ Você também aprende a criar topologias híbridas que usam componentes C# e Jav
 
 * SDK 2.9.5 do Azure ou posterior
 
-* Ferramentas do HDInsight para o Visual Studio: consulte [Introdução ao uso das Ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para instalar e configurar as ferramentas do HDInsight para Visual Studio.
+* Ferramentas do Data Lake para Visual Studio: Para instalá-las e configurá-las, consulte [Introdução ao uso das Ferramentas do Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
   > [!NOTE]
-  > Não há suporte para ferramentas de HDInsight para o Visual Studio no Visual Studio Express
+  > Não há suporte para ferramentas de Data Lake para o Visual Studio no Visual Studio Express
 
 * Apache Storm no cluster HDInsight: consulte [Introdução ao Apache Storm no HDInsight](hdinsight-apache-storm-tutorial-get-started.md) para obter as etapas para criar um cluster.
 
@@ -65,14 +66,14 @@ Você também aprende a criar topologias híbridas que usam componentes C# e Jav
 
 ## <a name="templates"></a>Modelos
 
-As ferramentas de HDInsight para o Visual Studio fornecem os seguintes modelos:
+As Ferramentas do Data Lake para o Visual Studio fornecem os seguintes modelos:
 
 | Tipo de projeto | Demonstra |
 | --- | --- |
 | Aplicativo Storm |Um projeto de topologia Storm vazio |
 | Amostra de gravador do SQL Azure Storm |Como gravar em um Banco de Dados SQL do Azure |
-| Amostra de leitor de Banco de Dados de Documentos do Storm |Como ler por meio do Banco de Dados de Documentos do Azure |
-| Amostra de gravador DO Banco de Dados de Documentos do Storm |Como gravar no Banco de Dados de Documentos do Azure |
+| Amostra de leitor do Azure Cosmos DB do Storm |Como ler do banco de dados do Azure Cosmos |
+| Amostra do gravador do Azure Cosmos DB do Storm |Como gravar no BD do Azure Cosmos |
 | Amostra de leitor de Hub de Eventos do Storm |Como ler por meio de Hubs de Eventos do Azure |
 | Amostra do gravador de Hub de Eventos do Storm |Como gravar em Hubs de Eventos do Azure |
 | Amostra de leitor HBase do Storm |Como ler por meio de HBase em clusters HDInsight |
@@ -95,7 +96,7 @@ Para obter um exemplo de topologia que usa esse componente e funciona com o Stor
 
 ## <a name="create-a-c-topology"></a>Criar uma topologia C#
 
-1. Se você ainda não instalou a versão mais recente das Ferramentas do HDInsight para Visual Studio, consulte [Introdução ao uso das Ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. Se você ainda não instalou a última versão das Ferramentas do Data Lake para Visual Studio, consulte [Introdução ao uso das Ferramentas do Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Abra o Visual Studio, selecione **Arquivo** > **Novo** e **Projeto**.
 
@@ -420,9 +421,9 @@ As topologias transacionais implementam o seguinte para suportar a reprodução 
 
 Conforme demonstrado no projeto **Amostra do Storm** , se um componente for transacional, não poderá ser definido no tempo de execução com base na configuração.
 
-## <a name="hybrid-topology"></a>Topologia híbrida
+## <a name="hybrid-topology-with-c-and-java"></a>Topologia híbrida com C# e Java
 
-As ferramentas do HDInsight para Visual Studio também podem ser usadas para criar topologias híbridas, onde alguns componentes são C# e outros são Java.
+As Ferramentas do Data Lake para Visual Studio também podem ser usadas para criar topologias híbridas, em que alguns componentes são C# e outros são Java.
 
 Para um exemplo de topologia híbrida, crie um projeto e selecione **Amostra de Híbrido do Storm**. Esse tipo de exemplo demonstra os seguintes conceitos:
 
@@ -514,7 +515,7 @@ As versões recentes do SCP.NET oferecem suporte à atualização de pacote por 
 > 1. No **Gerenciador de Soluções**, clique com o botão direito no projeto e escolha **Gerenciar Pacotes NuGet**.
 > 2. Usando o campo **Pesquisa**, faça a pesquisa e adicione **Microsoft.SCP.Net.SDK** ao projeto.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting-common-issues-with-topologies"></a>Solução de problemas comuns com topologias
 
 ### <a name="null-pointer-exceptions"></a>Exceções de ponteiro nulo
 

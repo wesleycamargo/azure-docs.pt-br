@@ -17,16 +17,16 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 364038c11f13bcb72b259618b1d7d433f48a33c1
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Criar serviços altamente disponíveis usando o Banco de Dados SQL do Azure
 
-Ao criar e implantar serviços altamente disponíveis no Banco de Dados SQL do Azure você deve usar [Grupos de failover e replicação geográfica ativa](sql-database-geo-replication-overview.md). Eles fornecem resiliência a falhas regionais e interrupções catastróficas e permite uma recuperação rápida usando o failover para bancos de dados secundários. Este artigo concentra-se em padrões de aplicativos comuns e descreve as vantagens e desvantagens de cada opção dependendo dos requisitos de implantação do aplicativo, do contrato de nível de serviço que você deseja, da latência de tráfego e dos custos. Para obter informações sobre o uso da replicação geográfica ativa com Pools Elásticos, confira [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)(Estratégias de recuperação de desastre do pool elástico).
+Ao criar e implantar serviços altamente disponíveis no Banco de Dados SQL do Azure, use [grupos de failover e replicação geográfica ativa](sql-database-geo-replication-overview.md) para criar resistência a falhas regionais e interrupções catastróficas e permitir a recuperação rápida de bancos de dados secundários. Este artigo concentra-se em padrões de aplicativos comuns e descreve as vantagens e desvantagens de cada opção dependendo dos requisitos de implantação do aplicativo, do contrato de nível de serviço que você deseja, da latência de tráfego e dos custos. Para obter informações sobre o uso da replicação geográfica ativa com Pools elásticos, confira [Estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="design-pattern-1-active-passive-deployment-for-cloud-disaster-recovery-with-a-co-located-database"></a>Padrão de design 1: Implantação ativa-passiva para recuperação de desastre em nuvem com banco de dados colocalizado
 Essa opção é mais adequada para aplicativos com as seguintes características:
@@ -45,7 +45,7 @@ O diagrama a seguir mostra essa configuração antes de uma interrupção.
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
-Após uma interrupção na região primária, o serviço do Banco de Dados SQL detectará que o banco de dados primário não está acessível e irá disparar um failover para o banco de dados secundário, com base nos parâmetros da política de failover automático. Dependendo do SLA do seu aplicativo, você pode optar por configurar um período de carência entre a detecção de interrupção e o failover em si. Configurar um período de carência reduz o risco de perda de dados para os casos em que a interrupção é catastrófica e a disponibilidade na região não pode ser restaurada rapidamente. Se o failover do ponto de extremidade é iniciado pelo gerenciador de tráfego antes do grupo de failover disparar o failover do banco de dados, o aplicativo Web não poderá se reconectar ao banco de dados. A tentativa do aplicativo de reconectar-se automaticamente terá êxito assim que o failover de banco de dados for concluído. 
+Após uma interrupção na região primária, o serviço do Banco de dados SQL detecta que o banco de dados primário não está acessível e dispara um failover para o banco de dados secundário, com base nos parâmetros da política de failover automático. Dependendo do SLA do seu aplicativo, você pode optar por configurar um período de carência entre a detecção de interrupção e o failover em si. Configurar um período de carência reduz o risco de perda de dados para os casos em que a interrupção é catastrófica e a disponibilidade na região não pode ser restaurada rapidamente. Se o failover do ponto de extremidade for iniciado pelo Gerenciador de Tráfego antes de o grupo de failover disparar o failover do banco de dados, o aplicativo Web não poderá se reconectar ao banco de dados. A tentativa do aplicativo de reconectar-se automaticamente terá êxito assim que o failover de banco de dados for concluído. 
 
 > [!NOTE]
 > Para conseguir um failover totalmente coordenado do aplicativo e dos bancos de dados, você deve planejar seu próprio método de monitoramento e usar o failover manual dos pontos de extremidade do aplicativo Web e dos bancos de dados.
@@ -58,7 +58,7 @@ Após o failover dos pontos de extremidade do aplicativo e do banco de dados ser
 Se ocorrer uma interrupção na região secundária, o link de replicação entre os bancos de dados primário e secundário é suspenso, mas o failover não é disparado pois banco de dados primário não foi afetado. A disponibilidade do aplicativo não é afetada neste caso, mas ele funcionará exposto e, portanto, correrá um risco mais elevado caso ambas as regiões falhem sucessivamente.
 
 > [!NOTE]
->Só recomendamos configurações de implantação com uma única região de DR. Isso ocorre porque a maioria das regiões geográficas do Azure tem duas regiões. Essas configurações não protegerão seu aplicativo contra uma falha catastrófica de ambas as regiões. Caso ocorra essa falha improvável, você poderá recuperar seus bancos de dados em uma terceira região usando a [operação de restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Só recomendamos configurações de implantação com uma única região de DR. Isso ocorre porque a maioria das regiões geográficas do Azure tem duas regiões. Essas configurações não protegerão seu aplicativo contra uma falha catastrófica de ambas as regiões. Caso ocorra essa falha improvável, você poderá recuperar seus bancos de dados em uma terceira região usando a [operação de restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
 Depois que a interrupção for atenuada, o banco de dados secundário será sincronizado automaticamente com o primário. Durante a sincronização, o desempenho do primário poderá ser ligeiramente afetado, dependendo da quantidade de dados que precisam ser sincronizados. O diagrama a seguir ilustra uma interrupção na região secundária.
@@ -100,7 +100,7 @@ O diagrama a seguir ilustra a nova configuração após o failover.
 
 No caso de uma interrupção em uma das regiões secundários, o gerenciador de tráfego removerá automaticamente da tabela de roteamento o ponto de extremidade offline nessa região. O canal de replicação para o banco de dados secundário nessa região será suspenso. Como as demais regiões recebem tráfego de usuário adicional, o desempenho do aplicativo será afetado durante a interrupção. Depois que a interrupção é atenuada, o banco de dados secundário na região afetada será imediatamente sincronizado com o primário. Durante a sincronização, o desempenho do primário poderá ser ligeiramente afetado, dependendo da quantidade de dados que precisam ser sincronizados. O diagrama a seguir ilustra uma interrupção na região B.
 
-![Interrupção na região secundária. Recuperação de desastre em nuvem - replicação geográfica.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
+![Interrupção na região secundária. Recuperação de desastre em nuvem – replicação geográfica.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
 
 A principal **vantagem** desse padrão de design é que você pode dimensionar a carga de trabalho do aplicativo em vários secundários para obter o desempenho ideal para o usuário final. As **desvantagens** dessa opção são:
 
@@ -129,7 +129,7 @@ Quando o gerenciador de tráfego detecta uma falha de conectividade para região
 
 Se a interrupção na região primária for atenuada dentro do período de carência, o gerenciador de tráfego detecta a restauração da conectividade na região primária e alterna o tráfego do usuário de volta para a instância do aplicativo na região A. Essa instância do aplicativo continua e opera em modo leitura/gravação usando o banco de dados primário na região A.
 
-No caso de uma interrupção na região B, o Gerenciador de tráfego detecta a falha do ponto de extremidade do aplicativo na região B e o grupo de failover troca o ouvinte de somente leitura para a região A. Essa interrupção não afeta a experiência do usuário final, mas o banco de dados primário será exposto durante a interrupção. Isso é ilustrado pelo diagrama a seguir.
+No caso de uma interrupção na região B, o Gerenciador de Tráfego detecta a falha do ponto de extremidade do aplicativo na região B e o grupo de failover troca o ouvinte de somente leitura para a região A. Essa interrupção não afeta a experiência do usuário final, mas o banco de dados primário ficará exposto durante a interrupção. Isso é ilustrado pelo diagrama a seguir.
 
 ![Interrupção: banco de dados secundário. Recuperação de desastre em nuvem.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
@@ -145,7 +145,7 @@ As **desvantagens** são:
 * O aplicativo deve ser capaz de operar no modo somente leitura.
 
 > [!NOTE]
-> No caso de uma interrupção de serviço permanente na região, você precisa ativar manualmente o failover de banco de dados e aceitar a perda de dados. O aplicativo será funcional na região secundária com acesso de leitura e gravação ao banco de dados.
+> No caso de uma interrupção de serviço permanente na região, ative manualmente o failover de banco de dados e aceite a perda de dados. O aplicativo será funcional na região secundária com acesso de leitura e gravação ao banco de dados.
 >
 
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planejamento de continuidade de negócios: escolher um design de aplicativo para recuperação de desastre em nuvem
@@ -163,7 +163,7 @@ A estratégia específica de recuperação de desastre em nuvem pode combinar ou
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, consulte [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
 * Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 * Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
-* Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)  
-* Para saber mais sobre como usar backups automatizados para arquivamento, confira [cópia de banco de dados](sql-database-copy.md)
-* Para obter informações sobre o uso da replicação geográfica ativa com Pools Elásticos, confira [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)(Estratégias de recuperação de desastre do pool elástico).
+* Para saber mais sobre opções de recuperação mais rápidas, confira [replicação geográfica ativa](sql-database-geo-replication-overview.md)  
+* Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
+* Para obter informações sobre o uso da replicação geográfica ativa com Pools elásticos, confira [Estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 

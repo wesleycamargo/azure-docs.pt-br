@@ -52,7 +52,7 @@ sql-database-service-tiers.md
 
 ### <a name="premium-elastic-pool-limits"></a>Limites de pool elástico Premium
 
-| Tamanho do pool (eDTUs)  | **125** | **250** | **500** | **1000** | **1500** | 
+| Tamanho do pool (eDTUs)  | **125** | **250** | **500** | **1000** | **1500** **| 
 |:---|---:|---:|---:| ---: | ---: | 
 | Armazenamento máximo de dados por pool* | 250 GB | 500 GB | 750 GB | 750 GB | 1,5 TB | 
 | Armazenamento máximo OLTP na memória por pool | 1 GB| 2 GB| 4 GB| 10 GB| 12 GB| 
@@ -67,7 +67,7 @@ sql-database-service-tiers.md
 
 ### <a name="premium-elastic-pool-limits-continued"></a>Limites de pool elástico Premium (continuação) 
 
-| Tamanho do pool (eDTUs)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
+| Tamanho do pool (eDTUs)  |  **2000** **| **2500**  **| **3000**  **| **3500**  **| **4000**  **|
 |:---|---:|---:|---:| ---: | ---: | 
 | Armazenamento máximo de dados por pool* | 2 TB | 2.5 TB | 3 TB | 3.5 TB | 4 TB |
 | Armazenamento máximo OLTP na memória por pool | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
@@ -96,5 +96,7 @@ sql-database-service-tiers.md
 ||||||||
 
 > [!IMPORTANT]
->\* Os bancos de dados em pool compartilham o armazenamento de pool, de modo que o armazenamento de dados em um pool elástico é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados. O armazenamento de dados máximo padrão por pool para pools Premium com 1500 eDTUs ou mais são 750 GB. Para obter o maior tamanho de armazenamento de dados máximo por pool, esse tamanho deve ser explicitamente selecionado usando o portal do Azure ou o [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool). Os pools Premium com mais de 750 GB de armazenamento estão atualmente em visualização pública nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Europa Ocidental, Sudeste Asiático, Leste do Japão, Leste da Austrália, Central do Canadá e Leste do Canadá. O armazenamento máximo por pool para todas as outras regiões é atualmente limitado a 750 GB.
+>\* Os bancos de dados em pool compartilham o armazenamento de pool, de modo que o armazenamento de dados em um pool elástico é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados. 
+>
+>\*\* O armazenamento de dados máximo padrão por pool para pools Premium com 1500 eDTUs ou mais são 750 GB. Para obter o maior tamanho de armazenamento de dados máximo por pool, esse tamanho deve ser explicitamente selecionado usando o portal do Azure ou o [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool). Os pools Premium com mais de 750 GB de armazenamento estão atualmente em versão prévia nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. O armazenamento máximo por pool para todas as outras regiões é atualmente limitado a 750 GB.
 >

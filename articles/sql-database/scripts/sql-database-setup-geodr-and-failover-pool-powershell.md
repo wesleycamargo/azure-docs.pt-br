@@ -1,6 +1,6 @@
 ---
 title: "Script do Azure PowerShell - Configuração de replicação geográfica de um banco de dados SQL em pool | Microsoft Docs"
-description: "Exemplo de Script do Azure PowerShell - Configure a Replicação Geográfica Ativa para um banco de dados SQL do Azure em pool usando o PowerShell"
+description: "Exemplo de Script do Azure PowerShell – Configurar a replicação geográfica ativa para um banco de dados SQL do Azure em pool usando o PowerShell"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -17,22 +17,22 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0971209e69917db492d19afd6708f5a2dc3463c7
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 294ba61b23e8cc1ef1ecf1bf538934393a4f9768
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
-# <a name="configure-active-geo-replication-for-a-pooled-azure-sql-database-using-powershell"></a>Configurar a Replicação Geográfica Ativa para um banco de dados SQL do Azure usando o PowerShell
+# <a name="configure-active-geo-replication-for-a-pooled-azure-sql-database-using-powershell"></a>Configurar a replicação geográfica ativa para um banco de dados SQL do Azure em pool usando o PowerShell
 
-Esse exemplo de script do PowerShell configura a Replicação Geográfica Ativa para um banco de dados em um pool elástico e faz o failover desse banco de dados para a réplica secundária.
+Esse exemplo de script do PowerShell configura a replicação geográfica ativa para um banco de dados em um pool elástico e faz o failover desse banco de dados para a réplica secundária.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>Exemplos de Scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Configurar a Replicação Geográfica Ativa para o pool Elástico")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Configurar a replicação geográfica ativa para o pool elástico")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 

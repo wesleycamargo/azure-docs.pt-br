@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 448bdbd2ae12d325781587846c812995cae33774
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: de0c9969ec28e7b6e57bc384ac3ec47191096a9b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -161,7 +161,7 @@ A restauração pontual usa backups de banco de dados automáticos para recupera
 A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde está hospedado. Confira [Restaurar um Banco de Dados SQL ou fazer failover para um secundário](sql-database-disaster-recovery.md)
 
 ### <a name="active-geo-replication"></a>Replicação geográfica ativa
-Para aplicativos que têm requisitos de recuperação mais agressivos do que a Restauração Geográfica pode oferecer, configure a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md).
+Para aplicativos que têm requisitos de recuperação mais agressivos do que a restauração geográfica pode oferecer, configure a [replicação geográfica ativa](sql-database-geo-replication-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

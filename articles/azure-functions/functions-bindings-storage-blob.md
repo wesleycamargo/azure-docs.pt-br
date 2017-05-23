@@ -16,14 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 198a8421636945bdf60c4ed519d065617a7fc287
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="azure-functions-storage-blob-bindings"></a>Associações de blob de armazenamento do Azure Functions
+# <a name="azure-functions-blob-storage-bindings"></a>Associações de armazenamento de Blobs do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e codificar associações de blob do Armazenamento do Azure em Azure Functions. O Azure Functions dá suporte a associações de entrada, saída e gatilho para blobs do Armazenamento do Azure.
@@ -55,9 +56,9 @@ O gatilho de blob do Armazenamento de uma função usa os seguintes objetos JSON
 Observe o seguinte:
 
 * Para `path`, consulte [Padrões de nome](#pattern) para descobrir como formatar os padrões de nome de blob.
-* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](functions-how-to-use-azure-function-app-settings.md). 
+* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, confira [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md) (definir essa configuração de aplicativo manualmente). 
 
-Durante a execução em um plano de Consumo, se um Aplicativo de funções tiver ficado ocioso, poderá haver até 10 minutos por dia de processamento de novos blobs. Quando o Aplicativo de funções está em execução, os blobs são processados mais rapidamente. Para evitar esse atraso inicial, use um Plano de Serviço de Aplicativo regular com Always On habilitado ou use outro mecanismo para disparar o processamento de blob, como uma mensagem da fila que contém o nome do blob. 
+Durante a execução em um plano de Consumo, se um Aplicativo de funções tiver ficado ocioso, poderá haver um atraso de até 10 minutos no processamento de novos blobs. Quando o Aplicativo de funções está em execução, os blobs são processados mais rapidamente. Para evitar esse atraso inicial, use um Plano de Serviço de Aplicativo regular com Always On habilitado ou use outro mecanismo para disparar o processamento de blob, como uma mensagem da fila que contém o nome do blob. 
 
 Além disso, consulte um destes subtítulos a seguir para obter mais informações:
 
@@ -179,7 +180,7 @@ Veja o exemplo específico por linguagem que registra em log o conteúdo de cada
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-usage-in-c"></a>Uso de gatilho em C# #
+### <a name="trigger-usage-in-c"></a>Uso de gatilhos em C# #
 
 ```cs
 public static void Run(string myBlob, TraceWriter log)
@@ -290,7 +291,7 @@ Consulte o exemplo específico por linguagem que copia o blob de entrada para o 
 
 <a name="incsharp"></a>
 
-### <a name="input-usage-in-c"></a>Uso de entrada em C# #
+### <a name="input-usage-in-c"></a>Uso de entradas em C# #
 
 ```cs
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)

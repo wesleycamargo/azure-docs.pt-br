@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 0b53eb34293078ad2ce334583fee88a8c5ac5ccf
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -73,8 +74,8 @@ O preço unitário por eDTU de um pool elástico é maior que o preço unitário
 
 Para entender as camadas de serviço e eDTUs, consulte [Opções e desempenho de Banco de Dados SQL](sql-database-service-tiers.md).
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Como o uso da Replicação Geográfica Ativa em um pool elástico aparece na minha fatura?
-Ao contrário dos bancos de dados únicos, o uso da [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) com bancos de dados elásticos não tem um impacto direto no faturamento.  Você só será cobrado pelos eDTUs provisionados para cada um dos pools (o pool primário e o pool secundário)
+## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Como o uso da replicação geográfica ativa em um pool elástico aparece na minha fatura?
+Ao contrário dos bancos de dados únicos, o uso da [replicação geográfica ativa](sql-database-geo-replication-overview.md) com bancos de dados elásticos não tem um impacto direto no faturamento.  Você só será cobrado pelos eDTUs provisionados para cada um dos pools (o pool primário e o pool secundário)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Como o uso do recurso de auditoria afeta minha fatura?
 A auditoria é interna ao serviço de Banco de Dados SQL sem custo extra e está disponível para os bancos de dados Básico, Standard, Premium e Premium RS. No entanto, para armazenar os logs de auditoria, o recurso de auditoria usa uma conta do Armazenamento do Azure e as taxas para tabelas e consultas no Armazenamento do Azure são aplicadas com base no tamanho do seu log de auditoria.
@@ -99,7 +100,7 @@ A alteração da camada de serviço de um banco de dados e a inclusão e a retir
 Em geral, os pools elásticos são projetados para um típico [padrão de aplicativo de software como serviço (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), em que há um banco de dados por cliente ou locatário. Comprar bancos de dados individuais e provisionar em excesso para atender as demandas variáveis e de pico de cada banco de dados frequentemente não é uma opção com bom custo-benefício. Com os pools, você gerencia o desempenho coletivo do pool e os bancos de dados são escalados e reduzidos verticalmente. O mecanismo inteligente do Azure recomendará um pool para bancos de dados quando perceber um padrão de uso que o garanta. Para obter detalhes, consulte [Diretrizes de pool elástico](sql-database-elastic-pool.md).
 
 ## <a name="what-does-it-mean-to-have-up-to-200-of-your-maximum-provisioned-database-storage-for-backup-storage"></a>O que significa ter até 200% de seu armazenamento máximo de banco de dados provisionado para o armazenamento de backup?
-O armazenamento para backup é aquele associado aos seus backups de banco de dados automatizados utilizados para [Restauração Pontual](sql-database-recovery-using-backups.md#point-in-time-restore) e [Restauração Geográfica](sql-database-recovery-using-backups.md#geo-restore). O Banco de Dados SQL do Microsoft Azure fornece até 200% de seu armazenamento máximo de banco de dados provisionado em armazenamento de backup, sem custo adicional. Por exemplo, se você tiver uma instância de banco de dados Standard com tamanho provisionado de 250 GB, serão oferecidos a você 500 GB de espaço de armazenamento para backup sem custo adicional. Se seu banco de dados exceder o armazenamento de backup fornecido, é possível optar por reduzir o período de retenção ao entrar em contato com o Suporte do Azure ou pagar pelo armazenamento de backup adicional com a taxa padrão do Armazenamento com Redundância Geográfica com Acesso de Leitura (RA-GRS). Para saber mais sobre a cobrança de RA-GRS, consulte Detalhes de preços de armazenamento.
+O armazenamento para backup é aquele associado aos seus backups de banco de dados automatizados utilizados para [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore) e [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore). O Banco de Dados SQL do Microsoft Azure fornece até 200% de seu armazenamento máximo de banco de dados provisionado em armazenamento de backup, sem custo adicional. Por exemplo, se você tiver uma instância de banco de dados Standard com tamanho provisionado de 250 GB, serão oferecidos a você 500 GB de espaço de armazenamento para backup sem custo adicional. Se seu banco de dados exceder o armazenamento de backup fornecido, é possível optar por reduzir o período de retenção ao entrar em contato com o Suporte do Azure ou pagar pelo armazenamento de backup adicional com a taxa padrão do Armazenamento com Redundância Geográfica com Acesso de Leitura (RA-GRS). Para saber mais sobre a cobrança de RA-GRS, consulte Detalhes de preços de armazenamento.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Estou mudando de Web/Negócios para novas camadas de serviço, o que eu preciso saber?
 Os bancos de dados SQL Business e Web do Azure foram desativados. As camadas Básico, Standard, Premium, Premium RS e Elástica substituem os bancos de dados Web e Business obsoletos. 
@@ -110,7 +111,7 @@ Atualmente, damos suporte a um RPO de cinco segundos e o retardo de replicação
 ## <a name="what-is-an-expected-replication-lag-when-geo-secondary-is-created-in-the-same-region-as-the-primary-database"></a>Qual é o retardo de replicação esperado quando o secundário geográfico é criado na mesma região do banco de dados primário?
 Com base em dados empíricos, não há muita diferença entre o retardo de replicação intra e entre regiões quando a região emparelhada recomendada pelo Azure é usada. 
 
-## <a name="if-there-is-a-network-failure-between-two-regions-how-does-the-retry-logic-work-when-geo-replication-is-set-up"></a>Se houver uma falha de rede entre duas regiões, como a lógica de repetição funcionará quando a Replicação Geográfica estiver configurada?
+## <a name="if-there-is-a-network-failure-between-two-regions-how-does-the-retry-logic-work-when-geo-replication-is-set-up"></a>Se houver uma falha de rede entre duas regiões, como a lógica de repetição funcionará quando a replicação geográfica estiver configurada?
 Se houver uma desconexão, haverá uma repetição a cada 10 segundos para restabelecer as conexões.
 
 ## <a name="what-can-i-do-to-guarantee-that-a-critical-change-on-the-primary-database-is-replicated"></a>O que posso fazer para garantir que uma alteração crítica no banco de dados primário seja replicada?

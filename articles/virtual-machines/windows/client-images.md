@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b53bd4d9db9c1ca030a770e56427f35204b90ab3
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: fbc5cc4a332877451867ca434db40d67ee623a0f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -44,15 +45,17 @@ A tabela a seguir fornece detalhes sobre as IDs de oferta que são qualificadas 
 | [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Verificar sua assinatura do Azure
-Se você não souber sua ID de oferta, poderá obtê-lo por meio do portal do Azure ou do portal de Contas.
+Se você não souber sua ID de oferta, poderá obtê-la por meio do portal do Azure ou de uma destas duas maneiras:  
 
-A ID de oferta de assinatura está anotada na folha “Assinaturas” no portal do Azure:
+- Na folha 'Assinaturas':
 
-![Detalhes da ID de oferta no portal do Azure](./media/client-images/offer_id_azure_portal.png) 
+  ![Detalhes da ID de oferta no portal do Azure](./media/client-images/offer-id-azure-portal.png) 
+
+- Ou, clique em **Cobrança** e, em seguida, clique em sua ID de assinatura. A ID de oferta aparece na folha de Cobrança.
 
 Você também pode exibir a ID de oferta na [guia “Assinaturas”](http://account.windowsazure.com/Subscriptions) do portal de Contas do Azure:
 
-![Detalhes da ID de oferta no portal de Contas do Azure](./media/client-images/offer_id_azure_account_portal.png) 
+![Detalhes da ID de oferta no portal de Contas do Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode implantar suas VMs usando o [PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), os [modelos do Resource Manager](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou o [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
