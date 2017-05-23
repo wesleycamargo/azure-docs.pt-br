@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6530da96cd6e6ccd90714a9d3c9f00f88afe853e
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b3a2bf688f1837a17312ec4bb5ca6b87209076cd
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/03/2017
 Se você tiver VMs do Azure que usem discos não gerenciados nas contas de armazenamento e se quiser tirar proveito de [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), você poderá converter as VMs. O processo converte o disco do sistema operacional e discos de dados anexado um discos não gerenciado que usa uma conta de armazenamento usando discos gerenciados. As VMs são desligadas e desalocadas, em seguida, usar o Powershell para converter a VM para usar discos gerenciados. Após a conversão, reinicie a máquina virtual e ele estará agora usando discos gerenciados.
 
 Antes de começar, não se esqueça de ler [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) (Planejar para a migração para Managed Disks).
-Teste o processo de migração migrando uma máquina virtual de teste antes de executar a migração em produção, pois o processo de migração não é reversível.
+Teste o processo de migração migrando uma máquina virtual de teste antes de executar a migração em produção, pois o processo de migração não é reversível. O gerenciamento da VM está bloqueado durante a migração, portanto, você não pode iniciar, interromper ou excluir a VM até que seja concluído.
 
 
 > [!IMPORTANT] 

@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f04ac382521c7268d0eb03d1b3bfc78ee0b07d40
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6918b206c637e1e0ad99b472c6a45a4fc343dc6d
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -185,8 +185,8 @@ Agora exiba todas as NICs na VM e copie o nome daquela que você deseja remover
 
 ```powershell
 $vm.NetworkProfile.NetworkInterfaces
-
-Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
+Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
+    Update-AzureRmVm -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Criando várias NICs usando modelos do Gerenciador de Recursos

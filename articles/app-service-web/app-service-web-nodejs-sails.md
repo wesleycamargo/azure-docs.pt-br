@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 197e4c1873ecdc80c7eed3427449e2ea0d1605ba
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -47,7 +47,7 @@ Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Visualização da CLI do Azure 2.0](/cli/azure/install-az-cli2)
+* [CLI 2.0 do Azure](/cli/azure/install-az-cli2)
 * Uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
@@ -118,13 +118,13 @@ Em seguida, crie o recurso de Serviço de Aplicativo no Azure e implante seu apl
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) com um nome. Para este tutorial do PHP, você não precisa realmente saber o que é.
+3. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) com um nome. Para este tutorial de Node.js, você não precisa realmente saber o que isso é.
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
     Para ver quais possíveis valores você pode usar para `<location>`, use o comando `az appservice list-locations` da CLI.
 
-3. Criar um novo [Plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "GRATUITO" com um nome. Para este tutorial do PHP, saiba que você não será cobrado para aplicativos Web neste plano.
+3. Criar um novo [Plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "GRATUITO" com um nome. Para este tutorial de Node.js, saiba que você não será cobrado por aplicativos Web neste plano.
 
         az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -47,7 +48,7 @@ Uma zona DNS é usada para hospedar os registros DNS para um domínio específic
    | **Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
    |**Nome**|contoso.com|O nome da zona DNS|
-   |**Assinatura**|[Sua assinatura]|Selecione uma assinatura na qual o gateway de aplicativo será criado.|
+   |**Assinatura**|[Sua assinatura]|Selecione uma assinatura para criar a zona DNS.|
    |**Grupo de recursos**|**Criar um novo:** contosoDNSRG|Crie um grupos de recursos. O nome do grupo de recursos deve ser exclusivo na assinatura selecionada. Para saber mais sobre grupos de recursos, leia o artigo [Visão geral do Gerenciador de Recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Localidade**|Oeste dos EUA||
 
@@ -70,7 +71,7 @@ O exemplo a seguir explica o processo de criação de um novo registro 'A'. Para
    |**Tipo**|O | Tipo de registro DNS para criar, os valores aceitáveis são A, AAAA, CNAME, MX, NS, SRV, TXT e PTR.  Para obter mais informações sobre tipos de registro, visite [Visão geral sobre registros e zonas DNS](dns-zones-records.md)|
    |**TTL**|1|Vida útil da solicitação de DNS.|
    |**Unidade de TTL**|Horas|Medição de tempo para o valor de TTL.|
-   |**Endereço IP**|{ipAddressValue| Esse valor é o endereço IP que o registro DNS resolve.|
+   |**Endereço IP**|ipAddressValue| Esse valor é o endereço IP que o registro DNS resolve.|
 
 ## <a name="view-records"></a>Exibir registros
 

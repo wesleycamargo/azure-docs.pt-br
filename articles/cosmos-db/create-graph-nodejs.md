@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/13/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 45adf2accd3d9f43bc1d73b9ff93cc34d4d7c90a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d8a6a183d1acd7a06683ec2e402bd866cb5195f4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -90,33 +90,31 @@ Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arq
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
+Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
 1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usa os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `app.js` na próxima etapa.
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-documentdb-dotnet/keys.png)
 
-2. Preencha suas configurações *endpoint*, *db*, *coll* e *authKey* no arquivo `app.js`:
+2. Copie o valor do URI do portal (usando o botão de cópia) e transforme-o no valor da chave do ponto de extremidade em web.config.js.
 
-    ```nodejs
-    const client = Gremlin.createClient(
-        443, 
-        config.endpoint, 
-        { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
-        });
-    ```
+    `config.endpoint = "GRAPHENDPOINT";`
+
+3. Substitua a parte documents.azure.com do URI por graphs.azure.com.
+
+4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e transforme-a no valor de config.primaryKey no config.js. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o BD Cosmos do Azure. 
+
+    `config.primaryKey = "PRIMARYKEY";`
 
 ## <a name="run-the-console-app"></a>Execute o aplicativo de console
 
-1. Executar `npm install` em um terminal para instalar os módulos npm necessários
+1. Abra uma janela de terminal e `cd` para um diretório de instalação para o arquivo package.json incluído no projeto.  
 
-2. Substitua o conteúdo do `node_modules\gremlin` com o código-fonte da [bifurcação do Gremlin do BD Cosmos](https://github.com/CosmosDB/gremlin-javascript), que tem suporte para SSL e SASL, os quais são necessários para o BD Cosmos do Azure, mas atualmente não têm suporte pelo driver (temporariamente, até que as alterações sejam aceitas no driver).
+2. Execute `npm install gremlin` para instalar os módulos npm necessários.
 
-2. Execute `node app.js` em um terminal para iniciar o aplicativo de nó.
+3. Substitua o conteúdo da pasta `node_modules\gremlin` pelo código-fonte da [bifurcação do Gremlin do Cosmos DB](https://github.com/CosmosDB/gremlin-javascript), que tem suporte para SSL e SASL, os quais são necessários para o Cosmos DB do Azure, mas atualmente não têm suporte pelo driver (temporariamente, até que as alterações sejam aceitas no driver).
+
+4. Execute `node app.js` em um terminal para iniciar o aplicativo de nó.
 
 Agora, é possível voltar ao Data Explorer e ver a consulta, modificar e trabalhar com esses novos dados. 
 
@@ -145,5 +143,3 @@ Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)
-
-

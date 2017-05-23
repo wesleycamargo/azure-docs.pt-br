@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -39,7 +40,7 @@ Além disso, este exemplo requer estes itens:
     > [!TIP]
     > Se você tiver uma [conta da Microsoft](https://account.microsoft.com/account) pessoal, terá uma conta do Outlook.com. Caso contrário, se tiver uma conta corporativa ou de estudante do Azure, terá uma conta do **Outlook do Office 365**.
 
-* Um link para o RSS feed de um site. Este exemplo usa o RSS feed do [site do MSDN Channel 9](https://channel9.msdn.com/):`https://s.ch9.ms/Feeds/RSS`
+* Um link para o RSS feed de um site. Este exemplo usa o [RSS feed para as principais matérias do site CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss): `http://rss.cnn.com/rss/cnn_topstories.rss`
 
 ## <a name="add-a-trigger-that-starts-your-workflow"></a>Adicionar um gatilho que inicia o fluxo de trabalho
 
@@ -74,7 +75,7 @@ Um [ *gatilho* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) é um e
      Você também pode alterar a **Frequência** e o **Intervalo**. 
      Essas configurações determinam a frequência com que o aplicativo lógico verifica se há novos itens e retorna todos os itens encontrados durante esse período de tempo.
 
-     Para este exemplo, iremos verificar todo dia os novos itens postados no site do MSDN Channel 9.
+     Para este exemplo, iremos verificar todo dia as principais matérias postadas no site da CNN.
 
      ![Configurar um gatilho com o RSS feed, frequência e intervalo](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 

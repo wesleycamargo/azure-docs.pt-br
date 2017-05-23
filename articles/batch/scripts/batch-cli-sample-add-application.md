@@ -12,21 +12,24 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 342cc2c93304f7a8f651769139e28ebf2e30d412
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5d057eaf32867aedc95d58c5185e2be1f9385ec0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 ---
 
 # <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Adicionar aplicativos ao Lote do Azure com a CLI do Azure
 
 Este script demonstra como configurar um aplicativo para uso com um pool ou tarefa do Lote do Azure. Para configurar um aplicativo, coloque seu executável, junto com quaisquer dependências, em um arquivo .zip. Neste exemplo, o arquivo executável zip é chamado 'my-application-exe.zip'.
-A execução deste script pressupõe que uma conta do Lote já foi configurada. Para saber mais, veja o [exemplo de script para criar uma conta do Lote](./batch-cli-sample-create-account.md).
 
-Se necessário, instale a CLI do Azure usando as instruções encontradas no [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e, em seguida, execute `az login` para fazer logon no Azure.
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Instale a CLI do Azure usando as instruções fornecidas no [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se ainda não tiver feito isso.
+- Crie uma conta do lote do Azure caso ainda não tenha uma. Consulte [Criar uma conta do lote com a CLI do Azure](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) para um script de exemplo que cria uma conta.
 
 ## <a name="sample-script"></a>Script de exemplo
 

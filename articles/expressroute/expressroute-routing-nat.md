@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2016
+ms.date: 05/12/2017
 ms.author: osamam
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: a97662819acbbbd4c4a331acac4fdec193242d80
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5c039a80b24feda61da0793fa64b48cb4783c3f1
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -82,7 +82,7 @@ O caminho do emparelhamento público do Azure permite que você se conecte a tod
 
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 
-O caminho de emparelhamento da Microsoft permite que você se conecte a serviços de nuvem da Microsoft que não têm suporte por meio do caminho de emparelhamento público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o CRM Online. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
+O caminho de emparelhamento da Microsoft permite que você se conecte a serviços de nuvem da Microsoft que não têm suporte por meio do caminho de emparelhamento público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o Dynamics 365. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
 
 Verifique se o endereço IP e o número de AS estão registrados em um dos registros listados abaixo.
 
@@ -193,7 +193,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | **Exchange** |12076:5010 |
 | **SharePoint** |12076:5020 |
 | **Skype For Business** |12076:5030 |
-| **CRM Online** |12076:5040 |
+| **Dynamics 365** |12076:5040 |
 | **Outros serviços do Office 365** |12076:5100 |
 
 > [!NOTE]

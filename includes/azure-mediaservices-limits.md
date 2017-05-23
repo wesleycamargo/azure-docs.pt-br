@@ -37,9 +37,11 @@ A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com
 >[!NOTE]
 > Você deverá usar a mesma ID de política se estiver sempre usando os mesmos dias/permissões de acesso/etc. Para obter informações e um exemplo, veja [esta](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) seção.
 
-<sup>7</sup>Se você estiver carregando conteúdo para um Ativo nos Serviços de Mídia do Azure com o propósito de processá-lo com um dos processadores de mídia em nosso serviço (ou seja, codificadores como mecanismos de Media Encoder Standard e o fluxo de trabalho do Media Encoder Premium ou análise como Detecção Facial), em seguida, você deve estar ciente dos limites a seguir. 
+<sup>7</sup>Se você estiver carregando conteúdo para um Ativo nos Serviços de Mídia do Azure com o propósito de processá-lo com um dos processadores de mídia em nosso serviço (ou seja, codificadores como mecanismos de Media Encoder Standard e o fluxo de trabalho do Media Encoder Premium ou análise como Detecção Facial), em seguida, você deve estar ciente da restrição para o tamanho máximo. 
 
-| Tipo de Unidade Reservada de Mídia | Tamanho máximo do arquivo (GB)| 
+A partir de 15 de maio de 2017, o tamanho máximo suportado para um único blob é 195 TB - com arquivos acima desse limite, a tarefa falhará. Estamos trabalhando em uma correção para tratar desse limite. Além disso, a restrição de tamanho máximo do ativo ocorre da seguinte maneira.
+
+| Tipo de Unidade Reservada de Mídia | Tamanho máximo de entrada (GB)| 
 | --- | --- | 
 |S1    | 325|
 |S2    | 640|

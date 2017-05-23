@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 328537b2bfbe15a23a9199bbb3c07851eaa85390
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 6cc1589f2ebad9267334f70926be369b32c8e075
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -28,15 +28,16 @@ A maioria dos clientes segue as etapas a seguir para garantir uma distribuição
 
 1. [Habilitar a redefinição de senha em seu diretório](active-directory-passwords-getting-started.md)
 2. [Como configurar permissões do AD locais para write-back de senha](active-directory-passwords-how-it-works.md#active-directory-permissions)
-3. [Como atribuir e verificar as licenças necessárias](active-directory-passwords-licensing.md)
-4. Se você quiser distribuir gradualmente, opcionalmente você pode limitar a redefinição de senha para um grupo de usuários para implementar o recurso lentamente ao longo do tempo. Para isso, defina a **Redefinição da Senha de Autoatendimento Habilitada** de **Todos** para **Um grupo** e selecione um grupo de segurança para habilitar a redefinição de senha. Todos os membros desse grupo devem ter licenças atribuídas a eles e é uma ótima maneira de habilitar o [Licenciamento com Base em Grupo](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
-5. Popule o conjunto mínimo de [dados de autenticação](active-directory-passwords-data.md) com base em sua política.
-6. Ensine seus usuários a usar a SSPR, enviando-os instruções de como registrar e como redefinir.
+3. [Configurar o write-back de senha](active-directory-passwords-writeback.md#configuring-password-writeback) para gravar senhas do Azure AD de volta ao seu diretório local
+4. [Como atribuir e verificar as licenças necessárias](active-directory-passwords-licensing.md)
+5. Se você quiser distribuir gradualmente, opcionalmente você pode limitar a redefinição de senha para um grupo de usuários para implementar o recurso lentamente ao longo do tempo. Para isso, defina a **Redefinição da Senha de Autoatendimento Habilitada** de **Todos** para **Um grupo** e selecione um grupo de segurança para habilitar a redefinição de senha. Todos os membros desse grupo devem ter licenças atribuídas a eles e é uma ótima maneira de habilitar o [Licenciamento com Base em Grupo](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
+6. Popule o conjunto mínimo de [dados de autenticação](active-directory-passwords-data.md) com base em sua política.
+7. Ensine seus usuários a usar a SSPR, enviando-os instruções de como registrar e como redefinir.
     > [!NOTE]
     > Teste a SSPR com um usuário e não como um administrador, uma vez que a Microsoft impõe requisitos de autenticação fortes para contas de administrador do Azure. Para obter mais informações sobre a política de senha do administrador, confira o nosso [artigo de aprofundamento](active-directory-passwords-how-it-works.md).
 
-7. Você pode optar por impor o registro a qualquer momento e exigir que os usuários confirmem novamente as informações de autenticação após um período determinado. Se não quiser que os usuários se registrem, você pode [implantar a redefinição de senha sem a necessidade de registro do usuário final](active-directory-passwords-data.md).
-8. Ao longo do tempo, revise os [relatórios fornecidos pelo Azure AD](active-directory-passwords-reporting.md) para examinar os usuários que usam e se registram.
+8. Você pode optar por impor o registro a qualquer momento e exigir que os usuários confirmem novamente as informações de autenticação após um período determinado. Se não quiser que os usuários se registrem, você pode [implantar a redefinição de senha sem a necessidade de registro do usuário final](active-directory-passwords-data.md).
+9. Ao longo do tempo, revise os [relatórios fornecidos pelo Azure AD](active-directory-passwords-reporting.md) para examinar os usuários que usam e se registram.
 
 ## <a name="email-based-rollout"></a>Distribuição baseada em email
 
@@ -74,13 +75,13 @@ Desabilitar a redefinição de senha de autoatendimento é tão simples quanto a
 
 Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
-* [**Início rápido** ](active-directory-passwords-getting-started.md) - Para deixar em funcionamento com o gerenciamento de senha de autoatendimento do Azure AD 
-* [**Licenciamento** ](active-directory-passwords-licensing.md) - Configuração do licenciamento do Azure AD
+* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
+* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
 * [**Dados** ](active-directory-passwords-data.md) - Entender os dados necessários e como são usados para o gerenciamento de senhas
 * [**Personalização** ](active-directory-passwords-customize.md) - Personalize a aparência da experiência da SSPR para sua empresa.
 * [**Política** ](active-directory-passwords-policy.md) - Como entender e definir políticas de senha do Azure AD
 * [**Write-back de senha** ](active-directory-passwords-writeback.md) - Como o write-back de senha opera com o seu diretório local
 * [**Relatório** ](active-directory-passwords-reporting.md) - Descubra se, quando e onde os usuários estão acessando a funcionalidade da SSPR
-* [**Aprofundamento técnico** ](active-directory-passwords-how-it-works.md) - Entenda como ele funciona
-* [**Perguntas frequentes (FAQ)**](active-directory-passwords-faq.md) - Como? Por quê? O quê? Onde? Quem? Quando? - Respostas para perguntas que você sempre quis fazer
-* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - Saiba como resolver problemas comuns que vemos com a SSPR
+* [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
+* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
+* [**Solucionar problemas**](active-directory-passwords-troubleshoot.md): saiba como resolver problemas comuns encontrados no SSPR

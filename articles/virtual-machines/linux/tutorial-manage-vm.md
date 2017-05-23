@@ -13,30 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 7a6f255c64a584e29801aacb40c79462751fe535
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: e22fa4ed45ffaed1a05292e9b86d5cebc0079117
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Criar e gerenciar VMs do Linux com a CLI do Azure
 
-Este tutorial aborda itens básicos de criação de Máquina Virtual do Azure, como a seleção de um tamanho de VM, seleção de uma imagem de VM e implantação de uma VM. Este tutorial também aborda as operações básicas de gerenciamento, como gerenciamento de estado, exclusão e redimensionamento de uma VM.
+Máquinas virtuais do Azure fornecem um ambiente de computação totalmente configurável e flexível. Este tutorial aborda itens básicos de implantação de máquina virtual do Azure, como a seleção de um tamanho de VM, seleção de uma imagem de VM e implantação de uma VM. Você aprenderá como:
 
-As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [CLI do Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Criar e conectar-se a uma VM
+> * Selecionar e usar imagens de VM
+> * Exibir e usar tamanhos específicos de VM
+> * Redimensionar uma VM
+> * Ver e compreender o estado da VM
+
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). Você também pode usar o [Cloud Shell](/azure/cloud-shell/quickstart) no seu navegador.
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
 Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. Neste exemplo, criaremos um grupo de recursos *myResourceGroupVM* na região *westus*. 
+Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. Neste exemplo, criaremos um grupo de recursos chamado *myResourceGroupVM* na região *eastus*. 
 
 ```azurecli
-az group create --name myResourceGroupVM --location westus
+az group create --name myResourceGroupVM --location eastus
 ```
 
 O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser visto durante este tutorial.
@@ -57,7 +64,7 @@ Depois que a VM tiver sido criada, a CLI do Azure envia informações sobre a VM
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -156,7 +163,7 @@ A tabela a seguir categoriza tamanhos em casos de uso.
 Para ver uma lista de tamanhos de VM disponíveis em uma região específica, use o comando [lista-tamanhos de vm az](/cli/azure/vm#list-sizes). 
 
 ```azurecli
-az vm list-sizes --location westus --output table
+az vm list-sizes --location eastus --output table
 ```
 
 Resultado parcial:
@@ -297,6 +304,17 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre a criação e o gerenciamento básico da VM. Avança para o próximo tutorial para saber mais sobre os discos de VM.  
+Neste tutorial, você aprendeu sobre a criação e o gerenciamento básico de VM e como:
 
-[Criar e gerenciar discos de VM](./tutorial-manage-disks.md)
+> [!div class="checklist"]
+> * Criar e conectar-se a uma VM
+> * Selecionar e usar imagens de VM
+> * Exibir e usar tamanhos específicos de VM
+> * Redimensionar uma VM
+> * Ver e compreender o estado da VM
+
+Avança para o próximo tutorial para saber mais sobre os discos de VM.  
+
+> [!div class="nextstepaction"]
+> [Criar e gerenciar discos de VM](./tutorial-manage-disks.md)
+

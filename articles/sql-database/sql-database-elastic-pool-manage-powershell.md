@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 04/10/2017
+wms.date: 05/14/2017
 ms.author: srinia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: b84185d0f224352e7cf5449068bee359914bd4ed
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 907e15da90bcd82358a462f7d8a7d2ba4a34f371
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -88,7 +87,7 @@ Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName �
 Use o cmdlet [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool) para definir o parâmetro _-StorageMB_. Forneça o limite de armazenamento em MB (por exemplo, 2097152 define o limite de armazenamento como 2 TB). Consulte os valores possível em [limites de armazenamento e eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 > [!IMPORTANT]
-> O armazenamento de dados máximo padrão por pool para pools Premium com 1500 eDTUs ou mais são 750 GB. Para obter o _tamanho máximo de armazenamento de dados por pool_ mais alto, o limite de armazenamento deve ser explicitamente definido. Os pools Premium com mais de 750 GB de armazenamento estão atualmente em versão prévia nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Europa Ocidental, Sudeste Asiático, Leste do Japão, Leste da Austrália, Central do Canadá e Leste do Canadá.
+> O armazenamento de dados máximo padrão por pool para pools Premium com 1500 eDTUs ou mais são 750 GB. Para obter o _tamanho máximo de armazenamento de dados por pool_ mais alto, o limite de armazenamento deve ser explicitamente definido. Os pools Premium com mais de 750 GB de armazenamento estão atualmente em versão prévia pública nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, US Gov – Virginia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá.
 
 ```PowerShell
 Set-AzureRmSqlElasticPool -ServerName "server1" -ElasticPoolName “elasticpool1” -StorageMB 2097152

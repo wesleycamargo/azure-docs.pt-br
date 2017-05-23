@@ -1,6 +1,6 @@
 ---
-title: Usar JDBC para consultar Hive no Azure HDInsight
-description: Saiba como usar JDBC para se conectar ao Hive no Azure HDInsight e executar remotamente as consultas nos dados armazenados na nuvem.
+title: "Consultar Hive por meio de JDBC – Azure HDInsight | Microsoft Docs"
+description: Saiba como usar o JDBC para se conectar ao Hive em clusters do Hadoop no Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,46 +14,44 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 05/16/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: e03cad1e221c94d55609c182756f5927796c6a80
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: dd76e2450be2b05d011de7ded49bfa9630190e71
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="connect-to-hive-on-azure-hdinsight-using-the-hive-jdbc-driver"></a>Conectar-se ao Hive no Azure HDInsight usando o driver JDBC do Hive
+# <a name="query-hive-through-jdbc"></a>Consultar Hive por meio de JDBC
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Neste documento, você aprenderá a usar JDBC por meio de um aplicativo Java para enviar remotamente consultas de Hive para um cluster do HDInsight. Você aprenderá a se conectar do cliente do SQuirreL SQL e a se conectar programaticamente do Java.
+Saiba como usar JDBC de um aplicativo Java para enviar consultas de Hive para Hadoop no Azure HDInsight. As informações neste documento mostram como se conectar programaticamente e do cliente SQL SQuirrel.
 
 Para obter mais informações sobre a Interface JDBC do Hive, consulte [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas neste artigo, você precisará do seguinte:
-
-* Um Hadoop no cluster do HDInsight. Um cluster baseado em Linux ou em Windows funcionará.
+* Um Hadoop no cluster do HDInsight. Tanto clusters baseados em Linux quanto em Windows funcionarão.
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Substituição do HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). O SQuirreL é um aplicativo cliente JDBC.
 
-Para compilar e executar o aplicativo Java de exemplo vinculado a este artigo, você precisará do seguinte.
-
 * O [Java Developer Kit (JDK) versão 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou superior.
+
 * [Apache Maven](https://maven.apache.org). Maven é um sistema de criação de projeto para projetos Java que é usado pelo projeto associado a este artigo.
 
-## <a name="connection-string"></a>Cadeia de conexão
+## <a name="jdbc-connection-string"></a>Cadeia de conexão JDBC
 
-Conexões JDBC para um cluster HDInsight no Azure são feitas em 443, e o tráfego é protegido usando SSL. O gateway público atrás dos quais ficam os clusters redireciona o tráfego para a porta que o HiveServer2 de fato está escutando. Assim, uma cadeia de conexão típica seria semelhante à seguinte:
+Conexões JDBC para um cluster HDInsight no Azure são feitas em 443, e o tráfego é protegido usando SSL. O gateway público atrás dos quais ficam os clusters redireciona o tráfego para a porta que o HiveServer2 de fato está escutando. A seguir, há um exemplo de cadeia de conexão:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
 
-Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight.
+Substitua `CLUSTERNAME` pelo nome do cluster HDInsight.
 
 ## <a name="authentication"></a>Autenticação
 
@@ -67,23 +65,23 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 ## <a name="connect-with-squirrel-sql-client"></a>Conectar-se ao cliente do SQuirreL SQL
 
-O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente as consultas do Hive com o cluster HDInsight. As etapas a seguir pressupõem que você já tenha instalado o SQuirreL SQL e explicam como baixar e configurar os drivers para o Hive.
+O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente as consultas do Hive com o cluster HDInsight. As etapas a seguir pressupõem que você já tenha instalado o SQuirreL SQL.
 
 1. Copie os drivers JDBC do Hive do seu cluster HDInsight.
 
     * Para o **HDInsight baseado em Linux**, use as etapas a seguir para baixar os arquivos jar necessários.
 
-        1. Crie uma nova pasta para colocar os arquivos. Por exemplo: `mkdir hivedriver`.
-        2. Em um prompt de comando, Bash, PowerShell ou de outro prompt de linha de comando, mude para o novo diretório e use os seguintes comandos para copiar os arquivos do cluster HDInsight.
+        1. Crie um diretório que contenha os arquivos. Por exemplo: `mkdir hivedriver`.
 
-                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
-                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+        2. Em uma linha de comando, use os seguintes comandos para copiar os arquivos do cluster do HDInsight:
 
-            Substitua **NOMEDOUSUÁRIO** pelo nome da conta de usuário SSH para o cluster. Substitua **NOMEDOCLUSTER** pelo nome do cluster HDInsight.
+            ```bash
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+            ```
 
-        > [!NOTE]
-        > Em ambientes Windows, você pode não ter o comando `scp`. Nesse caso, use o utilitário PSCP. Baixe-o de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+            Substitua `USERNAME` pelo nome da conta de usuário SSH para o cluster. Substitua `CLUSTERNAME` pelo nome do cluster do HDInsight.
 
     * Para o **HDInsight baseado no Windows**, use as etapas a seguir para baixar os arquivos jar necessários.
 
@@ -95,7 +93,7 @@ O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente a
 
             ![Folha Área de Trabalho Remota](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 
-            Depois que você selecionar **Conectar**, um arquivo .rdp será baixado. Use esse arquivo para iniciar o cliente da Área de Trabalho Remota. Quando solicitado, use o nome de usuário e a senha inseridos para o acesso à Área de Trabalho Remota.
+            Depois de selecionar **Conectar**, um arquivo .rdp será baixado. Use esse arquivo para iniciar o cliente da Área de Trabalho Remota. Quando solicitado, use o nome de usuário e a senha inseridos para o acesso à Área de Trabalho Remota.
 
         3. Uma vez conectado, copie os seguintes arquivos da sessão da Área de Trabalho Remota para o seu computador local. Coloque-os em um diretório local chamado `hivedriver`.
 
@@ -112,11 +110,11 @@ O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente a
 
     ![Guia Drivers à esquerda da janela](./media/hdinsight-connect-hive-jdbc-driver/squirreldrivers.png)
 
-3. Nos ícones na parte superior do diálogo **Drivers**, selecione o ícone **+** para criar um novo driver.
+3. Nos ícones na parte superior do diálogo **Drivers**, selecione o ícone **+** para criar um driver.
 
     ![Ícones de Drivers](./media/hdinsight-connect-hive-jdbc-driver/driversicons.png)
 
-4. No diálogo Adicionar Driver, adicione as informações a seguir.
+4. No diálogo Adicionar Driver, adicione as informações a seguir:
 
     * **Nome**: Hive
     * **Exemplo de URL**: `jdbc:hive2://localhost:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`
@@ -127,7 +125,7 @@ O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente a
 
    Clique em **OK** para salvar as configurações.
 
-5. À esquerda da janela do SQuirreL SQL, selecione **Aliases**. Em seguida, clique no ícone **+** para criar um novo alias de conexão.
+5. À esquerda da janela do SQuirreL SQL, selecione **Aliases**. Em seguida, clique no ícone **+** para criar um alias de conexão.
 
     ![adicionar novo alias](./media/hdinsight-connect-hive-jdbc-driver/aliases.png)
 
@@ -143,7 +141,7 @@ O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente a
 
     * **Nome de Usuário**: o nome de conta de logon do cluster para o cluster HDInsight. O padrão é `admin`.
 
-    * **Senha**: a senha da conta de logon do cluster. É uma senha que você forneceu ao criar o cluster HDInsight.
+    * **Senha**: a senha da conta de logon do cluster.
 
     ![diálogo adicionar alias](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
@@ -169,7 +167,7 @@ Um exemplo de como usar um cliente Java para consultar o Hive no HDInsight está
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Ocorreu um erro inesperado ao tentar abrir uma conexão SQL
 
-**Sintomas**: ao se conectar a um cluster HDInsight versão 3.3 ou 3.4, você poderá receber uma mensagem indicando que ocorreu um erro inesperado. O rastreamento de pilha para esse erro começará com as seguintes linhas:
+**Sintomas**: ao se conectar a um cluster HDInsight versão 3.3 ou 3.4, você poderá receber uma mensagem indicando que ocorreu um erro inesperado. O rastreamento de pilha para esse erro começa com as seguintes linhas:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -177,9 +175,9 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**Causa**: este erro é causado por uma incompatibilidade na versão do arquivo commons-codec.jar usada pelo SQuirreL e aquela exigida pelos componentes JDBC do Hive baixada por meio do cluster HDInsight.
+**Causa**: este erro é causado por uma incompatibilidade na versão do arquivo commons-codec.jar usada pelo SQuirreL e aquela exigida pelos componentes JDBC do Hive.
 
-**Resolução**: para corrigir esse erro, use as etapas a seguir.
+**Resolução**: para corrigir esse erro, use as etapas a seguir:
 
 1. Baixe o arquivo commons-codec.jar por meio do cluster HDInsight.
 

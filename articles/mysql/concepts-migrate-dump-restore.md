@@ -11,25 +11,25 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 05/17/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c09a6fa947d235189ab0137b074b6d7d9c925827
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c0029e025cf6d0af478d1f21dc6acc7860905a81
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração
-Este artigo descreve duas maneiras comuns de fazer backup e restaurar bancos de dados no seu Banco de Dados do Azure para MySQL
-- Fazendo backup e restauração a partir da linha de comando (usando mysqldump) 
-- Fazendo backup e restaurando usando PHPMyAdmin 
+Este artigo descreve duas maneiras comuns de fazer backup e restaurar bancos de dados no seu Banco de dados do Azure para MySQL
+- Fazer backup e restaurar por meio da linha de comando (usando mysqldump) 
+- Fazer backup e restaurar usando o PHPMyAdmin 
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para acompanhar este guia de instruções, você precisa do seguinte:
 - [Criar Banco de Dados do Azure para servidor MySQL - portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Utilitário de linha de comando [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) instalado em um computador
-- MySQL Workbench [Baixar MySQL Workbench](https://dev.mysql.com/downloads/workbench/), Toad, Navicat ou qualquer ferramenta de terceiros do MySQL
+- MySQL Workbench [Download do MySQL Workbench](https://dev.mysql.com/downloads/workbench/), Toad, Navicat ou qualquer ferramenta de terceiros do MySQL
 
 ## <a name="use-common-tools"></a>Usar ferramentas comuns
 Use ferramentas comuns, como MySQL Workbench, mysqldump, Toad ou Navicat para se conectar remotamente e restaurar dados para o Banco de Dados do Azure para MySQL. Use essas ferramentas no computador cliente com uma conexão de Internet para se conectar ao Banco de Dados do Azure para MySQL. Use uma conexão SSL criptografada para práticas recomendadas de segurança, consulte também [Configurar conectividade SSL no Banco de Dados do Azure para MySQL](concepts-ssl-connection-security.md). Você não precisa mover os seus arquivos de despejo para nenhum local específico na nuvem ao migrar para o Banco de Dados do Azure para MySQL. 
@@ -66,11 +66,8 @@ Para fazer backup de todos os bancos de dados no servidor ao mesmo tempo, você 
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## <a name="upload-files"></a>Carregar arquivos
-Com o WinSCP você pode facilmente carregar e gerenciar a importação ou despejo dos arquivos existentes no seu ambiente MySQL (Azure ou não Azure) Local sobre o protocolo SFTP ou FTPS para fins de exportação.
-
 ## <a name="create-a-database-on-the-target-azure-mysql-server"></a>Criar um banco de dados no servidor MySQL do Azure
-Você deve criar um banco de dados vazio no Banco de Dados do Azure de destino para o servidor MySQL para o qual você deseja migrar os dados usando o MySQL Workbench, Toad, Navicat ou qualquer ferramenta de terceiros para MySQL. O banco de dados pode ter o mesmo nome que o banco de dados que contém os dados de despejo ou você pode criar um banco de dados com um nome diferente.
+Você deve criar um banco de dados vazio no Banco de dados do Azure de destino para o servidor MySQL para o qual você deseja migrar os dados usando o MySQL Workbench, Toad, Navicat ou qualquer ferramenta de terceiros para MySQL. O banco de dados pode ter o mesmo nome que o banco de dados que contém os dados de despejo ou você pode criar um banco de dados com um nome diferente.
 
 ![Banco de Dados do Azure para Cadeia de Conexão do MySQL](./media/concepts-migrate-import-export/p5.png)
 

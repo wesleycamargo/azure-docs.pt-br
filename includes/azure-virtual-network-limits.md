@@ -2,8 +2,8 @@
 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| Redes virtuais por assinatura |50 |100 |
-| Sites de rede locais por assinatura |20 |entre em contato com o suporte |
+| Redes virtuais |50 |100 |
+| Sites de redes locais |20 |entre em contato com o suporte |
 | Servidores DNS por rede virtual |20 |100 |
 | Endereços IP privados por rede virtual |4096 |4096 |
 | Conexões TCP simultâneas para uma máquina virtual ou instância de função |500K |500K |
@@ -22,7 +22,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| Redes virtuais por assinatura |50 |500 |
+| Redes virtuais |50 |500 |
 | Sub-redes por rede virtual |1.000 |entrar em contato com o suporte |
 | Servidores DNS por rede virtual |9 |25 |
 | Endereços IP privados por rede virtual |4096 |4.096 |
@@ -41,7 +41,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | IP privado front-end por balanceador de carga |10 |entre em contato com o suporte |
 | Emparelhamentos de VNets por rede virtual |10 |50 |
 | Certificados raiz de ponto a site por gateway de VPN |20 |20 |
-| Configurações de IP secundárias por rede virtual |1000 |entrar em contato com o suporte |
+| Configurações de IP secundárias por rede virtual |1000 |entre em contato com o suporte |
 
-Entre em contato com o suporte caso precise aumentar esses limites.
+[Entre em contato com o suporte](../articles/azure-supportability/how-to-create-azure-support-request.md) caso precise aumentar esses limites.
 

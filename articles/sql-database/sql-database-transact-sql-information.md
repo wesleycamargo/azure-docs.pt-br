@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9716975994d1ab3b7cf63efc6480efcd48eb67bb
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 105255696c59346f3a8f0013d98602c9f17b7661
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -31,7 +32,7 @@ Há suporte total, tanto no Microsoft SQL Server quanto no Banco de Dados SQL do
 
 Além disso, há alguns recursos e sintaxe sem suporte nenhum, porque o Banco de Dados SQL do Azure foi criado para isolar recursos de dependências no banco de dados mestre e no sistema operacional. Assim, a maioria das atividades no nível do servidor são inapropriadas para o Banco de Dados SQL. As opções e instruções Transact-SQL não estão disponíveis se elas configuram opções no nível do servidor, componentes do sistema operacional ou se especificam a configuração do sistema de arquivos. Quando essas funcionalidades são necessárias, uma alternativa apropriada costuma estar disponível de alguma forma no Banco de Dados SQL ou em outro recurso ou serviço do Azure. 
 
-Por exemplo, alta disponibilidade é criada no Azure, então configurar o Always On não é necessário (embora você talvez queira configurar a replicação geográfica ativa para recuperação mais rápida em caso de um desastre). Assim, não há suporte para as instruções Transact-SQL relacionadas aos grupos de disponibilidade no Banco de Dados SQL nem para as exibições de gerenciamento dinâmico relacionadas ao AlwaysOn.
+Por exemplo, alta disponibilidade é criada no Azure, então, configurar o Always On não é necessário (embora você talvez queira configurar a replicação geográfica ativa para recuperação mais rápida em caso de um desastre). Assim, não há suporte para as instruções Transact-SQL relacionadas aos grupos de disponibilidade no Banco de Dados SQL nem para as exibições de gerenciamento dinâmico relacionadas ao AlwaysOn.
 
 Para obter uma lista dos recursos com e sem suporte no Banco de Dados SQL, consulte [Comparação de recursos do Banco de Dados SQL do Azure](sql-database-features.md). A lista nesta página complementa o tópico Diretrizes e recursos e se concentra nas instruções Transact-SQL.
 

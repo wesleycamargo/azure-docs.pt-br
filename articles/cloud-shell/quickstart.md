@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b087ce2b7ee71b867e2123a70a2bfbf0fbea1e3b
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 347984aae91a9fa99f88001effe2cba49f92deb9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
-# <a name="quickstart"></a>Início rápido
+# <a name="quickstart-for-using-the-azure-cloud-shell"></a>Guia de início rápido para usar o Azure Cloud Shell
+
 Este documento fornece detalhes sobre como usar o Azure Cloud Shell no [Portal do Azure](https://ms.portal.azure.com/).
 
 ## <a name="start-cloud-shell"></a>Iniciar o Cloud Shell

@@ -1,6 +1,6 @@
 ---
-title: "Instalar o bloco de anotações Jupyter localmente e conectar-se a um cluster Spark do Azure HDInsight | Microsoft Docs"
-description: Saiba mais sobre como instalar o bloco de notas Jupyter localmente em seu computador e se conectar a um cluster Apache Spark no Azure HDInsight.
+title: Instalar o Jupyter localmente e conectar-se a um cluster do Spark do Azure HDInsight | Microsoft Docs
+description: "Saiba mais sobre como instalar o bloco de anotações do Jupyter localmente em seu computador e se conectar a um cluster Apache Spark no Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 689bcb86a5eb4476cb62516f623cd23702cd6bc9
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: c2949fbda0503c779b117aebb14d4d7b76bae426
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight"></a>Instalar o bloco de anotações Jupyter em seu computador e conectar-se ao cluster do Apache Spark no HDInsight
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de anotações do Jupyter em seu computador e conectar-se ao Apache Spark no HDInsight
 
 Neste artigo, você aprende como instalar blocos de notas Jupyter, com o PySpark personalizado (para o Python) e kernels Spark (para Scala) com a mágica de Spark, e conectar o bloco de notas a um cluster HDInsight. Pode haver inúmeros motivos para instalar o Jupyter no computador local e alguns desafios também. Para saber mais sobre isso, confira a seção [Por que devo instalar o Jupyter no meu computador](#why-should-i-install-jupyter-on-my-computer) no final deste artigo.
 
@@ -61,7 +61,7 @@ Para obter instruções sobre como instalar a mágica do Spark, os kernels PySpa
 
 * Para clusters v3.5 e v3.6, instale sparkmagic 0.11.2 executando `pip install sparkmagic==0.11.2`
 
-## <a name="configure-spark-magic-to-access-the-hdinsight-spark-cluster"></a>Configurar a mágica do Spark para acessar o cluster HDInsight Spark
+## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Configurar a mágica do Spark para se conectar ao cluster do HDInsight Spark
 
 Nesta seção, você configura a mágica do Spark instalada anteriormente para se conectar a um cluster Apache Spark que já deve ter criado no Azure HDInsight.
 
@@ -119,7 +119,7 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 
     a. Crie um novo bloco de anotações. No canto direito, clique em **Novo**. Você deve ver o kernel padrão **Python2** e os dois kernels novos instalados, **PySpark** e **Spark**. Clique em **PySpark**.
 
-    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Criar um novo bloco de anotações do Jupyter")
+    ![Kernels no bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels no bloco de anotações do Jupyter")
 
     b. Execute o trecho de código a seguir.
 

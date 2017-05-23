@@ -16,10 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: b864fd14b6341541302c13222a1650cb21da40af
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c9216c4b5309a91aff56d220307e2757b81012a9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -33,8 +34,8 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 | [Criar um Banco de Dados individual e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um banco de dados SQL do Azure individual e configura uma regra de firewall no nível do servidor. |
 | [Criar pools Elásticos e mover bancos de dados em pools](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria pools Elásticos, move os bancos de dados em pools e altera os níveis de desempenho.|
 |**Configurar a replicação geográfica e o failover**||
-| [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Configura a replicação geográfica ativa para um Banco de Dados SQL do Azure individual e faz o failover desse banco de dados para a réplica secundária. |
-| [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Configura a replicação geográfica ativa para um Banco de Dados SQL do Azure em um pool elástico e faz o failover desse banco de dados para a réplica secundária. |
+| [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Configura a replicação geográfica ativa para um Banco de dados SQL do Azure individual e faz o failover desse banco de dados para a réplica secundária. |
+| [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Configura a replicação geográfica ativa para um Banco de dados SQL do Azure em um pool elástico e faz o failover desse banco de dados para a réplica secundária. |
 |**Dimensionar um banco de dados individual e um pool elástico**||
 | [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Monitora as métricas de desempenho de um Banco de Dados SQL do Azure, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho. |
 | [Dimensionar um pool elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Monitora as métricas de desempenho de um pool elástico, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho.  |

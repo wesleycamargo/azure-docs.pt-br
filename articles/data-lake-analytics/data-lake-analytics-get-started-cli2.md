@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 109460cecc4e11c729203af97c9bf1c22b90e61a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 25278e621155e7c90b5bb870d08793d285f4edff
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20-preview"></a>Tutorial: introdução ao Azure Data Lake Analytics usando a CLI do Azure 2.0 (Visualização)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Tutorial: introdução ao Azure Data Lake Analytics usando a CLI do Azure 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Saiba como usar a CLI do Azure 2.0 para criar contas do Azure Data Lake Analytics, definir trabalhos do Data Lake Analytics em [U-SQL](data-lake-analytics-u-sql-get-started.md)e enviar trabalhos para contas do Data Lake Analytics. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
@@ -32,12 +33,6 @@ Antes de começar este tutorial, você deve ter os seguintes itens:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **CLI 2.0 do Azure**. Consulte [Instalar e configurar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* **Habilitar Data Lake Store/Visualização da CLI 2.0 do Analytics**. As CLI 2.0 do Data Lake Store e do Data Lake Analytics ainda estão em Visualização. Execute os seguintes comandos para abrir os dois:
-
-    ```azurecli
-    az component update --add dls
-    az component update --add dla 
-    ```
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 

@@ -1,5 +1,5 @@
 ---
-title: "Depurar trabalhos em execução no cluster do Apache Spark no HDInsight | Microsoft Docs"
+title: "Depurar trabalhos do Apache Spark em execução no Azure HDInsight | Microsoft Docs"
 description: "Use a interface do usuário do YARN, a interface do usuário do Spark e o Servidor de Histórico do Spark para rastrear e depurar trabalhos em execução no cluster Spark no Azure HDInsight"
 services: hdinsight
 documentationcenter: 
@@ -17,16 +17,16 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: d6d7c0d112778172633fa068a119ba075c0fd900
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: df647b77f5f826b7f852bea981bc92089852b35a
 ms.contentlocale: pt-br
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="track-and-debug-jobs-running-on-apache-spark-cluster-in-hdinsight"></a>Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight
+# <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 
-Neste artigo, você aprenderá como rastrear e depurar trabalhos do Spark usando a interface do usuário do YARN, a interface do usuário do Spark e o Servidor de histórico do Spark. Para este artigo, começaremos um trabalho do Spark usando um notebook disponível com o cluster Spark, **Aprendizado de máquina: análise preditiva nos dados de inspeção de alimentos usando MLLib**. Você pode usar as etapas a seguir para rastrear um aplicativo que foi enviado usando qualquer outra abordagem, por exemplo, **spark-submit**.
+Neste artigo, você aprenderá como rastrear e depurar trabalhos do Spark em execução em clusters do HDInsight usando a interface do usuário do YARN, a interface do usuário do Spark e o Servidor de histórico do Spark. Para este artigo, começaremos um trabalho do Spark usando um notebook disponível com o cluster Spark, **Aprendizado de máquina: análise preditiva nos dados de inspeção de alimentos usando MLLib**. Você pode usar as etapas a seguir para rastrear um aplicativo que foi enviado usando qualquer outra abordagem, por exemplo, **spark-submit**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Você deve ter o seguinte:

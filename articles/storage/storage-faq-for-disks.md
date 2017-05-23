@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: af7d5b03e1490ed8d90021980f14c47281e8a655
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -79,6 +80,7 @@ Não, as VMs em um Conjunto de Disponibilidade devem usar todos os discos gerenc
 
 Atualmente não, mas ele se tornará o padrão no futuro.
 
+
 **É possível criar um disco gerenciado vazio?**
 
 Sim, você pode criar um disco vazio. Um disco gerenciado pode ser criado independentemente de uma VM, ou seja, sem anexá-lo a uma VM.
@@ -126,6 +128,10 @@ Não. Não há suporte para esse recurso no momento.
 
 **Posso alterar a propriedade de nome do computador ao usar um disco de SO especializado (sem Sysprep ou generalizado) para provisionar uma VM** Não. Não é possível atualizar a propriedade de nome do computador. A nova VM a herdará da VM pai que foi usada para criar o disco do sistema operacional. 
 
+**Onde posso encontrar modelos do Azure Resource Manager de exemplo para criar VMs com Managed Disks**
+* https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
+* https://github.com/chagarw/MDPP
+
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks e porta 8443
 
 **Por que os clientes têm que desbloquear o tráfego de saída na porta 8443 para VMs usando o Azure Managed Disks?**
@@ -144,7 +150,7 @@ Não haverá nenhum impacto na implantação.
 
 A extensão não será implantada com êxito. O status da extensão será desconhecido. 
 
-**O que acontece se um modelo de ARM é usado para provisionar várias VMs com a porta 8443 bloqueada – uma VM com extensões e uma segunda VM dependente na primeira VM?**
+**O que acontecerá se um modelo do Azure Resource Manager for usado para provisionar várias VMs com a porta 8443 bloqueada – uma VM com extensões e uma segunda VM dependente na primeira VM?**
 
 A primeira VM será exibida como uma implantação com falha porque as extensões não foram implantadas com êxito. A segunda VM não será implantada. 
 

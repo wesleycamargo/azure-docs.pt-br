@@ -13,21 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/21/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 2ce92b3f0a21f80eb4294161d6d3a5275c992600
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: de8ffb5ef81ac9ef4a9217f275f2c96973948eb1
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Criar uma imagem personalizada de uma VM do Azure usando a CLI
 
-Neste tutorial, você aprenderá a definir sua própria imagem personalizada de uma máquina virtual do Azure. As imagens personalizadas permitem criar VMs usando uma imagem que você já tenha configurado. As imagens personalizadas podem ser usadas para inicializar o pré-carregamento de binários e aplicativos, configurações de aplicativos, definições do disco de dados da VM e outras configurações do sistema operacional. Ao criar uma imagem personalizada, a VM que você personaliza e todos os discos anexados são incluídos na imagem.
+Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para configurações de inicialização como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. Neste tutorial, você criará sua própria imagem personalizada de uma máquina virtual do Azure. Você aprenderá como:
 
-As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [CLI do Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Desprovisionar e generalizar VMs
+> * Criar uma imagem personalizada
+> * Criar uma VM por meio de uma imagem personalizada
+> * Listar todas as imagens na sua assinatura
+> * Excluir uma imagem
+
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). Você também pode usar o [Cloud Shell](/azure/cloud-shell/quickstart) no seu navegador.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -35,9 +42,9 @@ As etapas abaixo detalham como pegar uma máquina virtual existente e transform�
 
 Para concluir o exemplo neste tutorial, você deverá ter uma máquina virtual. Se necessário, este [exemplo de script](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) pode criar uma para você. Ao trabalhar com este tutorial, substitua o grupo de recursos e os nomes de VM onde for necessário.
 
-## <a name="prepare-vm"></a>Preparar VM
+## <a name="create-a-custom-image"></a>Criar uma imagem personalizada
 
-Para criar uma imagem de uma máquina virtual, você precisará preparar a VM desprovisionando, desalocando e, em seguida, marcando a VM de origem como generalizada.
+Para criar uma imagem de uma máquina virtual, você precisará preparar a VM desprovisionando, desalocando e, em seguida, marcando a VM de origem como generalizada. Depois que a VM tiver sido preparada, você poderá criar uma imagem.
 
 ### <a name="deprovision-the-vm"></a>Desprovisionar a VM 
 
@@ -67,22 +74,22 @@ exit
 Para criar uma imagem, a VM precisará ser desalocada. Desaloque a VM usando [az vm deallocate](/cli//azure/vm#deallocate). 
    
 ```azurecli
-az vm deallocate --resource-group myRGCaptureImage --name myVM
+az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 Por fim, defina o estado da VM como generalizado com [az vm generalize](/cli//azure/vm#generalize), de maneira que a plataforma do Azure saiba que a VM foi generalizada. Você só pode criar uma imagem por meio de uma VM generalizada.
    
 ```azurecli
-az vm generalize --resource-group myResourceGroupImages --name myVM
+az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="create-the-image"></a>Criar a imagem
+### <a name="create-the-image"></a>Criar a imagem
 
 Agora você pode criar uma imagem da VM usando [az image create](/cli//azure/image#create). O exemplo a seguir cria uma imagem chamada *myImage* por meio de uma VM chamada *myVM*.
    
 ```azurecli
 az image create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myImage \
     --source myVM
 ```
@@ -93,17 +100,46 @@ Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da ima
 
 ```azurecli
 az vm create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myVMfromImage \
     --image myImage \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
 
+## <a name="image-management"></a>Gerenciamento de imagens 
+
+Estes são alguns exemplos de tarefas comuns de gerenciamento de imagem e como para concluí-las usando a CLI do Azure.
+
+Liste todas as imagens por nome em um formato de tabela.
+
+```azurecli
+az image list \
+  --resource-group myResourceGroup
+```
+
+Exclua uma imagem. Este exemplo exclui a imagem denominada *myOldImage* do *myResourceGroup*.
+
+```azurecli
+az image delete \
+    --name myOldImage \
+    --resource-group myResourceGroup
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre a criação de imagens de VM personalizadas. Avance para o próximo tutorial para saber mais sobre a alta disponibilidade das máquinas virtuais.
+Neste tutorial, você criou uma imagem de VM personalizada. Você aprendeu como:
 
-[Criar VMs altamente disponíveis](tutorial-availability-sets.md).
+> [!div class="checklist"]
+> * Desprovisionar e generalizar VMs
+> * Criar uma imagem personalizada
+> * Criar uma VM por meio de uma imagem personalizada
+> * Listar todas as imagens na sua assinatura
+> * Excluir uma imagem
+
+Avance para o próximo tutorial para saber mais sobre máquinas virtuais de alta disponibilidade.
+
+> [!div class="nextstepaction"]
+> [Criar VMs altamente disponíveis](tutorial-availability-sets.md).
 
 

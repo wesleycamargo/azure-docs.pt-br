@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 7f0613285bc548e1329be3c33c30939f5998f379
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 627aa117ded0aaa519052d4ea1a1995ba2e363ee
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -71,7 +71,7 @@ Em ambos os casos, a operação iniciada pelo usuário leva mais tempo para ser 
 ## <a name="using-the-api"></a>Usando a API
 
 ### <a name="query-for-events"></a>Consulta de eventos
-Você pode consultar Eventos Agendados realizando a chamada a seguir
+Você pode consultar Eventos agendados realizando a chamada a seguir:
 
     curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 
@@ -92,13 +92,25 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos:
          }
      ]
     }
+    
+### <a name="event-properties"></a>Propriedades do evento
+|Propriedade  |  Descrição |
+| - | - |
+| EventId |Identificador global exclusivo para o evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Impacto que o evento tem. <br><br> Valores: <br><ul><li> <i>Congelamento</i>: a máquina virtual está agendada para pausar por alguns segundos. Não há nenhum impacto na memória, em arquivos abertos ou em conexões de rede. <li> <i>Reinicialização</i>: a máquina virtual está agendada para reinicialização (a memória é apagada).<li> <i>Reimplantação</i>: a máquina virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). |
+| ResourceType | Tipo de recurso que o evento afeta. <br><br> Valores: <ul><li>VirtualMachine|
+| Recursos| Lista de recursos que o evento afeta. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Status do evento | Status do evento. <br><br> Valores: <ul><li><i>Agendado:</i> o evento está agendado para iniciar após o tempo especificado na propriedade <i>NotBefore</i>.<li><i>Iniciado</i>: o evento foi iniciado.</i>
+| NotBefore| Tempo após o qual o evento pode iniciar. <br><br> Exemplo: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-O EventType captura o impacto esperado na máquina virtual, em que:
-- Congele: a máquina virtual está agendada para pausar por alguns segundos. Não há nenhum impacto na memória, arquivos abertos ou conexões de rede
-- Reinicialização: a máquina virtual está agendada para reinicialização (a memória é apagada).
-- Reimplantação: a máquina virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). 
+### <a name="event-scheduling"></a>Agendamento do evento
+Cada evento é agendado uma quantidade mínima de tempo no futuro com base no tipo de evento. Esse tempo é refletido na propriedade <i>NotBefore</i> de um evento. 
 
-Quando um evento é agendado (Status = Agendado), o Azure compartilha o tempo após o qual o evento pode iniciar (especificado no campo NotBefore).
+|EventType  | Aviso mínimo |
+| - | - |
+| Congelamento| 15 minutos |
+| Reboot | 15 minutos |
+| Reimplantar | 10 minutos |
 
 ### <a name="starting-an-event-expedite"></a>Iniciando um evento (agilizar)
 
@@ -120,11 +132,13 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $uri)
+function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create the Scheduled Events Approval Json
+    # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    
+    # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
     Write-Host "Approving with the following: `n" $approvalString
@@ -161,7 +175,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-    ApproveScheduledEvent $event.EventId $scheduledEventURI 
+    ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
@@ -207,6 +221,7 @@ Eventos Agendados podem ser analisados usando as seguintes estruturas de dados
 ```csharp
     public class ScheduledEventsDocument
     {
+        public string DocumentIncarnation;
         public List<CloudControlEvent> Events { get; set; }
     }
 
@@ -217,11 +232,12 @@ Eventos Agendados podem ser analisados usando as seguintes estruturas de dados
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
     {
+        public string DocumentIncarnation;
         public List<StartRequest> StartRequests = new List<StartRequest>();
     }
 
@@ -259,7 +275,11 @@ public class Program
             Console.ReadLine();
 
             // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
+        {
+            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
+        };
+        
             foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));
