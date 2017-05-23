@@ -1,14 +1,14 @@
 ---
-title: Tutorial do aplicativo Web do Python Flask do Azure DocumentDB | Microsoft Docs
-description: "Analise um tutorial de banco de dados sobre como usar o Banco de Dados de Documentos para armazenar e acessar dados de um aplicativo Web Python Flask hospedado no Azure. Encontre soluções de desenvolvimento de aplicativo."
+title: Tutorial do aplicativo Web do Python Flask para o Azure Cosmos DB | Microsoft Docs
+description: "Analise um tutorial de banco de dados sobre como usar o Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web Python Flask hospedado no Azure. Encontre soluções de desenvolvimento de aplicativo."
 keywords: Desenvolvimento de aplicativos, python flask, aplicativo Web python, desenvolvimento Web do python
-services: documentdb
+services: cosmosdb
 documentationcenter: python
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -16,14 +16,15 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68b3fd109291551294b58b3cda75fd6a9619b4b4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-python-flask-web-application-using-documentdb"></a>Criar um aplicativo Python Flask usando o DocumentDB
+# <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilar um aplicativo Web do Python Flask usando o Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET para MongoDB](documentdb-mongodb-application.md)
@@ -33,13 +34,13 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Este tutorial mostra como usar o serviço do Banco de Dados de Documentos do Azure para armazenar e acessar dados de um aplicativo Web Python hospedado no Azure e supõe que você tenha experiência prévia com o uso do Python e os sites do Azure.
+Este tutorial mostra como usar o serviço do Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web Python hospedado no Azure e supõe que você tenha experiência prévia com o uso do Python e os sites do Azure.
 
 Este tutorial de banco de dados aborda:
 
-1. Criar e provisionar uma conta de Banco de Dados de Documentos
+1. Criar e provisionar uma conta do Azure Cosmos DB.
 2. Criar um aplicativo Python MVC
-3. Conectar-se a e usar o Banco de Dados de Documento do Azure do aplicativo Web.
+3. Conectar-se a e usar o Azure Cosmos DB de seu aplicativo Web.
 4. Implantar o aplicativo Web nos sites do Azure.
 
 Seguindo este tutorial, você criará um aplicativo simples de votação que permite que você vote em uma votação.
@@ -53,7 +54,7 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
  
     OU 
 
-    Uma instalação local do [Emulador do DocumentDB do Azure](documentdb-nosql-local-emulator.md).
+    Uma instalação local do [Emulador do Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) ou superior, ou [Visual Studio Express](), que é a versão gratuita. As instruções neste tutorial foram escritas especificamente para o Visual Studio 2015. 
 * Ferramentas Python para o Visual Studio do [GitHub](http://microsoft.github.io/PTVS/). Este tutorial usa as Ferramentas Python para o VS 2015. 
 * SDK do Azure Python para o Visual Studio, versão 2.4 ou superior disponível em [azure.com](https://azure.microsoft.com/downloads/). Nós usamos o SDK do Microsoft Azure para Python 2.7.
@@ -68,8 +69,8 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 * Compilador do Microsoft Visual C++ para Python 2.7 do [Centro de Download da Microsoft][3].
 
-## <a name="step-1-create-a-documentdb-database-account"></a>Etapa 1: criar uma conta de banco de dados do Banco de Dados de Documentos
-Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se você já tiver uma conta ou se estiver usando o Emulador do DocumentDB para este tutorial, pule para a [Etapa 2: Criar um novo aplicativo do Python Flask](#step-2:-create-a-new-python-flask-web-application).
+## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Etapa 1: Criar uma conta de banco de dados do Azure Cosmos DB
+Vamos começar criando uma conta do BD Cosmos. Se você já tiver uma conta ou se estiver usando o Emulador do Azure Cosmos DB para este tutorial, pule para a [Etapa 2: Criar um novo aplicativo web do Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -155,7 +156,7 @@ class VoteForm(Form):
 
 ### <a name="add-the-required-imports-to-viewspy"></a>Adicione as importações necessárias a views.py
 1. No Gerenciador de Soluções, expanda a pasta **tutorial** e abra o arquivo **views.py**. 
-2. Adicione as seguintes instruções de importação à parte superior do arquivo **views.py** , então salve o arquivo. Elas importarão pacotes PythonSDK do Banco de Dados de Documentos e os pacotes Flask.
+2. Adicione as seguintes instruções de importação à parte superior do arquivo **views.py** , então salve o arquivo. Elas importarão o SDK de Python do Azure Cosmos DB e os pacotes Flask.
    
     ```python
     from forms import VoteForm
@@ -202,7 +203,7 @@ def create():
 ```
 
 > [!TIP]
-> O método **CreateCollection** usa um **RequestOptions** opcional como o terceiro parâmetro. Ele pode ser usado para especificar o Tipo de Oferta da coleção. Se nenhum valor de offerType for fornecido, a coleção será criada usando o Tipo de Oferta padrão. Para obter mais informações sobre os Tipos de Oferta do Banco de Dados de Documentos, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
+> O método **CreateCollection** usa um **RequestOptions** opcional como o terceiro parâmetro. Ele pode ser usado para especificar o Tipo de Oferta da coleção. Se nenhum valor de offerType for fornecido, a coleção será criada usando o Tipo de Oferta padrão. Para saber mais sobre os Tipos de Oferta do BD Cosmos, consulte [Níveis de desempenho no Azure Cosmos DB](documentdb-performance-levels.md).
 > 
 > 
 
@@ -314,7 +315,7 @@ def vote():
     ```html
     {% extends "layout.html" %}
     {% block content %}
-    <h2>Python + DocumentDB Voting Application.</h2>
+    <h2>Python + Azure Cosmos DB Voting Application.</h2>
     <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
     <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
@@ -336,7 +337,7 @@ def vote():
     DOCUMENTDB_COLLECTION = 'voting collection'
     DOCUMENTDB_DOCUMENT = 'voting document'
     ```
-3. No [portal do Azure](https://portal.azure.com/), navegue até a folha **Chaves** clicando em **Procurar**, **Contas do DocumentDB**, clique duas vezes no nome da conta a usar e clique no botão **Chaves** na área **Essentials**. Na folha **Chaves**, copie o valor de **URI** e cole-o no arquivo **config.py** como o valor da propriedade **DOCUMENTDB\_HOST**. 
+3. No [portal do Azure](https://portal.azure.com/), navegue até a folha **Chaves** clicando em **Procurar**, **Contas do Azure Cosmos DB**, clique duas vezes no nome da conta a usar e clique no botão **Chaves** na área **Essentials**. Na folha **Chaves**, copie o valor de **URI** e cole-o no arquivo **config.py** como o valor da propriedade **DOCUMENTDB\_HOST**. 
 4. Novamente no portal do Azure, na folha **Chaves**, copie o valor da **Chave Primária** ou da **Chave Secundária** e cole-o no arquivo **config.py** como o valor da propriedade **DOCUMENTDB\_KEY**.
 5. No arquivo **\_\_init\_\_.py**, adicione a linha a seguir. 
    
@@ -358,7 +359,7 @@ def vote():
 1. Crie a solução ao pressionar **Ctrl**+**Shift**+**B**.
 2. Se a compilação for bem-sucedida, inicie o site pressionando **F5**. Você deverá ver o seguinte na tela.
    
-    ![Captura de tela do Aplicativo de votação do Python + Banco de Dados de Documentos exibido em um navegador da Web](./media/documentdb-python-application/image16.png)
+    ![Captura de tela do Aplicativo de votação do Python + Azure Cosmos DB exibido em um navegador da Web](./media/documentdb-python-application/image16.png)
 3. Clique em **Criar/limpar o banco de dados de votação** para gerar o banco de dados.
    
     ![Captura de tela de Criar Página do aplicativo Web — detalhes de desenvolvimento](./media/documentdb-python-application/image17.png)
@@ -371,7 +372,7 @@ def vote():
 6. Pare a depuração do projeto pressionando Shift+F5.
 
 ## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>Etapa 5: implantar o aplicativo Web nos sites do Azure
-Agora que você possui o aplicativo completo funcionando corretamente no Banco de Dados de Documentos, vamos implantá-lo nos sites do Azure.
+Agora que você possui o aplicativo completo funcionando corretamente no Azure Cosmos DB, vamos implantá-lo nos sites do Azure.
 
 1. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções (verifique se ele não está sendo executado localmente) e selecione **Publicar**.  
    
@@ -398,7 +399,7 @@ Se esse for o primeiro aplicativo Python executado em seu computador, verifique 
 Se receber um erro em sua página de votação, e se tiver nomeado seu projeto com algo diferente de **tutorial**, verifique se **\_\_init\_\_.py** faz referência ao nome de projeto correto na linha: `import tutorial.view`.
 
 ## <a name="next-steps"></a>Próximas etapas
-Parabéns! Você acabou de concluir seu primeiro aplicativo Web Python usando o Banco de Dados de Documentos do Azure e o publicou nos Sites do Azure.
+Parabéns! Você acabou de concluir seu primeiro aplicativo Web Python usando o Azure Cosmos DB e o publicou nos Sites do Azure.
 
 Atualizamos e aperfeiçoamos este tópico com frequência, de acordo com seus comentários.  Depois de concluir o tutorial, use os botões de votação nas partes superior e inferior desta página e lembre-se de incluir seus comentários sobre os aperfeiçoamentos que deseja ver. Se quiser que entremos em contato com você diretamente, inclua seu endereço de email em seu comentário.
 

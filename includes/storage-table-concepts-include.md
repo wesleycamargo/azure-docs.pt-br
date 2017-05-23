@@ -11,12 +11,12 @@ Você pode usar o serviço Tabela para armazenar e consultar grandes conjuntos d
 ## <a name="table-service-concepts"></a>Conceitos do Serviço da Tabela
 O serviço Tabela contém os seguintes componentes:
 
-![Table1][Table1]
+![Diagrama de componente do serviço de tabela][Table1]
 
 * **Formato da URL:** o código aborda as tabelas em uma conta usando o formato desse endereço:   
   http://`<storage account>`.table.core.windows.net/`<table>`  
   
-  Você pode endereçar as tabelas do Azure diretamente usando esse endereço com o protocolo OData. Para obter mais informações, veja [OData.org][OData.org]
+  Você pode endereçar as tabelas do Azure diretamente usando esse endereço com o protocolo OData. Para saber mais, veja [OData.org][OData.org]
 * **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento.
 * **Tabela**: uma tabela é uma coleção de entidades. As tabelas não impõem um esquema nas entidades, o que significa que uma única tabela pode conter entidades com diferentes conjuntos de propriedades. O número de tabelas que uma conta de armazenamento pode conter é limitado apenas pelo limite de capacidade da conta de armazenamento.
 * **Entidade**: uma entidade é um conjunto de propriedades, semelhantes a uma linha do banco de dados. Uma entidade pode ser de até 1MB.
