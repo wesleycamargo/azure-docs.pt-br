@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ Agora você tem um índice de pesquisa que está pronto para consulta. **Gerenci
 
   Para exibir os componentes individuais, clique no bloco **Índice**, **Indexador** ou **Fontes de Dados** no painel para exibir uma lista dos objetos existentes. Para saber mais sobre as edições do índice que não exigem recriação, confira [Atualizar índice (API REST do Azure Search)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Experimente as ferramentas e etapas com outras fontes de dados. O conjunto de dados de exemplo, `realestate-us-sample`, é de um banco de dados SQL que pode ser rastreado pelo Azure Search. Além do Banco de Dados SQL do Azure, o Azure Search pode rastrear e inferir um índice de estruturas de dados simples no Armazenamento de Tabelas do Azure, no Armazenamento de Blobs, no SQL Server em uma VM do Azure e no DocumentDB. Todas essas fontes de dados têm suporte no assistente. No código, você pode preencher um índice facilmente usando um *indexador*.
++ Experimente as ferramentas e etapas com outras fontes de dados. O conjunto de dados de exemplo, `realestate-us-sample`, é de um banco de dados SQL que pode ser rastreado pelo Azure Search. Além do Banco de Dados SQL do Azure, o Azure Search pode rastrear e inferir um índice de estruturas de dados simples no Armazenamento de Tabelas do Azure, no Armazenamento de Blobs, no SQL Server em uma VM do Azure e no Azure Cosmos DB. Todas essas fontes de dados têm suporte no assistente. No código, você pode preencher um índice facilmente usando um *indexador*.
 
 + Todas as outras fontes de dados que não são do indexador têm suporte por meio de um modelo push, em que seu código envia conjuntos de linhas novos e alterados em JSON para seu índice. Para saber mais, confira [Adicionar, atualizar ou excluir documentos no Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 

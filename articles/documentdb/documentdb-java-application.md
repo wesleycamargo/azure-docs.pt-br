@@ -1,28 +1,29 @@
 ---
-title: Tutorial de desenvolvimento de aplicativo Java usando o DocumentDB | Microsoft Docs
-description: "Este tutorial de aplicativo Web Java mostra a você como usar o serviço de Banco de Dados de Documentos do Azure para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure."
+title: Tutorial de desenvolvimento de aplicativo Java usando o Azure Cosmos DB | Microsoft Docs
+description: "Este tutorial de aplicativo Web Java mostra a você como usar o serviço de Azure Cosmos DB para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure."
 keywords: Desenvolvimento de aplicativos, tutorial de banco de dados, aplicativo java, tutorial do aplicativo web java, banco de dados de documentos, azure, Microsoft azure
-services: documentdb
+services: cosmosdb
 documentationcenter: java
 author: dennyglee
 manager: jhubbard
 editor: mimig
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: denlee
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6e315ea33fe4a493f1ab349482f9af3a732b3127
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a9ba49cb52fee446b7bffaa1579995f2cd095ead
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-java-web-application-using-documentdb"></a>Criar um aplicativo Web Java usando o Banco de Dados de Documentos
+# <a name="build-a-java-web-application-using-azure-cosmos-db"></a>Compilar um aplicativo Web Java usando o Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET para MongoDB](documentdb-mongodb-application.md)
@@ -32,12 +33,12 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Este tutorial de aplicativo Web Java mostra a você como usar o serviço [Banco de Dados de Documentos do Microsoft Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para armazenar e acessar dados de um aplicativo Java hospedado em Sites do Azure. Neste tópico, você aprenderá:
+Este tutorial de aplicativo Web Java mostra a você como usar o serviço [BD Cosmos do Microsoft Azure](https://portal.azure.com/#gallery/Microsoft.Azure Cosmos DB) para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure. Neste tópico, você aprenderá:
 
 * Como criar um aplicativo básico do JSP no Eclipse.
-* Como trabalhar com o serviço do Banco de Dados de Documentos do Azure usando o [SDK Java do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-java).
+* Como trabalhar com o serviço Azure Cosmos DB usando o [SDK de Java do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-java).
 
-Este tutorial de aplicativo Java mostra como criar um aplicativo de gerenciamento de tarefas baseado na web que permite criar, recuperar e marcar tarefas como concluídas, conforme mostrado na imagem a seguir. Cada uma das tarefas na lista de tarefas é armazenada como documentos JSON no Banco de Dados de Documentos do Azure.
+Este tutorial de aplicativo Java mostra como criar um aplicativo de gerenciamento de tarefas baseado na web que permite criar, recuperar e marcar tarefas como concluídas, conforme mostrado na imagem a seguir. Cada uma das tarefas na lista de tarefas é armazenada como documentos JSON no Azure Cosmos DB.
 
 ![Aplicativo Java Minha lista de tarefas pendentes](./media/documentdb-java-application/image1.png)
 
@@ -53,15 +54,15 @@ Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter
 
     OU
 
-    Uma instalação local do [Emulador do DocumentDB do Azure](documentdb-nosql-local-emulator.md).
+    Uma instalação local do [Emulador do Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Java Development Kit (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Eclipse IDE para desenvolvedores de Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Um site do Azure com um Java runtime environment (por exemplo, Tomcat ou Jetty) habilitado.](../app-service-web/web-sites-java-get-started.md)
 
 Se você estiver instalando essas ferramentas pela primeira vez, o coreservlets.com fornecerá um passo a passo do processo de instalação na seção de Início rápido do artigo [Tutorial: Instalar TomCat7 e usá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) .
 
-## <a id="CreateDB"></a>Etapa 1: Criar uma conta de banco de dados do Banco de Dados de Documentos
-Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se você já tiver uma conta ou se estiver usando o Emulador do DocumentDB para este tutorial, pule para a [Etapa 2: Criar um novo aplicativo do Java JSP](#CreateJSP).
+## <a id="CreateDB"></a>Etapa 1: Criar uma conta de banco de dados do Azure Cosmos DB
+Vamos começar criando uma conta do Azure Cosmos DB. Se você já tiver uma conta ou se estiver usando o Emulador do Azure Cosmos DB para este tutorial, pule para a [Etapa 2: Criar um novo aplicativo do Java JSP](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,7 +117,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 6. Clique em **Ok** e o Maven instalará o SDK do Java do Banco de Dados de Documentos.
 7. Salve o arquivo pom.xml.
 
-## <a id="UseService"></a>Etapa 4: Usando o serviço de Banco de Dados de Documentos em um aplicativo Java
+## <a id="UseService"></a>Etapa 4: Usar o serviço do Azure Cosmos DB em um aplicativo Java
 1. Primeiro, vamos definir o objeto TodoItem:
    
         @Data
@@ -129,7 +130,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
         }
    
     Neste projeto, estamos usando [Project Lombok](http://projectlombok.org/) para gerar o construtor, os getters, os setters e um builder. Como alternativa, você pode escrever esse código manualmente ou o IDE pode gerá-lo.
-2. Para invocar o serviço do Banco de Dados de Documentos, você deve criar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada solicitação subsequente. O cliente pode ser reutilizado envolvendo o cliente em uma **DocumentClientFactory**. Aqui também é onde você precisa colar o valor da URI e a CHAVE PRIMÁRIA salva na área de transferência na [etapa 1](#CreateDB). Substitua [SEU\_PONTODEEXTREMIDADE\_AQUI] pelo seu URI e substitua [SUA\_CHAVE\_AQUI] pela sua chave primária.
+2. Para invocar o serviço Azure Cosmos DB, você deve criar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada solicitação subsequente. O cliente pode ser reutilizado envolvendo o cliente em uma **DocumentClientFactory**. Aqui também é onde você precisa colar o valor da URI e a CHAVE PRIMÁRIA salva na área de transferência na [etapa 1](#CreateDB). Substitua [SEU\_PONTODEEXTREMIDADE\_AQUI] pelo seu URI e substitua [SUA\_CHAVE\_AQUI] pela sua chave primária.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -140,7 +141,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
         public static DocumentClient getDocumentClient() {
             return documentClient;
         }
-3. Agora, vamos criar um objeto de acesso de dados (DAO) para abstrair mantendo os itens ToDo no Banco de Dados de Documentos.
+3. Agora, vamos criar um objeto de acesso de dados (DAO) para abstrair mantendo os itens ToDo no Azure Cosmos DB.
    
     Para salvar os itens das tarefas em uma coleção, o cliente precisa saber qual banco de dados e coleção manter (como referenciado por self-links). Em geral, é melhor armazenar o banco de dados e a coleção em cache sempre que possível para evitar viagens adicionais ao banco de dados.
    
@@ -153,7 +154,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
             // The name of our collection.
             private static final String COLLECTION_ID = "TodoCollection";
    
-            // The DocumentDB Client
+            // The Azure Cosmos DB Client
             private static DocumentClient documentClient = DocumentClientFactory
                     .getDocumentClient();
    
@@ -257,7 +258,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Como os bancos de dados e coleções do Bancos de Dados de Documentos, também são referenciados por self-links. A função de auxiliar a seguir nos permite recuperar documentos por outro atributo (por exemplo, "id") em vez de self-links:
+5. Assim como os bancos de dados e coleções do Azure Cosmos DB, os documentos também são referenciados por self-links. A função de auxiliar a seguir nos permite recuperar documentos por outro atributo (por exemplo, "id") em vez de self-links:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -334,7 +335,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
    
         @Override
         public boolean deleteTodoItem(String id) {
-            // DocumentDB refers to documents by self link rather than id.
+            // Azure Cosmos DB refers to documents by self link rather than id.
    
             // Query for the document to retrieve the self link.
             Document todoItemDocument = getDocumentById(id);
@@ -464,7 +465,7 @@ Agora que concluímos a parte divertida - tudo que restou é criar uma interface
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
           <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
-          <title>Azure DocumentDB Java Sample</title>
+          <title>Azure Cosmos DB Java Sample</title>
    
           <!-- Bootstrap -->
           <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -748,7 +749,7 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 7. Na tela **Seleção de Ramificação**, verifique se **master** está selecionado e clique em **Avançar**.
 8. Na tela **Destino Local**, clique em **Procurar** para selecionar uma pasta onde o repositório possa ser copiado e clique em **Avançar**.
 9. Na tela **Selecionar um assistente a ser usado para importar projetos**, verifique se **Importar projetos existentes** está selecionado e clique em **Avançar**.
-10. Na tela **Importar projetos**, desmarque o projeto do **DocumentDB** e clique em **Concluir**. O projeto Banco de Dados de Documentos contém o SDK Java do Banco de Dados de Documentos, que adicionaremos como uma dependência em seu lugar.
+10. Na tela **Importar projetos**, desmarque o projeto do **Azure Cosmos DB** e clique em **Concluir**. O projeto Azure Cosmos DB contém o SDK Java do Azure Cosmos DB, que adicionaremos como uma dependência em seu lugar.
 11. No **Explorador de Projeto**, navegue até azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e substitua os valores HOST e MASTER_KEY pela URI e a CHAVE PRIMÁRIA para a sua conta do DocumentDB e salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Banco de Dados de Documentos](#CreateDB).
 12. Em **Explorador de Projeto**, clique com o botão direito do mouse em **azure-documentdb-java-sample**, clique em **Caminho de Build** e clique em **Configurar Caminho de Build**.
 13. Na tela **Caminho de Build Java**, no painel direito, selecione a guia **Bibliotecas** e clique em **Adicionar JARs Externos**. Navegue até o local do arquivo lombok.jar e clique em **Abrir** e clique em **OK**.

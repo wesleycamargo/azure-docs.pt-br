@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 05/17/2017
 ms.author: ryanwi, mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 91049ee124999269a326106cbd6fc211cc027d26
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: dc07c709df84bbfcbf677bc3c2977590e651b194
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -70,9 +71,16 @@ Se só precisar do SDK, você poderá instalar este pacote:
 > Pedimos desculpas pelo transtorno. 
 
 As versões atuais são:
-* SDK do Service Fabric 2.5.216
-* Execução do Service Fabric 5.5.216
-* Ferramentas do Visual Studio 2015 1.5.50311.1
+* SDK do Service Fabric 2.6.204
+* Tempo de execução do Service Fabric 5.6.204
+* Ferramentas do Visual Studio 2015 1.6.50508.2
+* Visual Studio 2017 Atualização 2
+
+As versões de versão prévia atuais são:
+* SDK do Service Fabric 255.255.2709.255
+* Tempo de execução do Service Fabric 255.255.5709.255
+* Ferramentas do Visual Studio 2015 1.6.50509.5
+* Visual Studio 2017 Atualização 3 Versão Prévia 1
 
 Para obter uma lista das versões com suporte, consulte [suporte ao Service Fabric](service-fabric-support.md)
 
