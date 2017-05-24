@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: joroja;parahk;gsacavdm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: b72db6a0eb8a8621be5f05da6028615d5d24ba1e
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 42824fe10e635257681f62ab1fec9b47abd4294a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/12/2017
 
 ---
 # <a name="azure-active-directory-b2c-getting-started-with-custom-policies"></a>Azure Active Directory B2C: Introdução às políticas personalizadas
@@ -35,7 +35,7 @@ O acesso à edição da política personalizada requer uma assinatura válida do
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Adicionar chaves de assinatura e criptografia ao seu locatário do B2C para uso por Políticas Personalizadas
 
-1. Navegue até a folha Identity Experience Framework em suas configurações de locatário do Azure AD B2C.
+1. Navegue até a folha **Identity Experience Framework** em suas configurações de locatário do Azure AD B2C.
 2. Selecione **Chaves de Política** para exibir as chaves disponíveis no seu locatário.
 3. Crie `B2C_1A_TokenSigningKeyContainer` se ele não existir:
  * Clique em **Adicionar**
@@ -107,7 +107,7 @@ Cada starterpack contém:
 
 * O [arquivo base](active-directory-b2c-overview-custom.md#policy-files) da política. São necessárias algumas modificações na base.
 * O [arquivo de extensão](active-directory-b2c-overview-custom.md#policy-files) da política.  Esse arquivo é o local em que a maioria das alterações de configuração é feita.
-* [Arquivos de terceiras partes confiáveis](active-directory-b2c-overview-custom.md#policy-files) São os arquivos específicos de tarefa, chamados pelo aplicativo para tarefas específicas.
+* [Arquivos de terceiras partes confiáveis](active-directory-b2c-overview-custom.md#policy-files) São os arquivos específicos de tarefa, chamados pelo aplicativo.
 
 >[!NOTE]
 >Caso seu editor de XML dê suporte à validação, valide os arquivos em relação ao arquivo de esquema XML `TrustFrameworkPolicy_0.3.0.0.xsd` localizado na pasta raiz do pacote de início. A validação de esquema XML identifica erros antes do upload.
@@ -121,7 +121,7 @@ Vamos começar:
     ```
 2. Abra a pasta `SocialAndLocalAccounts`.  O arquivo base (`TrustFrameworkBase.xml`) dessa pasta contém o conteúdo necessário para contas locais e sociais/corporativas. O conteúdo social não interfere nas etapas para ativação das contas locais.
 3. Abra `TrustFrameworkBase.xml`.  Se você precisar de um editor de XML, [experimente o Visual Studio Code](https://code.visualstudio.com/download), um editor de plataforma cruzada leve.
-4. No elemento raiz `TrustFrameworkPolicy`, atualize os atributos `TenantId` e `PublicPolicyUri`, substituindo `yourtenant.onmicrosoft.com` pelo nome de domínio do seu locatário do Azure AD B2C:
+4. No elemento raiz `TrustFrameworkPolicy`, atualize os atributos `TenantId` e `PublicPolicyUri`, substituindo `yourtenant.onmicrosoft.com` pelo seu nome de domínio do seu locatário do Azure AD B2C:
 
     ```xml
     <TrustFrameworkPolicy
@@ -139,7 +139,7 @@ Vamos começar:
 5. Salve o arquivo.
 6. Abra `TrustFrameworkExtensions.xml` e faça as mesmas duas alterações substituindo `yourtenant.onmicrosoft.com` pelo locatário do Azure AD B2C. Faça a mesma substituição no elemento `<TenantId>` para um total de três alterações.  Salve o arquivo.
 7. Abra `SignUpOrSignIn.xml` e faça as mesmas alterações substituindo `yourtenant.onmicrosoft.com` pelo locatário do Azure AD B2C em três locais. Salve o arquivo.
-8. Abra os arquivos de segredo de senha e de edição de perfil e faça as mesmas alterações substituindo `yourtenant.onmicrosoft.com` pelo seu locatário do Azure AD B2C em três locais em cada arquivo. Salve os arquivos.
+8. Abra os arquivos de reposição de senha e de edição de perfil e faça as mesmas alterações substituindo `yourtenant.onmicrosoft.com` pelo seu locatário do Azure AD B2C em três locais em cada arquivo. Salve os arquivos.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Adicionar as IDs do Aplicativo à política personalizada
 Adicione as IDs de aplicativo para o arquivo de extensões (`TrustFrameworkExtensions.xml`).
