@@ -13,12 +13,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 05/10/2017
 ms.author: jodebrui
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a7273c50f2619c776268406aa14f6c00dcfbfbbe
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -29,7 +30,7 @@ Usando tecnologias In-Memory no Banco de Dados SQL do Azure, você pode obter me
 Estes são dois exemplos de como o OLTP In-Memory ajudou a melhorar significativamente o desempenho:
 
 - Usando o OLTP In-Memory, o [Quorum Business Solutions foi capaz de duplicar a carga de trabalho, melhorando as DTUs (ou seja, o consumo de recursos) em 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-- O vídeo a seguir demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de exemplo: [OLTP In-Memory no Banco de Dados SQL do Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
+- O vídeo a seguir demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de exemplo: [OLTP In-Memory no Vídeo do Banco de Dados SQL do Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). Para obter mais detalhes, confira a postagem no blog: [Postagem de Blog de OLTP na memória do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 As tecnologias In-Memory estão disponíveis em todos os bancos de dados da camada Premium, incluindo bancos de dados em pools elásticos Premium.
 
@@ -497,6 +498,8 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 #### <a name="deeper-information"></a>Informações mais detalhadas
 
 - [Saiba como o Quorum dobra a principal carga de trabalho do banco de dados, enquanto reduz a DTU em 70% com o OLTP in-memory no Banco de Dados SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+
+- [Postagem de Blog de OLTP na memória do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 - [Saiba mais sobre o OLTP in-memory](http://msdn.microsoft.com/library/dn133186.aspx)
 
