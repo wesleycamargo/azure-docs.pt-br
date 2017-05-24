@@ -16,7 +16,7 @@
     Configuração|Valor sugerido|Descrição
     ---|---|---
     ID|*Valor exclusivo*|Um nome exclusivo que você escolhe para identificar a conta do BD Cosmos do Azure. *documents.Azure.com* é acrescentado à ID que você fornece para criar o URI, portanto, use uma ID exclusiva mas identificável. A ID pode conter somente letras minúsculas, números e o caractere '-', e deve ter entre 3 e 50 caracteres.
-    AP|MongoDB|Programaremos para a [API do MongoDB](../articles/documentdb/documentdb-protocol-mongodb.md) posteriormente neste artigo.|
+    API|MongoDB|Programaremos para a [API do MongoDB](../articles/documentdb/documentdb-protocol-mongodb.md) posteriormente neste artigo.|
     Assinatura|*Sua assinatura*|A assinatura do Azure que você deseja usar para a conta do BD Cosmos do Azure. 
     Grupo de recursos|*O mesmo valor que a ID*|O novo nome de grupo de recursos para sua conta. Para simplificar, você pode usar um nome igual à sua ID. 
     Local|*A região mais próxima de seus usuários*|A localização geográfica na qual hospedar a sua conta do BD Cosmos do Azure. Escolha o local mais próximo dos usuários para fornecer a eles acesso mais rápido aos dados.
