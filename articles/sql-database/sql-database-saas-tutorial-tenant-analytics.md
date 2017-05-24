@@ -1,6 +1,6 @@
 ---
-title: "Executar consultas de análise em vários locatários (aplicativo SaaS de exemplo usando o Banco de Dados SQL do Azure) | Microsoft Docs"
-description: "Executar consultas de análise em vários locatários"
+title: "Executar consultas de análise em vários bancos de dados Azure SQL | Microsoft Docs"
+description: "Executar consultas distribuídas entre vários bancos de dados do Azure SQL"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>Executar consultas de análise em vários locatários
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Executar consultas distribuídas entre vários bancos de dados do Azure SQL
 
 Neste tutorial, você executará consultas de análise em cada locatário no catálogo. Um trabalho elástico é criado para executar as consultas. O trabalho recupera dados e carrega-os em um banco de dados de análise separado criado no servidor de catálogo. Esse banco de dados pode ser consultado para extrair informações escondidas nos dados operacionais diários de todos os locatários. Como uma saída do trabalho, uma tabela é criada nas consultas que retornam resultados no banco de dados de análise do locatário.
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-requisitos:
 
-* O aplicativo WTP foi implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo SaaS WTP](sql-database-saas-tutorial.md)
+* O aplicativo WTP foi implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo WTP SaaS](sql-database-saas-tutorial.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * A última versão do SQL Server Management Studio (SSMS) está instalada. [Baixar e Instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 

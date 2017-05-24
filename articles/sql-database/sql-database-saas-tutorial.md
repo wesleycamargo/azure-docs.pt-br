@@ -1,6 +1,6 @@
 ---
-title: Implantar e explorar o aplicativo WTP (Wingtip Tickets Platform) (aplicativo SaaS de exemplo, usando o Banco de Dados SQL do Azure) | Microsoft Docs
-description: Implantar e explorar um aplicativo SaaS de exemplo que usa o Banco de Dados SQL do Azure
+title: Implantar e explorar um aplicativo SaaS que usa o Banco de Dados SQL do Azure | Microsoft Docs
+description: Implantar e explorar o aplicativo WTP (Wingtip Tickets) de exemplo de Banco de Dados SQL
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -17,18 +17,20 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ff4dc19bb6e24ea9ceeed9721cfb3a85b4d10965
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 04859fb8a9f4a8bf04d92e7139d9202885c52503
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-azure-sql-database"></a>Implantar e explorar um Aplicativo SaaS multilocatário que usa o Banco de Dados SQL do Azure
+# <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de Dados SQL do Azure
 
 Neste tutorial, você implanta e explora o aplicativo SaaS WTP (Wingtip Tickets Platform). O aplicativo usa um padrão de aplicativo SaaS de um banco de dados por locatário para atender a vários locatários. O aplicativo foi projetado para demonstrar os recursos do Banco de Dados SQL do Azure que habilitam cenários de SaaS, além de padrões de design e gerenciamento de SaaS.
 
 Cinco minutos depois de clicar no botão *Implantar no Azure* abaixo, você terá um aplicativo SaaS multilocatário, usando o Banco de Dados SQL, em funcionamento na nuvem. O aplicativo é implantado com três locatários de exemplo, cada um com seu próprio banco de dados, todos implantados em um pool elástico do SQL. O aplicativo é implantado na sua assinatura do Azure, dando a você acesso completo para inspecionar e trabalhar com os componentes individuais do aplicativo.
+
+Os scripts e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS).
 
 Neste tutorial, você aprende:
 

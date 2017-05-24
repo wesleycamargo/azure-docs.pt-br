@@ -1,8 +1,8 @@
 | Categoria | Armazenamento de dados | Tem suporte como origem | Tem suporte como coletor |
 |:--- |:--- |:--- |:--- |
 | **As tabelas** |[Armazenamento de Blobs do Azure](../articles/data-factory/data-factory-azure-blob-connector.md) |✓  |✓  |
+| &nbsp; |[Azure Cosmos DB (API do DocumentDB)](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓  |✓  |
 | &nbsp; |[Repositório Azure Data Lake](../articles/data-factory/data-factory-azure-datalake-connector.md) |✓  |✓  |
-| &nbsp; |[Azure DocumentDB](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓ |✓  |
 | &nbsp; |[Banco de Dados SQL do Azure](../articles/data-factory/data-factory-azure-sql-connector.md) |✓  |✓  |
 | &nbsp; |[SQL Data Warehouse do Azure](../articles/data-factory/data-factory-azure-sql-data-warehouse-connector.md) |✓  |✓  |
 | &nbsp; |[Índice do Azure Search](../articles/data-factory/data-factory-azure-search-connector.md) | |✓  |

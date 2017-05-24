@@ -16,43 +16,49 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 10461bddeb4d5adf4a6e4f65159ba2653dbef8a4
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 1478a2eedad496d3113fef28920d10859d11b1ce
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-#  <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é disparada por um temporizador
+# <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é disparada por um temporizador
 
-Saiba como usar o Azure Functions para criar uma função que é executada com base em uma agendamento definido por você. 
+Saiba como usar o Azure Functions para criar uma função que é executada com base em uma agendamento definido por você.
 
 ![Criar um aplicativo de funções no portal do Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-Deve levar menos de cinco minutos para concluir todas as etapas neste tópico.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>Pré-requisitos 
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-Neste tópico, você pode criar uma função disparada por timer em seu aplicativo de funções existente. 
+## <a name="create-an-azure-function-app"></a>Criar um Aplicativo de funções do Azure
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-function"></a>Criar uma função disparada por temporizador
+![Aplicativo de funções criado com êxito.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+Em seguida, crie uma nova função no novo aplicativo de funções.
+
+<a name="create-function"></a>
+
+## <a name="create-a-timer-triggered-function"></a>Criar uma função disparada por temporizador
 
 1. Expanda seu aplicativo de funções, clique no botão **+** ao lado de **Funções** e clique no modelo **TimerTrigger** para a linguagem de programação desejada. Use então as configurações especificadas na tabela e, em seguida, clique em **Criar**:
 
-    | Configuração      |  Valor sugerido   | Descrição                              |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Nomeie sua função** | TimerTriggerCSharp1 | Define o nome da sua função disparada por temporizador.
-    | **[Agendamento](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 */1 * * * * | Uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) de seis campos que agenda sua função para ser executada a cada minuto. |
+| Configuração | Valor sugerido | Descrição |
+|---|---|---|
+| **Nomeie sua função** | TimerTriggerCSharp1 | Define o nome da sua função disparada por temporizador. |
+| **[Agendamento](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) de seis campos que agenda sua função para ser executada a cada minuto. |
 
-    Uma nova função na linguagem de programação escolhida por você e que é executada a cada minuto é criada. 
+Uma nova função na linguagem de programação escolhida por você e que é executada a cada minuto é criada.
 
-4. Verifique a execução, exibindo informações de rastreamento gravadas nos logs. 
+1. Verifique a execução, exibindo informações de rastreamento gravadas nos logs.
 
-    ![Visualizador de log de função no Portal do Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+![Visualizador de log de função no Portal do Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
 Agora, você pode alterar o agendamento da função para que ela seja executada com menos frequência, por exemplo, uma vez por hora. 
 
@@ -71,12 +77,9 @@ Agora você tem uma função que é executada uma vez a cada hora.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Você criou uma função que é executada segundo um agendamento. 
+
+Você criou uma função que é executada segundo um agendamento.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Para obter mais informações sobre gatilhos de temporizador, consulte [Agendar a execução de código com o Azure Functions](functions-bindings-timer.md). 
-
-
-
-
+Para obter mais informações sobre gatilhos de temporizador, consulte [Agendar a execução de código com o Azure Functions](functions-bindings-timer.md).
