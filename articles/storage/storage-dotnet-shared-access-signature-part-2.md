@@ -121,7 +121,7 @@ Compile e execute para gerar a saída do URI de assinatura de acesso compartilha
 
 `https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D`
 
-Depois de executar o código, a assinatura de acesso compartilhado criada no contêiner será válida durante as próximas&24; horas. A assinatura concede uma permissão de cliente para listar os blobs no contêiner e gravar um novo blob no contêiner.
+Depois de executar o código, a assinatura de acesso compartilhado criada no contêiner será válida durante as próximas 24 horas. A assinatura concede uma permissão de cliente para listar os blobs no contêiner e gravar um novo blob no contêiner.
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Gerar um URI de assinatura de acesso compartilhado para um blob
 Em seguida, escreveremos um código semelhante para criar um novo blob dentro do contêiner e gerar uma assinatura de acesso compartilhado para ele. Essa assinatura de acesso compartilhado não está associada a uma política de acesso armazenado, portanto, ela inclui as informações de hora de início, hora de expiração e permissão no URI.
