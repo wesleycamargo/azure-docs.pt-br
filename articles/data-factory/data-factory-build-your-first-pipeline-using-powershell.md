@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c7062721017176b4caacbd48a513c2610058b835
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: bfd2176103601b748bd141cc1cc86e814395c3b3
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -142,7 +143,6 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "StorageLinkedService"
@@ -154,7 +154,6 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
 
    | Propriedade | Descrição |
    |:--- |:--- |
-   | Versão |Especifica a versão do HDInsight criada como a 3.2. |
    | ClusterSize |Especifica o tamanho do cluster HDInsight. |
    | TimeToLive |Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído. |
    | linkedServiceName |Especifica a conta de armazenamento usada para armazenar os logs gerados pelo HDInsight |
