@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: e00ceb8dd87e00bbdd05146e107c72e6182eb474
+ms.contentlocale: pt-br
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -201,9 +204,4 @@ Content-Type: application/json
 Você pode usar o token de acesso resultante em solicitações HTTP para o recurso. Ele confiável indica ao recurso que seu aplicativo tem a permissão apropriada para executar uma tarefa específica.  
 
 Para saber mais sobre o protocolo OAuth 2.0 e como obter tokens de acesso, consulte a [referência do protocolo do ponto de extremidade v2.0](active-directory-v2-protocols.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
