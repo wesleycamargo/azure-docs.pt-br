@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: true
 experimental: true
-experiment_id: d6155f71-baae-45
+experiment_id: 81ba5f65-59fb-4d
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 ms.translationtype: Human Translation

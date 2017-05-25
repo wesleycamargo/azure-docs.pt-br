@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
 ms.openlocfilehash: af9e0b7c0f7077b8d4e20ccafdc1fb4e1eb58505
+ms.contentlocale: pt-br
 ms.lasthandoff: 12/08/2016
 
 
@@ -43,7 +44,7 @@ Para verificar a versão do PowerShell instalado:
 
     Get-Module *azure*
 
-Para desinstalar a versão mais antiga, execute Programas e Recursos no painel de controle. 
+Para desinstalar a versão mais antiga, execute Programas e Recursos no painel de controle.
 
 ## <a name="create-clusters"></a>Criar clusters
 Confira [Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -72,40 +73,40 @@ O recurso de dimensionamento de clusters permite que você altere o número de n
 
 > [!NOTE]
 > Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades.  Confira [Listar e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
-> 
-> 
+>
+>
 
 O impacto da alteração do número de nós de dados em cada tipo de cluster com suporte do HDInsight:
 
 * O Hadoop
-  
+
     Você pode aumentar continuamente o número de nós de trabalhador em um cluster Hadoop em execução sem afetar os trabalhos pendentes ou em execução. Novos trabalhos também podem ser enviados enquanto a operação está em andamento. Falhas em uma operação de dimensionamento são normalmente manipuladas para que o cluster sempre seja deixado em um estado funcional.
-  
+
     Quando um cluster Hadoop é reduzido verticalmente pela diminuição do número de nós de dados, alguns dos serviços no cluster são reiniciados. Isso faz com que todos os trabalhos em execução e pendentes falhem após a conclusão da operação de dimensionamento. Você pode, no entanto, reenviar os trabalhos quando a operação for concluída.
 * HBase
-  
+
     Você pode adicionar ou remover diretamente nós do cluster HBase enquanto ele é executado. Servidores Regionais são equilibrados automaticamente em alguns minutos após o término da operação de dimensionamento. No entanto, você pode equilibrar manualmente os servidores regionais fazendo logon no nó de cabeçalho do cluster e executando os seguintes comandos em uma janela de prompt de comando:
-  
+
         >pushd %HBASE_HOME%\bin
         >hbase shell
         >balancer
 * Storm
-  
+
     Você pode adicionar ou remover nós de dados continuamente para seu cluster Strom enquanto ele é executado. Mas, após a conclusão bem-sucedida da operação de dimensionamento, você precisará redistribuir a topologia.
-  
+
     A redistribuição pode ser feita de duas maneiras:
-  
+
   * Interface da Web Storm
   * Ferramenta CLI (interface de linha de comando)
-    
+
     Consulte a [documentação do Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
-    
+
     A IU da Web do Storm está disponível no cluster HDInsight:
-    
-    ![HDInsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
-    
+
+    ![HDInsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
-    
+
         ## Reconfigure the topology "mytopology" to use 5 worker processes,
         ## the spout "blue-spout" to use 3 executors, and
         ## the bolt "yellow-bolt" to use 10 executors
@@ -146,8 +147,8 @@ Para conceder:
 
 > [!NOTE]
 > Ao conceder/revogar o acesso, você redefinirá o nome de usuário de cluster e a senha.
-> 
-> 
+>
+>
 
 Isso também pode ser feito por meio do Portal. Consulte [Administrar o HDInsight usando o Portal do Azure][hdinsight-admin-portal].
 
@@ -164,7 +165,7 @@ O script do Powershell a seguir demonstra como obter o nome da conta de armazena
     $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
 ## <a name="find-the-resource-group"></a>Encontrar o grupo de recursos
 No modo do Gerenciador de Recursos, cada cluster HDInsight pertence a um grupo de recursos do Azure.  Encontrar o grupo de recursos:
@@ -180,7 +181,7 @@ No modo do Gerenciador de Recursos, cada cluster HDInsight pertence a um grupo d
 
 Veja [Executar exemplos do MapReduce do Hadoop no HDInsight baseado em Windows](hdinsight-run-samples.md).
 
-**Enviar trabalhos Hive** 
+**Enviar trabalhos Hive**
 
 Veja [Executar consultas do Hive usando o PowerShell](hdinsight-hadoop-use-hive-powershell.md)
 
