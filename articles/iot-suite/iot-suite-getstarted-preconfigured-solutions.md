@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2364ab79ec4091d41e4d340e13033181df05b507
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Tutorial: introdução às soluções pré-configuradas
-## <a name="introduction"></a>Introdução
+# <a name="get-started-with-the-preconfigured-solutions"></a>Introdução a soluções pré-configuradas
+
 As [soluções pré-configuradas][lnk-preconfigured-solutions] do Azure IoT Suite combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT. A solução pré-configurada de *monitoramento remoto* conecta-se seus dispositivos e os monitora. Você pode usar a solução para analisar o fluxo de dados de dispositivos e melhorar os resultados de negócios fazendo com que os processos respondam automaticamente a esse fluxo de dados.
 
 Este tutorial mostra como provisionar a solução pré-configurada de monitoramento remoto. Ele também explica os recursos básicos da solução pré-configurada. Você pode acessar muitos desses recursos no *painel* de solução que é implantado como parte da solução pré-configurada:
@@ -34,8 +35,6 @@ Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
 
 > [!NOTE]
 > Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
-> 
-> 
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
@@ -321,7 +320,7 @@ Você pode criar filtros com base na id do dispositivo, estado do dispositivo, p
 
 No painel **Detalhes do Dispositivo**, você pode enviar comandos ao dispositivo. Quando um dispositivo é iniciado, ele envia informações sobre os comandos a que ele dá suporte para a solução. Para obter uma discussão sobre as diferenças entre os métodos e comandos, confira [Opções de nuvem para dispositivo do Hub IoT do Azure][lnk-c2d-guidance].
 
-1. Escolha **Comandos** no painel **Detalhes do Dispositivo** do dispositivo selecionado:
+1. Escolha **Comandos** no painel **Detalhes do Dispositivo**  do dispositivo selecionado:
 
    ![Comandos de dispositivo no painel][img-devicecommands]
 
