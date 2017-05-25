@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
 ms.openlocfilehash: a3e21d5af43562afde927bb623b910c96ad48158
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -377,8 +380,3 @@ Uma resposta de erro de exemplo se parece com esta:
 | correlation_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
 
 Para obter uma descrição dos códigos de erro e a ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de token](#error-codes-for-token-endpoint-errors).
-
-
-<!--HONumber=Feb17_HO2-->
-
-
