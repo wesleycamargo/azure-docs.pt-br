@@ -32,6 +32,7 @@ Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup
 > * Restaurar um arquivo de um backup
 
 
+
 ## <a name="backup-overview"></a>Visão geral do backup
 
 Quando o serviço de Backup do Azure inicia um backup, ele dispara a extensão de backup para obter um instantâneo pontual. O serviço de Backup do Azure usa a extensão _VMSnapshotLinux_ no Linux. A extensão é instalada durante o primeiro backup de VM se a VM está em execução. Se a VM não estiver em execução, o serviço de Backup criará um instantâneo do armazenamento subjacente (já que nenhuma gravação de aplicativo ocorre enquanto a VM está parada).
