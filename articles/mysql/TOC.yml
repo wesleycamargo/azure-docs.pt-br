@@ -39,11 +39,11 @@
       href: concepts-supported-versions.md
   - name: Recursos
     items:
-    - name: Camadas de serviço
+    - name: Tipos de preço
       href: concepts-service-tiers.md
-    - name: Unidades de computação e Unidades de armazenamento
+    - name: Unidades de computação
       href: concepts-compute-unit-and-storage.md
-    - name: Limites
+    - name: limites
       href: concepts-limits.md
   - name: Acesso a dados e segurança
     items:
@@ -85,6 +85,8 @@
       href: howto-connection-string.md
     - name: Configurar SSL
       href: howto-configure-ssl.md
+    - name: Aplicativo Web
+      href: howto-connect-webapp.md
 - name: Referência
   items:
   - name: CLI do Azure

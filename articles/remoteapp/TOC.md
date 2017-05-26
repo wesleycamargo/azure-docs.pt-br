@@ -22,8 +22,10 @@
 ### [Executar qualquer aplicativo em qualquer dispositivo](remoteapp-anyapp.md)
 ### [Executar o Office 365 em qualquer dispositivo](remoteapp-tutorial-o365anywhere.md)
 
-# Como:
+# Como
 
+## [Migrar dados de usuário do Azure RemoteApp](remoteapp-migrate.md)
+## [Migrar para o Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Criar uma coleção de RemoteApp
 ### [De qual coleção você precisa?](remoteapp-collections.md)
 ### [Criar uma coleção na nuvem](remoteapp-create-cloud-deployment.md)
@@ -69,8 +71,3 @@
 ## [Preços](https://azure.microsoft.com/pricing/details/remoteapp/)
 ## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

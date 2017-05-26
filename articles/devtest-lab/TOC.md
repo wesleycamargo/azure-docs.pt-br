@@ -13,6 +13,7 @@
 ## Usar VMs em um laboratório
 ### [Criar VMs](devtest-lab-add-vm.md)
 ### [Criar VM declarável](devtest-lab-add-claimable-vm.md)
+### [Criar e gerenciar VMs com a CLI do Azure](devtest-lab-vmcli.md)
 
 ## Usar ambientes em um laboratório
 ### [Criar um ambiente](devtest-lab-create-environment-from-arm.md)

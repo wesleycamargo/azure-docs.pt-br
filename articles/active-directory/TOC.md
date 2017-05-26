@@ -1,7 +1,7 @@
 # Visão geral
 ## [O que é o Azure Active Directory?](active-directory-whatis.md)
 ## [Escolher edição](active-directory-editions.md)
-## [Sobre o gerenciamento de identidade do Azure](fundamentals-identity.md)
+## [Sobre o gerenciamento de identidade do Azure](identity-fundamentals.md)
 ## [Entender as soluções de identidade do Azure](understand-azure-identity-solutions.md)
 ## [Visualizar a experiência do Portal do Azure](active-directory-preview-explainer.md)
 
@@ -90,7 +90,7 @@
 ### Solucionar problemas
 #### [Dados de auditoria ausentes](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Dados ausentes nos downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    Acesso Programático
+###    [Acesso Programático](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Referência de auditoria](active-directory-reporting-api-audit-reference.md)
 #### [Referência de entrada](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Pré-requisitos](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +115,7 @@
 ##### [Fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Entradas anômalas](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Gerenciar senhas](active-directory-passwords.md)
+## [Gerenciar senhas](active-directory-passwords-overview.md)
 ### Documentos do usuário
 #### [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md)
 #### [Práticas recomendadas de senha](active-directory-secure-passwords.md)
@@ -298,6 +298,7 @@
 ##### [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Elevar o acesso de administrador de locatário](role-based-access-control-tenant-admin-access.md)
 #### [Solucionar problemas](role-based-access-control-troubleshooting.md)
 #### [Operações de provedor de recursos](role-based-access-control-resource-provider-operations.md)
 ### [Configurar tempo de vida de tokens](active-directory-configurable-token-lifetimes.md)
