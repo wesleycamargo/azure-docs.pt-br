@@ -117,6 +117,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitorar e solucionar problemas
+### [Solucionar problemas do Gerenciador de Armazenamento](storage-explorer-troubleshooting.md)
 ### Métricas e logs
 #### [Análise de Armazenamento](storage-analytics.md)
 #### [Habilitar e exibir métricas](storage-enable-and-view-metrics.md)

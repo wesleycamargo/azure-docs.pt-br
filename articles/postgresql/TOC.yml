@@ -39,11 +39,11 @@
       href: concepts-server-logs.md
   - name: Recursos
     items:
-    - name: Camadas de serviço
+    - name: Tipos de preço
       href: concepts-service-tiers.md
-    - name: Unidades de Computação e Unidades de Armazenamento
+    - name: Unidades de computação
       href: concepts-compute-unit-and-storage.md
-    - name: Limites
+    - name: limites
       href: concepts-limits.md
   - name: Acesso a dados e segurança
     items:

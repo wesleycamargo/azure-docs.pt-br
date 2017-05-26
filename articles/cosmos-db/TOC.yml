@@ -5,7 +5,7 @@
   - name: Sobre o Banco de dados do Azure Cosmos
     href: introduction.md
   - name: Seja bem-vindos clientes do DocumentDB
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Guia de início rápido
   expanded: true
   items:
@@ -236,6 +236,12 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: Failovers regionais
       href: ../documentdb/documentdb-regional-failovers.md
+    - name: Definir taxa de transferência
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: SLAs do monitor
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: Gerenciar chaves e consistência
+      href: ../documentdb/documentdb-manage-account.md
     - name: Automação
       items:
       - name: CLI 1.0 do Azure - Criar uma conta
@@ -250,10 +256,14 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: Suporte a firewall
         href: ../documentdb/documentdb-firewall-support.md
+      - name: Proteção de acesso aos dados
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: Integração
     items:
     - name: Conectar-se ao Spark
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Conectar-se ao Spark GraphX
+      href: spark-connector-graph.md      
     - name: Implantar um site com o Serviço de Aplicativo do Azure
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Log de aplicativo com Aplicativos Lógicos
