@@ -68,4 +68,3 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Exemplos adicionais de script de CLI de rede do Azure podem ser encontrados na [Documentação de rede do Azure](../cli-samples.md).
-

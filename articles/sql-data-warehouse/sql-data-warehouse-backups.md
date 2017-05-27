@@ -3,7 +3,7 @@ title: "Backups do SQL Data Warehouse do Azure - instantâneos, redundância geo
 description: "Saiba mais sobre os backups do banco de dados interno do SQL Data Warehouse que permitem que você restaure um Azure SQL Data Warehouse para um ponto de restauração ou outra região geográfica."
 services: sql-data-warehouse
 documentationcenter: 
-author: lakshmi1812
+author: Lakshmi1812
 manager: jhubbard
 editor: 
 ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
@@ -15,9 +15,10 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
 ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/24/2017
 
 

@@ -1,46 +1,54 @@
 ---
-title: Usar o Sqoop do Hadoop no HDInsight baseado em Linux | Microsoft Docs
-description: Aprenda a usar o Sqoop para importar e exportar entre um Hadoop baseado em Linux no cluster HDInsight e um banco de dados SQL do Azure.
+title: "Apache Sqoop com Hadoop – Azure HDInsight | Microsoft Docs"
+description: Saiba como usar o Apache Sqoop para importar e exportar entre o HDInsight e o Banco de Dados SQL do Azure.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
 documentationcenter: 
 author: Blackmist
 tags: azure-portal
+keywords: hadoop sqoop,sqoop
 ms.assetid: 303649a5-4be5-4933-bf1d-4b232083c354
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 6bb8058a74d3417c4972a9010ac9e17739f3e323
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: a1e46f8cdcbb4dbb0f3bd64d677cd06a2e31d884
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="use-sqoop-with-hadoop-in-hdinsight-ssh"></a>Usar o Sqoop com Hadoop no HDInsight (SSH)
+# <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-in-hdinsight-and-sql-database"></a>Usar o Apache Sqoop para importar e exportar dados entre o Hadoop no HDInsight e o Banco de Dados SQL
 
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como usar o Sqoop para importar e exportar entre um cluster HDInsight e o Banco de Dados SQL do Azure ou banco de dados SQL Server.
+Aprenda a usar o Apache Sqoop para importar e exportar entre um cluster Hadoop no Azure HDInsight e o Banco de Dados SQL do Azure ou um banco de dados do Microsoft SQL Server. As etapas deste documentam usam o comando `sqoop` diretamente do nó principal do cluster Hadoop. Use o SSH para se conectar ao nó principal e executar os comandos neste documento.
 
 > [!IMPORTANT]
 > As etapas neste documento funcionam somente com clusters HDInsight que usam Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="install-freetds"></a>Instalar o FreeTDS
 
-1. Utilize SSH para se conectar ao cluster do HDInsight para Linux. O endereço a ser usado ao conectar-se é `CLUSTERNAME-ssh.azurehdinsight.net` e a porta é `22`.
+1. Use o SSH para conectar ao cluster HDInsight. Por exemplo, o comando a seguir se conecta ao nó principal de um cluster chamado `mycluster`:
+
+    ```bash
+    ssh CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use o seguinte comando para instalar o FreeTDS:
 
-        sudo apt-get --assume-yes install freetds-dev freetds-bin
+    ```bash
+    sudo apt install --assume-yes install freetds-dev freetds-bin
+    ```
 
     O FreeTDS é usado em várias etapas para se conectar ao Banco de Dados SQL.
 
@@ -63,28 +71,32 @@ Saiba como usar o Sqoop para importar e exportar entre um cluster HDInsight e o 
 
 2. No prompt `1>`, insira a seguinte consulta:
 
-        CREATE TABLE [dbo].[mobiledata](
-        [clientid] [nvarchar](50),
-        [querytime] [nvarchar](50),
-        [market] [nvarchar](50),
-        [deviceplatform] [nvarchar](50),
-        [devicemake] [nvarchar](50),
-        [devicemodel] [nvarchar](50),
-        [state] [nvarchar](50),
-        [country] [nvarchar](50),
-        [querydwelltime] [float],
-        [sessionid] [bigint],
-        [sessionpagevieworder] [bigint])
-        GO
-        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
-        GO
+    ```sql
+    CREATE TABLE [dbo].[mobiledata](
+    [clientid] [nvarchar](50),
+    [querytime] [nvarchar](50),
+    [market] [nvarchar](50),
+    [deviceplatform] [nvarchar](50),
+    [devicemake] [nvarchar](50),
+    [devicemodel] [nvarchar](50),
+    [state] [nvarchar](50),
+    [country] [nvarchar](50),
+    [querydwelltime] [float],
+    [sessionid] [bigint],
+    [sessionpagevieworder] [bigint])
+    GO
+    CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+    GO
+    ```
 
     Quando a instrução `GO` for inserida, as instruções anteriores serão avaliadas. Primeiro, a tabela **mobiledata** é criada e, em seguida, um índice de cluster é adicionado a ela (exigido pelo Banco de Dados SQL).
 
     Use a seguinte consulta para verificar se a tabela foi criada:
 
-        SELECT * FROM information_schema.tables
-        GO
+    ```sql
+    SELECT * FROM information_schema.tables
+    GO
+    ```
 
     Você verá uma saída semelhante ao seguinte texto:
 
@@ -95,26 +107,34 @@ Saiba como usar o Sqoop para importar e exportar entre um cluster HDInsight e o 
 
 ## <a name="sqoop-export"></a>Exportação do Sqoop
 
-1. Da conexão SSH para HDInsight, use o comando abaixo para verificar se o Sqoop pode ver seu Banco de Dados SQL:
+1. Da conexão SSH para o cluster, use o comando abaixo para verificar se o Sqoop pode ver seu Banco de Dados SQL:
 
-        sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+    ```bash
+    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+    ```
 
     Esse comando retorna uma lista de bancos de dados, incluindo o banco de dados **sqooptest** que você criou anteriormente.
 
 2. Use o comando a seguir para exportar dados de **hivesampletable** para a tabela **mobiledata**:
 
-        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+    ```bash
+    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+    ```
 
     Esse comando instrui o Sqoop a conectar ao banco de dados **sqooptest**. O Sqoop exporta então dados de **wasbs:///hive/warehouse/hivesampletable** para a tabela **mobiledata**.
 
 3. Depois de concluir o comando, use o seguinte comando para se conectar ao banco de dados usando TSQL:
 
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+    ```bash
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+    ```
 
     Uma vez conectado, use as instruções a seguir para verificar que os dados foram exportados para a tabela **mobiledata** :
 
-        SELECT * FROM mobiledata
-        GO
+    ```sql
+    SELECT * FROM mobiledata
+    GO
+    ```
 
     Você deve ver uma listagem dos dados na tabela. Digite `exit` para sair do utilitário tsql.
 
@@ -122,29 +142,30 @@ Saiba como usar o Sqoop para importar e exportar entre um cluster HDInsight e o 
 
 1. Use o seguinte comando para importar dados da tabela **mobiledata** no Banco de Dados SQL para o diretório **wasbs:///tutorials/usesqoop/importeddata** do HDInsight:
 
-        sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    ```bash
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    ```
 
     Os campos nos dados que são separados por um caractere de tabulação, e as linhas serão encerradas por um caractere de nova linha.
 
 2. Quando a importação for concluída, use o seguinte comando para listar os dados no novo diretório:
 
-        hadoop fs -text wasbs:///tutorials/usesqoop/importeddata/part-m-00000
+    ```bash
+    hdfs dfs -text /tutorials/usesqoop/importeddata/part-m-00000
+    ```
 
 ## <a name="using-sql-server"></a>Usar o SQL Server
 
 Você também pode usar o Sqoop para importar e exportar dados do SQL Server, seja no seu data center ou em uma máquina virtual hospedada no Azure. As diferenças entre o uso do Banco de Dados SQL e SQL Server são:
 
-* O HDInsight e o SQL Server devem estar na mesma rede virtual do Azure
-
-  > [!NOTE]
-  > O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade.
+* O HDInsight e o SQL Server devem estar na mesma Rede Virtual do Azure.
 
     Ao usar o SQL Server no datacenter, você deve configurar a rede virtual como *site a site* ou *ponto a site*.
 
   > [!NOTE]
   > Ao usar uma rede virtual **ponto a site**, o SQL Server deve executar o aplicativo de configuração do cliente VPN. O cliente VPN está disponível no **Painel** da sua configuração de rede virtual do Azure.
 
-    Para saber mais sobre Rede Virtual do Azure, consulte [Visão Geral da Rede Virtual](../virtual-network/virtual-networks-overview.md).
+    Para saber mais sobre como usar o HDInsight com Redes Virtuais do Azure, veja o documento [Estender o HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md). Para saber mais sobre Rede Virtual do Azure, veja o documento [Visão Geral da Rede Virtual](../virtual-network/virtual-networks-overview.md).
 
 * O SQL Server também deve ser configurado para permitir autenticação do SQL. Para obter mais informações, consulte o documento [Escolher um modo de autenticação](https://msdn.microsoft.com/ms144284.aspx).
 
@@ -152,24 +173,28 @@ Você também pode usar o Sqoop para importar e exportar dados do SQL Server, se
 
 * Crie o banco de dados **sqooptest** no SQL Server usando um utilitário como **SQL Server Management Studio** ou **tsql**. As etapas para usar a CLI do Azure só funcionam para o Banco de Dados SQL do Azure.
 
-    Use as seguintes instruções do TSQL para criar a tabela **mobiledata**:
+    Use as seguintes instruções do Transact-SQL para criar a tabela **mobiledata**:
 
-        CREATE TABLE [dbo].[mobiledata](
-        [clientid] [nvarchar](50),
-        [querytime] [nvarchar](50),
-        [market] [nvarchar](50),
-        [deviceplatform] [nvarchar](50),
-        [devicemake] [nvarchar](50),
-        [devicemodel] [nvarchar](50),
-        [state] [nvarchar](50),
-        [country] [nvarchar](50),
-        [querydwelltime] [float],
-        [sessionid] [bigint],
-        [sessionpagevieworder] [bigint])
+    ```sql
+    CREATE TABLE [dbo].[mobiledata](
+    [clientid] [nvarchar](50),
+    [querytime] [nvarchar](50),
+    [market] [nvarchar](50),
+    [deviceplatform] [nvarchar](50),
+    [devicemake] [nvarchar](50),
+    [devicemodel] [nvarchar](50),
+    [state] [nvarchar](50),
+    [country] [nvarchar](50),
+    [querydwelltime] [float],
+    [sessionid] [bigint],
+    [sessionpagevieworder] [bigint])
+    ```
 
 * Ao conectar-se ao SQL Server no HDInsight, você precisará usar o endereço IP do SQL Server. Por exemplo:
 
-        sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    ```bash
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    ```
 
 ## <a name="limitations"></a>Limitações
 

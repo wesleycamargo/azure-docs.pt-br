@@ -1,6 +1,6 @@
 ---
-title: "Notas de versão arquivadas dos componentes do Hadoop no Azure HDInsight | Microsoft Docs"
-description: "Notas de versão e versões arquivadas de componentes do Hadoop para Azure HDInsight."
+title: "Notas de versão arquivadas – Componentes do Hadoop no Azure HDInsight | Microsoft Docs"
+description: "Notas de versão arquivadas para versões mais antigas de componentes do Hadoop para Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 editor: cgronlun
@@ -8,7 +8,7 @@ manager: jhubbard
 author: nitinme
 tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 4/06/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5e1538ae0d4b1270040bd593cae66c1dd1046201
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 7d8b691905c07b11543505ed1961d908ff4de654
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -61,7 +62,7 @@ Esta versão contém as atualizações a seguir.
 
 | Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Spark, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
 | --- | --- | --- | --- | --- |
-| Alterações em clusters de HDInsight 3.4 |O valor padrão para as configurações de Hive a seguir são alterados para melhorar o desempenho  <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |O Barramento de |Todos |N/D |
+| Alterações em clusters de HDInsight 3.4 |Os valores padrão para as configurações de Hive a seguir são alterados para melhorar o desempenho <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |O Barramento de |Todos |N/D |
 | As correções a seguir estão incluídas nesta versão |HIVE-13632, HIVE-12897,HIVE-12907,HIVE-12908,HIVE-12988,HIVE-13510,HIVE-13572,HIVE-13716,HIVE-13726,HIVE-12505,HIVE-13632,HIVE-13661,HIVE-13705,HIVE-13743,HIVE-13810,HIVE-13857,HIVE-13902,HIVE-13911,HIVE-13933 |O Barramento de |Todos |N/D |
 
 ## <a name="notes-for-07142016-release-of-hdinsight"></a>Notas da versão de 14/07/2016 do HDInsight
@@ -168,7 +169,7 @@ Esta versão contém as atualizações a seguir.
 | --- | --- | --- | --- | --- |
 | Problemas de atualização de metastore personalizado do HDI 3.4 |A criação de cluster falhará se você tiver usado um metastore personalizado, que foi usado anteriormente em uma versão inferior de outro cluster HDInsight. Isso ocorreu devido a um erro de script de atualização que agora foi corrigido |Criação do cluster |Todos |N/D |
 | Recuperação de pane do Livy |Fornece resiliência de status do trabalho para qualquer trabalho enviado por meio do Livy |Confiabilidade |Spark no Linux |N/D |
-| HA de conteúdo do Jupyter |Fornece a capacidade de salvar o conteúdo do Jupyter Notebook na conta de armazenamento associada ao cluster e carregar esse conteúdo da conta. Para saber mais, confira [Kernels disponíveis para notebooks Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). |Blocos de anotações |Spark no Linux |N/D |
+| HA de conteúdo do Jupyter |Fornece a capacidade de salvar o conteúdo do Jupyter Notebook na conta de armazenamento associada ao cluster e carregar esse conteúdo da conta. Para saber mais, confira [Kernels disponíveis para notebooks Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). |Blocos de anotações |Spark no Linux |N/D  |
 | Remoção de hiveContext de Jupyter Notebooks |Use a mágica `%%sql` no lugar da mágica `%%hive`. SqlContext é equivalente a hiveContext. Para saber mais, confira [Kernels disponíveis para notebooks Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md) |Blocos de anotações |Clusters do Spark no Linux |N/D |
 | Substituição de versões mais antigas do Spark |A versão mais antiga Spark 1.3.1 será removida do serviço em 31/5 |O Barramento de |Clusters do Spark no Windows |N/D |
 
@@ -571,7 +572,7 @@ Esta versão contém as atualizações a seguir.
 </tr>
 <tr>
 <td>Suporte a EventHub do SCP.NET</td>
-<td>Os pacotes de cluster atualizados para HDInsight Storm trazem novos recursos para SCP.NET. Agora, você terá acesso a novas APIs no construtor de topologias que facilitam o uso de EventHubSpout ou spouts Java. Você deve atualizar o SDK de cliente SCP.NET para funcionar com os novos clusters, pois os contratos foram atualizados. Para obter detalhes sobre as novas APIs, uso e notas de versão (incluindo correções de bugs), consulte o arquivo Leiame incluído no pacote NuGet do SCP.NET.</td>
+<td>Os pacotes de cluster atualizados para HDInsight Storm trazem novos recursos para SCP.NET. Agora, você terá acesso a novas APIs no construtor de topologias que facilitam o uso de EventHubSpout ou spouts Java. Você deve atualizar o SDK de cliente SCP.NET para funcionar com os novos clusters, pois os contratos foram atualizados. Para obter detalhes sobre as novas APIs, uso e notas de versão (incluindo correções de bugs), veja o arquivo Leiame incluído no pacote NuGet do SCP.NET.</td>
 <td>Ferramentas do VS</td>
 <td>Clusters do Storm HDInsight 3.2</td>
 <td>N/D</td>
@@ -834,7 +835,7 @@ Esta versão contém as atualizações a seguir.
 <td>O Hadoop 2.6/HDP2.2 está disponível com clusters do HDInsight 3.2. Ele contém atualizações importantes para todos os componentes de código-fonte aberto. Para obter mais detalhes, veja Novidades no HDInsight e as <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">Notas de versão do HDP 2.2.0.0</a>.</td>
 <td>Software livre</td>
 <td>Todos</td>
-<td>N/D</td>
+<td>N/D </td>
 </tr>
 <tr>
 <td>HDInsight no Linux (Visualização)</td>
@@ -869,10 +870,10 @@ Esta versão contém as atualizações a seguir.
 <td>Além de ferramentas completas para o Apache Storm, as ferramentas para Apache Hive no Visual Studio foram atualizadas para incluir o preenchimento de declaração, validação local e suporte aprimorado de depuração. Para saber mais, veja Introdução às ferramentas do Hadoop HDInsight para o Visual Studio.</td>
 <td>Ferramentas</td>
 <td>O Hadoop</td>
-<td>N/D</td>
+<td>N/D </td>
 </tr>
-<td>Conector de Hadoop para Banco de Dados de Documentos</td>
-<td>Com o conector de Hadoop para Banco de Dados de Documentos, você pode executar agregações complexas, análise e manipulações de seus documentos JSON sem esquema armazenados nas coleções de Banco de Dados de Documentos ou entre contas de banco de dados. Para saber mais e obter um tutorial, veja Executar trabalhos do Hadoop usando o Banco de Dados de Documentos e o HDInsight.</td>
+<td>Conector de Hadoop para BD Cosmos do Azure</td>
+<td>Com o conector de Hadoop para BD Cosmos do Azure, você pode executar agregações complexas, análise e manipulações de seus documentos JSON sem esquema armazenados nas coleções de BD Cosmos do Azure ou entre contas de banco de dados. Para saber mais e obter um tutorial, veja Executar trabalhos do Hadoop usando o BD Cosmos do Azure e o HDInsight.</td>
 <td>O Barramento de</td>
 <td>O Hadoop</td>
 <td>N/D</td>
@@ -1039,7 +1040,7 @@ Esta versão contém a atualização de componentes a seguir.
 <th>JIRA (se aplicável)</th>
 </tr>
 <tr>
-<td><a href = "hdinsight-hadoop-customize-cluster.md" target="_blank">Disponibilidade Geral de Personalização de Cluster</a></td>
+<td><a href = "hdinsight-hadoop-customize-cluster.md" target="_blank">Disponibilidade geral de personalização de cluster</a></td>
 <td><p>A personalização oferece a capacidade de personalizar os clusters de HDInsight do Azure com projetos disponíveis por meio do ecossistema do Apache Hadoop. Com esse novo recurso, agora você pode testar e implantar projetos de Hadoop no HDInsight do Azure. Isso é habilitado por meio do recurso **Ação de Script**, que pode modificar clusters Hadoop de modos arbitrários usando scripts personalizados. Esse recurso de personalização está disponível em todos os tipos de clusters do HDInsight, incluindo Hadoop, HBase e Storm. Para demonstrar o poder dessa funcionalidade, documentamos o processo para instalar os populares módulos <a href = "hdinsight-hadoop-spark-install.md" target="_blank">Spark</a>, <a href = "hdinsight-hadoop-r-scripts.md" target="_blank">R</a>, <a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a> e <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a>. Esta versão também adiciona a funcionalidade para os clientes especificarem suas ações de script personalizadas por meio do Portal do Azure, fornece diretrizes e práticas recomendadas de como criar ações de script personalizadas usando métodos auxiliares e fornece diretrizes sobre como testar a ação de script. </p></td>
 <td>Disponibilidade geral dos recursos</td>
 <td>Todos</td>
@@ -1101,7 +1102,7 @@ Os números completos da versão dos clusters HDInsight implantados com essa ver
 * HDInsight 2.1.9.382.1169709 (sem alteração desde 14/11/2014)
 * HDInsight 3.0.5.382.1169709 (sem alteração desde 14/11/2014)
 * HDInsight 3.1.1.382.1169709 (sem alteração desde 14/11/2014)
-* SDK do HDINsight 1.4.0
+* SDK do HDInsight 1.4.0
 
 Esta versão contém as seguintes atualizações de componentes.
 
@@ -1249,7 +1250,7 @@ Para obter mais informações sobre as configurações de memória usadas pelo Y
 Sobre a mensagem de erro do Azure PowerShell e do SDK do HDInsight: “*O cluster não foi configurado para acessar os serviços HTTP*”:
 
 * Esse erro é um [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conhecido que pode ocorrer devido a uma diferença entre a versão do SDK do HDInsight ou Azure PowerShell e a versão do cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK do HDInsight ou Azure PowerShell. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar as APIs do SDK do HDInsight ou os cmdlets do Azure PowerShell (**Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob**) para enviar trabalhos, essas operações podem falhar com a mensagem de erro "*O cluster <clustername> não está configurado para acessar os serviços HTTP*". Ou, dependendo da operação, você pode receber outras mensagens de erro, como “*Não é possível se conectar ao cluster*”.
-* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e ao Azure PowerShell Tools em [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [NugGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e ao Azure PowerShell Tools em [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>Notas da versão de 12/09/2014 do HDInsight 3.1
 * Esta versão é baseada na HDP (plataforma de dados Hortonworks) 2.1.5. Para obter uma lista de bugs corrigidos nesta versão, consulte a página [Corrigido nesta versão](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) no site da Hortonworks.
@@ -1260,7 +1261,7 @@ Sobre a mensagem de erro do Azure PowerShell e do SDK do HDInsight: “*O cluste
 
      templeton.mapper.memory.mb (=1024)
 
-  * Essa mudança trata do erro a seguir, que determinadas consultas de Hive encontraram devido a limites mais baixos de memória: “O contêiner está sendo executado além dos limites de memória física”.
+  * Essa mudança trata do erro a seguir com determinadas consultas de Hive devido a limites mais baixos de memória: “O contêiner está sendo executado além dos limites de memória física”.
   * Para voltar aos padrões antigos, você pode definir o valor dessa configuração para 512 por meio do PowerShell do Azure no momento da criação do cluster, usando o comando a seguir:
 
       Add-AzureRmHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
