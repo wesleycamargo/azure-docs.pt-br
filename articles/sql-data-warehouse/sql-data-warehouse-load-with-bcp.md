@@ -3,7 +3,7 @@ title: Usar o bcp para carregar dados no SQL Data Warehouse | Microsoft Docs
 description: "Saiba o que é o bcp e como usá-lo em cenários de data warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: twounder
+author: ckarst
 manager: barbkess
 editor: 
 ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: mausher;barbkess
-translationtype: Human Translation
+ms.author: cakarst;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/30/2017
 
 

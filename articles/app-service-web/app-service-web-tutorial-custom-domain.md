@@ -218,6 +218,8 @@ A página de registros DNS deve parecer com a seguinte captura de tela:
 
 ![Página de Registros DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
+<a name="enable-a"></a>
+
 ### <a name="enable-the-a-record-mapping-in-your-app"></a>Habilitar o mapeamento de registro A em seu aplicativo
 
 Agora você está pronto para adicionar seus nomes DNS configurados ao seu aplicativo.

@@ -428,7 +428,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
     Edite `/etc/dracut.conf` e adicione o conteúdo:
 
-        add_drivers+="�hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Recrie initramfs:
 
