@@ -20,7 +20,6 @@
     Assinatura|*Sua assinatura*|A assinatura do Azure que você deseja usar para a conta do BD Cosmos do Azure. 
     Grupo de recursos|*O mesmo valor que a ID*|O novo nome de grupo de recursos para sua conta. Para simplificar, você pode usar um nome igual à sua ID. 
     Local|*A região mais próxima de seus usuários*|A localização geográfica na qual hospedar a sua conta do BD Cosmos do Azure. Escolha o local mais próximo dos usuários para fornecer a eles acesso mais rápido aos dados.
-    Plano do Serviço de Aplicativo para a API do Graph|Criar novo – padrão S1|Selecione o recurso de computação para executar consultas ao Gremlin gráfico.
 
 4. Clique em **Criar** para criar a conta.
 5. Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
