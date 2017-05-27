@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: df34052acc401fb5bb1e3f808c649c0ea0bcf33c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -110,15 +110,7 @@ az group create --name myResourceGroup --location westeurope
 
 Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan#create).
 
-> [!NOTE]
-> Um plano do Serviço de Aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do Serviço de Aplicativo compartilham os recursos definidos por ele, permitindo que você economize ao hospedar vários aplicativos.
->
-> Os Planos do Serviço de Aplicativo definem:
-> * Região (Europa Setentrional, Leste dos EUA, Sudeste Asiático)
-> * Tamanha da Instância (Pequena, Média, Grande)
-> * Contagem da Escala (uma, duas, três instâncias etc.)
-> * SKU (Gratuito, Compartilhado, Básico, Standard, Premium)
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 O exemplo a seguir cria um Plano do Serviço de Aplicativo denominado `quickStartPlan` usando o tipo de preço **GRATUITO**.
 
