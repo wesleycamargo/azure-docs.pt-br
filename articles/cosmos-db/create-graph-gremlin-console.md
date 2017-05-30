@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do BD Cosmos do Azure: criar, consultar e percorrer o console do Gremlin | Microsoft Docs'
+title: 'Tutorial do Azure Cosmos DB: criar, consultar e percorrer o console do Apache TinkerPops Gremlin | Microsoft Docs'
 description: "Um início rápido do BD Cosmos do Azure para criar vértices, bordas e consultas usando a API do Graph do BD Cosmos do Azure."
 services: cosmosdb
 author: AndrewHoh
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/19/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fb27ba1a70959ba92fbd021e9e42438081000e45
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: caf3b69b25ccd15322054a0bbf95fc2a5816e00a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/20/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 05/10/2017
 
 O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
 
-Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um banco de dados e um gráfico (contêiner) usando o Portal do Azure e depois use o [console do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) para trabalhar com os dados da API do Graph (versão prévia). Neste tutorial, você criará e consultará vértices e bordas, ao atualizar uma propriedade de vértice, consultar vértices, percorrer o gráfico e remover um vértice.
+Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco de dados e um gráfico (contêiner) usando o Portal do Azure e, depois, use o [console do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) do [Apache TinkerPop](http://tinkerpop.apache.org) para trabalhar com os dados da API do Graph (versão prévia). Neste tutorial, você criará e consultará vértices e bordas, ao atualizar uma propriedade de vértice, consultar vértices, percorrer o gráfico e remover um vértice.
 
 ![BD Cosmos do Azure do console do Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -269,4 +269,3 @@ Neste início rápido, você aprendeu a criar uma conta do BD Cosmos do Azure, c
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)
-

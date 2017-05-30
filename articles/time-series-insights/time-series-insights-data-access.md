@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: e975c6d8f217bc73948c0c046204b16b1a742bc7
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/20/2017
 
 ---
 
@@ -36,7 +36,7 @@ As políticas de acesso de gerenciamento concedem permissões relacionadas à co
 *    Criação e exclusão do ambiente, origens de evento, conjuntos de dados de referência e
 *    Gerenciamento das políticas de acesso de dados.
 
-As políticas de acesso de dados concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e salvar consultas compartilhadas e perspectivas associadas ao ambiente.
+As políticas de acesso a dados concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e salvar consultas compartilhadas e perspectivas associadas ao ambiente.
 
 Os dois tipos de políticas permitem uma separação clara entre o acesso ao gerenciamento do ambiente e o acesso aos dados dentro do ambiente. Por exemplo, é possível configurar um ambiente de modo que o proprietário/criador do ambiente é removido do acesso aos dados. Assim como usuários e serviços que têm permissão para ler dados do ambiente podem não receber permissão de acesso à configuração do ambiente.
 

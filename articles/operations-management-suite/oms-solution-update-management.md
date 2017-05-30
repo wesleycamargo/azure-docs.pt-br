@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2017
+ms.date: 05/23/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: ff8d911750a551f4a099fcba13841c98881104a9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -51,7 +51,11 @@ Você pode implantar e instalar atualizações de software em computadores que p
 Na data e hora especificadas na implantação da atualização, os computadores de destino executam a implantação em paralelo.  Uma verificação é executada primeiro para verificar se as atualizações ainda são necessárias e as instala.  É importante observar que, para computadores cliente do WSUS, se as atualizações não forem aprovadas no WSUS, a implantação de atualização falhará.  Os resultados das atualizações aplicadas são encaminhados ao OMS para serem processados e resumidos em painéis ou com a pesquisa de eventos.     
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* A solução dá suporte à execução de avaliações de atualização no Windows Server 2008 e superior e à atualização de implantações no Windows Server 2012 e superior.  Não há suporte para as opções de instalação Server Core e Nano Server.
+* A solução dá suporte à execução de avaliações de atualização no Windows Server 2008 e superior e à atualização de implantações no Windows Server 2008 R2 e superior.  Não há suporte para as opções de instalação Server Core e Nano Server.
+
+    > [!NOTE]
+    > O suporte à implantação de atualizações para o Windows Server 2008 R2 requer o .NET Framework 4.5 e WMF 5.0 ou posterior.
+    >  
 * Não há suporte para sistemas operacionais clientes do Windows.  
 * Os agentes do Windows devem ser configurados para se comunicar com um servidor WSUS (Windows Server Update Services) ou ter acesso ao Microsoft Update.  
   

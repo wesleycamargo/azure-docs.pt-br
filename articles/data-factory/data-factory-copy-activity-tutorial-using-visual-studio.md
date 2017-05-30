@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 05fe90fe8d4320f3be2a08fed5902cf5c25dd87b
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 460276303f026553e1ea374f85759937afe90dfa
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -37,13 +37,16 @@ ms.lasthandoff: 05/17/2017
 
 Neste artigo, você aprenderá a usar o Microsoft Visual Studio para criar um data factory com um pipeline que copia dados de um armazenamento de blobs do Azure para um Banco de Dados SQL do Azure. Se você ainda está se familiarizando com o Azure Data Factory, leia o artigo [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de fazer este tutorial.   
 
-O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Ele não transforma dados de entrada para gerar dados de saída. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
+Neste tutorial, você criará um pipeline com uma atividade: atividade de cópia. A atividade de cópia copia dados de um armazenamento de dados com suporte para um armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
-Este tutorial usa apenas uma atividade do tipo: cópia. Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
+Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Várias atividades em um pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+
+> [!NOTE] 
+> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Leia o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e concluir as etapas de **pré-requisito** . 
-2. Você deve ser um **administrador da assinatura do Azure** para poder publicar entidades de Data Factory no Azure Data Factory.  
+1. Leia o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e concluir as etapas de **pré-requisito** .       
+2. Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
 3. Você deve ter os seguintes itens instalados no seu computador: 
    * Visual Studio 2013 ou Visual Studio 2015
    * Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
@@ -104,6 +107,7 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 2. Desta vez, selecione **Serviço Vinculado SQL do Azure** e clique em **Adicionar**. 
 3. No arquivo **AzureSqlLinkedService1.json**, substitua `<servername>`, `<databasename>`, `<username@servername>` e `<password>` pelos nomes do SQL server do Azure, do banco de dados, da conta de usuário e pela senha.    
 4. Salve o arquivo **AzureSqlLinkedService1.json** . 
+    
     Para saber mais sobre essas propriedades JSON, confira o [Conector do Banco de Dados SQL](data-factory-azure-sql-connector.md#linked-service-properties).
 
 
@@ -214,6 +218,7 @@ Nesta etapa, você cria um conjunto de dados de saída denominado **OutputDatase
     Há três colunas (**ID**, **FirstName** e **LastName**) na tabela emp no banco de dados. ID é uma coluna de identidade. Portanto, você precisa especificar somente **FirstName** e **LastName** aqui.
 
     Para saber mais sobre essas propriedades JSON, confira o [artigo sobre o conector do SQL](data-factory-azure-sql-connector.md#dataset-properties).
+
 ## <a name="create-pipeline"></a>Criar um pipeline
 Nesta etapa, você cria um pipeline com uma **atividade de cópia** que usa **InputDataset** como entrada e **OutputDataset** como saída.
 
@@ -261,8 +266,8 @@ Atualmente, o conjunto de dados de saída é o que conduz o agendamento. Neste t
            }
          }
        ],
-       "start": "2015-07-12T00:00:00Z",
-       "end": "2015-07-13T00:00:00Z",
+       "start": "2017-05-11T00:00:00Z",
+       "end": "2017-05-12T00:00:00Z",
        "isPaused": false
      }
     }
@@ -340,7 +345,19 @@ Observe os seguintes pontos:
 > Para criar instâncias do Data Factory, você precisa ser administrador/coadministrador da assinatura do Azure
 
 ## <a name="monitor-pipeline"></a>Monitorar o pipeline
-Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial. Atualmente, o Visual Studio não dá suporte a monitoramento de pipelines do Data Factory.  
+Navegue até a home page do seu data factory:
+
+1. Faça logon no [portal do Azure](https://portal.azure.com).
+2. Clique em **Mais serviços** no menu à esquerda e clique em **Data factories**.
+
+    ![Procurar data factories](media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png)
+3. Comece a digitar o nome do data factory.
+
+    ![Nome do data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png) 
+4. Clique no data factory na lista de resultados para ver a home page dele.
+
+    ![Página inicial da data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
+5. Siga as instruções de [Monitorar conjuntos de dados e pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) para monitorar o pipeline e os conjuntos de dados criados neste tutorial. Atualmente, o Visual Studio não dá suporte a monitoramento de pipelines do Data Factory. 
 
 ## <a name="summary"></a>Resumo
 Neste tutorial, você criou uma data factory do Azure para copiar dados de um blob do Azure para um banco de dados SQL do Azure. Você utilizou o Visual Studio para criar a data factory, os serviços vinculados, os conjuntos de dados e um pipeline. Aqui estão as etapas de alto nível executadas nesse tutorial:  
@@ -352,7 +369,6 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 3. Foram criados **conjuntos de dados**que descrevem os dados de entrada e de saída para os pipelines.
 4. Foi criado um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como origem e **SqlSink** como coletor. 
 
-## <a name="next-steps"></a>Próximas etapas
 Para ver como usar uma atividade de Hive do HDInsight para transformar dados usando o cluster HDInsight do Azure, consulte [Tutorial: criar seu primeiro pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
@@ -366,7 +382,8 @@ Esta seção descreve como usar o Gerenciador de Servidores no Visual Studio par
     ![Gerenciador de Servidores](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 
 ## <a name="create-a-visual-studio-project-for-an-existing-data-factory"></a>Criar um projeto do Visual Studio para um data factory existente
-3. Clique com o botão direito do mouse em um data factory no Gerenciador de Servidores e selecione Exportar Data Factory para Novo Projeto a fim de criar um projeto do Visual Studio com base em uma data factory existente.
+
+- Clique com o botão direito do mouse em um data factory no Gerenciador de Servidores e selecione **Exportar Data Factory para Novo Projeto** a fim de criar um projeto do Visual Studio com base em uma data factory existente.
 
     ![Exportar data factory para um projeto VS](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
@@ -495,4 +512,4 @@ Neste tutorial, você usou o armazenamento de blobs do Azure como um armazenamen
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Para obter detalhes sobre campos/propriedades que você vê no assistente de cópia de um armazenamento de dados, clique no link para o armazenamento de dados na tabela.
+Para saber mais sobre como copiar dados de/para um armazenamento de dados, clique no link para o armazenamento de dados na tabela.

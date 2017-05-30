@@ -13,17 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
-ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: bb4d64f799027c9af74fd50ab724449bdede7804
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas frequentes (FAQ) sobre o Azure Machine Learning: cobrança, recursos, limitações e suporte
 Aqui estão algumas perguntas frequentes e as respostas correspondentes sobre o Azure Machine Learning, um serviço de nuvem para o desenvolvimento de modelos de previsão e soluções de operacionalização por meio de serviços Web. Essas perguntas frequentes fornecem perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
+
+**Tem alguma pergunta que você não encontrou aqui?**
+
+O aprendizado de máquina do Azure tem um fórum no MSDN onde membros da comunidade de ciência de dados podem fazer perguntas sobre o Azure Machine Learning. A equipe do Azure Machine Learning monitora o fórum. Acesse o [Fórum do Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para encontrar respostas ou publique uma pergunta nova.
 
 ## <a name="general-questions"></a>Perguntas gerais
 **O que é Aprendizado de Máquina do Azure?**
