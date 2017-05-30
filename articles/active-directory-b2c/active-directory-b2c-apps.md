@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 762af7e09342f1bb51352e6c3d104bd4d8944e65
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -120,7 +122,7 @@ Nesse fluxo, o aplicativo executa [políticas](active-directory-b2c-reference-po
 ![Imagem de raias do aplicativo Nativo](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Limitações atuais
-O Azure AD B2C não dá suporte atualmente aos tipos de aplicativos a seguir, mas eles estão nos planos. As restrições e as limitações adicionais relacionadas ao Azure AD B2C são descritas em [Limitações e restrições](active-directory-b2c-limitations.md).
+Atualmente, o Azure AD B2C não suporta os tipos de aplicativos a seguir, mas há intenção futura de implementação. 
 
 ### <a name="daemonsserver-side-apps"></a>Aplicativos daemons/do lado do servidor
 Os aplicativos que contêm processos de longa duração ou que operem sem a presença de um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) e usando o fluxo de credenciais do cliente OAuth 2.0.
@@ -131,9 +133,4 @@ Atualmente, esse fluxo não tem o suporte do AD B2C do Azure. Esses aplicativos 
 Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo AD B2C do Azure. Esse cenário é comum em clientes nativos que têm um back-end de API Web. Isso chama um serviço online da Microsoft como a API do Graph do AD do Azure.
 
 Esse cenário de API Web encadeado pode ter suporte usando a concessão credencial de portador JWT do OAuth 2.0, também conhecida como fluxo Em nome de.  No entanto, o fluxo em nome de não está implementado atualmente no Azure AD B2C.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2017
+ms.date: 05/22/2017
 ms.author: pareshmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 4e18db124436b8e2ed429ea7977b047142f2dfc9
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 28105bb35e4219488cd901ac01065adb8c321f75
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -43,7 +43,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de Rota Expr
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
 | --- | --- | --- |
-| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal, Cidade de Quebec, Toronto |
+| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, Nova York, Seattle, Vale do Silício, Washington D.C., Montreal, Cidade de Quebec, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
 | **Europa** |Europa Setentrional, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Dublin, Londres, Newport(Gales), Paris |
 | **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Cingapura |
@@ -56,7 +56,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de Rota Expr
 A tabela a seguir fornece informações sobre regiões e limites geopolíticos para nuvens nacionais.
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Nuvem do Governo dos EUA** |Gov. EUA - Iowa, Gov. EUA - Virgínia, US DoD Central, US DoD Leste  |Chicago, Dallas, Nova Iorque, Seattle, Vale do Silício, Washington D.C. |
 | **China** |Norte da China, Leste da China |Pequim, Xangai |
 | **Alemanha** |Alemanha Central, Alemanha Oriental |Berlim+, Frankfurt |
@@ -84,7 +84,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **Comcast** |Suportado |Suportado |Chicago, Vale do Silício, Washington D.C. |
 | **Console**| Suportado | Suportado |Vale do Silício, Toronto |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportado |Denver+, Los Angeles, Nova York |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova York, Osaka, Paris+, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.C. |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova York, Osaka, Paris, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington D.C. |
 | **euNetworks** |Suportado |Suportado |Amsterdã |
 | **GÉANT** |Suportado |Suportado |Amsterdã |
 | **[Global Cloud Xchange (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Suportado| Suportado | Chennai |
@@ -97,7 +97,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[KPN](http://www.kpn.com/cloudconnect)** | Suportado | Suportado | Amsterdã | 
 | **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Amsterdã, Chicago, Dallas, Las Vegas+, Londres, Seattle, Vale do Silício, Cingapura, Washington, D.C. |
 | **LG CNS** |Suportado |Suportado |Busan |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Chicago, Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, Miami, Nova Iorque, Cidade de Quebec, Seattle, Cingapura, Sydney, Toronto, Washington D.C. |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Chicago, Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, Miami, Nova York, Cidade de Quebec, Seattle, Vale do Silício, Cingapura, Sydney, Toronto, Washington D.C. |
 | **MTN** |Suportado |Suportado |Londres |
 | **[Dados da Próxima Geração](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
 | **NEXTDC** |Suportado |Suportado |Melbourne, Sydney |
@@ -147,8 +147,6 @@ Para saber mais, confira [Rota Expressa na China](http://www.windowsazure.cn/hom
 | **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Suportado |Sem suporte |Berlim |
 | **Interxion** |Suportado |Sem suporte |Frankfurt |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado  | Sem suporte | Berlim |
-
-## <a name="c1partners"></a>Conectividade por meio de outros provedores de serviço
 
 ## <a name="connectivity-through-exchange-providers"></a>Conectividade por meio de outros provedores do Exchange
 

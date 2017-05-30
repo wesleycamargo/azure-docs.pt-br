@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: fd5e1083c65068c7f6b019838586b1bc7e37aa9f
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 63b6086b7bab5cb61ed6f4a229afd1ffa44cc31e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -52,7 +52,7 @@ O seguinte diagrama descreve os componentes lógicos da solução pré-configura
 
 As estações simuladas e os sistemas MES (simulação de execução de fabricação) simulados formam uma linha de produção de fábrica. Os dispositivos simulados e o Módulo OPC Publisher se baseiam no [Padrão OPC UA .NET][lnk-OPC-UA-NET-Standard] publicado pela OPC Foundation.
 
-O OPC Proxy e o OPC Publisher são implementados como módulos com base no [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Cada linha de produção simulada tem um gateway designado anexado.
+O proxy OPC e o fornecedor OPC são implementados como módulos com base no [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Cada linha de produção simulada tem um gateway designado anexado.
 
 Todos os componentes de simulação executados em contêineres Docker hospedados em uma VM do Linux do Azure. A simulação é configurada para executar oito linhas de produção simuladas por padrão.
 
@@ -130,5 +130,5 @@ Você pode continuar a introdução ao IoT Suite lendo os seguintes artigos:
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
-[lnk-Azure-IoT-Gateway]: https://github.com/azure/azure-iot-gateway-sdk
+[lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md

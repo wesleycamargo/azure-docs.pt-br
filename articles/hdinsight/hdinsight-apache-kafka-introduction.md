@@ -1,6 +1,6 @@
 ---
-title: "Uma introdução ao Apache Kafka no HDInsight | Microsoft Docs"
-description: "Saiba mais sobre o Apache Kafka no HDInsight. O que é, o que ele faz e onde encontrar exemplos e obter informações introdutórias."
+title: "Uma introdução ao Apache Kafka no HDInsight - Azure | Microsoft Docs"
+description: "Saiba mais sobre o Apache Kafka no HDInsight: o que é o que ele faz e onde encontrar exemplos e informações de introdução."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f3e1cfb23a28d0d1fc7a60bdc8b282b72984fd03
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introdução ao Apache Kafka no HDInsight (visualização)

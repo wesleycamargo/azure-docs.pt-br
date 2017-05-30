@@ -94,6 +94,13 @@ Um domínio de falha é um grupo lógico de hardwares subjacentes que compartilh
 #### <a name="managed-disk-fault-domains-and-availability-sets"></a>Domínios de falha e conjuntos de disponibilidade de Disco Gerenciado
 Para VMs que usam [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), as VMs são alinhadas aos domínios de falha de disco gerenciado quando usam um conjunto de disponibilidade gerenciada. Esse alinhamento garante que todos os discos gerenciados anexados a uma VM fiquem no mesmo domínio de falha de disco gerenciado. Somente as VMs com discos gerenciados podem ser criadas em um conjunto de disponibilidade gerenciado. O número de domínios de falha de disco gerenciado varia por região - dois ou três domínios de falha de disco gerenciados por região.
 
+![FDs de disco gerenciado](./media/virtual-machines-common-manage-availability/md-fd.png)
+
+> [!IMPORTANT]
+> O número de domínios de falha para conjuntos de disponibilidade gerenciados varia por região: dois ou três por região. A tabela a seguir mostra o número por região
+
+[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+
 ### <a name="update-domains"></a>Atualizar domínios
 Um domínio de atualização é um grupo lógico de hardwares subjacentes que podem passar por manutenção ou ser reinicializados ao mesmo tempo. À medida que você cria máquinas virtuais em um conjunto de disponibilidade, a plataforma Windows Azure distribui automaticamente suas VMs entre esses domínios de atualização. Essa abordagem garante que pelo menos uma instância do aplicativo sempre permaneça em execução enquanto a plataforma Windows Azure passar por manutenção periódica. A ordem de reinicialização dos domínios de atualização pode não ser sequencial durante a manutenção planejada, mas apenas um domínio de atualização é reinicializado por vez.
 
