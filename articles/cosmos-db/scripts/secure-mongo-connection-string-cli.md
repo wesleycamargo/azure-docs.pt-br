@@ -1,14 +1,14 @@
 ---
 title: "Script da CLI do Azure – obter uma cadeia de conexão do BD Cosmos do Azure para aplicativos MongoDB | Microsoft Docs"
 description: "Exemplo de script da CLI do Azure – obter uma cadeia de conexão do BD Cosmos do Azure para aplicativos MongoDB"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample
