@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 3/17/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 26d3d014e28a8e2fda4acc19e974b709b965c07e
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9b2e78ff55ed23732892d605f3edef6a5afdf7ad
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -38,7 +39,7 @@ Você precisa configurar a [replicação do Site Recovery](#enable-protection-us
 Se você tiver alguns aplicativos e um único controlador de domínio e desejar executar failover de todo o site, é recomendável usar o Site Recovery para replicar o controlador de domínio no site secundário (esteja você executando failover no Azure ou em um site secundário). A mesma máquina virtual controladora/DNS replicada também pode ser usada para o [failover de teste](#test-failover-considerations).
 
 ### <a name="environment-with-multiple-domain-controllers"></a>Ambiente com vários controladores de domínio
-Se você tiver muitos aplicativos e houver mais de um controlador de domínio no ambiente ou se planeja executar failover de alguns aplicativos por vez, é recomendável, além de replicar a máquina virtual do controlador de domínio com o Site Recovery, configurar também um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (Azure ou um datacenter local secundário). Para [failover de teste](#test-failover-considerations), use o controlador de domínio replicado pelo Site Recovery e, para o failover, o controlador de domínio adicional no site de destino. 
+Se você tiver muitos aplicativos e houver mais de um controlador de domínio no ambiente ou se planeja executar failover de alguns aplicativos por vez, é recomendável, além de replicar a máquina virtual do controlador de domínio com o Site Recovery, configurar também um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (Azure ou um datacenter local secundário). Para [failover de teste](#test-failover-considerations), use o controlador de domínio replicado pelo Site Recovery; para failover, use o controlador de domínio adicional no site de destino. 
 
 
 As seções a seguir explicam como habilitar a proteção para um controlador de domínio na Recuperação de Site e como configurar um controlador de domínio no Azure.

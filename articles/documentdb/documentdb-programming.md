@@ -1,14 +1,14 @@
 ---
-title: "Programação de JavaScript do lado do servidor para Azure DocumentDB | Microsoft Docs"
-description: "Saiba como usar o Banco de Dados de Documentos para escrever procedimentos armazenados, gatilhos de banco de dados e UDFs (funções definidas pelo usuário) em JavaScript. Obtenha dicas de programação de banco de dados e muito mais."
+title: "Programação de JavaScript do lado do servidor para o Azure Cosmos DB | Microsoft Docs"
+description: "Saiba como usar o Azure Cosmos DB para escrever procedimentos armazenados, gatilhos de banco de dados e UDFs (funções definidas pelo usuário) em JavaScript. Obtenha dicas de programação de banco de dados e muito mais."
 keywords: Gatilhos de banco de dados, procedimento armazenado, programa de banco de dados, sproc, banco de dados de documentos, azure, Microsoft azure
-services: documentdb
+services: cosmosdb
 documentationcenter: 
 author: aliuy
 manager: jhubbard
 editor: mimig
 ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3e15914ab5bd549f3583f5261a88eb74b95f56af
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1c128d182da8245dd9a2aa8f0ce8fcca94aea0fa
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação no servidor do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados
-Saiba como a execução transacional e integrada de linguagem do JavaScript pelo DocumentDB do Azure permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente no JavaScript. Isso permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados. 
+# <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
+Saiba como a execução transacional e integrada de linguagem do JavaScript pelo Azure Cosmos DB permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente no JavaScript. Isso permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados. 
 
-É recomendável começar assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação de banco de dados do lado do servidor do Banco de Dados de Documentos. 
+Recomendamos que você comece assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação de banco de dados do lado do servidor do Cosmos DB. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
@@ -35,27 +35,27 @@ Saiba como a execução transacional e integrada de linguagem do JavaScript pelo
 Em seguida, volte a este artigo, onde você aprenderá as respostas para as seguintes perguntas:  
 
 * Como eu escrevo um procedimento armazenado, gatilho ou UDF usando JavaScript?
-* Como o Banco de Dados de Documentos garante o ACID?
-* Como funcionam as transações no Banco de Dados de Documentos?
+* Como o Cosmos DB garante o ACID?
+* Como funcionam as transações no Cosmos DB?
 * O que são pré-gatilhos e pós-gatilhos e como eu escrevo um?
 * Como eu registro e executo um procedimento armazenado, gatilho ou UDF de modo RESTful usando HTTP?
-* Que SDKs do Banco de Dados de Documentos estão disponíveis para criar e executar procedimentos armazenados, gatilhos e UDFs?
+* Quais SDKs do Cosmos DB estão disponíveis para criar e executar procedimentos armazenados, gatilhos e UDFs?
 
 ## <a name="introduction-to-stored-procedure-and-udf-programming"></a>Introdução ao procedimento armazenado e à programação UDF
 Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores de aplicativos das complexidades das incompatibilidades do sistema de tipos e tecnologias de mapeamento relacionais do objeto. Também possui uma série de vantagens intrínsecas que podem ser utilizadas para criar aplicativos ricos:  
 
 * **Lógica de procedimento:** o JavaScript, enquanto uma linguagem de programação de alto nível, oferece uma interface rica e familiar para expressar a lógica de negócios. Você pode realizar sequências complexas de operações de maneira mais próxima aos dados.
-* **Transações atômicas:** o Banco de Dados de Documentos garante que as operações do banco de dados sejam realizadas dentro de um procedimento armazenado ou gatilho únicos a fim de que sejam atômicas. Isso permite que um aplicativo combine operações relacionadas em um único lote para que todas ou nenhuma delas seja bem-sucedida. 
-* **Desempenho:** o fato de o JSON ser intrinsecamente mapeado no sistema de tipos de linguagem JavaScript e também ser a unidade básica de armazenamento no Banco de Dados de Documentos permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e sua disponibilização sob demanda ao código de execução. Há mais benefícios de desempenho associados ao envio da lógica de negócios ao banco de dados:
+* **Transações atômicas:** o Cosmos DB garante que as operações de banco de dados realizadas em um único procedimento armazenado ou gatilho são atômicas. Isso permite que um aplicativo combine operações relacionadas em um único lote para que todas ou nenhuma delas seja bem-sucedida. 
+* **Desempenho:** o fato de o JSON ser intrinsecamente mapeado para o sistema de tipos de linguagem JavaScript e também ser a unidade básica de armazenamento no Cosmos DB permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e sua disponibilização sob demanda ao código de execução. Há mais benefícios de desempenho associados ao envio da lógica de negócios ao banco de dados:
   
   * Envio em lote – Os desenvolvedores podem agrupar operações como inserções e enviá-las em massa. O custo de latência de tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente. 
-  * Pré-compilação – O Banco de Dados de Documentos pré-compila os procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDFs) a fim de evitar custos de compilação de JavaScript para cada invocação. A sobrecarga de construir o código de bytes para a lógica de procedimento é amortizada a um valor mínimo.
+  * Pré-compilação – o Cosmos DB pré-compila procedimentos armazenados, gatilhos e UDFs (funções definidas pelo usuário) a fim de evitar custos de compilação de JavaScript para cada invocação. A sobrecarga de construir o código de bytes para a lógica de procedimento é amortizada a um valor mínimo.
   * Sequenciamento – Várias operações precisam de um efeito colateral (“gatilho”) que possivelmente envolve realizar uma ou mais operações de armazenamento secundárias. Além da atomicidade, o desempenho é melhor quando movido ao servidor. 
 * **Encapsulamento:** procedimentos armazenados podem ser usados para agrupar lógica de negócios em um único lugar. Isso apresenta duas vantagens:
   * Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
   * Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
 
-A criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), do [Estúdio do DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs de clientes](documentdb-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
+Há suporte para a criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizada por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), do [Azure Cosmos DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs do cliente](documentdb-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
 
 Esse tutorial utiliza o [SDK do Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.   
 
@@ -98,12 +98,12 @@ Uma vez que o procedimento armazenado é registrado, podemos executá-lo em rela
         });
 
 
-O objeto de contexto oferece acesso a todas as operações que podem ser realizadas no armazenamento do Banco de Dados de Documentos, bem como acesso aos objetos de solicitação e resposta. Nesse caso, usamos o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais detalhes, consulte a [documentação do SDK do servidor de JavaScript do Banco de Dados de Documentos](http://azure.github.io/azure-documentdb-js-server/).  
+O objeto de contexto fornece acesso a todas as operações que podem ser realizadas no armazenamento do Cosmos DB, bem como o acesso aos objetos de solicitação e resposta. Nesse caso, usamos o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais detalhes, consulte a [documentação do SDK do servidor do JavaScript do Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
 
 Vamos ampliar esse exemplo e adicionar mais funcionalidades relativas ao banco de dados ao procedimento armazenado. Procedimentos armazenados podem criar, atualizar, ler, consultar e excluir documentos e anexos dentro da coleção.    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Exemplo: escrever um procedimento armazenado para criar um documento
-O próximo trecho mostra como usar o objeto de contexto para interagir com recursos do Banco de Dados de Documentos.
+O próximo trecho mostra como usar o objeto de contexto para interagir com recursos do Cosmos DB.
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
@@ -122,7 +122,7 @@ O próximo trecho mostra como usar o objeto de contexto para interagir com recur
     }
 
 
-Esse procedimento armazenado assume como entrada documentToCreate, o corpo de um documento a ser criado na coleção atual. Todas essas operações são assíncronas e dependem de retornos de chamada de função do JavaScript. A função de retorno de chamada possui dois parâmetros, um para o objeto de erro no caso de falhas na operação e um para o objeto criado. Dentro da chamada de retorno, os usuários podem lidar com a exceção ou lançar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o tempo de execução do Banco de Dados de Documentos lança um erro.   
+Esse procedimento armazenado assume como entrada documentToCreate, o corpo de um documento a ser criado na coleção atual. Todas essas operações são assíncronas e dependem de retornos de chamada de função do JavaScript. A função de retorno de chamada possui dois parâmetros, um para o objeto de erro no caso de falhas na operação e um para o objeto criado. Dentro da chamada de retorno, os usuários podem lidar com a exceção ou lançar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o tempo de execução do Azure Cosmos DB gerará um erro.   
 
 No exemplo acima, a chamada de torno lançará um erro se a operação falhar. Caso contrário, ela definirá a ID do documento criada como o corpo da resposta ao cliente. A seguir, mostramos como esse procedimento armazenado é executado com parâmetros de entrada.
 
@@ -150,7 +150,7 @@ No exemplo acima, a chamada de torno lançará um erro se a operação falhar. C
     });
 
 
-Observe que esse procedimento armazenado pode ser modificado para assumir uma matriz de corpos de documentos como entrada e criá-los todos na mesma execução do procedimento armazenado ao invés de em várias solicitações de rede para criar cada um deles individualmente. Isso pode ser usado para implementar um importador em massa eficiente para o Banco de Dados de Documentos (discutido posteriormente neste tutorial).   
+Observe que esse procedimento armazenado pode ser modificado para assumir uma matriz de corpos de documentos como entrada e criá-los todos na mesma execução do procedimento armazenado ao invés de em várias solicitações de rede para criar cada um deles individualmente. Isso pode ser usado para implementar um importador em massa eficiente para o Cosmos DB (abordado posteriormente neste tutorial).   
 
 O exemplo descrito demonstra como usar procedimentos armazenados. Iremos discutir os gatilhos e funções definidas pelo usuário (UDFs) posteriormente no tutorial.
 
@@ -159,7 +159,7 @@ A transação em um banco de dados típico pode ser definida como uma sequência
 
 Em resumo, a atomicidade garante que todo o trabalho realizado dentro de uma transação seja tratado como uma única unidade em que tudo é confirmado ou não. A consistência garante que os dados estejam sempre em uma boa condição interna entre as transações. O isolamento garante que duas transações não interfiram uma com a outra; geralmente, a maioria dos sistemas comerciais oferece vários níveis de isolamento que podem ser usados com base nas necessidades do aplicativo. A durabilidade garante que qualquer alteração confirmada no banco de dados esteja sempre presente.   
 
-No Banco de Dados de Documentos, o JavaScript é hospedado no mesmo espaço de memória que o banco de dados. Portanto, as solicitações realizadas dentro de procedimentos armazenados e gatilhos são executadas no mesmo escopo de uma sessão do banco de dados. Isso permite que o Banco de Dados de Documentos garanta ACID para todas as operações que fazem parte de um único procedimento/gatilho armazenado. Considere a seguinte definição de um procedimento armazenado:
+No Cosmos DB, o JavaScript é hospedado no mesmo espaço de memória do banco de dados. Portanto, as solicitações realizadas dentro de procedimentos armazenados e gatilhos são executadas no mesmo escopo de uma sessão do banco de dados. Isso permite que o Cosmos DB garanta ACID para todas as operações que fazem parte de um único procedimento armazenado/gatilho. Considere a seguinte definição de um procedimento armazenado:
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -226,22 +226,22 @@ No Banco de Dados de Documentos, o JavaScript é hospedado no mesmo espaço de m
 
 Esse procedimento armazenado utiliza transações dentro de um aplicativo de jogos para negociar itens entre dois jogadores em uma única operação. O procedimento armazenado tenta ler dois ou mais documentos, cada um correspondente às IDs dos jogadores transmitidos como um argumento. Se os documentos de ambos os jogadores forem encontrados, então, o procedimento armazenado atualizará os documentos trocando seus itens. Se forem encontrados erros pelo caminho, uma exceção JavaScript será lançada, o que aborta implicitamente a transação.
 
-Se a coleção na qual o procedimento armazenado está registrado for uma coleção de única partição, o escopo da transação será todos os documentos dentro da coleção. Se a coleção for particionada, os procedimentos armazenados serão executados no escopo da transação de uma única chave de partição. A execução de cada procedimento armazenado deve incluir um valor de chave de partição correspondente ao escopo sob o qual a transação deve ser executada. Para obter mais detalhes, consulte [Particionamento do Banco de Dados de Documentos](documentdb-partition-data.md).
+Se a coleção na qual o procedimento armazenado está registrado for uma coleção de única partição, o escopo da transação será todos os documentos dentro da coleção. Se a coleção for particionada, os procedimentos armazenados serão executados no escopo da transação de uma única chave de partição. A execução de cada procedimento armazenado deve incluir um valor de chave de partição correspondente ao escopo sob o qual a transação deve ser executada. Para obter mais detalhes, consulte [Particionamento do Azure Cosmos DB](documentdb-partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Confirmação e reversão
-As transações são profunda e nativamente integradas ao modelo de programação de JavaScript do Banco de Dados de Documentos. Dentro de uma função de JavaScript, todas as operações são automaticamente encapsuladas em uma única transação. Se o JavaScript for concluído sem nenhuma exceção, as operações de banco de dados serão confirmadas. Com isso, as declarações “BEGIN TRANSACTION” e “COMMIT TRANSACTION” em bancos de dados relacionais são implícitas no Banco de Dados de Documentos.  
+As transações são profunda e nativamente integradas ao modelo de programação do JavaScript do Cosmos DB. Dentro de uma função de JavaScript, todas as operações são automaticamente encapsuladas em uma única transação. Se o JavaScript for concluído sem nenhuma exceção, as operações de banco de dados serão confirmadas. De fato, as instruções “BEGIN TRANSACTION” e “COMMIT TRANSACTION” em bancos de dados relacionais são implícitas no Cosmos DB.  
 
-Se houver qualquer exceção propagada a partir do script, o tempo de execução de JavaScript do Banco de Dados de Documentos reverterá toda a transação. Como mostrado no exemplo anterior, lançar uma exceção é efetivamente equivalente a uma declaração “ROLLBACK TRANSACTION” no Banco de Dados de Documentos.
+Se houver uma exceção propagada no script, o tempo de execução do JavaScript do Cosmos DB reverterá toda a transação. Como mostrado no exemplo anterior, gerar uma exceção é efetivamente equivalente a uma instrução “ROLLBACK TRANSACTION” no Cosmos DB.
 
 ### <a name="data-consistency"></a>Consistência de dados
 Procedimentos armazenados e gatilhos são sempre executados na réplica primária da coleção do Banco de Dados de Documentos. Isso assegura que as leituras de dentro de procedimentos armazenados ofereçam uma forte consistência. As consultas que utilizam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária, porém, garantimos que o nível de consistência solicitado seja atendido ao escolher a réplica adequada.
 
 ## <a name="bounded-execution"></a>Execução vinculada
-Todas as operações do Banco de Dados de Documentos devem ser concluídas dentro da duração de tempo limite da solicitação especificada pelo servidor. Essa restrição também se aplica à função de JavaScript (procedimentos armazenados, gatilhos e funções definidas pelo usuário). Se uma operação não for concluída com esse limite de tempo, a transação será retrocedida. Funções JavaScript devem ser concluídas dentro do limite de tempo ou implementar um modelo com base em uma continuação para criar um lote/retomar a execução.  
+Todas as operações do Cosmos DB devem ser concluídas dentro da duração de tempo limite da solicitação especificada pelo servidor. Essa restrição também se aplica à função de JavaScript (procedimentos armazenados, gatilhos e funções definidas pelo usuário). Se uma operação não for concluída com esse limite de tempo, a transação será retrocedida. Funções JavaScript devem ser concluídas dentro do limite de tempo ou implementar um modelo com base em uma continuação para criar um lote/retomar a execução.  
 
 A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com limites de tempo, todas as funções no objeto de coleção (para a criação, leitura, substituição e exclusão de documentos e anexos) retornam um valor booliano que representa se a operação será concluída. Se esse valor for falso, isso indica que o limite de tempo está prestes a expirar e que o procedimento deve encerrar a execução.  Operações colocadas em fila antes da primeira operação de armazenamento não aceita serão concluídas com certeza se o procedimento armazenado for concluído dentro do tempo e não colocar nenhuma outra solicitação em fila.  
 
-Funções de JavaScript também são vinculadas quanto ao consumo de recursos. O Banco de Dados de Documentos reserva a produtividade por coleção com base no tamanho provisionado de uma conta do banco de dados. A produtividade é expressa em termos de uma unidade normalizada de consumo de CPU, memória e E/S chamada unidade de solicitação ou RU. Funções de JavaScript podem usar um grande número de RUs dentro de um curto período, e podem ter sua taxa limitada se o limite da coleção for atingido. Procedimentos armazenados ricos em recursos também podem ser postos em quarentena para garantir a disponibilidade das operações primitivas do banco de dados.  
+Funções de JavaScript também são vinculadas quanto ao consumo de recursos. O Cosmos DB reserva a produtividade por coleção com base no tamanho provisionado de uma conta de banco de dados. A produtividade é expressa em termos de uma unidade normalizada de consumo de CPU, memória e E/S chamada unidade de solicitação ou RU. Funções de JavaScript podem usar um grande número de RUs dentro de um curto período, e podem ter sua taxa limitada se o limite da coleção for atingido. Procedimentos armazenados ricos em recursos também podem ser postos em quarentena para garantir a disponibilidade das operações primitivas do banco de dados.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Exemplo: importação de dados em massa em um programa de banco de dados
 Abaixo está um exemplo de um procedimento armazenado gravado para documentos de importação em massa em uma coleção. Observe como o procedimento armazenado lida com a execução vinculada verificando o valor de retorno booliano em createDocument, e depois utiliza a contagem de documentos inserida em cada invocação do procedimento armazenado para rastrear e retomar o progresso nos lotes.
@@ -297,7 +297,7 @@ Abaixo está um exemplo de um procedimento armazenado gravado para documentos de
 
 ## <a id="trigger"></a> Gatilhos de banco de dados
 ### <a name="database-pre-triggers"></a>Pré-gatilhos de banco de dados
-O Banco de Dados de Documentos oferece gatilhos que são executados ou desencadeados por uma operação em um documento. Por exemplo, você pode especificar um pré-gatilho ao criar um documento; esse pré-gatilho será executado antes que o documento seja criado. A seguir está um exemplo de como os pré-gatilhos podem ser usados para validar as propriedades de um documento que está sendo criado:
+O Cosmos DB oferece gatilhos que são executados ou disparados por uma operação em um documento. Por exemplo, você pode especificar um pré-gatilho ao criar um documento; esse pré-gatilho será executado antes que o documento seja criado. A seguir está um exemplo de como os pré-gatilhos podem ser usados para validar as propriedades de um documento que está sendo criado:
 
     var validateDocumentContentsTrigger = {
         id: "validateDocumentContents",
@@ -436,10 +436,10 @@ O gatilho pode ser registrado como mostrado na amostra a seguir.
 
 Esse gatilho consulta o documento de metadados e o atualiza com detalhes sobre o documento recém-criado.  
 
-É importante observar a execução **transacional** de gatilhos no Banco de Dados de Documentos. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se lançarmos uma exceção a partir do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será retrocedida. Nenhum documento será criado e uma exceção será retornada.  
+É importante observar a execução **transacional** de gatilhos no Cosmos DB. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se lançarmos uma exceção a partir do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será retrocedida. Nenhum documento será criado e uma exceção será retornada.  
 
 ## <a id="udf"></a>Funções definidas pelo usuário
-UDFs (funções definidas pelo usuário) são usadas para estender a gramática da linguagem de consulta SQL do Banco de Dados de Documentos e para implementar uma lógica de negócios personalizada. Elas podem ser invocadas somente de dentro das consultas. Elas não possuem acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, UDFs podem ser executadas em réplicas secundárias do serviço do Banco de Dados de Documentos.  
+As UDFs (funções definidas pelo usuário) são usadas para estender a gramática da linguagem de consulta SQL da API do DocumentDB e implementar uma lógica de negócios personalizada. Elas podem ser invocadas somente de dentro das consultas. Elas não possuem acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, as UDFs podem ser executadas em réplicas secundárias do serviço Cosmos DB.  
 
 A amostra a seguir cria uma UDF para calcular o imposto de renda com base nas taxas para diversos intervalos de renda, e depois a utiliza dentro de uma consulta para descobrir todas as pessoas que pagaram mais de $20.000 em impostos.
 
@@ -707,7 +707,7 @@ Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/az
         });
 
 
-E o exemplo a seguir mostra como criar uma função definida pelo usuário (UDF) e utilizá-la em uma [consulta SQL do Banco de Dados de Documentos](documentdb-sql-query.md).
+E o exemplo a seguir mostra como criar uma UDF (função definida pelo usuário) e usá-la em uma [consulta SQL da API do DocumentDB](documentdb-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {

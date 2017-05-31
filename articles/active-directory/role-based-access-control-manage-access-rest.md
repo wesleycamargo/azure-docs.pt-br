@@ -12,12 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/16/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
-ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
-ms.lasthandoff: 02/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6decf3e228bf31f9da4ea2bfa4d0ada0b2ffad61
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 02/07/2017
 > * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
-O RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Azure Resource Manager ajuda você a gerenciar o acesso a sua assinatura e aos recursos de maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
+O RBAC (controle de acesso baseado em função) no portal do Azure e na API do Azure Resource Manager ajuda você a gerenciar o acesso à sua assinatura e aos seus recursos em um nível detalhado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
 ## <a name="list-all-role-assignments"></a>Lista todas as atribuições de função
 Lista todas as atribuições de função no escopo e sub-escopos especificados.

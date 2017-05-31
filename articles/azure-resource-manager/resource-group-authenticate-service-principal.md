@@ -12,23 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: eb6bddbe4220418f7c525985ab6a15524589829e
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 2f8067a1a4ff7abfc41b28cbfd3482be11ae0e23
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-authenticate-service-principal.md)
-> * [CLI do Azure](resource-group-authenticate-service-principal-cli.md)
-> * [Portal](resource-group-create-service-principal-portal.md)
-> 
-> 
 
 Quando você tiver um aplicativo ou script que precisa acessar recursos, poderá configurar uma identidade para o aplicativo e autenticá-lo com suas próprias credenciais. Essa identidade é conhecida como uma entidade de serviço. Essa abordagem permite:
 
@@ -44,8 +38,30 @@ A maneira mais fácil de verificar se a sua conta tem as permissões adequadas �
 
 Agora, vá para uma seção para ver uma autenticação da [senha](#create-service-principal-with-password) ou do [certificado](#create-service-principal-with-certificate).
 
+## <a name="powershell-commands"></a>Comandos do PowerShell
+
+Para configurar uma entidade de serviço, use:
+
+| Command | Descrição |
+| ------- | ----------- | 
+| [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Cria uma entidade de serviço do Azure Active Directory |
+| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Atribui a função RBAC especificada à entidade se segurança especificada no escopo especificado. |
+
+
 ## <a name="create-service-principal-with-password"></a>Criar a entidade de serviço com a senha
-O seguinte script cria uma identidade para o aplicativo e atribui a ele a função Colaborador no escopo especificado:
+
+Para criar uma entidade de serviço com a função de Colaborador para sua assinatura, use: 
+
+```powershell
+Login-AzureRmAccount
+$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password "{provide-password}"
+Sleep 20
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+```
+
+O exemplo fica suspenso por 20 segundos para dar tempo para a nova entidade de serviço propagar-se pelo Azure Active Directory. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
+
+O script a seguir permite que você especifique um escopo diferente da assinatura padrão e tenta realizar a atribuição de função novamente no caso de erro:
 
 ```powershell
 Param (
@@ -63,14 +79,14 @@ Param (
 
  [Parameter(Mandatory=$true)]
  [String] $Password
- )
+)
 
  Login-AzureRmAccount
  Import-Module AzureRM.Resources
 
  if ($SubscriptionId -eq "") 
  {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
  }
  else
  {
@@ -86,11 +102,9 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
- # Create Azure Active Directory application with password
- $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -Password $Password
-
+ 
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -99,8 +113,8 @@ Param (
  {
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -109,7 +123,6 @@ Alguns itens a serem observados sobre o script:
 
 * Para conceder o acesso da identidade à assinatura padrão, não é necessário fornecer os parâmetros ResourceGroup ou SubscriptionId.
 * Especifique o parâmetro ResourceGroup somente quando desejar limitar o escopo da atribuição de função a um grupo de recursos.
-* Para aplicativos de locatário único, a home page e os URIs do identificador não são validados.
 *  Neste exemplo, você adiciona a entidade de serviço à função Colaborador. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
 * O script fica suspenso 15 segundos para dar tempo à nova entidade de serviço de se propagar pelo Active Directory do Azure. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
 * Se precisar conceder o acesso à entidade de serviço a mais assinaturas ou grupos de recursos, execute o cmdlet `New-AzureRMRoleAssignment` novamente com escopos diferentes.
@@ -130,7 +143,22 @@ A ID de locatário não diferencia maiúsculas de minúsculas e, portanto, você
 ```
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Criar a entidade de serviço com um certificado autoassinado
-Para gerar um certificado autoassinado e uma entidade de serviço com o Azure PowerShell 2.0 no Windows 10 ou no Windows Server 2016 Technical Preview, use o seguinte script:
+
+Para criar uma entidade de serviço com um certificado autoassinado e a função de Colaborador para sua assinatura, use: 
+
+```powershell
+Login-AzureRmAccount
+$cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
+$keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+
+$sp = New-AzureRMADServicePrincipal -DisplayName exampleapp -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+Sleep 20
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+```
+
+O exemplo fica suspenso por 20 segundos para dar tempo para a nova entidade de serviço propagar-se pelo Azure Active Directory. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
+
+O script a seguir permite que você especifique um escopo diferente da assinatura padrão e tenta realizar a atribuição de função novamente no caso de erro. Você deve ter o Azure PowerShell 2.0 no Windows 10 ou Windows Server 2016.
 
 ```powershell
 Param (
@@ -152,7 +180,7 @@ Param (
 
  if ($SubscriptionId -eq "") 
  {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
  }
  else
  {
@@ -171,10 +199,7 @@ Param (
  $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
  $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
- # Use Key credentials
- $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -183,8 +208,8 @@ Param (
  {
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -193,8 +218,7 @@ Alguns itens a serem observados sobre o script:
 
 * Para conceder o acesso da identidade à assinatura padrão, não é necessário fornecer os parâmetros ResourceGroup ou SubscriptionId.
 * Especifique o parâmetro ResourceGroup somente quando desejar limitar o escopo da atribuição de função a um grupo de recursos.
-* Para aplicativos de locatário único, a home page e os URIs do identificador não são validados.
-*  Neste exemplo, você adiciona a entidade de serviço à função Colaborador. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
+* Neste exemplo, você adiciona a entidade de serviço à função Colaborador. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
 * O script fica suspenso 15 segundos para dar tempo à nova entidade de serviço de se propagar pelo Active Directory do Azure. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
 * Se precisar conceder o acesso à entidade de serviço a mais assinaturas ou grupos de recursos, execute o cmdlet `New-AzureRMRoleAssignment` novamente com escopos diferentes.
 
@@ -278,10 +302,7 @@ Param (
  $KeyCredential.KeyId = $KeyId
  $KeyCredential.CertValue = $KeyValue
 
- # Use Key credentials
- $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -KeyCredentials $keyCredential
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -301,8 +322,7 @@ Param (
 Alguns itens a serem observados sobre o script:
 
 * O acesso é restrito à assinatura.
-* Para aplicativos de locatário único, a home page e os URIs do identificador não são validados.
-*  Neste exemplo, você adiciona a entidade de serviço à função Colaborador. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
+* Neste exemplo, você adiciona a entidade de serviço à função Colaborador. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
 * O script fica suspenso 15 segundos para dar tempo à nova entidade de serviço de se propagar pelo Active Directory do Azure. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
 * Se precisar conceder o acesso à entidade de serviço a mais assinaturas ou grupos de recursos, execute o cmdlet `New-AzureRMRoleAssignment` novamente com escopos diferentes.
 
@@ -427,5 +447,6 @@ Os aplicativos de exemplo a seguir mostram como fazer logon como a entidade de s
 * Para ver as etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar os recursos, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obter uma explicação mais detalhada de aplicativos e entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço](../active-directory/active-directory-application-objects.md). 
 * Para obter mais informações sobre a autenticação do Active Directory do Azure, consulte [Cenários de Autenticação do Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+* Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas a usuários, consulte [Operações do Provedor de Recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
 
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: sethm;jotaub
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 7f3ddc2d7036b9951d4796cf4664f870a0c5f4b6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 612fb681ab0c8fe77652041f8a1fc23ad0d3428a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -92,9 +92,16 @@ As Assinaturas de Acesso Compartilhado são um mecanismo de autenticação com b
 
 ## <a name="subscription-and-namespace-management"></a>Gerenciamento de assinaturas e de namespaces
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um namespace para outra assinatura do Azure?
-Usando o Portal do Azure, você pode migrar namespaces do Barramento de Serviço para outra assinatura seguindo as instruções [aqui](../azure-resource-manager/resource-group-move-resources.md#use-portal). Se preferir usar o PowerShell, siga as instruções abaixo: 
 
-A sequência de comandos a seguir move um namespace de uma assinatura do Azure para outra. Para executar essa operação, o namespace já deve estar ativo e o usuário que está executando os comandos do PowerShell deve ser um administrador em assinaturas de origem e de destino.
+Mova um namespace de uma assinatura do Azure para outra usando o [portal do Azure](https://portal.azure.com) ou comandos do PowerShell. Para executar a operação, o namespace já deve estar ativo. O usuário que executa os comandos deve ser administrador nas assinaturas de origem e de destino.
+
+#### <a name="portal"></a>Portal
+
+Para usar o portal do Azure para migrar namespaces do Barramento de Serviço para outra assinatura, siga as instruções descritas [aqui](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+
+#### <a name="powershell"></a>PowerShell
+
+A sequência de comandos do PowerShell a seguir move um namespace de uma assinatura do Azure para outra. Para executar essa operação, o namespace já deve estar ativo e o usuário que está executando os comandos do PowerShell deve ser um administrador em assinaturas de origem e de destino.
 
 ```powershell
 # Create a new resource group in target subscription

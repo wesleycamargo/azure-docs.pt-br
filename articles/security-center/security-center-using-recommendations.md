@@ -1,6 +1,6 @@
 ---
 title: "Usar as recomendações da Central de Segurança do Azure para aprimorar a segurança | Microsoft Docs"
-description: " Saiba como usar as políticas de segurança e as recomendações na Central de Segurança do Azure para ajudar a atenuar uma violação de segurança. "
+description: " Saiba como usar as políticas de segurança e as recomendações da Central de Segurança do Azure para ajudar a atenuar um ataque de segurança. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 313801fc3b845cd30506b1a26918660e77d2a986
-ms.openlocfilehash: 67095e0d8752fb3a2bca692f65e77cde5fd1a966
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 36dd149812a0e8c8ca8ef2bac09c1920ec15d3ba
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -75,7 +77,7 @@ Jefferson entra no [Portal do Azure](https://azure.microsoft.com/features/azure-
 
 1. Jefferson seleciona o bloco **Recomendações** para abrir a folha **Recomendações**.
    ![Selecionar o bloco de recomendações][3]
-2. Ele examina a lista de recomendações. Ele vê que a Central de Segurança forneceu a lista de recomendações na ordem de prioridade, da mais alta para a mais baixa. Ele decide tratar da primeira recomendação de alta prioridade da lista. Ele seleciona **Instalar o Endpoint Protection** na folha **Recomendações**.
+2. Ele examina a lista de recomendações. Ele vê que a Central de Segurança forneceu a lista de recomendações na ordem de prioridade, da mais alta para a mais baixa. Ele decide tratar de uma recomendação de Alta prioridade na lista. Ele seleciona **Instalar o Endpoint Protection** na folha **Recomendações**.
 3. A folha **Instalar o Endpoint Protection** abre exibindo uma lista de máquinas virtuais sem antimalware habilitado. Jefferson examina a lista de VMs, seleciona todas elas e, em seguida, escolhe **Instalar em 3 VMs**.
    ![Instalar o Endpoint Protection][4]
 4. A folha **Selecionar Endpoint Protection** se abre, fornecendo a Jefferson duas soluções antimalware. Jefferson seleciona a solução **Microsoft Antimalware**.
@@ -114,9 +116,4 @@ Monitorar as recomendações na Central de Segurança pode ajudar a eliminar vul
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

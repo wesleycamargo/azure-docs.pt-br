@@ -1,27 +1,29 @@
 ---
-title: Exemplos de Node.js NoSQL para o Banco de Dados de Documentos | Microsoft Docs
-description: "Encontre exemplos de Node.js NoSQL no github para tarefas comuns do Banco de Dados de Documentos, incluindo operações CRUD para documentos JSON em bancos de dados NoSQL."
+title: Exemplos de Node.js para o Azure Cosmos DB | Microsoft Docs
+description: "Encontre exemplos do Node.js no GitHub para tarefas comuns no Azure Cosmos DB, incluindo operações CRUD."
 keywords: Exemplos do Node.js
-services: documentdb
+services: cosmosdb
 author: moderakh
 manager: jhubbard
 editor: monicar
 documentationcenter: nodejs
 ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2017
 ms.author: moderakh
-translationtype: Human Translation
-ms.sourcegitcommit: 6d3872dfa5187ea4e0570fdfd0ed3804f461af3f
-ms.openlocfilehash: bc3350a094361817f68e31de6561d050a3295f61
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5415bef7706f1a621429f76fb451ff459693b0e9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-nodejs-examples"></a>Exemplos de Node.js para o Banco de Dados de Documentos
+# <a name="azure-cosmos-db-nodejs-examples"></a>Exemplos do Node.js no Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [Exemplos do .NET](documentdb-dotnet-samples.md)
 > * [Exemplos do Node.js](documentdb-nodejs-samples.md)
@@ -30,7 +32,7 @@ ms.openlocfilehash: bc3350a094361817f68e31de6561d050a3295f61
 > 
 > 
 
-Soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Banco de Dados de Documentos do Azure estão incluídas no repositório GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) . Esse artigo fornece:
+Soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB estão incluídas no repositório GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples). Esse artigo fornece:
 
 * Links para as tarefas em cada um dos arquivos de exemplo do projeto Node.js.
 * Links para o conteúdo de referência da API relacionada.
@@ -100,7 +102,7 @@ O arquivo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/sa
 | [Criar um índice de intervalo em um caminho de cadeia de caracteres](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L349-L425) |[IndexKind.Range](http://azure.github.io/azure-documentdb-node/global.html#IndexKind), [IndexingPolicy](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy), [DocumentClient.queryDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryDocument) |
 | [Criar uma coleção com indexPolicy padrão, em seguida, atualizá-la online](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L519-L614) |[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection)<br> [DocumentClient.replaceCollection#replaceCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html) |
 
-Para saber mais sobre indexação, veja [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md).
+Para obter mais informações sobre indexação, consulte [Políticas de indexação do Azure Cosmos DB](documentdb-indexing-policies.md).
 
 ## <a name="server-side-programming-examples"></a>Exemplos de programação do lado do servidor
 O arquivo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) do projeto [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) mostra como executar as tarefas a seguir.
@@ -110,7 +112,7 @@ O arquivo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/sa
 | [Criar um procedimento armazenado](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L44-L71) |[DocumentClient.createStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createStoredProcedure) |
 | [Executar um procedimento armazenado](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L73-L90) |[DocumentClient.executeStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#executeStoredProcedure) |
 
-Para saber mais sobre a programação do servidor, veja [Programação no servidor do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados](documentdb-programming.md).
+Para obter mais informações sobre a programação do lado do servidor, consulte [Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs](documentdb-programming.md).
 
 ## <a name="partitioning-examples"></a>Exemplos de particionamento
 O arquivo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) do projeto [Partitioning](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) mostra como executar as tarefas a seguir.
@@ -119,11 +121,6 @@ O arquivo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/sa
 | --- | --- |
 | [Usar um HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
-Para saber mais sobre o particionamento de dados no Banco de Dados de Documentos, veja [Particionamento e dimensionamento no Banco de Dados de Documentos do Azure](documentdb-partition-data.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+Para obter mais informações sobre o particionamento de dados no Azure Cosmos DB, consulte [Particionar e escalar dados no Azure Cosmos DB](documentdb-partition-data.md).
 
 

@@ -12,11 +12,13 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 524d3300e621d8e383833198c14c2e2e8461683b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ea3fc801074bb6d7e7c32574bc94702c79a61185
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -288,7 +290,7 @@ Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalh
 
 <!-- This is a standalone topic in MSDN -->
 <a name="LanguageSupport"></a>
-**Suporte ao idioma**
+**Suporte a idiomas**
 
 Os campos pesquisáveis são submetidos a análise que, frequentemente, envolve quebra de palavras, normalização do texto e filtragem de termos. Por padrão, os campos pesquisáveis no Azure Search são analisados com o [Analisador Apache Lucene Padrão](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html), que quebra o texto em elementos seguindo as regras de ["Segmentação de texto Unicode"](http://unicode.org/reports/tr29/). Além disso, o analisador padrão converte todos os caracteres em sua forma em letras minúsculas. Documentos indexados e termos de pesquisa são submetidos a análise durante a indexação e o processamento de consultas.
 
@@ -636,7 +638,7 @@ Consulte [Adicionar perfis de pontuação para um índice de pesquisa (API de RE
 O Javascript do lado do cliente não pode chamar APIs por padrão, pois o navegador impedirá todas as solicitações entre origens. Habilite o CORS (Compartilhamento de Recursos entre Origens) definindo o atributo `corsOptions` para permitir consultas entre origens em seu índice. Observe que apenas APIs de consulta dão suporte a CORS por motivos de segurança. As seguintes opções podem ser definidas para CORS:
 
 * `allowedOrigins` (obrigatório): essa é uma lista de origens às quais será concedido acesso ao índice. Isso significa que qualquer código Javascript fornecido por essas origens poderá consultar seu índice (supondo que ele forneça a chave de API correta). Cada origem normalmente tem o formato `protocol://fully-qualified-domain-name:port` , embora a porta muitas vezes seja omitida. Consulte [este artigo](http://go.microsoft.com/fwlink/?LinkId=330822) para obter mais detalhes.
-  * Se você quiser permitir o acesso a todas as origens, inclua `*` como um único item na matriz `allowedOrigins`. Observe que **essa não é uma prática recomendável para serviços de pesquisa de produção.**  No entanto, pode ser útil para fins de depuração ou de desenvolvimento.
+  * Se você quiser permitir o acesso a todas as origens, inclua `*` como um único item na matriz `allowedOrigins`. Observe que **essa não é uma prática recomendável para serviços de pesquisa de produção.** No entanto, pode ser útil para fins de depuração ou de desenvolvimento.
 * `maxAgeInSeconds` (opcional): navegadores usam esse valor para determinar a duração (em segundos) para respostas de simulação de CORS de cache. Esse deve ser um inteiro não negativo. Quanto maior for esse valor, melhor será o desempenho, porém, mais tempo levará para que as alterações de política CORS entrem em vigor. Se ele não for definido, uma duração padrão de cinco minutos será usada.
 
 <a name="CreateUpdateIndexExample"></a>
@@ -1119,7 +1121,7 @@ O corpo da resposta está no seguinte formato:
 ## <a name="document-operations"></a>Operações de documento
 Na Pesquisa do Azure, um índice é armazenado na nuvem e preenchido usando documentos JSON que você carrega no serviço. Todos os documentos que você carrega formam o corpus de seus dados de pesquisa. Documentos contêm campos, alguns dos quais são indexados em termos de pesquisa ao serem carregados. O segmento de URL `/docs` na API do Azure Search representa a coleção de documentos em um índice. Todas as operações executadas na coleção, como carregar, mesclar, excluir ou consultar documentos, ocorrem no contexto de um único índice. Portanto, as URLs para essas operações sempre começarão com `/indexes/[index name]/docs` para um nome de índice específico.
 
-O código do aplicativo deve gerar documentos JSON para carregar na Pesquisa do Azure ou você pode usar um [indexador](https://msdn.microsoft.com/library/dn946891.aspx) para carregar documentos se a fonte de dados for o Banco de Dados SQL do Azure ou o Banco de Dados de Documentos. Normalmente, os índices são preenchidos por meio de um único conjunto de dados que você fornece.
+O código do aplicativo deve gerar documentos JSON a serem carregados no Azure Search ou é possível usar um [indexador](https://msdn.microsoft.com/library/dn946891.aspx) para carregar documentos, caso a fonte de dados seja o Banco de Dados SQL do Azure ou o Azure Cosmos DB. Normalmente, os índices são preenchidos por meio de um único conjunto de dados que você fornece.
 
 Você deve planejar ter um documento para cada item que deseja pesquisar. Um aplicativo de aluguel de filmes pode ter um documento por filme, um aplicativo de vitrine pode ter um documento por SKU, um aplicativo de cursos online pode ter um documento por curso, uma empresa de pesquisa pode ter um documento para cada artigo acadêmico em seu repositório e assim por diante.
 
@@ -1968,9 +1970,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "top": 5,
       "suggesterName": "sg"
     }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

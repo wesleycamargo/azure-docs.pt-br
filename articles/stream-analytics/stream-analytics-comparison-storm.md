@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5b5aa75756d2a7061d531d50a59a2c52dfb75cbe
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -334,7 +334,7 @@ Um trabalho de streaming pode ter várias saídas. Saídas com suporte: hubs de 
             </td>
             <td width="246" valign="top">
                 <p>
-Suporte para várias saídas em uma topologia, cada saída pode ter uma lógica personalizada para processamento downstream. Pronto para uso, o Storm inclui conectores para PowerBI, hubs de eventos do Azure, armazenamento de blobs do Azure, Banco de Dados de Documentos do Azure, SQL e HBase. Conectores sem suporte podem ser implementados via código personalizado.
+Suporte para várias saídas em uma topologia, cada saída pode ter uma lógica personalizada para processamento downstream. Pronto para uso, o Storm inclui conectores para o Power BI, Hubs de Eventos do Azure, Armazenamento de Blobs do Azure, Azure Cosmos DB, SQL e HBase. Conectores sem suporte podem ser implementados via código personalizado.
                 </p>
             </td>
         </tr>
@@ -570,7 +570,7 @@ Dados de referência disponíveis de blobs do Azure com o tamanho máximo de 100
             </td>
             <td width="246" valign="top">
                 <p>
-Sem limites de tamanho dos dados. Conectores disponíveis para HBase, Banco de Dados de Documentos, SQL Server e Azure. Conectores sem suporte podem ser implementados via código personalizado.
+Sem limites de tamanho dos dados. Conectores disponíveis para HBase, Azure Cosmos DB, SQL Server e Azure. Conectores sem suporte podem ser implementados via código personalizado.
                 </p>
                 <p>
 A atualização dos dados de referência deve ser tratada pelo código personalizado.

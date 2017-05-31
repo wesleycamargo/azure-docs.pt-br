@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 9b75d0ede3ec1b291936ee0a53778afe10ba91db
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 9932ac04699f49b7a3ea3dabe4d380fdc4d05ec1
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -364,8 +364,8 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| container |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
-| itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
+| contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
+| itemToFind |Sim |string ou int |O valor a ser encontrado. |
 
 ### <a name="examples"></a>Exemplos
 
@@ -527,7 +527,7 @@ Uma cadeia de caracteres que contém o valor convertido.
 ## <a name="empty"></a>empty
 `empty(itemToTest)`
 
-Determina se uma matriz, uma cadeia de caracteres ou um objeto está vazio.
+Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
 ### <a name="parameters"></a>parâmetros
 
@@ -939,21 +939,21 @@ Uma cadeia de caracteres com, pelo menos, o número de caracteres especificado.
 <a id="replace" />
 
 ## <a name="replace"></a>substitui
-`replace(originalString, oldCharacter, newCharacter)`
+`replace(originalString, oldString, newString)`
 
-Retorna uma nova cadeia de caracteres com todas as instâncias de um caractere na cadeia de caracteres especificada substituída por outro caractere.
+Retorna uma nova cadeia de caracteres com todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalString |Sim |string |O valor no qual todas as instâncias de um caractere são substituídas por outro caractere. |
-| oldCharacter |Sim |string |O caractere a ser removido da cadeia de caracteres original. |
-| newCharacter |Sim |string |O caractere a ser adicionado no lugar do caractere removido. |
+| originalString |Sim |string |O valor que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
+| oldString |Sim |string |A cadeia de caractere a ser removida da cadeia de caracteres original. |
+| newString |Sim |string |A cadeia de caracteres a ser adicionada no lugar da cadeia removida. |
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como remover todos os traços da cadeia de caracteres fornecida pelo usuário.
+O exemplo a seguir mostra como remover todos os traços da cadeia de caracteres fornecida pelo usuário e como substituir parte da cadeia de caracteres por outra cadeia de caracteres.
 
 ```json
 {
@@ -967,9 +967,13 @@ O exemplo a seguir mostra como remover todos os traços da cadeia de caracteres 
     },
     "resources": [],
     "outputs": {
-        "stringOutput": {
+        "firstOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
+        },
+        "secodeOutput": {
+            "type": "string",
+            "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
     }
 }
@@ -1657,9 +1661,9 @@ O seguinte exemplo mostra como usar uri, uriComponent e uriComponentToString:
 Uma cadeia de caracteres decodificada de valores codificados em URI.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, consulte [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para mesclar vários modelos, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
+* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
+* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
 

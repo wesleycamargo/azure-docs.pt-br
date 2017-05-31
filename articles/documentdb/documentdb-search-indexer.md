@@ -1,13 +1,13 @@
 ---
-title: "Conectando o DocumentDB à Pesquisa do Azure usando indexadores | Microsoft Docs"
-description: Este artigo mostra como usar o indexador da Pesquisa do Azure com o Banco de Dados de Documentos como uma fonte de dados.
-services: documentdb
+title: Conectando o Azure Cosmos DB ao Azure Search usando indexadores | Microsoft Docs
+description: Este artigo mostra como usar o indexador do Azure Search com o Azure Cosmos DB como fonte de dados.
+services: cosmosdb
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,21 +16,23 @@ ms.date: 01/10/2017
 ms.author: mimig
 redirect_url: https://docs.microsoft.com/azure/search/search-howto-index-documentdb
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 9a5416b1c26d1e8eaecec0ada79d357f32ca5ab1
-ms.openlocfilehash: c318d7133e26ec3a39d6fc97b0693b44d742d456
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b3a62c693ff672458955789cde9d5be96cac9c58
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="connecting-documentdb-with-azure-search-using-indexers"></a>Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores
-Se você está pensando em implementar experiências de pesquisa incríveis para seus dados no Banco de Dados de Documentos, use o indexador da Pesquisa do Azure para o Banco de Dados de Documentos! Neste artigo, mostraremos como integrar o Banco de Dados de Documentos do Azure à Pesquisa do Azure sem precisar escrever nenhum código para manter a infraestrutura de indexação!
+# <a name="connecting-azure-cosmos-db-with-azure-search-using-indexers"></a>Conectando o Azure Cosmos DB ao Azure Search usando indexadores
+Se você está pensando em implementar experiências de pesquisa incríveis com seus dados do Cosmos DB, use o indexador do Azure Search para o Cosmos DB! Neste artigo, mostraremos como integrar o Azure Cosmos DB ao Azure Search sem precisar escrever nenhum código para manter a infraestrutura de indexação.
 
-Para isso, você precisa [configurar uma conta do Azure Search](../search/search-create-service-portal.md) (não é necessário atualizar para a pesquisa padrão) e chamar a [API REST do Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) para criar uma **fonte de dados** do DocumentDB e um **indexador** para essa fonte de dados.
+Para fazer isso, você precisa [configurar uma conta do Azure Search](../search/search-create-service-portal.md) (não é necessário atualizar para a pesquisa padrão) e chamar a [API REST do Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) para criar uma **fonte de dados** do Cosmos DB e um **indexador** para essa fonte de dados.
 
 Para enviar solicitações para interagir com as APIs REST, você pode usar o [Postman](https://www.getpostman.com/), o [Fiddler](http://www.telerik.com/fiddler), ou qualquer outra ferramenta de sua preferência.
 
-## <a name="a-idconceptsaazure-search-indexer-concepts"></a><a id="Concepts"></a>Conceitos do indexador da Pesquisa do Azure
-A Pesquisa do Azure dá suporte à criação e ao gerenciamento de fontes de dados (incluindo o Banco de Dados de Documentos) e de indexadores que operam em relação a essas fontes de dados.
+## <a id="Concepts"></a>Conceitos do indexador da Pesquisa do Azure
+O Azure Search dá suporte à criação e ao gerenciamento de fontes de dados (incluindo o Cosmos DB) e indexadores que operam nessas fontes de dados.
 
 Uma **fonte de dados** especifica quais dados precisam ser indexados, as credenciais para acessar os dados e as políticas para habilitar a Pesquisa do Azure a identificar com eficiência as alterações nos dados (como documentos modificados ou excluídos dentro da coleção). A fonte de dados é definida como um recurso independente para que possa ser usada por vários indexadores.
 
@@ -40,7 +42,7 @@ Um **indexador** descreve como os dados vão da fonte de dados para o índice de
 * Sincronizar um índice com as alterações da fonte de dados segundo uma agenda. A agenda faz parte da definição do indexador.
 * Invocar atualizações sob demanda para um índice, conforme necessário.
 
-## <a name="a-idcreatedatasourceastep-1-create-a-data-source"></a><a id="CreateDataSource"></a>Etapa 1: Criar uma fonte de dados
+## <a id="CreateDataSource"></a>Etapa 1: Criar uma fonte de dados
 Emita uma solicitação HTTP POST para criar uma nova fonte de dados no serviço de Pesquisa do Azure, incluindo os seguintes cabeçalhos de solicitação.
 
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
@@ -51,22 +53,22 @@ A `api-version` é obrigatória. Os valores válidos incluem `2015-02-28` ou uma
 
 O corpo da solicitação contém a definição da fonte de dados, que deve incluir os seguintes campos:
 
-* **nome**: escolha qualquer nome para representar o banco de dados do Banco de Dados de Documentos.
+* **name**: escolha um nome para representar o banco de dados do Cosmos DB.
 * **tipo**: Use `documentdb`.
 * **credentials**:
   
-  * **connectionString**: obrigatório. Especifique as informações de conexão ao banco de dados do Banco de Dados de Documentos do Azure no seguinte formato: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+  * **connectionString**: obrigatório. Especifique as informações de conexão do banco de dados do Azure Cosmos DB no seguinte formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
 * **container**:
   
-  * **name**: obrigatório. Especifique a ID da coleção do Banco de Dados de Documentos a ser indexada.
+  * **name**: obrigatório. Especifique a ID da coleção da API do DocumentDB a ser indexada.
   * **query**: opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que a Pesquisa do Azure pode indexar.
 * **dataChangeDetectionPolicy**: opcional. Consulte a [Política de Detecção de Alteração de Dados](#DataChangeDetectionPolicy) abaixo.
 * **dataDeletionDetectionPolicy**: opcional. Consulte a [Política de Detecção de Exclusão de Dados](#DataDeletionDetectionPolicy) abaixo.
 
 Veja abaixo um [exemplo de corpo da solicitação](#CreateDataSourceExample).
 
-### <a name="a-iddatachangedetectionpolicyacapturing-changed-documents"></a><a id="DataChangeDetectionPolicy"></a>Capturando documentos alterados
-A finalidade de uma política de detecção de alteração de dados é identificar de maneira eficaz dados alterados. Atualmente, a única política com suporte é a política `High Water Mark` que usa a propriedade, que indica o `_ts` carimbo de data/hora da última alteração, fornecida pelo Banco de Dados de Documentos e especificada da seguinte maneira:
+### <a id="DataChangeDetectionPolicy"></a>Capturando documentos alterados
+A finalidade de uma política de detecção de alteração de dados é identificar de maneira eficaz dados alterados. Atualmente, a única política com suporte é a política `High Water Mark` que usa a propriedade `_ts` de carimbo de data/hora da última modificação, fornecida pelo Cosmos DB e especificada da seguinte maneira:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -77,7 +79,7 @@ Você também precisa adicionar `_ts` à projeção, bem como a cláusula `WHERE
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
-### <a name="a-iddatadeletiondetectionpolicyacapturing-deleted-documents"></a><a id="DataDeletionDetectionPolicy"></a>Capturando documentos excluídos
+### <a id="DataDeletionDetectionPolicy"></a>Capturando documentos excluídos
 Quando linhas são excluídas da tabela de origem, você deve excluí-las também do índice de pesquisa. A finalidade de uma política de detecção de exclusão de dados é identificar de maneira eficaz dados excluídos. Atualmente, a única política com suporte é a política `Soft Delete` (a exclusão recebe algum tipo de marcador), que é especificada da seguinte forma:
 
     {
@@ -91,8 +93,8 @@ Quando linhas são excluídas da tabela de origem, você deve excluí-las també
 > 
 > 
 
-### <a name="a-idleveagingqueriesaleveraging-queries"></a><a id="LeveagingQueries"></a>Aproveitando consultas
-Além de capturar documentos alterados e excluídos, a especificação de uma consulta do DocumentDB pode ser usada para mesclar propriedades aninhadas, desenrolar matrizes, projetar propriedades json e filtrar os dados a serem indexados. A manipulação dos dados a serem indexados pode aprimorar o desempenho do indexador do Azure Search.
+### <a id="LeveagingQueries"></a>Aproveitando consultas
+Além de capturar os documentos alterados e excluídos, a especificação de uma consulta da API do DocumentDB pode ser usada para mesclar propriedades aninhadas, desenrolar matrizes, projetar propriedades JSON e filtrar os dados a serem indexados. A manipulação dos dados a serem indexados pode aprimorar o desempenho do indexador do Azure Search.
 
 Exemplo de documento:
 
@@ -127,7 +129,7 @@ Filtrar consulta:
     SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
 
 
-### <a name="a-idcreatedatasourceexamplearequest-body-example"></a><a id="CreateDataSourceExample"></a>Exemplo de corpo de solicitação
+### <a id="CreateDataSourceExample"></a>Exemplo de corpo de solicitação
 O exemplo a seguir cria uma fonte de dados com uma consulta personalizada e dicas de política:
 
     {
@@ -154,7 +156,7 @@ O exemplo a seguir cria uma fonte de dados com uma consulta personalizada e dica
 ### <a name="response"></a>Resposta
 Se a fonte de dados for criada com êxito, você receberá uma resposta de HTTP 201 Criado.
 
-## <a name="a-idcreateindexastep-2-create-an-index"></a><a id="CreateIndex"></a>Etapa 2: Criar um índice
+## <a id="CreateIndex"></a>Etapa 2: Criar um índice
 Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você pode fazer isso na [Interface de usuário do Portal do Azure](../search/search-create-index-portal.md) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
     POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
@@ -181,7 +183,7 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 | Objetos GeoJSON, por exemplo, { "type": "Point", "coordinates": [ long, lat ] } |Edm.GeographyPoint |
 | Outros objetos JSON |N/D |
 
-### <a name="a-idcreateindexexamplearequest-body-example"></a><a id="CreateIndexExample"></a>Exemplo de corpo de solicitação
+### <a id="CreateIndexExample"></a>Exemplo de corpo de solicitação
 O exemplo a seguir cria um índice com um campo de descrição e ID:
 
     {
@@ -204,7 +206,7 @@ O exemplo a seguir cria um índice com um campo de descrição e ID:
 ### <a name="response"></a>Resposta
 Se o índice for criado com êxito, você receberá uma resposta de HTTP 201 Criado.
 
-## <a name="a-idcreateindexerastep-3-create-an-indexer"></a><a id="CreateIndexer"></a>Etapa 3: Criar um indexador
+## <a id="CreateIndexer"></a>Etapa 3: Criar um indexador
 Você pode criar um novo indexador em um serviço da Pesquisa do Azure usando uma solicitação HTTP POST com os seguintes cabeçalhos.
 
     POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
@@ -218,13 +220,13 @@ O corpo da solicitação contém a definição do indexador, que deve incluir os
 * **targetIndexName**: obrigatório. O nome de um índice existente.
 * **schedule**: opcional. Consulte [Agenda de indexação](#IndexingSchedule) abaixo.
 
-### <a name="a-idindexingschedulearunning-indexers-on-a-schedule"></a><a id="IndexingSchedule"></a>Executando indexadores de acordo com uma agenda
+### <a id="IndexingSchedule"></a>Executando indexadores de acordo com uma agenda
 Um indexador pode, também, especificar uma agenda. Se houver uma agenda, o indexador será executado periodicamente segundo a agenda. A agenda tem os seguintes atributos:
 
 * **interval**: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 * **startTime**: obrigatório. Uma data/hora, no horário UTC, que especifica quando o indexador deve começar a ser executado.
 
-### <a name="a-idcreateindexerexamplearequest-body-example"></a><a id="CreateIndexerExample"></a>Exemplo de corpo de solicitação
+### <a id="CreateIndexerExample"></a>Exemplo de corpo de solicitação
 O exemplo a seguir cria um indexador que copia dados da coleção referenciada pela fonte de dados `myDocDbDataSource` para o índice `mySearchIndex` em uma agenda que inicia em 1º de janeiro de 2015 UTC e é executado de hora em hora.
 
     {
@@ -237,7 +239,7 @@ O exemplo a seguir cria um indexador que copia dados da coleção referenciada p
 ### <a name="response"></a>Response
 Se o indexador for criado com êxito, você receberá uma resposta de HTTP 201 Criado.
 
-## <a name="a-idrunindexerastep-4-run-an-indexer"></a><a id="RunIndexer"></a>Etapa 4: Executar um indexador
+## <a id="RunIndexer"></a>Etapa 4: Executar um indexador
 Além de ser executado periodicamente segundo uma agenda, o indexador também pode ser invocado sob demanda emitindo a seguinte solicitação HTTP POST:
 
     POST https://[Search service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
@@ -246,7 +248,7 @@ Além de ser executado periodicamente segundo uma agenda, o indexador também po
 ### <a name="response"></a>Resposta
 Se o indexador for invocado com êxito, você receberá uma resposta de HTTP 202 Aceito.
 
-## <a name="a-namegetindexerstatusastep-5-get-indexer-status"></a><a name="GetIndexerStatus"></a>Etapa 5: Obter status do indexador
+## <a name="GetIndexerStatus"></a>Etapa 5: Obter status do indexador
 Você pode emitir uma solicitação HTTP GET para recuperar o status atual e o histórico de execução de um indexador:
 
     GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
@@ -285,15 +287,10 @@ A resposta deve ser semelhante ao seguinte:
 
 O histórico de execução contém até as 50 execuções mais recentes, que são classificadas em ordem cronológica inversa (de modo que a execução mais recente fique em primeiro lugar).
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Próximas etapas
-Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pesquisa do Azure usando o indexador do Banco de Dados de Documentos.
+## <a name="NextSteps"></a>Próximas etapas
+Parabéns! Você acaba de aprender a integrar o Azure Cosmos DB ao Azure Search usando o indexador do Cosmos DB.
 
-* Para saber mais sobre o Banco de Dados de Documentos do Azure, confira a [página de serviço do Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/).
+* Para saber mais sobre o Cosmos DB, consulte a [página de serviço do Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 * Para saber mais sobre a Pesquisa do Azure, confira a [página do serviço de Pesquisa](https://azure.microsoft.com/services/search/).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

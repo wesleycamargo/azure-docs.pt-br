@@ -1,30 +1,31 @@
 ---
-title: "Taxa de transferência de provisão para o Azure DocumentDB | Microsoft Docs"
-description: "Saiba como definir a taxa de transferência provisionada para sua coleção do DocumentDB."
-services: documentdb
+title: Provisionar a produtividade do Azure Cosmos DB | Microsoft Docs
+description: "Saiba como definir a produtividade provisionada de sua coleção do Azure Cosmos DB."
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: abdf0af8a85db19c68a0d74c0477d798c0fd03fc
-ms.openlocfilehash: 8ff2fc6106438e35b93112a6dc97814ba79b06fc
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5258ba0bc37442c983d91c5dd7435fd5fbefd56f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="set-throughput-for-azure-documentdb-collections"></a>Definir a taxa de transferência de coleções do Azure DocumentDB
+# <a name="set-throughput-for-azure-cosmos-db-collections"></a>Definir a produtividade de coleções do Azure Cosmos DB
 
-Você pode definir a taxa de transferência para suas coleções do DocumentDB no portal do Azure ou usando o SDK do cliente. 
+Você pode definir a produtividade de suas coleções do Azure Cosmos DB no portal do Azure ou usando os SDKs do cliente. 
 
 A tabela a seguir lista a produtividade disponível para cada coleção:
 
@@ -54,8 +55,8 @@ A tabela a seguir lista a produtividade disponível para cada coleção:
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Para definir a taxa de transferência usando o portal do Azure
 
 1. Em uma nova janela, abra o [portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, clique em **NoSQL (DocumentDB)** ou em **Mais Serviços** na parte inferior, role até **Bancos de dados** e clique em **NoSQL (DocumentDB)**.
-3. Selecione sua conta do DocumentDB.
+2. Na barra esquerda, clique em **Azure Cosmos DB** ou em **Mais Serviços** na parte inferior, role até **Bancos de dados** e, depois, clique em **Azure Cosmos DB**.
+3. Selecione sua conta do Cosmos DB.
 4. Na nova janela, em **coleções**, clique em **escala** conforme mostrado na seguinte captura de tela.
 5. Na nova janela, selecione a coleção da lista suspensa, alteração de **Throughput** valor e, em seguida, clique em **salvar**.
 
@@ -83,9 +84,9 @@ await client.ReplaceOfferAsync(offer);
 
 **Posso definir minha taxa de transferência com valor menor que 400 RU/s?**
 
-400 RU/s é a taxa de transferência mínima disponível em coleções de partição única do DocumentDB (2500 RU/s é o mínimo para coleções particionadas). Unidades de solicitação são definidas em intervalos de 100 RU/s, mas a taxa de transferência não pode ser definida como 100 RU/s ou qualquer valor menor que 400 RU/s. Se você estiver procurando por um método econômico para desenvolver e testar DocumentDB, você poderá usar o [emulador do DocumentDB](documentdb-nosql-local-emulator.md) gratuito, que pode ser implantado localmente sem custo adicional. 
+400 RU/s é a produtividade mínima disponível em coleções de partição única do Cosmos DB (2500 RU/s é o mínimo para coleções particionadas). Unidades de solicitação são definidas em intervalos de 100 RU/s, mas a taxa de transferência não pode ser definida como 100 RU/s ou qualquer valor menor que 400 RU/s. Se você estiver procurando um método econômico para desenvolver e testar o Cosmos DB, poderá usar o [Emulador do Azure Cosmos DB](documentdb-nosql-local-emulator.md) gratuito, que pode ser implantado localmente sem custo adicional. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o provisionamento e escala planeta contínuo com o DocumentDB, veja [particionamento e escala com o DocumentDB](documentdb-partition-data.md).
+Para saber mais sobre o provisionamento e atingir uma escala mundial com o Cosmos DB, consulte [Particionamento e escala com o Cosmos DB](documentdb-partition-data.md).
 

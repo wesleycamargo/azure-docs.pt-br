@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/20/2017
+ms.date: 5/11/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6437190ac58a021ce84993f667bbb5fad6031bb3
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 6e91a8b21fe7bfe2c6944cfa1c10d835a75ddd13
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -53,14 +54,18 @@ Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidad
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bits) </br> Windows Server 2012 (64 bits) </br> Windows Server 2012 R2 (64 bits) |
 |Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| RHEL (Red Hat Enterprise Linux) 6.4, 6.5, 6.6, 6.7, 6.8 (somente 64 bits) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8 (somente 64 bits) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2 (somente 64 bits) </br> CentOS 7.0, 7.1, 7.2 (somente 64 bits)</br> CentOs 7.3 (somente migração) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (somente 64 bits)|
-|Microsoft-ASR_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits)|
+|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (somente 64 bits)|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits)|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (somente 64 bits)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Instalar o Serviço de Mobilidade manualmente usando a GUI
 
->[!NOTE]
+>[!IMPORTANT]
 > A instalação baseada em GUI funciona apenas com sistemas operacionais Windows.
+> Se você estiver usando um Servidor de Configuração para replicar máquinas virtuais do Azure IaaS de uma Região/Assinatura do Azure para outra, use o método de instalação baseado em Linha de comando
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 

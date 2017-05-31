@@ -17,15 +17,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 027597c73d7282ef929363bab904e7d3d423d3d4
-ms.openlocfilehash: db2757015cf8e821cffcfe39bcbd1559c23fc7ed
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5e28422158684c3aaf0ac3fdf5b19c80fbccfb02
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>Lição 5: Criar o primeiro módulo de Gateway de IoT do Azure
-Embora o SDK do Gateway permita que você crie módulos escritos em Java, .NET ou Node.js, este tutorial orienta você pelas etapas de criação de um módulo em C.
+Embora o Azure IoT Edge permita que você crie módulos escritos em Java, .NET ou Node.js, este tutorial explica as etapas para criar um módulo em C.
 
 ## <a name="what-you-will-do"></a>O que você fará
 
@@ -41,7 +42,7 @@ Embora o SDK do Gateway permita que você crie módulos escritos em Java, .NET o
 
 ## <a name="what-you-need"></a>O que você precisa
 
-O SDK do Gateway de IoT do Azure foi instalado no computador host.
+O Azure IoT Edge foi instalado no computador host.
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
@@ -103,7 +104,7 @@ Para compilar e executar o aplicativo `hello_world`, siga estas etapas no comput
 
 As etapas a seguir orientam você durante a criação de um novo módulo e compile-o no Intel NUC. O módulo imprime mensagens com um carimbo de hora após recebê-los. Você irá criar o primeiro módulo gateway personalizado nesta seção.
 
-Qualquer módulo do SDK do Azure IoT Gateway deve implementar as seguintes interfaces:
+Qualquer módulo do Azure IoT Edge deve implementar as seguintes interfaces:
 
    ```C
    pfModule_ParseConfigurationFromJson Module_ParseConfigurationFromJson
