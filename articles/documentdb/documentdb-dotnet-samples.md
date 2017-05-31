@@ -1,24 +1,25 @@
 ---
-title: Exemplo de NoSQL .NET para DocumentDB | Microsoft Docs
-description: "Encontre exemplos de NoSQL .NET em C# no github para tarefas comuns do Banco de Dados de Documentos, incluindo operações CRUD para documentos JSON em bancos de dados NoSQL."
+title: 'Azure Cosmos DB: Exemplos do .NET para a API do DocumentDB | Microsoft Docs'
+description: "Encontre exemplos do .NET em C# no GitHub para tarefas comuns do DocumentDB, incluindo operações CRUD."
 keywords: Exemplo de NoSQL
-services: documentdb
+services: cosmosdb
 author: rnagpal
 manager: jhubbard
 editor: monicar
 documentationcenter: .net
 ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1581ee526ba9fa296fbb433672d8e8389d852519
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5198492ff713f3756037dd8634778f53c5a1eb33
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -31,14 +32,14 @@ ms.lasthandoff: 03/22/2017
 > 
 > 
 
-Exemplos mais recentes de soluções que executam operações CRUD e outras operações comuns em recursos do DocumentDB do Azure estão incluídos no repositório GitHub [azure-documentdb-net](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples). Esse artigo fornece:
+As últimas soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB estão incluídas no repositório GitHub [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples). Esse artigo fornece:
 
 * Links para as tarefas em cada um dos arquivos de exemplo do projeto C#. 
 * Links para o conteúdo de referência da API relacionada.
 
 **Pré-requisitos**
 
-1. Você precisa de uma conta do Azure para usar esses exemplos de NoSQL:
+1. Você precisa de uma conta do Azure para usar estes exemplos:
    * Você pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
      * É possível [ativar os benefícios para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
 2. Também é necessário ter o [pacote NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
@@ -114,7 +115,7 @@ O arquivo geoespacial de exemplo, [azure-documentdb-dotnet/samples/code-samples/
 | [Habilitar indexação geoespacial em uma coleção existente](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L312-L336) |[DocumentClient.ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx)<br>[DocumentCollection.IndexingPolicy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.indexingpolicy.aspx#P:Microsoft.Azure.Documents.DocumentCollection.IndexingPolicy) |
 | [Validar dados de ponto e polígono](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L223-L265) |[ST_ISVALID](documentdb-sql-query.md#BuiltinFunctions)<br>[ST_ISVALIDDETAILED](documentdb-sql-query.md#BuiltinFunctions)<br>[GeometryOperationExtensions.IsValid](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid.aspx)<br>[GeometryOperationExtensions.IsValidDetailed](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed.aspx) |
 
-Para obter mais informações sobre como trabalhar com Dados geoespaciais, veja [Trabalhando com Dados geoespaciais no Banco de Dados de Documentos do Azure](documentdb-geospatial.md).  
+Para obter mais informações sobre como trabalhar com os Dados geoespaciais, consulte [Trabalhando com os Dados geoespaciais no Azure Cosmos DB](documentdb-geospatial.md).  
 
 ## <a name="query-examples"></a>Exemplos de consulta
 O arquivo do documento de consulta, [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), mostra como executar cada uma das tarefas a seguir usando a gramática de consulta SQL, o provedor LINQ com consulta e com Lambda.
@@ -151,7 +152,7 @@ O arquivo de programação do servidor, [azure-documentdb-dotnet/samples/code-sa
 | [Criar um pós-gatilho](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [Criar uma UDF (função definida pelo usuário)](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-Para obter mais informações sobre a programação do servidor, veja [Programação no servidor do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados](documentdb-programming.md).
+Para obter mais informações sobre a programação do lado do servidor, consulte [Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs](documentdb-programming.md).
 
 ## <a name="user-management-examples"></a>Exemplos de gerenciamento de usuário
 O arquivo de gerenciamento de usuário, [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), mostra como realizar as tarefas a seguir.

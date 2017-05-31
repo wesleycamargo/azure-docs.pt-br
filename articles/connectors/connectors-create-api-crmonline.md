@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: f09dd58f17b228d6381af95c40c5391886bbb8f1
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 845dd16c703362e9e64f02832a35c90e7e77e264
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -167,164 +168,9 @@ Para solucionar uma falha de uma etapa em um aplicativo lógico, exiba os detalh
 
 Para obter mais informações sobre como solucionar problemas de aplicativos lógicos, consulte [Diagnosticando falhas do aplicativo lógico](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="technical-details"></a>Detalhes técnicos
-## <a name="triggers"></a>Gatilhos
-| Gatilho | Descrição |
-| --- | --- |
-| Quando um registro é criado |Dispara um fluxo quando um objeto é criado no Dynamics 365. |
-| Quando um registro é atualizado |Dispara um fluxo quando um objeto é modificado no Dynamics 365. |
-| Quando um registro é excluído |Dispara um fluxo quando um objeto é excluído no Dynamics 365. |
+## <a name="view-the-swagger"></a>Exibir o Swagger
 
-## <a name="actions"></a>Ações
-| Ação | Descrição |
-| --- | --- |
-| Listar registros |Esta operação obtém os registros de uma entidade. |
-| Criar um novo registro |Esta operação cria um novo registro de uma entidade. |
-| Obter registro |Esta operação obtém o registro específico de uma entidade. |
-| Excluir um registro |Essa operação exclui um registro de uma coleção de entidades. |
-| Atualizar um registro |Esta operação atualiza um registro existente de uma entidade. |
-
-### <a name="trigger-and-action-details"></a>Detalhes de gatilho e ação
-Nesta seção, consulte os detalhes específicos sobre cada gatilho e ação, incluindo todas as propriedades de entrada obrigatórias ou opcionais, assim como toda saída correspondente associada ao conector.
-
-#### <a name="when-a-record-is-created"></a>Quando um registro é criado
-Dispara um fluxo quando um objeto é criado no Dynamics 365.
-
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| dataset* |Nome da Organização |Nome da organização do Dynamics 365, como Contoso |
-| table* |Nome da entidade |O nome da entidade |
-| $filter |Consulta de filtro |Uma consulta de filtro ODATA para restringir as entradas retornadas |
-| $orderby |Ordenar por |Uma consulta orderBy do ODATA para especificar a ordem das entradas |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="when-a-record-is-updated"></a>Quando um registro é atualizado
-Dispara um fluxo quando um objeto é modificado no Dynamics 365.
-
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| dataset* |Nome da Organização |Nome da organização do Dynamics 365, como Contoso |
-| table* |Nome da entidade |O nome da entidade |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="when-a-record-is-deleted"></a>Quando um registro é excluído
-Dispara um fluxo quando um objeto é excluído no Dynamics 365.
-
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| dataset* |Nome da Organização |Nome da organização do Dynamics 365, como Contoso |
-| table* |Nome da entidade |O nome da entidade |
-
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="list-records"></a>Listar registros
-Esta operação obtém os registros de uma entidade.
-
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| dataset* |Nome da Organização |Nome da organização do Dynamics 365, como Contoso |
-| table* |Nome da entidade |O nome da entidade |
-| $filter |Consulta de filtro |Uma consulta de filtro ODATA para restringir as entradas retornadas |
-| $orderby |Ordenar por |Uma consulta orderBy do ODATA para especificar a ordem das entradas |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="create-a-new-record"></a>Criar um novo registro
-Esta operação cria um novo registro de uma entidade.
-
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| dataset* |Nome da Organização |Nome da organização do Dynamics 365, como Contoso |
-| table* |Nome da entidade |O nome da entidade |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Nenhuma.
-
-#### <a name="get-record"></a>Obter registro
-Esta operação obtém o registro específico de uma entidade.
-
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| dataset* |Nome da Organização |Nome da organização do Dynamics 365, como Contoso |
-| table* |Nome da entidade |O nome da entidade |
-| id* |Identificador do item |Especificar o Identificador do registro |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Nenhuma.
-
-#### <a name="delete-a-record"></a>Excluir um registro
-Essa operação exclui um registro de uma coleção de entidades.
-
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| dataset* |Nome da Organização |Nome da organização do Dynamics 365, como Contoso |
-| table* |Nome da entidade |O nome da entidade |
-| id* |Identificador do item |Especificar o identificador do registro |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-#### <a name="update-a-record"></a>Atualizar um registro
-Esta operação atualiza um registro existente de uma entidade.
-
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| dataset* |Nome da Organização |Nome da organização do Dynamics 365, como Contoso |
-| table* |Nome da entidade |O nome da entidade |
-| id* |Identificador do registro |Especificar o identificador do registro |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Nenhuma.
-
-## <a name="http-responses"></a>Respostas HTTP
-As ações e os gatilhos podem retornar um ou mais dos seguintes códigos de status HTTP:
-
-| Nome | Descrição |
-| --- | --- |
-| 200 |OK |
-| 202 |Aceita |
-| 400 |Solicitação incorreta |
-| 401 |Não Autorizado |
-| 403 |Proibido |
-| 404 |Não encontrado |
-| 500 |Erro Interno do Servidor. Ocorreu um erro desconhecido. |
-| padrão |Falha na Operação. |
+Consulte os [detalhes do Swagger](/connectors/crm/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).

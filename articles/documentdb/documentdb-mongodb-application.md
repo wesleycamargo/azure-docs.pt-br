@@ -1,45 +1,38 @@
 ---
-title: Usar APIs do MongoDB para criar um aplicativo Web do DocumentDB | Microsoft Docs
-description: Um tutorial do NoSQL que cria um aplicativo Web de banco de dados online usando as APIs do DocumentDB para MongoDB.
+title: Usar a API do Azure Cosmos DB para MongoDB para compilar um aplicativo Web | Microsoft Docs
+description: Um tutorial do Azure Cosmos DB que cria um aplicativo Web de banco de dados online usando a API do MongoDB.
 keywords: exemplos do mongodb
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/28/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c37304efecb2de247a2d63fe244e71c96966ebe0
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3242e3382c5920e69db5ecdbfc2462456aea94bd
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="web-application-development-with-documentdb-api-for-mongodb"></a>Desenvolvimento de aplicativo Web com API para MongoDB do DocumentDB
-> [!div class="op_single_selector"]
-> * [.NET](documentdb-dotnet-application.md)
-> * [.NET para MongoDB](documentdb-mongodb-application.md)
-> * [Node.js](documentdb-nodejs-application.md)
-> * [Java](documentdb-java-application.md)
-> * [Python](documentdb-python-application.md)
-> 
-> 
+# <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB: Conectar-se a um aplicativo do MongoDB usando .NET
 
-Este exemplo mostra como criar um aplicativo Web da API do DocumentDB para MongoDB usando .NET.
+Este exemplo mostra como criar um aplicativo Web da API para MongoDB usando o .NET.
 
 Para usar este exemplo, você deve:
 
-* [Criar](documentdb-create-mongodb-account.md) uma conta do API para MongoDB do DocumentDB.
+* [Crie](documentdb-create-mongodb-account.md) um banco de dados do Azure Cosmos DB.
 * Recuperar suas informações de [cadeia de conexão](documentdb-connect-mongodb-account.md) do MongoDB.
 
-Você pode usar o tutorial [Criar um aplicativo Web do Azure que se conecte ao MongoDB em execução em uma máquina virtual](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md), com modificação mínima, para configurar rapidamente um aplicativo MongoDB (localmente ou publicado em um aplicativo Web do Azure) que se conecte a uma conta da API para MongoDB do DocumentDB.  
+Você pode usar o tutorial [Criar um aplicativo Web do Azure que se conecte ao MongoDB em execução em uma máquina virtual](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md), com modificação mínima, para configurar rapidamente um aplicativo MongoDB (localmente ou publicado em um aplicativo Web do Azure) que se conecte a uma conta da API do MongoDB.  
 
 1. Siga o tutorial, com uma modificação.  Substitua o código Dal.cs por este:
 
@@ -187,5 +180,5 @@ Você pode usar o tutorial [Criar um aplicativo Web do Azure que se conecte ao M
 3. Use o aplicativo!
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [usar o MongoChef](documentdb-mongodb-mongochef.md) e [usar o RoboMongo](documentdb-mongodb-robomongo.md) com sua conta da API para MongoDB do DocumentDB.
+* Saiba como [usar o MongoChef](documentdb-mongodb-mongochef.md) e [usar o RoboMongo](documentdb-mongodb-robomongo.md) com sua conta da API para MongoDB do Azure Cosmos DB.
 

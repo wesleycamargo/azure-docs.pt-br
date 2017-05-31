@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: b942f934ecb25083d779096dc628e342870edc26
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 360073c0ed75552e62e69ce72b225ba35a2a3e09
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,19 +31,17 @@ Para ajudar os clientes a evitar, detectar e responder a ameaças, a Central de 
 >
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
-1. Selecione o bloco **Recomendações** na folha **Central de Segurança**.  Isso abre a folha **Recomendações** .
-   ![Folha Central de Segurança][1]
-2. Sobre a folha **Recomendações** , selecione **Habilitar coleta de dados para assinaturas**.  Isso abre a folha **Ativar a coleta de dados**.
+1. Na folha **Recomendações**, selecione **Habilitar coleta de dados em assinaturas**.  Isso abre a folha **Ativar a coleta de dados**.
    ![Folha de recomendações][2]
-3. Na folha **Ativar a coleta de dados** , selecione sua assinatura. A folha **Política de segurança** para essa assinatura é aberta.
-4. Na folha **Política de segurança**, selecione **Ativado** em **Coleta de dados** para coletar logs automaticamente. A ativação da coleta de dados provisiona a extensão de monitoramento em todas as VMs atuais e novas com suporte na assinatura.
+2. Na folha **Ativar a coleta de dados** , selecione sua assinatura. A folha **Política de segurança** para essa assinatura é aberta.
+3. Na folha **Política de segurança**, selecione **Ativado** em **Coleta de dados** para coletar logs automaticamente. A ativação da coleta de dados provisiona a extensão de monitoramento em todas as VMs atuais e novas com suporte na assinatura.
 
    ![Folha de política de segurança][3]
 
-5. Selecione **Salvar**.
-6. Selecione **Escolher uma conta de armazenamento por região**. Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Se você não escolher uma conta de armazenamento para cada região, uma conta de armazenamento será criada e colocada no grupo de recursos securitydata. Neste exemplo, escolhemos **newstoracct**. Você pode alterar a conta de armazenamento mais tarde, retornando à política de segurança de sua assinatura e escolhendo outra conta de armazenamento.
+4. Selecione **Salvar**.
+5. Selecione **Escolher uma conta de armazenamento por região**. Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Se você não escolher uma conta de armazenamento para cada região, uma conta de armazenamento será criada e colocada no grupo de recursos securitydata. Neste exemplo, escolhemos **newstoracct**. Você pode alterar a conta de armazenamento mais tarde, retornando à política de segurança de sua assinatura e escolhendo outra conta de armazenamento.
    ![Escolher uma conta de armazenamento][4]
-7. Selecione **OK**.
+6. Selecione **OK**.
 
 > [!NOTE]
 > É recomendável que você ative a coleta de dados e escolha uma conta de armazenamento no nível da assinatura primeiro. As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a configuração da conta de armazenamento e da coleta de dados ocorre apenas no nível da assinatura.
@@ -80,7 +79,6 @@ Este artigo mostrou como implementar a recomendação da Central de Segurança "
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/security-center-blade.png
 [2]: ./media/security-center-enable-data-collection/recommendations.png
 [3]: ./media/security-center-enable-data-collection/data-collection.png
 [4]: ./media/security-center-enable-data-collection/storage-account.png

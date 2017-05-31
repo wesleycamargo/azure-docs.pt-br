@@ -14,10 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: bba03cfb21e8eebdbf67152de9c6e2da6f22f5a2
+ms.author: plarsen; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2dc4c912f018f5d71d8c874763f204cf6c2c415b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -270,133 +272,6 @@ Você pode definir uma ação de aplicativo lógico para remover uma linha de um
     
     ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
 
-## <a name="technical-details"></a>Detalhes técnicos
-## <a name="actions"></a>Ações
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. O conector do banco de dados DB2 inclui as ações a seguir. 
-
-| Ação | Descrição |
-| --- | --- |
-| [GetRow](connectors-create-api-db2.md#get-row) |Recupera uma única linha de uma tabela do DB2 |
-| [GetRows](connectors-create-api-db2.md#get-rows) |Recupera as linhas de uma tabela do DB2 |
-| [InsertRow](connectors-create-api-db2.md#insert-row) |Insere uma nova linha em uma tabela do DB2 |
-| [DeleteRow](connectors-create-api-db2.md#delete-row) |Recupera uma linha de uma tabela do DB2 |
-| [GetTables](connectors-create-api-db2.md#get-tables) |Recupera as tabelas de um banco de dados do DB2 |
-| [UpdateRow](connectors-create-api-db2.md#update-row) |Atualiza uma linha existente em uma tabela do DB2 |
-
-### <a name="action-details"></a>Detalhes da ação
-Nesta seção, consulte os detalhes específicos sobre cada ação, incluindo todas as propriedades de entrada obrigatórias ou opcionais, assim como toda saída correspondente associada ao conector.
-
-#### <a name="get-row"></a>Obter linha
-Recupera uma única linha de uma tabela do DB2.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table * |Nome da tabela |Nome da tabela do DB2 |
-| id * |Id da linha |O identificador exclusivo da linha a ser recuperado |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Obter linhas
-Recupera as linhas de uma tabela do DB2.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela do DB2 |
-| $skip |Ignorar contagem |Número de entradas a serem ignoradas (padrão = 0) |
-| $top |Obter Contagem Máxima |Número máximo de entradas a serem recuperadas (padrão = 256) |
-| $filter |Consulta de filtro |Uma consulta de filtro ODATA para restringir o número de entradas |
-| $orderby |Ordenar por |Uma consulta orderBy do ODATA para especificar a ordem das entradas |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Inserir linha
-Insere uma nova linha em uma tabela do DB2.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela do DB2 |
-| item* |Linha |Linha a inserir na tabela especificada no DB2 |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Excluir linha
-Exclui uma linha de uma tabela do DB2.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela do DB2 |
-| id* |Id da linha |Identificador exclusivo da linha a ser excluída |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Nenhuma.
-
-#### <a name="get-tables"></a>Obter tabelas
-Recupera as tabelas de um banco de dados do DB2.  
-
-Não existem parâmetros para esta chamada. 
-
-##### <a name="output-details"></a>Detalhes da Saída
-TablesList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Atualizar linha
-Atualiza uma linha existente em uma tabela do DB2.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela do DB2 |
-| id* |Id da linha |Identificador exclusivo da linha a ser atualizada |
-| item* |Linha |Linhas com valores atualizados |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Respostas HTTP
-Ao fazer chamadas a diferentes ações, você pode obter determinadas respostas. A tabela a seguir descreve as respostas e suas descrições:  
-
-| Nome | Descrição |
-| --- | --- |
-| 200 |OK |
-| 202 |Aceita |
-| 400 |Solicitação incorreta |
-| 401 |Não Autorizado |
-| 403 |Proibido |
-| 404 |Não encontrado |
-| 500 |Erro Interno do Servidor. Ocorreu um erro desconhecido |
-| padrão |Falha na Operação. |
-
 ## <a name="supported-db2-platforms-and-versions"></a>Plataformas e versões com suporte do DB2
 Este conector dá suporte às plataformas e versões do IBM DB2 a seguir, bem como os produtos IBM DB2 compatíveis (por exemplo, IBM Bluemix dashDB) que oferecem suporte às versões 10 e 11 do SQL Access Manager (SQLAM) da Distributed Relational Database Architecture (DRDA):
 
@@ -408,12 +283,10 @@ Este conector dá suporte às plataformas e versões do IBM DB2 a seguir, bem co
 * IBM DB2 para LUW 11
 * IBM DB2 para LUW 10.5
 
+## <a name="view-the-swagger"></a>Exibir o Swagger
+Consulte os [detalhes do Swagger](/connectors/db2/). 
+
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

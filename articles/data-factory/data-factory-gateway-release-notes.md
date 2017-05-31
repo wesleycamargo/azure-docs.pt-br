@@ -14,34 +14,44 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: spelluru
 published: true
-translationtype: Human Translation
-ms.sourcegitcommit: db0face48d84680eabd82245bd38bd49b204f9ae
-ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
-ms.lasthandoff: 02/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f29bb67ea50c531278e546c9fde88fd53230bc3c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de versão para o Gateway de Gerenciamento de Dados
 Um dos desafios da integração de dados moderna é mover dados continuamente para e do local para a nuvem. O Data Factory torna perfeita essa integração com o Gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
 
-Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de Gerenciamento de Dados e como usá-lo: 
+Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de Gerenciamento de Dados e como usá-lo:
 
 *  [Gateway de gerenciamento de dados](data-factory-data-management-gateway.md)
-*  [Mover dados entre o local e a nuvem usando a Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
+*  [Mover dados entre o local e a nuvem usando a Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-2762192"></a>VERSÃO ATUAL (2.7.6219.2)
-
-### <a name="whats-new"></a>O que há de novo
-- Agora você pode se autenticar no Azure Data Lake Store usando a entidade de serviço. Anteriormente, havia suporte apenas para OAuth.
-- Empacotamos novo driver para leitura de dados no repositório de dados local Oracle no gateway.
+## <a name="current-version-2963132"></a>VERSÃO ATUAL (2.9.6313.2)
 
 ### <a name="enhancements-"></a>Melhorias-
-- Melhor desempenho de leitura de dados na fonte de dados Oracle.
-- Corrigido: problema de expiração do token OAuth da fonte OData.
-- Corrigido: problema na leitura de decimais Oracle acima de 28 bits.
+-    Adicione as entradas DNS à lista de permissões do Barramento de Serviço, em vez de colocar na lista de permissões todos os endereços IP do Azure do firewall (se necessário). Mais detalhes aqui.
+-    Agora você pode copiar dados de/para um único blob de blocos de até 4,75 TB, que é o tamanho máximo com suporte no blob de blocos. (o limite anterior era de 195 GB).
+-    Correção: problema de memória insuficiente ao descompactar vários arquivos pequenos durante a atividade de cópia.
+-    Correção: problema de índice fora do intervalo durante a cópia do DocumentDB para o SQL local com o recurso de idempotência.
+-    Correção: o script de limpeza do SQL não funcionava no SQL local no Assistente de Cópia.
+-    Correção: um nome de coluna com espaço no final não funcionava na atividade de cópia.
 
 
 ## <a name="earlier-versions"></a>Versões anteriores
+
+## <a name="28662833"></a>2.8.66283.3
+### <a name="enhancements-"></a>Melhorias-
+- Correção: problema com credenciais ausentes na reinicialização do computador do gateway.
+- Correção: problema com o registro durante a restauração do gateway usando o arquivo de backup.
+
+
+## <a name="2762401"></a>2.7.6240.1
+### <a name="enhancements-"></a>Melhorias-
+- Correção: leitura incorreta do valor nulo Decimal do Oracle como fonte.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>O que há de novo
@@ -63,7 +73,7 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 
 ### <a name="whats-new"></a>O que há de novo
 
-- Agora você pode armazenar credenciais de fonte de dados localmente. As credenciais são criptografadas. As credenciais da fonte de dados podem ser recuperadas e restauradas usando o arquivo de backup que pode ser exportado do Gateway existente, tudo no local. 
+- Agora você pode armazenar credenciais de fonte de dados localmente. As credenciais são criptografadas. As credenciais da fonte de dados podem ser recuperadas e restauradas usando o arquivo de backup que pode ser exportado do Gateway existente, tudo no local.
 
 ### <a name="enhancements-"></a>Melhorias-
 
@@ -89,7 +99,7 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 
 *  O driver DB2 agora está incluído no pacote de instalação do gateway. Você não precisa instalá-lo separadamente. 
 *  O driver DB2 agora oferece suporte ao z/OS e DB2 para i (AS/400) junto com as plataformas já suportadas (Linux, Unix e Windows). 
-*  Oferece suporte ao uso do Banco de Dados de Documentos como uma origem ou destino para os armazenamentos de dados locais
+*  Dá suporte ao uso do Azure Cosmos DB como uma origem ou um destino para armazenamentos de dados locais
 *  Dá suporte à cópia dos dados de/para o armazenamento de blobs quente/frio junto com a conta de armazenamento de uso geral já com suporte. 
 *  Permite que você conecte o SQL Server local por meio do gateway com privilégios de logon remoto.  
 
@@ -105,7 +115,7 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 
     *  Controles reorganizados e simplificados.
 
-    *  Você pode copiar dados de um armazenamento usando a [ferramenta de visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso. 
+    *  Você pode copiar dados de um armazenamento usando a [ferramenta de visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
 *  Você pode aproveitar o Gateway de Gerenciamento de Dados para inserir dados diretamente de um banco de dados SQL Server local no Azure Machine Learning.
 
 *  Aprimoramentos de desempenho
@@ -120,7 +130,7 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 
 *  O tamanho máximo do log de eventos do gateway foi aumentado de 1 MB para 40 MB.
 
-*  Uma caixa de diálogo de aviso é exibida caso uma reinicialização seja necessária durante a atualização automática do gateway. Você pode optar por reiniciar logo em seguida ou mais tarde. 
+*  Uma caixa de diálogo de aviso é exibida caso uma reinicialização seja necessária durante a atualização automática do gateway. Você pode optar por reiniciar logo em seguida ou mais tarde.
 
 *  Em caso de falha da atualização automática, o instalador do gateway recupera a atualização automática três vezes no máximo.
 
@@ -226,7 +236,7 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 
 ### <a name="1253031"></a>1.2.5303.1
 
-*  Correção do problema de tempo limite para dar suporte a conexões de fontes de dados mais demoradas. 
+*  Correção do problema de tempo limite para dar suporte a conexões de fontes de dados mais demoradas.
 
 ### <a name="1155268"></a>1.1.5526.8
 

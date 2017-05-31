@@ -1,5 +1,5 @@
 ---
-title: "Proteger aplicativos de única página usando o fluxo implícito de v&2;.0 do Azure AD | Microsoft Docs"
+title: "Proteger aplicativos de única página usando o fluxo implícito de v 2.0 do Azure AD | Microsoft Docs"
 description: "Compilando aplicativos Web usando a implementação v2.0 do Azure AD do fluxo implícito para aplicativos de página única."
 services: active-directory
 documentationcenter: 
@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 1ea1f54832a13b57caf3d6783e482fad4ba00781
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2ac6f92d027c893316b6e310e4c3103ab0e51785
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -44,7 +47,7 @@ O fluxo completo de entrada implícita é semelhante a este. Cada uma das etapas
 ![Raias do OpenId Connect](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-the-sign-in-request"></a>Enviar a solicitação de conexão
-Para autenticar inicialmente o usuário em seu aplicativo, você pode enviar uma solicitação de autorização [OpenID Connect](active-directory-v2-protocols-oidc.md) e obter um `id_token` do ponto de extremidade v&2;.0:
+Para autenticar inicialmente o usuário em seu aplicativo, você pode enviar uma solicitação de autorização [OpenID Connect](active-directory-v2-protocols-oidc.md) e obter um `id_token` do ponto de extremidade v 2.0:
 
 ```
 // Line breaks for legibility only
@@ -77,7 +80,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | nonce |obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id_token resultante como uma declaração.  O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token.  Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
 | prompt |opcional |Indica o tipo de interação do usuário que é necessário.  Os únicos valores válidos no momento são 'login', 'none' e 'consent'.  `prompt=login` forçará o usuário a inserir suas credenciais na solicitação, negando o logon único.  `prompt=none` é o oposto - ele garantirá que o usuário não seja apresentado a nenhum prompt interativo.  Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade v2.0 retornará um erro.  `prompt=consent` irá disparar a caixa de diálogo de consentimento do OAuth depois que o usuário iniciar a sessão, solicitando que ele conceda permissões ao aplicativo. |
 | login_hint |opcional |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, se você souber o nome de usuário com antecedência.  Geralmente, os aplicativos usarão esse parâmetro durante a reautenticação, após já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username`. |
-| domain_hint |opcional |Pode ser `consumers` ou `organizations`.  Se for incluído, ele ignorará o processo de descoberta baseada em email que o usuário passa na página de entrada v&2;.0, resultando em uma experiência de usuário um pouco mais simples.  Geralmente, os aplicativos usarão esse parâmetro durante a reautenticação, extraindo a declaração `tid` do id_token.  Se o valor da declaração `tid` for `9188040d-6c67-4c5b-b112-36a304b66dad`, você deverá usar `domain_hint=consumers`.  Caso contrário, use `domain_hint=organizations`. |
+| domain_hint |opcional |Pode ser `consumers` ou `organizations`.  Se for incluído, ele ignorará o processo de descoberta baseada em email que o usuário passa na página de entrada v 2.0, resultando em uma experiência de usuário um pouco mais simples.  Geralmente, os aplicativos usarão esse parâmetro durante a reautenticação, extraindo a declaração `tid` do id_token.  Se o valor da declaração `tid` for `9188040d-6c67-4c5b-b112-36a304b66dad`, você deverá usar `domain_hint=consumers`.  Caso contrário, use `domain_hint=organizations`. |
 
 Nesse ponto, será solicitado que o usuário insira suas credenciais e conclua a autenticação.  O ponto de extremidade v2.0 também garantirá que o usuário tenha consentido as permissões indicadas no parâmetro de consulta `scope` .  Se o usuário não tiver consentido nenhuma dessas permissões, ele será solicitado a consentir as permissões necessárias.  Os detalhes dos aplicativos quanto a [permissões, consentimento e multilocatário são fornecidos aqui](active-directory-v2-scopes.md).
 
@@ -138,7 +141,7 @@ Depois de ter validado completamente o id_token, você poderá iniciar uma sess�
 ## <a name="get-access-tokens"></a>Obter tokens de acesso
 Agora que você autenticou o usuário em seu aplicativo de página única, pode obter tokens de acesso para chamar APIs da Web protegidas pelo Azure AD, como o [Microsoft Graph](https://graph.microsoft.io).  Mesmo se já tiver recebido um token usando o response_type `token`, você poderá usar esse método para adquirir tokens para recursos adicionais sem precisar redirecionar o usuário para entrar novamente.
 
-No fluxo normal de OpenID Connect/OAuth, você faria isso por meio de uma solicitação para o ponto de extremidade `/token` do v2.0.  No entanto, o ponto de extremidade v&2;.0 não suporta solicitações CORS, portanto, fazer chamadas AJAX para obter e atualizar tokens está fora de cogitação.  Em vez disso, você pode usar o fluxo implícito em um iframe oculto para obter novos tokens para outras APIs da Web: 
+No fluxo normal de OpenID Connect/OAuth, você faria isso por meio de uma solicitação para o ponto de extremidade `/token` do v2.0.  No entanto, o ponto de extremidade v 2.0 não suporta solicitações CORS, portanto, fazer chamadas AJAX para obter e atualizar tokens está fora de cogitação.  Em vez disso, você pode usar o fluxo implícito em um iframe oculto para obter novos tokens para outras APIs da Web: 
 
 ```
 // Line breaks for legibility only
@@ -219,29 +222,13 @@ Se você receber esse erro na solicitação do iframe, o usuário deverá entrar
 `id_token`s e `access_token`s expirarão após um curto período. Portanto, seu aplicativo deve estar preparado para atualizar esses tokens periodicamente.  Para atualizar qualquer um desses tipos de tokens, você pode executar a mesma solicitação de iframe oculto mencionada acima usando o parâmetro `prompt=none` para controlar o comportamento do Azure AD.  Se você quiser receber um novo `id_token`, use `response_type=id_token` e `scope=openid`, bem como um parâmetro `nonce`.
 
 ## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de desconexão
-Atualmente, o `end_session_endpoint` do OpenIdConnect não tem suporte no ponto de extremidade v2.0. Isso significa que o aplicativo não pode enviar uma solicitação ao ponto de extremidade v2.0 para encerrar uma sessão do usuário e limpar os cookies definidos pelo ponto de extremidade v2.0.
-Para desconectar um usuário, o aplicativo pode simplesmente encerrar sua própria sessão com o usuário e deixar a sessão do usuário com o ponto de extremidade v2.0 intacta.  Na próxima vez que o usuário tentar se conectar, ele verá uma página "escolher conta", com as suas contas ativamente conectadas listadas.
-Nessa página, o usuário pode optar por se desconectar de qualquer conta, encerrando a sessão com o ponto de extremidade v2.0.
-
-<!--
-
-When you wish to sign the user out of the  app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the v2.0 endpoint for sign out.  If you fail to do so, the user will be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the v2.0 endpoint.
-
-You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
+O `end_session_endpoint` do OpenIdConnect permite que o aplicativo envie uma solicitação ao ponto de extremidade v2.0 para encerrar uma sessão do usuário e limpar os cookies definidos pelo ponto de extremidade v2.0.  Para desconectar por completo um usuário de um aplicativo Web, seu aplicativo deve encerrar sua própria sessão com o usuário (normalmente, limpando o cache de token ou removendo cookies) e, depois, redirecionar o navegador para
 
 ```
-GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
-post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parameter | | Description |
-| ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | recommended | The URL which the user should be redirected to after successful logout.  If not included, the user will be shown a generic message by the v2.0 endpoint.  |
-
--->
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-
+| Parâmetro |  | Descrição |
+| --- | --- | --- |
+| locatário |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo.  Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário.  Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| post_logout_redirect_uri | recomendável | A URL para a qual o usuário deve retornar após a conclusão do logoff. Esse valor deve corresponder a um dos URIs de redirecionamento registrados no aplicativo. Se ele não estiver incluído, o usuário verá uma mensagem genérica do ponto de extremidade v2.0. |

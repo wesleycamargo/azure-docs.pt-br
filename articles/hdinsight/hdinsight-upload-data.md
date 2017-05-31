@@ -1,6 +1,7 @@
 ---
 title: Carregar dados para trabalhos do Hadoop no HDInsight | Microsoft Docs
 description: Saiba como carregar e acessar os dados de trabalhos do Hadoop no HDInsight usando o Azure CLI, Azure Storage Explorer, Azure PowerShell, a linha de comando do Hadoop ou o Sqoop.
+keywords: hadoop de etl, inserindo dados no hadoop, carregar dados no hadoop
 services: hdinsight,storage
 documentationcenter: 
 tags: azure-portal
@@ -9,17 +10,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/12/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0caac0c7ad76df7e7fa657227339d1df8b4a3c77
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 134afd3495c555f85e8838cbe0344a3a48534950
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -187,7 +189,7 @@ Para usar a ferramenta, conheça sua chave e seu nome da conta de armazenamento 
 
 1. Execute o Azure Storage Explorer. Se esta for a primeira vez que você executou o Gerenciador de Armazenamento, será solicitado que você insira o **_Nome da conta de armazenamento** e a **Chave da conta de armazenamento**. Caso o tenha executado antes, use botão **Adicionar** para adicionar um novo nome e chave de conta de armazenamento.
 
-    Insira o nome e a chave da conta de armazenamento usados pelo cluster HDInsight e selecione **SALVAR E ABRIR**.
+    Insira o nome e a chave da conta de armazenamento usada pelo cluster HDInsight e, depois, selecione **SALVAR E ABRIR**.
 
     ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. Na lista de contêineres, clique no nome do contêiner que está associado ao cluster HDInsight. Por padrão, esse é o nome do cluster do HDInsight, mas pode ser diferente se você inseriu um nome específico ao criar o cluster.

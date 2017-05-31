@@ -1,38 +1,39 @@
 ---
-title: Sintaxe e consulta SQL para Banco de Dados de Documentos | Microsoft Docs
-description: Saiba mais sobre a sintaxe SQL, os conceitos de banco de dados e as consultas SQL para o Banco de Dados de Documentos, um banco de dados NoSQL. O SQL pode ser usado como uma linguagem de consulta JSON no Banco de Dados de Documentos.
+title: Sintaxe SQL e consulta SQL do Azure Cosmos DB | Microsoft Docs
+description: Saiba mais sobre a sintaxe SQL, os conceitos sobre banco de dados e as consultas SQL do Azure Cosmos DB. O SQL pode ser usado como uma linguagem de consulta JSON no Azure Cosmos DB.
 keywords: "sintaxe sql, consulta sql, consultas sql, linguagem de consulta json, conceitos de banco de dados e consultas sql, funções agregadas"
-services: documentdb
+services: cosmosdb
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: c1360cb76c6fe8fd5177f13ea67f2109b5777521
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 11dc9d2e4c6cabfbfe7d68c88e5b210c94a3ec64
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="sql-query-and-sql-syntax-in-documentdb"></a>Consulta e sintaxe SQL no Banco de Dados de Documentos
-O Banco de Dados de Documentos do Microsoft Azure tem suporte para a realização de consultas de documentos usando uma SQL (Structured Query Language) como uma linguagem de consulta JSON. O Banco de Dados de Documentos é verdadeiramente livre de esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários. 
+# <a name="sql-query-and-sql-syntax-in-azure-cosmos-db"></a>Consulta SQL e sintaxe SQL no Azure Cosmos DB
+O Microsoft Azure Cosmos DB dá suporte à consulta de documentos usando a linguagem SQL como uma linguagem de consulta JSON. O Cosmos DB é verdadeiramente sem esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários. 
 
-Ao criar a linguagem de consulta para o Banco de Dados de Documentos, tínhamos dois objetivos em mente:
+Ao criar a linguagem de consulta para o Cosmos DB, tínhamos dois objetivos em mente:
 
-* Em vez de inventar uma nova linguagem de consulta JSON, queremos oferecer suporte ao SQL. A SQL é uma das linguagens de consulta mais conhecidas e populares. A SQL de Banco de Dados de Documentos fornece um modelo de programação formal para consultas avançadas em documentos JSON.
-* Como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como os alicerces da nossa linguagem de consulta. A SQL de Banco de Dados de Documentos é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
+* Em vez de inventar uma nova linguagem de consulta JSON, queremos oferecer suporte ao SQL. A SQL é uma das linguagens de consulta mais conhecidas e populares. O SQL do Cosmos DB fornece um modelo de programação formal para consultas avançadas em documentos JSON.
+* Como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como os alicerces da nossa linguagem de consulta. O SQL da API do DocumentDB é baseado no sistema de tipos, na avaliação de expressão e na invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
 
 Nós acreditamos que esses recursos sejam fundamentais para reduzir o atrito entre o aplicativo e o banco de dados e cruciais para a produtividade do desenvolvedor.
 
-Recomendamos que você comece assistindo ao vídeo a seguir, em que Aravind Ramachandran mostra os recursos de consulta do Banco de Dados de Documentos, e visitando nosso [Espaço de Consulta](http://www.documentdb.com/sql/demo), em que você pode experimentar o Banco de Dados de Documentos e executar consultas SQL em nosso conjunto de dados.
+Recomendamos que você comece assistindo ao vídeo a seguir, em que Aravind Ramachandran mostra as funcionalidades de consulta do Cosmos DB e visitando nosso [Espaço de Consulta](http://www.documentdb.com/sql/demo), em que você pode experimentar o Cosmos DB e executar consultas SQL em nosso conjunto de dados.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
 > 
@@ -40,8 +41,8 @@ Recomendamos que você comece assistindo ao vídeo a seguir, em que Aravind Rama
 
 Em seguida, retorne a este artigo, onde começaremos com um tutorial de consulta SQL que apresenta a você alguns documentos JSON e comandos SQL simples.
 
-## <a id="GettingStarted"></a>Introdução aos comandos SQL no DocumentDB
-Para ver o Banco de Dados de Documentos SQL em funcionamento, vamos começar com alguns documentos JSON simples e percorreremos algumas consultas simples relacionadas a eles. Considere esses dois documentos JSON sobre duas famílias. Observe que com o Banco de Dados de Documentos, não precisamos criar nenhum esquema ou índice secundário explicitamente. Precisamos apenas inserir os documentos JSON em uma coleção do Banco de Dados de Documentos e, em seguida, realizar a consulta. Aqui, temos um documento JSON simples relacionado à família Andersen - os pais, filhos (e seus animais de estimação), endereço e informações de registro. O documento tem cadeias de caracteres, números, boolianos, matrizes e propriedades aninhadas. 
+## <a id="GettingStarted"></a>Introdução aos comandos SQL no Cosmos DB
+Para ver o SQL do Cosmos DB em ação, vamos começar com alguns documentos JSON simples e analisar algumas consultas simples neles. Considere esses dois documentos JSON sobre duas famílias. Observe que, com o Cosmos DB, não precisamos criar nenhum esquema ou índice secundário explicitamente. Basta inserir os documentos JSON em uma coleção do Cosmos DB e, em seguida, realizar a consulta. Aqui, temos um documento JSON simples relacionado à família Andersen - os pais, filhos (e seus animais de estimação), endereço e informações de registro. O documento tem cadeias de caracteres, números, boolianos, matrizes e propriedades aninhadas. 
 
 **Documento**  
 
@@ -100,7 +101,7 @@ Aqui está um segundo documento, com uma pequena diferença: `givenName` e `fami
 }
 ```
 
-Agora, vamos tentar realizar algumas consultas nestes dados para entender alguns dos principais aspectos do Banco de Dados de Documentos SQL. Por exemplo, a consulta a seguir retornará os documentos cujo campo de ID corresponde a `AndersenFamily`. Por se tratar de um `SELECT *`, a saída da consulta será todo o documento JSON:
+Agora, vamos tentar realizar algumas consultas nesses dados para entender alguns dos principais aspectos do SQL da API do DocumentDB. Por exemplo, a consulta a seguir retornará os documentos cujo campo de ID corresponde a `AndersenFamily`. Por se tratar de um `SELECT *`, a saída da consulta será todo o documento JSON:
 
 **Consulta**
 
@@ -165,29 +166,29 @@ A próxima consulta retorna todos os nomes dos filhos na família cuja identific
     ]
 
 
-Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem de consulta do Banco de Dados de Documentos nos exemplos que vimos até agora:  
+Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem de consulta do Cosmos DB nos exemplos que vimos até agora:  
 
-* Como o Banco de Dados de Documentos SQL trabalha com valores JSON, ele lida com entidades com formato de árvore em vez de linhas e colunas. A linguagem, portanto, possibilita a referência a nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, de forma semelhante à SQL relacional relativa à referência bipartida de `<table>.<column>`.   
+* Como o SQL da API do DocumentDB trabalha com valores JSON, ele lida com entidades com formato de árvore em vez de linhas e colunas. A linguagem, portanto, possibilita a referência a nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, de forma semelhante à SQL relacional relativa à referência bipartida de `<table>.<column>`.   
 * A linguagem de consulta estruturada trabalha com dados com menos esquema. Portanto, o sistema de tipos precisa estar vinculado dinamicamente. A mesma expressão pode obter diferentes tipos em diferentes documentos. O resultado de uma consulta é um valor JSON válido, mas não há garantia de que seja de um esquema fixo.  
-* O Banco de Dados de Documentos tem suporte apenas para documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
-* Uma coleção do Banco de Dados de Documentos é um contêiner de documentos JSON sem esquemas. As relações nas entidades de dados dentro e entre documentos em uma coleção são capturadas implicitamente pela contenção e não pelas relações chave primária e chave estrangeira. Este é um importante aspecto que vale a pena destacar em virtude das junções intradocumentos abordadas mais adiante neste artigo.
+* O Cosmos DB dá suporte apenas a documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
+* Uma coleção do Cosmos DB é um contêiner de documentos JSON sem esquemas. As relações nas entidades de dados dentro e entre documentos em uma coleção são capturadas implicitamente pela contenção e não pelas relações chave primária e chave estrangeira. Este é um importante aspecto que vale a pena destacar em virtude das junções intradocumentos abordadas mais adiante neste artigo.
 
-## <a id="Indexing"></a> Indexação do DocumentDB
-Antes de passarmos à sintaxe da SQL do Banco de Dados de Documentos, vale explorar o design da indexação no Banco de Dados de Documentos. 
+## <a id="Indexing"></a> Indexação do Cosmos DB
+Antes de passarmos à sintaxe do SQL da API do DocumentDB, vale a pena explorar o design de indexação da API do Cosmos DB. 
 
 O objetivo de índices de bancos de dados é atender a consultas em suas diversas formas com um consumo mínimo de recursos (como CPU, entrada/saída), oferecendo alta produtividade e baixa latência. Frequentemente, a escolha do índice correto para consultar um banco de dados requer muito planejamento e experimentação. Esta abordagem representa um desafio para bancos de dados sem esquemas, nos quais os dados não seguem um esquema rígido e evoluem rapidamente. 
 
-Portanto, quando criamos o subsistema de indexação do Banco de Dados de Documentos, definimos os seguintes objetivos:
+Portanto, quando criamos o subsistema de indexação do Cosmos DB, definimos os seguintes objetivos:
 
 * Indexar documentos sem precisar de um esquema: o subsistema de indexação não requer nenhuma informação de esquema e não faz suposições sobre o esquema dos documentos. 
-* Suporte para pesquisas hierárquicas e relacionais ricas e eficientes: o índice dá suporte à linguagem de pesquisa do Banco de Dados de Documentos com eficácia, incluindo suporte para projeções relacionais e hierárquicas.
+* Suporte para pesquisas hierárquicas e relacionais avançadas e eficientes: o índice dá suporte à linguagem de pesquisa do Cosmos DB de maneira eficiente, incluindo suporte para projeções hierárquicas e relacionais.
 * Suporte para consultas consistentes diante do grande volume de gravações: para possibilitar cargas de trabalho com alta produtividade de gravação com consultas consistentes, o índice é atualizado gradativamente, eficientemente e online, em face de um volume contínuo de gravações. A atualização consistente do índice é crucial para atender às consultas no nível de consistência em que o usuário configurou o sistema.
 * Suporte a modelo multilocatário: dado o modelo baseado em reserva para a governança de recurso entre os locatários, as atualizações do índice são realizadas dentro do orçamento dos recursos do sistema (CPU, memória e operações de entrada/saída por segundo) alocados por réplica. 
-* Eficiência no armazenamento: para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível. Isto é fundamental porque o Banco de Dados de Documentos permite que o desenvolvedor tome decisões baseadas em custo entre a sobrecarga do índice tendo em relação ao desempenho de consulta.  
+* Eficiência no armazenamento: para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível. Isto é fundamental porque o Cosmos DB permite que o desenvolvedor faça compensações baseadas em custo entre a sobrecarga do índice em relação ao desempenho da consulta.  
 
-Consulte [amostras do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) no MSDN para ver exemplos de como configurar a política de indexação para uma coleção. Agora, vejamos os detalhes da sintaxe da SQL do Banco de Dados de Documentos.
+Consulte as [amostras do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) no MSDN para obter amostras que exibem como configurar a política de indexação de uma coleção. Agora, vejamos os detalhes da sintaxe SQL do Azure Cosmos DB.
 
-## <a id="Basics"></a>Noções básicas de uma consulta SQL do DocumentDB
+## <a id="Basics"></a>Noções básicas de uma consulta SQL do Azure Cosmos DB
 Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada.
 
     SELECT <select_list> 
@@ -281,7 +282,7 @@ A consulta a seguir solicita documentos que contêm uma propriedade de nome cujo
     }]
 
 
-O exemplo anterior mostrou uma consulta de igualdade simples. O SQL do Banco de Dados de Documentos também dá suporte a diversas expressões escalares. As expressões mais usadas são as binárias e unárias. Referências de propriedade do objeto JSON fonte também são expressões válidas. 
+O exemplo anterior mostrou uma consulta de igualdade simples. O SQL da API do DocumentDB também dá suporte a diversas expressões escalares. As expressões mais usadas são as binárias e unárias. Referências de propriedade do objeto JSON fonte também são expressões válidas. 
 
 Os operadores binários a seguir têm suporte atualmente em consultas como as exemplificadas:  
 
@@ -339,7 +340,7 @@ Os operadores unários +,-, ~ e NOT também têm suporte e podem ser usados dent
 Além de operadores binários e unários, as referências de propriedade também são permitidas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o documento JSON que contém a propriedade `isRegistered`, em que o valor da propriedade é igual ao valor JSON `true`. Todos os outros valores (false, null, Indefinido, `<number>`, `<string>`, `<object>`, `<array>` etc.) levam ao documento de origem que está sendo excluído do resultado. 
 
 ### <a name="equality-and-comparison-operators"></a>Operadores de igualdade e de comparação
-A tabela a seguir mostra o resultado de comparações de igualdade na SQL do Banco de Dados de Documentos entre dois tipos JSON quaisquer.
+A tabela a seguir mostra o resultado de comparações de igualdade no SQL da API do DocumentDB entre dois tipos JSON quaisquer.
 
 <table style = "width:300px">
    <tbody>
@@ -534,7 +535,7 @@ Diferente da ANSI-SQL, você também pode usar a cláusula BETWEEN na cláusula 
 
 Para que os tempos de execução das consultas sejam menores, lembre-se de criar uma política de indexação que use um índice do tipo intervalo para quaisquer caminhos/propriedades numéricas que sejam filtradas na cláusula BETWEEN. 
 
-A principal diferença entre usar BETWEEN no Banco de Dados de Documentos e na ANSI SQL é que você pode expressar consultas de intervalo de tipos mistos. Por exemplo, você pode designar "série" como um número (5) em alguns documentos e como cadeias de caracteres em outros ("grade4"). Nesses casos, como no JavaScript, uma comparação entre dois tipos diferentes traz um resultado "indefinido" e o documento é ignorado.
+A principal diferença entre usar BETWEEN na API do DocumentDB e no ANSI SQL é que você pode expressar consultas de intervalo em propriedades de tipos mistos. Por exemplo, você pode designar “série” como um número (5) em alguns documentos e como cadeias de caracteres em outros (“grade4”). Nesses casos, como no JavaScript, uma comparação entre dois tipos diferentes traz um resultado "indefinido" e o documento é ignorado.
 
 ### <a name="logical-and-or-and-not-operators"></a>Operadores lógicos (AND, OR e NOT)
 Operadores lógicos funcionam em valores boolianos. As tabelas de verdade lógica desses operadores são mostradas nas tabelas a seguir.
@@ -751,7 +752,7 @@ No exemplo a seguir, o resultado da expressão escalar é um booliano.
 
 
 ### <a name="object-and-array-creation"></a>Criação de objeto e de matriz
-Outro recurso fundamental da SQL do Banco de Dados de Documentos é a criação de matriz/objeto. Observe que, no exemplo anterior, criamos um novo objeto JSON. De forma semelhante, é possível construir matrizes, como demonstrado a seguir.
+Outro recurso fundamental do SQL da API do DocumentDB é a criação de matriz/objeto. Observe que, no exemplo anterior, criamos um novo objeto JSON. De forma semelhante, é possível construir matrizes, como demonstrado a seguir.
 
 **Consulta**
 
@@ -924,7 +925,7 @@ Você também pode executar agregações em combinação com filtros. Por exempl
         "$1": 1
     }]
 
-As tabelas a seguir mostram a lista de funções de agregação com suporte no DocumentDB. `SUM` e `AVG` são executados por meio de valores numéricos, enquanto `COUNT`, `MIN` e `MAX` podem ser executados em relação a números, cadeias de caracteres, Boolianos e nulos. 
+As tabelas a seguir mostram a lista de funções de agregação com suporte na API do DocumentDB. `SUM` e `AVG` são executados por meio de valores numéricos, enquanto `COUNT`, `MIN` e `MAX` podem ser executados em relação a números, cadeias de caracteres, Boolianos e nulos. 
 
 | Uso | Descrição |
 |-------|-------------|
@@ -990,7 +991,7 @@ E aqui está uma consulta que recupera famílias em ordem de data de criação, 
 ## <a id="Advanced"></a>Conceitos avançados de banco de dados e consultas SQL
 
 ### <a id="Iteration"></a>Iteração
-Uma nova construção por meio da palavra-chave **IN** na SQL do Banco de Dados de Documentos, para dar suporte à iteração em matrizes JSON. A fonte FROM dá suporte à iteração. Comecemos com o exemplo a seguir:
+Um novo constructo foi adicionado por meio da palavra-chave **IN** ao SQL da API do DocumentDB para fornecer suporte à iteração em matrizes JSON. A fonte FROM dá suporte à iteração. Comecemos com o exemplo a seguir:
 
 **Consulta**
 
@@ -1084,7 +1085,7 @@ Você também pode executar a agregação sobre o resultado da iteração de mat
     ]
 
 ### <a id="Joins"></a>Junções
-Em um banco de dados relacional, a necessidade de realizar junções entre tabelas é muito importante. É o padrão lógico para criar esquemas normalizados. De forma contrária, o Banco de Dados de Documentos lida com o modelo de dados desnormalizado dos documentos sem esquemas. Trata-se do equivalente lógico de uma “autojunção”.
+Em um banco de dados relacional, a necessidade de realizar junções entre tabelas é muito importante. É o padrão lógico para criar esquemas normalizados. De forma contrária, a API do DocumentDB lida com o modelo de dados desnormalizado dos documentos sem esquemas. Trata-se do equivalente lógico de uma “autojunção”.
 
 A sintaxe à qual a linguagem oferece suporte é <from_source1> JOIN <from_source2> JOIN ... JUNÇÃO < from_sourceN >. De modo geral, isto retorna um conjunto de tuplas **N** (tupla com valores **N**). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos. Em outras palavras, trata-se do produto do cruzamento completo dos conjuntos que participam da junção.
 
@@ -1233,17 +1234,17 @@ No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tupl
 
 
 ## <a id="JavaScriptIntegration"></a>Integração do JavaScript
-O Banco de Dados de Documentos oferece um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções em termos de procedimentos armazenados e gatilhos. Isso possibilita:
+O Azure Cosmos DB oferece um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções, com relação a procedimentos armazenados e gatilhos. Isso possibilita:
 
 * Capacidade de realizar operações CRUD transacional de alto desempenho e consultas documentos em uma coleção em virtude da profunda integração do tempo de execução do JavaScript diretamente com o mecanismo do banco de dados. 
-* Um modelamento natural de fluxo de controle, escopo de variáveis, atribuição e integração de primitivos que lidam com exceções com transações de bancos de dados. Para obter mais detalhes sobre o suporte do Banco de Dados de Documentos à integração com JavaScript, consulte a documentação de programabilidade do JavaScript.
+* Um modelamento natural de fluxo de controle, escopo de variáveis, atribuição e integração de primitivos que lidam com exceções com transações de bancos de dados. Para obter detalhes sobre o suporte do Azure Cosmos DB à integração com o JavaScript, consulte a documentação sobre programação do lado do servidor do JavaScript.
 
 ### <a id="UserDefinedFunctions"></a>UDFs (Funções Definidas pelo Usuário)
-Além dos tipos já especificados neste artigo, a SQL do Banco de Dados de Documentos oferece suporte a UDFs (funções definidas pelo usuário). Em particular, há suporte a UDFs escalares nas quais os desenvolvedores podem passar zero ou muitos argumentos e retornar um resultado com um único argumento. Cada um desses argumentos é verificado quanto a serem valores JSON legais.  
+Além dos tipos já definidos neste artigo, o SQL da API do DocumentDB fornece suporte a UDFs (Funções Definidas pelo Usuário). Em particular, há suporte a UDFs escalares nas quais os desenvolvedores podem passar zero ou muitos argumentos e retornar um resultado com um único argumento. Cada um desses argumentos é verificado quanto a serem valores JSON legais.  
 
-A sintaxe da SQL do Banco de Dados de Documentos é estendida para dar suporte à lógica de aplicativos personalizados usando essas funções definidas pelo usuário. As UDFs podem ser registradas com o Banco de Dados de Documentos e referenciadas como parte de uma consulta SQL. De fato, as UDFs são projetadas de maneira especial para serem invocadas por consultas. Como consequência dessa escolha, as UDFs não têm acesso ao objeto de contexto que outros tipos de JavaScript (procedimentos armazenados e gatilhos) têm. Como as consultas são executadas como somente leitura, elas podem ser executadas em réplicas primárias ou secundárias. Portanto, as UDFs foram criadas para serem executadas em réplicas secundárias, diferente de outros tipos de JavaScript.
+A sintaxe do SQL da API do DocumentDB é estendida para dar suporte à lógica de aplicativos personalizados usando essas Funções Definidas pelo Usuário. As UDFs podem ser registradas na API do DocumentDB e então referenciadas como parte de uma consulta SQL. De fato, as UDFs são projetadas de maneira especial para serem invocadas por consultas. Como consequência dessa escolha, as UDFs não têm acesso ao objeto de contexto que outros tipos de JavaScript (procedimentos armazenados e gatilhos) têm. Como as consultas são executadas como somente leitura, elas podem ser executadas em réplicas primárias ou secundárias. Portanto, as UDFs foram criadas para serem executadas em réplicas secundárias, diferente de outros tipos de JavaScript.
 
-Abaixo há um exemplo de como uma UDF pode ser registrada no banco de dados do Banco de Dados de Documentos, especificamente em uma coleção de documento.
+Veja abaixo um exemplo de como uma UDF pode ser registrada no banco de dados do Cosmos DB, especificamente em uma coleção de documentos.
 
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
@@ -1262,7 +1263,7 @@ O exemplo anterior cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valor
 Agora, podemos usar esta UDF em uma consulta em uma projeção. UDFs devem ser qualificadas com o prefixo que diferencia maiúsculas de minúsculas "udf." quando chamadas por meio de consultas. 
 
 > [!NOTE]
-> Antes de 17/03/2015, o DocumentDB dava suporte a chamadas a UDF sem o prefixo "udf.", como SELECT REGEX_MATCH(). Esse padrão de chamada foi preterido.  
+> Antes de 17/03/2015, o Cosmos DB dava suporte a chamadas a UDF sem o prefixo “udf”. como SELECT REGEX_MATCH(). Esse padrão de chamada foi preterido.  
 > 
 > 
 
@@ -1344,21 +1345,21 @@ Abaixo há um exemplo que aplica a UDF.
     ]
 
 
-Como os exemplos anteriores demonstram, as UDFs integram o poder da linguagem JavaScript com a SQL do Banco de Dados de Documentos para fornecer uma rica interface programável para complexas realizar lógicas condicionais de procedimentos com a ajuda dos recursos de tempo de execução incorporados ao JavaScript.
+Como os exemplos anteriores demonstram, as UDFs integram o poder da linguagem JavaScript ao SQL da API do DocumentDB para fornecer uma avançada interface programável, a fim de realizar uma lógica complexa, condicional e de procedimentos com a ajuda das funcionalidades em tempo de execução internas do JavaScript.
 
-A SQL do Banco de Dados de Documentos fornece os argumentos às UDFs para cada documento na fonte no estágio atual (cláusula WHERE ou cláusula SELECT) de processamento das UDFs. O resultado é incorporado perfeitamente ao pipeline de execução geral. Se as propriedades referidas aos parâmetros das UDFs não estiverem disponíveis no valor JSON, o parâmetro é considerado indefinido e a invocação das UDFs é totalmente ignorada. De maneira semelhante, se o resultado das UDFs for indefinido, ele não será incluído nos resultados. 
+O SQL da API do DocumentDB fornece os argumentos às UDFs para cada documento na fonte no estágio atual (cláusula WHERE ou cláusula SELECT) de processamento da UDF. O resultado é incorporado perfeitamente ao pipeline de execução geral. Se as propriedades referidas aos parâmetros das UDFs não estiverem disponíveis no valor JSON, o parâmetro é considerado indefinido e a invocação das UDFs é totalmente ignorada. De maneira semelhante, se o resultado das UDFs for indefinido, ele não será incluído nos resultados. 
 
 Em resumo, as UDFs são ótimas ferramentas para realizar lógicas de negócios complexas como parte da consulta.
 
 ### <a name="operator-evaluation"></a>Avaliação de operador
-O Banco de Dados de Documentos, em virtude se ser um banco de dados JSON, tem paralelos com operadores JavaScript em sua semântica de avaliação. Embora o Banco de Dados de Documentos tente preservar a semântica do JavaScript em termos de suporte ao JSON, a avaliação da operação desvia em alguns casos.
+O Cosmos DB, em virtude se ser um banco de dados JSON, estabelece um paralelo com operadores JavaScript e sua semântica de avaliação. Embora o Cosmos DB tente preservar a semântica do JavaScript em termos de suporte ao JSON, a avaliação da operação se desvia em alguns casos.
 
-Na SQL do Banco de Dados de Documentos, ao contrário do que ocorre na SQL tradicional, é frequente que os tipos de valores não sejam conhecidos até que os valores sejam recuperados do banco de dados. Para executar consultas com eficiência, a maioria dos operadores tem requisitos restritos de tipo. 
+No SQL da API do DocumentDB, ao contrário do que ocorre no SQL tradicional, é frequente que os tipos de valores não sejam conhecidos até que os valores sejam recuperados do banco de dados. Para executar consultas com eficiência, a maioria dos operadores tem requisitos restritos de tipo. 
 
-A SQL do Banco de Dados de Documentos não realiza conversões implícitas, diferente do JavaScript. Por exemplo, uma consulta como `SELECT * FROM Person p WHERE p.Age = 21` corresponde a documentos que contêm a propriedade Age com valor 21. Qualquer outro documento cuja propriedade Age corresponder a “21” — ou a outras variações potencialmente infinitas como “021”, “21,0”, “0021”, “00021” etc. — não será correspondido. Isso ocorre em oposição ao JavaScript, que os valores das cadeias de caracteres são convertidos implicitamente em números (baseado em operador como, por exemplo: ==). Esta escolha é fundamental para uma correspondência eficiente de índices na SQL do Banco de Dados de Documentos. 
+O SQL da API do DocumentDB não realiza conversões implícitas, diferente do JavaScript. Por exemplo, uma consulta como `SELECT * FROM Person p WHERE p.Age = 21` corresponde a documentos que contêm a propriedade Age com valor 21. Qualquer outro documento cuja propriedade Age corresponder a “21” — ou a outras variações potencialmente infinitas como “021”, “21,0”, “0021”, “00021” etc. — não será correspondido. Isso ocorre em oposição ao JavaScript, que os valores das cadeias de caracteres são convertidos implicitamente em números (baseado em operador como, por exemplo: ==). Esta escolha é fundamental para uma correspondência eficiente de índices no SQL da API do DocumentDB. 
 
 ## <a name="parameterized-sql-queries"></a>Consultas SQL parametrizadas
-O Banco de Dados de Documentos dá suporte a consultas com parâmetros expressados com a familiar notação @. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL. 
+O Cosmos DB dá suporte a consultas com parâmetros expressos com a conhecida notação @. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL. 
 
 Por exemplo, você pode escrever uma consulta que define o sobrenome e o estado do endereço como parâmetros e executá-la para vários valores de sobrenome e estado de endereço, com base na entrada do usuário.
 
@@ -1366,7 +1367,7 @@ Por exemplo, você pode escrever uma consulta que define o sobrenome e o estado 
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 
-Essa solicitação pode, então, ser enviada ao Banco de Dados de Documentos como uma consulta JSON parametrizada, como a mostrada abaixo.
+Essa solicitação pode então ser enviada ao Cosmos DB como uma consulta JSON parametrizada, conforme mostrado abaixo.
 
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
@@ -1385,10 +1386,10 @@ O argumento para TOP pode ser definido usando consultas parametrizadas, como mos
         ] 
     }
 
-Os valores dos parâmetros podem ser qualquer JSON válido (cadeias de caracteres, números, boolianos, nulos, ou mesmo matrizes e JSON aninhado). Além disso, como o Banco de Dados de Documentos não tem esquema, os parâmetros não são validados com relação a qualquer tipo.
+Os valores dos parâmetros podem ser qualquer JSON válido (cadeias de caracteres, números, boolianos, nulos, ou mesmo matrizes e JSON aninhado). Além disso, como o Cosmos DB não tem esquemas, os parâmetros não são validados em relação a nenhum tipo.
 
 ## <a id="BuiltinFunctions"></a>Funções internas
-O Banco de Dados de Documentos também dá suporte a várias funções internas para operações comuns, que podem ser usadas em consultas como UDFs (funções definidas pelo usuário).
+O Cosmos DB também dá suporte a várias funções internas para operações comuns, que podem ser usadas em consultas como UDFs (funções definidas pelo usuário).
 
 | Grupo de funções          | Operações                                                                                                                                          |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1440,7 +1441,7 @@ Por exemplo, agora você pode executar consultas como as seguintes:
 
     [4]
 
-A principal diferença entre as funções do Banco de Dados de Documentos em comparação com o ANSI SQL é que elas são criadas para funcionar bem com dados de esquemas mistos e sem esquema. Por exemplo, se você tem um documento em que a propriedade Tamanho está ausente ou tem um valor não numérico, como "desconhecido", o documento é ignorado, em vez de retornar um erro.
+A principal diferença entre as funções do Cosmos DB em comparação com o ANSI SQL é que elas são criadas para funcionar bem com os dados de esquemas mistos e sem esquemas. Por exemplo, se você tem um documento em que a propriedade Tamanho está ausente ou tem um valor não numérico, como "desconhecido", o documento é ignorado, em vez de retornar um erro.
 
 ### <a name="type-checking-functions"></a>Funções de verificação de tipo
 As funções de verificação de tipo permitem que você verifique o tipo de uma expressão em consultas SQL. As funções de verificação de tipo podem ser usadas para determinar o tipo de propriedades em documentos imediatamente quando ele é desconhecido ou variável. Aqui está uma tabela de funções de verificação de tipo internas com suporte.
@@ -1608,7 +1609,7 @@ Aqui está outro exemplo que usa ARRAY_LENGTH para obter o número de filhos por
     }]
 
 ### <a name="spatial-functions"></a>Funções espaciais
-O Banco de Dados de Documentos dá suporte às seguintes funções internas do Open Geospatial Consortium (OGC) para consultas geoespaciais. 
+O Cosmos DB dá suporte às funções internas do OGC (Open Geospatial Consortium) a seguir em consultas geoespaciais. 
 
 <table>
 <tr>
@@ -1651,14 +1652,14 @@ As funções espaciais podem ser usadas para executar consultas de proximidade e
       "id": "WakefieldFamily"
     }]
 
-Para obter mais detalhes sobre o suporte geoespacial no Banco de Dados de Documentos, consulte [Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure](documentdb-geospatial.md). Com isso, encerramos as funções espaciais e a sintaxe de SQL para o Banco de Dados de Documentos. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a sintaxe que vimos até agora.
+Para obter detalhes sobre o suporte geoespacial no Cosmos DB, consulte [Trabalhando com os dados geoespaciais no Azure Cosmos DB](documentdb-geospatial.md). Com isso, encerramos as funções espaciais e a sintaxe SQL do Cosmos DB. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a sintaxe que vimos até agora.
 
-## <a id="Linq"></a>LINQ para SQL do DocumentDB
-O LINQ é um modelo de programação .NET que expressa a computação como consultas em fluxos de objetos. O Banco de Dados de Documentos oferece uma biblioteca cliente para realizar a interface com o LINQ facilitando a conversão entre objetos JSON e .NET e mapeando por meio de um subconjunto de consultas do LINQ para consultas do Banco de Dados de Documentos. 
+## <a id="Linq"></a>LINQ para SQL da API do DocumentDB
+O LINQ é um modelo de programação .NET que expressa a computação como consultas em fluxos de objetos. O Cosmos DB oferece uma biblioteca do lado do cliente para realizar a interface com o LINQ facilitando a conversão entre objetos JSON e .NET e um mapeamento por meio de um subconjunto de consultas LINQ para consultas do Cosmos DB. 
 
-A imagem abaixo mostra a arquitetura do suporte a consultas do LINQ usando o Banco de Dados de Documentos.  Usando o cliente do Banco de Dados de Documentos, os desenvolvedores podem criar um objeto **IQueryable** que consulta diretamente o provedor de consulta do Banco de Dados de Documentos que, por sua vez, traduz a consulta do LINQ para uma consulta de Banco de Dados de Documentos. A consulta é, então, passada ao servidor do Banco de Dados de Documentos para recuperar um conjunto de resultados no formato JSON. Os resultados retornados são desserializados em um fluxo de objetos .NET no lado do cliente.
+A imagem abaixo mostra a arquitetura do suporte a consultas LINQ usando o Cosmos DB.  Usando o cliente do Cosmos DB, os desenvolvedores podem criar um objeto **IQueryable** que consulta diretamente o provedor de consultas do Cosmos DB que, por sua vez, converte a consulta LINQ em uma consulta do Cosmos DB. A consulta é, então, passada ao servidor do Cosmos DB para recuperar um conjunto de resultados no formato JSON. Os resultados retornados são desserializados em um fluxo de objetos .NET no lado do cliente.
 
-![Arquitetura de suporte a consultas LINQ usando o Banco de Dados de Documentos — sintaxe SQL, linguagem de consulta JSON, conceitos de banco de dados e consultas SQL][1]
+![Arquitetura de suporte a consultas LINQ usando a API do DocumentDB – sintaxe SQL, linguagem de consulta JSON, conceitos de banco de dados e consultas SQL][1]
 
 ### <a name="net-and-json-mapping"></a>Mapeamento de .NET e JSON
 O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de membro de dados é mapeado para um objeto JSON, em que o nome do campo é mapeado para a parte “chave” do objeto e a parte do “valor” é mapeada recursivamente para a parte de valor do objeto. Considere o exemplo a seguir. O objeto Família criado é mapeado para o documento JSON conforme mostrado abaixo. E vice-versa, o documento JSON é mapeado para um objeto .NET.
@@ -1743,7 +1744,7 @@ O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de mem
 
 
 ### <a name="linq-to-sql-translation"></a>Tradução de LINQ em SQL
-O provedor de consultas do Banco de Dados de Documentos realiza um mapeamento de melhor esforço de uma consulta do LINQ para uma consulta da SQL do Banco de Dados de Documentos. Na descrição a seguir, presumimos uma familiaridade básica do leitor com o LINQ.
+O provedor de consultas do Cosmos DB realiza um mapeamento de melhor esforço de uma consulta LINQ para uma consulta SQL do Cosmos DB. Na descrição a seguir, presumimos uma familiaridade básica do leitor com o LINQ.
 
 Primeiro, para o sistema de tipos, oferecemos suporte para todos os tipos de JSON primitivos - tipos numéricos, boolianos, cadeia de caracteres e nulo. Somente esses tipos de JSON têm suporte. As expressões escalares são suportadas.
 
@@ -1780,7 +1781,7 @@ Aqui está uma lista de operadores LINQ com suporte no provedor LINQ incluídos 
 * **Diversos**: dá suporte à conversão dos operadores de união e condicional. Pode converter Contains para a Cadeia de caracteres CONTAINS, ARRAY_CONTAINS ou para o SQL IN, dependendo do contexto.
 
 ### <a name="sql-query-operators"></a>Operadores de consulta SQL
-Aqui, temos alguns exemplos que ilustram como alguns dos operadores de consulta padrão do LINQ são traduzidos para consultas do Banco de Dados de Documentos.
+Aqui, temos alguns exemplos que ilustram como alguns dos operadores de consulta LINQ padrão são convertidos em consultas do Cosmos DB.
 
 #### <a name="select-operator"></a>Operador Select
 A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
@@ -1869,7 +1870,7 @@ A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que 
 
 
 ### <a name="composite-sql-queries"></a>Consultas SQL composta
-Os operadores acima podem ser compostos para formar consultas mais poderosas. Como o Banco de Dados de Documentos oferece suporte para coleções aninhadas, a composição pode ser concatenada ou aninhada.
+Os operadores acima podem ser compostos para formar consultas mais poderosas. Como o Cosmos DB dá suporte a coleções aninhadas, a composição pode ser concatenada ou aninhada.
 
 #### <a name="concatenation"></a>Concatenação
 A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concatenada pode ser iniciada por uma consulta `SelectMany` opcional, seguida por múltiplos operadores `Select` ou `Where`.
@@ -1971,16 +1972,16 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
 
 
 ## <a id="ExecutingSqlQueries"></a>Execução de consultas SQL
-O Banco de Dados de Documentos expõe recursos pode meio de uma API REST que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Banco de Dados de Documentos oferece bibliotecas de programação para várias linguagens populares, como .NET, Node.js, JavaScript e Python. A API REST e as diversas bibliotecas suportam a consulta por meio de SQL. O SDK .NET oferece suporte para consultas no LINQ além da SQL.
+O Cosmos DB expõe recursos por meio de uma API REST que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Cosmos DB oferece bibliotecas de programação para várias linguagens populares, como .NET, Node.js, JavaScript e Python. A API REST e as diversas bibliotecas suportam a consulta por meio de SQL. O SDK .NET oferece suporte para consultas no LINQ além da SQL.
 
-Os exemplos a seguir mostram como criar uma consulta e enviá-la a uma conta de banco de dados do Banco de Dados de Documentos.
+Os exemplos a seguir mostram como criar uma consulta e enviá-la a uma conta de banco de dados do Cosmos DB.
 
 ### <a id="RestAPI"></a>API REST
-O Banco de Dados de Documentos oferece um modelo de programação RESTful em vez do HTTP. As contas do banco de dados podem ser provisionadas usando uma assinatura do Azure. O modelo de recursos do DocumentDB consiste em um conjunto de recursos em uma conta do banco de dados, cada um acessível usando um URI lógico e estável. Um conjunto de recursos é referido como um feed neste documento. Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas, por sua vez, contendo documentos, UDFs e outros tipos de recursos.
+O Cosmos DB oferece um modelo de programação RESTful por HTTP. As contas do banco de dados podem ser provisionadas usando uma assinatura do Azure. O modelo de recurso do Cosmos DB consiste em um conjunto de recursos em uma conta de banco de dados, cada um endereçável usando um URI lógico e estável. Um conjunto de recursos é referido como um feed neste documento. Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas, por sua vez, contendo documentos, UDFs e outros tipos de recursos.
 
-O modelo de interação básico com esses recursos é por meio dos verbos HTTP GET, PUT, POST e DELETE, com sua interpretação padrão. O verbo POST é usado para criação de um novo recurso, para executar um procedimento armazenado ou para emitir uma consulta do Banco de Dados de Documentos. As consultas sempre são operações somente leitura, sem efeitos colaterais.
+O modelo de interação básico com esses recursos é por meio dos verbos HTTP GET, PUT, POST e DELETE, com sua interpretação padrão. O verbo POST é usado para criação de um novo recurso, para executar um procedimento armazenado ou para emitir uma consulta do Cosmos DB. As consultas sempre são operações somente leitura, sem efeitos colaterais.
 
-Os exemplos a seguir mostram um POST para uma consulta do Banco de Dados de Documentos realizada em uma coleção que contém os dois documentos de amostra revisados até agora. A consulta tem um filtro simples na propriedade do nome JSON. Observe o uso dos cabeçalhos `x-ms-documentdb-isquery` e Content-Type: `application/query+json` para indicar que a operação é uma consulta.
+Os exemplos a seguir mostram um POST para uma consulta da API do DocumentDB feita em uma coleção que contém os dois documentos de exemplo que vimos até agora. A consulta tem um filtro simples na propriedade do nome JSON. Observe o uso dos cabeçalhos `x-ms-documentdb-isquery` e Content-Type: `application/query+json` para indicar que a operação é uma consulta.
 
 **Solicitação**
 
@@ -2104,9 +2105,9 @@ O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resul
 
 Se os resultados de uma consulta não couberem em uma página de resultados, a API REST retornará um token de continuação por meio do cabeçalho de resposta `x-ms-continuation-token` . Os clientes podem paginar os resultados incluindo o cabeçalho nos resultados subsequentes. O número de resultados por página também pode ser controlado por meio do cabeçalho de número `x-ms-max-item-count` . Se a consulta especificada tiver uma função de agregação como `COUNT`, a página de consulta poderá retornar um valor parcialmente agregado na página de resultados. Os clientes devem executar uma segunda agregação nesses resultados para produzir os resultados finais; por exemplo, a soma das contagens retornadas nas páginas individuais, para retornar a contagem total.
 
-Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações da API REST. Para que haja consistência da sessão, é necessário também ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. Observe que a política de indexação da coleção consultada também pode influenciar a consistência dos resultados da consulta. Com as configurações da política de indexação padrão, para as coleções o índice sempre estará atualizado com o conteúdo dos documentos e os resultados das consultas corresponderão à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para saber mais, veja [Níveis de consistência do DocumentDB][consistency-levels].
+Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações da API REST. Para que haja consistência da sessão, é necessário também ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. Observe que a política de indexação da coleção consultada também pode influenciar a consistência dos resultados da consulta. Com as configurações da política de indexação padrão, para as coleções o índice sempre estará atualizado com o conteúdo dos documentos e os resultados das consultas corresponderão à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para obter mais informações, consulte [Níveis de consistência do Azure Cosmos DB][consistency-levels].
 
-Se a política de indexação configurada na coleção não puder suportar a consulta especificada, o servidor do Banco de Dados de Documentos retorna um 400, "Solicitação Incorreta". Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
+Se a política de indexação configurada na coleção não puder dar suporte à consulta especificada, o servidor do Azure Cosmos DB retornará um erro 400, “Solicitação Inválida”. Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
 
 ### <a id="DotNetSdk"></a>SDK do C# (.NET)
 O SDK .NET suporta consultas LINQ e SQL. O exemplo a seguir mostra como realizar a consulta de filtro simples mencionada no início deste documento.
@@ -2195,16 +2196,16 @@ A amostra seguinte mostra junções, expressas por meio do LINQ SelectMany.
 
 O cliente .NET itera automaticamente em todas as páginas dos resultados de pesquisa nos blocos foreach, conforme mostrado acima. As opções de consulta introduzidas na seção da API REST também estão disponíveis no SDK .NET usando as classes `FeedOptions` and `FeedResponse` no método CreateDocumentQuery. O número de páginas pode ser controlado usando a configuração `MaxItemCount` . 
 
-Você também pode controlar explicitamente paginação criando `IDocumentQueryable` usando o objeto `IQueryable`, lendo os valores` ResponseContinuationToken` e passando-os de volta como `RequestContinuationToken` em `FeedOptions`. `EnableScanInQuery` pode ser configurado para permitir verificações quando não for possível que a política de indexação configurada dê suporte à consulta. Para coleções particionadas, você pode usar `PartitionKey` para executar a consulta em uma única partição (embora os Banco de Dados de Documentos possam extraí-la do texto da consulta) e `EnableCrossPartitionQuery` para executar consultas que precisam ser executadas em várias partições. 
+Você também pode controlar explicitamente paginação criando `IDocumentQueryable` usando o objeto `IQueryable`, lendo os valores` ResponseContinuationToken` e passando-os de volta como `RequestContinuationToken` em `FeedOptions`. `EnableScanInQuery` pode ser configurado para permitir verificações quando não for possível que a política de indexação configurada dê suporte à consulta. Para coleções particionadas, use `PartitionKey` para executar a consulta em uma única partição (embora o Cosmos DB possa extraí-la do texto da consulta) e `EnableCrossPartitionQuery` para executar consultas que talvez precisem ser executadas em várias partições. 
 
-Consulte [Amostras .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) para ver mais amostras contendo consultas. 
+Consulte [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) para obter mais amostras que contêm consultas. 
 
 > [!NOTE]
 > Para executar consultas de agregação, você precisa de SDKs 1.12.0 ou superior. Não há suporte a LINQ para funções de agregação, mas ele estará disponível no SDK do .NET 1.13.0.
 >
 
 ### <a id="JavaScriptServerSideApi"></a>API do lado servidor do JavaScript
-O Banco de Dados de Documentos um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções em termos de procedimentos armazenados e gatilhos. A lógica de JavaScript registrada no nível da coleção pode então emitir operações do banco de dados nas operações dos documentos da coleção determinada. Essas operações são encapsuladas em transações ACID ambiente.
+O Cosmos DB oferece um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções usando procedimentos armazenados e gatilhos. A lógica de JavaScript registrada no nível da coleção pode então emitir operações do banco de dados nas operações dos documentos da coleção determinada. Essas operações são encapsuladas em transações ACID ambiente.
 
 O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaScript para realizar consultas de dentro de procedimentos e gatilhos armazenados.
 
@@ -2239,10 +2240,10 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
     }
 
 ## <a id="References"></a>Referências
-1. [Introdução ao Azure DocumentDB][introduction]
-2. [Especificação da linguagem SQL do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
-4. [Níveis de consistência do DocumentDB][consistency-levels]
+1. [Introdução ao Azure Cosmos DB][introduction]
+2. [Especificação do SQL no Azure Cosmos DB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3. [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net)
+4. [Níveis de consistência do Azure Cosmos DB][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
 7. Especificação Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 

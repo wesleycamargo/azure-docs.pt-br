@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 06f7b38f5d08f2182f08d38a11dec526042c1828
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4b496eb3d82249e8dc29833fa7bf94ffbfd87ea0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -82,7 +83,7 @@ Para usar um `escapeChar` em vez de `quoteChar`, substitua a linha com `quoteCha
 * Você está copiando de um arquivo de texto e deseja ignorar algumas linhas no início que não são informações de dados nem de cabeçalho. Especifique `skipLineCount` para indicar o número de linhas a serem ignoradas. Se o restante do arquivo contiver uma linha de cabeçalho, você também poderá especificar `firstRowAsHeader`. Se `skipLineCount` e `firstRowAsHeader` forem especificados, as linhas serão ignoradas pela primeira vez e, em seguida, as informações de cabeçalho serão lidas do arquivo de entrada
 
 ## <a name="json-format"></a>Formato JSON
-Para **importar/exportar um arquivo JSON como está de/para o DocumentDB**, veja a seção [Importar/exportar documentos JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) no artigo [Mover dados de/para o Azure DocumentDB](data-factory-azure-documentdb-connector.md).
+Para **importar/exportar um arquivo JSON no estado em que se encontra de/para o Azure Cosmos DB**, consulte a seção [Importar/exportar documentos JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) do artigo [Mover dados de/para o Azure Cosmos DB](data-factory-azure-documentdb-connector.md).
 
 Se você quiser analisar os arquivos de JSON ou gravar os dados no formato JSON, defina a propriedade `type` na seção `format` como **JsonFormat**. Você também pode especificar as seguintes propriedades **opcionais** na seção `format`. Veja a seção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
 

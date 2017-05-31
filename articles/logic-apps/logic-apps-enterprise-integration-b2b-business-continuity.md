@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e28c1410145d8da168a73e74251ac037997d1752
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 197df490690754730425231f358fde31d17dcfad
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -45,7 +45,7 @@ As cargas de trabalho B2B envolvem transações de dinheiro como pedidos e fatur
 
 4. Continuidade de negócios na conta de integração de aplicativos lógicos destina-se para dar suporte baseado em protocolos B2B – X12, AS2 e EDIFACT.  Para obter etapas detalhadas, selecione os respectivos links.
 
-5. A recomendação é implantar todos os recursos da região primária em uma região secundária também. Os recursos da região primária incluem o Banco de Dados SQL do Azure ou o Azure DocumentDB, Barramento de Serviço do Azure/Hubs de Eventos do Azure usados para mensagens, Gerenciamento de API do Azure e o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure.   
+5. A recomendação é implantar todos os recursos da região primária em uma região secundária também. Os recursos da região primária incluem o Banco de Dados SQL do Azure ou o Azure Cosmos DB, o Barramento de Serviço do Azure e os Hubs de Eventos do Azure usados para o sistema de mensagens, o Gerenciamento de API do Azure e o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure.   
 
 6. Estabeleça uma conexão de uma região primária para uma região secundária. Para efetuar pull do status de execução de uma região primária, crie um aplicativo lógico em uma região secundária. Ela deve ter um gatilho e uma ação. O gatilho deve estar conectado a uma conta de integração da região primária. A ação deve estar conectada a uma conta de integração da região secundária. Com base no intervalo de tempo, o gatilho sonda a tabela de status de execução da região primária e efetua pull dos novos registros, se houver. A ação atualiza-os para uma conta de integração da região secundária. Esse processo ajuda a obter o status em tempo de execução incremental da região primária para a região secundária.
 

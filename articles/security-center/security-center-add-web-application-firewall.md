@@ -1,6 +1,6 @@
 ---
 title: "Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure **Adicionar um Firewall do Aplicativo Web** e **Finalizar a proteção do aplicativo**."
+description: "Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Adicionar um firewall do aplicativo Web** e **Finalizar a proteção do aplicativo**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2286437f4ab13384f895e906ccda48ac1b4c553d
-ms.openlocfilehash: b44a0373ceca84b423984e01eee1e57a67d97cdd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d04a07237029953d8a9b20704d85e852ce45d867
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,7 +42,9 @@ A Central de Segurança recomenda que você provisione um WAF para ajudar a prot
 3. Você pode optar por usar um Firewall do Aplicativo Web existente, se disponível, ou criar um novo. Neste exemplo, não existem WAFs disponíveis, por isso vamos criar um novo.
 4. Para criar um WAF, selecione uma solução da lista dos parceiros integrados. Neste exemplo, selecionamos **Barracuda Web Application Firewall**.
 5. A folha **Firewall do Aplicativo Web Barracuda** se abre e fornece informações sobre a solução do parceiro. Selecione **Criar** na folha de informações.
+
    ![Folha Informações do firewall][3]
+
 6. A folha **Novo Firewall do Aplicativo Web** é aberta e você pode executar as etapas de **Configuração da VM** e fornecer **Informações do WAF**. Selecione **Configuração da VM**.
 7. Na folha **Configuração da VM**, você deve inserir as informações necessárias para criar a máquina virtual que executará o WAF.
    ![VM configuration][4]
@@ -48,9 +52,12 @@ A Central de Segurança recomenda que você provisione um WAF para ajudar a prot
 
 ## <a name="finalize-application-protection"></a>Finalizar a proteção do aplicativo
 1. Volte para a folha **Recomendações** . Uma nova entrada foi gerada depois que você criou o WAF, chamada **Finalizar a proteção do aplicativo**. Essa entrada informa o que é necessário para concluir o processo de conectar o WAF dentro da Rede Virtual do Azure para que ele possa proteger o aplicativo.
+
    ![Finalizar a proteção do aplicativo][5]
+
 2. Selecione **Finalizar a proteção do aplicativo**. Uma nova lâmina é aberta. Você pode ver que há um aplicativo Web que precisa ter seu tráfego redirecionado.
 3. Selecione o aplicativo Web. Uma folha será aberta com etapas para concluir a configuração de firewall do aplicativo Web. Conclua as etapas e selecione **Restringir o tráfego**. A Central de Segurança criará então as estruturas para você.
+
    ![Restringir o tráfego][6]
 
 > [!NOTE]
@@ -60,7 +67,7 @@ A Central de Segurança recomenda que você provisione um WAF para ajudar a prot
 
 Os logs daquele WAF agora estão totalmente integrados. A Central de Segurança pode iniciar a coleta e a análise dos logs automaticamente para revelar alertas de segurança importantes para você.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 Este documento mostrou como implementar a recomendação da Central de Segurança "Adicionar um aplicativo Web". Para saber mais sobre como configurar um Firewall do Aplicativo Web, consulte o seguinte:
 
 * [Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
@@ -81,9 +88,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [4]: ./media/security-center-add-web-application-firewall/select-vm-config.png
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

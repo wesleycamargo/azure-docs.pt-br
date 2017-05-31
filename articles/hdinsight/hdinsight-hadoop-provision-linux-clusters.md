@@ -1,6 +1,7 @@
 ---
 title: Criar cluster Hadoop, HBase, Kafka, Storm ou Spark no Azure HDInsight | Microsoft Docs
 description: Aprenda a criar clusters Hadoop, HBase ou Storm ou Spark no Linux para o HDInsight usando um navegador, a CLI do Azure, o Azure PowerShell, REST ou um SDK.
+keywords: "instalação de cluster hadoop, instalação de cluster kafka, instalação de cluster spark, instalação de cluster hbase, instalação de cluster storm, o que é um cluster no hadoop"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -17,10 +18,10 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 9fc96db2b832f1e57813bebd2d46e4b78ed04677
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: ed0a5cfc02572d537f4b179ad612ad153a2db1d4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -177,22 +178,35 @@ Você pode adicionar contas de armazenamento ao criar um cluster do HDInsight ou
 Para saber mais sobre a conta do Azure Storage secundária, confira [Uso do Azure Storage com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para saber mais sobre repositórios Data Lake secundários, veja [Criar clusters HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
-#### <a name="use-hiveoozie-metastore"></a>Metastore do Hive/Oozie
+#### <a name="use-hiveoozie-metastore"></a>Metastore do Hive
+
 Recomendamos que você use um metastore personalizado se quiser manter suas tabelas Hive depois de excluir o cluster HDInsight. Você poderá anexar esse metastore a outro cluster HDInsight.
 
 > [!IMPORTANT]
 > Um metastore do HDInsight criado para uma versão de cluster do HDInsight não pode ser compartilhado entre diferentes versões de cluster do HDInsight. Para obter uma lista das versões do HDInsight, consulte [Versões do HDInsight com suporte](hdinsight-component-versioning.md#supported-hdinsight-versions).
->
->
 
-O metastore contém metadados de Hive e Oozie, como tabelas Hive, partições, esquemas e colunas. O metastore ajuda a manter seus metadados do Hive e do Oozie, para que você não precise recriar tabelas Hive ou trabalhos do Oozie ao criar um novo cluster. Por padrão, o Hive usa um banco de dados SQL do Azure integrado para armazenar essas informações. O banco de dados integrado não é capaz de preservar os metadados quando o cluster é excluído. Quando você cria uma tabela do Hive em um cluster HDInsight com um metastore do Hive configurado, as tabelas serão mantidas ao recriar o cluster usando o mesmo metastore do Hive.
+O metastore contém metadados do Hive, como tabelas, partições, esquemas e colunas do Hive. O metastore ajuda a manter os metadados do Hive, de forma que você não precise recriar tabelas do Hive ao criar um novo cluster. Por padrão, o Hive usa um banco de dados SQL do Azure integrado para armazenar essas informações. O banco de dados integrado não é capaz de preservar os metadados quando o cluster é excluído. Quando você cria uma tabela do Hive em um cluster HDInsight com um metastore do Hive configurado, as tabelas serão mantidas ao recriar o cluster usando o mesmo metastore do Hive.
 
-A configuração de Metastore não está disponível para tipos de cluster HBase.
+A configuração do metastore não está disponível para todos os tipos de cluster. Por exemplo, ela não está disponível para clusters HBase ou Kafka.
 
 > [!IMPORTANT]
-> Ao criar um metastore personalizado, não use um nome de banco de dados que contém a traços ou hifens. Isso pode fazer com que o processo de criação de cluster falhe.
->
->
+> Ao criar um metastore personalizado, não use um nome de banco de dados que contém traços, hifens ou espaços. Isso pode fazer com que o processo de criação de cluster falhe.
+
+> [!WARNING]
+> Não há suporte para o SQL Data Warehouse do Azure no metastore do Hive.
+
+
+#### <a name="oozie-metastore"></a>Metastore do Oozie
+
+Para aumentar o desempenho durante o uso do Oozie, use um metastore personalizado. Um metastore personalizado também será útil se você desejar ter acesso aos dados de trabalho do Oozie depois de excluir o cluster. Caso você não pretenda usar o Oozie, ou apenas usar o Oozie intermitentemente, não precisará criar um metastore personalizado.
+
+> [!IMPORTANT]
+> Não é possível reutilizar um metastore personalizado do Oozie. Para usar um metastore personalizado do Oozie, é necessário fornecer um Banco de Dados SQL do Azure vazio ao criar o cluster HDInsight.
+
+A configuração do metastore não está disponível para todos os tipos de cluster. Por exemplo, ela não está disponível para clusters HBase ou Kafka.
+
+> [!WARNING]
+> Não há suporte para o SQL Data Warehouse do Azure no metastore do Oozie.
 
 ## <a name="install-hdinsight-applications"></a>Instalar aplicativos do HDInsight
 
@@ -317,7 +331,7 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-Se você tiver problemas com a criação de clusters HDInsight, confira os [ requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Próximas etapas
 

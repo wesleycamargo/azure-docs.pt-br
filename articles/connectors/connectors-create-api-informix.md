@@ -4,7 +4,7 @@ description: "Visão geral do Conector do Informix com os parâmetros da API RES
 services: 
 documentationcenter: 
 author: gplarsen
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
@@ -14,10 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
+ms.author: plarsen; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ca7a62338740e39647b39f2221bc5ac7321ba4fd
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -270,145 +272,16 @@ Você pode criar uma ação de aplicativo lógico para remover uma linha de uma 
     
     ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 
-## <a name="technical-details"></a>Detalhes técnicos
-## <a name="actions"></a>Ações
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. O conector do banco de dados Informix inclui as ações a seguir. 
-
-| Ação | Descrição |
-| --- | --- |
-| [GetRow](connectors-create-api-informix.md#get-row) |Recupera uma única linha de uma tabela Informix |
-| [GetRows](connectors-create-api-informix.md#get-rows) |Recupera linhas de uma tabela Informix |
-| [InsertRow](connectors-create-api-informix.md#insert-row) |Insere uma nova linha em uma tabela Informix |
-| [DeleteRow](connectors-create-api-informix.md#delete-row) |Exclui uma linha de uma tabela Informix |
-| [GetTables](connectors-create-api-informix.md#get-tables) |Recupera tabelas de um banco de dados Informix |
-| [UpdateRow](connectors-create-api-informix.md#update-row) |Atualiza uma linha existente em uma tabela Informix |
-
-### <a name="action-details"></a>Detalhes da ação
-Nesta seção, consulte os detalhes específicos sobre cada ação, incluindo todas as propriedades de entrada obrigatórias ou opcionais, assim como toda saída correspondente associada ao conector.
-
-#### <a name="get-row"></a>Obter linha
-Recupera uma única linha de uma tabela Informix.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table * |Nome da tabela |Nome da tabela Informix |
-| id * |Id da linha |O identificador exclusivo da linha a ser recuperado |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Obter linhas
-Recupera linhas de uma tabela Informix.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela Informix |
-| $skip |Ignorar contagem |Número de entradas a serem ignoradas (padrão = 0) |
-| $top |Obter Contagem Máxima |Número máximo de entradas a serem recuperadas (padrão = 256) |
-| $filter |Consulta de filtro |Uma consulta de filtro ODATA para restringir o número de entradas |
-| $orderby |Ordenar por |Uma consulta orderBy do ODATA para especificar a ordem das entradas |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Inserir linha
-Insere uma nova linha em uma tabela Informix.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela Informix |
-| item* |Linha |Linha para inserir na tabela especificada no Informix |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Excluir linha
-Exclui uma linha de uma tabela Informix.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela Informix |
-| id* |Id da linha |Identificador exclusivo da linha a ser excluída |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Nenhuma.
-
-#### <a name="get-tables"></a>Obter tabelas
-Recupera tabelas de um banco de dados Informix.  
-
-Não existem parâmetros para esta chamada. 
-
-##### <a name="output-details"></a>Detalhes da Saída
-TablesList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Atualizar linha
-Atualiza uma linha existente em uma tabela Informix.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela Informix |
-| id* |Id da linha |Identificador exclusivo da linha a ser atualizada |
-| item* |Linha |Linhas com valores atualizados |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Respostas HTTP
-Ao fazer chamadas a diferentes ações, você pode obter determinadas respostas. A tabela a seguir descreve as respostas e suas descrições:  
-
-| Nome | Descrição |
-| --- | --- |
-| 200 |OK |
-| 202 |Aceita |
-| 400 |Solicitação incorreta |
-| 401 |Não Autorizado |
-| 403 |Proibido |
-| 404 |Não encontrado |
-| 500 |Erro Interno do Servidor. Ocorreu um erro desconhecido |
-| padrão |Falha na Operação. |
-
 ## <a name="supported-informix-platforms-and-versions"></a>Versões e plataformas Informix com suporte
 Este conector dá suporte às versões do IBM Informix à seguir quando configurado para dar suporte a conexões a conexões de cliente DRDA (Distributed Relational Database Architecture).
 
 * IBM Informix 12.1
 * IBM Informix 11.7
 
+## <a name="view-the-swagger"></a>Exibir o Swagger
+Consulte os [detalhes do Swagger](/connectors/informix/). 
+
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

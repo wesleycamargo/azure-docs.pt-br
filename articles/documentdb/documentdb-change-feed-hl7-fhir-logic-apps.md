@@ -1,32 +1,34 @@
 ---
-title: Alterar feed para recursos HL7 FHIR - Azure DocumentDB | Microsoft Docs
-description: "Saiba como configurar notificações de alteração para registros médicos dos pacientes HL7 FHIR usando os Aplicativos Lógicos do Azure, o DocumentDB e o Barramento de Serviço."
+title: "Alterar feed de recursos HL7 FHIR – Azure Cosmos DB | Microsoft Docs"
+description: "Saiba como configurar notificações de alteração em registros de serviços de saúde de pacientes HL7 FHIR usando o Aplicativo Lógico do Azure, o Azure Cosmos DB e o Barramento de Serviço."
 keywords: hl7 fhir
-services: documentdb
+services: cosmosdb
 author: hedidin
 manager: jhubbard
 editor: mimig
 documentationcenter: 
 ms.assetid: 0d25c11f-9197-419a-aa19-4614c6ab2d06
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-translationtype: Human Translation
-ms.sourcegitcommit: c25274ad48edb0c89e3f177277af1a4ae5fb3eec
-ms.openlocfilehash: dafd6aa1172661e82bccb35dc29fd59b2c04dd6e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 634216e4653b26e27c3144c5002b8e66617461c9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-documentdb"></a>Notificação de pacientes de alterações de registro de assistência médica HL7 FHIR usando Aplicativos Lógicos e o DocumentDB
+# <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notificando pacientes de alterações em registros de serviços de saúde HL7 FHIR usando os Aplicativos Lógicos e o Azure Cosmos DB
 
 Recentemente, o MVP do Azure Howard Edidin foi contatado por uma organização de saúde que queria adicionar uma nova funcionalidade ao seu portal do paciente. Eles precisavam enviar notificações aos pacientes quando o registro de saúde deles fosse atualizado, e precisavam que os pacientes pudessem assinar essas atualizações. 
 
-Este artigo percorre a solução de notificação de feed de alteração criada para esta organização de saúde usando o DocumentDB, os Aplicativos Lógicos e o Barramento de Serviço. 
+Este artigo apresenta a solução de notificação de feed de alterações criada para esta organização de serviços de saúde usando o Azure Cosmos DB, os Aplicativos Lógicos e o Barramento de Serviço. 
 
 ## <a name="project-requirements"></a>Requisitos do projeto
 - Os provedores enviam documentos C-CDA (Consolidated-Clinical Document Arquitecture) HL7 em formato XML. Os documentos C-CDA englobam praticamente qualquer tipo de documento clínico, incluindo documentos clínicos como históricos familiares e registros de vacinação, bem como documentos administrativos, de fluxo de trabalho e financeiros. 
@@ -38,15 +40,15 @@ Este artigo percorre a solução de notificação de feed de alteração criada 
 Em um alto nível, o projeto exigiu as seguintes etapas de fluxo de trabalho: 
 1. Converta os documentos C-CDA em recursos FHIR.
 2. Execute uma sondagem de gatilho recorrente para recursos FHIR modificados. 
-2. Chame um aplicativo personalizado, FhirNotificationApi, para conectar-se ao DocumentDB e consulte documentos novos ou modificados.
+2. Chame um aplicativo personalizado, FhirNotificationApi, para se conectar ao Azure Cosmos DB e consultar documentos novos ou modificados.
 3. Salve a resposta na fila do Barramento de Serviço.
 4. Sondagem de novas mensagens na fila do Barramento de Serviço.
 5. Envie notificações por email para pacientes.
 
 ## <a name="solution-architecture"></a>Arquitetura da solução
 Essa solução requer três Aplicativos Lógicos atender aos requisitos acima e concluir o fluxo de trabalho da solução. Os três aplicativos lógicos são:
-1. **Aplicativo de mapeamento de FHIR HL7**: recebe o documento HL7 C-CDA, transforma-a para o recurso de FHIR e salva-o em DocumentDB.
-2. **Aplicativo EHR**: consulta o repositório de DocumentDB FHIR e salva a resposta para uma fila do Barramento de Serviço. Esse aplicativo lógico usa um [aplicativo de API](#api-app) para recuperar documentos novos e alterados.
+1. **Aplicativo Mapeamento de HL7 FHIR**: recebe o documento HL7 C-CDA, transforma-o no Recurso FHIR e, depois, salva-o no Azure Cosmos DB.
+2. **Aplicativo EHR**: consulta o repositório de FHIR do Azure Cosmos DB e salva a resposta em uma fila do Barramento de Serviço. Esse aplicativo lógico usa um [aplicativo de API](#api-app) para recuperar documentos novos e alterados.
 3. **Aplicativo de notificação do processo**: envia uma notificação por email com os documentos de recursos FHIR no corpo.
 
 ![Os três Aplicativos Lógicos usados nesta solução saúde HL7 FHIR](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-health-care-solution-hl7-fhir.png)
@@ -55,10 +57,10 @@ Essa solução requer três Aplicativos Lógicos atender aos requisitos acima e 
 
 ### <a name="azure-services-used-in-the-solution"></a>Serviços do Azure usados na solução
 
-#### <a name="documentdb"></a>DocumentDB
-O DocumentDB é o repositório para os recursos FHIR, conforme mostrado na figura a seguir.
+#### <a name="azure-cosmos-db-documentdb-api"></a>API do DocumentDB no Azure Cosmos DB
+O Azure Cosmos DB é o repositório dos recursos FHIR, conforme mostrado na figura a seguir.
 
-![A conta do Azure DocumentDB usada neste tutorial de assistência médica FHIR HL7](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-account.png)
+![A conta do Azure Cosmos DB usada neste tutorial de serviços de saúde HL7 FHIR](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-account.png)
 
 #### <a name="logic-apps"></a>Aplicativos Lógicos
 Os Aplicativos Lógicos lidam com o processo de fluxo de trabalho. As capturas de tela a seguir mostram os Aplicativos Lógicos criados para esta solução. 
@@ -69,9 +71,9 @@ Os Aplicativos Lógicos lidam com o processo de fluxo de trabalho. As capturas d
     ![O aplicativo lógico usado para receber registros médicos HL7 FHIR](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-json-transform.png)
 
 
-2. **Aplicativo EHR**: consultar o repositório DocumentDB FHIR e salvar a resposta para uma fila do Barramento de Serviço. O código do aplicativo GetNewOrModifiedFHIRDocuments está abaixo.
+2. **Aplicativo EHR**: consulte o repositório de FHIR do Azure Cosmos DB e salve a resposta em uma fila do Barramento de Serviço. O código do aplicativo GetNewOrModifiedFHIRDocuments está abaixo.
 
-    ![O Aplicativo Lógico usado para consultar o Azure DocumentDB](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-api-app.png)
+    ![O Aplicativo Lógico usado para consultar o Azure Cosmos DB](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-api-app.png)
 
 3. **Aplicativo de notificação do processo**: enviar uma notificação por email com os documentos de recursos FHIR no corpo.
 
@@ -85,9 +87,9 @@ A figura a seguir mostra os pacientes fila. O valor da propriedade Tag é usado 
 <a id="api-app"></a>
 
 #### <a name="api-app"></a>Aplicativo de API
-Um aplicativo de API se conecta ao DocumentDB e consultas documentos de FHIR novos ou modificados por tipo de recurso. Este aplicativo tem um controlador, **FhirNotificationApi**, com uma operação **GetNewOrModifiedFhirDocuments**, veja [fonte do aplicativo de API](#api-app-source).
+Um aplicativo de API se conecta ao Azure Cosmos DB e consulta documentos FHIR novos ou modificados por tipo de recurso. Este aplicativo tem um controlador, **FhirNotificationApi**, com uma operação **GetNewOrModifiedFhirDocuments**, veja [fonte do aplicativo de API](#api-app-source).
 
-Estamos usando o [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) classe da API do .NET do DocumentDB. Para obter mais informações, consulte o [artigo de feed de alterações do DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-change-feed). 
+Estamos usando a classe [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) da API do .NET do DocumentDB no Azure Cosmos DB. Para obter mais informações, consulte o [artigo sobre o feed de alterações](https://docs.microsoft.com/azure/documentdb/documentdb-change-feed). 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>Operação de GetNewOrModifiedFhirDocuments
 
@@ -225,17 +227,12 @@ A imagem a seguir mostra todos os serviços do Azure para essa solução em exec
 
 ## <a name="summary"></a>Resumo
 
-- Você aprendeu que DocumentDB tem suporte nativo para notificações para novo ou modificado documentos e como é fácil usar. 
+- Você aprendeu que o Azure Cosmos DB tem suporte nativo para notificações em documentos novos ou modificados e como é fácil usá-lo. 
 - Aproveitando os Aplicativos Lógicos, você pode criar fluxos de trabalho sem escrever nenhum código.
 - Uso de filas do Barramento de Serviço do Azure para lidar com a distribuição para os documentos FHIR HL7.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o DocumentDB, veja a [home page do DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/). Para saber mais sobre os Aplicativos Lógicos, veja [Aplicativos Lógicos](https://azure.microsoft.com/en-us/services/logic-apps/).
+Para obter mais informações sobre o Azure Cosmos DB, visite a [home page do Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). Para saber mais sobre os Aplicativos Lógicos, veja [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

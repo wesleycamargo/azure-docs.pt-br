@@ -1,28 +1,30 @@
 ---
-title: Modelando dados no DocumentDB do Azure | Microsoft Docs
-description: Saiba mais sobre como modelar dados para Banco de Dados de Documentos, um banco de dados de documento NoSQL.
+title: Modelando dados no Azure Cosmos DB | Microsoft Docs
+description: "Saiba mais sobre como modelar dados para o Azure Cosmos DB, um multimodelo de banco de dados distribuído globalmente."
 keywords: modelando dados
-services: documentdb
+services: cosmosdb
 author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: 
 ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2016
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 09f42bae67f794f12c7c37cd25c25f4c991fe893
-ms.openlocfilehash: 93d0d7276e4ff426e87bdc3dadd736de8d6525fb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6c7a921ca6eb3a1e840c3020b6016d2cf1915d14
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="modeling-data-in-documentdb"></a>Modelando dados no Banco de Dados de Documentos
-Embora bancos de dados sem esquemas, como o Banco de Dados de Documentos do Azure, facilitem muito a adoção de mudanças no seu modelo de dados, ainda é recomendável dedicar algum tempo pensando nos seus dados. 
+# <a name="modeling-data-in-azure-cosmos-db"></a>Modelando dados no Azure Cosmos DB
+Embora bancos de dados sem esquemas, como o Azure Cosmos DB, facilitem muito a adoção de mudanças em seu modelo de dados, ainda é recomendável dedicar algum tempo para considerar os dados. 
 
 Como eles serão armazenados? Como seu aplicativo vai recuperá-los e consultá-los? O aplicativo realizará grandes volumes de leitura e gravação? 
 
@@ -35,7 +37,7 @@ Depois de ler este artigo, você poderá responder as seguintes perguntas:
 * Quando eu insiro dados e quando vinculo a eles?
 
 ## <a name="embedding-data"></a>Inserindo dados
-Quando começar a modelar dados em um repositório de documentos, como o Banco de Dados de Documentos, tente tratar suas entidades como **documentos autossuficientes** representados em JSON.
+Ao começar a modelar dados em um repositório de documentos, como o Azure Cosmos DB, tente tratar as entidades como **documentos independentes** representados em JSON.
 
 Antes de nos aprofundarmos demais, vamos voltar um pouco e ver como modelaríamos algo num banco de dados relacional, que é um processo que muitos de nós já conhecemos. O exemplo a seguir mostra como uma pessoa poderia ser armazenada em um banco de dados relacional. 
 
@@ -181,10 +183,10 @@ Isto pode representar o portfólio de ações de alguém. Nós optamos por inser
 
 A ação *zaza* pode ser negociada centenas de vezes em apenas um dia, e milhares de usuários podem ter a ação *zaza* em seus portfólios. Com um modelo de dados como o acima, teríamos que atualizar vários milhares de documentos de portfólio muitas vezes por dia, o que levaria a um sistema mal dimensionado. 
 
-## <a name="a-idreferareferencing-data"></a><a id="Refer"></a>Fazendo referência a dados
+## <a id="Refer"></a>Fazendo referência a dados
 Inserir dados funciona bem em muitos casos, mas claramente há situações em que desnormalizar seus dados trará mais problemas do que soluções. E o que podemos fazer? 
 
-Bancos de dados relacionais não são o único lugar onde você pode criar relações entre entidades. Em um banco de dados de documentos, você pode ter informações em um documento que se relacionam a dados de outros documentos. Eu não estou, de modo algum, defendendo a compilação de sistemas que se adequariam melhor a um banco de dados relacional no Banco de Dados de Documentos, ou em qualquer outro banco de dados de documentos. O que estou dizendo é que relações simples são ótimas e podem ser muito úteis. 
+Bancos de dados relacionais não são o único lugar onde você pode criar relações entre entidades. Em um banco de dados de documentos, você pode ter informações em um documento que se relacionam a dados de outros documentos. Eu não estou, de modo algum, defendendo a criação de sistemas que seriam mais adequados a um banco de dados relacional no Azure Cosmos DB ou a qualquer outro banco de dados de documentos. O que estou dizendo é que relações simples são ótimas e podem ser muito úteis. 
 
 No JSON abaixo, optamos por usar o exemplo do portfólio de ações, mas, dessa vez, fazemos referência ao item de estoque no portfólio em vez de inseri-lo. Dessa forma, quando o item de estoque mudar frequentemente ao longo do dia, o único documento que precisará ser atualizado será o documento de estoque. 
 
@@ -230,7 +232,7 @@ Uma desvantagem imediata dessa abordagem é se o aplicativo precisar mostrar inf
 > 
 
 ### <a name="what-about-foreign-keys"></a>E as chaves estrangeiras?
-Como no momento não há o conceito de restrição e chave estrangeira, entre outros, qualquer relação interna que houver nos documentos será um "elo fraco" e não será verificada pelo banco de dados. Se quiser garantir que os dados a que um documento está se referindo realmente existem, você precisa fazer isso no aplicativo, por meio de gatilhos por parte do servidor ou de procedimentos armazenados no Banco de Dados de Documentos.
+Como no momento não há o conceito de restrição e chave estrangeira, entre outros, qualquer relação interna que houver nos documentos será um "elo fraco" e não será verificada pelo banco de dados. Se você desejar garantir que os dados aos quais um documento está se referindo realmente existem, você precisa fazer isso no aplicativo, por meio do uso de gatilhos do lado do servidor ou de procedimentos armazenados no Azure Cosmos DB.
 
 ### <a name="when-to-reference"></a>Quando fazer referência
 De modo geral, use modelos de dados normalizados quando:
@@ -258,13 +260,13 @@ Observemos o JSON abaixo que modela editoras e livros.
     }
 
     Book documents:
-    {"id": "1", "name": "DocumentDB 101" }
-    {"id": "2", "name": "DocumentDB for RDBMS Users" }
+    {"id": "1", "name": "Azure Cosmos DB 101" }
+    {"id": "2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "3", "name": "Taking over the world one JSON doc at a time" }
     ...
-    {"id": "100", "name": "Learn about Azure DocumentDB" }
+    {"id": "100", "name": "Learn about Azure Cosmos DB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to DocumentDB" }
+    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
 
 Se o número de livros por editora for pequeno, com crescimento limitado, armazenar a referência do livro no documento da editora pode ser útil. No entanto, se o número de livros por editora for ilimitado, esse modelo de dados levaria a matrizes crescentes e mutáveis, como no exemplo de documento de editora abaixo. 
 
@@ -277,13 +279,13 @@ Mudar um pouco as coisas resultaria em um modelo que ainda representa os mesmos 
     }
 
     Book documents: 
-    {"id": "1","name": "DocumentDB 101", "pub-id": "mspress"}
-    {"id": "2","name": "DocumentDB for RDBMS Users", "pub-id": "mspress"}
+    {"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
+    {"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
     {"id": "3","name": "Taking over the world one JSON doc at a time"}
     ...
-    {"id": "100","name": "Learn about Azure DocumentDB", "pub-id": "mspress"}
+    {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to DocumentDB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
 
 No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez disso, temos apenas uma referência à editora no documento de cada livro.
 
@@ -299,11 +301,11 @@ Você pode ficar tentado a fazer a mesma coisa usando documentos e produzir um m
     {"id": "a2", "name": "William Wakefield" }
 
     Book documents:
-    {"id": "b1", "name": "DocumentDB 101" }
-    {"id": "b2", "name": "DocumentDB for RDBMS Users" }
+    {"id": "b1", "name": "Azure Cosmos DB 101" }
+    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
-    {"id": "b4", "name": "Learn about Azure DocumentDB" }
-    {"id": "b5", "name": "Deep Dive in to DocumentDB" }
+    {"id": "b4", "name": "Learn about Azure Cosmos DB" }
+    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -321,14 +323,14 @@ Considere o seguinte.
     {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
     Book documents: 
-    {"id": "b1", "name": "DocumentDB 101", "authors": ["a1", "a2"]}
-    {"id": "b2", "name": "DocumentDB for RDBMS Users", "authors": ["a1"]}
-    {"id": "b3", "name": "Learn about Azure DocumentDB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to DocumentDB", "authors": ["a2"]}
+    {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
+    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
+    {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
+    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
 
 Agora, se eu tivesse um autor, eu saberia imediatamente quais livros ele escreveu e, da mesma forma, se carregasse o documento de um livro, saberia quem é o autor. Isso anula a consulta intermediária, da tabela de junção, reduzindo o número de viagens de ida e volta ao servidor que o aplicativo precisa fazer. 
 
-## <a name="a-idwrapupahybrid-data-models"></a><a id="WrapUp"></a>Modelos de dados híbridos
+## <a id="WrapUp"></a>Modelos de dados híbridos
 Nós vimos que inserir (ou desnormalizar) e referenciar (ou normalizar) dados têm suas vantagens e desvantagens. 
 
 Nem sempre é necessário escolher um dos dois. Não tenha medo de misturar um pouco as coisas. 
@@ -364,7 +366,7 @@ Considere o JSON a seguir.
     Book documents:
     {
         "id": "b1",
-        "name": "DocumentDB 101",
+        "name": "Azure Cosmos DB 101",
         "authors": [
             {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
             {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
@@ -372,7 +374,7 @@ Considere o JSON a seguir.
     },
     {
         "id": "b2",
-        "name": "DocumentDB for RDBMS Users",
+        "name": "Azure Cosmos DB for RDBMS Users",
         "authors": [
             {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
         ]
@@ -386,24 +388,19 @@ Claro, se o nome do autor mudasse ou se ele quisesse altera sua foto, teríamos 
 
 No exemplo, há valores **agregados pré-calculados** para reduzir o processamento extensivo das operações de leitura. No exemplo, alguns dos dados inseridos no documento do autor são calculados em tempo de execução. Sempre que um novo livro é publicado, um documento de livro é criado **e** o campo countOfBooks, relativo à contagem de livros, é definido como um valor calculado com base no número de documentos de livros que existem para um dado autor. Essa otimização seria útil em sistemas com grandes volumes de leitura nos quais podemos computar as gravações para otimizar as leituras.
 
-O recurso de ter um modelo com campos pré-calculados é possível porque o Banco de Dados de Documentos dá suporte a **transações com múltiplos documentos**. Muitos repositórios NoSQL não podem fazer transações entre documentos e por isso defendem decisões de design, como "sempre inserir tudo", devido a essa limitação. Com o Banco de Dados de Documentos, você pode usar gatilhos por parte do servidor, ou procedimentos armazenados, que inserem livros e atualizam autores com uma transação ACID. Você não **precisa** inserir tudo em um documento para garantir que seus dados permaneçam consistentes.
+A capacidade de ter um modelo com campos pré-calculados é possibilitada porque o Azure Cosmos DB dá suporte a **transações de vários documentos**. Muitos repositórios NoSQL não podem fazer transações entre documentos e por isso defendem decisões de design, como "sempre inserir tudo", devido a essa limitação. Com o Azure Cosmos DB, você pode usar gatilhos do lado do servidor ou procedimentos armazenados, que inserem manuais e atualizam autores, tudo isso em uma transação ACID. Você não **precisa** inserir tudo em um documento para garantir que seus dados permaneçam consistentes.
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Próximas etapas
+## <a name="NextSteps"></a>Próximas etapas
 O principal aspecto deste artigo é entender que modelar dados em um ambiente sem esquemas é tão importante quanto sempre foi. 
 
 Assim como não há apenas uma forma de representar um dado em uma tela, não há apenas uma forma de modelar seus dados. Você precisa entender eu aplicativo e como ele vai produzir, consumir e processar dados. E então, aplicando algumas das diretrizes apresentadas aqui, você pode começar a criar um modelo que trata das necessidades imediatas do seu aplicativo. Quando seus aplicativos precisarem mudar, você pode tirar proveito da flexibilidade de um banco de dados sem esquemas para adotar as mudanças e desenvolver seu modelo de dados facilmente. 
 
-Para saber mais sobre o Banco de Dados de Documentos do Azure, veja a página de [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do serviço. 
+Para saber mais sobre o Azure Cosmos DB, consulte a página de [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do serviço. 
 
-Para saber mais sobre o ajuste de índices no Banco de Dados de Documentos do Azure, consulte o artigo sobre as [políticas de indexação](documentdb-indexing-policies.md).
+Para saber mais sobre como ajustar índices no Azure Cosmos DB, consulte o artigo sobre [políticas de indexação](documentdb-indexing-policies.md).
 
-Para saber como fragmentar seus dados em diversas partições, consulte [Particionando dados no Banco de Dados de Documentos](documentdb-partition-data.md). 
+Para entender como fragmentar seus dados em várias partições, consulte [Particionando dados no Azure Cosmos DB](documentdb-partition-data.md). 
 
-Por fim, para obter diretrizes sobre fragmentação e modelagem de dados para aplicativos multilocatários, confira [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
+Por fim, para obter diretrizes sobre modelagem de dados e fragmentação para aplicativos multilocatários, consulte [Dimensionando um aplicativo multilocatário com o Azure Cosmos DB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
 
 

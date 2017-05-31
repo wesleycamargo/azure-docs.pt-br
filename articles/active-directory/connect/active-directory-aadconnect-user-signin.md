@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/09/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1673e14285456307441c836ba2225556416d4a7b
-ms.openlocfilehash: 4c50968dd66ab351a5ef1b8e06557855870c5d4e
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6bc564cc5121a6b7b7896f1d90177140bee15fbb
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -131,7 +132,7 @@ O atributo userPrincipalName é o atributo que os usuários usam ao se conectare
 É altamente recomendável manter o atributo userPrincipalName padrão. Se esse atributo não for roteável e se não puder ser verificado, será possível selecionar outro atributo (email, por exemplo) como o atributo que contém a ID de conexão. Isso é conhecido como a ID Alternativa. O valor de atributo da ID Alternativa deve seguir o padrão RFC 822. É possível usar uma ID Alternativa tanto com o SSO de senha quanto com o SSO de federação como a solução de conexão.
 
 > [!NOTE]
-> O uso de uma ID Alternativa não é compatível com todas as cargas de trabalho do Office 365 nem com a autenticação de passagem. Para obter mais informações, consulte [Configurando uma ID de logon alternativa](https://technet.microsoft.com/library/dn659436.aspx).
+> O uso de uma ID Alternativa não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, consulte [Configurando uma ID de logon alternativa](https://technet.microsoft.com/library/dn659436.aspx).
 >
 >
 

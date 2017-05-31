@@ -1,18 +1,15 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: 9c5fc17927d719330926c8242008b61f6c88a298
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 46edcf8172daf3ea18ceaed5e35720f3caaccab9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="default-quotas-for-documentdb"></a>Cotas padrão para o Banco de Dados de Documentos
+# <a name="default-quotas-for-azure-cosmos-db"></a>Cotas padrão do Azure Cosmos DB
 
-O DocumentDB é um banco de dados de escala global no qual armazenamento e taxa de transferência podem ser dimensionados para manipular qualquer solicitação de seu aplicativo. Se você tiver alguma dúvida sobre a escala fornecida pelo DocumentDB, envie um email para askdocdb@microsoft.com.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+O Azure Cosmos DB é um banco de dados de escala global no qual o armazenamento e a produtividade podem ser dimensionados para atender às necessidades de seu aplicativo. Em caso de dúvidas sobre a escala fornecida pelo Azure Cosmos DB, envie um email para askdocdb@microsoft.com.
 
