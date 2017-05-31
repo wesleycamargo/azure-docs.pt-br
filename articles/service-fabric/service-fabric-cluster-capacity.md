@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 05/05/2017
 ms.author: chackdan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e8d6f7c41287f5f785a52ae82bb156008d7e2699
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c38b337d67b518f68be6dc8255fa97b78ba89dae
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -43,14 +43,14 @@ Estabeleça o número de tipos de nós com os quais o cluster precisa começar. 
 * Como você não pode prever o futuro, baseie-se no que já sabe e decida com quantos tipos de nós os aplicativos precisam começar. Você sempre pode adicionar ou remover tipos de nós posteriormente. Um cluster do Service Fabric deve ter pelo menos um tipo de nó.
 
 ## <a name="the-properties-of-each-node-type"></a>As propriedades de cada tipo de nó
-O **tipo de nó** pode ser visto como algo equivalente a funções nos Serviços de Nuvem. Os tipos de nó definem os tamanhos e o número de VMs e suas propriedades. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um Conjunto de Dimensionamento de Máquinas Virtuais (VMSS) separado. O VMSS é um recurso de computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Sendo definidos como VMSS distintos, cada tipo de nó pode ser escalado vertical ou horizontalmente de forma independente, ter diferentes conjuntos de portas abertas e ter métricas de capacidade diferentes.
+O **tipo de nó** pode ser visto como algo equivalente a funções nos Serviços de Nuvem. Os tipos de nó definem os tamanhos e o número de VMs e suas propriedades. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Sendo definidos como conjuntos de dimensionamento de máquinas virtuais distintos, cada tipo de nó pode ser escalado verticalmente ou horizontalmente de forma independente, ter diferentes conjuntos de portas abertas e ter métricas de capacidade diferentes.
 
-Leia [este documento](service-fabric-cluster-nodetypes.md) para obter mais detalhes sobre o relacionamento de Nodetypes para VMSS, como RDP em uma das instâncias, abrir novas portas etc.
+Leia [este documento](service-fabric-cluster-nodetypes.md) para obter mais detalhes sobre o relacionamento entre Nodetypes para conjunto de dimensionamento de máquinas virtuais, como usar RDP para acessar uma das instâncias, abrir novas portas, etc.
 
 O cluster pode ter mais de um tipo de nó, mas o tipo de nó primário (o primeiro que você define no portal) deve ter pelo menos cinco VMs para clusters usados para cargas de trabalho de produção (ou pelo menos três VMs para clusters de teste). Se estiver criando o cluster usando um modelo do Resource Manager, você encontrará um atributo **é Primário** na definição do tipo de nó. O tipo de nó primário é o tipo de nó em que os serviços do sistema do Service Fabric são colocados.  
 
 ### <a name="primary-node-type"></a>Tipo de nó primário
-Para um cluster com vários tipos de nó, você precisará escolher um deles como primário. Aqui estão as características de um tipo de nó primário:
+Para um cluster com vários tipos de nó, você precisa escolher um deles como primário. Aqui estão as características de um tipo de nó primário:
 
 * O **tamanho mínimo de VMs** para o tipo de nó primário é determinado pela **camada de durabilidade** que você escolhe. O padrão para a camada de durabilidade é Bronze. Role para baixo para obter detalhes sobre o que é a camada de durabilidade e os valores que ela pode ter.  
 * O **número mínimo de VMs** para o tipo de nó primário é determinado pela **camada de confiabilidade** que você escolhe. O padrão para a camada de confiabilidade é Prata. Role para baixo para obter detalhes sobre o que é a camada de confiabilidade e os valores que ela pode ter. 
@@ -68,7 +68,7 @@ Para um cluster com vários tipos de nó, há um tipo de nó primário, e os dem
 * O número mínimo de VMs para esse tipo de nó pode ser um. No entanto, você deve escolher esse número com base no número de réplicas do aplicativo/serviços que deseja executar nesse tipo de nó. O número de VMs em um tipo de nó pode ser aumentado após a implantação do cluster.
 
 ## <a name="the-durability-characteristics-of-the-cluster"></a>As características de durabilidade do cluster
-A camada de durabilidade é usada para indicar ao sistema os privilégios que as VMs têm com a infraestrutura subjacente do Azure. No tipo de nó primário, esse privilégio permite que o Service Fabric pause qualquer solicitação de infraestrutura de nível de VM (por exemplo, reinicialização de VM, recriação de imagem de VM ou migração de VM) que afete os requisitos de quorum para os serviços do sistema e os serviços com estado. Nos tipos de nó não primários, esse privilégio permite que o Service Fabric pause qualquer solicitação de infraestrutura de nível de VM (como reinicialização de VM, recriação de imagem de VM, migração de VM etc.) que afete os requisitos de quorum para os serviços com estado em execução.
+A camada de durabilidade é usada para indicar ao sistema os privilégios que as VMs têm com a infraestrutura subjacente do Azure. No tipo de nó primário, esse privilégio permite que o Service Fabric pause qualquer solicitação de infraestrutura de nível de VM (por exemplo, reinicialização de VM, recriação de imagem de VM ou migração de VM) que afete os requisitos de quorum para os serviços do sistema e os serviços com estado. Nos tipos de nó não primários, esse privilégio permite que o Service Fabric pause quaisquer solicitações de infraestrutura de nível de VM (como reinicialização de VM, recriação de imagem de VM, migração de VM etc.) que afete os requisitos de quorum para os serviços com estado em execução.
 
 Esse privilégio é expresso nos seguintes valores:
 
@@ -79,7 +79,7 @@ Esse privilégio é expresso nos seguintes valores:
 ## <a name="the-reliability-characteristics-of-the-cluster"></a>As características de confiabilidade do cluster
 A camada de confiabilidade é usada para definir o número de réplicas dos serviços do sistema que você deseja executar nesse cluster no tipo de nó primário. Quanto maior for o número de réplicas, mais confiáveis os serviços do sistema serão no cluster.  
 
-A camada de confiabilidade pode ter os valores a seguir.
+A camada de confiabilidade pode ter os valores a seguir:
 
 * Platina - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 9
 * Ouro - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 7
@@ -91,17 +91,18 @@ A camada de confiabilidade pode ter os valores a seguir.
 > 
 > 
 
- Você pode optar por atualizar a confiabilidade do cluster de uma camada para outra. Isso disparará as atualizações de cluster necessárias para alterar a contagem de conjuntos de réplicas dos serviços do sistema. Aguarde a conclusão da atualização em andamento antes de fazer outras alterações no cluster, como adicionar nós etc.  Você pode monitorar o andamento da atualização no Service Fabric Explorer ou executando [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+ Você pode optar por atualizar a confiabilidade do cluster de uma camada para outra. Fazer isso dispara as atualizações de cluster necessárias para alterar a contagem de conjuntos de réplicas dos serviços do sistema. Aguarde a conclusão da atualização em andamento antes de fazer outras alterações no cluster, assim como adicionar nós.  Você pode monitorar o andamento da atualização no Service Fabric Explorer ou executando [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 
 ## <a name="primary-node-type---capacity-guidance"></a>Tipo de nó Primário - Diretrizes de Capacidade
 
 Eis aqui as diretrizes de planejamento da capacidade do tipo de nó principal
 
-1. **Número de instâncias de VM:** para executar qualquer carga de trabalho de produção no Azure, você deve especificar uma camada de confiabilidade Silver ou superior, que os converte para um tamanho mínimo de tipo de Nó Primário de 5.
-2. **SKU da VM:** o tipo de nó Primário é onde os serviços do sistema são executados e, portanto, a SKU de VM escolhida deve levar em consideração o pico de carga geral que você planeja colocar no cluster. Aqui está uma analogia para ilustrar o que quero dizer – pense no tipo de nó primário como seus "pulmões", ele fornece oxigênio para seu cérebro e, dessa forma, se o cérebro não obtiver oxigênio suficiente, seu corpo será prejudicado. 
+1. **Número de instâncias de VM para executar qualquer carga de trabalho de produção no Azure**: **você deve especificar um tamanho mínimo de tipo de Nó Primário de 5.
+2. **Número de instâncias de VM para executar cargas de trabalho de teste no Azure** Você pode especificar um tamanho mínimo de tipo de Nó Primário de 1 ou 3. O cluster de um nó é executado com uma configuração especial e, portanto, não há suporte para expansão desse cluster. O cluster de um nó não tem confiabilidade e assim, em seu modelo do Resource Manager, você precisa remover ou não especificar essa configuração (não definir o valor de configuração não é suficiente). Se você configurar o cluster de um nó configurado por meio do Portal, em seguida, a configuração será feita automaticamente. Não há suporte para clusters de 1 e 3 nós para executar cargas de trabalho de produção. 
+3. **SKU da VM:** o tipo de nó Primário é onde os serviços do sistema são executados e, portanto, a SKU de VM escolhida deve levar em consideração o pico de carga geral que você planeja colocar no cluster. Aqui está uma analogia para ilustrar o que quero dizer – pense no tipo de nó primário como seus "pulmões", ele fornece oxigênio para seu cérebro e, dessa forma, se o cérebro não obtiver oxigênio suficiente, seu corpo será prejudicado. 
 
-As necessidades de capacidade de um cluster são absolutamente determinadas pela carga de trabalho que você planeja executar no cluster e, portanto, não podemos fornecer a você uma diretriz qualitativa para sua carga de trabalho específica, mas veja estas diretrizes amplas para ajudar você a começar
+As necessidades de capacidade de um cluster são determinadas pela carga de trabalho que você planeja executar no cluster e, portanto, não podemos fornecer a você uma diretriz qualitativa para sua carga de trabalho específica, mas veja estas diretrizes amplas para ajudar você a começar
 
 Para cargas de trabalho de produção 
 
@@ -109,18 +110,18 @@ Para cargas de trabalho de produção
 - A SKU de VM recomendada é a Standard D3 ou a Standard D3_V2 ou equivalente, com um mínimo de 14 GB de SSD local.
 - A SKU de VM de uso mínimo com suporte é a Standard D1 ou a Standard D1_V2 ou equivalente, com um mínimo de 14 GB de SSD local. 
 - As SKUs de VM de núcleo parcial como a Standard A0 não têm suporte para cargas de trabalho de produção.
-- Especificamente, a SKU Standard A1 não tem suporte para cargas de trabalho de produção por motivos de desempenho.
+- A SKU Standard A1 não tem suporte para cargas de trabalho de produção por motivos de desempenho.
 
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>O tipo de nó Não Principal - Diretrizes de Capacidade para cargas de trabalho com monitoração de estado
 
 Leia o seguinte para Cargas de Trabalho usando coleções confiáveis do Service Fabric ou Reliable Actors. Leia mais sobre [modelos de programação aqui.](service-fabric-choose-framework.md)
 
-1. **Número de instâncias de VM:** para as cargas de trabalho de produção com monitoração de estado, é recomendável que você as execute com uma contagem de réplica mínima e de destino de 5. Isso significa que no estado estável, você acabará com uma réplica (de um conjunto de réplicas) em cada domínio de falha e em cada domínio de atualização. O conceito de camada de confiabilidade inteira para serviços do sistema é, na verdade, apenas uma maneira de especificar essa configuração para serviços do sistema.
+1. **Número de instâncias de VM:** para as cargas de trabalho de produção com monitoração de estado, é recomendável que você as execute com uma contagem de réplica mínima e de destino de 5. Isso significa que no estado estável, você fica com uma réplica (de um conjunto de réplicas) em cada domínio de falha e em cada domínio de atualização. O conceito de camada de confiabilidade inteira para o tipo de nó primário é, na verdade, apenas uma maneira de especificar essa configuração para serviços do sistema.
 
 Assim, para cargas de trabalho de produção, o tamanho mínimo recomendado do tamanho do tipo de Nó não Principal é 5, se você estiver executando cargas de trabalho com monitoração de estado nele.
 
-2. **SKU de VM:** esse é o tipo de nó em que seus serviços de aplicativo estão sendo executados e, portanto, a SKU de VM escolhida deverá levar em conta a carga máxima que você deseja colocar em cada nó. As necessidades de capacidade do tipo de nó são absolutamente determinadas pela carga de trabalho que você planeja executar no cluster e, portanto, não podemos fornecer a você uma diretriz qualitativa para sua carga de trabalho específica, mas veja estas diretrizes amplas para ajudar você a começar
+2. **SKU de VM:** esse é o tipo de nó em que seus serviços de aplicativo estão sendo executados e, portanto, a SKU de VM escolhida deverá levar em conta a carga máxima que você deseja colocar em cada nó. As necessidades de capacidade do tipo de nó são determinadas pela carga de trabalho que você planeja executar no cluster e, portanto, não podemos fornecer a você uma diretriz qualitativa para sua carga de trabalho específica, mas veja estas diretrizes amplas para ajudar você a começar
 
 Para cargas de trabalho de produção 
 
@@ -137,7 +138,7 @@ Leia o seguinte para Cargas de Trabalho sem monitoração de estado
 **Número de instâncias de VM:** para cargas de trabalho de produção sem estado, o tamanho mínimo do tipo de Nó não Principal com suporte é 2. Isso permite a execução de duas instâncias sem monitoração de estado do seu aplicativo e permite que seu serviço sobreviva à perda de uma instância de VM. 
 
 > [!NOTE]
-> Se o cluster estiver em execução em uma versão do Service Fabric inferior a 5.6, devido a um defeito no tempo de execução (que deverá ser corrigido na versão 5.6), o dimensionamento de um tipo de nó não primário para menos de 5 fará com que o cluster se torne não íntegro, até você chamar [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) com o nome de nó apropriado. Leia [Sair ou entrar no cluster do Service Fabric](service-fabric-cluster-scale-up-down.md) para obter mais detalhes
+> Se o cluster estiver em execução em uma versão do Service Fabric inferior a 5.6, devido a um defeito no tempo de execução (esse problema é corrigido na versão 5.6), o dimensionamento de um tipo de nó não primário para menos de 5 fará com que o cluster se torne não íntegro, até você chamar [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) com o nome de nó apropriado. Leia [Sair ou entrar no cluster do Service Fabric](service-fabric-cluster-scale-up-down.md) para obter mais detalhes
 > 
 >
 
@@ -158,7 +159,7 @@ Após concluir o planejamento de capacidade e configurar um cluster, leia o segu
 
 * [Segurança do Cluster do Service Fabric](service-fabric-cluster-security.md)
 * [Introdução ao modelo de Integridade do Service Fabric](service-fabric-health-introduction.md)
-* [Relacionamento de Nodetypes para VMSS](service-fabric-cluster-nodetypes.md)
+* [Definir relação entre tipos de nó e conjunto de dimensionamento de máquinas virtuais](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e0bf2edebfda479532a2ce71deff4623179910f3
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -275,6 +276,10 @@ Veja a seguir como o esquema JSON se parece agora para a ação **Resposta**:
 #### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
 
 R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico usando uma SAS (Assinatura de Acesso Compartilhado). Essa assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
+
+   > [!NOTE]
+   > Para sistemas seguros/de produção, é altamente não recomendável chamar seu aplicativo lógico diretamente do navegador devido à chave de acesso compartilhada estar incluída na URL e à incapacidade de gerenciar políticas de conteúdo seguras devido aos domínios serem compartilhados entre os clientes do aplicativo lógico.
+
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar pontos de extremidade HTTP mais tarde?
 

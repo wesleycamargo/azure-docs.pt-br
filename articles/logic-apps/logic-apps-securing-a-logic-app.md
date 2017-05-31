@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 86c293e735f766dbacc7d0b83574f254573d0de8
-ms.openlocfilehash: 3f119409e031ca2b88694a011916f52aa9ef5d36
-ms.lasthandoff: 02/15/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -264,7 +265,7 @@ Aplicativos lógicos fornecem integração com diversos serviços que fornecem c
 
 #### <a name="on-premises-data-gateway"></a>Gateway de dados local
 
-Muitos dos conectores de aplicativos lógicos gerenciados fornecem conectividade segura para sistemas locais, incluindo o File System, SQL, SharePoint, DB2 e muito mais.  O gateway usa canais criptografados por meio do Barramento de Serviço do Azure para retransmissão de dados local e todo o tráfego origina-se do tráfego de saída seguro do agente de gateway.  Para obter mais detalhes sobre como o gateway funciona, consulte [este artigo](logic-apps-gateway-install.md#how-the-gateway-works).
+Muitos conectores gerenciados de aplicativo lógico fornecem conectividade segura para sistemas locais, incluindo o sistema de arquivos, SQL, SharePoint, DB2 e muito mais. O gateway retransmite dados de fontes locais em canais criptografados por meio do Barramento de Serviço do Azure. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. Saiba mais sobre [como o gateway de dados funciona](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Gerenciamento de API do Azure
 

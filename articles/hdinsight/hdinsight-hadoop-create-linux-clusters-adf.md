@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b515ffeebb2ebb4455c48b98d085acef7556291b
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 8bdbe30bb435f06ba206bfde81b238fe7dcf544c
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -574,7 +574,9 @@ Neste artigo, você aprendeu a usar o Azure Data Factory para criar o cluster HD
 ## <a name="appendix"></a>Apêndice
 
 ### <a name="azure-cli-script"></a>Script da CLI do Azure
-Você pode usar a CLI do Azure, em vez de usar o Azure PowerShell, para executar o tutorial. Para usar a CLI do Azure, primeiro instale a CLI do Azure de acordo com as seguintes instruções:[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+Você pode usar a CLI do Azure, em vez de usar o Azure PowerShell, para executar o tutorial. Para usar a CLI do Azure, primeiro instale a CLI do Azure de acordo com as seguintes instruções:
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 #### <a name="use-azure-cli-to-prepare-the-storage-and-copy-the-files"></a>Usar a CLI do Azure para preparar o armazenamento e copiar os arquivos
 

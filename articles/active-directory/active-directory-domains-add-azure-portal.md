@@ -1,5 +1,5 @@
 ---
-title: "Adicionar seu nome de domínio personalizado à visualização do Azure Active Directory | Microsoft Docs"
+title: "Adicionar seu nome de domínio personalizado ao Azure Active Directory | Microsoft Docs"
 description: "Como adicionar os nomes de domínio da sua empresa ao Azure Active Directory e como verificar o nome de domínio."
 services: active-directory
 documentationcenter: 
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
-ms.openlocfilehash: 5153926f34961a397ef9632ca1f8ac868ba1986e
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 8f61e947d9667f5047729ac19dc2bf1e03a48c6b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="add-a-custom-domain-name-to-azure-active-directory-preview"></a>Adicionar um nome de domínio personalizado à visualização do Azure Active Directory
+# <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Adicionar um nome de domínio personalizado ao Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-domains-add-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-add-domain.md)
 > 
-> 
 
-Você tem um ou mais nomes de domínio que sua organização usa para fazer negócios, e seus usuários entram em sua rede corporativa usando seu nome de domínio corporativo. Usando a visualização do Azure Active Directory (Azure AD), você também pode adicionar seu nome de domínio corporativo ao Azure AD também. [O que está na visualização?](active-directory-preview-explainer.md) Isso permite que você atribua nomes de usuário no diretório que sejam familiares para seus usuários, como 'alice@contoso.com'. O processo é simples:
+Você tem um ou mais nomes de domínio que sua organização usa para fazer negócios, e seus usuários entram em sua rede corporativa usando seu nome de domínio corporativo. Usando o Azure AD (Azure Active Directory), você também pode adicionar seu nome de domínio corporativo ao Azure AD. Isso permite que você atribua nomes de usuário no diretório que sejam familiares para seus usuários, como 'alice@contoso.com'. O processo é simples:
 
 1. Adicionar o nome de domínio personalizado ao diretório
 2. Adicionar uma entrada DNS para o nome de domínio no registrador de nome de domínio

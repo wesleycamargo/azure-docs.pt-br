@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: v-jysur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 283ae010aafe309bb09f7c49248b61717cb56dd0
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 732d968112913b252b40a37abc24f4de5d37999f
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Conectar ITSM produtos/serviços com o conector de gerenciamento de serviços (visualização)
@@ -95,9 +95,8 @@ Execute o script fornecendo os seguintes detalhes necessários:
 - Nome do grupo de recursos
 - Local
 - Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de usuário e senha)
-- URL para implantação
-- Nome do site para seu aplicativo Web
-- Nome do serviço BizTalk.
+- Prefixo de nome do site para seu aplicativo Web
+- Namespace do ServiceBus.
 
 O script cria um aplicativo Web usando o nome especificado (junto com algumas cadeias de caracteres adicionais para torná-la exclusiva). Ele gera o **URL do aplicativo Web**, a **ID do cliente** e o **segredo do cliente**.
 

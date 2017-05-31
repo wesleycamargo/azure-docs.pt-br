@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/11/2017
+ms.date: 5/1/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 51b5c32eb73dc70b4019e60342db659959cc93bb
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: f084e9cbb4a14308e1e9d7a62c9f800b8c965d91
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="april-guest-os"></a>SO convidado de abril
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Rel 17-04 |  [4015217]  |Aprimoramentos de qualidade de SO de 2016 WS | 5.6 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]  |Somente Segurança do Windows |2.61 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015547]  |Somente Segurança do Windows |4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015548]  |Somente Segurança do Windows |3.48 | 11 de abril de 2017 |
+| Rel 17-04 |  [4014661]  |Internet Explorer |2.61, 3.48, 4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |Segurança do .NET |4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4014564]; [4014572]; [4014549] |Segurança do .NET |3.48 | 11 de abril de 2017 |
+| Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |Segurança do .NET |2.61 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015193]  |Alterações de horário de verão no Windows para Magalhães (Chile) |2.61, 3.48, 4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4012215]  |Pacote Cumulativo de Atualizações de Qualidade de Segurança Mensal de março de 2017 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.61 | 11 de abril de 2017 |
+| Rel 17-04 |  [4012217]  |Pacote Cumulativo de Atualizações de Qualidade de Segurança Mensal de março de 2017 para Windows Server 2012 |3.48 | 11 de abril de 2017 |
+| Rel 17-04 |  [4012216]  |Pacote Cumulativo de Atualizações de Qualidade de Segurança Mensal de março de 2017 para Windows 8.1 e Windows Server 2012 R2 |4.41 | 11 de abril de 2017 |
 
 ## <a name="march-guest-os"></a>SO convidado de março
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -37,8 +58,6 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |  [3205409] |Pacote cumulativo de atualizações de qualidade de segurança mensal de dezembro de 2016 para Windows Server 2012 |3.47 |14 de março de 2017 |
 | N/D |  [3205401] |Pacote cumulativo de atualizações de qualidade de segurança mensal de dezembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.40 |14 de março de 2017 |
 | N/D |  [3211320] |Atualização da pilha de manutenção para o Windows 10 versão 1607 e Windows Server 2016: 24 de janeiro de 2017 |5.5 |14 de março de 2017 |
-
-
 
 ## <a name="january-guest-os"></a>SO convidado de janeiro
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -420,6 +439,30 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[3007054] |Opção de impressão protegida por PIN sempre mostra quando você imprime um documento em um aplicativo da Windows Store no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2999802] |Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
+
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015546]: http://support.microsoft.com/kb/4015546
+[4015547]: http://support.microsoft.com/kb/4015547
+[4015548]: http://support.microsoft.com/kb/4015548
+[4014661]: http://support.microsoft.com/kb/4014661
+[4014550]: http://support.microsoft.com/kb/4014550
+[4014560]: http://support.microsoft.com/kb/4014560
+[4014562]: http://support.microsoft.com/kb/4014562
+[4014556]: http://support.microsoft.com/kb/4014556
+[4014574]: http://support.microsoft.com/kb/4014574
+[4014564]: http://support.microsoft.com/kb/4014564
+[4014572]: http://support.microsoft.com/kb/4014572
+[4014549]: http://support.microsoft.com/kb/4014549
+[4014566]: http://support.microsoft.com/kb/4014566
+[4014552]: http://support.microsoft.com/kb/4014552
+[4014573]: http://support.microsoft.com/kb/4014573
+[4014558]: http://support.microsoft.com/kb/4014558
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015193]: http://support.microsoft.com/kb/4015193
+[4012215]: http://support.microsoft.com/kb/4012215
+[4012217]: http://support.microsoft.com/kb/4012217
+[4012216]: http://support.microsoft.com/kb/4012216
+
 
 [4013429]: http://support.microsoft.com/kb/4013429 
 [4012212]: http://support.microsoft.com/kb/4012212 

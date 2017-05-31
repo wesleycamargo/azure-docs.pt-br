@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;rodejo
-translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 9342ecff33ca60d39c55042238ea563dd1a82da6
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: d7be54b508a845d6746fd65887e3339ff371a287
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="azure-active-directory-preview-cmdlets-for-group-management"></a>Cmdlets de visualização do Azure Active Directory para gerenciamento de grupos
+# <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets da versão 2 do Azure Active Directory para gerenciamento de grupos
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-groups-create-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-accessmanagement-manage-groups.md)
@@ -30,20 +31,20 @@ ms.lasthandoff: 04/28/2017
 >
 >
 
-O documento a seguir fornece exemplos de como usar o PowerShell para gerenciar os grupos no Azure AD (Azure Active Directory).  Ele também fornece informações sobre como configurar usando o módulo de visualização PowerShell do Azure AD. Primeiramente, você deve [baixar o módulo PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/).
+O documento a seguir fornece exemplos de como usar o PowerShell para gerenciar os grupos no Azure AD (Azure Active Directory).  Ele também fornece informações sobre como configurar usando o módulo do PowerShell do Azure AD. Primeiramente, você deve [baixar o módulo PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Instalando o módulo PowerShell do Azure AD
 Para instalar o módulo do PowerShell do AzureAD, use os seguintes comandos:
 
     PS C:\Windows\system32> install-module azuread
 
-Para verificar se o módulo de visualização foi instalado, use o seguinte comando:
+Para verificar se o módulo foi instalado, use o seguinte comando:
 
-    PS C:\Windows\system32> get-module azureadpreview
+    PS C:\Windows\system32> get-module azuread
 
-    ModuleType Version    Name                                ExportedCommands
-    ---------- -------    ----                                ----------------
-    Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
+    ModuleType Version      Name                                ExportedCommands
+    ---------- ---------    ----                                ----------------
+    Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
 Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, confira a [documentação de referência online](/powershell/azure/install-adv2?view=azureadps-2.0).
 

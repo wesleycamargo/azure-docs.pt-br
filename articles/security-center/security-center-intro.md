@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: fd52bd8e14ca9bdcd06fc820e5e03fb5feccc72f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -112,10 +113,10 @@ Clique no bloco **Recomendações** para obter uma lista de recomendações. Cli
 
 ![Recomendações de segurança na Central de Segurança do Azure][5]
 
-### <a name="resource-health"></a>Integridade de recursos
-O bloco **Integridade da segurança dos recursos** mostra a postura geral de segurança do ambiente por tipo de recurso, incluindo máquinas virtuais, aplicativos Web e outros recursos.   
+### <a name="security-state-of-azure-resources"></a>Estado da segurança dos recursos do Azure
+A seção **Prevenção** do painel mostra a postura geral de segurança do ambiente por tipo de recurso, incluindo VMs, aplicativos Web e outros recursos.   
 
-Selecione um tipo de recurso no bloco **Integridade da segurança dos recursos** para exibir mais informações, incluindo uma lista de possíveis vulnerabilidades de segurança que foram identificadas. (**Computação** é selecionado no exemplo a seguir.)
+Selecione um tipo de recurso em **Prevenção** para exibir mais informações, incluindo uma lista de possíveis vulnerabilidades de segurança que foram identificadas. (**Computação** é selecionado no exemplo a seguir.)
 
 ![Bloco de integridade de recursos][6]
 

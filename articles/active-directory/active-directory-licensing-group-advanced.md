@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2017
+ms.date: 05/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7240c52e9351a60e3cf577d8112862c7dc8d913
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d4c509c43ff647f3d9b96ffd136073312a81049b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -115,8 +116,7 @@ Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para 
 Para a atribuição de licenças de grupo, qualquer usuário sem um local de uso especificado herdará o local do diretório. Se você tiver usuários em locais diferentes, certifique-se de refletir isso corretamente nos objetos do usuário antes de adicionar usuários a grupos de licenças.
 
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Usar o PowerShell para ver quem tem licenças herdadas e diretas
-
-Durante o período de visualização de uma versão do Azure AD, o PowerShell não pode ser usado para controlar totalmente atribuições de licenças de grupo. No entanto, ele pode ser usado para descobrir informações básicas sobre o estado do usuário e determinar se as licenças são herdadas de um grupo ou atribuídas diretamente. O exemplo de código a seguir mostra como um administrador pode produzir um relatório básico sobre atribuições de licença.
+Enquanto o licenciamento baseado em grupo está em visualização pública, o PowerShell não pode ser usado para controlar totalmente as atribuições de licenças de grupo. No entanto, ele pode ser usado para descobrir informações básicas sobre o estado do usuário e determinar se as licenças são herdadas de um grupo ou atribuídas diretamente. O exemplo de código a seguir mostra como um administrador pode produzir um relatório básico sobre atribuições de licença.
 
 1. Execute o cmdlet `connect-msolservice` para autenticar e conectar-se ao locatário.
 

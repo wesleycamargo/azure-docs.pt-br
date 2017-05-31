@@ -15,10 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cb2d789a53ee2fa16db8d2553086a18043d4976e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 
@@ -161,7 +162,7 @@ WITH
 O carregamento de dados com o PolyBase é fortemente tipado. Isso significa que cada linha dos dados que estão sendo ingeridos deve atender à definição de esquema da tabela.
 Se uma determinada linha não coincide com a definição de esquema, a linha é rejeitada da carga.
 
-O tipo de rejeição e o valor rejeitado permitem que você defina quantas linhas ou qual o percentual de dados deve estar presente na tabela final.
+As opções REJECT_TYPE e REJECT_VALUE permitem que você defina quantas linhas ou qual o percentual de dados deve estar presente na tabela final.
 Durante o carregamento, se o valor rejeitado for atingido, o carregamento falha. A causa mais comum de rejeição de linhas é uma incompatibilidade da definição do esquema.
 Por exemplo, se uma coluna é especificada incorretamente para o esquema como inteiros, quando os dados no arquivo são de uma cadeia de caracteres, todas as linhas falham ao carregar.
 

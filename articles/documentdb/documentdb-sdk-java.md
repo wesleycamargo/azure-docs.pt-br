@@ -1,24 +1,25 @@
 ---
 title: API, SDK e recursos do Java no Azure DocumentDB | Microsoft Docs
 description: "Saiba tudo sobre o SDK e a API Java, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Java para o Banco de Dados de Documentos."
-services: documentdb
+services: cosmosdb
 documentationcenter: java
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 05/10/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 40ea65f692d1e2cbc39a6c65b2f8b255282e34cc
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 11fb5aa52a99414d8b7052d2a9904c260d4cdc9a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/20/2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -51,6 +52,11 @@ ms.lasthandoff: 04/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
+* Adição de suporte ao recurso Unidade de Solicitação por Minuto (RU/m).
+* Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
+* Corrigido um bug na leitura da coleção no modo de sessão.
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 * Suporte habilitado para coleção particionada com 2.500 RU/s e escala em incrementos de 100 RU/s.
@@ -150,7 +156,7 @@ A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desati
 
 Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
 
-Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsoleto será rejeitada pelo serviço.
+Qualquer solicitação feita ao Cosmos DB usando um SDK desativado será rejeitada pelo serviço.
 
 > [!WARNING]
 > Todas as versões do SDK do DocumentDB do Azure para Java anteriores à versão **1.0.0** serão desativadas em **29 de fevereiro de 2016**.
@@ -161,6 +167,7 @@ Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsol
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |10 de maio de 2017 |--- |
 | [1.10.0](#1.10.0) |11 de março de 2017 |--- |
 | [1.9.6](#1.9.6) |21 de fevereiro de 2017 |--- |
 | [1.9.5](#1.9.5) |31 de janeiro de 2017 |--- |
@@ -193,6 +200,6 @@ Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsol
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) .
+Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 
 

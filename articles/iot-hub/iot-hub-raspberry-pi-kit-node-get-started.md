@@ -18,10 +18,11 @@ ms.workload: na
 ms.date: 4/14/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 6f09d2244d0a1f6dbd7cff164c6d9e35379ee131
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: acd5221b5cef9f64d681af9cbe7ea431334948b5
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -106,7 +107,7 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
    ![Habilitar I2C e SSH no Raspberry Pi](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-Para habilitar o SSH e o I2C, você pode encontrar mais documentos de referência em [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) e [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2).
+Para habilitar o SSH e o I2C, você pode encontrar mais documentos de referência em [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) e [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
 ### <a name="connect-the-sensor-to-pi"></a>Conectar o sensor ao Pi
 
@@ -132,18 +133,40 @@ Depois de conectar com êxito o BME280 ao Raspberry Pi, ele deve ficar semelhant
 
 ![Pi e BME280 conectados](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
-Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethernet para conectar o Pi à sua rede com fio ou siga as [instruções da Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) para conectar o Pi à sua rede sem fio.
+### <a name="connect-pi-to-the-network"></a>Conectar Pi à rede
+
+Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethernet para conectar o Pi à sua rede com fio ou siga as [instruções da Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) para conectar o Pi à sua rede sem fio. Depois que o Pi tiver se conectado com êxito à rede, você precisará observar o [endereço IP do Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
 ![Conectado à rede com fio](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Verifique se o Pi está conectado à mesma rede que o computador. Por exemplo, se o computador estiver conectado a uma rede sem fio enquanto o Pi estiver conectado a uma rede com fio, talvez você não veja o endereço IP na saída devdisco.
 
 ## <a name="run-a-sample-application-on-pi"></a>Executar um aplicativo de exemplo no Pi
 
 ### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>Clonar o aplicativo de exemplo e instalar os pacotes de pré-requisito
 
 1. Use um dos seguintes clientes SSH do seu computador host para se conectar ao Raspberry Pi.
-    - [PuTTY](http://www.putty.org/) para Windows.
-    - O cliente SSH interno no Ubuntu ou macOS.
+    - [PuTTY](http://www.putty.org/) para Windows. O endereço IP do Pi é necessário para conectá-lo via SSH.
+    - O cliente SSH interno no Ubuntu ou macOS. Talvez você precise executar `ssh pi@<ip address of pi>` para conectar o Pi via SSH.
+
+   > [!NOTE] 
+   O nome de usuário padrão é `pi` e a senha é `raspberry`.
+
+1. Instale o Node.js e o NPM em seu Pi.
+   
+   Primeiro você deve verificar a versão do Node.js com o comando a seguir. 
+   
+   ```bash
+   node -v
+   ```
+
+   Se a versão for inferior a 4.x ou não existir nenhum Node.js no seu Pi, execute o comando a seguir para instalar ou atualizar o Node.js.
+
+   ```bash
+   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   sudo apt-get -y install nodejs
+   ```
 
 1. Clone o aplicativo de exemplo executando o seguinte comando:
 
@@ -154,8 +177,8 @@ Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
 1. Instale todos os pacotes com o comando a seguir. Ele inclui o SDK do dispositivo IoT do Azure, a biblioteca do Sensor BME280 e a biblioteca de fiação do Pi.
 
    ```bash
-   cd iot-hub-node-raspberry-pi-clientapp
-   npm install
+   cd iot-hub-node-raspberrypi-client-app
+   sudo npm install
    ```
    > [!NOTE] 
    O processo de instalação poderá levar alguns minutos para ser concluído, dependendo da sua conexão de rede.

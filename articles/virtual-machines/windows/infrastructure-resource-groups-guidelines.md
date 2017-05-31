@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: ce4c94a2c8983862a311d296e1a95ecabb4c9f61
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 3d915f430e323f2b2ad55773f2028a3d7dbf2bcf
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -43,7 +44,7 @@ Tarefas:
 * Criar o conjunto de Grupos de Recursos usando a convenção de nomenclatura. Você pode usar o Azure PowerShell ou o Portal.
 
 ## <a name="resource-groups"></a>Grupos de recursos
-No Azure, é possível agrupar logicamente recursos relacionados, como contas de armazenamento, redes virtuais e VMs (máquinas virtuais) para implantar, gerenciar e mantê-las como uma única entidade. Essa abordagem facilita a implantação de aplicativos, ao mesmo tempo que reúne todos os recursos relacionados de uma perspectiva de gerenciamento ou a concessão de acesso para outros usuários a esse grupo de recursos. Para obter um entendimento mais abrangente de Grupos de Recursos, leia a [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+No Azure, é possível agrupar logicamente recursos relacionados, como contas de armazenamento, redes virtuais e VMs (máquinas virtuais) para implantar, gerenciar e mantê-las como uma única entidade. Essa abordagem facilita a implantação de aplicativos, ao mesmo tempo que reúne todos os recursos relacionados de uma perspectiva de gerenciamento ou a concessão de acesso para outros usuários a esse grupo de recursos. Os nomes de grupo de recursos podem ter, no máximo, 90 caracteres. Para obter um entendimento mais abrangente de Grupos de Recursos, leia a [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 Um recurso importante para Grupos de Recursos é a capacidade de criar seu ambiente usando modelos. Um modelo é simplesmente um arquivo JSON que declara os recursos de armazenamento, rede e computação. Você também pode definir todas as configurações ou scripts personalizados relacionados a serem aplicados. Com esses modelos, você cria implantações consistentes e reproduzíveis para seus aplicativos. Essa abordagem facilita a criação de um ambiente em desenvolvimento e usa o mesmo modelo para criar uma implantação de produção, ou vice-versa. Para obter um melhor entendimento sobre como usar modelos, leia o [passo a passo do modelo](../../azure-resource-manager/resource-manager-template-walkthrough.md) que explica cada etapa de criação de um modelo.
 

@@ -15,10 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8429ee543d8cf838765ff9e8624390746474ee0d
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 7b1bfcc8163d7166831123524f3ec53f4a3dfe09
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -36,7 +37,7 @@ Você não pode converter um disco não gerenciado em um disco gerenciado se o d
 - Anexe o VHD copiado com [az vm disk attach](/cli/azure/vm/disk#attach) a uma VM em execução com discos gerenciados.
 
 ## <a name="convert-vm-to-azure-managed-disks"></a>Conversão de uma VM em Azure Managed Disks
-Esta seção aborda como converter suas VMs do Azure existentes de discos não gerenciados em discos gerenciados. Você pode usar este processo para converter discos (SSD) não gerenciados premium em discos gerenciados premium, ou discos (HDD) não gerenciados padrão em discos gerenciados padrão.
+Esta seção aborda como converter suas VMs do Azure existentes de discos não gerenciados em discos gerenciados. Você pode usar este processo para converter discos (SSD) não gerenciados Premium em discos gerenciados Premium ou discos (HDD) não gerenciados Standard em discos gerenciados Standard.
 
 > [!IMPORTANT]
 > Depois de executar o procedimento a seguir, há um único blob de blocos que permanece no contêiner de vhds padrão. O nome do arquivo é "VMName.xxxxxxx.status". Não exclua esse objeto de status restante. Um trabalho futuro deverá resolver esse problema.

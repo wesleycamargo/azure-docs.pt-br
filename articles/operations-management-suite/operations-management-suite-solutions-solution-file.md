@@ -15,10 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 742405395a3da792d0df01d7393a6e7fc7a55842
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -94,8 +95,8 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 | workspaceName |string |O nome do espaço de trabalho do Log Analytics. |
 | workspaceRegionId |string |A região do espaço de trabalho do Log Analytics. |
 
-### <a name="sample"></a>Amostra
-A seguir está uma entidade de parâmetro de exemplo para uma solução.  Isso inclui todos os parâmetros padrão e dois parâmetros adicionais na mesma categoria.
+
+A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar em seu arquivo de solução.  
 
     "parameters": {
         "workspaceName": {
@@ -126,22 +127,6 @@ A seguir está uma entidade de parâmetro de exemplo para uma solução.  Isso i
             "type": "string",
             "metadata": {
                 "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
             }
         }
     }

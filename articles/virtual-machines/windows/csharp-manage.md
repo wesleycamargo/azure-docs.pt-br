@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 509c216b8d284d6f0aac2efbea70d254b9a2016b
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 90708ff93a86f0b0883f069b45ed4e17c9667014
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Gerenciar máquinas virtuais usando o Azure Resource Manager e C# #
+# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Gerenciar Máquinas Virtuais do Azure usando o Azure Resource Manager e C# #
 
 As tarefas neste artigo mostram como gerenciar máquinas virtuais, por exemplo: iniciar, parar e a atualizar.
 
@@ -34,14 +35,14 @@ Verifique se o Visual Studio está instalado e crie um aplicativo de console usa
 
 1. Se você ainda não fez isso, instale o [Visual Studio](https://www.visualstudio.com/).
 2. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
-3. Em **Modelos** > **Visual C#**, selecione **Aplicativo de Console**, digite o nome e o local do projeto e, em seguida, clique em **OK**.
+3. Em **Modelos** > **Visual C#**, selecione **Aplicativo de Console (.NET Framework)**, digite o nome e o local do projeto e, em seguida, clique em **OK**.
 
 ### <a name="install-libraries"></a>Instalar bibliotecas
 
 Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas de que você precisa para executar as ações descritas neste artigo. Para obter as bibliotecas que você precisa no Visual Studio, siga estas etapas:
 
-1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções, clique em **Gerenciar Pacotes NuGet** e, em seguida, em **Procurar**.
-2. Digite *Microsoft.IdentityModel.Clients.ActiveDirectory* na caixa de pesquisa, clique em **Instalar** e siga as instruções para instalar o pacote.
+1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções, clique em **Gerenciar Pacotes NuGet para a Solução** e depois em **Procurar**.
+2. Digite *Microsoft.IdentityModel.Clients.ActiveDirectory* na caixa de pesquisa, selecione seu projeto, clique em **Instalar** e siga as instruções para instalar o pacote.
 3. Na parte superior da página, selecione **Incluir Pré-lançamento**. Digite *Microsoft.Azure.Management.Compute* na caixa de pesquisa, clique em **Instalar** e siga as instruções para instalar o pacote.
 
 Agora você está pronto para começar a usar as bibliotecas para gerenciar suas máquinas virtuais.
@@ -50,7 +51,7 @@ Agora você está pronto para começar a usar as bibliotecas para gerenciar suas
 
 Para interagir com o Azure Resource Manager, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../resource-group-authenticate-service-principal.md). Na entidade de serviço, você adquire um token para autenticar as solicitações para o Azure Resource Manager.
 
-1. Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções na parte superior do arquivo:
+1. Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções para as instruções existentes na parte superior do arquivo:
 
     ```   
     using Microsoft.Azure;
@@ -75,8 +76,8 @@ Para interagir com o Azure Resource Manager, verifique se você tem acesso a uma
     ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -88,9 +89,9 @@ Para interagir com o Azure Resource Manager, verifique se você tem acesso a uma
 
     Substitua esses valores:
     
-    - *{client-id}* com o identificador do aplicativo do Azure Active Directory. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD. Para encontrar o aplicativo do AD no portal do Azure, clique em **Azure Active Directory** no menu de recursos e, em seguida, em **Registros do aplicativo**.
-    - *{client-secret}* com a tecla de acesso do aplicativo do AD. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD.
-    - *{tenant-id}* com o identificador de locatário da assinatura. É possível encontrar o identificador de locatário na folha Propriedades do Azure Active Directory no portal do Azure. Ele é rotulado *ID de Diretório*.
+    - *client-id* com o identificador do aplicativo do Azure Active Directory. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD. Para encontrar o aplicativo do AD no portal do Azure, clique em **Azure Active Directory** no menu de recursos e, em seguida, em **Registros do aplicativo**.
+    - *client-secret* com a tecla de acesso do aplicativo do AD. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD.
+    - *tenant-id* com o identificador de locatário da assinatura. É possível encontrar o identificador de locatário na folha Propriedades do Azure Active Directory no portal do Azure. Ele é rotulado *ID de Diretório*.
 
 4. Para chamar o método que você adicionou anteriormente, adicione este código ao método Main no arquivo Program.cs:
    

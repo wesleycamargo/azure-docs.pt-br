@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 05/08/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: f5c5abc988cd363cafe8c07f83eb2686a83ee1a2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 05dfdc3491e6c7f838f5e7e2c16951bc1328e32b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -44,11 +45,10 @@ Há algumas maneiras de instalar e usar o Docker com o OMS:
 
 Você pode examinar as versões de sistema operacional Linux e Docker com suporte para seu host do contêiner no [GitHub](https://github.com/Microsoft/OMS-docker).
 
-Se você tiver um cluster Kubernetes usando o Serviço de Contêiner do Azure, saiba mais em [Monitorar um cluster do Serviço de Contêiner do Azure com o Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
-
-Se você tiver um cluster de DC/SO do Serviço de Contêiner do Azure, saiba mais em [Monitorar um cluster DC/OS do Serviço de Contêiner do Azure com o Operations Management Suite](../container-service/container-service-monitoring-oms.md).
-
-Examine o artigo [Mecanismo do Docker no Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) para obter informações adicionais sobre como instalar e configurar seus Mecanismos do Docker em computadores que executam o Windows.
+- Se você tiver um cluster Kubernetes usando o Serviço de Contêiner do Azure, saiba mais em [Monitorar um cluster do Serviço de Contêiner do Azure com o Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
+- Se você tiver um cluster de DC/SO do Serviço de Contêiner do Azure, saiba mais em [Monitorar um cluster DC/OS do Serviço de Contêiner do Azure com o Operations Management Suite](../container-service/container-service-monitoring-oms.md).
+- Se você usa contêineres com o Service Fabric, saiba mais em [Visão geral do Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- Examine o artigo [Mecanismo do Docker no Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) para obter informações adicionais sobre como instalar e configurar seus Mecanismos do Docker em computadores que executam o Windows.
 
 > [!IMPORTANT]
 > O Docker deve estar em execução **antes** de instalar o [Agente do OMS para Linux](log-analytics-linux-agents.md) em seus hosts de contêiner. Se você já tiver instalado o agente antes de instalar o Docker, precisará reinstalar o Agente do OMS para Linux. Para obter mais informações sobre o Docker, consulte o [site do Docker](https://www.docker.com).
@@ -59,15 +59,23 @@ Você precisa das seguintes configurações definidas em seus hosts de contêine
 
 ## <a name="configure-settings-for-a-linux-container-host"></a>Definir as configurações para um host de contêiner do Linux
 
+Versões do Linux com suporte:
+
+- Docker 1.11 a 1.13
+- Docker CE e EE v17.03
+
+
 As seguintes distribuições de Linux x64 são suportadas como hosts de contêiner:
 
 - Ubuntu 14.04 LTS, 16.04 LTS
 - CoreOS(stable)
 - Amazon Linux 2016.09.0
 - openSUSE 13.2
-- CentOS 7
+- openSUSE LEAP 42.2
+- CentOS 7.2, 7.3
 - SLES 12
-- RHEL 7.2
+- RHEL 7.2, 7.3
+
 
 Depois de instalar o Docker, use as seguintes definições para o host do contêiner para configurar o agente para uso com o Docker. Você precisará da sua [chave e ID do espaço de trabalho do OMS](log-analytics-linux-agents.md).
 
@@ -95,45 +103,43 @@ Se anteriormente você usava o agente instalado diretamente e em vez disso desej
 ### <a name="docker-versions-supported-on-windows"></a>Versões do Docker do Windows com suporte
 
 - Docker 1.12 – 1.13
+- Docker 17.03.0 [estável]
 
 ### <a name="preparation-before-installing-agents"></a>Preparação antes de instalar os agentes
 
 Antes de instalar os agentes em computadores que executam o Windows, você precisa configurar o serviço Docker. A configuração permite que o agente do Windows ou a extensão da máquina virtual do Log Analytics use o soquete Docker TCP para que os agentes possam acessar o daemon do Docker remotamente e capturar os dados de monitoramento.
 
-Não há suporte para dados de desempenho em computadores que executam o Windows.
-
-Para obter mais informações sobre como configurar o daemon do Docker com o Windows, consulte [Mecanismo do Docker no Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
-
 #### <a name="to-start-docker-and-verify-its-configuration"></a>Iniciar o Docker e verificar sua configuração
 
-1.    No Windows PowerShell, habilite o pipe TCP e o pipe nomeado.
+Há etapas necessárias para configurar o pipe nomeado por TCP para o Windows Server:
+
+1. No Windows PowerShell, habilite o pipe TCP e o pipe nomeado.
 
     ```
     Stop-Service docker
     dockerd --unregister-service
-    dockerd -H npipe:// -H 0.0.0.0:2375 --register-service
+    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
     Start-Service docker
     ```
 
-2.    Verifique sua configuração com o netstat. Você verá a porta 2375.
+2. Configure o Docker com o arquivo de configuração para o pipe TCP e o pipe nomeado. O arquivo de configuração está localizado em C:\ProgramData\docker\config\daemon.json.
+
+    No arquivo daemon.json, você precisará do seguinte:
 
     ```
-    PS C:\Users\User1> netstat -a | sls 2375
-
-    TCP    127.0.0.1:2375         Win2016TP5:0           LISTENING
-    TCP    127.0.0.1:2375         Win2016TP5:49705       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49706       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49707       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49708       ESTABLISHED
-    TCP    127.0.0.1:49705        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49706        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49707        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49708        Win2016TP5:2375        ESTABLISHED
+    {
+    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
+    }
     ```
+
+Para obter mais informações sobre a configuração do daemon do Docker usada com os Contêineres do Windows, consulte [Mecanismo do Docker no Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+
 
 ### <a name="install-windows-agents"></a>Instalar agentes do Windows
 
 Para habilitar o monitoramento do contêiner do Windows e do Hyper-V, instale os agentes em computadores com Windows que sejam hosts do contêiner. Para computadores que executam o Windows no seu ambiente local, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agents.md). Para máquinas virtuais em execução no Azure, conecte-as ao Log Analytics usando a [extensão da máquina virtual](log-analytics-azure-vm-extension.md).
+
+Você pode monitorar os contêineres do Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](log-analytics-azure-vm-extension.md) e [computadores executando o Windows no seu ambiente local](log-analytics-windows-agents.md) têm suporte atualmente para o Service Fabric.
 
 Para verificar se a solução de contêineres está definida corretamente:
 
@@ -160,7 +166,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 | --- | --- | --- | --- | --- | --- | --- |
 | As tabelas |![Sim](./media/log-analytics-containers/oms-bullet-green.png) |![Não](./media/log-analytics-containers/oms-bullet-red.png) |![Não](./media/log-analytics-containers/oms-bullet-red.png) |![Não](./media/log-analytics-containers/oms-bullet-red.png) |![Não](./media/log-analytics-containers/oms-bullet-red.png) |a cada 3 minutos |
 
-A tabela a seguir mostra exemplos de tipos de dados coletados pela solução de contêineres e os tipos de dados que são usados nas Pesquisas de Log e nos resultados. No entanto, ainda não há suporte para os dados de desempenho em computadores que executam o Windows.
+A tabela a seguir mostra exemplos de tipos de dados coletados pela solução de contêineres e os tipos de dados que são usados nas Pesquisas de Log e nos resultados.
 
 | Tipo de dados | Tipo de dados na Pesquisa de Log | Campos |
 | --- | --- | --- |

@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 05/10/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 2bfbb3b8f7282ec8ae8abe9597230a3485221ecf
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -44,13 +45,13 @@ No futuro, daremos suporte a uma política de atualização do sistema operacion
 
 Enquanto isso, [fornecemos um script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) que pode ser usado por um administrador de cluster para iniciar manualmente patches em cada nó de maneira segura.
 
-### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>Posso usar grandes conjuntos de dimensionamento Virtual no meu cluster do SF? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Posso usar grandes conjuntos de dimensionamento de máquinas virtuais no meu cluster do SF? 
 
 **Resposta curta** – Não. 
 
-**Resposta longa** – Embora os grandes VMSS (conjuntos de dimensionamento virtuais) permitam que você dimensione um VMSS até 1.000 instâncias de VM, isso é feito pelo uso de PGs (Grupos de Posicionamento). FDs (domínios de falha) e UDs (domínios de atualização) só são consistentes dentro de um grupo de posicionamento. O Service Fabric usa UDs e FDs para tomar decisões de posicionamento de suas instâncias de serviço/réplicas de serviço. Já que UDs e FDs são comparáveis somente dentro de um grupo de posicionamento, o SF não pode usá-los. Por exemplo, se VM1 no PG1 tem uma topologia de FD=0 e VM9 em PG2 tem uma topologia de FD=4, isso não significa que VM1 e VM2 estejam em dois Racks de hardwares diferentes, portanto, os SFs não podem usar os valores de FD nesse caso para tomar decisões de posicionamento.
+**Resposta longa** – Embora os grandes conjuntos de dimensionamento de máquinas virtuais permitam que você dimensione um conjunto de dimensionamento de máquinas virtuais até 1000 instâncias de VM, isso é feito pelo uso de PGs (Grupos de Posicionamento). FDs (domínios de falha) e UDs (domínios de atualização) só são consistentes dentro de um grupo de posicionamento. O Service Fabric usa UDs e FDs para tomar decisões de posicionamento de suas instâncias de serviço/réplicas de serviço. Já que UDs e FDs são comparáveis somente dentro de um grupo de posicionamento, o SF não pode usá-los. Por exemplo, se VM1 no PG1 tem uma topologia de FD=0 e VM9 em PG2 tem uma topologia de FD=4, isso não significa que VM1 e VM2 estejam em dois Racks de hardwares diferentes, portanto, os SFs não podem usar os valores de FD nesse caso para tomar decisões de posicionamento.
 
-Atualmente, há outros problemas com VMSS grande, assim como a falta de suporte para balanceamento de carga de nível 4. Consulte para obter [detalhes sobre VMSS grande](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+Atualmente, há outros problemas com grandes conjuntos de dimensionamento de máquinas virtuais, como a falta de suporte para o balanceamento de carga de nível 4. Consulte para obter [detalhes sobre grandes conjuntos de dimensionamento](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
 
@@ -76,6 +77,17 @@ Em geral, não. O Service Fabric armazena o estado em discos locais, efêmeros, 
 
 Se você quiser criar clusters para testar seu aplicativo antes da implantação, é recomendável criar dinamicamente os clusters como parte de sua [integração contínua/pipeline de implantação contínuo](service-fabric-set-up-continuous-integration.md).
 
+## <a name="container-support"></a>Suporte a contêiner
+
+### <a name="why-are-my-containers-that-are-deployed-to-sf-are-unable-to-resolve-dns-addresses"></a>Por que meus contêineres que estão implantados no SF não podem resolver endereços DNS?
+
+Esse problema foi relatado em clusters que estão na versão 5.6.204.9494 
+
+**Mitigação**: siga [este documento](service-fabric-dnsservice.md) para habilitar o serviço Service Fabric de DNS no cluster.
+
+**Correção**: atualize para a versão de cluster com suporte que é superior a 5.6.204.9494, quando ela estiver disponível. Se o cluster estiver configurado para atualizações automáticas, o cluster atualizará automaticamente para a versão que tem esse problema corrigido.
+
+  
 ## <a name="application-design"></a>Design do aplicativo
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Qual a melhor maneira de consultar dados ao longo das partições de uma Coleção Confiável?
@@ -104,7 +116,7 @@ Tendo em mente que cada objeto deve ser armazenado três vezes (uma primária e 
 
 Observe que esse cálculo também pressupõe que:
 
-- A distribuição de dados entre as partições é aproximadamente uniforme ou que você está relatando métricas de carga para o gerenciador de recursos de cluster. Por padrão, o Service Fabric balanceará a carga com base na contagem de réplicas. No nosso exemplo acima, isso colocaria 10 réplicas primárias e 20 réplicas secundárias em cada nó no cluster. Isso funciona bem para cargas distribuídas uniformemente entre as partições. Se a carga não for uniforme, você deve relatá-la para que o gerenciador de recursos possa empacotar réplicas menores juntas e permitir que as réplicas maiores consumam mais memória em um nó individual.
+- A distribuição de dados entre as partições é aproximadamente uniforme ou que você está relatando métricas de carga para o Resource Manager de cluster. Por padrão, o Service Fabric balanceará a carga com base na contagem de réplicas. No nosso exemplo acima, isso colocaria 10 réplicas primárias e 20 réplicas secundárias em cada nó no cluster. Isso funciona bem para cargas distribuídas uniformemente entre as partições. Se a carga não for uniforme, você deverá relatá-la para que o Resource Manager possa empacotar réplicas menores juntas e permitir que as réplicas maiores consumam mais memória em um nó individual.
 
 - O serviço confiável em questão é o único estado de armazenamento no cluster. Como você pode implantar vários serviços em um cluster, terá que estar atento aos recursos que cada um precisará executar e gerenciar seu estado.
 

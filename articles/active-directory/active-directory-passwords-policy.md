@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: f318499ac18a9d03bb108675de199481ab52fd1c
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0c586692720512d2822e67994e22e1f6d50fd921
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -28,20 +28,43 @@ Este artigo descreve as políticas de senha e os requisitos de complexidade asso
 
 ## <a name="administrator-password-policy-differences"></a>Diferenças de política de senha do administrador
 
-A Microsoft impõe uma política padrão rígida de redefinição de senha para qualquer função de administrador do Azure (exemplo: Administrador Global, Administrador de Assistência Técnica, Administrador de Senha etc.)
+A Microsoft impõe uma política padrão rígida de redefinição de senha de **duas entradas** para qualquer função de administrador do Azure (exemplo: Administrador Global, Administrador de Assistência Técnica, Administrador de Senha etc.)
 
 Isso impede administradores de usar perguntas de segurança e impõe o seguinte.
 
-Uma política de entrada, exigindo uma parte dos dados de autenticação, aplica-se nas seguintes circunstâncias
+Duas políticas de entrada, exigindo duas partes dos dados de autenticação (endereço de email **e** número de telefone), aplicam-se nas seguintes circunstâncias
+
+* Todas as funções de administrador do Azure
+  * Administrador de assistência técnica
+  * Administrador de suporte a serviço
+  * Administrador de cobrança
+  * Suporte de camada 1 do parceiro
+  * Suporte de camada 2 do parceiro
+  * Administrador de serviços do Exchange
+  * Administrador de serviços do Lync
+  * Administrador da conta de usuário
+  * Gravadores de diretório
+  * Administrador de empresa/administrador global
+  * Administrador de serviços do SharePoint
+  * Administrador de conformidade
+  * Administrador de aplicativos
+  * Administrador de segurança
+  * Administrador de função com privilégios
+  * Administrador de serviços do Intune
+  * Administrador de serviços de Proxy de Aplicativo
+  * Administrador de serviços do CRM
+  * Administrador de serviços do Power BI
+  
+* Trinta dias decorridos de uma avaliação **OU**
+* O domínio personalizado está presente (contoso.com) **OU**
+* O Azure AD Connect está sincronizando identidades do seu diretório local
+
+### <a name="exceptions"></a>Exceções
+Uma política de entrada, exigindo uma parte dos dados de autenticação (endereço de email **ou** número de telefone), aplicam-se nas seguintes circunstâncias
 
 * Primeiros 30 dias de uma avaliação **OU**
 * O domínio personalizado não está presente (*.onmicrosoft.com) **E** o Azure AD Connect não está sincronizando identidades
 
-Duas políticas de entrada, exigindo duas partes dos dados de autenticação, aplicam-se nas seguintes circunstâncias
-
-* Trinta dias decorridos de uma avaliação **OU**
-* O domínio personalizado está presente (contoso.com) **OU**
-* O Azure AD Connect está sincronizando identidades do seu diretório local
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas UserPrincipalName que se aplicam a todas as contas de usuário
 
@@ -107,14 +130,15 @@ Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem mais informações sobre a redefinição de senha usando o Azure AD
+Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
 * [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
 * [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
 * [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
+* [**Distribuição** ](active-directory-passwords-best-practices.md) -planeje e implante a SSPR para seus usuários usando as diretrizes encontradas aqui
 * [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
 * [**Relatórios**](active-directory-passwords-reporting.md): descubra se, quando e onde os usuários estão acessando a funcionalidade SSPR
-* [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
-* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
-* [**Solucionar problemas**](active-directory-passwords-troubleshoot.md): saiba como resolver problemas comuns encontrados no SSPR
+* [**Aprofundamento técnico** ](active-directory-passwords-how-it-works.md) - Entenda como ele funciona
+* [**Perguntas frequentes (FAQ)**](active-directory-passwords-faq.md) - Como? Por quê? O quê? Onde? Quem? Quando? - Respostas para perguntas que você sempre quis fazer
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - Saiba como resolver problemas comuns que vemos com a SSPR
+

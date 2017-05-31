@@ -1,0 +1,85 @@
+---
+title: "Lição 13 do tutorial do Azure Analysis Services: implantar | Microsoft Docs"
+description: Descreve como implantar o projeto do tutorial do Azure Analysis Services.
+services: analysis-services
+documentationcenter: 
+author: minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: ba601ffa74582cf2f3cee660095884566f73eba9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
+
+---
+# <a name="lesson-13-deploy"></a>Lição 13: implantar
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+Nesta lição, você configura as propriedades de implantação especificando um servidor do Analysis Services no Azure ou então um servidor local do SQL Server vNext Analysis Services e um nome para o modelo. Em seguida, você implanta o modelo para essa instância. Após o modelo ser implantado, os usuários podem se conectar a ele usando um aplicativo cliente de relatório. Para saber mais, confira [Implantar no Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
+  
+Tempo estimado para conclusão desta lição: **5 minutos**  
+  
+## <a name="prerequisites"></a>Pré-requisitos  
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 12: analisar no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+
+**Importante:** se você instalou o banco de dados de exemplo AdventureWorksDW2014 em um SQL Server local e você está implantando seu modelo em um servidor do Azure Analysis Services, um [gateway de dados local](../analysis-services-gateway.md) é necessário.
+  
+## <a name="deploy-the-model"></a>Implantar o modelo  
+  
+#### <a name="to-configure-deployment-properties"></a>Para configurar propriedades de implantação  
+
+  
+1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **Vendas pela Internet da AW** e depois clique em **Propriedades**.  
+  
+2.  Na caixa de diálogo **Páginas de Propriedades de Vendas pela Internet da AW**, no **Servidor de Implantação**, na propriedade **Servidor**, digite o nome de um servidor do Analysis Services no Azure ou local.  
+
+    ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
+ 
+    > [!IMPORTANT]  
+    > Você deve ter permissões de Administrador na instância remota do Analysis Services para poder implantar nela.  
+  
+3.  Na propriedade **Banco de Dados**, digite **Vendas pela Internet da Adventure Works**.  
+  
+4.  Na propriedade **Nome do Modelo**, digite **Modelo de Vendas pela Internet da Adventure Works**.  
+  
+5.  Verifique suas seleções e então clique em **OK**.  
+  
+#### <a name="to-deploy-the-adventure-works-internet-sales"></a>Para implantar as Vendas pela Internet da Adventure Works
+  
+1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **Vendas pela Internet da AW** > **Compilar**.  
+
+2.  Clique com o botão direito do mouse no projeto **Vendas pela Internet da AW** > **Implantar**.
+
+    Ao implantar para os Azure Analysis Services, pode ser solicitado que você insira sua conta. Insira sua conta e senha organizacionais, por exemplo, nancy@adventureworks.com. Essa conta deve constar na lista Admins na instância do servidor.
+  
+    A caixa de diálogo Implantar aparece e exibe o status da implantação dos metadados e cada tabela incluída no modelo.  
+    
+    ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
+  
+3. Quando a implantação for concluída com êxito, vá em frente e clique em **Fechar**.  
+  
+## <a name="conclusion"></a>Conclusão  
+Parabéns! Você terminou de criar e implantar seu primeiro modelo tabular do Analysis Services. Este tutorial ajudou a orientá-lo a concluir as tarefas mais comuns na criação de um modelo tabular. Agora que seu modelo de vendas de Internet da Adventure Works está implantado, você pode usar o SQL Server Management Studio para gerenciar o modelo; crie scripts de processo e um plano de backup. Os usuários agora também podem se conectar ao modelo usando um aplicativo cliente de relatório, como o Microsoft Excel ou o Power BI.  
+
+![aas-lesson13-ssms](../tutorials/media/aas-lesson13-ssms.png)
+  
+  
+  
+## <a name="whats-next"></a>O que vem a seguir?
+*  [Lição Suplementar – Segurança Dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)
+
+*  [Lição suplementar – linhas de detalhes](../tutorials/aas-supplemental-lesson-detail-rows.md)
+
+*  [Lição Suplementar – hierarquias desbalanceadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+

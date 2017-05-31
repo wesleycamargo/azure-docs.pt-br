@@ -15,10 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 704403704bd52ba1fe1815345708ab4d2d2547af
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d47447007c3bac51dc9ee0a17948ef9a42377a22
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -68,7 +69,7 @@ Para obter uma cultura apropriada do DevOps, toda a infraestrutura deve ser codi
 * [Modelos do Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [VMAccess do Azure](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-O Azure está implementando o suporte para [cloud-init](http://cloud-init.io/) na maioria das Distribuições Linux que oferecem suporte a ele.  Atualmente, as VMs do Ubuntu Canonical são implantadas com cloud-init habilitado por padrão.  RedHats RHEL, CentOS e Fedora oferecem suporte a cloud-init, no entanto, as imagens do Azure mantidas pelo RedHat não possuem o cloud-init instalado.  Para usar o cloud-init em uma sistema operacional da família RedHat, você deve criar uma imagem personalizada com cloud-init instalado.
+O Azure está implementando o suporte para [cloud-init](http://cloud-init.io/) na maioria das Distribuições Linux que oferecem suporte a ele.  Atualmente, as VMs do Ubuntu Canonical são implantadas com cloud-init habilitado por padrão.  Red Hats RHEL, CentOS e Fedora dão suporte a cloud-init, no entanto, as imagens do Azure mantidas pelo RedHat não têm o cloud-init instalado.  Para usar o cloud-init em uma sistema operacional da família RedHat, você deve criar uma imagem personalizada com cloud-init instalado.
 
 * [Como usar o cloud-init em VMs Linux do Azure](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

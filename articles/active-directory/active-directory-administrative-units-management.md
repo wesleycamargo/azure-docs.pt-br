@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: d05b4a34c5271b636400ed90ead76fabf0d911bd
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5bf0e7f631a86a9d413415ab73e03fa00a0e9325
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -30,12 +30,12 @@ Isso é útil em organizações com divisões independentes, por exemplo, uma gr
 > [!IMPORTANT]
 > Você pode criar e usar unidades administrativas somente se você habilitar o Active Directory Premium do Azure. Para saber mais, consulte [Introdução ao AD Premium do Azure](active-directory-get-started-premium.md).
 >
->
+
 
 Do ponto de vista do administrador central, uma unidade administrativa é um objeto de diretório que pode ser criado e populado com recursos. **Nesta versão de pré-visualização, esses recursos podem ser somente os usuários.** Após criada e populada, a unidade administrativa pode ser usada como um escopo para restringir a permissão concedida somente para os recursos contidos na unidade administrativa.
 
 ## <a name="managing-administrative-units"></a>Gerenciando unidades administrativas
-Nesta versão de visualização, você pode criar e gerenciar unidades administrativas usando os cmdlets do Módulo do Active Directory do Azure para Windows PowerShell.
+Nesta versão de visualização, você pode criar e gerenciar unidades administrativas usando os cmdlets do Módulo do Active Directory do Azure para Windows PowerShell. Para saber mais sobre como fazer isso, consulte [Trabalhando com Unidades Administrativas](https://docs.microsoft.com/en-us/powershell/azure/working-with-administrative-units?view=azureadps-2.0)
 
 Para obter mais informações sobre requisitos de software e instalação do módulo AD do Azure e para obter informações sobre os cmdlets do Módulo do AD do Azure para gerenciar unidades administrativas, incluindo sintaxe, descrições de parâmetros e exemplos, consulte [Gerenciar o AD do Azure usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 

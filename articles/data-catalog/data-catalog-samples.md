@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/03/2017
+ms.date: 05/05/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2e84eb020b46fe89426e547b389715d6190fc03c
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0c76287232e578df695f73e5d9792ee457266db9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -27,14 +28,18 @@ Comece a desenvolver aplicativos de Catálogo de Dados usando a API REST do Cat�
 
 Eis os exemplos que temos no GitHub:
 
-* [Introdução ao Catálogo de Dados do Azure](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-get-started/)
+* [Introdução ao Catálogo de Dados do Azure](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-get-started/)
   
   Um exemplo que mostra como autenticar com o AD do Azure para registrar, pesquisar e excluir um ativo de dados usando a API REST do Catálogo de Dados.
-* [Registrar e anotar em massa](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
+* [Registrar e anotar em massa](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
   
   Um exemplo que mostra como registrar os ativos de dados em massa a partir de uma planilha do Excel usando a API REST do Catálogo de Dados e o Open XML.
-* [Ferramenta de importação/exportação](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
+* [Ferramenta de importação/exportação](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-import-export/)
   
   Um exemplo que mostra como usar a API REST do Catálogo de Dados para buscar ativos no Catálogo de Dados do Azure e serializá-los em um arquivo. Ele também demonstra como obter um conjunto de ativos serializado como JSON e enviá-los ao catálogo. Ele oferece suporte para a exportação de um subconjunto do catálogo usando uma consulta de pesquisa.
+
+* [Termos do glossário de importação em massa](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
+
+    Este exemplo demonstra como importar os termos do glossário de arquivos CSV para o glossário ADC.
 
 

@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/11/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e3c97fdc9d4c69e2d67744798bc0b47d21b08ddf
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: abe380b8cb5988479197353282ef76442ee75930
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -29,12 +30,10 @@ Caso você redimensione ou use a opção **Parar (Desalocar)** para uma máquina
 
 Para obter mais informações sobre como o Azure usa o disco temporário, veja [Noções básicas sobre a unidade temporária nas Máquinas Virtuais do Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 ## <a name="attach-the-data-disk"></a>Anexar o disco de dados
 Primeiro, você precisará anexar o disco de dados à máquina virtual. 
 
-* Para usar o portal, veja [Como anexar um disco de dados no portal do Azure](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* Para usar o portal, veja [Como anexar um disco de dados gerenciado no Portal do Azure](attach-managed-disk-portal.md)
 * Para usar o portal clássico, veja [Como anexar um disco de dados a uma máquina virtual do Windows](classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Mover temporariamente o pagefile.sys para a unidade C
@@ -69,6 +68,6 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual.
 9. Reinicie a máquina virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
-* É possível aumentar o armazenamento disponível para sua máquina virtual [anexando um disco de dados adicional](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* É possível aumentar o armazenamento disponível para sua máquina virtual [anexando um disco de dados adicional](attach-managed-disk-portal.md).
 
 
