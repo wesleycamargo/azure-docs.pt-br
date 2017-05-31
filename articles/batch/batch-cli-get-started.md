@@ -180,7 +180,7 @@ As dicas abaixo poderão ajudar você quando estiver solucionando problemas da C
 * Use `-h` para obter um **texto de ajuda** para qualquer comando da CLI
 * Use `-v` e `-vv` para exibir saídas de comando **detalhadas**. Quando o sinalizador `-vv` é incluído, a CLI do Azure exibe as respostas e solicitações REST reais. Essas opções são úteis para exibir a saída completa do erro.
 * Você pode exibir a **saída do comando como JSON** com a opção `--json`. Por exemplo, o `az batch pool show pool001 --json` exibe propriedades do pool001 no formato JSON. Você pode copiar e modificar essa saída a fim de usá-la em um `--json-file` (consulte [Arquivos JSON](#json-files) anteriormente neste artigo).
-* O [Fórum do Lote] [ batch_forum] é monitorado por membros da equipe do Lote. Você pode publicar suas perguntas nesse local caso tenha problemas ou queira obter ajuda com uma operação específica.
+* O [Fórum do Lote][batch_forum] é monitorado por membros da equipe do Lote. Você pode publicar suas perguntas nesse local caso tenha problemas ou queira obter ajuda com uma operação específica.
 
 ## <a name="next-steps"></a>Próximas etapas
 
