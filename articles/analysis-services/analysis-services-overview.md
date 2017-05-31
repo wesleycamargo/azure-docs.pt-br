@@ -32,7 +32,7 @@ Confira este vídeo para aprender como o Azure Analysis Services se adapta aos r
 
 
 >
->[! VÍDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
+>[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
 
