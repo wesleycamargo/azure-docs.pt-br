@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 71d8249046ed74f67514a93ece4efc2996ad9b4c
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 2eb773f5f0cf389fc39bc3a0f5fbf9ac726d1949
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento de interface do usuário Microsoft.Network.PublicIpAddressCombo
-Um grupo de controles para selecionar um endereço IP público novo ou existente.
+Um grupo de controles para selecionar um endereço IP público novo ou existente. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](managed-application-publishing.md).
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
@@ -89,6 +89,7 @@ Se o usuário seleciona um endereço IP novo ou existente,a seguinte saída é e
 - Quando `options.hideDomainNameLabel` for especificado, `domainNameLabel` não será declarado.
 
 ## <a name="next-steps"></a>Próximas etapas
+* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](managed-application-createuidefinition-elements.md).
 

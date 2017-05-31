@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 2a270ba8ae17077c55c6b1473d4955dfb5f79ca1
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 859f9a1ca9dbe166fd514c8eba868b466dbc4d2c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -84,9 +84,10 @@ Estes são os limites para uma instância única de aplicativo lógico.
 |Nome|Limite|Observações|
 |----|----|----|
 |Execuções de ações a cada cinco minutos |100.000|Pode distribuir carga de trabalho entre vários aplicativos conforme necessário|
+|Chamadas de saída simultâneas a ações |~2.500|Diminuir o número de solicitações simultâneas ou reduzir a duração conforme necessário|
+|Chamadas de entrada simultâneas do ponto de extremidade no tempo de execução |~1,000|Diminuir o número de solicitações simultâneas ou reduzir a duração conforme necessário|
 |Ponto de extremidade de tempo de execução lê chamadas por 5 minutos |60.000|Pode distribuir carga de trabalho entre vários aplicativos conforme necessário|
 |Ponto de extremidade de tempo de execução invoca chamadas por 5 minutos |45,000|Pode distribuir carga de trabalho entre vários aplicativos conforme necessário|
-|Ponto de extremidade de tempo de execução bloqueando chamadas simultâneas |~1,000|Diminuir o número de solicitações simultâneas ou reduzir a duração conforme necessário|
 
 Se você pretende exceder esse limite de processamento normal, ou se quiser executar testes de carga que podem ultrapassar esse limite para um período de tempo, [entre em contato conosco](mailto://logicappsemail@microsoft.com) para que possamos ajudar com suas necessidades.
 
@@ -116,7 +117,8 @@ Estes são limites para artefatos adicionados à conta de integração
 |Esquema|8 MB|Você pode usar o [URI do blob](logic-apps-enterprise-integration-schemas.md) para carregar arquivos maiores que 2 MB |
 |Mapa (arquivo XSLT)|2 MB| |
 |Ponto de extremidade de tempo de execução lê chamadas por 5 minutos |60.000|Pode distribuir carga de trabalho entre várias contas conforme necessário|
-|Ponto de extremidade de tempo de execução invoca chamadas por 5 minutos |90.000|Pode distribuir carga de trabalho entre várias contas conforme necessário|
+|Ponto de extremidade de tempo de execução invoca chamadas por 5 minutos |45,000|Pode distribuir carga de trabalho entre várias contas conforme necessário|
+|Ponto de extremidade do tempo de execução acompanhando chamadas por 5 minutos |45,000|Pode distribuir carga de trabalho entre várias contas conforme necessário|
 |Ponto de extremidade de tempo de execução bloqueando chamadas simultâneas |~1,000|Diminuir o número de solicitações simultâneas ou reduzir a duração conforme necessário|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Tamanho da mensagem dos protocolos B2B (AS2, X12, EDIFACT)

@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/13/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 5acfbfbe7327fc28fa909e6ef7e0f9b6ce8b0e54
-ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 8cb8aff4c3035ef8557e0ae0d254fcd750a9228a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -41,7 +43,7 @@ Se você for iniciante com o Proxy de Aplicativo, aprenda mais sobre este recurs
 > Se esta for sua primeira vez usando o Proxy de Aplicativo, escolha um aplicativo que já esteja configurado para autenticação baseada em senha. O Proxy de Aplicativo oferece suporte a outros tipos de autenticação, mas os aplicativos baseados em senha são mais fáceis e rápidos de executar. 
 
 1. Entre como administrador no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Azure Active Directory** > **Aplicativos empresariais** > **Adicionar**.
+2. Selecione **Azure Active Directory** > **Aplicativos empresariais** > **Novo aplicativo**.
 
   ![Adicionar um aplicativo empresarial](./media/application-proxy-publish-azure-portal/add-app.png)
 
@@ -97,9 +99,4 @@ No seu navegador, navegue até a URL externa configurada durante a etapa de publ
 - [Baixe conectores](active-directory-application-proxy-enable.md) e [crie grupos de conectores](active-directory-application-proxy-connectors-azure-portal.md) para publicar aplicativos em redes e locais separados.
 
 - [Configurar o logon único](application-proxy-sso-azure-portal.md) para seu aplicativo recém-criado
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

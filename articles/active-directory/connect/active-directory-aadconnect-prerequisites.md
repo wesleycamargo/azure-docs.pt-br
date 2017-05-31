@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: bb6f3a7710c52a210ea8014430285ba8917cc895
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 0ce1dbf9f2baf9369875370866690010fe8e9e37
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -29,8 +30,8 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 
 ### <a name="azure-ad"></a>AD do Azure
 * Uma assinatura do Azure ou uma [Assinatura de avaliação do Azure](https://azure.microsoft.com/pricing/free-trial/). Essa assinatura é necessária apenas para acessar o portal do Azure, não para usar o Azure AD Connect. Se estiver usando o PowerShell ou o Office 365, você não precisará de uma assinatura do Azure para usar o Azure AD Connect. Se tiver uma licença do Office 365, também poderá usar o portal do Office 365. Com uma licença paga do Office 365, você também poderá entrar no portal do Azure por meio do portal do Office 365.
-  * Você também pode usar a funcionalidade de visualização do Azure AD no [portal do Azure](https://portal.azure.com). Esse portal não requer uma licença do Azure.
-* [Adicione e verifique o domínio](../active-directory-add-domain.md) que você planeja usar no AD do Azure. Por exemplo, se você planeja usar contoso.com para os usuários, em seguida, verifique se este domínio foi verificado e se não está usando apenas o domínio padrão contoso.onmicrosoft.com.
+  * Você também pode usar o [portal do Azure](https://portal.azure.com). Esse portal não requer uma licença do Azure AD.
+* [Adicione e verifique o domínio](../active-directory-domains-add-azure-portal.md) que você planeja usar no AD do Azure. Por exemplo, se você planeja usar contoso.com para os usuários, em seguida, verifique se este domínio foi verificado e se não está usando apenas o domínio padrão contoso.onmicrosoft.com.
 * Um locatário do Azure AD pode ter, por padrão, 50 mil objetos. Quando você verificar seu domínio, o limite aumentará para 300 mil objetos. Se precisar de mais objetos no Azure AD, precisará abrir um caso de suporte para aumentar ainda mais o limite. Se você precisar de mais de 500 mil objetos, precisará de uma licença, como Office 365, Azure AD Básico, Azure AD Premium ou Enterprise Mobility and Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Preparar seus dados locais
@@ -53,6 +54,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 * Se você pretende usar o recurso **sincronização de senha**, o servidor do Azure AD Connect deve estar no Windows Server 2008 R2 SP1 ou posterior.
 * Se você pretende usar uma **conta de serviço gerenciado de grupo**, o servidor do Azure AD Connect deve estar no Windows Server 2012 ou posterior.
 * O servidor do Azure AD Connect deve ter o [.NET Framework 4.5.1](#component-prerequisites) ou posterior e o [Microsoft PowerShell 3.0](#component-prerequisites) ou posterior instalados.
+* O servidor do Azure AD Connect não deve ter a Política de Grupo de Transcrições do PowerShell habilitada.
 * Se os Serviços de Federação do Active Directory estiverem sendo implantados, os servidores onde o AD FS ou Proxy de Aplicativo Web será instalado devem ser Windows Server 2012 R2 ou posterior. [O gerenciamento remoto do Windows](#windows-remote-management) deve estar habilitado nesses servidores para instalação remota.
 * Se o Serviços de Federação do Active Directory estiver sendo implantado, você precisará dos [Certificados SSL](#ssl-certificate-requirements).
 * Se os Serviços de Federação do Active Directory (AD FS) estiverem sendo implantados, você precisará configurar a [resolução de nomes](#name-resolution-for-federation-servers).
@@ -103,6 +105,8 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
         </defaultProxy>
     </system.net>
 ```
+
+* Quando o Azure AD Connect envia uma solicitação da Web ao Azure AD como parte da sincronização de diretório, o Azure AD pode levar até 5 minutos para responder. É comum que servidores de proxy tenham uma configuração de tempo limite de ociosidade da conexão. A configuração deve ser definida em pelo menos 6 minutos.
 
 Para obter mais informações, consulte o MSDN sobre o [Elemento proxy padrão](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Para obter mais informações quando você tiver problemas de conectividade, consulte [Solucionar problemas de conectividade](active-directory-aadconnect-troubleshoot-connectivity.md).

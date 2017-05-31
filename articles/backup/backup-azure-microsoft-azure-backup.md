@@ -16,9 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: e8838095d621957fe6b4ee50464154617e1c4740
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -65,12 +67,15 @@ Se você não deseja executar o servidor de base no Azure, poderá executar o se
 | Windows Storage Server 2012 R2 e SPs mais recentes |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 e SPs mais recentes |64 bits |Standard, Workgroup |
 
-Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Duplicação do Windows Server. Saiba mais sobre como o [DPM e a eliminação de duplicação](https://technet.microsoft.com/library/dn891438.aspx) funcionam juntos quando implantados nas VMs do Hyper-V.
+Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Duplicação do Windows Server. Saiba mais sobre como o [DPM e a eliminação de duplicação](https://technet.microsoft.com/library/dn891438.aspx) funcionam juntos quando implantados em VMs do Hyper-V.
 
 > [!NOTE]
-> Você não pode instalar o Servidor de Backup do Azure em uma máquina executada como um controlador de domínio.
->
->
+> O Servidor de Backup do Azure foi projetado para ser executado em um servidor dedicado de finalidade única. Você não pode instalar o Servidor de Backup do Azure em:
+> - Um computador que esteja sendo executado como um controlador de domínio
+> - Um computador no qual a função de Servidor de Aplicativos está instalada
+> - Um computador que seja um servidor de gerenciamento do System Center Operations Manager
+> - Um computador que o Exchange Server está executando
+> - Um computador que seja um nó de um cluster
 
 Você deve adicionar o servidor de Backup do Azure a um domínio. Se você planeja mover o servidor para um domínio diferente, é recomendável que você adicione o servidor ao novo domínio antes de instalar o Servidor de Backup do Azure. Mover uma máquina do Servidor de Backup do Azure existente para um novo domínio após a implantação *não tem suporte*.
 
@@ -194,12 +199,12 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
    >
 4. Forneça um local para a instalação dos arquivos do servidor de Backup do Microsoft Azure e clique em **Avançar**.
 
-    ![Pré-requisito&2; do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
+    ![Pré-requisito 2 do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     O local temporário é um requisito para o backup do Azure. Verifique se o local temporário é de pelo menos 5% dos dados planejados para fazer backup na nuvem. Para proteção de disco, será necessário configurar discos separados após a conclusão da instalação. Para saber mais sobre pools de armazenamento, consulte [Configurar os pools de armazenamento e o armazenamento em disco](https://technet.microsoft.com/library/hh758075.aspx).
 5. Forneça uma senha forte para as contas de usuário local restritas e clique em **Avançar**.
 
-    ![Pré-requisito&2; do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/security-screen.png)
+    ![Pré-requisito 2 do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/security-screen.png)
 6. Selecione se você deseja usar o *Microsoft Update* para verificar se há atualizações e clique em **Avançar**.
 
    > [!NOTE]
@@ -207,15 +212,15 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
    >
    >
 
-    ![Pré-requisito&2; do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    ![Pré-requisito 2 do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 7. Examine o *Resumo das Configurações* e clique em **Instalar**.
 
-    ![Pré-requisito&2; do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
+    ![Pré-requisito 2 do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. A instalação acontece em fases. Na primeira fase, o Agente de Serviços de Recuperação do Microsoft Azure é instalado no servidor. O assistente também verifica a conectividade direta com a Internet. Se houver conectividade com a Internet, você poderá prosseguir com a instalação; caso contrário, será necessário fornecer detalhes de proxy para se conectar à Internet.
 
     A próxima etapa será configurar o Agente de Serviços de Recuperação do Microsoft Azure. Como parte da configuração, você precisará fornecer as credenciais do cofre para registrar a máquina no cofre dos Serviços de Recuperação. Você fornecerá uma senha para criptografar/descriptografar os dados enviados entre o Azure e seus locais. Você pode gerar automaticamente uma senha ou fornecer sua própria senha mínima de 16 caracteres. Prossiga com o assistente até o agente ser configurado.
 
-    ![Pré-requisito&2; do Servidor de Backup do Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![Pré-requisito 2 do Servidor de Backup do Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Assim que o registro do Servidor de Backup do Microsoft Azure for concluído com êxito, o assistente de instalação geral prosseguirá na instalação e na configuração dos componentes do SQL Server e do Servidor de Backup do Azure. Após a conclusão da instalação do componente do SQL Server, os componentes do Servidor de Backup do Azure serão instalados.
 
     ![Servidor de Backup do Azure](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
@@ -275,9 +280,4 @@ Você pode usar estes artigos para obter um entendimento mais profundo sobre a p
 * [Backup do SQL Server](backup-azure-backup-sql.md)
 * [Backup do servidor do SharePoint](backup-azure-backup-sharepoint.md)
 * [Backup do servidor alternativo](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

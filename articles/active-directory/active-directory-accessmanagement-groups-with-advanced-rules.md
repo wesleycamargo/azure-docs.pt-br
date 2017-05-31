@@ -1,6 +1,6 @@
 ---
-title: "Usar atributos para criar regras avançadas | Microsoft Docs"
-description: "Instruções para criar regras avançadas para um grupo, incluindo suporte para operadores de regra de expressões e parâmetros."
+title: "Preencher grupos dinamicamente com base nos atributos de usuário no Azure Active Directory | Microsoft Docs"
+description: "Instruções para criar regras avançadas para associação de grupo, incluindo parâmetros e operadores de regra de expressões com suporte."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/14/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: d00375d9bc696b41a074eebe6d205e6907a54c4b
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="using-attributes-to-create-advanced-rules"></a>Usar atributos para criar regras avançadas
-O portal clássico do Azure fornece a capacidade de criar regras avançadas para habilitar associações dinâmicas baseadas em atributos mais complexas de grupos do Azure Active Directory (Azure AD).  
+# <a name="populate-groups-dynamically-based-on-user-attributes"></a>Preencher grupos dinamicamente com base em atributos de usuário 
+O portal clássico do Azure possibilita habilitar associações dinâmicas baseadas em atributos mais complexas de grupos do Azure AD (Azure Active Directory).  
 
 Quando os atributos de um usuário são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração do atributo do usuário dispararia adições ou remoções de grupo. Se um usuário atender a uma regra em um grupo, ele será adicionado como membro a esse grupo. Se ele não satisfizer mais à regra de um grupo do qual é membro, será removido do grupo.
 

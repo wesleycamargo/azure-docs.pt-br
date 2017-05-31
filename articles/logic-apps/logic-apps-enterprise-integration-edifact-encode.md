@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 507fb3200fe62aaa813464e5d6152a79907fdef7
-ms.lasthandoff: 04/06/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: e83488f4ec420c2af40d373239ba6989387da3cb
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -93,6 +94,9 @@ O conector EDIFACT de codificação executa as seguintes tarefas:
 * Solicita uma confirmação técnica e/ou funcional (se configurado).
   * Como uma confirmação técnica, a mensagem CONTRL indica o recebimento de um intercâmbio.
   * Como uma confirmação funcional, a mensagem CONTRL indica a aceitação ou a rejeição do intercâmbio recebido, do grupo ou da mensagem, com uma lista de erros ou funcionalidade sem suporte
+
+## <a name="view-swagger-file"></a>Exibir o arquivo do Swagger
+Para exibir os detalhes de Swagger para o conector do EDIFACT, consulte [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 

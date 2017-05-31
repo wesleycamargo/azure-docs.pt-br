@@ -1,6 +1,6 @@
 ---
 title: "Limitações de colaboração B2B do Azure Active Directory | Microsoft Docs"
-description: "Limitações atuais da visualização da colaboração B2B do Azure Active Directory"
+description: "Limitações atuais à colaboração B2B do Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/04/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: cdc951d4e16e7f0df425dba7c33d86255276f526
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: f13f4ac6e32f568fb5f56261b542e0e2c49f5b3d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -33,7 +34,7 @@ Em uma versão futura, pretendemos introduzir uma política em que é possível 
 
 
 ## <a name="instant-on"></a>Instant-on
-Nos fluxos de colaboração B2B, adicionamos usuários ao diretório e os atualizamos dinamicamente durante o resgate do convite, atribuição do aplicativo e assim por diante. As atualizações e as gravações em geral ocorrem em uma instância do diretório e devem ser replicadas em todas as instâncias. Pode demorar uma quantidade de tempo não nulo para completar a replicação. Às vezes, quando o objeto é gravado ou atualizado em uma instância do diretório e a chamada para recuperar esse objeto é carregada em outra instância, isso causou problemas de autorização. Temos trabalhado muito para eliminar ou reduzir essas latências de replicação, mas é possível que ainda possam ocorrer em alguns raros casos. Se isso acontecer, atualize ou tente novamente. Se você estiver gravando um aplicativo utilizando nossa API, então, tentativas com algumas retiradas é uma boa prática defensiva para aliviar esse problema.
+Nos fluxos de colaboração B2B, adicionamos usuários ao diretório e os atualizamos dinamicamente durante o resgate do convite, atribuição do aplicativo e assim por diante. As atualizações e as gravações em geral ocorrem em uma instância do diretório e devem ser replicadas em todas as instâncias. A replicação será concluída quando todas as instâncias estiverem atualizadas. Às vezes, quando o objeto é gravado ou atualizado em uma instância do diretório e a chamada para recuperar esse objeto é carregada em outra instância, isso causou problemas de autorização. Temos trabalhado muito para eliminar ou reduzir essas latências de replicação, mas é possível que ainda possam ocorrer em alguns raros casos. Se isso acontecer, atualize ou tente novamente. Se você estiver gravando um aplicativo utilizando nossa API, então, tentativas com algumas retiradas é uma boa prática defensiva para aliviar esse problema.
 
 ## <a name="next-steps"></a>Próximas etapas
 

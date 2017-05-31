@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 05/15/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 6320331adc80998f1f64cdfa56839d940708bdc4
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 05159bfd98977d0b57b43fbc02e4579439f7ce4c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -35,7 +36,10 @@ O gateway é requerido mesmo que o banco de dados MySQL esteja hospedado em uma 
 > Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
 
 ## <a name="supported-versions-and-installation"></a>Instalação e versões com suporte
-Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados MySQL, você precisa instalar o [Conector do MySQL/Net 6.6.5 para Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) ou superior no mesmo sistema que o Gateway de Gerenciamento de Dados. Há suporte para o MySQL versão 5.1 e superior.
+Para o Gateway de Gerenciamento de Dados conectar-se ao Banco de Dados MySQL, você precisa instalar o [Conector do MySQL/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versão 6.6.5 ou superior) no mesmo sistema que o Gateway de Gerenciamento de Dados. Há suporte para o MySQL versão 5.1 e superior.
+
+> [!TIP]
+> Se você encontrar o erro "A autenticação falhou porque a entidade remota fechou o fluxo de transporte.", considere atualizar o Conector do MySQL/Net para uma versão superior.
 
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local Cassandra usando diferentes ferramentas/APIs. 
@@ -335,7 +339,7 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Leitura repetida de fontes relacionais
-Ao copiar dados de repositórios de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-translationtype: Human Translation
-ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
-ms.openlocfilehash: 669ef16c4fe2edd4525db6f693c424f3027793f3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 2f1689a2f59b779c83b6be746edda915fd67a3db
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -208,7 +210,8 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 Observe que o tipo de retorno é **IOTHUBMESSAGE\_DISPOSITION\_RESULT** e, nesse caso específico, retornamos **IOTHUBMESSAGE\_ACCEPTED**. Há outros valores que podemos retornar dessa função que mudam a forma como a biblioteca **IoTHubClient** reage ao retorno de chamada da mensagem. Veja as opções.
 
 * **IOTHUBMESSAGE\_ACCEPTED**: a mensagem foi processada com êxito. A biblioteca **IoTHubClient** não invocará a função de retorno de chamada novamente com a mesma mensagem.
-* **IOTHUBMESSAGE\_REJECTED**: a mensagem não foi processada e não há intenção de fazer isso no futuro.. A biblioteca **IoTHubClient** não deve invocar a função de retorno de chamada novamente com a mesma mensagem.
+* <seg>
+  **IOTHUBMESSAGE\_REJECTED**: a mensagem não foi processada e não há intenção de fazer isso no futuro..</seg> A biblioteca **IoTHubClient** não deve invocar a função de retorno de chamada novamente com a mesma mensagem.
 * **IOTHUBMESSAGE\_ABANDONED**: a mensagem não foi processada com êxito, mas a biblioteca **IoTHubClient** deve invocar a função de retorno de chamada novamente com a mesma mensagem.
 
 Para os dois primeiros códigos de retorno, a biblioteca **IoTHubClient** envia uma mensagem ao Hub IoT indicando que a mensagem deve ser excluída da fila do dispositivo e não entregue novamente. O efeito líquido é o mesmo (a mensagem será excluída da fila do dispositivo), mas sem levar em conta se a mensagem foi aceita ou rejeitada, ela ainda será registrada.  O registro dessa distinção é útil para os remetentes da mensagem, que podem ouvir comentários e descobrir se um dispositivo aceitou ou rejeitou uma mensagem específica.
@@ -271,14 +274,9 @@ Para saber mais sobre como desenvolver para o Hub IoT, consulte os [SDKs do Azur
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Simulando um dispositivo com o SDK do Gateway do IoT][lnk-gateway]
+* [Simulando um dispositivo com Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

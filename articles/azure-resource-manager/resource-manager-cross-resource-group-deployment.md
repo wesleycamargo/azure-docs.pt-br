@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/11/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 942e3b4fbc9a954eae0cc609e800d0fe0b882475
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -30,7 +30,7 @@ O grupo de recursos é o contêiner de ciclo de vida do aplicativo e de sua cole
 
 ## <a name="example-template"></a>Modelo de exemplo
 
-Para buscar um recurso diferente, você deve usar um modelo aninhado ou vinculado durante a implantação. O tipo de recurso `Microsoft.Resources/deployments` fornece um parâmetro `resourceGroup` que permite que você especifique um grupo de recursos diferente do grupo de recursos usado pelo modelo pai. Todos os grupos de recursos devem existir antes da execução da implantação. O exemplo a seguir implanta duas contas de armazenamento: uma no grupo de recursos especificado durante a implantação e outra em um grupo de recursos denominado `crossResourceGroupDeployment`:
+Para buscar um recurso diferente, você deve usar um modelo aninhado ou vinculado durante a implantação. O tipo de recurso `Microsoft.Resources/deployments` fornece um parâmetro `resourceGroup` que permite que você especifique um grupo de recursos diferente para a implantação aninhada. Todos os grupos de recursos devem existir antes da execução da implantação. O exemplo a seguir implanta duas contas de armazenamento: uma no grupo de recursos especificado durante a implantação e outra em um grupo de recursos denominado `crossResourceGroupDeployment`:
 
 ```json
 {
@@ -123,3 +123,4 @@ Após a implantação ser concluída, você verá dois grupos de recursos. Cada 
 * Para entender como definir parâmetros em seu modelo, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para obter mais informações sobre a implantação de um modelo que exija um token SAS, veja [Implantar modelo particular com o token SAS](resource-manager-powershell-sas-token.md).
+

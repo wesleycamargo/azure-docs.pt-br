@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 61f09a6f103b9cedaf19f1128a21fa8d5df974a1
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: ff505246bef15d180e3844558d68a425df60c35f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -102,7 +103,7 @@ Agora que você selecionou o ponto de restauração, escolha uma configuração 
    * Restaurar a máquina virtual completa
    * Restaurar discos com backup
 
-O portal fornece uma opção de criação rápida para a VM restaurada. Se você quiser personalizar a configuração da VM, ou os nomes dos recursos criados como parte da criação de uma nova opção de VM, use o PowerShell ou o portal para restaurar discos armazenados em backup e use comandos do PowerShell para anexá-los à escolha de configuração da VM, ou use modelos que acompanham os discos de restauração para personalizar a VM restaurada. Veja [Restaurar uma VM com configurações de rede especiais](#restoring-vms-with-special-network-configurations) para obter detalhes sobre como restaurar a VM que tem vários NICs ou sob um balanceador de carga. 
+O portal fornece uma opção de criação rápida para a VM restaurada. Se você quiser personalizar a configuração da VM, ou os nomes dos recursos criados como parte da criação de uma nova opção de VM, use o PowerShell ou o portal para restaurar discos armazenados em backup e use comandos do PowerShell para anexá-los à escolha de configuração da VM, ou use modelos que acompanham os discos de restauração para personalizar a VM restaurada. Veja [Restaurar uma VM com configurações de rede especiais](#restoring-vms-with-special-network-configurations) para obter detalhes sobre como restaurar a VM que tem vários NICs ou sob um balanceador de carga. Se sua VM do Windows usar [licenciamento de HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), você precisará restaurar discos e usar o PowerShell/Modelo conforme especificado abaixo para criar a VM e especificar LicenseType como "Windows_Server" ao criar a VM para aproveitar os benefícios do HUB em VMs restauradas. 
  
 ## <a name="create-a-new-vm-from-restore-point"></a>Criar uma nova VM a partir do ponto de restauração
 Se você não ainda estiver lá, [selecione um ponto de restauração](#restoring-vms-with-special-network-configurations) antes de prosseguir para a criação de uma nova VM a partir do ponto de restauração. Após a seleção do ponto de restauração, na folha **Restaurar configuração**, insira ou selecione valores para cada um dos campos a seguir:
@@ -194,6 +195,7 @@ Depois de inserir os valores necessários, aceite o *termos e Condições* e cli
 * As extensões presentes durante a configuração do backup serão instaladas, mas não serão habilitadas. Se você vir qualquer problema, reinstale as extensões. 
 * Se, após a restauração, a VM de backup tiver IP estático, a VM restaurada terá um IP dinâmico para evitar conflitos ao criar uma VM restaurada. Saiba mais sobre como [adicionar um endereço IP estático à VM restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * A VM restaurada não terá o valor de disponibilidade definido. Recomendamos o uso da opção de discos de restauração e [adição do conjunto de disponibilidade](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) ao criar uma VM do PowerShell ou modelos usando discos restaurados. 
+
 
 ## <a name="backup-for-restored-vms"></a>Backup de VMs restauradas
 Se você tiver restaurado a VM no mesmo Grupo de recursos e com o mesmo nome que o backup original da VM, o backup continuará na VM após a restauração. Se você tiver restaurado a VM para um Grupo de recursos diferente ou especificado um nome diferente para a VM restaurada, ela será tratada como uma nova VM e você precisará configurar o backup para a VM restaurada.

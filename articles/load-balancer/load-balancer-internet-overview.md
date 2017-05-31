@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 2684e09daa3554a5768a96ae18757a669e221efe
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1a0f69e6530f1ab3734e1a44e5be056aacb0fff0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -29,7 +30,7 @@ Para um serviço de nuvem que contenha instâncias de funções web ou funções
 
 O arquivo *servicedefinition.csdef* contém a configuração do ponto de extremidade e quando existem várias instâncias de função para uma implantação de função de trabalho ou da Web, o balanceador de carga é instalado para ele. A maneira de adicionar instâncias à sua implantação de nuvem está alterando a contagem de instâncias no arquivo de configuração de serviço (.csfg).
 
-A figura a seguir mostra um ponto de extremidade de balanceamento de carga para tráfego criptografado na Web, que é compartilhado entre três máquinas virtuais para a porta TCP pública e privada de 80. Essas três máquinas virtuais estão em um conjunto de balanceamento de carga.
+A figura a seguir mostra um ponto de extremidade de balanceamento de carga para tráfego na Web compartilhado entre três máquinas virtuais para a porta TCP pública e privada de número 80. Essas três máquinas virtuais estão em um conjunto de balanceamento de carga.
 
 ![exemplo de balanceador de carga público](./media/load-balancer-internet-overview/IC727496.png))
 

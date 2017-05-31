@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: b06e4fc6e0ba18778731a72127f9ba154e773253
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 61999ebea05371c53e5ff27644a68039db1aef96
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -132,8 +132,8 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     | Nome do atributo  | Valor do atributo | Namespace |
     | --------------- | --------------- | --------------- |
-    | rolesessionname | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | função               | user.assignedroles | deixe em branco |
+    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | Função               | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Você precisa configurar o provisionamento do usuário no Azure AD para buscar todas as funções no Console do AWS. Veja as etapas de provisionamento abaixo.
@@ -424,3 +424,4 @@ Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve faz
 [39]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
 [40]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
 [41]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_on.png
+

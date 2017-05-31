@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f15654f621bafb2617bdb456bbda0233db656be5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -66,9 +67,11 @@ Essas restrições são provenientes dos padrões DNS e não são limitações d
 
 ### <a name="ns-records"></a>Registros NS
 
-Um conjunto de registros NS é criado automaticamente no ápice de cada zona (nome = '@') e é excluído automaticamente quando a zona é excluída (ele não pode ser excluído separadamente).  Você pode modificar o TTL desse conjunto de registros, mas não pode modificar os registros que são pré-configurados para se referirem aos servidores de nomes do DNS do Azure atribuídos à zona.
+O conjunto de registros de NS no apex da zona (nome '@') é criado automaticamente com cada zona DNS e excluído automaticamente quando a zona é excluída (não pode ser excluído separadamente).
 
-Você pode criar e excluir outros registros NS dentro da zona, mas não no ápice da zona.  Isso permite que você configure zonas filho (confira [Delegando subdomínios no DNS do Azure](dns-domain-delegation.md)).
+Esse conjunto de registros contém os nomes dos servidores de nome DNS do Azure atribuídos à zona. Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à coospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente preenchidos. 
+
+Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser criados, modificados e excluídos sem restrição.
 
 ### <a name="soa-records"></a>Registros SOA
 
