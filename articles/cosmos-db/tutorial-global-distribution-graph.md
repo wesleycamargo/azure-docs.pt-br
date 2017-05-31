@@ -1,14 +1,14 @@
 ---
 title: "Tutorial de distribuição global do Azure Cosmos DB para a API do Graph | Microsoft Docs"
 description: "Saiba como configurar a distribuição global do Azure Cosmos DB usando a API do Graph."
-services: cosmosdb
+services: cosmos-db
 keywords: "distribuição global, graph, gremlin"
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 36cc08bc1482c2f3be260adcf2b8219168260de5
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: c38b5345bd67008de0e15f9288b4016935837978
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -33,14 +33,14 @@ Este artigo aborda as seguintes tarefas:
 > * Configurar a distribuição global usando o Portal do Azure
 > * Configurar a distribuição global usando a [API do Graph](graph-introduction.md) (visualização)
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Conectar-se a uma região preferencial usando a API do Graph com o SDK do .NET
 
 A API do Graph é exposta como uma biblioteca de extensão sobre o SDK do DocumentDB.
 
-Para aproveitar a [distribuição global](../documentdb/documentdb-distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo a política de conexão. Com base na configuração da conta do Azure Cosmos DB, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK para executar operações de gravação e leitura.
+Para aproveitar a [distribuição global](distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo a política de conexão. Com base na configuração da conta do Azure Cosmos DB, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK para executar operações de gravação e leitura.
 
 Essa lista de preferências é especificada ao inicializar uma conexão usando os SDKs. Os SDKs aceitam um parâmetro opcional "PreferredLocations", que é uma lista ordenada de regiões do Azure.
 
@@ -80,7 +80,7 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-Assim, concluímos este tutorial. Aprenda a gerenciar a consistência de sua conta globalmente replicada lendo [Níveis de consistência no Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+Assim, concluímos este tutorial. Aprenda a gerenciar a consistência de sua conta globalmente replicada lendo [Níveis de consistência no Azure Cosmos DB](consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -93,7 +93,7 @@ Neste tutorial, você fez o seguinte:
 Agora você pode prosseguir para o próximo tutorial e aprender a desenvolver localmente usando o emulador local do Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Desenvolver localmente com o emulador](../documentdb/documentdb-nosql-local-emulator.md)
+> [Desenvolver localmente com o emulador](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
