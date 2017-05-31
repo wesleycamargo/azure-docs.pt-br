@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/5/2017
+ms.date: 05/12/2017
 ms.author: rambala
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
-ms.openlocfilehash: 49ed6dd2184e69487cedae81a89665f5ccc3843d
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 67f9626faadc539f26110e5aa23b3c0a878923b9
 ms.contentlocale: pt-br
-ms.lasthandoff: 01/31/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
 O ExpressRoute, que estende uma rede local para a Microsoft Cloud por uma conexão privada dedicada que é facilitada por um provedor de conectividade, envolve as três seguintes zonas da rede distintas:
 
--   Rede do Cliente
--   Rede do Provedor
--   Microsoft Datacenter
+-     Rede do Cliente
+-      Rede do Provedor
+-      Microsoft Datacenter
 
 A finalidade deste documento é ajudar os usuários a identificar onde (ou mesmo se) existe um problema de conectividade e em qual zona, para assim buscar ajuda da equipe apropriada para resolver o problema. Se o suporte da Microsoft for necessário para resolver um problema, abra um tíquete de suporte com [Suporte da Microsoft][Support].
 
@@ -44,13 +44,13 @@ No diagrama acima, os números indicam os principais pontos de rede. Os pontos d
 
 Dependendo do modelo de conectividade do ExpressRoute (colocalização do Cloud Exchange, Conexão de Ethernet ponto a ponto ou IPVPN (de qualquer para qualquer)), os pontos de rede 3 e 4 podem ser comutadores (dispositivos de Camada 2). Os principais pontos de rede ilustrados são os seguintes:
 
-1.  Dispositivo de computação de cliente (por exemplo, um servidor ou PC)
-2.  CEs: roteadores de borda do cliente 
-3.  PEs (voltados para CE): roteadores/comutadores de borda do provedor que estão voltados para os roteadores de borda do cliente
-4.  PEs (voltados para MSEEs): roteadores/comutadores de borda do provedor que estão voltados para MSEEs
-5.  MSEEs: roteadores ExpressRoute do MSEE (Microsoft Enterprise Edge)
-6.  Gateway de Rede Virtual (VNet)
-7.  Dispositivo de computação na VNet do Azure
+1.    Dispositivo de computação de cliente (por exemplo, um servidor ou PC)
+2.    CEs: roteadores de borda do cliente 
+3.    PEs (voltados para CE): roteadores/comutadores de borda do provedor que estão voltados para os roteadores de borda do cliente
+4.    PEs (voltados para MSEEs): roteadores/comutadores de borda do provedor que estão voltados para MSEEs
+5.    MSEEs: roteadores ExpressRoute do MSEE (Microsoft Enterprise Edge)
+6.    Gateway de Rede Virtual (VNet)
+7.    Dispositivo de computação na VNet do Azure
 
 Se os modelos de conectividade de colocalização do Cloud Exchange, Conexão de Ethernet ponto a ponto forem usados, o roteador de borda do cliente (2) poderá estabelecer emparelhamento via protocolo BGP com MSEEs (5). Os pontos de rede 3 e 4 ainda existiriam, mas seriam um tanto transparentes como dispositivos de rede de Camada 2.
 
@@ -115,18 +115,18 @@ Uma resposta de exemplo é:
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
     Sku                              : {
-                                        "Name": "Standard_UnlimitedData",
-                                        "Tier": "Standard",
-                                        "Family": "UnlimitedData"
-                                        }
+                                         "Name": "Standard_UnlimitedData",
+                                         "Tier": "Standard",
+                                         "Family": "UnlimitedData"
+                                           }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             : 
     ServiceProviderProperties        : {
-                                        "ServiceProviderName": "****",
-                                        "PeeringLocation": "******",
-                                        "BandwidthInMbps": 100
-                                        }
+                                         "ServiceProviderName": "****",
+                                         "PeeringLocation": "******",
+                                         "BandwidthInMbps": 100
+                                           }
     ServiceKey                       : **************************************
     Peerings                         : []
     Authorizations                   : []
@@ -170,7 +170,7 @@ Para confirmar se um circuito do ExpressRoute está funcionando, preste atençã
 >
 
 ##<a name="validate-peering-configuration"></a>Validar Configuração de Emparelhamento
-Depois que o provedor de serviços concluir o provisionamento do circuito do ExpressRoute, uma configuração de roteamento poderá ser criada no circuito do ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito do ExpressRoute pode ter um, dois ou três contextos de roteamentos habilitados: emparelhamento privado do Azure (tráfego para redes virtuais privadas no Azure), emparelhamento público do Azure (tráfego para endereços IP públicos no Azure) e emparelhamento da Microsoft (tráfego para Office 365 e CRM Online). Para obter mais informações sobre como criar e modificar a configuração de roteamento, consulte o artigo [Create and modify routing for an ExpressRoute circuit][CreatePeering] (Criar e modificar o roteamento para um circuito do ExpressRoute).
+Depois que o provedor de serviços concluir o provisionamento do circuito do ExpressRoute, uma configuração de roteamento poderá ser criada no circuito do ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito do ExpressRoute pode ter um, dois ou três contextos de roteamento habilitados: emparelhamento privado do Azure (tráfego para redes virtuais privadas no Azure), emparelhamento público do Azure (tráfego para endereços IP públicos no Azure) e emparelhamento da Microsoft (tráfego para Office 365 e Dynamic 365). Para obter mais informações sobre como criar e modificar a configuração de roteamento, consulte o artigo [Create and modify routing for an ExpressRoute circuit][CreatePeering] (Criar e modificar o roteamento para um circuito do ExpressRoute).
 
 ###<a name="verification-via-the-azure-portal"></a>Verificação por meio do Portal do Azure
 >[!IMPORTANT]
@@ -179,8 +179,8 @@ Depois que o provedor de serviços concluir o provisionamento do circuito do Exp
 >
 
 <p/>
->[!NOTE] >Se a camada 3 for fornecida pelo provedor de serviços e os emparelhamentos estão em branco no portal, o PowerShell poderá ser usado para ver as configurações definidas pelo provedor de serviços.
->
+>[!NOTE] Se a camada 3 for fornecida pelo provedor de serviços e os emparelhamentos estiverem em branco no portal, o PowerShell poderá ser usado para ver as configurações definidas pelo provedor de serviços.
+>>
 >
 
 No Portal do Azure, o status de um circuito do ExpressRoute pode ser verificado selecionando ![2][2] na barra de menu do lado esquerdo e selecionando o circuito do ExpressRoute. Selecionar um circuito do ExpressRoute listado em "Todos os recursos" abriria a folha do circuito do ExpressRoute. Na seção ![3][3] da folha, as informações gerais sobre o ExpressRoute seriam listadas conforme mostrado na seguinte captura de tela:
@@ -244,8 +244,8 @@ Se um emparelhamento não for configurado, haverá uma mensagem de erro. Uma res
 >
 
 <p/>
->[!NOTE] >Se um emparelhamento não está habilitado, verifique se as sub-redes primárias e secundárias atribuídas correspondem à configuração no MSEE-PR vinculado. Verifique também se ost *VlandId*, * AzureASN* ed *PeerASN* corretos estão sendo usados nos MSEEs e se esses valores são mapeados para aqueles usados no MSEE-PR vinculado. Se o hash MD5 é escolhido, a chave compartilhada deve ser igual em um par MSEE e MSEE-PR. Para alterar a configuração nos roteadores MSEE, consulte [Create and modify routing for an ExpressRoute circuit][CreatePeering] (Criar e modificar o roteamento para um circuito do ExpressRoute [CreatePeering]).  
->
+>[!NOTE] Se um emparelhamento não estiver habilitado, verifique se as sub-redes primárias e secundárias atribuídas correspondem à configuração no MSEE-PR vinculado. Verifique também se os valores corretos de *VlandId*, *AzureASN* e *PeerASN* são usados nos MSEEs e se são mapeados para aqueles usados no MSEE-PR vinculado. Se o hash MD5 é escolhido, a chave compartilhada deve ser igual em um par MSEE e MSEE-PR. Para alterar a configuração nos roteadores MSEE, consulte [Criar e modificar o roteamento para um circuito do ExpressRoute][CreatePeering].  
+>>
 >
 
 ###<a name="verification-via-powershell-classic"></a>Verificação por meio do PowerShell (Clássico)
@@ -284,8 +284,8 @@ Para obter os detalhes de configuração de emparelhamento da Microsoft, use os 
 >
 
 <p/>
->[!NOTE] >Se um emparelhamento não está habilitado, verifique se as sub-redes emparelhadas primárias e secundárias atribuídas correspondem à configuração no MSEE-PR vinculado. Verifique também se ost *VlanId*, * AzureAsn* ed *PeerAsn* corretos estão sendo usados nos MSEEs e se esses valores são mapeados para aqueles usados no MSEE-PR vinculado. Para alterar a configuração nos roteadores MSEE, consulte [Create and modify routing for an ExpressRoute circuit][CreatePeering] (Criar e modificar o roteamento para um circuito do ExpressRoute [CreatePeering]).
->
+>[!NOTE] Se um emparelhamento não estiver habilitado, verifique se as sub-redes de par primárias e secundárias atribuídas correspondem à configuração no MSEE-PR vinculado. Verifique também se os *VlanId*, *AzureAsn* e *PeerAsn* corretos estão sendo usados nos MSEEs e se esses valores são mapeados para aqueles usados no MSEE-PR vinculado. Para alterar a configuração nos roteadores MSEE, consulte [Criar e modificar o roteamento para um circuito do ExpressRoute][CreatePeering].
+>>
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validar ARP entre a Microsoft e o provedor de serviços
@@ -305,7 +305,7 @@ Uma resposta de exemplo para o comando, no cenário de êxito:
     ARP Info:
 
                  Age           Interface           IpAddress          MacAddress
-                 113             On-Prem       10.0.0.1           e8ed.f335.4ca9
+                 113             On-Prem       10.0.0.1            e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
 De forma similar, você pode verificar a tabela ARP do MSEE no caminho *Primário*/*Secundário*, para emparelhamentos *Privados*/*Públicos*/*da Microsoft*.
@@ -348,8 +348,8 @@ Conforme mostrado no exemplo anterior, o comando é útil para determinar por qu
 >
 
 <p/>
->[!NOTE] >Se determinados destinos não estão acessíveis por um emparelhamento específico, verifique a tabela de rotas dos MSEEs que pertencem ao contexto de emparelhamento específico. Se o prefixo correspondente (pode ser IP com NAT) está presente na tabela de roteamento, verifique se há firewalls/NSG/ACLs no caminho e se eles permitem o tráfego.
->
+>[!NOTE] Se determinados destinos não estiverem acessíveis por meio de um emparelhamento específico, verifique a tabela de rotas dos MSEEs que pertencem ao contexto de emparelhamento específico. Se um prefixo correspondente (pode ser IP com NAT) estiver presente na tabela de roteamento, verifique se há firewalls/NSG/ACLs no caminho e se eles permitem o tráfego.
+>>
 >
 
 Para obter a tabela de roteamento completa do MSEE no caminho *Primário* para o contexto de roteamento *privado* específico, use o seguinte comando:

@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/16/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 446a7b585ca1204d49d76f71106799cbd2b0aa70
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 3013607e62a3ac532cb0c035130fe35e503a345c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -40,6 +41,7 @@ O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 | [Pipeline híbrido com Hadoop Hortonworks local](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |O exemplo usa um cluster Hadoop local como um destino de computação para executar trabalhos de Data Factory, exatamente como você adicionaria outros destinos de computação, como um HDInsight baseado em cluster Hadoop na nuvem. |
 | [Ferramenta de conversão JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |Essa ferramenta permite que você converta JSONs de versões anteriores a 2015-07-01-preview para a mais recente ou 2015-07-01-preview (padrão). |
 | [Arquivo de entrada de exemplo U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |Este é um arquivo de exemplo usado por uma atividade U-SQL. |
+| [Excluir arquivo de blob](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity) | Esta amostra apresenta um arquivo em C# que pode ser usado como parte da atividade do .net personalizada do ADF para excluir arquivos do local do Blob do Azure de origem depois da cópia dos arquivos.|
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 Você pode encontrar os seguintes modelos do Azure Resource Manager para Data Factory no GitHub.
@@ -101,7 +103,7 @@ Você deve ter os seguintes itens instalados no seu computador:
    3. Escolha a **assinatura do Azure** em que você deseja que o data factory seja criado.
    4. Selecione o **grupo de recursos** para o data factory a ser criado.
    5. Selecione o **Oeste dos EUA**, **Leste dos EUA** ou **Europa Setentrional** como a **região**.
-   6. Clique em **Próximo**.
+   6. Clique em **Avançar**.
 6. Na página **Configurar armazenamentos de dados**, especifique um **Banco de dados SQL do Azure** e **Conta de armazenamento do Azure** (ou) crie banco de dados/armazenamento e clique em Avançar.
 7. Na página **Configurar computação**, selecione os padrões e clique em **Avançar**.
 8. Na página **Resumo** examine as configurações e clique em **Avançar**.

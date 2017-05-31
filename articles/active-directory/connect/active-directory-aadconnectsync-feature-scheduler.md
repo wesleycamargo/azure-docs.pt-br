@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/28/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
-ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: fe7f508ed1c4eb57663f7e252d286719af03dbb1
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -45,7 +46,7 @@ Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncSch
 
 Se você vir **O comando de sincronização ou o cmdlet não está disponível** quando executar esse cmdlet, o módulo do PowerShell não estará carregado. Esse problema poderá ocorrer se você executar o Azure AD Connect em um controlador de domínio ou em um servidor com níveis mais altos de restrição do PowerShell do que as configurações padrão. Se você vir esse erro, execute `Import-Module ADSync` para disponibilizar o cmdlet.
 
-* **AllowedSyncCycleInterval**. O intervalo mais frequente que o Azure AD permite que as sincronizações ocorram. Você não pode sincronizar com maior frequência do que a permitida por essa configuração e ainda ter suporte.
+* **AllowedSyncCycleInterval**. O intervalo de tempo mais curto entre os ciclos de sincronização permitido pelo Azure AD. Você não pode sincronizar com maior frequência do que a permitida por essa configuração e ainda ter suporte.
 * **CurrentlyEffectiveSyncCycleInterval**. O agendamento atualmente em vigor. Ele terá o mesmo valor de CustomizedSyncInterval (se definido) se não for mais frequente do que AllowedSyncInterval. Se você usar uma versão anterior à 1.1.281 e alterar o CustomizedSyncCycleInterval, essa alteração entrará em vigor após o próximo ciclo de sincronização. Desde o build 1.1.281, a alteração entra em vigor imediatamente.
 * **CustomizedSyncCycleInterval**. Se você quiser que o agendador seja executado em intervalos diferentes do padrão de 30 minutos, terá que definir nessa configuração. Na figura acima, o agendador foi definido para ser executado a cada hora. Se você definir essa configuração como um valor menor do que AllowedSyncInterval, a última opção será usada.
 * **NextSyncCyclePolicyType**. Delta ou Inicial. Define se a próxima execução deve apenas processar alterações delta ou se a próxima execução deve fazer importação e sincronização completas. O última opção também reprocessaria regras novas ou alteradas.

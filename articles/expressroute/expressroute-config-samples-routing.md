@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
-ms.openlocfilehash: 6fefb9cfa96b0a6b7acfe4d7fcb17cb13ec240a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 032e584dc5abf59e9e3e8d80673b402f1fbf721b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -28,7 +30,12 @@ Esta página fornece interface e modelos de configuração de roteamento para ro
 > 
 > 
 
+## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Configurações de MSS TCP e MTU em interfaces do roteador
+* A MTU para a interface do ExpressRoute é 1500, que é a MTU padrão típica para uma interface Ethernet em um roteador. A menos que seu roteador tenha uma MTU diferente por padrão, não é necessário especificar um valor na interface do roteador.
+* Ao contrário de um Gateway de VPN do Azure, o MSS TCP para um circuito ExpressRoute não precisa ser especificado.
+
 Os modelos de configuração abaixo se aplicam a todos os emparelhamentos. Examine [emparelhamentos do ExpressRoute](expressroute-circuit-peerings.md) e [requisitos de roteamento do ExpressRoute](expressroute-routing.md) para obter mais detalhes sobre roteamento.
+
 
 ## <a name="cisco-ios-xe-based-routers"></a>Roteadores com base em Cisco IOS-XE
 Os modelos nesta seção se aplicam a qualquer roteador que esteja executando a família de sistemas operacionais IOS XE.
@@ -206,10 +213,5 @@ Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propa
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,31 +1,33 @@
 ---
-title: "Blocos de Construção do Guia Estratégico para Prova de Conceito (PoC) do Azure Active Directory | Microsoft Docs"
+
+title: "Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção | Microsoft Docs"
 description: "Explorar e implementar rapidamente os cenários de Identidade e Gerenciamento de Acesso"
 services: active-directory
 keywords: azure active directory, cartilha, Prova de Conceito, PoC
 documentationcenter: 
 author: dstefanMSFT
-manager: asuthar
+manager: femila
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 05/04/2017
 ms.author: dstefan
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b6f26a338450619cef012467bf78b9469622ba08
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: Building Blocks
+# <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
-## <a name="catalog-of-actors"></a>Catálogo de Atores
+## <a name="catalog-of-roles"></a>Catálogo de funções
 
-| Ator | Descrição | Responsabilidade PoC |
+| Função | Descrição | Responsabilidade da PoC (prova de conceito) |
 | --- | --- | --- |
 | **Arquitetura de Identidade / equipe de desenvolvimento** | Essa equipe geralmente é a que projeta a solução, implementa protótipos, aprovações de unidades e, finalmente, entrega para operações | Ela fornece os ambientes e é quem avalia os diferentes cenários a partir da perspectiva de capacidade de Gerenciamento |
 | **Equipe de Operações de Identidade Local** | Gerencia as diferentes fontes de identidade locais: Florestas do Active Directory, Diretórios LDAP, Sistemas de RH e Provedores de Identidade do WS-Federation . | Fornece acesso aos recursos locais necessários para os cenários PoC.<br/>Devem interferir o mínimo possível|
@@ -151,7 +153,7 @@ Tempo estimado para Conclusão: 60 minutos
 | Defina uma reunião de trabalho e siga as etapas do tutorial com cada ator. | [Tutorial: Integração do Active Directory do Azure com o ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Atribua o aplicativo para o grupo identificado nos pré-requisitos. Se a prova de conceito tiver acesso condicional no escopo, você poderá rever posteriormente e adicionar MFA e semelhantes. <br/>Observe que isso será iniciado no processo de provisionamento (se configurado) |  [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Criar um grupo e adicionar membros no Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Use o Portal de Gerenciamento do AD do Azure para adicionar o aplicativo de ServiceNow da Galeria| [Portal de Gerenciamento do Azure AD: Aplicativos Empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
-| Na folha "Logon Único" do Aplicativo ServiceNow, habilite "Logon com base em SAML" na folha "Logon Único" do Aplicativo ServiceNow |  |
+| Na folha "Logon único" do Aplicativo ServiceNow, habilite "Logon único baseado em SAML" |  |
 | Preencha os campos "URL de Entrada" e "Identificador" com a URL de ServiceNow<br/>Marque a caixa para "Ativar novo certificado"<br/>e em Salvar configurações |  |
 | Abra a folha "Configurar ServiceNow" na parte inferior do painel para exibir instruções personalizadas para a configuração do ServiceNow |  |
 | Siga as instruções para configurar o ServiceNow |  |
@@ -184,7 +186,7 @@ Tempo estimado para Conclusão: 15 minutos
 | Etapa | Recursos |
 | --- | --- |
 | Instalar a extensão do navegador | [Extensão do Painel de Acesso do IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do Painel de Acesso do Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do Painel de Acesso do Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configurar um Aplicativo da Galeria | [O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory: A nova e aprimorada galeria de aplicativos](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Configurar um Aplicativo da Galeria | [O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory: A nova e aprimorada galeria de aplicativos](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha ](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Atribua o aplicativo para o grupo identificado nos Pré-requisitos | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Faça logon em https://myapps.microsoft.com/ como um usuário de teste que possui acesso |  |
@@ -210,7 +212,7 @@ Tempo estimado para Conclusão: 30 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | A lista de aplicativos de destino e as URLs de entrada exatas antecipadamente. Por exemplo, você pode usar o Twitter. | [Twitter no Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Inscrever-se para Twitter](https://twitter.com/signup?lang=en) |
-| Credencial compartilhada para esse aplicativo SaaS. | [Compartilhando contas usando o Azure AD](active-directory-sharing-accounts.md)<br/>[Sobreposição de senha automatizada do Azure AD para Facebook, Twitter e LinkedIn agora na visualização! -Enterprise Mobility e Blog de Segurança ](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Credencial compartilhada para esse aplicativo SaaS. | [Compartilhando contas usando o Azure AD](active-directory-sharing-accounts.md)<br/>[Transferência de senha automatizada do Azure AD para Facebook, Twitter e LinkedIn agora na versão prévia! - Blog de segurança e mobilidade corporativa] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Credenciais para pelo menos dois membros da equipe que irá acessar a mesma conta. Eles devem ser parte de um grupo de segurança. | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Acesso de administrador local em um computador para implantar a extensão do Painel de Acesso para o Internet Explorer, Chrome ou Firefox | [Extensão do Painel de Acesso do IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do Painel de Acesso do Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do Painel de Acesso do Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -219,7 +221,7 @@ Tempo estimado para Conclusão: 30 minutos
 | Etapa | Recursos |
 | --- | --- |
 | Instalar a extensão do navegador | [Extensão do Painel de Acesso do IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do Painel de Acesso do Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do Painel de Acesso do Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configurar um Aplicativo da Galeria | [O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory: A nova e aprimorada galeria de aplicativos](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Configurar um Aplicativo da Galeria | [O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory: A nova e aprimorada galeria de aplicativos](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha ](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Atribua o aplicativo ao grupo identificado nos Pré-requisitos ao atribuir-lhes credenciais | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Efetue login como diferentes usuários que acessam o aplicativo como a **mesma conta compartilhada.**  |  |
@@ -287,7 +289,7 @@ Tempo estimado para Conclusão: 60 minutos
 | Adicionar Conector LDAP Genérica | [Referência Técnica do Conector LDAP Genérica: Criar um novo Conector](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
 | Criar perfis de execução para o conector criado (importação completa, importação Delta, sincronização completa, sincronização Delta, exportação) | [Criar um Perfil de Execução de Agente de Gerenciamento](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Usando conectores com o Sync Service Manager do Azure AD Connect](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Execute o perfil de importação completa e verifique se há objetos no espaço conector | [Pesquisar um Objeto do Espaço Conector](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Usando conectores com o Sync Service Manager do Azure AD Connect: Pesquisar Espaço Conector ](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Criar regras de sincronização para que os objetos no Metaverso tenham atributos necessários para cargas de trabalho | [Sincronização do Azure AD Connect: Práticas recomendadas para alterar a configuração padrão: Alterações nas Regras de Sincronização](/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Sincronização do Azure AD Connect: Noções Básicas sobre Provisionamento Declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: Noções básicas sobre Expressões de Provisionamento Declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
+| Criar regras de sincronização para que os objetos no Metaverso tenham atributos necessários para cargas de trabalho | [Sincronização do Azure AD Connect: Práticas recomendadas para alterar a configuração padrão: Alterações nas Regras de Sincronização](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Sincronização do Azure AD Connect: Noções Básicas sobre Provisionamento Declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: Noções básicas sobre Expressões de Provisionamento Declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Inicie o ciclo de sincronização completa | [Sincronização do Azure AD Connect: Iniciar o agendador](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | Em caso de problemas execute a solução de problemas | [Solucionar problemas de um objeto que não está sincronizando com o Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | Verifique se o usuário LDAP pode entrar e acessar o aplicativo | https://myapps.microsoft.com |
@@ -381,8 +383,8 @@ Tempo estimado para Conclusão: 15 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | Tipos de atividades de gerenciamento de senha de autoatendimento no seu locatáro. | [Redefinição de senhas do Azure Active Directory para administradores de TI](active-directory-passwords.md) |
-| Habilite write-back de senha para gerenciar senhas locais. Observe que isso exige versões do Azure AD Connect | [Pré-requisitos de Write-back de Senha](active-directory-passwords-getting-started.md#writeback-prerequisites) |
-| Identificar os usuários de prova de conceito que usam essa funcionalidade e certifique-se de que eles são membros de um grupo de segurança. Os usuários devem ser não administradores para demonstração total do recurso | [Personalizar: Gerenciamento de Senha do Azure AD: Restringir o acesso à redefinição de senha](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
+| Habilite write-back de senha para gerenciar senhas locais. Observe que isso exige versões do Azure AD Connect | [Pré-requisitos de Write-back de Senha](active-directory-passwords-writeback.md) |
+| Identificar os usuários de prova de conceito que usam essa funcionalidade e certifique-se de que eles são membros de um grupo de segurança. Os usuários devem ser não administradores para demonstração total do recurso | [Personalizar: Gerenciamento de Senha do Azure AD: Restringir o acesso à redefinição de senha](active-directory-passwords-writeback.md) |
 
 
 ### <a name="steps"></a>Etapas

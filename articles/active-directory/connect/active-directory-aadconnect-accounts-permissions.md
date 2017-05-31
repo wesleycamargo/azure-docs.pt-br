@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 4ef0118435020edc3a922c88a5a55400992cbc09
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 366c2c43ec50b0b6c47a25ea9b0e9d7109827429
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -66,7 +67,7 @@ A [conta](#active-directory-account) criada para leitura e gravação no AD DS t
 | Redefinir senha |Preparação para habilitar write-back de senha |
 
 ## <a name="custom-settings-installation"></a>Instalação de configurações personalizadas
-Ao usar configurações personalizadas, a conta usada para conectar-se ao Active Directory deve ser criada antes da instalação. As permissões que você deve conceder a essa conta podem ser encontradas em [Criar a conta do AD DS](#create-the-ad-ds-account).
+Anteriormente, ao usar configurações personalizadas, a conta utilizada para conectar-se ao Active Directory precisava ser criada antes da instalação. As permissões que você deve conceder a essa conta podem ser encontradas em [Criar a conta do AD DS](#create-the-ad-ds-account). Com o Azure AD Connect versão 1.1.524.0 e posteriores, você pode permitir que o assistente do Azure AD Connect crie a conta para você.
 
 | Página do assistente | Credenciais coletadas | Permissões necessárias | Usadas para |
 | --- | --- | --- | --- |
@@ -86,9 +87,11 @@ As permissões de que você precisa dependem dos recursos opcionais que habilita
 
 | Recurso | Permissões |
 | --- | --- |
+| Recurso msDS-ConsistencyGuid |Permissões de gravação para o atributo msDS-ConsistencyGuid documentados em [Conceitos de design – usando o atributo msDS-ConsistencyGuid como sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
 | Sincronização de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
 | Implantação híbrida do Exchange |Permissões de gravação para os atributos documentados em [Write-back híbrido do Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
-| Write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) para usuários. |
+| Pasta pública do Exchange Mail |Permissões de leitura para os atributos documentados na [Pasta pública do Exchange Mail](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
+| Write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../active-directory-passwords.md) para usuários. |
 | Write-back de dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [Write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md). |
 | Write-back de grupo |Ler, criar, atualizar e excluir objetos de grupo na UO em que os grupos de distribuição devem estar localizados. |
 
@@ -179,11 +182,13 @@ Uma conta no Azure AD é criada para uso do serviço de sincronização. Essa co
 
 ![Conta do AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
-O nome do servidor em que a conta é usada em pode ser identificado na segunda parte do nome do usuário. Na figura, nome do servidor é FABRIKAMCON. Se você tiver servidores de teste, cada servidor terá sua própria conta. Há um limite de 10 contas de serviço de sincronização no AD do Azure.
+O nome do servidor em que a conta é usada em pode ser identificado na segunda parte do nome do usuário. Na figura, nome do servidor é FABRIKAMCON. Se você tiver servidores de teste, cada servidor terá sua própria conta.
 
 A conta de serviço é criada com uma senha longa e complexa que não expira. Ela recebe uma função especial **Contas de sincronização de diretório** que tem somente permissões para executar tarefas de sincronização de diretório. Essa função interna especial não pode ser concedida fora do assistente do Azure AD Connect e o portal do Azure apenas mostra essa conta com a função **Usuário**.
 
-![Função de conta do AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
+Há um limite de 20 contas de serviço de sincronização no Azure AD. Para obter a lista de contas de serviço do Azure AD existentes no seu Azure AD, execute o seguinte cmdlet do PowerShell do Azure AD: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+
+Para remover contas de serviço do Azure AD não utilizadas, execute o seguinte cmdlet do PowerShell do Azure AD:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](../active-directory-aadconnect.md).

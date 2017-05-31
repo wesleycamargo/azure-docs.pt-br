@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
-ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -34,7 +36,7 @@ A figura e as etapas correspondentes a seguir mostram as tarefas que você deve 
    
    * Habilitar o emparelhamento privado do Azure - Você deve habilitar esse emparelhamento para se conectar a VMs/serviços de nuvem implantados dentro das redes virtuais.
    * Habilitar o emparelhamento público do Azure - Você deve habilitar o emparelhamento público do Azure se quiser se conectar aos serviços do Azure hospedados em endereços IP públicos. Esse é um requisito para acessar os recursos do Azure se você tiver optado por habilitar o roteamento padrão para emparelhamento privado do Azure.
-   * Habilitar o emparelhamento da Microsoft - você deve habilitar isso para acessar os serviços do Office 365 e do CRM Online. 
+   * Habilitar o emparelhamento da Microsoft – você deve habilitar isso para acessar o Office 365 e o Dynamics 365. 
      
      > [!IMPORTANT]
      > Use um proxy/borda diferente da usada para a Internet para se conectar à Microsoft. Usar a mesma borda para a Rota Expressa e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
@@ -115,10 +117,5 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
   * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md)
   * [Configurar o roteamento](expressroute-howto-routing-arm.md)
   * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
