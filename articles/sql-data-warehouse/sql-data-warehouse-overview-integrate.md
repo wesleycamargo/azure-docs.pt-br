@@ -3,7 +3,7 @@ title: "Compilar soluções integradas com o SQL Data Warehouse | Microsoft Docs
 description: "Ferramentas e parceiros com soluções que podem ser integradas ao SQL Data Warehouse "
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f

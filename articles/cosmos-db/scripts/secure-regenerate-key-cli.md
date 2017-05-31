@@ -1,14 +1,14 @@
 ---
 title: "Script da CLI do Azure – regenerar chave de conta do BD Cosmos do Azure | Microsoft Docs"
 description: "Exemplo de script da CLI do Azure – regenerar uma chave de conta do BD Cosmos do Azure"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

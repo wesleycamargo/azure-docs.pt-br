@@ -3,7 +3,7 @@ title: Usar o Power BI com o SQL Data Warehouse | Microsoft Docs
 description: "Dicas para usar o Power BI com o SQL Data Warehouse do Azure para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: b12bee87-2268-40c2-81bf-ab27588b32e8
