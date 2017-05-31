@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 27231cef19e7f624c2c09b0aae2ea3d503fb8e3d
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 8824568e9e4204a567cc08a10608cf835aa7164b
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -189,13 +189,19 @@ O processo de armazenamento em camadas ocorre da seguinte maneira:
 6. O Microsoft Azure cria várias réplicas dos dados em seu data center e em um data center remoto, garantindo que os dados podem ser recuperados em caso de desastre. 
 7. Quando o servidor de arquivos solicita dados armazenados na nuvem, o StorSimple os recupera perfeitamente e armazena uma cópia na camada de SSD do dispositivo StorSimple.
 
+#### <a name="how-storsimple-manages-cloud-data"></a>Como o StorSimple gerencia dados de nuvem
+
+O StorSimple elimina a duplicação de dados do cliente em todos os instantâneos e dados primários (dados gravados pelos hosts). Embora a eliminação de duplicação seja excelente para a eficiência do armazenamento, ela torna a pergunta "o que há na nuvem" complicada. Os dados primários em camadas e os dados do instantâneo sobrepõem-se uns aos outros. Um único bloco de dados na nuvem pode ser usado como dados primários em camadas e também ser referenciados por vários instantâneos. Cada instantâneo de nuvem garante que uma cópia de todos os dados pontuais esteja bloqueada para a nuvem até que esse instantâneo seja excluído.
+
+Os dados são excluídos da nuvem somente quando não há referências a eles. Por exemplo, se capturarmos um instantâneo da nuvem de todos os dados no dispositivo StorSimple e, em seguida, excluirmos alguns dados principais, veremos os _dados primários_ caírem imediatamente. Os _dados de nuvem_, que incluem os dados em camadas e os backups, permanecem iguais. Isso ocorre porque há um instantâneo que ainda está referenciando os dados de nuvem. Depois da exclusão do instantâneo de nuvem (e de qualquer outro instantâneo que referencie os mesmos dados), o consumo de dados cai. Antes de removermos os dados de nuvem, verificamos se nenhum instantâneo ainda faz referência a esses dados. Esse processo é chamado de _coleta de lixo_ e é um serviço em segundo plano executado no dispositivo. A remoção dos dados de nuvem não é imediata, já que o serviço de coleta de lixo verifica se há outras referências a esses dados antes da exclusão. A velocidade de coleta de lixo depende do número total de instantâneos e do total de dados. Normalmente, os dados de nuvem são limpos em menos de uma semana.
+
+
 ### <a name="thin-provisioning"></a>Provisionamento dinâmico
-Provisionamento dinâmico é uma tecnologia de virtualização em que o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica do armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas em mudança. 
+Provisionamento dinâmico é uma tecnologia de virtualização em que o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica do armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas em mudança.
 
 > [!NOTE]
 > Os volumes fixados localmente não são provisionados de modo dinâmico. O armazenamento alocado para um volume somente local é provisionado em sua totalidade durante a criação do volume.
-> 
-> 
+
 
 ### <a name="deduplication-and-compression"></a>Eliminação de duplicação e compactação
 O Microsoft Azure StorSimple usa eliminação de duplicação e compactação de dados para reduzir ainda mais os requisitos de armazenamento.
@@ -204,8 +210,7 @@ A eliminação de duplicação reduz a quantidade geral de dados armazenados, el
 
 > [!NOTE]
 > Os dados em volumes fixados localmente não têm eliminação de duplicação nem são compactados. No entanto, os backups de volumes fixados localmente têm eliminação de duplicação e são compactados.
-> 
-> 
+
 
 ## <a name="storsimple-workload-summary"></a>Resumo de carga de trabalho do StorSimple
 Confira na tabela abaixo um resumo das cargas de trabalho do StorSimple com suporte.

@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e14da5fa10533d922a6263e8f52a53c0eaa23393
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: faa6d403aa130738ae0b58ba1ffc828a1e37e9f4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -341,7 +342,7 @@ A indexação de blobs pode ser um processo demorado. Nos casos em que você tem
 ## <a name="indexing-documents-along-with-related-data"></a>Indexação de documentos junto com os dados relacionados
 
 Seus documentos podem ter metadados associados – por exemplo, o departamento que criou o documento – que são armazenados como dados estruturados em um dos locais a seguir.
--   Em um armazenamento de dados separado, como o Banco de Dados SQL ou DocumentDB.
+-   Em um armazenamento de dados separado, como o Banco de Dados SQL ou o Azure Cosmos DB.
 -   Anexado diretamente a cada documento no Armazenamento de Blobs do Azure como metadados personalizados. (Para obter mais informações, consulte [Configurando e recuperando as propriedades e metadados para recursos de blob](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).)
 
 Você pode indexar os documentos junto com seus metadados, atribuindo o mesmo valor de chave exclusivo para cada documento e seus metadados e especificando a ação `mergeOrUpload` para cada indexador. Para obter uma descrição detalhada desta solução, consulte este artigo externo: [Combinar documentos com outros dados no Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).

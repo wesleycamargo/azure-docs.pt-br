@@ -16,10 +16,10 @@ ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a0a3b7ad7757439b5f73c38e759761f671ca2e17
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o Controle de Acesso Baseado em Função do Azure
@@ -55,7 +55,7 @@ Este artigo aborda apenas as diferentes funções que existem atualmente. Quando
 | [Colaborador da fábrica de dados](#data-factory-contributor) |Pode criar e gerenciar data factories e recursos filho dentro deles. |
 | [Usuário do DevTest Labs](#devtest-labs-user) |Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las. |
 | [Colaborador de zona DNS](#dns-zone-contributor) |Pode gerenciar zonas e registros DNS |
-| [Colaborador de Conta do Banco de Dados de Documentos](#documentdb-account-contributor) |Pode gerenciar contas do Banco de Dados de Documentos |
+| [Colaborador de conta do Azure Cosmos DB](#documentdb-account-contributor) |Pode gerenciar contas do Azure Cosmos DB |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) |Pode gerenciar contas do Intelligent Systems |
 | [Leitor de monitoramento](#monitoring-reader) |Pode ler todos os dados de monitoramento |
 | [Colaborador de monitoramento](#monitoring-contributor) |Pode ler dados de monitoramento e editar configurações de monitoramento |
@@ -365,8 +365,8 @@ Pode gerenciar zonas e registros DNS.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/\* |Criar e gerenciar tíquetes de suporte |
 
-### <a name="documentdb-account-contributor"></a>Colaborador de Conta do Banco de Dados de Documentos
-Pode gerenciar contas do Banco de Dados de Documentos
+### <a name="azure-cosmos-db-account-contributor"></a>Colaborador de conta do Azure Cosmos DB
+Pode gerenciar contas do Azure Cosmos DB
 
 | **Ações** |  |
 | --- | --- |

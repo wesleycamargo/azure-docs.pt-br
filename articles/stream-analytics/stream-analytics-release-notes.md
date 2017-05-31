@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -85,7 +85,7 @@ Esta versão contém as atualizações a seguir.
 | --- | --- |
 | Visualização Pública do Azure IoT Suite |O Stream Analytics está incluído na Visualização Pública do Azure IoT Suite. |
 | Integração no Portal do Azure |Além da presença contínua no Portal de Gerenciamento do Azure, o Stream Analytics agora está integrado ao [Portal do Azure](https://azure.microsoft.com/overview/preview-portal/). Lembre-se de que a funcionalidade do Stream Analytics no portal de Visualização é atualmente um subconjunto da funcionalidade oferecida no portal de Gerenciamento do Azure, sem suporte para o teste de consulta no navegador, configuração de saída do Power BI e navegação ou criação de novos recursos de entrada e saída nas assinaturas às quais você tem acesso. |
-| Suporte para a saída do Banco de Dados de Documentos |Os trabalhos do Stream Analytics agora podem ser importados para o [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/). |
+| Suporte para a saída do Cosmos DB |Os trabalhos do Stream Analytics agora podem ser importados para o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). |
 | Suporte para a entrada do Hub IoT |Os trabalhos do Stream Analytics agora podem ingerir dados dos Hubs IoT. |
 | TIMESTAMP BY para eventos heterogêneos |Quando uma transmissão de dados única contém vários tipos de evento com carimbos de data/hora em diferentes campos, agora você pode usar o [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) com expressões para especificar diferentes campos de carimbo de data/hora para cada caso. |
 

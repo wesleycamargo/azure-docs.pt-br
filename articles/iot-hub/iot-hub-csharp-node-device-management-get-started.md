@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: f03b8d192255a3c93284f3c5e898f68a1234644f
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ef0e64cc7b52a67c8e9e735cb6aa4a378b9a8557
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -231,7 +232,7 @@ Para continuar com a introdução ao Hub IoT e aos padrões de gerenciamento de 
 
 Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, confira o tutorial [Agendar e difundir trabalhos][lnk-tutorial-jobs].
 
-Para continuar a introdução ao Hub IoT, confira [Introdução ao SDK do Gateway IoT][lnk-gateway-SDK].
+Para continuar a introdução ao Hub IoT, consulte [Introdução ao IoT Edge][lnk-gateway-SDK].
 
 <!-- images and links -->
 [img-output]: media/iot-hub-get-started-with-dm/image6.png

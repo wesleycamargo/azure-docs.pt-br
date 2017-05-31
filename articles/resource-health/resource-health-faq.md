@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 570688ae363e223d792bec8e6b13d4ec50412130
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 41522a85cac05304b3ae60c45b48920eefbe8f5c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -61,7 +62,7 @@ O Resource Health executa várias verificações com base no [tipo de recurso](r
 Há três status de integridade diferentes:
 1. Disponível: não há problemas conhecidos na plataforma do Azure que poderiam afetar esse recurso
 2. Não disponível: o Resource Health detectou problemas que estão afetando o recurso
-3. Desconhecido: o Resource Health pode determinar a integridade de um recurso por ter parado de receber informações sobre ele. 
+3. Desconhecido: o Resource Health não consegue determinar a integridade de um recurso porque parou de receber informações sobre ele. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>O que significa o status desconhecido? Há algo errado com meu recurso?
 O status de integridade é definido como desconhecido quando o Resource Health para de receber informações sobre um recurso específico. Embora esse status não seja uma indicação definitiva do estado do recurso, nos casos em que você estiver enfrentando problemas, isso pode indicar um problema com o Azure.

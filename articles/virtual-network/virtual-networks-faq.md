@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 58ee6e9cc14b01f10e20dfc3f289bfc6cc386e2a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: d66489b43e983f313028a846d2b7da1534c86b53
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -147,7 +148,7 @@ Não. Você não pode especificar um sufixo DNS personalizado para suas redes vi
 Sim. Todas as interfaces de rede (NIC) anexadas a uma VM implantada por meio do modelo de implantação do Gerenciador de Recursos devem estar conectadas a uma rede virtual. VMs implantadas por meio do modelo de implantação clássico podem ser conectadas a uma rede virtual.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Quais são os diferentes tipos de endereços IP que posso atribuir a VMs?
-* **Privado:** atribuído a cada NIC em cada VM. O endereço é atribuído usando o método de alocação estática ou dinâmica. Os endereços IP privados são atribuídos do intervalo que você especificou nas configurações de sub-rede da VNet. Recursos implantados por meio do modelo de implantação clássico recebem endereços IP privados mesmo se não estiverem conectados a uma rede virtual. Um endereço IP privado dinâmico permanece atribuído a um recurso até que este seja desalocado (VMs) ou excluído (VMs ou slots de implantação do Serviço de Nuvem). Um endereço IP privado estático permanece atribuído a um recurso até este seja excluído.
+* **Privado:** atribuído a cada NIC em cada VM. O endereço é atribuído usando o método estático ou dinâmico. Os endereços IP privados são atribuídos do intervalo que você especificou nas configurações de sub-rede da VNet. Recursos implantados por meio do modelo de implantação clássico recebem endereços IP privados mesmo que não estejam conectados a uma VNet. Um endereço IP privado atribuído com o método dinâmico permanece atribuído a um recurso até que este seja excluído (slots de implantação de Serviço de Nuvem ou VMs). Um endereço IP privado atribuído com o método dinâmico pode mudar quando uma VM for reiniciada depois de ter ficado no estado parado (desalocado). Um endereço IP privado atribuído com o método estático permanece atribuído a um recurso até que o recurso seja excluído. Se você precisar garantir que o endereço IP privado de um recurso nunca mude até o recurso ser excluído, atribua um endereço IP privado com o método estático.
 * **Público:** opcionalmente atribuído a NICs anexadas a VMs implantadas por meio do modelo de implantação do Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estática ou dinâmica. Todas as instâncias de função de VMs e Serviços de Nuvem implantadas por meio do modelo de implantação clássico existem dentro de um serviço de nuvem, ao qual é atribuído um endereço IP endereço virtual IP (VIP) *dinâmico* e público. Um endereço IP público e *estático*, chamado de [endereço IP Reservado](virtual-networks-reserved-public-ip.md), pode ser atribuído como VIP. Você pode atribuir endereços IP públicos a instâncias de função de VMs ou serviços de nuvem individuais implantados por meio do modelo de implantação clássico. Eles são chamados de [endereços IP públicos em nível de instância (ILPIP)](virtual-networks-instance-level-public-ip.md) e podem ser atribuídos dinamicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Posso reservar um endereço IP privado para uma VM que vou criar mais tarde?

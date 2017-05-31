@@ -9,15 +9,15 @@ editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -159,7 +159,7 @@ Várias ferramentas do Azure são instaladas na VM:
 * **AzCopy**: usado para mover dados para dentro e fora de sua Conta de Armazenamento do Microsoft Azure. Para ver o uso, digite **Azcopy** em um prompt de comando. 
 * **Gerenciador de Armazenamento do Microsoft Azure**: usado para procurar os objetos armazenados em sua Conta de Armazenamento do Azure e transferir dados para dentro e fora do Armazenamento do Azure. Você pode digitar **Gerenciador de Armazenamento** na pesquisa ou encontrá-lo no menu Iniciar do Windows para acessar essa ferramenta. 
 * **Adlcopy**: usado para mover dados para o Azure Data Lake. Para ver o uso, digite **adlcopy** em um prompt de comando. 
-* **dtui**: usado para mover dados para dentro e fora do Azure DocumentDB, um banco de dados NoSQL na nuvem. Digite **dtui** no prompt de comando. 
+* **dtui**: usado para mover dados para dentro e fora do Azure Cosmos DB, um banco de dados NoSQL na nuvem. Digite **dtui** no prompt de comando. 
 * **Gateway de Gerenciamento de Dados da Microsoft**: permite a movimentação de dados entre fontes de dados locais e a nuvem. É usado em ferramentas como o Azure Data Factory. 
 * **Microsoft Azure PowerShell**: uma ferramenta usada para administrar os recursos do Azure na linguagem de script do PowerShell também é instalada em sua VM. 
 

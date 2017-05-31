@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 05/09/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: b9eb9c7f59d0936364bad788ed3b6635b2453739
-ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -24,7 +26,7 @@ ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
 
 O Controle de Acesso Baseado em Função ajuda os administradores de locatários a obter elevações temporárias no acesso para que eles possam conceder permissões mais elevadas que o normal. Um administrador de locatários pode elevar a si mesmo para a função de Administrador de Acesso do Usuário quando necessário. Essa função fornece ao administrador de locatários permissões para conceder a si mesmo ou a outras funções no escopo "/".
 
-Esse recurso é importante porque permite que o administrador de locatários veja todas as assinaturas que existem em uma organização. Ele também permite aos aplicativos de automação (como faturamento e auditoria) acessar todas as assinaturas e fornecer uma visão precisa do estado da organização de uma perspectiva de gerenciamento de ativos ou de cobrança.  
+Esse recurso é importante porque permite que o administrador de locatários veja todas as assinaturas que existem em uma organização. Também permite aos aplicativos de automação (como faturamento e auditoria) acessar todas as assinaturas e fornecer uma exibição precisa do estado da organização em termos de gerenciamento de ativos ou cobrança.  
 
 ## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Como usar elevateAccess para fornecer acesso de locatário
 
@@ -106,9 +108,4 @@ Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo
 - Saiba mais sobre [como gerenciar o Controle de Acesso Baseado em Função com REST](role-based-access-control-manage-access-rest.md)
 
 - [Gerenciar atribuições de acesso](role-based-access-control-manage-assignments.md) no Portal do Azure
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

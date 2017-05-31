@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b3eebdd714b38ffd9432404944829d05ef3c3dc6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2601850f99188445cf63a6a4f185bdc4ebb92c29
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -44,6 +44,12 @@ Se qualquer uma das condições anteriores não for atendida, será solicitado q
 
 ![Logon Único Contínuo](./media/active-directory-aadconnect-sso/sso1.png)
 
+As outras funcionalidades do SSO Contínuo são as seguintes:
+
+- Se uma solicitação de conexão do Azure AD incluir o parâmetro `domain_hint` ou `login_hint` (iniciada por um aplicativo no locatário), o SSO Contínuo aproveitará isso e o usuário não precisará inserir seu nome de usuário e sua senha.
+- O SSO Contínuo dá suporte a um nome de usuário que é o nome de usuário local padrão (normalmente, “userPrincipalName”) ou a outro atributo configurado no Azure AD Connect (conhecido como “ID Alternativa”).
+- O SSO contínuo é um recurso oportunista, ou seja, se ele falhar por algum motivo, a experiência de entrada do usuário retorna ao comportamento normal, no qual o usuário precisará digitar sua senha na página de entrada.
+
 ## <a name="whats-available-during-preview"></a>O que está disponível durante a visualização?
 
 >[!NOTE]
@@ -63,8 +69,6 @@ O SSO Contínuo tem suporte via clientes baseados em navegador da Web e clientes
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é usar o [Ingresso do Azure AD](../active-directory-azureadjoin-overview.md) para obter a experiência ideal com o Azure AD.
-
-Se uma solicitação de entrada do Azure AD inclui o parâmetro `domain_hint` ou `login_hint` (iniciada por um aplicativo em seu Locatário), o SSO contínuo aproveitará isso e o usuário não precisará inserir seu nome de usuário e senha.
 
 ## <a name="how-does-azure-ad-seamless-sso-work"></a>Como funciona o SSO contínuo do Azure AD?
 
@@ -102,8 +106,8 @@ Se você estiver habilitando SSO contínuo com autenticação de passagem, não 
 Se você estiver habilitando o SSO contínuo com sincronização de senha e se houver um firewall entre o Azure AD Connect e o Azure AD, certifique-se de que:
 
 - O servidor do Azure AD Connect possa se comunicar com URLs do `*.msappproxy.net`.
-- O Azure AD Connect (versões 1.1.484.0 ou superiores) pode fazer solicitações HTTPS para o Azure AD pela porta 443. Isso é usado somente para habilitar a funcionalidade, e não para as entradas de usuário reais.
-- O Azure AD Connect também estabelece conexões IP diretas com os [intervalos de IP do data center do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Novamente, isso só é usado para habilitar o recurso.
+- O Azure AD Connect (versões 1.1.484.0 ou superiores) pode fazer solicitações HTTPS para o Azure AD pela porta 443. Isso só é usado para habilitar o recurso, não para conexões de usuário reais.
+- O Azure AD Connect também estabelece conexões IP diretas com os [intervalos de IP do data center do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Novamente, isso só é usado para habilitar o recurso.
 
 >[!NOTE]
 > As versões mais antigas do Azure AD Connect (inferiores a 1.1.484.0) precisam conseguir se comunicar com o Azure AD pela porta 9090.
@@ -120,9 +124,9 @@ Se você já tiver uma instalação do Azure AD Connect, instale usando o caminh
 
 ![Azure AD Connect – Alterar entrada do usuário](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
-Prossiga com o assistente de instalação até você chegar à página "Habilitar logon único". Você precisará fornecer as credenciais de administrador de domínio para cada floresta do AD que você sincronizar ao Azure AD (por meio do Azure AD Connect) e para cujos usuários você deseja habilitar o SSO contínuo. Observe que as credenciais de administrador de domínio não são armazenadas no Azure AD Connect ou Azure AD, mas são usadas somente para criar a conta do computador e configurar os SPNs Kerberos conforme descrito anteriormente.
+Prossiga com o assistente até você chegar à página “Habilitar logon único”. Você precisará fornecer as credenciais de administrador de domínio para cada floresta do AD que você sincronizar ao Azure AD (por meio do Azure AD Connect) e para cujos usuários você deseja habilitar o SSO contínuo. Observe que as credenciais de administrador de domínio não são armazenadas no Azure AD Connect ou Azure AD, mas são usadas somente para criar a conta do computador e configurar os SPNs Kerberos conforme descrito anteriormente.
 
-Neste ponto, o SSO contínuo está habilitado no seu locatário. Observe que você ainda precisa concluir as etapas na próxima seção antes que os usuários possam se beneficiar dessa funcionalidade.
+Após a conclusão do assistente, o SSO Contínuo é habilitado no locatário. Observe que você ainda precisa concluir as etapas na próxima seção antes que os usuários possam se beneficiar dessa funcionalidade.
 
 ## <a name="rolling-the-feature-out-to-your-users"></a>Distribuindo a funcionalidade para os usuários
 
@@ -142,10 +146,10 @@ Já que as URLs do Azure AD usadas para SSO contínuo contêm um ponto, elas pre
 ![Logon Único](./media/active-directory-aadconnect-sso/sso6.png)  
 4. Habilite a política e insira os valores/dados a seguir na caixa de diálogo. Essas são as URLs do Azure AD para as quais os tíquetes Kerberos são enviados.
 
-        Value: https://autologon.microsoftazuread-sso.com  
-        Data: 1  
-        Value: https://aadg.windows.net.nsatc.net  
-        Data: 1  
+        Value: https://autologon.microsoftazuread-sso.com
+        Data: 1
+        Value: https://aadg.windows.net.nsatc.net
+        Data: 1
 5. Clique em **OK** e em **OK** novamente.
 
 O resultado deve ser assim:
@@ -155,29 +159,26 @@ O resultado deve ser assim:
 >[!NOTE]
 >Por padrão, o Chrome usa o mesmo conjunto de URLs de sites confiáveis que o Internet Explorer. Se tiver definido configurações diferentes para o Chrome, você precisará atualizá-las separadamente.
 
-## <a name="troubleshooting-seamless-sso"></a>Solução de problemas de SSO contínuo
+## <a name="disabling-azure-ad-seamless-sso"></a>Desabilitando o SSO Contínuo do Azure AD
 
-Use a lista de verificação a seguir para solucionar problemas de SSO contínuo:
+O SSO Contínuo do Azure AD pode ser desabilitado por meio do Azure AD Connect.
 
-1. Verifique se a funcionalidade SSO contínuo está habilitada em seu locatário na ferramenta Azure AD Connect. Se você não puder habilitar a funcionalidade (por exemplo, devido a uma porta bloqueada), certifique-se de cumprir todos os [pré-requisitos](#pre-requisites). Se você ainda estiver enfrentando problemas para habilitar a funcionalidade, entre em contato com o Suporte da Microsoft.
-2. Ambas as URLs de serviço https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net são definidas como parte das configurações da zona de Intranet.
-3. Certifique-se de que o computador desktop corporativo seja ingressado no domínio do AD.
-4. Certifique-se de que o usuário faça logon no computador desktop usando uma conta de domínio do AD.
-5. Verifique se a conta do usuário é de uma floresta do AD na qual o SSO contínuo foi configurado.
-6. Certifique-se de que o computador desktop esteja conectado à rede corporativa.
-7. Certifique-se de que a hora do computador desktop esteja sincronizada com a hora do Active Directory e a dos controladores de domínio e também que elas tenham 5 minutos ou menos de diferença entre si.
-8. Limpe os tíquetes Kerberos existentes dos computadores desktop. Isso pode ser feito executando o comando **klist purge** em um prompt de comando.
-9. Examine os logs do console do navegador (em "Ferramentas de Desenvolvedor)" para ajudar a determinar problemas potenciais.
+Execute o Azure AD Connect, escolha “Alterar página de conexão do usuário” e clique em “Avançar”. Em seguida, desmarque a opção “Habilitar logon único”. Continue com o assistente. Após a conclusão do assistente, o SSO Contínuo é desabilitado no locatário. No entanto, você verá uma mensagem na tela que informa o seguinte:
 
-### <a name="domain-controller-logs"></a>Logs do controlador de domínio
+“O logon único agora está desabilitado, mas há etapas manuais adicionais a serem realizadas para concluir a limpeza. Saiba mais”
 
-Se a auditoria de êxito está habilitada no seu controlador de domínio, sempre que um usuário entra usando SSO contínuo, uma entrada de segurança (evento 4769 associado à conta de computador **AzureADSSOAcc$**) é registrada no log de eventos. Você pode encontrar esses eventos de segurança usando a consulta a seguir:
+Estas são as etapas manuais de que você precisa:
 
-```
-    <QueryList>
-      <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
-      </Query>
-    </QueryList>
-```
+- Obter a lista de florestas do AD em que o SSO Contínuo foi habilitado
+  - No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Isso deve fornecer a você um pop-up para inserir suas credenciais de administrador de locatários do Azure AD.
+  - Chame `Get-AzureADSSOStatus`. Isso fornecerá a lista de florestas do AD (consulte a lista “Domínios”) em que esse recurso foi habilitado.
+- Exclua manualmente a conta do computador AZUREADSSOACCT de cada floresta do AD que você encontrar listada acima.
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Leia nosso [guia de solução de problemas](active-directory-aadconnect-troubleshoot-sso.md) para saber como resolver problemas comuns com o SSO Contínuo do Azure AD.
+
+## <a name="feedback"></a>Comentários
+
+Seus comentários são importantes para nós. Use a seção de comentários abaixo caso tenha dúvidas. Use nosso [fórum do UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) para fazer solicitações de novos recursos.
 

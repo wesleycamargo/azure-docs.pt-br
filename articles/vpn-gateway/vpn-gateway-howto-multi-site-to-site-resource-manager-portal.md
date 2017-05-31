@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: bbe76873c94aea0db7843af36d8a8d44d7565bbb
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 9550b0076105b018bd8ede50519ac96bfb773001
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -45,7 +46,7 @@ Verifique os itens a seguir:
 
 * Você não está criando uma conexão ExpressRoute/S2S coexistente.
 * Você tem uma rede virtual que foi criada usando o modelo de implantação do Gerenciador de Recursos com uma conexão existente.
-* O gateway de rede virtual para sua VNet é RouteBased. Se você tiver um gateway de VPN PolicyBased, você deverá excluir o gateway de rede virtual e criar um novo gateway de VPN como RoutBased.
+* O gateway de rede virtual para sua VNet é RouteBased. Se você tiver um gateway de VPN PolicyBased, deverá excluir o gateway de rede virtual e criar um novo gateway de VPN como RouteBased.
 * Nenhum dos intervalos de endereço se sobrepõe a qualquer uma das VNets a que essa VNet está se conectando.
 * Você possui um dispositivo VPN compatível e alguém que possa configurá-lo. Confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se você não estiver familiarizado com a configuração de seu dispositivo VPN ou se não estiver familiarizado com os intervalos de endereços IP localizados em sua configuração de rede local, será necessário coordenar com alguém que possa fornecer os detalhes para você.
 * Você possui um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
@@ -94,3 +95,4 @@ Verifique os itens a seguir:
 ## <a name="next-steps"></a>Próximas etapas
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte o roteiro de aprendizagem das [máquinas virtuais](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) para obter mais informações.
+

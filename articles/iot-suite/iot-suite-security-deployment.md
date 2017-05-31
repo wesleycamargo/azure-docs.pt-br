@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8b453c7fe85a60791867d1c49fc2350e5f51a489
-ms.openlocfilehash: c18267b62b415015eb1e1b557c5dd60a51df415b
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 503cb1c10b60ed6f50b7153b7f0772d46eac8646
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -79,10 +80,10 @@ O Azure IoT Suite dá suporte ao seguintes Pacotes de Criptografia, nessa ordem.
 
 | Pacote de criptografia | Comprimento |
 | --- | --- |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (eq. RSA de&7680; bits) FS |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (eq. RSA de&3072; bits) FS |128 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (eq. RSA de&7680; bits) FS |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (eq. RSA de&3072; bits) FS |128 |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (eq. RSA de 7680 bits) FS |256 |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (eq. RSA de 3072 bits) FS |128 |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (eq. RSA de 7680 bits) FS |256 |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (eq. RSA de 3072 bits) FS |128 |
 | TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (0x9d) |256 |
 | TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (0x9c) |128 |
 | TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256 (0x3d) |256 |
@@ -107,7 +108,7 @@ O Hub IoT do Azure e outros serviços que podem ser parte da solução permitem 
 
 Dados ingeridos pelo Hub IoT do Azure podem ser consumidos por diversos serviços, como Stream Analytics do Azure e armazenamento de blobs do Azure. Esses serviços permitem o acesso de gerenciamento. Leia mais sobre esses serviços e opções disponíveis abaixo:
 
-* [Azure DocumentDB][lnk-docdb]: um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados, que gerenciam os metadados para os dispositivos que você provisiona, como atributos, configuração e propriedades de segurança. O Banco de Dados de Documentos oferece processamento de alto desempenho e alta taxa de transferência, indexação independente do esquema de dados e uma interface de consulta SQL avançada.
+* [Azure Cosmos DB][lnk-docdb]: um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados que gerencia os metadados para os dispositivos que você provisiona, como atributos, configuração e propriedades de segurança. O Cosmos DB oferece processamento de alto desempenho e alta produtividade, indexação de dados independente de esquema e uma interface de consulta SQL avançada.
 * [Stream Analytics do Azure][lnk-asa]: processamento de transmissão em tempo real na nuvem, que permite que você desenvolva e implante com rapidez uma solução de análise econômica a fim de descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
 * [Serviços de Aplicativos do Azure][lnk-appservices]: uma plataforma de nuvem para compilar aplicativos Web e móveis avançados que se conectam aos dados em qualquer lugar, na nuvem ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, Node.js, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
 * [Aplicativos lógicos][lnk-logicapps]: o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar sua solução de IoT para sua linha de sistemas de negócios existentes e a automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
@@ -144,3 +145,4 @@ Leia sobre a segurança do Hub IoT em [Controlar o acesso ao Hub IoT][lnk-devgui
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
+
