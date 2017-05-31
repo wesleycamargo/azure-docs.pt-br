@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: b-hoedid
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
-ms.lasthandoff: 04/04/2017
+ms.author: LADocs; b-hoedid
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f68b27e007ad2de9e880f1fe0736d403f74dc80b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -46,12 +47,12 @@ O projeto tinha dois requisitos principais:
 
 ## <a name="how-we-solved-the-problem"></a>Como solucionamos o problema
 
-Escolhemos o [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/ "Banco de Dados de Documentos do Azure") como um repositório para os registros de log e de erros (O Banco de Dados de Documentos trata os registros como documentos). Como o Aplicativo Lógico do Azure tem um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
+Escolhemos o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") como um repositório dos registros de log e erros (o Cosmos DB refere-se aos registros como documentos). Como o Aplicativo Lógico do Azure tem um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
 
-Outro requisito era eliminar registros após determinada data. O Banco de Dados de Documentos tem uma propriedade chamada [TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "TTL") (Time-To-Live), que nos permitiu definir um valor **TTL** para cada registro ou coleção. Essa funcionalidade eliminou a necessidade de excluir manualmente os registros do DocumentDB.
+Outro requisito era eliminar registros após determinada data. O Cosmos DB tem uma propriedade chamada [TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (vida útil), que nos permitiu definir um valor de **TTL** para cada registro ou coleção. Essa funcionalidade eliminou a necessidade de excluir manualmente os registros do Cosmos DB.
 
 > [!IMPORTANT]
-> Para concluir este tutorial, você precisa criar um banco de dados do DocumentDB e duas coleções (Log e Erros).
+> Para concluir este tutorial, você precisa criar um banco de dados do Cosmos DB e duas coleções (Log e Erros).
 
 ## <a name="create-the-logic-app"></a>Criar o aplicativo lógico
 
@@ -258,7 +259,7 @@ Este é o código-fonte do aplicativo lógico para criar um registro de erro.
 }             
 ```
 
-#### <a name="insert-error-into-documentdb--request"></a>Inserir erro no Banco de Dados de Documentos - solicitação
+#### <a name="insert-error-into-cosmos-db--request"></a>Inserir erro na solicitação do Cosmos DB
 
 ``` json
 
@@ -281,7 +282,7 @@ Este é o código-fonte do aplicativo lógico para criar um registro de erro.
 }
 ```
 
-#### <a name="insert-error-into-documentdb--response"></a>Inserir erro no Banco de Dados de Documentos - resposta
+#### <a name="insert-error-into-cosmos-db--response"></a>Inserir erro na resposta do Cosmos DB
 
 ``` json
 {
@@ -399,16 +400,16 @@ Assim que você obtiver a resposta, poderá passá-la para o aplicativo lógico 
 ```
 
 
-## <a name="documentdb-repository-and-portal"></a>Repositório e portal do Banco de Dados de Documentos
+## <a name="cosmos-db-repository-and-portal"></a>Repositório e portal do Cosmos DB
 
-Nossa solução adicionou funcionalidades com o [DocumentDB](https://azure.microsoft.com/services/documentdb).
+Nossa solução adicionou funcionalidades ao [Cosmos DB](https://azure.microsoft.com/services/documentdb).
 
 ### <a name="error-management-portal"></a>Portal de gerenciamento de erros
 
-Para exibir os erros, você pode criar um aplicativo Web do MVC para exibir os registros de erro do Banco de Dados de Documentos. As operações **Listar**, **Detalhes**, **Editar** e **Excluir** foram incluídas na versão atual.
+Para exibir os erros, crie um aplicativo Web do MVC para exibir os registros de erro do Cosmos DB. As operações **Listar**, **Detalhes**, **Editar** e **Excluir** foram incluídas na versão atual.
 
 > [!NOTE]
-> Operação de edição: o DocumentDB substitui o documento inteiro. Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
+> Operação de edição: o Cosmos DB substitui o documento inteiro. Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
 
 Estes são exemplos de detalhes de nosso aplicativo MVC criados com a abordagem descrita anteriormente.
 
@@ -492,3 +493,4 @@ O código-fonte para o aplicativo de API de gerenciamento de exceções de Aplic
 * [Exibir mais exemplos e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Saiba mais sobre como monitorar aplicativos lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Criar modelos de implantação automatizados para aplicativos lógicos](../logic-apps/logic-apps-create-deploy-template.md)
+

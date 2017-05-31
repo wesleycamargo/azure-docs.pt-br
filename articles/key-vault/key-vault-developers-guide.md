@@ -8,13 +8,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 04/21/2017
+ms.date: 05/10/2017
 ms.author: bruceper
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 0a319f25149c41fcdde0722ce232b3e229b95d0d
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: b046e95e2167009727f6ea8f3dd237619c61434f
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,6 +28,15 @@ O Key Vault permite acessar com segurança informações confidenciais nos aplic
 - A partir do lançamento de setembro de 2016 do Key Vault, seus aplicativos agora podem usar [certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-operations) do Key Vault. Para obter mais informações, consulte [Sobre chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 Para obter mais informações gerais sobre o Cofre de Chaves do Azure, confira [O que é o Cofre de Chaves](key-vault-whatis.md).
+
+## <a name="public-preview---may-10-2017"></a>Visualização Pública – 10 de maio de 2017
+
+>[!NOTE]
+>Nesta versão prévia do Azure Key Vault, apenas o recurso **exclusão reversível** está em versão prévia. O Azure Key Vault, como um todo, é um serviço de produção completo.
+
+Essa versão prévia inclui nosso novo recurso de exclusão reversível, exclusão recuperável de Key Vaults e objetos do Key Vault e interfaces atualizadas para desenvolvedores: [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) e [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+
+Para obter mais informações sobre o novo recurso de exclusão reversível, consulte [Visão geral da exclusão reversível do Azure Key Vault](key-vault-ovw-soft-delete.md).
 
 ## <a name="videos"></a>Vídeos
 
@@ -108,6 +117,11 @@ Estes artigos abordam outros cenários e serviços que usam ou se integram ao Ke
 - A [Azure Disk Encryption](../security/azure-security-disk-encryption.md) aproveita o recurso padrão da indústria [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o SO e os discos de dados. A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre de chaves, garantindo ao mesmo tempo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
 - O [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) fornece a opção de criptografia dos dados que são armazenados na conta. Em relação ao gerenciamento de chaves, o Data Lake Store fornece dois modos para gerenciar suas chaves-mestras de criptografia (MEKs), que são necessárias para descriptografar os dados armazenados no Data Lake Store. Você também pode deixar o Data Lake Store gerenciar as MEKs para você ou optar por manter a propriedade das MEKs usando sua conta do Cofre de Chaves do Azure. Você pode especificar o modo de gerenciamento de chaves ao criar uma conta do Data Lake Store. 
 - [Proteção de Informações do Azure](/information-protection/plan-design/plan-implement-tenant-key) permite a você gerenciar sua própria chave de locatário. Por exemplo, em vez de a Microsoft gerenciar sua chave de locatário (o padrão), você pode gerenciá-la para cumprir os regulamentos específicos que se aplicam à sua organização. Gerenciar sua própria chave de locatário também é conhecido como "traga sua própria chave", ou BYOK.
+
+## <a name="key-vault-overviews-and-concepts"></a>Visões gerais e conceitos do Key Vault
+
+- [Universos de segurança do Key Vault](key-vault-ovw-security-worlds.md)
+- [Exclusão reversível do Key Vault](key-vault-ovw-soft-delete.md)
 
 ## <a name="social"></a>Redes sociais
 

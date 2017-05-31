@@ -1,42 +1,44 @@
 ---
-title: Gerenciar uma conta do Banco de Dados de Documentos usando o Portal do Azure | Microsoft Docs
-description: Saiba como gerenciar sua conta do Banco de Dados de Documentos pelo Portal do Azure. Encontre um guia sobre como usar o Portal do Azure para exibir, copiar, excluir e acessar contas.
+title: Gerenciar uma conta do Azure Cosmos DB pelo Portal do Azure | Microsoft Docs
+description: Saiba como gerenciar sua conta do Azure Cosmos DB pelo Portal do Azure. Encontre um guia sobre como usar o Portal do Azure para exibir, copiar, excluir e acessar contas.
 keywords: Portal do Azure, banco de dados de documentos, azure, Microsoft azure
-services: documentdb
+services: cosmosdb
 documentationcenter: 
 author: kirillg
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
-ms.openlocfilehash: ee1668dce71a1f5d7b91e839670b69c9527c4892
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 59c2a0fb05809233cf789feb81189a24a18484b9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="how-to-manage-a-documentdb-account"></a>Como gerenciar uma conta do Banco de Dados de Documentos
-Saiba como definir a consistência global, trabalhar com chaves e excluir uma conta do DocumentDB no portal do Azure.
+# <a name="how-to-manage-an-azure-cosmos-db-account"></a>Como gerenciar uma conta do Azure Cosmos DB
+Saiba como definir a consistência global, trabalhar com chaves e excluir uma conta do Azure Cosmos DB no portal do Azure.
 
-## <a name="a-idconsistencyamanage-documentdb-consistency-settings"></a><a id="consistency"></a>Gerenciar as configurações de consistência do Banco de Dados de Documentos
-A seleção do nível certo de consistência depende da semântica do aplicativo. Você deve se familiarizar com os níveis de consistência disponíveis no DocumentDB lendo [Como usar os níveis de consistência para maximizar a disponibilidade e o desempenho no DocumentDB][consistency]. O DocumentDB fornece garantias de consistência, disponibilidade e desempenho, em cada nível de consistência disponível para sua conta de banco de dados. A configuração da conta do banco de dados com um nível de consistência Strong exige que seus dados sejam confinados em uma única região do Azure, e não globalmente disponíveis. Por outro lado, os níveis de consistência flexíveis — bounded staleness, session ou eventual — permitem associar qualquer número de regiões do Azure à sua conta de banco de dados. As etapas simples a seguir mostram como selecionar o nível de consistência padrão para sua conta de banco de dados. 
+## <a id="consistency"></a>Gerenciar as configurações de consistência do Azure Cosmos DB
+A seleção do nível certo de consistência depende da semântica do aplicativo. Familiarize-se com os níveis de consistência disponíveis no Azure Cosmos DB lendo [Usando níveis de consistência para maximizar a disponibilidade e o desempenho no Azure Cosmos DB][consistency]. O Azure Cosmos DB fornece garantias de consistência, disponibilidade e desempenho, em cada nível de consistência disponível para sua conta de banco de dados. A configuração da conta do banco de dados com um nível de consistência Strong exige que seus dados sejam confinados em uma única região do Azure, e não globalmente disponíveis. Por outro lado, os níveis de consistência flexíveis — bounded staleness, session ou eventual — permitem associar qualquer número de regiões do Azure à sua conta de banco de dados. As etapas simples a seguir mostram como selecionar o nível de consistência padrão para sua conta de banco de dados. 
 
-### <a name="to-specify-the-default-consistency-for-a-documentdb-account"></a>Para especificar a consistência padrão para uma conta do Banco de Dados de Documentos
-1. No [portal do Azure](https://portal.azure.com/), acesse sua conta do DocumentDB.
+### <a name="to-specify-the-default-consistency-for-an-azure-cosmos-db-account"></a>Para especificar a consistência padrão de uma conta do Azure Cosmos DB
+1. No [portal do Azure](https://portal.azure.com/), acesse sua conta do Azure Cosmos DB.
 2. Na folha da conta, clique em **Consistência padrão**.
 3. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
     ![Sessão de consistência padrão][5]
 
-## <a name="a-idkeysaview-copy-and-regenerate-access-keys"></a><a id="keys"></a>Exibir, copiar e regenerar chaves de acesso
-Quando você cria uma conta do Banco de Dados de Documentos, o serviço gera duas chaves de acesso mestras que podem ser usadas para autenticação quando a conta do Banco de Dados de Documentos é acessada. Ao fornecer as duas chaves de acesso, o Banco de Dados de Documentos permite regenerar as chaves sem interrupção para a sua conta do Banco de Dados de Documentos. 
+## <a id="keys"></a>Exibir, copiar e regenerar chaves de acesso
+Quando você cria uma conta do Azure Cosmos DB, o serviço gera duas chaves de acesso mestras que podem ser usadas para autenticação quando a conta do Azure Cosmos DB é acessada. Ao fornecer duas chaves de acesso, o Azure Cosmos DB permite regenerar as chaves sem nenhuma interrupção na conta do Azure Cosmos DB. 
 
-No [portal do Azure](https://portal.azure.com/), acesse a folha **Chaves** no menu de recursos da **Conta do DocumentDB** para exibir, copiar e regenerar as chaves de acesso que são usadas para acessar sua conta do DocumentDB.
+No [portal do Azure](https://portal.azure.com/), acesse a folha **Chaves** no menu de recursos da folha **Conta do Azure Cosmos DB** para exibir, copiar e regenerar as chaves de acesso que são usadas para acessar sua conta do Azure Cosmos DB.
 
 ![Captura de tela do Portal do Azure, folha Chaves](./media/documentdb-manage-account/keys.png)
 
@@ -53,18 +55,18 @@ Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você q
 ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/documentdb-manage-account/copykeys.png)
 
 ### <a name="regenerate-access-keys"></a>Regenerar chaves de acesso
-Você deve alterar as chaves de acesso da sua conta do Banco de Dados de Documentos periodicamente para ajudar a manter as conexões mais seguras. Duas chaves de acesso são atribuídas para permitir que você mantenha conexões com a conta do Banco de Dados de Documentos usando uma chave de acesso enquanto regenera a outra chave de acesso.
+Você deve alterar as chaves de acesso de sua conta do Azure Cosmos DB periodicamente para ajudar a manter as conexões mais seguras. Duas chaves de acesso são atribuídas para permitir que você mantenha conexões com a conta do Azure Cosmos DB usando uma chave de acesso enquanto regenera a outra.
 
 > [!WARNING]
-> A regeneração de suas chaves de acesso afeta quaisquer aplicativos que são dependentes da chave atual. Todos os clientes que usam a chave de acesso para acessar a conta do Banco de Dados de Documentos devem ser atualizados para usarem a nova chave.
+> A regeneração de suas chaves de acesso afeta quaisquer aplicativos que são dependentes da chave atual. Todos os clientes que usam a chave de acesso para acessar a conta do Azure Cosmos DB devem ser informados para usarem a nova chave.
 > 
 > 
 
-Se tiver aplicativos ou serviços de nuvem usando a conta do Banco de Dados de Documentos, você perderá as conexões se regenerar chaves, a menos que você as reverta. As etapas a seguir descrevem o processo envolvido ao reverter suas chaves.
+Se você tiver aplicativos ou serviços de nuvem que usam a conta do Azure Cosmos DB, perderá as conexões se regenerar as chaves, a menos que você as reverta. As etapas a seguir descrevem o processo envolvido ao reverter suas chaves.
 
-1. Atualize as chaves de acesso no código do aplicativo para fazer referência à chave de acesso secundária da conta do Banco de Dados de Documentos.
-2. Regenere a chave de acesso primária de sua conta do Banco de Dados de Documentos. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos.
-3. Na folha **Conta do DocumentDB**, clique em **Chaves**.
+1. Atualize a chave de acesso no código do aplicativo para referenciar a chave de acesso secundária da conta do Azure Cosmos DB.
+2. Regenere a chave de acesso primária de sua conta do Azure Cosmos DB. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Azure Cosmos DB.
+3. Na folha **Conta do Azure Cosmos DB**, clique em **Chaves**.
 4. Na folha **Chaves**, clique no botão Regenerar e clique em **Ok** para confirmar que você quer gerar uma nova chave.
     ![Regenerar chaves de acesso](./media/documentdb-manage-account/regenerate-keys.png)
 5. Uma vez que você verificou que a nova chave está disponível para uso(aproximadamente 5 minutos após a regeneração), atualize a chave de acesso em seu código do aplicativo para fazer referência à nova chave de acesso principal.
@@ -73,33 +75,33 @@ Se tiver aplicativos ou serviços de nuvem usando a conta do Banco de Dados de D
     ![Regenerar chaves de acesso](./media/documentdb-manage-account/regenerate-secondary-key.png)
 
 > [!NOTE]
-> Levará alguns minutos para que a chave gerada recentemente possa ser usada para acessar sua conta do Banco de Dados de Documentos.
+> Poderá levar alguns minutos para que a chave recém-gerada possa ser usada para acessar sua conta do Azure Cosmos DB.
 > 
 > 
 
 ## <a name="get-the--connection-string"></a>Obtenha a cadeia de conexão
 Para recuperar sua cadeia de conexão, faça o seguinte: 
 
-1. No [portal do Azure](https://portal.azure.com), acesse sua conta do DocumentDB.
+1. No [portal do Azure](https://portal.azure.com), acesse sua conta do Azure Cosmos DB.
 2. No menu de recursos, clique em **Chaves**.
 3. Clique no botão **Copiar** ao lado da caixa **Cadeia de conexão primária** ou **Cadeia de conexão secundária** caixa. 
 
-Se você estiver usando a cadeia de conexão na [Ferramenta de migração do DocumentDB](documentdb-import-data.md), acrescente o nome do banco de dados ao final da cadeia de conexão. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
+Se você estiver usando a cadeia de conexão na [Ferramenta de Migração de Banco de Dados do Azure Cosmos DB](documentdb-import-data.md), acrescente o nome do banco de dados ao final da cadeia de conexão. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
-## <a name="a-iddeletea-delete-a-documentdb-account"></a><a id="delete"></a> Excluir uma conta do Banco de Dados de Documentos
-Para remover uma conta do DocumentDB do Portal do Azure que não está mais sendo usada, clique com o botão direito do mouse no nome da conta e depois clique em **Excluir Conta**.
+## <a id="delete"></a> Excluir uma conta do Azure Cosmos DB
+Para remover uma conta do Azure Cosmos DB no Portal do Azure que não está mais sendo usada, clique com o botão direito do mouse no nome da conta e, depois, clique em **Excluir conta**.
 
-![Como excluir uma conta do Banco de Dados de Documentos no Portal do Azure](./media/documentdb-manage-account/deleteaccount.png)
+![Como excluir uma conta do Azure Cosmos DB no Portal do Azure](./media/documentdb-manage-account/deleteaccount.png)
 
-1. No [portal do Azure](https://portal.azure.com/), acesse a conta do DocumentDB que quer excluir.
-2. Na folha **Conta do DocumentDB**, clique com o botão direito do mouse na conta e depois clique em **Excluir Conta**. 
-3. Na folha de confirmação resultante, digite o nome da conta do DocumentDB para confirmar que você quer excluir a conta.
+1. No [portal do Azure](https://portal.azure.com/), acesse a conta do Azure Cosmos DB que você deseja excluir.
+2. Na folha **Conta do Azure Cosmos DB**, clique com o botão direito do mouse na conta e, depois, clique em **Excluir Conta**. 
+3. Na folha de confirmação resultante, digite o nome da conta do Azure Cosmos DB para confirmar que você deseja excluir a conta.
 4. Clique no botão **Excluir** .
 
-![Como excluir uma conta do Banco de Dados de Documentos no Portal do Azure](./media/documentdb-manage-account/delete-account-confirm.png)
+![Como excluir uma conta do Azure Cosmos DB no Portal do Azure](./media/documentdb-manage-account/delete-account-confirm.png)
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Próximas etapas
-Saiba como [começar com sua conta do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkId=402364).
+## <a id="next"></a>Próximas etapas
+Saiba como [começar a usar sua conta do Azure Cosmos DB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
@@ -112,11 +114,6 @@ Saiba como [começar com sua conta do Banco de Dados de Documentos](http://go.mi
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/en-us/regions/#services
-[offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 

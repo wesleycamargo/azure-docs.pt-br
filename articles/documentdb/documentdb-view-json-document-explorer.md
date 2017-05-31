@@ -1,24 +1,25 @@
 ---
-title: 'Ferramenta do portal do Azure DocumentDB: Gerenciador de Documentos | Microsoft Docs'
-description: Saiba mais sobre o Gerenciador de Documentos do Banco de Dados de Documentos, uma ferramenta do Portal do Azure para exibir JSON, editar, criar e carregar documentos JSON com o Banco de Dados de Documentos, um banco de dados de documentos NoSQL.
+title: 'Ferramenta do portal do Azure Cosmos DB: Gerenciador de Documentos | Microsoft Docs'
+description: Saiba mais sobre o Gerenciador de Documentos do Azure Cosmos DB, uma ferramenta do Portal do Azure para exibir o JSON, editar, criar e carregar documentos.
 keywords: exibir json
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 029d81b3-6382-4799-a1bd-0dcbccd9968d
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4338fc03664175b7c27a48f1ab682179c1035313
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 77f8512d9fa47eee25596aa3c407fd6889edbe0e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,14 +28,14 @@ ms.lasthandoff: 04/21/2017
 Este artigo fornece uma visão geral das duas maneiras em que é possível criar, editar e consultar documentos no portal: [Document Explorer](#launch-document-explorer) e [Data Explorer (visualização)](#data-explorer).
 
 > [!NOTE]
-> O Gerenciador de Documentos não está habilitado em contas do DocumentDB com suporte ao protocolo para MongoDB. Esta página será atualizada quando esse recurso estiver habilitado.
+> O Gerenciador de Documentos não está habilitado em contas do Azure Cosmos DB com suporte ao protocolo para MongoDB. Esta página será atualizada quando esse recurso estiver habilitado.
 
 <a id="launch-document-explorer"></a>
 
 ## <a name="launch-document-explorer-in-the-azure-portal"></a>Iniciar o Gerenciador de Documentos no Portal do Azure
-1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique no ![ícone do Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 
-    Se **NoSQL (DocumentDB)** não estiver visível, clique em **Mais Serviços** na parte inferior e clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
+    Se o **Azure Cosmos DB** não estiver visível, clique em **Mais Serviços** na parte inferior e, depois, clique no ![ícone do Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. Selecione o nome da conta. 
 3. No menu de recursos, clique em **Gerenciador de Documentos**. 
    
@@ -58,7 +59,7 @@ Este artigo fornece uma visão geral das duas maneiras em que é possível criar
    > 
    > 
    
-    Se já tiver dados de arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabela do Azure, Amazon DynamoDB, HBase ou de outras coleções do Banco de Dados de Documentos, você poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do Banco de Dados de Documentos para importar rapidamente os dados.
+    Se você já tiver dados de arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabelas do Azure, Amazon DynamoDB, HBase ou de outras coleções da API do DocumentDB, poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) da API do DocumentDB para importar os dados rapidamente.
 
 ## <a name="edit-a-json-document"></a>Editar um documento JSON
 1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
@@ -70,7 +71,7 @@ Este artigo fornece uma visão geral das duas maneiras em que é possível criar
    
     ![Captura de tela do comando descartar do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## <a name="delete-a-document-from-documentdb"></a>Excluir um documento do DocumentDB
+## <a name="delete-a-document-from-cosmos-db"></a>Excluir um documento do Cosmos DB
 1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
 2. Selecione o documento no **Gerenciador de Documentos**, clique em **Excluir** e confirme a exclusão. Após a confirmação, o documento será removido imediatamente da lista do Gerenciador de Documentos.
    
@@ -107,7 +108,7 @@ Por padrão, o Gerenciador de Documentos carrega os 100 primeiros documentos na 
    
    ![Captura de tela da folha Configurações do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings2.png)
    
-   O Gerenciador de Documentos atualiza automaticamente os resultados com os documentos que correspondem à consulta de filtro. Leia mais sobre a gramática SQL do DocumentDB no artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima uma cópia da [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
+   O Gerenciador de Documentos atualiza automaticamente os resultados com os documentos que correspondem à consulta de filtro. Leia mais sobre a gramática SQL da API do DocumentDB no artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima uma cópia do [Roteiro de consultas SQL](documentdb-sql-query-cheat-sheet.md).
    
    As caixas das listas suspensas **Banco de Dados** e **Coleção** podem ser usadas para alterar a coleção cujos documentos estão sendo exibidos sem precisar fechar e iniciar o Gerenciador de Documentos novamente.  
    
@@ -157,18 +158,18 @@ O outro método para criar, editar e consultar documentos no portal é usar o Da
 ![Captura de tela mostrando o botão Nova Coleção no portal](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
 
 ## <a name="work-with-json-documents-outside-the-portal"></a>Trabalhar com documentos JSON fora do portal
-O Gerenciador de Documentos no portal do Azure é apenas uma maneira de trabalhar com documentos no Banco de Dados de Documentos. Você também pode trabalhar com documentos usando a [API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para obter um exemplo de código, consulte os [exemplos de documento do SDK do .NET](documentdb-dotnet-samples.md#document-examples) e os [exemplos de documento do SDK do Node.js](documentdb-nodejs-samples.md#document-examples).
+O Gerenciador de Documentos no portal do Azure é apenas uma das maneiras de trabalhar com documentos no Cosmos DB. Você também pode trabalhar com documentos usando a [API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para obter um exemplo de código, consulte os [exemplos de documento do SDK do .NET](documentdb-dotnet-samples.md#document-examples) e os [exemplos de documento do SDK do Node.js](documentdb-nodejs-samples.md#document-examples).
 
-Se você precisar importar ou migrar arquivos de outra fonte (arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabelas do Azure, Amazon DynamoDB ou HBase), poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do DocumentDB para importar rapidamente os dados para o DocumentDB.
+Se você precisar importar ou migrar arquivos de outra fonte (arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabelas do Azure, Amazon DynamoDB ou HBase), poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do Cosmos DB para importar os dados rapidamente para o Cosmos DB.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 **Sintoma**: o Gerenciador de Documentos retorna **Nenhum documento encontrado**.
 
 **Solução**: verifique se você selecionou a assinatura, o banco de dados e a coleção correta na qual os documentos foram inseridos. Além disso, verifique se você está operando dentro de suas cotas de taxa de transferência. Se você estiver operando com seu nível máximo de taxa de transferência e estiver sofrendo limitação, reduza o uso do aplicativo a fim de operar com a cota máxima de taxa de transferência para a coleção.
 
-**Explicação**: o portal é um aplicativo como qualquer outro, fazendo chamadas para o banco de dados e a coleção do seu DocumentDB. Se as suas solicitações estiverem sofrendo restrições no momento devido a chamadas feitas de um aplicativo separado, o portal também poderá sofrer restrições, fazendo com que os recursos não apareçam no portal. Para solucionar o problema, resolva a causa do alto uso de produtividade e, em seguida, atualize a folha do portal. Informações sobre como medir e reduzir o uso da produtividade podem ser encontradas na seção [Produtividade](documentdb-performance-tips.md#throughput) do artigo [Dicas de desempenho](documentdb-performance-tips.md).
+**Explicação**: o portal é um aplicativo como qualquer outro, que faz chamadas ao banco de dados e à coleção do Cosmos DB. Se as suas solicitações estiverem sofrendo restrições no momento devido a chamadas feitas de um aplicativo separado, o portal também poderá sofrer restrições, fazendo com que os recursos não apareçam no portal. Para solucionar o problema, resolva a causa do alto uso de produtividade e, em seguida, atualize a folha do portal. Informações sobre como medir e reduzir o uso da produtividade podem ser encontradas na seção [Produtividade](documentdb-performance-tips.md#throughput) do artigo [Dicas de desempenho](documentdb-performance-tips.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a gramática SQL do DocumentDB com suporte no Gerenciador de Documentos, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
+Para saber mais sobre a gramática SQL da API do DocumentDB com suporte no Gerenciador de Documentos, consulte o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima o [Roteiro de consultas SQL](documentdb-sql-query-cheat-sheet.md).
 
 

@@ -1,9 +1,11 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: 48380d1fd5394cc32b4e868a82f456497bc4a915
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 28af0300f7027ccce8207d0f767490bddd4bf532
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 
@@ -18,13 +20,8 @@ Nesse caso, temos dois recursos disponíveis para você:
   
   * Diferenciar dados operacionais, que são lidos e gravados por aplicativos, de dados analíticos, que são usados para fornecer BI (business intelligence), para ajudar a determinar a tecnologia certa para suas necessidades.
   * Uma rápida análise da tecnologia relacional.
-  * Uma introdução a cada uma das tecnologias do NoSQL do Azure: Banco de Dados de Documentos, Armazenamento de Tabela, HBase e HDInsight.
+  * Uma introdução a cada uma das tecnologias do NoSQL do Azure: Azure Cosmos DB, armazenamento de Tabelas, HBase e HDInsight.
   * Uma comparação das tecnologias de NoSQL e Banco de Dados do SQL Azure. 
-  * Quando usar o Banco de Dados de Documentos do Azure vs. Armazenamento de tabelas vs. HBase vs. HDInsight vs. Banco de dados SQL.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+  * Quando usar o Azure Cosmos DB vs. Armazenamento de tabelas vs. HBase vs. HDInsight vs. Banco de dados SQL.
 
 

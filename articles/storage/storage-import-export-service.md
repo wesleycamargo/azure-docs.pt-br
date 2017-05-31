@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 132c1cf6b06924b8d23d696ea732856886be975d
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1aebecdaacd3525bec07a9359e52d2bc3d1539de
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -76,7 +77,8 @@ Baixe a versão mais recente da [ferramenta WAImportExport](http://download.micr
 >
 
 ### <a name="hard-disk-drives"></a>Unidades de disco rígido
-Somente discos rígidos internos SSD de 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas têm suporte para uso com o serviço de Importação/Exportação. Você pode usar discos rígidos de até 10 TB.
+Há suporte apenas para o uso de SSDs de 2,5 polegadas ou HDDs internos SATA II ou III de 2,5 ou 3,5 polegadas no serviço Importação/Exportação. Um único trabalho de importação/exportação pode ter um máximo de 10 HDD/SSDs e cada HDD/SSD individual pode ter qualquer tamanho. Um grande número de unidades pode ser distribuído em vários trabalhos e não há nenhum limite no número de trabalhos que podem ser criados. 
+
 Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS.
 
 > [!IMPORTANT]
@@ -508,6 +510,14 @@ Confira [Import PST files or SharePoint data to Office 365](https://technet.micr
 
 Confira o [Fluxo de trabalho de backup offline no Backup do Azure](../backup/backup-azure-backup-import-export.md).
 
+**Qual é o número máximo de HDDs em uma remessa?
+
+Qualquer número de HDDs pode ser em uma remessa e se os discos pertencerem a vários trabalhos, é recomendável a) Rotular os discos com os nomes de trabalho correspondentes. b) Atualizar os trabalhos com um número de acompanhamento com um sufixo -1,-2, etc.
+  
+**Qual é o Tamanho Máximo de Blob de Blocos e de Blob de Páginas com suporte na Importação/Exportação de Disco?
+
+O tamanho máximo de Blob de Blocos é de aproximadamente 4,768 TB ou 5.000.000 MB.
+O tamanho máximo de Blob de Páginas é de 1 TB.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Configuração da ferramenta WAImportExport](storage-import-export-tool-how-to.md)

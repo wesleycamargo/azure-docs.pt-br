@@ -1,14 +1,15 @@
 ---
 redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 1b5ec3cb1c2aba86570c6f1753d9142c0d0349ce
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 58c0ea0bd8bda994c8314d2866304cb3ab367bfd
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="notifications-for-new-or-changed-documentdb-resources-using-logic-apps"></a>Notificações sobre recursos novos ou alterados do Banco de Dados de Documentos usando Aplicativos Lógicos
+# <a name="notifications-for-new-or-changed-azure-cosmos-db-resources-using-logic-apps"></a>Notificações sobre recursos novos ou alterados do Azure Cosmos DB que usam Aplicativos Lógicos
 Este artigo surgiu de uma pergunta que eu vi publicada em um dos fóruns da comunidade do Banco de Dados de Documentos do Azure. A pergunta foi **O Banco de Dados de Documentos oferece suporte a notificações sobre recursos modificados**?
 
 Trabalhei com o BizTalk Server por muitos anos e esse é um cenário muito comum ao usar o [Adaptador LOB do WCF](https://msdn.microsoft.com/library/bb798128.aspx). Portanto, decidi verificar se eu poderia duplicar essa funcionalidade no Banco de Dados de Documentos para documentos novos e/ou modificados.
@@ -18,7 +19,7 @@ Este artigo fornece uma visão geral dos componentes da solução de notificaç�
 ## <a name="use-case"></a>Caso de uso
 A história a seguir é o caso de uso para este artigo.
 
-O DocumentDB é o repositório para documentos sobre FHIR (Fast Healthcare Interoperability Resources) do HL7 (Health Level Seven International). Vamos supor que seu banco de dados do Banco de Dados de Documentos combinado com sua API e Aplicativo Lógico formem um Servidor FHIR HL7.  Uma instalação de saúde está armazenando dados de pacientes no banco de dados "Pacientes" do Banco de Dados de Documentos. Há várias coleções no banco de dados de pacientes; Hospitalar, Identificação etc. As informações sobre o paciente se enquadram em identificação.  Há uma coleção chamada "Paciente".
+O Azure Cosmos DB é o repositório de documentos FHIR (Fast Healthcare Interoperability Resources) da HL7 (Health Level Seven International). Vamos supor que seu banco de dados do Azure Cosmos DB combinado com sua API e o Aplicativo Lógico formem um Servidor HL7 FHIR.  Uma instalação de serviços de saúde armazena dados de pacientes no banco de dados “Pacientes” do Azure Cosmos DB. Há várias coleções no banco de dados de pacientes; Hospitalar, Identificação etc. As informações sobre o paciente se enquadram em identificação.  Há uma coleção chamada "Paciente".
 
 O departamento de cardiologia monitora dados pessoais de saúde e sobre exercícios. Procurar registros de pacientes novos ou modificados é algo demorado. Eles perguntaram ao departamento de TI se há uma maneira de receber uma notificação sobre registros novos ou modificados dos pacientes.  
 
@@ -1113,7 +1114,4 @@ O segredo é planejar e modelar com antecedência seu fluxo de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 Baixe e use o código do Aplicativo Lógico fornecido no [GitHub](https://github.com/HEDIDIN/DocDbNotifications). Convido você a compilar o aplicativo e enviar as alterações ao repositório. 
-
-Para saber mais sobre o Banco de Dados de Documentos, visite o [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
 

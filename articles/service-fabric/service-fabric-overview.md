@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 0fb4cc7b3c071eeb0bff15f9a57fc7e2106d7ca7
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 81dae4c35fead96af8a8a2823952a0bd7f2e537e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Por que uma abordagem de microsserviços é importante? Os dois motivos principa
 * Você pode dimensionar diferentes partes de seu aplicativo dependendo das necessidades do aplicativo.
 * As equipes de desenvolvimento podem ser mais ágeis, uma vez que distribuem alterações e, portanto, fornecem recursos aos clientes de modo mais rápido e frequente.
 
-O Service Fabric é a tecnologia de muitos serviços atuais da Microsoft, como Banco de Dados SQL do Azure, Azure DocumentDB, Cortana, Microsoft Power BI, Microsoft Intune, Hubs de Eventos do Azure, Hub IoT do Azure, Skype for Business e muitos serviços principais do Azure.
+O Service Fabric é a tecnologia de diversos serviços atuais da Microsoft, incluindo Banco de Dados SQL do Azure, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Hubs de Eventos do Azure, Hub IoT do Azure, Skype for Business e vários serviços principais do Azure.
 
 O Service Fabric é projetado para criar serviços em nuvem nativos que podem começar pequenos, conforme a necessidade, e expandirem-se para escala em massa com centenas ou milhares de computadores.
 

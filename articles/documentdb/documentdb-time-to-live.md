@@ -1,32 +1,34 @@
 ---
-title: "Expirar os dados no DocumentDB com vida útil | Microsoft Docs"
-description: "Com a TTL, o Banco de Dados de Documentos do Microsoft Azure fornece a capacidade de limpar documentos automaticamente do sistema após determinado período."
-services: documentdb
+title: "Expirar os dados no Azure Cosmos DB com a vida útil | Microsoft Docs"
+description: "Com a TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limpar documentos automaticamente do sistema após determinado período."
+services: cosmosdb
 documentationcenter: 
 keywords: "vida útil"
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 1ad5307054dbd860f9c65db4b82ea5f560a554c8
-ms.openlocfilehash: 14a06dd20547f2910b2321372b27d9f777e54cc7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7a1d4c722fdb926c43b23e333f9fa558ba163b65
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="expire-data-in-documentdb-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções do Banco de Dados de Documentos automaticamente com a vida útil
+# <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções do Azure Cosmos DB automaticamente com a vida útil
 Os aplicativos podem gerar e armazenar grandes quantidades de dados. Alguns desses dados, como dados de evento, logs e informações da sessão do usuário gerados por computador, são úteis apenas por determinado período. Depois que os dados se tornam excedentes para as necessidades do aplicativo, é seguro limpar esses dados e reduzir as necessidades de armazenamento de um aplicativo.
 
-Com a "vida útil" ou TTL, o Microsoft Azure DocumentDB fornece a capacidade de limpar documentos automaticamente do banco de dados após determinado período. A vida útil padrão pode ser definida no nível de coleção e substituída conforme o documento. Depois de definir a TTL como um padrão de coleta ou em um nível de documento, o Banco de Dados de Documentos removerá automaticamente os documentos existentes após esse período, em segundos, desde sua última modificação.
+Com a “vida útil” ou TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limpar documentos automaticamente do banco de dados após determinado período. A vida útil padrão pode ser definida no nível de coleção e substituída conforme o documento. Depois de definir a TTL como um padrão de coleta ou em um nível de documento, o Cosmos DB removerá automaticamente os documentos existentes após esse período, em segundos, desde sua última modificação.
 
-A vida útil no Banco de Dados de Documentos usa um deslocamento em relação à data da última modificação do documento. Para fazer isso, ela usa o campo `_ts`, encontrado em todos os documentos. O campo _ts é um carimbo de data/hora de época estilo Unix que representa a data e a hora. O campo `_ts` é atualizado sempre que um documento é modificado. 
+A vida útil no Cosmos DB usa um deslocamento em relação à data da última modificação do documento. Para fazer isso, ela usa o campo `_ts`, encontrado em todos os documentos. O campo _ts é um carimbo de data/hora de época estilo Unix que representa a data e a hora. O campo `_ts` é atualizado sempre que um documento é modificado. 
 
 ## <a name="ttl-behavior"></a>Comportamento de TTL
 O recurso TTL é controlado pelas propriedades TTL em dois níveis: o nível de coleção e o nível de documento. Os valores são definidos em segundos e tratados como um delta no `_ts` em que o documento foi modificado pela última vez.
@@ -52,10 +54,10 @@ A lógica acima pode ser mostrada na matriz a seguir:
 | TTL = n no documento |Nada para substituir no nível de documento. A TTL de um documento não é interpretada pelo sistema. |O documento com TTL = n expirará após o intervalo de n, em segundos. Os outros documentos herdarão o intervalo de -1 e nunca expirarão. |O documento com TTL = n expirará após o intervalo de n, em segundos. Os outros documentos herdarão o intervalo de “n” da coleção. |
 
 ## <a name="configuring-ttl"></a>Configurando a TTL
-Por padrão, a vida útil é desabilitada por padrão em todas as coleções e todos os documentos do Banco de Dados de Documentos.
+Por padrão, a vida útil é desabilitada por padrão em todas as coleções e todos os documentos do Cosmos DB.
 
 ## <a name="enabling-ttl"></a>Habilitando a TTL
-Para habilitar a TTL em uma coleção, ou no documento em uma coleção, é necessário definir a propriedade DefaultTTL de uma coleção como -1 ou um número positivo diferente de zero. Definir a DefaultTTL como -1 significa que, por padrão, todos os documentos na coleção residirão para sempre, mas o serviço do Banco de Dados de Documentos deverá monitorar, nessa coleção, os documentos que substituíram esse padrão.
+Para habilitar a TTL em uma coleção, ou no documento em uma coleção, é necessário definir a propriedade DefaultTTL de uma coleção como -1 ou um número positivo diferente de zero. Definir a DefaultTTL como -1 significa que, por padrão, todos os documentos na coleção residirão para sempre, mas o serviço Cosmos DB deverá monitorar, nessa coleção, os documentos que substituíram esse padrão.
 
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
@@ -161,7 +163,7 @@ Os documentos expiram imediatamente depois da TTL ser ativada e não poderão se
 
 **A TTL em um documento terá algum impacto sobre os encargos de RU?**
 
-Não haverá nenhum impacto nos encargos de RU para as exclusões dos documentos expirados via TTL no DocumentDB.
+Não haverá nenhum impacto nos encargos de RU para as exclusões de documentos expirados por meio da TTL no Cosmos DB.
 
 **O recurso TTL se aplica somente a documentos inteiros ou valores de propriedade de documentos individuais podem ser expirados?**
 
@@ -172,11 +174,6 @@ A TTL se aplica a todo o documento. Caso você queira que apenas uma parte de um
 Sim. A coleção deve ter uma [política de indexação definida](documentdb-indexing-policies.md) como Consistente ou Lenta. A tentativa de definir a DefaultTTL em uma coleção com a indexação definida como Nenhum resultará em um erro, assim como a tentativa de desativar a indexação em uma coleção que tenha uma DefaultTTL já definida.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o DocumentDB do Azure, consulte a página de [*documentação*](https://azure.microsoft.com/documentation/services/documentdb/) do serviço.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+Para saber mais sobre o Azure Cosmos DB, consulte a página de [*documentação*](https://azure.microsoft.com/documentation/services/documentdb/) do serviço.
 
 

@@ -1,34 +1,35 @@
 ---
-title: 'Ferramenta do portal do Azure DocumentDB: Gerenciador de Scripts | Microsoft Docs'
-description: "Saiba mais sobre o Gerenciador de Script do DocumentDB, uma ferramenta do Portal do Azure que permite gerenciar artefatos de programação do DocumentDB, incluindo procedimentos armazenados do JavaScript, no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário."
+title: 'Ferramenta do portal do Azure Cosmos DB: Gerenciador de Scripts | Microsoft Docs'
+description: "Saiba mais sobre o Gerenciador de Script do Cosmos DB, uma ferramenta do Portal do Azure que permite gerenciar artefatos de programação do lado do servidor do Azure Cosmos DB, incluindo procedimentos armazenados do JavaScript, gatilhos e funções definidas pelo usuário."
 keywords: editor de JavaScript
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 9d0620da-2449-4c17-82a4-24aaa46e9b3e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
-ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e9c3e92dd1c35ff6893565e61f7e7b940b6ede7e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-documentdb-script-explorer"></a>Criar e executar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos
-Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) , um editor de JavaScript no portal do Azure que permite exibir e executar artefatos de programação do Banco de Dados de Documentos no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário. Leia mais sobre programação no lado do servidor do Banco de Dados de Documentos no artigo [Procedimentos armazenados, disparadores de banco de dados e UDFs](documentdb-programming.md) .
+# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-azure-cosmos-db-script-explorer"></a>Criar e executar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Azure Cosmos DB
+Este artigo fornece uma visão geral do Gerenciador de Script do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), um editor de JavaScript do portal do Azure que permite exibir e executar artefatos de programação do lado do servidor do Cosmos DB, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário. Leia mais sobre a programação do lado do servidor do Cosmos DB no artigo [Procedimentos armazenados, gatilhos de banco de dados e UDFs](documentdb-programming.md).
 
 ## <a name="launch-script-explorer"></a>Iniciar Gerenciador de Script
-1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique no ![ícone do Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 
-    Se **NoSQL (DocumentDB)** não estiver visível, clique em **Mais Serviços** na parte inferior e clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
+    Se o **Azure Cosmos DB** não estiver visível, clique em **Mais Serviços** na parte inferior e, depois, clique no ![ícone do Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. No menu de recursos, clique em **Gerenciador de Scripts**.
    
     ![Captura de tela do comando do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -47,7 +48,7 @@ Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados
     ![Captura de tela do comando de atualização do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 ## <a name="create-view-and-edit-stored-procedures-triggers-and-user-defined-functions"></a>Criar, exibir e editar procedimentos armazenados, gatilhos e funções definidas pelo usuário
-O Gerenciador de Script permite que você execute facilmente operações de CRUD em artefatos de programação do Banco de Dados de Documentos do lado do servidor.  
+O Gerenciador de Script permite que você execute facilmente operações CRUD em artefatos de programação do lado do servidor do Cosmos DB.  
 
 * Para criar um script, basta clicar no comando de criação aplicável no gerenciador de scripts , fornecer uma id, inserir o conteúdo do script e clicar em **Salvar**.
   
@@ -109,6 +110,5 @@ O Gerenciador de Script no portal do Azure é apenas uma maneira de trabalhar co
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre programação no lado do servidor do DocumentDB no artigo [UDFs, gatilhos de banco de dados e procedimentos armazenados](documentdb-programming.md) .
 
-O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o DocumentDB.  
 
 

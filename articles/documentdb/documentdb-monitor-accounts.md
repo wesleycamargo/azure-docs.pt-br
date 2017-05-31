@@ -1,47 +1,49 @@
 ---
-title: "Monitorar as solicitações e armazenamento do DocumentDB | Microsoft Docs"
-description: "Saiba como monitorar sua conta do Banco de Dados de Documentos para métricas de desempenho, como solicitações e erros de servidor, e as métricas de uso, como o consumo de armazenamento."
-services: documentdb
+title: "Monitorar solicitações e o armazenamento do Azure Cosmos DB | Microsoft Docs"
+description: "Saiba como monitorar sua conta do Azure Cosmos DB para verificar métricas de desempenho, como solicitações e erros de servidor, além de métricas de uso, como consumo de armazenamento."
+services: cosmosdb
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: aabca8fd228b1fc7c60d295a9502dece29db1b68
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b0158d0f9f0a8f66ae6dda44476efb7b1914c599
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="monitor-documentdb-requests-usage-and-storage"></a>Monitorar as solicitações, uso e armazenamento do Banco de Dados de Documentos
-Você pode monitorar as contas do seu DocumentDB no [portal do Azure](https://portal.azure.com/). Para cada conta do Banco de Dados de Documentos, tanto as métricas de desempenho (como as solicitações e erros de servidor) quanto as métricas de utilização (como consumo de armazenamento) estão disponíveis.
+# <a name="monitor-azure-cosmos-db-requests-usage-and-storage"></a>Monitorar solicitações, o uso e o armazenamento do Azure Cosmos DB
+Monitore suas contas do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/). Para cada conta do Azure Cosmos DB, tanto as métricas de desempenho, como solicitações e erros de servidor, quanto as métricas de uso, como consumo de armazenamento, estão disponíveis.
 
 As métricas podem ser examinadas na folha da Conta, na nova folha de Métricas o no Azure Monitor.
 
 ## <a name="view-performance-metrics-on-the-metrics-blade"></a>Visualizar métricas de desempenho na folha de Métricas
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **NoSQL (DocumentDB)** e, em seguida, clique no nome da conta do DocumentDB cujas métricas de desempenho você deseja exibir.
+1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **Azure Cosmos DB** e, em seguida, clique no nome da conta do Azure Cosmos DB cujas métricas de desempenho você deseja exibir.
 2. No menu de recursos, em **Monitoramento**, clique em **Métricas**.
 
-A folha de Métricas é aberta e você pode selecionar a coleção para examinar. Você pode analisar as métricas de disponibilidade, solicitações, taxa de transferência e armazenamento e compará-las com os SLAs do DocumentDB.
+A folha de Métricas é aberta e você pode selecionar a coleção para examinar. Examine as métricas de Disponibilidade, Solicitações, Produtividade e Armazenamento e compare-as com os SLAs do Azure Cosmos DB.
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Exibir métricas de desempenho usando o Azure Monitor
 1. No [Portal do Azure](https://portal.azure.com/), clique em **Monitorar** na barra de navegação.
 2. No menu de recursos, clique em **Métricas**.
-3. Na janela **Monitorar – Métricas**, no menu suspenso **Grupo de recursos**, selecione o grupo de recursos associado à conta DocumentDB que você deseja monitorar. 
+3. Na janela **Monitorar – Métricas**, no menu suspenso **Grupo de recursos**, selecione o grupo de recursos associado à conta do Azure Cosmos DB que você deseja monitorar. 
 4. No menu suspenso **Recursos**, selecione a conta de banco de dados para monitorar.
 5. Na lista de **Métricas disponíveis**, selecione as métricas para exibir. Use o botão CTRL para selecionar várias métricas. 
 
     As métricas são exibidas na janela **Plotar**. 
 
 ## <a name="view-performance-metrics-on-the-account-blade"></a>Visualizar métricas de desempenho na folha de contas
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **NoSQL (DocumentDB)** e, em seguida, clique no nome da conta do DocumentDB cujas métricas de desempenho você deseja exibir.
+1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **Azure Cosmos DB** e, em seguida, clique no nome da conta do Azure Cosmos DB cujas métricas de desempenho você deseja exibir.
 2. A lente de **Monitoramento** exibe os seguintes blocos por padrão:
    
    * Solicitações totais para o dia de hoje.
@@ -79,7 +81,7 @@ Agora, você pode tratar essa parte como qualquer outra parte de métrica, perso
     ![Captura de tela do gráfico Total de Solicitações e o novo gráfico Total de solicitações na última hora](./media/documentdb-monitor-accounts/madocdb8.png)  
 
 ## <a name="set-up-alerts-in-the-portal"></a>Configurar alertas no Portal
-1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, em **DocumentDB (NoSQL)** e no nome da conta do DocumentDB para a qual deseja definir alertas de métricas de desempenho.
+1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, em **Azure Cosmos DB** e no nome da conta do Azure Cosmos DB para a qual você deseja configurar alertas de métricas de desempenho.
 2. No menu de recursos, clique em **Regras de Alerta** para abrir a folha Regras de alerta.  
    ![Captura de tela da parte de Regras de alerta selecionada](./media/documentdb-monitor-accounts/madocdb10.5.png)
 3. Na folha **Regras de alerta**, clique em **Adicionar Alerta**.  
@@ -94,7 +96,7 @@ Agora, você pode tratar essa parte como qualquer outra parte de métrica, perso
    * Endereços de email adicionais para notificações de alerta.  
      ![Captura de tela da folha da regra Adicionar um alerta](./media/documentdb-monitor-accounts/madocdb12.png)
 
-## <a name="monitor-documentdb-programatically"></a>Monitorar programaticamente o Banco de Dados de Documentos
+## <a name="monitor-azure-cosmos-db-programatically"></a>Monitorar o Azure Cosmos DB de forma programática
 As métricas no nível da conta disponíveis no portal, como o uso de armazenamento da conta e o total de solicitações, não estão disponíveis por meio das APIs do Banco de Dados de Documentos. No entanto, você pode recuperar os dados de uso no nível da coleção usando as APIs do Banco de Dados de Documentos. Para recuperar os dados do nível de coleção, faça o seguinte:
 
 * Para usar a API REST, [execute um GET na coleção](https://msdn.microsoft.com/library/mt489073.aspx). As informações de cota e de uso da coleção são retornadas nos cabeçalhos x-ms-resource-quota e x-ms-resource-usage na resposta.
@@ -122,11 +124,6 @@ Se seus blocos de monitoramento exibirem a mensagem **Não há dados disponívei
    ![Captura de tela de atualizada do bloco Total de solicitações na última hora atualizado](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o planejamento de capacidade do DocumentDB, confira a [calculadora do planejador de capacidade do DocumentDB](https://www.documentdb.com/capacityplanner).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
+Para saber mais sobre o planejamento de capacidade do Azure Cosmos DB, consulte a [calculadora do planejador de capacidade do Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
 
 
