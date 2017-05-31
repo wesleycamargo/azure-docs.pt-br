@@ -15,31 +15,30 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/14/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
-ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
-ms.lasthandoff: 01/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: aebabd15e781e726def545960ce3c1ec7674c530
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="datasource-connections"></a>Conexões de fonte de dados
 Os modelos de dados no Azure Analysis Services podem exigir diferentes provedores de dados durante a conexão com certas fontes de dados. Em alguns casos, modelos de tabela que se conectam a fontes de dados usando provedores nativos, como o SQL Server Native Client (SQLNCLI11), podem retornar um erro.
 
-Por exemplo, se você tiver um modelo de dados na memória de Consulta Direta que se conecta a uma fonte de dados de nuvem, como o Banco de Dados SQL do Azure, se você usar provedores nativos diferentes de SQLOLEDB, verá a mensagem de erro: **"O provedor 'SQLNCLI11.1' não está registrado"**.
-
-Ou, se você tiver um modelo DirectQuery que se conecta a fontes de dados locais, se você usar provedores nativos, verá a mensagem de erro: **"Erro ao criar o conjunto de linhas do OLE DB. Sintaxe incorreta próxima a 'LIMIT' "**.
+Para modelos de dados na memória de DirectQuery que se conectam a uma fonte de dados de nuvem, como o Banco de Dados SQL do Azure, se você usar provedores nativos diferentes de SQLOLEDB, verá a mensagem de erro: **"O provedor 'SQLNCLI11.1' não está registrado"**. Ou, se você tiver um modelo DirectQuery que se conecta a fontes de dados locais, se você usar provedores nativos, verá a mensagem de erro: **"Erro ao criar o conjunto de linhas do OLE DB. Sintaxe incorreta próxima a 'LIMIT' "**.
 
 ## <a name="data-source-providers"></a>Provedores de fonte de dados
-Os provedores de fonte de dados a seguir têm suporte para modelos de dados na memória ou de Consulta Direta ao se conectar a fontes de dados da nuvem ou locais:
+Os provedores de fonte de dados a seguir têm suporte para modelos de dados na memória ou DirectQuery ao se conectar a fontes de dados da nuvem ou locais:
 
 ### <a name="cloud"></a>Nuvem
-| **Fonte de dados** | **Na memória** | **Consulta Direta** |
+| **Fonte de dados** | **Na memória** | **DirectQuery** |
 |  --- | --- | --- |
 | SQL Data Warehouse do Azure |Provedor de Dados .NET Framework para SQL Server |Provedor de Dados .NET Framework para SQL Server |
 | Banco de Dados SQL do Azure |Provedor de Dados .NET Framework para SQL Server |Provedor de Dados .NET Framework para SQL Server | |
 
 ### <a name="on-premises-via-gateway"></a>Local (via Gateway)
-|**Fonte de dados** | **Na memória** | **Consulta Direta** |
+|**Fonte de dados** | **Na memória** | **DirectQuery** |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0 |Provedor de Dados .NET Framework para SQL Server |
 | SQL Server |Provedor Microsoft OLE DB para SQL Server |Provedor de Dados .NET Framework para SQL Server | |
@@ -76,6 +75,7 @@ Para fontes de dados de nuvem:
 * Se estiver usando a autenticação SQL, a representação deverá ser a Conta de serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você tiver fontes de dados locais, instale o [Gateway local](analysis-services-gateway.md). Para saber mais sobre como gerenciar seu servidor no SSDT ou SSMS, consulte [Gerenciar seu servidor](analysis-services-manage.md).
+Se você tiver fontes de dados locais, instale o [Gateway local](analysis-services-gateway.md).   
+Para saber mais sobre como gerenciar seu servidor no SSDT ou SSMS, consulte [Gerenciar seu servidor](analysis-services-manage.md).
 
 

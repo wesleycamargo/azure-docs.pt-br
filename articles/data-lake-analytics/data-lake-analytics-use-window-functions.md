@@ -3,8 +3,8 @@ title: "Usando funções da janela do U-SQL para trabalhos do Azure Data Lake An
 description: "Aprenda a usar funções de janela U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: a5e14b32-d5eb-4f4b-9258-e257359f9988
 ms.service: data-lake-analytics
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data`
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
-ms.openlocfilehash: 7afbd2de08b5702371ef7dc8676fcd8d75d5e7fd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 55d19a00198f1943a8196d31399c617397b4e5d2
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -25,110 +27,65 @@ As funções de janela foram introduzidas no padrão ISO/ANSI SQL em 2003. O U-S
 
 As funções de janela são usadas para fazer a computação em conjuntos de linhas chamadas *janelas*. As janelas são definidas pela cláusula OVER. As funções de janela resolvem alguns cenários importantes de maneira altamente eficiente.
 
-Este guia de aprendizado usa dois conjuntos de dados de exemplo para examinar um exemplo de cenário em que você pode aplicar funções de janela. Para saber mais, consulte [Referência U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
-
 As funções de janela são categorizadas em: 
 
 * [Funções de agregação de relatórios](#reporting-aggregation-functions), como SUM ou AVG
 * [Funções de classificação](#ranking-functions), como ROW_NUMBER, DENSE_RANK, NTILE e RANK
 * [Funções analíticas](#analytic-functions), como distribuições cumulativas ou percentuais, acessam dados de uma linha anterior (no mesmo conjunto de resultados), sem usar uma associação a si mesmas
 
-**Pré-requisitos:**
-
-* Percorra os seguintes tutoriais:
-  
-  * [Introdução ao uso de ferramentas Azure Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-  * [Introdução ao uso de U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-* Criar uma conta de Análise do Azure Data Lake conforme instruído em [Introdução ao uso de ferramentas Azure Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Criar um projeto do Visual Studio U-SQL conforme instruído em [Introdução ao uso de U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-
 ## <a name="sample-datasets"></a>Conjuntos de dados de amostra
 Este tutorial usa dois conjuntos de dados:
 
-* QueryLog 
+### <a name="the-querylog-sample-dataset"></a>O conjunto de dados de exemplo QueryLog
   
-    O QueryLog representa uma lista das pessoas que pesquisaram no mecanismo de pesquisa. Cada log de consulta inclui:
+O QueryLog representa uma lista das pessoas que pesquisaram no mecanismo de pesquisa. Cada log de consulta inclui:
   
-    - Consulta - o que o usuário estava procurando.
-    - Latência - quão rápido a consulta voltou para o usuário em milissegundos.
-    - Vertical - em qual tipo de conteúdo o usuário estava interessado (links da Web, Imagens, Vídeos).
-  
-    Copie e cole o script abaixo em seu projeto de U-SQL para construir o conjunto de linhas QueryLog:
-  
-    ```
-    @querylog = 
-        SELECT * FROM ( VALUES
-            ("Banana"  , 300, "Image" ),
-            ("Cherry"  , 300, "Image" ),
-            ("Durian"  , 500, "Image" ),
-            ("Apple"   , 100, "Web"   ),
-            ("Fig"     , 200, "Web"   ),
-            ("Papaya"  , 200, "Web"   ),
-            ("Avocado" , 300, "Web"   ),
-            ("Cherry"  , 400, "Web"   ),
-            ("Durian"  , 500, "Web"   ) )
-        AS T(Query,Latency,Vertical);
-    ```
+* Consulta – o que o usuário estava procurando
+* Latência – quão rápido a consulta voltou para o usuário em milissegundos
+* Vertical – em qual tipo de conteúdo o usuário estava interessado (links da Web, Imagens, Vídeos)  
+ 
+```
+@querylog = 
+    SELECT * FROM ( VALUES
+        ("Banana"  , 300, "Image" ),
+        ("Cherry"  , 300, "Image" ),
+        ("Durian"  , 500, "Image" ),
+        ("Apple"   , 100, "Web"   ),
+        ("Fig"     , 200, "Web"   ),
+        ("Papaya"  , 200, "Web"   ),
+        ("Avocado" , 300, "Web"   ),
+        ("Cherry"  , 400, "Web"   ),
+        ("Durian"  , 500, "Web"   ) )
+    AS T(Query,Latency,Vertical);
+```
 
-    Na prática, os dados geralmente são armazenados em um arquivo. Você acessaria os dados em um arquivo delimitado por tabulação com o seguinte código: 
+## <a name="the-employees-sample-dataset"></a>O conjunto de dados de exemplo Funcionários
   
-    ```
-    @querylog = 
-    EXTRACT 
-        Query    string, 
-        Latency  int, 
-        Vertical string
-    FROM "/Samples/QueryLog.tsv"
-    USING Extractors.Tsv();
-    ```
-* Funcionários
+O conjunto de dados Funcionário inclui os seguintes campos:
   
-    O conjunto de dados Funcionário inclui os seguintes campos:
-  
-        - EmpID - Employee ID.
-        - EmpName  Employee name.
-        - DeptName - Department name. 
-        - DeptID - Deparment ID.
-        - Salary - Employee salary.
-  
-    Copie e cole o script a seguir em seu projeto de U-SQL para construir o conjunto de linhas Funcionários:
-  
-        @employees = 
-            SELECT * FROM ( VALUES
-                (1, "Noah",   "Engineering", 100, 10000),
-                (2, "Sophia", "Engineering", 100, 20000),
-                (3, "Liam",   "Engineering", 100, 30000),
-                (4, "Emma",   "HR",          200, 10000),
-                (5, "Jacob",  "HR",          200, 10000),
-                (6, "Olivia", "HR",          200, 10000),
-                (7, "Mason",  "Executive",   300, 50000),
-                (8, "Ava",    "Marketing",   400, 15000),
-                (9, "Ethan",  "Marketing",   400, 10000) )
-            AS T(EmpID, EmpName, DeptName, DeptID, Salary);
-  
-    A instrução a seguir demonstra como criar o conjunto de linhas extraindo-o de um arquivo de dados.
-  
-        @employees = 
-        EXTRACT 
-            EmpID    int, 
-            EmpName  string, 
-            DeptName string, 
-            DeptID   int, 
-            Salary   int
-        FROM "/Samples/Employees.tsv"
-        USING Extractors.Tsv();
+* EmpID – ID do funcionário
+* EmpName – nome do funcionário
+* DeptName – nome do departamento 
+* DeptID – ID do departamento
+* Salário – salário do funcionário
 
-Ao testar os exemplos no tutorial, você deve incluir as definições de conjunto de linhas. O U-SQL requer que você defina apenas os conjuntos de linhas que são usados. Alguns exemplos só precisam de um conjunto de linhas.
-
-Adicione a seguinte instrução para enviar o conjunto de linhas resultante para um arquivo de dados:
-
-    OUTPUT @result TO "/wfresult.csv" 
-        USING Outputters.Csv();
-
- A maioria dos exemplos usa a variável chamada **@result** para os resultados.
+```
+@employees = 
+    SELECT * FROM ( VALUES
+        (1, "Noah",   "Engineering", 100, 10000),
+        (2, "Sophia", "Engineering", 100, 20000),
+        (3, "Liam",   "Engineering", 100, 30000),
+        (4, "Emma",   "HR",          200, 10000),
+        (5, "Jacob",  "HR",          200, 10000),
+        (6, "Olivia", "HR",          200, 10000),
+        (7, "Mason",  "Executive",   300, 50000),
+        (8, "Ava",    "Marketing",   400, 15000),
+        (9, "Ethan",  "Marketing",   400, 10000) )
+    AS T(EmpID, EmpName, DeptName, DeptID, Salary);
+```  
 
 ## <a name="compare-window-functions-to-grouping"></a>Comparar funções de janela para agrupamento
-Janelas e Agrupamento estão relacionados conceitualmente, mas são diferentes. É útil compreender essa relação.
+Janelas e Agrupamento estão relacionados conceitualmente. É útil compreender essa relação.
 
 ### <a name="use-aggregation-and-grouping"></a>Agregação de uso e agrupamento
 A consulta abaixo usa uma agregação para calcular o salário total de todos os funcionários:
@@ -138,21 +95,12 @@ A consulta abaixo usa uma agregação para calcular o salário total de todos os
             SUM(Salary) AS TotalSalary
         FROM @employees;
 
-> [!NOTE]
-> Para obter instruções para teste e verificação de saída, confira [Introdução ao uso de U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-> 
-> 
-
-O resultado é uma única linha com uma única coluna. US$&16500;0 é a soma do valor de salário da tabela inteira. 
+O resultado é uma única linha com uma única coluna. US$ 165000 é a soma do valor de salário da tabela inteira. 
 
 | TotalSalary |
 | --- |
 | 165000 |
 
-> [!NOTE]
-> Se você estiver começando com as funções de janela, vale a pena lembrar os números nas saídas.  
-> 
-> 
 
 A instrução abaixo usa a cláusula GROUP BY para calcular o salário total de cada departamento:
 
@@ -170,7 +118,7 @@ Os resultados são:
 | Executivo |50000 |
 | Marketing |25000 |
 
-A soma da coluna SalaryByDept é US$&165;.000, que corresponde à quantidade no último script.
+A soma da coluna SalaryByDept é US$ 165.000, que corresponde à quantidade no último script.
 
 Em ambos os casos há menos linhas de saída do que linhas de entrada:
 
@@ -316,8 +264,6 @@ Os resultados são:
 | 8 |Yasmin |Marketing |400 |15000 |10000 |
 | 9 |Davi |Marketing |400 |10000 |10000 |
 
-Para ver o salário mais alto de cada departamento, substitua MIN MAX e execute a consulta novamente.
-
 ## <a name="ranking-functions"></a>Funções de classificação
 As funções de classificação retornam um valor de classificação (LONG) para cada linha em cada partição conforme definido pelas cláusulas PARTITION BY e OVER. A ordem de classificação é controlada pela cláusula ORDER BY na cláusula OVER.
 
@@ -422,12 +368,15 @@ Os resultados são:
 NTILE usa um parâmetro ("numgroups"). Numgroups é um número inteiro positivo ou uma expressão constante longa que especifica o número de grupos em que cada partição deve ser dividida. 
 
 * Se o número de linhas na partição for divisível por numgroups, os grupos terão tamanhos iguais. 
-* Se o número de linhas em uma partição não for divisível por numgroups, isso fará com que haja grupos de dois tamanhos com um membro de diferença. Grupos maiores aparecem antes de grupos menores na ordem especificada pela cláusula OVER. 
+* Se o número de linhas em uma partição não for divisível por numgroups, os grupos terão tamanhos levemente diferentes. Grupos maiores aparecem antes de grupos menores na ordem especificada pela cláusula OVER. 
 
 Por exemplo:
 
-* 100 linhas divididas em 4 grupos: [25, 25, 25, 25]
-* 102 linhas divididas em 4 grupos: [26, 26, 25, 25]
+    100 rows divided into 4 groups: 
+    [ 25, 25, 25, 25 ]
+
+    102 rows divided into 4 groups: 
+    [ 26, 26, 25, 25 ]
 
 ### <a name="top-n-records-per-partition-via-rank-denserank-or-rownumber"></a>Primeiros N registros por partição com RANK, DENSE_RANK ou ROW_NUMBER
 Muitos usuários desejam selecionar apenas as PRIMEIRAS n linhas por grupo, o que não pode ser feito com o GROUP BY tradicional. 
@@ -549,7 +498,12 @@ As funções analíticas são usadas para entender as distribuições dos valore
 * PERCENTILE_DISC
 
 ### <a name="cumedist"></a>CUME_DIST
-CUME_DIST computa a posição relativa de um valor especificado em um grupo de valores. Ele calcula a porcentagem de consultas com latência menor ou igual à latência da consulta atual na mesma vertical. O CUME_DIST para uma linha R, presumindo uma ordem crescente, é o número de linhas com valores menores ou iguais ao valor de R, dividido pelo número de linhas avaliadas na partição. CUME_DIST retorna números no intervalo de 0 < x < = 1.
+
+CUME_DIST computa a posição relativa de um valor especificado em um grupo de valores. Ele calcula a porcentagem de consultas com latência menor ou igual à latência da consulta atual na mesma vertical. 
+
+O CUME_DIST para uma linha R, presumindo uma ordem crescente, é o número de linhas com valores menores ou iguais ao valor de R, dividido pelo número de linhas avaliadas na partição. 
+
+CUME_DIST retorna números no intervalo de 0 < x < = 1.
 
 **Sintaxe:**
 
@@ -581,7 +535,7 @@ Os resultados são:
 | Papaia |200 |Web |0,5 |
 | Maçã |100 |Web |0.166666666666667 |
 
-Há seis linhas na partição em que a chave de partição é "Web" (quarta linha para baixo):
+Há seis linhas na partição em que a chave de partição é "Web"
 
 * Há seis linhas com valor igual ou inferior a 500; portanto, CUME_DIST é igual a 6/6=1
 * Há cinco linhas com valor igual ou inferior a 400; portanto, CUME_DIST é igual a 5/6=0,83
@@ -601,7 +555,7 @@ Observação: se a instrução SELECT não for seguida por OUTPUT, a cláusula O
 ### <a name="percentrank"></a>PERCENT_RANK
 PERCENT_RANK calcula a classificação relativa de uma linha dentro de um grupo de linhas. PERCENT_RANK é usada para avaliar a posição relativa de um valor em um conjunto de linhas ou uma partição. O intervalo de valores retornados por PERCENT_RANK é maior que 0 e menor ou igual a 1. Ao contrário de CUME_DIST, PERCENT_RANK é sempre 0 para a primeira linha.
 
-** Sintaxe**
+** Sintaxe:**
 
     PERCENT_RANK() 
         OVER (
@@ -653,16 +607,20 @@ Essas duas funções calculam um percentual baseado em uma distribuição contí
 
 **numeric_literal** - o percentual de computação. O valor deve variar entre 0,0 e 1,0.
 
-WITHIN GROUP (ORDER BY <identifier> [ASC | DESC]) - especifica uma lista de valores numéricos para classificar e computar o percentual. Somente um identificador de coluna é permitido. A expressão deve ser avaliada como um tipo numérico. Outros tipos de dados não são permitidos. A ordem de classificação padrão é crescente.
+    WITHIN GROUP (ORDER BY <identifier> [ ASC | DESC ])
 
-OVER ([ PARTITION BY <identificador>... [n]]) - divide o conjunto de linhas de entrada em partições de acordo com a chave de partição a qual a função de percentil é aplicada. Para saber mais, consulte a seção CLASSIFICAÇÃO deste documento.
+Especifica uma lista de valores numéricos para classificar e sobre os quais computar o percentual. Somente um identificador de coluna é permitido. A expressão deve ser avaliada como um tipo numérico. Outros tipos de dados não são permitidos. A ordem de classificação padrão é crescente.
+
+    OVER ([ PARTITION BY <identifier,>…[n] ] )
+
+Divide o conjunto de linhas de entrada em partições de acordo com a chave de partição à qual a função de percentil é aplicada. Para saber mais, consulte a seção CLASSIFICAÇÃO deste documento.
 Observação: os nulls no conjunto de dados são ignorados.
 
 **PERCENTILE_CONT** calcula um percentual baseado em uma distribuição contínua do valor da coluna. O resultado é interpolado e talvez não seja igual a algum valor específico na coluna. 
 
 **PERCENTILE_DISC** calcula o percentual baseado em uma distribuição distinta dos valores da coluna. O resultado é igual a um valor específico na coluna. Em outras palavras, PERCENTILE_DISC, em contraste ao PERCENTILE_CONT, sempre retorna um valor real (entrada original).
 
-Você pode ver como ambas funcionam no exemplo abaixo que tenta localizar o valor mediano (percentual =&0;,50) de latência em cada vertical
+Você pode ver como ambas funcionam no exemplo abaixo que tenta localizar o valor mediano (percentual = 0,50) de latência em cada vertical
 
     @result = 
         SELECT 
@@ -695,21 +653,10 @@ Para PERCENTILE_CONT, como os valores podem ser interpolados, o mediano para Web
 
 PERCENTILE_DISC não interpola valores; portanto, o mediano para Web é 200, o que é um valor real encontrado nas linhas de entrada.
 
-## <a name="see-also"></a>Confira também
-* [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Introdução à Análise do Data Lake usando o portal do Azure](data-lake-analytics-get-started-portal.md)
-* [Introdução à Análise Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+## <a name="see-also"></a>Consulte também
 * [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Usar tutoriais interativos da Análise do Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
-* [Analisar logs de site usando a Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
-* [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-* [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md)
-* [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Monitorar e solucionar problemas em trabalhos do Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Usar tutoriais interativos da Análise Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
+* [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md)
 
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

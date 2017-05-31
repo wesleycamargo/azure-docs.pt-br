@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 21cdfbbc457aad1cd3b1a5b20745eee4286a78bb
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: cf2a063acb2a36af2ff71f45159b2e23c9971b32
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -94,8 +94,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 * **Configuração personalizada de servidor DNS**: o serviço Gerenciamento de API depende de vários serviços do Azure. Quando o Gerenciamento de API estiver hospedado em uma VNET com um servidor DNS personalizado, será necessário resolver os nomes de host desses serviços do Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) orientações sobre a configuração de DNS personalizada. Consulte a tabela de portas abaixo e outros requisitos de rede para ter uma referência.
 
 > [!IMPORTANT]
-> Se estiver usando um Servidor DNS personalizado para a rede virtual, é aconselhável que você o configure **antes** de implantar um serviço Gerenciamento de API nele. Caso contrário, precisaremos reiniciar o CloudService que hospeda o serviço para que ele aceite as configurações do novo Servidor DNS.
->
+> Se estiver usando um ou mais servidores DNS personalizados para a VNET, é aconselhável que você os configure **antes** de implantar um serviço Gerenciamento de API nele. Caso contrário, você precisará atualizar o serviço de Gerenciamento de API sempre que você alterar os servidores DNS executando a [operação Aplicar Configuração de Rede](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservices#ApiManagementServices_ApplyNetworkConfigurationUpdates)
 
 * **Portas necessárias para o Gerenciamento de API**: o tráfego de entrada e saída para a sub-rede na qual o Gerenciamento de API foi implantado pode ser controlado usando o [Grupo de Segurança de Rede][Network Security Group]. Se qualquer uma dessas portas estiver indisponível, o Gerenciamento de API poderá não funcionar corretamente e poderá se tornar inacessível. A existência de uma ou mais dessas portas bloqueadas é outro problema de configuração incorreta no uso do Gerenciamento de API em uma VNET.
 
@@ -109,13 +108,14 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 | * / 1433 |Saída |TCP |Dependência no SQL Azure |VIRTUAL_NETWORK/INTERNET |Interno e externo |
 | * / 11000 - 11999 |Saída |TCP |Dependência do SQL V12 do Azure |VIRTUAL_NETWORK/INTERNET |Interno e externo |
 | * / 14000 - 14999 |Saída |TCP |Dependência do SQL V12 do Azure |VIRTUAL_NETWORK/INTERNET |Interno e externo |
-| * / 9350 - 9354 |Saída |TCP |Dependência no barramento de serviço |VIRTUAL_NETWORK/INTERNET |Interno e externo |
-| * / 5671 |Saída |AMQP |Dependência para registrar a política de Hub de evento |VIRTUAL_NETWORK/INTERNET |Interno e externo |
+| * / 5671 |Saída |AMQP |Dependência para registrar em log a política de Hub de Eventos e o agente de monitoramento |VIRTUAL_NETWORK/INTERNET |Interno e externo |
 | 6381 - 6383 / 6381 - 6383 |Entrada e Saída |UDP |Dependência de Cache Redis |VIRTUAL_NETWORK / VIRTUAL_NETWORK |Interno e externo |-
 | * / 445 |Saída |TCP |Dependência do Compartilhamento de Arquivos do Azure para GIT |VIRTUAL_NETWORK/INTERNET |Interno e externo |
 | * / * | Entrada |TCP |Balanceador de carga de infraestrutura do Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Interno e externo |
 
 * **Funcionalidade SSL**: para habilitar a criação e validação de cadeia de certificados SSL o serviço Gerenciamento de API precisa de conectividade de rede de saída para ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com.
+
+* **Monitoramento de integridade e métricas**: conectividade de rede de saída para pontos de extremidade do Monitoramento do Azure, que são resolvidos sob os seguintes domínios: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net e prod3.metrics.nsatc.net.
 
 * **Configuração da Rota Expressa**: uma configuração de cliente comum é definir sua própria rota padrão (0.0.0.0/0), que força o tráfego de saída da Internet para o fluxo local. Esse fluxo de tráfego invariavelmente interrompe a conectividade com o Gerenciamento de API do Azure, pois o tráfego de saída é bloqueado localmente ou convertido em NAT para um conjunto irreconhecível de endereços que não funcionam mais com vários pontos de extremidade do Azure. A solução é definir uma (ou mais) [UDRs][UDRs] (rotas definidas pelo usuário) na sub-rede que contém o Gerenciamento de API do Azure. Uma UDR define rotas específicas de sub-rede que serão consideradas no lugar da rota padrão.
   Se possível, é recomendável usar a seguinte configuração:

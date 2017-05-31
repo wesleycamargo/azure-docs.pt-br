@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
+ms.date: 05/04/2017
 ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3349f890391aec7fc6361b149d148d828cbe3b97
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c4e482e9f985553938ce132c617ba0b1a2128106
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -32,7 +34,7 @@ Esse recurso pode ser usado juntamente com o recurso "[traga seu próprio aplica
 Há dois casos de uso para SCIM no Active Directory do Azure:
 
 * **Provisionamento de usuários e grupos para os aplicativos que dão suporte a SCIM** : aplicativos que dão suporte a SCIM 2.0 e usam tokens de portador OAuth para autenticação funcionarão com o Azure AD de imediato.
-* **Criar a sua própria solução de provisionamento para aplicativos que dão suporte a outro provisionamento baseado em API** : para aplicativos não SCIM, você pode criar um ponto de extremidade SCIM para converter entre o ponto de extremidade SCIM do AD do Azure e qualquer API à qual o aplicativo dê suporte para provisionamento de usuários.  Para ajudar no desenvolvimento de um ponto de extremidade SCIM, fornecemos bibliotecas CLI com exemplos de código que mostram como fornecer um ponto de extremidade SCIM e converter mensagens SCIM.  
+* **Criar a sua própria solução de provisionamento para aplicativos que dão suporte a outro provisionamento baseado em API**: para aplicativos não SCIM, você pode criar um ponto de extremidade SCIM para converter entre o ponto de extremidade SCIM do Azure AD e qualquer API à qual o aplicativo dê suporte para provisionamento de usuários.  Para ajudar no desenvolvimento de um ponto de extremidade SCIM, fornecemos bibliotecas CLI com exemplos de código que mostram como fornecer um ponto de extremidade SCIM e converter mensagens SCIM.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Provisionamento de usuários e grupos para os aplicativos que dão suporte a SCIM
 O Active Directory do Azure pode ser configurado para provisionar automaticamente usuários e grupos atribuídos a aplicativos que implementam um serviço Web de [Sistema de Gerenciamento de Identidade entre Domínios 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) e aceitam tokens de portador OAuth para autenticação. Dentro da especificação SCIM 2.0, os aplicativos devem satisfazer estes requisitos:
@@ -116,16 +118,16 @@ A maneira mais fácil de implementar um ponto de extremidade SCIM que possa acei
 2. Navegue até **Active Directory > Diretório > [seu diretório] > Aplicativos** e selecione **Adicionar > Adicionar um aplicativo da galeria**.
 3. Selecione a guia **Personalizado** à esquerda, insira um nome, como "Aplicativo de teste do SCIM", e clique no ícone de marca de seleção para criar um objeto de aplicativo. Observe que o objeto de aplicativo criado destina-se a representar o aplicativo de destino para o qual você estará provisionando e implementando o logon único, e não apenas o ponto de extremidade SCIM.
 
-![][2]
+  ![][2]
 
-1. Na tela resultante, selecione o segundo botão **Configurar provisionamento da conta** .
+4. Na tela resultante, selecione o segundo botão **Configurar provisionamento da conta** .
 2. Na caixa de diálogo, insira a URL exposta à Internet e a porta do seu ponto de extremidade SCIM. Isso seria algo como http://testmachine.contoso.com:9000 or http://<ip-address>:9000/, em que <ip-address> é o endereço IP exposto na Internet.  
-3. Clique em **Avançar** e clique no botão **Iniciar Teste** para que o Azure Active Directory tente se conectar ao ponto de extremidade do SCIM. Se as tentativas falharem, serão exibidas informações de diagnóstico.  
-4. Se as tentativas de conexão com o serviço Web forem bem-sucedidas, clique em **Avançar** nas telas restantes e em **Concluir** para sair do diálogo.
-5. Na tela resultante, selecione o terceiro botão **Atribuir Contas** . Na seção resultante Usuários e Grupos, atribua os usuários ou grupos que deseja provisionar ao aplicativo.
-6. Depois de atribuir usuários e grupos, clique na guia **Configurar** próxima à parte superior da tela.
-7. Em **Provisionamento de Conta**, confirme se o Status está definido como Ativado. 
-8. Em **Ferramentas**, clique em **Reiniciar provisionamento de conta** para iniciar o processo de provisionamento.
+5. Clique em **Avançar** e clique no botão **Iniciar Teste** para que o Azure Active Directory tente se conectar ao ponto de extremidade do SCIM. Se as tentativas falharem, serão exibidas informações de diagnóstico.  
+6. Se as tentativas de conexão com o serviço Web forem bem-sucedidas, clique em **Avançar** nas telas restantes e em **Concluir** para sair do diálogo.
+7. Na tela resultante, selecione o terceiro botão **Atribuir Contas** . Na seção resultante Usuários e Grupos, atribua os usuários ou grupos que deseja provisionar ao aplicativo.
+8. Depois de atribuir usuários e grupos, clique na guia **Configurar** próxima à parte superior da tela.
+9. Em **Provisionamento de Conta**, confirme se o Status está definido como Ativado. 
+10. Em **Ferramentas**, clique em **Reiniciar provisionamento de conta** para iniciar o processo de provisionamento.
 
 Observe que podem decorrer de 5 a 10 minutos antes que o processo de provisionamento comece a enviar solicitações ao ponto de extremidade SCIM.  Um resumo das tentativas de conexão é fornecido na guia Painel do aplicativo, e um relatório da atividade de provisionamento e todos os erros de provisionamento podem ser baixados na guia Relatórios do diretório.
 
@@ -678,9 +680,4 @@ A figura abaixo mostra as mensagens que o Active Directory do Azure enviará a u
 [3]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

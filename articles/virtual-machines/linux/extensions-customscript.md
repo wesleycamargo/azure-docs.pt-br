@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 16d04d0f470dde3917f5a12f527ecceb493b2a57
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 89001404fa7255efc656b98983502d1f1d84fd73
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -34,6 +34,8 @@ A configuração de extensão de script personalizado especifica itens como loca
 ### <a name="public-configuration"></a>Configuração pública
 Esquema:
 
+**Observação** – esses nomes de propriedade diferenciam maiúsculas de minúsculas. Use os nomes conforme mostrado abaixo para evitar problemas de implantação.
+
 * **commandToExecute**: (obrigatório, cadeia de caracteres) o script de ponto de entrada a ser executado
 * **fileUris**: (opcional, matriz de cadeia de caracteres) as URLs de arquivos a serem baixados.
 * **timestamp** (opcional, inteiro) use este campo somente para disparar uma nova execução do script, alterando o valor desse campo.
@@ -47,6 +49,8 @@ Esquema:
 
 ### <a name="protected-configuration"></a>Configuração protegida
 Esquema:
+
+**Observação** – esses nomes de propriedade diferenciam maiúsculas de minúsculas. Use os nomes conforme mostrado abaixo para evitar problemas de implantação.
 
 * **commandToExecute**: (opcional, cadeia de caracteres) o script de ponto de entrada a ser executado. Use este campo se o comando tiver segredos, como senhas.
 * **storageAccountName**: (opcional, cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, todos os fileUris deverão ser URLs para Blobs do Azure.

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 5cbe0b7f71f8dfd6f3a41fa6ff4b0c6ab5e6985d
-ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 1c3118bc66afe7ef4f04d86d9b598128d1aadf82
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -25,7 +27,7 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 Este tópico compara as funcionalidades de codificação do **Media Encoder Standard** e do **Fluxo de Trabalho do Media Encoder Premium**.
 
-### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Medidor de cobrança usado por cada codificador
+### <a id="billing"></a>Medidor de cobrança usado por cada codificador
 | Nome do processador de mídia | Preços aplicáveis | Observações |
 | --- | --- | --- |
 | **Media Encoder Standard** |CODIFICADOR |As Tarefas de Codificação serão cobradas com base na duração total, em minutos, de todos os arquivos de mídia gerados como saída, na taxa especificada [aqui][1], na coluna CODIFICADOR. |
@@ -105,7 +107,9 @@ Este tópico compara as funcionalidades de codificação do **Media Encoder Stan
 | MPEG-2 (até perfil e de alto nível 422; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs ® e D10) |Não |Sim |
 | MPEG-1 |Não |Sim |
 | Windows Media Video/VC-1 |Não |Sim |
-| Criação de miniaturas JPEG |Não |Sim |
+| Criação de miniaturas JPEG |Sim |Sim |
+| Criação de miniaturas PNG |Sim |Sim |
+| Criação de miniaturas BMP |Sim |Não |
 
 ### <a name="output-audio-codecs"></a>Codecs de áudio de saída
 | Codecs de áudio de saída | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
@@ -133,9 +137,4 @@ Este tópico compara as funcionalidades de codificação do **Media Encoder Stan
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

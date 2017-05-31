@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f4c63af2d873fb11c8503a30b104b9b7db7f74f0
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 7f708087dda4cfb7e998b42ce36632d5764c6c0e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -34,15 +35,15 @@ Nesta etapa, você verifica se o Visual Studio está instalado e cria um aplicat
 
 1. Se você ainda não fez isso, instale o [Visual Studio](https://www.visualstudio.com/).
 2. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
-3. Em **Modelos** > **Visual C#**, selecione **Aplicativo de Console**, digite o nome e o local do projeto e, em seguida, clique em **OK**.
+3. Em **Modelos** > **Visual C#**, selecione **Aplicativo de Console (.NET Framework)**, digite o nome e o local do projeto e, em seguida, clique em **OK**.
 
 ## <a name="step-2-install-libraries"></a>Etapa 2: Instalar bibliotecas
 
 Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas de que você precisa para concluir estas etapas. Para obter as bibliotecas que você precisa no Visual Studio, siga estas etapas:
 
 
-1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções, clique em **Gerenciar Pacotes NuGet** e, em seguida, em **Procurar**.
-2. Digite *Microsoft.IdentityModel.Clients.ActiveDirectory* na caixa de pesquisa, clique em **Instalar** e siga as instruções para instalar o pacote.
+1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções, clique em **Gerenciar Pacotes NuGet para a Solução** e depois em **Procurar**.
+2. Digite *Microsoft.IdentityModel.Clients.ActiveDirectory* na caixa de pesquisa, selecione seu projeto, clique em **Instalar** e siga as instruções para instalar o pacote.
 3. Na parte superior da página, selecione **Incluir Pré-lançamento**. Digite *Microsoft.Azure.Management.Compute* na caixa de pesquisa, clique em **Instalar** e siga as instruções para instalar o pacote.
 4. Digite *Microsoft.Azure.Management.Network* na caixa de pesquisa, clique em **Instalar** e siga as instruções para instalar o pacote.
 5. Digite *Microsoft.Azure.Management.Storage* na caixa de pesquisa, clique em **Instalar** e siga as instruções para instalar o pacote.
@@ -54,7 +55,7 @@ Agora você está pronto para começar a usar as bibliotecas para criar seu apli
 
 Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../resource-group-authenticate-service-principal.md). Na entidade de serviço, você adquire um token para autenticar as solicitações para o Azure Resource Manager.
 
-1. Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções na parte superior do arquivo:
+1. Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções para as instruções existentes na parte superior do arquivo:
    
     ```
     using Microsoft.Azure;
@@ -75,8 +76,8 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
     ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -88,9 +89,9 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
     Substitua esses valores:
     
-    - *{client-id}* com o identificador do aplicativo do Azure Active Directory. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD. Para encontrar o aplicativo do AD no portal do Azure, clique em **Azure Active Directory** no menu de recursos e, em seguida, em **Registros do aplicativo**.
-    - *{client-secret}* com a tecla de acesso do aplicativo do AD. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD.
-    - *{tenant-id}* com o identificador de locatário da assinatura. É possível encontrar o identificador de locatário na folha Propriedades do Azure Active Directory no portal do Azure. Ele é rotulado *ID de Diretório*.
+    - *client-id* com o identificador do aplicativo do Azure Active Directory. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD. Para encontrar o aplicativo do AD no portal do Azure, clique em **Azure Active Directory** no menu de recursos e, em seguida, em **Registros do aplicativo**.
+    - *client-secret* com a tecla de acesso do aplicativo do AD. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD.
+    - *tenant-id* com o identificador de locatário da assinatura. É possível encontrar o identificador de locatário na folha Propriedades do Azure Active Directory no portal do Azure. Ele é rotulado *ID de Diretório*.
 
 3. Para chamar o método que você adicionou anteriormente, adicione este código ao método Main no arquivo Program.cs:
    
@@ -101,7 +102,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 4. Salve o arquivo Program.cs.
 
-## <a name="step-3-create-the-resources"></a>Etapa 3: Criar os recursos
+## <a name="step-4-create-the-resources"></a>Etapa 4: criar os recursos
 
 ### <a name="register-the-providers-and-create-a-resource-group"></a>Registrar os provedores e criar um grupo de recursos
 
@@ -360,8 +361,8 @@ Uma máquina virtual precisa de uma interface de rede para se comunicar na rede 
                 new NetworkInterfaceIPConfiguration
                   {
                     Name = nicName,
-                    PublicIPAddress = pubipResponse,
-                    Subnet = subnetResponse
+                    PublicIPAddress = publicIP,
+                    Subnet = subnet
                   }
               }
           }

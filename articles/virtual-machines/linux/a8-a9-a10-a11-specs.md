@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9a8073baea9a6ff2ecf443b516665adb10de4815
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a2307f7055966ec7146b5da0b4daf1ad469abe2b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>Sobre as VMs da série H e da série A de computação intensiva para Linux
@@ -32,7 +33,7 @@ Para obter as especificações básicas, as capacidades de armazenamento e os de
 ## <a name="access-to-the-rdma-network"></a>Acesso à rede RDMA
 Você pode criar clusters de VMs do Linux compatíveis com RDMA que executam uma das seguintes distribuições de Linux HPC com suporte e uma implementação MPI com suporte para tirar proveito da rede RDMA do Azure. Veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para obter opções de implantação e etapas de configuração de exemplo.
 
-* **Distribuições** – Você deve implantar as VMs de imagens HPC com base em OpenLogic CentOS ou SLES (SUSE Linux Enterprise Server) compatíveis com RDMA no Azure Marketplace. As seguintes imagens do Marketplace dão suporte à conectividade RDMA:
+* **Distribuições** – Você deve implantar as VMs de imagens HPC com base em Rogue Wave Software (anteriormente OpenLogic) CentOS ou SLES (SUSE Linux Enterprise Server) compatíveis com RDMA no Azure Marketplace. As seguintes imagens do Marketplace dão suporte à conectividade RDMA:
   
     * SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium)
     

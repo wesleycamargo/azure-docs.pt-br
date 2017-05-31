@@ -12,36 +12,37 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/23/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8824f20a1f76f07aa6ea527ef1a8a6b986b18371
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 0f4ccf2cda1e580121533c092b5abe28eb737116
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Criar um ambiente de Docker no Azure usando a extensão de VM do Docker
-O Docker é uma plataforma popular de geração de imagens e gerenciamento de contêineres que permite que você trabalhe rapidamente com contêineres no Linux. No Azure, há várias maneiras de que você pode implantar o Docker de acordo com suas necessidades. Este artigo se concentra no uso de modelos do Azure Resource Manager e da extensão de VM do Docker com a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](dockerextension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+O Docker é uma plataforma popular de geração de imagens e gerenciamento de contêineres que permite que você trabalhe rapidamente com contêineres no Linux. No Azure, há várias maneiras de que você pode implantar o Docker de acordo com suas necessidades. Este artigo se concentra no uso de modelos do Azure Resource Manager e da extensão de VM do Docker com a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](dockerextension-nodejs.md).
 
 ## <a name="azure-docker-vm-extension-overview"></a>Visão geral da extensão de VM do Docker do Azure
 A Extensão de VM do Docker do Azure instala e configura o daemon do Docker, o cliente do Docker e o Docker Compose em sua VM (máquina virtual) Linux. Usando a extensão de VM do Docker do Azure, você tem mais controle e recursos do que simplesmente usando a Máquina do Docker ou criando o host do Docker você mesmo. Esses recursos adicionais, como [Docker Compose](https://docs.docker.com/compose/overview/), tornam a extensão de VM do Docker do Azure adequada para ambientes de produção ou de desenvolvedor mais robustos.
 
 Para obter mais informações sobre os diferentes métodos de implantação, incluindo o uso de Máquina do Docker e dos Serviços de Contêiner do Azure, consulte os seguintes artigos:
 
-* Para fazer rapidamente o protótipo de um aplicativo, você pode criar um único host do Docker usando a [Máquina do Docker](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Para fazer rapidamente o protótipo de um aplicativo, você pode criar um único host do Docker usando a [Máquina do Docker](docker-machine.md).
 * Você também pode implantar um [cluster do Docker Swarm nos Serviços de Contêiner do Azure](../../container-service/container-service-deployment.md) para criar ambientes escalonáveis, prontos para produção que fornecem ferramentas de gerenciamento e agendamento adicionais.
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implantar um modelo com a extensão de VM do Docker do Azure
 Vamos usar um modelo existente de início rápido para criar uma VM do Ubuntu que use a extensão de VM do Docker do Azure para instalar e configurar o host do Docker. Você pode conferir o modelo aqui: [Simple deployment of an Ubuntu VM with Docker (Implantação simples de uma VM do Ubuntu com o Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). É preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `West US`:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *westus*:
 
 ```azurecli
- az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location westus
 ```
 
-Em seguida, implante uma VM com [az group deployment create](/cli/azure/group/deployment#create), o que inclui a extensão da VM do Docker do Azure [deste modelo do Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Forneça seus próprios valores para `newStorageAccountName`, `adminUsername`, `adminPassword` e `dnsNameForPublicIP`, como se segue:
+Em seguida, implante uma VM com [az group deployment create](/cli/azure/group/deployment#create), o que inclui a extensão da VM do Docker do Azure [deste modelo do Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Forneça seus próprios valores para *newStorageAccountName*, *adminUsername*, *adminPassword* e *dnsNameForPublicIP* da seguinte maneira:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -54,14 +55,19 @@ az group deployment create --resource-group myResourceGroup \
 
 Leva alguns minutos para a conclusão da implantação. Após a conclusão da implantação, [vá para a próxima etapa](#deploy-your-first-nginx-container) a fim de usar SSH em sua VM. 
 
-Como opção, para, em vez disso, retornar o controle ao prompt e permitir que a implantação continue em segundo plano, adicione o sinalizador `--no-wait` ao comando anterior. Esse processo permite que você execute outro trabalho na CLI enquanto a implantação continua por alguns minutos. Você pode exibir detalhes sobre o status de host do Docker usando o comando [az vm show](/cli/azure/vm#show). O exemplo a seguir verifica o status da VM denominada `myDockerVM` (o nome padrão do modelo – não altere esse nome) no grupo de recursos denominado `myResourceGroup`:
+Como opção, para, em vez disso, retornar o controle ao prompt e permitir que a implantação continue em segundo plano, adicione o sinalizador `--no-wait` ao comando anterior. Esse processo permite que você execute outro trabalho na CLI enquanto a implantação continua por alguns minutos. 
+
+Você pode exibir detalhes sobre o status de host do Docker usando o comando [az vm show](/cli/azure/vm#show). O exemplo a seguir verifica o status da VM chamada *myDockerVM* (o nome padrão do modelo – não altere esse nome) no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli
-az vm show --resource-group myResourceGroup --name myDockerVM \
-  --query [provisioningState] --output tsv
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --query [provisioningState] \
+    --output tsv
 ```
 
-Quando esse comando retornar `Succeeded`, a implantação terá sido concluída e você poderá usar SSH na VM na etapa a seguir.
+Quando esse comando retornar *Succeeded*, a implantação terá sido concluída e você poderá usar SSH na VM na etapa a seguir.
 
 ## <a name="deploy-your-first-nginx-container"></a>Implantar seu primeiro contêiner nginx
 Para exibir detalhes de sua VM, incluindo o nome DNS, use `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`. Use o SSH para o host do seu novo Docker no computador local, como se segue:
@@ -122,7 +128,7 @@ O exemplo anterior usa um modelo de início rápido existente. Você também pod
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "DockerExtension",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.*",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
@@ -137,8 +143,8 @@ Você poderá [configurar a porta TCP do daemon do Docker](https://docs.docker.c
 
 Leia mais informações sobre as opções de implantação adicionais do Docker no Azure:
 
-* [Usar o computador Docker com o driver do Azure](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
-* [Introdução ao Docker e Compose para definir e executar um aplicativo de vários contêineres em uma máquina virtual do Azure](docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Usar o computador Docker com o driver do Azure](docker-machine.md)  
+* [Introdução ao Docker e Compose para definir e executar um aplicativo de vários contêineres em uma máquina virtual do Azure](docker-compose-quickstart.md).
 * [Implantar um cluster do Serviço de Contêiner do Azure](../../container-service/container-service-deployment.md)
 
 

@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 85a59eddf3c453ee112f279d439c94853b2f62b5
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="conditional-access-in-azure-active-directory---preview"></a>Acesso condicional no Azure Active Directory - visualização
+# <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-conditional-access-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-conditional-access.md)
-
-
-O comportamento descrito neste tópico está em [visualização](active-directory-preview-explainer.md) no momento.
 
 Em um mundo móvel e em nuvem, o Azure Active Directory permite o logon único para dispositivos, aplicativos e serviços de qualquer lugar. Com a proliferação de dispositivos (incluindo BYOD), trabalho fora de redes corporativas e aplicativos de SaaS de terceiros, os profissionais de TI têm duas metas opostas:
 
@@ -117,13 +114,17 @@ Selecionando aplicativos na nuvem, você define o escopo de aplicativos de nuvem
 
 - **Como** - desde que o acesso a seus aplicativos seja executado sob condições que você pode controlar, talvez não haja necessidade de impor controles adicionais sobre como seus aplicativos em nuvem são acessados pelos usuários. No entanto, tudo pode mudar se o acesso aos seus aplicativos de nuvem for executado, por exemplo, de redes não confiáveis ou de dispositivos não compatíveis. Em uma instrução de condição, você pode definir certas condições de acesso com requisitos adicionais sobre a execução do acesso aos seus aplicativos.
 
-    ![Condições](./media/active-directory-conditional-access-azure-portal/01.png)
+    ![Condições](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 ## <a name="conditions"></a>Condições
 
 Na implementação atual do Azure Active Directory, você pode definir condições para as seguintes áreas:
 
+- **Risco de conexão** – um risco de conexão é um objeto que é usado pelo Azure Active Directory para controlar a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. Nesse objeto, a probabilidade (Alta, Média ou Baixa) é armazenada na forma de um atributo chamado [nível de risco de conexão](active-directory-reporting-risk-events.md#risk-level). Esse objeto será gerado durante uma conexão de um usuário riscos de conexão tiverem sido detectados pelo Azure Active Directory. Para obter mais detalhes, veja [Entradas arriscadas](active-directory-identityprotection.md#risky-sign-ins).  
+Você pode usar o nível de risco de conexão calculado como uma condição em uma política de acesso condicional. 
+
+    ![Condições](./media/active-directory-conditional-access-azure-portal/22.png)
 
 - **Plataformas de dispositivo** – a plataforma do dispositivo é caracterizada pelo sistema operacional em execução no seu dispositivo (Android, iOS, Windows Phone, Windows). Você pode definir as plataformas de dispositivo incluídas, bem como as plataformas de dispositivo isentas de uma política.  
 Para usar as plataformas de dispositivo na política, primeiro altere a configuração para **Sim** e selecione todos ou plataformas de dispositivos individuais às quais a política se aplica. Se você selecionar plataformas de dispositivos individuais, a política afetará apenas essas plataformas. Nesse caso, as entradas para outras plataformas com suporte não serão afetadas pela política.
@@ -140,65 +141,6 @@ Você pode incluir todos os locais ou todos os IPs confiáveis e pode excluir to
 A autenticação herdada refere-se aos clientes usando a autenticação básica, como clientes do Office mais antigos que não usam a autenticação moderna. No momento, o acesso condicional não tem suporte na autenticação herdada.
 
     ![Condições](./media/active-directory-conditional-access-azure-portal/04.png)
-
-
-## <a name="what-you-should-know"></a>O que você deve saber
-
-### <a name="do-i-need-to-assign-a-user-to-my-policy"></a>É necessário atribuir um usuário à minha política?
-
-Ao configurar uma política de acesso condicional, você deve atribuir pelo menos um grupo a ela. Uma política de acesso condicional que não tenha usuários e grupos atribuídos nunca será disparada.
-
-Quando você pretende atribuir vários usuários e grupos a uma política, comece atribuindo apenas um usuário ou um grupo e depois teste sua configuração. Se sua política funcionar como o esperado, você poderá adicionar atribuições adicionais a ela.  
-
-
-### <a name="how-are-assignments-evaluated"></a>Como as atribuições são avaliadas?
-
-Todas as atribuições são avaliadas com **AND** lógicos. Se você tiver mais de uma atribuição configurada, para disparar uma política, todas as atribuições deverão ser satisfeitas.  
-
-Se você precisar configurar uma condição de local que se aplique a todas as conexões feitas de fora da rede da sua organização, poderá fazer isso:
-
-- Incluindo **todos os locais**
-- Excluindo **todos os IPs confiáveis**
-
-### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>O que acontece se você tiver políticas configuradas no portal clássico do Azure e no portal do Azure?  
-Ambas as políticas são aplicadas pelo Azure Active Directory e o usuário só obterá acesso quando todos os requisitos forem atendidos.
-
-### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>O que acontece se você tiver políticas no portal do Intune Silverlight e no Portal do Azure?
-Ambas as políticas são aplicadas pelo Azure Active Directory e o usuário só obterá acesso quando todos os requisitos forem atendidos.
-
-### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>O que acontece se eu tiver várias políticas configuradas para o mesmo usuário?  
-Para cada entrada, o Azure Active Directory avalia todas as políticas e garante que todos os requisitos sejam atendidos antes que o acesso seja concedido ao usuário.
-
-
-### <a name="does-conditional-access-work-with-exchange-activesync"></a>O acesso condicional funciona com o Exchange ActiveSync?
-
-Sim, você não pode usar o Exchange ActiveSync em uma política de acesso condicional.
-
-
-### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>O que acontece se eu exigir a autenticação multifator ou um dispositivo compatível?
-
-Atualmente, o autenticação multifator será solicitada ao usuário independentemente do dispositivo.
-
-
-## <a name="what-you-should-avoid-doing"></a>O que você deve evitar
-
-A estrutura de acesso condicional fornece uma excelente flexibilidade de configuração. No entanto, muita flexibilidade também significa que você deve examinar cuidadosamente cada política de configuração antes de liberá-la, a fim de evitar resultados indesejados. Nesse contexto, preste atenção especial às atribuições que afetam conjuntos completos, como **todos os usuários/grupos/aplicativos de nuvem**.
-
-Em seu ambiente, evite as configurações a seguir:
-
-
-**Para todos os usuários, todos os aplicativos de nuvem:**
-
-- **Bloquear o acesso** - Essa configuração bloqueia toda a organização, o que certamente não é uma boa ideia.
-
-- **Exigir dispositivo compatível** - Para usuários que ainda não registraram seus dispositivos, esta política bloqueia todo acesso, incluindo acesso ao portal do Intune. Se você for um administrador sem um dispositivo registrado, essa política impedirá você voltar ao Portal do Azure para alterar a política.
-
-- **Exigir ingresso no domínio** - Esta política de bloqueio de acesso também tem o potencial para bloquear o acesso de todos os usuários em sua organização se você ainda não tiver um dispositivo ingressado no domínio.
-
-
-**Para todos os usuários, todos os aplicativos de nuvem, todas as plataformas de dispositivo:**
-
-- **Bloquear o acesso** - Essa configuração bloqueia toda a organização, o que certamente não é uma boa ideia.
 
 
 ## <a name="common-scenarios"></a>Cenários comuns
@@ -228,3 +170,4 @@ Muitos clientes do Intune estão usando o acesso condicional para garantir que s
 
 Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
+Para obter mais detalhes sobre o que você deve saber e o que você deve evitar fazer ao configurar políticas de acesso condicional, consulte 

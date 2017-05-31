@@ -15,10 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e391dc0f88bd7e065f968a490b3c1ddb1fa75978
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 312f84fe2aaf3f63fe2b8d818786ef1c570ccfe1
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -51,7 +52,7 @@ Se você precisar de dados que não podem ser acessados por meio de qualquer uma
 ### <a name="log-searches"></a>Pesquisas de log
 As [pesquisas de logs](../log-analytics/log-analytics-log-searches.md) são usadas para extrair e analisar dados no repositório do Log Analytics.  Eles são usados pelas exibições e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
 
-Defina as consultas que você considera úteis para o usuário, mesmo se não forem usadas por modos de exibição ou alertas.  Elas estarão disponíveis como Pesquisas Salvas no portal, e você também pode incluí-las em uma [parte de visualização de Lista de Consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) em seu modo de exibição personalizado.
+Defina as consultas que você considera úteis para o usuário, mesmo se não forem usadas por modos de exibição ou alertas.  Elas estarão disponíveis como Pesquisas Salvas no portal e você também pode incluí-las em uma [parte de visualização de Lista de Consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) em seu modo de exibição personalizado.
 
 ### <a name="alerts"></a>Alertas
 [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md) identificam problemas por meio de [pesquisas de log](#log-searches) nos dados do repositório.  Eles notificam o usuário ou executam automaticamente uma ação como resposta. Identifique as condições de alerta diferentes para seu aplicativo e inclua regras de alerta correspondentes em seu arquivo de solução.

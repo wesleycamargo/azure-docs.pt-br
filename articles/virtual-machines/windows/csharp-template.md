@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 738ff9882cffc428f571ab6aea96c0927d2ce443
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 7bed1e96cec49e8b62d671952976025453da6787
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -35,14 +36,14 @@ Nesta etapa, você verifica se o Visual Studio está instalado e cria um aplicat
 
 1. Se você ainda não fez isso, instale o [Visual Studio](https://www.visualstudio.com/).
 2. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
-3. Em **Modelos** > **Visual C#**, selecione **Aplicativo de Console**, digite o nome e o local do projeto e, em seguida, clique em **OK**.
+3. Em **Modelos** > **Visual C#**, selecione **Aplicativo de Console (.NET Framework)**, digite o nome e a localização do projeto e, em seguida, clique em **OK**.
 
 ## <a name="step-2-install-libraries"></a>Etapa 2: Instalar bibliotecas
 
 Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas de que você precisa para concluir estas etapas. Você precisa instalar a Biblioteca do Azure Resource Manager e a Biblioteca de Autenticação do Active Directory para criar os recursos. Para obter essas bibliotecas no Visual Studio, siga estas etapas:
 
-1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções, clique em **Gerenciar Pacotes NuGet** e, em seguida, em **Procurar**.
-2. Digite *Microsoft.IdentityModel.Clients.ActiveDirectory* na caixa de pesquisa, clique em **Instalar** e siga as instruções para instalar o pacote.
+1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções, clique em **Gerenciar Pacotes NuGet para a Solução...** e depois em **Procurar**.
+2. Digite *Microsoft.IdentityModel.Clients.ActiveDirectory* na caixa de pesquisa, selecione seu projeto, clique em **Instalar** e siga as instruções para instalar o pacote.
 3. Na parte superior da página, selecione **Incluir Pré-lançamento**. Digite *Microsoft.Azure.Management.ResourceManager* na caixa de pesquisa, clique em **Instalar** e siga as instruções para instalar o pacote.
 
 Agora você está pronto para começar a usar as bibliotecas para criar seu aplicativo.
@@ -51,7 +52,7 @@ Agora você está pronto para começar a usar as bibliotecas para criar seu apli
 
 Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../resource-group-authenticate-service-principal.md). Na entidade de serviço, você adquire um token para autenticar as solicitações para o Azure Resource Manager.
 
-1. Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções na parte superior do arquivo:
+1. Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções para as instruções existentes na parte superior do arquivo:
 
     ```
     using Microsoft.Azure;
@@ -67,8 +68,8 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
     ```
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -80,9 +81,9 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
     Substitua esses valores:
     
-    - *{client-id}* com o identificador do aplicativo do Azure Active Directory. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD. Para encontrar o aplicativo do AD no portal do Azure, clique em **Azure Active Directory** no menu de recursos e, em seguida, em **Registros do aplicativo**.
-    - *{client-secret}* com a tecla de acesso do aplicativo do AD. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD.
-    - *{tenant-id}* com o identificador de locatário da assinatura. É possível encontrar o identificador de locatário na folha Propriedades do Azure Active Directory no portal do Azure. Ele é rotulado *ID de Diretório*.
+    - *client-id* com o identificador do aplicativo do Azure Active Directory. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD. Para encontrar o aplicativo do AD no portal do Azure, clique em **Azure Active Directory** no menu de recursos e, em seguida, em **Registros do aplicativo**.
+    - *client-secret* com a chave de acesso do aplicativo do AD. É possível encontrar esse identificador na folha Propriedades do aplicativo do AD.
+    - *tenant-id* com o identificador de locatário da assinatura. É possível encontrar o identificador de locatário na folha Propriedades do Azure Active Directory no portal do Azure. Ele é rotulado *ID de Diretório*.
 
 3. Para chamar o método que você acabou de adicionar, adicione este código ao método Main:
 
@@ -102,7 +103,7 @@ Embora seja possível criar um grupo de recursos com base em um modelo, o modelo
     ```
     var groupName = "myResourceGroup";
     var subscriptionId = "subsciptionId";
-    var deploymentName = "deploymentName;
+    var deploymentName = "deploymentName";
     var location = "location";
     ```
 

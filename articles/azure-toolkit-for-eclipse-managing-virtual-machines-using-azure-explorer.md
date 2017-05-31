@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar Máquinas Virtuais usando o Azure Explorer para Eclipse | Microsoft Docs"
+title: "Gerenciar máquinas virtuais usando o Azure Explorer para Eclipse | Microsoft Docs"
 description: "Saiba como gerenciar suas máquinas virtuais do Azure usando o Azure Explorer para Eclipse."
 services: 
 documentationcenter: java
@@ -14,128 +14,150 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f8631c5fe566762862f64b47843e154b68bb8031
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 9784e8af9c530078afee06f08a23403a44b0762f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
 
-# <a name="managing-virtual-machines-using-the-azure-explorer-for-eclipse"></a>Gerenciar Máquinas Virtuais usando o Azure Explorer para Eclipse
+# <a name="manage-virtual-machines-by-using-the-azure-explorer-for-eclipse"></a>Gerenciar máquinas virtuais usando o Azure Explorer para Eclipse
 
-O Azure Explorer, que faz parte do Kit de ferramentas do Azure para Eclipse, fornece aos desenvolvedores de Java com uma solução fácil de usar para gerenciar máquinas virtuais em sua conta do Azure de dentro do IDE Eclipse.
+O Azure Explorer, que faz parte do Kit de ferramentas do Azure para Eclipse, fornece aos desenvolvedores de Java uma solução fácil de usar para gerenciar máquinas virtuais em sua conta do Azure de dentro do IDE (ambiente de desenvolvimento integrado) Eclipse.
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 [!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](../includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
 
-## <a name="creating-a-virtual-machine-in-eclipse"></a>Criar uma máquina virtual no Eclipse
+## <a name="create-a-virtual-machine-in-eclipse"></a>Criar uma máquina virtual no Eclipse
 
-As etapas a seguir guiarão você pelas etapas para criar uma máquina virtual usando o Azure Explorer.
+Para criar uma máquina virtual usando o Azure Explorer, faça o seguinte:
 
-1. Entre em sua conta do Azure usando as etapas no artigo [Instruções de entrada para o Kit de ferramentas do Azure para Eclipse].
+1. Entre em sua conta do Azure usando as [Instruções de conexão para o Kit de ferramentas do Azure para Eclipse].
 
-1. Na exibição do **Azure Explorer**, expanda o nó **Azure**, clique com o botão direito do mouse em **Máquinas Virtuais** e, em seguida, clique em **Criar VM**.
-   ![Menu Criar VM][CR01]
+2. Na exibição do **Azure Explorer**, expanda o nó **Azure**, clique com o botão direito do mouse em **Máquinas Virtuais** e, em seguida, clique em **Criar VM**.
 
-1. Quando o assistente **Criar uma Nova Máquina Virtual** é exibido, escolha a sua assinatura e, em seguida, clique em **Avançar**.
-   ![Assistente Criar uma Nova Máquina Virtual][CR02]
+   ![O comando Criar VM][CR01]  
+   O assistente para **Criar uma nova Máquina Virtual** é aberto.
 
-1. Na próxima tela do assistente, especifique as opções a seguir e então clique em **Avançar**:  ![Assistente Criar Nova Máquina Virtual][CR03]
+3. Na caixa de diálogo **Escolha uma Assinatura**, selecione sua assinatura e clique em **Avançar**.
 
-   a. **Localização**: especifica a localização em que sua máquina virtual será criada, por exemplo, "westus".
+   ![A janela Escolha uma Assinatura][CR02]
 
-   b. **Editor**: especifica o editor que criou a imagem que você usará para criar sua máquina virtual; por exemplo, "Microsoft".
+4. Na janela **Selecionar uma Imagem de Máquina Virtual**, insira as seguintes informações:
 
-   c. **Oferta**: especifica qual oferta da máquina virtual usar do editor selecionado; por exemplo "JDK".
+   * **Localização**: especifica o local no qual sua máquina virtual será criada (por exemplo, *Oeste dos EUA*).
 
-   d. **Sku**: especifica a *SKU (unidade de manutenção de estoque)* a usar da oferta selecionada; por exemplo, "JDK_8".
+   * **Editor**: especifica o editor que criou a imagem que você usará para criar sua máquina virtual (por exemplo, *Microsoft*).
 
-   e. **No. de Versão**: especifica qual versão do SKU selecionado usar.
+   * **Oferta**: especifica qual oferta de máquina virtual do editor selecionado será usada (por exemplo *JDK*).
 
-1. Na próxima tela do assistente, especifique as opções a seguir e então clique em **Avançar**: ![Assistente Criar Nova Máquina Virtual][CR04]
+   * **Sku**: especifica qual SKU (unidade de manutenção de estoque) da oferta selecionada será usada (por exemplo, *JDK_8*).
 
-   a. **Nome da Máquina Virtual**: especifica o nome para sua nova máquina virtual, que deve começar com uma letra e conter somente letras, números e hifens.
+   * **No. de Versão**: especifica qual versão do SKU selecionado será usada.
 
-   b. **Tamanho**: especifica o número de núcleos e a memória para alocar para sua máquina virtual.
+    ![A janela Selecionar uma Imagem de Máquina Virtual][CR03]
 
-   c. **Nome de usuário**: especifica a conta de administrador a criar para gerenciar sua máquina virtual.
+5. Clique em **Avançar**.
 
-   d. **Senha** e **Confirmar**: especifica a senha para sua conta de administrador.
+6. Na janela **Configurações Básicas de Máquina Virtual**, insira as seguintes informações:
 
-1. Na última tela do assistente, especifique as opções a seguir:
+   * **Nome da Máquina Virtual**: especifica o nome para sua nova máquina virtual, que deve começar com uma letra e conter somente letras, números e hifens.
 
-   a. **Grupo de Recursos**: especifica o grupo de recursos para sua máquina virtual; você precisa escolher uma das seguintes opções:
-      * **Criar Novo**: especifica que você deseja criar um novo grupo de recursos.
-      * **Usar Existente**: especifica que você escolherá entre uma lista de grupos de recursos associados à sua conta do Azure.
+   * **Tamanho**: especifica o número de núcleos e a memória para alocar para sua máquina virtual.
 
-   b. **Conta de armazenamento**: especifica a conta de armazenamento a usar para armazenar a máquina virtual; você pode escolher uma conta de armazenamento existente ou criar uma nova conta. Se você escolher **&lt;&lt;Criar Nova&gt;&gt;**, a caixa de diálogo a seguir será exibida:
+   * **Nome de usuário**: especifica a conta de administrador a criar para gerenciar sua máquina virtual.
 
-      ![Caixa de diálogo Criar Nova Conta de Armazenamento][CR05]
+   * **Senha** e **Confirmar**: especifica a senha para sua conta de administrador.
 
-   c. **Rede Virtual** e **Sub-rede**: especifica a rede virtual e a sub-rede às quais sua máquina virtual será conectada; você pode escolher uma rede e sub-rede existentes para usar na máquina virtual ou você pode criar uma nova rede e sub-rede. Se você escolher **&lt;&lt;Criar Nova&gt;&gt;**, a caixa de diálogo a seguir será exibida:<br/>
+    ![A janela Configurações Básicas de Máquina Virtual][CR04]
 
-      ![Caixa de diálogo Criar Nova Rede Virtual][CR06]
+7. Clique em **Avançar**.
 
-   d. **Endereço IP público**: especifica um endereço IP voltado para o exterior para sua máquina virtual; você poderá optar por criar um novo endereço IP ou escolher **(Nenhum)** se sua máquina virtual não tiver um endereço IP público.
+8. Na janela **Criar Nova Conta de Armazenamento**, insira as seguintes informações:
 
-   e. **Grupo de Segurança de Rede**: especifica um firewall de rede opcional que sua máquina virtual usará; você poderá escolher um firewall existente ou escolher **(Nenhum)** se sua máquina virtual não usar um firewall de rede.
+   * **Grupo de Recursos**: especifica o grupo de recursos para suas máquinas virtuais. Selecione uma das seguintes opções:
+      * **Criar novo**: especifica que você deseja criar um novo grupo de recursos.
+      * **Usar existente**: especifica que você quer selecionar um grupo de recursos que já está associado à sua conta do Azure.
 
-   f. **Conjunto de disponibilidade**: especifica um conjunto de disponibilidade opcional ao qual sua máquina virtual pode pertencer; você pode escolher um conjunto de disponibilidade existente, criar um novo conjunto de disponibilidade ou escolher **(Nenhum)** se sua máquina virtual não pertence a um conjunto de disponibilidade.
+      ![A caixa de diálogo Criar Nova Conta de Armazenamento][CR05]
 
-1. Depois de inserir todas as opções listadas acima, clique em **Concluir**: ![Assistente para Criar Nova Máquina Virtual][CR07]
+   * **Conta de armazenamento**: especifica a conta de armazenamento que será usada para armazenar a máquina virtual. Você pode usar uma conta de armazenamento existente ou criar uma nova.
 
-1. Ao concluir as etapas acima, sua nova máquina virtual será exibida na janela de ferramentas do Azure Explorer.
-   ![Nova Máquina Virtual][CR08]
+   * **Rede Virtual** e **Sub-rede**: especifica a rede virtual e a sub-rede as quais sua máquina virtual se conectará. Use uma rede e sub-rede existentes ou crie uma nova rede e sub-rede. Se você selecionar **Criar nova**, a caixa de diálogo a seguir será exibida:
 
-## <a name="restarting-a-virtual-machine-in-eclipse"></a>Reiniciar uma máquina virtual no Eclipse
+      ![A caixa de diálogo Criar Nova Rede Virtual][CR06]
 
-Para reiniciar uma máquina virtual usando o Azure Explorer no Eclipse, use as seguintes etapas:
+9. Na janela **Recursos Associados**, insira as informações a seguir:
 
-1. Na exibição do **Azure Explorer**, clique com o botão direito do mouse na máquina virtual e escolha **Reiniciar**.
-   ![Reiniciar uma Máquina Virtual][RE01]
+   * **Endereço IP público**: especifica um endereço IP externo para sua máquina virtual. Você pode optar por criar um novo endereço IP ou, se sua máquina virtual não tiver um endereço IP público, selecione **(Nenhum)**.
 
-1. Quando solicitado, clique em **Sim** para reiniciar a máquina virtual.
-   ![Reiniciar uma Máquina Virtual][RE02]
+   * **Grupo de segurança de rede**: especifica um firewall de rede opcional para sua máquina virtual. Selecione um firewall existente ou, se sua máquina virtual não for usar um firewall de rede, selecione **(Nenhum)**.
 
-## <a name="shutting-down-a-virtual-machine-in-eclipse"></a>Desligar uma Máquina Virtual no Eclipse
+   * **Conjunto de disponibilidade**: especifica um conjunto de disponibilidade opcional ao qual sua máquina virtual pode pertencer. Você pode selecionar um conjunto de disponibilidade existente, criar um novo conjunto de disponibilidade ou, se sua máquina virtual não for pertencer a um conjunto de disponibilidade, selecionar **(Nenhum)**.
 
-Para desligar uma máquina virtual em execução usando o Azure Explorer no Eclipse, use as seguintes etapas:
+   ![A janela Recursos Associados][CR07]
 
-1. Na exibição do **Azure Explorer**, clique com o botão direito do mouse na máquina virtual e escolha **Desligar**.
-   ![Desligar uma Máquina Virtual][SH01]
+9. Clique em **Concluir**.  
+  Sua nova máquina virtual aparece na janela de ferramentas do Azure Explorer.
 
-1. Quando solicitado, clique em **Sim** para desligar a máquina virtual.
-   ![Desligar uma Máquina Virtual][SH02]
+   ![Nova máquina virtual][CR08]
 
-## <a name="deleting-a-virtual-machine-in-eclipse"></a>Excluir uma máquina virtual no Eclipse
+## <a name="restart-a-virtual-machine-in-eclipse"></a>Reiniciar uma máquina virtual no Eclipse
 
-Para excluir uma máquina virtual usando o Azure Explorer no Eclipse, use as seguintes etapas:
+Para reiniciar uma máquina virtual usando o Azure Explorer no Eclipse, faça o seguinte:
 
-1. Na exibição do **Azure Explorer**, clique com o botão direito do mouse na máquina virtual e escolha **Excluir**.
-   ![Excluir uma Máquina Virtual][DE01]
+1. Na exibição do **Azure Explorer**, clique com o botão direito do mouse na máquina virtual e selecione **Reiniciar**.
 
-1. Quando solicitado, clique em **Sim** para excluir a máquina virtual.
-   ![Excluir uma Máquina Virtual][DE02]
+   ![O comando Reiniciar da máquina virtual][RE01]
 
-## <a name="see-also"></a>Consulte também
-Para obter mais informações sobre os tamanhos e os preços das máquinas virtuais do Azure, consulte os links a seguir:
+2. Na janela de confirmação, clique em **Sim**.
 
-* Tamanhos das Máquinas Virtuais do Azure
+   ![A janela de confirmação da reinicialização é aberta][RE02]
+
+## <a name="shut-down-a-virtual-machine-in-eclipse"></a>Desligar uma máquina virtual no Eclipse
+
+Para desligar uma máquina virtual em execução usando o Azure Explorer no Eclipse, faça o seguinte:
+
+1. Na exibição do **Azure Explorer**, clique com o botão direito do mouse na máquina virtual e selecione **Desligar**.
+
+   ![O comando Desligar da máquina virtual][SH01]
+
+2. Na janela de confirmação, clique em **Sim**.
+
+   ![A janela de confirmação de desligamento da máquina virtual][SH02]
+
+## <a name="delete-a-virtual-machine-in-eclipse"></a>Excluir uma máquina virtual no Eclipse
+
+Para excluir uma máquina virtual usando o Azure Explorer no Eclipse, faça o seguinte:
+
+1. Na exibição do **Azure Explorer**, clique com o botão direito do mouse na máquina virtual e selecione **Excluir**.
+
+   ![O comando Excluir da máquina virtual][DE01]
+
+2. Na janela de confirmação, clique em **Sim**.
+
+   ![A janela de confirmação de exclusão da máquina virtual][DE02]
+
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre os tamanhos e preços das máquinas virtuais do Azure, veja os recursos a seguir:
+
+* Tamanhos de máquinas virtuais do Azure
   * [Tamanhos das máquinas virtuais do Windows no Azure]
   * [Tamanhos das máquinas virtuais do Linux no Azure]
-* Preços das Máquinas Virtuais do Azure
+* Preços de máquinas virtuais do Azure
   * [Preços de máquinas virtuais do Windows]
-  * [Preços de Máquinas Virtuais do Linux]
+  * [Preços de máquinas virtuais do Linux]
 
-Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
+Para saber mais sobre os kits de ferramentas do Azure para Java IDEs, confira os recursos a seguir:
 
 * [Kit de ferramentas do Azure para Eclipse]
-  * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
+  * [Novidades no Kit de Ferramentas do Azure para Eclipse]
   * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
-  * [Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]
-  * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
+  * [Instruções de conexão para o Kit de ferramentas do Azure para Eclipse]
+  * [Criar um aplicativo Web Olá, Mundo para o Azure no Eclipse]
 * [Kit de Ferramentas do Azure para IntelliJ]
   * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
   * [Instalação do Kit de Ferramentas do Azure para IntelliJ]
@@ -148,13 +170,13 @@ Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolv
 
 [Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
 [Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
-[Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Criar um aplicativo Web Olá, Mundo para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Instruções de conexão para o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
 [Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Novidades no Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novidades no Kit de Ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/
@@ -163,7 +185,7 @@ Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolv
 [Tamanhos das máquinas virtuais do Windows no Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
 [Tamanhos das máquinas virtuais do Linux no Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
 [Preços de máquinas virtuais do Windows]: /pricing/details/virtual-machines/windows/
-[Preços de Máquinas Virtuais do Linux]: /pricing/details/virtual-machines/linux/
+[Preços de máquinas virtuais do Linux]: /pricing/details/virtual-machines/linux/
 
 <!-- IMG List -->
 

@@ -1,4 +1,5 @@
 ---
+
 title: "Exibir atribuições de acesso a recursos do Azure | Microsoft Docs"
 description: "Exibir e gerenciar todas as atribuições de Controle de Acesso Baseado em Função para um usuário ou grupo no portal do Azure"
 services: active-directory
@@ -12,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/21/2017
+ms.date: 05/04/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 82f084b220ba321945975c8d1a6d22e419acf5e4
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: e3b31a3db4b8f435c29cbc9dbdd09d100e821026
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal---public-preview"></a>Exibir as atribuições de acesso para usuários e grupos no portal do Azure – Visualização pública
+# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Exibir as atribuições de acesso para usuários e grupos no Portal do Azure
 > [!div class="op_single_selector"]
 > * [Gerenciar o acesso por usuário ou grupo](role-based-access-control-manage-assignments.md)
 > * [Gerenciar o acesso por recurso](role-based-access-control-configure.md)
 
-Com RBAC (controle de acesso baseado em função) na visualização do Azure Active Directory, você pode gerenciar o acesso aos recursos do Azure. [O que há na visualização?](active-directory-preview-explainer.md)
+Com RBAC (controle de acesso baseado em função) na visualização do Azure AD (Azure Active Directory), você pode gerenciar o acesso aos recursos do Azure. 
 
 O acesso atribuído com o RBAC é refinado porque há duas maneiras de restringir as permissões:
 

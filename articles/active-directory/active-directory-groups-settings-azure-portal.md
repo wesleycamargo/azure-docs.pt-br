@@ -1,5 +1,6 @@
 ---
-title: "Gerenciar propriedades de grupo na visualização do Azure Active Directory | Microsoft Docs"
+
+title: Gerenciar propriedades de grupo no Azure Active Directory | Microsoft Docs
 description: "Como editar as propriedades e outras definições de configuração para um grupo no Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: a07348679b589c6e6d438af3f01fbfcc9b149b32
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ad714d4543f2c1990a2262de456f607c876f738d
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="manage-the-settings-for-a-group-in-azure-active-directory-preview"></a>Gerenciar as configurações para um grupo na visualização do Azure Active Directory
-Este artigo explica como alterar as configurações de um grupo na visualização do Azure AD (Azure Active Directory). [O que há na visualização?](active-directory-preview-explainer.md)
+# <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Gerenciar as configurações para um grupo no Azure Active Directory
+Este artigo explica como alterar as configurações de um grupo no Azure AD (Azure Active Directory).
 
 ## <a name="how-do-i-find-and-change-the-settings"></a>Como localizo e altero as configurações?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -35,7 +36,7 @@ Este artigo explica como alterar as configurações de um grupo na visualizaçã
 
    ![Abrir a folha de grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.
-5. Na folha **Grupo -* nomedogrupo* **, escolha** Propriedades**.
+5. Na folha **Grupo – *nomedogrupo***, escolha **Propriedades**.
 
    ![Abrir a folha Propriedades](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Quando terminar de alterar as propriedades do grupo, escolha **Salvar**.    

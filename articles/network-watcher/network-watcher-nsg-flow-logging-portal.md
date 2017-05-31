@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d716f11818bc0ad6dd9e5f93951b011dd6774c7b
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: b059cfdcf21d8b61589a5edf3bd1832070e564e3
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -35,6 +36,12 @@ Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Re
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
+
+## <a name="register-insights-provider"></a>Registrar o provedor Insights
+
+Para o registro em log de fluxo funcionar com sucesso, o provedor **Microsoft.Insights** deve ser registrado. Para registrar o provedor, navegue até **Assinaturas**, selecione a assinatura para a qual deseja habilitar os logs de fluxo. Na folha **Assinatura**, selecione **Provedores de Recursos**. Navegue pela lista de provedores e verifique se o provedor **microsoft.insights** está registrado. Se não estiver, clique em **Registrar**.
+
+![exibir provedores][providers]
 
 ## <a name="enable-flow-logs"></a>Habilitar logs de fluxo
 
@@ -93,4 +100,4 @@ Saiba como [Visualizar seus logs de fluxo NSG com o PowerBI](network-watcher-vis
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-
+[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png

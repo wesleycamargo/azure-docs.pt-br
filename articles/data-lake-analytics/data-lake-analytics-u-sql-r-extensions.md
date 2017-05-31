@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: saveenr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: ea837a735404d11b087cd552d1fce64184e88e00
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 3728d81243a1ac9f501bd8d7d538c1f73b954405
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,39 +31,69 @@ O exemplo a seguir ilustra as etapas básicas para implantar código R:
 * As extensões do R para o U-SQL incluem um redutor interno (Extension.R.Reducer) que executa o código R em cada vértice atribuído ao redutor. 
 * O uso de quadros de dados nomeados dedicados chamou inputFromUSQL e outputToUSQL respectivamente para passar dados entre USQL e R. Os nomes de identificador DataFrame de entrada e saída são fixos (ou seja, os usuários não podem alterar esses nomes predefinidos dos identificadores DataFrame de entrada e saída).
 
+## <a name="embedding-r-code-in-the-u-sql-script"></a>Inserindo código R no script U-SQL
 
---
+Você pode embutir o código R no script U-SQL usando o parâmetro de comando do Extension.R.Reducer. Por exemplo, você pode declarar o script R como uma variável de cadeia de caracteres e passá-lo como um parâmetro para o Redutor.
 
-    REFERENCE ASSEMBLY [ExtPython];
 
-    DECLARE @myScript = @"
-    def get_mentions(tweet):
-        return ';'.join( ( w[1:] for w in tweet.split() if w[0]=='@' ) )
-
-    def usqlml_main(df):
-        del df['time']
-        del df['author']
-        df['mentions'] = df.tweet.apply(get_mentions)
-        del df['tweet']
-        return df
+    REFERENCE ASSEMBLY [ExtR];
+    
+    DECLARE @myRScript = @"
+    inputFromUSQL$Species = as.factor(inputFromUSQL$Species)
+    lm.fit=lm(unclass(Species)~.-Par, data=inputFromUSQL)
+    #do not return readonly columns and make sure that the column names are the same in usql and r scripts,
+    outputToUSQL=data.frame(summary(lm.fit)$coefficients)
+    colnames(outputToUSQL) <- c(""Estimate"", ""StdError"", ""tValue"", ""Pr"")
+    outputToUSQL
     ";
+    
+    @RScriptOutput = REDUCE … USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
 
-    @t  = 
-        SELECT * FROM 
-           (VALUES
-               ("D1","T1","A1","@foo Hello World @bar"),
-               ("D2","T2","A2","@baz Hello World @beer")
-           ) AS 
-               D( date, time, author, tweet );
+## <a name="keep-the-r-code-in-a-separate-file-and-reference-it--the-u-sql-script"></a>Manter o código R em um arquivo separado e fazer referência a ela no script U-SQL
 
-    @m  =
-        REDUCE @t ON date
-        PRODUCE date string, mentions string
-        USING new Extension.Python.Reducer(pyScript:@myScript);
+O exemplo a seguir ilustra um uso mais complexo. Nesse caso, o código R é implantado como um RESOURCE que é o script U-SQL.
 
-    OUTPUT @m
-        TO "/tweetmentions.csv"
-        USING Outputters.Csv();
+Salve esse código R como um arquivo separado.
+
+    load("my_model_LM_Iris.rda")
+    outputToUSQL=data.frame(predict(lm.fit, inputFromUSQL, interval="confidence")) 
+
+Use um script U-SQL para implantar esse script R com a instrução DEPLOY RESOURCE.
+
+    REFERENCE ASSEMBLY [ExtR];
+
+    DEPLOY RESOURCE @"/usqlext/samples/R/RinUSQL_PredictUsingLinearModelasDF.R";
+    DEPLOY RESOURCE @"/usqlext/samples/R/my_model_LM_Iris.rda";
+    DECLARE @IrisData string = @"/usqlext/samples/R/iris.csv";
+    DECLARE @OutputFilePredictions string = @"/my/R/Output/LMPredictionsIris.txt";
+    DECLARE @PartitionCount int = 10;
+
+    @InputData =
+        EXTRACT 
+            SepalLength double,
+            SepalWidth double,
+            PetalLength double,
+            PetalWidth double,
+            Species string
+        FROM @IrisData
+        USING Extractors.Csv();
+
+    @ExtendedData =
+        SELECT 
+            Extension.R.RandomNumberGenerator.GetRandomNumber(@PartitionCount) AS Par,
+            SepalLength,
+            SepalWidth,
+            PetalLength,
+            PetalWidth
+        FROM @InputData;
+
+    // Predict Species
+
+    @RScriptOutput = REDUCE @ExtendedData ON Par
+        PRODUCE Par, fit double, lwr double, upr double
+        READONLY Par
+        USING new Extension.R.Reducer(scriptFile:"RinUSQL_PredictUsingLinearModelasDF.R", rReturnType:"dataframe", stringsAsFactors:false);
+        OUTPUT @RScriptOutput TO @OutputFilePredictions USING Outputters.Tsv();
 
 ## <a name="how-r-integrates-with-u-sql"></a>Como o R se integra com o U-SQL
 
@@ -78,6 +108,111 @@ O exemplo a seguir ilustra as etapas básicas para implantar código R:
 * Nomes de coluna de conjuntos de dados U-SQL devem ser cadeias de caracteres.
 * Nomes de coluna devem ser iguais em scripts U-SQL e R.
 * A coluna somente leitura não pode fazer parte do dataframe de saída. Porque colunas somente leitura são injetadas automaticamente na tabela U-SQL caso ela faça parte do esquema de saída do UDO.
+
+### <a name="functional-limitations"></a>Limitações funcionais
+* O mecanismo R não pode ser instanciado duas vezes no mesmo processo. 
+* Atualmente, o U-SQL não dá suporte a UDOs combinadores para previsão usando modelos particionados gerados usando UDOs redutores. Os usuários podem declarar os modelos particionados como recurso e usá-los em seu Script R (consulte o código de exemplo ExtR_PredictUsingLMRawStringReducer.usql)
+
+### <a name="r-versions"></a>Versões do R
+Somente o R 3.2.2 tem suporte.
+
+### <a name="standard-r-modules"></a>Módulos de R padrão
+
+    base
+    boot
+    Class
+    Cluster
+    codetools
+    compiler
+    datasets
+    doParallel
+    doRSR
+    foreach
+    foreign
+    Graphics
+    grDevices
+    grid
+    iterators
+    KernSmooth
+    lattice
+    MASS
+    Matrix
+    Methods
+    mgcv
+    nlme
+    Nnet
+    Parallel
+    pkgXMLBuilder
+    RevoIOQ
+    revoIpe
+    RevoMods
+    RevoPemaR
+    RevoRpeConnector
+    RevoRsrConnector
+    RevoScaleR
+    RevoTreeView
+    RevoUtils
+    RevoUtilsMath
+    Rpart
+    RUnit
+    spatial
+    splines
+    Stats
+    stats4
+    survival
+    Tcltk
+    Tools
+    translations
+    utils
+    XML
+
+### <a name="input-and-output-size-limitations"></a>Limitações de tamanho de Entrada e Saída
+Cada vértice tem uma quantidade limitada de memória atribuída a ele. Já que os DataFrames de entrada e de saída devem existir na memória no código R, o tamanho total para a entrada e saída não pode exceder os 500 MB.
+
+### <a name="sample-code"></a>Exemplo de código
+Mais código de exemplo está disponível em sua conta do Data Lake Store depois de você instalar as Extensões de Análise Avançada do U-SQL. O caminho para mais código de exemplo é: <endereço_da_sua_conta>/usqlext/samples/R. 
+
+## <a name="deploying-custom-r-modules-with-u-sql"></a>Implantar módulos R personalizados com o U-SQL
+
+Primeiro, crie um módulo R personalizado, compacte-o e, em seguida, carregue o arquivo de módulo R personalizado compactado em seu repositório do ADL. No exemplo, carregaremos magittr_1.5.zip na raiz da conta do ADLS padrão para a conta do ADLA que estamos usando. Depois que você carregar o módulo no repositório do ADL, declare-o e use DEPLOY RESOURCE para disponibilizá-lo em seu script U-SQL e chame "install.packages" para instalá-lo.
+
+    REFERENCE ASSEMBLY [ExtR];
+    DEPLOY RESOURCE @"/magrittr_1.5.zip";
+
+    DECLARE @IrisData string =  @"/usqlext/samples/R/iris.csv";
+    DECLARE @OutputFileModelSummary string = @"/R/Output/CustomePackages.txt";
+
+    // R script to run
+    DECLARE @myRScript = @"
+    # install the magrittr package,
+    install.packages('magrittr_1.5.zip', repos = NULL),
+    # load the magrittr package,
+    require(magrittr),
+    # demonstrate use of the magrittr package,
+    2 %>% sqrt
+    ";
+
+    @InputData =
+    EXTRACT SepalLength double,
+    SepalWidth double,
+    PetalLength double,
+    PetalWidth double,
+    Species string
+    FROM @IrisData
+    USING Extractors.Csv();
+
+    @ExtendedData =
+    SELECT 0 AS Par,
+    *
+    FROM @InputData;
+
+    @RScriptOutput = REDUCE @ExtendedData ON Par
+    PRODUCE Par, RowId int, ROutput string
+    READONLY Par
+    USING new Extension.R.Reducer(command:@myRScript, rReturnType:"charactermatrix");
+
+    OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)

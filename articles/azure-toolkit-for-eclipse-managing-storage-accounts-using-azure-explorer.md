@@ -14,104 +14,115 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 3c95ddde2909cd8dee055724ba01f22647627bd3
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 5b3014b5aca368be8ea46863c83665abde10fed5
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
 
-# <a name="managing-storage-accounts-using-the-azure-explorer-for-eclipse"></a>Gerenciar contas de armazenamento usando o Azure Explorer para Eclipse
+# <a name="manage-storage-accounts-by-using-the-azure-explorer-for-eclipse"></a>Gerenciar contas de armazenamento usando o Azure Explorer para Eclipse
 
-O Azure Explorer, que faz parte do Kit de ferramentas do Azure para Eclipse, fornece aos desenvolvedores de Java com uma solução fácil de usar para gerenciar contas de armazenamento em sua conta do Azure de dentro do IDE Eclipse.
+O Azure Explorer, que faz parte do Kit de ferramentas do Azure para Eclipse, fornece aos desenvolvedores de Java com uma solução fácil de usar para gerenciar contas de armazenamento em sua conta do Azure de dentro do IDE (ambiente de desenvolvimento integrado) Eclipse.
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 [!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](../includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
 
-## <a name="creating-a-storage-account-in-eclipse"></a>Criar uma conta de armazenamento no Eclipse
+## <a name="create-a-storage-account-in-eclipse"></a>Criar uma conta de armazenamento no Eclipse
 
-As etapas a seguir guiarão você pelas etapas para criar uma conta de armazenamento usando o Azure Explorer.
+Para criar uma conta de armazenamento usando o Azure Explorer, faça o seguinte:
 
-1. Entre em sua conta do Azure usando as etapas no artigo [Instruções de entrada para o Kit de ferramentas do Azure para Eclipse].
+1. Entre em sua conta do Azure usando as [Instruções de conexão para o Kit de ferramentas do Azure para Eclipse].
 
-1. Na exibição do **Azure Explorer**, expanda o nó **Azure**, clique com o botão direito do mouse em **Contas de Armazenamento** e, em seguida, clique em **Criar Conta de Armazenamento**.
-   ![Menu Criar Conta de Armazenamento][CS01]
+2. Na exibição do **Azure Explorer**, expanda o nó **Azure**, clique com o botão direito do mouse em **Contas de Armazenamento** e, em seguida, clique em **Criar Conta de Armazenamento**.
 
-1. Quando a caixa de diálogo **Criar Conta de Armazenamento** for exibida, especifique as seguintes opções: ![Caixa de Diálogo Criar Nova Conta de Armazenamento][CS02]
+   ![Comando para Criar Conta de Armazenamento][CS01]
 
-   a. **Nome**: especifica o nome que você deseja usar para a nova conta de armazenamento.
+3. Na caixa de diálogo **Criar Conta de Armazenamento**, especifique as opções a seguir:
 
-   b. **Assinatura**: especifica a assinatura do Azure que deseja usar para a nova conta de armazenamento.
+   ![Caixa de diálogo Criar Nova Conta de Armazenamento][CS02]
 
-   c. **Grupo de Recursos**: especifica o grupo de recursos para sua máquina virtual; você precisa escolher uma das seguintes opções:
+   * **Nome**: especifica o nome que você deseja usar para a nova conta de armazenamento.
+
+   * **Assinatura**: especifica a assinatura do Azure que deseja usar para a nova conta de armazenamento.
+
+   * **Grupo de Recursos**: especifica o grupo de recursos para suas máquinas virtuais. Selecione uma das seguintes opções:
       * **Criar Novo**: especifica que você deseja criar um novo grupo de recursos.
-      * **Usar Existente**: especifica que você escolherá entre uma lista de grupos de recursos associados à sua conta do Azure.
+      * **Usar existente**: especifica que você selecionará em uma lista de grupos de recursos associados à sua conta do Azure.
 
-   d. **Região**: especifica a localização em que sua conta de armazenamento será criada, por exemplo, "Oeste dos EUA".
+   * **Região**: especifica a localização em que sua conta de armazenamento será criada (por exemplo, "Oeste dos EUA").
 
-   e. **Tipo de conta**: Especifica o tipo de conta de armazenamento a criar, por exemplo, "Armazenamento de Blobs". (Para obter mais informações, consulte [Sobre as contas de armazenamento do Azure].)
+   * **Tipo de conta**: especifica o tipo de conta de armazenamento a criar (por exemplo, "Armazenamento de Blobs"). Para saber mais, confira [Sobre as contas de armazenamento do Azure].
 
-   f. **Desempenho**: especifica que oferta da conta de armazenamento usar do editor selecionado; por exemplo "Premium". (Para obter mais informações, consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure].)
+   * **Desempenho**: especifica qual oferta de conta de armazenamento usar do editor selecionado (por exemplo "Premium"). Para saber mais, veja [Metas de desempenho e escalabilidade do Armazenamento do Azure].
 
-   g. **Replicação**: especifica a replicação para a conta de armazenamento, por exemplo "Zona redundante". (Para obter mais informações, consulte [Replicação do Armazenamento do Azure].)
+   * **Replicação**: especifica a replicação para a conta de armazenamento (por exemplo "Zona redundante"). Para saber mais, veja [Replicação do Armazenamento do Azure].
 
-1. Quando você tiver especificado todas as opções acima, clique em **Criar**.
+4. Quando você tiver especificado todas as opções anteriores, clique em **Criar**.
 
-## <a name="creating-a-storage-container-in-eclipse"></a>Criar um contêiner de armazenamento no Eclipse
+## <a name="create-a-storage-container-in-eclipse"></a>Criar um contêiner de armazenamento no Eclipse
 
-As etapas a seguir guiarão você pelas etapas para criar um contêiner de armazenamento usando o Azure Explorer.
+Para criar um contêiner de armazenamento usando o Azure Explorer, faça o seguinte:
 
-1. No Azure Explorer, clique com o botão direito do mouse na conta de armazenamento em que deseja criar um contêiner e, em seguida, clique em **Criar contêiner de blob**.
-   ![Menu Criar Contêiner de Armazenamento][CC01]
+1. Na exibição do **Azure Explorer**, clique com o botão direito do mouse na conta de armazenamento em que deseja criar um contêiner e, em seguida, clique em **Criar contêiner de blob**.
 
-1. Quando a caixa de diálogo **Criar Contêiner de Blob** aparecer, especifique o nome do seu contêiner e, em seguida, clique em **OK**. (Para obter mais informações sobre como nomear contêineres de armazenamento, consulte [Nomenclatura e referência de contêineres, blobs e metadados].) ![Caixa de Diálogo Criar Contêiner de Armazenamento][CC02]
+   ![Comando Criar contêiner de blob][CC01]
 
-## <a name="deleting-a-storage-container-in-eclipse"></a>Excluir um contêiner de armazenamento no Eclipse
+2. Na caixa de diálogo **Criar Contêiner de Blob**, especifique o nome do seu contêiner e, em seguida, clique em **OK**. Para saber mais sobre como nomear contêineres de armazenamento, veja [Nomenclatura e referência de contêineres, blobs e metadados].
 
-Para excluir um contêiner de armazenamento usando o Azure Explorer, use as seguintes etapas:
+   ![Caixa de diálogo Criar contêiner de blob][CC02]
 
-1. No Azure Explorer, clique com o botão direito do mouse no contêiner de armazenamento e, em seguida, clique em **Excluir**.
-   ![Menu Excluir Contêiner de Armazenamento][DC01]
+## <a name="delete-a-storage-container-in-eclipse"></a>Excluir um contêiner de armazenamento no Eclipse
 
-1. Clique em **OK** quando solicitado para excluir o contêiner de armazenamento.
-   ![Caixa de Diálogo Excluir Contêiner de Armazenamento][DC02]
+Para excluir um contêiner de armazenamento usando o Azure Explorer, faça o seguinte:
 
-## <a name="deleting-a-storage-account-in-eclipse"></a>Excluir uma conta de armazenamento no Eclipse
+1. Na exibição **Azure Explorer**, clique com o botão direito do mouse no contêiner de armazenamento e, em seguida, clique em **Excluir**.
 
-Para excluir uma conta de armazenamento usando o Azure Explorer, use as seguintes etapas:
+   ![Comando Excluir contêiner de armazenamento][DC01]
 
-1. Na exibição do **Azure Explorer**, clique com o botão direito do mouse na conta de armazenamento e escolha **Excluir**.
-   ![Menu Excluir Conta de Armazenamento][DS01]
+2. Na janela de confirmação, clique em **OK**.
 
-1. Clique em **OK** quando solicitado para excluir a conta de armazenamento.
-   ![Caixa de Diálogo Excluir Conta de Armazenamento][DS02]
+   ![Janela de confirmação de Excluir contêiner de armazenamento][DC02]
 
-## <a name="see-also"></a>Consulte também
-Para obter mais informações sobre os tamanhos, preços e contas de armazenamento do Azure, consulte os links a seguir:
+## <a name="delete-a-storage-account-in-eclipse"></a>Excluir uma conta de armazenamento no Eclipse
+
+Para excluir uma conta de armazenamento usando o Azure Explorer, faça o seguinte:
+
+1. Na exibição do **Azure Explorer**, clique com o botão direito do mouse na conta de armazenamento e clique em **Excluir**.
+
+   ![Comando Excluir conta de armazenamento][DS01]
+
+2. Na janela de confirmação, clique em **OK**.
+
+   ![Janela de confirmação de Excluir conta de armazenamento][DS02]
+
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre os tamanhos, preços e contas de armazenamento do Azure, veja os recursos a seguir:
 
 * [Introdução ao Armazenamento do Microsoft Azure]
 * [Sobre as contas de armazenamento do Azure]
-* Tamanhos de Conta de Armazenamento do Azure
+* Tamanhos de conta de armazenamento do Azure
   * [Tamanhos das contas de armazenamento do Windows no Azure]
   * [Tamanhos das contas de armazenamento do Linux no Azure]
-* Preços da Conta de Armazenamento do Azure
-  * [Preços da Conta de Armazenamento do Windows]
-  * [Preços da Conta de Armazenamento do Linux]
+* Preços da conta de armazenamento do Azure
+  * [Preços da conta de armazenamento do Windows]
+  * [Preços da conta de armazenamento do Linux]
 
-Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
+Para saber mais sobre os kits de ferramentas do Azure para Java IDEs, confira os recursos a seguir:
 
 * [Kit de ferramentas do Azure para Eclipse]
-  * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
+  * [Novidades no Kit de Ferramentas do Azure para Eclipse]
   * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
-  * [Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]
-  * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
+  * [Instruções de conexão para o Kit de ferramentas do Azure para Eclipse]
+  * [Criar um aplicativo Web Olá, Mundo para o Azure no Eclipse]
 * [Kit de Ferramentas do Azure para IntelliJ]
   * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
   * [Instalação do Kit de Ferramentas do Azure para IntelliJ]
-  * [Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]
-  * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
+  * [Instruções de conexão para o Kit de ferramentas do Azure para IntelliJ]
+  * [Criar um aplicativo Web Olá, Mundo para o Azure no IntelliJ]
 
 Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolvedores Java do Azure] e as [Ferramentas Java para Visual Studio Team Services].
 
@@ -119,13 +130,13 @@ Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolv
 
 [Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
 [Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
-[Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Criar um aplicativo Web Olá, Mundo para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Criar um aplicativo Web Olá, Mundo para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Novidades no Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Instruções de conexão para o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Instruções de conexão para o Kit de ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Novidades no Kit de Ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/
@@ -139,8 +150,8 @@ Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolv
 
 [Tamanhos das contas de armazenamento do Windows no Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
 [Tamanhos das contas de armazenamento do Linux no Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
-[Preços da Conta de Armazenamento do Windows]: /pricing/details/virtual-machines/windows/
-[Preços da Conta de Armazenamento do Linux]: /pricing/details/virtual-machines/linux/
+[Preços da conta de armazenamento do Windows]: /pricing/details/virtual-machines/windows/
+[Preços da conta de armazenamento do Linux]: /pricing/details/virtual-machines/linux/
 
 <!-- IMG List -->
 

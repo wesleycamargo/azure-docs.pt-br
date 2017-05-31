@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d579b55f07a2e710624b10fe77c17f449b09ab42
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5a0092481cb461f26ba463f4c9bbaf114ecb1248
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -52,6 +53,9 @@ Sim, agora isso é possível. Primeiro, a VM precisa ser parada e desalocada. Em
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome do computador?
 Sim. O nome do computador pode ter, no máximo, 64 caracteres. Consulte [Diretrizes de nomenclatura de infraestrutura](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre como nomear seus recursos.
+
+## <a name="are-there-any-resource-group-name-requirements"></a>Há algum requisito de nome de grupo de recursos?
+Sim. O nome do grupo de recursos pode ter, no máximo, 90 caracteres. Consulte as [Diretrizes de grupo de recursos de infraestrutura](infrastructure-resource-groups-guidelines.md) para obter mais informações sobre grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos de nome de usuário ao criar uma VM?
 Os nomes de usuário devem ter de 1 a 64 caracteres.

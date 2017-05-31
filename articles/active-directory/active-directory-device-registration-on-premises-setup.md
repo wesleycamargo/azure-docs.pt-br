@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: fbc3807351a9d83e4bcc5ba0661001754621f430
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 7a9ec95348f4aa8a14a716a758fb362c1ede61b3
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -112,10 +113,7 @@ Isso o ajudará a integrar o locatário do Azure AD ao Active Directory local, u
    2. Instalar e executar o Azure AD Connect: instale o Azure AD Connect usando as instruções a seguir, [Instalação personalizada do Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
    3. Verificar e gerenciar a sincronização de diretórios. Instruções de logon único estão disponíveis nessa etapa.
    
-   > [!NOTE]
-   > Configure a Federação com o AD FS conforme descrito no documento vinculado acima. Você não precisa configurar nenhum dos recursos de visualização.
-   > 
-   > 
+   Configure a federação com o AD FS também, conforme descrito em [Instalação personalizada do Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Atualizar o esquema de serviços do Domínio do Active Directory
 > [!NOTE]
@@ -220,7 +218,7 @@ Você deve registrar seu dispositivo antes de poder acessar este aplicativo.
 
 Adicione o dispositivo iOS à área de trabalho.
 
-**Se estiver um dispositivo Windows 8.1**, você poderá adicioná-lo acessando **Configurações do PC**> **Rede** > **Local de Trabalho**.
+**Se você estiver usando um dispositivo Windows 8.1**, você poderá ingressá-lo acessando **Configurações do PC**> **Rede** > **Local de Trabalho**.
 
 Em que "**nome de confiança de terceira parte confiável**" é o nome do objeto de confiança de terceira parte confiável do seu aplicativo no AD FS.
 Em que **seudomínio.com** é o nome de domínio que você configurou com o Active Directory do Azure. Por exemplo, contoso.com.

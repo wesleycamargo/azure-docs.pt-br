@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 569777b7034ebeccddf6d9ef89ee2f9fb667cc3f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -68,7 +69,7 @@ O Exchange oferece duas categorias principais de protocolos. Examine as opções
 * **Protocolos herdados**. Você pode bloquear os protocolos herdados com o AD FS. Isso bloqueia o acesso para clientes mais antigos do Office, como o Office 2013 sem autenticação moderna habilitada e versões anteriores do Office.
 
 ### <a name="use-ad-fs-to-block-legacy-protocol"></a>Usar o AD FS para bloquear o protocolo legado
-Você pode usar as regras de exemplo a seguir para bloquear o acesso de protocolo legado no nível do AD FS. Escolha entre duas configurações comuns.
+Você pode usar as regras de autorização de emissão de exemplo a seguir para bloquear o acesso de protocolo herdado no nível do AD FS. Escolha entre duas configurações comuns.
 
 #### <a name="option-1-allow-exchange-activesync-and-allow-legacy-apps-but-only-on-the-intranet"></a>Opção 1: permitir o Exchange ActiveSync e só permitir aplicativos herdados, mas somente na intranet
 Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Confiável do AD FS para a Plataforma de Identidade do Microsoft Office 365, o tráfego do Exchange ActiveSync e o tráfego de autenticação moderno e de navegador, têm acesso. Aplicativos herdados são bloqueados da extranet.

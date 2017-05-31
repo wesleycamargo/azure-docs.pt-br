@@ -1,5 +1,5 @@
 ---
-title: "Gerenciamento de único logon para aplicativos empresariais na visualização do Azure Active Directory | Microsoft Docs"
+title: "Gerenciamento de logon único para aplicativos empresariais no Azure Active Directory | Microsoft Docs"
 description: "Saiba como gerenciar o logon único para aplicativos empresariais usando o Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 05/04/2017
 ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f03079498568f52802b34ce57242a414e648fe3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 118b77064a96585b0d5b951ca56313776021624e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="preview-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>Visualização: gerenciamento de logon único para aplicativos empresariais no novo portal do Azure
+# <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerenciar o logon único para aplicativos empresariais
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-enterprise-apps-manage-sso.md)
 > * [Portal clássico do Azure](active-directory-sso-integrate-saas-apps.md)
 > 
-> 
 
-Este artigo descreve como usar o [Portal do Azure](https://portal.azure.com) para gerenciar configurações de logon único para aplicativos, especialmente os que foram adicionados da [galeria de aplicativos do Azure AD (Azure Active Directory)](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). A experiência de gerenciamento do Azure AD para logon único está atualmente em visualização pública, e este artigo descreve os novos recursos, bem como algumas limitações temporárias que estarão em vigor somente durante o período de visualização. [O que há na visualização?](active-directory-preview-explainer.md)
+Este artigo descreve como usar o [Portal do Azure](https://portal.azure.com) para gerenciar configurações de logon único para aplicativos, especialmente os que foram adicionados da [galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
-## <a name="finding-your-apps-in-the-new-portal"></a>Localizar seus aplicativos no novo portal
-A partir de setembro de 2016, todos os aplicativos que foram configurados para logon único em um diretório por um administrador de diretório usando a [galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) dentro do [Portal clássico do Azure](https://manage.windowsazure.com) agora podem ser exibidos e gerenciados no Portal do Azure.
-
-Esses aplicativos podem ser encontrados na seção **Aplicativos Empresariais** do Portal do Azure. Um link para essa seção pode ser encontrado na lista **Mais Serviços** no [portal](https://portal.azure.com). Aplicativos empresariais são aplicativos que foram implantados e estão sendo usados por usuários de sua organização.
+## <a name="finding-your-apps"></a>Localizando seus aplicativos
+## <a name="finding-your-apps-in-the-portal"></a>Localizar seus aplicativos no portal
+Todos os aplicativos configurados para logon único em um diretório por um administrador de diretório usando a [galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) podem ser exibidos e gerenciados no [Portal do Azure](https://portal.azure.com). Os aplicativos podem ser encontrados na seção **Mais Serviços** &gt; **Aplicativos Empresariais** do Portal. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização.
 
 ![Folha de Aplicativos Empresariais][1]
 
@@ -65,14 +65,10 @@ A opção **logon baseado em SAML** exibe uma folha que é dividida em quatro se
 ### <a name="user-attributes"></a>Atributos de usuário
 É onde administradores podem exibir e editar os atributos que são enviados no token SAML que o Azure AD emite para o aplicativo sempre que os usuários entram.
 
-Para a primeira versão de visualização, o único atributo editável com suporte é o atributo **Identificador de Usuário** . O valor desse atributo é o campo no Azure AD que identifica exclusivamente cada usuário no aplicativo. Por exemplo, se o aplicativo foi implantado usando "Endereço de Email" como o nome de usuário e o identificador exclusivo, o valor deve ser definido para o campo "user.mail" no Azure AD.
-
-A edição de atributos adicionais terá suporte em uma visualização subsequente.
+O único atributo editável com suporte é o atributo **Identificador de Usuário**. O valor desse atributo é o campo no Azure AD que identifica exclusivamente cada usuário no aplicativo. Por exemplo, se o aplicativo foi implantado usando "Endereço de Email" como o nome de usuário e o identificador exclusivo, o valor deve ser definido para o campo "user.mail" no Azure AD.
 
 ### <a name="saml-signing-certificate"></a>Certificado de assinatura de SAML
 Esta seção mostra os detalhes do certificado que o Azure AD usa para assinar tokens SAML emitidos para o aplicativo sempre que o usuário é autenticado. Ele permite que as propriedades do certificado atual sejam inspecionadas, incluindo a data de validade.
-
-A capacidade de distribuir o certificado e gerenciar opções de certificados adicionais terá suporte em uma versão de visualização subsequente. Observe que o gerenciamento completo de certificados ainda pode ser executado no [portal clássico do Azure](active-directory-sso-certs.md).
 
 ### <a name="application-configuration"></a>Configuração de aplicativo
 A seção final fornece a documentação e/ou os controles necessários para configurar o aplicativo para usar o Azure Active Directory como um provedor de identidade.
@@ -80,7 +76,7 @@ A seção final fornece a documentação e/ou os controles necessários para con
 O menu suspenso **Configurar Aplicativo** fornece novas instruções concisas internas para configurar o aplicativo. Esse é outro novo recurso exclusivo para o novo portal do Azure.
 
 > [!NOTE]
-> Para obter um exemplo completo de documentação interna, confira o aplicativo do Salesforce.com. A documentação de aplicativos adicionais está sendo adicionada continuamente durante a visualização.
+> Para obter um exemplo completo de documentação interna, confira o aplicativo do Salesforce.com. A documentação de aplicativos adicionais está sendo adicionada continuamente.
 > 
 > 
 
@@ -96,14 +92,13 @@ Se houver suporte para o aplicativo, selecionar o modo de SSO vinculado permite 
 
 ![Logon vinculado][5]
 
+##<a name="feedback"></a>Comentários
+
+Esperamos que você goste de usar a experiência aprimorada do Azure AD. Continue a fazer seus comentários! Poste seus comentários e suas ideias para aprimoramento na seção **Portal de Administração** do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nós estamos empolgados para criar algo novo e interessante diariamente e usar suas diretrizes para formar e definir o que devemos criar a seguir.
+
 [1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
 [3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
 [4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
 [5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

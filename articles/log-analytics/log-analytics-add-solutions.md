@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/05/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 7899df8a09b6f5c8bc916bb6ad872afa3844e425
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 00fb88afe9ee107543aa7557ff0953d066d05bfd
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -69,7 +70,7 @@ Você pode instalar as soluções de gerenciamento do Azure marketplace clicando
 
 ## <a name="offers-and-pricing-tiers"></a>Ofertas e tipos de preços
 
-A tabela a seguir identifica quais soluções de gerenciamento pertencem a cada oferta de Segurança e Gerenciamento de Operações.
+A tabela a seguir identifica quais soluções de gerenciamento pertencem a cada oferta do Operations Management Suite.
 A tabela também identifica o tipo de preço que está disponível para cada solução de gerenciamento.
 Todas as soluções na tabela a seguir estão disponíveis no portal do Azure e a galeria de soluções no portal do Log Analytics.
 

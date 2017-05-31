@@ -14,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 51c6a8ae17821d4eb00bf26612bc6e1e434ebbd9
-ms.lasthandoff: 04/17/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 27c582436bd57adfb5e8edb0f63c0f206db66c89
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -30,7 +32,8 @@ O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos 
 * [Metadados de federação](active-directory-federation-metadata.md) - Saiba como localizar e interpretar os documentos de metadados que o Azure AD gera.
 * [OAuth 2.0 no Azure AD](active-directory-protocols-oauth-code.md) - Saiba mais sobre a implementação do OAuth 2.0 no Azure AD.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) - Saiba como usar o OAuth 2.0, um protocolo de autorização para autenticação.
-* [Serviço para Chamadas de Serviço](active-directory-protocols-oauth-service-to-service.md) - Saiba como utilizar o fluxo de concessão de credenciais de cliente OAuth 2.0 para chamadas de serviços.
+* [Serviço para Chamadas de Serviço com Credenciais do Cliente](active-directory-protocols-oauth-service-to-service.md) – Saiba como utilizar o fluxo de concessão de credenciais de cliente OAuth 2.0 para chamadas de serviços.
+* [Serviço para Chamadas de Serviço com Fluxo Em Nome De](active-directory-protocols-oauth-on-behalf-of.md) – Saiba como utilizar o fluxo de Em Nome De OAuth 2.0 para chamadas de serviços.
 * [Referência de protocolo SAML](active-directory-saml-protocol-reference.md) - Saiba mais sobre os perfis de logon único e logout único SAML do Azure AD.
 
 ## <a name="see-also"></a>Consulte também
@@ -39,5 +42,4 @@ O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos 
 [Usando o Azure AD para autenticação](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Exemplos de código do Active Directory](active-directory-code-samples.md)
-
 

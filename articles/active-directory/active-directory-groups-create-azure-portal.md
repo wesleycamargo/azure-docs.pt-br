@@ -1,5 +1,5 @@
 ---
-title: "Criar um grupo para usuários na visualização do Azure Active Directory | Microsoft Docs"
+title: "Criar um grupo para usuários no Azure Active Directory | Microsoft Docs"
 description: Como criar um grupo no Azure Active Directory e adicionar membros ao grupo
 services: active-directory
 documentationcenter: 
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 4b85a754dfa9632f27308a3d9234213533dea4c4
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9636d26ec62bb83b30fdc4ae8b1701da8ab532e8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 03/01/2017
 >
 >
 
-Este artigo explica como criar e popular um novo grupo na visualização do Azure Active Directory (Azure AD). [O que está na visualização?](active-directory-preview-explainer.md) Use um grupo para executar tarefas de gerenciamento, como a atribuição de licenças ou permissões a vários usuários ou dispositivos de uma vez.
+Este artigo explica como criar e popular um novo grupo no Azure Active Directory. Use um grupo para executar tarefas de gerenciamento, como a atribuição de licenças ou permissões a vários usuários ou dispositivos de uma vez.
 
 ## <a name="how-do-i-create-a-group"></a>Como faço para criar um grupo?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
