@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/23/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4faa029062fef6495debd5d787a1d86f4747453b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,14 +27,17 @@ ms.lasthandoff: 05/09/2017
 
 Este guia rápido demonstra como usar o [C# e ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) para conectar um banco de dados SQL do Azure, em seguida, usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados nas plataformas Windows, Mac OS e Ubuntu Linux.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
 - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+- [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-net"></a>Instalar o .NET
 
-As etapas nesta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o .NET e começou recentemente a trabalhar com o Banco de Dados SQL. Se você for novo no desenvolvimento com o .NET, acesse o [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) e selecione **C#** e, em seguida, selecione o sistema operacional.
+As etapas nesta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o .NET e começou recentemente a trabalhar com o Banco de Dados SQL. Se você for novo no desenvolvimento com o .NET, acesse o [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) e selecione **C#** e, em seguida, selecione o sistema operacional.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework e .NET Core**
 
@@ -312,6 +315,6 @@ namespace ConsoleApplication1
 - [Criar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
 - [Documentação do .NET](https://docs.microsoft.com/dotnet/).
 - [Conectar e consultar com SSMS](sql-database-connect-query-ssms.md)
-- [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
+- [Conecte e consulte com o Visual Studio Code](sql-database-connect-query-vscode.md).
 
 

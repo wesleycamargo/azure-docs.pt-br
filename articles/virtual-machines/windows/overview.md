@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 6d87b94df7e03bfe3255a16d30cd82ff6ce08428
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Visão geral das máquinas virtuais do Windows no Azure
@@ -50,7 +50,7 @@ Sempre há uma infinidade de [considerações de design](infrastructure-virtual-
 ### <a name="naming"></a>Nomenclatura
 Uma máquina virtual tem um [nome](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) atribuído a ela e tem um nome de computador configurado como parte do sistema operacional. O nome de uma VM pode ter até 15 caracteres.
 
-Se você usar o Azure para criar o disco do sistema operacional, o nome do computador e o nome da máquina virtual serão os mesmos. Se você [carregar e usar sua própria imagem](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) que contém um sistema operacional previamente configurado e usá-la para criar uma máquina virtual, os nomes poderão ser diferentes. Recomendamos que, ao carregar seu próprio arquivo de imagem, você use o mesmo nome para o computador no sistema operacional e a máquina virtual.
+Se você usar o Azure para criar o disco do sistema operacional, o nome do computador e o nome da máquina virtual serão os mesmos. Se você [carregar e usar sua própria imagem](upload-generalized-managed.md) que contém um sistema operacional previamente configurado e usá-la para criar uma máquina virtual, os nomes poderão ser diferentes. Recomendamos que, ao carregar seu próprio arquivo de imagem, você use o mesmo nome para o computador no sistema operacional e a máquina virtual.
 
 ### <a name="locations"></a>Locais
 Todos os recursos criados no Azure são distribuídos entre várias [regiões geográficas](https://azure.microsoft.com/regions/) em todo o mundo. Normalmente, a região é chamada **local** quando você cria uma VM. Para uma VM, a localização especifica onde os discos rígidos virtuais são armazenados.
@@ -84,7 +84,7 @@ Esta tabela mostra algumas maneiras de encontrar as informações de uma imagem.
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -local "local"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -local "local"-"publisherName" do editor<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | APIs REST |[Listar editores de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Listar ofertas de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Listar skus de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
-Você pode optar por [carregar e usar sua própria imagem](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e, quando faz isso, o nome do editor, da oferta e da sku não são usados.
+Você pode optar por [carregar e usar sua própria imagem](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) e, quando faz isso, o nome do editor, da oferta e da sku não são usados.
 
 ### <a name="extensions"></a>Extensões
 As [extensões](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de VM dão à VM recursos adicionais por meio de configuração pós-implantação e tarefas automatizadas.

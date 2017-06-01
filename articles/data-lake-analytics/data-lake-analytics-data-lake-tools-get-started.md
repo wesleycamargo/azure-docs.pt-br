@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca, yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9be337c3e04959a1ad2152c989c8532383362521
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -41,7 +42,7 @@ Para sua comodidade, um script do PowerShell para criar um serviço Data Lake An
     Opcionalmente, você pode explorar as duas seções a seguir em [Introdução ao Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md) para criar sua conta e carregar os dados manualmente:
 
     1. [Criar uma conta da Análise Data Lake do Azure](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-    2. [Carregar SearchLog.tsv na conta de armazenamento padrão do Data Lake](data-lake-analytics-get-started-portal.md#prepare-source-data).
+    2. [Carregar SearchLog.tsv na conta de armazenamento padrão do Data Lake](data-lake-analytics-get-started-portal.md).
 
 ## <a name="connect-to-azure"></a>Conecte-se ao Azure
 **Conectar Data Lake Analytics**
@@ -198,7 +199,7 @@ As Ferramentas do Data Lake para Visual Studio fornecem sobreposições de cores
 
 ## <a name="run-u-sql-locally"></a>Executar o U-SQL localmente
 
-Você pode usar as Ferramentas do Azure Data Lake para Visual Studio e SDK para U-SQL do Azure Data Lake a fim de executar trabalhos de U-SQL na sua estação de trabalho da mesma forma que faz no serviço Azure Data Lake. Esses dois recursos de execução local economizam tempo no teste e na depuração de seus trabalhos de U-SQL. 
+Você pode usar as Ferramentas do Azure Data Lake para Visual Studio e SDK para U-SQL do Azure Data Lake a fim de executar trabalhos de U-SQL na sua estação de trabalho da mesma forma que faz no serviço Azure Data Lake. Esses dois recursos de execução local economizam tempo no teste e na depuração de seus trabalhos de U-SQL.
 
 * [Testar e depurar trabalhos U-SQL usando execução local e o SDK para U-SQL do Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
 

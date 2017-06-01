@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 92de31c7bdb475b8d00551384842b0c5aa3fb4e0
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c89a2ab4c39978771c940a819493b4e2283d5f9f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -29,7 +29,8 @@ ms.lasthandoff: 05/09/2017
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Rede permite que você exiba informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.

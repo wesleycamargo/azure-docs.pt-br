@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 25278e621155e7c90b5bb870d08793d285f4edff
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3f957bda2c38bdeac3ee6b0dbd94fac497c8f7cf
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -56,15 +56,15 @@ az account set --subscription <subscription id>
 Você precisa ter uma conta do Data Lake Analytics antes de executar trabalhos. Para criar uma conta do Data Lake Analytics, você deve especificar os seguintes itens:
 
 * **Grupo de recursos do Azure**. É necessário criar uma conta do Data Lake Analytics em um grupo de Recursos do Azure. O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.  
-  
+
     Para listar os grupos de recursos existentes em sua assinatura:
-  
+
     ```azurecli
-    az group list 
+    az group list
     ```
 
     Para criar um novo grupo de recursos:
-  
+
     ```azurecli
     az group create --name "<Resource Group Name>" --location "<Azure Location>"
     ```
@@ -72,15 +72,15 @@ Você precisa ter uma conta do Data Lake Analytics antes de executar trabalhos. 
 * **Nome da conta do Data Lake Analytics**. Cada conta do Data Lake Analytics tem um nome.
 * **Local**. Use um dos datacenters do Azure que dá suporte ao Data Lake Analytics.
 * **Conta padrão do Data Lake Store**: cada conta do Data Lake Analytics tem uma conta padrão do Data Lake Store.
-  
+
     Para listar a conta existente do Data Lake Store:
 
     ```azurecli
     az dls account list
     ```
-  
+
     Para criar uma nova conta do Azure Data Lake Store:
-  
+
     ```azurecli
     az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
     ```
@@ -99,9 +99,9 @@ az dla account show --account "<Data Lake Analytics Account Name>"
 ```
 
 ## <a name="upload-data-to-data-lake-store"></a>Carregar dados no Repositório Data Lake
-Neste tutorial, você processa alguns logs de pesquisa.  O log de pesquisa pode ser armazenado no Repositório Data Lake ou no Armazenamento de Blob do Azure. 
+Neste tutorial, você processa alguns logs de pesquisa.  O log de pesquisa pode ser armazenado no Repositório Data Lake ou no Armazenamento de Blob do Azure.
 
-O portal do Azure fornece uma interface do usuário para copiar alguns arquivos de dados de exemplo para a conta padrão do Data Lake Store, o que inclui um arquivo de log de pesquisa. Consulte [Preparar dados de origem](data-lake-analytics-get-started-portal.md#prepare-source-data) para carregar os dados na conta do Repositório Data Lake.
+O portal do Azure fornece uma interface do usuário para copiar alguns arquivos de dados de exemplo para a conta padrão do Data Lake Store, o que inclui um arquivo de log de pesquisa. Consulte [Preparar dados de origem](data-lake-analytics-get-started-portal.md) para carregar os dados na conta do Repositório Data Lake.
 
 Para carregar arquivos usando a CLI 2.0, use o seguinte comando:
 
@@ -118,7 +118,7 @@ Os trabalhos da Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 **Para criar um script de trabalho da Análise Data Lake**
 
 Crie um arquivo de texto com o seguinte script U-SQL e salve o arquivo de texto em sua estação de trabalho:
-  
+
     @searchlog =
         EXTRACT UserId          int,
                 Start           DateTime,
@@ -133,8 +133,8 @@ Crie um arquivo de texto com o seguinte script U-SQL e salve o arquivo de texto 
     OUTPUT @searchlog   
         TO "/Output/SearchLog-from-Data-Lake.csv"
     USING Outputters.Csv();
-  
-Este script U-SQL lê o arquivo de dados de origem usando **Extractors.Tsv()**, em seguida, cria um arquivo csv usando **Outputters.Csv()**. 
+
+Este script U-SQL lê o arquivo de dados de origem usando **Extractors.Tsv()**, em seguida, cria um arquivo csv usando **Outputters.Csv()**.
 
 Não modifique os dois caminhos, a menos que você copie o arquivo de origem para um local diferente.  A Análise Data Lake criará a pasta de saída se ela não existir.
 
@@ -145,11 +145,11 @@ Não modifique os dois caminhos, a menos que você copie o arquivo de origem par
 Você deve usar caminhos absolutos para acessar os arquivos em contas do Armazenamento vinculadas.  A sintaxe para os arquivos armazenados na conta do Armazenamento do Azure vinculada é:
 
     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-  
+
   > [!NOTE]
   > Atualmente, não há suporte para o contêiner de Blob do Azure com permissões de acesso de blobs públicos ou de contêineres públicos.      
-  > 
-  > 
+  >
+  >
 
 **Para enviar trabalhos**
 
@@ -184,7 +184,7 @@ Depois que um trabalho é concluído, use os seguintes comandos para listar os a
 
 ```azurecli
 az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
-az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" 
+az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
 az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
 ```
@@ -205,5 +205,4 @@ az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-fro
 * Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 * Para obter as tarefas de gerenciamento, confira [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md).
 * Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
-
 

@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
-ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3071bf565b14966de2293205026c4524d7b0f0c5
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -35,7 +36,7 @@ Como o Serviço de Aplicativo mantém as VMs, o armazenamento, as conexões de r
 * Seus aplicativos do Serviço de Aplicativo estejam isolados da Internet e de outros recursos do Azure dos clientes.
 * A comunicação de segredos (por exemplo, cadeias de conexão) entre o aplicativo do Serviço de Aplicativo e outros recursos do Azure (por exemplo, Banco de Dados SQL) em um grupo de recursos permaneça dentro do Azure e não cruze nenhum limite de rede. Os segredos sejam sempre criptografados.
 * Toda a comunicação entre seu aplicativo do Serviço de Aplicativo e recursos externos, como gerenciamento do PowerShell, interface de linha de comando, SDKs do Azure, APIs REST e conexões híbridas, seja corretamente criptografada.
-* O gerenciamento de ameaças&24; horas por dia proteja recursos do Serviço de Aplicativo contra malware, DDoS (negação de serviços distribuído), MITM (man-in-the-middle) e outras ameaças. 
+* O gerenciamento de ameaças 24 horas por dia proteja recursos do Serviço de Aplicativo contra malware, DDoS (negação de serviços distribuído), MITM (man-in-the-middle) e outras ameaças. 
 
 Para saber mais sobre segurança de plataforma e infraestrutura no Azure, confira [Centro de Confiabilidade do Azure](/support/trust-center/security/).
 
@@ -56,7 +57,7 @@ Uma das maneiras mais fáceis de começar a usar testes de vulnerabilidades no a
 Se preferir realizar seus próprios testes de penetração ou se desejar usar outro pacote de scanners ou provedor, você deverá seguir o [processo de aprovação do teste de penetração do Azure](https://security-forms.azure.com/penetration-testing/terms) e obter aprovação prévia para realizar os testes de penetração desejados.
 
 ## <a name="https"></a> Comunicação segura com os clientes
-Se você usar o nome de domínio **\*.azurewebsites.net** criado para o aplicativo do Serviço de Aplicativo, será possível usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio **\*.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), você poderá carregar um certificado SSL a fim de [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
+Se você usar o nome de domínio **\*.azurewebsites.net** criado para o aplicativo do Serviço de Aplicativo, será possível usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio **\*.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](app-service-web-tutorial-custom-domain.md), você poderá carregar um certificado SSL a fim de [habilitar o protocolo HTTPS](app-service-web-tutorial-custom-ssl.md) para o domínio personalizado.
 
 Habilitar o [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pode ajudar a proteger contra ataques MITM na comunicação entre o aplicativo e seus usuários.
 
