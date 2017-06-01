@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 01bf4188c40abb424c654a733c6d626f3bd694ba
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cb85dff7f8bf8a8715aaa9ecd02da59b9108915c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -42,7 +42,7 @@ A integração do Stream Analytics ao Cosmos DB permite inserir ou atualizar reg
 O Stream Analytics utiliza uma abordagem Upsert otimista, na qual as atualizações são feitas somente quando a inserção falha devido a um conflito de ID do Documento. Essa atualização é executada pelo Stream Analytics como um PATCH. Assim, é possível realizar atualizações parciais no documento, ou seja, a adição de novas propriedades ou a substituição de uma propriedade existente é executada de forma incremental. Observe que as alterações nos valores de propriedades de matriz em seu documento JSON resultam na substituição de toda a matriz, ou seja, a matriz não é mesclada.
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Particionamento de dados no Cosmos DB
-As [coleções particionadas](../documentdb/documentdb-partition-data.md#single-partition-and-partitioned-collections) do Cosmos DB são a abordagem recomendada para particionar os dados. 
+As [coleções particionadas](../cosmos-db/partition-data.md) do Cosmos DB são a abordagem recomendada para particionar os dados. 
 
 Para coleções individuais do Cosmos DB, o Stream Analytics ainda permite particionar os dados de acordo com os padrões de consulta e as necessidades de desempenho do aplicativo. Cada coleção pode conter até 10 GB de dados (máximo) e, atualmente, não há uma maneira de escalar verticalmente (ou estourar) uma coleção. Para dimensionamento, o Stream Analytics permite que você grave várias coleções com um determinado prefixo (veja os detalhes de uso abaixo). O Stream Analytics usa a estratégia de [Resolvedor de Partição Hash](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) consistente com base na coluna PartitionKey fornecida pelo usuário para particionar seus registros de saída. O número de coleções com o prefixo especificado na hora de início do trabalho de streaming é usado como a contagem de partições de saída, nas quais o trabalho grava em paralelo (Coleções do Cosmos DB = Partições de Saída). Para uma coleção individual com indexação lenta que realiza apenas inserções, é possível esperar uma produtividade de gravação de cerca de 0,4 MB/s. O uso de várias coleções permite alcançar maior produtividade e maior capacidade.
 

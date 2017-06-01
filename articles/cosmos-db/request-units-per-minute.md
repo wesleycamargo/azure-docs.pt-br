@@ -1,13 +1,13 @@
 ---
 title: "Azure CosmosDB: unidades de solicitação por minuto (RU/m) | Microsoft Docs"
 description: "Saiba como reduzir custos utilizando unidades de solicitação por minuto."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: arnomicrosoft
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: acomet
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 878b7335fb5e09bc8704f7211cc6293ad6ea4bea
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: ea63b988a72801ae4c288048021a915b20a34794
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -112,7 +112,7 @@ await client.ReplaceOfferAsync(offerV2);
 
 Nesta seção, fornecemos uma visão geral dos cenários em que é adequado habilitar as unidades de solicitação por minuto.
 
-**Ambiente de desenvolvimento e teste:** adequado. Durante a fase de desenvolvimento, se você estiver testando seu aplicativo com cargas de trabalho diferentes, a RU/m pode fornecer flexibilidade neste estágio. Ao mesmo tempo, o [emulador](../documentdb/documentdb-nosql-local-emulator.md) é uma ótima ferramenta gratuita para testar o BD Cosmos do Azure. No entanto, se quiser começar em um ambiente de nuvem, você terá grande flexibilidade com a RU/m para suas necessidades de desempenho ad hoc. Você passará mais tempo desenvolvendo e menos tempo se preocupando com as necessidades de desempenho no início. É recomendável começar com o provisionamento mínimo de RU/s e habilitar a RU/m.
+**Ambiente de desenvolvimento e teste:** adequado. Durante a fase de desenvolvimento, se você estiver testando seu aplicativo com cargas de trabalho diferentes, a RU/m pode fornecer flexibilidade neste estágio. Ao mesmo tempo, o [emulador](local-emulator.md) é uma ótima ferramenta gratuita para testar o BD Cosmos do Azure. No entanto, se quiser começar em um ambiente de nuvem, você terá grande flexibilidade com a RU/m para suas necessidades de desempenho ad hoc. Você passará mais tempo desenvolvendo e menos tempo se preocupando com as necessidades de desempenho no início. É recomendável começar com o provisionamento mínimo de RU/s e habilitar a RU/m.
 
 **Necessidades imprevisíveis de granularidade por minuto, com picos de uso:** adequado – economia de 25 a 75%. Já vimos uma grande melhoria com relação à RU/m e a maioria dos cenários de produção está nesse grupo. Se tiver uma carga de trabalho de IoT que apresenta picos algumas vezes em um minuto e, se tiver consultas em execução quando o sistema faz uma inserção em massa ao mesmo tempo, você precisará de capacidade extra para lidar com esses picos. Recomendamos otimizar suas necessidades de recursos aplicando nossa abordagem passo a passo abaixo.
 
@@ -175,8 +175,8 @@ var query = client.CreateDocumentQuery<Book>(
 
 Neste artigo, descrevemos como o particionamento funciona no BD Cosmos do Azure, como você pode criar coleções particionadas e como pode escolher uma boa chave de partição para seu aplicativo.
 
-* Executar testes de desempenho e escala com o BD Cosmos do Azure. Consulte [Teste de desempenho e escala com o BD Cosmos do Azure](../documentdb/documentdb-performance-testing.md) para obter um exemplo.
-* Introdução à codificação com os [SDKs](../documentdb/documentdb-sdk-dotnet.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
-* Saiba mais sobre a [taxa de transferência provisionada](../documentdb/documentdb-request-units.md) no BD Cosmos do Azure 
+* Executar testes de desempenho e escala com o BD Cosmos do Azure. Consulte [Teste de desempenho e escala com o BD Cosmos do Azure](performance-testing.md) para obter um exemplo.
+* Introdução à codificação com os [SDKs](documentdb-sdk-dotnet.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+* Saiba mais sobre a [taxa de transferência provisionada](request-units.md) no BD Cosmos do Azure 
 
 

@@ -13,24 +13,26 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/07/2017
-ms.author: meetb;carlrab;sstein
+ms.date: 05/24/2017
+ms.author: meetb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 2e2138b88bd15f8c3e86aba8593f684ce0dc8b80
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5fae11119500fd3be3af3e573d45f6cc5880e037
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="azure-sql-database-use-python-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar o Python para conectar e consultar dados
 
  Este guia de início rápido demonstra como usar o [Python](https://python.org) para se conectar a um banco de dados SQL do Azure; em seguida, use as instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados em plataformas Mac OS, Linux Ubuntu e Windows.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
 - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+- [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-the-python-and-database-communication-libraries"></a>Instalar o Python e as bibliotecas de comunicação do banco de dados
 

@@ -14,25 +14,25 @@ ms.devlang: PowerShell
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 05/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 528cb66bee6717a10864a78498c5004337bece02
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 5bb1f0b4b6e548cf4164dae55d13cbebb660232f
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
 # <a name="configure-sql-database-auditing-and-threat-detection-using-powershell"></a>Configurar a auditoria e detecção de ameaças para um banco de dados SQL usando o PowerShell
 
-Este script do PowerShell de exemplo configura a detecção de ameaças e auditoria do Banco de Dados SQL. Para executar este exemplo, verifique se você instalou o [Azure PowerShell](/powershell/azure/overview) mais recente.
+Este script do PowerShell de exemplo configura a detecção de ameaças e auditoria do Banco de Dados SQL. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1 "Configurar a auditoria e detecção de ameaças")]
+[!code-powershell[principal](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configurar a auditoria e detecção de ameaças")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 

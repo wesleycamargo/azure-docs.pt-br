@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 05/24/2017
 ms.author: lbosq
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 99c1ce93f30a54fcf0d76b1367c2f9545258c1f9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4d3c3541749870b09aecc9efb63413f7c045e044
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,10 +27,13 @@ ms.lasthandoff: 05/09/2017
 
 Este início rápido demonstra como se conectar a um banco de dados SQL do Azure usando [Node.js](https://nodejs.org/en/); em seguida, use instruções Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados por meio das plataformas Windows, Ubuntu Linux e Mac.
 
-Este início rápido usa como ponto de partida os recursos criados em um destes guias:
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
 - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+- [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-nodejs"></a>Instalar o Node. js 
 

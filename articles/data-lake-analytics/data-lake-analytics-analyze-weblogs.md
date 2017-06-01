@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ad0610c1aed8e21f322516a4b7ea41bf55cc200e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -43,7 +45,7 @@ Saiba como analisar os logs do site usando a Análise Data Lake, principalmente 
 * **Uma conta da Análise Data Lake.**  Confira [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account) (Criar uma conta do Azure Data Lake Analytics).
 
     As Ferramentas do Data Lake não dão suporte à criação de contas da Análise Data Lake.  Portanto, você precisa criá-la usando o Portal do Azure, Azure PowerShell, SDK do .NET ou a CLI do Azure.
-* **Carregue os dados de exemplo na conta da Análise Data Lake.** Confira [To copy sample data files](data-lake-analytics-get-started-portal.md#prepare-source-data) (Para copiar os arquivos de dados de exemplo).
+* **Carregue os dados de exemplo na conta da Análise Data Lake.** Confira [To copy sample data files](data-lake-analytics-get-started-portal.md) (Para copiar os arquivos de dados de exemplo).
 
     Para executar o trabalho da Análise Data Lake, você precisará de alguns dados. Embora as Ferramentas do Data Lake deem suporte ao carregamento de dados, você poderá usar o portal para carregar os dados de exemplo para deixar o tutorial mais fácil de acompanhar.
 
@@ -200,9 +202,4 @@ Para ver mais tópicos de desenvolvimento:
 * [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md)
 * [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

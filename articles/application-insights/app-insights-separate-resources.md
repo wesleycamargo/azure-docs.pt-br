@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 896bf83de9095007e4f189f50a5e13c216e6ebd2
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 0ee19b46a0e882571f6193471be69fa097d98936
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -140,7 +140,26 @@ Há vários métodos diferentes de definir a propriedade de Versão do aplicativ
 
     Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
 
+## <a name="version-and-release-tracking"></a>Versão e controle de versão
+Para controlar a versão do aplicativo, certifique-se de `buildinfo.config` é gerado pelo processo de Microsoft Build Engine. No arquivo. csproj, adicione:  
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+```
+
+Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico](app-insights-diagnostic-search.md) ou ao [explorar métricas](app-insights-metrics-explorer.md).
+
+No entanto, observe que o número de versão de compilação é gerado apenas pelo Microsoft Build Engine, não pela compilação de desenvolvedor no Visual Studio.
+
+### <a name="release-annotations"></a>Anotações da versão
+Se usar o Visual Studio Team Services, você poderá [obter um marcador de anotação](app-insights-annotations.md) adicionado a seus gráficos sempre que lançar uma nova versão. A imagem a seguir mostra como esse marcador é exibido.
+
+![Captura de tela de anotação de versão de exemplo em um gráfico](./media/app-insights-asp-net/release-annotation.png)
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Recursos compartilhados para várias funções](app-insights-monitor-multi-role-apps.md)
 * [Criar um Inicializador de Telemetria para distinguir variantes A | B](app-insights-api-filtering-sampling.md#add-properties)
+

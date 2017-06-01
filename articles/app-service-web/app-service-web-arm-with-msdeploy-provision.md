@@ -13,9 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 071be50ff7f72ecd711b2c3036f39b70df01a6ba
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -123,7 +125,7 @@ Agora você observará que o recurso do MSDeploy obtém uma propriedade **packag
 
 Essa **packageUri** obtém o uri da conta de armazenamento que aponta para a conta de armazenamento para onde você carregará o pacote compactado. O Gerenciador de Recursos do Azure aproveitará as [Assinaturas de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md) para obter o pacote localmente da conta de armazenamento durante a implantação do modelo. Este processo será automatizado por meio de um script do PowerShell que carregará o pacote e chamará a API de Gerenciamento do Azure para criar as chaves necessárias e passá-las para o modelo como parâmetros (*_artifactsLocation* e *_artifactsLocationSasToken*). Será necessário definir parâmetros para a pasta em que o pacote será carregado no contêiner de armazenamento e para o nome de arquivo desse pacote.
 
-Em seguida, adicione outro recurso aninhado para configurar as associações de nome de host para aproveitar um domínio personalizado. Primeiro, você precisará garantir que você possui o nome de host e configurá-lo para que o Azure verifique você o possui - consulte [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](web-sites-custom-domain-name.md). Depois disso, você poderá adicionar o seguinte ao seu modelo na seção do recurso Microsoft.Web/sites:
+Em seguida, adicione outro recurso aninhado para configurar as associações de nome de host para aproveitar um domínio personalizado. Primeiro, você precisará garantir que você possui o nome de host e configurá-lo para que o Azure verifique você o possui - consulte [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md). Depois disso, você poderá adicionar o seguinte ao seu modelo na seção do recurso Microsoft.Web/sites:
 
     {
         "apiVersion": "2015-08-01",
@@ -196,10 +198,5 @@ O PowerShell a seguir mostra a implantação completa chamando Deploy-AzureResou
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
 Neste ponto, seu aplicativo deve ter sido implantado e você deve ser capaz de localizá-lo por meio de https://www.yourcustomdomain.com
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

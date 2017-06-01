@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
-ms.author: femila
+ms.date: 05/23/2017
+ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e8d3eb7e336383eb639e55656b26d881e8c2adb0
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 8e8723c6dc81012a0dddd4e0a28c4d4af6828c6c
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -35,7 +35,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **Administrador de Cobrança**: faz compras, gerencia as assinaturas, gerencia tíquetes de suporte e monitora a integridade do serviço.
 
-* **Administrador de Conformidade**: os usuários com essa função têm permissões de gerenciamento no Centro de Conformidade e Segurança do Office 365 e no Centro de Administração do Exchange. Mais informações em “[Sobre funções de administrador do Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)”.
+* **Administrador de Conformidade**: os usuários com essa função têm permissões de gerenciamento no Centro de Conformidade e Segurança do Office 365 e no Centro de Administração do Exchange. Mais informações em “[Sobre funções de administrador do Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)”.
 
 * **Administrador de Serviços do CRM**: os usuários com essa função têm permissões globais no Microsoft CRM Online quando o serviço está presente, além da capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -139,6 +139,20 @@ As seguintes funções de administrador estão disponíveis:
 
 ## <a name="details-about-the-global-administrator-role"></a>Detalhes sobre a função de administrador global
 O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de administrador global para o diretório. Somente os administradores globais podem atribuir outras funções de administrador.
+
+### <a name="to-add-a-colleague-as-a-global-administrator"></a>Para adicionar um colega como um administrador global
+
+1. Entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com uma conta que seja um administrador global do diretório de locatário.
+
+   ![Como abrir o Centro de administração do Azure AD](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
+
+2. Selecione **Usuários e grupos &gt; Todos os usuários**
+
+3. Encontre o usuário que você deseja designar como administrador global e abra a folha para esse usuário.
+
+4. Na folha do usuário, selecione a **função Diretório**.
+ 
+5. Na folha da função de diretório, selecione a função **Administrador global** e salve.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
 Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Atribuir um usuário a funções de administrador no modo de visualização do Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
