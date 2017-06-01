@@ -51,7 +51,7 @@ Crie um servidor de Banco de Dados do Azure para MySQL com o comando **az mysql 
 O exemplo a seguir cria um servidor de Banco de Dados do Azure para MySQL localizado em `westus` no grupo de recursos `mycliresource` com o nome `mycliserver`. O servidor tem um logon de administrador chamado `myadmin` e a senha `Password01!`. O servidor é criado com o nível de desempenho **Básico** e **50** unidades de computação compartilhadas entre todos os bancos de dados no servidor. Você pode escalar verticalmente a computação e o armazenamento dependendo das necessidades do aplicativo.
 
 ```azurecli
-az mysql server create --resource-group mycliresource --name mycliserver--location westus --user myadmin --password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group mycliresource --name mycliserver --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
 ![Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)

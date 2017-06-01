@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
 ms.openlocfilehash: e14f42497d5ee0c89fe1fa0824431e2d82e6555a
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="biztalk-services-throttling"></a>Serviços BizTalk: limitação
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Os Serviços BizTalk do Azure implementam a limitação do serviço com base em duas condições: uso de memória e número de mensagens simultâneas em processamento. Este tópico lista as limitações e descreve o comportamento da Execução quando ocorre uma condição de limitação.
 
 ## <a name="throttling-thresholds"></a>Limites da limitação
@@ -65,10 +70,5 @@ Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte
 * [Serviços BizTalk: guias Painel, Monitor e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Serviços BizTalk: backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
