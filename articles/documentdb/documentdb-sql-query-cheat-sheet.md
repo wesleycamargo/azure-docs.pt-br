@@ -1,48 +1,12 @@
 ---
-title: PDF de roteiro do SQL do Azure Cosmos DB | Microsoft Docs
-description: "PDF de roteiro do SQL para impressão que ajuda você a usar a sintaxe SQL do Azure Cosmos DB para consultar documentos JSON em seu banco de dados – referência rápida do SQL"
-keywords: folha de consulta sql, pdf de folha de consulta sql, folha de consulta de consulta sql
-services: cosmosdb
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: monicar
-ms.assetid: fdbdbc39-5a46-4129-b4ed-b049d1c9ccab
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/03/2017
-ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-cheat-sheet
+ROBOTS: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8e829d68938da83df39ba0bccaf86a4bde6c5e06
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 15995a6a0bdf0691ca2d81b15ed2330969c362e2
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>PDF de roteiro de consultas SQL do Azure Cosmos DB
-O **Roteiro de consultas SQL do Azure Cosmos DB** ajuda você a escrever rapidamente consultas de dados do Azure Cosmos DB exibindo consultas comuns de banco de dados, palavras-chave, funções internas e operadores em uma folha de referência em PDF fácil de imprimir. 
-
-O Cosmos DB dá suporte a consultas hierárquicas, relacionais e espaciais de documentos JSON usando o [SQL](documentdb-sql-query.md) sem especificar um esquema ou índices secundários. Além dos operadores e palavras-chave ANSI-SQL padrão, o Cosmos DB dá suporte a UDFs (funções definidas pelo usuário) de JavaScript, operadores de JavaScript e uma série de funções internas.
-
-## <a name="download-the-cosmos-db-sql-query-cheat-sheet-pdf"></a>Baixar o PDF do roteiro de consultas SQL do Cosmos DB
-Escreva suas consultas mais rapidamente baixando a folha de consulta SQL e usando-a como uma referência rápida. O PDF de consulta SQL mostra as consultas comuns usadas para recuperar dados de dois documentos JSON de exemplo. Para mantê-lo próximo, você pode imprimir a folha de consulta SQL de lado único em tamanho carta (21,59 x 27,94 mm).
-
-**Baixe o roteiro do SQL aqui: [Roteiro do SQL do Microsoft Azure Cosmos DB](http://go.microsoft.com/fwlink/?LinkId=623215)**
-
-![Roteiro de consultas SQL do Azure Cosmos DB: um PDF de referência rápida à sintaxe SQL com suporte no Azure Cosmos DB – roteiro do SQL, PDF do roteiro do SQL, referência rápida do SQL][cheat-sheet]
-
-[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v4.png
-
-
-## <a name="more-help-with-writing-sql-queries"></a>Mais ajuda para escrever consultas SQL
-* Para obter um passo a passo das opções de consulta disponíveis no Cosmos DB, consulte [Consultar o Cosmos DB](documentdb-sql-query.md).
-* Para obter a documentação de referência relacionada, consulte [Linguagem de consulta SQL do Cosmos DB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
-
-## <a name="release-notes"></a>Notas de versão
-Atualizado em 29/07/2016 para incluir TOP.
-
 

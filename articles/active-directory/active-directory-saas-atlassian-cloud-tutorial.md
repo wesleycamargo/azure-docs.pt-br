@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8928581d9636f571008f965185eeb61b414a16e7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: da9e5f015f93090f4efb00f6c3af07ba2f5503bc
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -135,7 +136,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal clássico e c
 
     ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_05.png)
  1. Clique em **Baixar certificado**e salve o arquivo em seu computador.
- 2. Clique em **Próximo**.
+ 2. Clique em **Avançar**.
 
 5. Para configurar o SSO para seu aplicativo, faça logon no Portal do Atlassian usando os direitos de administrador.
 
@@ -208,7 +209,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_05.png) 
   1. Em Tipo de Usuário, selecione Novo usuário na organização.
   2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-  3. Clique em **Próximo**.
+  3. Clique em **Avançar**.
 
 6.  Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
 
@@ -217,7 +218,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
    2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    4. Na lista **Função**, selecione **Usuário**.
-   5. Clique em **Próximo**.
+   5. Clique em **Avançar**.
 
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -252,7 +253,7 @@ Faça logon em sua instância do Atlassian Cloud com direitos de administrador e
  
 4. Clique no botão **Criar usuário** para enviar o convite por email para o usuário; quando aceitar o convite, o usuário ficará ativo no sistema. 
 
-### <a name="assig-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o SSO do Azure concedendo-lhe acesso ao Atlassian Cloud.
 

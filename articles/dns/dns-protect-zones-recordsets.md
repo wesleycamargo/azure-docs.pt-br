@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: f5865e07df4e1f253079ac1c8b257e2525da5ef3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0b7040d6273b3a6b85cd55850d596807226b87fc
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -221,11 +223,5 @@ Essa segunda abordagem tem a vantagem de funcionar para todas as zonas acessadas
 
 * Para obter mais informações sobre como trabalhar com o RBAC, veja [Introdução ao gerenciamento de acesso no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
 * Para obter mais informações sobre trabalho com bloqueios de recurso, confira [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
-* Para obter mais informações sobre como proteger os recursos do Azure, veja [Considerações de segurança para o Azure Resource Manager](../best-practices-resource-manager-security.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

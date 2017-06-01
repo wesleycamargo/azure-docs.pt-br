@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/05/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ae0b63bc338cb3e96eae4593b96265aafbcbc029
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3ad716fab4f5084c38c83f4bc90a616856666b38
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Compilar um aplicativo Web PHP e MySQL no Azure
@@ -328,16 +328,7 @@ Nessa etapa, você implanta seu aplicativo PHP conectado ao MySQL no Serviço de
 
 Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Um plano do Serviço de Aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do Serviço de Aplicativo compartilham os recursos definidos por ele, permitindo que você economize ao hospedar vários aplicativos. 
-> 
-> Os Planos do Serviço de Aplicativo definem: 
-> 
-> * Região (Europa Setentrional, Leste dos EUA, Sudeste Asiático) 
-> * Tamanha da Instância (Pequena, Média, Grande) 
-> * Contagem da Escala (uma, duas ou três instâncias etc.) 
-> * SKU (Gratuito, Compartilhado, Básico, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 O exemplo a seguir cria um Plano do Serviço de Aplicativo chamado _myAppServicePlan_ usando o tipo de preço **GRATUITO**:
 

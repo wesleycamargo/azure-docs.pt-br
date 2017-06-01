@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/18/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2d6ef39ad4678d331eadd2c0bfd6ff93c99da501
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: db9f2174e9928083957f160be8c268fe21cd4169
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -28,7 +28,7 @@ A solução Iniciar/Parar VMs fora do horário comercial [Visualização] inicia
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O runbook funciona com uma [conta Executar como do Azure](automation-sec-configure-azure-runas-account.md).  A conta Executar como é o método de autenticação preferido, pois ela usa a autenticação de certificado em vez de uma senha que pode expirar ou ser alterada com frequência.  
+- O runbook funciona com uma [conta Executar como do Azure](automation-offering-get-started.md#authentication-methods).  A conta Executar como é o método de autenticação preferido, pois ela usa a autenticação de certificado em vez de uma senha que pode expirar ou ser alterada com frequência.  
 
 - Essa solução só pode gerenciar VMs que estejam na mesma assinatura em que reside a conta de Automação.  
 

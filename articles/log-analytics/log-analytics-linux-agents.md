@@ -3,7 +3,7 @@ title: Conectar computadores Linux ao Azure Log Analytics | Microsoft Docs
 description: "Usando o Log Analytics, você pode coletar os dados gerados em computadores Linux e tomar ações em relação a eles."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: b01b0d3d61168c1eec52f3fd040b829e0c51a878
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 10da54ebce28dfdcd0f793b1c717e738150b72ae
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -750,7 +751,7 @@ Examine as seções a seguir para saber mais sobre as limitações atuais do Age
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 Para as máquinas virtuais do Linux em execução no Azure, podem ser necessárias etapas adicionais para permitir a coleta de dados pelo Diagnóstico do Azure e pelo Operations Management Suite. **Versão 2.2** da Extensão de Diagnóstico para Linux é necessária para compatibilidade com o Agente do OMS para Linux.
 
-Para saber mais sobre como instalar e configurar a Extensão de Diagnóstico para Linux, confira [Usar o comando CLI do Azure para habilitar a Extensão de Diagnóstico do Linux](../virtual-machines/linux/classic/diagnostic-extension.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension).
+Para saber mais sobre como instalar e configurar a Extensão de Diagnóstico para Linux, confira [Usar o comando CLI do Azure para habilitar a Extensão de Diagnóstico do Linux](../virtual-machines/linux/classic/diagnostic-extension-v2.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension).
 
 **Atualização da Extensão de Diagnóstico do Linux do ASM da CLI do Azure 2.0 para 2.2:**
 

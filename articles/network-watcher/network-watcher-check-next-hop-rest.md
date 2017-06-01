@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 95ecd8d4ef3dd7a956206e7c3e07c793db0111f7
-ms.openlocfilehash: 04801ce75a767da2756165f51f49192f89887380
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 644713d365191bf5e51517d0cc565efbc2abc144
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -26,7 +27,8 @@ ms.lasthandoff: 03/31/2017
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
-> - [CLI](network-watcher-check-next-hop-cli.md)
+> - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [API REST do Azure](network-watcher-check-next-hop-rest.md)
 
 Próximo salto é um recurso do Observador de Rede fornece o capacidade de obter o tipo do próximo salto e o endereço IP com base em uma máquina virtual especificada. Esse recurso é útil para determinar se o tráfego deixar uma máquina virtual atravessa um gateway, internet ou redes virtuais para chegar ao seu destino.

@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 40ace51c4ba74039b3a5d5997acdf2da7b98b4a9
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 759631bca9b29134098dba55ef07513d0ee42549
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -45,9 +46,9 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 
 Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
 
-1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis entre como um **usuário** no Azure AD.
+1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
 
-2.  Clique em **aplicativo de SSO de senha** no Painel de Acesso.
+2.  Clique no **aplicativo de SSO com senha** no Painel de Acesso.
 
 3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
 
@@ -57,7 +58,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 6.  Quando estiver instalado, **reinicie** a sessão do navegador.
 
-7.  Entrar no Painel de Acesso e ver se é possível **iniciar** os aplicativos de SSO de senha
+7.  Entrar no Painel de Acesso e verificar se é possível **iniciar** os aplicativos de SSO de senha
 
 Também é possível baixar a extensão para Chrome e Firefox diretamente pelos links abaixo:
 
@@ -75,11 +76,11 @@ Os pré-requisitos incluem:
 
 -   Você deve ter a permissão "Editar configurações" para editar o GPO (Objeto de Política de Grupo). Por padrão, os membros dos grupos de segurança a seguir têm esta permissão: Administradores de Domínio, Administradores de Empresa e Proprietários Criadores de Política de Grupo. [Saiba mais](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Siga o tutorial [Como Implantar a Extensão do Painel de Acesso para o Internet Explorer usando Política de Grupo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) para obter instruções passo a passo sobre como configurar política de grupo e implantá-la nos usuários.
+Siga o tutorial [Como Implantar a Extensão do Painel de Acesso para o Internet Explorer usando Política de Grupo](active-directory-saas-ie-group-policy.md) para obter instruções passo a passo sobre como configurar política de grupo e implantá-la nos usuários.
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Solucionar problemas do Painel de Acesso no Internet Explorer
 
-Siga o guia [Solucionar problemas da Extensão do Painel de Acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) para acessar uma ferramenta de diagnóstico e as instruções passo a passo sobre como configurar a extensão para o IE.
+Siga o guia [Solucionar problemas da Extensão do Painel de Acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) para acessar uma ferramenta de diagnóstico e as instruções passo a passo sobre como configurar a extensão para o IE.
 
 ## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema
 
@@ -93,9 +94,9 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Tipo de navegador
 
--   Fuso horário e tempo/cronograma durante o erro
+-   Fuso horário e hora/cronograma durante o erro
 
--   Rastreamento do Fiddler
+-   Rastreamentos do Fiddler
 
 ## <a name="next-steps"></a>Próximas etapas
 [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)

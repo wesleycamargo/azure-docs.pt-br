@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: beverst
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 554843c5f3161a45ff984b000944f546b44dd472
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ca086f76e50cb27f012bb2e7f05595be5fdcb241
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilar um aplicativo Web Docker Python e PostgreSQL no Azure
@@ -355,16 +355,7 @@ Nesta etapa, você implanta seu aplicativo Python Flask baseado em contêiner do
 
 Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Um plano do Serviço de Aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do Serviço de Aplicativo compartilham os recursos definidos por ele, permitindo que você economize ao hospedar vários aplicativos. 
-> 
-> Os Planos do Serviço de Aplicativo definem: 
-> 
-> * Região (Europa Setentrional, Leste dos EUA, Sudeste Asiático etc.) 
-> * Tamanha da Instância (Pequena, Média, Grande) 
-> * Contagem da Escala (uma, duas ou três instâncias etc.) 
-> * SKU (Gratuito, Compartilhado, Básico, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 O exemplo a seguir cria um plano do Serviço de Aplicativo baseado em Linux chamado `myAppServicePlan` usando o tipo de preço S1:
 

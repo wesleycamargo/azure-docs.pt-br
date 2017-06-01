@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 6563d1520149ae5ced7e2de80686ef1624ebb651
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3ae3e5d55454a33a35950057667f9648b63bb331
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Compilar um aplicativo ASP.NET no Azure com Banco de Dados SQL
@@ -111,19 +111,7 @@ Nome seu grupo de recursos como **myResourceGroup** e clique em **OK**.
 
 ### <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
 
-Seu aplicativo Web também precisa de um _plano do Serviço de Aplicativo_. 
-
-> [!NOTE]
-> Um plano do Serviço de Aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do Serviço de Aplicativo compartilham os recursos definidos por ele, permitindo que você economize ao hospedar vários aplicativos. 
->
-> Os Planos do Serviço de Aplicativo definem:
->
-> - Região (Europa Setentrional, Leste dos EUA, Sudeste Asiático)
-> - Tamanha da Instância (Pequena, Média, Grande)
-> - Contagem da Escala (uma, duas ou três instâncias etc.) 
-> - SKU (Gratuito, Compartilhado, Básico, Standard, Premium)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 Lado do **Plano do Serviço de Aplicativo**, clique em **Novo**. 
 
