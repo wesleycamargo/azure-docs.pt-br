@@ -16,10 +16,11 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3dc3006d65fb257a8c2c3a27143349b5979a7e6f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 92c715015067363fa6d6b58f436891f4d38e19e5
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -30,7 +31,7 @@ O Painel Storm permite que você implante e execute facilmente topologias Apache
 Os recursos do Storm e do Painel Storm das Ferramentas do HDInsight contam com API REST Storm, que pode ser usada para criar suas próprias soluções de monitoramento e gerenciamento.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster de Storm no HDInsight que usa o Windows como o sistema operacional. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> As etapas deste documento exigem um cluster de Storm no HDInsight que usa o Windows como o sistema operacional. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 > Para obter informações sobre como implantar e gerenciar topologias Storm com um cluster HDInsight que usa Linux, veja [Implantar e gerenciar topologias Apache Storm no HDInsight baseado em Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
 

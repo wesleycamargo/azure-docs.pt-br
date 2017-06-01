@@ -16,10 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 76e8fc27c87a427d7cb2527c2c53a5b463798610
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 5e91fd06fb2ae22496832d7afedb3f003edf7ea6
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/12/2017
 Neste artigo, você aprenderá como se conectar a um Hadoop no cluster HDInsight usando a Área de Trabalho Remota e executar trabalhos MapReduce usando o comando Hadoop.
 
 > [!IMPORTANT]
-> A Área de Trabalho Remota está disponível somente em clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> A Área de Trabalho Remota está disponível somente em clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 > Para HDInsight 3.4 ou superior, confira [Usar o MapReduce com SSH](hdinsight-hadoop-use-mapreduce-ssh.md) para obter informações sobre como se conectar ao cluster HDInsight e executar trabalhos do MapReduce.
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8a8a28e6491855434c4445bedd5644d7da109f8a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -31,8 +32,6 @@ Seu aplicativo pode acessar as APIs do Gerenciador de Recursos de duas maneiras:
 2. **Acesso somente a aplicativos**: para aplicativos que executam serviços daemon e trabalhos agendados. A identidade do aplicativo recebe acesso direto aos recursos. Essa abordagem funciona para aplicativos que precisam de acesso de administração remota (autônomo) de longo prazo ao Azure.
 
 Este tópico fornece instruções passo a passo para criar um aplicativo que utiliza ambos os métodos de autorização. Ele mostra como executar cada etapa com a API REST ou o C#. O aplicativo ASP.NET MVC completo está disponível em [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
-
-Todo o código para este tópico está sendo executado como um aplicativo Web que você pode testar em [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense).
 
 ## <a name="what-the-web-app-does"></a>O que o aplicativo Web faz
 O aplicativo Web:

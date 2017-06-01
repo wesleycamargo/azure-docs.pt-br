@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 87bd4e1d2b51857526b9137c09b7013c5221c698
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -91,16 +91,16 @@ Criar e gerenciar uma imagem de VM usando estes recursos:
 ## <a name="manage-your-solution"></a>Gerenciar sua solução
 Gerencie sua solução com a ajuda dos seguintes recursos:
 * [Ler o guia de pós-produção para ofertas de máquina virtual](marketplace-publishing-vm-image-post-publishing.md)
-* [Atualizar os detalhes não técnicos de uma oferta ou uma SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
-* [Atualizar os detalhes técnicos de uma oferta ou uma SKU](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
-* [Adicionar uma nova SKU em uma oferta listada](marketplace-publishing-vm-image-post-publishing.md#3-how-to-add-a-new-sku-under-a-listed-offer)
-* [Alterar a contagem de discos de dados para uma SKU listada](marketplace-publishing-vm-image-post-publishing.md#4-how-to-change-the-data-disk-count-for-a-listed-sku)
+* [Atualizar os detalhes não técnicos de uma oferta ou uma SKU](marketplace-publishing-vm-image-post-publishing.md#update-the-nontechnical-details-of-an-offer-or-a-sku)
+* [Atualizar os detalhes técnicos de uma oferta ou uma SKU](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
+* [Adicionar uma nova SKU em uma oferta listada](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
+* [Alterar a contagem de discos de dados para uma SKU listada](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
 * [Excluir uma oferta listada do Marketplace](marketplace-publishing-vm-image-post-publishing.md)
-* [Excluir uma SKU listada do Marketplace](marketplace-publishing-vm-image-post-publishing.md#6-how-to-delete-a-listed-sku-from-the-azure-marketplace)
-* [Excluir a versão atual de uma SKU listada do Marketplace](marketplace-publishing-vm-image-post-publishing.md#7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace)
-* [Reverter o preço de listagem para os valores de produção](marketplace-publishing-vm-image-post-publishing.md#8-how-to-revert-listing-price-to-production-values)
-* [Reverter o modelo de cobrança para os valores de produção](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
-* [Reverter a configuração de visibilidade de uma SKU listada para o valor de produção](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
+* [Excluir uma SKU listada do Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [Excluir a versão atual de uma SKU listada do Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [Reverter o preço de listagem para os valores de produção](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
+* [Reverter o modelo de cobrança para os valores de produção](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
+* [Reverter a configuração de visibilidade de uma SKU listada para o valor de produção](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
 * [Alterar seu incentivo ao revendedor do Provedor de Soluções na Nuvem](marketplace-publishing-csp-incentive.md)
 * [Entender seu relatório de pagamento](marketplace-publishing-report-payout.md)
 * [Obtenha suporte como um editor](marketplace-publishing-get-publisher-support.md)

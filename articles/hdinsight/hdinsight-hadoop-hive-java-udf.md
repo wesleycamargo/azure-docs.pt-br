@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9691b7ffb9c2bd9dd3f9900a29fb898652d8d7bf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 229bebe16b619f61f2dd4acb73602b97e64cb294
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -31,7 +32,7 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
 * Um cluster HDInsight (Windows ou Linux)
 
     > [!IMPORTANT]
-    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Substituição do HDInsight 3.2 e 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
     A maioria das etapas neste documento funcionam em ambos os tipos de cluster. No entanto, as etapas usadas para carregar o UDF compilado ao cluster e executá-lo são específicas para clusters baseados em Linux. São fornecidos links para informações que podem ser usados com clusters baseados em Windows.
 

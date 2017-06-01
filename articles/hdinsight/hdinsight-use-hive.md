@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 05/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b8c32f6e15d65efc8dc464017027d3cde94b2667
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f974c2714fc600d850baff64fdf65aae178e5068
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -54,7 +54,7 @@ Use a tabela a seguir para aprender a usar o Hive com HDInsight:
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux ou Windows* |Windows |
 
 > [!IMPORTANT]
-> \*O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [Reprovações do HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> \*O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 > Se você estiver usando um cluster do HDInsight baseado em Windows, você pode usar o [console de consulta](hdinsight-hadoop-use-hive-query-console.md) do seu navegador ou a [área de trabalho remota](hdinsight-hadoop-use-hive-remote-desktop.md) para executar consultas de Hive.
 

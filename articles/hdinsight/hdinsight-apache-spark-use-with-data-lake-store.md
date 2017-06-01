@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c801dc221d4aaa2c3ed0a7d10c5d58065b26e427
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 24e0372f024e574d049c63f444b5e8f6b0dfd065
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,8 +29,6 @@ ms.lasthandoff: 03/22/2017
 Neste tutorial, você usará no notebook Jupyter disponível com os clusters Spark HDInsight para executar um trabalho que lê dados de uma conta do Data Lake Store.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-* Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Conta do Azure Data Lake Store. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -83,7 +82,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
 3. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
-    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
+    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Criar um novo bloco de anotações do Jupyter")
 
 4. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos obrigatórios para este cenário. Para fazer isso, cole o trecho de código a seguir em uma célula vazia e pressione **SHIFT + ENTER**.
 
@@ -91,7 +90,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
     Toda vez que você executar um trabalho no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
 
-     ![Status de um trabalho de bloco de anotações Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Status de um trabalho de bloco de anotações Jupyter")
+     ![Status de um trabalho de bloco de anotações Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status de um trabalho de bloco de anotações Jupyter")
 
 5. Carregue os dados de exemplo em uma tabela temporária usando o arquivo **HVAC.csv** copiado para a conta do Data Lake Store. Você pode acessar os dados na conta do Repositório Data Lake usando o seguinte padrão de URL.
 
@@ -131,11 +130,11 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
 7. Depois que o trabalho for concluído com êxito, a saída tabular a seguir será exibida por padrão.
 
-      ![Saída do resultado de consulta de tabela](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Saída do resultado de consulta de tabela")
+      ![Saída do resultado de consulta de tabela](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Saída do resultado de consulta de tabela")
 
      Você também pode ver os resultados em outras visualizações. Por exemplo, um gráfico de área para a mesma saída seria semelhante ao seguinte.
 
-     ![Gráfico de área de resultado da consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Gráfico de área de resultado da consulta")
+     ![Gráfico de área de resultado da consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-area-output.png "Gráfico de área de resultado da consulta")
 
 8. Depois de concluir a execução do aplicativo, você deve encerrar o notebook para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
 

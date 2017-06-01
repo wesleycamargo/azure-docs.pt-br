@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 23fb716997145152bd09d177b75973ad0b4ca9f3
-ms.openlocfilehash: 171cfe2a8750025914545701fa3423c7b9baa5f2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0bf872a44b8ed7cae53d2659aa7be878902130e9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -187,12 +189,6 @@ Para gerar dinamicamente a ID de recurso para um segredo de cofre de chaves, voc
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter informações gerais sobre cofres de chaves, veja [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md).
-* Para obter informações sobre como usar um cofre de chave com uma máquina virtual, consulte [Considerações de segurança para o Azure Resource Manager](best-practices-resource-manager-security.md).
 * Para obter exemplos completos de referência de segredos de chave, veja [Exemplos do cofre da chave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
