@@ -9,9 +9,9 @@ As instâncias de NC têm a tecnologia do Tesla K80 da NVIDIA. Agora, os usuári
 
 | Tamanho | Núcleos de CPU | Memória: GiB | SSD local: GiB | GPU | Discos de dados máximos |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 64 |
-| Standard_NV12 |12 |112 |680 | 2 | 64 |
-| Standard_NV24 |24 |224 |1440 | 4 | 64 |
+| Standard_NV6 |6 |56 |380 | 1 | 8 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 |
 
 1 GPU = metade de um cartão M60.
 
@@ -19,10 +19,10 @@ As instâncias de NC têm a tecnologia do Tesla K80 da NVIDIA. Agora, os usuári
 
 | Tamanho | Núcleos de CPU | Memória: GiB | SSD local: GiB | GPU | Discos de dados máximos |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 | 12 |
-| Standard_NC12 |12 |112 | 680 | 2 | 24 |
-| Standard_NC24 |24 |224 | 1440 | 4 | 48 |
-| Standard_NC24r* |24 |224 | 1440 | 4 | 48 |
+| Standard_NC6 |6 |56 | 380 | 1 | 8 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 32 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 32 |
 
 1 GPU = metade de um cartão K80.
 
