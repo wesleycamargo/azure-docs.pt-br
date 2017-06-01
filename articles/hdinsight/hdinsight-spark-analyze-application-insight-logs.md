@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 05/25/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 92d591054244ceb01adbfbd8ff027d47b04a6c83
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 02ecc95d97719908a18f615dc3e19af2a563cc73
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -36,7 +36,7 @@ Aprenda a usar o Spark no HDInsight para analisar dados de telemetria do Applica
 * Familiaridade com a criação de um cluster HDInsight baseado em Linux. Para saber mais, veja [Criar o Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
-  > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Substituição do HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * Um navegador da Web.
 
@@ -89,7 +89,9 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
 
 3. No primeiro campo (denominado **célula**) na página, digite o seguinte texto:
 
-        sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```python
+   sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```
 
     Esse código configura o Spark para acessar de forma recursiva a estrutura de diretórios para os dados de entrada. A Application Insights Telemetry é registrada em uma estrutura de diretórios semelhante ao `/{telemetry type}/YYYY-MM-DD/{##}/`.
 
@@ -104,8 +106,10 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
         SparkContext and HiveContext created. Executing user code ...
 5. Uma nova célula é criada abaixo da primeira. Digite o texto a seguir na nova célula. Substitua `CONTAINER` e `STORAGEACCOUNT` pelo nome da conta de armazenamento do Azure e pelo nome do contêiner de blob que contém dados do Application Insights.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```python
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     Use **SHIFT+ENTER** para executar essa célula. Você verá um resultado semelhante ao seguinte texto:
 
@@ -119,13 +123,17 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
 
 6. Na próxima célula, digite o seguinte código: substitua `WASB_PATH` pelo caminho da etapa anterior.
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```python
+   jsonFiles = sc.textFile('WASB_PATH')
+   jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     Esse código cria um dataframe dos arquivos JSON exportados pelo processo de exportação contínua. Use **SHIFT+ENTER** para executar essa célula.
 7. Na próxima célula, digite e execute o seguinte para exibir o esquema que o Spark criou para os arquivos JSON:
 
-        jsonData.printSchema()
+   ```python
+   jsonData.printSchema()
+   ```
 
     O esquema para cada tipo de telemetria é diferente. O exemplo a seguir é o esquema gerado para solicitações da Web (dados armazenados no subdiretório `Requests`):
 
@@ -191,8 +199,11 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
         |    |    |    |-- protocol: string (nullable = true)
 8. Use o seguinte para registrar o dataframe como uma tabela temporária e executar uma consulta em relação aos dados:
 
-        jsonData.registerTempTable("requests")
-        sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   ```python
+   jsonData.registerTempTable("requests")
+   df = sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   df.show()
+   ```
 
     Essa consulta retorna as informações de cidade para os primeiros 20 registros em que context.location.city não é nulo.
 
@@ -219,7 +230,9 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
 2. No canto superior direito da página Jupyter, selecione **Novo**, então, **Scala**. Uma nova guia do navegador contendo um Bloco de anotações do Jupyter com base em Scala é exibida.
 3. No primeiro campo (denominado **célula**) na página, digite o seguinte texto:
 
-        sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```scala
+   sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```
 
     Esse código configura o Spark para acessar de forma recursiva a estrutura de diretórios para os dados de entrada. A Application Insights Telemetry é registrada em uma estrutura de diretórios semelhante a `/{telemetry type}/YYYY-MM-DD/{##}/`.
 
@@ -234,8 +247,10 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
         SparkContext and HiveContext created. Executing user code ...
 5. Uma nova célula é criada abaixo da primeira. Digite o texto a seguir na nova célula. Substitua `CONTAINER` e `STORAGEACCOUNT` pelo nome da conta de armazenamento do Azure e pelo nome do contêiner de blob que contém logs do Application Insights.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```scala
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     Use **SHIFT+ENTER** para executar essa célula. Você verá um resultado semelhante ao seguinte texto:
 
@@ -249,13 +264,19 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
 
 6. Na próxima célula, digite o seguinte código: substitua `WASB\_PATH` pelo caminho da etapa anterior.
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```scala
+   var jsonFiles = sc.textFile('WASB_PATH')
+   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+   var jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     Esse código cria um dataframe dos arquivos JSON exportados pelo processo de exportação contínua. Use **SHIFT+ENTER** para executar essa célula.
+
 7. Na próxima célula, digite e execute o seguinte para exibir o esquema que o Spark criou para os arquivos JSON:
 
-        jsonData.printSchema
+   ```scala
+   jsonData.printSchema
+   ```
 
     O esquema para cada tipo de telemetria é diferente. O exemplo a seguir é o esquema gerado para solicitações da Web (dados armazenados no subdiretório `Requests`):
 
@@ -319,10 +340,13 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
         |    |    |    |-- hashTag: string (nullable = true)
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
+
 8. Use o seguinte para registrar o dataframe como uma tabela temporária e executar uma consulta em relação aos dados:
 
-        jsonData.registerTempTable("requests")
-        var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```scala
+   jsonData.registerTempTable("requests")
+   var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```
 
     Essa consulta retorna as informações de cidade para os primeiros 20 registros em que context.location.city não é nulo.
 

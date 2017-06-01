@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0bd7539e0ec3dbbeaa759f66f3097ed6caab1a8
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 66884a73a8ea1cbf72a48f9a776fa45ae1976591
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/12/2017
 Saiba como instalar o Hue em clusters do HDInsight e usar o túnel para rotear as solicitações para a Matiz.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="what-is-hue"></a>O que é o Hue?
 A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop. Você pode usar o Hue para procurar o armazenamento associado a um cluster de Hadoop (WASB, no caso de clusters do HDInsight), executar trabalhos de Hive e scripts do Pig, etc. Os componentes a seguir são disponibilizados com as instalações do Hue em um cluster Hadoop do HDInsight.
@@ -66,7 +66,7 @@ Esta seção fornece instruções sobre como usar o script ao provisionar o clus
    >
 2. Na folha **Configuração Opcional**, selecione **Ações do Script** e forneça as informações como mostrado abaixo:
 
-    ![Fornecer parâmetros de ação de script para Matiz](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Fornecer parâmetros de ação de script para Matiz")
+    ![Fornecer parâmetros de ação de script para Matiz](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "Fornecer parâmetros de ação de script para Matiz")
 
    * **NOME**: insira um nome amigável para a ação de script.
    * **URI DO SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
@@ -108,15 +108,15 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
    >
    >
 
-    ![Faça logon no portal de Matiz](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Especificar credenciais para o portal de Matiz")
+    ![Faça logon no portal de Matiz](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Especificar credenciais para o portal de Matiz")
 
 ### <a name="run-a-hive-query"></a>Executar um trabalho do Hive
 1. No portal do Hue, clique em **Editores de Consulta** e, em seguida, clique em **Hive** para abrir o editor do Hive.
 
-    ![Usar o Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Usar o Hive")
+    ![Usar o Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Usar o Hive")
 2. Na guia **Ajuda**, em **Banco de dados**, você deverá ver **hivesampletable**. Essa é uma tabela de exemplo que é enviada juntamente com todos os clusters de Hadoop no HDInsight. Insira uma consulta de exemplo no painel direito e veja a saída na guia **Resultados** no painel abaixo, como mostrado na captura de tela.
 
-    ![Executar consulta de Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Executar consulta de Hive")
+    ![Executar consulta de Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Executar consulta de Hive")
 
     Você também pode usar a guia **Gráfico** para ver uma representação visual do resultado.
 
@@ -124,7 +124,7 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 1. No portal do Hue, clique em **Navegador de Arquivos** no canto superior direito da barra de menus.
 2. Por padrão, o navegador de arquivos é aberto no diretório **/user/myuser** . Clique na barra invertida imediatamente antes do diretório “user” no caminho até a raiz do contêiner de armazenamento do Azure associado ao cluster.
 
-    ![Use o navegador de arquivos](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Use o navegador de arquivos")
+    ![Use o navegador de arquivos](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Use o navegador de arquivos")
 3. Clique com o botão direito do mouse em um arquivo ou pasta para ver as operações disponíveis. Use o botão **Carregar** no canto superior direito para carregar arquivos no diretório atual. Use o botão **Novo** para criar novos arquivos ou diretórios.
 
 > [!NOTE]
@@ -142,7 +142,7 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
 4. Com clusters do Linux, você pode ter um cenário no qual os serviços estão em execução no nó de cabeçalho primário enquanto o Gerenciador de Recursos pode estar em execução no secundário. Um cenário como esse pode resultar em erros (mostrados abaixo) ao usar o Hue para exibir detalhes de trabalhos EM EXECUÇÃO no cluster. No entanto, você pode exibir os detalhes do trabalho após ele ser concluído.
 
-   ![Erro no portal de matiz](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Erro no portal de matiz")
+   ![Erro no portal de matiz](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Erro no portal de matiz")
 
    Isso ocorre devido a um problema conhecido. Como solução alternativa, modifique o Ambari para que o Gerenciador de Recursos ativo também seja executado no nó de cabeçalho primário.
 5. O Hue entende o WebHDFS, enquanto os clusters HDInsight utilizam o Armazenamento do Azure com o `wasbs://`. Portanto, o script personalizado utilizado com a ação de script instala WebWasb, que é um serviço compatível com WebHDFS para conversar com o WASB. Portanto, embora em alguns lugares o portal do Hue esteja marcado como HDFS (como quando você move o mouse sobre o **Navegador de Arquivos**), ele deve ser interpretado como WASB.

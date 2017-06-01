@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/17/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 3ffc28d899ca65167b8bb80b6b9499524b7c3393
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c9025cc569ceddfb8ecba370ffcb08c3aa5324dc
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/18/2017
 
@@ -30,7 +30,7 @@ Saiba como criar um aplicativo [Apache HBase](http://hbase.apache.org/) em Java.
 As etapas deste documentam usam [Maven](http://maven.apache.org/) para criar e compilar o projeto. Maven é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, veja [Substituição do HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="requirements"></a>Requisitos
 

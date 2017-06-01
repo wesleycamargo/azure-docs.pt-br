@@ -1,13 +1,13 @@
 ---
 title: Particionamento e escala horizontal no BD Cosmos do Azure | Microsoft Docs
 description: "Saiba mais sobre como o particionamento funciona no BD Cosmos do Azure, como configurar o particionamento e as chaves de partição e como escolher a chave de partição correta para seu aplicativo."
-services: cosmosdb
+services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 920c6f810e723712b72f642b783f093bb5d4f7d4
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cd3b13b9988f51fd3755ced48714fdc18cf1ea3c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -66,7 +66,7 @@ O BD Cosmos usa o particionamento baseado em hash. Quando você grava um item, o
 Os contêineres do BD Cosmos do Azure podem ser criados como "fixos" ou "ilimitados". Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Algumas APIs permitem que a chave de partição seja omitida para contêineres de tamanho fixo. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 2.500 RU/s.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Particionamento e produtividade provisionada
-O BD Cosmos foi projetado para ter um desempenho previsível. Quando cria um contêiner, você reserva a taxa de transferência em termos de **[RUs](../documentdb/documentdb-request-units.md) (unidades de solicitação) por segundo, com um complemento potencial de RUs por minuto**. A cada solicitação é atribuído um custo de unidade de solicitação, que é proporcional à quantidade de recursos do sistema, como CPU, memória e E/S consumida pela operação. Uma leitura de um documento de 1 KB com consistência de sessão consome uma unidade de solicitação. Uma leitura é 1 RU, independentemente do número de itens armazenados ou do número de solicitações simultâneas em execução ao mesmo tempo. Itens maiores exigem mais unidades de solicitação, dependendo do tamanho. Se você souber o tamanho de suas entidades e o número de leituras de que precisa para dar suporte para o seu aplicativo, poderá provisionar a quantidade exata produtividade necessária para as necessidades de leitura do seu aplicativo. 
+O BD Cosmos foi projetado para ter um desempenho previsível. Quando cria um contêiner, você reserva a taxa de transferência em termos de **[RUs](request-units.md) (unidades de solicitação) por segundo, com um complemento potencial de RUs por minuto**. A cada solicitação é atribuído um custo de unidade de solicitação, que é proporcional à quantidade de recursos do sistema, como CPU, memória e E/S consumida pela operação. Uma leitura de um documento de 1 KB com consistência de sessão consome uma unidade de solicitação. Uma leitura é 1 RU, independentemente do número de itens armazenados ou do número de solicitações simultâneas em execução ao mesmo tempo. Itens maiores exigem mais unidades de solicitação, dependendo do tamanho. Se você souber o tamanho de suas entidades e o número de leituras de que precisa para dar suporte para o seu aplicativo, poderá provisionar a quantidade exata produtividade necessária para as necessidades de leitura do seu aplicativo. 
 
 > [!NOTE]
 > Para atingir a taxa de transferência total do contêiner, você deve escolher uma chave de partição que permita distribuir uniformemente as solicitações entre alguns valores diferentes de chave de partição.
@@ -78,7 +78,7 @@ O BD Cosmos foi projetado para ter um desempenho previsível. Quando cria um con
 Você pode usar o portal do Azure ou a CLI do Azure para criar contêineres e dimensioná-los a qualquer momento. Esta seção mostra como criar contêineres e especificar a definição de chave de partição e de taxa de transferência em cada uma das APIs com suporte.
 
 ### <a name="documentdb-api"></a>API do DocumentDB
-O exemplo a seguir mostra como criar um contêiner (coleção) usando a API do DocumentDB. Você pode encontrar mais detalhes em [Particionamento com a API do DocumentDB](../documentdb/documentdb-partition-data.md).
+O exemplo a seguir mostra como criar um contêiner (coleção) usando a API do DocumentDB. Você pode encontrar mais detalhes em [Particionamento com a API do DocumentDB](partition-data.md).
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -207,8 +207,8 @@ Você também pode usar uma abordagem de combinação/em camadas que coloca os l
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, fornecemos uma visão geral dos conceitos e práticas recomendadas para o particionamento com qualquer API do BD Cosmos do Azure. 
 
-* Saiba mais sobre a [taxa de transferência provisionada no BD Cosmos do Azure](../documentdb/documentdb-request-units.md)
-* Saiba mais sobre [distribuição global no BD Cosmos do Azure](../documentdb/documentdb-distribute-data-globally.md)
+* Saiba mais sobre a [taxa de transferência provisionada no BD Cosmos do Azure](request-units.md)
+* Saiba mais sobre [distribuição global no BD Cosmos do Azure](distribute-data-globally.md)
 
 
 
