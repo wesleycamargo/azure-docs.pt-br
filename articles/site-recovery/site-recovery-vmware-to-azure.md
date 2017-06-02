@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b7b7347fef8ea6f6bf643e98bbcc0a6292c083ed
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: de45957d4531202005d6b38e8b218ffe023fa0b2
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -272,10 +272,6 @@ Antes de começar, assista a uma rápida visão geral em vídeo
 
     ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 13. Clique em **Habilitar a Replicação**. Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
-
-Depois que você habilitar a replicação, o serviço de Mobilidade será instalado se você configurar a instalação por push. Depois que o serviço de Mobilidade for instalado por push em uma VM, um trabalho de proteção será iniciado e falhará. Apos a falha, você precisa reiniciar manualmente cada computador. O trabalho de proteção começa novamente e ocorre a replicação inicial.
-
-
 
 ### <a name="view-and-manage-vm-properties"></a>Exibir e gerenciar as propriedades da VM
 

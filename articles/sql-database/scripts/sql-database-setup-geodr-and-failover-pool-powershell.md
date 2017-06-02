@@ -9,18 +9,18 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 05/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 294ba61b23e8cc1ef1ecf1bf538934393a4f9768
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3f62371eb84df1ba0f29ef2c6fe0da82674ed069
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -30,9 +30,9 @@ Esse exemplo de script do PowerShell configura a replicação geográfica ativa 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-scripts"></a>Exemplos de Scripts
+## <a name="sample-scripts"></a>Exemplos de scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Configurar a replicação geográfica ativa para o pool elástico")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1?highlight=16-19 "Configurar a replicação geográfica ativa para o pool elástico")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 

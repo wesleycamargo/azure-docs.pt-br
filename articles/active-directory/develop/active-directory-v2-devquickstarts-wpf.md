@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
 ms.author: dastrock; vittorib
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 52a4c326c7618b9a31df539c8b0eb0ced44ce609
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: d0602a61b0335ef2bb92e27051c286852bc08d35
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -47,7 +50,7 @@ Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.c
 * Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 * Adicione a plataforma **Móvel** de seu aplicativo.
 
-## <a name="install-configure-msal"></a>Instalar e Configurar o MSAL
+## <a name="install--configure-msal"></a>Instalar e Configurar o MSAL
 Agora que você tem um aplicativo registrado na Microsoft, pode instalar o MSAL e gravar seu código relacionado à identidade.  Para que o MSAL possa comunicar o ponto de extremidade v2.0, forneça a ele algumas informações sobre o registro de seu aplicativo.
 
 * Comece adicionando o MSAL ao projeto TodoListClient usando o Console do Gerenciador de Pacotes.
@@ -259,10 +262,5 @@ Para obter recursos adicionais, consulte:
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

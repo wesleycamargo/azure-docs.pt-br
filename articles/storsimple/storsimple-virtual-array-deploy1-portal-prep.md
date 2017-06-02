@@ -15,10 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: d8acfd6e0206e8e97b7d49e280a7e72e0acadb6d
-ms.openlocfilehash: 9ce5278e66afb81c5cbfe3662c6654d39bbc9a54
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a5bc3a72eccc48ec26ef5f029d780175d66080c0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
@@ -74,7 +75,7 @@ Antes de implantar um dispositivo virtual, verifique se:
 * O sistema de host é capaz de dedicar os recursos abaixo para provisionar seu dispositivo virtual:
   
   * Um mínimo de quatro núcleos.
-  * Pelo menos 8 GB de RAM. Se você planeja configurar a matriz virtual como servidor de arquivos, 8 GB oferece suporte a 2 milhões de arquivos. Você precisa de 16 GB de RAM para dar suporte a 2-4 milhões de arquivos do plano.
+  * Pelo menos 8 GB de RAM. Se você planeja configurar a matriz virtual como servidor de arquivos, 8 GB oferece suporte a 2 milhões de arquivos. Você precisa de 16 GB de RAM para dar suporte a 2-4 milhões de arquivos.
   * Uma interface de rede.
   * Um disco virtual de 500 GB para dados do sistema.
 

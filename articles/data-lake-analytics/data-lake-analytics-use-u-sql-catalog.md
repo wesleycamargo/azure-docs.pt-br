@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 64427583dba57716c23e1a01df820a263c5e7298
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: ef766161f53b92003c266f26af10a37790d8fad8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -38,7 +40,7 @@ O banco de dados U-SQL contém:
 Cada conta da Análise Azure Data Lake tem uma conta do Repositório Azure Data Lake padrão associada a ela. Essa conta do Repositório Data Lake é conhecida como a conta padrão do Repositório Data Lake. O catálogo do U-SQL é armazenado na conta padrão do Repositório Data Lake na pasta /catalog. Não exclua nenhum arquivo da pasta /catalog.
 
 ### <a name="use-azure-portal"></a>Usar o portal do Azure
-Veja [Gerenciar Data Lake Analytics usando o portal](data-lake-analytics-manage-use-portal.md#view-u-sql-catalog)
+Veja [Gerenciar Data Lake Analytics usando o portal](data-lake-analytics-manage-use-portal.md#manage-data-lake-analytics-accounts)
 
 ### <a name="use-data-lake-tools-for-visual-studio"></a>Use as Ferramentas do Data Lake para Visual Studio.
 Você pode usar as Ferramentas do Data Lake para Visual Studio para gerenciar o catálogo.  Para obter mais informações sobre as ferramentas, veja [Usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
@@ -60,30 +62,24 @@ Você pode usar as Ferramentas do Data Lake para Visual Studio para gerenciar o 
 
 ## <a name="see-also"></a>Confira também
 * Introdução
-  
+
   * [Introdução à Análise do Data Lake usando o portal do Azure](data-lake-analytics-get-started-portal.md)
   * [Introdução à Análise Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
   * [Introdução à Análise Data Lake usando o SDK do .NET do Azure](data-lake-analytics-get-started-net-sdk.md)
   * [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
   * [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 * U-SQL e desenvolvimento
-  
+
   * [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
   * [Usar funções da janela do U-SQL para trabalhos da Análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
   * [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos do Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * Gerenciamento
-  
+
   * [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md)
   * [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
   * [Monitorar e solucionar problemas em trabalhos do Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 * Tutorial de ponta a ponta
-  
+
   * [Usar tutoriais interativos da Análise Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
   * [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

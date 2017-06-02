@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: c9c45305d75be59f7840941b1e626e62e93f1758
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 487b9b2f0d0ae904151e90248f8fb4a1ea662059
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +31,7 @@ Ao usar o [Portal do Azure][azure-portal], você pode criar clusters Hadoop base
 As informações neste artigo aplicam-se apenas aos clusters HDInsight baseados no Windows. Para obter informações sobre como gerenciar clusters baseados no Linux, confira [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

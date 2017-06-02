@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7316782a1884f4affe5041bf767aa0e32946fbe0
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 8f1d488fd8f71bf90c8bf7b7c1544445ffbd7686
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,8 +27,30 @@ ms.lasthandoff: 04/27/2017
 Este artigo mostra como usar o Azure PowerShell para criar uma imagem de uma VM do Azure generalizada. Depois você pode usar a imagem para criar outra VM. Esta imagem inclui o disco do SO e os discos de dados anexados à máquina virtual. A imagem não inclui os recursos de rede virtual, de modo que você precisará configurar esses recursos quando criar a nova VM. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Você já precisa ter [generalizado a VM](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Generalizar uma VM remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Você também pode generalizar uma VM Linux usando `sudo waagent -deprovision+user` e depois o PowerShell para capturar a VM. Para saber mais sobre como usar a CLI para capturar uma VM, veja [Como generalizar e capturar uma máquina virtual do Linux usando a CLI do Azure](../linux/capture-image.md)
-* Você precisa ter a versão 1.0.x ou mais recente do Azure PowerShell instalada. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para ver as etapas de instalação.
+Você precisa ter a versão 1.0.x ou mais recente do Azure PowerShell instalada. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para ver as etapas de instalação.
+
+## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM Windows usando Sysprep
+
+O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [Como usar o Sysprep: uma introdução](http://technet.microsoft.com/library/bb457073.aspx).
+
+Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+> [!IMPORTANT]
+> Se você estiver executando o Sysprep antes de carregar o VHD para o Azure pela primeira vez, verifique se você [preparou sua VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de executar o Sysprep. 
+> 
+> 
+
+1. Entre na máquina virtual Windows.
+2. Abra uma janela de prompt de comando como administrador. Altere o diretório para **%windir%\system32\sysprep** e, a seguir, execute`sysprep.exe`.
+3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Configuração Inicial pelo Usuário do Sistema (OOBE)** e verifique se a caixa de seleção **Generalizar** está marcada.
+4. Em **Opções de Desligamento**, selecione **Desligar**.
+5. Clique em **OK**.
+   
+    ![Inicie o Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Quando o Sysprep for concluído, desligará a máquina virtual. Não reinicie a VM.
+
+
+Você também pode generalizar uma VM Linux usando `sudo waagent -deprovision+user` e depois o PowerShell para capturar a VM. Para saber mais sobre como usar a CLI para capturar uma VM, veja [Como generalizar e capturar uma máquina virtual do Linux usando a CLI do Azure](../linux/capture-image.md)
 
 ## <a name="log-in-to-azure-powershell"></a>Fazer logon no Azure PowerShell
 1. Abra o Azure PowerShell e conecte-se à sua conta do Azure.

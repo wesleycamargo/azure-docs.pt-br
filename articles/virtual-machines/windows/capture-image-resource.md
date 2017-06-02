@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c3f5a66605b1a7059a7820ddda9463cb4277f055
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4ffbe7e28d8b4c7d421bec477455a94609cd127a
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,9 +28,25 @@ ms.lasthandoff: 04/27/2017
 Um recurso de imagem gerenciada pode ser criado de uma VM generalizada que é armazenada como um disco gerenciado ou um disco não gerenciado em uma conta de armazenamento. Em seguida, a imagem pode ser usada para criar várias VMs que usam discos gerenciados para o armazenamento. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
-Você precisa já ter [generalizado a VM](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e ela deve estar parada/desalocada. Generalizar uma VM remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem.
+## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM Windows usando Sysprep
 
+O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [Como usar o Sysprep: uma introdução](http://technet.microsoft.com/library/bb457073.aspx).
+
+Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+> [!IMPORTANT]
+> Se você estiver executando o Sysprep antes de carregar o VHD para o Azure pela primeira vez, verifique se você [preparou sua VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de executar o Sysprep. 
+> 
+> 
+
+1. Entre na máquina virtual Windows.
+2. Abra uma janela de prompt de comando como administrador. Altere o diretório para **%windir%\system32\sysprep** e, a seguir, execute`sysprep.exe`.
+3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Configuração Inicial pelo Usuário do Sistema (OOBE)** e verifique se a caixa de seleção **Generalizar** está marcada.
+4. Em **Opções de Desligamento**, selecione **Desligar**.
+5. Clique em **OK**.
+   
+    ![Inicie o Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Quando o Sysprep for concluído, desligará a máquina virtual. Não reinicie a VM.
 
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Criação de uma imagem gerenciada no portal 
