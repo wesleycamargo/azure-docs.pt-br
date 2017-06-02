@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: c4a8ea0612ab4792f2fccb2295bdf365b742111d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Serviços BizTalk: solução de problemas usando logs de operação
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 ## <a name="what-are-the-operation-logs"></a>O que são os Logs de operação
 Logs de operação é um recurso dos Serviços de Gerenciamento disponível no portal clássico do Azure que permite exibir os logs históricos de operações executadas nos serviços do Azure, incluindo os Serviços BizTalk. Isso permite exibir dados históricos relacionados às operações de gerenciamento em sua assinatura do Serviço BizTalk de até 180 dias.
 
@@ -36,7 +41,7 @@ Logs de operação é um recurso dos Serviços de Gerenciamento disponível no p
 3. Clique na marca de seleção para exibir a lista filtrada. A ilustração a seguir mostra as atividades relacionadas a testbiztalkservice:  ![Exibir logs de operação][ViewLogs] 
 4. Para ver mais sobre uma operação específica, selecione a linha e clique em **Detalhes** na barra de tarefas na parte inferior da página.
 
-## <a name="a-namebizopsaoperations-tracked-using-azure-management-services"></a><a name="bizops"></a>Operações acompanhadas usando os Serviços de Gerenciamento do Azure
+## <a name="bizops"></a>Operações acompanhadas usando os Serviços de Gerenciamento do Azure
 A tabela a seguir lista as operações que são acompanhadas usando os Serviços de Gerenciamento do Azure:
 
 | Nome de operação | Tarefa |
@@ -69,10 +74,5 @@ A tabela a seguir lista as operações que são acompanhadas usando os Serviços
 * [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

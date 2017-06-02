@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7b55e3949cf8406f7c62e9dfd6cc1567d3a5996
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 52b7360230efd0a63e411339fe32f929a905391d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -49,8 +50,6 @@ Para fazer o backup de arquivos e pastas de um servidor ou cliente, você dever�
 
 ## <a name="download-the-vault-credential-file"></a>Baixe o arquivo de credencial do cofre
 O computador local precisa ser autenticado em um cofre de backup antes de poder fazer backup de dados no Azure. A autenticação é obtida por meio das *credenciais do cofre*. O arquivo de credencial do cofre é baixado por meio de um canal seguro no portal clássico. A chave privada do certificado não persiste no portal ou serviço.
-
-Saiba mais sobre como [usar as credenciais do cofre para autenticação no serviço do Backup](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
 ### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>Para baixar o arquivo de credenciais do cofre para um computador local
 1. Clique em **Serviços de Recuperação**no painel de navegação à esquerda e selecione o cofre de backup criado.
@@ -116,7 +115,7 @@ Após a política de backup concluir o backup inicial, ela criará pontos de bac
 3. Na página de Introdução do Assistente de Agendamento de Backup, clique em **Avançar**.
 4. Na tela Selecionar Itens para Backup, clique em **Adicionar Itens**.
 5. Selecione os arquivos e pastas dos quais você deseja fazer backup e clique em **Ok**.
-6. Clique em **Próximo**.
+6. Clique em **Avançar**.
 7. Na tela **Especificar Agendamento de Backup**, especifique o **agendamento de backup** e clique em **Avançar**.
 
     Você pode agendar backups diários (com uma taxa máxima de três vezes por dia) ou backups semanais.

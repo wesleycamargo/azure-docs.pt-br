@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: fbc5cc4a332877451867ca434db40d67ee623a0f
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 61054d9e118a3c90dec3330004625a25102a08cc
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,10 +28,10 @@ Você pode usar o Windows 7, Windows 8 ou Windows 10 no Azure para cenários de 
 ## <a name="subscription-eligibility"></a>Qualificação de assinatura
 Os assinantes ativos do Visual Studio (pessoas que tem adquiriram uma licença de assinatura do Visual Studio) podem usar o cliente do Windows para fins de teste e desenvolvimento. O cliente do Windows pode ser usado em seu próprio hardware e nas máquinas virtuais do Azure em execução em qualquer tipo de assinatura do Azure. O cliente do Windows não pode ser implantado nem usado no Azure para uso em produção normal ou usado por pessoas que não são assinantes ativos do Visual Studio.
 
-Para sua conveniência, disponibilizamos algumas imagens do Windows 10 da Galeria do Azure em [ofertas de desenvolvimento/teste qualificadas](#eligible-offers). Os assinantes do Visual Studio em qualquer tipo de oferta também podem [preparar e criar de forma adequada](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uma imagem de 64 bits do Windows 7, Windows 8 ou Windows 10 e [carregá-la no Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). O uso permanece limitado ao desenvolvimento/teste por assinantes ativos do Visual Studio.
+Para sua conveniência, disponibilizamos algumas imagens do Windows 10 da Galeria do Azure em [ofertas de desenvolvimento/teste qualificadas](#eligible-offers). Os assinantes do Visual Studio em qualquer tipo de oferta também podem [preparar e criar de forma adequada](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uma imagem de 64 bits do Windows 7, Windows 8 ou Windows 10 e [carregá-la no Azure](upload-generalized-managed.md). O uso permanece limitado ao desenvolvimento/teste por assinantes ativos do Visual Studio.
 
 ## <a name="eligible-offers"></a>Ofertas qualificadas
-A tabela a seguir fornece detalhes sobre as IDs de oferta que são qualificadas para implantar o Windows 10 por meio da Galeria do Azure. As imagens do Windows 10 são visíveis apenas para as ofertas a seguir. Os assinantes do Visual Studio que precisam executar o cliente do Windows em um tipo diferente de oferta exigem a [preparação e criação adequadas](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de uma imagem de 64 bits do Windows 7, Windows 8 ou Windows 10 e seu [carregamento no Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+A tabela a seguir fornece detalhes sobre as IDs de oferta que são qualificadas para implantar o Windows 10 por meio da Galeria do Azure. As imagens do Windows 10 são visíveis apenas para as ofertas a seguir. Os assinantes do Visual Studio que precisam executar o cliente do Windows em um tipo diferente de oferta exigem a [preparação e criação adequadas](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de uma imagem de 64 bits do Windows 7, Windows 8 ou Windows 10 e seu [carregamento no Azure](upload-generalized-managed.md).
 
 | Nome da oferta | Número da oferta | Imagens de cliente disponíveis |
 |:--- |:---:|:---:|

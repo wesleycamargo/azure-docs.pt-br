@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6f50ced708cb79a39e190657e4720c515c09990f
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: ad4160abfef748033eeb84a2f07a37124ce3b4b1
 ms.contentlocale: pt-br
 
 
@@ -47,14 +48,14 @@ Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativ
 <add key="Tenant" value="common" />
 <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
 ```
-9. Substitua `ClientId` pela ID do Aplicativo que você acabou de registrar
-10. Substitua `redirectUri` pela URL do SSL do projeto 
+<!-- Workaround for Docs conversion bug -->
+<ol start="9">
+<li>
+Substitua `ClientId` pela ID do Aplicativo que você acabou de registrar
+</li>
+<li>
+Substitua `redirectUri` pela URL do SSL do projeto
+</li>
+</ol>
 <!-- End Docs -->
-
-> Observação
-> ### <a name="restricting-users-from-only-one-organization-to-sign-in-to-your-application"></a>Restringindo os usuários a somente uma organização para entrar em seu aplicativo
-> Por padrão, contas pessoais (incluindo outlook.com, live.com e outras), bem como contas corporativas ou de estudante de qualquer empresa ou organização que foi integrada ao Azure Active Directory, podem entrar no aplicativo. Se você desejar que o aplicativo aceite conexões somente de uma organização, substitua o parâmetro `Tenant` em `web.config` de `Common` para o nome de locatário da organização – por exemplo, `contoso.onmicrosoft.com`. Depois disso, altere o argumento *ValidateIssuer* na Classe de Inicialização OWIN para `true`.
-Para permitir usuários apenas de uma lista de organizações específicas, defina `ValidateIssuer` como `true` e use o parâmetro `ValidIssuers` para especificar uma lista de organizações.
-Outra opção é implementar um método personalizado para validar os emissores usando `IssuerValidator parameter`. Para obter mais informações sobre `TokenValidationParameters`, consulte [este](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters(v=vs.114).aspx) artigo do MSDN.
-
 

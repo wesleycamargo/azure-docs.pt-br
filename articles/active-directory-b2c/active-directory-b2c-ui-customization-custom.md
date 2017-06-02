@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 215f9baeda7cd0bcf3fd66893919575647849e7d
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9de6a57671cf65c4aa5d8695d21e0932175b1183
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/22/2017
 
 ---
 # <a name="azure-active-directory-b2c-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: Personalização da interface do usuário em uma política personalizada
@@ -30,14 +30,6 @@ Depois de concluir este artigo, você terá uma política personalizada de inscr
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de continuar, conclua as etapas em [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).  Você deve ter uma política personalizada funcional para inscrição e conexão com contas locais.
-
-### <a name="confirming-your-b2c-tenant"></a>Confirmando seu locatário B2C
-
-Como as políticas personalizadas ainda estão em visualização particular, confirme se seu locatário do Azure AD B2C está habilitado para o upload de políticas personalizadas:
-
-1. No [portal do Azure](https://portal.azure.com), [alterne para o contexto do locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e abra a folha do Azure AD B2C.
-1. Clique em **Todas as Políticas**.
-1. Verifique se a opção **Carregar Política** está disponível.  Se o botão estiver desabilitado, envie um email para AADB2CPreview@microsoft.com.
 
 ## <a name="the-page-ui-customization-feature"></a>O recurso de personalização da interface do usuário da página
 

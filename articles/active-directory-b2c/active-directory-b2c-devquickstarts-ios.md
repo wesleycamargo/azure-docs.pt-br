@@ -14,10 +14,11 @@ ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: saeeda
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 992bbf513ac87b0d955f9dc4b27984ef03050b83
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 9756e9019d1f79c1fb17cf142daaaaca442722c7
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -31,8 +32,6 @@ A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e Open
 >
 
 Se você ainda não conhece o OAuth2 ou o OpenID Connect, grande parte desta configuração de exemplo poderá não fazer muito sentido para você. Recomendamos que você examine uma breve [visão geral do protocolo que documentamos aqui](active-directory-b2c-reference-protocols.md).
-
-Nem todos os recursos e cenários do Azure Active Directory têm suporte na plataforma B2C.  Para determinar se você deve usar a plataforma B2C, leia sobre as [limitações de B2C](active-directory-b2c-limitations.md).
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório AD B2C do Azure
 Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos e muito mais. Se você ainda não tiver um, [crie um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir.

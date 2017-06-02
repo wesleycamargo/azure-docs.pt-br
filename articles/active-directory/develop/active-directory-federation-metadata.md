@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 9904ec79782b1790ecb21f31b078fea9936c8380
-ms.openlocfilehash: 305b7ce52d1313ecde641c952db291588fabf01c
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: a2f3c2d97df37e067670af48b37cc2e2dd3a36cc
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -40,7 +43,7 @@ Para **pontos de extremidade específicos de locatário**, o `TenantDomainName` 
 
 Para **pontos de extremidade independentes de locatário**, o `TenantDomainName` é `common`. Este documento lista apenas os elementos de Metadados de Federação que são comuns a todos os locatários do Azure AD hospedados em login.microsoftonline.com.
 
-Por exemplo, um ponto de extremidade específico de locatário pode ser `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. O ponto de extremidade independente de locatário é [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Você pode exibir o documento de metadados de federação digitando essa URL em um navegador.
+Por exemplo, um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. O ponto de extremidade independente de locatário é [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Você pode exibir o documento de metadados de federação digitando essa URL em um navegador.
 
 ## <a name="contents-of-federation-metadata"></a>Conteúdo de metadados de federação
 A seção a seguir fornece as informações necessárias para serviços que consomem os tokens emitidos pelo AD do Azure.
@@ -155,9 +158,4 @@ Da mesma forma, os pontos de extremidade para os pontos de extremidade de protoc
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/common/saml2" />
   </IDPSSODescriptor>
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

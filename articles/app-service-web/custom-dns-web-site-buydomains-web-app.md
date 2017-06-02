@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c5c0b40d796130d93111545c93bedf86c374fd9
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 625eeefe94ec0d068cc9cc68b59c371697c786a8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -101,7 +102,7 @@ Se você comprou o domínio personalizado na folha **Domínios personalizados e 
 * O criação do domínio personalizado pode ter sido bem-sucedida, mas a folha pode não ter sido atualizada. Tente abrir novamente a folha **Domínios personalizados e SSL**.
 * Você pode ter excluído o domínio personalizado em algum momento. Verifique os logs de auditoria clicando em **Configurações** > **Logs de Auditoria** da folha principal do seu aplicativo. 
 * A folha **Domínios personalizados e SSL** que você está procurando pode pertencer a um aplicativo criado em uma assinatura diferente do Azure. Mude para outro aplicativo em uma assinatura diferente e verifique sua folha **Domínios personalizados e SSL**.  
-    No portal, você não conseguirá ver nem gerenciar os domínios personalizados criados em uma assinatura do Azure diferente da do aplicativo. No entanto, se você clicar em **Gerenciamento avançado** na folha do domínio **Gerenciar domínio**, será redirecionado para o site do provedor do domínio, em que poderá   [configurar manualmente seu domínio personalizado como qualquer domínio personalizado externo](web-sites-custom-domain-name.md) 
+    No portal, você não conseguirá ver nem gerenciar os domínios personalizados criados em uma assinatura do Azure diferente da do aplicativo. No entanto, se você clicar em **Gerenciamento avançado** na folha do domínio **Gerenciar domínio**, será redirecionado para o site do provedor do domínio, em que poderá   [configurar manualmente seu domínio personalizado como qualquer domínio personalizado externo](app-service-web-tutorial-custom-domain.md) 
    para os aplicativos criados em uma assinatura diferente do Azure. 
 
 
