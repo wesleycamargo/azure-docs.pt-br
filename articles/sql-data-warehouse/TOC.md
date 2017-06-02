@@ -11,7 +11,7 @@
 ## [práticas recomendadas](sql-data-warehouse-best-practices.md)
 ## [Gerenciar](sql-data-warehouse-overview-manage.md)
 ## [Obtenha suporte](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Solucionar problemas](sql-data-warehouse-troubleshoot.md)
+
 
 # Como
 
@@ -114,7 +114,7 @@
 
 ### [Visão geral](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Compactação columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Consultas](sql-data-warehouse-manage-monitor.md)
+### [Monitorar](sql-data-warehouse-manage-monitor.md)
 ### [Carga de trabalho](sql-data-warehouse-develop-concurrency.md)
 
 ## Segurança
@@ -126,6 +126,9 @@
 ### [Criptografia](sql-data-warehouse-encryption-tde.md)
 ### [Criptografia com o T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Detecção de ameaças](sql-data-warehouse-security-threat-detection.md)
+
+## Solucionar problemas
+### [Solucionar problemas](sql-data-warehouse-troubleshoot.md)
 
 # Referência
 

@@ -64,7 +64,6 @@
 #### [Portal](resource-group-create-service-principal-portal.md)
 ### [API de autenticação para assinaturas de acesso](resource-manager-api-authentication.md)
 ### [Bloquear recursos](resource-group-lock-resources.md)
-### [Considerações de segurança](best-practices-resource-manager-security.md)
 
 ## Definir políticas de recursos
 ### [O que são políticas de recursos?](resource-manager-policy.md)
