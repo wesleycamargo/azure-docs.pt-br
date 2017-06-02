@@ -113,7 +113,7 @@
     - name: Visual Computacional
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
-    - name: Serviço de Fala Personalizada
+    - name: Serviço de Fala Personalizado
       tocHref: /azure/cognitive-services/custom-speech-service/
       topicHref: /azure/cognitive-services/custom-speech-service/
     - name: Serviço de Visão Personalizada
