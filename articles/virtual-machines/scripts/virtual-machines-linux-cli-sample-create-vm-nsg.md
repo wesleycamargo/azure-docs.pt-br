@@ -42,7 +42,7 @@ Este script cria duas máquinas virtuais e protege o tráfego de entrada para am
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

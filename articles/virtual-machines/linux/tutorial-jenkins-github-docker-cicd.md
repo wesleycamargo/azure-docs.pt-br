@@ -70,13 +70,13 @@ runcmd:
 
 Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupJenkins* na localização *eastus*:
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
 Agora, crie uma VM com [az vm create](/cli/azure/vm#create). Utiçize o `--custom-data` parâmetro para passar no arquivo de configuração de inicialização de nuvem. Forneça o caminho completo para a configuração *cloud-init-jenkins.txt* se você salvou o arquivo fora do seu diretório de trabalho atual.
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
     --name myVM \
     --image UbuntuLTS \
@@ -89,7 +89,7 @@ Demora alguns minutos para que a VM seja criada e configurada.
 
 Para permitir que o tráfego da Web alcance a VM, use [az vm open-port](/cli/azure/vm#open-port) para abrir a porta *8080* para tráfego do Jenkins e a porta *1337* para o aplicativo do Node.js que é usado para executar um aplicativo de exemplo:
 
-```azurecli
+```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 --priority 1002
 ```
@@ -98,7 +98,7 @@ az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 
 ## <a name="configure-jenkins"></a>Configurar o Jenkins
 Para acessar a instância do Jenkins, obtenha o endereço IP público da VM:
 
-```azurecli
+```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
@@ -212,7 +212,7 @@ Para ver o pipeline inteiro em ação, edite novamente o arquivo *index.js* no s
 
 Se necessário, obtenha o endereço IP público de sua VM novamente:
 
-```azurecli
+```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 

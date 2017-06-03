@@ -46,7 +46,7 @@ Use este código para ver como se conectar a suas VMs e seu conjunto de dimensio
 
 Execute o comando a seguir para remover o grupo de recursos, o conjunto de dimensionamento e as VMs e todos os recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 

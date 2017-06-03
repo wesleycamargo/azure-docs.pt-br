@@ -56,12 +56,12 @@ Crie um conjunto de disponibilidade usando [az vm availability-set create](/cli/
 
 Crie um grupos de recursos.
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroupAvailability --location eastus
 ```
 
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -77,7 +77,7 @@ As VMs devem ser criadas dentro do conjunto de disponibilidade para assegurar a 
 
 Ao criar uma VM usando [az vm create](/cli/azure/vm#create), você especifica a conjunto de disponibilidade usando o parâmetro `--availability-set` para especificar o nome do conjunto de disponibilidade.
 
-```azurecli
+```azurecli-interactive 
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
@@ -99,7 +99,7 @@ Algo que você pode enfrentar ao adicionar VMs é que um determinado tamanho de 
 
 Você pode adicionar posteriormente outras VMs ao conjunto de disponibilidade, mas você precisa saber quais tamanhos de VM estão disponíveis no hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade.
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \

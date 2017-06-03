@@ -9,7 +9,7 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-secure
+ms.custom: tutorial-secure, mvc
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -112,7 +112,7 @@ Siga estas etapas para criar um usuário usando a Autenticação do SQL:
 3. Na janela de consulta, insira a seguinte consulta:
 
     ```sql
-    CREATE USER 'ApplicationUserUser' WITH PASSWORD = 'strong_password';
+    CREATE USER ApplicationUserUse' WITH PASSWORD = 'YourStrongPassword1';
     ```
 
 4. Na barra de ferramentas, clique em **Executar** para criar o usuário.
@@ -120,8 +120,8 @@ Siga estas etapas para criar um usuário usando a Autenticação do SQL:
 5. Por padrão, o usuário pode se conectar ao banco de dados, mas não tem permissões para ler nem gravar dados. Para conceder essas permissões ao usuário recém-criado, execute os dois comandos a seguir em uma nova janela de consulta
 
     ```sql
-    ALTER ROLE db_datareader ADD MEMBER 'ApplicationUserUser';
-    ALTER ROLE db_datawriter ADD MEMBER 'ApplicationUserUser';
+    ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
+    ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
     ```
 
 É uma melhor prática criar essas contas não administrador no nível do banco de dados para se conectar ao banco de dados, a menos que você precise executar tarefas de administrador como criar novos usuários. Consulte o [tutorial do Azure Active Directory](./sql-database-aad-authentication-configure.md) para saber como realizar a autenticação usando o Azure Active Directory.

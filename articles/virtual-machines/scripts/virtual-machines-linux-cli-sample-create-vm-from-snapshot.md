@@ -42,7 +42,7 @@ Esse script cria uma máquina virtual de um instantâneo de um disco do sistema 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
