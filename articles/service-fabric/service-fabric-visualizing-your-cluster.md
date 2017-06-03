@@ -3,7 +3,7 @@ title: Visualizar seu cluster usando o Service Fabric Explorer | Microsoft Docs
 description: "O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos em nuvem e nós em um cluster do Service Fabric do Microsoft Azure."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
@@ -12,8 +12,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
-ms.author: seanmck
+ms.date: 06/02/2017
+ms.author: ryanwi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 2bf6bd76b653e30f38595631eff576d8eeb8efda

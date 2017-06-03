@@ -42,7 +42,7 @@ Este exemplo de script cria todos os componentes necessários para executar vár
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

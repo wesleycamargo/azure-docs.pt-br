@@ -37,8 +37,6 @@ Se você tiver uma assinatura atual da Trend Micro para uma solução local, pod
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Instalar o Agente do Deep Security Agent em uma nova VM
 
-<!-- old portal [Azure classic portal](http://manage.windowsazure.com) -->
-
 O [portal do Azure](http://portal.azure.com) permite que você instale a extensão de segurança da Trend Micro ao usar uma imagem do **Marketplace** para criar a máquina virtual. Se você estiver criando uma única máquina virtual, usar o portal será uma maneira fácil de adicionar proteção da Trend Micro.
 
 O uso de uma entrada do **Marketplace** abre um assistente que ajuda você a configurar a máquina virtual. Você usa a folha **Configurações**, o terceiro painel do assistente, para instalar a extensão de segurança da Trend Micro.  Para obter instruções gerais, consulte [Criar uma máquina virtual que executa o Windows no portal do Azure](tutorial.md).

@@ -42,7 +42,7 @@ Esse script cria uma máquina Virtual Azure com sistema operacional Ubuntu e rec
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

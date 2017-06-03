@@ -9,9 +9,9 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: azurecli
-ms.topic: samples
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/24/2017
@@ -42,7 +42,7 @@ Esse script da CLI de exemplo cria pools elásticos, move os bancos de dados em 
 
 Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

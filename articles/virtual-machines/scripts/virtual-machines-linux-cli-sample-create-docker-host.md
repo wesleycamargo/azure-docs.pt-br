@@ -42,7 +42,7 @@ Esse script cria uma máquina virtual com o Docker habilitado e inicia um contê
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
