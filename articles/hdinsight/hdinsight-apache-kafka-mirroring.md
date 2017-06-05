@@ -1,6 +1,6 @@
 ---
-title: Espelhar o cluster Apache Kafka no HDInsight | Microsoft Docs
-description: "Saiba como usar o recurso de espelhamento do Kafka para manter uma réplica de um cluster Kafka no HDInsight espelhando tópicos para um cluster secundário."
+title: "Tópicos sobre espelho do Apache Kafka – Azure HDInsight | Microsoft Docs"
+description: "Saiba como usar o recurso de espelhamento do Apache Kafka para manter uma réplica de um cluster Kafka no HDInsight espelhando tópicos para um cluster secundário."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,32 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 05/15/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c7517f61944b9fdb02a3589d7c9cd83355dae6d8
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0b8de346d8209dcfd665baf18ce054e5556a883b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 ---
-# <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>Usar o MirrorMaker para criar uma réplica de um cluster Kafka no HDInsight (visualização)
+# <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight (versão prévia)
 
-O Apache Kafka inclui um recurso de espelhamento, que permite replicar tópicos de um cluster Kafka para outro. Por exemplo, replicar registros entre clusters Kafka em diferentes regiões do Azure.
+Saiba como usar o recurso de espelhamento do Apache Kafka para replicar tópicos para um cluster secundário. O espelhamento pode ser executado como um processo contínuo ou usado de forma intermitente como um método de migração de dados de um cluster para outro.
 
-O espelhamento pode ser executado como um processo contínuo ou usado de forma intermitente como um método de migração de dados de um cluster para outro.
+Neste exemplo, o espelhamento é usado para replicar tópicos entre dois clusters de HDInsight. Ambos os clusters estão em uma rede virtual do Azure na mesma região.
 
 > [!WARNING]
 > O espelhamento não deve ser considerado um meio de obter tolerância a falhas. O deslocamento para itens em um tópico é diferente entre os clusters de origem e de destino. Assim, os clientes não podem usar os dois intercambiavelmente.
-> 
+>
 > Se estiver preocupado com a tolerância a falhas, você deverá definir a replicação para os tópicos no cluster. Para obter mais informações, confira [Introdução ao Kafka no HDInsight](hdinsight-apache-kafka-get-started.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Uma Rede Virtual do Azure: os clusters Kafka de origem e destino devem ser capazes de se comunicar diretamente entre si. O HDInsight não expõem APIs Kafka publicamente na Internet. Portanto, os clusters de origem e de destino devem existir na mesma Rede Virtual do Azure.
-
-* Dois clusters Kafka: este documento usa um modelo do Azure Resource Manager para criar dois clusters Kafka no HDInsight em uma Rede Virtual do Azure.
-
-## <a name="how-does-mirroring-work"></a>Como o espelhamento funciona?
+## <a name="how-kafka-mirroring-works"></a>Como funciona o espelhamento do Kafka
 
 O espelhamento funciona usando a ferramenta MirrorMaker (parte do Apache Kafka) para consumir registros de tópicos no cluster de origem e criar uma cópia local no cluster de destino. O MirrorMaker usa um (ou mais) *consumidores* que leem do cluster de origem e um *produtor* que grava no cluster local (destino).
 
@@ -46,18 +41,22 @@ O seguinte diagrama ilustra o processo de espelhamento:
 
 ![Diagrama do processo de espelhamento](./media/hdinsight-apache-kafka-mirroring/kafka-mirroring.png)
 
+O Apache Kafka no HDInsight não fornece acesso ao serviço Kafka pela Internet pública. Os produtores ou consumidores do Kafka devem estar na mesma rede virtual do Azure que os nós no cluster Kafka. Neste exemplo, os clusters Kafka de origem e destino estão localizados em uma rede virtual do Azure. O seguinte diagrama mostra como a comunicação flui entre os clusters:
+
+![Diagrama de clusters Kafka de origem e destino em uma rede virtual do Azure](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
+
 Os clusters de origem e de destino podem ser diferentes no número de nós e partições, e os deslocamentos nos tópicos também são diferentes. O espelhamento mantém o valor de chave que é usado para particionamento. Assim, a ordem de registros é preservada por chave.
 
-### <a name="mirroring-between-networks"></a>Espelhamento entre redes
+### <a name="mirroring-across-network-boundaries"></a>Espelhamento entre limites de rede
 
 Se você precisa de espelhamento entre clusters Kafka em redes diferentes, há as seguintes considerações adicionais:
 
 * **Gateways**: as redes devem ser capazes de se comunicar no nível de TCP/IP.
 
-* **Resolução de nomes**: os clusters Kafka em cada rede devem ser capazes de se conectar entre si usando nomes de host. Isso pode exigir um servidor DNS (Sistema de Nomes de Domínio) em cada rede configurado para encaminhar solicitações para outras redes. 
-  
+* **Resolução de nomes**: os clusters Kafka em cada rede devem ser capazes de se conectar entre si usando nomes de host. Isso pode exigir um servidor DNS (Sistema de Nomes de Domínio) em cada rede configurado para encaminhar solicitações para outras redes.
+
     Ao criar uma Rede Virtual do Azure, em vez de usar o DNS automático fornecido com a rede, você deve especificar um servidor DNS personalizado e o endereço IP do servidor. Depois que a Rede Virtual for criada, você deverá criar uma Máquina Virtual do Azure que use esse endereço IP e instalar e configurar o software DNS nela.
-  
+
     > [!WARNING]
     > Crie e configure o servidor DNS personalizado antes de instalar o HDInsight na Rede Virtual. Não é necessária configuração adicional para que o HDInsight use o servidor DNS configurado para a Rede Virtual.
 
@@ -65,20 +64,13 @@ Para obter mais informações sobre como conectar duas Redes Virtuais do Azure, 
 
 ## <a name="create-kafka-clusters"></a>Criar clusters Kafka
 
-O Apache Kafka no HDInsight não fornece acesso ao serviço Kafka pela Internet pública. Qualquer item que se comunique com o Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Neste exemplo, os clusters Kafka de origem e destino estão localizados em uma rede virtual do Azure. O seguinte diagrama mostra como a comunicação flui entre os clusters:
-
-![Diagrama de clusters Kafka de origem e destino em uma rede virtual do Azure](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
-
-> [!NOTE]
-> Embora o Kafka em si esteja limitado à comunicação na rede virtual, outros serviços no cluster, como SSH e Ambari, podem ser acessados pela Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, confira [Portas e URIs usados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
-
 Embora você possa criar uma rede virtual do Azure e clusters Kafka manualmente, é mais fácil usar um modelo do Azure Resource Manager. Use as etapas a seguir para implantar uma rede virtual do Azure e dois clusters Kafka para sua assinatura do Azure.
 
 1. Use o botão a seguir para entrar no Azure e abra o modelo do Gerenciador de Recursos no portal do Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    O modelo do Gerenciador de Recursos está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet.json**.
+    O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.json**.
 
 2. Use as seguintes informações para preencher as entradas na folha de **Implantação personalizada** :
     
@@ -86,7 +78,7 @@ Embora você possa criar uma rede virtual do Azure e clusters Kafka manualmente,
     
     * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.
 
-    * **Local**: escolha um local geograficamente perto de você. Esse local deve corresponder ao local na seção __CONFIGURAÇÕES__.
+    * **Local**: escolha um local geograficamente perto de você.
      
     * **Nome do Cluster de base**: esse valor é usado como o nome de base para os clusters Kafka. Por exemplo, inserir **hdi** cria clusters chamados **source-hdi** e **dest-hdi**.
 
@@ -97,8 +89,6 @@ Embora você possa criar uma rede virtual do Azure e clusters Kafka manualmente,
     * **Nome de Usuário SSH**: o usuário SSH a ser criado para os clusters Kafka de origem e destino.
 
     * **Senha SSH**: a senha para o usuário SSH para os clusters Kafka de origem e destino.
-
-    * **Local**: a região na qual os clusters são criados.
 
 3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 
@@ -141,12 +131,12 @@ Quando os recursos tiverem sido criados, você será redirecionado para uma folh
     ```bash
     echo $SOURCE_ZKHOSTS
     ```
-   
- Isso retorna informações semelhantes ao seguinte texto:
-   
-       zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
-   
- Salve essas informações. Ele é usado na próxima seção.
+
+    Isso retorna informações semelhantes ao seguinte texto:
+
+    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
+
+    Salve essas informações. Ele é usado na próxima seção.
 
 ## <a name="configure-mirroring"></a>Configurar o espelhamento
 
@@ -173,7 +163,7 @@ Quando os recursos tiverem sido criados, você será redirecionado para uma folh
    
     Esse arquivo descreve as informações de consumidor a serem usadas ao ler do cluster Kafka de origem. Para obter mais informações de configuração do consumidor, confira [Configurações de Consumidor](https://kafka.apache.org/documentation#consumerconfigs) em kafka.apache.org.
    
-    Use **Ctrl + X**, **Y** e Enter para salvar o arquivo.
+    Para salvar o arquivo, use **Ctrl + X**, **Y** e, em seguida, **Enter**.
 
 3. Antes de configurar o produtor que se comunica com o cluster de destino, você deve localizar os hosts agentes para o cluster de **destino**. Use os seguintes comandos para recuperar essas informações:
    

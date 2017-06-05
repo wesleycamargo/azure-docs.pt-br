@@ -4,7 +4,7 @@ title: "Carregar dados no SQL Data Warehouse do Azure – Data Factory | Microso
 description: Este tutorial carrega dados no SQL Data Warehouse do Azure usando o Azure Data Factory e usa um banco de dados SQL Server como a fonte de dados.
 services: sql-data-warehouse
 documentationcenter: NA
-author: linda33wj
+author: ckarst
 manager: jhubbard
 editor: 
 tags: azure-sql-data-warehouse;azure-data-factory
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
-ms.author: jingwang;kevin;barbkess
-translationtype: Human Translation
+ms.author: cakarst;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6474104846eefa1aa7e137e7914b7a7f1ee8a83a
 ms.openlocfilehash: aad76a633b127d23d59dae995d7a503023c5eac7
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/09/2017
 
 

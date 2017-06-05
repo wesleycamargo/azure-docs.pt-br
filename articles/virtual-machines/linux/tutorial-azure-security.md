@@ -1,6 +1,6 @@
 ---
-title: "Segurança da VM Linux com a Central de Segurança do Azure | Microsoft Docs"
-description: "Tutorial – Segurança da VM com a Central de Segurança do Azure"
+title: "Central de Segurança do Azure e máquinas virtuais do Linux no Azure | Microsoft Docs"
+description: "Saiba mais sobre a segurança de sua máquina virtual do Linux do Azure com a Central de Segurança do Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -13,80 +13,103 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/01/2017
+ms.date: 05/07/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 4c680ee63e1c2d8e858c725adc42bbcbc49e4045
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 222cb9629e50e49ce08e0737d7f2570e9187317a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
-# <a name="monitor-vm-security-with-the-azure-security-center"></a>Monitorar a segurança da VM com a Central de Segurança do Azure
+# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Monitorar a segurança da máquina virtual usando a Central de Segurança do Azure
 
-A Central de Segurança do Azure ajuda você a obter visibilidade da configuração de recursos do Azure relacionada às práticas de segurança. Ela também fornece um monitoramento de segurança integrado, que pode detectar ameaças que, de outro modo, podem passar despercebidas. Este tutorial fornece uma breve visão geral da Central de Segurança do Azure e descreve como usá-la com máquinas virtuais do Azure.   
+A Central de Segurança do Azure pode ajudá-lo a ganhar visibilidade em suas práticas de segurança de recursos do Azure. A Central de segurança oferece o monitoramento de segurança integrado. Ela pode detectar ameaças que não seriam notadas de outra forma. Neste tutorial, você saberá mais sobre a Central de Segurança do Azure e como:
+ 
+> [!div class="checklist"]
+> * Configurar a coleta de dados
+> * Definir políticas de segurança
+> * Exibir e corrigir problemas de integridade de configuração
+> * Examinar ameaças detectadas  
 
 ## <a name="security-center-overview"></a>Visão geral da Central de Segurança
 
-A Central de Segurança do Azure ajuda a identificar possíveis problemas de configuração da VM e ameaças de segurança direcionadas. Alguns exemplos incluem a identificação de VMs com grupos de segurança de rede ausentes, discos não criptografados e ataques de RDP de força bruta. Essas informações são apresentadas no painel da Central de Segurança do Azure em gráficos fáceis de ler.
+A Central de Segurança do Azure identifica possíveis problemas de configuração da VM (máquina virtual) e ameaças de segurança direcionadas. Elas podem incluir VMs que não tenham grupos de segurança de rede, discos não criptografados e ataques de protocolo RDP de força bruta. Essas informações são exibidas no painel da Central de Segurança em gráficos fáceis de ler.
 
-O painel da Central de Segurança do Azure pode ser acessado clicando em **Central de Segurança** no painel de navegação esquerdo do portal do Azure. O painel fornece uma visão de alto nível da integridade de recursos, dos alertas de segurança e das recomendações de configuração. Aqui, é possível exibir a integridade da segurança de seu ambiente do Azure, encontrar uma lista das recomendações atuais e exibir o estado atual dos alertas de ameaça. Cada um desses gráficos de alto nível pode ser expandido, que fornece mais detalhes sobre a área de foco.
+Para acessar o painel da Central de segurança, no portal do Azure, no menu, selecione **Central de Segurança**. No painel, é possível visualizar a integridade da segurança de seu ambiente do Azure, encontrar uma lista das recomendações atuais e exibir o estado atual dos alertas de ameaça. Você pode expandir cada gráfico de alto nível para exibir mais detalhes.
 
-![Painel do ASC](./media/tutorial-azure-security/asc-dash.png)
+![Painel da Central de Segurança](./media/tutorial-azure-security/asc-dash.png)
 
-A Central de Segurança do Azure se estende para além da descoberta de dados, fornecendo recomendações para os problemas detectados. Por exemplo, se uma VM tiver sido implantada sem um grupo de segurança de rede anexado, será criada uma recomendação que inclui as etapas de correção. Essas recomendações também fornecem a automação de correção sem sair do contexto da Central de Segurança do Azure.  
+A Central de segurança vai além da descoberta de dados para fornecer recomendações para problemas detectados. Por exemplo, se uma VM foi implantada sem um grupo de segurança de rede, a Central de segurança exibe uma recomendação com etapas de solução que você pode tomar. Você pode obter a correção automatizada sem deixar o contexto da Central de segurança.  
 
 ![Recomendações](./media/tutorial-azure-security/recommendations.png)
 
-## <a name="configure-data-collection"></a>Configurar a coleta de dados
+## <a name="set-up-data-collection"></a>Configurar a coleta de dados
 
-Antes que você possa obter visibilidade das configurações de segurança da VM, a coleta de dados da Central de Segurança do Azure precisa ser configurada. Isso envolve a habilitação da coleta de dados e a criação de uma conta de armazenamento do Azure para manter os dados coletados. 
+Antes que você possa obter visibilidade das configurações de segurança da VM, a coleta de dados da Central de Segurança precisa ser configurada. Isso envolve a habilitação da coleta de dados e a criação de uma conta de armazenamento do Azure para manter os dados coletados. 
 
-1. No painel da Central de Segurança do Azure, clique em **Política de Segurança** e selecione sua assinatura. 
-2. Em **Coleta de dados**, selecione *Ativada*.
-3. Clique em **Escolher uma conta de armazenamento** e crie uma nova conta de armazenamento. Selecione **OK** quando tiver concluído.
-4. Clique em **Salvar** na folha **Política de Segurança**. 
+1. No painel da Central de Segurança, clique em **Política de segurança** e selecione sua assinatura. 
+2. Em **Coleta de dados**, selecione **Ativada**.
+3. Para criar uma conta de armazenamento, selecione **Selecionar uma conta de armazenamento**. Depois, selecione **OK**.
+4. Na folha **Política de segurança**, selecione **Salvar**. 
 
-Quando essa ação for concluída, o agente de coleta de dados da Central de Segurança do Azure será instalado em todas as máquinas virtuais e a coleta de dados será iniciada. 
+O agente de coleta de dados da Central de segurança é instalado em todas as VMs, e a coleta de dados é iniciada. 
 
-## <a name="configure-security-policy"></a>Configurar a política de segurança
+## <a name="set-up-a-security-policy"></a>Configurar uma política de segurança
 
-Uma política de segurança define os itens da política de segurança para os quais os dados são coletados e as recomendações são feitas. Por padrão, os recursos do Azure são avaliados em relação a todos os itens da política. Itens individuais da política podem ser desabilitados globalmente em todos os recursos do Azure ou desabilitados por grupo de recursos. Essa configuração oferece a capacidade de aplicar diferentes políticas de segurança a diferentes conjuntos de recursos do Azure. Para obter informações detalhadas sobre as políticas de segurança da Central de Segurança do Azure, consulte [Definir políticas de segurança na Central de Segurança do Azure](../../security-center/security-center-policies.md). 
+Políticas de segurança são usadas para definir os itens para os quais a Central de segurança coleta dados e faz recomendações. Você pode aplicar diferentes políticas de segurança a diferentes conjuntos de recursos do Azure. Embora, por padrão, os recursos do Azure são avaliados em relação a todos os itens de política, você pode desativar itens individuais de política para todos os recursos do Azure ou para um grupo de recursos. Para obter informações detalhadas sobre as políticas de segurança da Central de Segurança, consulte [Definir políticas de segurança na Central de Segurança do Azure](../../security-center/security-center-policies.md). 
 
 Para configurar uma política de segurança para todos os recursos do Azure:
 
-1. No painel da Central de Segurança do Azure, clique em **Política de Segurança** e selecione sua assinatura. 
-2. Clique em **Política de prevenção**.
-3. Habilite ou desabilite os itens de políticas que precisam ser aplicados a todos os recursos do Azure.
-4. Toque em **OK** quando terminar.
-5. Clique em **Salvar** na folha **Política de Segurança**. 
+1. No painel da Central de Segurança, selecione **Política de segurança** e selecione sua assinatura.
+2. Selecione **Política de prevenção**.
+3. Ative ou desative itens de política que deseja aplicar a todos os recursos do Azure.
+4. Quando terminar de selecionar as configurações, selecione **OK**.
+5. Na folha **Política de segurança**, selecione **Salvar**. 
 
-Para configurar uma política para um grupo de recursos específico, siga as mesmas etapas, mas em vez de selecionar a assinatura na folha da política de segurança, selecione um grupo de recursos. Ao configurar a política, selecione *Exclusiva* em **Herança**. Se você desejar desabilitar a coleta de dados em um grupo de recursos específico, essa configuração também pode ser feita aqui.
+Para configurar uma política para um grupo de recursos específico:
 
-No exemplo a seguir, uma política exclusiva foi criada para o grupo de recursos chamado *myResoureGroup*. Nessa política, tanto a criptografia de disco quanto as recomendações de firewall do aplicativo Web foram desabilitadas.
+1. No painel da Central de Segurança, selecione **Política de segurança** e selecione um grupo de recursos.
+2. Selecione **Política de prevenção**.
+3. Ative ou desative itens de política que deseja aplicar ao grupo de recursos.
+4. Em **HERANÇA**, selecione **Exclusivo**.
+5. Quando terminar de selecionar as configurações, selecione **OK**.
+6. Na folha **Política de segurança**, selecione **Salvar**.  
+
+Também é possível desativar a coleta de dados para um grupo de recursos específico nesta página.
+
+No exemplo a seguir, uma política exclusiva foi criada para o grupo de recursos chamado *myResoureGroup*. Nessa política, a criptografia de disco e as recomendações de firewall do aplicativo Web são desabilitadas.
 
 ![Política exclusiva](./media/tutorial-azure-security/unique-policy.png)
 
 ## <a name="view-vm-configuration-health"></a>Exibir a integridade da configuração da VM
 
-Depois que a coleta de dados for habilitada e uma política de segurança configurada, a Central de Segurança do Azure começará a fornecer alertas e recomendações. Conforme as VMs são implantadas, o agente de coleta de dados é instalado e a Central de Segurança do Azure é populada com dados dessas novas VMs. Para obter informações detalhadas sobre a integridade da configuração da VM, consulte [Protegendo suas máquinas virtuais na Central de Segurança do Azure](../../security-center/security-center-virtual-machine-recommendations.md). 
+Depois de ter ativado a coleta de dados e definir uma política de segurança, a Central de segurança começa a fornecer alertas e recomendações. À medida que as VMs são implantadas, o agente de coleta de dados é instalado. A Central de segurança é preenchida com os dados para as novas VMs. Para obter informações detalhadas sobre a integridade de configuração de VM, consulte [Proteger suas VMs na Central de segurança](../../security-center/security-center-virtual-machine-recommendations.md). 
 
-Conforme os dados são coletados, a integridade de recursos de cada VM e os recursos do Azure relacionados são agregados e apresentados em um gráfico fácil de ler. Para exibir a integridade de recursos, retorne ao painel da Central de Segurança do Azure. Em **Integridade de recursos de segurança**, clique em **Computação**. Por fim, na folha **Computação**, clique em **Máquinas virtuais**. Essa exibição fornece um resumo do status de configuração de todas as VMs.
+Conforme os dados são coletados, a integridade de recursos de cada VM e os recursos do Azure relacionados são agregados. As informações são mostradas em um gráfico de fácil leitura. 
 
-![Integridade de computação](./media/tutorial-azure-security/compute-health.png)
+Para exibir a integridade dos recursos:
 
-A seleção de cada VM exibe todas as recomendações referentes a ela. As recomendações são detalhadas na próxima seção deste tutorial.
+1.  No painel da Central de Segurança, em **Integridade dos recursos de segurança**, selecione **Computação**. 
+2.  Na folha **Computação**, selecione **Máquinas virtuais**. Essa exibição fornece um resumo do status de configuração de todas as VMs.
+
+![Computar integridade](./media/tutorial-azure-security/compute-health.png)
+
+Para ver todas as recomendações para uma VM, selecione a VM. Recomendações e correção são abordadas em mais detalhes na próxima seção deste tutorial.
 
 ## <a name="remediate-configuration-issues"></a>Corrigir problemas de configuração
 
-Depois que a Central de Segurança do Azure começar a ser populada com dados de configuração, as recomendações serão feitas de acordo com a política de segurança configurada. Por exemplo, se uma VM tiver sido configurada sem um grupo de segurança de rede associado, uma recomendação será feita para a criação de um. Para ver uma lista de todas as recomendações: 
+Depois que a Central de Segurança começar a ser preenchida com os dados de configuração, as recomendações serão feitas de acordo com a política de segurança configurada. Por exemplo, se uma VM tiver sido configurada sem um grupo de segurança de rede associado, uma recomendação será feita para a criação de um. 
 
-1. No painel da Central de Segurança do Azure, clique em **Recomendações**.
-3. Selecione uma recomendação específica e uma folha será aberta com uma lista de todos os recursos para os quais a recomendação se aplica.
-4. Selecione um recurso específico que você deseja abordar.
-5. Siga as instruções na tela para obter as etapas de correção. 
+Para ver uma lista de todas as recomendações: 
 
-Em muitos casos, a Central de Segurança do Azure fornece etapas práticas para trabalhar com a recomendação sem sair do contexto da Central de Segurança do Azure. Por exemplo, no exemplo a seguir, foi detectado um NSG com uma regra de entrada irrestrita. Nessa recomendação, o botão **Editar regras de entrada** pode ser selecionado, que fornece a interface do usuário apropriada necessária para modificar a regra. 
+1. No painel da Central de Segurança, selecione **Recomendações**.
+2. Selecione uma recomendação específica. É exibida uma lista de todos os recursos para os quais a recomendação se aplica.
+3. Para aplicar uma recomendação, selecione um recurso específico. 
+4. Siga as instruções para obter as etapas de correção. 
+
+Em muitos casos, a Central de Segurança fornece etapas acionáveis que você pode seguir para trabalhar com a recomendação sem sair da Central de Segurança. No exemplo a seguir, a Central de segurança detecta um grupo de segurança de rede que tenha uma regra de entrada sem restrições. Na página de recomendação, você pode selecionar o botão **Editar regras de entrada**. A interface do usuário é necessária para modificar a aparência da regra. 
 
 ![Recomendações](./media/tutorial-azure-security/remediation.png)
 
@@ -94,19 +117,37 @@ Em muitos casos, a Central de Segurança do Azure fornece etapas práticas para 
 
 ## <a name="view-detected-threats"></a>Exibir as ameaças detectadas
 
-Além das recomendações de configuração de recursos, a Central de Segurança do Azure também fornece alertas de detecção de ameaças. O recurso de alertas de segurança agrega os dados coletados de cada VM, os logs de rede do Azure e as soluções de parceiros conectadas para detectar ameaças de segurança aos recursos do Azure. Para obter informações detalhadas sobre as funcionalidades de detecção de ameaças da Central de Segurança do Azure, consulte [Funcionalidades de detecção da Central de Segurança do Azure](../../security-center/security-center-detection-capabilities.md).
+Além das recomendações de configuração de recursos, a Central de Segurança fornece alertas de detecção de ameaças. O recurso de alertas de segurança agrega os dados coletados de cada VM, os logs de rede do Azure e as soluções de parceiros conectadas para detectar ameaças de segurança aos recursos do Azure. Para obter informações detalhadas sobre as funcionalidades de detecção de ameaças da Central de Segurança, consulte [Funcionalidades de detecção da Central de Segurança do Azure](../../security-center/security-center-detection-capabilities.md).
 
-O recurso de alertas de segurança exige que o tipo de preço da Central de Segurança do Azure seja aumentado de *Gratuito* para *Standard*. Ao fazer isso, uma **avaliação gratuita** de 30 dias estará disponível. Para alterar o tipo de preço:  
+O recurso de alertas de segurança exige que o tipo de preço da Central de Segurança seja aumentado de *Gratuito* para *Standard*. Uma **avaliação gratuita** de 30 dias está disponível quando você muda para esse tipo de preço mais alto. 
 
-1. No painel da Central de Segurança do Azure, clique em **Política de Segurança** e selecione sua assinatura.
-2. Clique em **Tipo de preço**.
-3. Selecione o novo tipo e clique em **Selecionar**.
-5. Clique em **Salvar** na folha **Política de Segurança**. 
+Para alterar o tipo de preço:  
 
-Quando for habilitado, o gráfico de alertas de segurança começará a ser populado conforme forem detectadas ameaças de segurança.
+1. No painel da Central de Segurança, clique em **Política de segurança** e selecione sua assinatura.
+2. Selecione **Tipo de preço**.
+3. Selecione o novo tipo e selecione **Selecionar**.
+4. Na folha **Política de segurança**, selecione **Salvar**. 
+
+Após alterar o tipo de preço, o gráfico de alertas de segurança começará a ser preenchido conforme forem detectadas ameaças de segurança.
 
 ![Alertas de segurança](./media/tutorial-azure-security/security-alerts.png)
 
-Selecione um alerta para exibir informações como uma descrição da ameaça, a hora de detecção, tentativas de ameaça e a correção recomendada. Neste exemplo, um ataque de RDP de força bruta foi detectado com 294 tentativas de RDP com falha e uma solução recomendada é fornecida.
+Selecione um alerta para exibir informações. Por exemplo, você pode ver uma descrição da ameaça, do tempo de detecção, de todas as tentativas de ameaça e da correção recomendada. No exemplo a seguir, um ataque de força bruta do RDP foi detectado, com 294 tentativas de RDP com falha. Uma solução recomendada é fornecida.
 
 ![Ataque de RDP](./media/tutorial-azure-security/rdp-attack.png)
+
+## <a name="next-steps"></a>Próximas etapas
+Nesse tutorial, você configurou a Central de Segurança do Azure e, em seguida, analisou VMs na Central de Segurança. Você aprendeu como:
+
+> [!div class="checklist"]
+> * Configurar a coleta de dados
+> * Definir políticas de segurança
+> * Exibir e corrigir problemas de integridade de configuração
+> * Examinar ameaças detectadas
+
+Avance para o próximo tutorial para saber mais sobre como criar um pipeline de CI/CD com Jenkins, GitHub e Docker.
+
+> [!div class="nextstepaction"]
+> [Criar uma infra-estrutura de CI/CD com Jenkins, GitHub e Docker](tutorial-jenkins-github-docker-cicd.md)
+
+

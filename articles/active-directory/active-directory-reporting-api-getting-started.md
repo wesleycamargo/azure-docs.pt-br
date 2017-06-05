@@ -1,4 +1,5 @@
 ---
+
 title: "Introdução à API de relatório do Azure AD | Microsoft Docs"
 description: "Como começar a usar a API de relatório do Azure Active Directory"
 services: active-directory
@@ -12,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3a8e9c802c265dacd1b8c3688855ce6ec0d90bb1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 414e6b0f23616f8f3d059f250335b0e530729741
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -26,7 +29,7 @@ ms.openlocfilehash: 3a8e9c802c265dacd1b8c3688855ce6ec0d90bb1
 O Azure Active Directory fornece vários relatórios. Os dados desses relatórios podem ser muito úteis para seus aplicativos, como sistemas SIEM, auditoria e ferramentas de business intelligence. As APIs de relatório do Azure AD fornecem acesso programático aos dados através de um conjunto de APIs baseadas em REST. Você pode chamar essas APIs de várias ferramentas e linguagens de programação.
 
 Este artigo fornece as informações necessárias para começar com as APIs de relatório do Azure AD.
-Na próxima seção, você encontrará mais detalhes sobre como usar as APIs de auditoria e de entrada. Para todas as outras APIs, consulte o artigo [Eventos e relatórios do Azure AD (visualização)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) .
+Na próxima seção, você encontrará mais detalhes sobre como usar as APIs de auditoria e de entrada. Para todas as outras APIs, consulte o artigo [Eventos e relatórios do Azure AD (versão prévia)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview).
 
 Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
 
@@ -43,10 +46,5 @@ Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relat
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você estiver curioso para ver todos os pontos de extremidade de API do Graph do Azure AD navegando até [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

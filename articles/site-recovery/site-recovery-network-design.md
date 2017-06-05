@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: pratshar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e6d05d7a7595e17d026be6a448b2fa2cca9b816
 ms.openlocfilehash: a62fe406af18c9c7d9b58839bfa0d6e785b614ef
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>Projetar sua rede para recuperação de desastre
+
 Este artigo é direcionado a profissionais de TI que são responsáveis pela arquitetura, implementação e suporte para a infraestrutura da continuidade de negócios e recuperação de desastres (BCDR), e que desejam aproveitar o Microsoft Azure Site Recovery (ASR) para dar suporte e fortalecer seus serviços BCDR. Este documento analisa as considerações práticas para a implantação do servidor do System Center Virtual Machine Manager, os prós e contras das sub-redes ampliadas vs. o  failover da sub-rede e como estruturar a recuperação de desastres para os sites virtuais no Microsoft Azure.
 
 ## <a name="overview"></a>Visão geral

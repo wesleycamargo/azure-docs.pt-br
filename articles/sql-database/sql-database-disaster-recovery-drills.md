@@ -1,6 +1,6 @@
 ---
 title: "Análises de recuperação de desastre do Banco de Dados SQL | Microsoft Docs"
-description: "Obtenha orientação e as práticas recomendadas para usar o Banco de Dados SQL do Azure para executar os análises de recuperação de desastres que ajudarão a manter seus aplicativos comerciais importantes resilientes a falhas e interrupções."
+description: "Obtenha orientação e as práticas recomendadas para usar o Banco de dados SQL do Azure para executar as análises de recuperação de desastres para ajudar a manter seus aplicativos comerciais importantes resilientes a falhas e interrupções."
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 821be267a109bdcb1a1d22107f0ab4c469e6d6aa
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -40,29 +41,29 @@ Para evitar a possível perda de dados durante a realização de uma análise de
 Para simular a interrupção, você pode excluir ou renomear o banco de dados de origem. Isso causará falha de conectividade do aplicativo.
 
 #### <a name="recovery"></a>Recuperação
-* Execute a Restauração geográfica do banco de dados em um servidor diferente, conforme descrito [aqui](sql-database-disaster-recovery.md).
+* Execute a restauração geográfica do banco de dados em um servidor diferente, como descrito [aqui](sql-database-disaster-recovery.md).
 * Altere a configuração de aplicativo para se conectar aos bancos de dados recuperados e siga o guia [Configurar um banco de dados após a recuperação](sql-database-disaster-recovery.md) para concluir a recuperação.
 
 #### <a name="validation"></a>Validação
-* Conclua a análise verificando a integridade do aplicativo após a recuperação (isto é, cadeias de conexão, logons, teste de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações padrão do aplicativo).
+* Conclua a análise verificando a integridade do aplicativo após a recuperação (incluindo cadeias de conexão, logons, teste de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações padrão do aplicativo).
 
-## <a name="geo-replication"></a>Replicação Geográfica
-Para um banco de dados protegido usando a replicação geográfica, o exercício de análise envolverá failover planejado para o banco de dados secundário. O failover planejado garante que os bancos de dados primário e secundário permaneçam em sincronia quando as funções são alternadas. Ao contrário de failover não planejado, essa operação não resultará na perda de dados, assim a análise pode ser executada no ambiente de produção.
+## <a name="geo-replication"></a>Replicação geográfica
+Para um banco de dados protegido usando a replicação geográfica, o exercício de análise envolverá failover planejado para o banco de dados secundário. O failover planejado garante que os bancos de dados primário e secundário permaneçam em sincronia quando as funções são alternadas. Ao contrário de failover não planejado, essa operação não resultará na perda de dados, assim, a análise pode ser executada no ambiente de produção.
 
 #### <a name="outage-simulation"></a>Simulação de interrupção
-Para simular a interrupção, você pode desabilitar o aplicativo Web ou a máquina virtual conectada ao banco de dados. Isso resultará em falhas de conectividade para os clientes da web.
+Para simular a interrupção, você pode desabilitar o aplicativo Web ou a máquina virtual conectada ao banco de dados. Isso resulta em falhas de conectividade para os clientes da web.
 
 #### <a name="recovery"></a>Recuperação
-* Certifique-se de que a configuração do aplicativo na região de DR aponta para o secundário anterior que se tornará o novo primário totalmente acessível.
+* Certifique-se de que a configuração do aplicativo na região de DR aponta para o secundário anterior que se torna o novo primário totalmente acessível.
 * Execute [failover planejado](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) para tornar o banco de dados secundário um novo primário
 * Siga o guia [Configurar um banco de dados após a recuperação](sql-database-disaster-recovery.md) para concluir a recuperação.
 
 #### <a name="validation"></a>Validação
-* Conclua a análise verificando a integridade do aplicativo após a recuperação (isto é, cadeias de conexão, logons, teste de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações padrão do aplicativo).
+* Conclua a análise verificando a integridade do aplicativo após a recuperação (incluindo cadeias de conexão, logons, teste de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações padrão do aplicativo).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre cenários de continuidade dos negócios, consulte [Cenários de continuidade](sql-database-business-continuity.md)
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, consulte [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
-* Para saber mais sobre como usar backups automatizados para recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
-* Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)  
+* Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+* Para saber mais sobre opções de recuperação mais rápidas, confira [replicação geográfica ativa](sql-database-geo-replication-overview.md)  
 

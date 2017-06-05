@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: bec18e91ef8798a791d4b1fe93bd529593197e01
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 5ff7783081a722474bbbc38795e88da05bca78d2
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -177,7 +178,7 @@ Você também pode configurar filtros que permitem especificar quais mensagens e
 
 O tipo de filtro mais flexível com suporte das assinaturas é a classe [SqlFilter][SqlFilter], que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para saber mais sobre as expressões que podem ser usadas com um filtro SQL, confira a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-O exemplo a seguir cria uma assinatura denominada **HighMessages** com um objeto [SqlFilter][SqlFilter] que seleciona apenas as mensagens que tenham uma propriedade **MessageNumber** personalizada maior do que 3.
+O exemplo a seguir cria uma assinatura denominada **HighMessages** com um objeto [SqlFilter][SqlFilter] que seleciona apenas as mensagens que tenham uma propriedade [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) personalizada maior do que 3.
 
 ```csharp
 // Create a "HighMessages" filtered subscription.
@@ -189,7 +190,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-De maneira semelhante, o exemplo a seguir cria uma assinatura denominada **LowMessages** com um [SqlFilter][SqlFilter] que seleciona apenas as mensagens que tenham uma propriedade **MessageNumber** menor ou igual a 3.
+De maneira semelhante, o exemplo a seguir cria uma assinatura denominada **LowMessages** com um [SqlFilter][SqlFilter] que seleciona apenas as mensagens que tenham uma propriedade [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) menor ou igual a 3.
 
 ```csharp
 // Create a "LowMessages" filtered subscription.
@@ -218,9 +219,9 @@ TopicClient Client =
 Client.Send(new BrokeredMessage());
 ```
 
-As mensagens enviadas aos tópicos de Barramento de Serviço são instâncias da classe [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Os objetos **BrokeredMessage** têm um conjunto de propriedades padrão (como [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) e [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem, passando qualquer objeto serializável para o construtor do objeto **BrokeredMessage** e o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, é possível fornecer um objeto **System.IO.Stream**.
+As mensagens enviadas aos tópicos de Barramento de Serviço são instâncias da classe [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Os objetos **BrokeredMessage** têm um conjunto de propriedades padrão (como [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) e [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem, passando qualquer objeto serializável para o construtor do objeto **BrokeredMessage** e o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, é possível fornecer um objeto **System.IO.Stream**.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste ao objeto **TestTopic** [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) obtido no exemplo de código anterior. Observe que o valor da propriedade [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) de cada mensagem varia dependendo da iteração do loop (isso determina qual assinatura o recebe).
+O exemplo a seguir demonstra como enviar cinco mensagens de teste ao objeto **TestTopic** [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) obtido no exemplo de código anterior. Observe que o valor da propriedade [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) de cada mensagem varia dependendo da iteração do loop (isso determina qual assinatura o recebe).
 
 ```csharp
 for (int i=0; i<5; i++)
@@ -289,7 +290,7 @@ O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recupera
 
 Também há um tempo limite associado a uma mensagem bloqueada na assinatura e, se houver falha no processamento da mensagem pelo aplicativo antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) da mensagem, que permanece constante nas tentativas da entrega.
+Se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) da mensagem, que permanece constante nas tentativas da entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
 O exemplo a seguir demonstra como excluir o tópico **TestTopic** do namespace de serviço **HowToSample**.

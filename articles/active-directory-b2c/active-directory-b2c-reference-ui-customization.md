@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
-ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 8e71a7462a0cbdbd177b088e6757c70eeef31fc7
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -335,6 +337,9 @@ Nesta página, os usuários pode verificar seus números de telefone (usando men
 
 ```
 
+## <a name="localizing-your-html-content"></a>Localização do conteúdo HTML
+Localize o conteúdo HTML ao ativar a [‘Personalização de idioma’](active-directory-b2c-reference-language-customization.md).  Habilitar essa opção permitirá que o Azure AD B2C encaminhe o parâmetro OIDC, `ui-locales`, para seu ponto de extremidade.  Você pode usar isso para fornecer páginas da interface do usuário personalizadas no idioma específico.  
+
 ## <a name="things-to-remember-when-building-your-own-content"></a>O que lembrar ao criar seu próprio conteúdo
 Se você estiver planejando usar o recurso de personalização de interface do usuário da página, examine as práticas recomendadas a seguir:
 
@@ -346,9 +351,4 @@ Se você estiver planejando usar o recurso de personalização de interface do u
   * Suporte limitado para o Internet Explorer 9, 8
   * Google Chrome 42.0 e superior
   * Mozilla Firefox 38.0 e superior
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

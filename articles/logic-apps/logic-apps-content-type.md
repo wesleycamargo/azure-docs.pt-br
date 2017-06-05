@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
-ms.lasthandoff: 03/25/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 291fb1bb3a8925ccc39d846d23328f028cb826b8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -54,7 +55,7 @@ O gatilho da solicitação permite que você insira um esquema JSON para o conte
 
 ### <a name="parse-json-action"></a>Ação "Parse JSON"
 
-A ação `Parse JSON` permite que você analise o conteúdo JSON em tokens amigáveis para o consumo do aplicativo lógico. Assim como com o gatilho da solicitação, essa ação permite que você insira ou gere um esquema JSON para o conteúdo que você deseja analisar. Com essa ferramenta, será muito mais fácil consumir dados do barramento de serviço, do DocumentDB e assim por diante.
+A ação `Parse JSON` permite que você analise o conteúdo JSON em tokens amigáveis para o consumo do aplicativo lógico. Assim como com o gatilho da solicitação, essa ação permite que você insira ou gere um esquema JSON para o conteúdo que você deseja analisar. Essa ferramenta facilita grande parte do consumo de dados do Barramento de Serviço, do Azure Cosmos DB e assim por diante.
 
 ![Analisar o JSON](./media/logic-apps-content-type/ParseJSON.png)
 

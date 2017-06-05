@@ -1,6 +1,6 @@
 ---
 title: "Processar dados de sensor de veículo com o Apache Storm no HDInsight | Microsoft Docs"
-description: "Saiba como processar dados de sensor de veículo nos Hubs de Eventos usando o Apache Storm no HDInsight. Adicionar dados de modelo do Banco de Dados de Documentos e armazenar a saída no armazenamento."
+description: "Saiba como processar dados de sensor de veículo nos Hubs de Eventos usando o Apache Storm no HDInsight. Adicione dados de modelo do Azure Cosmos DB e armazenar a saída no armazenamento."
 services: hdinsight,documentdb,notification-hubs
 documentationcenter: 
 author: Blackmist
@@ -13,48 +13,49 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 46bc5b3b70120cd631523fd2b27ad8b9a47e3c6d
-ms.openlocfilehash: 952480e71dac19c7772198516863b3e64be1a6b3
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 8e8ebc724e1c70e8fcd56312adef5da2342373ea
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="process-vehicle-sensor-data-from-azure-event-hubs-using-apache-storm-on-hdinsight"></a>Processar dados de sensor de veículo nos Hubs de Eventos do Azure usando o Apache Storm no HDInsight
 
-Saiba como processar dados dos sensores do veículo a partir dos Hubs de Evento do Azure usando o Apache Storm no HDInsight. Este exemplo lê os dados do sensor de Hubs de Evento do Azure, enriquece dados consultando os dados armazenados no Banco de Dados de Documentos do Azure e, finalmente, armazena os dados no Armazenamento do Microsoft Azure usando o sistema de arquivos Hadoop (HDFS).
+Saiba como processar dados dos sensores do veículo a partir dos Hubs de Evento do Azure usando o Apache Storm no HDInsight. Este exemplo lê os dados de sensor dos Hubs de Eventos do Azure e enriquece os dados referenciando os dados armazenados no Azure Cosmos DB. Os dados são armazenados no Armazenamento do Azure usando o HDFS (Sistema de Arquivos Hadoop).
 
 ![Diagrama da arquitetura do HDInsight e da IoT (Internet das Coisas)](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
 ## <a name="overview"></a>Visão geral
 
-Adicionar sensores em veículos permite prever problemas de equipamentos com base nas tendências de dados históricos, bem como fazer melhorias em versões futuras com base na análise de padrão de uso. Enquanto o processamento de lote tradicional do MapReduce pode ser usado para esta análise, você deve carregar de forma rápida e eficiente os dados de todos os veículos no Hadoop antes que ocorra o processamento de MapReduce. Além disso, você pode querer fazer uma análise dos caminhos de falha críticos (temperatura do mecanismo, freios, etc.) em tempo real.
+A adição de sensores a veículos permite prever problemas de equipamentos de acordo com as tendências de dados históricos. Ela também permite fazer melhorias em versões futuras, com base na análise de padrão de uso. Você deve conseguir carregar os dados de forma rápida e eficiente de todos os veículos no Hadoop antes que ocorra o processamento do MapReduce. Além disso, você pode querer fazer uma análise dos caminhos de falha críticos (temperatura do mecanismo, freios, etc.) em tempo real.
 
-Os Hubs de Evento do Azure são criados para lidar com o grande volume de dados gerados por sensores e o Apache Storm no HDInsight pode ser usado para carregar e processar os dados antes de armazená-los no HDFS (apoiado pelo Armazenamento do Microsoft Azure) para processamento adicional de MapReduce.
+Os Hubs de Eventos do Azure foram desenvolvidos para manipular o grande volume de dados gerados por sensores. O Apache Storm pode ser usado para carregar e processar os dados antes de armazená-los no HDFS.
 
 ## <a name="solution"></a>Solução
 
-Os dados de telemetria de temperatura do mecanismo, temperatura ambiente e velocidade do veículo são registrados pelos sensores e depois enviados para Hubs de Evento juntamente com o Número de Identificação do Veículo (VIN) do carro e um carimbo de data/hora. A partir daí, uma Storm Topology em execução em um cluster do Apache Storm no HDInsight lê os dados, processa-os e armazena-os no HDFS.
+Os dados telemétricos de temperatura do mecanismo, temperatura ambiente e velocidade do veículo são registrados pelos sensores. Depois, os dados são enviados para os Hubs de Eventos juntamente com o VIN (Número de Identificação do Veículo) do carro e um carimbo de data/hora. A partir daí, uma Storm Topology em execução em um cluster do Apache Storm no HDInsight lê os dados, processa-os e armazena-os no HDFS.
 
-Durante o processamento, o VIN é usado para recuperar informações sobre o modelo do Banco de Dados de Documentos do Azure. Essas informações são adicionadas ao fluxo de dados antes de ele ser armazenado.
+Durante o processamento, o VIN é usado para recuperar informações sobre o modelo do Cosmos DB. Esses dados são adicionados ao fluxo de dados antes de serem armazenados.
 
 Os componentes usados na Storm Topology são:
 
 * **EventHubSpout** - lê dados de Hubs de Evento do Azure
-* **TypeConversionBolt** - converte a cadeia de caracteres JSON de Hubs de Evento para uma tupla que contém os valores de dados individuais de temperatura do mecanismo, temperatura ambiente, velocidade, VIN e carimbo de data/hora
-* **DataReferencBolt** - pesquisa o modelo do veículo a partir do Banco de Dados de Documentos usando o VIN
+* **TypeConversionBolt** –converte a cadeia de caracteres JSON dos Hubs de Eventos em uma tupla que contém os seguintes dados de sensor:
+    * Temperatura do motor
+    * Temperatura ambiente
+    * Velocidade
+    * VIN
+    * Timestamp
+* **DataReferencBolt** – pesquisa o modelo do veículo no Cosmos DB usando o VIN
 * **WasbStoreBolt** - armazena os dados para o HDFS (Armazenamento do Azure)
 
-Segue um diagrama dessa solução:
+A seguinte imagem é um diagrama dessa solução:
 
 ![topologia Storm](./media/hdinsight-storm-iot-eventhub-documentdb/iottopology.png)
-
-> [!NOTE]
-> Esse é um diagrama simplificado e cada componente da solução pode ter várias instâncias. Por exemplo, as várias instâncias de cada componente na topologia são distribuídas entre os nós no Storm no cluster HDInsight.
-> 
-> 
 
 ## <a name="implementation"></a>Implementação
 

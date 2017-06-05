@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: ba842028ecda47b8011cba948d7c92417214c2d0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -85,7 +86,12 @@ Use o cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-service
 ## <a name="restore"></a>Restaurar
 Durante a restauração, o arquivo de backup deve ser na conta de armazenamento que você configurou para o servidor. Se você precisar mover um arquivo de backup de um local para sua conta de armazenamento, use [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) ou [AzCopy](../storage/storage-use-azcopy.md) utilitário de linha de comando. 
 
-Se você estiver restaurando um banco de dados de 1200 modelo tabular de um servidor do SQL Server Analysis Services local, deve primeiro remover todos os usuários de domínio de funções do modelo e adicioná-los de volta para as funções como usuários do Active Directory do Azure. As funções serão iguais.
+
+
+> [!NOTE]
+> Se você estiver restaurando um modelo de banco de dados tabular de um servidor do SQL Server Analysis Services local, você deverá primeiro remover todos os usuários de domínio de funções do modelo e adicioná-los de volta para as funções como usuários do Azure Active Directory. As funções serão iguais.
+> 
+> 
 
 ### <a name="to-restore-by-using-ssms"></a>Para restaurar usando o SSMS
 

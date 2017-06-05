@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
+ms.editor: gahug
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9dc195040d0fa1321dff9ec97d9ca1e4770d325
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -74,11 +76,23 @@ Quando um usuário federado ou sincronizado com hash de senha redefine ou altera
 
     Temos uma mensagem específica para muitos desses casos e informamos ao usuário o que podem fazer para resolver o problema.
 
-## <a name="scenarios-supported-for-password-writeback"></a>Cenários com suporte para write-back de senha
+## <a name="configuring-password-writeback"></a>Configurando o write-back de senha
 
 Recomendamos que você use o recurso de atualização automática do [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) se desejar usar o write-back de senha.
 
-Mais informações sobre o [ciclo de vida de suporte do DirSync e do Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md)
+Não há mais suporte para DirSync e Sincronização do Azure AD como meios de habilitar write-back de senha. O artigo [Atualização do DirSync e do Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) tem mais informações para ajudá-lo na transição.
+
+As etapas a seguir pressupõem que você já tenha configurado o Azure AD Connect em seu ambiente usando as configurações [Expressas](./connect/active-directory-aadconnect-get-started-express.md) ou [Personalizadas](./connect/active-directory-aadconnect-get-started-custom.md).
+
+1. Para configurar e habilitar o write-back de senha, faça logon no servidor do Azure AD Connect e inicie o assistente de configuração **Azure AD Connect**.
+2. Na tela de Boas-Vindas, clique em **Configurar**.
+3. Na tela Tarefas adicionais, clique em **Personalizar opções de sincronização** e, em seguida, escolha **Próximo**.
+4. Na tela Conectar-se ao Azure AD, insira uma credencial de Administrador Global e escolha **Próximo**.
+5. Nas telas Conectar seus diretórios e Filtragem de domínio e UO, você pode escolher **Próximo**.
+6. Na tela de Recursos opcionais, marque a caixa ao lado de **Write-back de senha** e clique em **Próximo**.
+   ![Habilitar write-back de senha no Azure AD Connect][Writeback]
+7. Na tela Pronto para configurar, clique em **Configurar** e aguarde a conclusão do processo.
+8. Ao visualizar Configuração concluída, clique em **Sair**
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento do write-back de senha
 
@@ -170,7 +184,7 @@ O tamanho de cada uma das mensagens descritas acima normalmente é inferior a 1 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem mais informações sobre a redefinição de senha usando o Azure AD
+Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
 * [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
 * [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
@@ -183,4 +197,4 @@ Os links a seguir fornecem mais informações sobre a redefinição de senha usa
 * [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
 * [**Solucionar problemas**](active-directory-passwords-troubleshoot.md): saiba como resolver problemas comuns encontrados no SSPR
 
-
+[Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Habilitar write-back de senha no Azure AD Connect"

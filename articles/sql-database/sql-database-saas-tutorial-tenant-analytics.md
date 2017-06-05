@@ -1,6 +1,6 @@
 ---
-title: "Executar consultas de análise em vários locatários (aplicativo SaaS de exemplo usando o Banco de Dados SQL do Azure) | Microsoft Docs"
-description: "Executar consultas de análise em vários locatários"
+title: "Executar consultas de análise em vários bancos de dados Azure SQL | Microsoft Docs"
+description: "Executar consultas distribuídas entre vários bancos de dados do Azure SQL"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 5331f9a7b46f1dd31d4aa246ad9d188b5a5afc19
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>Executar consultas de análise em vários locatários
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Executar consultas distribuídas entre vários bancos de dados do Azure SQL
 
 Neste tutorial, você executará consultas de análise em cada locatário no catálogo. Um trabalho elástico é criado para executar as consultas. O trabalho recupera dados e carrega-os em um banco de dados de análise separado criado no servidor de catálogo. Esse banco de dados pode ser consultado para extrair informações escondidas nos dados operacionais diários de todos os locatários. Como uma saída do trabalho, uma tabela é criada nas consultas que retornam resultados no banco de dados de análise do locatário.
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-requisitos:
 
-* O aplicativo WTP foi implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo SaaS WTP](sql-database-saas-tutorial.md)
+* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, confira [Implantar e explorar o aplicativo de SaaS do Wingtip](sql-database-saas-tutorial.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * A última versão do SQL Server Management Studio (SSMS) está instalada. [Baixar e Instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -47,7 +47,7 @@ Uma das ótimas oportunidades com aplicativos SaaS é usar os dados de locatári
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
 
-Os scripts do Wingtip Tickets e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Os arquivos de script estão localizados na [pasta de Módulos de Aprendizado](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Baixe a pasta **Módulos de Aprendizado** em seu computador local, mantendo a estrutura de pastas.
+Os scripts de SaaS do Wingtip e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Etapas para baixar os scripts do SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Implantar um banco de dados de resultados de análise de locatário
 
@@ -68,14 +68,14 @@ Este tutorial requer que você tenha um banco de dados implantado para capturar 
 
 Este script cria um trabalho para recuperar informações sobre compra do tíquete de todos os locatários. Depois de agregadas em uma única tabela, você poderá obter métricas esclarecedoras avançadas sobre padrões de compra de tíquete entre os locatários.
 
-1. Abra o SSMS e conecte-se ao servidor catalog-\<user\>.database.windows.net
+1. Abra o SSMS e conecte-se ao servidor catalog-&lt;user&gt;.database.windows.net
 1. Abra... \\Módulos de Aprendizado\\Análise Operacional\\Locatário Análise\\*TicketPurchasesfromAllTenants.sql*
-1. Modifique \<WtpUser\>, utilize o nome de usuário usado quando você implantou o aplicativo WTP na parte superior do script, **sp\_add\_target\_group\_member** e **sp\_add\_jobstep**
-1. Clique com botão direito do mouse, selecione **Conexão** e conecte-se ao servidor catalog-\<WtpUser\>.database.windows.net, se ainda não estiver conectado
+1. Modifique o &lt;User&gt;, utilize o nome de usuário usado quando você implantou o aplicativo de SaaS do Wingtip na parte superior do script, **sp\_add\_target\_group\_member** e **sp\_add\_jobstep**
+1. Clique o botão direito do mouse, selecione **Conexão** e conecte-se ao servidor catalog-&lt;User&gt;.database.windows.net, se ainda não estiver conectado
 1. Verifique se está conectado ao banco de dados **jobaccount** e pressione **F5** para executar o script
 
 * **sp\_add\_target\_group** cria o nome do grupo de destino *TenantGroup*, agora é preciso adicionar os membros de destino.
-* **sp\_add\_target\_group\_member** adiciona um tipo de membro de destino do *servidor*, o que considera todos os bancos de dados neste servidor (Observe que esse é o servidor customer1-&lt;WtpUser&gt; que contém os bancos de dados do locatário) na hora em que a execução de trabalho deve ser incluída no trabalho.
+* **sp\_add\_target\_group\_member** adiciona um tipo de membro de destino do *servidor*, o que considera todos os bancos de dados neste servidor (observe que esse é o servidor customer1-&lt;User&gt; que contém os bancos de dados do locatário) na hora em que a execução de trabalho deve ser incluída no trabalho.
 * **sp\_add\_job** cria um novo trabalho agendado semanalmente chamado "Compras de Tíquetes de todos os Locatários"
 * **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto de comando T-SQL para recuperar todas as informações de compra de tíquete de todos os locatários e copiar o resultado de retorno definido em uma tabela chamada *AllTicketsPurchasesfromAllTenants*
 * As exibições restantes no script exibem a existência dos objetos e monitoram a execução do trabalho. Examine o valor de status da coluna **ciclo de vida** para monitorar o status. Bem-sucedido significa que o trabalho foi concluído com êxito em todos os bancos de dados de locatário e nos dois bancos de dados adicionais que contêm a tabela de referência.
@@ -90,8 +90,8 @@ Este script cria um trabalho para recuperar a soma de todas as compras do tíque
 
 1. Abra o SSMS e conecte-se ao servidor *catalog-&lt;User&gt;.database.windows.net*
 1. Abra o arquivo... \\Módulos de aprendizado\\Provisionar e Catalogar\\Análise Operacional\\Análise do Locatário\\*Results-TicketPurchasesfromAllTenants.sql*
-1. Modifique &lt;WtpUser&gt;, utilize o nome de usuário usado quando você implantou o aplicativo WTP no script, no procedimento armazenado **sp\_add\_jobstep**
-1. Clique com botão direito do mouse, selecione **Conexão** e conecte-se ao servidor catalog-\<WtpUser\>.database.windows.net, se ainda não estiver conectado
+1. Modifique o &lt;User&gt;, utilize o nome de usuário usado quando você implantou o aplicativo de SaaS do Wingtip no script, no procedimento armazenado **sp\_add\_jobstep**
+1. Clique o botão direito do mouse, selecione **Conexão** e conecte-se ao servidor catalog-&lt;User&gt;.database.windows.net, se ainda não estiver conectado
 1. Verifique se está conectado ao banco de dados **tenantanalytics** e pressione **F5** para executar o script
 
 Executar o script com êxito deve resultar em resultados semelhantes:
@@ -119,5 +119,5 @@ Parabéns!
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam a implantação inicial do aplicativo WTP (Wingtip Tickets Platform)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Trabalhos Elásticos](sql-database-elastic-jobs-overview.md)

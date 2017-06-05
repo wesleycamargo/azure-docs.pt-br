@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 43b77cabdb2d8832bda8fd0b726ba27edb0a0602
 ms.openlocfilehash: 2992b074986a7b7f3244ce996f2b41269bff8bbd
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -95,7 +98,7 @@ Aqui, configuraremos middleware OWIN para usar o protocolo de autenticação Ope
                                              // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
         
                                              ClientId = clientId,
-                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
+                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
                                              RedirectUri = redirectUri,
                                              Scope = "openid email profile",
                                              ResponseType = "id_token",
@@ -216,9 +219,4 @@ Para obter recursos adicionais, consulte:
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -1,4 +1,5 @@
 ---
+
 title: "Localizar relatórios de atividade no Portal do Azure | Microsoft Docs"
 description: "Saiba como localizar relatórios de atividade do Azure Active Directory no Portal do Azure."
 services: active-directory
@@ -12,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2017
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: f2f5ed98df88df69ee300c9da94ad013a631b3b9
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7f6d82d211e9b3d25b0efe62ab8dd32f827b08ef
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -124,8 +126,8 @@ No Portal do Azure, você pode acessar os relatórios sobre os eventos de risco 
 
 Para saber mais sobre relatórios de segurança, veja:
 
-- [Usuários no relatório de riscos de segurança no Portal do Azure Active Directory - visualização](active-directory-reporting-security-user-at-risk.md)
-- [Relatório de entradas arriscadas no Portal do Azure Active Directory - visualização](active-directory-reporting-security-risky-sign-ins.md)
+- [Relatório de segurança de usuários em risco no portal do Azure Active Directory](active-directory-reporting-security-user-at-risk.md)
+- [Relatório de entradas de risco no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
 ## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Relatórios de atividade no Portal Clássico do Azure versus Portal do Azure

@@ -1,5 +1,5 @@
 ---
-title: "Adicionar a identidade visual da empresa específica do idioma à sua página de entrada na visualização do Azure Active Directory | Microsoft Docs"
+title: "Adicionar a identidade visual da empresa específica a um idioma à sua página de conexão no Azure Active Directory | Microsoft Docs"
 description: "Saiba como adicionar imagens e texto de identidade visual da empresa específicos do idioma a uma página de entrada do Azure"
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
-ms.lasthandoff: 12/29/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: e1fe8d855386ceec39edbc985538cdf32d78a13b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Adicionar identidade visual específica ao idioma à sua página de entrada na visualização do Azure Active Directory
-Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. A visualização do Azure Active Directory fornece esse recurso, permitindo que você personalize a aparência da página de entrada com esquemas de cores e o logotipo da empresa. [O que há na visualização?](active-directory-preview-explainer.md)  A página de entrada é a página que aparece quando você entra no Office 365 ou em outros aplicativos baseados na Web que estejam usando o Azure AD como provedor de identidade. Você interage com essa página para inserir suas credenciais.
+# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory"></a>Adicionar identidade visual específica a um idioma à sua página de conexão no Azure Active Directory
+Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. O Azure Active Directory fornece esse recurso, permitindo que você personalize a aparência da página de entrada com esquemas de cores e o logotipo da empresa. A página de entrada é a página que aparece quando você entra no Office 365 ou em outros aplicativos baseados na Web que estejam usando o Azure AD como provedor de identidade. Você interage com essa página para inserir suas credenciais.
 
 ## <a name="customizing-the-sign-in-page-for-another-language"></a>Personalizando a página de entrada para outro idioma
 Você pode adicionar elementos específicos do idioma à sua página de entrada somente se já tiver criado uma página de entrada personalizada, conforme descrito em [Add company branding to your sign-in page](active-directory-branding-custom-signon-azure-portal.md)(Adicionar a identidade visual da empresa à página de entrada). Você pode configurar uma página de entrada por diretório com um conjunto padrão de elementos personalizáveis. Depois de ter configurado o conjunto padrão de elementos de página, é possível configurar mais versões para diferentes localidades. Você também pode misturar e combinar vários elementos. Por exemplo, você pode:

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 05/10/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: f89375510cdcb89d800edc2513f34e601f52efe9
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 20257c872eaa2e7610e525c4686350c206628974
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -94,8 +94,8 @@ Para VMs do Windows:
 
 Para VMs do Linux:
 
-* Instale o [agente Linux](https://github.com/Azure/WALinuxAgent) mais recente do github.
-* [Atualizar a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado.
+* Instale o mais recente do repositório de distribuição. É **altamente recomendável** a instalação do agente somente por meio do repositório de distribuição. Para obter detalhes sobre o nome do pacote, consulte o [repositório de agente do Linux](https://github.com/Azure/WALinuxAgent) 
+* Para VMs clássicas, [Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado
 
 ### <a name="updating-the-vm-agent"></a>Atualizar o Agente de VM
 Para VMs do Windows:

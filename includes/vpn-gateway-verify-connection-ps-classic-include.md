@@ -1,4 +1,4 @@
-Você pode usar **Get-AzureVNetConnection** para verificar a conexão para um gateway de rede virtual clássico. 
+Você pode verificar se a conexão foi bem-sucedida usando o cmdlet "Get-AzureVNetConnection".
 
 1. Use o seguinte exemplo de cmdlet, configurando os valores para coincidirem com os seus. O nome da rede virtual deve ficar entre aspas se contiver espaços.
 

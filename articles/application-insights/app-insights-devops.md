@@ -3,7 +3,7 @@ title: Monitoramento de desempenho de aplicativos Web - Azure Application Insigh
 description: Como o Application Insights se encaixa no ciclo do devOps
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights

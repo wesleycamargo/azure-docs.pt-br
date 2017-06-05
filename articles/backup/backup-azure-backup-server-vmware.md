@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/20/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 34146bd110661c12c4ec1e11d34d7bdfa3cac688
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: faa3c9d5de759e4d8c0589153ea93e83a580f983
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -93,7 +94,7 @@ Para corrigir esse problema e criar uma conexão segura, baixe os certificados C
 
   ![caixa de diálogo com erro de certificado ](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
-  O armazenamento de certificado escolhido é exibido na janela **Assistente de importação de certificado**. Clique em **Próximo**.
+  O armazenamento de certificado escolhido é exibido na janela **Assistente de importação de certificado**. Clique em **Avançar**.
 
   ![caixa de diálogo com erro de certificado ](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
@@ -260,7 +261,7 @@ Antes de adicionar o servidor VMware para o Servidor de Backup do Azure, certifi
 
 ## <a name="add-the-vcenter-server-to-azure-backup-server"></a>Adicionar servidor VMware para o Servidor de Backup do Azure
 
-Para abrir o Assistente de Adição de Servidor de Produção
+Para abrir o assistente de Adição de Servidor de Produção:
 
 1. No console do Servidor de Backup do Azure, clique em **Gerenciamento**, clique em **Servidor de Produção** e, em seguida, clique em **Adicionar**.
 

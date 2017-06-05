@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3874cba5f0e09145a29159690fd740eeddad209a
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: bbf0f4868a95d21c3aaa31109c4c5a8083efc6db
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -43,7 +44,7 @@ Tarefas:
 * Criar o conjunto de Grupos de Recursos usando a convenção de nomenclatura. Você pode usar a CLI do Azure ou o portal.
 
 ## <a name="resource-groups"></a>Grupos de recursos
-No Azure, é possível agrupar logicamente recursos relacionados, como contas de armazenamento, redes virtuais e VMs (máquinas virtuais) para implantar, gerenciar e mantê-las como uma única entidade. Essa abordagem facilita a implantação de aplicativos, ao mesmo tempo que reúne todos os recursos relacionados de uma perspectiva de gerenciamento ou a concessão de acesso para outros usuários a esse grupo de recursos. Para obter um entendimento mais abrangente de Grupos de Recursos, leia a [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+No Azure, é possível agrupar logicamente recursos relacionados, como contas de armazenamento, redes virtuais e VMs (máquinas virtuais) para implantar, gerenciar e mantê-las como uma única entidade. Essa abordagem facilita a implantação de aplicativos, ao mesmo tempo que reúne todos os recursos relacionados de uma perspectiva de gerenciamento ou a concessão de acesso para outros usuários a esse grupo de recursos. Os nomes de grupo de recursos podem ter, no máximo, 90 caracteres. Para obter um entendimento mais abrangente de Grupos de Recursos, leia a [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 Um recurso importante para os Grupos de Recursos é a capacidade de criar seu ambiente usando um arquivo JSON que declara os recursos de armazenamento, de rede e de computação. Você também pode definir todas as configurações ou scripts personalizados relacionados a serem aplicados. Usando esses modelos JSON, é possível criar implantações consistentes e reproduzíveis para seus aplicativos. Essa abordagem permite que você crie um ambiente em desenvolvimento e use o mesmo modelo para criar uma implantação de produção ou vice-versa. Para obter um melhor entendimento sobre como usar modelos, leia o [passo a passo do modelo](../../azure-resource-manager/resource-manager-template-walkthrough.md) que explica cada etapa de criação de um modelo JSON.
 

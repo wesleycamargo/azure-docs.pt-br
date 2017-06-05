@@ -14,19 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/23/2017
+ms.date: 05/05/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 763ec017cef58b91ba12b616870cb9d830448749
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f018e265d008cc06631034cea417109c71e7786f
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse
 
 Este artigo mostra como criar e preencher o Azure AD e, em seguida, usar o Azure AD com o Banco de Dados SQL do Azure e o SQL Data Warehouse. Para obter uma visão geral, consulte [Autenticação do Azure Active Directory](sql-database-aad-authentication.md).
+
+>  [!NOTE]  
+>  Não há suporte para conectar ao SQL Server em execução em uma VM do Azure usando uma conta do Azure Active Directory. Use um conta de domínio do Active Directory.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Criar e popular um Azure AD
 Crie um Azure AD e popule-o com usuários e grupos. O Azure AD pode ser o domínio gerenciado pelo Azure AD no domínio inicial. O Azure AD também pode ser um Active Directory Domain Services local federado com o Azure AD.

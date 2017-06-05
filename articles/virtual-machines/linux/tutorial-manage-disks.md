@@ -13,21 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 84ce4b288c23c7005ac92f18ee26af70479deb8d
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 4453876c126289f922d6d08d321707e1d10004e3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gerenciar discos do Azure com o Azure CLI
 
-Este tutorial aborda os diferentes tipos de discos de máquina virtual, como selecionar uma configuração de disco e como criar e anexar discos às máquinas vituais do Azure. Este tutorial também aborda como tirar instantâneos de disco. 
+Máquinas virtuais do Azure usam discos para armazenar o sistema operacional de VMs, aplicativos e dados. Ao criar uma VM, é importante escolher um tamanho de disco e a configuração apropriada para a carga de trabalho esperada. Este tutorial aborda a implantação e gerenciamento de discos de VM. Você saberá mais sobre:
 
-As etapas deste tutorial podem ser concluídas usando o módulo mais recente do [Azure CLI 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Discos de sistema operacional e discos temporários
+> * Discos de dados
+> * Discos Standard e Premium
+> * Desempenho do disco
+> * Anexar e preparar os discos de dados
+> * Redimensionamento de discos
+> * Instantâneos de disco
+
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). Você também pode usar o [Cloud Shell](/azure/cloud-shell/quickstart) no seu navegador.
 
 ## <a name="default-azure-disks"></a>Discos padrão do Azure
 
@@ -39,7 +48,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 
-| Tipo | Tamanho da VM | Tamanho máximo do disco temporário |
+| Tipo | Tamanho da VM | Tamanho máximo do disco temporário (GB) |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A e D | 800 |
 | [Computação otimizada](sizes-compute.md) | Série F | 800 |
@@ -274,6 +283,19 @@ az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre discos da máquina virtual. Vá para o próximo tutorial para saber como automatizar a configuração da máquina virtual.
+Neste tutorial, você aprendeu sobre tópicos de discos da VM como:
 
-[Automatizar a configuração da VM](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * Discos de sistema operacional e discos temporários
+> * Discos de dados
+> * Discos Standard e Premium
+> * Desempenho do disco
+> * Anexar e preparar os discos de dados
+> * Redimensionamento de discos
+> * Instantâneos de disco
+
+Vá para o próximo tutorial para saber como automatizar a configuração da máquina virtual.
+
+> [!div class="nextstepaction"]
+> [Automatizar a configuração da VM](./tutorial-automate-vm-deployment.md)
+

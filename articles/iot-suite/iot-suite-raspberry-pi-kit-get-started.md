@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/26/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 0235058d17a55562271c0a98c47b9b12f8d27be6
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 5efb78c2c514bd0b21be842ddee5465fe4e4dcf9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -30,9 +30,9 @@ Os tutoriais nesta seção ajudam você a aprender a conectar um dispositivo Ras
 
 | Tutorial | Observações | Linguagens |
 | -------- | ----- | --------- |
-| Telemetria simulada (básica)| Simula os dados do sensor. Usa um Raspberry Pi autônomo. | [C][lnk-c-simulator] [Node.js][lnk-node-simulator] |
-| Sensor real (intermediário) | Usa dados de um sensor BME280 conectado ao seu Raspberry Pi. | [C][lnk-c-basic] [Node.js][lnk-node-basic] |
-| Implementar atualização do firmware (avançado)| Usa dados de um sensor BME280 conectado ao seu Raspberry Pi. Permite atualizações de firmware remoto em seu Raspberry Pi. | [C][lnk-c-advanced] [Node.js][lnk-node-advanced] |
+| Telemetria simulada (básica)| Simula os dados do sensor. Usa um Raspberry Pi autônomo. | [C][lnk-c-simulator], [Node.js][lnk-node-simulator] |
+| Sensor real (intermediário) | Usa dados de um sensor BME280 conectado ao seu Raspberry Pi. | [C][lnk-c-basic], [Node.js][lnk-node-basic] |
+| Implementar atualização do firmware (avançado)| Usa dados de um sensor BME280 conectado ao seu Raspberry Pi. Permite atualizações de firmware remoto em seu Raspberry Pi. | [C][lnk-c-advanced], [Node.js][lnk-node-advanced] |
 
 ## <a name="next-steps"></a>Próximas etapas
 

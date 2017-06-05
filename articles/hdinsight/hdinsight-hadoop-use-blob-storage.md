@@ -1,7 +1,7 @@
 ---
 title: "Consultar dados do armazenamento do Azure compatível com o HDFS | Microsoft Docs"
 description: "Aprenda a consultar dados do Armazenamento do Azure e do Azure Data Lake Store para armazenar os resultados da sua análise."
-keywords: "armazenamento de blobs, hdfs, dados estruturados, dados não estruturados, data lake store"
+keywords: "armazenamento de blobs, hdfs, dados estruturados, dados não estruturados, data lake store, entrada do Hadoop, saída do Hadoop, armazenamento do hadoop, entrada do hdfs, saída do hdfs, armazenamento do hdfs, wasb do azure"
 services: hdinsight,storage
 documentationcenter: 
 tags: azure-portal
@@ -10,17 +10,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: f5c36624360b4a09819ea70f3ac23f943688c120
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: a8f59b891ee048bc71efc6f913e7998f6eed6d62
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---

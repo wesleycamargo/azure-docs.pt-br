@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
 ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -71,10 +73,5 @@ Agora você pode testar a ação de transformação fazendo uma solicitação ao
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
 * [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas da integração corporativa")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

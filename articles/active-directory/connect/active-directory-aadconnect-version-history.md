@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 7983ffa4bf7cb63f985d1a8f14d6dd834e679cf5
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 4703cd03db398d8dc59fb5f5c0cf71214c606bc8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -35,6 +35,55 @@ Tópico |  Detalhes
 Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](active-directory-aadconnect-upgrade-previous-version.md) do Azure AD Connect.
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Baixar| [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="115240"></a>1.1.524.0
+Lançamento: maio de 2017
+
+> [!IMPORTANT]
+> Foram introduzidas alterações de regra de esquema e sincronização nesse build. O Serviço de Sincronização do Azure AD Connect disparará as etapas de Importação Completa e Sincronização Completa após a atualização. Detalhes das alterações são descritos abaixo.
+>
+>
+
+**Problemas corrigidos:**
+
+Sincronização do Azure AD Connect
+
+* Corrigido um problema que fazia a Atualização Automática ocorrer no servidor do Azure AD Connect, mesmo que o cliente tivesse desabilitado o recurso usando o cmdlet Set-ADSyncAutoUpgrade. Com essa correção, o processo de Atualização Automática no servidor ainda verifica se há atualizações periodicamente, mas o instalador baixado respeita a configuração de Atualização Automática.
+* Durante a atualização in-loco do DirSync, o Azure AD Connect cria uma conta de serviço do Azure AD para ser usada pelo Azure AD Connector para sincronizar com o Azure AD. Depois da criação da conta, o Azure AD Connect autentica-se com o Azure AD usando a conta. Às vezes, a autenticação falha devido a questões transitórias que, por sua vez, fazem a atualização in-loco de DirSync falhar com o erro *"Ocorreu um erro ao executar tarefa Configurar AAD Sync: AADSTS50034: para entrar nesse aplicativo, a conta deve ser adicionada ao diretório xxx.onmicrosoft.com"*. Para melhorar a resiliência da atualização do DirSync, o Azure AD Connect agora tenta novamente realizar a etapa de autenticação.
+* Havia um problema com o build 443 que fazia a atualização in-loco do DirSync ser bem-sucedida, mas os perfis de execução necessários para a sincronização do diretório não eram criados. A lógica de reparo está incluída nesse build do Azure AD Connect. Quando o cliente atualiza para esse build, o Azure AD Connect detecta os perfis de execução ausentes e cria-os.
+* Corrigido um problema que fazia o processo de Sincronização de Senha não ser inicializado com a ID de Evento 6900 e o erro *"Um item com a mesma chave já foi adicionado"*. Esse problema ocorre se você atualiza a configuração de filtragem da UO para incluir a partição de configuração do AD. Para corrigir esse problema, o processo de Sincronização de Senha agora sincroniza alterações de senha de partições de domínio do AD apenas. Partições não de domínio, como a partição de configuração, são ignoradas.
+* Durante a instalação do Expresso, o Azure AD Connect cria uma conta do AD DS local para ser usada pelo AD Connector para comunicação com o AD local. Anteriormente, a conta era criada com o sinalizador PASSWD_NOTREQD definido no atributo user-Account-Control e uma senha aleatória era definida na conta. Agora, o Azure AD Connect remove explicitamente o sinalizador PASSWD_NOTREQD depois que a senha é definida na conta.
+* Corrigido um problema que faz com que a atualização do DirSync falhe com o erro *"Ocorreu um deadlock no SQL Server que está tentando adquirir um deadlock de aplicativo"* quando o atributo mailNickname é encontrado no esquema do AD local, mas não está limitado à classe de objeto de Usuário do AD.
+* Corrigido um problema que fazia o recurso de write-back do Dispositivo ser desabilitado automaticamente quando um administrador estava atualizando a configuração de sincronização do Azure AD Connect usando o assistente do Azure AD Connect. Isso é causado pela execução de verificação de pré-requisito pelo assistente para a configuração de write-back do Dispositivo existente no AD local e a falha na verificação. A correção será ignorar a verificação se o write-back do Dispositivo já tiver sido habilitado anteriormente.
+* Para configurar a filtragem da UO, você pode usar o assistente do Azure AD Connect ou o Synchronization Service Manager. Anteriormente, se você usasse o Assistente do Azure AD Connect para configurar a filtragem de UO, novas UOs criadas posteriormente seriam incluídas para sincronização de diretórios. Se você não quisesse incluir novas UOs, precisaria configurar a filtragem de UO usando o Synchronization Service Manager. Agora, você pode obter o mesmo comportamento usando o assistente do Azure AD Connect.
+* Corrigido um problema que fazia os procedimentos armazenados exigidos pelo Azure AD Connect serem criados sob o esquema do administrador de instalação, em vez de no esquema do dbo.
+* Corrigido um problema que fazia com que o atributo TrackingId retornado pelo Azure AD fosse omitido nos Logs de Evento do Servidor do AAD Connect. O problema ocorria quando o Azure AD Connect recebia uma mensagem de redirecionamento do Azure AD e do Azure AD Connect não conseguia conectar-se ao ponto de extremidade fornecido. O TrackingId é usado pelos Engenheiros de Suporte para correlacionar com logs no lado do serviço durante a solução de problemas.
+* Quando o Azure AD Connect recebe o erro LargeObject do Azure AD, o Azure AD Connect gera um evento com o EventID 6941 e a mensagem *“O objeto provisionado é muito grande. Restrinja o número de valores de atributo nesse objeto.”* Ao mesmo tempo, o Azure AD Connect também gera um evento enganoso com EventID 6900 e mensagem *"Microsoft.Online.Coexistence.ProvisionRetryException: não é possível comunicar-se com o serviço Microsoft Azure Active Directory"*. Para minimizar a confusão, Azure AD Connect não gera mais este último evento quando o erro LargeObject é recebido.
+* Corrigido um problema que fazia com que o Synchronization Service Manager parasse de responder ao tentar atualizar a configuração do conector de LDAP genérico.
+
+**Novos recursos/melhorias:**
+
+Sincronização do Azure AD Connect
+* Alterações de Regra de Sincronização – as seguintes alterações de regra de sincronização foram implementadas:
+  * Atualizado o conjunto de regras de sincronização padrão para não exportar os atributos **userCertificate** e **userSMIMECertificate** se os atributos tivessem mais de 15 valores.
+  * Os atributos **employeeID** e **msExchBypassModerationLink** do AD agora são incluídos no conjunto de regras de sincronização padrão.
+  * O atributo **photo** do AD foi removido do conjunto de regras de sincronização padrão.
+  * Adicionado **preferredDataLocation** ao esquema de Metaverso e ao esquema do AAD Connector. Os clientes que desejam atualizar qualquer um dos atributos no Azure AD podem implementar regras de sincronização personalizadas para fazer isso. Para obter mais informações sobre o atributo, consulte a seção do artigo [Sincronização do Azure AD Connect: como fazer uma alteração à configuração padrão – habilitar a sincronização de PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Adicionado **userType** ao esquema do Metaverso e ao esquema do AAD Connector. Os clientes que desejam atualizar qualquer um dos atributos no Azure AD podem implementar regras de sincronização personalizadas para fazer isso.
+
+* O Azure AD Connect agora habilita automaticamente o uso do atributo ConsistencyGuid como o atributo Source Anchor para objetos AD locais. Além disso, o Azure AD Connect preencherá o atributo ConsistencyGuid com o valor do atributo objectGuid se ele estiver vazio. Esse recurso é aplicável apenas à nova implantação. Para obter mais informações sobre esse recurso, consulte a seção do artigo [Azure AD Connect: Conceitos de design – usando msDS-ConsistencyGuid como sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* O novo cmdlet de solução de problemas Invoke-ADSyncDiagnostics foi adicionado para ajudar a diagnosticar problemas relacionados à Sincronização de Hash de Senha.
+* O Azure AD Connect agora dá suporte à sincronização dos objetos de Pasta Pública Habilitados para Email do AD local para o Azure AD. Você pode habilitar o recurso usando o assistente do Azure AD Connect em Recursos Opcionais.
+* O Azure AD Connect requer contas do AD DS para sincronizar do AD local. Anteriormente, se você instalasse o Azure AD Connect usando modo Expresso, poderia fornecer a credencial de uma conta de Admin Corporativo e deixar para o Azure AD Connect criar a conta do AD DS necessária. No entanto, para instalação personalizada e para adicionar florestas à implantação existente, você deve fornecer a conta do AD DS em vez disso. Agora você também tem a opção de fornecer as credenciais de uma conta do Admin Corporativo durante a instalação personalizada e permitir que o Azure AD Connect crie a conta do AD DS necessária.
+* O Azure AD Connect agora dá suporte a SQL AOA. Você deve habilitar SQL antes de instalar o Azure AD Connect. Durante a instalação, o Azure AD Connect detecta se a instância do SQL fornecida está habilitada para SQL AOA ou não. Se o SQL AOA estiver habilitado, o Azure AD Connect descobrirá melhor se o AOA SQL está configurado para usar replicação síncrona ou replicação assíncrona. Ao configurar o Ouvinte do Grupo de Disponibilidade, é recomendável definir a propriedade RegisterAllProvidersIP como 0. Isso ocorre porque o Azure AD Connect atualmente usa o SQL Native Client para conectar-se ao SQL, e o SQL Native Client não dá suporte ao uso da propriedade MultiSubNetFailover.
+* Se você estiver usando o LocalDB como o banco de dados para o servidor do Azure AD Connect e tiver atingido seu limite de tamanho de 10 GB, o Serviço de Sincronização não será mais iniciado. Anteriormente, você precisava executar a operação ShrinkDatabase no LocalDB para recuperar espaço suficiente do banco de dados para o Serviço de Sincronização iniciar. Depois disso, você pode usar o Synchronization Service Manager para excluir o histórico de execução para recuperar mais espaço do banco de dados. Agora, você pode usar cmdlet Start-ADSyncPurgeRunHistory para limpar os dados do histórico de execução do LocalDB para recuperar espaço do banco de dados. Além disso, esse cmdlet dá suporte ao modo offline (especificando o parâmetro -offline), que pode ser usado quando o Synchronization Service não estiver em execução. Observação: o modo offline poderá ser usado apenas se o Synchronization Service não estiver em execução e o banco de dados usado for LocalDB.
+* Para reduzir a quantidade de espaço de armazenamento necessária, o Azure AD Connect agora compacta os detalhes do erro de sincronização antes de armazená-los em bancos de dados SQL/LocalDB. Ao atualizar de uma versão anterior do Azure AD Connect para esta versão, o Azure AD Connect executa uma compactação única em detalhes do erro de sincronização existentes.
+* Anteriormente, depois de atualizar a configuração de filtragem da UO, você precisava executar manualmente uma importação Completa para garantir que os objetos existentes fossem incluídos/excluídos adequadamente da sincronização de diretório. Agora, o Azure AD Connect aciona automaticamente a importação Completa durante o próximo ciclo de sincronização. Além disso, a importação Total deve ser aplicada apenas aos AD Connectors afetados pela atualização. Observação: essa melhoria é aplicável apenas a atualizações de filtragem de UO feitas usando o assistente do Azure AD Connect. Não é aplicável à atualização de filtragem de UO feita usando o Synchronization Service Manager.
+* Anteriormente, filtragem baseada em Grupo dava suporte apenas a objetos de Usuários, Grupos e Contato. Agora, a filtragem baseada em Grupo também dá suporte a objetos de Computador.
+* Anteriormente, você podia excluir dados do Espaço Conector sem desabilitar o agendador de sincronização do Azure AD Connect. Agora, o Synchronization Service Manager bloqueia a exclusão de dados do Espaço Conector quando ele detecta que o agendador está habilitado. Além disso, um aviso é retornado para informar os clientes sobre uma possível perda de dados se os dados do espaço conector forem excluídos.
+* Anteriormente, você precisava desabilitar a transcrição do PowerShell para o assistente do Azure AD Connect ser executado corretamente. Esse problema foi parcialmente resolvido. Você poderá habilitar a transcrição do PowerShell se estiver usando o assistente do Azure AD Connect para gerenciar a configuração de sincronização. Você deverá desabilitar a transcrição do PowerShell se estiver usando o assistente do Azure AD Connect para gerenciar a configuração do ADFS.
+
+
 
 ## <a name="114860"></a>1.1.486.0
 Lançamento: abril de 2017

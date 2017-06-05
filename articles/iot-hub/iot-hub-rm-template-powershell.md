@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: dc9f9c39a8eb644229887f76b5c441d4211af059
-ms.openlocfilehash: 6f9c36239f8485313066a594eea74bfcd168536e
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: d55de6c3f49abf3ac117dcb265dd7f1bcaa05f24
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -45,20 +46,33 @@ Para concluir este tutorial, você precisará do seguinte:
 ## <a name="connect-to-your-azure-subscription"></a>Conecte-se à sua assinatura do Azure
 Em um prompt de comando do PowerShell, digite o seguinte comando para entrar em sua assinatura do Azure:
 
-```
+```powershell
 Login-AzureRmAccount
+```
+
+Caso tenha várias assinaturas do Azure, entrar no Azure concede a você acesso a todas as assinaturas do Azure associadas às suas credenciais. Use o comando a seguir para listar as assinaturas do Azure disponíveis para você:
+
+```powershell
+Get-AzureRMSubscription
+```
+
+Use o comando a seguir para selecionar a assinatura que você deseja usar para executar os comandos e criar seu Hub IoT. Você pode usar a ID ou nome da assinatura da saída do comando anterior:
+
+```powershell
+Select-AzureRMSubscription `
+    -SubscriptionName "{your subscription name}"
 ```
 
 Você pode usar os comandos a seguir para descobrir onde você pode implantar um Hub IoT e as versões de API com suporte no momento:
 
-```
+```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).Locations
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
 
 Crie um grupo de recursos para conter o Hub IoT usando o seguinte comando em um dos locais com suporte para o Hub IoT. Este exemplo cria um grupo de recursos chamado **MyIoTRG1**:
 
-```
+```powershell
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
@@ -67,7 +81,7 @@ Use um modelo JSON para criar um Hub IoT em seu grupo de recursos. Também é po
 
 1. Use um editor de texto para criar um modelo do Azure Resource Manager chamado **template.json** com a seguinte definição de recurso, a fim de criar um novo Hub IoT padrão. Este exemplo adiciona o Hub IoT à região **Leste dos EUA**, cria dois grupos de consumidores (**cg1** e **cg2**) no ponto de extremidade compatível com o Hub de Eventos e usa a versão de API **2016-02-03**. Esse modelo também espera que você passe o nome do Hub IoT como um parâmetro chamado **hubName**. Para obter a lista atual de localizações que dão suporte ao Hub IoT, confira o [Status do Azure][lnk-status].
    
-    ```
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
@@ -119,7 +133,7 @@ Use um modelo JSON para criar um Hub IoT em seu grupo de recursos. Também é po
 2. Salve o arquivo de modelo do Azure Resource Manager na máquina local. Este exemplo pressupõe que você o salvará em uma pasta chamada **c:\templates**.
 3. Execute o seguinte comando para implantar seu novo Hub IoT, passando o nome de seu Hub IoT como um parâmetro. Neste exemplo, o nome do Hub IoT é **abcmyiothub** (observe que esse nome precisa ser globalmente exclusivo e, por isso, deve incluir seu nome ou suas iniciais):
    
-    ```
+    ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 4. A saída exibe as chaves para o Hub IoT criado.
@@ -143,7 +157,7 @@ Para saber mais sobre como desenvolver para o Hub IoT, veja os seguintes artigos
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Simulando um dispositivo com o SDK do Gateway do IoT][lnk-gateway]
+* [Simulando um dispositivo com Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -157,5 +171,5 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

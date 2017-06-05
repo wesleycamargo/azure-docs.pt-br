@@ -2,7 +2,6 @@
 ## [O que é Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Introdução
-## [Tutorial interativo: analisar logs de sites](data-lake-analytics-use-interactive-tutorials.md)
 ## [Portal do Azure](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [SDK .NET](data-lake-analytics-get-started-net-sdk.md)
@@ -27,6 +26,8 @@
 
 ## Criar soluções
 ### [Analisar logs de site](data-lake-analytics-analyze-weblogs.md)
+### [Tutorial interativo: analisar logs de sites](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## Gerenciar
 ### [Portal do Azure](data-lake-analytics-manage-use-portal.md)

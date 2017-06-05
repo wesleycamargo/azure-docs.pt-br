@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 62bafc9bc58811cd9bd314639e3c2a609f4935d3
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ed9bfe928699d040aa4283da5a8690318932738c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -45,6 +46,9 @@ A explicação a seguir se aplica às partes do diagrama anterior.
 ## <a name="resource-metrics"></a>Métricas do recurso
 Os recursos emitem métricas, que são processadas posteriormente por regras. As métricas são fornecidas por métodos diferentes.
 Os conjuntos de dimensionamento de máquina virtual usam dados de telemetria de agentes de diagnóstico do Azure, enquanto a telemetria para aplicativos Web e serviços de nuvem vêm diretamente da Infraestrutura do Azure. Algumas estatísticas usadas normalmente incluem o Uso da CPU, utilização de memória, contagens de thread, comprimento da fila e uso do disco. Para obter uma lista de quais dados de telemetria você pode usar, confira [Métricas comuns de dimensionamento automático](insights-autoscale-common-metrics.md).
+
+## <a name="custom-metrics"></a>Métricas personalizadas
+Você também pode usar suas próprias métricas personalizadas que seus aplicativos podem emitir. Se tiver configurado seu aplicativo para enviar métricas para o Application Insights, você poderá aproveitar essas métricas para tomar decisões quanto ao dimensionamento. 
 
 ## <a name="time"></a>Hora
 Regras com base em agendamento têm base em UTC. Ao configurar as regras, você deve definir o fuso horário corretamente.  

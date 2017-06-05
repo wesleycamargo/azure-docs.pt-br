@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/06/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: cb2da3515cfe5fd460e16b019d3738f4a9a050bb
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 02cb05f42e555931dffa0fdec21b19ce0468e1de
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -52,7 +52,6 @@ O Azure Data Lake Analytics é um serviço de análise sob demanda que simplific
   * [Introdução à Análise do Data Lake usando o portal do Azure](data-lake-analytics-get-started-portal.md)
   * [Introdução à Análise Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
   * [Introdução à Análise Data Lake usando o SDK do .NET do Azure](data-lake-analytics-get-started-net-sdk.md)
-  * [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
   * [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md)
 
 * Gerenciamento

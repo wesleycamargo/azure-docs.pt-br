@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a1ede93b5aacf0d8a5bcf83f208f72be328ee72f
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9daf8be93216aefbcf02e3fcba44d048ab95b43d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -35,7 +36,7 @@ Continuamos a adicionar recursos ao Banco de Dados SQL do Azure. Portanto, recom
 | --- | :---: | :---: | 
 | Replicação geográfica ativa | Sem suporte – consulte [Grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Com suporte](sql-database-geo-replication-overview.md)
 | Always Encrypted | [Com suporte](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Suporte - consulte [Armazenamento de certificados](sql-database-always-encrypted.md) e [Cofre da chave](sql-database-always-encrypted-azure-key-vault.md)|
-| Grupos de disponibilidade AlwaysOn | [Com suporte](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Sem suporte – consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md) |
+| Grupos de disponibilidade AlwaysOn | [Com suporte](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Sem suporte - Consulte [replicação geográfica ativa](sql-database-geo-replication-overview.md) |
 | Anexar um banco de dados | [Com suporte](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Sem suporte |
 | Funções de aplicativo | [Com suporte](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | [Com suporte](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) |
 | Escala automática | Sem suporte | Suporte - consulte [Camadas de serviço](sql-database-service-tiers.md) |
@@ -87,7 +88,7 @@ Continuamos a adicionar recursos ao Banco de Dados SQL do Azure. Portanto, recom
 | Suporte a dados JSON | [Com suporte](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Com suporte](sql-database-json-features.md) |
 | Elementos de linguagem | [Com suporte](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Maioria - consulte [Elementos individuais](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) |  
 | Servidores vinculados | [Com suporte](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Sem suporte – consulte [Consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) |
-| Envio de logs | [Com suporte](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Sem suporte – consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md) |
+| Envio de logs | [Com suporte](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Sem suporte - consulte [replicação geográfica ativa](sql-database-geo-replication-overview.md) |
 | MDS (Master Data Services) | [Com suporte](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Sem suporte |
 | Log mínimo na importação em massa | [Com suporte](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Sem suporte |
 | Modificação dos dados do sistema | [Com suporte](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Sem suporte |
@@ -126,7 +127,7 @@ Continuamos a adicionar recursos ao Banco de Dados SQL do Azure. Portanto, recom
 | Transações | [Com suporte](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) | [Com suporte](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) |
 | variáveis | [Com suporte](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | [Com suporte](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 
 | TDE (Transparent Data Encryption)  | [Com suporte](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | [Com suporte](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
-| Windows Server Failover Clustering | [Com suporte](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Sem suporte – consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md) |
+| Windows Server Failover Clustering | [Com suporte](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Sem suporte - Consulte [replicação geográfica ativa](sql-database-geo-replication-overview.md) |
 | Índices XML | [Com suporte](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | [Com suporte](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) |
 
 ## <a name="next-steps"></a>Próximas etapas

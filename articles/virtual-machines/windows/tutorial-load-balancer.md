@@ -13,23 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 5695d17360e75fd3ae7c76045500a2eb491eaa81
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: c9df0fedfb39ee162334304d56eb4df3a96dcd3e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Como balancear a carga de máquinas virtuais Windows no Azure para criar um aplicativo altamente disponível
-Neste tutorial, você aprenderá sobre os diferentes componentes do Azure Load Balancer que distribuem o tráfego e fornecem alta disponibilidade. Para ver o balanceador de carga em ação, você deverá criar um site do IIS simples que é executado em três máquinas virtuais do Windows (VMs).
+O balanceamento de carga fornece um nível mais alto de disponibilidade, distribuindo as solicitações de entrada em várias máquinas virtuais. Neste tutorial, você aprenderá sobre os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e fornecem alta disponibilidade. Você aprenderá como:
 
-As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [Azure PowerShell](/powershell/azure/overview).
+> [!div class="checklist"]
+> * Criar um balanceador de carga do Azure
+> * Criar uma investigação de integridade do balanceador de carga
+> * Criar regras de tráfego para o balanceador de carga
+> * Usar a Extensão de Script Personalizado para criar um site do IIS básico
+> * Criar máquinas virtuais e anexar a um balanceador de carga
+> * Exibir um balanceador de carga em ação
+> * Adicionar e remover as VMs de um balanceador de carga
+
+Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
-## <a name="azure-load-balancer-overview"></a>Visão geral do Azure Load Balancer
+## <a name="azure-load-balancer-overview"></a>Visão geral do Balanceador de Carga do Azure
 Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP) que fornece alta disponibilidade distribuindo o tráfego de entrada entre VMs íntegros. Uma investigação de integridade do balanceador de carga monitora uma determinada porta em cada VM e distribui o tráfego somente para uma VM operacional.
 
 Você define uma configuração de IP de front-end que contém um ou mais endereços IP públicos. Essa configuração de IP de front-end permite que seu balanceador de carga e os aplicativos estejam acessíveis pela Internet. 
@@ -40,12 +50,12 @@ Para controlar o fluxo do tráfego, você precisará definir regras do balancead
 
 
 ## <a name="create-azure-load-balancer"></a>Criar o Azure Load Balancer
-Esta seção fornece detalhes sobre como criar e configurar cada componente do balanceador de carga. Antes de criar seu balanceador de carga, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupLoadBalancer* no local *westus*:
+Esta seção fornece detalhes sobre como criar e configurar cada componente do balanceador de carga. Antes de criar seu balanceador de carga, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupLoadBalancer* no local *EastUS*:
 
 ```powershell
 New-AzureRmResourceGroup `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus
+  -Location EastUS
 ```
 
 ### <a name="create-a-public-ip-address"></a>Criar um endereço IP público
@@ -54,7 +64,7 @@ Para acessar seu aplicativo na Internet, você precisará de um endereço IP pú
 ```powershell
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIP
 ```
@@ -80,7 +90,7 @@ Agora, crie o balanceador de carga com [New-AzureRmLoadBalancer](/powershell/mod
 $lb = New-AzureRmLoadBalancer `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Name myLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool
 ```
@@ -137,7 +147,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 192.168.1.0/24
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -Name myVnet `
   -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
@@ -160,7 +170,7 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -Name myNetworkSecurityGroup `
   -SecurityRules $nsgRule
 Set-AzureRmVirtualNetworkSubnetConfig `
@@ -179,7 +189,7 @@ for ($i=1; $i -le 3; $i++)
    New-AzureRmNetworkInterface `
      -ResourceGroupName myResourceGroupLoadBalancer `
      -Name myNic$i `
-     -Location westus `
+     -Location EastUS `
      -Subnet $vnet.Subnets[0] `
      -LoadBalancerBackendAddressPool $lb.BackendAddressPools[0]
 }
@@ -194,7 +204,7 @@ Crie um conjunto de disponibilidade com [New-AzureRmAvailabilitySet](/powershell
 $availabilitySet = New-AzureRmAvailabilitySet `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Name myAvailabilitySet `
-  -Location westus `
+  -Location EastUS `
   -Managed `
   -PlatformFaultDomainCount 3 `
   -PlatformUpdateDomainCount 2
@@ -240,7 +250,7 @@ for ($i=1; $i -le 3; $i++)
   $vm = Add-AzureRmVMNetworkInterface `-VM $vm -Id $nic.Id
   New-AzureRmVM `
     -ResourceGroupName myResourceGroupLoadBalancer `
-    -Location westus `
+    -Location EastUS `
     -VM $vm
 }
 ```
@@ -263,7 +273,7 @@ for ($i=1; $i -le 3; $i++)
      -ExtensionType CustomScriptExtension `
      -TypeHandlerVersion 1.4 `
      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-     -Location westus
+     -Location EastUS
 }
 ```
 
@@ -314,7 +324,19 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a criar um site do IIS com carga balanceada. Avance para o próximo tutorial para aprender a gerenciar a rede de VM.
+Neste tutorial, você criou um balanceador de carga e anexou VMs. Você aprendeu como:
 
-[Gerenciar rede de VM do Azure](./tutorial-virtual-network.md)
+> [!div class="checklist"]
+> * Criar um balanceador de carga do Azure
+> * Criar uma investigação de integridade do balanceador de carga
+> * Criar regras de tráfego para o balanceador de carga
+> * Usar a Extensão de Script Personalizado para criar um site do IIS básico
+> * Criar máquinas virtuais e anexar a um balanceador de carga
+> * Exibir um balanceador de carga em ação
+> * Adicionar e remover as VMs de um balanceador de carga
+
+Avance para o próximo tutorial para aprender a gerenciar a rede de VM.
+
+> [!div class="nextstepaction"]
+> [Gerencie VMs e redes virtuais](./tutorial-virtual-network.md)
 

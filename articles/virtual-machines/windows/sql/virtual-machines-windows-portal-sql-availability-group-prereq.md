@@ -14,12 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 05/09/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 071b354ab1ac0c2b8bc1f6e0735638d2c69f295f
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0def8177e124b5d3ba39f1ae65ab3b41d5827e4a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -89,6 +90,7 @@ Para criar a rede virtual:
    | **Nome da sub-rede** |Administrador |
    | **Intervalo de endereços da sub-rede** |10.33.0.0/29 |
    | **Assinatura** |Especifique a assinatura que você pretende usar. **Assinatura** estará em branco se você tiver apenas uma assinatura. |
+   | **Grupo de recursos** |Escolha **Usar existente** e escolha o nome do grupo de recursos. |
    | **Localidade** |Especifique a localização do Azure. |
 
    Observe que o espaço de endereço e o intervalo de endereços da sub-rede podem ser diferentes daqueles na tabela. Dependendo da sua assinatura, o portal sugere um espaço de endereço disponível e o intervalo de endereços de sub-rede correspondente. Se não houver espaço de endereço disponível suficiente, use uma assinatura diferente.
@@ -108,8 +110,7 @@ A nova rede virtual tem uma sub-rede, chamada **Admin**. Os controladores de dom
 
     Se **SQL-HA-RG** não estiver visível, encontre-o clicando em **Grupos de Recursos** e filtrando pelo nome do grupo de recursos.
 2. Clique em **autoHAVNET** na lista de recursos. O Azure abre a folha de configuração de rede.
-3. Na folha da rede virtual **autoHAVNET**, clique em**Todas as configurações**.
-4. Na folha **Configurações**, clique em **Sub-redes**.
+3. Na folha da rede virtual **autoHAVNET**, em **Configurações**, clique em **Sub-redes**.
 
     Observe a sub-rede que você já criou.
 
@@ -177,6 +178,7 @@ A tabela a seguir mostra as configurações para esses dois computadores:
 
 | **Campo** | Valor |
 | --- | --- |
+| **Nome** |Primeiro controlador de domínio: *ad-primary-dc*.</br>Segundo controlador de domínio *ad-secondary-dc*. |
 | **Tipo de disco da VM** |SSD |
 | **Nome de usuário** |DomainAdmin |
 | **Senha** |Contoso!0000 |
@@ -184,12 +186,12 @@ A tabela a seguir mostra as configurações para esses dois computadores:
 | **Grupo de recursos** |SQL-HA-RG |
 | **Localidade** |*Seu local* |
 | **Tamanho** |DS1_V2 |
-| **Conta de armazenamento** |*Criada automaticamente* |
+| **Armazenamento** | **Usar discos gerenciados** - **Sim** |
 | **Rede virtual** |autoHAVNET |
 | **Sub-rede** |admin |
 | **Endereço IP público** |*Mesmo nome que a VM* |
 | **Grupo de segurança de rede** |*Mesmo nome que a VM* |
-| **Conjunto de disponibilidade** |adavailabilityset |
+| **Conjunto de disponibilidade** |adavailabilityset </br>**Domínios de falha**: 2</br>**Domínio de atualização**: 2|
 | **Diagnostics** |Habilitado |
 | **Conta de armazenamento de diagnóstico** |*Criada automaticamente* |
 
@@ -253,6 +255,17 @@ Uma maneira de obter o endereço IP do controlador de domínio primário é por 
 
 Anote o endereço IP privado para este servidor.
 
+### <a name="configure-the-virtual-network-dns"></a>Configurar o DNS da rede virtual
+Depois de criar o primeiro controlador de domínio e habilitar o DNS no primeiro servidor, configure a rede virtual para usar esse servidor para DNS.
+
+1. No Portal do Azure, clique na rede virtual.
+
+2. Em **Configurações**, clique em **Servidor DNS**.
+
+3. Clique em **Personalizado** e digite o endereço IP privado do controlador de domínio primário.
+
+4. Clique em **Salvar**.
+
 ### <a name="configure-the-second-domain-controller"></a>Configurar o segundo controlador de domínio
 Após a reinicialização do controlador de domínio primário, você pode configurar o segundo controlador de domínio. Esta etapa opcional é para alta disponibilidade. Siga estas etapas para configurar o segundo controlador de domínio:
 
@@ -292,6 +305,10 @@ Após a reinicialização do controlador de domínio primário, você pode confi
 22. Clique em **Avançar** até atingir a caixa de diálogo de **Pré-requisitos**. Em seguida, clique em **Instalar**.
 
 Depois que o servidor concluir as alterações de configuração, reinicie-o.
+
+### <a name="add-the-private-ip-address-to-the-second-domain-controller-to-the-vpn-dns-server"></a>Adicione o Endereço IP Privado ao segundo controlador de domínio ao Servidor DNS de VPN
+
+No Portal do Azure, na rede virtual, altere o Servidor DNS para incluir o endereço IP do controlador de domínio secundário. Isso permite a redundância de serviço DNS.
 
 ### <a name=DomainAccounts></a> Configurar as contas de domínio
 
@@ -333,15 +350,29 @@ Use as etapas a seguir para criar cada conta.
 Agora que você concluiu a configuração do Active Directory e dos objetos de usuário, crie duas VMs do SQL Server, uma VM de servidor testemunha. Em seguida, faça com que todas as três ingressem no domínio.
 
 ## <a name="create-sql-server-vms"></a>Criar VMs do SQL Server
+
+Crie três máquinas virtuais adicionais. A solução requer duas máquinas virtuais com instâncias do SQL Server. Uma terceira máquina virtual funcionará como uma testemunha. O Windows Server 2016 pode usar uma [testemunha em nuvem](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), no entanto, para manter a consistência com sistemas operacionais anteriores, este documento usa uma máquina virtual para uma testemunha.  
+
+Antes de prosseguir, considere as seguintes decisões design.
+
+* **Armazenamento – Azure Managed Disks**
+
+   Para o armazenamento da máquina virtual, use o Azure Managed Disks. A Microsoft recomenda Managed Disks para máquinas virtuais do SQL Server. O Managed Disks lida com o armazenamento nos bastidores. Além disso, quando as máquinas virtuais com Managed Disks estão no mesmo conjunto de disponibilidade, o Azure distribui os recursos de armazenamento para fornecer a redundância apropriada. Para obter informações adicionais, consulte [Visão geral do Azure Managed Disks](../../../storage/storage-managed-disks-overview.md). Para obter informações específicas sobre discos gerenciados em um conjunto de disponibilidade, consulte [Usar discos gerenciados para VMs no conjunto de disponibilidade](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+
+* **Rede – Endereços IP privados em produção**
+
+   Para as máquinas virtuais, este tutorial usa endereços IP públicos. Isso permite a conexão remota diretamente com a máquina virtual pela Internet – isso facilita as etapas de configuração. Em ambientes de produção, a Microsoft recomenda somente endereços IP privados para reduzir a superfície de vulnerabilidade do recurso da VM da instância do SQL Server.
+
 ### <a name="create-and-configure-the-sql-server-vms"></a>Criar e configurar as VMs do SQL Server
 Em seguida, crie três VMs: duas VMs do SQL Server e uma VM para um nó de cluster adicional. Para criar cada uma das VMs, volte para o grupo de recursos **SQL-HA-RG**, clique em **Adicionar**, pesquise pelo item da galeria apropriado, clique em **Máquina Virtual** e, em seguida, clique em **Da Galeria**. Use as informações na tabela a seguir para ajudar a criar as VMs:
+
 
 | Página | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | Selecione o item da galeria apropriado |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise no Windows Server 2016** |**SQL Server 2016 SP1 Enterprise no Windows Server 2016** |
 | **Noções básicas** |**Nome** = cluster-fsw<br/>**Nome de usuário** = DomainAdmin<br/>**Senha** = Contoso!0000<br/>**Assinatura** = Sua assinatura<br/>**Grupo de recursos** = SQL-HA-RG<br/>**Local** = Seu local do Azure |**Nome** = sqlserver-0<br/>**Nome de usuário** = DomainAdmin<br/>**Senha** = Contoso!0000<br/>**Assinatura** = Sua assinatura<br/>**Grupo de recursos** = SQL-HA-RG<br/>**Local** = Seu local do Azure |**Nome** = sqlserver-1<br/>**Nome de usuário** = DomainAdmin<br/>**Senha** = Contoso!0000<br/>**Assinatura** = Sua assinatura<br/>**Grupo de recursos** = SQL-HA-RG<br/>**Local** = Seu local do Azure |
-| **Tamanho** |**SIZE** = DS1\_V2 (1 core, 3,5 GB) |**SIZE** = DS2\_V2 (2 núcleos, 7 GB) |**SIZE** = DS2\_V2 (2 núcleos, 7 GB) |
-| **Configurações** |**Armazenamento** = Premium (SSD)<br/>**SUB-REDES** = autoHAVNET<br/>**CONTA DE ARMAZENAMENTO** = Use uma conta de armazenamento gerada automaticamente<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** = Nenhum<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**CONJUNTO DE DISPONIBILIDADE** = sqlAvailabilitySet<br/> |**Armazenamento** = Premium (SSD)<br/>**SUB-REDES** = autoHAVNET<br/>**CONTA DE ARMAZENAMENTO** = Use uma conta de armazenamento gerada automaticamente<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** = Nenhum<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**CONJUNTO DE DISPONIBILIDADE** = sqlAvailabilitySet<br/> |**Armazenamento** = Premium (SSD)<br/>**SUB-REDES** = autoHAVNET<br/>**CONTA DE ARMAZENAMENTO** = Use uma conta de armazenamento gerada automaticamente<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** = Nenhum<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**CONJUNTO DE DISPONIBILIDADE** = sqlAvailabilitySet<br/> |
+| **Tamanho** |**SIZE** = DS1\_V2 (1 core, 3,5 GB) |**SIZE** = DS2\_V2 (2 núcleos, 7 GB)</br>O tamanho deve dar suporte ao armazenamento SSD (Suporte a disco Premium. )) |**SIZE** = DS2\_V2 (2 núcleos, 7 GB) |
+| **Configurações** |**Armazenamento**: use discos gerenciados.<br/>**Rede virtual** = autoHAVNET<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** gerado automaticamente.<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**Conjunto de disponibilidade** = sqlAvailabilitySet<br/> |**Armazenamento**: use discos gerenciados.<br/>**Rede virtual** = autoHAVNET<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** gerado automaticamente.<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**Conjunto de disponibilidade** = sqlAvailabilitySet<br/> |**Armazenamento**: use discos gerenciados.<br/>**Rede virtual** = autoHAVNET<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** gerado automaticamente.<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**Conjunto de disponibilidade** = sqlAvailabilitySet<br/> |
 | **Definições do SQL Server** |Não aplicável |**Conectividade SQL** = Particular (em rede virtual)<br/>**Porta** = 1433<br/>**Autenticação SQL** = Desabilitar<br/>**Configuração de armazenamento** = Geral<br/>**Aplicação de patch automatizada** = Domingo às 2:00<br/>**Backup automatizado** = Desabilitado</br>**Integração do Cofre de Chaves do Azure** = Desabilitado |**Conectividade SQL** = Particular (em rede virtual)<br/>**Porta** = 1433<br/>**Autenticação SQL** = Desabilitar<br/>**Configuração de armazenamento** = Geral<br/>**Aplicação de patch automatizada** = Domingo às 2:00<br/>**Backup automatizado** = Desabilitado</br>**Integração do Cofre de Chaves do Azure** = Desabilitado |
 
 <br/>
@@ -352,29 +383,6 @@ Em seguida, crie três VMs: duas VMs do SQL Server e uma VM para um nó de clust
 >
 
 Depois que as três VMs forem totalmente provisionadas, você precisará ingressá-las no domínio **corp.contoso.com** e conceder direitos administrativos CORP\Install às máquinas.
-
-### <a name="set-dns-on-each-server"></a>Definir DNS em cada servidor
-Primeiro, altere o endereço do servidor DNS preferencial para cada servidor membro. Siga estas etapas:
-
-1. No portal, abra o grupo de recursos **SQL-HA-RG** e selecione o computador **sqlserver-0**. Na folha **sqlserver-0**, clique em **Conectar** para abrir um arquivo RDP para acesso à Área de Trabalho Remota.
-2. Entre com sua conta de administrador (**\DomainAdmin**) e senha (**Contoso!0000**) configuradas.
-3. Por padrão, o painel **Gerenciador do Servidor** deve ser exibido. No painel esquerdo, clique em **Servidor Local** .
-4. Selecione o link **Endereço IPv4 atribuído pelo DHCP, habilitado para IPv6** .
-5. Na janela **Conexões de Rede** , selecione o ícone de rede.
-6. Na barra de comandos, clique em **Alterar as configurações dessa conexão**. Se você não vir essa opção, clique na seta dupla direita.
-7. Clique em **Protocolo IP versão 4 (TCP/IPv4)** e clique em **Propriedades**.
-8. Selecione **Usar os seguintes endereços de servidor DNS** e, em seguida, especifique o endereço do controlador de domínio primário no **Servidor DNS preferencial**.
-
-   >[!TIP]
-   >Para obter o endereço IP do servidor, use `nslookup`.<br/>
-   >No prompt de comando, digite `nslookup ad-primary-dc`.
-
-9. Clique em **OK** e em **Fechar** para confirmar as alterações.
-
-   >[!IMPORTANT]
-   >Se você perder a conexão com a Área de Trabalho Remota após alterar a configuração do DNS, acesse o Portal do Azure e reinicie a máquina virtual.
-
-Repita essas etapas para todos os servidores.
 
 ### <a name="joinDomain"></a>Ingressar os servidores no domínio
 
@@ -418,7 +426,7 @@ Para grupos de disponibilidade do SQL Server, cada VM do SQL Server precisa ser 
 
 ### <a name="create-a-sign-in-on-each-sql-server-vm-for-the-installation-account"></a>Criar uma entrada em cada VM do SQL Server para a conta de instalação
 
-Use a conta de instalação para configurar o grupo de disponibilidade. Essa conta precisa ser membro da função de servidor fixa **sysadmin** de cada VM do SQL Server. As seguintes etapas criam uma entrada para a conta de instalação:
+Use a conta de instalação (CORP\install) para configurar o grupo de disponibilidade. Essa conta precisa ser membro da função de servidor fixa **sysadmin** de cada VM do SQL Server. As seguintes etapas criam uma entrada para a conta de instalação:
 
 1. Conectar-se ao servidor por meio do protocolo RDP usando a conta  *\<MachineName\>\DomainAdmin*.
 
@@ -446,7 +454,7 @@ Repita as etapas anteriores na outra VM do SQL Server.
 
 Para adicionar os Recursos de Clustering de Failover, faça o seguinte em ambas as VMs do SQL Server:
 
-1. Na Área de Trabalho Remota para o controlador de domínio secundário, abra **Painel do Gerenciador do Servidor**.
+1. Conecte-se à máquina virtual do SQL Server por meio do protocolo RDP usando a conta *CORP\install*. Abra o **Painel do Gerenciador do Servidor**.
 2. Clique no link **Adicionar funções e recursos** no painel.
 
     ![Gerenciador de servidores - adicionar funções](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/22-addfeatures.png)
@@ -481,7 +489,7 @@ O método de abrir as portas depende da solução de firewall usada. A próxima 
 
    ![Firewall do SQL](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. Clique em **Próximo**.
+5. Clique em **Avançar**.
 6. Na página **Ação**, mantenha selecionado **Permitir a conexão** e, em seguida, clique em **Avançar**.
 7. Na página **Perfil**, aceite as configurações padrão e, em seguida, clique em **Avançar**.
 8. Na página **Nome**, especifique um nome de regra, como **Investigação do Azure LB** na caixa de texto **Nome** e clique em **Concluir**.

@@ -1,6 +1,6 @@
 ---
 title: "Replicação de dados no Armazenamento do Azure | Microsoft Docs"
-description: "Os dados na sua conta de Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura)."
+description: "Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura)."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 72e07c4fd686feee5045ef3b9a504d2ea41f8675
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 6a5ba89d8b17e0646cd8a6185da6d1094fd64d12
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="azure-storage-replication"></a>Replicação de Armazenamento do Azure
-Os dados na sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade. A replicação copia os dados no mesmo data center ou em um segundo data center, dependendo de qual opção de replicação você escolher. A replicação protege seus dados e preserva o tempo de atividade do aplicativo no caso de falhas transitórias de hardware. Se os seus dados forem replicados para um segundo data center, isso também protegerá os dados contra uma falha catastrófica no local principal.
+
+Os dados na sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade. A replicação copia os dados no mesmo data center ou em um segundo data center, dependendo de qual opção de replicação você escolher. A replicação protege seus dados e preserva o tempo de atividade do aplicativo no caso de falhas transitórias de hardware. Se os seus dados forem replicados para um segundo data center, eles estarão protegidos contra uma falha catastrófica no local principal.
 
 A replicação garante que sua conta de armazenamento atenda ao [SLA (Contrato de Nível de Serviço) do Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/) mesmo diante de falhas. Consulte o SLA para obter informações sobre as garantias do Armazenamento do Azure para disponibilidade e durabilidade.
 
@@ -33,21 +34,20 @@ Ao criar uma conta de armazenamento, você deve selecionar uma das seguintes op�
 * [Armazenamento com redundância geográfica (GRS)](#geo-redundant-storage)
 * [Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)](#read-access-geo-redundant-storage)
 
-O RA-GRS (armazenamento com redundância geográfica com acesso de leitura) é a opção padrão na criação de uma nova conta de armazenamento.
+O RA-GRS (armazenamento com redundância geográfica com acesso de leitura) é a opção padrão na criação de uma conta de armazenamento.
 
 A tabela a seguir apresenta uma visão geral das diferenças entre LRS, ZRS, GRS e RA-GRS, enquanto as seções posteriores lidam com cada tipo de replicação em mais detalhes.
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | Os dados são replicados entre vários datacenters. |Não |Sim |Sim |Sim |
-| Os dados podem ser lidos do local secundário, bem como do local primário. |Não |Não |Não |Sim |
+| Os dados podem ser lidos de um local secundário, bem como do local primário. |Não |Não |Não |Sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
 Consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para informações sobre preços para as opções de redundância diferentes.
 
 > [!NOTE]
 > O Armazenamento Premium dá suporte apenas ao LRS (armazenamento com redundância local). Para obter informações sobre o Armazenamento Premium, consulte [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](storage-premium-storage.md).
->
 >
 
 ## <a name="locally-redundant-storage"></a>Armazenamento com redundância local
@@ -61,7 +61,7 @@ O armazenamento com redundância local ainda pode ser desejável em determinados
 
 * Fornece largura de banda máxima das opções de replicação do Armazenamento do Azure.
 * Se seu aplicativo armazenar dados que possam ser facilmente reconstruídos, você pode optar por LRS.
-* Alguns aplicativos são restritos à replicação de dados somente em um país devido a requisitos de governança de dados. Uma região emparelhada pode estar em outro país; confira [regiões do Azure](https://azure.microsoft.com/regions/) para obter informações sobre pares de regiões.
+* Alguns aplicativos são restritos à replicação de dados somente em um país devido a requisitos de governança de dados. Uma região emparelhada poderia estar em outro país. Para obter mais informações sobre pares de regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
 
 ## <a name="zone-redundant-storage"></a>Armazenamento com redundância de zona
 O ZRS (armazenamento com redundância de zona) replica os dados de modo assíncrono entre datacenters em uma ou duas regiões, além de armazenar três réplicas semelhantes ao LRS, fornecendo assim maior durabilidade que o LRS. Os dados armazenados no ZRS são duráveis, mesmo se o datacenter primário estiver indisponível ou não for recuperável.
@@ -141,6 +141,6 @@ Considerações:
 * [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md)
 * [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md)
 * [Armazenamento com redundância geográfica com acesso de leitura e opções de redundância do Armazenamento do Microsoft Azure ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-* [SOSP Paper - Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* [SOSP Paper – Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 

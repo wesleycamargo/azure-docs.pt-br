@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: a71b3f455c2e84cd6aa4401621a24d5585e0da3c
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3a401be134d034ee6ed4c88df4ed728b727894c0
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,38 +31,13 @@ Este artigo descreve como usar tópicos do Barramento de Serviço e assinaturas 
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-a-ruby-application"></a>Criar um aplicativo Ruby
-Para obter instruções, confira [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
-
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de Serviço
-Para usar o Barramento de Serviço, baixe e use o pacote do Azure Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST de armazenamento.
-
-### <a name="use-rubygems-to-obtain-the-package"></a>Usar RubyGems para obter o pacote
-1. Use uma interface de linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
-2. Digite "gem install azure" na janela de comandos para instalar a gema e as dependências.
-
-### <a name="import-the-package"></a>Importar o pacote
-Usando seu editor de texto favorito, adicione o seguinte na parte superior do arquivo do Ruby no qual você pretende usar o armazenamento:
-
-```ruby
-require "azure"
-```
-
-## <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do Barramento de Serviço
-O módulo Azure lê as variáveis de ambiente **AZURE\_SERVICEBUS\_NAMESPACE** e **AZURE\_SERVICEBUS\_ACCESS\_KEY** para obter as informações necessárias para se conectar ao namespace. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações do namespace antes de usar **Azure::ServiceBusService** com o seguinte código:
-
-```ruby
-Azure.config.sb_namespace = "<your azure service bus namespace>"
-Azure.config.sb_access_key = "<your azure service bus access key>"
-```
-
-Defina o valor do namespace para o valor que você criou, em vez de toda a URL. Por exemplo, use **"seunamespacedeexemplo"**, não "seunamespacedeexemplo.servicebus.windows.net".
+[!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="create-a-topic"></a>Criar um tópico
 O objeto **Azure::ServiceBusService** permite que você trabalhe com tópicos. O código a seguir cria um objeto **Azure::ServiceBusService**. Para criar um tópico, use o método **create\_topic()**. O exemplo a seguir cria um tópico ou imprime os erros, caso haja algum.
 
 ```ruby
-azure_service_bus_service = Azure::ServiceBusService.new
+azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
 begin
   topic = azure_service_bus_service.create_queue("test-topic")
 rescue

@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 02bf4191e60bfe7a49a37eed10f7571e08502150
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b665f45c66b35ab93e19ed1b54a6e215c93dcf57
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,8 +29,8 @@ O ponto de extremidade v2.0 pode usar o Azure AD como identidade como um serviç
 
 > [!NOTE]
 > Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0.  Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
-> 
-> 
+>
+>
 
 ## <a name="the-basics"></a>Noções básicas
 Em quase todos os fluxos do OAuth e OpenID Connect, há quatro partes envolvidas na troca:
@@ -79,12 +82,5 @@ Se você estiver pronto para ver alguns exemplos de solicitação, inicie com um
 * [Criar aplicativos Web com o Open ID Connect](active-directory-v2-protocols-oidc.md)
 * [Criar Aplicativos de Página Única com o Fluxo Implícito do OAuth 2.0](active-directory-v2-protocols-implicit.md)
 * [Criar daemons ou processos paralelos do servidor com o fluxo de credenciais do cliente OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-* Obter tokens em uma API Web com o OAuth 2.0 em nome do fluxo (em breve)
-
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* [Obter tokens em uma API Web com o OAuth 2.0 em nome do fluxo](active-directory-v2-protocols-oauth-on-behalf-of.md)
 

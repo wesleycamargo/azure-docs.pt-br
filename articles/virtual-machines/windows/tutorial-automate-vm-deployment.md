@@ -13,20 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/27/2017
+ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 54920f3b6665ce5d74bf8025d44d5e16bd8a54b4
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 014d282daffdbfc03e7f3495f8e59bfda4cdb396
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Como personalizar uma máquina virtual do Windows no Azure
-Para configurar VMs (máquinas virtuais) de uma maneira rápida e consistente, alguma forma de automação é em geral desejada. Uma abordagem comum para personalizar uma VM do Windows é usar [Extensão de script personalizado para o Windows](extensions-customscript.md). Este tutorial descreve como usar a Extensão de script personalizado para instalar e configurar o IIS para executar um site básico.
+Para configurar VMs (máquinas virtuais) de uma maneira rápida e consistente, alguma forma de automação é em geral desejada. Uma abordagem comum para personalizar uma VM do Windows é usar [Extensão de script personalizado para o Windows](extensions-customscript.md). Neste tutorial, você aprenderá a:
 
-As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [Azure PowerShell](/powershell/azure/overview).
+> [!div class="checklist"]
+> * Usar a Extensão de Script Personalizado para instalar o IIS
+> * Criar uma VM que usa a Extensão de Script Personalizado
+> * Exibir um site do IIS em execução depois que a extensão é aplicada
+
+Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="custom-script-extension-overview"></a>Visão geral da extensão de script personalizado
@@ -38,10 +44,10 @@ Usar a Extensão de script personalizado com VMs do Linux e Windows.
 
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
-Antes de criar uma VM, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupAutomate* no local *westus*:
+Antes de criar uma VM, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupAutomate* na localização *EastUS*:
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
 ```
 
 Defina o nome de usuário e a senha de um administrador para as VMs com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
@@ -61,7 +67,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
@@ -69,7 +75,7 @@ $vnet = New-AzureRmVirtualNetwork `
 # Create a public IP address and specify a DNS name
 $publicIP = New-AzureRmPublicIpAddress `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -AllocationMethod Static `
     -IdleTimeoutInMinutes 4 `
     -Name "myPublicIP"
@@ -101,7 +107,7 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
 # Create a network security group
 $nsg = New-AzureRmNetworkSecurityGroup `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -Name myNetworkSecurityGroup `
     -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 
@@ -109,7 +115,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 $nic = New-AzureRmNetworkInterface `
     -Name myNic `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -SubnetId $vnet.Subnets[0].Id `
     -PublicIpAddressId $publicIP.Id `
     -NetworkSecurityGroupId $nsg.Id
@@ -121,7 +127,7 @@ Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location westus -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
 ```
 
 Demora alguns minutos para que os recursos e a VM sejam criados.
@@ -138,7 +144,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location westus
+    -Location EastUS
 ```
 
 
@@ -158,7 +164,15 @@ Você pode inserir o endereço IP público em um navegador da Web. O site é exi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como personalizar uma VM na primeira inicialização. Vá para o próximo tutorial para aprender a gerenciar imagens de VM.
+Neste tutorial, você automatizou a instalação do IIS em uma VM. Você aprendeu como:
 
-[Criar imagens de VM personalizada](./tutorial-custom-images.md)
+> [!div class="checklist"]
+> * Usar a Extensão de Script Personalizado para instalar o IIS
+> * Criar uma VM que usa a Extensão de Script Personalizado
+> * Exibir um site do IIS em execução depois que a extensão é aplicada
+
+Vá para o próximo tutorial para aprender a gerenciar imagens de VM.
+
+> [!div class="nextstepaction"]
+> [Criar imagens de VM personalizada](./tutorial-custom-images.md)
 

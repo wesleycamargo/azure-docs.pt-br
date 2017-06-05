@@ -15,59 +15,128 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8fcd609da46e88f7db90692c7e67011df64c9b4e
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 2f33c266c14b62f51745ff67069358c007bc00a2
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Azure Data Factory
 ## <a name="overview"></a>Visão geral
-Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamente usando o SDK do .NET da Data Factory. Este artigo contém uma explicação passo a passo que você pode seguir para criar um aplicativo de console .NET de exemplo que cria e monitora uma Data Factory. Consulte [Referência de biblioteca de classes de Data Factory](https://msdn.microsoft.com/library/mt415893.aspx) para obter detalhes sobre o SDK do .NET da Data Factory.
+Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamente usando o SDK do .NET da Data Factory. Este artigo contém uma explicação passo a passo que você pode seguir para criar um aplicativo de console .NET de exemplo que cria e monitora uma Data Factory. 
+
+> [!NOTE]
+> Este artigo não abrange toda a API .NET de Data Factory. Consulte [Referência da API do .NET do Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) para obter uma documentação abrangente sobre a API do .NET do de Data Factory. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2012 ou 2013 ou 2015.
 * Baixe e instale o [Azure .NET SDK](http://azure.microsoft.com/downloads/).
-* Adicione um aplicativo cliente nativo ao Azure Active Directory. Confira [Integrar aplicativos ao Azure Active Directory](../active-directory/active-directory-integrating-applications.md) para as etapas necessárias para adicionar o aplicativo. Anote a **ID DO CLIENTE** e o **URI de REDIRECIONAMENTO** na página **CONFIGURAR**. Consulte o artigo [Tutorial de Atividade de Cópia usando a API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md) para obter etapas detalhadas. 
-* Obtenha sua **ID de assinatura** e sua **ID de locatário** do Azure. Consulte [Obter IDs da assinatura e locatário do Azure](#get-azure-subscription-and-tenant-ids) para mais instruções.
-* Baixe e instale os pacotes NuGet para Data Factory do Azure. As instruções estão no passo a passo.
+* PowerShell do Azure. Siga as instruções no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador. Você pode usar o Azure PowerShell para criar um aplicativo do Azure Active Directory.
+
+### <a name="create-an-application-in-azure-active-directory"></a>Criar um aplicativo no Azure Active Directory
+Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para o aplicativo e atribua-a à função **Colaborador de Data Factory** .
+
+1. Inicie o **PowerShell**.
+2. Execute o comando a seguir e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
+
+    ```PowerShell
+    Login-AzureRmAccount
+    ```
+3. Execute o comando a seguir para exibir todas as assinaturas dessa conta.
+
+    ```PowerShell
+    Get-AzureRmSubscription
+    ```
+4. Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Substitua **&lt;NameOfAzureSubscription**&gt; pelo nome da sua assinatura do Azure.
+
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
+
+   > [!IMPORTANT]
+   > Anote **SubscriptionId** e **TenantId** da saída desse comando.
+
+5. Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** executando o comando a seguir no PowerShell.
+
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
+
+    Se o grupo de recursos já existe, especifique se deseja atualizá-lo (S) ou mantê-lo como (N).
+
+    Se você utilizar um grupo de recursos diferente, precisará usar o nome do seu grupo de recursos no lugar de ADFTutorialResourceGroup neste tutorial.
+6. Criar um aplicativo do Azure Active Directory.
+
+    ```PowerShell
+    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
+    ```
+
+    Se você receber o erro a seguir, especifique uma URL diferente e execute o comando novamente.
+    
+    ```PowerShell
+    Another object with the same value for property identifierUris already exists.
+    ```
+7. Crie a entidade de serviço do AD.
+
+    ```PowerShell
+    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```
+8. Adicione a entidade de serviço à função de **Colaborador do Data Factory** .
+
+    ```PowerShell
+    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```
+9. Obtenha a ID do aplicativo.
+
+    ```PowerShell
+    $azureAdApplication    
+    ```
+    Anote a ID do aplicativo (IDaplicativo) na saída.
+
+Você deve ter quatro valores após estas etapas:
+
+* ID do locatário
+* ID da assinatura
+* ID do aplicativo
+* Senha (especificada no primeiro comando)
 
 ## <a name="walkthrough"></a>Passo a passo
-1. Usando o Visual Studio 2012 ou 2013, crie um aplicativo de console C# .NET.
-   1. Inicie o **Visual Studio 2012/2013/2015**.
+No passo a passo, você cria um data factory com um pipeline que contém uma atividade de cópia. A atividade de cópia copia dados de uma pasta no seu armazenamento de blobs do Azure para outra pasta no mesmo armazenamento de blobs. 
+
+A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
+
+1. Usando o Visual Studio 2012/2013/2015, crie um aplicativo de console C# .NET.
+   1. Inicie o **Visual Studio** 2012/2013/2015.
    2. Clique em **Arquivo**, aponte para **Novo** e clique em **Projeto**.
    3. Expanda **Modelos** e selecione **Visual C#**. Neste passo a passo, você usa C#, mas você pode usar qualquer linguagem .NET.
    4. Selecione **Aplicativo de console** na lista de tipos de projetos à direita.
-   5. Digite **DataFactoryAPITestApp** como o **Nome**.
-   6. Selecione **C:\ADFGetStarted** como o **Local**.
+   5. Digite **DataFactoryAPITestApp** como o Nome.
+   6. Selecione **C:\ADFGetStarted** como o Local.
    7. Clique em **OK** para criar o projeto.
 2. Clique em **Ferramentas**, aponte para **Gerenciador de Pacotes NuGet** e clique em **Console do Gerenciador de Pacotes**.
-3. No **Console do Gerenciador de Pacotes**, digite os comandos a seguir, um por vez.
-
-    ```
-    Install-Package Microsoft.Azure.Management.DataFactories
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
-    ```
-4. Adicione a seção **appSetttings** a seguir ao arquivo **App.config**. Esses valores são usados pelo método **GetAuthorizationHeader** .
-
-   > [!IMPORTANT]
-   > Substitua os valores de **AdfClientId**, **RedirectUri**, **SubscriptionId** e **ActiveDirectoryTenantId** pelos seus próprios valores.
-
-    ```XML
-    <appSettings>
-        <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-        <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-        <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+3. No **Console do Gerenciador de Pacotes**, realize as seguintes etapas:
+   1. Execute o seguinte comando para instalar o pacote de Data Factory: `Install-Package Microsoft.Azure.Management.DataFactories`
+   2. Execute o seguinte comando para instalar o pacote do Azure Active Directory (use a API do Active Directory no código): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
+4. Substitua o conteúdo do arquivo **App.config** no projeto pelo seguinte conteúdo: 
     
-        <!-- Replace the following values with your own -->
-        <add key="AdfClientId" value="Your AAD application ID" />
-        <add key="RedirectUri" value="Your AAD application's redirect URI" />
-        <add key="SubscriptionId" value="your subscription ID" />
-        <add key="ActiveDirectoryTenantId" value="your tenant ID" />
-    </appSettings>
+    ```xml
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+        <appSettings>
+            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+
+            <add key="ApplicationId" value="your application ID" />
+            <add key="Password" value="Password you used while creating the AAD application" />
+            <add key="SubscriptionId" value= "Subscription ID" />
+            <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+        </appSettings>
+    </configuration>
     ```
-5. Adicione as seguintes declarações **using** ao arquivo de origem (Program.cs) no projeto.
+5. No arquivo App.Config, atualize os valores para **&lt;ID do aplicativo&gt;**, **&lt;Senha&gt;**, **&lt;ID da assinatura&gt;** e **&lt;ID do locatário&gt;** com os seus próprios valores.
+6. Adicione as seguintes instruções **using** ao arquivo **Program.cs** no projeto.
 
     ```csharp
     using System.Configuration;
@@ -87,20 +156,27 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 
     ```csharp
     // create data factory management client
-    string resourceGroupName = "resourcegroupname";
-    string dataFactoryName = "APITutorialFactorySP";
-    
+
+    //IMPORTANT: specify the name of Azure resource group here
+    string resourceGroupName = "ADFTutorialResourceGroup";
+
+    //IMPORTANT: the name of the data factory must be globally unique.
+    // Therefore, update this value. For example:APITutorialFactory05122017
+    string dataFactoryName = "APITutorialFactory";
+
     TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
             ConfigurationManager.AppSettings["SubscriptionId"],
-        GetAuthorizationHeader().Result);
-    
+            GetAuthorizationHeader().Result);
+
     Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
-    
+
     DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
     ```
 
-   > [!NOTE]
-   > Substitua **resourcegroupname** pelo nome do seu grupo de recursos do Azure. Você pode criar um grupo de recursos usando o cmdlet [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
+   > [!IMPORTANT]
+   > Substitua o valor de **resourceGroupName** pelo nome do seu grupo de recursos do Azure. Você pode criar um grupo de recursos usando o cmdlet [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
+   >
+   > O nome de atualização do data factory (NomedataFactory) deve ser exclusivo. O nome de data factory deve ser exclusivo. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 7. Adicione o seguinte código que cria um **data factory** no método **Main**.
 
     ```csharp
@@ -118,23 +194,23 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
         }
     );
     ```
-8. Adicione o seguinte código que cria um **serviço vinculado** no método **Principal**.
+8. Adicione o seguinte código, que cria um **serviço vinculado do Armazenamento do Azure** para o método **Main**.
 
-   > [!NOTE]
-   > Use o **nome de conta** e a **chave de conta** da sua conta de armazenamento do Azure para **ConnectionString**.
+   > [!IMPORTANT]
+   > Substitua **storageaccountname** e **accountkey** pelo nome e pela chave da sua conta de Armazenamento do Azure.
 
     ```csharp
-    // create a linked service
-    Console.WriteLine("Creating a linked service");
+    // create a linked service for input data store: Azure Storage
+    Console.WriteLine("Creating Azure Storage linked service");
     client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
         new LinkedServiceCreateOrUpdateParameters()
         {
             LinkedService = new LinkedService()
             {
-                Name = "LinkedService-AzureStorage",
+                Name = "AzureStorageLinkedService",
                 Properties = new LinkedServiceProperties
                 (
-                    new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>")
+                    new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<accountkey>")
                 )
             }
         }
@@ -160,7 +236,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
             Name = Dataset_Source,
             Properties = new DatasetProperties()
             {
-                LinkedServiceName = "LinkedService-AzureStorage",
+                LinkedServiceName = "AzureStorageLinkedService",
                 TypeProperties = new AzureBlobDataset()
                 {
                     FolderPath = "adftutorial/",
@@ -193,7 +269,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
             Properties = new DatasetProperties()
             {
     
-                LinkedServiceName = "LinkedService-AzureStorage",
+                LinkedServiceName = "AzureStorageLinkedService",
                 TypeProperties = new AzureBlobDataset()
                 {
                     FolderPath = "adftutorial/apifactoryoutput/{Slice}",
@@ -280,24 +356,6 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
         }
     });
     ```
-11. Adicione o método auxiliar a seguir usado pelo método **Main** na classe **Program**. Esse método exibe uma caixa de diálogo que permite fornecer o **nome de usuário** e a **senha** que você usa para fazer logon no portal do Azure.
-
-    ```csharp
-    public static async Task<string> GetAuthorizationHeader()
-    {
-        var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-        AuthenticationResult result = await context.AcquireTokenAsync(
-            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-            clientId: ConfigurationManager.AppSettings["AdfClientId"],
-            redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-            promptBehavior: PromptBehavior.Always);
-
-        if (result != null)
-            return result.AccessToken;
-
-        throw new InvalidOperationException("Failed to acquire token");
-    }
-    ```
 12. Adicione o seguinte código ao método **Principal** para obter o status de uma fatia de dados do conjunto de dados de saída. Apenas uma fatia é esperada neste exemplo.
 
     ```csharp
@@ -365,7 +423,27 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com botão direito do mouse em **Referências** e clique em **Adicionar Referência**. Selecione caixa de seleção para o assembly `System.Configuration` e clique em **OK**.
+14. Adicione o método auxiliar a seguir usado pelo método **Main** na classe **Program**. Esse método exibe uma caixa de diálogo que permite fornecer o **nome de usuário** e a **senha** que você usa para fazer logon no portal do Azure.
+
+    ```csharp
+    public static async Task<string> GetAuthorizationHeader()
+    {
+        AuthenticationContext context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        ClientCredential credential = new ClientCredential(
+            ConfigurationManager.AppSettings["ApplicationId"],
+            ConfigurationManager.AppSettings["Password"]);
+        AuthenticationResult result = await context.AcquireTokenAsync(
+            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+            clientCredential: credential);
+
+        if (result != null)
+            return result.AccessToken;
+
+        throw new InvalidOperationException("Failed to acquire token");
+    }
+    ```
+
+15. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com botão direito do mouse em **Referências** e clique em **Adicionar Referência**. Selecione caixa de seleção para o assembly `System.Configuration` e clique em **OK**.
 15. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**.
 16. Confirme se há pelo menos um arquivo no contêiner adftutorial no seu armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo de Emp.txt no bloco de notas com o seguinte conteúdo e carregue-o no contêiner adftutorial.
 
@@ -375,97 +453,52 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
     ```
 17. Execute o exemplo, clicando em **Depurar** -> **Iniciar Depuração** no menu. Quando você vir **Obter detalhes de execução de uma fatia de dados**, aguarde alguns minutos e pressione **ENTER**.
 18. Use o Portal do Azure para verificar se a data factory **APITutorialFactory** foi criada com os seguintes artefatos:
-    * Serviço vinculado: **LinkedService_AzureStorage**
+    * Serviço vinculado: **AzureStorageLinkedService**
     * Conjunto de dados: **DatasetBlobSource** e **DatasetBlobDestination**.
     * Pipeline: **PipelineBlobSample**
 19. Verifique se um arquivo de saída foi criado na pasta **apifactoryoutput** no contêiner **adftutorial**.
 
-## <a name="log-in-without-popup-dialog-box"></a>Logon sem caixa de diálogo pop-up
-O código de exemplo no passo a passo inicia uma caixa de diálogo para inserção das credenciais do Azure. Se você precisar entrar programaticamente sem usar uma caixa de diálogo, consulte [Autenticando uma entidade de serviço com o Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-
-> [!IMPORTANT]
-> Adicione um aplicativo Web para o Azure Active Directory e anote a ID do cliente e o segredo do cliente do aplicativo.
->
->
-
-### <a name="example"></a>Exemplo
-Crie o método GetAuthorizationHeaderNoPopup.
+## <a name="get-a-list-of-failed-data-slices"></a>Obter uma lista de fatias de dados com falha 
 
 ```csharp
-public static async Task<string> GetAuthorizationHeaderNoPopup()
+// Parse the resource path
+var ResourceGroupName = "ADFTutorialResourceGroup";
+var DataFactoryName = "DataFactoryAPITestApp";
+
+var parameters = new ActivityWindowsByDataFactoryListParameters(ResourceGroupName, DataFactoryName);
+parameters.WindowState = "Failed";
+var response = dataFactoryManagementClient.ActivityWindows.List(parameters);
+do
 {
-    var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-    var context = new AuthenticationContext(authority.AbsoluteUri);
-    var credential = new ClientCredential(
-        ConfigurationManager.AppSettings["AdfClientId"],
-    ConfigurationManager.AppSettings["AdfClientSecret"]);
-    
-    AuthenticationResult result = await context.AcquireTokenAsync(
-        ConfigurationManager.AppSettings["WindowsManagementUri"],
-    credential);
+    foreach (var activityWindow in response.ActivityWindowListResponseValue.ActivityWindows)
+    {
+        var row = string.Join(
+            "\t",
+            activityWindow.WindowStart.ToString(),
+            activityWindow.WindowEnd.ToString(),
+            activityWindow.RunStart.ToString(),
+            activityWindow.RunEnd.ToString(),
+            activityWindow.DataFactoryName,
+            activityWindow.PipelineName,
+            activityWindow.ActivityName,
+            string.Join(",", activityWindow.OutputDatasets));
+        Console.WriteLine(row);
+    }
 
-    if (result != null)
-        return result.AccessToken;
-
-    throw new InvalidOperationException("Failed to acquire token");
+    if (response.NextLink != null)
+    {
+        response = dataFactoryManagementClient.ActivityWindows.ListNext(response.NextLink, parameters);
+    }
+    else
+    {
+        response = null;
+    }
 }
+while (response != null);
 ```
 
-Substitua a chamada **GetAuthorizationHeader** por uma chamada para **GetAuthorizationHeaderNoPopup** na função **Main**:
+## <a name="next-steps"></a>Próximas etapas
+Consulte o exemplo a seguir para criar um pipeline usando o SDK do .NET que copia dados de um Armazenamento de Blobs do Azure para um banco de dados SQL do Azure: 
 
-```csharp
-TokenCloudCredentials aadTokenCredentials =
-    new TokenCloudCredentials(
-    ConfigurationManager.AppSettings["SubscriptionId"],
-    GetAuthorizationHeaderNoPopup().Result);
-```
-
-Aqui está como você pode criar o aplicativo do Active Directory, a entidade de serviço e, em seguida, atribuí-lo à função de Colaborador do Data Factory:
-
-1. Configurar o aplicativo do AD.
-
-    ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "MyADAppForADF" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.myadappforadf.org/example" -Password "Pass@word1"
-    ```
-2. Crie a entidade de serviço do AD.
-
-    ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    ```
-3. Adicione a entidade de serviço à função de Colaborador do Data Factory.
-
-    ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    ```
-4. Obtenha a ID do aplicativo.
-
-    ```PowerShell
-    $azureAdApplication
-    ```
-
-Anote a ID do aplicativo e a senha (segredo do cliente), e use-a no passo a passo.
-
-## <a name="get-azure-subscription-and-tenant-ids"></a>Obter IDs da assinatura e locatário do Azure
-Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador, caso ela ainda não esteja instalada.
-
-1. Inicie o Azure PowerShell e execute o comando a seguir
-2. Execute o comando a seguir e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
-
-    ```PowerShell
-    Login-AzureRmAccount
-    ```
-
-    Se você tiver apenas uma assinatura do Azure associada a essa conta, não será necessário executar as duas próximas etapas.
-3. Execute o comando a seguir para exibir todas as assinaturas dessa conta.
-
-    ```PowerShell
-    Get-AzureRmSubscription
-    ```
-4. Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua assinatura do Azure.
-
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext
-    ```PowerShell
-
-Note down the **SubscriptionId** and **TenantId** values.
+- [Criar um pipeline para copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 

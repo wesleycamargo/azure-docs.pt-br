@@ -12,13 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 08a83bf8dca71846dd06edb9aa253f69c24d253c
-ms.lasthandoff: 04/27/2017
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 000440fb2c38eadc0ffdcab84a3c23bb034e834f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapear um nome DNS personalizado existente para aplicativos Web do Azure
@@ -27,20 +28,22 @@ Este tutorial mostra como mapear um nome DNS personalizado existente para [aplic
 
 ![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-Este tutorial mostra três cenários comuns de mapear dois nomes DNS para um aplicativo no serviço de aplicativo:
+Neste tutorial, você aprenderá como:
 
-- `www.contoso.com` - um subdomínio de `contoso.com`. Você usará um registro CNAME para mapeá-lo para o aplicativo.
-- `contoso.com` - um domínio raiz. Você usará um registro para mapeá-lo para o aplicativo.
-- `*.contoso.com`-um domínio curinga. Você usará um registro CNAME para mapeá-lo para o aplicativo.
+> [!div class="checklist"]
+> * Mapear um subdomínio (por exemplo, `www.contoso.com`) usando um registro CNAME
+> * Mapear um domínio raiz (por exemplo, `contoso.com`) usando um registro A
+> * Mapear um domínio curinga (por exemplo, `*.contoso.com`) usando um registro CNAME
+> * Automatizar o mapeamento de domínio com scripts
 
 Você pode usar um **registro CNAME** ou um **registro A** para mapear um nome DNS personalizado para o serviço de aplicativo.
 
 > [!NOTE]
-> É recomendável que você use um CNAME para todos os nomes DNS personalizados, exceto um domínio raiz (como contoso.com). 
+> É recomendável que você use um CNAME para todos os nomes DNS personalizados, exceto um domínio raiz (por exemplo, `contoso.com`). 
 > 
 > 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa de acesso ao registro DNS para seu provedor de domínio (como GoDaddy) e as permissões para editar a configuração de seu domínio. 
 
@@ -132,7 +135,7 @@ No painel de navegação à esquerda da folha do aplicativo, clique em **domíni
 
 ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Na folha **domínios personalizados** de seu aplicativo, você precisa adicionar o nome DNS totalmente qualificado personalizado (`www.contoso.com`) à lista.
+Na folha **Domínios personalizados** de seu aplicativo, você precisa adicionar o nome DNS totalmente qualificado personalizado (`www.contoso.com`) à lista.
 
 Clique no ícone **+** próximo a **Adicionar nome de host**.
 
@@ -195,6 +198,8 @@ No exemplo de captura de tela, clique em **Adicionar** para criar um registro. A
 >
 >
 
+<a name="create-a"></a>
+
 ### <a name="create-the-a-record"></a>Criar um conjunto A de registros
 
 Para mapear um registro A para seu aplicativo, o Serviço de Aplicativo exige **dois** registros DNS:
@@ -213,11 +218,13 @@ A página de registros DNS deve parecer com a seguinte captura de tela:
 
 ![Página de Registros DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
+<a name="enable-a"></a>
+
 ### <a name="enable-the-a-record-mapping-in-your-app"></a>Habilitar o mapeamento de registro A em seu aplicativo
 
 Agora você está pronto para adicionar seus nomes DNS configurados ao seu aplicativo.
 
-De volta em seu aplicativo **domínios personalizados** página no portal do Azure, você precisa adicionar o nome DNS totalmente qualificado personalizado (`contoso.com`) à lista.
+De volta à página **Domínios personalizados** do seu aplicativo no portal do Azure, você precisa adicionar o nome DNS totalmente qualificado personalizado (`contoso.com`) à lista.
 
 Clique no ícone **+** próximo a **Adicionar nome de host**.
 
@@ -325,8 +332,10 @@ Você pode automatizar o gerenciamento de domínios personalizados com scripts, 
 O comando a seguir adiciona um nome DNS personalizado configurado para um aplicativo de serviço de aplicativo. 
 
 ```bash 
-az appservice web config hostname add --webapp <app_name> --resource-group <resourece_group_name> \ 
---name <fully_qualified_domain_name> 
+az appservice web config hostname add \
+    --webapp <app_name> \
+    --resource-group <resourece_group_name> \ 
+    --name <fully_qualified_domain_name> 
 ``` 
 
 Para obter mais informações, consulte [mapear um domínio personalizado para um aplicativo web](scripts/app-service-cli-configure-custom-domain.md) 
@@ -336,13 +345,26 @@ Para obter mais informações, consulte [mapear um domínio personalizado para u
 O comando a seguir adiciona um nome DNS personalizado configurado para um aplicativo de serviço de aplicativo. 
 
 ```PowerShell  
-Set-AzureRmWebApp -Name <app_name> -ResourceGroupName <resourece_group_name> ` 
--HostNames @(<fully_qualified_domain_name>,"<app_name>.azurewebsites.net") 
+Set-AzureRmWebApp `
+    -Name <app_name> `
+    -ResourceGroupName <resourece_group_name> ` 
+    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
 Para obter mais informações, consulte [Atribuir um domínio personalizado para um aplicativo web](scripts/app-service-powershell-configure-custom-domain.md).
 
-## <a name="more-resources"></a>Mais recursos
+## <a name="next-steps"></a>Próximas etapas
 
-[Configurar um domínio de serviço de aplicativo no serviço de aplicativo do Azure](custom-dns-web-site-buydomains-web-app.md)
+Neste tutorial, você aprendeu a:
+
+> [!div class="checklist"]
+> * Mapear um subdomínio usando um registro CNAME
+> * Mapear um domínio raiz usando um registro A
+> * Mapear um domínio curinga usando um registro CNAME
+> * Automatizar o mapeamento de domínio com scripts
+
+Avance para o próximo tutorial para saber como associar um certificado SSL personalizado a ele.
+
+> [!div class="nextstepaction"]
+> [Associar um certificado SSL personalizado existente a Aplicativos Web do Azure](app-service-web-tutorial-custom-ssl.md)
 

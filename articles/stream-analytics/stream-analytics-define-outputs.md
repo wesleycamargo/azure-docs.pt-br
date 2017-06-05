@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: f2c67bb0629c8a37e557d4813e3efa459f3c82ad
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 693a4a0dbe7e067492040a12c6cb3b003bbcc54e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -301,15 +302,15 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Codificação |Se o formato for CSV ou JSON, uma codificação deve ser especificada. UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador |Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
 
-## <a name="documentdb"></a>Banco de Dados de Documentos
-[Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/) é um serviço de Banco de Dados de Documentos NoSQL totalmente gerenciado, que oferece transações e consulta de dados sem esquema, desempenho previsível e confiável e rápido desenvolvimento.
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+O [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) é um serviço de banco de dados de documentos NoSQL totalmente gerenciado que oferece consulta e transações de dados sem esquemas, com desempenho previsível e confiável e desenvolvimento rápido.
 
-A lista abaixo detalha os nomes de propriedade e sua descrição para a criação de uma saída do DocumentDB.
+A lista abaixo fornece detalhes dos nomes de propriedade e sua descrição para a criação de um resultado do Azure Cosmos DB.
 
 * **Alias de Saída** : um alias para se referir a essa saída em sua consulta ASA  
-* **Nome da Conta** : o nome ou URI do ponto de extremidade da conta do Banco de Dados de Documentos.  
-* **Chave da Conta** : a chave de acesso compartilhado para a conta do Banco de Dados de Documentos.  
-* **Banco de dados** : o nome do banco de dados do Banco de Dados de Documentos.  
+* **Nome da Conta** – o nome ou o URI do ponto de extremidade da conta do Cosmos DB.  
+* **Chave de Conta** – a chave de acesso compartilhado da conta do Cosmos DB.  
+* **Banco de Dados** – o nome do banco de dados do Cosmos DB.  
 * **Padrão do Nome de Coleção** – O nome da coleção ou seu padrão que será usado para as coleções. O formato de nome da coleção pode ser construído com o token {partição} opcional, em que as partições começam em 0. A seguir estão as entradas válidas de exemplo:  
   1\) MyCollection – uma coleção denominada “MyCollection” deve existir.  
   2\) MyCollection{partition} – estas coleções devem existir – "MyCollection0”, “MyCollection1”, “MyCollection2” e assim por diante.  

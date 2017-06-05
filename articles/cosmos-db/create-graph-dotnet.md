@@ -1,25 +1,25 @@
 ---
 title: Compilar um aplicativo .NET do BD Cosmos do Azure usando a API do Graph | Microsoft Docs
 description: "Apresenta um exemplo de código .NET que pode ser usado para conectar e consultar o BD Cosmos do Azure"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 07a13c3e9e2baefe0be7ed417ba105dd23a3708d
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 597b12b98edb07e453fc3cd5a0884c584a5bfd14
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -37,23 +37,11 @@ Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o 
 
 ## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>Adicionar um gráfico
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## <a name="add-sample-data"></a>Adicionar dados de exemplo
-
-Agora é possível adicionar dados ao seu gráfico usando o Data Explorer.
-
-1. No Data Explorer, expanda **banco de dados de exemplo**, **gráfico de exemplo**, clique em **Gráfico** e, em seguida, clique em **Novo Vértice** e **Nova Borda** para adicionar itens ao seu gráfico. O Data Explorer é também o recurso pelo qual você pode dimensionar a taxa de transferência e adicionar procedimentos armazenados, funções definidas pelo usuário e gatilhos ao contêiner.
-
-    ![Adicionar bordas e vértices a um gráfico no Data Explorer](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Depois de adicionar alguns itens, clique no botão **Aplicar Filtro** ou clique com o botão direito do mouse em **Gráfico** e clique em **Nova Consulta do Gráfico** para ver o gráfico visual dos seus dados. Você pode alterar o modo como os dados são rotulados e têm seu estilo definido clicando no botão **Estilo** e alterando suas configurações. Aqui está um exemplo de gráfico no Data Explorer, os rótulos, cores e dados mostrados podem todos ser modificados.
-
-    ![Gerenciador de gráficos visuais no Data Explorer no Portal do Azure](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
@@ -114,7 +102,7 @@ Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arq
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
+Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
 1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `App.config` na próxima etapa.
 
@@ -154,7 +142,7 @@ Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consult
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

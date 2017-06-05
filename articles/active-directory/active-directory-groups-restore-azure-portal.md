@@ -1,5 +1,6 @@
 ---
-title: "Restaurar um grupo do Office 365 excluído na visualização do Azure Active Directory | Microsoft Docs"
+
+title: "Restaurar um grupo do Office 365 excluído no Azure Active Directory | Microsoft Docs"
 description: "Como restaurar um grupo excluído, exibir grupos restauráveis e excluir permanentemente um grupo no Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 473f3e464324cc2667428485235e3b942c736382
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restaurar um grupo do Office 365 excluído na visualização do Azure Active Directory
 
-Quando você exclui um grupo do Office 365 na visualização do Azure Active Directory (Azure AD), o grupo excluído é mantido, mas não fica visível por 30 dias a partir da data de exclusão. Isso é para que o grupo e seu conteúdo possam ser restaurados se necessário. Essa funcionalidade é restrita exclusivamente a grupos do Office 365 no Azure AD. Ele não fica disponível para grupos de segurança e de distribuição.
+Quando você exclui um grupo do Office 365 no Azure AD (Azure Active Directory), o grupo excluído é mantido, mas não fica visível por 30 dias a partir da data de exclusão. Isso é para que o grupo e seu conteúdo possam ser restaurados se necessário. Essa funcionalidade é restrita exclusivamente a grupos do Office 365 no Azure AD. Ele não fica disponível para grupos de segurança e de distribuição.
 
 As permissões necessárias para restaurar um grupo podem ser qualquer uma das seguintes:
 
@@ -37,8 +38,7 @@ Usuário | Pode restaurar qualquer grupo do Office 365 excluído que era proprie
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Como exibir grupos do Office 365 excluídos que estão disponíveis para restauração
-Os cmdlets a seguir podem ser usados para exibir os grupos excluídos para verificar que aqueles em que você está interessado ainda não foram permanentemente removidos. Esses cmdlets fazem parte do [módulo de Visualização do Azure Active Directory PowerShell V2](https://www.powershellgallery.com/packages/AzureADPreview). Mais informações sobre esse módulo podem ser encontradas no artigo [Azure Active Directory PowerShell Versão 2](/powershell/azure/install-adv2?view=azureadps-2.0).
-Observe que os cmdlets para gerenciamento de recuperação e exclusão reversível estão em Visualização Pública e, às vezes, precisamos fazer alterações significativas para visualizar os cmdlets. Por esse motivo, não é recomendado usar esses cmdlets em um ambiente de produção.
+Os cmdlets a seguir podem ser usados para exibir os grupos excluídos para verificar que aqueles em que você está interessado ainda não foram permanentemente removidos. Esses cmdlets são parte do módulo do [PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/). Mais informações sobre esse módulo podem ser encontradas no artigo [Azure Active Directory PowerShell Versão 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 1.    Execute o cmdlet a seguir para exibir todos os grupos do Office 365 excluídos em seu locatário que ainda estão disponíveis para restauração.
   ```

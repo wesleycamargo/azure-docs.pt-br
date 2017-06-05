@@ -15,26 +15,28 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 6d5ee44b57ce3e60b72ff2a2d182f2b8a39ecf81
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6ea2cfcf41900ecbf4d254cc4a195848144a0fa0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o Transact-SQL
 
-Este artigo mostra como iniciar o failover para um Banco de Dados SQL secundário usando o Transact-SQL. Para configurar a Replicação Geográfica, consulte [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure](sql-database-geo-replication-transact-sql.md).
+Este artigo mostra como iniciar o failover para um Banco de Dados SQL secundário usando o Transact-SQL. Para configurar a replicação geográfica, consulte [Configurar a replicação geográfica para o banco de dados SQL do Azure](sql-database-geo-replication-transact-sql.md).
 
 Para iniciar o failover, você precisará do seguinte:
 
-* Um logon que é o DBManager no primário, ter o db_ownership do banco de dados local que você replicará geograficamente e ser o DBManager no servidor parceiro para o qual você vai configurar a Replicação Geográfica.
-* SQL Server Management Studio (SSMS)
+* Um logon que seja DBManager no primário
+* Ter db_ownership de banco de dados local que replicará geograficamente
+* Ser DBManager nos servidores do parceiro para os quais você configurará a replicação geográfica
+* A versão mais recente do SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
 > Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
+>  
 
 ## <a name="initiate-a-planned-failover-promoting-a-secondary-database-to-become-the-new-primary"></a>Iniciar um failover planejado promovendo um banco de dados secundário para se tornar o novo primário
 Você pode usar a instrução **ALTER DATABASE** para promover um banco de dados secundário para se tornar o novo banco de dados primário de maneira planejada, rebaixando o primário existente para se tornar um secundário. Essa instrução é executada no banco de dados mestre no servidor lógico do Banco de Dados SQL do Azure no qual reside o banco de dados secundário replicado geograficamente que está sendo promovido. Essa funcionalidade é designada para o failover planejado, como durante os exercícios de recuperação de desastres, e requer que o banco de dados primário esteja disponível.
@@ -42,7 +44,7 @@ Você pode usar a instrução **ALTER DATABASE** para promover um banco de dados
 O comando executa o seguinte fluxo de trabalho:
 
 1. Alterna temporariamente a replicação para o modo síncrono, fazendo com que todas as transações pendentes sejam enviadas para o secundário e bloqueando todas as novas transações;
-2. Alterna as funções dos dois bancos de dados na parceria de Replicação Geográfica.  
+2. Alterna as funções dos dois bancos de dados na parceria de replicação geográfica.  
 
 Essa sequência garante que os dois bancos de dados estejam sincronizados antes que as funções sejam alternadas, de forma que não ocorra nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. Se o banco de dados primário tiver vários bancos de dados secundários, o comando reconfigurará automaticamente os outros secundários para se conectar ao novo primário.  A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para saber mais, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de Serviço](sql-database-service-tiers.md).
 
@@ -61,7 +63,7 @@ Use as etapas a seguir para iniciar um failover planejado.
 > 
 
 ## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Iniciar um failover não planejado do banco de dados primário para o banco de dados secundário
-Você pode usar a instrução **ALTER DATABASE** para promover um banco de dados secundário para se tornar o novo banco de dados primário de maneira planejada, rebaixando o primário existente para se tornar um secundário quando o banco de dados primário não estiver mais disponível. Essa instrução é executada no banco de dados mestre no servidor lógico do Banco de Dados SQL do Azure no qual reside o banco de dados secundário replicado geograficamente que está sendo promovido.
+Você pode usar a instrução **ALTER DATABASE** para promover um banco de dados secundário para se tornar o novo banco de dados primário de maneira não planejada, rebaixando o primário existente para se tornar um secundário quando o banco de dados primário não estiver mais disponível. Essa instrução é executada no banco de dados mestre no servidor lógico do Banco de Dados SQL do Azure no qual reside o banco de dados secundário replicado geograficamente que está sendo promovido.
 
 Essa funcionalidade foi designada para a recuperação de desastres quando a restauração da disponibilidade do banco de dados é fundamental e a perda de dados é aceitável. Quando o failover forçado é chamado, o banco de dados secundário especificado imediatamente se torna o banco de dados primário e começa a aceitar as transações de gravação. Assim que o banco de dados primário original for capaz de se reconectar com o novo banco de dados primário, um backup incremental será realizado no banco de dados primário original e o antigo banco de dados primário será transformado em um banco de dados secundário para o novo banco de dados primário; em seguida, será simplesmente uma réplica de sincronização do novo primário.
 
@@ -85,10 +87,10 @@ Use as etapas a seguir para iniciar um failover não planejado.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Após o failover, verifique se os requisitos de autenticação para o servidor e o banco de dados estão configurados no novo primário. Para obter detalhes, consulte [Segurança do Banco de Dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
-* Para saber mais sobre a recuperação após um desastre usando a replicação geográfica ativa, incluindo as etapas anteriores e posteriores à recuperação e como executar uma análise de recuperação de desastre, confira [Recuperação de Desastre](sql-database-disaster-recovery.md)
-* Para ver uma postagem de blog de Sasha Nosov sobre a replicação geográfica ativa, confira [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-* Para obter informações sobre a criação de aplicativos de nuvem para usar a replicação geográfica ativa, confira [Projetando aplicativos de nuvem para continuidade de negócios usando a Replicação Geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* Para obter informações sobre o uso da Replicação geográfica ativa com pools elásticos, consulte [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)(Estratégias de recuperação de desastre do pool elástico).
+* Para saber mais sobre a recuperação após um desastre usando a replicação geográfica ativa, incluindo as etapas anteriores e posteriores à recuperação e como executar uma análise de recuperação de desastre, confira [Recuperação de desastre](sql-database-disaster-recovery.md)
+* Para ver uma postagem de blog de Sasha Nosov sobre a replicação geográfica ativa, confira [Destaque sobre novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+* Para obter informações sobre a criação de aplicativos de nuvem para usar a replicação geográfica ativa, confira [Projetando aplicativos de nuvem para continuidade de negócios usando a replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+* Para obter informações sobre o uso da replicação geográfica ativa com pools elásticos, consulte [Estratégias de recuperação de desastre do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 * Para obter uma visão geral sobre a continuidade dos negócios, confira [Visão geral de continuidade dos negócios](sql-database-business-continuity.md)
 
 

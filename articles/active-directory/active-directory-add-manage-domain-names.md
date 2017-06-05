@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 77d857e8d692f8bf47e00d655071a825533290b6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: b1ea25a3ec4c10d1821ea876055b15e38d269432
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -58,7 +60,7 @@ Para excluir um nome de domínio personalizado, primeiro você deve assegurar qu
 Você deve alterar ou excluir qualquer recurso desse tipo em seu diretório do Azure AD antes que possa excluir o nome de domínio personalizado.
 
 ## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Usar o PowerShell ou o Graph API para gerenciar nomes de domínio
-A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Directory também pode ser concluída usando o Microsoft PowerShell ou de forma programática, usando a API do Microsoft Azure AD Graph (em preview pública).
+A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Directory também pode ser concluída usando o Microsoft PowerShell ou de forma programática, usando a API do Graph do Azure AD.
 
 * [Como usar o PowerShell para gerenciar nomes de domínio no Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Como usar a API do Graph para gerenciar nomes de domínio no Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
@@ -66,10 +68,5 @@ A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Di
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre nomes de domínio no Azure AD](active-directory-add-domain-concepts.md)
 * [Gerenciar nomes de domínio personalizados](active-directory-add-manage-domain-names.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

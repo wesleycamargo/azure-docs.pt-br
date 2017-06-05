@@ -1,6 +1,6 @@
 ---
-title: "Como usar uma imagem personalizada do Docker para o Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
-description: "Como usar uma imagem personalizada do Docker para o Serviço de Aplicativo no Linux."
+title: Como usar uma imagem personalizada do Docker para o Aplicativo Web do Azure no Linux | Microsoft Docs
+description: Como usar uma imagem personalizada do Docker para o Aplicativo Web do Azure no Linux.
 keywords: "serviço de aplicativo do azure, aplicativo web, linux, docker, contêiner"
 services: app-service
 documentationcenter: 
@@ -15,15 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 7e4aab65feac187b48ccca65b35bb94185323506
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9962766b0a1fdfe313b70ea65e08785ec8a97996
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-a-custom-docker-image-for-app-service-on-linux"></a>Como usar uma imagem personalizada do Docker para o Serviço de Aplicativo no Linux #
+# <a name="using-a-custom-docker-image-for-azure-web-app-on-linux"></a>Usando uma imagem personalizada do Docker para o Aplicativo Web do Azure no Linux #
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
 
 O Serviço de Aplicativo fornece pilhas de aplicativos predefinidas no Linux com suporte para versões específicas, como PHP 7.0 e Node.js 4.5. O Serviço de Aplicativo no Linux usa contêineres do Docker para hospedar estas pilhas de aplicativos predefinidas. Também é possível usar uma imagem personalizada do Docker para implantar seu aplicativo Web em uma pilha de aplicativos que ainda não foi definida no Azure. As imagens personalizadas do Docker podem ser hospedadas em um repositório público ou privado do Docker.
 
@@ -98,12 +102,12 @@ Acesse o site SCM nas **Ferramentas Avançadas** no menu **Ferramentas de Desenv
 
 ## <a name="next-steps"></a>Próximas etapas ##
 
-Siga os links a seguir para começar a usar o Serviço de Aplicativo no Linux.   
+Siga estes links para começar a usar o Aplicativo Web no Linux.   
 
-* [Introdução ao Serviço de Aplicativo no Linux](./app-service-linux-intro.md)
-* [Como criar Aplicativos Web no Serviço de Aplicativo no Linux](./app-service-linux-how-to-create-a-web-app.md)
-* [Usando a configuração PM2 para Node.js em Aplicativos Web no Linux](./app-service-linux-using-nodejs-pm2.md)
-* [Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
+* [Introdução ao Aplicativo Web do Azure no Linux](./app-service-linux-intro.md)
+* [Criando Aplicativos Web no Aplicativo Web do Azure no Linux](./app-service-linux-how-to-create-web-app.md)
+* [Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
 
 Poste perguntas e preocupações em [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

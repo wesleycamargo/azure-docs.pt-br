@@ -13,32 +13,47 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: cynthn
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 831c55939ad3673aa8e44f165e18e826f64b54cc
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 022396a8bf0478414be179b9f7341a459ed2bc60
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="how-to-use-availability-sets"></a>Como usar os conjuntos de disponibilidade
 
-Neste tutorial, você aprenderá a aumentar a disponibilidade de suas VMs (máquinas virtuais) colocando-as em um agrupamento lógico chamado de conjunto de disponibilidade. Quando você cria VMs em um conjunto de disponibilidade, a plataforma do Azure distribui as VMs na infraestrutura subjacente. Se houver uma falha de hardware ou manutenção planejada na plataforma, o uso dos conjuntos de disponibilidade garante que pelo menos uma VM permaneça em execução.
+Neste tutorial, você aprenderá a aumentar a disponibilidade e a confiabilidade de suas soluções de Máquina Virtual no Azure usando uma capacidade chamada Conjuntos de Disponibilidade. Os Conjuntos de disponibilidade garantem que as VMs implantadas no Azure sejam distribuídas entre vários clusters de hardware isolados. Isso garante que, se ocorrer uma falha de hardware ou de software no Azure, apenas um subconjunto de suas VMs será afetado e a solução geral permanecerá disponível e operacional para seus clientes. 
 
-As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Neste tutorial, você aprenderá a:
+
+> [!div class="checklist"]
+> * Criar um conjunto de disponibilidade
+> * Criar uma VM em um conjunto de disponibilidade
+> * Verificar os tamanhos de VM disponíveis
+
+Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="availability-set-overview"></a>Visão geral do conjunto de disponibilidade
 
-É possível criar máquinas virtuais em agrupamentos lógicos de hardware no datacenter do Azure subjacente. Quando você cria duas ou mais VMs, seus recursos de computação e armazenamento são distribuídos pelo hardware, como servidores, comutadores de rede e armazenamento. Essa distribuição mantém a disponibilidade de seu aplicativo, caso um componente de hardware passe por manutenção. Os conjuntos de disponibilidade permitem que você defina o agrupamento lógico.
+Um Conjunto de disponibilidade é uma funcionalidade de agrupamento lógico que você pode usar no Azure para garantir que os recursos da VM colocados nele sejam isolados uns dos outros quando forem implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um Conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Isso garante que no caso de falha de hardware ou software do Azure, apenas um subconjunto de suas VMs será afetado e seu aplicativo geral permanecerá disponível e ativo para seus clientes. Os conjuntos de disponibilidade são uma funcionalidade essencial quando você quer compilar soluções de nuvem confiáveis.
 
-Os conjuntos de disponibilidade oferecem alta disponibilidade às VMs. Você também deve ter certeza de que seus aplicativos foram projetados para tolerar falhas ou eventos de manutenção.
+Vamos considerar uma solução comum baseada em VM na qual você pode ter quatro servidores Web front-end e usar duas VMs de back-end que hospedam um banco de dados. Com o Azure, convém definir dois conjuntos de disponibilidade antes de implantar suas VMs: um conjunto de disponibilidade para a camada "Web" e um conjunto de disponibilidade para a camada "banco de dados". Ao criar uma nova VM, você pode especificar o conjunto de disponibilidade como um parâmetro para o comando az vm create e o Azure garantirá automaticamente que as VMs criadas dentro do conjunto de disponibilidade sejam isoladas em vários recursos de hardware físico. Isso significa que, se o hardware físico no qual um de seus servidores Web ou VMs do servidor de banco de dados estiverem em execução enfrentar um problema, você saberá que outras instâncias de seu servidor Web e VMs de banco de dados permanecerão em execução, pois estão em um hardware diferente.
+
+Sempre use Conjuntos de disponibilidade quando quiser implantar soluções confiáveis baseadas em VM no Azure.
 
 ## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
 Você pode criar um conjunto de disponibilidade usando [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). Nesse exemplo, definimos o número de domínios de atualização e de falha como *2* para o conjunto de disponibilidade chamado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
+
+Crie um grupos de recursos.
+
+```powershell
+New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
+```
 
 
 ```powershell
@@ -159,9 +174,17 @@ Get-AzureRmVMSize `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como criar um conjunto de escala de máquina virtual. Avance para o próximo tutorial para saber mais sobre conjuntos de disponibilidade de máquinas virtuais.
+Neste tutorial, você aprendeu como:
 
-[Criar um conjunto de dimensionamento da VM](tutorial-create-vmss.md)
+> [!div class="checklist"]
+> * Criar um conjunto de disponibilidade
+> * Criar uma VM em um conjunto de disponibilidade
+> * Verificar os tamanhos de VM disponíveis
+
+Avance para o próximo tutorial para saber mais sobre conjuntos de disponibilidade de máquinas virtuais.
+
+> [!div class="nextstepaction"]
+> [Criar um conjunto de dimensionamento da VM](tutorial-create-vmss.md)
 
 
 

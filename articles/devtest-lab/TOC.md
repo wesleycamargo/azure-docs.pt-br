@@ -9,10 +9,11 @@
 ## [Criar sua primeira VM](devtest-lab-create-first-vm.md)
 ## [Definir políticas iniciais](devtest-lab-get-started-with-lab-policies.md)
 
-# Como:
+# Guias de instruções
 ## Usar VMs em um laboratório
 ### [Criar VMs](devtest-lab-add-vm.md)
 ### [Criar VM declarável](devtest-lab-add-claimable-vm.md)
+### [Criar e gerenciar VMs com a CLI do Azure](devtest-lab-vmcli.md)
 
 ## Usar ambientes em um laboratório
 ### [Criar um ambiente](devtest-lab-create-environment-from-arm.md)
@@ -44,6 +45,8 @@
 ## Gerenciar redes virtuais
 ### [Configurar redes virtuais](devtest-lab-configure-vnet.md)
 ### [Selecionar opção de configuração de IP](devtest-lab-shared-ip.md)
+
+## [Dimensionar seu laboratório](devtest-lab-scale-lab.md)
 
 # Referência
 ## [CLI 2.0](/cli/azure/lab)

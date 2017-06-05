@@ -14,9 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
 ms.openlocfilehash: 0ab6506e14997c0c6d58afa22db63f928d7cceb9
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -233,10 +236,5 @@ Para continuar aprendendo sobre o ponto de extremidade v2.0, confira nosso [guia
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

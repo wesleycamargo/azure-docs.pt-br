@@ -10,6 +10,7 @@
 | Leituras de API do Gerenciador de Recursos |15.000 por hora |15.000 por hora |
 | Gravações de API do Gerenciador de Recursos |1.200 por hora |1.200 por hora |
 | Tamanho da solicitação de API do Gerenciador de Recursos |4194304 bytes |4194304 bytes |
+| Marcas por assinatura |10000 |10000 |
 | [Serviços de nuvem](../articles/cloud-services/cloud-services-choose-me.md) por assinatura |Não aplicável<sup>3</sup> |Não aplicável<sup>3</sup> |
 | [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura |Não aplicável<sup>3</sup> |Não aplicável<sup>3</sup> |
 

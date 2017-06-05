@@ -3,7 +3,7 @@ title: "Gerenciar preços e volume de dados do Azure Application Insights | Micr
 description: Gerencie volumes de telemetria e monitore custos no Application Insights.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
+ms.date: 05/10/2017
+ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6f84365acb9a1cc1fc31fa5f3c04cd112f68087b
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0a66567d7381f38787f9aa7652c944e4bb3aef82
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -148,10 +148,7 @@ Para definir a amostragem de ingestão, defina o controle na folha Preço:
 ![Na folha Cota e preço, clique no bloco Exemplos e selecione uma fração de amostragem.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> O valor mostrado no bloco Exemplos Retidos indica somente o valor definido para amostragem de ingestão. Ele não mostra a taxa de amostragem operando com o SDK em seu aplicativo. 
-> 
-> Se a telemetria de entrada já tiver sido obtida como amostra no SDK, a amostragem de ingestão não será aplicada.
-> 
+> A folha Amostragem de dados só controla o valor de amostragem de ingestão. Ele não reflete a taxa de amostragem aplicada pelo SDK do Application Insights em seu aplicativo. Se a telemetria de entrada já tiver sido obtida como amostra no SDK, a amostragem de ingestão não será aplicada.
 > 
 
 Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](app-insights-analytics.md) como esta:

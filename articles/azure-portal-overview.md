@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-translationtype: Human Translation
-ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
-ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e4c1c2b956b2cae673e60223ce777ba1096dce33
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -32,7 +33,7 @@ O portal do Microsoft Azure é um local central no qual você pode provisionar e
   ![Orientação da interface do usuário do Portal do Azure][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Antes de começar
-Você precisará de uma assinatura válida do Azure para realizar este tutorial.  Se não tiver uma, [inscreva-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) hoje mesmo.  Quando tiver uma assinatura, você pode acessar o portal em [https://portal.azure.com].
+Você precisará de uma assinatura válida do Azure para realizar este tutorial.  Se não tiver uma, [inscreva-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) hoje mesmo.  Quando tiver uma assinatura, você pode acessar o portal em <https://portal.azure.com>.
 
 ## <a name="how-to-create-a-resource"></a>Como criar um recurso
 O Azure tem um marketplace com milhares de itens que você pode criar em um único lugar.  Digamos que você deseja criar uma nova VM (máquina virtual) do Windows Server 2012.  A hub +NOVO é o ponto de entrada para um conjunto estruturado de categorias em destaque do marketplace.  Cada categoria tem um pequeno conjunto de itens em destaque juntamente com um link para o marketplace completo que mostra todas as categorias e a pesquisa. Para criar essa nova VM do Windows Server 2012, execute as seguintes ações:  

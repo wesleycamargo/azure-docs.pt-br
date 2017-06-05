@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: de997066642c72a0a9e1d7210a96a3904580e6ed
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4371092aa31db444c4ca0374b4b2e7d700029a8b
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,7 +31,7 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e co
 >
 
 > [!IMPORTANT]
-> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -206,7 +207,7 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
   >
   >     java.exe -jar [o caminho do arquivo jar do SQuirreL]
 5. Clique em **OK** para confirmar a criação do diretório de destino.
-6. A configuração padrão é para instalar os pacotes Base e Padrão.  Clique em **Próximo**.
+6. A configuração padrão é para instalar os pacotes Base e Padrão.  Clique em **Avançar**.
 7. Clique em **Próximo** duas vezes e, em seguida, clique em **Pronto**.
 
 **Para instalar o driver do Phoenix**

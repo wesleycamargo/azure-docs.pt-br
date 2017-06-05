@@ -15,10 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8429ee543d8cf838765ff9e8624390746474ee0d
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 6bab6cbd84c55e668f2caf9b9f94621eec982203
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -36,10 +37,7 @@ Você não pode converter um disco não gerenciado em um disco gerenciado se o d
 - Anexe o VHD copiado com [az vm disk attach](/cli/azure/vm/disk#attach) a uma VM em execução com discos gerenciados.
 
 ## <a name="convert-vm-to-azure-managed-disks"></a>Conversão de uma VM em Azure Managed Disks
-Esta seção aborda como converter suas VMs do Azure existentes de discos não gerenciados em discos gerenciados. Você pode usar este processo para converter discos (SSD) não gerenciados premium em discos gerenciados premium, ou discos (HDD) não gerenciados padrão em discos gerenciados padrão.
-
-> [!IMPORTANT]
-> Depois de executar o procedimento a seguir, há um único blob de blocos que permanece no contêiner de vhds padrão. O nome do arquivo é "VMName.xxxxxxx.status". Não exclua esse objeto de status restante. Um trabalho futuro deverá resolver esse problema.
+Esta seção aborda como converter suas VMs do Azure existentes de discos não gerenciados em discos gerenciados. Você pode usar este processo para converter discos (SSD) não gerenciados Premium em discos gerenciados Premium ou discos (HDD) não gerenciados Standard em discos gerenciados Standard.
 
 1. Desaloque a VM com [az vm deallocate](/cli/azure/vm#deallocate). O seguinte exemplo desaloca a VM `myVM` no grupo de recursos chamado `myResourceGroup`:
 

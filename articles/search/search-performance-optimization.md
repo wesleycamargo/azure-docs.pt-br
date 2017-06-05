@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/02/2017
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 56eeed7634fca840172ab828be5f202d80f3f4fb
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -80,7 +81,7 @@ O objetivo de um conjunto de serviços de pesquisa distribuídos geograficamente
 Há duas opções para manter seus serviços de pesquisa distribuídos em sincronia, que são o uso do [Indexador do Azure Search](search-indexer-overview.md) ou a API Push (também conhecida como a [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/)).  
 
 ### <a name="azure-search-indexers"></a>Indexadores na Pesquisa do Azure
-Se você estiver usando o Indexador da Pesquisa do Azure, já estará importando as alterações de um repositório de dados central, como o Banco de Dados SQL do Azure ou o Banco de Dados de Documentos. Quando você cria um novo Serviço de pesquisa, você simplesmente cria também um novo Indexador de Pesquisa do Azure para esse serviço que aponta para o mesmo repositório de dados. Dessa forma, sempre que novas alterações entrarem no repositório de dados, elas serão indexadas pelos vários Indexadores.  
+Se você estiver usando o Indexador do Azure Search, já estará importando as alterações de um armazenamento de dados central, como o Banco de Dados SQL do Azure ou o Azure Cosmos DB. Quando você cria um novo Serviço de pesquisa, você simplesmente cria também um novo Indexador de Pesquisa do Azure para esse serviço que aponta para o mesmo repositório de dados. Dessa forma, sempre que novas alterações entrarem no repositório de dados, elas serão indexadas pelos vários Indexadores.  
 
 Veja um exemplo de como seria a aparência dessa arquitetura.
 

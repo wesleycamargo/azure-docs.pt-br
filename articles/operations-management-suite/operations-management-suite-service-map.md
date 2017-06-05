@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: aca6cd69647406d0140d8b0d0cba8e4690b04ae1
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ce71f8cd842746e6e236f4a2034ba3ee3001586c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -47,23 +48,23 @@ O Mapa do Serviço aprimora seu uso da Avaliação de atualização do sistema O
 
 
 ## <a name="mapping-overview"></a>Visão geral do mapeamento
-Os agentes do Mapa do Serviço coletam informações sobre todos os processos conectados a TCP no servidor onde estão instalados, bem como detalhes sobre as conexões de entrada e saída de cada processo.  Usando a Lista de Máquinas no lado esquerdo da solução Mapa do Serviço, os computadores com agentes do Mapa do Serviço podem ser selecionados a fim de visualizar suas dependências em um intervalo de tempo selecionado.  O mapa de dependência da máquina se concentra em uma máquina específica e mostra todas as máquinas que são clientes TCP diretos ou servidores dessa máquina.
+Os agentes do Mapa do Serviço coletam informações sobre todos os processos conectados a TCP no servidor em que estão instalados e detalhes sobre as conexões de entrada e saída de cada processo.  Usando a Lista de Máquinas no lado esquerdo da solução Mapa do Serviço, os computadores com agentes do Mapa do Serviço podem ser selecionados a fim de visualizar suas dependências em um intervalo de tempo selecionado.  O mapa de dependência da máquina se concentra em uma máquina específica e mostra todas as máquinas que são clientes TCP diretos ou servidores dessa máquina.
 
 ![Visão geral do Mapa do Serviço](media/oms-service-map/service-map-overview.png)
 
 Máquinas podem ser expandidas no mapa para mostrar os processos em execução com conexões de rede ativas durante o intervalo de tempo selecionado.  Quando um computador remoto com um agente do Mapa do Serviço é expandido para mostrar os detalhes do processo, somente os processos de comunicação com a máquina de foco são exibidos.  A contagem de máquinas de front-end sem agente se conectando com a máquina de foco é indicada no lado esquerdo dos processos aos quais elas se conectam.  Se o computador em foco estiver fazendo uma conexão com um computador de back-end sem um agente, o servidor de back-end será incluído em um Grupo de Portas de Servidor com outras conexões com o mesmo número de porta.
 
-Por padrão, os mapas do Mapa do Serviço mostram os últimos 10 minutos de informações de dependência.  Usando os controles de tempo na parte superior esquerda, os mapas podem ser consultados com relação a intervalos históricos, até uma hora, a fim de mostrar como eram as dependências no passado, por exemplo, durante um incidente ou antes de uma alteração.    Os dados do Mapa do Serviço são armazenados por 30 dias em espaços de trabalho pagos, e por sete dias em espaços de trabalho gratuitos.
+Por padrão, os mapas do Mapa do Serviço mostram os últimos 30 minutos de informações de dependência.  Usando os controles de tempo na parte superior esquerda, os mapas podem ser consultados com relação a intervalos de tempo históricos, até uma hora, a fim de mostrar como eram as dependências no passado, por exemplo, durante um incidente ou antes de uma alteração.    Os dados do Mapa do Serviço são armazenados por 30 dias em espaços de trabalho pagos, e por sete dias em espaços de trabalho gratuitos.
 
 ## <a name="status-badges-and-border-coloring"></a>Notificações de status e a cor de borda
-Na parte inferior de cada servidor no mapa pode haver uma lista de notificações de status que passam informações sobre o status do servidor.  As notificações indicam que há algumas informações relevantes para o servidor de uma das integrações de solução do OMS.  Clicar em uma notificação levará você diretamente até os detalhes do status no painel à direita.  As notificações de status disponíveis atualmente incluem Alertas, Alterações, Segurança e Atualizações.
+Na parte inferior de cada servidor no mapa pode haver uma lista de notificações de status que passam informações sobre o status do servidor.  As notificações indicam que há algumas informações relevantes para o servidor de uma das integrações de solução do OMS.  Clicar em uma notificação leva você diretamente até os detalhes do status no painel à direita.  As notificações de status disponíveis atualmente incluem Alertas, Alterações, Segurança e Atualizações.
 
-Com base na gravidade das notificações de status, as bordas do nó da máquina podem ser vermelho (Crítico), amarelo (Aviso) ou azul (Informativo).  A cor representa o status mais grave de qualquer uma das notificações de status.  Uma borda cinza indica um nó com nenhum indicador de status atual.
+Com base na gravidade das notificações de status, as bordas do nó da máquina podem ser vermelho (Crítico), amarelo (Aviso) ou azul (Informativo).  A cor representa o status mais grave de qualquer uma das notificações de status.  Uma borda cinza indica um nó sem indicadores de status atual.
 
 ![Notificações de status](media/oms-service-map/status-badges.png)
 
 ## <a name="role-icons"></a>Ícones de função
-Alguns processos possuem funções específicas em máquinas: servidores Web, servidores de aplicativos, banco de dados, etc.  O mapa do serviço adicionará ao processo e às caixas da máquina ícones de função para ajudar a identificar rapidamente a função de um processo ou servidor.
+Alguns processos possuem funções específicas em máquinas: servidores Web, servidores de aplicativos, banco de dados, etc.  O Mapa do Serviço adiciona ao processo e às caixas do computador ícones de função para ajudar a identificar rapidamente a função de um processo ou servidor.
 
 | Ícone de Função | Descrição |
 |:--|:--|
@@ -88,28 +89,28 @@ Os Grupos de Clientes são caixas no mapa que representam computadores cliente q
 
 ![Grupos de clientes](media/oms-service-map/client-groups.png)
 
-Para ver os endereços IP dos servidores em um Grupo de Clientes, selecione o grupo.  O conteúdo do grupo será listado no Painel Propriedades.
+Para ver os endereços IP dos servidores em um Grupo de Clientes, selecione o grupo.  O conteúdo do grupo é listado no Painel Propriedades.
 
 ![Propriedades do grupo de clientes](media/oms-service-map/client-group-properties.png)
 
 ## <a name="server-port-groups"></a>Grupos de Portas do Servidor
-Os Grupos de Portas do Servidor são caixas que representam portas de servidor em servidores que não possuem Agentes de Dependência.  A caixa listará a porta do servidor com uma contagem do número de servidores que têm conexões com essa porta.  Expanda a caixa para ver conexões e servidores individuais.  Se houver apenas um servidor na caixa, o nome ou endereço IP será listado.
+Os Grupos de Portas do Servidor são caixas que representam portas de servidor em servidores que não possuem Agentes de Dependência.  A caixa lista a porta do servidor com uma contagem do número de servidores que têm conexões com essa porta.  Expanda a caixa para ver conexões e servidores individuais.  Se houver apenas um servidor na caixa, o nome ou endereço IP será listado.
 
 ![Grupos de portas do servidor](media/oms-service-map/server-port-groups.png)
 
 ## <a name="context-menu"></a>Menu de contexto
-Clicar nos três pontos no canto superior direito de qualquer servidor mostrará o menu de contexto do servidor.
+Clicar nos três pontos no canto superior direito de qualquer servidor mostrará o menu de contexto desse servidor.
 
 ![Conexões com falha](media/oms-service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Carregar Mapa do Servidor
-Carregar Mapa do Servidor conduzirá até um novo mapa com o servidor selecionado como a nova Máquina de Foco.
+Carregar Mapa do Servidor conduzirá até um novo mapa com o servidor selecionado como o novo Computador de Foco.
 
 ### <a name="showhide-self-links"></a>Mostrar/Ocultar Self Links
-Mostrar Self Links redesenhará o nó do servidor incluindo quaisquer self links, que são conexões TCP que começam e terminam em processos no servidor.  Se os self links estiverem em exibição, o menu mudará para Ocultar Self Links, permitindo que os usuários ativem ou desativem o desenho de self links.
+Mostrar Self Links redesenha o nó de servidor incluindo quaisquer self links, que são conexões TCP que começam e terminam em processos no servidor.  Se os self links estiverem em exibição, o menu mudará para Ocultar Self Links, permitindo que os usuários ativem ou desativem o desenho de self links.
 
 ## <a name="computer-summary"></a>Resumo do computador
-O painel Resumo do Computador inclui uma visão geral do Sistema operacional do servidor e contagens de dependência junto com diversos dados de outras soluções do OMS, incluindo Métricas de Desempenho, Controle de Alterações, Segurança, Atualizações etc.
+O painel Resumo do Computador inclui uma visão geral do Sistema operacional do servidor e contagens de dependência junto com os dados de outras soluções do OMS, incluindo Métricas de Desempenho, Controle de Alterações, Segurança, Atualizações etc.
 
 ![Resumo do computador](media/oms-service-map/machine-summary.png)
 
@@ -127,7 +128,7 @@ O painel Resumo do Processo fornece informações adicionais sobre a conectivida
 ![Resumo do processo](media/oms-service-map/process-summary.png)
 
 ## <a name="oms-alerts-integration"></a>Integração de alertas do OMS
-O Mapa do Serviço integra-se aos Alertas do OMS para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado.  O servidor mostrará um ícone se houver alertas atuais, e o painel de Alertas do Computador listará os alertas
+O Mapa do Serviço integra-se aos Alertas do OMS para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado.  O servidor mostrará um ícone se houver alertas atuais e o Painel de Alertas do Computador listará os alertas
 
 ![Painel Alertas do Computador](media/oms-service-map/machine-alerts.png)
 
@@ -142,6 +143,17 @@ Observe que para o Mapa do Serviço ser capaz de exibir alertas relevantes, é n
 O Mapa do Serviço integra-se à Pesquisa de Logs para mostrar uma contagem de todos os eventos de log disponíveis para o servidor selecionado no intervalo de tempo selecionado.  Você pode clicar em qualquer linha na lista de contagens de eventos para pular para a Pesquisa de Logs e ver os eventos de log individuais.
 
 ![Eventos de log](media/oms-service-map/log-events.png)
+
+## <a name="oms-service-desk-integration"></a>Integração da Central de Serviços do OMS
+A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no espaço de trabalho do OMS.  A integração no Mapa do Serviço é rotulada como "Central de Serviços".  [Para obter mais informações sobre como habilitar e configurar o conector ITSM.](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)
+
+O Painel Central de Serviços mostra uma lista de todos os eventos de Gerenciamento de Serviço de TI para o servidor selecionado no intervalo de tempo selecionado.  O servidor mostrará um ícone se houver itens atuais e o Painel do Central de Serviços listará os itens.
+![Painel do Central de Serviços](media/oms-service-map/service-desk.png)
+
+Clique em "Exibir Item de Trabalho" para abrir o item na solução ITSM conectada.
+
+Clique em "Mostrar na Pesquisa de Logs" para exibir os detalhes do item na Pesquisa de Logs.
+
 
 ## <a name="oms-change-tracking-integration"></a>Integração de controle de alterações do OMS
 A integração do Mapa do Serviço com o Controle de Alterações é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do OMS.
@@ -161,18 +173,18 @@ O painel Desempenho do Computador mostra as métricas de desempenho padrão para
 ## <a name="oms-security-integration"></a>Integração de segurança do OMS
 A integração do Mapa do Serviço com Segurança e Auditoria é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do OMS.
 
-O painel Segurança do Computador mostra dados da solução de Segurança e Auditoria do OMS para o servidor selecionado.  O painel listará um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado.  Clicar em qualquer um dos problemas de segurança mostrará uma Pesquisa de Log com detalhes sobre os problemas.
+O painel Segurança do Computador mostra dados da solução de Segurança e Auditoria do OMS para o servidor selecionado.  O painel lista um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado.  Clicar em qualquer um dos problemas de segurança fará o drill down de uma Pesquisa de Logs para encontrar detalhes sobre os problemas de segurança.
 ![Painel de Controle de Alteração da Máquina](media/oms-service-map/machine-security.png)
 
 
 ## <a name="oms-updates-integration"></a>Integração de atualizações do OMS
 A integração do Mapa do Serviço com o Gerenciamento de Atualização é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do OMS.
 
-O painel Atualizações do Computador mostra dados da solução de Gerenciamento de Atualização do OMS para o servidor selecionado.  O painel listará um resumo de quaisquer atualizações pendentes para o servidor durante o intervalo de tempo selecionado.
+O painel Atualizações do Computador mostra dados da solução de Gerenciamento de Atualização do OMS para o servidor selecionado.  O painel lista um resumo de quaisquer atualizações pendentes para o servidor durante o intervalo de tempo selecionado.
 ![Painel de Controle de Alteração da Máquina](media/oms-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
-Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../log-analytics/log-analytics-log-searches.md) no Log Analytics.  Isso pode ser aplicado a cenários, incluindo o planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho do ad-hoc.
+Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../log-analytics/log-analytics-log-searches.md) no Log Analytics.  Esses dados podem ser aplicados aos cenários, incluindo planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
 
 Um registro é gerado por hora para cada computador e processo exclusivo, além dos registros gerados quando um processo ou computador inicia ou é integrado ao Mapa do Serviço.  Esses registros têm as propriedades descritas nas tabelas a seguir.  Os campos e valores nos eventos de ServiceMapComputer_CL mapeiam para campos do recurso Máquina na API de ARM do ServiceMap.  Os campos e valores nos eventos de ServiceMapProcess_CL mapeiam para os campos do recurso Processo na API de ARM do ServiceMap.  O campo ResourceName_s corresponde ao campo de nome do recurso correspondente do ARM. Observação - como os recursos do Service Map aumentam, esses campos estão sujeitos a alterações.
 
@@ -182,7 +194,7 @@ Há propriedades geradas internamente que você pode usar para identificar compu
 - Computador - Use ResourceId ou ResourceName_s para identificar exclusivamente um computador em um Espaço de Trabalho do OMS.
 - Processo - Use ResourceId para identificar exclusivamente um processo dentro de um Espaço de Trabalho do OMS. ResourceName_s é exclusivo dentro do contexto do computador no qual o processo está em execução (MachineResourceName_s) 
 
-Como vários registros podem existir para um determinado processo e computador em um determinado intervalo de tempo, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir somente o registro mais recente adicione "| dedup ResourceId" à consulta.
+Como vários registros podem existir para um determinado processo e computador em um determinado intervalo de tempo, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir somente o registro mais recente, adicione "| dedup ResourceId" à consulta.
 
 ### <a name="servicemapcomputercl-records"></a>Registros ServiceMapComputer_CL
 Registros com um tipo de **ServiceMapComputer_CL** têm dados de inventário para servidores com agentes do Mapa do Serviço.  Esses registros têm as propriedades descritas na tabela a seguir:
@@ -199,7 +211,7 @@ Registros com um tipo de **ServiceMapComputer_CL** têm dados de inventário par
 | DnsNames_s | matriz de nomes de DNS |
 | OperatingSystemFamily_s | windows ou linux |
 | OperatingSystemFullName_s | nome completo do sistema operacional  |
-| Bitness_s | número de bits da máquina (32 bits) ou (64 bits) |
+| Bitness_s | número de bits do computador (32 bits) ou (64 bits) |
 | PhysicalMemory_d | memória física em MB |
 | Cpus_d | número de cpus |
 | CpuSpeed_d | velocidade da cpu em MHz|
@@ -271,7 +283,7 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 
 
 ## <a name="rest-api"></a>API REST
-Todos os dados do servidor, do processo e de dependência no Mapa de Serviço estão disponíveis por meio da [API REST do Mapa de Serviço](https://docs.microsoft.com/rest/api/servicemap/).
+Todos os dados do servidor, do processo e de dependência no Mapa do Serviço estão disponíveis por meio da [API REST do Mapa do Serviço](https://docs.microsoft.com/rest/api/servicemap/).
 
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico

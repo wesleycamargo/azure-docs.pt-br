@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 05/17/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: e89ec01cb47a87a45378f73d138224095bcbebed
-ms.openlocfilehash: 201d98c4f4ff29393ad308824ed0575f1ff602ee
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9046879158a4617d478bcf1157d5ead3c1054fd8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="load-balance-containers-in-a-kubernetes-cluster-in-azure-container-service"></a>Balancear a carga de contêineres em um cluster Kubernetes no Serviço de Contêiner do Azure 
 Este artigo apresenta o balanceamento de carga em um cluster Kubernetes no Serviço de Contêiner do Azure. O balanceamento de carga fornece um endereço IP acessível externamente para o serviço e distribui o tráfego de rede entre os pods em execução em VMs do agente.
 
-Você pode configurar um serviço Kubernetes para usar o [Azure Load Balancer](../load-balancer/load-balancer-overview.md) para gerenciar o tráfego de rede externa (TCP ou UDP). Com uma configuração adicional, o balanceamento de carga e roteamento de tráfego HTTP ou HTTPS ou cenários mais avançados são possíveis.
+Você pode configurar um serviço Kubernetes para usar o [Azure Load Balancer](../load-balancer/load-balancer-overview.md) para gerenciar o tráfego de rede externo (TCP). Com uma configuração adicional, o balanceamento de carga e roteamento de tráfego HTTP ou HTTPS ou cenários mais avançados são possíveis.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Implantar um cluster Kubernetes](container-service-kubernetes-walkthrough.md) no Serviço de Contêiner do Azure
@@ -34,7 +35,7 @@ Você pode configurar um serviço Kubernetes para usar o [Azure Load Balancer](.
 
 ## <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Por padrão, um cluster Kubernetes implantado no Serviço de Contêiner do Azure inclui um Azure Load Balancer voltado para a Internet para VMs do agente. (Um recurso de balanceador de carga separado é configurado para as VMs mestres.) O Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP).
+Por padrão, um cluster Kubernetes implantado no Serviço de Contêiner do Azure inclui um Azure Load Balancer voltado para a Internet para VMs do agente. (Um recurso de balanceador de carga separado é configurado para as VMs mestres.) O Azure Load Balancer é um balanceador de carga de Camada 4. No momento, o balanceador de carga dá suporte apenas a tráfego TCP em Kubernetes.
 
 Ao criar um serviço Kubernetes, você pode configurar automaticamente o Azure Load Balancer para permitir o acesso ao serviço. Para configurar o balanceador de carga, defina o serviço `type` como `LoadBalancer`. O balanceador de carga cria uma regra para mapear um endereço IP público e o número da porta do tráfego do serviço de entrada para os endereços IP privados e números de porta dos pods nas VMs do agente (e vice-versa para o tráfego de resposta). 
 

@@ -1,5 +1,6 @@
 ---
-title: "Excluir um usuário de um diretório na visualização do Azure Active Directory | Microsoft Docs"
+
+title: "Excluir um usuário de um diretório no Azure Active Directory | Microsoft Docs"
 description: "Explica como excluir um usuário e todas as suas informações do Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d33da5ca6cf1768fc7ca6d9f2035be7edbb8ad36
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f4d12e8a8e2710879c8748b120ab63179b3a4be2
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="delete-a-user-from-a-directory-in-azure-active-directory-preview"></a>Excluir um usuário de um diretório na visualização do Azure Active Directory
-Este artigo explica como excluir um usuário de um diretório na visualização do Azure AD (Azure Active Directory). [O que há na visualização?](active-directory-preview-explainer.md) Para obter informações sobre como adicionar novos usuários a sua organização, consulte [Adicionar novos usuários à visualização do Azure Active Directory](active-directory-users-create-azure-portal.md).
+# <a name="delete-a-user-from-a-directory-in-azure-active-directory"></a>Excluir um usuário de um diretório no Azure Active Directory
+Este artigo explica como excluir um usuário de um diretório no Azure AD (Azure Active Directory). Para obter informações sobre como adicionar novos usuários à sua organização, consulte [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="to-delete-a-user"></a>Para excluir um usuário
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -38,9 +40,9 @@ Este artigo explica como excluir um usuário de um diretório na visualização 
     ![Selecionando o comando Excluir](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicionar novos usuários à visualização do Azure Active Directory](active-directory-users-create-azure-portal.md)
-* [Redefinir a senha de um usuário na visualização do Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
-* [Atribuir um usuário às funções de administrador na visualização do Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Adicionar ou alterar as informações de perfil de um usuário na visualização do Azure Active Directory](active-directory-users-work-info-azure-portal.md)
-* [Excluir um usuário de um diretório na visualização do Azure Active Directory](active-directory-users-profile-azure-portal.md)
+* [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md)
+* [Redefinir a senha de um usuário no Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
+* [Atribuir um usuário às funções de administrador no Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+* [Adicionar ou alterar as informações de perfil de um usuário no Azure Active Directory](active-directory-users-work-info-azure-portal.md)
+* [Excluir um usuário de um diretório no Azure Active Directory](active-directory-users-profile-azure-portal.md)
 

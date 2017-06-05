@@ -1,5 +1,6 @@
 ---
-title: "Atribuir um usuário às funções de administrador na visualização do Azure Active Directory | Microsoft Docs"
+
+title: "Atribuir um usuário às funções de administrador no Azure Active Directory | Microsoft Docs"
 description: "Explica como alterar informações administrativas de usuário no Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,16 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
-ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: ebbadff39c736ec7364999f7644694e8a177073f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory-preview"></a>Atribuir um usuário às funções de administrador na visualização do Azure Active Directory
-Este artigo explica como atribuir uma função administrativa a um usuário na visualização do Azure AD (Azure Active Directory). [O que há na visualização?](active-directory-preview-explainer.md) Para obter informações sobre como adicionar novos usuários em sua organização, consulte [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
+# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Atribuir um usuário às funções de administrador no Azure Active Directory
+Este artigo explica como atribuir uma função administrativa a um usuário no Azure AD (Azure Active Directory). Para obter informações sobre como adicionar novos usuários em sua organização, consulte [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
 
 ## <a name="assign-a-role-to-a-user"></a>Atribuir uma função a um usuário
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -43,9 +46,4 @@ Este artigo explica como atribuir uma função administrativa a um usuário na v
 * [Alterar as informações de trabalho do usuário](active-directory-users-work-info-azure-portal.md)
 * [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
 * [Excluir um usuário no Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

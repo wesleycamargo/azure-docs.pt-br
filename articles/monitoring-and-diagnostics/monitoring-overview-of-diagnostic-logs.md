@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 05/19/2017
 ms.author: johnkem; magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: be27a3541caa1620af432dcff438f70cb9b1074b
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: c3e766b2e4c7bd372dc9c7b9d675a76c2d14a4cc
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/20/2017
 
 
 ---
@@ -181,20 +182,24 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 
 | O Barramento de | Esquema e Documentos |
 | --- | --- |
-| Balanceador de carga |[Log Analytics para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
-| Grupos de segurança de rede |[Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md) |
+| Gerenciamento da API | Esquema não disponível. |
 | Gateways do Aplicativo |[Log de diagnóstico do Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
-| Cofre da Chave |[Logs do Cofre da Chave do Azure](../key-vault/key-vault-logging.md) |
-| Pesquisa do Azure |[Habilitação e uso da análise de tráfego de pesquisa](../search/search-traffic-analytics.md) |
-| Repositório Data Lake |[Acessando os logs de diagnóstico do Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Análises Data Lake |[Acessando os logs de diagnóstico do Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Aplicativos Lógicos |[Esquema de controle personalizado dos Aplicativos Lógicos B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
-| Lote do Azure |[Logs de diagnóstico do Lote do Azure](../batch/batch-diagnostics.md) |
 | Automação do Azure |[Análise de log para automação do Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Hubs de evento |[Logs de diagnóstico dos Hubs de Eventos do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
-| Stream Analytics |[Logs de diagnóstico do trabalho](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Lote do Azure |[Logs de diagnóstico do Lote do Azure](../batch/batch-diagnostics.md) |
+| Customer Insights | Esquema não disponível. |
+| Rede de Distribuição de Conteúdo | Esquema não disponível. |
+| Análises Data Lake |[Acessando os logs de diagnóstico do Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Repositório Data Lake |[Acessando os logs de diagnóstico do Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Hubs de Eventos |[Logs de diagnóstico dos Hubs de Eventos do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Cofre da Chave |[Logs do Cofre da Chave do Azure](../key-vault/key-vault-logging.md) |
+| Balanceador de carga |[Log Analytics para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
+| Aplicativos Lógicos |[Esquema de controle personalizado dos Aplicativos Lógicos B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Grupos de segurança de rede |[Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md) |
+| Serviços de Recuperação | Esquema não disponível.|
+| Pesquisar |[Habilitação e uso da análise de tráfego de pesquisa](../search/search-traffic-analytics.md) |
+| Gerenciamento do Servidor | Esquema não disponível. |
 | Barramento de Serviço |[Logs de diagnóstico do Barramento de Serviço do Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-
+| Análise de fluxo |[Logs de diagnóstico do trabalho](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
 |Tipo de recurso|Categoria|Nome de exibição da categoria|
@@ -204,6 +209,8 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 |Microsoft.Automation/automationAccounts|JobStreams|Transmissões de trabalho|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status do nó DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto de extremidade, como largura de banda, saída etc.|
+|Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Logs de Auditoria|
 |Microsoft.DataLakeAnalytics/accounts|Solicitações|Logs de solicitação|
 |Microsoft.DataLakeStore/accounts|Audit|Logs de Auditoria|
@@ -216,13 +223,15 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Acompanhar os eventos da Conta de Integração|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de regras de grupo de segurança de rede|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra de grupo de segurança de rede|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta do Load Balancer|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Status de integridade da investigação do Load Balancer|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log de desempenho do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabela de contadores GWM|
+|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dados de relatórios de backup do Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Trabalhos do Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventos do Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Itens replicados do Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Logs de operação|
 |Microsoft.ServerManagement/nodes|RequestLogs|Logs de solicitação|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Logs operacionais|

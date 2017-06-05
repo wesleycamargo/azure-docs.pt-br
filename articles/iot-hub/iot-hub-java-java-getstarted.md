@@ -12,13 +12,14 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 05/25/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 11d7c919da7e443dcb59c16b4d5fe2b25501fb2d
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 95f4e55ff89b77784f11be576d297e65f35a5779
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -62,10 +63,10 @@ Nesta seção, você cria um aplicativo do console do Java que cria uma identida
 3. Usando um editor de texto, abra o arquivo pom.xml na pasta create-device-identity e adicione a dependência a seguir ao nó **dependencies** . Essa dependência permite que você use o pacote iot-service-client no aplicativo:
    
     ```
-    </dependency>
+    <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.18</version>
+      <version>1.3.19</version>
     </dependency>
     ```
     
@@ -152,7 +153,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.13.0</version> 
+        <version>0.14.0</version> 
     </dependency>
     ```
 
@@ -289,7 +290,7 @@ Nesta seção, você cria um aplicativo do console do Java que simula um disposi
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.24</version>
+      <version>1.1.26</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -461,9 +462,10 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, con
 
 * [Conectando o dispositivo][lnk-connect-device]
 * [Introdução ao gerenciamento de dispositivo][lnk-device-management]
-* [Introdução ao SDK do Gateway IoT][lnk-gateway-SDK]
+* [Introdução ao Azure IoT Edge][lnk-iot-edge]
 
 Para saber como estender sua solução IoT e processar as mensagens entre o dispositivo e a nuvem em escala, consulte o tutorial [Processar as mensagens entre o dispositivo e a nuvem][lnk-process-d2c-tutorial].
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
@@ -486,7 +488,7 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-maven]: https://maven.apache.org/what-is-maven.html
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

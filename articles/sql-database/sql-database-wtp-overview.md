@@ -1,6 +1,6 @@
 ---
-title: SaaS em uma caixa (aplicativo SaaS de exemplo usando o Banco de Dados SQL do Azure) | Microsoft Docs
-description: Criar aplicativos SaaS usando o Banco de Dados SQL
+title: "Aplicativo multilocatário de exemplo de Banco de Dados do Azure SQL | Microsoft Docs"
+description: "Introdução ao aplicativo WTP (Wingtip Tickets) de exemplo de Banco de Dados SQL"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bf5745a788cd9ab6bf2ea8d5d97b8c04f083fc5d
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 265eab8104d8af7c510a88dffb9d70a2b3b37631
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

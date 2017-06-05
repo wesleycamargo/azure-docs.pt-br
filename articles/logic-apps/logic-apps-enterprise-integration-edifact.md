@@ -5,7 +5,7 @@ services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
-ms.author: jonfan
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e067ea1a800dbcbc1c95ec03c7437ab3c8a610d7
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; jonfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: e3aeaee3a71ae8b024153996431fba203a1cdfce
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -86,7 +87,7 @@ Caso não encontre nenhuma conta de integração, [crie uma primeiro](../logic-a
 
 Depois de configurar as propriedades do contrato, você pode configurar como este contrato identifica e manipula mensagens de entrada recebidas do seu parceiro por meio deste contrato.
 
-1.    Em **Adicionar**, selecione **Configurações de recebimento**.
+1.    Em **Adicionar**, selecione **Configurações de Recebimento**.
 Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você. Para obter as descrições da propriedade, confira as tabelas nesta seção.
 
     As **configurações de recebimento** são organizadas nas seguintes seções: Identificadores, Confirmação, Esquemas, Envelopes, Números de controle, Validação e Configurações internas.
@@ -101,8 +102,8 @@ Agora o contrato está pronto para lidar com mensagens de entrada de acordo com 
 
 | Propriedade | Descrição |
 | --- | --- |
-| UNB&6;.1 (Senha de Referência do Destinatário) |Insira um valor alfanumérico entre 1 e 14 caracteres. |
-| UNB&6;.2 (Qualificador de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um caractere e no máximo dois caracteres. |
+| UNB 6.1 (Senha de Referência do Destinatário) |Insira um valor alfanumérico entre 1 e 14 caracteres. |
+| UNB 6.2 (Qualificador de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um caractere e no máximo dois caracteres. |
 
 ### <a name="acknowledgments"></a>Agradecimentos
 
@@ -119,8 +120,8 @@ Agora o contrato está pronto para lidar com mensagens de entrada de acordo com 
 | UNH2.2 (VERSÃO) |Insira o número de versão da mensagem. (No mínimo um caractere; no máximo três caracteres). |
 | UNH2.3 (LIBERAÇÃO) |Insira o número de liberação da mensagem. (No mínimo um caractere; no máximo três caracteres). |
 | UNH2.5 (CÓDIGO ATRIBUÍDO ASSOCIADO) |Insira o código atribuído. (No máximo seis caracteres. Deve ser alfanuméricos). |
-| UNG&2;.1 (ID DE REMETENTE DO APLICATIVO) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 35 caracteres. |
-| UNG&2;.2 (QUALIFICADOR DE CÓDIGO DO APLICATIVO REMETENTE) |Insira um valor alfanumérico, com no máximo quatro caracteres. |
+| UNG 2.1 (ID DE REMETENTE DO APLICATIVO) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 35 caracteres. |
+| UNG 2.2 (QUALIFICADOR DE CÓDIGO DO APLICATIVO REMETENTE) |Insira um valor alfanumérico, com no máximo quatro caracteres. |
 | ESQUEMA |Selecione o esquema carregado anteriormente que você deseja usar de sua Conta de Integração associada. |
 
 ### <a name="control-numbers"></a>Números de Controle
@@ -157,7 +158,7 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Configurar como seu contrato envia mensagens
 
-Você pode configurar como este contrato identifica e manipula mensagens de saída enviadas aos seus parceiros por meio deste contrato.
+Você pode configurar como este contrato identifica e trata mensagens de saída enviadas a seus parceiros por meio deste contrato.
 
 1.    Em **Adicionar**, selecione **Configurações de Envio**.
 Configure essas propriedades com base no seu contrato com seu parceiro que troca mensagens com você. Para obter as descrições da propriedade, confira as tabelas nesta seção.
@@ -175,10 +176,10 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 | Propriedade | Descrição |
 | --- | --- |
 | UNB1.2 (Versão de sintaxe) |Selecione um valor entre **1** e **4**. |
-| UNB&2;.3 (Endereço de Roteamento do Remetente Inverso) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 14 caracteres. |
+| UNB 2.3 (Endereço de Roteamento do Remetente Inverso) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 14 caracteres. |
 | UNB3.3 (Endereço de Roteamento do Destinatário Inverso) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 14 caracteres. |
-| UNB&6;.1 (Senha de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um e no máximo 14 caracteres. |
-| UNB&6;.2 (Qualificador de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um caractere e no máximo dois caracteres. |
+| UNB 6.1 (Senha de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um e no máximo 14 caracteres. |
+| UNB 6.2 (Qualificador de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um caractere e no máximo dois caracteres. |
 | UNB7 (ID de Referência do Aplicativo) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 14 caracteres |
 
 ### <a name="acknowledgment"></a>Confirmação
@@ -243,11 +244,14 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 1.    Depois que você terminar de definir todas as suas propriedades de contrato, na folha **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a folha da conta de integração.
 
-    Agora, seu contrato recém-adicionado é exibido na sua lista de **Contratos**.
+    Agora seu contrato recém-adicionado é exibido na lista **Contratos**.
 
 2.    Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
 
     ![Escolha o bloco de "Contratos" para exibir todos os contratos](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+
+## <a name="view-swagger-file"></a>Exibir o arquivo do Swagger
+Para exibir os detalhes de Swagger para o conector do EDIFACT, consulte [EDIFACT](/connectors/edifact/).
 
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  

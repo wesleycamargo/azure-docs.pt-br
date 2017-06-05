@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 850bf9ef5300c72a9e7903be5bf991301d4b574f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -90,7 +91,7 @@ Você pode usar o Portal do Azure para remover registros de um conjunto de regis
 3. Clique em **Salvar** na parte superior da folha para salvar as configurações.
 4. Assim que o registro for removido, os valores do registro na folha **Zona DNS** refletirão a remoção.
 
-## <a name="a-namedeleteadelete-a-record-set"></a><a name="delete"></a>Excluir um conjunto de registros
+## <a name="delete"></a>Excluir um conjunto de registros
 
 1. Na folha **Propriedades do conjunto de registros**do conjunto de registros, clique em **Excluir**.
 
@@ -110,7 +111,11 @@ Não é possível adicionar nem remover registros no conjunto de registros SOA c
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificar registros NS no apex da zona
 
-Não é possível adicionar, remover nem modificar os registros no conjunto de registros NS criados automaticamente no apex da zona (nome = "@"). A única alteração permitida é modificar o TTL do conjunto de registros.
+O registro NS definido no apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
+
+Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
+
+Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser modificados sem restrição.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Excluir conjuntos de registros SOA ou NS
 

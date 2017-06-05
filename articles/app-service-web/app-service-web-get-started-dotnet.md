@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/05/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 018a46452c13886b9519ed5d2311bc65649c3c69
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="create-your-first-aspnet-web-app-in-azure-in-five-minutes"></a>Criar seu primeiro aplicativo Web ASP.NET no Azure em cinco minutos
@@ -87,27 +87,15 @@ Nome seu grupo de recursos como **myResourceGroup** e clique em **OK**.
 
 ## <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
 
-Seu aplicativo Web também precisa de um _plano do Serviço de Aplicativo_. 
-
-> [!NOTE]
-> Um plano do Serviço de Aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do Serviço de Aplicativo compartilham os recursos definidos por ele, permitindo que você economize ao hospedar vários aplicativos. 
->
-> Os Planos do Serviço de Aplicativo definem:
->
-> - Região (Europa Setentrional, Leste dos EUA, Sudeste Asiático)
-> - Tamanha da Instância (Pequena, Média, Grande)
-> - Contagem da Escala (uma, duas ou três instâncias etc.) 
-> - SKU (Gratuito, Compartilhado, Básico, Standard, Premium)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 Lado do **Plano do Serviço de Aplicativo**, clique em **Novo**. 
 
 Na caixa de diálogo **Configurar Plano do Serviço de Aplicativo**, configure o novo plano do Serviço de Aplicativo com as seguintes definições:
 
 - **Plano do Serviço de Aplicativo**: digite **myAppServicePlan**. 
-- **Local**: escolha **Europa Ocidental** ou qualquer outra região desejada.
-- **Tamanho**: escolha **Gratuito** ou qualquer outro [tipo de preços](https://azure.microsoft.com/pricing/details/app-service/) desejado.
+- **Local**: escolha **Europa Ocidental** ou uma região perto de você.
+- **Tamanho**: escolha **Livre** ou outra [camada de preços](https://azure.microsoft.com/pricing/details/app-service/).
 
 Clique em **OK**.
 

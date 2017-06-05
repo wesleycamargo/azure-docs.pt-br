@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f18b8ef62c82e2b307173971a7251a3aa8f84d69
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -356,9 +356,9 @@ A seguir são mostradas as etapas para gerar a URL SAS usando o Gerenciador de A
 
     f. No **URI de Assinatura de Acesso Compartilhado Gerado desse contêiner**, verifique o seguinte conforme destacado acima:
 
-        - Verifique se o nome do arquivo de imagem e **".vhd"** estão no URI.
-        - No final da assinatura, verifique se **“= rl”** é exibido. Isso demonstra que os acessos de leitura e lista foram fornecidos com êxito.
-        - No meio da assinatura, verifique se **“sr=c”** é exibido. Isso demonstra que você tem acesso ao nível de contêiner
+       - Verifique se o nome do arquivo de imagem e **".vhd"** estão no URI.
+       - No final da assinatura, verifique se **“= rl”** é exibido. Isso demonstra que os acessos de leitura e lista foram fornecidos com êxito.
+       - No meio da assinatura, verifique se **“sr=c”** é exibido. Isso demonstra que você tem acesso ao nível de contêiner
 
 11.    Para garantir que o URI de assinatura de acesso compartilhado funciona, clique em **Testar no navegador**. Ele deve começar o processo de download.
 
@@ -464,7 +464,7 @@ A seguir são mostradas as etapas para gerar a URL SAS usando a CLI do Azure
 
 6.    Agora, você terá a URL SAS no nível de contêiner e precisará adicionar o nome do VHD a ela.
 
-    URL de SAS de nível de contêiner #
+    No. de URL de SAS de nível de contêiner
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

@@ -1,5 +1,5 @@
 ---
-title: "Restaurar um banco de dados de locatário único (aplicativo SaaS de exemplo usando o Banco de Dados SQL do Azure) | Microsoft Docs"
+title: "Restaurar um banco de dados SQL do Azure de um aplicativo de múltiplos locatários | Microsoft Docs"
 description: "Saiba como restaurar um banco de dados do SQL de locatário único após a exclusão acidental de dados"
 keywords: tutorial do banco de dados SQL
 services: sql-database
@@ -17,10 +17,10 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: billgib;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: aa5759645713c5e5bc4c4f1d2b10f032efc7eae2
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 8567061a98ec5a0619a8e10cb44501dd88d8166c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -51,7 +51,7 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 Para o padrão de restauração de locatário, há dois padrões simples para restaurar dados de um locatário individual. Como os bancos de dados de locatário são isolados uns dos outros, restaurar um locatário não afeta os dados de outro locatário.
 
-No primeiro padrão, os dados são restaurados para um novo banco de dados. O locatário, em seguida, recebe acesso ao banco de dados juntamente com os dados de produção. Esse padrão permite que um administrador de locatário analise os dados restaurados e use-os para substituir seletivamente os valores dos dados atuais. Cabe ao designer do aplicativo SaaS determinar o nível de sofisticação das opções de recuperação de dados. Simplesmente ser capaz de analisar os dados no estado em que estes estavam em um determinado ponto no tempo pode ser o necessário em alguns cenários. Se o banco de dados usar a [Replicação geográfica](sql-database-geo-replication-overview.md), é recomendável copiar os dados necessários da cópia restaurada para o banco de dados original. Se substituir o banco de dados original pelo banco de dados restaurado, você precisará reconfigurar e ressincronizar a replicação geográfica.
+No primeiro padrão, os dados são restaurados para um novo banco de dados. O locatário, em seguida, recebe acesso ao banco de dados juntamente com os dados de produção. Esse padrão permite que um administrador de locatário analise os dados restaurados e use-os para substituir seletivamente os valores dos dados atuais. Cabe ao designer do aplicativo SaaS determinar o nível de sofisticação das opções de recuperação de dados. Simplesmente ser capaz de analisar os dados no estado em que estes estavam em um determinado ponto no tempo pode ser o necessário em alguns cenários. Se o banco de dados usa a [Replicação geográfica](sql-database-geo-replication-overview.md), é recomendável copiar os dados necessários da cópia restaurada para o banco de dados original. Se substituir o banco de dados original pelo banco de dados restaurado, reconfigure e ressincronize a replicação geográfica.
 
 No segundo padrão, que assume que o locatário sofreu uma perda ou corrupção de dados, o banco de dados de produção do locatário é restaurado para um ponto anterior no tempo. No padrão de restauração no local, o locatário é colocado offline por um curto período de tempo enquanto o banco de dados é restaurado e colocado online novamente. O banco de dados original é excluído, mas ainda pode ser restaurado se você precisar voltar para um ponto mais anterior ainda no tempo. Uma variação desse padrão pode renomear o banco de dados em vez de excluí-lo, embora renomear o banco de dados não ofereça nenhuma vantagem adicional em termos de segurança de dados.
 

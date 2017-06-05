@@ -1,6 +1,6 @@
 ---
-title: "Uma introdução ao Apache Kafka no HDInsight | Microsoft Docs"
-description: "Saiba mais sobre o Apache Kafka no HDInsight. O que é, o que ele faz e onde encontrar exemplos e obter informações introdutórias."
+title: "Uma introdução ao Apache Kafka no HDInsight - Azure | Microsoft Docs"
+description: "Saiba mais sobre o Apache Kafka no HDInsight: o que é o que ele faz e onde encontrar exemplos e informações de introdução."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: a3ceca6cd0f470a5cd6849c345867f094b870a85
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f3e1cfb23a28d0d1fc7a60bdc8b282b72984fd03
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introdução ao Apache Kafka no HDInsight (visualização)
@@ -48,10 +49,6 @@ O Kafka fornece as seguintes funcionalidades:
 * **Agregação**: usando processamento de fluxo, você pode agregar informações de fluxos diferentes para combinar e centralizar as informações em dados operacionais.
 
 * **Transformação**: usando processamento de fluxo, você pode combinar e enriquecer dados de vários tópicos de entrada em um ou mais tópicos de saída.
-
-## <a name="where-do-i-start"></a>Por onde começo?
-
-Veja [Introdução ao Kafka no HDInsight](hdinsight-apache-kafka-get-started.md) para obter as etapas sobre como criar um cluster Kafka e como usar o Kafka, incluindo exemplos baseados em Java do uso da API do produto, do consumidor e de streaming
 
 ## <a name="next-steps"></a>Próximas etapas
 

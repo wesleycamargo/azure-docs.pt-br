@@ -1,6 +1,6 @@
 ---
-title: "Usando o Ruby nos Aplicativos Web do Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
-description: "Usando o Ruby em Aplicativos Web do Serviço de Aplicativo do Azure no Linux."
+title: "Usando o Ruby no Aplicativo Web do Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
+description: "Usando o Ruby no Aplicativo Web do Serviço de Aplicativo do Azure no Linux."
 keywords: "serviço de aplicativo do azure, aplicativo Web, perguntas frequentes, linux, oss, ruby"
 services: app-service
 documentationCenter: 
@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 8427034e5229000faf134bcd5b7174b0f7046321
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5aeef6f31dacb1b27c605d39a35a81bd0211e06a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-ruby-in-web-apps-on-linux"></a>Usando o Ruby em Aplicativos Web no Linux #
+# <a name="using-ruby-in-web-app-on-linux"></a>Usando o Ruby no Aplicativo Web no Linux #
 
 Com a atualização mais recente para nosso back-end, introduzimos o suporte ao Ruby v.2.3. Ao definir a configuração do seu aplicativo Web Linux, você pode alterar a pilha de aplicativos.
 
@@ -45,10 +46,10 @@ A folha **Criar** é aberta, conforme mostrado na seguinte imagem:
 Depois que seu aplicativo Web Ruby é criado, você pode implantar para ele usando Git ou FTP.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [O que é Serviço de Aplicativo no Linux?](app-service-linux-intro.md)
-* [Como criar Aplicativos Web no Serviço de Aplicativo no Linux](app-service-linux-how-to-create-a-web-app.md)
+* [O que é o Aplicativo Web no Linux?](app-service-linux-intro.md)
+* [Criando Aplicativos Web no Aplicativo Web no Linux](app-service-linux-how-to-create-web-app.md)
 * [Implantação do Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md)
-* [Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
+* [Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

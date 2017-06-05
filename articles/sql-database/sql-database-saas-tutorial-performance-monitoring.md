@@ -1,6 +1,6 @@
 ---
-title: Monitoramento de desempenho do aplicativo WTP (um aplicativo SaaS de exemplo, usando o Banco de Dados SQL do Azure) | Microsoft Docs
-description: Monitorar o desempenho de um aplicativo SaaS de exemplo que usa o Banco de Dados SQL do Azure
+title: "Monitoração do desempenho de vários bancos de dados do Azure SQL em um aplicativo de SaaS multilocatário | Microsoft Docs"
+description: "Monitoração e gerenciamento do desempenho para o aplicativo de SaaS do Wingtip de exemplo de banco de dados SQL do Azure"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -17,18 +17,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1698a06dc326b1d215bb635c40724f914ba82442
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 54f29cc816d356e22b425f3824ef89800c017e61
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="monitor-performance-of-the-wtp-sample-saas-application"></a>Monitorar o desempenho do aplicativo SaaS WTP de exemplo
+# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Monitoração do desempenho do aplicativo de SaaS do Wingtip
 
 Neste tutorial, são demonstrados os recursos internos de monitoramento e alerta do Banco de Dados SQL e dos pools elásticos e, em seguida, são explorados vários cenários importantes de gerenciamento de desempenho usados em aplicativos SaaS.
 
-O aplicativo Wingtip Tickets usa um modelo de dados de único locatário, em que cada local (locatário) tem seu próprio banco de dados. Como muitos aplicativos SaaS, o padrão esperado de carga de trabalho do locatário é imprevisível e esporádico. Em outras palavras, as vendas de ingressos podem ocorrer a qualquer momento. Para tirar proveito desse padrão de uso típico do banco de dados, os bancos de dados de locatário são implantados em pools de banco de dados elástico. Os pools elásticos otimizam o custo de uma solução ao compartilhar recursos entre vários bancos de dados. Com esse tipo de padrão, é importante monitorar o uso de recursos do banco de dados e do pool para garantir que as cargas sejam razoavelmente balanceadas entre os pools. Você também precisa garantir que os bancos de dados individuais tenham recursos adequados e que os pools não atinjam seus limites de [eDTU](sql-database-what-is-a-dtu.md). Este tutorial explora maneiras para monitorar e gerenciar bancos de dados e pools e como realizar uma ação corretiva em resposta às variações na carga de trabalho.
+O aplicativo de SaaS do Wingtip usa um modelo de dados de locatário único, em que cada local (locatário) tem seu próprio banco de dados. Como muitos aplicativos SaaS, o padrão esperado de carga de trabalho do locatário é imprevisível e esporádico. Em outras palavras, as vendas de ingressos podem ocorrer a qualquer momento. Para tirar proveito desse padrão de uso típico do banco de dados, os bancos de dados de locatário são implantados em pools de banco de dados elástico. Os pools elásticos otimizam o custo de uma solução ao compartilhar recursos entre vários bancos de dados. Com esse tipo de padrão, é importante monitorar o uso de recursos do banco de dados e do pool para garantir que as cargas sejam razoavelmente balanceadas entre os pools. Você também precisa garantir que os bancos de dados individuais tenham recursos adequados e que os pools não atinjam seus limites de [eDTU](sql-database-what-is-a-dtu.md). Este tutorial explora maneiras para monitorar e gerenciar bancos de dados e pools e como realizar uma ação corretiva em resposta às variações na carga de trabalho.
 
 Neste tutorial, você aprenderá a:
 
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo WTP foi implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo SaaS WTP](sql-database-saas-tutorial.md)
+* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, confira [Implantar e explorar o aplicativo de SaaS do Wingtip](sql-database-saas-tutorial.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introdução aos padrões de gerenciamento de desempenho de SaaS
@@ -66,7 +66,7 @@ Para cenários de alto volume, o Log Analytics (também conhecido como OMS) pode
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
 
-Os scripts do Wingtip Tickets e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Os arquivos de script estão localizados na [pasta de Módulos de Aprendizado](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Baixe a pasta **Módulos de Aprendizado** em seu computador local, mantendo a estrutura de pastas.
+Os scripts de SaaS do Wingtip e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Etapas para baixar os scripts do SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-additional-tenants"></a>Provisionar locatários adicionais
 
@@ -80,7 +80,7 @@ Se você já provisionou um lote de locatários em um tutorial anterior, poderá
 
 O script implantará 17 locatários em menos de cinco minutos.
 
-O script *New-TenantBatch* usa um conjunto aninhado ou vinculado de modelos do [Resource Manager](../azure-resource-manager/index.md) que cria um lote de locatários, que, por padrão, copia o banco de dados **baseTenantDb** no servidor de catálogo para criar os novos bancos de dados de locatário e, em seguida, registra-os no catálogo e, finalmente, inicializa-os com o nome de locatário e o tipo de local. Isso é consistente com a maneira como o aplicativo WTP provisiona um novo locatário. As alterações feitas no *baseTenantDB* são aplicadas a quaisquer novos locatários provisionados daí em diante. Consulte o [Tutorial de gerenciamento de esquema](sql-database-saas-tutorial-schema-management.md) para saber como fazer alterações de esquema em bancos de dados de locatário *existentes* (incluindo o banco de dados *golden*).
+O script *New-TenantBatch* usa um conjunto aninhado ou vinculado de modelos do [Resource Manager](../azure-resource-manager/index.md) que cria um lote de locatários, que, por padrão, copia o banco de dados **baseTenantDb** no servidor de catálogo para criar os novos bancos de dados de locatário e, em seguida, registra-os no catálogo e, finalmente, inicializa-os com o nome de locatário e o tipo de local. Isso é consistente com a maneira como o aplicativo WTP provisiona um locatário novo. As alterações feitas no *baseTenantDB* são aplicadas a quaisquer novos locatários provisionados daí em diante. Consulte o [Tutorial de gerenciamento de esquema](sql-database-saas-tutorial-schema-management.md) para saber como fazer alterações de esquema em bancos de dados de locatário *existentes* (incluindo o banco de dados *golden*).
 
 ## <a name="simulate-different-usage-patterns-by-generating-different-load-types"></a>Simular diferentes padrões de uso por meio da geração de diferentes tipos de carga
 
@@ -222,7 +222,7 @@ Depois que a carga acima do normal do banco de dados contosoconcerthall baixar d
 
 ## <a name="other-performance-management-patterns"></a>Outros padrões de gerenciamento de desempenho
 
-**Dimensionamento preventivo** No exercício 6, em que você explorou como dimensionar um banco de dados isolado, você sabia qual banco de dados procurar. Se a gerência do Contoso Concert Hall tivesse informado o WTP da venda iminente de ingressos, o banco de dados poderia ter sido movido para fora do pool preventivamente. Caso contrário, ele provavelmente exigiria um alerta no pool ou no banco de dados para observar o que estava acontecendo. Você não gostaria de saber sobre isso por meio dos outros locatários do pool reclamando a respeito de degradação do desempenho. E se o locatário puder prever quanto tempo ele precisará de recursos adicionais você poderá configurar um runbook de Automação do Azure para mover o banco de dados para fora do pool e, em seguida, retorná-lo em um agendamento definido.
+**Dimensionamento preventivo** No exercício 6, em que você explorou como dimensionar um banco de dados isolado, você sabia qual banco de dados procurar. Se o gerenciamento do Contoso Concert Hall tivesse informado o Wingtips sobre a venda iminente de ingressos, o banco de dados poderia ter sido movido para fora do pool preventivamente. Caso contrário, ele provavelmente exigiria um alerta no pool ou no banco de dados para observar o que estava acontecendo. Você não gostaria de saber sobre isso por meio dos outros locatários do pool reclamando a respeito de degradação do desempenho. E se o locatário puder prever quanto tempo ele precisará de recursos adicionais você poderá configurar um runbook de Automação do Azure para mover o banco de dados para fora do pool e, em seguida, retorná-lo em um agendamento definido.
 
 **Dimensionamento de autoatendimento de locatário** Como o dimensionamento é uma tarefa facilmente chamada por meio da API de gerenciamento, você pode criar a capacidade de dimensionar bancos de dados de locatário em seu aplicativo voltado para o locatário e oferecê-lo como um recurso do seu serviço SaaS. Por exemplo, permita que os locatários autoadministrem o escalonamento e a redução vertical, talvez vinculado diretamente à cobrança deles!
 
@@ -247,7 +247,7 @@ Neste tutorial, você aprenderá a:
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam a implantação inicial do aplicativo WTP (Wingtip Tickets Platform)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Tutoriais adicionais que aproveitam a implantação de aplicativo de SaaS do Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pools elásticos do SQL](sql-database-elastic-pool.md)
 * [Automação do Azure](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) – Tutorial de configuração e uso do Log Analytics

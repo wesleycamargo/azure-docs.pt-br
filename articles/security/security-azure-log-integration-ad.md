@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 03/29/2017
+ms.date: 05/09/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: f7c2f702a4ff2af8bb7487d49f5c6f9bf5199a49
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5e135be1e21173add3236f851609f1df0a5b0dee
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/14/2017
 Eventos de auditoria do Azure Active Directory ajudam a identificar ações privilegiadas que ocorreram no Azure Active Directory. Você pode ver os tipos de eventos que você pode acompanhar revisando os [eventos de relatório de auditoria do Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md)
 
 >[!NOTE]
-Você deve ter concluído com êxito as etapas no artigo de [Introdução](security-azure-log-integration-get-started.md) antes de executar as etapas neste artigo.
+Consulte o artigo [Introdução](security-azure-log-integration-get-started.md) e conclua todas as etapas até a etapa 3 da seção **Pós-instalação e validação** antes de tentar realizar as etapas deste artigo.
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Etapas para integrar os logs de auditoria do Azure Active Directory
 
@@ -35,9 +36,9 @@ Você deve ter concluído com êxito as etapas no artigo de [Introdução](secur
 2. Execute o comando:
 
  ``azlog createazureid``
- 
+
  Esse comando solicitará o logon do Azure. O comando cria uma Entidade de Serviço do Azure Active Directory em locatários do Azure AD que hospedam as assinaturas do Azure nas quais o usuário conectado é um Administrador, um Coadministrador ou um Proprietário. O comando falhará se o usuário conectado for apenas um usuário Convidado no Locatário do Azure AD. A autenticação do Azure é feita por meio do Azure Active Directory (AD). Criar uma entidade de serviço para a Integração do Azlog criará a identidade do Azure AD que terá o acesso de leitura a partir das assinaturas do Azure.
- 
+
 3. Execute o comando fornecendo seu tenantID. Você precisa ser membro da função de administrador de locatário para executar o comando.
 
 ``Azlog.exe authorizedirectoryreader tenantId``
@@ -53,7 +54,7 @@ Verifique as seguintes pastas para confirmar se os arquivos JSON do Log de Audit
 
 Aponte o conector de encaminhamento de arquivos SIEM padrão para a devida pasta para enviar os dados para a instância SIEM. Talvez sejam necessários alguns mapeamentos de campo com base no produto SIEM que você está usando.
 
-Ajuda da comunidade está disponível por meio de [Fórum do MSDN de integração de Log do Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Este fórum fornece para a comunidade AzLog a capacidade de apoiar uns aos outros com perguntas, respostas, dicas e truques sobre como aproveitar ao máximo a integração de log do Azure. Além disso, a equipe de Integração do Log do Azure monitora esse fórum e ajuda sempre que possível. 
+Ajuda da comunidade está disponível por meio de [Fórum do MSDN de integração de Log do Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Este fórum fornece para a comunidade AzLog a capacidade de apoiar uns aos outros com perguntas, respostas, dicas e truques sobre como aproveitar ao máximo a integração de log do Azure. Além disso, a equipe de Integração do Log do Azure monitora esse fórum e ajuda sempre que possível.
 
 Você também pode abrir uma [solicitação de suporte](../azure-supportability/how-to-create-azure-support-request.md). Para fazer isso, selecione **integração de log** como o serviço para o qual você está solicitando suporte.
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0c62f84993c83619cd55f9081450deaf0b21c090
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -112,6 +113,10 @@ Use estas etapas para atualizar seu cluster para uma versão com suporte se os n
 > Se estiver executando um cluster que não esteja conectado à Internet, você precisará monitorar o blog da equipe do Service Fabric para saber sobre uma novo lançamento. O sistema não mostra nenhum aviso de integridade do cluster para alertá-lo a respeito.  
 >
 >
+
+#### <a name="auto-provisioning-vs-manual-provisioning"></a>Provisionamento automático vs provisionamento manual
+Para permitir o download automático e o registro para a versão mais recente do código, configure o Serviço de Atualização do Service Fabric. Consulte Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt dentro do [Pacote Autônomo](service-fabric-cluster-standalone-package-contents.md) para obter instruções.
+Para o processo manual, siga as instruções abaixo.
 
 Modifique a configuração do cluster para definir a propriedade a seguir como false antes de iniciar uma atualização de configuração.
 

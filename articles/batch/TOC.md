@@ -29,6 +29,10 @@
 ## Gerenciar
 ### [Cmdlets do PowerShell do Lote](batch-powershell-cmdlets-get-started.md)
 ### [CLI do Azure](batch-cli-get-started.md)
+#### [Criar uma conta do Lote](./scripts/batch-cli-sample-create-account.md)
+#### [Adicionar um aplicativo](./scripts/batch-cli-sample-add-application.md)
+#### [Gerenciar pools](./scripts/batch-cli-sample-manage-pool.md)
+#### [Executar um trabalho e tarefas](./scripts/batch-cli-sample-run-job.md)
 
 # Referência
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -63,7 +67,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Exemplos de código do C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Exemplos de código do Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Exemplos de CLI](batch-cli-samples.md)
 ## [Recursos de Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: cb5c975d92b01e6fd40601b3607c0e472d893a16
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: c175d54fcc7e55bae5057adbb4b9dba0a8843fe2
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -117,7 +118,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
     ![Configurar Logon Único](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_signon_01.png)
 
-    a. Na caixa de texto **Identificador**, insira a **ID da entidade** copiada do Portal do LinkedIn 
+    a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn 
 
     b. Na caixa de texto **URL de resposta**, insira a **URL ACS (acesso do consumidor de declaração)** copiada do Portal do LinkedIn
 
@@ -129,7 +130,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
     
 8. Seu aplicativo LinkedIn Elevate espera as declarações SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra um exemplo disso. O valor padrão do **identificador de usuário** é **user.userprincipalname**, mas o LinkedIn Elevate espera que isso seja mapeado com o endereço de email do usuário. Para que você possa usar o atributo **user. mail** na lista ou usar o valor do atributo apropriado com base na configuração da sua organização. 
 
-    ![Configurar o logon único](./media/active-directory-saas-linkedinElevate-tutorial/updateusermail.png)
+    ![Configurar Logon Único](./media/active-directory-saas-linkedinElevate-tutorial/updateusermail.png)
 
 9. Na seção **Atributos de Usuário**, clique em **Exibir e editar todos os outros atributos de usuário** e defina os atributos. É necessário adicionar outra declaração denominada **departamento** e o valor deve ser mapeado para **user.department**.
 
@@ -139,11 +140,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+    a. Clique em Adicionar atributo para abrir a página de detalhes do atributo. Adicione o atributo department conforme mostrado abaixo.
+    
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
-
-       b. Click on **Ok** to save the attribute.
+    b. Clique em **OK** para salvar o atributo.
 
 10. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
@@ -151,7 +152,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
 11. Clique em **Salvar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_400.png)
 
 12. Vá para a seção **Configurações de administração do LinkedIn**. Carregue o arquivo XML que você acabou de baixar no portal do Azure clicando na opção Carregar arquivo XML.
 
@@ -159,10 +160,10 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
 13. Clique em **Ativar** para habilitar o SSO. O status do SSO será alterado de **Não conectado** para **Conectado**
 
-    ![Configurar o logon único](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_admin_05.png)
+    ![Configurar Logon Único](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
@@ -253,3 +254,4 @@ Quando você clica no bloco LinkedIn Elevate no Painel de Acesso, você deve obt
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
+

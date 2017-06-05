@@ -1,6 +1,6 @@
 ---
-title: "Associações do DocumentDB do Azure Functions | Microsoft Docs"
-description: "Entenda como usar associações do Banco de Dados de Documentos do Azure no Azure Functions."
+title: "Associações do Banco de Dados Cosmos do Azure Functions | Microsoft Docs"
+description: "Entenda como usar associações do Banco de Dados Cosmo do Azure no Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,49 +16,50 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/18/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: e38c9187be42946df1e8059ba44f10f76d32d984
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2c0cb8ee1690f9b36b76c87247e3c7223876b269
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="azure-functions-documentdb-bindings"></a>Associações do Banco de Dados de Documentos do Azure Functions
+# <a name="azure-functions-cosmos-db-bindings"></a>Associações do Banco de Dados Cosmos do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar associações do Banco de Dados de Documentos do Azure no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para o DocumentDB.
+Este artigo explica como configurar e codificar associações do Banco de Dados Cosmos do Azure no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para o Banco de Dados Cosmos.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Para saber mais sobre o DocumentDB, veja [Introdução ao DocumentDB](../documentdb/documentdb-introduction.md) e [Criar um aplicativo de console do DocumentDB](../documentdb/documentdb-get-started.md).
+Para saber mais sobre o Banco de Dados Cosmos, veja [Introdução ao Banco de Dados Cosmos](../documentdb/documentdb-introduction.md) e [Criar um aplicativo de console do Banco de Dados Cosmos](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
 
-## <a name="documentdb-input-binding"></a>Associação de entrada do DocumentDB
-A associação de entrada de dados do DocumentDB recupera um documento do DocumentDB e o passa para o parâmetro de entrada nome da função. A ID do documento pode ser determinada com base no gatilho que invoca a função. 
+## <a name="documentdb-api-input-binding"></a>Associação de entrada da API do DocumentDB
+A associação de entrada da API do DocumentDB recupera um documento do Banco de Dados Cosmos e o passa ao parâmetro de entrada nomeada da função. A ID do documento pode ser determinada com base no gatilho que invoca a função. 
 
-A associação de entrada de dados de documentos tem as seguintes propriedades em *function.json*:
+A associação de entrada da API do DocumentDB tem as seguintes propriedades em *function.json*:
 
 - `name` : nome do Identificador usado no código de função para o documento
 - `type` : deve ser definido como "documentdb"
 - `databaseName` : O banco de dados que contém o documento
 - `collectionName` : A coleção que contém o documento
 - `id` : a ID do documento a ser recuperado. Essa propriedade oferece suporte a parâmetros de associações; consulte [Associar a propriedades personalizadas de entrada em uma expressão de associação](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) no artigo [Conceitos de associações e gatilhos de funções do Azure](functions-triggers-bindings.md).
-- `sqlQuery`: Uma consulta SQL do DocumentDB usada para recuperar vários documentos. A consulta oferece suporte a associações de tempo de execução. Por exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`: O nome da configuração do aplicativo que contém a cadeia de conexão de banco de dados de documentos
+- `sqlQuery`: uma consulta SQL do Banco de Dados Cosmos usada para recuperar vários documentos. A consulta oferece suporte a associações de tempo de execução. Por exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection`: o nome da configuração do aplicativo que contém a cadeia de conexão do Banco de Dados Cosmos
 - `direction` : deve ser definido como `"in"`.
 
 As propriedades `id` e `sqlQuery` não podem ser especificadas. Se `id` nem `sqlQuery` estiver definido, toda a coleção é recuperada.
 
-## <a name="using-a-documentdb-input-binding"></a>Utilizando uma Associação de entrada do Banco de Dados de Documentos do Azure
+## <a name="using-a-documentdb-api-input-binding"></a>Utilizar uma associação de entrada de API do DocumentDB
 
-* Nas funções do C# ou do F#, todas as alterações feitas no documento de entrada (parâmetro de entrada) são enviadas novamente de forma automática para a coleção quando a função é fechada com êxito. 
+* Em funções C# e F#, todas as alterações feitas no documento de entrada por parâmetros de entrada nomeados são persistidas automaticamente. 
 * Funções de JavaScript, as atualizações não são feitas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para fazer atualizações. Consulte o [exemplo JavaScript](#injavascript).
 
 <a name="inputsample"></a>
 
 ## <a name="input-sample-for-single-document"></a>Exemplo de entrada para um único documento
-Suponha que você tenha a seguinte associação de entrada do DocumentDB na matriz `bindings` de function.json:
+Suponha que você tenha a seguinte associação de entrada da API do DocumentDB na matriz `bindings` de function.json:
 
 ```json
 {
@@ -67,7 +68,7 @@ Suponha que você tenha a seguinte associação de entrada do DocumentDB na matr
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "id" : "{queueTrigger}",
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "in"
 }
 ```
@@ -79,10 +80,10 @@ Veja o exemplo de idioma específico que usa essa associação de entrada para a
 * [JavaScript](#injavascript)
 
 <a name="incsharp"></a>
-### <a name="input-sample-in-c"></a>Amostra de entrada no C# #
+### <a name="input-sample-in-c"></a>Exemplo de entrada em C# #
 
 ```cs
-// Change input document contents using DocumentDB input binding 
+// Change input document contents using DocumentDB API input binding 
 public static void Run(string myQueueItem, dynamic inputDocument)
 {   
   inputDocument.text = "This has changed.";
@@ -90,10 +91,10 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 ```
 <a name="infsharp"></a>
 
-### <a name="input-sample-in-f"></a>Amostra de entrada no F# #
+### <a name="input-sample-in-f"></a>Exemplo de entrada em F# #
 
 ```fsharp
-(* Change input document contents using DocumentDB input binding *)
+(* Change input document contents using DocumentDB API input binding *)
 open FSharp.Interop.Dynamic
 let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
@@ -121,7 +122,7 @@ Para adicionar um arquivo do `project.json`, veja [Gerenciamento de pacotes do F
 ### <a name="input-sample-in-javascript"></a>Amostra de entrada no JavaScript
 
 ```javascript
-// Change input document contents using DocumentDB input binding, using context.bindings.inputDocumentOut
+// Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
 module.exports = function (context) {   
   context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
   context.bindings.inputDocumentOut.text = "This was updated!";
@@ -143,7 +144,7 @@ Neste exemplo, o gatilho de fila fornece um parâmetro `departmentId`. Uma mensa
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
     "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
-    "connection": "DocumentDBConnection"
+    "connection": "CosmosDBConnection"
 }
 ```
 
@@ -177,19 +178,19 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a id="docdboutput"></a>Associação de saída do DocumentDB
-A associação de saída do DocumentDB permite que você escreva um novo documento em um banco de dados do DocumentDB do Azure. O *function.json* especifica as propriedades a seguir:
+## <a id="docdboutput"></a>Associação de saída da API do DocumentDB
+A associação de saída da API do DocumentDB permite que você escreva um novo documento em um banco de dados do Banco de Dados Cosmos do Azure. O *function.json* especifica as propriedades a seguir:
 
 - `name` : nome do Identificador usado no código de função para o novo documento
 - `type` : deve ser definido como `"documentdb"`
 - `databaseName` : o banco de dados que contém a coleção na qual o novo documento será criado.
 - `collectionName` : a coleção na qual o novo documento será criado.
 - `createIfNotExists` : é um valor booliano para indicar se a coleção será criada se ela não existir. O padrão é *false*. O motivo para isso é que as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection`: O nome da configuração do aplicativo que contém a cadeia de conexão de banco de dados de documentos
+- `connection`: o nome da configuração do aplicativo que contém a cadeia de conexão do Banco de Dados Cosmos
 - `direction` : deve ser definido como `"out"`
 
-## <a name="using-a-documentdb-output-binding"></a>Utilizando uma associação de saída do banco de dados do documento
-Esta seção mostra como usar a associação de saída do DocumentDB no código da função.
+## <a name="using-a-documentdb-api-output-binding"></a>Usar uma associação de saída de API do DocumentDB
+Esta seção mostra como usar a associação de saída da API do DocumentDB em seu código da função.
 
 Quando você grava para o parâmetro de saída em sua função, por padrão um novo documento é gerado no banco de dados, com um GUID gerado automaticamente como a ID do documento. Você pode especificar a ID do documento de saída, especificando a propriedade `id` JSON no parâmetro de saída. 
 
@@ -200,8 +201,8 @@ Para obter vários documentos de saída, você também pode associar a `ICollect
 
 <a name="outputsample"></a>
 
-## <a name="documentdb-output-binding-sample"></a>Associação de saída do DocumentDB
-Suponha que você tenha a seguinte associação de saída do DocumentDB na matriz `bindings` de function.json:
+## <a name="documentdb-api-output-binding-sample"></a>Exemplo de associação de saída da API do DocumentDB
+Suponha que você tenha a seguinte associação de saída da API do DocumentDB na matriz `bindings` de function.json:
 
 ```json
 {
@@ -210,7 +211,7 @@ Suponha que você tenha a seguinte associação de saída do DocumentDB na matri
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "createIfNotExists": true,
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "out"
 }
 ```
@@ -225,7 +226,7 @@ E que você tenha uma associação de entrada de fila para uma fila que recebe o
 }
 ```
 
-E você deseja criar documentos do DocumentDB no formato a seguir para cada registro:
+E você deseja criar documentos do Banco de Dados Cosmos no formato a seguir para cada registro:
 
 ```json
 {
@@ -244,7 +245,7 @@ Veja o exemplo de idioma específico que usa essa associação de saída para ad
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>Amostra de saída no C# #
+### <a name="output-sample-in-c"></a>Amostra de saída em C# #
 
 ```cs
 #r "Newtonsoft.Json"
@@ -270,7 +271,7 @@ public static void Run(string myQueueItem, out object employeeDocument, TraceWri
 
 <a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>Amostra de saída no F# #
+### <a name="output-sample-in-f"></a>Amostra de saída em F# #
 
 ```fsharp
 open FSharp.Interop.Dynamic

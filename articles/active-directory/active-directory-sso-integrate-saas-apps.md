@@ -1,4 +1,5 @@
 ---
+
 title: "Integrar o logon único do Azure Active Directory com aplicativos SaaS | Microsoft Docs"
 description: "Habilitar o gerenciamento de acesso centralizado da autenticação de logon único e do provisionamento de usuário dos aplicativos SaaS no Active Directory do Azure. Uma visão geral de como integrar o Active Directory do Azure a aplicativos SaaS."
 services: active-directory
@@ -13,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -70,13 +73,7 @@ Para aplicativos SaaS que você encontrar na Galeria de Aplicativos, o Azure AD 
 
 Se o aplicativo não estiver na Galeria de Aplicativos, você poderá [adicioná-lo à Galeria de Aplicativos do Azure AD como um aplicativo personalizado](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-Há muito mais detalhes sobre todos esses assuntos na biblioteca do Azure.com, começando com [O que é o acesso a aplicativos e o logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Há muito mais detalhes sobre todos esses temas na biblioteca do Azure.com, começando com [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-## <a name="next-steps"></a>Próximas etapas
-* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Além disso, não perca o [Índice de artigos para Gerenciamento de Aplicativos no Azure Active Directory](active-directory-apps-index.md).
 

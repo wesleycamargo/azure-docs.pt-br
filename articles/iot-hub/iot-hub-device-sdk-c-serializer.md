@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-translationtype: Human Translation
-ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
-ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
-ms.lasthandoff: 02/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 0c192a9c5e738d92d02fb1a16a80569c9f80d732
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -68,13 +69,13 @@ Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do *
 | Tipo | Descrição |
 | --- | --- |
 | double |número de ponto flutuante de precisão dupla |
-| int |inteiro de&32; bits |
+| int |inteiro de 32 bits |
 | flutuante |número de ponto flutuante de precisão única |
 | longo |inteiro longo |
-| int8\_t |inteiro de&8; bits |
-| int16\_t |inteiro de&16; bits |
-| int32\_t |inteiro de&32; bits |
-| int64\_t |inteiro de&64; bits |
+| int8\_t |inteiro de 8 bits |
+| int16\_t |inteiro de 16 bits |
+| int32\_t |inteiro de 32 bits |
+| int64\_t |inteiro de 64 bits |
 | bool |Booliano |
 | ascii\_char\_ptr |Cadeia de caracteres ASCII |
 | EDM\_DATE\_TIME\_OFFSET |diferença de data e horário |
@@ -672,9 +673,9 @@ Para saber mais sobre como desenvolver para o Hub IoT, consulte os [SDKs do Azur
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Simulando um dispositivo com o SDK do Gateway do IoT][lnk-gateway]
+* [Simulando um dispositivo com Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

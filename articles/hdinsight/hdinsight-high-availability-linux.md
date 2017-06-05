@@ -1,15 +1,16 @@
 ---
-title: Recursos de alta disponibilidade do HDInsight (Hadoop) | Microsoft Docs
-description: "Saiba como clusters HDInsight baseados em Linux melhoram a confiabilidade e a disponibilidade usando um nó principal adicional. Saiba como isso afeta os serviços do Hadoop, como o Ambari e o Hive, e também como se conectar individualmente com cada nó principal usando SSH."
+title: "Alta disponibilidade para Hadoop – Azure HDInsight | Microsoft Docs"
+description: "Saiba como clusters HDInsight melhoram a confiabilidade e a disponibilidade usando um nó principal adicional. Saiba como isso afeta os serviços do Hadoop, como o Ambari e o Hive, e também como se conectar individualmente com cada nó principal usando SSH."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
 documentationcenter: 
 tags: azure-portal
+keywords: alta disponibilidade hadoop
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
@@ -17,10 +18,10 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e001d497dba1e3cc0a987fd0950854fe2564d2c
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 7ad2a150cd4a7223b6eababb8519140ba856cd6e
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,12 +29,12 @@ ms.lasthandoff: 04/27/2017
 
 Os clusters HDInsight fornecem dois nós de cabeçalho para aumentar a disponibilidade e a confiabilidade dos serviços e trabalhos do Hadoop em execução.
 
-O Hadoop atinge a alta disponibilidade e confiabilidade mantendo cópias de dados e serviços em múltiplos nós em um cluster. No entanto, em geral, as distribuições padrão do Hadoop têm apenas um único nó de cabeçalho. Qualquer falha do único nó de cabeçalho poderá fazer com que o cluster pare de funcionar. Isso não é um problema com o HDInsight.
+O Hadoop atinge a alta disponibilidade e confiabilidade replicando serviços e dados em múltiplos nós em um cluster. No entanto, em geral, as distribuições padrão do Hadoop têm apenas um único nó de cabeçalho. Qualquer falha do único nó de cabeçalho poderá fazer com que o cluster pare de funcionar. O HDInsight fornece dois nós principais para melhorar a disponibilidade e a confiabilidade do Hadoop.
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
-## <a name="understanding-the-nodes"></a>Compreendendo os dados
+## <a name="availability-and-reliability-of-nodes"></a>Disponibilidade e confiabilidade dos nós
 
 Os nós em um cluster HDInsight são implementados com o uso de Máquinas Virtuais do Azure. Se um nó falhar, ele é colocado offline e um novo nó é criado para substituir o nó com falha. Enquanto o nó estiver offline, outro nó do mesmo tipo será usado até que o novo nó seja colocado online.
 
@@ -44,7 +45,7 @@ As seções a seguir abordam os tipos de nós individuais usados com o HDInsight
 
 ### <a name="head-nodes"></a>Nós de cabeçalho
 
-Ambos os nós de cabeçalho estão ativos e em execução no cluster HDInsight simultaneamente. Alguns serviços, como HDFS ou YARN, só estão “ativos” em um nó de cabeçalho a qualquer momento. Outros serviços, como HiveServer2 ou MetaStore Hive estão ativos em ambos os nós de cabeçalho ao mesmo tempo.
+Para garantir a alta disponibilidade dos serviços do Hadoop, o HDInsight oferece dois nós principais. Ambos os nós de cabeçalho estão ativos e em execução no cluster HDInsight simultaneamente. Alguns serviços, como HDFS ou YARN, só estão “ativos” em um nó de cabeçalho a qualquer momento. Outros serviços, como HiveServer2 ou MetaStore Hive estão ativos em ambos os nós de cabeçalho ao mesmo tempo.
 
 Os nós de cabeçalho (e outros nós no HDInsight) tem um valor numérico como parte do nome do host do nó. Por exemplo, `hn0-CLUSTERNAME` ou `hn4-CLUSTERNAME`.
 
@@ -53,11 +54,11 @@ Os nós de cabeçalho (e outros nós no HDInsight) tem um valor numérico como p
 
 ### <a name="nimbus-nodes"></a>Nós Nimbus
 
-Para clusters Storm, os nós Nimbus fornecem funcionalidade semelhante ao JobTracker do Hadoop, distribuindo e monitorando o processamento nos nós de trabalho. O HDInsight fornece dois nós Nimbus para o tipo de cluster Storm.
+Nós Nimbus estão disponíveis nos clusters Storm. Os nós Nimbus fornecem funcionalidade semelhante ao JobTracker do Hadoop, distribuindo e monitorando o processamento nos nós de trabalho. O HDInsight oferece dois nós Nimbus para clusters Storm
 
 ### <a name="zookeeper-nodes"></a>Nós do Zookeeper
 
-Os nós do [ZooKeeper](http://zookeeper.apache.org/) são usados para eleição de líder de serviços principais em nós de cabeçalho e para garantir que os serviços, nós de dados (trabalho) e gateways saibam em qual nó de cabeçalho um serviço principal está ativo. Por padrão, o HDInsight fornece três nós do ZooKeeper.
+Os nós [ZooKeeper](http://zookeeper.apache.org/) são usados para eleição de líder de serviços mestres em nós principais. Eles também são usados para garantir que os serviços, nós de dados (trabalho) e gateways saibam em qual nó principal um serviço mestre está ativo. Por padrão, o HDInsight fornece três nós do ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nós de trabalho
 
@@ -65,7 +66,7 @@ Os nós de trabalho executam a análise de dados real quando um trabalho é envi
 
 ### <a name="edge-node"></a>Nó de borda
 
-Um nó de borda não participa ativamente na análise de dados dentro do cluster, mas é usado por desenvolvedores ou cientistas de dados ao trabalhar com o Hadoop. O nó de borda reside na mesma Rede Virtual do Azure que os outros nós no cluster e pode acessar diretamente todos os outros nós. Já que ele não está envolvido na análise de dados do cluster, ele pode ser usado sem a preocupação com a retirada de recursos de serviços críticos ou de trabalhos de análise do Hadoop.
+Um nó de borda não participa ativamente na análise de dados dentro do cluster. Ele é usado por desenvolvedores ou cientistas de dados ao trabalhar com o Hadoop. O nó de borda reside na mesma Rede Virtual do Azure que os outros nós no cluster e pode acessar diretamente todos os outros nós. O nó de borda pode ser usado sem retirar recursos dos serviços críticos do Hadoop ou de trabalhos de análise.
 
 Atualmente, o Servidor R no HDInsight é o único tipo de cluster que fornece um nó de borda por padrão. Para o Servidor R no HDInsight, o nó de borda é usado para testar o código R localmente no nó antes de enviá-lo ao cluster para o processamento distribuído.
 
@@ -135,15 +136,15 @@ Para saber mais sobre como usar o Ambari, confira [Monitorar e gerenciar o HDIns
 
 ### <a name="ambari-rest-api"></a>API REST do Ambari
 
-A API REST do Ambari está disponível pela Internet, e o gateway público manipula as solicitações de roteamento para o nó de cabeçalho que hospeda a API REST.
+A API REST do Ambari está disponível pela internet. O gateway público HDInsight manipula as solicitações de roteamento para o nó de cabeçalho que hospeda a API REST.
 
 Você pode usar o seguinte comando para verificar o estado de um serviço por meio da API de REST do Ambari:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
-* Substitua a **SENHA** pela senha da conta do usuário HTTP (administrador)
-* Substitua o **CLUSTERNAME** pelo nome do cluster
-* Substitua o **SERVICENAME** pelo nome do serviço para verificar o status de
+* Substitua a **SENHA** pela senha da conta do usuário HTTP (administrador).
+* Substitua **CLUSTERNAME** pelo nome do cluster.
+* Substitua o **SERVICENAME** pelo nome do serviço desejado para verificar o status.
 
 Por exemplo, para verificar o status do serviço **HDFS** em um cluster chamado **mycluster**, por uma senha de **senha**, você usaria o seguinte comando:
 
@@ -192,7 +193,7 @@ Cada nó de cabeçalho pode ter entradas de log exclusivo, portanto você deve v
 
 Também é possível se conectar ao nó de cabeçalho usando o Protocolo FTP do SSH ou SFTP e baixar os arquivos de log diretamente.
 
-Semelhante ao uso de um cliente SSH, ao se conectar com o cluster, é necessário fornecer o nome de conta de usuário SSH e o endereço SSH do cluster. Por exemplo: `sftp username@mycluster-ssh.azurehdinsight.net`. É necessário fornecer a senha da conta quando solicitado ou uma chave pública usando o parâmetro `-i` .
+Semelhante ao uso de um cliente SSH, ao se conectar com o cluster, é necessário fornecer o nome de conta de usuário SSH e o endereço SSH do cluster. Por exemplo: `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a senha da conta quando solicitado ou uma chave pública usando o parâmetro `-i`.
 
 Depois de conectado, você verá um prompt `sftp>` . Neste prompt, é possível alterar os diretórios, além de carregar e baixar arquivos. Por exemplo, os seguintes comandos alteram os diretórios para o diretório **/var/log/hadoop/hdfs** e baixam todos os arquivos no diretório em seguida.
 
@@ -207,7 +208,7 @@ Para obter uma lista dos comandos disponíveis, insira `help` no prompt `sftp>`.
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]
-> Para acessar os arquivos de log usando o Ambari, use um túnel SSH. A interface da web para os serviços individuais não são expostas publicamente na Internet. Para saber mais sobre o uso de um túnel SSH, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md).
+> Para acessar os arquivos de log usando o Ambari, use um túnel SSH. As interfaces da web para os serviços individuais não são expostas publicamente na Internet. Para saber mais sobre como usar um túnel SSH, veja o documento [Usar túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
 Na interface de usuário da Web do Ambari, selecione o serviço do qual você deseja exibir os logs (por exemplo, YARN). Em seguida, use os **Links Rápidos** a fim de selecionar para qual nó de cabeçalho exibir os logs.
 
@@ -215,9 +216,9 @@ Na interface de usuário da Web do Ambari, selecione o serviço do qual você de
 
 ## <a name="how-to-configure-the-node-size"></a>Como configurar o tamanho do nó
 
-O tamanho de um nó só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight, incluindo o núcleo, memória e armazenamento local para cada um, na [página de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+O tamanho de um nó só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight na [página de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Ao criar um novo cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientação sobre como especificar o tamanho usando o [portal do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI do Azure][azure-cli]:
+Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientação sobre como especificar o tamanho usando o [portal do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI do Azure][azure-cli]:
 
 * **Portal do Azure**: ao criar um cluster, você pode definir o tamanho dos nós usados pelo cluster:
 

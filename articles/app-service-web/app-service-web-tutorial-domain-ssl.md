@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 78358e97f76454c19d5a377a2dac2bbf08c616ce
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 535a7dbe24a1badc8539b61d34c09bdeda41ad40
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -54,17 +55,9 @@ Para ver quais são os valores possíveis para `---location`, use o comando `az 
 
 ## <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
 
-Criar um Plano do Serviço de Aplicativo baseado no Linux com o comando [az appservice plan create](/cli/azure/appservice/plan#create). 
+Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Um plano do Serviço de Aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do Serviço de Aplicativo compartilham os recursos definidos por ele, permitindo que você economize ao hospedar vários aplicativos. 
-> 
-> Os Planos do Serviço de Aplicativo definem: 
-> * Região (Europa Setentrional, Leste dos EUA, Sudeste Asiático) 
-> * Tamanha da Instância (Pequena, Média, Grande) 
-> * Contagem da Escala (uma, duas, três instâncias etc.) 
-> * SKU (Gratuito, Compartilhado, Básico, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 O exemplo a seguir cria um Plano do Serviço de Aplicativo denominado `myAppServicePlan` usando o tipo de preço **Basic**.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 05/31/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 78b8902927977c3b7dca3bd6e24633858ef8e6e9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 9ab6d3e5e41f155b1404cee8a555078409c09c60
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -33,7 +33,7 @@ Para criar um vínculo entre dois modelos, adicione um recurso de implantação 
 ```json
 "resources": [ 
   { 
-      "apiVersion": "2015-01-01", 
+      "apiVersion": "2017-05-10", 
       "name": "linkedTemplate", 
       "type": "Microsoft.Resources/deployments", 
       "properties": { 
@@ -53,7 +53,7 @@ Para criar um vínculo entre dois modelos, adicione um recurso de implantação 
 Assim como outros tipos de recurso, você pode definir dependências entre o modelo vinculado e outros recursos. Portanto, quando outros recursos exigirem um valor de saída do modelo vinculado, você poderá ter certeza de que o modelo vinculado foi implantado antes deles. Ou, quando o modelo vinculado depender de outros recursos, você poderá verificar se outros recursos foram implantados antes do modelo vinculado. Você pode recuperar um valor de um modelo vinculado com a seguinte sintaxe:
 
 ```json
-"[reference('linkedTemplate').outputs.exampleProperty]"
+"[reference('linkedTemplate').outputs.exampleProperty.value]"
 ```
 
 O serviço do Resource Manager deve ser capaz de acessar o modelo vinculado. Você não pode especificar um arquivo local ou um arquivo que esteja disponível apenas em sua rede local para o modelo vinculado. Você só pode fornecer um valor de URI que inclua **http** ou **https**. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item, conforme mostra o exemplo a seguir:
@@ -75,7 +75,7 @@ O exemplo a seguir mostra um modelo pai vinculado a outro modelo. O modelo vincu
 },
 "resources": [
     {
-        "apiVersion": "2015-01-01",
+        "apiVersion": "2017-05-10",
         "name": "linkedTemplate",
         "type": "Microsoft.Resources/deployments",
         "properties": {
@@ -101,7 +101,7 @@ O exemplo a seguir usa a propriedade **parametersLink** para vincular a um arqui
 ```json
 "resources": [ 
   { 
-     "apiVersion": "2015-01-01", 
+     "apiVersion": "2017-05-10", 
      "name": "linkedTemplate", 
      "type": "Microsoft.Resources/deployments", 
      "properties": { 
@@ -142,116 +142,6 @@ Você também pode usar [deployment()](resource-group-template-functions-deploym
 }
 ```
 
-## <a name="conditionally-linking-to-templates"></a>Vinculação condicional a modelos
-Você pode vincular a modelos diferentes passando um valor de parâmetro usado para construir o URI do modelo vinculado. Essa abordagem funciona bem quando você precisa especificar qual modelo vinculado deve ser usado durante a implantação. Por exemplo, você pode especificar um modelo a ser usado para uma conta de armazenamento existente, e outro modelo a ser usado para uma nova conta de armazenamento.
-
-O exemplo a seguir mostra um parâmetro para um nome de conta de armazenamento, e um parâmetro para especificar se a conta de armazenamento é nova ou existente.
-
-```json
-"parameters": {
-    "storageAccountName": {
-        "type": "String"
-    },
-    "newOrExisting": {
-        "type": "String",
-        "allowedValues": [
-            "new",
-            "existing"
-        ]
-    }
-},
-```
-
-Crie uma variável para o URI do modelo que inclui o valor do parâmetro novo ou existente.
-
-```json
-"variables": {
-    "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
-},
-```
-
-Forneça esse valor variável para o recurso de implantação.
-
-```json
-"resources": [
-    {
-        "apiVersion": "2015-01-01",
-        "name": "linkedTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-            "mode": "incremental",
-            "templateLink": {
-                "uri": "[variables('templatelink')]",
-                "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-                "StorageAccountName": {
-                    "value": "[parameters('storageAccountName')]"
-                }
-            }
-        }
-    }
-],
-```
-
-O URI é resolvido para um modelo denominado **existingStorageAccount.json** ou **newStorageAccount.json**. Crie modelos para esses URIs.
-
-A exemplo a seguir mostra o modelo **existingStorageAccount.json** .
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "String"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
-A próximo exemplo mostra o modelo **newStorageAccount.json** . Observe que, assim como o modelo da conta de armazenamento existente, o objeto da conta de armazenamento retorna nas saídas. O modelo mestre funciona com qualquer modelo vinculado.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('StorageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
 ## <a name="complete-example"></a>Exemplo completo
 Os exemplos de modelos a seguir mostram uma disposição simplificada de modelos vinculados para ilustrar vários conceitos neste artigo. Ela pressupõe que os modelos tenham sido adicionados ao mesmo contêiner em uma conta de armazenamento com acesso público desativado. O modelo vinculado transmite um valor de volta para o modelo principal na seção **outputs** .
 
@@ -266,7 +156,7 @@ O arquivo **parent.json** consiste em:
   },
   "resources": [
     {
-      "apiVersion": "2015-01-01",
+      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {
@@ -317,8 +207,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri 
 Na CLI do Azure 2.0, você obtém um token para o contêiner e implanta os modelos com o código a seguir:
 
 ```azurecli
-seconds='@'$(( $(date +%s) + 1800 ))
-expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \
     --name storagecontosotemplates \

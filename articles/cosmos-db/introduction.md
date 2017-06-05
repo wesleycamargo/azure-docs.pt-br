@@ -1,25 +1,25 @@
 ---
 title: "Introdução ao BD Cosmos do Azure | Microsoft Docs"
 description: "Saiba mais sobre o BD Cosmos do Azure. Este multimodelo de banco de dados distribuído globalmente foi criado para alta disponibilidade, escalabilidade elástica e baixa latência."
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2017
 ms.author: mimig
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1591a7935b10e22164d26a09c4e923101b517227
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 0736a6f9790b70686c4d936f2af80d5e42b89615
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -29,7 +29,7 @@ O BD Cosmos do Azure é o multimodelo de banco de dados distribuído globalmente
 
 ![O BD Cosmos do Azure é serviço de banco de dados distribuído globalmente da Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
 
-O BD Cosmos do Azure contém um mecanismo de banco de dados otimizado para gravação, governado por recursos, independente de esquemas que dá suporte a vários modelos de dados de forma nativa: chave-valor, documentos, gráficos e colunares. Ele também dá suporte a várias APIs para acessar dados incluindo [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [SQL do DocumentDB](../documentdb/documentdb-introduction.md), [Gremlin](graph-introduction.md) (versão prévia) e [Tabelas do Azure](table-introduction.md) (versão prévia), de forma extensível. 
+O BD Cosmos do Azure contém um mecanismo de banco de dados otimizado para gravação, governado por recursos, independente de esquemas que dá suporte a vários modelos de dados de forma nativa: chave-valor, documentos, gráficos e colunares. Ele também dá suporte a várias APIs para acessar dados incluindo [MongoDB](mongodb-introduction.md), [SQL do DocumentDB](documentdb-introduction.md), [Gremlin](graph-introduction.md) (versão prévia) e [Tabelas do Azure](table-introduction.md) (versão prévia), de forma extensível. 
 
 O BD Cosmos do Azure foi iniciado no final de 2010 para resolver pontos problemáticos de desenvolvedores, que eram enfrentados por aplicativos de grande escala na Microsoft. Como a criação de aplicativos distribuídos globalmente não é um problema exclusivo da Microsoft, tornamos o serviço disponível externamente para todos os desenvolvedores do Azure no formato do Azure DocumentDB. O BD Cosmos do Azure é a próxima grande melhoria na evolução do DocumentDB e agora o estamos disponibilizando para você usar. Como parte desta versão do BD Cosmos do Azure, os clientes do DocumentDB (com seus dados) se tornam automaticamente clientes do BD Cosmos do Azure. A transição é contínua e agora eles têm acesso a uma variedade maior de novas funcionalidades oferecidas pelo BD Cosmos do Azure. 
 
@@ -59,7 +59,7 @@ Como um serviço de banco de dados distribuído globalmente, o BD Cosmos do Azur
     * SQL e Gremlin para consultas. 
 
 * [**Dimensionar elasticamente a taxa de transferência e o armazenamento sob demanda, em todo o mundo**](#horizontal-scale)
-    * Dimensione facilmente a taxa de transferência em granularidades de [segundo](../documentdb/documentdb-request-units.md) e [minuto](https://aka.ms/acdbrupm) e altere-a sempre que desejar. 
+    * Dimensione facilmente a taxa de transferência em granularidades de [segundo](request-units.md) e [minuto](https://aka.ms/acdbrupm) e altere-a sempre que desejar. 
     * Dimensione o armazenamento [de forma transparente e automática](partition-data.md) para cobrir a seus requisitos de tamanho agora e para sempre.
 
 * [**Criar aplicativos altamente responsivos e críticos**](#low-latency) 
@@ -68,10 +68,10 @@ Como um serviço de banco de dados distribuído globalmente, o BD Cosmos do Azur
 * [**Garantir disponibilidade "sempre ativa"**](#high-availability)
     * Disponibilidade de 99,99% em uma única região.
     * Implantar em qualquer número de [regiões do Azure](https://azure.microsoft.com/regions) para uma maior disponibilidade.
-    * [Simule uma falha](../documentdb/documentdb-regional-failovers.md) de uma ou mais regiões com a garantia de nenhuma perda de dados. 
+    * [Simule uma falha](regional-failover.md) de uma ou mais regiões com a garantia de nenhuma perda de dados. 
 
 * [**Escrever aplicativos distribuídos globalmente, da maneira correta**](#consistency)
-    * [Cinco modelos de consistência](../documentdb/documentdb-consistency-levels.md) oferecem desde consistência forte semelhante ao SQL até uma consistência eventual semelhante ao NoSQL e tudo o que há entre elas. 
+    * [Cinco modelos de consistência](consistency-levels.md) oferecem desde consistência forte semelhante ao SQL até uma consistência eventual semelhante ao NoSQL e tudo o que há entre elas. 
   
 * [**Garantia do dinheiro de volta**](#sla) 
     * Agilidade nos seus dados ou o seu dinheiro de volta. 
@@ -96,19 +96,17 @@ Os contêineres do BD Cosmos do Azure são distribuídos em duas dimensões:
 
 Quando o armazenamento e a taxa de transferência precisam ser dimensionados, o BD Cosmos realiza operações de gerenciamento de partição de forma transparente em todas as regiões. Independentemente da escala, da distribuição ou das falhas, o BD Cosmos continua a fornecer uma imagem única do sistema dos recursos distribuídos globalmente. 
 
-A distribuição global de recursos no BD Cosmos é [turnkey](../documentdb/documentdb-distribute-data-globally.md). A qualquer momento e com apenas alguns cliques (ou programaticamente, com uma única chamada à API), você pode associar qualquer número de regiões geográficas com sua conta de banco de dados. 
+A distribuição global de recursos no BD Cosmos é [turnkey](distribute-data-globally.md). A qualquer momento e com apenas alguns cliques (ou programaticamente, com uma única chamada à API), você pode associar qualquer número de regiões geográficas com sua conta de banco de dados. 
 
 Independentemente da quantidade de dados ou do número de regiões, o BD Cosmos garante que cada região recém-associada inicie o processamento de solicitações de cliente em até uma hora no 99º percentil. Isso é feito ao paralelizar a propagação e a cópia de dados de todas partições de recurso de origem para a região recém-associada. Os clientes também podem remover uma região existente ou desativar uma região que foi previamente associada às suas contas de banco de dados offline.
 
 <a id="data-models"></a>
 ## <a name="multi-model-multi-api-support"></a>Suporte multimodelo e a várias APIs
  O BD Cosmos do Azure dá suporte a vários modelos de dados, incluindo documentos, chave-valor, gráfico e família de coluna, de forma nativa. O modelo de conteúdo principal do mecanismo de banco de dados do BD Cosmos baseia-se em ARS (atom-record-sequence). Os átomos consistem em um pequeno conjunto de tipos primitivos como cadeia de caracteres, bool e número. Os registros são estruturas compostas por esses tipos. As sequências são matrizes que consistem em átomos, registros ou sequências. 
-
-![BD Cosmos do Azure multimodelo e de várias APIs](./media/introduction/azure-cosmos-db-multimodel.png) 
  
  O mecanismo do banco de dados pode mover e projetar com eficiência diferentes modelos de dados para o modelo de dados baseado em ARS. O modelo de dados principal do BD Cosmos é acessível nativamente por meio de linguagens de programação dinamicamente tipadas e pode ser exposto no estado em que se encontra como JSON. 
  
- O serviço também dá suporte a APIs populares de banco de dados para acesso a dados e consulta. O mecanismo de banco de dados do BD Cosmos atualmente dá suporte a [SQL do DocumentDB](../documentdb/documentdb-introduction.md), [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [Tabelas do Azure](table-introduction.md) (versão prévia) e [Gremlin](graph-introduction.md) (versão prévia). Você pode continuar a criar aplicativos que usam APIs OSS populares e obter todas as vantagens de um serviço de banco de dados distribuído globalmente, rigorosamente testado e totalmente gerenciado. 
+ O serviço também dá suporte a APIs populares de banco de dados para acesso a dados e consulta. O mecanismo de banco de dados do BD Cosmos atualmente dá suporte a [SQL do DocumentDB](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), [Tabelas do Azure](table-introduction.md) (versão prévia) e [Gremlin](graph-introduction.md) (versão prévia). Você pode continuar a criar aplicativos que usam APIs OSS populares e obter todas as vantagens de um serviço de banco de dados distribuído globalmente, rigorosamente testado e totalmente gerenciado. 
 
 <a id="horizontal-scale"></a>
 ## <a name="horizontal-scaling-of-storage-and-throughput"></a>Dimensionamento em escala horizontal de armazenamento e taxa de transferência
@@ -116,7 +114,7 @@ Todos os dados no contêiner do BD Cosmos (por exemplo, uma coleção de documen
  
 ![O BD Cosmos do Azure é escalonável horizontalmente](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-Você pode dimensionar elasticamente a taxa de transferência de um contêiner do BD Cosmos do Azure ao provisionar programaticamente a taxa de transferência, usando [unidades de solicitação por segundo (RU/s)](../documentdb/documentdb-request-units.md). Internamente, o serviço gerencia de forma transparente as partições de recursos para fornecer a taxa de transferência em um determinado contêiner. O BD Cosmos garante que a taxa de transferência esteja disponível para uso em todas as regiões associadas ao contêiner. A nova taxa de transferência entra em vigor em até cinco segundos após a alteração no valor configurado da taxa de transferência. 
+Você pode dimensionar elasticamente a taxa de transferência de um contêiner do BD Cosmos do Azure ao provisionar programaticamente a taxa de transferência, usando [unidades de solicitação por segundo (RU/s)](request-units.md). Internamente, o serviço gerencia de forma transparente as partições de recursos para fornecer a taxa de transferência em um determinado contêiner. O BD Cosmos garante que a taxa de transferência esteja disponível para uso em todas as regiões associadas ao contêiner. A nova taxa de transferência entra em vigor em até cinco segundos após a alteração no valor configurado da taxa de transferência. 
 
 É possível provisionar a taxa de transferência em um contêiner do BD Cosmos com granularidades por segundo e [por minuto (RU/m)](request-units-per-minute.md). A taxa de transferência provisionada com granularidade por minuto é usada para gerenciar picos inesperados na carga de trabalho que ocorrem com granularidade por segundo. 
 
@@ -128,7 +126,7 @@ Como parte de seus SLAs, o BD Cosmos garante aos seus clientes uma baixa latênc
 ## <a name="transparent-multi-homing-and-9999-high-availability"></a>Hospedagem múltipla transparente e alta disponibilidade de 99,99%
 Você pode associar "prioridades" dinamicamente às regiões relacionadas à sua conta de banco de dados do BD Cosmos do Azure. As prioridades são usadas para direcionar as solicitações para regiões específicas, no caso de falhas regionais. Em um evento improvável de um desastre regional, o BD Cosmos realiza o failover automaticamente, na ordem de prioridade.
 
-Para testar a disponibilidade de ponta a ponta do aplicativo, você pode [disparar manualmente o failover](../documentdb/documentdb-regional-failovers.md) (a taxa é limitada a duas operações em uma hora). O BD Cosmos garante que não haverá nenhuma perda de dados durante os failovers regionais manuais. No caso da ocorrência de um desastre regional, o BD Cosmos garante um limite superior na perda de dados durante o failover automático iniciado pelo sistema. Você não precisa reimplantar o aplicativo após um failover regional e os SLAs de disponibilidade são mantidos pelo BD Cosmos do Azure. 
+Para testar a disponibilidade de ponta a ponta do aplicativo, você pode [disparar manualmente o failover](regional-failover.md) (a taxa é limitada a duas operações em uma hora). O BD Cosmos garante que não haverá nenhuma perda de dados durante os failovers regionais manuais. No caso da ocorrência de um desastre regional, o BD Cosmos garante um limite superior na perda de dados durante o failover automático iniciado pelo sistema. Você não precisa reimplantar o aplicativo após um failover regional e os SLAs de disponibilidade são mantidos pelo BD Cosmos do Azure. 
 
 Nesse cenário, o BD Cosmos permite que você interaja com os recursos usando pontos de extremidade lógicos (independentes de regiões) ou físicos (específicos de regiões). O primeiro garante que o aplicativo possa ser multihomed de forma transparente no caso de failover. O segundo fornece controle refinado para que o aplicativo redirecione leituras e gravações para regiões específicas. O BD Cosmos garante SLA de disponibilidade de 99,99% para cada conta de banco de dados. As garantias de disponibilidade são independentes da escala (taxa de transferência e armazenamento provisionados), do número de regiões ou da distância geográfica entre as regiões associadas a um determinado banco de dados. 
 
@@ -136,7 +134,7 @@ Nesse cenário, o BD Cosmos permite que você interaja com os recursos usando po
 ## <a name="multiple-well-defined-consistency-models"></a>Vários modelos de consistência bem definidos
 Os bancos de dados distribuídos comercialmente se enquadram em duas categorias: bancos de dados que não oferecem opções de consistência bem definidas e comprovadas e bancos de dados que oferecem duas opções de programação extrema (consistência forte versus consistência eventual). A primeira sobrecarrega os desenvolvedores de aplicativos com detalhes de seus protocolos de replicação e espera que eles façam compensações difíceis entre consistência, disponibilidade, latência e taxa de transferência. A segunda opção coloca uma pressão para escolher entre os dois extremos. Apesar da abundância de pesquisas e propostas de mais de 50 modelos de consistência, a comunidade de banco de dados distribuído não tem sido capaz de comercializar níveis de consistência diferentes da consistência forte e consistência eventual. 
 
-O BD Cosmos permite que você escolha entre [cinco modelos de consistência bem-definidos](../documentdb/documentdb-consistency-levels.md) juntamente com o espectro de consistência: forte, desatualização limitada, [sessão](http://dl.acm.org/citation.cfm?id=383631), prefixo consistente e eventual. 
+O BD Cosmos permite que você escolha entre [cinco modelos de consistência bem-definidos](consistency-levels.md) juntamente com o espectro de consistência: forte, desatualização limitada, [sessão](http://dl.acm.org/citation.cfm?id=383631), prefixo consistente e eventual. 
 
 ![O BD Cosmos do Azure oferece várias opções de modelos de consistência bem definidos (flexíveis) para sua escolha](media/introduction/azure-cosmos-db-consistency-levels.png)
 
@@ -152,7 +150,7 @@ A tabela a seguir ilustra as garantias específicas que cada nível de consistê
 | Prefixo consistente    | As atualizações retornadas são algum prefixo de todas as atualizações, sem intervalos |
 | Eventual    | Leituras fora de ordem |
 
-Você pode configurar o nível de consistência padrão na sua conta do BD Cosmos (e mais tarde, substituir a consistência em uma solicitação de leitura específica). Internamente, o nível de consistência padrão aplica-se aos dados nos conjuntos de partições que podem ser regiões de extensão. 
+Você pode configurar o nível de consistência padrão na sua conta do Cosmos DB (e mais tarde, substituir a consistência em uma solicitação de leitura específica). Internamente, o nível de consistência padrão aplica-se aos dados nos conjuntos de partições que podem ser regiões de extensão. 
 
 
 <a id="sla"></a>

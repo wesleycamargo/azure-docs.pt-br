@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/08/2017
 ms.author: ambapat
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: e53b45ef180362f7554c7819b9ae2eb3dbfe3300
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5da9f5eceda71ac85259193e0f183c72813e1679
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -33,7 +33,7 @@ Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure par
 > [!NOTE]
 > Este tutorial não inclui instruções sobre como escrever o aplicativo do Azure incluído em uma das etapas, que mostra como autorizar um aplicativo a usar uma chave ou um segredo do cofre da chave.
 >
-> Este tutorial usa a última CLI 2.0 do Azure. Para obter instruções de como usar a CLI mais antiga (baseada em node.js), consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
+> Este tutorial usa a última CLI 2.0 do Azure.
 >
 >
 
@@ -160,7 +160,11 @@ Aplicativos que usam um cofre de chave devem ser autenticados usando um token do
 Para registrar seu aplicativo com o Active Directory do Azure:
 
 1. Entre no Portal do Azure.
-2. À esquerda, clique em **Azure Active Directory** e selecione o diretório no qual você registrará o aplicativo. <br> <br> Observação: você deve selecionar o mesmo diretório que contém a assinatura do Azure com a qual você criou o cofre de chave. Se você não souber qual é o diretório, clique em **Configurações**, identifique a assinatura com a qual você criou o cofre de chave e anote o nome do diretório exibido na última coluna.
+2. À esquerda, clique em **Azure Active Directory** e selecione o diretório no qual você registrará o aplicativo. <br> <br> 
+
+> [!Note] 
+> Você deve selecionar o mesmo diretório que contém a assinatura do Azure com a qual você criou o cofre de chaves. Se você não souber qual é o diretório, clique em **Configurações**, identifique a assinatura com a qual você criou o cofre de chave e anote o nome do diretório exibido na última coluna.
+
 3. Clique em **APLICATIVOS**. Se nenhum aplicativo tiver sido adicionado ao seu diretório, essa página mostrará somente o link **Adicionar um Aplicativo** . Clique no link ou em **ADICIONAR** na barra de comandos.
 4. No assistente **ADICIONAR APLICATIVO** na página **O que você deseja fazer?**, clique em **Adicionar um aplicativo que minha organização está desenvolvendo**.
 5. Na página **Conte-nos sobre seu aplicativo**, especifique um nome para seu aplicativo e selecione **APLICATIVO WEB E/OU API WEB** (o padrão). Clique no ícone Avançar.

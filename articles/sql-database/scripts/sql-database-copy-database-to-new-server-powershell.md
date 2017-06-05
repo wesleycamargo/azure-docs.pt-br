@@ -9,18 +9,18 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 05/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 826a5213b5b64529df60d9b9ce8433d5c6b3a522
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: cb3412398e566cc16dadc8348241a603e78a098c
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -32,7 +32,7 @@ Este exemplo de script do PowerShell cria uma cópia de um banco de dados existe
 
 ## <a name="copy-a-database-to-a-new-server"></a>Copiar um banco de dados para um novo servidor
 
-[!code-powershell[principal](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1 "Copiar banco de dados para um novo servidor")]
+[!code-powershell[principal](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1?highlight=18-21 "Copiar banco de dados para um novo servidor")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 

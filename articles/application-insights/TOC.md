@@ -12,6 +12,7 @@
 ### [Aplicativos Web já ativos](app-insights-monitor-performance-live-website-now.md)
 ### [Serviços do Windows](app-insights-windows-services.md)
 ### [Área de trabalho do Windows](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Monitorar aplicativos do Java
 ### [Aplicativos Web](app-insights-java-get-started.md)
@@ -33,7 +34,8 @@
 ## Planejar e projetar
 ### [Diagnósticos detalhados para aplicativos Web e serviços](app-insights-devops.md)
 ### [Monitorar o desempenho em aplicativos Web](app-insights-web-monitor-performance.md)
-### [Separar recursos do Application Insights](app-insights-separate-resources.md)
+### [Separação de desenvolvimento, teste e produção](app-insights-separate-resources.md)
+### [Monitorar aplicativos com vários componentes](app-insights-monitor-multi-role-apps.md)
 ### [Como ... no Application Insights?](app-insights-how-do-i.md)
 
 
@@ -112,7 +114,6 @@
 ### [API para eventos e métricas personalizados](app-insights-api-custom-events-metrics.md)
 ### [Filtrar e pré-processar a telemetria](app-insights-api-filtering-sampling.md)
 ### [Amostragem](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Gerenciar
 ### [Gerenciar cotas e preços](app-insights-pricing.md)
@@ -138,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [API de acesso a dados](https://dev.applicationinsights.io/)
 ## [Modelo de dados](application-insights-data-model.md)
 ### [Solicitação](application-insights-data-model-request-telemetry.md)
 ### [Dependência](application-insights-data-model-dependency-telemetry.md)
@@ -146,6 +147,7 @@
 ### [Rastreamento](application-insights-data-model-trace-telemetry.md)
 ### [Evento](application-insights-data-model-event-telemetry.md)
 ### [Métrica](application-insights-data-model-metric-telemetry.md)
+### [Contexto](application-insights-data-model-context.md)
 ## [Correlação de telemetria](application-insights-correlation.md)
 
 # Recursos

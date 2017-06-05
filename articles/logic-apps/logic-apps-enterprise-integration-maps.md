@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7729890157900d0211b3a7ec05096ca315018875
 ms.openlocfilehash: 23d79fb83c1c4b103407c001dcafb8b1f3cfa5a7
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -98,10 +100,5 @@ Para carregar um novo mapa que substitui um mapa existente, siga estas etapas.
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
 * [Saiba mais sobre os contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre os contratos de integração corporativa")  
 * [Saiba mais sobre transformações](logic-apps-enterprise-integration-transform.md "Saiba mais sobre as transformações de integração corporativa")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: fa9e86552f61693b953f636bff3cd9d869feba23
-ms.openlocfilehash: 14c179d76664876695f2974de44e6bc000942184
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a78679782f538121c2451a6e2d1519f457ad057c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -76,7 +77,7 @@ Depois de concluir todas as alterações de filtragem, não se esqueça de volta
 ## <a name="filtering-options"></a>Opções de filtragem
 Você pode aplicar os seguintes tipos de configuração de filtragem à Ferramenta de Sincronização de Diretório:
 
-* [**Baseada em grupo**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): a filtragem baseada em um único grupo só pode ser configurada na instalação inicial usando o assistente de instalação. Essa configuração não é abordada posteriormente neste artigo.
+* [**Baseada em grupo**](#group-based-filtering): a filtragem baseada em um único grupo só pode ser configurada na instalação inicial usando o assistente de instalação.
 * [**Baseada em domínio**](#domain-based-filtering): essa opção permite que você selecione quais domínios serão sincronizados com o Azure AD. Você também pode adicionar e remover domínios da configuração do mecanismo de sincronização quando fizer alterações na infraestrutura local, depois de instalar da sincronização do Azure AD Connect.
 * [**Baseada em unidade organizacional (OU)**](#organizational-unitbased-filtering): essa opção permite que você selecione quais UOs serão sincronizadas com o Azure AD. Essa opção é para todos os tipos de objeto em UOs selecionadas.
 * [**Baseada em atributo**](#attribute-based-filtering): essa opção permite que você filtre objetos com base nos valores de atributos nos objetos. Você também pode ter filtros diferentes para tipos de objeto diferentes.
@@ -210,7 +211,7 @@ No exemplo abaixo, você filtra (e não sincroniza) todos os usuários em que **
 3. Verifique se a opção **Entrada** está selecionada e clique em **Adicionar Nova Regra**.
 4. Dê à regra um nome descritivo, como "*Entrada do AD – User DoNotSyncFilter*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra regra de sincronização (por exemplo, 50). Em seguida, clique em **Avançar**.  
    ![Descrição da entrada 1](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
-5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **ExtensionAttribute15**. Verifique se **Operador** está definido como **EQUAL** e digite o valor **NoSync** na caixa **Valor**. Clique em **Próximo**.  
+5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **ExtensionAttribute15**. Verifique se **Operador** está definido como **EQUAL** e digite o valor **NoSync** na caixa **Valor**. Clique em **Avançar**.  
    ![Escopo da entrada 2](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
 6. Deixe as regras de **Junção** vazias e clique em **Avançar**.
 7. Clique em **Adicionar Transformação**, selecione **FlowType** como **Constante** e selecione **cloudFiltered** como o **Atributo de Destino**. Na caixa de texto **Origem**, digite **True**. Clique em **Adicionar** para salvar a regra.  
@@ -229,13 +230,13 @@ No exemplo a seguir, você só sincroniza os objetos de usuário quando o atribu
 3. Verifique se a opção **Entrada** está selecionada e clique em **Adicionar Nova Regra**.
 4. Dê à regra um nome descritivo, como "*Entrada do AD – Sincronização de Vendas de Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra regra de sincronização (por exemplo, 51). Em seguida, clique em **Avançar**.  
    ![Descrição da entrada 4](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
-5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **Departamento**. Verifique se Operador está definido como **EQUAL** e digite o valor **Vendas** na caixa **Valor**. Clique em **Próximo**.  
+5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **Departamento**. Verifique se Operador está definido como **EQUAL** e digite o valor **Vendas** na caixa **Valor**. Clique em **Avançar**.  
    ![Escopo da entrada 5](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)  
 6. Deixe as regras de **Junção** vazias e clique em **Avançar**.
 7. Clique em **Adicionar Transformação**, selecione **Constant** como **FlowType** e selecione **cloudFiltered** como o **Atributo de Destino**. Na caixa **Origem** , digite **False**. Clique em **Adicionar** para salvar a regra.  
    ![Transformação da entrada 6](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png)  
    Este é um caso especial em que você define cloudFiltered explicitamente como **False**.
-8. Agora temos de criar a regra de sincronização que captura tudo. Dê à regra um nome descritivo, como "*Entrada do AD – Filtro Captura Tudo Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra Regra de Sincronização (por exemplo, 99). Você selecionou um valor de precedência mais alto (menor precedência) do que para a regra de sincronização anterior. Mas você também deixou algum espaço para poder adicionar mais regras de sincronização de filtragem depois, quando quiser iniciar a sincronização de outros departamentos. Clique em **Próximo**.  
+8. Agora temos de criar a regra de sincronização que captura tudo. Dê à regra um nome descritivo, como "*Entrada do AD – Filtro Captura Tudo Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra Regra de Sincronização (por exemplo, 99). Você selecionou um valor de precedência mais alto (menor precedência) do que para a regra de sincronização anterior. Mas você também deixou algum espaço para poder adicionar mais regras de sincronização de filtragem depois, quando quiser iniciar a sincronização de outros departamentos. Clique em **Avançar**.  
    ![Descrição da entrada 7](./media/active-directory-aadconnectsync-configure-filtering/inbound7.png)  
 9. Deixe **Filtro de escopo** vazio e clique em **Avançar**. Um filtro vazio indica que a regra deve ser aplicada a todos os objetos.
 10. Deixe as regras de **Junção** vazias e clique em **Avançar**.
@@ -295,7 +296,7 @@ Agora é hora de habilitar o agendador novamente.
 2. Diretamente na **Biblioteca do Agendador de Tarefas**, localize a tarefa chamada **Agendador de Sincronização do Azure AD**, clique com o botão direito do mouse e selecione **Habilitar**.
 
 ## <a name="group-based-filtering"></a>Filtragem baseada em grupo
-Você pode configura a filtragem baseada em grupo quando instalar o Azure AD Connect pela primeira vez usando a instalação personalizada. Ela é destinada uma implantação piloto para sincronizar um pequeno conjunto de objetos. Se você desabilitar a filtragem baseada em grupo, ela não poderá ser habilitada novamente. *Não há suporte* para o uso da filtragem baseada em grupo em uma configuração personalizada. Esse recurso só pode ser configurado com o assistente de instalação. Depois de concluir o piloto, você deve usar uma das outras opções de filtragem descritas neste tópico.
+Você pode configurar a filtragem baseada em grupo quando instalar o Azure AD Connect pela primeira vez usando a [instalação personalizada](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Ela é destinada uma implantação piloto para sincronizar um pequeno conjunto de objetos. Se você desabilitar a filtragem baseada em grupo, ela não poderá ser habilitada novamente. *Não há suporte* para o uso da filtragem baseada em grupo em uma configuração personalizada. Esse recurso só pode ser configurado com o assistente de instalação. Depois de concluir o piloto, você deve usar uma das outras opções de filtragem descritas neste tópico. Ao usar a filtragem baseada em UO em conjunto com a filtragem baseada em grupos, as UOs em que o grupo e seus membros estão localizados devem ser incluídas.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre a configuração da [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).

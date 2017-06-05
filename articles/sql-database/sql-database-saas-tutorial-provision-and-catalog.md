@@ -1,6 +1,6 @@
 ---
-title: "Provisionar e catalogar novos locatários (aplicativo SaaS de exemplo usando o Banco de Dados SQL do Azure) | Microsoft Docs"
-description: "Provisionar e catalogar novos locatários"
+title: "Provisionar novos locatários em um aplicativo multilocatário usando o Banco de Dados Azure SQL | Microsoft Docs"
+description: "Provisão e catálogo de novos locatários no aplicativo de SaaS do Wingtip"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
+ms.date: 05/24/2017
+ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4eeada941f8615fa04624bc725efcb44f05d56c7
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: cf2fa0950f9f9df833051979b02355236214c4ea
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Provisionar novos locatários e registrá-los no catálogo
 
-Neste tutorial, você provisiona novos locatários no aplicativo SaaS WTP (Wingtip Tickets Platform). Você cria locatários, bancos de dados de locatário e registra locatários no catálogo. O *catálogo* é um banco de dados que mantém o mapeamento entre os vários locatários dos aplicativos SaaS e seus dados. Use esses scripts para explorar os padrões de provisionamento e catálogo usados e como é a implementação do registro de novos locatários no catálogo. O catálogo desempenha uma função importante no direcionamento das solicitações de aplicativo para os bancos de dados corretos.
+Neste tutorial, você provisionará novos locatários no aplicativo de SaaS do Wingtip. Você cria locatários, bancos de dados de locatário e registra locatários no catálogo. O *catálogo* é um banco de dados que mantém o mapeamento entre os vários locatários dos aplicativos SaaS e seus dados. Use esses scripts para explorar os padrões de provisionamento e catálogo usados e como é a implementação do registro de novos locatários no catálogo. O catálogo desempenha uma função importante no direcionamento das solicitações de aplicativo para os bancos de dados corretos.
 
 Neste tutorial, você aprenderá a:
 
@@ -39,16 +39,16 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo WTP foi implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo SaaS WTP](sql-database-saas-tutorial.md)
+* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, confira [Implantar e explorar o aplicativo de SaaS do Wingtip](sql-database-saas-tutorial.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Introdução ao padrão de catálogo de SaaS
 
-Em um aplicativo SaaS multilocatário com suporte de banco de dados, é importante saber o local em que estão armazenadas as informações de cada locatário. No padrão de catálogo de SaaS, um banco de dados de catálogo é usado para manter o mapeamento entre locatários e o local em que os respectivos dados estão armazenados. O aplicativo WTP usa uma arquitetura de banco de dados de único locatário, mas o padrão básico de armazenar o mapeamento de locatário ao banco de dados em um catálogo aplica-se tanto com o uso de um banco de dados multilocatário quanto com o uso de banco de dados de único locatário.
+Em um aplicativo de SaaS multilocatário com suporte de banco de dados, é importante saber o local em que estão armazenadas as informações de cada locatário. No padrão de catálogo de SaaS, um banco de dados de catálogo é usado para manter o mapeamento entre locatários e o local em que os respectivos dados estão armazenados. O aplicativo de SaaS do Wingtip usa uma arquitetura de banco de dados de único locatário, mas o padrão básico de armazenamento do mapeamento de locatário ao banco de dados em um catálogo aplica-se tanto com o uso de um banco de dados multilocatário quanto com o uso de banco de dados de único locatário.
 
-A cada locatário é atribuída uma chave que distingue seus dados no catálogo. No aplicativo WTP, a chave é formada por um hash do nome do locatário. Esse padrão permite que a parte do nome do locatário da URL do aplicativo seja usada para construir a chave e recuperar a conexão de um locatário específico. Outros esquemas de ID podem ser usados sem afetar o padrão geral.
+A cada locatário é atribuída uma chave que distingue seus dados no catálogo. No aplicativo de SaaS do Wingtip, a chave é formada por um hash do nome do locatário. Esse padrão permite que a parte do nome do locatário da URL do aplicativo seja usada para construir a chave e recuperar a conexão de um locatário específico. Outros esquemas de ID podem ser usados sem afetar o padrão geral.
 
-O catálogo no aplicativo WTP é implementado usando a tecnologia de Gerenciamento de Fragmentos na [EDCL (Biblioteca de Cliente do Banco de Dados Elástico)](sql-database-elastic-database-client-library.md). A EDCL é responsável por criar e gerenciar um _catálogo_ com suporte de banco de dados em que um _mapa de fragmentos_ é mantido. O catálogo contém o mapeamento entre as chaves (locatários) e seus bancos de dados (fragmentos).
+O catálogo no aplicativo é implementado usando a tecnologia de Gerenciamento de Fragmentos na [EDCL (Biblioteca de cliente do banco de dados elásticos)](sql-database-elastic-database-client-library.md). A EDCL é responsável por criar e gerenciar um _catálogo_ com suporte de banco de dados em que um _mapa de fragmentos_ é mantido. O catálogo contém o mapeamento entre as chaves (locatários) e seus bancos de dados (fragmentos).
 
 > [!IMPORTANT]
 > Os dados de mapeamento estão acessíveis no banco de dados de catálogo, mas *não os edite*! Edite os dados de mapeamento somente com o uso de APIs da Biblioteca de Cliente do Banco de Dados Elástico. Manipular diretamente os dados de mapeamento gera o risco de corrupção do catálogo e não há suporte para isso.
@@ -57,16 +57,16 @@ O aplicativo SaaS Wingtip provisiona novos locatários copiando um banco de dado
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
 
-Os scripts do Wingtip Tickets e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Os arquivos de script estão localizados na [pasta de Módulos de Aprendizado](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Baixe a pasta **Módulos de Aprendizado** em seu computador local, mantendo a estrutura de pastas.
+Os scripts de SaaS do Wingtip e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Etapas para baixar os scripts do SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-a-new-tenant"></a>Provisionar um novo locatário
 
-Se você já criou um locatário no primeiro tutorial do WTP fique à vontade para ir direto para a próxima seção: [provisionar um lote de locatários](#provision-a-batch-of-tenants).
+Se você já criou um locatário no [primeiro tutorial do SaaS do Wingtip](sql-database-saas-tutorial.md), siga direto para a próxima seção: [Como provisionar um lote de locatários](#provision-a-batch-of-tenants).
 
 Execute o script *Demo-ProvisionAndCatalog* para criar um locatário rapidamente e registrá-lo no catálogo:
 
 1. Abra o **Demo-ProvisionAndCatalog.ps1** no ISE do PowerShell e defina os seguintes valores:
-   * **$TenantName** = o nome do novo local do evento (por exemplo, *Bushwillow Blues*). 
+   * **$TenantName** = o nome do novo local do evento (por exemplo, *Bushwillow Blues*).
    * **$VenueType** = um dos tipos predefinidos de local: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
    * **$DemoScenario** = 1, deixe isso definido como _1_ para **Provisionar um único locatário**.
 
@@ -79,7 +79,7 @@ Depois que o script for concluído, o novo locatário será provisionado e seu a
 
 ## <a name="provision-a-batch-of-tenants"></a>Provisionar um lote de locatários
 
-Este exercício provisiona um lote de locatários adicionais. É recomendável que você faça isso antes de realizar os outros tutoriais do WTP.
+Este exercício provisiona um lote de locatários adicionais. Recomendamos que você faça isso antes de realizar os outros tutoriais do SaaS do Wingtip.
 
 1. Abra ...\\Módulos de aprendizado\\Utilitários\\*Demo-ProvisionAndCatalog.ps1* no *ISE do PowerShell* e defina os seguintes valores:
    * **$DemoScenario** = **3**, Definir como **3** para **Provisionar um lote de locatários**.
@@ -156,9 +156,9 @@ Outros padrões de provisionamento não mencionados nesse tutorial incluem:
 
 ## <a name="stopping-wingtip-saas-application-related-billing"></a>Parando a cobrança relacionada ao aplicativo SaaS Wingtip
 
-Se você não planeja continuar com outro tutorial, é recomendável que você exclua todos os recursos para suspender a cobrança. Exclua o grupo de recursos no qual o aplicativo WTP foi implantado e todos os recursos relacionados serão excluídos.
+Se você não planeja continuar com outro tutorial, é recomendável que você exclua todos os recursos para suspender a cobrança. Exclua o grupo de recursos no qual o aplicativo Wingtip foi implantado para excluir os recursos relacionados.
 
-* Navegue até o grupo de recursos do aplicativo no portal e exclua-o para interromper toda a cobrança relacionada a essa implantação do WTP.
+* Navegue até o grupo de recursos do aplicativo no portal e exclua-o para interromper toda a cobrança relacionada a essa implantação do Wingtip.
 
 ## <a name="tips"></a>Dicas
 
@@ -180,7 +180,7 @@ Neste tutorial, você aprendeu a:
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam a implantação inicial do aplicativo WTP (Wingtip Tickets Platform)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Biblioteca de cliente do banco de dados elástico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Como depurar scripts no ISE do Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 

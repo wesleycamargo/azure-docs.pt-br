@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 68cb08a8b40220639f880c83a44014b81598d45a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: a95c534d8f2ad5e8e2c7bdfc2b11405c70312727
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -29,9 +30,11 @@ Este exemplo cria um conjunto de dimensionamento de máquinas virtuais e aplica 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Criar um conjunto de dimensionamento de máquinas virtuais com a pilha LAMP")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Criar um conjunto de dimensionamento de máquinas virtuais com a pilha LAMP")]
 
 ## <a name="connect"></a>Connect
 
@@ -43,7 +46,7 @@ Use este código para ver como se conectar a suas VMs e seu conjunto de dimensio
 
 Execute o comando a seguir para remover o grupo de recursos, o conjunto de dimensionamento e as VMs e todos os recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 

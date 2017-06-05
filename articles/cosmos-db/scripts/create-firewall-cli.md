@@ -1,15 +1,15 @@
 ---
 title: "Script da CLI do Azure – Criar um firewall para o Banco de Dados Cosmos do Azure | Microsoft Docs"
 description: "Exemplo de script da CLI do Azure – Criar um firewall para o Banco de Dados Cosmos do Azure"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: sample
+ms.service: cosmos-db
+ms.custom: sammvcple
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb

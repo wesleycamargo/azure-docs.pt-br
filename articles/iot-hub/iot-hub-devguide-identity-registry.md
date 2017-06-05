@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 75a2fa16a7e33cf85746538e120ca90a389b05c5
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 25183c6c3c69f7d4c2872252197e2dc8662fefd4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -83,7 +84,7 @@ Você pode desabilitar dispositivos atualizando a propriedade **status** de uma 
 
 ## <a name="device-provisioning"></a>Provisionamento de dispositivos
 
-Os dados de dispositivo que uma determinada solução IoT armazena dependem dos requisitos específicos dessa solução. Porém, no mínimo, uma solução deve armazenar identidades e chaves de autenticação. O Hub IoT do Azure inclui um registro de identidades que pode armazenar valores para cada dispositivo, como IDs, chaves de autenticação e códigos de status. Uma solução pode usar outros serviços do Azure, como Armazenamento de Tabelas, de Blobs ou Azure DocumentDB para armazenar outros dados de dispositivo.
+Os dados de dispositivo que uma determinada solução IoT armazena dependem dos requisitos específicos dessa solução. Porém, no mínimo, uma solução deve armazenar identidades e chaves de autenticação. O Hub IoT do Azure inclui um registro de identidades que pode armazenar valores para cada dispositivo, como IDs, chaves de autenticação e códigos de status. Uma solução pode usar outros serviços do Azure como armazenamento de tabelas do Azure, armazenamento de blobs do Azure ou Azure Cosmos DB para armazenar outros dados de dispositivo.
 
 *Provisionamento de dispositivos* é o processo de adição dos dados iniciais do dispositivo para as lojas em sua solução. Para permitir que um dispositivo se conecte ao hub, você deve adicionar uma ID e chaves de dispositivo ao registro de identidade do Hub IoT. Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros repositórios da solução.
 
@@ -99,6 +100,50 @@ Uma implementação mais complexa pode incluir as informações do [monitorament
 
 > [!NOTE]
 > Se uma solução IoT precisar do estado de conexão do dispositivo apenas para determinar se deve enviar mensagens da nuvem para o dispositivo, e as mensagens não forem transmitidas para conjuntos grandes de dispositivos, um padrão mais simples a ser considerado é usar um tempo de validade mais curto. Esse padrão é o mesmo que manter um registro do estado da conexão do dispositivo usando o padrão de pulsação, embora seja mais eficiente. Também é possível, por meio da solicitação de confirmações de mensagens, receber uma notificação pelo Hub IoT de quais dispositivos são capazes de receber mensagens e quais não estão online ou apresentam falha.
+
+## <a name="device-lifecycle-notifications"></a>Notificações do ciclo de vida do dispositivo
+
+O Hub IoT pode notificar sua solução de IoT quando uma identidade de dispositivo é criada ou excluída, enviando notificações do ciclo de vida do dispositivo. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *DeviceLifecycleEvents*. Por padrão, nenhuma notificação de ciclo de vida é enviada, ou seja, nenhuma dessas rotas existe previamente. A mensagem de notificação inclui propriedades e o corpo.
+
+- Propriedades
+
+As propriedades do sistema de mensagens são fixadas previamente com o símbolo `'$'`.
+
+| Nome | Valor |
+| --- | --- |
+$content-type | aplicativo/json |
+$iothub-enqueuedtime |  Hora em que a notificação foi enviada |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
+opType | “createDeviceIdentity” ou “deleteDeviceIdentity” |
+hubName | Nome do Hub IoT |
+deviceId | ID do dispositivo |
+operationTimestamp | Carimbo de data/hora ISO8601 da operação |
+iothub-message-schema | deviceLifecycleNotification |
+
+- Corpo
+
+Esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo,
+``` 
+{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}
+```
 
 ## <a name="reference-topics"></a>Tópicos de referência:
 

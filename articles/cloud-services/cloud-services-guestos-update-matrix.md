@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/18/2017
+ms.date: 5/17/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d471f5826cc05fb52ff4c24184628235477c075d
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 16a773e0c406f257925a9af01155ed157ffaf014
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -29,16 +30,21 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 > 
 > 
 
-<!-- -->
 
-> [!TIP]
-> Assine o [RSS feed de atualização do SO convidado][rss] para receber as notificações mais recentes sobre todas as alterações do SO convidado.
+> [!NOTE]
+> O RSS Feed foi preterido recentemente. Fique atento a atualizações em um novo feed em breve!
 > 
 > 
-
+ 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## <a name="news-updates"></a>Notícias atualizadas
+###### <a name="may-17-2017"></a>**17 de maio de 2017**
+Devido a um bug de segurança, estamos desabilitando os seguintes Lançamentos do Sistema Operacional de dezembro de 2016 e janeiro de 2017 que não têm a [correção] do portal: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
+
+###### <a name="may-12-2017"></a>**12 de maio de 2017**
+A distribuição do SO Convidado de maio começou em 12 de maio e deve ser lançada em 13 de junho.
+
 ###### <a name="april-18-2017"></a>**18 de abril de 2017**
 A distribuição do SO convidado de abril começa em 18 de abril e está projetada para ser lançada em 9 de maio.
 
@@ -72,9 +78,10 @@ O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.6_201704-01 |9 de maio de 2017 |Post 5.8 |TBD | 
 | WA-GUEST-OS-5.5_201703-01 |10 de abril de 2017 |Post 5.7 |TBD | 
-| WA-GUEST-OS-5.4_201612-01 |10 de janeiro de 2017 |Post 5.6 |TBD | 
-| WA-GUEST-OS-5.3_201611-01 |14 de dezembro de 2016 |Post 5.5 |TBD |
+|~~WA-GUEST-OS-5.4_201612-01~~ |10 de janeiro de 2017 |Post 5.6 |TBD | 
+|~~WA-GUEST-OS-5.3_201611-01~~ |14 de dezembro de 2016 |9 de maio de 2017 |TBD |
 |~~WA-GUEST-OS-5.2_201610-02~~ |1 de novembro de 2016 |10 de abril de 2017 |TBD |
 
 ## <a name="family-4-releases"></a>Versões da Família 4
@@ -89,9 +96,10 @@ O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.41_201704-01 |9 de maio de 2017 |Post 4.43 |TBD |
 | WA-GUEST-OS-4.40_201703-01 |10 de abril de 2017 |Post 4.42 |TBD |
-| WA-GUEST-OS-4.39_201612-01 |10 de janeiro de 2017 |Post 4.41 |TBD |
-| WA-GUEST-OS-4.38_201611-01 |14 de dezembro de 2016 |Post 4.40 |TBD |
+|~~WA-GUEST-OS-4.39_201612-01~~ |10 de janeiro de 2017 |Post 4.41 |TBD |
+|~~WA-GUEST-OS-4.38_201611-01~~ |14 de dezembro de 2016 |9 de maio de 2017 |TBD |
 |~~WA-GUEST-OS-4.37_201610-02~~ |16 de novembro de 2016 |10 de abril de 2017 |TBD |
 |~~WA-GUEST-OS-4.36_201609-01~~ |13 de outubro de 2016 |Jan 14 2017 |TBD |
 |~~WA-GUEST-OS-4.35_201608-01~~ |13 de setembro de 2016 |16 de dezembro de 2016 |TBD |
@@ -115,10 +123,11 @@ O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.48_201704-01 |9 de maio de 2017 |Post 3.50 |TBD |
 | WA-GUEST-OS-3.47_201703-01 |10 de abril de 2017 |Post 3.49 |TBD |
-| WA-GUEST-OS-3.46_201612-01 |10 de janeiro de 2017 |Post 3.48 |TBD |
-| WA-GUEST-OS-3.45_201611-01 |14 de dezembro de 2016 |Post 3.47 |TBD |
-| WA-GUEST-OS-3.44_201610-02 |16 de novembro de 2016 |1º de maio de 2017 |TBD |
+| ~~WA-GUEST-OS-3.46_201612-01~~ |10 de janeiro de 2017 |Post 3.48 |TBD |
+| ~~WA-GUEST-OS-3.45_201611-01~~ |14 de dezembro de 2016 |9 de maio de 2017 |TBD |
+| ~~WA-GUEST-OS-3.44_201610-02~~ |16 de novembro de 2016 |1º de maio de 2017 |TBD |
 | ~~WA-GUEST-OS-3.43_201609-01~~ |13 de outubro de 2016 |Jan 14 2017 |TBD |
 | ~~WA-GUEST-OS-3.42_201608-01~~ |13 de setembro de 2016 |16 de dezembro de 2016 |TBD |
 | ~~WA-GUEST-OS-3.41_201607-01~~ |8 de agosto de 2016 |13 de novembro de 2016 |TBD |
@@ -141,9 +150,10 @@ Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.61_201704-01 |9 de maio de 2017 |Post 2.63 |TBD |
 | WA-GUEST-OS-2.60_201703-01 |10 de abril de 2017 |Post 2.62 |TBD |
-| WA-GUEST-OS-2.59_201701-01 |10 de janeiro de 2017 |Post 2.61 |TBD |
-| WA-GUEST-OS-2.58_201612-01 |10 de janeiro de 2017 |Post 2.60 |TBD |
+|~~WA-GUEST-OS-2.59_201701-01~~ |10 de janeiro de 2017 |Post 2.61 |TBD |
+|~~WA-GUEST-OS-2.58_201612-01~~ |10 de janeiro de 2017 |9 de maio de 2017|TBD |
 |~~WA-GUEST-OS-2.57_201611-01~~ |14 de dezembro de 2016 |10 de abril de 2017 |TBD |
 |~~WA-GUEST-OS-2.56_201610-02~~ |16 de novembro de 2016 |10 de fevereiro de 2017 |TBD |
 |~~WA-GUEST-OS-2.55_201609-01~~ |13 de outubro de 2016 |Jan 14 2017 |TBD |
@@ -200,7 +210,7 @@ A cadeia de caracteres de configuração para um SO convidado tem inseridas nela
 ## <a name="guest-os-system-update-process"></a>Processo de atualização de sistema do SO convidado
 Esta página contém informações sobre as próximas versões do SO convidado. Os clientes indicaram que desejam saber quando um lançamento ocorre, porque suas funções de serviço de nuvem reinicializarão se elas estiverem definidas para atualização "Automática". Lançamentos de SO convidado normalmente ocorrem pelo menos 5 dias após o lançamento da atualização do MSRC, que por sua vez ocorre na segunda terça-feira de cada mês. As novas versões incluem todos os patches do MSRC relevantes para cada família de SOs convidados. 
 
-O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Atualizaremos o [RSS feed de atualização do SO convidado][rss] com as informações mais recentes que tivermos, mas considere esse horário como uma janela aproximada. Estamos cientes de que isso causa problemas para clientes e estamos trabalhando em um plano limitar ou programar as reinicializações. 
+O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Estamos cientes de que isso causa problemas para clientes e estamos trabalhando em um plano limitar ou programar as reinicializações. 
 
 Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no portal clássico do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração. 
 
@@ -213,7 +223,6 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
-[rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
 [ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
@@ -230,5 +239,6 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
+[correção]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
 
 

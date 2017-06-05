@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 05/12/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db3a68e532775728099854a46d1ad0841e38b4a8
-ms.openlocfilehash: 3161a05a051ba741cf76e149f7b5e5a4324be0a4
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -69,6 +70,9 @@ A seguir está um exemplo de resposta para um agendamento.
 ### <a name="creating-a-schedule"></a>Criando uma agenda
 Use o método Put com uma ID de agendamento única para criar um novo agendamento.  Observe que dois agendamento não podem ter a mesma ID, mesmo se estiverem associados a diferentes pesquisas salvas.  Ao criar um agendamento no console do OMS, uma GUID é criado para a ID de agendamento.
 
+> [!NOTE]
+> O nome para todas as pesquisas, agendas e ações salvas criadas com a API do Log Analytics deve estar em letras minúsculas.
+
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
@@ -107,6 +111,9 @@ Use o método Get com a ID de ação para recuperar uma ação específica de um
 
 ### <a name="creating-or-editing-actions"></a>Criar ou editar ações
 Use o método Put com uma ID de ação que seja exclusiva para o agendamento para criar uma nova ação.  Quando você cria uma ação no console do OMS, um GUID é fornecido para a ID de ação.
+
+> [!NOTE]
+> O nome para todas as pesquisas, agendas e ações salvas criadas com a API do Log Analytics deve estar em letras minúsculas.
 
 Use o método Put com uma ID de ação existente para a mesma pesquisa salva para modificar esse agendamento.  O corpo da solicitação deve incluir a Etag do agendamento.
 

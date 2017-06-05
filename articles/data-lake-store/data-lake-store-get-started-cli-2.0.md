@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: c9d5fdc2ff27454b2492751034b43658ee9d46c5
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: e7ed94a3aa24d401e073cf260453550b4c67f47e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20-preview"></a>Introdução ao Azure Data Lake Store usando a CLI do Azure 2.0 (Visualização)
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Introdução ao Azure Data Lake Store usando a CLI do Azure 2.0
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -50,14 +51,6 @@ Antes de começar este artigo, você deve ter o seguinte:
 ## <a name="authentication"></a>Autenticação
 
 Este artigo usa uma abordagem de autenticação mais simples com o Data Lake Store, em que você faz logon como um usuário final. O nível de acesso à conta do Data Lake Store e ao sistema de arquivos é controlado pelo nível de acesso do usuário conectado. No entanto, há outras abordagens para autenticar com o Data Lake Store, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como autenticar, confira [Autenticar com o Data Lake Store usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
-
-## <a name="enable-data-lake-store-preview-in-azure-cli-20"></a>Habilitar o Data Lake Store (Visualização) na CLI do Azure 2.0
-
-A CLI 2.0 do Data Lake Store está atualmente em Visualização e não está habilitada por padrão na instalação da CLI do Azure 2.0. Execute o comando a seguir para habilitar a CLI 2.0 do Data Lake Store.
-
-```azurecli
-az component update --add dls
-```
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Entre na sua assinatura do Azure

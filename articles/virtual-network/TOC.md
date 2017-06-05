@@ -17,14 +17,13 @@
 ### [Grupos de segurança de rede](virtual-networks-nsg.md)
 
 ## Implantar
-### Redes virtuais
-#### [Portal](virtual-networks-create-vnet-arm-pportal.md)
+### [Redes virtuais](virtual-networks-create-vnet-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Modelo](virtual-networks-create-vnet-arm-template-click.md)
 #### [Portal (clássico)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (Clássico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI (Clássica)](virtual-networks-create-vnet-classic-cli.md)
+#### [PowerShell (clássico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+#### [CLI (clássica)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Grupos de segurança de rede
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -46,14 +45,9 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Modelo](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Interfaces de rede
-#### [Adicionar, alterar ou excluir](virtual-network-network-interface.md)
-#### [Adicionar, alterar ou remover endereços IP](virtual-network-network-interface-addresses.md)
-
 ### [Endereços IP públicos](virtual-network-public-ip-address.md)
 
 ### Máquinas virtuais
-#### [Adicionar ou remover interfaces de rede](virtual-network-network-interface-vm.md) 
 #### Criar uma VM com um endereço IP público estático
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -81,6 +75,8 @@
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Modelo](virtual-network-multiple-ip-addresses-template.md)
 
+#### [Criar uma VM com rede acelerada](virtual-network-create-vm-accelerated-networking.md)
+
 ### Cenários de conectividade
 #### [VNet (rede virtual) para VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [VNet (Resource Manager) para uma VNet (Clássica)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -98,23 +94,29 @@
 ##### [Aplicativo de exemplo](virtual-networks-sample-app.md)
 
 ## Configurar
-### Redes aceleradas para VMs
-#### [Portal do Azure](virtual-network-accelerated-networking-portal.md)
-#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
-### [Otimizar taxa de transferência de rede da VM](virtual-network-optimize-network-bandwidth.md)
+
 ### Listas de controle de acesso
 #### [Portal clássico](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
-### [Resolução de nomes de máquinas virtuais e serviços de nuvem](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+### Máquinas virtuais
+#### [Adicionar ou remover interfaces de rede](virtual-network-network-interface-vm.md)
+#### [Resolução de nomes de máquinas virtuais e serviços de nuvem](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Otimizar taxa de transferência de rede](virtual-network-optimize-network-bandwidth.md)
+#### [Exibir e modificar nomes do host](virtual-networks-viewing-and-modifying-hostnames.md)
 
 ## Gerenciar
+### [Redes virtuais](virtual-network-manage-network.md)
+#### [Sub-redes](virtual-network-manage-subnet.md)
+#### [Emparelhamentos](virtual-network-manage-peering.md)
 ### Grupos de segurança de rede
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Logs](virtual-network-nsg-manage-log.md)
+### Interfaces de rede (NICs)
+#### [Criar, alterar ou excluir NICs](virtual-network-network-interface.md)
+#### [Adicionar, alterar ou remover endereços IP](virtual-network-network-interface-addresses.md)
 ### Máquinas virtuais
-#### [Exibir e modificar nomes do host](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Mover uma VM para uma sub-rede diferente](virtual-networks-move-vm-role-to-subnet.md)
 
 ## Solucionar problemas

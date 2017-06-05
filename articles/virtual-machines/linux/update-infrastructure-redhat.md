@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: borisb
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3ea6083425b9f881ba82077cfecbe24964304a79
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 07815d691ffe57f0349f7a90ced4a2fcc1ab834f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,7 +32,7 @@ A lista de repositórios yum, que é gerenciada pelo RHUI, é configurada na sua
 > 
 
 ## <a name="rhui-azure-infrastructure-update"></a>Atualização da infraestrutura RHUI do Azure
-A partir de setembro de 2016, o Azure tem um novo conjunto de servidores do RHUI (Red Hat Update Infrastructure). Esses servidores são implantados com o [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/) para que um único ponto de extremidade (rhui-1.micrsoft.com) possa ser usado por qualquer VM, independentemente da região. As novas imagens de RHEL PAYG (pré-pago) no Azure Marketplace (versões de setembro de 2016 ou posteriores) apontam para os novos servidores do RHUI do Azure e não exigem nenhuma ação adicional.
+A partir de setembro de 2016, o Azure tem um novo conjunto de servidores do RHUI (Red Hat Update Infrastructure). Esses servidores são implantados com o [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/) para que um único ponto de extremidade (rhui-1.microsoft.com) possa ser usado por qualquer VM, independentemente da região. As novas imagens de RHEL PAYG (pré-pago) no Azure Marketplace (versões de setembro de 2016 ou posteriores) apontam para os novos servidores do RHUI do Azure e não exigem nenhuma ação adicional.
 
 ### <a name="determine-if-action-is-required"></a>Determinar se uma ação é necessária
 Se você estiver tendo problemas para se conectar ao RHUI do Azure de sua VM PAYG do Azure RHEL, siga estas etapas

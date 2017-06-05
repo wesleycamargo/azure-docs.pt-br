@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
-ms.lasthandoff: 01/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c22cb3a5436daf0296451f1f05a52d315ebc0416
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -69,11 +70,11 @@ Com o Banco de Dados SQL do Azure e outros serviços do Azure, os clientes da Um
    A Umbraco monitora a atividade do banco de dados usando painéis no portal do Azure, com alertas de email personalizados.
 4. Recuperação de desastre
    
-   O Azure fornece duas opções de DR (recuperação de desastre): Replicação Geográfica Ativa e Restauração Geográfica. A opção de DR que uma empresa deve selecionar depende de seus [objetivos de continuidade de negócios](sql-database-business-continuity.md).
+   O Azure fornece duas opções de DR (recuperação de desastre): replicação geográfica ativa e restauração geográfica. A opção de DR que uma empresa deve selecionar depende de seus [objetivos de continuidade de negócios](sql-database-business-continuity.md).
    
-   A Replicação Geográfica Ativa fornece o nível mais rápido de resposta em caso de tempo de inatividade. Usando a Replicação Geográfica Ativa, você pode criar até quatro secundários legíveis nos servidores em diferentes regiões e, assim, pode iniciar o failover para qualquer um dos secundários em caso de falha.
+   A replicação geográfica ativa fornece o nível mais rápido de resposta em caso de tempo de inatividade. Usando a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em diferentes regiões e, assim, pode iniciar o failover para qualquer um dos secundários em caso de falha.
    
-   A Umbraco não exige a Replicação Geográfica, mas aproveita a Restauração Geográfica do Azure para ajudar a garantir mínimo tempo de inatividade no caso de uma interrupção. A Restauração Geográfica conta com backups de banco de dados no armazenamento do Azure com redundância geográfica. Isso permite aos usuários restaurar usando uma cópia de backup quando há uma interrupção na região primária.
+   A Umbraco não exige a replicação geográfica, mas aproveita a restauração geográfica do Azure para ajudar a garantir mínimo tempo de inatividade no caso de uma interrupção. A restauração geográfica conta com backups de banco de dados no armazenamento do Azure com redundância geográfica. Isso permite aos usuários restaurar usando uma cópia de backup quando há uma interrupção na região primária.
 5. Cancelar provisionamento
    
    Quando um ambiente de projeto é excluído, todos os bancos de dados associados (desenvolvimento, preparo ou ativo) são removidos durante a limpeza da fila do Barramento de Serviço do Azure. Esse processo automatizado restaura os bancos de dados não utilizados no pool de disponibilidade de banco de dados elástico da Umbraco, disponibilizando-os para provisionamento futuro e mantendo a utilização máxima.

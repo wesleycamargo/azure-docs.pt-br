@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8485fd9350672dd0f41e2d5dada57a1940c43f16
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6c8df6b9804d082c8044cdb2420cc5ea42b9774f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -123,6 +124,16 @@ Selecione o tipo de diagrama que você deseja:
 Se você tiver várias colunas dos tipos corretos, você poderá escolher os eixos x e y, e uma coluna de dimensões pelas quais dividir os resultados.
 
 Por padrão, os resultados são exibidos inicialmente como uma tabela e você seleciona o diagrama manualmente. Mas você pode usar a [diretiva de renderização](app-insights-analytics-reference.md#render-directive) ao final de uma consulta para selecionar um diagrama.
+
+### <a name="analytics-diagnostics"></a>Diagnóstico de análise
+
+
+Em um gráfico de tempo, se houver uma alteração ou pico repentino em seus dados, você poderá ver um ponto em destaque na linha. Isso indica que o Diagnóstico de Análise identificou uma combinação de propriedades que filtra a alteração repentina. Clique no ponto para obter mais detalhes sobre o filtro e para ver a versão filtrada. Isso pode ajudar a identificar o que causou a alteração. 
+
+[Saiba mais sobre o Diagnóstico de Análise](app-insights-analytics-diagnostics.md)
+
+
+![Diagnóstico de análise](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Fixar no painel
 Você pode fixar um diagrama ou tabela em um dos seus [painéis compartilhados](app-insights-dashboards.md) , basta clicar no marcador. (Talvez seja necessário [atualizar o pacote de preços do seu aplicativo](app-insights-pricing.md) para ativar esse recurso). 

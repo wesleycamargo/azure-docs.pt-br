@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1bedede1934141927a770c97b61aeb5218652b3e
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 069457d7ef7855749f64e299e0db579e6bb2b590
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -72,7 +72,7 @@ Desvio padrão da métrica agregada. Não deve ser definido para uma medida.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como usar a [API do Application Insights para métricas e eventos personalizados](app-insights-api-custom-events-metrics.md#send-metrics).
+- Saiba como usar a [API do Application Insights para métricas e eventos personalizados](app-insights-api-custom-events-metrics.md#trackmetric).
 - Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
 - Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.
 

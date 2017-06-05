@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 41d63ef88e9f0caf3d5f74841ec4670875fdaad1
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analisar os padrões de uso da CDN do Azure
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)] A guia abaixo percorre as etapas para exibir os relatórios principais por meio do Portal de gerenciamento para perfis Verizon. Você também pode exportar dados de análise principal para o armazenamento, hub de eventos ou Log Analytics (OMS) para os perfis Verizon e Akamai [por meio do Portal do Azure](cdn-log-analysis.md).
 
 Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
 
@@ -32,7 +34,7 @@ Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
 * Taxa de Acertos do Cache
 * Dados IPv4/IPV6 Transferidos
 
-## <a name="accessing-advanced-http-reports"></a>Acessando relatórios HTTP avançados
+## <a name="accessing-core-reports"></a>Acessando relatórios principais
 1. Na folha do perfil do CDN, clique no botão **Gerenciar** .
    
     ![botão gerenciar da folha Perfil CDN](./media/cdn-reports/cdn-manage-btn.png)
@@ -136,10 +138,5 @@ Esse relatório mostra a distribuição de uso de tráfego em IPV4 versus IPV6.
 
 ## <a name="considerations"></a>Considerações
 Os relatórios só podem ser gerados com informações dos últimos 18 meses.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

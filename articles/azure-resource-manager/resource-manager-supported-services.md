@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: bf4e400e30cc93ca8fa0cc727ada0f1b224b05cb
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 70a598c9a5bf514f62baa0c5275b2e44cd9776b8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -69,7 +70,7 @@ Os Serviços de Nuvem (clássicos) podem ser usados com outros recursos clássic
 ## <a name="databases"></a>Bancos de dados
 | O Barramento de | Gerenciador de Recursos habilitado | API REST | Formato de modelo |
 | --- | --- | --- | --- | --- |
-| DocumentDB |Sim |[REST do Banco de Dados de Documentos](/rest/api/documentdbresourceprovider) |[Recursos do DocumentDB](/azure/templates/microsoft.documentdb/databaseaccounts) |
+| Azure Cosmos DB |Sim |[REST do Azure Cosmos DB](/rest/api/documentdbresourceprovider) |[Recursos do Azure Cosmos DB](/azure/templates/microsoft.documentdb/databaseaccounts) |
 | Cache Redis |Sim | [REST do Cache Redis](/rest/api/redis) |[Recursos do Redis](/azure/templates/microsoft.cache/redis) |
 | Banco de Dados SQL |Sim |[REST do Banco de Dados SQL](/rest/api/sql) |[Recursos do Banco de Dados SQL](/azure/templates/microsoft.sql/servers) |
 | SQL Data Warehouse |Sim | | |

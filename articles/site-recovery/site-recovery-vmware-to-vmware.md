@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: cff6ef0c1c49110edc53ec82f88d9875439aab8a
-ms.lasthandoff: 01/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c49f283971b33a4e88573e1d67ba159021fbccb8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -56,21 +57,22 @@ Leia sobre as últimas [atualizações](#updates). Você instalará os arquivos 
 
 Instale as atualizações da seguinte maneira:
 
-1. Baixe o arquivo .zip de [atualização](https://aka.ms/asr-scout-update4). Este arquivo zip contém os seguintes arquivos:
+1. Baixe o arquivo .zip de [atualização](https://aka.ms/asr-scout-update5). Este arquivo zip contém os seguintes arquivos:
 
    * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
    * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
-   * UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe
+   * UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
    * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-   * vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe
+   * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
    * UA update4 bits para RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 2. Extraia os arquivos .zip.<br>
 3. **Para o servidor RX**: copie **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** para o servidor RX e o extraia. Na pasta extraída, execute **/Install**.<br>
 4. **Para o servidor de configuração/servidor de processo**: copie **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** para o servidor de configuração e para o servidor de processo. Clique duas vezes para executá-lo.<br>
-5. **Para o servidor de destino mestre do Windows**: para atualizar o agente unificado, copie **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe** para o servidor de destino mestre. Clique duas vezes nele para executá-lo. Observe que o agente unificado também se aplica ao servidor de origem. Você deve instalá-lo no servidor de origem também, conforme mencionado nesta lista.<br>
-6. **Para o servidor vContinuum**: copie **vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe** para o servidor vContinuum.  Verifique se que você fechou o assistente vContinuum. Clique duas vezes no arquivo para executá-lo.<br>
+5. **Para o servidor de destino mestre do Windows**: para atualizar o agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** para o servidor de destino mestre. Clique duas vezes nele para executá-lo. Observe que o agente unificado também se aplica ao servidor de origem se a origem não for atualizada até a Atualização4. Você deve instalá-lo no servidor de origem também, conforme mencionado nesta lista.<br>
+6. **Para o servidor vContinuum**: copie **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** para o servidor vContinuum.  Verifique se que você fechou o assistente vContinuum. Clique duas vezes no arquivo para executá-lo.<br>
 7. **Para o servidor de destino mestre do Linux**: para atualizar o agente unificado, copie **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** para o servidor de destino mestre e o extraia. Na pasta extraída, execute **/Install**.<br>
-8. **Para o servidor de origem do Windows**: para atualizar o agente unificado, copie **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe** para o servidor de origem. Clique duas vezes nele para executá-lo.<br>
+8. **Para o servidor de origem do Windows**: você não precisa instalar o agente de Atualização 5 na origem se a origem já está na atualização 4. Se for inferior à atualização 4, aplique o agente de atualização 5.
+Para atualizar o agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** para o servidor de origem. Clique duas vezes nele para executá-lo. <br>
 9. **Para o servidor de origem do Linux**: para atualizar o agente unificado, copie a versão correspondente do arquivo UA para o servidor do Linux e o extraia. Na pasta extraída, execute **/Install**.  Exemplo: para o servidor RHEL 6.7 de 64 bits, copie **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** para o servidor e o extraia. Na pasta extraída, execute **/Install**.
 
 ## <a name="step-4-set-up-replication"></a>Etapa 4: Configurar a replicação
@@ -84,6 +86,38 @@ Instale as atualizações da seguinte maneira:
    * [Guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide)
 
 ## <a name="updates"></a>Atualizações
+### <a name="azure-site-recovery-scout-801-update-5"></a>Azure Site Recovery Scout 8.0.1 Atualização 5
+A Atualização 5 do Scout é uma atualização cumulativa. Ela tem todas as correções da atualização 1 até a atualização 4, além das novas correções de bug e melhorias apresentadas a seguir.
+Correções que são adicionadas do ASR Scout atualização 4 para atualização 5 são específicas para componentes de Destino Mestre e vContinuum. Se todos os seus servidores de origem, de destino mestre, de configuração, de processo e RX já estão no ASR Scout atualização 4, você precisa aplicar a atualização 5 apenas no servidor de destino mestre. 
+
+**Novo suporte de plataforma**
+* SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
+
+> [!NOTE]
+> O SLES 11 SP4 64 bits **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** é empacotado com o pacote base **InMage_Scout_Standard_8.0.1 GA.zip** do Scout GA. Baixe o pacote Scout GA do portal conforme mencionado na [etapa 1](#step-1-create-a-vault).
+>
+
+**Correção de bugs e melhorias**
+
+* Aumentar a confiabilidade de suporte de Cluster do Windows
+    * Corrigido – Algumas vezes, alguns dos discos de cluster do MSCS P2V tornam-se brutos após a recuperação
+    * Corrigido – A recuperação de cluster do MSCS P2V falha devido à incompatibilidade de ordem do disco
+    * Corrigido – A operação de adicionar discos do cluster do MSCS falha com incompatibilidade de tamanho de disco
+    * Corrigido – A verificação de preparação de mapeamento de cluster do MSCS de origem com LUNs de RDM falha na verificação de tamanho
+    * Corrigido – A proteção de cluster de nó único falha devido a um problema de incompatibilidade de SCSI 
+    * Corrigido – A nova proteção do servidor de cluster do Windows P2V falha se há discos de cluster de destino presentes. 
+    
+* Durante a proteção de failback, se o MT selecionado não está no mesmo servidor ESXi que o computador de origem protegido (durante a proteção antecipada), o vContinuum recebe o MT errado durante a recuperação de failback e, subsequentemente, a operação de recuperação falha.
+
+> [!NOTE]
+> 
+> * As correções de cluster P2V acima são aplicáveis somente a esses clusters do MSCS físicos protegidos recentemente com ASR Scout update5. Para se beneficiar das correções de cluster no cluster do MSCS P2V já protegido com as atualizações mais antigas, você precisa seguir as etapas de atualização que são mencionadas na seção 12 das [Notas de Versão do ASR Scout](https://aka.ms/asr-scout-release-notes), Atualizar cluster do MSCS P2V protegido para Scout Update5.
+> 
+> * Proteger novamente do cluster do MSCS físico pode reutilizar discos de destino existentes somente se, no momento em que se vai proteger novamente, o mesmo conjunto de discos estão ativos em cada um dos nós do cluster em que esses discos estavam quando protegidos inicialmente. Se não, em seguida, há etapas manuais conforme mencionado na seção 12 das [Notas de Versão do ASR Scout](https://aka.ms/asr-scout-release-notes) para mover os discos no lado de destino para o caminho de armazenamento de dados correto para reutilizá-los durante a proteção novamente. Se você proteger novamente o cluster do MSCS no modo P2V sem seguir as etapas de atualização, ele criará um novo disco no servidor ESXi de destino. Você precisa excluir manualmente os discos antigos do armazenamento de dados.
+> 
+> * Sempre que o SLES11 ou SLES11 de origem com qualquer servidor de service pack é reinicializado normalmente, deve-se marcar manualmente os pares de replicação de disco **raiz** para sincronizar novamente, pois ele não será notificado na interface do usuário do CX. Se você não marcar o disco raiz para ressincronização, talvez você veja problemas de DI (integridade de dados).
+> 
+
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Atualização 4
 Scout Atualização 4 é uma atualização cumulativa. Ele tem todas as correções de update1 até update3 e as seguintes novas correções de bug e melhorias.
 

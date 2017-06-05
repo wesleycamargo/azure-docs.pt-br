@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
 ms.openlocfilehash: 7be96ed59a148f7c622551eaa66279a94e2c83f1
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -72,8 +75,3 @@ Para avaliar o valor do elemento `Issuer` , use o valor do **URI da ID do aplica
 
 ### <a name="status"></a>Status
 O Azure AD usa o elemento `StatusCode` no elemento `Status` para indicar o sucesso ou a falha da desconexão. Quando a tentativa de desconexão falha, o elemento `StatusCode` também pode conter mensagens de erro personalizadas.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d716f11818bc0ad6dd9e5f93951b011dd6774c7b
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: bbea08798a601989d06774475cb25ee67e99add6
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +28,8 @@ ms.lasthandoff: 03/22/2017
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Rede permite que você exiba informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
@@ -35,6 +37,12 @@ Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Re
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
+
+## <a name="register-insights-provider"></a>Registrar o provedor Insights
+
+Para o registro em log de fluxo funcionar com sucesso, o provedor **Microsoft.Insights** deve ser registrado. Para registrar o provedor, navegue até **Assinaturas**, selecione a assinatura para a qual deseja habilitar os logs de fluxo. Na folha **Assinatura**, selecione **Provedores de Recursos**. Navegue pela lista de provedores e verifique se o provedor **microsoft.insights** está registrado. Se não estiver, clique em **Registrar**.
+
+![exibir provedores][providers]
 
 ## <a name="enable-flow-logs"></a>Habilitar logs de fluxo
 
@@ -93,4 +101,4 @@ Saiba como [Visualizar seus logs de fluxo NSG com o PowerBI](network-watcher-vis
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-
+[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png

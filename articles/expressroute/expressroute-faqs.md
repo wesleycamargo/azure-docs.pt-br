@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 5b7e2d8df2723f77aa8283d9faab22656198ed47
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3f9fb86a5bf63d24432c1ba9945a4da6cf794f13
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -66,7 +67,7 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* A maioria dos serviços do Dynamics 365 (anteriormente conhecido como CRM Online)
+* Dynamics 365 (antes conhecido como CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
@@ -89,7 +90,7 @@ Consulte [Locais e Parceiros da Rota Expressa](expressroute-locations.md) para a
 Consulte a [Página de pré-requisitos para Rota Expressa](expressroute-prerequisites.md) para requisitos.
 
 ### <a name="are-connections-to-expressroute-redundant"></a>As conexões à Rota Expressa são redundantes?
-Sim. Cada circuito da Rota Expressa tem um par redundante de conexões cruzadas configurado para fornecer alta disponibilidade.
+Sim. Cada circuito do ExpressRoute tem um par redundante de conexões cruzadas configurado para fornecer alta disponibilidade.
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Eu perderei a conectividade se um dos meus links de Rota Expressa falhar?
 Você não perderá conectividade se uma das conexões cruzadas falhar. Uma conexão redundante estará disponível para dar suporte à carga de sua rede. Além disso, você pode criar vários circuitos em um local de emparelhamento diferente para obter resiliência a falhas.
@@ -193,7 +194,7 @@ Rota Expressa premium é uma coleção de recursos listados abaixo.
 * Limite maior na tabela de roteamento, de 4000 rotas para 10.000 rotas, para emparelhamento privado.
 * Maior número de VNets que podem ser conectadas ao circuito de Rota Expressa (o padrão é 10). Consulte a tabela seguir para obter mais detalhes.
 * Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício. **Outro exemplo:** no emparelhamento público, prefixos de outras regiões geopolíticas são anunciados de uma forma que você pode se conectar, por exemplo, ao SQL Azure no Oeste da Europa de um circuito no Vale do Silício.
-* Conectividade com serviços do Office 365 e CRM Online.
+* Conectividade com o Office 365 e o Dynamics 365.
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a>Quantas VNets posso vincular a um circuito de Rota Expressa se eu habilitei a Rota Expressa premium?
 As tabelas a seguir mostram os limites da Rota Expressa e o número de redes virtuais por circuito de Rota Expressa.
@@ -215,31 +216,31 @@ Consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/expre
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>Eu pago algo pela Rota Expressa premium além dos encargos padrão da Rota Expressa?
 Sim. Os encargos da Rota Expressa premium somam-se aos encargos de circuito de Rota Expressa e aos encargos demandados pelo provedor de conectividade.
 
-## <a name="expressroute-and-office-365-services-and-crm-online"></a>Rota Expressa e serviços do Office 365 e CRM Online
+## <a name="expressroute-for-office-365-and-dynamics-365"></a>ExpressRoute para o Office 365 e o Dynamics 365
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-crm-online"></a>Como criar um circuito de Rota Expressa para conectar aos serviços do Office 365 e CRM Online?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-dynamics-365"></a>Como criar um circuito do ExpressRoute para conectar aos serviços do Office 365 e do Dynamics 365?
 1. Examine a [página de pré-requisitos do ExpressRoute](expressroute-prerequisites.md) para se certificar de que você atende aos requisitos.
 2. Examine a lista de provedores de serviços e locais em [Locais e parceiros da Rota Expressa](expressroute-locations.md) para garantir que suas necessidades de conectividade são atendidas.
 3. Planeje seus requisitos de capacidade, revisando [Planejamento de rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/)
 4. Siga as etapas relacionadas nos fluxos de trabalho abaixo para configurar a conectividade [Fluxos de trabalho de ExpressRoute para provisionamento do circuito e estados do circuito](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Certifique-se de ter habilitado o complemento premium da Rota Expressa ao configurar a conectividade com os serviços do Office 365 e CRM Online.
+> Habilite o complemento premium do ExpressRoute ao configurar a conectividade com os serviços do Office 365 e o Dynamic 365.
 > 
 > 
 
-### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-crm-online"></a>Eu preciso habilitar o emparelhamento público do Azure para me conectar aos serviços do Office 365 e CRM Online?
+### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-dynamics-365"></a>Eu preciso habilitar o Emparelhamento Público do Azure para conectar-me aos serviços do Office 365 e ao Dynamics 365?
 Não, você precisa habilitar somente o Emparelhamento da Microsoft. O tráfego de autenticação no Azure AD será enviado pelo emparelhamento da Microsoft. 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-crm-online"></a>Meus circuitos da Rota Expressa existentes dão suporte a conectividade com os serviços do Office 365 e CRM Online?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Meus circuitos do ExpressRoute podem dar suporte à conectividade com os serviços do Office 365 e o Dynamics 365?
 Sim. Seus circuitos da Rota Expressa existentes podem ser configurados para dar suporte a conectividade com os serviços do Office 365. Verifique se você tem capacidade suficiente para se conectar aos serviços do Office 365 e certifique-se de que você habilitou o complemento premium. [Planejamento da rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/) ajudarão você a planejar suas necessidades de conectividade. Veja também [Criar e modificar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Quais serviços do Office 365 podem ser acessados por uma conexão de Rota Expressa?
 Confira a página [Intervalos de endereço IP e URLs do Office 365](http://aka.ms/o365endpoints) para obter uma lista atualizada dos serviços com suporte do ExpressRoute.
 
-### <a name="how-much-does-expressroute-for-office-365-services-and-crm-online-cost"></a>Qual é o custo da Rota Expressa para serviços do Office 365 e CRM Online?
-Os serviços do Office 365 e CRM Online requerem o complemento premium para serem habilitados. A [página de detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) fornece detalhes de custos para a Rota Expressa.
+### <a name="how-much-does-expressroute-for-office-365-services-and-dynamics-365-cost"></a>Qual é o custo do ExpressRoute para serviços do Office 365 e Dynamics 365?
+Serviços do Office 365 e Dynamics 365 exigem o complemento premium para serem habilitados. A [página de detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) fornece detalhes de custos para a Rota Expressa.
 
 ### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Em que regiões há suporte para Rota Expressa para Office 365?
 Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para obter mais informações sobre a lista de parceiros e os locais onde há suporte para a Rota Expressa.

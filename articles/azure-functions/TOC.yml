@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Conceitos
   items:
-  - name: Planos de hospedagem
+  - name: Consumo e planos de Serviço de Aplicativo
     href: functions-scale.md
   - name: Gatilhos e associações
     href: functions-triggers-bindings.md
+  - name: Linguagens
+    items:
+    - name: 'Conceitos de funções de C#'
+      href: functions-reference-csharp.md
+    - name: 'Conceitos de funções de F#'
+      href: functions-reference-fsharp.md
+    - name: Conceitos de funções de JavaScript
+      href: functions-reference-node.md    
 - name: Guias de instruções
   items:
+  - name: Guia do desenvolvedor
+    href: functions-reference.md
   - name: Testando os Azure Functions
     href: functions-test-a-function.md
   - name: Desenvolver e depurar localmente
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Instalar o tempo de execução do Functions
     href: functions-runtime-install.md
+  - name: Conectar-se ao Banco de Dados SQL
+    href: functions-scenario-database-table-cleanup.md
+  - name: Criar uma definição Open API 2.0
+    href: functions-api-definition-getting-started.md     
+  - name: Práticas recomendadas do Azure Functions
+    href: functions-best-practices.md     
 - name: Referência
   items:
-  - name: Desenvolver aplicativos de função
-    href: functions-reference.md
-    items:
-    - name: Abrir a API 2.0
-      href: functions-api-definition.md
-  - name: Práticas recomendadas do Azure Functions
-    href: functions-best-practices.md
   - name: Associações
     items:
     - name: Associações do Cosmos DB
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Associação de saída do Twilio
       href: functions-bindings-twilio.md
-  - name: Estruturas
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: Referência do OpenAPI
+    href: functions-api-definition.md     
 - name: Recursos
   items:
   - name: Preços

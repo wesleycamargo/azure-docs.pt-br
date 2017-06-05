@@ -12,23 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 49ba7e6d5d67b109632b08ce936357804c80da40
-ms.lasthandoff: 04/27/2017
+ms.date: 05/04/2017
+ms.author: rodejo
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
 
 > [!IMPORTANT]
-> Este conteúdo se aplica apenas aos grupos Unificados, também conhecidos como grupos do Office 365. Esses cmdlets estão em Visualização pública no momento.
+> Este conteúdo se aplica apenas aos grupos Unificados, também conhecidos como grupos do Office 365. 
 
 As configurações de Grupos do Office 365 são definidas usando um objeto Settings e um SettingsTemplate. Inicialmente, você não verá objetos de Configurações em seu diretório. Isso significa que o diretório está configurado com as configurações padrão. Para alterar as configurações padrão, você deve criar um novo objeto de configurações usando um modelo de configurações. Modelos de configurações são definidos pela Microsoft. Há vários modelos de configurações diferentes. Para definir configurações de grupo para seu diretório, você usará o modelo chamado "Group.Unified". Para definir configurações de grupo em um único grupo, você usará o modelo chamado "Group.Unified.Guest". Esse modelo é usado para gerenciar o acesso de convidado a um grupo. 
 
-Os cmdlets fazem parte do Módulo do Azure Active Directory PowerShell V2. Para saber mais sobre este módulo e receber instruções sobre como baixar e instalar o módulo em seu computador, confira [Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/azuread/). Observe que como esses cmdlets estão em Visualização pública no momento, você precisará instalar a versão de visualização do módulo, que pode ser encontrada [aqui](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85).
+Os cmdlets fazem parte do Módulo do Azure Active Directory PowerShell V2. Para saber mais sobre este módulo e receber instruções sobre como baixar e instalar o módulo em seu computador, confira [Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/azuread/). Você pode instalar a versão 2 do módulo [daqui](https://www.powershellgallery.com/packages/AzureAD/).
+
+## <a name="retrieve-a-specific-settings-value"></a>Recuperar um valor de configurações específico
+Se você souber o nome da configuração que você deseja recuperar, você poderá usar o cmdlet abaixo para recuperar o valor de configurações atual. Neste exemplo, recuperaremos o valor de uma configuração chamada "UsageGuidelinesUrl". Você pode ler que mais sobre configurações de diretório e seus nomes mais abaixo neste artigo.
+
+```powershell
+(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+```
 
 ## <a name="create-settings-at-the-directory-level"></a>Criar configurações no nível do diretório
 Estas etapas criam configurações no nível do diretório, que se aplicam a todos os grupos Unificados no diretório.

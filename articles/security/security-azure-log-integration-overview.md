@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 05/20/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 931105183156efc958d4daef50a6858ea36ea3bb
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 616a29b3f7db817e63a3a3673b845cc86752af77
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -26,7 +27,7 @@ Saiba mais sobre a integração de log do Azure, seus principais recursos e como
 
 ## <a name="overview"></a>Visão geral
 
-A integração do log do Azure é uma solução gratuita que permite integrar logs brutos dos recursos do Azure a sistemas SIEM (Gerenciamento de Informações e Eventos de Segurança) locais. 
+A integração do log do Azure é uma solução gratuita que permite integrar logs brutos dos recursos do Azure a sistemas SIEM (Gerenciamento de Informações e Eventos de Segurança) locais.
 
 A Integração do Log do Azure coleta eventos do Windows de canais do Visualizador de Eventos do Windows, [Logs de Atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Alertas da Central de Segurança do Azure](../security-center/security-center-intro.md) e [Logs de Diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de recursos do Azure. Esta integração ajuda sua solução de SIEM a fornecer um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança.
 
@@ -48,7 +49,7 @@ A tabela a seguir explica a categoria de log e os detalhes de integração do SI
 
 | Tipo de log  |JSON de suporte ao Log Analytics (Splunk, ELK)| ArcSight  | QRadar  |   
 |---|---|---|---|
-|  Logs de auditoria do AAD |  sim | Exige a criação de um arquivo analisador de JSON do FlexConnector. Consulte a documentação do ArcSight para obter mais informações  |  Você deve criar uma extensão de origem do log. Consulte a documentação do QRadar para obter mais informações. |  
+|  Logs de auditoria do AAD |  Sim | Exige a criação de um arquivo analisador de JSON do FlexConnector. Consulte a documentação do ArcSight para obter mais informações  |  Você deve criar uma extensão de origem do log. Consulte a documentação do QRadar para obter mais informações. |  
 | Logs de atividade  | Sim  |  O arquivo analisador de JSON do FlexConnector está disponível no Centro de Download junto com o download de integração de log do Azure |  [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html) (enviar por Syslog) |  
 | Alertas do ASC  | Sim  |  Exige a criação de um arquivo analisador de JSON do FlexConnector. Consulte a documentação do ArcSight para obter mais informações. | [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html) (enviar pelo Syslog)   |   
 | Logs de diagnóstico (logs de recurso) | Sim | Precisa que o usuário final crie o arquivo do analisador JSON FlexConnector. Consulte a documentação do ArcSight para saber como fazer isso. | Você deve criar uma extensão de origem do log. Consulte a documentação do QRadar para obter mais informações |
@@ -57,7 +58,7 @@ A tabela a seguir explica a categoria de log e os detalhes de integração do SI
 >[!NOTE]
 Embora a Integração do Log do Azure seja uma solução gratuita, haverá custos de armazenamento do Azure resultantes do armazenamento de informações do arquivo de log.
 
-Ajuda da comunidade está disponível por meio de [Fórum do MSDN de integração de Log do Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). O fórum fornece para a comunidade AzLog a capacidade de apoiar uns aos outros com perguntas, respostas, dicas e truques sobre como aproveitar ao máximo a integração de log do Azure. Além disso, a equipe de Integração do Log do Azure monitora esse fórum e ajuda sempre que possível. 
+Ajuda da comunidade está disponível por meio de [Fórum do MSDN de integração de Log do Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). O fórum fornece para a comunidade AzLog a capacidade de apoiar uns aos outros com perguntas, respostas, dicas e truques sobre como aproveitar ao máximo a integração de log do Azure. Além disso, a equipe de Integração do Log do Azure monitora esse fórum e ajuda sempre que possível.
 
 Você também pode abrir uma [solicitação de suporte](../azure-supportability/how-to-create-azure-support-request.md). Para fazer isso, selecione **integração de log** como o serviço para o qual você está solicitando suporte.
 

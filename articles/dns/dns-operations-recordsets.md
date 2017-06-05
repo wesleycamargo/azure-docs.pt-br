@@ -14,10 +14,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1d7f24b8a65347bc54b273d08c06b22320cbeb2c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 54389c0b6dfbe5483106ca74e379dff9091fb907
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -303,13 +304,17 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="to-modify-ns-records-at-the-zone-apex"></a>Para modificar registros NS no apex da zona
 
-Não é possível adicionar, remover nem modificar os registros no conjunto de registros NS criado automaticamente no ápice da zona (`-Name "@"`, incluindo as aspas). As únicas alterações permitidas são modificar o TTL do conjunto de registros e os metadados.
+O registro NS definido no apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
 
-O exemplo a seguir mostra como alterar a propriedade TTL do conjunto de registros NS:
+Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
+
+Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser modificados sem restrição.
+
+O exemplo a seguir mostra como adicionar um servidor de nome adicional ao conjunto de registros NS no apex da zona:
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
-$rs.Ttl = 300
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.com
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 

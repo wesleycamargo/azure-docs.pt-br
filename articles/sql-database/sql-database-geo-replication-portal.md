@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/062/2016
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 78dbbaa272d9889add5bc833c7557618f41056db
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c9376b95e4686f804d34f648e15cfcc0f2847718
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -29,7 +30,7 @@ Este artigo mostra como configurar a replicação geográfica ativa para o Banco
 Para iniciar um failover com o portal do Azure, veja [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o portal do Azure](sql-database-geo-replication-portal.md).
 
 > [!NOTE]
-> A replicação geográfica ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017, o tipo de secundário não legível será descontinuado, e os bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis.
+> A replicação geográfica ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017, o tipo de secundário não legível foi descontinuado, e os bancos de dados não legíveis existentes foram automaticamente atualizados para secundários legíveis.
 > 
 > 
 
@@ -53,7 +54,7 @@ Depois que o banco de dados secundário for criado e propagado, os dados começa
 > 
 
 1. No [portal do Azure](http://portal.azure.com), navegue até o banco de dados que você deseja configurar para a replicação geográfica.
-2. Na página de banco de dados SQL, selecione **Replicação Geográfica** e, em seguida, selecione a região para criar o banco de dados secundário. É possível selecionar qualquer região além da região que hospeda o banco de dados primário, mas recomendamos a [região emparelhada](../best-practices-availability-paired-regions.md).
+2. Na página de banco de dados SQL, selecione **replicação geográfica** e, em seguida, selecione a região para criar o banco de dados secundário. É possível selecionar qualquer região além da região que hospeda o banco de dados primário, mas recomendamos a [região emparelhada](../best-practices-availability-paired-regions.md).
    
     ![Configurar a replicação geográfica](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. Selecione ou configure o servidor e o tipo de preço do banco de dados secundário.
@@ -72,8 +73,8 @@ Depois que o banco de dados secundário for criado e propagado, os dados começa
 
 O banco de dados secundário pode ser alternado para se tornar primário.  
 
-1. No [Portal do Azure](http://portal.azure.com), navegue até o banco de dados primário na parceria de Replicação Geográfica.
-2. Na folha Banco de Dados SQL, selecione **Todas as configurações** > **Replicação Geográfica**.
+1. No [portal do Azure](http://portal.azure.com), navegue até o banco de dados primário na parceria de replicação geográfica.
+2. Na folha Banco de dados SQL, selecione **Todas as configurações** > **replicação geográfica**.
 3. Na lista **SECUNDÁRIOS**, selecione o banco de dados que deverá se tornar o novo primário e clique em **Failover**.
    
     ![Failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
@@ -84,7 +85,7 @@ O comando mudará imediatamente o banco de dados secundário para a função pri
 Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. Se o banco de dados primário tiver vários bancos de dados secundários, o comando reconfigurará automaticamente os outros secundários para se conectarem ao novo primário. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. 
 
 > [!NOTE]
-> Se o primário estiver online e realizando transações quando o comando for emitido, alguma perda de dados poderá ocorrer.
+> Este comando destina-se à recuperação rápida do banco de dados em caso de interrupção. Ele dispara o failover sem sincronização de dados (failover forçado).  Se o primário estiver online e realizando transações quando o comando for emitido, alguma perda de dados poderá ocorrer. 
 > 
 > 
 
@@ -92,7 +93,7 @@ Há um breve período durante o qual os bancos de dados não estão disponíveis
 Essa operação termina permanentemente a replicação para o banco de dados secundário e altera a função do secundário para um banco de dados de leitura/gravação normal. Se a conectividade com o banco de dados secundário for desfeita, o comando terá êxito, mas o secundário só se tornará de leitura/gravação quando a conectividade for restaurada.  
 
 1. No [portal do Azure](http://portal.azure.com), navegue até o banco de dados primário na parceria de replicação geográfica.
-2. Na página do Banco de Dados SQL, selecione **Replicação geográfica**.
+2. Na página do Banco de dados SQL, selecione **Replicação geográfica**.
 3. Na lista **SECUNDÁRIOS**, selecione o banco de dados que você deseja remover da parceria de replicação geográfica.
 4. Clique em **Parar Replicação**.
    
@@ -100,7 +101,7 @@ Essa operação termina permanentemente a replicação para o banco de dados sec
 5. Uma janela de confirmação é aberta. Clique em **Sim** para remover o banco de dados da parceria de replicação geográfica. (Defina-o como um banco de dados de leitura/gravação que não faz parte de nenhuma replicação.)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre a replicação geográfica ativa, consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
+* Para saber mais sobre a replicação geográfica ativa, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
 * Para obter uma visão geral e os cenários de continuidade dos negócios, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
 

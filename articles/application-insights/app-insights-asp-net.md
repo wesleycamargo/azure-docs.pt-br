@@ -3,7 +3,7 @@ title: "Configurar análise de aplicativo Web do ASP.NET com o Azure Application
 description: "Configurar análise de desempenho, disponibilidade e uso para seu site ASP.NET, hospedado no local ou no Azure."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 04bac05363f0f7468e41ccfd96a85e4bd7bf761c
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: af932e111ebc60ee86c823e65000d39fa6ea81cb
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -52,7 +52,12 @@ Ir para a página de configuração do Application Insights:
 
 **a.** Selecione a conta e assinatura que você usa para acessar o Azure.
 
-**b.** Selecione o recurso no Azure onde você deseja ver os dados do seu aplicativo. Normalmente, você cria um recurso separado para cada um aplicativo. Se você deseja definir o grupo de recursos ou o local onde os dados estão armazenado, clique **configurações**. Grupos de recursos são usados para controlar o acesso aos dados. Por exemplo, se você tiver vários aplicativos que fazem parte do mesmo sistema, você pode colocar seus dados do Application Insights no mesmo grupo de recursos.
+**b.** Selecione o recurso no Azure onde você deseja ver os dados do seu aplicativo. Normalmente:
+
+* Use um [único recurso para diferentes componentes](app-insights-monitor-multi-role-apps.md) de um único aplicativo. 
+* Crie recursos separados para aplicativos não relacionados.
+ 
+Se você deseja definir o grupo de recursos ou o local onde os dados estão armazenado, clique **configurações**. Grupos de recursos são usados para controlar o acesso aos dados. Por exemplo, se você tiver vários aplicativos que fazem parte do mesmo sistema, você pode colocar seus dados do Application Insights no mesmo grupo de recursos.
 
 **c.** Defina um limite no limite de volume de dados gratuito para evitar cobranças. O Application Insights está gratuitos até um determinado volume de telemetria. Depois que o recurso for criado, você pode alterar sua seleção no portal abrindo **Recursos + preços** > **Gerenciamento do volume de dados** > **Limite diário de volume**.
 
@@ -138,10 +143,10 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
 ### <a name="more-telemetry"></a>Mais telemetria
 
-* **[Navegador e página carregam dados](app-insights-javascript.md)** -insira um trecho de código em suas páginas da Web.
-* **[Obtenha monitoramento de dependência e de exceção mais detalhado](app-insights-monitor-performance-live-website-now.md)** -instale o Monitor de Status no seu servidor.
+* **[Navegador e página carregam dados](app-insights-javascript.md)**  -insira um trecho de código em suas páginas da Web.
+* **[Obtenha monitoramento de dependência e de exceção mais detalhado](app-insights-monitor-performance-live-website-now.md)**  -instale o Monitor de Status no seu servidor.
 * **[Eventos personalizados de código](app-insights-api-custom-events-metrics.md)** para contagem, tempo ou medição de ações do usuário.
-* **[Obter dados de log](app-insights-asp-net-trace-logs.md)** - correlacionar dados de log com a telemetria.
+* **[Obter dados de log](app-insights-asp-net-trace-logs.md)**  - correlacionar dados de log com a telemetria.
 
 ### <a name="analysis"></a>Análise
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-=article
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 8b0985ec5b4fec39e9277b81f7bbecc7d50065e1
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 7de37f106e33d425b3b497cec640bac3fa4afa74
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -289,6 +290,8 @@ O Site Recovery fornece um planejador de capacidade para ajudar você a alocar o
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
+Antes de começar, verifique se a sua conta de usuário do Azure tem as [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) necessárias para habilitar a replicação de uma nova máquina virtual no Azure.
+
 Agora habilite a replicação da seguinte maneira:
 
 1. Clique em **Etapa 2: replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, clique em **+Replicar** no cofre para habilitar a replicação para outros computadores.
@@ -350,7 +353,25 @@ Observe que:
      * Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede.
 
      ![Habilitar a replicação](./media/site-recovery-vmm-to-azure/test-failover4.png)
+
 4. Em **Discos** , você pode ver o sistema operacional e os discos de dados na VM que serão replicados.
+
+#### <a name="managed-disks"></a>Discos gerenciados
+
+Em **Computação e Rede** > **Propriedades de computação**, você poderá definir a configuração "Usar managed disks" como "Sim" para a VM se quiser anexar managed disks ao seu computador na migração para o Azure. O Managed Disks simplifica o gerenciamento de discos para VMs da IaaS do Azure por meio do gerenciamento de contas de armazenamento associadas aos discos da VM. [Saiba mais sobre managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
+
+   - Managed disks são criados e anexados à máquina virtual somente em um failover para o Azure. Ao habilitar a proteção, os dados de computadores locais continuarão sendo replicados para contas de armazenamento.
+   Managed disks podem ser criados apenas para máquinas virtuais implantadas usando o modelo de implantação do Resource Manager.  
+
+  > [!NOTE]
+  > Não há suporte para failback do Azure para o ambiente do Hyper-V local para computadores com managed disks. Defina "Usar managed disks" como "Sim" apenas se você pretender migrar esse computador para o Azure.
+
+   - Quando você define "Usar managed disks" como "Sim", apenas conjuntos de disponibilidade no grupo de recursos com "Usar managed disks" definido como "Sim" estarão disponíveis para seleção. Isso ocorre porque as máquinas virtuais com managed disks apenas podem fazer parte de conjuntos de disponibilidade com a propriedade "Usar managed disks" definida como "Sim". Crie conjuntos de disponibilidade com a propriedade "Usar managed disks" definida com base em sua intenção de usar managed disks no failover.  Da mesma maneira, quando você define "Usar managed disks" como "Não", apenas conjuntos de disponibilidade no grupo de recursos com a propriedade "Usar managed disks" definida como "Não" estarão disponíveis para seleção. [Saiba mais sobre managed disks e conjuntos de disponibilidade](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Se a conta de armazenamento usada para a replicação tiver sido criptografada com Criptografia de Serviço de Armazenamento em qualquer ponto no tempo, a criação de managed disks durante o failover falhará. Você pode definir "Usar managed disks" como "Não" e repetir o failover ou desabilitar a proteção para a máquina virtual e protegê-la para uma conta de armazenamento que não tenha criptografia de Serviço de armazenamento habilitada em nenhum ponto no tempo.
+  > [Saiba mais sobre Criptografia do serviço de armazenamento e managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
 
 ## <a name="test-the-deployment"></a>Teste a implantação
 

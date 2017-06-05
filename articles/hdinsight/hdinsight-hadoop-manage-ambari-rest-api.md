@@ -1,6 +1,6 @@
 ---
-title: Monitorar e gerenciar o Azure HDInsight usando a API REST usando o Ambari | Microsoft Docs
-description: "Aprenda a usar o Ambari para monitorar e gerenciar clusters HDInsight baseados em Linux. Neste documento, você aprenderá a usar a API REST do Ambari incluída com clusters HDInsight."
+title: "Monitorar e gerenciar o Hadoop com a API REST do Ambari – Azure HDInsight | Microsoft Docs"
+description: "Aprenda a usar o Ambari para monitorar e gerenciar clusters Hadoop no Azure HDInsight. Neste documento, você aprenderá a usar a API REST do Ambari incluída com clusters HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 05/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ce6d8301c9c9fc0b9ac6bc2e31023ebbbba8a67c
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 7ac80a8521b48f43538ca06a054f8302eb32eea6
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -28,7 +28,9 @@ ms.lasthandoff: 04/27/2017
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari está incluído em clusters HDInsight que usam o sistema operacional Linux e é usado para monitorar o cluster e fazer alterações de configuração. Neste documento, você aprenderá os fundamentos de como trabalhar com a API REST do Ambari.
+Aprenda a usar a API REST do Ambari para gerenciar e monitorar clusters Hadoop no Azure HDInsight.
+
+O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari está incluído em clusters HDInsight que usam o sistema operacional Linux e é usado para monitorar o cluster e fazer alterações de configuração.
 
 ## <a id="whatis"></a>O que é o Ambari
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 05/08/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0053f93218e9fec4d72fb229bfb2c6159d8b5bc7
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: d129ea9e5f3e320ccd705028f9860188babe2fe4
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -56,7 +56,7 @@ Antes de começar este tutorial, verifique se você atende aos seguintes requisi
 ## <a name="create-a-data-lake-store-account"></a>Criar uma conta do Repositório Data Lake
 Para criar uma conta do Data Lake Store, faça o seguinte:
 
-1. Na área de trabalho, abra uma janela do PowerShell e insira o seguinte trecho:
+1. Na área de trabalho, abra uma janela do PowerShell e insira os trechos abaixo. Quando receber uma solicitação para se conectar, conecte-se como um dos administradores ou proprietários da assinatura. 
 
         # Sign in to your Azure account
         Login-AzureRmAccount
@@ -74,26 +74,42 @@ Para criar uma conta do Data Lake Store, faça o seguinte:
     > Se você registrar o provedor de recursos do Data Lake Store e receber um erro semelhante a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, sua assinatura poderá não ter sido adicionada à lista de permissões do Data Lake Store. Para habilitar sua assinatura do Azure para a visualização pública do Data Lake Store, siga as instruções em [Introdução ao Azure Data Lake Store usando o portal do Azure](data-lake-store-get-started-portal.md).
     >
 
-2. Quando receber uma solicitação para se conectar, conecte-se como um dos administradores ou proprietários da assinatura.
-3. Uma conta do Data Lake Store está associada a um grupo de recursos do Azure. Comece criando um grupo de recursos.
+2. Uma conta do Data Lake Store está associada a um grupo de recursos do Azure. Comece criando um grupo de recursos.
 
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    ![Criar um grupo de recursos do Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Criar um grupo de recursos do Azure")
+    Você verá uma saída semelhante à seguinte:
+
+        ResourceGroupName : hdiadlgrp
+        Location          : eastus2
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
+
 3. Crie uma conta do Data Lake Store. O nome de conta especificado deve conter apenas letras minúsculas e números.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Criar uma conta do Azure Data Lake](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Criar uma conta do Azure Data Lake")
-4. Verifique se a conta foi criada com êxito.
+    Você verá algo semelhante ao mostrado a seguir:
 
-        Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
+        ...
+        ProvisioningState           : Succeeded
+        State                       : Active
+        CreationTime                : 5/5/2017 10:53:56 PM
+        EncryptionState             : Enabled
+        ...
+        LastModifiedTime            : 5/5/2017 10:53:56 PM
+        Endpoint                    : hdiadlstore.azuredatalakestore.net
+        DefaultGroup                :
+        Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
+        Name                        : hdiadlstore
+        Type                        : Microsoft.DataLakeStore/accounts
+        Location                    : East US 2
+        Tags                        : {}
 
-    A saída deverá ser **True**.
-
-5. Usar o Data Lake Store como armazenamento padrão exige a especificação de um caminho raiz para o qual os arquivos específicos ao cluster são copiados durante a criação do cluster. Para criar um caminho raiz, que é **/clusters/hdiadlcluster** no trecho, use os seguintes cmdlets:
+4. Usar o Data Lake Store como armazenamento padrão exige a especificação de um caminho raiz para o qual os arquivos específicos ao cluster são copiados durante a criação do cluster. Para criar um caminho raiz, que é **/clusters/hdiadlcluster** no trecho, use os seguintes cmdlets:
 
         $myrootdir = "/"
         New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/clusters/hdiadlcluster
@@ -121,7 +137,7 @@ Verifique se o [SDK do Windows](https://dev.windows.com/en-us/downloads) está i
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
-    Quando receber a solicitação, insira a senha da chave privada especificada anteriormente. O valor especificado para o parâmetro **-po** é a senha associada ao arquivo .pfx. Após a conclusão bem-sucedida do comando, você também deverá ver um arquivo CertFile.pfx no diretório de certificado especificado.
+    Quando receber a solicitação, insira a senha da chave privada especificada anteriormente. O valor especificado para o parâmetro **-po** é a senha associada ao arquivo .pfx. Após a conclusão bem-sucedida do comando, você também deverá ver um arquivo **CertFile.pfx** no diretório de certificado especificado.
 
 ### <a name="create-an-azure-ad-and-a-service-principal"></a>Criar um Azure AD e uma entidade de serviço
 Nesta seção, você cria uma entidade de serviço para um aplicativo do Azure AD, atribui uma função à entidade de serviço e se autentica como a entidade de serviço fornecendo um certificado. Para criar um aplicativo no Azure AD, execute os seguintes comandos:
@@ -173,7 +189,7 @@ Nesta seção, você cria um cluster Linux Hadoop HDInsight com o Data Lake Stor
         $location = "East US 2"
         $storageAccountName = $dataLakeStoreName                          # Data Lake Store account name
         $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
-        $clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
+        $clusterName = "<unique cluster name>"
         $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
         $httpCredentials = Get-Credential
         $sshCredentials = Get-Credential

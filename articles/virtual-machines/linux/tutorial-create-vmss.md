@@ -13,21 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6be49be9e4321075aa76b3abcf4695d0e7b45f6e
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 972c6f60c8963cad6f92b228e795a5027b838f00
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Criar um conjunto de escala de máquina Virtual e implantar um aplicativo altamente disponível no Linux
-Neste tutorial, você aprenderá como conjuntos de escala de máquina virtual no Azure permitem que você dimensionar rapidamente o número de máquinas virtuais (VMs) que executam seu aplicativo. Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Você pode dimensionar o número de VMs no conjunto de escala manualmente ou definir regras para dimensionamento automático com base no uso da CPU, a demanda por memória ou tráfego de rede. Para ver uma escala de máquina virtual definido em ação, você deve criar um aplicativo Node. js que é executado em várias VMs do Linux.
+Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Você pode dimensionar o número de VMs no conjunto de escala manualmente ou definir regras para dimensionamento automático com base no uso da CPU, a demanda por memória ou tráfego de rede. Neste tutorial, você implantará um conjunto de dimensionamento de máquinas virtuais no Azure. Você aprenderá como:
 
-As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [CLI do Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Usar cloud-init para criar um aplicativo para escala
+> * Criar um conjunto de dimensionamento de máquinas virtuais
+> * Aumentar ou diminuir o número de instâncias em um conjunto de dimensionamento
+> * Exibir informações de conexão para instâncias do conjunto de dimensionamento
+> * Usar discos de dados com conjunto de dimensionamento
 
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). Você também pode usar o [Cloud Shell](/azure/cloud-shell/quickstart) no seu navegador.
 
 ## <a name="scale-set-overview"></a>Visão geral do conjunto de escala
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Conjuntos de escala usam os mesmos componentes que você aprendeu no tutorial anterior para [criar máquinas virtuais altamente disponíveis](tutorial-availability-sets.md). As VMs em um conjunto de escala são criadas em um conjunto e distribuídas entre domínios de falha e atualização de lógica de disponibilidade.
@@ -86,10 +92,10 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
-Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group#create). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupScaleSet* no local *westus*:
+Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group#create). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupScaleSet* no local *eastus*:
 
 ```azurecli
-az group create --name myResourceGroupScaleSet --location westus
+az group create --name myResourceGroupScaleSet --location eastus
 ```
 
 Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#create). O exemplo a seguir cria uma conjunto nomeada de escala *myScaleSet*, usa o arquivo de nuvem-int para personalizar a VM e gera chaves SSH, se não existirem:
@@ -161,8 +167,8 @@ A saída deverá ser semelhante ao seguinte exemplo:
 ```azurecli
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
 ------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
-           1  True                  westus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
-           3  True                  westus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
+           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
+           3  True                  eastus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
 ```
 
 
@@ -241,7 +247,16 @@ az vmss disk detach `
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu como criar um conjunto de escala de máquina virtual. Avança para o próximo tutorial para saber mais sobre conceitos de máquinas virtuais de balanceamento de carga.
+Neste tutorial, você criou um conjunto de dimensionamento de máquinas virtuais. Você aprendeu como:
 
-[Balancear carga de máquinas virtuais](tutorial-load-balancer.md)
+> [!div class="checklist"]
+> * Usar cloud-init para criar um aplicativo para escala
+> * Criar um conjunto de dimensionamento de máquinas virtuais
+> * Aumentar ou diminuir o número de instâncias em um conjunto de dimensionamento
+> * Exibir informações de conexão para instâncias do conjunto de dimensionamento
+> * Usar discos de dados com conjunto de dimensionamento
 
+Avança para o próximo tutorial para saber mais sobre conceitos de máquinas virtuais de balanceamento de carga.
+
+> [!div class="nextstepaction"]
+> [Balancear carga de máquinas virtuais](tutorial-load-balancer.md)

@@ -3,7 +3,7 @@ title: "Referência de pesquisa do Azure Log Analytics | Microsoft Docs"
 description: "A referência da pesquisa do Log Analytics descreve a linguagem de pesquisa e fornece as opções de sintaxe de consulta geral que você pode usar ao pesquisar expressões de dados e de filtragem para ajudar a restringir a sua pesquisa."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
-ms.author: banders
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
@@ -613,7 +613,7 @@ Este exemplo retorna um evento (evento mais recente) por EventID.
 
 ### <a name="join"></a>Ingressar
 Junta os resultados de duas consultas para formar um único conjunto de resultados.  Oferece suporte a vários tipos de junção descritos na tabela a seguir.
-  
+
 | Tipo de junção | Descrição |
 |:--|:--|
 | interna | Retorna somente os registros com um valor correspondente em ambas as consultas. |

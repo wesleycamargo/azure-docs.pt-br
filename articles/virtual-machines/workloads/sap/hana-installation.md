@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: b791be369016dd52d95ec727e46fd8b554c09047
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 89356670737ed7b9adc5df51466ce71eb73b3cd4
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,7 +28,7 @@ A instalação do SAP HANA é sua responsabilidade e você pode iniciar a ativid
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Primeiras etapas depois de receber as Unidades de Instância Grande do HANA
 
-A **Primeira Etapa** depois de receber a Instância Grande do HANA e ter estabelecido o acesso e a conectividade com as instâncias é registrar o sistema operacional da instância no provedor do sistema operacional. Isso inclui o registro do sistema operacional SUSE Linux em uma instância do SUSE SMT que você precisa ter implantada. Ou o sistema operacional RedHat precisa ser registrado no Gerenciador de Assinaturas do Red Hat ao qual você precisa se conectar. Consulte também os comentários neste [documento](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essa etapa também é necessária para corrigir o sistema operacional no futuro. Uma tarefa que é responsabilidade do cliente. 
+A **Primeira Etapa** depois de receber a Instância Grande do HANA e ter estabelecido o acesso e a conectividade com as instâncias é registrar o sistema operacional da instância no provedor do sistema operacional. Isso incluirá o registro do sistema operacional SUSE Linux em uma instância do SUSE SMT que você precisa ter implantada em uma VM no Azure à qual a unidade de Instância Grande do HANA pode se conectar. Ou o sistema operacional RedHat precisa ser registrado no Gerenciador de Assinaturas do Red Hat ao qual você precisa se conectar. Consulte também os comentários neste [documento](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essa etapa também é necessária para corrigir o sistema operacional no futuro. Uma tarefa que é responsabilidade do cliente. Para o SUSE, encontre a documentação para instalar e configurar o SMT [aqui](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 A **Segunda Etapa** é verificar se há novos patches e correções da versão específica do sistema operacional. Verifique se o nível de patch da Instância Grande do HANA está no estado mais recente. Com base no tempo do patch e das versões do sistema operacional e das alterações na imagem, a Microsoft pode implantar nesse local. Pode haver casos em que os últimos patches não são incluídos. Portanto, depois de obter uma unidade de Instância Grande do HANA e registrar a instalação do sistema operacional no distribuidor do Linux, é uma etapa obrigatória verificar se, no momento, foram liberados patches relevantes para a segurança, funcionalidade, disponibilidade e o desempenho pelo fornecedor específico do Linux e se eles precisam ser aplicados.
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 04/26/2017
+wms.date: 05/31/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 3300c4e79ddc6c8e04c3b4d80b3ee07bd6aeea9d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9ea73d39a8fcee82e749d20accdd3a3c30cba94e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -54,12 +54,12 @@ Primeiro, decida se deseja executar um único banco de dados com uma quantidade 
 | Tamanho máximo do banco de dados em um pool elástico | 2 GB | 250 GB | 500 GB | 500 GB |
 | Número máximo de bancos de dados por pool | 500  | 500 | 100 | 100 |
 | Máximo de DTUs de um banco de dados individual | 5 | 100 | 4000 | 1000 |
-| Máximo de DTUs por banco de dados em um pool elástico | 5 | 100 | 4000 | 1000 |
+| Máximo de DTUs por banco de dados em um pool elástico | 5 | 3000 | 4000 | 1000 |
 | Período de retenção do backup de banco de dados | 7 dias | 35 dias | 35 dias | 35 dias |
 ||||||
 
 > [!IMPORTANT]
-> Essas opções de armazenamento adicionais já estão disponíveis nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Europa Ocidental, Sudeste Asiático, Leste do Japão, Leste da Austrália, Central do Canadá e Leste do Canadá. Consulte [Limitações atuais 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> As opções de armazenamento adicionais estão atualmente disponíveis nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, US Gov – Virginia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. Consulte [Limitações atuais 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Depois de determinar a camada de serviço mínima, você estará pronto para determinar o nível de desempenho do banco de dados (o número de DTUs). Os níveis de desempenho do S2 e S3 padrão são quase sempre um bom ponto de partida. Para bancos de dados com altas exigências de CPU ou E/S, os níveis de desempenho Premium são o ponto de partida correto. O Premium oferece mais CPU e começa em 10 vezes mais E/S em comparação com o nível de desempenho Standard mais alto.
@@ -96,7 +96,7 @@ A duração de todo o processo de expansão depende a camada tamanho e de servi�
 
 Os pools permitem que esses bancos de dados compartilhem e consumam os recursos de eDTU sem a necessidade de atribuir um nível de desempenho específico para todos os bancos de dados no pool. Por exemplo, um banco de dados individual em um pool Standard pode usar de 0 eDTUs até o máximo de eDTU de banco de dados configurado por você durante a definição do pool. Os pools permitem que vários bancos de dados com diferentes cargas de trabalho usem os recursos de eDTU disponíveis para todo o pool de forma eficiente. Confira [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool.md) para obter detalhes.
 
-As tabelas a seguir descrevem os limites de recursos dos pools elásticos.  Observe que os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço.  Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120.  Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
+As tabelas a seguir descrevem os limites de recursos dos pools elásticos.  Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço.  Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120.  Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -130,16 +130,16 @@ ALTER DATABASE <myDatabaseName>
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-A atualização de um banco de dados existente P11 ou P15 só pode ser executada por um logon principal no nível de servidor ou por membros da função de banco de dados dbmanager. Se executada em uma região com suporte a configuração será atualizada imediatamente. Isso pode ser verificado usando [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) ou inspecionando o tamanho do banco de dados no portal do Azure. O banco de dados permanecerá online durante o processo de atualização. No entanto, você não poderá utilizar os 4 TB completos de armazenamento até que os arquivos de banco de dados reais sejam atualizados para o novo tamanho máximo. O período de tempo necessário depende do tamanho do banco de dados que está sendo atualizado.  
+A atualização de um banco de dados existente P11 ou P15 só pode ser executada por um logon principal no nível de servidor ou por membros da função de banco de dados dbmanager. Se executada em uma região com suporte, a configuração será atualizada imediatamente. Isso pode ser verificado usando [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) ou inspecionando o tamanho do banco de dados no portal do Azure. O banco de dados permanece online durante o processo de atualização. No entanto, não é possível utilizar os 4 TB completos de armazenamento até que os arquivos de banco de dados reais sejam atualizados para o novo tamanho máximo. O período de tempo necessário depende do tamanho do banco de dados que está sendo atualizado.  
 
 ### <a name="error-messages"></a>Mensagens de erro
-Ao criar ou atualizar um banco de dados P11/P15 em uma região sem suporte, a operação de criação ou atualização falhará com a seguinte mensagem de erro: **Os bancos de dados P11 e P15 com até 4 TB de armazenamento estão disponíveis no Leste dos EUA 2, Oeste dos EUA, Sudeste Asiático, Europa Ocidental, Leste do Canadá, Central do Canadá, Leste do Japão e Leste da Austrália.**
+Ao criar ou atualizar um banco de dados P11/P15 em uma região sem suporte, a operação de criação ou atualização falhará com a seguinte mensagem de erro: **Os bancos de dados P11 e P15 com até 4 TB de armazenamento estão disponíveis no Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá.**
 
 ## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB
 
 - Ao criar ou atualizar um banco de dados P11 ou P15, você só pode escolher entre 1 TB e 4 TB de tamanho máximo. Atualmente, não há suporte para tamanhos de armazenamento intermediários.
-- O tamanho máximo do banco de dados de 4 TB não pode ser alterado para 1 TB, mesmo que o armazenamento real usado esteja abaixo de 1 TB. Portanto, não é possível transformar um P11-4TB/P15-4TB em um P11-1TB/P15-1TB ou um nível de desempenho mais baixo (por exemplo, para P1-P6) até que estejamos fornecendo opções adicionais de armazenamento para o restante dos níveis de desempenho. Esta restrição também se aplica aos cenários de restauração e de cópia, incluindo restauração pontual e geográfica, retenção de backup a longo prazo e cópia de banco de dados. Quando um banco de dados é configurado com a opção de 4 TB, todas as operações de restauração desse banco de dados devem ser executadas em um P11/P15 com tamanho máximo de 4 TB.
-- Para cenários com Replicação Geográfica Ativa:
+- O tamanho máximo do banco de dados de 4 TB não pode ser alterado para 1 TB, mesmo que o armazenamento real usado esteja abaixo de 1 TB. Portanto, não é possível transformar um P11-4TB/P15-4TB em um P11-1TB/P15-1TB ou um nível de desempenho mais baixo, por exemplo, para P1-P6, até que estejamos fornecendo opções adicionais de armazenamento para o restante dos níveis de desempenho. Esta restrição também se aplica aos cenários de restauração e de cópia, incluindo restauração pontual e geográfica, retenção de backup a longo prazo e cópia de banco de dados. Quando um banco de dados é configurado com a opção de 4 TB, todas as operações de restauração desse banco de dados devem ser executadas em um P11/P15 com tamanho máximo de 4 TB.
+- Para cenários com replicação geográfica ativa:
    - Configurar uma relação de replicação geográfica: se o banco de dados primário for P11 ou P15, os secundários também devem ser P11 ou P15; os níveis de desempenho inferiores serão rejeitadas como secundários porque não são capazes de dar suporte a 4 TB.
    - Atualizando o banco de dados primário em uma relação de replicação geográfica: alterar o tamanho máximo de 4 TB em um banco de dados primário disparará a mesma alteração no banco de dados secundário. As duas atualizações devem ser bem-sucedidas para que a alteração no primário entre em vigor. Limitações de região para a opção de 4TB se aplicam (confira acima). Se o secundário estiver em uma região que não oferece suporte a 4 TB, o primário não será atualizado.
 - Não há suporte para o uso do serviço de Importação/Exportação para carregar bancos de dados P11-4TB/P15-4TB. Use SqlPackage.exe para [importar](sql-database-import.md) e [exportar](sql-database-export.md) dados.

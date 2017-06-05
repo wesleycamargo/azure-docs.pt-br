@@ -1,6 +1,6 @@
 ---
-title: Criar e usar um SAS com o Armazenamento de Blobs | Microsoft Docs
-description: Este tutorial mostra como criar assinaturas de acesso compartilhado para uso com o Armazenamento de Blobs e como consumi-las de seus aplicativos cliente.
+title: Criar e usar uma SAS (Assinatura de Acesso Compartilhado) com o Armazenamento de Blobs do Azure | Microsoft Docs
+description: Este tutorial mostra como criar assinaturas de acesso compartilhado para uso com o Armazenamento de Blobs e como consumi-las em seus aplicativos cliente.
 services: storage
 documentationcenter: 
 author: mmacy
@@ -12,41 +12,46 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 05/15/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 62ad4d3edeca07f1c4fe11fb6904dcbfb8f91435
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: ba78dd2bbcc68ffffeba59b1623891126baf656f
 ms.contentlocale: pt-br
-ms.lasthandoff: 12/09/2016
-
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Assinaturas de Acesso Compartilhado, Parte 2: criar e usar uma SAS com o Armazenamento de Blobs
-## <a name="overview"></a>Visão geral
-[Parte 1](storage-dotnet-shared-access-signature-part-1.md) deste tutorial explorou as assinaturas de acesso compartilhado (SAS) e explicou as práticas recomendadas para sua utilização. A Parte 2 mostra como gerar e usar assinaturas de acesso compartilhado com o Armazenamento de Blobs. Os exemplos são escritos em C# e usam a Biblioteca de Cliente do Armazenamento do Azure para .NET. Os cenários abordados incluem esses aspectos de trabalho com assinaturas de acesso compartilhado:
 
-* Gerando uma assinatura de acesso compartilhado em um contêiner
-* Gerando uma assinatura de acesso compartilhado em um blob
-* Criando uma política de acesso armazenado para gerenciar assinaturas nos recursos de um contêiner
-* Testando as assinaturas de acesso compartilhado de um aplicativo cliente
+[Parte 1](storage-dotnet-shared-access-signature-part-1.md) deste tutorial explorou as assinaturas de acesso compartilhado (SAS) e explicou as práticas recomendadas para sua utilização. A Parte 2 mostra como gerar e usar assinaturas de acesso compartilhado com o Armazenamento de Blobs. Os exemplos são escritos em C# e usam a Biblioteca de Cliente do Armazenamento do Azure para .NET. Os exemplos neste tutorial:
+
+* Geram uma assinatura de acesso compartilhado em um contêiner
+* Geram uma assinatura de acesso compartilhado em um blob
+* Criam uma política de acesso armazenado para gerenciar assinaturas nos recursos de um contêiner
+* Testam as assinaturas de acesso compartilhado em um aplicativo cliente
 
 ## <a name="about-this-tutorial"></a>Sobre este tutorial
-Neste tutorial, vamos nos concentrar em criar assinaturas de acesso compartilhado para contêineres e blobs, criando dois aplicativos de console. O primeiro aplicativo de console gera assinaturas de acesso compartilhado em um contêiner e em um blob. Esse aplicativo tem conhecimento das chaves de conta de armazenamento. O segundo aplicativo de console, que agirá como um aplicativo cliente, acessa os recursos do contêiner e do blob, usando as assinaturas de acesso compartilhado criadas com o primeiro aplicativo. Esse aplicativo usa as assinaturas de acesso compartilhado somente para autenticar seu acesso aos recursos de contêiner e de blob - ele desconhece as chaves de conta.
+Neste tutorial, criamos dois aplicativos de console que demonstram a criação e uso de assinaturas de acesso compartilhado para contêineres e blobs:
 
-## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Parte 1: Criar um aplicativo de Console para gerar assinaturas de acesso compartilhado
-Primeiro, verifique se você tem a Biblioteca de Cliente do Armazenamento do Azure para .NET instalada. Você pode instalar o [pacote NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "pacote NuGet") contendo a maioria dos assemblies mais atuais para a biblioteca de cliente; esse é o método recomendado para garantir que você tenha os consertos (fixes) mais recentes. Você também pode baixar a biblioteca de cliente como parte da versão mais recente do [SDK do Azure para .NET](https://azure.microsoft.com/downloads/).
+**Aplicativo 1**: o aplicativo de gerenciamento. Gera uma assinatura de acesso compartilhado para um contêiner e um blob. Inclui a chave de acesso da conta de armazenamento no código-fonte.
 
-No Visual Studio, crie um novo aplicativo de console do Windows e dê a ele o nome **GenerateSharedAccessSignatures**. Adicione referências a **Microsoft.WindowsAzure.Configuration.dll** e **Microsoft.WindowsAzure.Storage.dll** usando uma das seguintes abordagens:
+**Aplicativo 2**: o aplicativo cliente. Acessa os recursos do contêiner e do blob, usando as assinaturas de acesso compartilhado criadas com o primeiro aplicativo. Usa as assinaturas de acesso compartilhado apenas para acessar o contêiner e os recursos de blob-- ele *não* inclui a chave de acesso da conta de armazenamento.
 
-* Se você deseja instalar o pacote do NuGet, primeiro instale o [Cliente NuGet](https://docs.nuget.org/consume/installing-nuget). No Visual Studio, selecione **Projeto | Gerenciar Pacotes NuGet**, pesquise online por **Armazenamento do Azure** e siga as instruções de instalação.
-* Como alternativa, localize os assemblies na sua instalação do SDK do Azure e adicione referências a eles.
+## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Parte 1: Criar um aplicativo de console para gerar assinaturas de acesso compartilhado
+Primeiro, verifique se você tem a Biblioteca de Cliente do Armazenamento do Azure para .NET instalada. Você pode instalar o [pacote do NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "pacote do NuGet") que contém os assemblies mais atualizados para a biblioteca de cliente. Esse é o método recomendado para garantir que você tenha as correções mais recentes. Você também pode baixar a biblioteca de cliente como parte da versão mais recente do [SDK do Azure para .NET](https://azure.microsoft.com/downloads/).
 
-Na parte superior do arquivo Program.cs, adicione a seguinte instrução **using** :
+No Visual Studio, crie um novo aplicativo de console do Windows e dê a ele o nome **GenerateSharedAccessSignatures**. Adicione referências a [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) e [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) usando uma das seguintes abordagens:
+
+* Use o [Gerenciador de pacotes do NuGet](https://docs.nuget.org/consume/installing-nuget) no Visual Studio. Selecione **Projeto** > **Gerenciar Pacotes do NuGet**, pesquise online por cada pacote (Microsoft.WindowsAzure.ConfigurationManager e WindowsAzure.Storage) e instale-os.
+* Como alternativa, localize esses assemblies na sua instalação do SDK do Azure e adicione referências a eles:
+  * Microsoft.WindowsAzure.Configuration.dll
+  * Microsoft.WindowsAzure.Storage.dll
+
+Na parte superior do arquivo Program.cs, adicione as seguintes diretivas **using** :
 
 ```csharp
 using System.IO;
-using Microsoft.WindowsAzure;
+using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
@@ -56,7 +61,7 @@ Edite o arquivo app.config para que ele contenha um parâmetro de configuração
 ```xml
 <configuration>
   <startup>
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
   </startup>
   <appSettings>
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey"/>
@@ -89,7 +94,7 @@ static void Main(string[] args)
 }
 ```
 
-Em seguida, adicione um novo método que gere a assinatura de acesso compartilhado para o contêiner e retorne o URI de assinatura:
+Em seguida, adicione um método que gere a assinatura de acesso compartilhado para o contêiner e retorne o URI de assinatura:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -98,7 +103,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
     //In this case no start time is specified, so the shared access signature becomes valid immediately.
     SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
     sasConstraints.SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24);
-    sasConstraints.Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List;
+    sasConstraints.Permissions = SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Write;
 
     //Generate the shared access signature on the container, setting the constraints directly on the signature.
     string sasContainerToken = container.GetSharedAccessSignature(sasConstraints);
@@ -107,7 +112,6 @@ static string GetContainerSasUri(CloudBlobContainer container)
     return container.Uri + sasContainerToken;
 }
 ```
-
 
 Adicione as linhas a seguir na parte inferior do método **Main()**, antes da chamada de **Console.ReadLine()**, para chamar **GetContainerSasUri()** e grave o URI da assinatura na janela do console:
 
@@ -119,14 +123,16 @@ Console.WriteLine();
 
 Compile e execute para gerar a saída do URI de assinatura de acesso compartilhado para o novo contêiner. O URI será semelhante a este:
 
-`https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D`
+```
+https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
+```
 
-Depois de executar o código, a assinatura de acesso compartilhado criada no contêiner será válida durante as próximas&24; horas. A assinatura concede uma permissão de cliente para listar os blobs no contêiner e gravar um novo blob no contêiner.
+Depois de executar o código, a assinatura de acesso compartilhado criada no contêiner terá validade durante as próximas 24 horas. A assinatura concede uma permissão de cliente para listar os blobs no contêiner e gravar novos blobs no contêiner.
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Gerar um URI de assinatura de acesso compartilhado para um blob
 Em seguida, escreveremos um código semelhante para criar um novo blob dentro do contêiner e gerar uma assinatura de acesso compartilhado para ele. Essa assinatura de acesso compartilhado não está associada a uma política de acesso armazenado, portanto, ela inclui as informações de hora de início, hora de expiração e permissão no URI.
 
-Adicione um novo método que criará um novo blob e escreva um texto nele; em seguida, uma assinatura de acesso compartilhado será gerada e retornará o URI de assinatura:
+Adicione um novo método que cria um novo blob e escreve um texto nele; em seguida, uma assinatura de acesso compartilhado será gerada e retornará o URI de assinatura:
 
 ```csharp
 static string GetBlobSasUri(CloudBlobContainer container)
@@ -136,16 +142,11 @@ static string GetBlobSasUri(CloudBlobContainer container)
 
     //Upload text to the blob. If the blob does not yet exist, it will be created.
     //If the blob does exist, its existing content will be overwritten.
-    string blobContent = "This blob will be accessible to clients via a Shared Access Signature.";
-    MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-    ms.Position = 0;
-    using (ms)
-    {
-        blob.UploadFromStream(ms);
-    }
+    string blobContent = "This blob will be accessible to clients via a shared access signature (SAS).";
+    blob.UploadText(blobContent);
 
     //Set the expiry time and permissions for the blob.
-    //In this case the start time is specified as a few minutes in the past, to mitigate clock skew.
+    //In this case, the start time is specified as a few minutes in the past, to mitigate clock skew.
     //The shared access signature will be valid immediately.
     SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
     sasConstraints.SharedAccessStartTime = DateTimeOffset.UtcNow.AddMinutes(-5);
@@ -170,16 +171,18 @@ Console.WriteLine();
 
 Compile e execute para gerar a saída do URI de assinatura de acesso compartilhado para o novo blob. O URI será semelhante a este:
 
-    https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+```
+https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+```
 
 ### <a name="create-a-stored-access-policy-on-the-container"></a>Criar uma política de acesso armazenado no contêiner
 Agora, vamos criar uma política de acesso armazenado no contêiner, que definirá as restrições de qualquer assinatura de acesso compartilhado associada a ela.
 
-Nos exemplos anteriores, especificamos a hora de início (implícita ou explicitamente), a hora de expiração e as permissões no próprio URI de assinatura de acesso compartilhado. Nos exemplos a seguir, especificaremos isso na política de acesso armazenado, e não na assinatura de acesso compartilhado. Isso nos permitirá alterar essas restrições sem reemitir a assinatura de acesso compartilhado.
+Nos exemplos anteriores, especificamos a hora de início (implícita ou explicitamente), a hora de expiração e as permissões no próprio URI de assinatura de acesso compartilhado. Nos exemplos a seguir, especificaremos isso na política de acesso armazenado, não na assinatura de acesso compartilhado. Isso nos permitirá alterar essas restrições sem reemitir a assinatura de acesso compartilhado.
 
-É possível ter uma ou mais restrições na assinatura de acesso compartilhado e o restante na política de acesso armazenado. No entanto, você só pode especificar a hora de início, a hora de expiração e permissões em um local ou outro; por exemplo, você não pode especificar permissões na assinatura de acesso compartilhado e especificá-las também na política de acesso armazenado.
+É possível ter uma ou mais restrições na assinatura de acesso compartilhado e o restante na política de acesso armazenado. No entanto, você pode especificar apenas a hora de início, a hora de expiração e as permissões em um local ou no outro. Por exemplo, não é possível especificar permissões na assinatura de acesso compartilhado e especificá-las também na política de acesso armazenada.
 
-Observe que ao adicionar uma política de acesso a um contêiner, você deve obter as permissões do contêiner existente, adicionar a nova política de acesso e, em seguida, definir as permissões do contêiner.
+Ao adicionar uma política de acesso armazenada a um contêiner, você deve obter as permissões do contêiner existente, adicionar a nova política de acesso e, em seguida, definir as permissões do contêiner.
 
 Adicione um novo método que cria uma nova política de acesso armazenada em um contêiner e retorna o nome da política:
 
@@ -187,15 +190,15 @@ Adicione um novo método que cria uma nova política de acesso armazenada em um 
 static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContainer container,
     string policyName)
 {
+    //Get the container's existing permissions.
+    BlobContainerPermissions permissions = container.GetPermissions();
+
     //Create a new shared access policy and define its constraints.
     SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
     {
         SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24),
         Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Read
     };
-
-    //Get the container's existing permissions.
-    BlobContainerPermissions permissions = container.GetPermissions();
 
     //Add the new policy to the container's permissions, and set the container's permissions.
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
@@ -217,12 +220,12 @@ string sharedAccessPolicyName = "tutorialpolicy";
 CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 ```
 
-Observe que ao limpar as políticas de acesso em um contêiner, você deve primeiro obter as permissões do contêiner existente e, em seguida, desmarcar as permissões e defini-las novamente.
+Ao limpar as políticas de acesso em um contêiner, você deve primeiro obter as permissões do contêiner existente e, em seguida, desmarcar as permissões e defini-las novamente.
 
 ### <a name="generate-a-shared-access-signature-uri-on-the-container-that-uses-an-access-policy"></a>Gerar um URI de assinatura de acesso compartilhado no contêiner que usa uma política de acesso
-Em seguida, criaremos outra assinatura de acesso compartilhado no contêiner criado anteriormente, mas, desta vez, associaremos a assinatura à política de acesso criada no exemplo anterior.
+Em seguida, criaremos outra assinatura de acesso compartilhado no contêiner criado anteriormente, mas, desta vez, associaremos a assinatura à política de acesso armazenada criada no exemplo anterior.
 
-Adicione um novo método para gerar outra assinatura de acesso compartilhado no contêiner:
+Adicione um novo método para gerar outra assinatura de acesso compartilhado para o contêiner:
 
 ```csharp
 static string GetContainerSasUriWithPolicy(CloudBlobContainer container, string policyName)
@@ -245,7 +248,7 @@ Console.WriteLine();
 ```
 
 ### <a name="generate-a-shared-access-signature-uri-on-the-blob-that-uses-an-access-policy"></a>Gerar um URI de assinatura de acesso compartilhado no blob que usa uma política de acesso
-Finalmente, adicionaremos um método semelhante para criar outro blob e gerar uma assinatura de acesso compartilhado associada a uma política de acesso.
+Finalmente, adicionaremos um método semelhante para criar outro blob e gerar uma assinatura de acesso compartilhado associada a uma política de acesso armazenada.
 
 Adicione um novo método para criar um blob e gerar uma assinatura de acesso compartilhado:
 
@@ -327,9 +330,17 @@ static void Main(string[] args)
 }
 ```
 
-Ao executar o aplicativo de console GenerateSharedAccessSignatures, você verá uma saída semelhante à seguinte na janela do console. Essas são as assinaturas de acesso compartilhado que você usará na Parte 2 do tutorial.
+Ao executar o aplicativo de console GenerateSharedAccessSignatures, você verá uma saída semelhante à seguinte. Essas são as assinaturas de acesso compartilhado usadas na Parte 2 do tutorial.
 
-![sas-console-output-1][sas-console-output-1]
+```
+Container SAS URI: https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=pFlEZD%2F6sJTNLxD%2FQ26Hh85j%2FzYPxZav6mP1KJwnvJE%3D&se=2017-05-16T16%3A16%3A47Z&sp=wl
+
+Blob SAS URI: https://storagesample.blob.core.windows.net/sascontainer/sasblob.txt?sv=2016-05-31&sr=b&sig=%2FiBWAZbXESzCMvRcm7JwJBK0gT0BtPSWEq4pRwmlBRI%3D&st=2017-05-15T16%3A11%3A48Z&se=2017-05-16T16%3A16%3A48Z&sp=rw
+
+Container SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&si=tutorialpolicy&sig=aMb6rKDvvpfiGVsZI2rCmyUra6ZPpq%2BZ%2FLyTgAeec%2Bk%3D
+
+Blob SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer/sasblobpolicy.txt?sv=2016-05-31&sr=b&si=tutorialpolicy&sig=%2FkTWkT23SS45%2FoF4bK2mqXkN%2BPKs%2FyHuzkfQ4GFoZVU%3D
+```
 
 ## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>Parte 2: Criar um aplicativo de console para testar as assinaturas de acesso compartilhado
 Para testar as assinaturas de acesso compartilhado criadas nos exemplos anteriores, criaremos um segundo aplicativo de console que utiliza as assinaturas para executar operações no contêiner e em um blob.
@@ -337,11 +348,10 @@ Para testar as assinaturas de acesso compartilhado criadas nos exemplos anterior
 > [!NOTE]
 > Se mais de 24 horas tiverem decorrido desde que você concluiu a primeira parte do tutorial, as assinaturas geradas deixarão de ser válidas. Nesse caso, você deve executar o código no primeiro aplicativo de console para gerar assinaturas de acesso compartilhado atualizadas para uso na segunda parte do tutorial.
 >
->
 
-No Visual Studio, crie um novo aplicativo de console do Windows e dê a ele o nome **ConsumeSharedAccessSignatures**. Adicione referências a **Microsoft.WindowsAzure.Configuration.dll** e **Microsoft.WindowsAzure.Storage.dll**, como anteriormente.
+No Visual Studio, crie um novo aplicativo de console do Windows e dê a ele o nome **ConsumeSharedAccessSignatures**. Adicione referências a [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) e [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/), como fez anteriormente.
 
-Na parte superior do arquivo Program.cs, adicione a seguinte instrução **using** :
+Na parte superior do arquivo Program.cs, adicione as seguintes diretivas **using** :
 
 ```csharp
 using System.IO;
@@ -349,20 +359,20 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-No corpo do método **Main()** , adicione as seguintes constantes e atualize seus valores nas assinaturas de acesso compartilhado geradas na parte 1 do tutorial.
+No corpo do método **Main()** , adicione as seguintes constantes de cadeia de caracteres, alterando seus valores nas assinaturas de acesso compartilhado geradas na parte 1 do tutorial.
 
 ```csharp
 static void Main(string[] args)
 {
-    string containerSAS = "<your container SAS>";
-    string blobSAS = "<your blob SAS>";
-    string containerSASWithAccessPolicy = "<your container SAS with access policy>";
-    string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
+    const string containerSAS = "<your container SAS>";
+    const string blobSAS = "<your blob SAS>";
+    const string containerSASWithAccessPolicy = "<your container SAS with access policy>";
+    const string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
 }
 ```
 
 ### <a name="add-a-method-to-try-container-operations-using-a-shared-access-signature"></a>Adicionar um método para testar operações de contêiner usando uma assinatura de acesso compartilhado
-Em seguida, adicionaremos um método que testará algumas operações representativas de contêiner usando uma assinatura de acesso compartilhado no contêiner. Observe que a assinatura de acesso compartilhado é usada para retornar uma referência ao contêiner, autenticando o acesso ao contêiner com base na assinatura sozinha.
+Em seguida, adicionaremos um método que testará algumas operações de contêiner usando uma assinatura de acesso compartilhado no contêiner. A assinatura de acesso compartilhado é usada para retornar uma referência ao contêiner, autenticando o acesso ao contêiner com base na assinatura sozinha.
 
 Adicione o seguinte método ao Program.cs:
 
@@ -382,12 +392,8 @@ static void UseContainerSAS(string sas)
     {
         CloudBlockBlob blob = container.GetBlockBlobReference("blobCreatedViaSAS.txt");
         string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
-        MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-        msWrite.Position = 0;
-        using (msWrite)
-        {
-            blob.UploadFromStream(msWrite);
-        }
+        blob.UploadText(blobContent);
+
         Console.WriteLine("Write operation succeeded for SAS " + sas);
         Console.WriteLine();
     }
@@ -472,9 +478,8 @@ static void Main(string[] args)
 }
 ```
 
-
 ### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>Adicionar um método para testar operações de blob usando uma assinatura de acesso compartilhado
-Finalmente, adicionaremos um método que testará algumas operações representativas de blob usando uma assinatura de acesso compartilhado no blob. Nesse caso, usamos o construtor **CloudBlockBlob(String)**passando a assinatura de acesso compartilhado para retornar uma referência ao blob. Nenhuma outra autenticação é obrigatória; ela se baseia na assinatura sozinha.
+Finalmente, adicionaremos um método que testará algumas operações de blob usando uma assinatura de acesso compartilhado no blob. Nesse caso, usamos o construtor **CloudBlockBlob(String)**passando a assinatura de acesso compartilhado para retornar uma referência ao blob. Nenhuma outra autenticação é obrigatória; ela se baseia na assinatura sozinha.
 
 Adicione o seguinte método ao Program.cs:
 
@@ -573,17 +578,24 @@ static void Main(string[] args)
 
 Execute o aplicativo de console e observe a saída para ver quais operações são permitidas para quais assinaturas. A saída na janela de console será semelhante a esta:
 
-![sas-console-output-2][sas-console-output-2]
+```
+Write operation succeeded for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
+
+List operation succeeded for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
+
+Read operation failed for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
+Additional error information: The remote server returned an error: (403) Forbidden.
+
+Delete operation failed for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
+Additional error information: The remote server returned an error: (403) Forbidden.
+
+...
+```
 
 ## <a name="next-steps"></a>Próximas etapas
-[Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
 
-[Gerenciar o acesso de leitura anônimo aos contêineres e blobs](storage-manage-access-to-resources.md)
-
-[Delegando acesso com uma assinatura de acesso compartilhado (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-[Introdução à Tabela e à Fila SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-
-[sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
-[sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
+* [Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
+* [Gerenciar o acesso de leitura anônimo aos contêineres e blobs](storage-manage-access-to-resources.md)
+* [Delegar o acesso com uma assinatura de acesso compartilhado (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Introdução à Tabela e à Fila SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

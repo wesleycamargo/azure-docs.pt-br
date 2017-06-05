@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: curtand
 ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
 ms.service: active-directory
 ms.workload: identity
@@ -14,10 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b010891a177f27eef99bd65e0d940c83375aa5ec
-ms.lasthandoff: 04/27/2017
+ms.editor: gahug
+ms.custom: it-pro
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7375d2d3c237c3b1c2dcdab44b2fcb0000ff961c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -202,16 +204,12 @@ Para localizar os relatórios de gerenciamento de senhas, siga as etapas abaixo:
 4. Procure na seção **Logs de Atividade** .
 5. Selecione o relatório **Atividade de redefinição de senhas** ou **Atividade de registro de redefinição de senhas**.
 
-   ![][001]
-
 ## <a name="view-password-reset-registration-activity-in-the-classic-portal"></a>Exibir atividade de registro de redefinição de senha no portal clássico
 O relatório de atividade de registro de redefinição de senhas mostra todos os registros de redefinição de senhas que ocorreram na sua organização.  Um registro de redefinição de senhas é exibido no relatório para qualquer usuário que registrou com êxito as informações de autenticação no portal de registro de senha de redefinição de senhas ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 * **Intervalo de tempo máximo**: 30 dias
 * **Número máximo de linhas**: 75.000
 * **Baixável**: sim, por meio de arquivo CSV
-
-    ![][002]
 
 ### <a name="description-of-report-columns"></a>Descrição das colunas do relatório
 A lista a seguir explica cada uma das colunas do relatório em detalhes:
@@ -234,8 +232,6 @@ Esse relatório mostra todas as tentativas de redefinição de senha que ocorrer
 * **Intervalo de tempo máximo**: 30 dias
 * **Número máximo de linhas**: 75.000
 * **Baixável**: sim, por meio de arquivo CSV
-
-    ![][003]
 
 ### <a name="description-of-report-columns"></a>Descrição das colunas do relatório
 A lista a seguir explica cada uma das colunas do relatório em detalhes:
@@ -308,8 +304,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 * [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
 * [**Solução de problemas**](active-directory-passwords-troubleshoot.md) – aprenda a solucionar rapidamente os problemas com o serviço
 * [**Saiba mais**](active-directory-passwords-learn-more.md) – aprofunde-se nos detalhes técnicos do funcionamento do serviço
-
-[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 

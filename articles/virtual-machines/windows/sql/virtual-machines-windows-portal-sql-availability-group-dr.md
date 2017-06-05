@@ -14,19 +14,20 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: 05/02/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 088f9fc332f04edfd154450726c4e175ccaf3db3
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: e9a2c3230ec5081a0cfb57ef1dbf311a87bb26b5
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 
 ---
 
-# <a name="configure-a-sql-server-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um SQL Server sempre no grupo de disponibilidade em máquinas virtuais do Azure em diferentes regiões
+# <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um Grupo de Disponibilidade Always On em máquinas virtuais do Azure em diferentes regiões
 
-Este artigo explica como configurar uma réplica do SQL Server sempre no grupo de disponibilidade em máquinas virtuais do Azure em um local remoto do Azure. Use essa configuração para dar suporte à recuperação de desastre.
+Este artigo explica como configurar uma réplica do SQL Server sempre no grupo de disponibilidade em máquinas virtuais do Azure em uma localização remota do Azure. Use essa configuração para dar suporte à recuperação de desastre.
 
 Este artigo se aplica às máquinas virtuais do Azure no modo do Resource Manager.
 

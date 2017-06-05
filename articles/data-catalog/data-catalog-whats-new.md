@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 03/03/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ef4517191084148ff3810226c927ee45a61b2c49
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9f9754aef4f1e933163cd80862c84ba8281def80
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ As atualizações do **Catálogo de Dados do Azure** são liberadas periodicamen
 A partir da semana de 16 de setembro de 2016, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
 
 * Suporte para as fontes de dados do IBM DB2. Agora, os usuários podem registrar e descobrir os bancos de dados DB2, tabelas e exibições.
-* Suporte para as fontes de dados do DocumentDB do Azure. Agora, os usuários podem registrar e descobrir as coleções e os bancos de dados de Documentos.
+* Suporte para fontes de dados do Azure Cosmos DB. Agora os usuários podem se registrar e descobrir as coleções e os bancos de dados do Cosmos DB.
 * Suporte para personalizar o nome do catálogo no portal do Catálogo de Dados. Os administradores do catálogo agora podem fornecer o texto que é exibido no título do portal, como o nome da organização.
 
 ## <a name="whats-new-for-the-week-of-august-26-2016-release"></a>Novidades da versão da semana de 26 de agosto de 2016

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e8f78602b293863b2e58160a5eb2cf8a5855576b
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 46e3852dc84265de41bb358f482dec06608e7efa
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -42,7 +42,7 @@ O ASP.NET Core é uma reestruturação significativa do ASP.NET. ASP.NET Core é
 ## <a name="install-aspnet-core"></a>Instalar o ASP.NET Core
 O ASP.NET Core é uma pilha enxuta do .NET para criar aplicativos da Web e de nuvem modernos e executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizada para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
 
-Este tutorial é projetado para começar a criar aplicativos com as versões de desenvolvimento do ASP.NET Core mais recentes. As instruções a seguir são específicas do Windows. Para instruções de instalação no OS X, no Linux e no Windows, consulte [Introdução ao ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started). 
+Este tutorial é projetado para começar a criar aplicativos com as versões de desenvolvimento do ASP.NET Core mais recentes. As instruções a seguir são específicas do Windows. Para instruções de instalação no OS X, no Linux e no Windows, veja [Introdução ao ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started). 
 
 
 > [!NOTE]
@@ -51,7 +51,7 @@ Este tutorial é projetado para começar a criar aplicativos com as versões de 
 > 
 
 ## <a name="create-the-web-app"></a>Criar o aplicativo Web
-Esta seção mostra como criar o scaffolding de um novo aplicativo Web do ASP.NET usando a ferramenta donet CLI. 
+Esta seção mostra como criar o scaffolding de um novo aplicativo Web do ASP.NET usando a ferramenta CLI do .NET. 
 
 1. Digite o seguinte no prompt de comando para criar a pasta do projeto e o scaffolding do aplicativo.
    
@@ -62,7 +62,7 @@ dotnet new mvc
 ```
 ![dotnet CLI – gerador do ASP.NET Core](./media/web-sites-create-web-app-using-vscode/dotnetcore-mvc-01.png)
 
-2. Para instalar os pacotes do NuGet necessários para executar o comando a seguir:
+2. Para restaurar os pacotes do NuGet necessários, execute este comando:
    
     ```terminal
     dotnet restore

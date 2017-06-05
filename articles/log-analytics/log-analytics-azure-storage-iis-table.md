@@ -3,7 +3,7 @@ title: Usar o armazenamento de blobs para IIS e armazenamento de tabelas para ev
 description: "O Log Analytics pode ler os logs para os serviços do Azure que gravam o diagnóstico no armazenamento de tabelas, ou então logs do IIS gravados no Armazenamento de Blobs."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
 ms.openlocfilehash: b40d7c0acd8cc6a672f25489b745561c24501482
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/28/2017
 
 

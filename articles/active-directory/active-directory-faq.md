@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/24/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 521169d52d37e644ba416e27c9adc8587868ab40
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -126,7 +127,7 @@ Para obter mais respostas a perguntas relacionadas a senhas, confira [Perguntas 
 - - -
 **P: o que fazer se eu não lembrar de minha senha existente do Office 365/Azure AD ao tentar alterar a senha?**
 
-**R:** para esse tipo de situação, há algumas opções.  Use SSPR (redefinição de senha de autoatendimento), se estiver disponível.  O funcionamento de SSPR dependerá de como está configurado.  Para saber mais, veja [Como funciona o portal de redefinição de senhas](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work).
+**R:** para esse tipo de situação, há algumas opções.  Use SSPR (redefinição de senha de autoatendimento), se estiver disponível.  O funcionamento de SSPR dependerá de como está configurado.  Para saber mais, veja [Como funciona o portal de redefinição de senhas](active-directory-passwords-best-practices.md).
 
 Para usuários do Office 365, o administrador pode redefinir a senha usando as etapas descritas em [Redefinir senhas de usuário](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
@@ -146,7 +147,7 @@ Usamos uma estratégia mais sofisticada para bloquear contas.  Ela se baseia no 
 Isso se refere a senhas comuns no mundo todo, como qualquer variante de "Senha" e "123456".
 
 **P: Uma solicitação de entrada de fontes questionáveis (botnets, ponto de extremidade tor) será bloqueada em um locatário B2C, ou isso exige um locatário de edição Basic ou Premium?**</br>
-Temos um gateway que filtra solicitações e fornece alguma proteção contra botnets, e ele é aplicado a todos os locatários B2C. 
+Temos um gateway que filtra solicitações e fornece alguma proteção contra botnets, e ele é aplicado a todos os locatários B2C.
 
 ## <a name="application-access"></a>Acesso a aplicativos
 **P: onde obter uma lista de aplicativos que estão pré-integrados ao Azure AD e seus recursos?**

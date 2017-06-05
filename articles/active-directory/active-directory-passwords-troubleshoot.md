@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
+ms.editor: gahug
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 4dae8b87904fff2f2f8665d235bf790fb1e073d0
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 6d1cfd588ad60cbdf69a432b4f4baa0b13fed0d3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -76,7 +78,6 @@ Se você estiver tendo problemas com o autoatendimento de redefinição de senha
 | O log de eventos do computador do Azure AD Connect contém o erro 32002 gerado pelo PasswordResetService. <br> <br> O erro é: "erro de conexão com o barramento de serviço; o provedor de token não pôde fornecer um token de segurança..." | O ambiente local não pode se conectar ao ponto de extremidade do barramento de serviço na nuvem. Esse erro normalmente é causado por uma regra de firewall que bloqueia uma conexão de saída com uma porta ou um endereço web específico. Consulte [Requisitos de rede](active-directory-passwords-how-it-works.md#network-requirements) para obter mais informações. Depois de atualizar essas regras, reinicialize o computador do Azure AD Connect e o write-back de senha deve começar a funcionar novamente. |
 | Depois de trabalhar por algum tempo, os usuários federados ou sincronizados com hash de senha não conseguem redefinir suas senhas. | Em alguns casos raros, o serviço Write-back de Senha pode falhar ao reiniciar quando o Azure AD Connect é reiniciado. Nesses casos, primeiro verifique se o write-back de senha parece estar habilitado no local. Isso pode ser feito usando o Assistente do Azure AD Connect ou o PowerShell (confira a seção de tutoriais acima). Se o recurso parece estar habilitado, tente habilitar ou desabilitar o recurso novamente por meio da interface do usuário ou do PowerShell. Se isso não funcionar, tente desinstalar o Azure AD Connect por completo e reinstalá-lo. |
 | Os usuários federados ou sincronizados com hash de senha que tentam redefinir suas senhas recebem um erro depois de enviar a senha, indicando que houve um problema de serviço. <br ><br> Além disso, durante as operações de redefinição de senha, você pode ver um erro de que o agente de gerenciamento teve acesso negado em seus logs de eventos no local. | Se você vir esses erros no log de eventos, confirme se a conta do AD MA (que foi especificada no assistente no momento da configuração) tem as permissões necessárias para o write-back de senha. <br> <br> **Depois que essa permissão é fornecida, pode levar até 1 hora para que as permissões sejam repassadas por meio da tarefa em segundo plano sdprop no controlador de domínio.** <br> <br> Para que a redefinição de senha funcione, a permissão deve ser marcada no descritor de segurança do objeto do usuário cuja senha esteja sendo redefinida. Até que essa permissão seja exibida no objeto do usuário, a redefinição de senha continuará falhando com acesso negado. |
-| Não é possível redefinir a senha de usuários em grupos especiais, como Administradores do Domínio ou Administradores Enterprise | Os usuários privilegiados no Active Directory são protegidos com o AdminSDHolder. Para obter mais informações, consulte [http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx](http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx) para obter mais detalhes. <br> <br> Isso significa que os descritores de segurança desses objetos são verificados periodicamente para coincidir com o especificado no AdminSDHolder e são redefinidos se eles forem diferentes. Portanto, as permissões adicionais necessárias para o write-back de senha não aparecem para esses usuários. Isso pode fazer com que o Write-back de Senha não funcione para esses usuários. Como resultado, **não damos suporte ao gerenciamento de senhas para os usuários nesses grupos porque ele viola o modelo de segurança do AD.**
 | Os usuários federados ou sincronizados com hash de senha que tentam redefinir suas senhas recebem um erro depois de enviar a senha, indicando que houve um problema de serviço. <br> <br> Além disso, durante as operações de redefinição de senha, você verá um erro em seus logs de eventos do serviço do Azure AD Connect indicando o erro "Objeto não encontrado". | Esse erro geralmente indica que o mecanismo de sincronização não consegue encontrar o objeto de usuário no espaço do conector AAD ou o objeto de espaço de conector AD ou MV vinculado. <br> <br> Para resolver esse problema, verifique se o usuário está realmente sincronizado do local para o AAD pela instância atual do Azure AD Connect e inspecione o estado dos objetos nos espaços conectores e no MV. Confirme se o objeto do AD CS é conector para o objeto de MV através da regra "Microsoft.InfromADUserAccountEnabled.xxx".|
 | Os usuários federados ou sincronizados com hash de senha que tentam redefinir suas senhas recebem um erro depois de enviar a senha, indicando que houve um problema de serviço. <br> <br> Além disso, durante as operações de redefinição de senha, você poderá ver um erro nos logs de eventos do serviço Azure AD Connect indicando o erro “Várias correspondências encontradas”. | Isso indica que o mecanismo de sincronização detectou que o objeto de MV está conectado a mais de um objeto de AD CS através de "Microsoft.InfromADUserAccountEnabled.xxx". Isso significa que o usuário tem uma conta habilitada em mais de uma floresta. **Não há suporte para o write-back de senha nesse cenário.** |
 | Falha nas operações de senha com um erro de configuração. O log de eventos do aplicativo contém <br> <br> o erro 6329 do Azure AD Connect com o texto: 0x8023061f (A operação falhou porque a sincronização de senha não está habilitada neste Agente de Gerenciamento). | Isso ocorre se a configuração do Azure AD Connect é alterada para adicionar uma nova floresta do AD (ou para remover e adicionar novamente uma floresta existente) depois que o recurso Write-back de Senha já foi habilitado. As operações de senha para usuários em florestas recém-adicionadas como essas falharão. Para corrigir o problema, desabilite e reabilite o recurso de write-back de senha após a conclusão das alterações de configuração da floresta. |
@@ -211,10 +212,11 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 
 * **Descrição geral do erro** – Qual é o erro? Qual foi o comportamento observado? Como podemos reproduzir o erro? Forneça o máximo de detalhes possíveis.
 * **Página** – Em qual página você estava quando observou o erro? Se possível, inclua a URL e uma captura de tela.
-* **Data, hora e fuso horário** – inclua a data e hora exatas **com o fuso horário** em que ocorreu o erro.
 * **Código de suporte** – Qual foi o código de suporte gerado quando o usuário viu o erro? 
     * Para encontrá-lo, reproduza o erro, clique no link Código de Suporte na parte inferior da tela e envie o GUID resultante ao engenheiro de suporte.
+    ![Localizar o código de suporte na parte inferior da tela][Support Code]
     * Se você estiver em uma página sem um código de suporte na parte inferior, pressione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
+* **Data, hora e fuso horário** – inclua a data e hora exatas **com o fuso horário** em que ocorreu o erro.
 * **ID de Usuário** – Quem foi o usuário que viu o erro? (user@contoso.com)
     * Trata-se de um usuário federado?
     * Um usuário sincronizado com hash de senha?
@@ -222,20 +224,23 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 * **Licenciamento** – O usuário possuía uma licença do Azure AD Premium ou Azure AD Básico atribuída?
 * **Log de eventos do aplicativo** – se você estiver usando o write-back de senha e o erro estiver na infraestrutura local, inclua uma cópia compactada do log de eventos do aplicativo por meio do servidor Azure AD Connect ao contatar o suporte.
 
+    
+
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reiniciar o serviço Azure AD Sync"
+[Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "O Código de Suporte está localizado no canto inferior direito da janela"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem mais informações sobre a redefinição de senha usando o Azure AD
+Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
 * [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
 * [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
 * [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
+* [**Distribuição** ](active-directory-passwords-best-practices.md) -planeje e implante a SSPR para seus usuários usando as diretrizes encontradas aqui
 * [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
 * [**Política** ](active-directory-passwords-policy.md) - Como entender e definir políticas de senha do Azure AD
 * [**Write-back de senha** ](active-directory-passwords-writeback.md) - Como o write-back de senha opera com o seu diretório local
 * [**Relatório** ](active-directory-passwords-reporting.md) - Descubra se, quando e onde os usuários estão acessando a funcionalidade da SSPR
-* [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
-* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
+* [**Aprofundamento técnico** ](active-directory-passwords-how-it-works.md) - Entenda como ele funciona
+* [**Perguntas frequentes (FAQ)**](active-directory-passwords-faq.md) - Como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
 

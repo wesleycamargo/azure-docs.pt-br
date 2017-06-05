@@ -8,7 +8,7 @@
 | **Software** | |
 | Versão do sistema operacional | Windows Server 2012 R2 |
 | Localidade do sistema operacional | Inglês (en-us)|
-| Versão do VMware vSphere PowerCLI | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
+| Versão do VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Funções do Windows Server | Não habilite estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V |
 | **Rede** | |
 | Tipo de placa de interface de rede | VMXNET3 |

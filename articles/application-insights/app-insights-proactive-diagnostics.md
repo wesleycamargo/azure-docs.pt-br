@@ -4,7 +4,7 @@ description: "O Application Insights executa uma análise automática profunda d
 services: application-insights
 documentationcenter: windows
 author: rakefetj
-manager: douge
+manager: carmonm
 ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: fe2596a7fed52118425c612ebf50c01134928bf6
-ms.lasthandoff: 03/16/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 0331a20d60fd856c0d852b26f125c47a3614f1ad
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -43,7 +44,7 @@ Selecione um alerta para ver seus detalhes.
 Há três tipos de detecção:
 
 * [Detecção inteligente - anomalias de falha](app-insights-proactive-failure-diagnostics.md). Usamos o aprendizado de máquina para definirmos a taxa esperada de solicitações com falha para seu aplicativo, fazendo a correlação com a carga e com outros fatores. Se a taxa de falha for além do envelope esperado, podemos enviar um alerta.
-* [Detecção inteligente - anomalias de desempenho](app-insights-proactive-performance-diagnostics.md). Procuramos padrões anormais em tempos de resposta e taxas de falha diariamente. Podemos correlacionar esses problemas com propriedades como localização, navegador, sistema operacional do cliente, instância do servidor e hora do dia.
+* [Detecção inteligente - anomalias de desempenho](app-insights-proactive-performance-diagnostics.md). Você recebe notificações se o tempo de resposta de uma duração da operação ou dependência está diminuindo em comparação com a linha de base histórica ou identificamos um padrão anormal no tempo de resposta ou tempo de carregamento de página.   
 * [Detecção inteligente - problemas do Serviço em Nuvem do Azure](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Você obterá alertas se seu aplicativo estiver hospedado nos Serviços de Nuvem do Azure e se uma instância de função tiver falhas de inicialização, reciclagem frequente ou falhas no tempo de execução.
 
 (Os links de Ajuda em cada notificação levam você para os artigos relevantes).

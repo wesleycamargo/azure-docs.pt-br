@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3482d50b19f8ad9a4db041abe67942e9e7d1931b
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a61cf0ffce8bede930744d445df88dde22061a59
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -117,7 +118,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
     ![Configurar Logon Único](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
 
-    a. Na caixa de texto **Identificador**, insira a **ID da entidade** copiada do Portal do LinkedIn 
+    a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn 
 
     b. Na caixa de texto **URL de resposta**, insira a **URL ACS (acesso do consumidor de declaração)** copiada do Portal do LinkedIn
 
@@ -137,13 +138,13 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
     | --- | --- |    
     | department| user.department |
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
 
-       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+   a. Clique em Adicionar atributo para abrir a página de detalhes do atributo. Adicione o atributo department conforme mostrado abaixo.
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
    
-       b. Click on **Ok** to save the attribute.
+   b. Clique em **Ok** para salvar o atributo.
 
 10. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
@@ -162,7 +163,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
     ![Configurar Logon Único](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
@@ -253,3 +254,4 @@ Quando você clica no bloco LinkedIn Learning no Painel de Acesso, você deve ob
 [201]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_203.png
+

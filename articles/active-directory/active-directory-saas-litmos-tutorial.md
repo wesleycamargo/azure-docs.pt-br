@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: 84cd0c3eb2753a209d0aebda405f0b98a487140d
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2c967d759806b47862179ecf9e9a89801134192a
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -98,7 +99,7 @@ Para configurar e testar o logon único do AD do Azure com o Litmos, você preci
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure AD e configurar o logon único em seu aplicativo Litmos.  
 
-Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base&64;.  
+Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64.  
 
 Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -137,7 +138,7 @@ Como parte da configuração, você precisa personalizar os **Atributos de Token
    
     2. Na caixa de texto **URL de resposta** , cole o valor que você copiou do aplicativo Litmos na etapa anterior.
    
-    3. Clique em **Próximo**.
+    3. Clique em **Avançar**.
 9. Na página **Configurar logon único no Litmos** , execute as seguintes etapas:
    
     ![Logon Único do AD do Azure][2] 
@@ -149,12 +150,12 @@ Como parte da configuração, você precisa personalizar os **Atributos de Token
     
      1. Clique em **Habilitar SAML**.
     
-     2. Crie um arquivo **codificado em base&64;** usando o certificado baixado.  
+     2. Crie um arquivo **codificado em base 64** usando o certificado baixado.  
     >[!TIP]
     >Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
      >
 
-     3. Abra seu certificado codificado em base&64; no bloco de notas, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado SAML X.509** .
+     3. Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado SAML X.509** .
     
      4. Clique em **Salvar Alterações**.
 11. No portal clássico do Azure AD, selecione a confirmação de configuração do logon único e clique em **Avançar**. 
@@ -214,7 +215,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
-    3. Clique em **Próximo**.
+    3. Clique em **Avançar**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-litmos-tutorial/create_aaduser_06.png) 
@@ -226,7 +227,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
    4. Na lista **Função**, selecione **Usuário**.
-   5. Clique em **Próximo**.
+   5. Clique em **Avançar**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-litmos-tutorial/create_aaduser_07.png) 

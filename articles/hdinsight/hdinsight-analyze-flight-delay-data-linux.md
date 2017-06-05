@@ -13,13 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 05/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6c92292a67d14ac43c0fe5dbe7e14672c74b216b
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: cf460eed4bd290fbdcb9670a4ec4999f4c96c275
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/05/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analisar dados de atraso de voo usando o Hive no HDInsight baseado em Linux
@@ -76,7 +77,7 @@ Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado e
     unzip FILENAME.zip
     ```
 
-    Este comando extrai um arquivo .csv com aproximadamente 60 MB de tamanho.
+    Este comando extrai um arquivo .csv com aproximadamente 60 MB.
 
 4. Use o seguinte comando para criar um diretório no armazenamento do HDInsight e, em seguida, copie o arquivo para o diretório:
 
@@ -157,9 +158,9 @@ Use as etapas a seguir para importar dados do arquivo CSV para uma tabela do Hiv
     FROM delays_raw;
     ```
 
-2. Use **Ctrl + X** e **Y** para salvar o arquivo.
+2. Use **Ctrl + X** seguido de **Y** para salvar o arquivo.
 
-3. Use o seguinte comando para iniciar o Hive e executar o arquivo **flightdelays.hql** :
+3. Use o seguinte comando para iniciar o Hive e executar o arquivo **flightdelays.hql**:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -194,7 +195,7 @@ Use as etapas a seguir para importar dados do arquivo CSV para uma tabela do Hiv
 
 Se você já tiver um Banco de Dados SQL, deverá obter o nome do servidor. Você pode encontrar o nome do servidor no [Portal do Azure](https://portal.azure.com) selecionando **Bancos de Dados SQL** e, então, filtrando o nome do banco de dados que você deseja usar. O nome do servidor está listado na coluna **SERVIDOR** .
 
-Se você ainda não tem um Banco de Dados SQL, use as informações em [Tutorial do Banco de Dados SQL: Criar um banco de dados SQL em minutos](../sql-database/sql-database-get-started.md) para criar um. Você precisa salvar o nome do servidor usado para o banco de dados.
+Se você ainda não tem um Banco de Dados SQL, use as informações em [Tutorial do Banco de Dados SQL: Criar um banco de dados SQL em minutos](../sql-database/sql-database-get-started.md) para criar um. Salve o nome do servidor usado para o banco de dados.
 
 ## <a name="create-a-sql-database-table"></a>Criar uma tabela do Banco de Dados SQL
 
@@ -237,16 +238,16 @@ Se você ainda não tem um Banco de Dados SQL, use as informações em [Tutorial
     GO
     ```
 
-    Quando a instrução `GO` for inserida, as instruções anteriores serão avaliadas. Isso cria uma tabela chamada **atrasos**com um índice clusterizado.
+    Quando a instrução `GO` for inserida, as instruções anteriores serão avaliadas. Essa consulta cria uma tabela chamada **atrasos**, com um índice clusterizado.
 
-    Use o seguinte para verificar se a tabela foi criada:
+    Use a seguinte consulta para verificar se a tabela foi criada:
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    A saída deverá ser semelhante a esta:
+    A saída é semelhante ao texto a seguir:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE

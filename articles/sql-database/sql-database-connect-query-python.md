@@ -8,32 +8,35 @@ manager: jhubbard
 editor: 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-ms.date: 04/17/2017
-ms.author: meetb;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: f055f1eb2c6f1c0fa9f032f033929299e224de2e
-ms.lasthandoff: 04/21/2017
-
+ms.topic: hero-article
+ms.date: 05/24/2017
+ms.author: meetb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5fae11119500fd3be3af3e573d45f6cc5880e037
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="azure-sql-database-use-python-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar o Python para conectar e consultar dados
 
- Este guia de início rápido demonstra como usar o [Python](https://python.org) para se conectar a um banco de dados SQL do Azure e usar as instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados em plataformas Mac OS, Linux Ubuntu e Windows.
+ Este guia de início rápido demonstra como usar o [Python](https://python.org) para se conectar a um banco de dados SQL do Azure; em seguida, use as instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados em plataformas Mac OS, Linux Ubuntu e Windows.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
 - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+- [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-the-python-and-database-communication-libraries"></a>Instalar o Python e as bibliotecas de comunicação do banco de dados
 
-As etapas nesta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o Python e começou recentemente a trabalhar com o Banco de Dados SQL do Azure. Se você for novo no desenvolvimento com o Phyton, acesse [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) e selecione **Python** e, em seguida, selecione o sistema operacional.
+As etapas desta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o Python e começou recentemente a trabalhar com o Banco de Dados SQL do Azure. Se você for novo no desenvolvimento com o Phyton, acesse [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) e selecione **Python** e, em seguida, selecione o sistema operacional.
 
 ### <a name="mac-os"></a>**Mac OS**
 Abra seu terminal e navegue até um diretório no qual você planeja criar o script python. Insira os comandos a seguir para instalar **brew**, **Driver ODBC da Microsoft para Mac** e **pyodbc**. pyodbc usa o Microsoft ODBC Driver no Linux para se conectar a Bancos de Dados SQL.
@@ -81,7 +84,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.     
+4. Se você se esquecer das informações de logon do servidor, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.     
    
 ## <a name="select-data"></a>Selecionar dados
 
@@ -159,13 +162,8 @@ cnxn.commit()
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Mais informações sobre o [Microsoft Python Driver para SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/).
-- Visite o [Centro de Desenvolvimento do Python](/develop/python/).
-- Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md)
-- Para conectar e consultar usando o Visual Studio, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectar e consultar usando o .NET, veja [Conectar e consultar com o .NET](sql-database-connect-query-dotnet.md).
-- Para conectar e consultar usando o PHP, veja [Conectar e consultar com o PHP](sql-database-connect-query-php.md).
-- Para conectar e consultar usando o Node.js, veja [Conectar e consultar com o Node.js](sql-database-connect-query-nodejs.md).
-- Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
-- Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).
+- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
+- [Drivers Python da Microsoft para SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Centro de desenvolvedores do Python](/develop/python/)
+
 

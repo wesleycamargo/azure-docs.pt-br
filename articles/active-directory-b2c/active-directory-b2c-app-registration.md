@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 414c684c78314a92bbbe12e6164e2b10fb682b0f
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 
@@ -51,7 +52,9 @@ Você também poderá acessar a folha clicando em **Mais serviços** e então pe
 4. Ativar/desativar a opção **Incluir API da Web/aplicativo Web** como **Sim**. As **URLs de Resposta** são pontos de extremidade para onde o Azure AD B2C retornará quaisquer tokens que seus aplicativo solicitarem. Por exemplo, insira: `https://localhost:44316/`.
 5. Clique em **Criar** para registrar seu aplicativo.
 6. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código. 
-7. Se o aplicativo Web também chamar uma API Web protegida pelo Azure AD B2C, crie também um **Segredo de Aplicativo** acessando a folha **Chaves** e clicando no botão **Gerar Chave**.
+7. Se seu aplicativo da web também for chamar uma API da web protegida pelo Azure AD B2C, você deve:
+   1. Criar um **segredo do aplicativo** acessando a folha **Chaves** e clicando o botão **Gerar Chave**.
+   2. Clique em **Acesso à API**, clique em **Adicionar** e selecione sua API da web e escopos (permissões).
 
 > [!NOTE]
 > Um **Segredo de Aplicativo** é uma credencial de segurança importante e deve ser protegido adequadamente.
@@ -78,7 +81,9 @@ Você também poderá acessar a folha clicando em **Mais serviços** e então pe
 5. Insira um **URI de redirecionamento** com um esquema personalizado. Por exemplo, com.onmicrosoft.contoso.appname://redirect/path. Escolha um [bom URI de redirecionamento](#choosing-a-redirect-uri).
 6. Clique em **Salvar** para registrar seu aplicativo.
 7. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código.
-8. Se o aplicativo nativo também chamar uma API Web protegida pelo Azure AD B2C, crie também um **Segredo de Aplicativo** acessando a folha **Chaves** e clicando no botão **Gerar Chave**.
+8. Se seu aplicativo nativo também for chamar uma API da web protegida pelo Azure AD B2C, você deve:
+   1. Criar um **segredo do aplicativo** acessando a folha **Chaves** e clicando o botão **Gerar Chave**.
+   2. Clique em **Acesso à API**, clique em **Adicionar** e selecione sua API da web e escopos (permissões).
 
 > [!NOTE]
 > Um **Segredo de Aplicativo** é uma credencial de segurança importante e deve ser protegido adequadamente.
@@ -89,9 +94,7 @@ Há duas considerações importantes ao escolher um URI de redirecionamento para
 * **Exclusivo**: o esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. Em nosso exemplo (com.onmicrosoft.contoso.appname://redirect/path), podemos usar com.onmicrosoft.contoso.appname como o esquema. É recomendável seguir esse padrão. Se dois aplicativos compartilharem o mesmo esquema, o usuário verá uma caixa de diálogo "escolher aplicativo". Se o usuário fizer uma escolha incorreta, o logon falhará. 
 * **Completo**: o URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra “/” depois do domínio (por exemplo, //contoso/ funcionará e //contoso falhará). 
 
-## <a name="build-a-quick-start-application"></a>Criar um Aplicativo de Início Rápido
-Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode concluir um de nossos tutoriais de início rápido para começar a trabalhar. Aqui estão algumas recomendações:
-
-[!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
+## <a name="build-an-application"></a>Compilar um aplicativo
+Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode concluir um de nossos [tutoriais de início rápido](active-directory-b2c-overview.md#get-started) para começar a trabalhar.
 
 

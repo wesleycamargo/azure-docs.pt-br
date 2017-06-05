@@ -8,35 +8,39 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: article
-ms.date: 04/17/2017
-ms.author: andrela;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
-ms.lasthandoff: 04/21/2017
+ms.topic: hero-article
+ms.date: 05/23/2017
+ms.author: andrela
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 63ab7345b70d456d9d1ad23255d9ca7e777e161d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="azure-sql-database-use-java-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar Java para conectar e consultar dados
 
-Este guia de início rápido demonstra como usar o [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para se conectar a um banco de dados SQL do Azure e usar as instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados em plataformas Mac OS, Ubuntu Linux e Windows.
+Este guia de início rápido demonstra como usar o [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para se conectar a um banco de dados SQL do Azure; em seguida, use as instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados em plataformas Mac OS, Ubuntu Linux e Windows.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
 - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+- [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-java-software"></a>Instalar o software Java
 
 As etapas nesta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o Java e começou recentemente a trabalhar com o Banco de Dados SQL do Azure. Se você for novo no desenvolvimento com o Java, acesse [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) e selecione **Java** e, em seguida, selecione o seu sistema operacional.
 
 ### <a name="mac-os"></a>**Mac OS**
-Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto Java. Digite os comandos a seguir para instalar **brew** e **Maven**. 
+Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto Java. Instale o **brew** e o **Maven** ao inserir os seguintes comandos: 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -45,14 +49,14 @@ brew install maven
 ```
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto Java. Digite os comandos a seguir para instalar o **Maven**. 
+Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto Java. Instale o **Maven** ao inserir os seguintes comandos:
 
 ```bash
 sudo apt-get install maven
 ```
 
 ### <a name="windows"></a>**Windows**
-Instale o [Maven](https://maven.apache.org/download.cgi) usando o instalador oficial. Maven pode ser usado para ajudar a gerenciar dependências, compilar, testar e executar seu projeto Java. 
+Instale o [Maven](https://maven.apache.org/download.cgi) usando o instalador oficial. Use o Maven para ajudar a gerenciar dependências, compilar, testar e executar seu projeto Java. 
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
@@ -64,7 +68,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.
+4. Se você se esquecer das informações de logon do servidor, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.
 5. Clique em **Mostrar cadeias de conexão de banco de dados**.
 
 6. Examine a cadeia de conexão completa do **JDBC**.
@@ -105,7 +109,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -160,7 +164,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -216,7 +220,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -267,7 +271,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -300,15 +304,8 @@ public class App {
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Repositório GitHub para [Microsoft JDBC Driver para SQL Server](https://github.com/microsoft/mssql-jdbc).
-- [Registre problemas/faça perguntas](https://github.com/microsoft/mssql-jdbc/issues).
-- Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md)
-- Para conectar e consultar usando o Visual Studio, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectar e consultar usando o .NET, veja [Conectar e consultar com o .NET](sql-database-connect-query-dotnet.md).
-- Para conectar e consultar usando o PHP, veja [Conectar e consultar com o PHP](sql-database-connect-query-php.md).
-- Para conectar e consultar usando o Node.js, veja [Conectar e consultar com o Node.js](sql-database-connect-query-nodejs.md).
-- Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
-- Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).
+- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
+- [Microsoft JDBC Driver para SQL Server](https://github.com/microsoft/mssql-jdbc)
+- [Relatar problemas/fazer perguntas](https://github.com/microsoft/mssql-jdbc/issues)
 
 

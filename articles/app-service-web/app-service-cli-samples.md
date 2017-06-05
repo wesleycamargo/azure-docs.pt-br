@@ -15,10 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5d74f8216edd46fcd36d2b7f8763ec8a69ccad42
-ms.lasthandoff: 03/31/2017
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5c995ca118676935f4f9b0c72c266b9d52c181cb
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -44,7 +46,7 @@ A tabela a seguir inclui links para bash scripts criados usando a CLI do Azure.
 | [Como conectar um aplicativo Web a um Banco de Dados SQL](./scripts/app-service-cli-app-service-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo Web do Azure e um Banco de Dados SQL e, em seguida, adiciona a cadeia de conexão do banco de dados para as configurações do aplicativo. |
 | [Como conectar um aplicativo Web a uma conta de armazenamento](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo Web do Azure e uma conta de armazenamento e, em seguida, adiciona a cadeia de conexão de armazenamento às configurações do aplicativo. |
 | [Conectar um aplicativo Web a um cache redis](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo Web do Azure e um cache redis e, em seguida, adiciona detalhes da conexão redis às configurações do aplicativo.) |
-| [Conectar um aplicativo Web a um DocumentDB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo Web do Azure e um DocumentDB e, em seguida, adiciona detalhes da conexão do DocumentDB às configurações do aplicativo. |
+| [Conectar um aplicativo Web ao BD Cosmos](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo Web do Azure e um BD Cosmos e, em seguida, adiciona os detalhes da conexão do BD Cosmos às configurações do aplicativo. |
 |**Como monitorar o aplicativo**||
 | [Como monitorar um aplicativo Web com logs do servidor Web](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo Web do Azure, habilita o registro em log para ele e baixa os logs em sua máquina local. |
 | | |

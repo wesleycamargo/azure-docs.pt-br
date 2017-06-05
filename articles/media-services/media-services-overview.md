@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 0a84e69f33ae30040c2365e6a5180e17e8df7539
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -74,7 +75,7 @@ Para conferir os conceitos dos Serviços de Mídia do Azure, confira [Conceitos]
 
 Para uma série de instruções que apresenta a todos os componentes principais dos Serviços de Mídia do Azure, confira [Tutoriais passo a passo dos Serviços de Mídia do Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Este série apresenta uma ótima visão geral dos conceitos e usa a ferramenta AMSE para demonstrar as tarefas de AMS. Observe que a ferramenta AMSE é uma ferramenta do Windows. Essa ferramenta dá suporte à maioria das tarefas que você pode obter programaticamente com o [SDK do AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java) ou [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Fornecendo Mídia sob Demanda com os Serviços de Mídia do Azure: cenários e tarefas comuns
+## <a id="vod_scenarios"></a>Fornecendo Mídia sob Demanda com os Serviços de Mídia do Azure: cenários e tarefas comuns
 Esta seção descreve cenários comuns e fornece links para tópicos relevantes. O diagrama a seguir mostra as partes principais da plataforma de serviços de mídia que estão envolvidas em fornecer conteúdo sob demanda.
 
 ![Fluxo de trabalho VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
@@ -126,7 +127,7 @@ A Análise de Mídia é uma coleção de componentes de fala e de visão que fac
     Se você estiver usando o localizador de SAS, o conteúdo será baixado do armazenamento de blobs do Azure. Nesse caso, não é necessário ter pontos de extremidade de streaming em estado iniciado.
 4. Download progressivo de conteúdo.
 
-## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure
+## <a id="live_scenarios"></a>Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure
 Ao trabalhar com a transmissão ao vivo, normalmente os seguintes componentes estão envolvidos:
 
 * Uma câmera é usada para transmitir um evento.
@@ -185,8 +186,7 @@ Os Serviços de Mídia dão suporte à integração com o CDN do Azure. Para obt
 Você pode dimensionar os **Serviços de Mídia** especificando o número de **Unidades Reservadas para Streaming** e **Unidades Reservadas para Codificação** com as quais você deseja provisionar sua conta.
 
 Você também pode dimensionar sua conta dos Serviços de Mídia adicionando contas de armazenamento a ela. Cada conta de armazenamento é limitada a 500 TB. Para expandir o armazenamento além das limitações padrão, você pode optar por anexar diversas contas de armazenamento a uma única conta de serviços de mídia.
-Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Ele inclui os mesmos recursos das Unidades de Streaming Premium.
-O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Se você tiver uma carga de trabalho avançada ou os requisitos de capacidade de streaming não se enquadrarem nas metas de produtividade do ponto de extremidade de streaming padrão ou se você desejar controlar a capacidade do serviço StreamingEndpoint para lidar com as crescentes necessidades de largura de banda ajustando as unidades de escala (também conhecidas como unidades de streaming premium), é recomendável alocar unidades de escala.
+Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Ele inclui os mesmos recursos das Unidades de Streaming Premium. Se você tiver uma carga de trabalho avançada ou os requisitos de capacidade de streaming não se enquadrarem nas metas de produtividade do ponto de extremidade de streaming padrão ou se você desejar controlar a capacidade do serviço StreamingEndpoint para lidar com as crescentes necessidades de largura de banda ajustando as unidades de escala (também conhecidas como unidades de streaming premium), é recomendável alocar unidades de escala.
 
 [Este](media-services-portal-scale-streaming-endpoints.md) tópico fornece links para tópicos relevantes.
 

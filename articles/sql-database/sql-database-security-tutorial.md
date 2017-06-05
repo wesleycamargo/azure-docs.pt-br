@@ -4,39 +4,46 @@ description: "Conheça técnicas e recursos para proteger o banco de dados SQL d
 services: sql-database
 documentationcenter: 
 author: DRediske
-manager: johammer
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-secure
+ms.custom: tutorial-secure, mvc
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/03/2017
+ms.date: 05/07/2017
 ms.author: daredis
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: eb2c8ec946a08ed3b538d613199706779b80bd1f
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 34815f5b716a38f957392d8955f924eeb6fe621e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="secure-your-azure-sql-database"></a>Proteger o banco de dados SQL do Azure
+# <a name="secure-your-azure-sql-database"></a>Proteger o Banco de Dados SQL do Azure
 
-Neste tutorial, você aprende os conceitos básicos de proteção do banco de dados SQL. Com apenas algumas etapas simples, você pode usar qualquer banco de dados e melhorar consideravelmente sua proteção contra usuários mal-intencionados ou o acesso não autorizado.
+O Banco de Dados SQL protege seus dados limitando o acesso ao banco de dados usando regras de firewall, mecanismos de autenticação que exigem que os usuários comprovem sua identidade e autorização para dados por meio de permissões e associações de função, bem como por meio de segurança em nível de linha e mascaramento de dados dinâmicos.
 
-Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Você pode melhorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a: 
+
+> [!div class="checklist"]
+> * Configurar regras de firewall para seu servidor e/ou banco de dados
+> * Conectar ao banco de dados usando uma cadeia de conexão segura
+> * Gerenciar o acesso de usuário
+> * Proteger seus dados com criptografia
+> * Habilitar a auditoria do Banco de Dados SQL
+> * Habilitar a detecção de ameaças do Banco de Dados SQL
 
 Para concluir este tutorial, verifique se você instalou o Excel e a versão mais nova do [SSMS](https://msdn.microsoft.com/library/ms174173.aspx) (SQL Server Management Studio).
 
 
-
 ## <a name="set-up-firewall-rules-for-your-database"></a>Configurar regras de firewall para o banco de dados
 
-Os banco de dados SQL do Azure são protegidos por um firewall. Por padrão, todas as conexões com o servidor e os bancos de dados dentro do servidor são rejeitadas, exceto as conexões de outros serviços do Azure. A configuração mais segura é definir “Permitir acesso aos serviços do Azure” como DESATIVADO. Se você precisar se conectar ao banco de dados em uma VM do Azure ou um serviço de nuvem, deverá criar um [IP Reservado](../virtual-network/virtual-networks-reserved-public-ip.md) e permitir somente o acesso ao endereço IP reservado por meio do firewall. 
+Os banco de dados SQL são protegidos por um firewall no Azure. Por padrão, todas as conexões com o servidor e os bancos de dados dentro do servidor são rejeitadas, exceto as conexões de outros serviços do Azure. A configuração mais segura é definir ‘Permitir acesso aos serviços do Azure’ como DESATIVADO. Se você precisar se conectar ao banco de dados em uma VM do Azure ou um serviço de nuvem, deverá criar um [IP Reservado](../virtual-network/virtual-networks-reserved-public-ip.md) e permitir somente o acesso ao endereço IP reservado por meio do firewall. 
 
 Siga estas etapas para criar uma [regra de firewall no nível do servidor de Banco de Dados SQL](sql-database-firewall-configure.md) para que o servidor permita conexões de um endereço IP específico. 
 
@@ -61,7 +68,7 @@ Agora você pode se conectar a qualquer banco de dados do servidor com o endere�
 
 Se você precisar de configurações de firewall diferentes para diferentes bancos de dados no mesmo servidor lógico, deverá criar uma regra no nível do banco de dados para cada banco de dados. As regras de firewall no nível do banco de dados só podem ser configuradas usando instruções Transact-SQL e somente depois de ter configurado a primeira regra de firewall no nível do servidor. Siga estas etapas para criar uma regra de firewall específica ao banco de dados.
 
-1. Conecte-se ao banco de dados, por exemplo, usando o [SSMS](./sql-database-connect-query-ssms.md).
+1. Conecte ao banco de dados, por exemplo, usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
 
 2. No Pesquisador de Objetos, clique com o botão direito do mouse no banco de dados ao qual você deseja adicionar uma regra de firewall e clique em **Nova Consulta**. Uma janela de consulta em branco conectada ao seu banco de dados é aberta.
 
@@ -73,9 +80,9 @@ Se você precisar de configurações de firewall diferentes para diferentes banc
 
 4. Na barra de ferramentas, clique em **Executar** para criar a regra de firewall.
 
-## <a name="connect-to-the-database-using-a-secure-connection-string"></a>Conectar ao banco de dados usando uma cadeia de conexão segura
+## <a name="connect-to-your-database-using-a-secure-connection-string"></a>Conectar ao banco de dados usando uma cadeia de conexão segura
 
-Para garantir uma conexão segura e criptografada entre o cliente e o Banco de Dados SQL, a cadeia de conexão deve ser configurada para 1) solicitar uma conexão criptografada e 2) não confiar no certificado do servidor. Isso estabelece uma conexão usando o protocolo TLS e reduz o risco de ataques man-in-the-middle. Você pode obter cadeias de conexão configuradas corretamente para seu Banco de Dados SQL do Azure para os drivers cliente com suporte no portal do Azure, conforme mostrado para o ADO.net nesta captura de tela.
+Para garantir uma conexão segura e criptografada entre o cliente e o Banco de Dados SQL, a cadeia de conexão deve ser configurada para 1) solicitar uma conexão criptografada e 2) não confiar no certificado de servidor. Isso estabelece uma conexão usando o protocolo TLS e reduz o risco de ataques man-in-the-middle. Você pode obter cadeias de conexão configuradas corretamente para seu Banco de Dados SQL para os drivers cliente com suporte no portal do Azure, conforme mostrado para o ADO.net nesta captura de tela.
 
 1. Selecione **Bancos de dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de dados SQL**.
 
@@ -98,14 +105,14 @@ Se você desejar usar o [Azure Active Directory](./sql-database-aad-authenticati
 
 Siga estas etapas para criar um usuário usando a Autenticação do SQL:
 
-1. Conecte-se ao banco de dados, por exemplo, usando o [SSMS](./sql-database-connect-query-ssms.md) com suas credenciais de administrador do servidor.
+1. Conecte-se ao banco de dados, por exemplo, usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) com suas credenciais de administrador do servidor.
 
 2. No Pesquisador de Objetos, clique com o botão direito do mouse no banco de dados ao qual você deseja adicionar um novo usuário e clique em **Nova Consulta**. Uma janela de consulta em branco conectada ao banco de dados selecionado é aberta.
 
 3. Na janela de consulta, insira a seguinte consulta:
 
     ```sql
-    CREATE USER ApplicationUserUser WITH PASSWORD = 'strong_password';
+    CREATE USER ApplicationUserUse' WITH PASSWORD = 'YourStrongPassword1';
     ```
 
 4. Na barra de ferramentas, clique em **Executar** para criar o usuário.
@@ -132,11 +139,11 @@ A TDE (Transparent Data Encryption) do Banco de Dados SQL do Azure criptografa s
 
 3. Defina **Criptografia de dados** como ATIVADO e clique em **Salvar**.
 
-O processo de criptografia é iniciado em segundo plano. Você pode monitorar o progresso conectando-se ao Banco de Dados SQL usando, por exemplo, o [SSMS](./sql-database-connect-query-ssms.md) como um banco de dados e consultar a coluna encryption_state da exibição sys.dm_database_encryption_keys.
+O processo de criptografia é iniciado em segundo plano. Você pode monitorar o progresso ao se conectar ao banco de dados SQL usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) ao consultar a coluna encryption_state da exibição `sys.dm_database_encryption_keys`.
 
 ## <a name="enable-sql-database-auditing"></a>Habilitar a auditoria do Banco de Dados SQL
 
-A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta do Azure Storage. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança. Siga estas etapas para criar uma política de auditoria padrão para o banco de dados:
+A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta do Azure Storage. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar potenciais violações de segurança. Siga estas etapas para criar uma política de auditoria padrão para o banco de dados SQL:
 
 1. Selecione **Bancos de dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de dados SQL**.
 
@@ -148,7 +155,7 @@ A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava 
 
     ![Herdar configurações](./media/sql-database-security-tutorial/auditing-get-started-server-inherit.png)
 
-4. Se preferir habilitar a auditoria de blob no nível do banco de dados (adicionalmente ou em vez da auditoria de nível de serviço), **desmarque** a opção **Herdar configurações de auditoria do servidor**, **ATIVE** a Auditoria e selecione o Tipo de Auditoria **Blob**.
+4. Se preferir ativar um tipo de auditoria (ou local?) diferente do especificado no nível de servidor, **desmarque** a opção **Herdar configurações de Auditoria do servidor**, **ATIVE** a Auditoria e escolha o Tipo de Auditoria **Blob**.
 
     > Se a auditoria de blob do servidor estiver habilitada, a auditoria de banco de dados configurada existirá lado a lado com a auditoria de blob do servidor.
 
@@ -212,8 +219,17 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 
 
 ## <a name="next-steps"></a>Próximas etapas
+Você pode melhorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a: 
 
-* Para obter uma visão geral de todos os recursos de segurança do Banco de Dados SQL, consulte a [Visão geral de segurança do Banco de Dados SQL](sql-database-security-overview.md).
-* Para uma criptografia adicional de colunas confidenciais no banco de dados, considere o uso da criptografia do cliente com o [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
-* Para funcionalidades de controle de acesso adicionais, a [Segurança em Nível de Linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite restringir o acesso a linhas em um banco de dados com base na associação a um grupo do usuário ou no contexto de execução, enquanto a [Máscara de Dados Dinâmicos](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados confidenciais mascarando-os para usuários não privilegiados na camada do aplicativo. 
+> [!div class="checklist"]
+> * Configurar regras de firewall para seu servidor e/ou banco de dados
+> * Conectar ao banco de dados usando uma cadeia de conexão segura
+> * Gerenciar o acesso de usuário
+> * Proteger seus dados com criptografia
+> * Habilitar a auditoria do Banco de Dados SQL
+> * Habilitar a detecção de ameaças do Banco de Dados SQL
+
+> [!div class="nextstepaction"]
+>[Melhore o desempenho do banco de dados SQL](sql-database-performance-tutorial.md)
+
 

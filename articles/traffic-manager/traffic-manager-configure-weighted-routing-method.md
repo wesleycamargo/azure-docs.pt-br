@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: dc2111a34fa0292a21510bbd84089979faf1cb71
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 7aa4c9120d44ff1b3e59a57090ea04e3f8021fc4
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 ---
 
@@ -34,7 +35,7 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 2. Na barra de pesquisa do portal, pesquise os **perfis do Gerenciador de Tráfego** e, em seguida, clique no nome de perfil do qual você deseja configurar o método de roteamento.
 3. Na folha **Perfil do Gerenciador de Tráfego**, verifique se os serviços de nuvem e os sites que você deseja incluir na configuração estão presentes.
 4. Na seção **Configurações**, clique em **Configuração** e, na folha **Configuração**, preencha da seguinte maneira:
-    1. Para **configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Failover**. Se não for, clique em **Failover** na lista suspensa.
+    1. Para **configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Ponderado**. Se não for, clique em **Ponderado** na lista suspensa.
     2. Defina as **Configurações do monitor de ponto de extremidade** de forma idêntica para todos os pontos de extremidade nesse perfil, da seguinte maneira:
         1. Selecione o **Protocolo** apropriado e especifique o número da **Porta**. 
         2. Para **Caminho**, digite uma barra "/" */*. Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão).

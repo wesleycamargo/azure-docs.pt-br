@@ -3,7 +3,7 @@ title: Como... no Azure Application Insights | Microsoft Docs
 description: Perguntas Frequentes no Application Insights.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: d7795a494fbe8d3a850d7d8805cf059a86965a64
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 618fcfa3354ef5900d89546ffb7c222a852fe4f8
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/05/2017
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -82,55 +82,11 @@ Considere o seguinte:
 * [Criar novos recursos](app-insights-powershell-script-create-resource.md)
 * [Criar novos alertas](app-insights-alerts.md#automation)
 
-## <a name="application-versions-and-stamps"></a>Carimbos e versões de aplicativos
-### <a name="separate-the-results-from-dev-test-and-prod"></a>Separar os resultados de desenvolvimento, teste e produção
-* Para ambientes diferentes, configurar diferentes ikeys
-* Para diferentes carimbos (desenvolvimento, teste, produção) marcar a telemetria com diferentes valores de propriedade
+## <a name="separate-telemetry-from-different-versions"></a>Telemetria separada de versões diferentes
 
-[Saiba mais](app-insights-separate-resources.md)
-
-### <a name="filter-on-build-number"></a>Filtrar por número de compilação
-Quando publicar uma nova versão do seu aplicativo, você desejará ser capaz de separar a telemetria das compilações diferentes.
-
-Você pode definir a propriedade de versão do aplicativo para que possa filtrar resultados da [pesquisa](app-insights-diagnostic-search.md) e do [Metrics Explorer](app-insights-metrics-explorer.md).
-
-![](./media/app-insights-how-do-i/050-filter.png)
-
-Há vários métodos diferentes de definir a propriedade de Versão do aplicativo.
-
-* Definir diretamente:
-
-    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Defina a quebra automática de linha em um [inicializador de telemetria](app-insights-api-custom-events-metrics.md#defaults) para garantir que todas as instâncias de TelemetryClient sejam configuradas de forma consistente.
-* [ASP.NET] Definir a versão em `BuildInfo.config`. O módulo da Web selecionará a versão do nó BuildLabel. Inclua esse arquivo no seu projeto e não se esqueça de definir a propriedade Copy Always no Gerenciador de Soluções.
-
-    ```XML
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
-      <ProjectName>AppVersionExpt</ProjectName>
-      <Build type="MSBuild">
-        <MSBuild>
-          <BuildLabel kind="label">1.0.0.2</BuildLabel>
-        </MSBuild>
-      </Build>
-    </DeploymentEvent>
-
-    ```
-* [ASP.NET] Gerar automaticamente BuildInfo.config no MSBuild. Para fazer isso, adicione algumas linhas ao arquivo .csproj:
-
-    ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
-    ```
-
-    Isso gera um arquivo chamado *nomedoSeuProjeto*.BuildInfo.config. O processo de Publicação renomeia o arquivo como BuildInfo.config.
-
-    O rótulo da compilação contém um espaço reservado (AutoGen_...) quando você cria com o Visual Studio. Mas quando compilado com o MSBuild, ele é preenchido com o número de versão correta.
-
-    Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
+* Várias funções em um aplicativo: use um único recurso do Application Insights e filtre cloud_Rolename. [Saiba mais](app-insights-monitor-multi-role-apps.md)
+* Separação de desenvolvimento, teste e versões de lançamento: usar recursos diferentes do Application Insights. Pegue as chaves de instrumentação do web.config. [Saiba mais](app-insights-separate-resources.md)
+* Relatando versões de build: adicionar uma propriedade usando um inicializador de telemetria. [Saiba mais](app-insights-separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorar servidores de back-end e aplicativos de desktop
 [Use o módulo do SDK do Windows Server](app-insights-windows-desktop.md).
@@ -208,21 +164,3 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 * Primeiro, [adicione um novo gráfico](app-insights-metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.
 * Caso contrário, [adicione o contador ao conjunto coletado pelo módulo do contador de desempenho](app-insights-performance-counters.md).
 
-## <a name="version-and-release-tracking"></a>Versão e controle de versão
-Para controlar a versão do aplicativo, certifique-se de `buildinfo.config` é gerado pelo processo de Microsoft Build Engine. No arquivo. csproj, adicione:  
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
-```
-
-Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico](app-insights-diagnostic-search.md) ou ao [explorar métricas](app-insights-metrics-explorer.md).
-
-No entanto, observe que o número de versão de compilação é gerado apenas pelo Microsoft Build Engine, não pela compilação de desenvolvedor no Visual Studio.
-
-### <a name="release-annotations"></a>Anotações da versão
-Se usar o Visual Studio Team Services, você poderá [obter um marcador de anotação](app-insights-annotations.md) adicionado a seus gráficos sempre que lançar uma nova versão. A imagem a seguir mostra como esse marcador é exibido.
-
-![Captura de tela de anotação de versão de exemplo em um gráfico](./media/app-insights-asp-net/release-annotation.png)

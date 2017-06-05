@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: e7499bdd38245dd8d1b7ee4d6384b4b1ca61a5ae
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 5db4e5b18ad385e7eba125a1296a9c5054213446
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 ---
 
@@ -142,13 +143,13 @@ Veja a seguir os problemas descobertos em muitas das migrações de maior porte.
     az storage account show-usage
     ```
 
-- **Limitação da API do Azure Resource Manager** – caso você tenha um ambiente grande o suficiente (por exemplo, > 400 VMs em uma VNET), poderá atingir a limitação padrão da API para gravações (atualmente, `1200 writes/hour`) no Azure Resource Manager. Antes de iniciar a migração, você deverá acionar um tíquete de suporte para aumentar esse limite para sua assinatura.
+- **Limitação da API do Azure Resource Manager** – caso você tenha um ambiente grande o suficiente (por exemplo, > 400 VMs em uma VNET), poderá atingir a limitação padrão da API para gravações (atualmente, **1.200 gravações/hora**) no Azure Resource Manager. Antes de iniciar a migração, você deverá acionar um tíquete de suporte para aumentar esse limite para sua assinatura.
 
-- **Status de VM O Provisionamento Atingiu o Tempo Limite** – se uma VM tiver o status `provisioning timed out`, isso precisará ser resolvido antes da migração. A única maneira de fazer isso é com o tempo de inatividade e cancelando o provisionamento e reprovisionando a VM (excluí-la, manter o disco e recriar a VM). 
+- **Status de VM O Provisionamento Atingiu o Tempo Limite** – se uma VM tiver o status **tempo limite do provisionamento atingido**, isso precisará ser resolvido antes da migração. A única maneira de fazer isso é com o tempo de inatividade e cancelando o provisionamento e reprovisionando a VM (excluí-la, manter o disco e recriar a VM). 
 
-- **Status de VM RoleStateUnknown** – se a migração for interrompida devido a uma mensagem de erro `role state unknown`, inspecione a VM usando o portal e garanta que ela está em execução. Esse erro normalmente desaparecerá por si só (sem nenhuma correção necessária) após alguns minutos e, em geral, é um tipo transitório que costuma ser observado durante as operações `start`, `stop` e `restart` de uma Máquina Virtual. **Melhor prática:** tente fazer a migração novamente após alguns minutos. 
+- **Status de VM RoleStateUnknown** – se a migração for interrompida devido a uma mensagem de erro **estado da função desconhecido**, inspecione a VM usando o portal e verifique se ela está em execução. Esse erro normalmente desaparecerá por si só (sem nenhuma correção necessária) após alguns minutos e, em geral, é um tipo transitório que costuma ser observado durante as operações **start**, **stop** e **restart** de uma Máquina Virtual. **Melhor prática:** tente fazer a migração novamente após alguns minutos. 
 
-- **O Fabric Cluster não existe** – em alguns casos, determinadas VMs não podem ser migradas por vários motivos incomuns. Um desses casos conhecidos é se a VM foi criada recentemente (na última semana ou menos) e por acaso foi colocada em um cluster do Azure que ainda não está equipado para cargas de trabalho do Azure Resource Manager.  Você receberá um erro que indica `fabric cluster does not exist` e a VM não pode ser migrada. Em geral, aguardar alguns resolverá esse problema específico, pois, em breve, o cluster habilitará o Azure Resource Manager. No entanto, uma solução alternativa imediata é `stop-deallocate` a VM e, em seguida, continuar com a migração e iniciar o backup da VM no Azure Resource Manager após a migração.
+- **O Fabric Cluster não existe** – em alguns casos, determinadas VMs não podem ser migradas por vários motivos incomuns. Um desses casos conhecidos é se a VM foi criada recentemente (na última semana ou menos) e por acaso foi colocada em um cluster do Azure que ainda não está equipado para cargas de trabalho do Azure Resource Manager.  Você obterá um erro dizendo que **o cluster da malha não existe** e a VM não poderá ser migrada. Em geral, aguardar alguns resolverá esse problema específico, pois, em breve, o cluster habilitará o Azure Resource Manager. No entanto, uma solução alternativa imediata é `stop-deallocate` a VM e, em seguida, continuar com a migração e iniciar o backup da VM no Azure Resource Manager após a migração.
 
 ### <a name="pitfalls-to-avoid"></a>Armadilhas a serem evitadas
 

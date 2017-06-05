@@ -3,7 +3,7 @@ title: Solucionar problemas do Analytics no Azure Application Insights | Microso
 description: 'Problemas com a Application Insights Analytics? Comece por aqui. '
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
 ms.service: application-insights

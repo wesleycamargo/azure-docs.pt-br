@@ -9,13 +9,14 @@ ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 05/02/2017
 ms.topic: hero-article
 ms.service: functions
+ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ef9d65ae5ad0792230e1b8c0d7ed123c129f0f59
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 3dc0e1b26c95ac6583dd3b1068b36deb54f7ac5a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -23,7 +24,7 @@ ms.lasthandoff: 05/10/2017
 
 Este tutorial de início rápido explica como usar o Azure Functions para criar sua primeira função. É possível usar a CLI do Azure para criar um aplicativo de funções, que é a infraestrutura sem servidor que hospeda sua função. O código de função em si é implantado de um repositório de exemplo do GitHub.    
 
-Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux. Deve levar apenas cinco minutos, aproximadamente, para concluir todas as etapas neste tópico.
+Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -35,11 +36,13 @@ Antes de executar este exemplo, você deve ter o seguinte:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
 Entre na sua assinatura do Azure usando o comando [az login](/cli/azure/#login) e siga as instruções na tela. 
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -49,7 +52,7 @@ Crie um grupo de recursos com [az group create](/cli/azure/group#create). Um gru
 
 O seguinte exemplo cria um grupo de recursos chamado `myResourceGroup`:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
@@ -58,7 +61,7 @@ O Functions usa uma conta de Armazenamento do Azure para manter o estado e outra
 
 No seguinte comando, substitua seu próprio nome da conta de armazenamento globalmente exclusivo quando vir o espaço reservado `<storage_name>`. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
 
-```azurecli
+```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
@@ -88,7 +91,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
 No seguinte comando, substitua seu próprio nome de aplicativo de funções exclusivo quando vir o espaço reservado `<app_name>` e o nome da conta de armazenamento para `<storage_name>`. O `<app_name>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. 
 
-```azurecli
+```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
 Por padrão, um aplicativo de funções é criado com o Plano de hospedagem de consumo, o que significa que os recursos são adicionados dinamicamente, conforme exigido por suas funções e você paga apenas quando funções estão em execução. Para obter mais informações, consulte [Escolher o plano de hospedagem correto](functions-scale.md). 
@@ -119,7 +122,7 @@ Agora que você tem um aplicativo de funções, é possível implantar o código
 
 Há várias maneiras de criar o código de função no novo aplicativo de funções. Este tópico se conecta a um repositório de exemplo no GitHub. Assim como anteriormente, no código a seguir, substitua o espaço reservado `<app_name>` pelo nome do aplicativo de funções que você criou. 
 
-```azurecli
+```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
 ```
 Após a definição de fonte de implantação, a CLI do Azure mostra informações semelhantes ao exemplo a seguir (valores nulos removidos para facilitar a leitura):
@@ -159,7 +162,7 @@ Caso não tenha o cURL disponível na linha de comando, basta digitar a mesma UR
 
 Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja continuar trabalhando com inícios rápidos subsequentes ou com os tutoriais, não limpe os recursos criados nesse início rápido. Caso contrário, use os comandos a seguir para excluir todos os recursos criados por esse início rápido:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 Quando solicitado, digite `y`.

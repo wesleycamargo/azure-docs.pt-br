@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
-ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
-ms.lasthandoff: 12/07/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 0b63228e5b09f5d22fc55818986a0a2eb1204278
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -206,7 +207,7 @@ Você pode especificar as políticas de integridade personalizados ou examinar a
 Consulte [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md) para saber o que e como você pode personalizá-lo.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Patches do sistema operacional nas VMs que fazem parte do cluster
-Essa funcionalidade está prevista como um recurso automatizado futuramente. Contudo, no momento, você é responsável por aplicar patches nas suas VMs. Você deve fazer isso uma VM por vez, para que você não desative mais de uma por vez.
+Consulte [Aplicativo de Orquestração de Patch](service-fabric-patch-orchestration-application.md) que pode ser implantado em seu cluster para instalar patches do Windows Update de maneira orquestrada, mantendo os serviços disponíveis sempre. 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Atualizações do sistema operacional nas VMs que fazem parte do cluster
 Se for necessário atualizar a imagem do sistema operacional nas máquinas virtuais do cluster, faça isso uma VM por vez. Você é responsável por esta atualização. Atualmente não há nenhuma automação para isso.

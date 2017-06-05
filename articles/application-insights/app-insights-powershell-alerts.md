@@ -3,7 +3,7 @@ title: Usar o PowerShell para configurar alertas no Application Insights | Micro
 description: "Automatize a configuração do Application Insights para receber emails sobre alterações de métricas."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights

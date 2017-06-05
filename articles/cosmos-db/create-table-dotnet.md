@@ -1,14 +1,14 @@
 ---
 title: Compilar um aplicativo .NET do BD Cosmos do Azure usando a API de Tabela | Microsoft Docs
 description: "Introdução à API de Tabela do BD Cosmos do Azure usando .NET"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 73b9448153ec520d77afd1bdb65b9694e7bf7b9e
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 9bbf188b0080b8b1cf71423023645f54f1f823e5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -37,11 +37,11 @@ Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o 
 
 ## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmosdb-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## <a name="add-a-table"></a>Adicionar uma tabela
 
-[!INCLUDE [cosmosdb-create-table](../../includes/cosmosdb-create-table.md)]
+[!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
@@ -70,32 +70,38 @@ Agora, vamos clonar um aplicativo de API do DocumentDB do GitHub, definir a cade
 
 ## <a name="review-the-code"></a>Examine o código
 
-Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arquivo DocumentDBRepository.cs e você verá que essas linhas de código criam os recursos do BD Cosmos do Azure. 
+Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arquivo Program.cs e você verá que essas linhas de código criam os recursos do BD Cosmos do Azure. 
 
-* O DocumentClient é inicializado.
+* O CloudTableClient é inicializado.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* Um novo banco de dados é criado.
+* A nova tabela é criada se ainda não existir.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-* Um novo contêiner de gráfico foi criado.
+* Um novo contêiner de Tabela é criado. Você observará que esse código é muito semelhante a um SDK normal de Armazenamento de Tabelas do Azure 
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
     ```
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
+Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
 1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo app.config na próxima etapa.
 
@@ -106,7 +112,7 @@ Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conex
 3. Copie o nome da sua conta do BD Cosmos do Azure do portal e torne-o o valor do AccountName no valor da cadeia de caracteres PremiumStorageConnection no app.config. Na captura de tela acima, o nome da conta é cosmos-db-quickstart. O nome da conta é exibido na parte superior do portal.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e torne-o o valor de AccountKey no PremiumStorageConnectionString. 
 
@@ -114,7 +120,7 @@ Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conex
 
 5. Por fim, copie o valor do URI da página Chaves do portal (usando o botão de cópia) e torne-o o valor de TableEndpoint do PremiumStorageConnectionString.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     Você pode deixar o StandardStorageConnectionString como está.
 
@@ -136,7 +142,7 @@ Agora, é possível voltar ao Data Explorer e ver a consulta, modificar e trabal
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

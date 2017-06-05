@@ -15,10 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: ee94e074c574bc2e6e1a52dbfd6bd0ae102cb342
-ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0f35d79870301bcba9f009f7dbc00696ce426458
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
@@ -79,7 +81,7 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs:
 | Dimensionamento |Dimensionamento sem configuração |dimensionar com Plano do Serviço de Aplicativo |
 | Preços |Pagamento por uso ou parte de Plano do Serviço de Aplicativo |Parte do Plano do Serviço de Aplicativo |
 | Executar-tipo |disparado, agendado (pelo gatilho de temporizador) |acionado, contínuo, agendado |
-| Eventos de gatilho |[temporizador](functions-bindings-timer.md), [Azure DocumentDB](functions-bindings-documentdb.md), [Hubs de Eventos do Azure](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Aplicativos Móveis do Serviço de Aplicativo do Azure](functions-bindings-mobile-apps.md), [Hubs de Notificação do Azure](functions-bindings-notification-hubs.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md), [Armazenamento do Azure](functions-bindings-storage.md) |[Armazenamento do Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Barramento de Serviço do Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| Eventos de gatilho |[temporizador](functions-bindings-timer.md), [Banco de Dados Cosmos do Azure](functions-bindings-documentdb.md), [Hubs de Eventos do Azure](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Aplicativos Móveis do Serviço de Aplicativo do Azure](functions-bindings-mobile-apps.md), [Hubs de Notificação do Azure](functions-bindings-notification-hubs.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md), [Armazenamento do Azure](functions-bindings-storage.md) |[Armazenamento do Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Barramento de Serviço do Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
 | Desenvolvimento no navegador |x | |
 | Script de janela |experimental |x |
 | PowerShell |experimental |x |
@@ -118,10 +120,5 @@ Ou saiba mais sobre esses serviços de integração com os links abaixo:
 * [Webcast ao vivo de Aplicativos Lógicos](http://aka.ms/logicappslive)
 * [Perguntas frequentes sobre o Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 * [Recursos de documentação do Azure Webjobs](../app-service-web/websites-webjobs-resources.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

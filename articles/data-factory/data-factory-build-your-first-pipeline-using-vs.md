@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 0ceba4142fd7b0e6edc1b7a6c14470d21806004a
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9d788bf8e41fe225a4c24a4f5b464e8664f3d677
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -36,6 +37,8 @@ O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Es
 
 > [!NOTE]
 > Este tutorial não mostra como copiar dados usando Azure Data Factory. Para obter um tutorial sobre como copiar dados usando o Azure Data Factory, confira [Tutorial: copiar dados do armazenamento de blobs para um banco de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
 ## <a name="walkthrough-create-and-publish-data-factory-entities"></a>Passo a passo: Como criar e publicar as entidades da Data Factory
@@ -54,8 +57,8 @@ Eis as etapas executadas como parte deste tutorial:
 5. Depois de publicar, use as folhas do portal do Azure e aplicativos de gerenciamento e monitoramento para monitorar o pipeline. 
   
 ### <a name="prerequisites"></a>Pré-requisitos
-1. Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** . Você também pode selecionar a opção **Visão geral e Pré-requisitos** na lista suspensa, na parte superior, para alternar para o artigo. Depois de concluir os pré-requisitos, alterne de volta para este artigo, selecionando a opção **Visual Studio** na lista suspensa.  
-2. Você deve ser um **administrador da assinatura do Azure** para poder publicar entidades do Data Factory desde o Visual Studio no Azure Data Factory. 
+1. Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** . Você também pode selecionar a opção **Visão geral e Pré-requisitos** na lista suspensa, na parte superior, para alternar para o artigo. Depois de concluir os pré-requisitos, alterne de volta para este artigo, selecionando a opção **Visual Studio** na lista suspensa.
+2. Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.  
 3. Você deve ter os seguintes itens instalados no seu computador:
    * Visual Studio 2013 ou Visual Studio 2015
    * Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
@@ -92,7 +95,7 @@ Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado
 
 #### <a name="create-azure-hdinsight-linked-service"></a>Criar o serviço vinculado do Azure HDInsight
 1. No **Gerenciador de Soluções**, clique com botão direito em **Serviços Vinculados**, aponte para **Adicionar** e clique em **Novo Item**.
-2. Selecione **erviço Vinculado Sob Demanda do HDInsight** e clique em **Adicionar**.
+2. Selecione **erviço Vinculado Sob Demanda do HDInsight**  e clique em **Adicionar**.
 3. Substitua o **JSON** pelo seguinte JSON:
 
      ```json
@@ -101,7 +104,6 @@ Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado
         "properties": {
         "type": "HDInsightOnDemand",
             "typeProperties": {
-                "version": "3.2",
                 "clusterSize": 1,
                 "timeToLive": "00:30:00",
                 "linkedServiceName": "AzureStorageLinkedService1"
@@ -114,7 +116,6 @@ Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado
 
     Propriedade | Descrição
     -------- | ----------- 
-    Versão | Especifica qual a versão do cluster do HDInsight Hadoop será criada.
     ClusterSize | Especifica o tamanho do cluster do HDInsight Hadoop.
     TimeToLive | Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído.
     linkedServiceName | Especifica a conta de armazenamento usada para armazenar os logs gerados pelo cluster do HDInsight Hadoop. 

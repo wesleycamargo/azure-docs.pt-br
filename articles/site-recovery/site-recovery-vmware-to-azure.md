@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7be3471cd5cd22b5d05aed6e2cb51840a20bb89b
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: de45957d4531202005d6b38e8b218ffe023fa0b2
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -224,10 +224,11 @@ O serviço de mobilidade deve ser instalado em todas as VMs VMware que você des
 
 Antes de começar:
 
+- Sua conta de usuário do Azure precisa ter certas [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) para habilitar a replicação de uma nova máquina virtual para o Azure.
 - Quando você adiciona ou modifica as VMs, pode levar 15 minutos ou mais para que as alterações entrem em vigor e para que apareçam no portal.
 - Você pode verificar a hora da última descoberta de VMs em **Servidores de Configuração** > **Último Contato às**.
 - Para adicionar VMs sem esperar pela descoberta agendada, realce o servidor de configuração (não clique nele) e clique em **Atualizar**.
-* Se uma VM for preparada para a instalação por push, o servidor de processo instalará automaticamente o serviço de Mobilidade quando você habilitar a replicação.
+- Se uma VM for preparada para a instalação por push, o servidor de processo instalará automaticamente o serviço de Mobilidade quando você habilitar a replicação.
 
 
 ### <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
@@ -272,10 +273,6 @@ Antes de começar, assista a uma rápida visão geral em vídeo
     ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 13. Clique em **Habilitar a Replicação**. Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
 
-Depois que você habilitar a replicação, o serviço de Mobilidade será instalado se você configurar a instalação por push. Depois que o serviço de Mobilidade for instalado por push em uma VM, um trabalho de proteção será iniciado e falhará. Apos a falha, você precisa reiniciar manualmente cada computador. O trabalho de proteção começa novamente e ocorre a replicação inicial.
-
-
-
 ### <a name="view-and-manage-vm-properties"></a>Exibir e gerenciar as propriedades da VM
 
 É recomendável que você verifique as propriedades da VM e faça as alterações necessárias.
@@ -298,7 +295,20 @@ Depois que você habilitar a replicação, o serviço de Mobilidade será instal
      - Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino der suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.     
    - Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede.
    - Se a máquina virtual tiver vários adaptadores de rede, o primeiro deles mostrado na lista se tornará o adaptador de rede *Padrão* na máquina virtual do Azure.
-5. Em **Discos**, você pode ver o sistema operacional da VM e os discos de dados que serão replicados.
+4. Em **Discos**, você pode ver o sistema operacional da VM e os discos de dados que serão replicados.
+
+#### <a name="managed-disks"></a>Discos gerenciados
+
+Em **Computação e Rede** > **Propriedades de computação**, você poderá definir a configuração "Usar managed disks" como "Sim" para a VM se quiser anexar managed disks ao seu computador no failover para o Azure. O Managed Disks simplifica o gerenciamento de discos para VMs da IaaS do Azure por meio do gerenciamento de contas de armazenamento associadas aos discos da VM. [Saiba mais sobre managed disks.](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview)
+
+   - Managed disks são criados e anexados à máquina virtual somente em um failover para o Azure. Ao habilitar a proteção, os dados de computadores locais continuarão sendo replicados para contas de armazenamento.  Managed disks podem ser criados apenas para máquinas virtuais implantadas usando o modelo de implantação do Resource Manager.  
+
+   - Quando você define "Usar managed disks" como "Sim", apenas conjuntos de disponibilidade no grupo de recursos com "Usar managed disks" definido como "Sim" estarão disponíveis para seleção. Isso ocorre porque as máquinas virtuais com managed disks apenas podem fazer parte de conjuntos de disponibilidade com a propriedade "Usar managed disks" definida como "Sim". Crie conjuntos de disponibilidade com a propriedade "Usar managed disks" definida com base em sua intenção de usar managed disks no failover.  Da mesma maneira, quando você define "Usar managed disks" como "Não", apenas conjuntos de disponibilidade no grupo de recursos com a propriedade "Usar managed disks" definida como "Não" estarão disponíveis para seleção. [Saiba mais sobre managed disks e conjuntos de disponibilidade](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Se a conta de armazenamento usada para a replicação tiver sido criptografada com Criptografia de Serviço de Armazenamento em qualquer ponto no tempo, a criação de managed disks durante o failover falhará. Você pode definir "Usar managed disks" como "Não" e repetir o failover ou desabilitar a proteção para a máquina virtual e protegê-la para uma conta de armazenamento que não tenha criptografia de Serviço de armazenamento habilitada em nenhum ponto no tempo.
+  > [Saiba mais sobre Criptografia do serviço de armazenamento e managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
 
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
 

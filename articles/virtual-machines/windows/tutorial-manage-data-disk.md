@@ -13,21 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d68fc54f3fd08b3d7d66a9cd1ddb91c340191468
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: a7511a35a7b186fc424088e7ff5cbc933d325712
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="manage-azure-disks-with-powershell"></a>Gerenciar discos do Azure com o PowerShell
 
-Neste tutorial, você aprenderá sobre os diferentes tipos de disco de VM, como selecionar uma configuração de disco e como criar e anexar discos a VMs do Azure. Este tutorial também aborda como tirar instantâneos de disco.  
+Máquinas virtuais do Azure usam discos para armazenar o sistema operacional de VMs, aplicativos e dados. Ao criar uma VM, é importante escolher um tamanho de disco e a configuração apropriada para a carga de trabalho esperada. Este tutorial aborda a implantação e gerenciamento de discos de VM. Você saberá mais sobre:
 
-As etapas neste tutorial podem ser concluídas usando o módulo mais recente do [Azure PowerShell](/powershell/azure/overview).
+> [!div class="checklist"]
+> * Discos de sistema operacional e discos temporários
+> * Discos de dados
+> * Discos Standard e Premium
+> * Desempenho do disco
+> * Anexar e preparar os discos de dados
+
+Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="default-azure-disks"></a>Discos padrão do Azure
 
@@ -39,7 +47,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 
-| Tipo | Tamanho da VM | Tamanho máximo do disco temporário |
+| Tipo | Tamanho da VM | Tamanho máximo do disco temporário (GB) |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A e D | 800 |
 | [Computação otimizada](sizes-compute.md) | Série F | 800 |
@@ -136,7 +144,17 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre discos da máquina virtual. Vá para o próximo tutorial para saber como automatizar a configuração da máquina virtual.
+Neste tutorial, você aprendeu sobre tópicos de discos da VM como:
 
-[Automatizar a configuração da VM](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * Discos de sistema operacional e discos temporários
+> * Discos de dados
+> * Discos Standard e Premium
+> * Desempenho do disco
+> * Anexar e preparar os discos de dados
+
+Vá para o próximo tutorial para saber como automatizar a configuração da máquina virtual.
+
+> [!div class="nextstepaction"]
+> [Automatizar a configuração da VM](./tutorial-automate-vm-deployment.md)
 

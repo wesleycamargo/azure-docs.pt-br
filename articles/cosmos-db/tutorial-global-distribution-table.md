@@ -1,14 +1,14 @@
 ---
 title: "Tutorial de distribuição global do Azure Cosmos DB para a API de Tabela | Microsoft Docs"
 description: "Saiba como configurar a distribuição global do Azure Cosmos DB usando a API de Tabela."
-services: cosmosdb
+services: cosmos-db
 keywords: "distribuição global, Tabela"
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3282dd96fb51ba9eeb27560c6897211c55738f1e
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 63c9e530a4982e2e6e478fea56e015fc77851e1d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -33,12 +33,12 @@ Este artigo aborda as seguintes tarefas:
 > * Configurar a distribuição global usando o Portal do Azure
 > * Configurar a distribuição global usando a [API de Tabela](table-introduction.md)
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Conectar-se a uma região preferencial usando a API de Tabela
 
-Para aproveitar a [distribuição global](../documentdb/documentdb-distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo o valor de configuração `TablePreferredLocations` na configuração do aplicativo para a visualização do SDK do Armazenamento do Azure. Com base na configuração da conta do Azure Cosmos DB, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK de Armazenamento do Azure para executar operações de gravação e leitura.
+Para aproveitar a [distribuição global](distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo o valor de configuração `TablePreferredLocations` na configuração do aplicativo para a visualização do SDK do Armazenamento do Azure. Com base na configuração da conta do Azure Cosmos DB, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK de Armazenamento do Azure para executar operações de gravação e leitura.
 
 O `TablePreferredLocations` deve conter uma lista separada por vírgulas de locais (hospedagem múltipla) preferenciais para leituras. Cada instância do cliente pode especificar um subconjunto dessas regiões na ordem preferida para leituras de baixa latência. As regiões devem ser nomeadas usando seus [nomes de exibição](https://msdn.microsoft.com/library/azure/gg441293.aspx), por exemplo, `West US`.
 
@@ -56,7 +56,7 @@ Se a propriedade `TablePreferredLocations` não estiver definida, todas as solic
     </appSettings>
 ```
 
-Assim, concluímos este tutorial. Aprenda a gerenciar a consistência de sua conta globalmente replicada lendo [Níveis de consistência no Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+Assim, concluímos este tutorial. Aprenda a gerenciar a consistência de sua conta globalmente replicada lendo [Níveis de consistência no Azure Cosmos DB](consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -69,4 +69,4 @@ Neste tutorial, você fez o seguinte:
 Agora você pode prosseguir para o próximo tutorial e aprender a desenvolver localmente usando o emulador local do Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Desenvolver localmente com o emulador](../documentdb/documentdb-nosql-local-emulator.md)
+> [Desenvolver localmente com o emulador](local-emulator.md)

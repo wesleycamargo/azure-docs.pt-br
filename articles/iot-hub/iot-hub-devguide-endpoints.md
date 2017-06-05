@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: cdc50ec4bf98d7924ad5bf97c9a757f0bac01173
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b0b2e8f375fa0b80e4f933515e1e8a689478483e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -74,7 +75,7 @@ Para conhecer os limites para a quantidade de pontos de extremidade que você po
 ## <a name="field-gateways"></a>Gateways de campo
 Em uma solução IoT, um *gateway de campo* fica entre os dispositivos e os pontos de extremidade do hub IoT. Normalmente, ele se localiza perto dos dispositivos. Os dispositivos se comunicam diretamente com o gateway de campo usando um protocolo com suporte dos dispositivos. O gateway de campo conecta-se com um ponto de extremidade Hub IoT usando um protocolo que tem suporte do Hub IoT. Um gateway de campo pode ser um hardware altamente especializado ou um computador com baixo consumo de energia que executa um software que realiza o cenário de ponta a ponta ao qual o gateway se destina.
 
-É possível usar o [SDK do Gateway do Azure IoT][lnk-gateway-sdk] para implementar um gateway de campo. Esse SDK oferece uma funcionalidade específica, como a capacidade de multiplexar a comunicação de vários dispositivos na mesma conexão do Hub IoT.
+Use o [Azure IoT Edge][lnk-gateway-sdk] para implementar um gateway de campo. O IoT Edge oferece uma funcionalidade específica, como a capacidade de multiplexar a comunicação de vários dispositivos na mesma conexão do Hub IoT.
 
 ## <a name="next-steps"></a>Próximas etapas
 Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
@@ -83,7 +84,7 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 * [Cotas e limitações][lnk-devguide-quotas]
 * [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt]
 
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/

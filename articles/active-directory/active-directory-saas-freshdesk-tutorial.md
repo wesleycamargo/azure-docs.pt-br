@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: f35da063fc637f315b52ea38b63d2c8222cecd21
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 47609ab453cf3db3cb745f91ed23904ff90e7b41
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -130,11 +131,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
 8. No menu na parte superior, clique em **Administrador**.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
+   ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
 
 9. Na guia **Configurações Gerais**, clique em **Segurança**.
    
-       ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
+   ![Segurança](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Segurança")
 
 10. Na seção **Segurança** , realize as seguintes etapas:
    
@@ -157,7 +158,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
@@ -197,32 +198,32 @@ No caso do FreshDesk, o provisionamento é uma tarefa manual.
 1. Faça logon em seu locatário do **Freshdesk** .
 2. No menu na parte superior, clique em **Administrador**.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
+   ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
 
 3. Na guia **Configurações Gerais**, clique em **Agentes**.
    
-       ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
+   ![Agentes](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agentes")
 
 4. Clique em **Novo Agente**.
    
-       ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
+    ![Novo Agente](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "Novo Agente")
 
 5. Na caixa de diálogo Informações sobre o Agente, execute as seguintes etapas:
    
-       ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
+   ![Informações de Agente](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Informações de Agente")
    
-       a. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
+   a. Na caixa de texto **Nome Completo** , digite o nome da conta do Azure AD que você deseja provisionar.
 
-       b. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+   b. Na caixa de texto **Email** , digite o endereço de email do Azure AD da conta do Azure AD que você deseja provisionar.
 
-       c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
+   c. Na caixa de texto **Título** , digite a conta do Azure AD que você deseja provisionar.
 
-       d. Select **Agents role**, and then click **Assign**.
+   d. Selecione **Função de agentes** e clique em **Atribuir**.
        
-       e. Click **Save**.     
+   e. Clique em **Salvar**.     
    
     >[!NOTE]
-    >O titular da conta do AD do Azure receberá um email que inclui um link para confirmar a conta antes que ela se torne ativa. 
+    >O titular da conta do Azure AD receberá um email que inclui um link para confirmar a conta antes que ela se torne ativa. 
     > 
     
     >[!NOTE]

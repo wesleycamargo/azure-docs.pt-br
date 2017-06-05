@@ -12,22 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 0b1d7bb2cbbeed2b41c22f19c1db49e81dadd4d7
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: c66c895eb9b905ea265341783c153a9554bd1259
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-authenticate-service-principal.md)
-> * [CLI do Azure](resource-group-authenticate-service-principal-cli.md)
-> * [Portal](resource-group-create-service-principal-portal.md)
->
->
 
 Quando você tiver um aplicativo que precisa acessar ou modificar os recursos, deverá configurar um aplicativo do Azure AD (Active Directory) e atribuir as permissões necessárias a ele. Esta abordagem é preferencial para executar o aplicativo com suas próprias credenciais porque:
 
@@ -207,5 +202,5 @@ Os aplicativos de exemplo a seguir mostram como fazer logon como o aplicativo do
 ## <a name="next-steps"></a>Próximas etapas
 * Para configurar um aplicativo multilocatário, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 * Para aprender a especificar as políticas de segurança, consulte [Controle de Acesso baseado nas Funções do Azure](../active-directory/role-based-access-control-configure.md).  
-
+* Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas a usuários, consulte [Operações do Provedor de Recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
 

@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c45278318c154051469b4e4c9e4e7b63463ff1e
 ms.openlocfilehash: a527286cf3d51263faf67a59ed6efeeb62b05b9d
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/17/2017
 
 

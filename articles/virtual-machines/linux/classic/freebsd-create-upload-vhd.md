@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2016
+ms.date: 05/08/2017
 ms.author: kyliel
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2d44a2d9a247ffce8bcf35152170562ac0b86710
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -41,7 +41,7 @@ Este artigo pressupõe que você tenha os seguintes itens:
 >
 >
 
-Esta tarefa inclui as cinco etapas a seguir.
+Esta tarefa inclui as cinco etapas a seguir:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Etapa 1: preparar a imagem para upload
 Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua os procedimentos a seguir:
@@ -52,12 +52,7 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
         # service netif restart
 2. Habilitar SSH.
 
-    O SSH é habilitado por padrão após a instalação do disco. Se por algum motivo ele não estiver habilitado, ou se você usar o VHD do FreeBSD diretamente, digite o seguinte:
-
-        # echo 'sshd_enable="YES"' >> /etc/rc.conf
-        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-        # service sshd restart
+    Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização. Ele é habilitado por padrão após a instalação do disco FreeBSD. 
 3. Instalar um console serial.
 
         # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
@@ -67,16 +62,16 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
     A conta raiz está desabilitada no Azure. Isso significa que você precisa utilizar o sudo de um usuário sem privilégios para executar comandos com privilégios elevados.
 
         # pkg install sudo
-   ;
+   
 5. Pré-requisitos para agente do Azure.
 
         # pkg install python27  
-        # pkg install Py27-setuptools27   
+        # pkg install Py27-setuptools  
         # ln -s /usr/local/bin/python2.7 /usr/bin/python   
         # pkg install git
 6. Instalar o agente do Azure.
 
-    A versão mais recente do agente do Azure sempre pode ser encontrada no [github](https://github.com/Azure/WALinuxAgent/releases). A versão 2.0.10 + oficialmente dá suporte a FreeBSD 10 e 10.1 e a versão 2.1.4 oficialmente dá suporte a FreeBSD 10.2 e versões posteriores.
+    A versão mais recente do agente do Azure sempre pode ser encontrada no [github](https://github.com/Azure/WALinuxAgent/releases). A versão 2.0.10 + oficialmente dá suporte a FreeBSD 10 e 10.1 e a versão 2.1.4 + (incluindo 2.2.x) oficialmente dá suporte a FreeBSD 10.2 e versões posteriores.
 
         # git clone https://github.com/Azure/WALinuxAgent.git  
         # cd WALinuxAgent  
@@ -109,8 +104,8 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
         # waagent -version
         WALinuxAgent-2.1.4 running on freebsd 10.3
         Python: 2.7.11
-        # service –e | grep waagent
-        /etc/rc.d/waagent
+        # ps auxw | grep waagent
+        root   639   0.0  0.5 104620 17520 u0- I    05:17    0:00.20 python /usr/local/sbin/waagent -daemon (python2.7)
         # cat /var/log/waagent.log
 7. Desprovisione o sistema.
 
@@ -170,7 +165,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Usar o método de certificado para carregar um arquivo .vhd
 1. Abra o console do PowerShell do Azure.
 2. Digite:  `Get-AzurePublishSettingsFile`.
-3. Uma janela de navegador será aberta e baixará automaticamente um arquivo .publishsettings. Esse arquivo contém informações e um certificado para sua assinatura do Azure.
+3. Uma janela de navegador será aberta e baixará automaticamente o arquivo .publishsettings. Esse arquivo contém informações e um certificado para sua assinatura do Azure.
 
     ![Procurar página de download](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Salve o arquivo .publishsettings.

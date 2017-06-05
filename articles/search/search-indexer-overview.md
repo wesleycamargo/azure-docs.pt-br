@@ -1,6 +1,6 @@
 ---
 title: Indexadores na Azure Search | Microsoft Docs
-description: "Rastrear um Banco de Dados SQL do Azure, Banco de Dados de Documentos ou Armazenamento do Azure para extrair dados pesquisáveis e preencher um índice de Pesquisa do Azure."
+description: "Rastrear um banco de dados SQL do Azure, Azure Cosmos DB ou Armazenamento do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
-ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
-ms.lasthandoff: 01/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -28,9 +29,9 @@ ms.lasthandoff: 01/19/2017
 > * [Visão geral](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [Banco de Dados de Documentos](search-howto-index-documentdb.md)
-> * [Armazenamento de blobs (preview)](search-howto-indexing-azure-blob-storage.md)
-> * [Armazenamento de Tabelas (visualização)](search-howto-indexing-azure-tables.md)
+> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
+> * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -41,7 +42,7 @@ Você pode usar um indexador como o único meio para ingestão de dados ou usar 
 Você pode executar os indexadores sob demanda ou em uma agenda de atualização de dados recorrente que é executada a cada quinze minutos. Atualizações mais frequentes exigem um modelo de push que atualiza simultaneamente os dados na Pesquisa do Azure e na fonte de dados externa.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Abordagens para criar e gerenciar indexadores
-Para indexadores disponíveis, como o Azure SQL ou o Banco de Dados de Documentos, você pode criar e gerenciar índices usando estas abordagens:
+Para indexadores disponíveis, como o Azure SQL ou o Azure Cosmos DB, você pode criar e gerenciar índices usando estas abordagens:
 
 * [Portal > Assistente de Dados de Importação ](search-get-started-portal.md)
 * [API REST do Serviço](https://msdn.microsoft.com/library/azure/dn946891.aspx)
@@ -57,7 +58,7 @@ Um indexador irá automatizar algumas tarefas relacionadas a ingestão de dados,
 Um indexador extrai dados de uma **fonte de dados** que contém informações como uma cadeia de conexão. Atualmente, há suporte às seguintes fontes de dados:
 
 * [Banco de Dados SQL do Azure ou SQL Server em uma máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Banco de Dados de Documentos](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md), usado para extrair texto de documentos PDF, do Office, HTML ou XML
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 
@@ -70,9 +71,9 @@ A definição do indexador é uma construção que especifica o índice, a fonte
 Agora que você tem as noções básicas, a próxima etapa é examinar os requisitos e as tarefas específicas para cada tipo de fonte de dados.
 
 * [Banco de Dados SQL do Azure ou SQL Server em uma máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Banco de Dados de Documentos](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md), usado para extrair texto de documentos PDF, do Office, HTML ou XML
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
-* [Indexando blobs CSV usando o indexador de Blobs da Pesquisa do AZURE (Visualização)](search-howto-index-csv-blobs.md)
-* [Indexando blobs JSON com o indexador de Blobs da Pesquisa do Azure (Visualização)](search-howto-index-json-blobs.md)
+* [Indexação de blobs CSV usando o indexador de Blobs do Azure Search](search-howto-index-csv-blobs.md)
+* [Indexação de blobs JSON com o indexador de blobs do Azure Search](search-howto-index-json-blobs.md)
 

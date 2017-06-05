@@ -76,7 +76,6 @@
 ### Reach
 #### [Introdução a usar e gerenciar envios por push](mobile-engagement-how-tos.md)
 #### [Enviar Emojis em notificações](mobile-engagement-use-emoji-with-push.md)
-#### [Enviar notificações personalizadas](mobile-engagement-send-personalized-notifications.md)
 
 ### Acessar APIs de serviço
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)

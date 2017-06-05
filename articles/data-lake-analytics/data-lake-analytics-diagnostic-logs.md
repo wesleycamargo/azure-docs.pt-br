@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
-ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
-ms.lasthandoff: 02/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 71a839d9c076d33c404a56bf0544666dc86eaa4d
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,14 +31,6 @@ As organizações podem habilitar o log de diagnóstico para sua conta do Azure 
 * Uma lista de usuários que acessaram os dados.
 * Com que frequência os dados são acessados.
 * Quantos dados são armazenados na conta.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* **Habilitar sua assinatura do Azure** para a visualização pública do Data Lake Analytics. Veja [instruções](data-lake-analytics-get-started-portal.md).
-
-* **Conta do Azure Data Lake Analytics**. Siga as instruções em [Introdução ao Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="enable-logging"></a>Habilitar o registro em log
 

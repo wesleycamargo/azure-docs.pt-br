@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo;aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: c4e7ee86ad9dc7a51fff9e948757faaf5ca9b9c4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: fb38555f1f299352f06deae1ca231895163068e5
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e configurar um certificado SSL para seu Serviço de Aplicativo do Azure
@@ -91,7 +92,7 @@ Depois de clicar em **Verify**, use o **atualização** botão até que o **Veri
 ## <a name="step-5---assign-certificate-to-app-service-app"></a>Etapa 5: Atribuir o certificado ao Aplicativo do Serviço de Aplicativo
 
 > [!NOTE]
-> Antes de executar as etapas nesta seção, você precisa ter associado um nome de domínio personalizado ao seu aplicativo. Para saber mais, confira **[Configurando um nome de domínio personalizado para um aplicativo Web.](web-sites-custom-domain-name.md)**
+> Antes de executar as etapas nesta seção, você precisa ter associado um nome de domínio personalizado ao seu aplicativo. Para saber mais, confira **[Configurando um nome de domínio personalizado para um aplicativo Web.](app-service-web-tutorial-custom-domain.md)**
 >
 
 No  **[portal do Azure](https://portal.azure.com/)**, clique a opção **Serviço de Aplicativo** à esquerda da página.

@@ -3,7 +3,7 @@ title: "Recursos, funções e controle de acesso no Azure Application Insights |
 description: "Proprietários, colaboradores e leitores de percepções de sua organização."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights

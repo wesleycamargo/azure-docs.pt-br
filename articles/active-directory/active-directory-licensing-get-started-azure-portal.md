@@ -1,6 +1,6 @@
 ---
 
-title: "Introdução ao licenciamento na visualização do Azure Active Directory | Microsoft Docs"
+title: "Introdução ao licenciamento no Azure Active Directory | Microsoft Docs"
 description: "Descrição de licenciamento do Azure Active Directory, como ele funciona, como começar e práticas recomendadas, incluindo o Office 365, Microsoft Intune, e edições do Azure Active Directory Premium e Basic"
 services: active-directory
 keywords: Licenciamento do AD do Azure
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 05/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3bad24f35cf7867f1e02e8470c602a7f6a9ce8fb
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 8e9d6900910f45b5f17600fc5608191871c5ab21
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
-# <a name="license-yourself-and-your-users-in-azure-active-directory-preview"></a>Licencie a si mesmo e seus usuários na visualização do Azure Active Directory
+# <a name="license-yourself-and-your-users-in-azure-active-directory"></a>Licenciar a si mesmo e seus usuários no Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-licensing-get-started-azure-portal.md)
@@ -59,7 +60,7 @@ Cada assinatura consiste em um ou mais planos de serviço, cada um mapeando o n�
 
 Ao passo que adquirir uma assinatura é tudo o que você precisa para configurar recursos pagos, o uso de recursos pagos do Azure AD requer a distribuição de licenças para os indivíduos certos. Em geral, qualquer usuário que deve ter acesso ou é gerenciado por meio de um recurso pago do AD do Azure deve ter uma licença atribuída. Uma atribuição de licença é um mapeamento entre um usuário e um serviço comprado, como o AD Premium, Basic do Azure ou o Enterprise Mobility Suite.
 
-O gerenciamento de usuários em seu diretório deve ter uma licença e é simples. Ele pode ser realizado atribuindo licenças para grupos no portal do Azure ou atribuindo licenças diretamente aos indivíduos certos por meio do portal, PowerShell ou APIs. Ao atribuir licenças a um grupo, uma licença é atribuída a todos os membros do grupo. Se usuários forem adicionados ou removidos do grupo, a licença apropriada será atribuída ou removida. A atribuição de grupo pode usar qualquer gerenciamento de grupo disponível e é consistente com a atribuição baseada em grupo a aplicativos. Usando essa abordagem, você pode configurar regras, de modo que todos os usuários no diretório recebam atribuição automaticamente, garantir que qualquer pessoa com o cargo apropriado tenha uma licença ou até mesmo delegar a decisão a outros gerentes na organização. 
+O gerenciamento de usuários em seu diretório deve ter uma licença e é simples. Ele pode ser realizado atribuindo licenças para grupos no Portal do Azure (esse recurso está em visualização pública) ou atribuindo licenças diretamente aos indivíduos certos por meio do portal, PowerShell ou APIs. Ao atribuir licenças a um grupo, uma licença é atribuída a todos os membros do grupo. Se usuários forem adicionados ou removidos do grupo, a licença apropriada será atribuída ou removida. A atribuição de grupo pode usar qualquer gerenciamento de grupo disponível e é consistente com a atribuição baseada em grupo a aplicativos. Usando essa abordagem, você pode configurar regras, de modo que todos os usuários no diretório recebam atribuição automaticamente, garantir que qualquer pessoa com o cargo apropriado tenha uma licença ou até mesmo delegar a decisão a outros gerentes na organização. 
 
 Para obter uma discussão detalhada sobre a atribuição de licenças para grupos, incluindo cenários avançados e cenários de licenciamento do Office 365, veja [este artigo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 

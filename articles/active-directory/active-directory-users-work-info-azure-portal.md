@@ -1,5 +1,6 @@
 ---
-title: "Adicionar ou alterar informações de trabalho de um usuário na visualização do Azure Active Directory | Microsoft Docs"
+
+title: "Adicionar ou alterar informações de trabalho de um usuário no Azure Active Directory | Microsoft Docs"
 description: "Explica como adicionar números de telefone, nomes de departamento e outras informações de trabalho para um usuário no Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b344136bdcfba22416933ced9a91ef2a82082d11
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: a7197ed0f08d38bb604641115a424b98ba5b5908
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="add-or-change-work-information-for-a-user-in-azure-active-directory-preview"></a>Adicionar ou alterar informações de trabalho de um usuário na visualização do Azure Active Directory
-Este artigo explica como adicionar ou alterar as informações de trabalho, como números de telefone ou nomes de departamento, de um usuário na visualização do Azure Active Directory (Azure AD). [O que há na visualização?](active-directory-preview-explainer.md) Para obter informações sobre como adicionar novos usuários em sua organização, consulte [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-external-azure-portal.md).
+# <a name="add-or-change-work-information-for-a-user-in-azure-active-directory"></a>Adicionar ou alterar informações de trabalho de um usuário no Azure Active Directory
+Este artigo explica como adicionar ou alterar as informações de trabalho, como números de telefone ou nomes de departamento, de um usuário no Azure AD (Azure Active Directory). Para obter informações sobre como adicionar novos usuários em sua organização, consulte [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
 ## <a name="to-change-work-information"></a>Para alterar as informações de trabalho
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -39,9 +41,9 @@ Este artigo explica como adicionar ou alterar as informações de trabalho, como
 6. Adicione ou altere as informações de trabalho. Em seguida, na barra de comandos, selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicionar novos usuários à visualização do Azure Active Directory](active-directory-users-create-azure-portal.md)
-* [Redefinir a senha de um usuário na visualização do Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
-* [Atribuir um usuário às funções de administrador na visualização do Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Adicionar ou alterar as informações de perfil de um usuário na visualização do Azure Active Directory](active-directory-users-profile-azure-portal.md)
-* [Excluir um usuário de um diretório na visualização do Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
+* [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md)
+* [Redefinir a senha de um usuário no Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
+* [Atribuir um usuário às funções de administrador no Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+* [Adicionar ou alterar as informações de perfil de um usuário no Azure Active Directory](active-directory-users-profile-azure-portal.md)
+* [Excluir um usuário de um diretório no Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
 

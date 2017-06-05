@@ -3,7 +3,7 @@ title: "Diagnóstico inteligente de alterações no desempenho do aplicativo Web
 description: "Diagnóstico automático de picos ou etapas em telemetria de desempenho do seu aplicativo Web."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

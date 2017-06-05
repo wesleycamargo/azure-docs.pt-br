@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
+ms.date: 05/11/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 3c91cb00d6535a4bc01a3b95547ef940cbff7fcb
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -38,11 +39,35 @@ Links relacionados:
 * [Conector do PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [Conector do Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
+## <a name="115220"></a>1.1.522.0
+
+### <a name="enhancements"></a>Melhorias:
+
+* SQL genérico:
+  * **Cenário: Reimplementado:** recurso "*"
+  * **Descrição da solução:** abordagem alterada para a [manipulação de atributos de referência de vários valores](active-directory-aadconnectsync-connector-genericsql.md).
+
+
+### <a name="fixed-issues"></a>Problemas corrigidos:
+
+* Serviços Web genéricos:
+  * Não será possível importar a configuração do servidor se houver um Conector WebService
+  * O Conector WebService não está funcionando com vários Serviços Web
+
+* SQL genérico:
+  * Nenhum tipo de objeto é listado para o atributo de referência de valor único
+  * A importação delta na estratégia de Controle de Alterações exclui o objeto quando o valor é removido da tabela de vários valores
+  * OverflowException no conector GSQL com DB2 no AS/400
+
+Lotus:
+  * Adicionada a opção de habilitar/desabilitar a pesquisa de UOs antes de abrir a página GlobalParameters
+
 ## <a name="114430"></a>1.1.443.0
 
 Lançamento: março de 2017
 
 ### <a name="enhancements"></a>Melhorias
+
 * SQL genérico:</br>
   **Sintomas de cenário:** são uma limitação conhecida com o conector do SQL onde podemos permitir somente uma referência a um tipo de objeto e exigir uma referência cruzada com membros. </br>
   **Descrição da solução:** na etapa de processamento de referências onde a opção "*" é escolhida, todas as combinações de tipos de objeto são retornadas para o mecanismo de sincronização.
@@ -55,7 +80,7 @@ Lançamento: março de 2017
 * LDAP genérico:</br>
  **Cenário:** quando apenas alguns contêineres são selecionados na partição específica e a pesquisa ainda será realizada na partição inteira. O específico será filtrado pelo serviço de sincronização, mas não pelo MA que pode causar degradação do desempenho. </br>
 
- **Descrição de solução:** o código do conector GLDAP é modificado para passar por todos os contêineres e objetos de pesquisa em cada um deles, em vez de pesquisar na partição inteira.
+ **Descrição de solução:**  o código do conector GLDAP é modificado para passar por todos os contêineres e objetos de pesquisa em cada um deles, em vez de pesquisar na partição inteira.
 
 
 * Lotus Domino:

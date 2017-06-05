@@ -1,4 +1,10 @@
-Algumas respostas Bing incluem URLs para imagens em miniatura servidas pelo Bing. Você pode redimensionar e cortar as imagens em miniatura. Para redimensionar uma imagem, inclua os parâmetros de consulta de l (largura) e a (altura) na URL da miniatura. Especifique a largura e altura em pixels. Por exemplo:  
+Algumas respostas Bing incluem URLs para imagens em miniatura servidas pelo Bing. Você pode redimensionar e cortar as imagens em miniatura. 
+
+> [!NOTE]
+> Garanta que o tamanho e o corte da miniatura forneçam um cenário de pesquisa e respeitem os direitos de terceiros, como exigido pelos [Requisitos de exibição e uso da API do Search](/useanddisplayrequirements.md).
+
+
+Para redimensionar uma imagem, inclua os parâmetros de consulta de l (largura) e a (altura) na URL da miniatura. Especifique a largura e altura em pixels. Por exemplo:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   

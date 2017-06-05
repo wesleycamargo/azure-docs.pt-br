@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d631813e8d821a8efe135f0b138dec544b455390
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -160,7 +161,7 @@ Depois de resolver os erros, desanexe o disco rígido virtual existente da VM de
     Aguarde até que a VM tenha desanexo o disco de dados corretamente antes de continuar.
 
 ## <a name="create-vm-from-original-hard-disk"></a>Criar a VM com base no disco rígido original
-Para criar uma VM com base no disco rígido virtual original, use [esse modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-specialized-vm-in-existing-vnet). O modelo implanta uma VM em uma rede virtual existente, usando a URL do VHD do comando anterior. Clique no botão **Implantar no Azure** da seguinte maneira:
+Para criar uma VM com base no disco rígido virtual original, use [esse modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). O modelo implanta uma VM em uma rede virtual existente, usando a URL do VHD do comando anterior. Clique no botão **Implantar no Azure** da seguinte maneira:
 
 ![Implantar a VM com base no modelo do GitHub](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)
 

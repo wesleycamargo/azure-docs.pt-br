@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d6215d316cfd4979d63f8bdb81741e1d0291b681
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: b95a8c3067b9bfd0a9995b26608c117a29ed8b4c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -76,7 +77,7 @@ Há vários pacotes de armazenamento em cache de DNS diferentes disponíveis; po
   * inicie o serviço dnsmasq ("systemctl enable dnsmasq.service") 
   * edite "/etc/sysconfig/network/config" e altere NETCONFIG_DNS_FORWARDER = "" para "dnsmasq"
   * atualize resolv. conf ("netconfig update") para definir o cache do resolvedor DNS local
-* **OpenLogic (usa NetworkManager)**:
+* **CentOS por Rogue Wave Software (anteriormente OpenLogic, usa o NetworkManager)**:
   * instale o pacote de dnsmasq ("sudo yum install dnsmasq").
   * habilite o serviço dnsmasq ("systemctl enable dnsmasq.service")
   * inicie o serviço dnsmasq ("systemctl enable dnsmasq.service")
@@ -107,7 +108,7 @@ O arquivo resolv.conf é gerado automaticamente e não deve ser editado.  As eta
 * **SUSE** (usa netconf):
   * adicione 'timeout:1 tentativas: 5' ao parâmetro NETCONFIG_DNS_RESOLVER_OPTIONS = "" em '/ etc/sysconfig/rede/config' 
   * execute 'netconfig update' para atualizar
-* **OpenLogic** (usa NetworkManager):
+* **CentOS por Rogue Wave Software (anteriormente OpenLogic)** (usa o NetworkManager):
   * adicione 'echo "options timeout:1 attempts:5"' em '/etc/NetworkManager/dispatcher.d/11-dhclient' 
   * execute 'service network restart' para atualizar
 

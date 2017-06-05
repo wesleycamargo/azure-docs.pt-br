@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 98e5764f84f23ec586ebd823634b9024e4689c5c
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: c78b69188136d6df7887e92600984c4fa269d355
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -163,9 +164,9 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Portal do Azure]: https://portal.azure.com/
-[Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure]: ./web-sites-custom-domain-name.md
+[Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure]: ./app-service-web-tutorial-custom-domain.md
 [Implantar em ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure]: ./web-sites-staged-publishing.md
-[Habilitar HTTPS para um aplicativo no Serviço de Aplicativo do Azure]: ./web-sites-configure-ssl-certificate.md
+[Habilitar HTTPS para um aplicativo no Serviço de Aplicativo do Azure]: ./app-service-web-tutorial-custom-ssl.md
 [Como monitorar o status de pontos de extremidade da Web]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Conceitos básicos de monitoramento para aplicativos Web no Serviço de Aplicativo do Azure]: ./web-sites-monitor.md
 [modo de pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application

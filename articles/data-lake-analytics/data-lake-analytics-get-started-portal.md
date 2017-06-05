@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 64c5869f3e66c249fefa9af228fe1b33974cf293
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 278c5d4d6bf3b356b51ccb878285a7e35cc3a810
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -40,21 +41,21 @@ Cada conta do Data Lake Analytics tem uma dependência da conta do Azure Data La
 
 **Criar uma conta do Data Lake Analytics**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-2. Clique em **Novo**, **Inteligência + Análises**, em seguida, clique em **Data Lake Analytics**.
-3. Digite ou selecione os valores a seguir:
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Clique em **Novo** >  **Intelligence + análise** > **Data Lake Analytics**.
+3. Digite os valores a seguir:
 
     ![Folha do portal da Análise Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
    * **Nome**: Nome de sua conta do Data Lake Analytics (são permitidos somente letras minúsculas e números).
    * **Assinatura**: escolha a assinatura do Azure usada para a conta da Análise.
-   * **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo. O Gerenciador de Recursos do Azure permite trabalhar com os recursos do seu aplicativo como um grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+   * **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo.
    * **Local**. Selecione um datacenter do Azure para a conta da Análise Data Lake.
-   * **Data Lake Store**: Clique em *Definir configurações necessárias*. Siga as instruções para criar uma nova conta do Repositório Data Lake ou selecione uma existente. Cada conta do Data Lake Analytics tem uma conta dependente da Data Lake Store. A conta da Análise Data Lake e a conta dependente do Repositório Data Lake devem ser colocadas no mesmo data center do Azure.
+   * **Data Lake Store**: siga as instruções para criar uma nova conta do Data Lake Store ou selecione uma existente. 
 4. Selecione seu Tipo de Preço  
 5. Clique em **Criar**. Você volta à tela inicial do portal, onde é exibido um novo bloco, mostrando "Implantando o Azure Data Lake Analytics". O processo de implantação levará alguns minutos para criar uma conta do Data Lake Analytics. Após a criação da conta, o portal abrirá a conta em uma nova folha.
 
-Após a criação de uma conta da Análise Data Lake, é possível adicionar outras contas do Repositório Data Lake e contas de Armazenamento do Azure. Para obter instruções, consulte [Gerenciar as fontes de dados da conta da Análise Data Lake](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+Após a criação de uma conta da Análise Data Lake, é possível adicionar outras contas do Repositório Data Lake e contas de Armazenamento do Azure. Para obter instruções, consulte [Gerenciar as fontes de dados da conta da Análise Data Lake](data-lake-analytics-manage-use-portal.md).
 
 ## <a name="prepare-source-data"></a>Preparar dados de origem
 Neste tutorial, você processará logs de pesquisa.  O log de pesquisa pode ser armazenado no Repositório Data Lake ou no Armazenamento de Blob do Azure.
@@ -63,7 +64,7 @@ O portal do Azure fornece uma interface do usuário para copiar arquivos de dado
 
 **Copiar arquivos de dados de exemplo**
 
-1. No [Portal do Azure](https://portal.azure.com), abra sua conta do Data Lake Analytics.  Confira [Gerenciar contas do Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account) para criar uma e abrir a conta no portal.
+1. No [Portal do Azure](https://portal.azure.com), abra sua conta do Data Lake Analytics.  Confira [Gerenciar contas do Data Lake Analytics](data-lake-analytics-get-started-portal.md) para criar uma e abrir a conta no portal.
 2. Expanda o painel **Essentials**, em seguida, clique em **Explorar scripts de exemplo**. Isso abre outra folha denominada **Scripts de Exemplo** .
 
     ![Script de exemplo do portal do Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
@@ -83,7 +84,7 @@ O portal do Azure fornece uma interface do usuário para copiar arquivos de dado
 
      Neste tutorial, você usará o SearchLog.tsv.
 
-Na prática, você programará seus aplicativos para gravar os dados em uma conta de armazenamento vinculada ou carregará os dados. Para carregar os arquivos, consulte [Carregar dados no Data Lake Store](data-lake-analytics-manage-use-portal.md#upload-data-to-adls) ou [Carregar dados no armazenamento de Blobs](data-lake-analytics-manage-use-portal.md#upload-data-to-wasb).
+Na prática, você programará seus aplicativos para gravar os dados em uma conta de armazenamento vinculada ou carregará os dados. Para carregar os arquivos, consulte [Carregar dados no Data Lake Store](data-lake-analytics-manage-use-portal.md) ou [Carregar dados no armazenamento de Blobs](data-lake-analytics-manage-use-portal.md).
 
 ## <a name="create-and-submit-data-lake-analytics-jobs"></a>Criar e enviar trabalhos de Análise Data Lake
 Depois de preparar os dados de origem, você pode começar a desenvolver um script U-SQL.  
@@ -94,7 +95,7 @@ Depois de preparar os dados de origem, você pode começar a desenvolver um scri
 
     ![Botão novo trabalho da Análise Data Lake do Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
 
-    Se você não vir a folha, consulte [Abrir uma conta da Análise Data Lake no Portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
+    Se você não vir a folha, consulte [Abrir uma conta da Análise Data Lake no Portal](data-lake-analytics-manage-use-portal.md).
 2. Insira o **Nome do Trabalho**e o seguinte script U-SQL:
 
         @searchlog =
@@ -126,18 +127,14 @@ Depois de preparar os dados de origem, você pode começar a desenvolver um scri
 
 1. Clique em **Enviar Trabalho** na parte superior.   
 2. Aguarde até que o status do trabalho seja alterado para **Êxito**. Você pode ver que o trabalho levou cerca de um minuto para ser concluído.
-
-    No caso de falha do trabalho, consulte [Monitorar e solucionar problemas dos trabalhos do Data Lake Analytics ](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-3. Na parte inferior da folha, clique na guia **Saída**, em seguida, clique em **SearchLog-from-Data-Lake.csv**. Você pode visualizar, baixar, renomear e excluir o arquivo de saída.
+3. No caso de falha do trabalho, consulte [Monitorar e solucionar problemas dos trabalhos do Data Lake Analytics ](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+4. Na parte inferior da folha, clique na guia **Saída** e, em seguida, clique em `SearchLog-from-Data-Lake.csv`. Você pode visualizar, baixar, renomear e excluir o arquivo de saída.
 
     ![Propriedades do arquivo de saída do trabalho de Análise Data Lake do Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)
 
 ## <a name="see-also"></a>Consulte também
-* Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
+
 * Para começar a desenvolver aplicativos U-SQL, consulte [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 * Para obter as tarefas de gerenciamento, confira [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md).
-* Para obter uma visão geral da Análise do Data Lake, veja [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
-* Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
-* Para registrar em log as informações de diagnóstico, veja [Acessando os logs de diagnóstico para o Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
