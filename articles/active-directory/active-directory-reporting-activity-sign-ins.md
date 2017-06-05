@@ -1,5 +1,4 @@
 ---
-
 title: "Relatórios de atividade de entrada no portal do Azure Active Directory | Microsoft Docs"
 description: "Introdução aos relatórios de atividades de entrada no portal do Azure Active Directory"
 services: active-directory
@@ -16,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,6 +36,17 @@ A arquitetura de relatório no Azure Active Directory consiste nos seguintes com
     - **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais detalhes, consulte Usuários sinalizados para risco.
 
 Este tópico fornece uma visão geral das atividades de entrada.
+
+## <a name="pre-requisite"></a>Pré-requisito
+
+### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
+* Usuários na função de Administrador de segurança ou Leitor de segurança
+* Administradores globais
+* Qualquer usuário (não administradores) pode acessar suas próprias entradas 
+
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
+* Seu locatário deve ter uma licença do Azure AD Premium associada a ele para ver o relatório de atividade de entrada
+
 
 ## <a name="signs-in-activities"></a>Atividades de entrada
 

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/05/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 84f9677daebe13f54a54802b1b16cc6487a0b845
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -344,18 +344,24 @@ Uma abordagem combinada normalmente é usada para lidar com uma carga variável,
 
 ## <a name="pool-network-configuration"></a>Configuração de rede do pool
 
-Quando você cria um pool de nós de computação no Lote do Azure, pode usar as APIs para especificar a ID de uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure em que nós de computação do pool devem ser criados.
+Ao criar um pool de nós de computação no lote do Azure, você pode especificar o ID de sub-rede de uma [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) do Azure onde os nós de computação do pool devem ser criados.
 
 * A VNet deve ser:
 
    * Na mesma **região** do Azure que a conta do Lote do Azure.
    * Na mesma **assinatura** do Azure que a conta do Lote do Azure.
 
-* A VNet deve ter **endereços IP** livres suficientes para acomodar a propriedade `targetDedicated` do pool. Se a sub-rede não tiver endereços IP suficientes livres, o serviço de Lote alocará parcialmente os nós de computação no pool e retornará um erro de redimensionamento.
+* O tipo de VNet suportado depende de como os pools estão sendo alocados para a conta do lote:
+    - Se a conta do lote foi criada com a propriedade **poolAllocationMode** definida como "BatchService" e, em seguida, a VNet especificada deve ser uma VNet clássica.
+    - Se a conta do lote foi criada com a propriedade **poolAllocationMode** definida como "UserSubscription", a rede virtual especificada poderá ser uma VNet clássica ou uma VNet do Azure Resource Manager. Pools devem ser criados com uma configuração de máquina virtual para usar uma VNet. Não há suporte para os pools criados com uma configuração de serviço de nuvem.
+
+* Se a conta do lote foi criada com a propriedade **poolAllocationMode** definida como "BatchService", você deve fornecer permissões para a entidade de serviço de lote acessar a VNet. A entidade de serviço de lote, "Lote do Microsoft Azure" ou "MicrosoftAzureBatch" deve ter a função de [controle de acesso baseado em função (RBAC) do colaborador de máquina virtual clássica](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) para a VNet especificada. Se a função RBAC especificada não for fornecida, o serviço de lote retornará 400 (solicitação incorreta).
+
+* A sub-rede especificada deve ter **endereços IP** suficientemente livres para acomodar o número total de nós de destino; ou seja, a soma das propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do pool. Se a sub-rede não tiver endereços IP suficientes livres, o serviço de Lote alocará parcialmente os nós de computação no pool e retornará um erro de redimensionamento.
 
 * A sub-rede especificada deve permitir a comunicação do serviço do Lote para que seja capaz de agendar tarefas nos nós de computação. Se a comunicação com os nós de computação for negada por um **NSG (grupo de segurança de rede)** associado com a VNet, o serviço de lote definirá o estado de nós de computação para **inutilizável**.
 
-* Se a rede virtual especificada tiver NSGs associados, a comunicação de entrada deverá estar habilitada. Para pools de Linux e Windows, as portas 29876 e 29877 devem ser habilitadas. Você pode, opcionalmente, habilitar (ou filtrar seletivamente) as portas 22 ou 3389 para SSH em pools de Linux ou RDP em pools de Windows, respectivamente.
+* Se a VNet especificada tiver grupos de segurança de rede (NSG) associados, algumas portas reservadas do sistema devem ser habilitadas para comunicação de entrada. Para pools criados com uma configuração de máquina virtual, habilite as portas 29876 e 29877, bem como a porta 22 para Linux e a porta 3389 para Windows. Para pools criados com uma configuração de serviço de nuvem, habilite as portas 10100, 20100 e 30100. Além disso, permita as conexões de saída para o armazenamento do Azure na porta 443.
 
 As configurações adicionais para a VNet dependem do modo de alocação de pool da conta do Lote.
 
@@ -415,16 +421,24 @@ Talvez seja necessário lidar com as falhas da tarefa e do aplicativo em sua sol
 ### <a name="task-failure-handling"></a>Manipulação de falha de tarefa
 As falhas de tarefas se enquadram nestas categorias:
 
-* **Falhas de agendamento**
+* **Falhas de pré-processamento**
 
-    Se a transferência dos arquivos especificados para uma tarefa falhar por algum motivo, um *erro de agendamento* será definida para a tarefa.
+    Se uma tarefa não for iniciada, um erro de pré-processamento é definido para a tarefa.  
 
-    Os erros de agendamento podem ocorrer se os arquivos de recurso da tarefa foram movido, a conta de Armazenamento não está mais disponível ou foi encontrado outro problema que impediu a cópia bem-sucedida dos arquivos para o nó.
+    Poderão ocorrer erros de processamento se os arquivos de recurso da tarefa forem movidos, se a conta de armazenamento não estiver mais disponível ou se outro problema que impediu a cópia bem-sucedida dos arquivos para o nó foi encontrado.
+
+* **Falhas de carregamento de arquivo**
+
+    Se o carregamento de arquivos especificados para uma tarefa falhar por algum motivo, um erro de carregamento de arquivo é definido para a tarefa.
+
+    Poderá ocorrer erros de carregamento de arquivo se as SAS fornecidas para acessar o armazenamento do Azure estiverem inválidas ou não se forneceram permissões de gravação, se a conta de armazenamento não estiver mais disponível ou se foi encontrado um outro problema que impediu a cópia bem-sucedida dos arquivos a partir do nó.    
+
 * **Falhas de aplicativo**
 
     O processo especificado pela linha de comando da tarefa também pode falhar. O processo é considerado com falha quando é retornado um código de saída diferente de zero pelo processo executado pela tarefa (consulte *Códigos de saída da tarefa* na tarefa a seguir).
 
     Para as falhas do aplicativo, você pode configurar o Lote para repetir automaticamente a tarefa até um número especificado de vezes.
+
 * **Falhas de restrição**
 
     Você pode definir uma restrição que especifique a duração máxima da execução de um trabalho ou uma tarefa, *maxWallClockTime*. Isso pode ser útil para encerrar as tarefas sem progresso.
@@ -435,6 +449,7 @@ As falhas de tarefas se enquadram nestas categorias:
 * `stderr` e `stdout`
 
     Durante a execução, um aplicativo pode produzir uma saída de diagnóstico que pode ser usada para solucionar os problemas. Conforme mencionado na seção [Arquivos e diretórios](#files-and-directories) anterior, o serviço de Lote grava a saída padrão e os erros padrão nos arquivos `stdout.txt` e `stderr.txt` no diretório da tarefa no nó de computação. Você pode usar o portal do Azure ou um dos SDKs do Lote para baixar esses arquivos. Por exemplo, você pode recuperar esses e outros arquivos para solucionar problemas usando [ComputeNode.GetNodeFile][net_getfile_node] e [CloudTask.GetNodeFile][net_getfile_task] na biblioteca do .NET do Lote.
+
 * **Códigos de saída de tarefas**
 
     Conforme mencionado anterior, uma tarefa é marcada como tendo falhas pelo serviço de Lote se o processo executado pela tarefa retorna um código de saída diferente de zero. Quando uma tarefa executa um processo, o Lote preenche a propriedade do código de saída da tarefa com o *código de retorno do processo*. É importante observar que o código de saída da tarefa não **é** determinado pelo serviço de Lote. O código de saída da tarefa é determinado pelo próprio processo ou pelo sistema operacional no qual o processo é executado.
@@ -445,7 +460,7 @@ As tarefas podem falhar ou ser interrompidas ocasionalmente. O próprio aplicati
 Também é possível que um problema intermitente faça com que uma tarefa falhe ou demore muito para ser executada. Você pode definir o intervalo máximo de execução de uma tarefa. Se o intervalo máximo de execução for excedido, o serviço de Lote irá interromper o aplicativo da tarefa.
 
 ### <a name="connecting-to-compute-nodes"></a>Conectar-se a nós de computação
-Você pode executar uma depuração e solução de problemas adicionais conectando um nó de computação remotamente. Você pode usar o portal do Azure para baixar um arquivo RDP (Remote Desktop Protocol) para os nós do Windows e obter informações da conexão SSH (Secure Shell) para os nós do Linux. Você também pode fazer isso usando as APIs do Lote – por exemplo, com o [.NET do Lote][net_rdpfile] ou o [Python do Lote](batch-linux-nodes.md#connect-to-linux-nodes).
+Você pode executar uma depuração e solução de problemas adicionais conectando um nó de computação remotamente. Você pode usar o portal do Azure para baixar um arquivo RDP (Remote Desktop Protocol) para os nós do Windows e obter informações da conexão SSH (Secure Shell) para os nós do Linux. Você também pode fazer isso usando as APIs do Lote – por exemplo, com o [.NET do Lote][net_rdpfile] ou o [Python do Lote](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > Para se conectar a um nó via RDP ou SSH, primeiro você deve criar um usuário no nó. Para tanto, você pode usar o portal do Azure, [adicionar uma conta de usuário a um nó][rest_create_user] usando a API REST do Lote, chamar o método [ComputeNode.CreateComputeNodeUser][net_create_user] no .NET do Lote ou chamar o método [add_user][py_add_user] no módulo Python do Lote.
