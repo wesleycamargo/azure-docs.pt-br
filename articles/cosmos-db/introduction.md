@@ -27,7 +27,7 @@ ms.lasthandoff: 05/31/2017
 
 O Azure Cosmos DB é um banco de dados multimodelo, distribuído globalmente da Microsoft. Com o clique de um botão, o Azure Cosmos DB permite que você dimensione a taxa de transferência e o armazenamento de maneira elástica e independente em qualquer número de regiões geográficas do Azure. Ele oferece garantias de taxa de transferência, disponibilidade, latência e consistência com [SLAs](https://aka.ms/acdbsla) (contratos de nível de serviço) abrangentes, algo que nenhum outro serviço de banco de dados pode oferecer.
 
-![O Azure Cosmos DB é um serviço de banco de dados distribuído globalmente da Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
+![O Azure Cosmos DB é um serviço de banco de dados distribuído globalmente pela Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
 
 O Azure Cosmos DB contém um mecanismo de banco de dados otimizado para gravação, governado por recursos, independente de esquemas que dá suporte a vários modelos de dados de forma nativa: chave-valor, documentos, grafos e família de coluna. Ele também dá suporte a várias APIs para acessar dados incluindo [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [SQL do DocumentDB](../documentdb/documentdb-introduction.md), [Gremlin](graph-introduction.md) (versão prévia) e [Tabelas do Azure](table-introduction.md) (versão prévia), de forma extensível. 
 
@@ -37,7 +37,7 @@ O Azure Cosmos DB foi iniciado no final de 2010 para resolver pontos problemáti
 
 O Azure Cosmos DB fornece as melhores funcionalidades de bancos de dados relacionais e não relacionais.
 
-| Funcionalidades | BDs relacionais    | BDs não relacionais (NoSQL) |     Azure Cosmos DB |
+| Funcionalidades | BDs relacionais | BDs não relacionais (NoSQL) | Azure Cosmos DB |
 | --- | --- | --- | --- |
 | Distribuição global | x | x | ✓ Turnkey, mais de 30 regiões, hospedagem múltipla |
 | Escala horizontal | x | ✓  | ✓ Armazenamento e taxa de transferência com dimensionamento de maneira independente | 
@@ -67,7 +67,7 @@ Como um serviço de banco de dados distribuído globalmente, o Azure Cosmos DB f
 
 * [**Garantir disponibilidade "sempre ativa"**](#high-availability)
     * Disponibilidade de 99,99% em uma única região.
-    * Implante em qualquer número de [regiões do Azure](https://azure.microsoft.com/regions) para uma maior disponibilidade.
+    * Implante em qualquer número de [regiões do Azure](https://azure.microsoft.com/regions) para uma disponibilidade maior.
     * [Simule uma falha](regional-failover.md) de uma ou mais regiões com a garantia de nenhuma perda de dados. 
 
 * [**Escrever aplicativos distribuídos globalmente, da maneira correta**](#consistency)
@@ -171,7 +171,7 @@ Os bancos de dados relacionais e NoSQL forçam você a lidar com gerenciamento d
 <a id="tco"></a>
 ## <a name="low-cost-of-ownership"></a>Baixo custo de propriedade
 
- Quando todas as considerações de TCO (custo total de propriedade) forem levadas em conta, os serviços de nuvem gerenciados como Azure Cosmos DB pode ser de cinco a dez vezes mais econômicos que seus OSS equivalentes em execução localmente ou em máquinas virtuais. E o Azure Cosmos DB é até duas a três vezes mais barato do que o DynamoDB para cargas de trabalho de alto volume. Saiba mais no [White paper sobre TCO](https://aka.ms/documentdb-tco-paper). 
+ Quando todas as considerações de TCO (custo total de propriedade) forem levadas em conta, os serviços de nuvem gerenciados com o Azure Cosmos DB serão de cinco a dez vezes mais econômicos que seus OSS equivalentes em execução localmente ou em máquinas virtuais. Além disso, o Azure Cosmos DB é até duas a três vezes mais barato do que o DynamoDB para cargas de trabalho de alto volume. Saiba mais no [White paper sobre TCO](https://aka.ms/documentdb-tco-paper). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Comece no Azure Cosmos DB com um dos nossos guias de início rápido:
