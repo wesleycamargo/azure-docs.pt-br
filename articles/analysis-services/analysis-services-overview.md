@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 89c19e9b64fc4e1fea68c717fd5f5e0e054ac10c
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -55,11 +55,9 @@ O Azure Analysis Services dá suporte a modelos tabulares nos níveis de compati
 ## <a name="data-sources"></a>Fontes de dados
 Modelos de dados implantados em servidores no suporte do Azure, conectando a fontes de dados locais na sua organização ou na nuvem. Combine dados de fontes de dados locais e na nuvem para uma solução de BI híbrida.
 
-![Fontes de dados](./media/analysis-services-overview/aas-overview-data-sources.png)
+Como o servidor está na nuvem, a conexão com as fontes de dados nela é perfeita. Ao se conectar a fontes de dados locais, o [Gateway de dados local](analysis-services-gateway.md) garante conexões rápidas e seguras com o servidor na nuvem.
 
-Como o servidor está na nuvem, a conexão com as fontes de dados nela é perfeita. Ao se conectar a fontes de dados locais, o [gateway de dados local](analysis-services-gateway.md) garante conexões rápidas e seguras com o servidor do Analysis Services na nuvem.
-
-\*Somente modelos Tabular 1400.
+Para saber mais sobre quais fontes de dados locais têm suporte, confira [Fontes de dados com suporte no Azure Analysis Services](analysis-services-datasource.md).
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Explorar seus dados de qualquer lugar

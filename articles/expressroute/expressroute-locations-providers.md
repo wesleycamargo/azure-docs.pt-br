@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
-ms.author: cherylmc
+ms.date: 05/24/2017
+ms.author: kaanan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: b72acb9c1d2b746bfdc3ac724b9c8760e0d4b257
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 597c0840f5b8bca3c19c644782d7cac20833ce1a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros da Rota Expressa
@@ -76,7 +76,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Chennai** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
-| **Denver** |CoreSite+ |
+| **Denver** |CoreSite |
 | **Dublim** |Colt, TeleCity Group |
 | **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Las Vegas** |Level 3 Communications+, Megaport+ |
@@ -86,8 +86,8 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Miami** |Megaport |
 | **Montreal** |Bell Canada, Cologix |
 | **Mumbai** |Airtel+, Tata Communications |
-| **Newport (País de Gales)** |Dados da Próxima Geração |
 | **Nova Iorque** |Coresite, Equinix, Megaport, Zayo Group |
+| **Newport (País de Gales)** |Dados da Próxima Geração |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Paris** |Interxion, Equinix |
 | **Cidade de Quebec** | Megaport |
@@ -129,7 +129,7 @@ Para saber mais, consulte [Rota Expressa na China](http://www.windowsazure.cn/ho
 | **Berlim** |Colt+, e-shelter, Megaport+ |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
-## <a name="c1partners"></a>Conectividade por meio de provedores de serviços não listados
+## <a name="c1partners"></a>Conectividade por meio de outros provedores do Exchange
 Se seu provedor de conectividade não estiver listado em seções anteriores, você ainda pode criar uma conexão.
 
 * Verifique com seu provedor de conectividade para ver se eles estão conectados a qualquer um dos Exchanges na tabela acima. Você pode verificar os links a seguir para obter mais informações sobre os serviços oferecidos por provedores do Exchange. Vários provedores de conectividade já estão conectados a Exchanges de Ethernet.
@@ -145,6 +145,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 * Solicite um circuito da Rota Expressa com o Exchange como o provedor de conectividade para conectar-se à Microsoft.
   * Siga as etapas em [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md) para configurar a conectividade.
 
+## <a name="c1partners"></a>Conectividade por meio de provedores de serviço adicionais
 | **Localidade** | **Exchange** | **Provedores de conectividade** |
 | --- | --- | --- |
 | **Amsterdã** | Equinix, Telecity | Eurofiber , Fastweb S.p.A, Nianet |
@@ -155,7 +156,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 | **Los Angeles** | Equinix |Transtelco |
 | **Madrid** | Level3 | Zertia |
 | **Montreal** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers |
-| **Nova Iorque** |Equinix | Lightower |
+| **Nova Iorque** |Equinix, Megaport | Lightower, Webair |
 | **Seattle** |Equinix | Alaska Communications |
 | **Vale do Silício** |Equinix | Cox Business, Windstream |
 | **Cingapura** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |

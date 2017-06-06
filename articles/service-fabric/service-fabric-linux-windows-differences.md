@@ -15,25 +15,28 @@ ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: e2d21b28c482427c60f708171336e6901b50e544
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Diferenças entre o Service Fabric no Linux (visualização) e no Windows (geralmente disponível)
 
-Como o Service Fabric no Linux é uma visualização, há alguns recursos que têm suporte no Windows, mas ainda não têm no Linux. Eventualmente, os conjuntos de recursos serão iguais quando o Service Fabric ficar disponível no Linux.
+Como o Service Fabric no Linux é uma visualização, há alguns recursos que têm suporte no Windows, mas ainda não têm no Linux. Eventualmente, os conjuntos de recursos serão iguais quando o Service Fabric ficar disponível no Linux. Nas futuras versões, esse intervalo de recursos será reduzido. Existem as seguintes diferenças entre as versões mais recentes disponíveis (ou seja, entre a versão 5.6 para Windows e a versão 5.5 no Linux): 
 
-* Não há suporte para Coleções Confiáveis (e os Serviços Confiáveis com Estado) no Linux.
-* O ReverseProxy não está disponível no Linux.
-* O instalador autônomo não está disponível no Linux.
-* A validação de esquema XML para arquivos de manifesto não é executada no Linux. 
-* O redirecionamento de console não tem suporte no Linux. 
-* O Serviço de Análise de Falha (FAS) não está disponível no Linux.
-* O suporte do Azure Active Directory não está disponível no Linux.
-* Alguns equivalentes de comando de CLI do Powershell não estão disponíveis.
+* Coleções Confiáveis (e Serviços Confiáveis com Estado) 
+* ReverseProxy 
+* Instalador autônomo 
+* Validação do esquema XML para os arquivos de manifesto 
+* Redirecionamento do console 
+* Serviço de Análise de Falha (FAS)
+* Docker Compose, volume e drivers de log para contêineres 
+* Governança de recursos para contêineres e serviços 
+* Serviço DNS
+* Suporte ao Azure Active Directory
+* Equivalentes de comando da CLI de certos comandos do Powershell 
 * Somente um subconjunto de comandos do Powershell pode ser executado em um cluster do Linux (como explicado na próxima seção).
 
 >[!NOTE]

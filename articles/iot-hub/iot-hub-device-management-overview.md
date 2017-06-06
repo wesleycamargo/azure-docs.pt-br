@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: briz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -64,7 +65,7 @@ Em cada um desses cinco estágios, existem vários requisitos de operador de dis
     *Leitura adicional*: [Usar métodos diretos][lnk-c2d-methods], [Invocar um método direto em um dispositivo][lnk-methods-devguide], [Como usar propriedades gêmeo de dispositivo][lnk-twin-properties], [Agendar e difundir trabalhos][lnk-jobs], [Agendar trabalhos em vários dispositivos][lnk-jobs-devguide].
 * **Monitor**: monitorar a integridade geral da coleção de dispositivos, o status das operações em andamento e alertar os operadores para problemas que podem exigir a atenção.  Aplique o twin de dispositivo para permitir que dispositivos relatem condições operacionais em tempo real e o status de operações de atualização. Crie poderosos relatórios de painel que indicam os problemas mais imediatos por meio de consultas ao twin de dispositivo.
   
-    *Leitura adicional*: [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties], [Linguagem de consulta de Hub IoT para gêmeos de dispositivo e trabalhos][lnk-query-language].
+    *Leitura adicional*: [como usar as propriedades do dispositivo gêmeo][lnk-twin-properties], [Linguagem de consulta de Hub IoT para dispositivo gêmeo, trabalhos e roteamento de mensagens][lnk-query-language].
 * **Desativação**: substitua ou encerre os dispositivos após uma falha, ciclo de atualização ou ao final da vida útil do serviço.  Use o gêmeo de dispositivo para manter informações sobre o dispositivo, se o dispositivo físico está sendo substituído ou arquivado ou se está sendo desativado. Use o Registro do Hub IoT para revogar com segurança as credenciais e identidades de dispositivos.
   
     *Leitura adicional*: [Como usar as propriedades de dispositivo gêmeo][lnk-twin-properties], [Gerenciar identidades de dispositivo][lnk-identity-registry].

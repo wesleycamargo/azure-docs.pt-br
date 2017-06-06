@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 05/30/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 14a5da0430b4eaaa61ef875e59454e2b6d88de91
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: aa27689f564aedf61174fecaae76b5bf60951482
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -160,7 +161,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento. Al�
 
 **P.** Ao usar várias extensões em um conjunto de dimensionamento, posso impor uma sequência de execução?
 
-**A.** Não diretamente, mas para a extensão de customScript, o script poderia aguardar por outra extensão ser concluída ([por exemplo, monitorando o log de extensão](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Encontre orientações adicionais sobre o sequenciamento de extensão nesta postagem de blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Sequenciamento de extensão em conjuntos de dimensionamento de VMs do Azure).
+**A.** Não diretamente, mas para a extensão de customScript, o script poderia aguardar por outra extensão ser concluída. Encontre orientações adicionais sobre o sequenciamento de extensão nesta postagem de blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Sequenciamento de extensão em conjuntos de dimensionamento de VMs do Azure).
 
 **P.** Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
 

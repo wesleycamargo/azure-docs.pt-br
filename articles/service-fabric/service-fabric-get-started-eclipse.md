@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/03/2016
 ms.author: saysa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: c50c77b3288bc0a2d9148d04c6fc45aa24882ebb
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 9cc621380a6b22a6b1da617d76c56e4773bb3dde
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,7 +37,8 @@ Você pode instalar um plug-in do Service Fabric no Eclipse. O plug-in pode ajud
 2.  Para instalar o plug-in do Service Fabric, no Eclipse Neon, acesse **Ajuda** > **Instalar Novo Software**.
   1.    Na caixa de texto **Trabalhar com**, digite: **http://dl.microsoft.com/eclipse**.
   2.    Clique em **Adicionar**.
-    ![Plug-in do Service Fabric para Eclipse Neon][sf-eclipse-plugin-install]
+
+         ![Plug-in do Service Fabric para Eclipse Neon][sf-eclipse-plugin-install] 
   3.    Selecione o plug-in do Service Fabric e clique em **Avançar**.
   4.    Conclua as etapas de instalação e aceite os Termos de Licença de Software da Microsoft.
 
@@ -149,7 +150,7 @@ A atualização do aplicativo leva alguns minutos. Você pode monitorar a atuali
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 63b6086b7bab5cb61ed6f4a229afd1ffa44cc31e
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 
 A [solução pré-configurada][lnk-preconfigured-solutions] de fábrica conectada do IoT Suite é uma implementação de uma solução industrial de ponta a ponta que:
 
-* Conecta-se a dispositivos industriais simulados que executam servidores OPC UA em linhas de produção de fábrica simuladas e a dispositivos de servidor OPC UA reais.
+* Conecta-se a dispositivos industriais simulados que executam servidores OPC UA em linhas de produção de fábrica simuladas e a dispositivos de servidor OPC UA reais. Para saber mais informações sobre UA OPC, confira as [Perguntas Frequentes][lnk-faq].
 * Mostra KPIs operacionais e OEE desses dispositivos e de linhas de produção.
 * Demonstra como um aplicativo baseado em nuvem pode ser usado para interagir com sistemas de servidor UA OPC.
 * Permite que você conecte seus próprios dispositivos de servidor OPC UA.
@@ -132,3 +132,4 @@ Você pode continuar a introdução ao IoT Suite lendo os seguintes artigos:
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-faq]: iot-suite-faq.md
