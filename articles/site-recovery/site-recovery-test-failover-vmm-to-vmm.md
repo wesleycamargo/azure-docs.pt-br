@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b1a5b2879a7b98ec4ad3e8ebbc9e95c0740d89f
 ms.openlocfilehash: 3aaa005319b1ce2a10cd913c63b31860d31b797e
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/23/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 02/23/2017
 > * [Failover de teste (VMM para VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
 
 
-Este artigo fornece informações e instruções sobre como fazer um failover de teste ou uma simulação de recuperação de desastre de máquinas virtuais e servidores físicos protegidos com o Site Recovery usando um site local gerenciado por VMM como o local de recuperação. 
+Este artigo fornece informações e instruções sobre como fazer um failover de teste ou uma simulação de recuperação de desastre de máquinas virtuais e servidores físicos protegidos com o Site Recovery usando um site local gerenciado por VMM como o local de recuperação.
 
 Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -49,7 +50,7 @@ O failover de teste é executado para validar sua estratégia de replicação ou
 Se as máquinas virtuais envolvidas no failover de teste usarem DHCP, um servidor DHCP de teste deverá ser criado na rede isolada que é criada para fins de failover de teste.
 
 ### <a name="prepare-active-directory"></a>Preparar o Active Directory
-Para executar um failover de teste em um teste de aplicativo, você precisará de uma cópia do ambiente de produção do Active Directory no ambiente de teste. Leia a seção [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obter mais detalhes. 
+Para executar um failover de teste em um teste de aplicativo, você precisará de uma cópia do ambiente de produção do Active Directory no ambiente de teste. Leia a seção [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obter mais detalhes.
 
 ### <a name="prepare-dns"></a>Preparar o DNS
 Prepare um servidor DNS para o failover de teste da seguinte forma:
@@ -76,9 +77,9 @@ Este procedimento descreve como executar um failover de teste para um plano de r
 
 1. Selecione **Planos de Recuperação** > *recoveryplan_name*. Clique em **Failover** > **Test Failover**.
 1. Na folha **Failover de Teste** , especifique como as máquinas virtuais devem ser conectadas às redes após o failover de teste. Examine as [opções de rede](#network-options-in-site-recovery) para obter mais detalhes.
-1. Acompanhe o progresso do failover na guia **Trabalhos** . 
+1. Acompanhe o progresso do failover na guia **Trabalhos** .
 1. Depois de concluído, verifique se as máquinas virtuais iniciam com sucesso.
-1. Quando terminar, clique em **Failover de teste de limpeza** no plano de recuperação. Em **Observações** , registre e salve todas as observações associadas ao failover de teste. Isso excluirá as máquinas e redes virtuais que foram criadas durante o failover de teste. 
+1. Quando terminar, clique em **Failover de teste de limpeza** no plano de recuperação. Em **Observações** , registre e salve todas as observações associadas ao failover de teste. Isso excluirá as máquinas e redes virtuais que foram criadas durante o failover de teste.
 
 
 ## <a name="network-options-in-site-recovery"></a>Opções de rede na recuperação de site
@@ -97,10 +98,10 @@ Na execução de um failover de teste, é solicitado que você selecione as conf
 >
 
 
-## <a name="test-failover-to-a-production-network-on-recovery-site"></a>Failover de teste para uma rede de produção no site de recuperação 
+## <a name="test-failover-to-a-production-network-on-recovery-site"></a>Failover de teste para uma rede de produção no site de recuperação
 Recomendamos que, ao fazer um failover de teste, você escolha uma rede diferente da rede do site de recuperação de produção fornecida no **Mapeamento de rede**. Mas se você realmente deseja validar a conectividade de rede ponta a ponta em uma falha na máquina virtual, observe os seguintes pontos:
 
-1. Verifique se máquina virtual primária está desligada quando você estiver realizando o failover de teste. Se você não fizer isso, existirão duas máquinas virtuais com a mesma identidade em execução na mesma rede ao mesmo tempo, e isso pode levar a consequências indesejadas. 
+1. Verifique se máquina virtual primária está desligada quando você estiver realizando o failover de teste. Se você não fizer isso, existirão duas máquinas virtuais com a mesma identidade em execução na mesma rede ao mesmo tempo, e isso pode levar a consequências indesejadas.
 1. As alterações feitas nas máquinas virtuais de failover de teste são perdidas quando elas são limpas. Essas alterações não serão replicadas para a máquina virtual primária.
 1. Essa forma de teste resulta em um tempo de inatividade do seu aplicativo de produção. Os usuários do aplicativo devem ser solicitados a não usar o aplicativo quando a análise de DR está em andamento.  
 
