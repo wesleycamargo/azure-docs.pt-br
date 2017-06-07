@@ -29,6 +29,10 @@ Este script de exemplo cria um aplicativo Web no serviço de aplicativo com seus
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>Script de exemplo
 
 [!code-azurecli-interactive[principal](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Mapear um domínio personalizado para um aplicativo Web")]

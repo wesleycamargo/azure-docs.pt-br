@@ -30,6 +30,10 @@ Nesse cenário, você aprenderá a criar um grupo de recursos, o aplicativo Web 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>Script de exemplo
 
 [!code-azurecli-interactive[principal](../../../cli_scripts/app-service/scale-manual/scale-manual.sh "Escala manual")]

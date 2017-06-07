@@ -3,7 +3,7 @@ title: "Dimensionar um serviço de nuvem do Azure no Windows PowerShell | Micros
 description: "(clássico) Aprenda a usar o PowerShell para escalar ou reduzir horizontalmente uma função Web ou função de trabalho no Azure."
 services: cloud-services
 documentationcenter: 
-author: seanmck
+author: mmccrory
 manager: timlt
 editor: 
 ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
-ms.author: seanmck
-translationtype: Human Translation
+ms.author: mmccrory
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4acea8e7f4714754e6b3e54e9aaa622219ca9f7f
 ms.openlocfilehash: f16d981a0dc33295c1981d9c282beb1d3243d9ef
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/03/2016
 
 
 ---
@@ -79,9 +81,4 @@ Você pode reduzir horizontalmente uma função removendo instâncias da mesma m
 ## <a name="next-steps"></a>Próximas etapas
 
 Não é possível configurar o dimensionamento automático para serviços de nuvem do PowerShell. Para fazer isso, veja [Como dimensionar automaticamente um serviço de nuvem](cloud-services-how-to-scale-portal.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 6/06/2017
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
 ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/10/2016
 
 
 ---
@@ -54,7 +56,7 @@ Se já existir um perfil de log, primeiro remova esse perfil.
 3. Use `Set-AzureRmLogProfile` para criar um perfil:
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este formato: {ID de recurso do barramento de serviço} /authorizationrules/ {nome da chave}, por exemplo 
@@ -79,10 +81,5 @@ A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este for
 * [Arquivar o Log de Atividades em uma conta de armazenamento](monitoring-archive-activity-log.md)
 * [Leia a visão geral do Log de Atividades do Azure](monitoring-overview-activity-logs.md)
 * [Configurar um alerta com base em um evento do Log de Atividades](insights-auditlog-to-webhook-email.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

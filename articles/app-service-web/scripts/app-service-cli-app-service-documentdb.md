@@ -30,6 +30,10 @@ Neste cenário, você aprenderá a criar uma conta do BD Cosmos do Azure e um ap
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>Script de exemplo
 
 [!code-azurecli-interactive[principal](../../../cli_scripts/app-service/connect-to-documentdb/connect-to-documentdb.sh "BD Cosmos do Azure")]
