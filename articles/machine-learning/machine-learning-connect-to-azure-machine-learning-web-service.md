@@ -12,11 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 06/02/2017
 ms.author: garye
-translationtype: Human Translation
+ROBOTS: NOINDEX
+redirect_url: /azure/machine-learning/machine-learning-consume-web-services
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
 ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
+ms.contentlocale: pt-br
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -76,7 +81,7 @@ Para recuperar a chave de API para um serviço Web clássico do Machine Learning
 4. Clique em um serviço Web.
 5. Clique em um ponto de extremidade. A “CHAVE DE API” está mais abaixo na parte inferior direita.
 
-## <a name="a-idconnectaconnect-to-a-machine-learning-web-service"></a><a id="connect"></a>Conectar-se a um serviço Web do Machine Learning
+## <a id="connect"></a>Conectar-se a um serviço Web do Machine Learning
 Você pode se conectar a um serviço Web do Machine Learning usando qualquer linguagem de programação que dá suporte à resposta e à solicitação HTTP. Você pode exibir exemplos em C#, Python e R de uma página de ajuda do serviço Web do Machine Learning.
 
 **Ajuda da API do Machine Learning** Uma ajuda de API do Machine Learning é criada quando você implanta um serviço Web. Confira [Passo a passo do Aprendizado de Máquina do Azure – Implantar serviço Web](machine-learning-walkthrough-5-publish-web-service.md).
@@ -123,10 +128,5 @@ Para se conectar a um serviço Web do Machine Learning, use a biblioteca **urlli
 1. Implante o experimento "Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2", parte da coleção de exemplos de Aprendizado de Máquina.
 2. Atribua apiKey com a chave de um serviço Web. Consulte a seção **Obter uma chave de autorização do Azure Machine Learning** perto do início deste artigo.
 3. Atribua serviceUri com o URI de solicitação.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
