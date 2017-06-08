@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 06/07/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 0cb1b04bcfab1f1864ae0ce867be02a8bf8c827c
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/12/2017
 
 
@@ -80,12 +81,12 @@ Veja a seguir uma descrição detalhada de como funciona a sincronização de se
 
 1. A cada dois minutos, o agente de sincronização de senha no servidor do AD Connect solicita hashes de senha armazenados (o atributo unicodePwd) de um controlador de domínio por meio do protocolo de replicação padrão [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) usado para sincronizar dados entre controladores de domínio. A conta do serviço deve ter as permissões do AD Replicar Alterações de Diretório e Replicar Todas as Alterações de Diretório (concedidas por padrão na instalação) para obter os hashes de senha.
 2. Antes de enviar, o controlador de domínio criptografa o hash de senha MD4 usando uma chave que é um hash [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) da chave de sessão RPC e um valor de sal. Em seguida, ele envia o resultado para o agente de sincronização de senha por RPC. O controlador de domínio também passa o sal para o agente de sincronização usando o protocolo de replicação do controlador de domínio, para que o agente possa descriptografar o envelope.
-3.    Depois que o agente de sincronização de senha tiver o envelope criptografado, ele usará [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) e o sal para gerar uma chave para descriptografar os dados recebidos de volta para seu formato original de MD4. Em nenhum momento, o agente de sincronização de senha tem acesso à senha de texto não criptografado. Uso que o agente de sincronização de senha faz do MD5 é estritamente para compatibilidade de protocolo de replicação com o controlador de domínio, e é usado somente no local entre o controlador de domínio e o agente de sincronização de senha.
-4.    O agente de sincronização de senha expande o hash de senha binária de 16 bits para 64 bytes convertendo primeiro o hash em uma cadeia hexadecimal de 32 bytes, depois convertendo essa cadeia de caracteres de volta para o binário com a codificação UTF-16.
-5.    O agente de sincronização de senha adiciona um sal, composto por um sal de 10 bytes, para o binário de 64 bits a fim de proteger ainda mais o hash original.
-6.    Depois, o agente de sincronização de senha combina o hash MD4 e o sal com entradas na função [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Um total de 1000 iterações do algoritmo de hash com chave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) é usado. 
-7.    O agente de sincronização de senha usa o hash resultante de 32 bytes, concatena o sal e o número de iterações SHA256 a ele (para ser usado pelo Azure AD) e transmite a cadeia de caracteres do Azure AD Connect para o Azure AD por SSL.</br> 
-8.    Quando um usuário tenta entrar no Azure AD e insere sua senha, a senha é executada por meio do mesmo processo de MD4 + sal + PBKDF2 + HMAC-SHA256. Se o hash resultante corresponder ao hash armazenado no Azure AD, isso significa que o usuário digitou a senha correta e será autenticado. 
+3.  Depois que o agente de sincronização de senha tiver o envelope criptografado, ele usará [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) e o sal para gerar uma chave para descriptografar os dados recebidos de volta para seu formato original de MD4. Em nenhum momento, o agente de sincronização de senha tem acesso à senha de texto não criptografado. Uso que o agente de sincronização de senha faz do MD5 é estritamente para compatibilidade de protocolo de replicação com o controlador de domínio, e é usado somente no local entre o controlador de domínio e o agente de sincronização de senha.
+4.  O agente de sincronização de senha expande o hash de senha binária de 16 bits para 64 bytes convertendo primeiro o hash em uma cadeia hexadecimal de 32 bytes, depois convertendo essa cadeia de caracteres de volta para o binário com a codificação UTF-16.
+5.  O agente de sincronização de senha adiciona um sal, composto por um sal de 10 bytes, para o binário de 64 bits a fim de proteger ainda mais o hash original.
+6.  Depois, o agente de sincronização de senha combina o hash MD4 e o sal com entradas na função [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Um total de 1000 iterações do algoritmo de hash com chave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) é usado. 
+7.  O agente de sincronização de senha usa o hash resultante de 32 bytes, concatena o sal e o número de iterações SHA256 a ele (para ser usado pelo Azure AD) e transmite a cadeia de caracteres do Azure AD Connect para o Azure AD por SSL.</br> 
+8.  Quando um usuário tenta entrar no Azure AD e insere sua senha, a senha é executada por meio do mesmo processo de MD4 + sal + PBKDF2 + HMAC-SHA256. Se o hash resultante corresponder ao hash armazenado no Azure AD, isso significa que o usuário digitou a senha correta e será autenticado. 
 
 >[!Note] 
 >O hash MD4 original não é transmitido para o Azure AD. Em vez disso, o hash SHA256 do hash MD4 original é transmitido. Como resultado, se o hash armazenado no Azure AD for obtido, ele não poderá ser usada em um ataque de passagem de hash no local.

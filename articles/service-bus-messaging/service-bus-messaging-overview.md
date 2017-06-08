@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 05/25/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
-ms.openlocfilehash: 16afaa32ebbf2723a6dc5eea8e668b7fc971b43e
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3a4382979dd6e18c0e94b4a989bb8289882eeb89
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +32,7 @@ O remetente da mensagem também pode exigir várias características de entrega,
 O Barramento de Serviço dá suporte a dois padrões distintos de sistema de mensagens: *Retransmissão do Azure* e *Sistema de Mensagens do Barramento de Serviço*.
 
 ## <a name="azure-relay"></a>Retransmissão do Azure
-O componente do Service Bus [Retransmissão do WCF](../service-bus-relay/service-bus-relay-overview.md) é um serviço centralizado (mas altamente balanceado por carga) que dá suporte a uma variedade de diferentes protocolos de transporte e padrões de serviços Web. Isso inclui SOAP, WS-* e até REST. O [serviço de retransmissão](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) fornece uma variedade de diferentes opções de conectividade de retransmissão e pode ajudar a negociar conexões diretas ponto a ponto quando é possível. O Barramento de Serviço foi otimizado para desenvolvedores de .NET que usam o WCF (Windows Communication Foundation), tanto em relação ao desempenho quanto à usabilidade, além de fornecer acesso completo ao respectivo serviço de retransmissão por meio de interfaces REST e SOAP. Isso possibilita que qualquer ambiente de programação SOAP ou REST integre-se ao Barramento de Serviço.
+O componente [Retransmissão do WCF](../service-bus-relay/relay-what-is-it.md) da Retransmissão do Azure é um serviço centralizado (mas altamente balanceado por carga) que dá suporte a uma variedade de diferentes protocolos de transporte e padrões de serviços Web. Isso inclui SOAP, WS-* e até REST. O [serviço de retransmissão](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) fornece uma variedade de diferentes opções de conectividade de retransmissão e pode ajudar a negociar conexões diretas ponto a ponto quando é possível. O Barramento de Serviço foi otimizado para desenvolvedores de .NET que usam o WCF (Windows Communication Foundation), tanto em relação ao desempenho quanto à usabilidade, além de fornecer acesso completo ao respectivo serviço de retransmissão por meio de interfaces REST e SOAP. Isso possibilita que qualquer ambiente de programação SOAP ou REST integre-se ao Barramento de Serviço.
 
 O serviço de retransmissão oferece suporte às mensagens unidirecionais tradicionais, mensagens de solicitação/resposta e mensagens ponto a ponto. Ele também oferece suporte à distribuição de eventos no escopo da Internet para habilitar cenários de publicação/assinatura e a comunicação de soquete bidirecional para maior eficiência ponto a ponto. No padrão do sistema de mensagens de retransmissão, um serviço local conecta-se ao serviço de retransmissão por meio de uma porta de saída e cria um soquete bidirecional para comunicação ligado a um endereço específico de reunião. Em seguida, o cliente pode se comunicar com o serviço local enviando mensagens para o serviço de retransmissão direcionando o endereço de reunião. O serviço de retransmissão "retransmitirá" as mensagens ao serviço local por meio do soquete bidirecional já instalado. O cliente não precisa de uma conexão direta com o serviço local, não precisa saber onde reside o serviço e o serviço local não precisa de nenhuma porta de entrada aberta no firewall.
 
@@ -47,7 +48,7 @@ Os principais componentes da infraestrutura do sistema de mensagens agenciado do
 Assim como na infraestrutura de Retransmissão do WCF, o recurso do sistema de mensagens agenciado é fornecido para programadores do .NET Framework e WCF, e também via REST.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o Sistema de Mensagens do Barramento de Serviço, confira os tópicos a seguir.
+Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
 
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)

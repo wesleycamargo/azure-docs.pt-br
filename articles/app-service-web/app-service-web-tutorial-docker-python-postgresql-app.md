@@ -37,6 +37,8 @@ Antes de executar este exemplo, instale localmente os seguintes pré-requisitos:
 1. [Baixe e instale o Docker Community Edition](https://www.docker.com/community-edition)
 1. [Baixe e instale o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Testar a instalação do PostgreSQL local e criar um banco de dados
@@ -120,7 +122,7 @@ Nesta etapa, você cria um banco de dados PostgreSQL no Azure. Quando seu aplica
 
 Agora, você usará a CLI do Azure 2.0 em uma janela do terminal para criar os recursos necessários para hospedar o aplicativo Python no Serviço de Aplicativo do Azure.  Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#login) e siga as instruções na tela. 
 
-```azurecli 
+```azurecli-interactive 
 az login 
 ``` 
    
@@ -130,7 +132,7 @@ Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md
 
 O exemplo a seguir cria um grupo de recursos na região Oeste dos EUA:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location "West US"
 ```
 
@@ -142,7 +144,7 @@ Crie um servidor PostgreSQL com o comando [az postgres server create](/cli/azure
 
 No seguinte comando, substitua por seu próprio nome do servidor PostgreSQL exclusivo quando vir o espaço reservado `<postgresql_name>`. Esse nome exclusivo é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure. 
 
-```azurecli
+```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <my_admin_username>
 ```
 
@@ -178,7 +180,7 @@ Quando o servidor PostgreSQL do Banco de Dados do Azure for criado, a CLI do Azu
 
 Antes que possamos acessar o banco de dados, precisamos permitir que ele seja alcançado por todos os endereços IP. Isso pode ser feito usando o seguinte comando da CLI do Azure:
 
-```azurecli
+```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
 ```
 
@@ -288,7 +290,7 @@ Nesta etapa, você carrega o contêiner do Docker que criamos em um registro de 
 
 No seguinte comando para criar um registro de contêiner, substitua `<registry_name>` por um nome de Registro de Contêiner do Azure exclusivo de sua escolha.
 
-```azurecli
+```azurecli-interactive
 az acr create --name <registry_name> --resource-group myResourceGroup --location "West US" --sku Basic
 ```
 
@@ -318,7 +320,7 @@ Saída
 
 Primeiro, precisamos habilitar o modo admin antes que possamos acessar as credenciais.
 
-```azurecli
+```azurecli-interactive
 az acr update --name <registry_name> --admin-enabled true
 az acr credential show -n <registry_name>
 ```
@@ -359,7 +361,7 @@ Criar um plano do Serviço de Aplicativo com o comando [az appservice plan creat
 
 O exemplo a seguir cria um plano do Serviço de Aplicativo baseado em Linux chamado `myAppServicePlan` usando o tipo de preço S1:
 
-```azurecli
+```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
 
@@ -407,7 +409,7 @@ Agora que um plano do Serviço de Aplicativo foi criado, crie um aplicativo Web 
 
 No seguinte comando, substitua `<app_name>` espaço reservado com seu próprio nome de aplicativo exclusivo. O nome exclusivo será usado como a parte do nome de domínio padrão para o aplicativo Web, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. Posteriormente, você poderá mapear qualquer entrada DNS personalizada para o aplicativo Web antes de expor para seus usuários. 
 
-```azurecli
+```azurecli-interactive
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
@@ -439,7 +441,7 @@ No Serviço de Aplicativo, são definidas as variáveis de ambiente como _config
 
 O seguinte permite que você especifique os detalhes da conexão de banco de dados como configurações do aplicativo. Além disso, usamos a variável `PORT` para especificar que desejamos mapear a PORTA 5000 de nosso contêiner do Docker para receber tráfego HTTP na PORTA 80.
 
-```azurecli
+```azurecli-interactive
 az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
 ```
 
@@ -455,7 +457,7 @@ az appservice web config container update --resource-group myResourceGroup --nam
 
 Sempre que atualizarmos o contêiner do Docker ou alterarmos as configurações acima, reinicie o aplicativo para garantir que todas as configurações sejam aplicadas e que o último contêiner seja retirado do registro.
 
-```azurecli
+```azurecli-interactive
 az appservice web restart --resource-group myResourceGroup --name <app_name>
 ```
 

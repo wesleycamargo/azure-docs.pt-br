@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
@@ -59,7 +59,7 @@ Este procedimento descreve como executar um failover de teste para um plano de r
 
 
 > [!TIP]
-> O Site Recovery tenta criar máquinas virtuais de teste em uma sub-rede de mesmo nome e usando o mesmo IP fornecido nas configurações de **Computação e Rede** da máquina virtual. Se a sub-rede de mesmo nome não estiver disponível na rede virtual do Azure fornecida para failover de teste, então a máquina virtual de teste será criada na primeira sub-rede em ordem alfabética. Se o IP de destino fizer parte da sub-rede escolhida, o Site Recovery tentará criar a máquina virtual do failover de teste usando o IP de destino. Se o IP de destino não fizer parte da sub-rede escolhida, a máquina virtual do failover de teste será criada usando qualquer IP disponível na sub-rede escolhida. 
+> O Site Recovery tenta criar máquinas virtuais de teste em uma sub-rede de mesmo nome e usando o mesmo IP fornecido nas configurações de **Computação e Rede** da máquina virtual. Se a sub-rede de mesmo nome não estiver disponível na rede virtual do Azure fornecida para failover de teste, então a máquina virtual de teste será criada na primeira sub-rede em ordem alfabética. Se o IP de destino fizer parte da sub-rede escolhida, o Site Recovery tentará criar a máquina virtual do failover de teste usando o IP de destino. Se o IP de destino não fizer parte da sub-rede escolhida, a máquina virtual do failover de teste será criada usando qualquer IP disponível na sub-rede escolhida.
 >
 >
 

@@ -10,17 +10,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: quick start manage, mvc
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/24/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 82c8a34fcccb6d19dc82110a6d95a80d748835f0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,10 +29,13 @@ ms.lasthandoff: 04/20/2017
 
 O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para o Linux, macOS e Windows que oferece suporte às extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, Banco de Dados SQL do Azure e SQL Data Warehouse. Este início rápido demonstra como usar o Visual Studio Code para conectar um banco de dados SQL do Azure, então, usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir os dados no banco de dados.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
 - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+- [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
 Antes de começar, verifique se você instalou a versão mais recente do [Visual Studio Code](https://code.visualstudio.com/Download) e carregou a [extensão mssql](https://aka.ms/mssql-marketplace). Para obter orientações de instalação para a extensão mssql, consulte [Instalar o VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) e consulte [mssql para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
@@ -96,17 +100,15 @@ Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco
 
 4. Siga os prompts para especificar as propriedades de conexão para o novo perfil de conexão. Depois de especificar cada valor, pressione **ENTER** para continuar. 
 
-   A tabela a seguir descreve as propriedades do Perfil de Conexão.
-
-   | Configuração | Descrição |
-   |-----|-----|
-   | **Nome do servidor** | Insira seu nome do servidor totalmente qualificado, como **mynewserver20170313.database.windows.net** |
-   | **Nome do banco de dados** | Insira o nome do banco de dados, como **mySampleDatabase** |
-   | **Autenticação** | Selecione Logon do SQL |
-   | **Nome de usuário** | Insira a conta do administrador do servidor |
-   | **Senha (Logon do SQL)** | Insira a senha para sua conta do administrador do servidor | 
-   | **Salvar a Senha?** | Selecione **Sim** ou **Não** |
-   | **[Opcional] Insira um nome para este perfil** | Insira um nome de perfil de conexão, como **mySampleDatabase**. 
+   | Configuração       | Valor sugerido | Descrição |
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Nome do servidor | O nome do servidor totalmente qualificado | O nome deve ser semelhante como: **mynewserver20170313.database.windows.net**. |
+   | **Nome do banco de dados** | mySampleDatabase | O nome do banco de dados ao qual conectar. |
+   | **Autenticação** | Logon do SQL| A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
+   | **Nome de usuário** | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
+   | **Senha (Logon do SQL)** | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
+   | **Salvar a Senha?** | Sim ou não | Selecione Sim se não quiser inserir a senha toda vez. |
+   | **Insira um nome para este perfil** | Um nome do perfil, como **mySampleDatabase** | Um nome do perfil salvo acelera sua conexão nos logons subsequentes. | 
 
 5. Pressione a tecla **ESC** para fechar a mensagem de informações que informa que o perfil foi criado e está conectado.
 

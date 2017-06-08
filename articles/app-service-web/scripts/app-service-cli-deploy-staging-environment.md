@@ -30,6 +30,10 @@ Este script de exemplo cria um aplicativo Web no serviço de aplicativo com um s
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>Script de exemplo
 
 [!code-azurecli-interactive[principal](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Criar um aplicativo web e implantar o código em um ambiente de preparo")]

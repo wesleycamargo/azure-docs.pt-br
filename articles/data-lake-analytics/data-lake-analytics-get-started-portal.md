@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 278c5d4d6bf3b356b51ccb878285a7e35cc3a810
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: eb85d8ef6b29605d7e26b0d2139a4a95c35141fb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,110 +27,57 @@ ms.lasthandoff: 05/25/2017
 
 Saiba como usar o portal do Azure para criar contas do Azure Data Lake Analytics, definir trabalhos no [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos ao serviço do Data Lake Analytics. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 
-Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores separados por tabulação) e o converte em um arquivo CSV (valores separados por vírgulas). Para acompanhar o mesmo tutorial usando outras ferramentas compatíveis, clique nas guias na parte superior desta seção. Após a conclusão bem-sucedida de seu primeiro trabalho, você pode começar a escrever transformações de dados mais complexas com U-SQL.
-
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, você deve ter os seguintes itens:
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Antes de começar este tutorial, você deve ter uma **assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-data-lake-analytics-account"></a>Criar conta da Análise Data Lake
-Você deve ter uma conta da Análise Data Lake antes de executar trabalhos.
 
-Cada conta do Data Lake Analytics tem uma dependência da conta do Azure Data Lake Store.  Essa conta é conhecida como a conta padrão do Repositório Data Lake.  Você pode criar a conta do Repositório Data Lake antecipadamente ou ao criar sua conta da Análise Data Lake. Neste tutorial, você criará a conta do Repositório Data Lake com a conta da Análise Data Lake.
+Agora, você criará um Data Lake Analytics e uma conta Data Lake Store simultaneamente.  Esta etapa é simples e demora apenas 60 para concluir.
 
-**Criar uma conta do Data Lake Analytics**
-
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Clique em **Novo** >  **Intelligence + análise** > **Data Lake Analytics**.
-3. Digite os valores a seguir:
-
-    ![Folha do portal da Análise Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
-
+3. Selecione os valores para os seguintes itens:
    * **Nome**: Nome de sua conta do Data Lake Analytics (são permitidos somente letras minúsculas e números).
    * **Assinatura**: escolha a assinatura do Azure usada para a conta da Análise.
    * **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo.
    * **Local**. Selecione um datacenter do Azure para a conta da Análise Data Lake.
    * **Data Lake Store**: siga as instruções para criar uma nova conta do Data Lake Store ou selecione uma existente. 
-4. Selecione seu Tipo de Preço  
-5. Clique em **Criar**. Você volta à tela inicial do portal, onde é exibido um novo bloco, mostrando "Implantando o Azure Data Lake Analytics". O processo de implantação levará alguns minutos para criar uma conta do Data Lake Analytics. Após a criação da conta, o portal abrirá a conta em uma nova folha.
-
-Após a criação de uma conta da Análise Data Lake, é possível adicionar outras contas do Repositório Data Lake e contas de Armazenamento do Azure. Para obter instruções, consulte [Gerenciar as fontes de dados da conta da Análise Data Lake](data-lake-analytics-manage-use-portal.md).
-
-## <a name="prepare-source-data"></a>Preparar dados de origem
-Neste tutorial, você processará logs de pesquisa.  O log de pesquisa pode ser armazenado no Repositório Data Lake ou no Armazenamento de Blob do Azure.
-
-O portal do Azure fornece uma interface do usuário para copiar arquivos de dados de exemplo para a conta padrão do Data Lake Store, o que inclui um arquivo de log de pesquisa.
-
-**Copiar arquivos de dados de exemplo**
-
-1. No [Portal do Azure](https://portal.azure.com), abra sua conta do Data Lake Analytics.  Confira [Gerenciar contas do Data Lake Analytics](data-lake-analytics-get-started-portal.md) para criar uma e abrir a conta no portal.
-2. Expanda o painel **Essentials**, em seguida, clique em **Explorar scripts de exemplo**. Isso abre outra folha denominada **Scripts de Exemplo** .
-
-    ![Script de exemplo do portal do Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
-3. Clique em **Dados de Exemplo Ausentes** para copiar os arquivos de dados de exemplo. Quando estiver pronto, o portal mostrará **Dados de exemplo atualizados com êxito**.
-4. Na folha da conta da Análise Data Lake, clique em **Gerenciador de Dados** na parte superior.
-
-    ![Botão gerenciador de dados da Análise Data Lake do Azure ](./media/data-lake-analytics-get-started-portal/data-lake-analytics-data-explorer-button.png)
-
-    Isso abre duas folhas. Uma é o **Gerenciador de Dados**e a outra é a conta padrão do Repositório Data Lake.
-5. Na folha da conta padrão do Data Lake Store, clique em **Exemplos** para expandir a pasta e clique em **Dados** para expandir a pasta. Você deverá ver os seguintes arquivos e pastas:
-
-   * AmbulanceData/
-   * AdsLog.tsv
-   * SearchLog.tsv
-   * version.txt
-   * WebLog.log
-
-     Neste tutorial, você usará o SearchLog.tsv.
-
-Na prática, você programará seus aplicativos para gravar os dados em uma conta de armazenamento vinculada ou carregará os dados. Para carregar os arquivos, consulte [Carregar dados no Data Lake Store](data-lake-analytics-manage-use-portal.md) ou [Carregar dados no armazenamento de Blobs](data-lake-analytics-manage-use-portal.md).
+4. Opcionalmente, selecione um tipo de preço para sua conta Data Lake Analytics.
+5. Clique em **Criar**. 
 
 ## <a name="create-and-submit-data-lake-analytics-jobs"></a>Criar e enviar trabalhos de Análise Data Lake
 Depois de preparar os dados de origem, você pode começar a desenvolver um script U-SQL.  
 
 **Para enviar um trabalho**
 
-1. Na folha da conta da Análise Data Lake no portal, clique em **Novo Trabalho**.
-
-    ![Botão novo trabalho da Análise Data Lake do Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
-
-    Se você não vir a folha, consulte [Abrir uma conta da Análise Data Lake no Portal](data-lake-analytics-manage-use-portal.md).
+1. Na conta Data Lake Analytics, clique em **Novo Trabalho**.
 2. Insira o **Nome do Trabalho**e o seguinte script U-SQL:
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
+```
+@searchlog =
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+    USING Extractors.Tsv();
 
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
+OUTPUT @searchlog   
+    TO "/Output/SearchLog-from-Data-Lake.csv"
+    USING Outputters.Csv();
+```
 
-    ![criar trabalhos de U-SQL da Análise Data Lake do Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job.png)
 
-    Este script U-SQL lê o arquivo de dados de origem usando **Extractors.Tsv()**, em seguida, cria um arquivo csv usando **Outputters.Csv()**.
+Este script U-SQL lê o arquivo de dados de origem usando **Extractors.Tsv()**, em seguida, cria um arquivo csv usando **Outputters.Csv()**.
 
-    Não modifique os dois caminhos, a menos que você copie o arquivo de origem para um local diferente.  O Data Lake Analytics criará a pasta de saída se ela não existir.  Nesse caso, estamos usando caminhos relativos e simples.  
-
-    É mais simples usar caminhos relativos para arquivos armazenados em contas padrão do Data Lake. Você também pode usar caminhos absolutos.  Por exemplo,
-
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-
-    Para obter mais informações sobre o U-SQL, consulte [Introdução à linguagem U-SQL do Azure Data Lake Analytics ](data-lake-analytics-u-sql-get-started.md) e [Referência da linguagem SQL-U](http://go.microsoft.com/fwlink/?LinkId=691348).
-
-1. Clique em **Enviar Trabalho** na parte superior.   
-2. Aguarde até que o status do trabalho seja alterado para **Êxito**. Você pode ver que o trabalho levou cerca de um minuto para ser concluído.
-3. No caso de falha do trabalho, consulte [Monitorar e solucionar problemas dos trabalhos do Data Lake Analytics ](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-4. Na parte inferior da folha, clique na guia **Saída** e, em seguida, clique em `SearchLog-from-Data-Lake.csv`. Você pode visualizar, baixar, renomear e excluir o arquivo de saída.
-
-    ![Propriedades do arquivo de saída do trabalho de Análise Data Lake do Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)
+1. Clique em **Enviar Trabalho**.   
+2. Aguarde até que o status do trabalho seja alterado para **Êxito**.
+3. Se o trabalho falhar, consulte [Monitorar e solucionar problemas dos trabalhos do Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+4. Clique na guia **Saída** e em `SearchLog-from-Data-Lake.csv`. 
 
 ## <a name="see-also"></a>Consulte também
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -84,7 +84,7 @@ O painel de solução permite que você gerencie a solução implantada. É uma 
 
 O painel exibe as seguintes informações:
 
-* Um painel **Lista de fábricas** que mostra o status, o local e a configuração atual de produção na solução. Quando você executa a solução pela primeira vez, há vários dispositivos simulados. A simulação de linha de produção é composta de três servidores OPC UA reais por linha de produção que executam tarefas simuladas e compartilham dados. 
+* Um painel **Lista de fábricas** que mostra o status, o local e a configuração atual de produção na solução. Quando você executa a solução pela primeira vez, há vários dispositivos simulados. A simulação de linha de produção é composta de três servidores OPC UA reais por linha de produção que executam tarefas simuladas e compartilham dados. Para saber mais informações sobre UA OPC, confira as [Perguntas Frequentes][lnk-faq].
 * Um **mapa** que exibe o local de cada dispositivo conectado à solução. A solução pode usar a API do Bing Maps para plotar informações no mapa. Se sua assinatura estiver habilitada para a API do Bing Maps Enterprise, esse recurso será usado automaticamente. Caso contrário, confira as [Perguntas frequentes][lnk-faq] para aprender a fazer o mapa dinâmico.
 * Um painel **Alertas** que exibe alertas gerados quando um valor KPI/OEE ou de telemetria excede um limite específico.
 * Um painel **Eficiência Geral de Equipamento** que mostra os valores OEE para toda a empresa ou a fábrica/produção linha/estação que você está exibindo. Esse valor é agregado da exibição de estação para o nível corporativo. A figura de OEE e seus elementos constituintes podem ser mais analisados.

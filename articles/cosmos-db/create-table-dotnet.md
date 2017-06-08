@@ -105,7 +105,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo app.config na próxima etapa.
 
-    ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-documentdb-dotnet-core/keys.png)
+    ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-table-dotnet/keys.png)
 
 2. No Visual Studio, abra o arquivo app.config. 
 
