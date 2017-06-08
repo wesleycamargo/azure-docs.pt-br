@@ -8,16 +8,18 @@ author: ddove
 editor: 
 ms.assetid: 62a349db-bebe-406f-a120-2f1986f2b286
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 540ef8379145b764d0926649095db57fddb27329
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -77,10 +79,5 @@ Um banco de dados chamado "sample_shard_2" e todos os objetos de esquema necess�
 **Importante**: use essa técnica apenas se tiver certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos acima não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código.  Se existirem linhas no intervalo que está sendo movido, a distribuição de dados real não corresponderá ao mapa do fragmento atualizado. Use a [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) para executar a operação nesses casos.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

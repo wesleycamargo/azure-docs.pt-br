@@ -9,16 +9,18 @@ editor:
 tags: 
 ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
 ms.openlocfilehash: 321b1630680f8bd4271f863b2cbe39be1a00cb89
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/23/2016
 
 
 ---
@@ -74,10 +76,5 @@ O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a e
 ## <a name="see-also"></a>Confira também
 * [Criar um Banco de Dados SQL com C#](sql-database-get-started-csharp.md)
 * [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
