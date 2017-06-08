@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start connect, mvc
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
@@ -73,7 +73,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
 6. Examine a cadeia de conexão completa do **JDBC**.
 
-    ![Cadeia de conexão JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)    
+    ![Cadeia de conexão JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)   
 
 ### <a name="create-maven-project"></a>**Criar projeto Maven**
 No terminal, crie um novo projeto Maven. 
@@ -295,7 +295,7 @@ public class App {
                         int count = prep.executeUpdate();
                         System.out.println("Deleted: " + count + " row(s)");
                 }
-        }        
+        }       
         catch (Exception e) {
                 e.printStackTrace();
         }
