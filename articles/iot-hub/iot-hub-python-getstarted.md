@@ -42,7 +42,7 @@ Para concluir este tutorial, você precisará do seguinte:
 * Uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 
 > [!NOTE]
-> Os pacotes *pip* para `azure-iothub-service-client` e `azure-iothub-device-client` atualmente estão disponíveis apenas para o sistema operacional Windows. Para Linux/Mac OS, confira as seções do Linux e Mac OS específicas na publicação [Preparação do seu ambiente de desenvolvimento para o Python] [ lnk-python-devbox].
+> Os pacotes *pip* para `azure-iothub-service-client` e `azure-iothub-device-client` atualmente estão disponíveis apenas para o sistema operacional Windows. Para Linux/Mac OS, confira as seções do Linux e Mac OS específicas na publicação [Preparação do seu ambiente de desenvolvimento para o Python][lnk-python-devbox].
 > 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
