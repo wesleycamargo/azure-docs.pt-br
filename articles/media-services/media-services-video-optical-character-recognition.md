@@ -57,7 +57,7 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de M�
         "Version":1.0, 
         "Options": 
         {
-            "AdvancedOutput":"true"
+            "AdvancedOutput":"true",
             "Language":"English", 
             "TimeInterval":"00:00:01.5",
             "TextOrientation":"Up",
