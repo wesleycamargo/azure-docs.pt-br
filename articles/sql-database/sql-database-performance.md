@@ -8,24 +8,25 @@ manager: jhubbard
 editor: monicar
 ms.assetid: a60b75ac-cf27-4d73-8322-ee4d4c448aa2
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 155e9ddb48c65ad1648e18eb306c9badc2cb27e8
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 071cc504cc4111e20391af86ffdc7819644ec434
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="sql-database-performance-insight"></a>Análise de Desempenho de Banco de Dados SQL
 O Banco de Dados SQL do Azure fornece ferramentas de desempenho para ajudá-lo a identificar e melhorar o desempenho dos bancos de dados, fornecendo recomendações e ações de ajuste inteligentes. 
 
-1. Navegue até seu banco de dados no [Portal do Azure](http://portal.azure.com) e clique em **Todas as configurações** > **Desempenho ** > **Visão geral** para abrir a página **Desempenho**. 
+1. Navegue até seu banco de dados no [Portal do Azure](http://portal.azure.com) e clique em **Todas as configurações** > **Desempenho** > **Visão geral** para abrir a página **Desempenho**. 
 2. Clique em **Recomendações** para abrir o [Assistente do Banco de Dados SQL](#sql-database-advisor), então clique em **Consultas** para abrir a [Análise de Desempenho de Consultas](#query-performance-insight).
    
     ![Exibir Desempenho](./media/sql-database-performance/entries.png)
@@ -56,6 +57,6 @@ Clicar no bloco **Visão geral** ou **Desempenho** levará você ao painel de de
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md)
-* [Quando um pool elástico deve ser usado?](sql-database-elastic-pool.md)
+* [Quando um pool elástico deve ser usado?](sql-database-elastic-pool-guidance.md)
 
 
