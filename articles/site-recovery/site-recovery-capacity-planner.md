@@ -69,7 +69,7 @@ Você pode executar a ferramenta em vários modos:
    * **IOPS total no armazenamento premium** é calculado de acordo com o tamanho da unidade de IOPS de 256.000 no total de contas de armazenamento premium.  Para o Planejador Rápido, o número é calculado com base em todos os discos de VMs de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado com base no número total de VMs mapeadas para as VMs premium do Azure (séries DS e GS) e na taxa diária de alteração dessas VMs.
    * **Número de servidores de configuração necessários** mostra quantos servidores de configuração são necessários para a implantação.
    * **Número de servidores em processo adicionais necessários** mostra se servidores em processo adicionais são necessários, além do servidor em processo em execução no servidor de configuração, por padrão.
-   * **Armazenamento adicional de&100;% na origem** mostra se o armazenamento adicional é necessário no local de origem.
+   * **Armazenamento adicional de 100% na origem** mostra se o armazenamento adicional é necessário no local de origem.
 
    ![Saída](./media/site-recovery-capacity-planner/output.png)
 
