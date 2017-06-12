@@ -40,7 +40,7 @@ Você pode recuperar os eventos de seu Log de Atividade usando o Portal do Azure
 >
 
 Exiba o vídeo de introdução do Log de Atividades a seguir.
-> [! VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 > 
 >
 

@@ -24,7 +24,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
    
     d. Para concluir a criação do ouvinte, clique em **Avançar** duas vezes e, em seguida, clique em **Concluir**. Não coloque o ouvinte ou o recurso online neste momento.
 
-3. <a name="congroup">Configurar o recurso de IP do grupo de disponibilidade</a>.
+3. <a name="congroup"></a>Configurar o recurso de IP do grupo de disponibilidade.
 
     a. Clique na guia **Recursos**e expanda o ponto de acesso para cliente que você acabou de criar.  
     O ponto de acesso para cliente está offline.

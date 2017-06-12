@@ -117,7 +117,7 @@ A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. 
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }
