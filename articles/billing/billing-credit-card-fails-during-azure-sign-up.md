@@ -14,11 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: cjiang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0c1ce4284bc058096387986c8706ddc7317ee724
 ms.openlocfilehash: c2fd2a8f9eac4ef4d6f67ed924c77daa86cb81a8
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -41,9 +43,4 @@ Após a inscrição, [gerencie suas informações de pagamento](billing-how-to-c
 
 ## <a name="need-more-help-contact-support"></a>Precisa de mais ajuda? Entre em contato com o suporte.
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
