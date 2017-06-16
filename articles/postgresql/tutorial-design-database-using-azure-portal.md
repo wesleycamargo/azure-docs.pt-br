@@ -5,12 +5,9 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: tutorial, mvc
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
@@ -45,11 +42,11 @@ Faça logon no [Portal do Azure](https://portal.azure.com).
 Um Banco de Dados do Azure para PostgreSQL é criado com um conjunto definido de recursos de [computação e armazenamento](./concepts-compute-unit-and-storage.md). O servidor é criado dentro de um [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
 Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreSQL:
-1.    Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
-2.    Selecione **Bancos de dados** na página **Novo** e selecione **Banco de Dados do Azure para PostgreSQL** na página **Bancos de dados**.
+1.  Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+2.  Selecione **Bancos de dados** na página **Novo** e selecione **Banco de Dados do Azure para PostgreSQL** na página **Bancos de dados**.
  ![Banco de Dados do Azure para PostgreSQL - Criar o banco de dados](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3.    Preencha o formulário de detalhes do novo servidor com as informações abaixo, conforme mostrado na imagem anterior:
+3.  Preencha o formulário de detalhes do novo servidor com as informações abaixo, conforme mostrado na imagem anterior:
     - Nome do servidor: **mypgserver-20170401** (o nome de um servidor é mapeado para o nome DNS e, portanto, deve ser globalmente exclusivo) 
     - Assinatura: Se tiver várias assinaturas, escolha a que for adequada na qual existe o recurso ou onde ele é cobrado.
     - Grupo de recursos: **myresourcegroup**
@@ -60,15 +57,15 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
   > [!IMPORTANT]
   > O logon de administrador do servidor e a senha que você especificar aqui são necessárias para fazer logon no servidor e em seus bancos de dados mais tarde neste início rápido. Lembre-se ou registre essas informações para o uso posterior.
 
-4.    Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo banco de dados. Para esse início rápido, selecione a camada **Basic**, **50 unidades de computação** e **50 GB** de armazenamento incluído.
+4.  Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo banco de dados. Para esse início rápido, selecione a camada **Basic**, **50 unidades de computação** e **50 GB** de armazenamento incluído.
  ![Banco de dados do Azure para PostgreSQL - escolha a camada de serviço](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
-5.    Clique em **OK**.
-6.    Clique em **Criar** para provisionar o servidor. O provisionamento demora alguns minutos.
+5.  Clique em **OK**.
+6.  Clique em **Criar** para provisionar o servidor. O provisionamento demora alguns minutos.
 
   > [!TIP]
   > Marque a opção **Fixar no painel** para permitir o controle fácil de suas implantações.
 
-7.    Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
+7.  Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
  ![Banco de Dados do Azure para PostgreSQL - Veja as notificações](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
    
   Por padrão, o banco de dados **postgres** é criado em seu servidor. O [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é um banco de dados padrão destinado a uso por usuários, utilitários e aplicativos de terceiros. 
@@ -77,16 +74,16 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 
 O serviço de Banco de Dados do Azure para PostgreSQL cria um firewall no nível do servidor. Esse firewall impede que os aplicativos e ferramentas externos se conectem ao servidor e aos bancos de dados no servidor, a menos que uma regra de firewall seja criada para abrir o firewall para endereços IP específicos. 
 
-1.    Após a implantação ser concluída, clique em **Todos os Recursos** no menu esquerdo e digite o nome **mypgserver-20170401**, para procurar o servidor recém-criado. Clique no nome do servidor listado nos resultados da pesquisa. A página **Visão geral** do servidor é aberta e oferece outras opções de configuração.
+1.  Após a implantação ser concluída, clique em **Todos os Recursos** no menu esquerdo e digite o nome **mypgserver-20170401**, para procurar o servidor recém-criado. Clique no nome do servidor listado nos resultados da pesquisa. A página **Visão geral** do servidor é aberta e oferece outras opções de configuração.
  
  ![Banco de Dados do Azure para PostgreSQL - Procure o servidor ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.    Na folha do servidor, selecione **Segurança de conexão**. 
-3.    Clique na caixa de texto em **Nome da regra,** e adicione uma nova regra de firewall para a lista de permissões de intervalo de IP para conectividade. Para este tutorial, vamos permitir todos os IPs digitando **Nome da regra = PermitirTodosIps**, **IP inicial = 0.0.0.0** e **IP final = 255.255.255.255** e, em seguida, clique em **Salvar**. Você pode definir uma regra de firewall que abranja um intervalo de IP aos quais você possa se conectar de sua rede.
+2.  Na folha do servidor, selecione **Segurança de conexão**. 
+3.  Clique na caixa de texto em **Nome da regra,** e adicione uma nova regra de firewall para a lista de permissões de intervalo de IP para conectividade. Para este tutorial, vamos permitir todos os IPs digitando **Nome da regra = PermitirTodosIps**, **IP inicial = 0.0.0.0** e **IP final = 255.255.255.255** e, em seguida, clique em **Salvar**. Você pode definir uma regra de firewall que abranja um intervalo de IP aos quais você possa se conectar de sua rede.
  
  ![Banco de Dados do Azure para PostgreSQL - Criar regra de firewall](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.    Clique em **Salvar** e, em seguida, clique no **X** para fechar a página de **Segurança de conexões**.
+4.  Clique em **Salvar** e, em seguida, clique no **X** para fechar a página de **Segurança de conexões**.
 
   > [!NOTE]
   > O servidor PostgreSQL do Azure se comunica pela porta 5432. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 5432 talvez não seja permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá conectar seu servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 5432.
@@ -184,16 +181,16 @@ SELECT * FROM inventory;
 ## <a name="restore-data-to-a-previous-point-in-time"></a>Restaurar dados para um ponto anterior no tempo
 Imagine que você excluiu acidentalmente essa tabela. Essa situação é algo do qual você não pode se recuperar facilmente. O Banco de Dados do Azure para PostgreSQL permite que você volte até qualquer ponto no tempo (até os últimos 7 dias (Basic) e 35 dias (Standard)) e restaure esse ponto no tempo em um novo servidor. Use esse novo servidor para recuperar seus dados excluídos. As etapas a seguir restauram o servidor de exemplo para um ponto anterior à adição da tabela.
 
-1.    Na página do Banco de Dados do Azure para PostgreSQL para o servidor, clique em **Restaurar** na barra de ferramentas. A página **Restaurar** será aberta.
+1.  Na página do Banco de Dados do Azure para PostgreSQL para o servidor, clique em **Restaurar** na barra de ferramentas. A página **Restaurar** será aberta.
   ![Portal do Azure - Opções do formulário de restauração](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
-2.    Preencha o formulário **Restaurar** com as informações necessárias:
+2.  Preencha o formulário **Restaurar** com as informações necessárias:
 
   ![Portal do Azure - Opções do formulário de restauração](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
   - **Ponto de restauração**: selecione um ponto no tempo anterior à alteração do servidor
   - **Servidor de destino**: forneça um novo nome de servidor no qual você deseja restaurar
   - **Local**: não é possível selecionar a região; por padrão, ela é igual ao servidor de origem
   - **Tipo de preço**: não é possível alterar esse valor ao restaurar um servidor. Ele é igual ao servidor de origem. 
-3.    3- Clique em **OK** para restaurar o servidor [em um ponto no tempo](./howto-restore-server-portal.md) anterior à exclusão das tabelas. A restauração de um servidor para um ponto diferente no tempo cria um novo servidor duplicado como o servidor original a partir do ponto no tempo especificado por você, desde que esteja dentro do período de retenção de sua [camada de serviço](./concepts-service-tiers.md).
+3.  3- Clique em **OK** para restaurar o servidor [em um ponto no tempo](./howto-restore-server-portal.md) anterior à exclusão das tabelas. A restauração de um servidor para um ponto diferente no tempo cria um novo servidor duplicado como o servidor original a partir do ponto no tempo especificado por você, desde que esteja dentro do período de retenção de sua [camada de serviço](./concepts-service-tiers.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a usar o portal do Azure e outros utilitários para:

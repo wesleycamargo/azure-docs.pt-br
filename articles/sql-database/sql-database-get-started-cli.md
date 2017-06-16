@@ -38,7 +38,7 @@ Este início rápido requer a CLI do Azure versão 2.0.4 ou posterior. Execute `
 
 Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#login) e siga as instruções na tela.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
