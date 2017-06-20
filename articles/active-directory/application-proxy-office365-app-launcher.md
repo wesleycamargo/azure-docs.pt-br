@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
 ms.openlocfilehash: 31e8e39580ed83f13fd3ffb9981221765063a0b7
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/21/2017
 
 
@@ -76,7 +77,7 @@ Obtenha o ID do objeto do aplicativo e, em seguida, procure o aplicativo por sua
 3. Localize o aplicativo com base na respectiva URL da home page. Você pode localizar a URL no portal indo para **Azure Active Directory** > **Aplicativos empresariais** > **Todos os aplicativos**. Este exemplo usa *sharepoint-iddemo*.
 
     ```
-    Get-AzureADApplications | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
     ```
 4. Você deve obter um resultado semelhante ao mostrado aqui. Copie o GUID do ObjectID para usar na próxima seção.
 
@@ -93,7 +94,7 @@ No mesmo módulo do PowerShell que você usou para a etapa 1, faça o seguinte:
 1. Confirme que você tenha o aplicativo correto e substitua *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* com o GUID (ObjectID) que você copiou na etapa anterior.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
  Agora que você confirmou o aplicativo, está pronto para atualizar a home page da seguinte maneira.
@@ -110,17 +111,17 @@ No mesmo módulo do PowerShell que você usou para a etapa 1, faça o seguinte:
 3. Defina a URL da home page como o valor desejado. O valor deve ser um caminho de subdomínio do aplicativo publicado. Por exemplo, se você alterar a URL da home page de *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os usuários do aplicativo serão levados diretamente para a home page personalizada.
 
     ```
-    $appnew.Homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
     ```
 4. Faça a atualização usando o GUID (ObjectID) que você copiou na "etapa 1: localizar o ID do objeto do aplicativo."
 
     ```
-    Set-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 - Application $appnew
+    Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
 5. Para confirmar que a alteração foi bem-sucedida, reinicie o aplicativo.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 >[!NOTE]
