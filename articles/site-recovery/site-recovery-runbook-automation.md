@@ -11,12 +11,13 @@ ms.service: site-recovery
 ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/31/2017
 
 
@@ -33,7 +34,7 @@ Neste tutorial, mostramos como você pode integrar os runbooks de Automação do
 
     ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 - - -
-1. Clique no botão personalizar para começar a adicionar um runbook. 
+1. Clique no botão personalizar para começar a adicionar um runbook.
 
     ![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
 
@@ -41,10 +42,10 @@ Neste tutorial, mostramos como você pode integrar os runbooks de Automação do
 1. Clique com o botão direito do mouse no grupo de inicialização 1 e selecione para adicionar um “Adicionar ação posterior”.
 2. Selecione esta opção para escolher um script na nova folha.
 3. Nomeie o script “Hello, World”.
-4. Escolha um nome para a Conta de Automação. 
+4. Escolha um nome para a Conta de Automação.
     >[!NOTE]
     > A conta de automação pode estar em qualquer geografia do Azure, mas ela precisa estar na mesma assinatura que o cofre de Site Recovery.
-    
+
 5. Selecione um runbook na Conta de Automação. Esse runbook é o script que será executado durante a execução do plano de recuperação após a recuperação do primeiro grupo.
 
     ![](media/site-recovery-runbook-automation-new/update-rp.PNG)
@@ -71,13 +72,13 @@ Veja a seguir um exemplo da aparência da variável de contexto.
         "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
 
                 { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
-                
+
                 "ResourceGroupName":"ContosoRG",
-                
+
                 "CloudServiceName":"pod02hrweb-Chicago-test",
 
                 "RoleName":"Fabrikam-Hrweb-frontend-test",
-                
+
                 "RecoveryPointId":"TimeStamp"}
 
                 }
@@ -165,15 +166,15 @@ No script, obtenha os valores das variáveis usando o seguinte código de refer�
     $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
     $NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
 
-    $NSGnameVar = Get-AutomationVariable -Name $NSGValue 
+    $NSGnameVar = Get-AutomationVariable -Name $NSGValue
     $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 ```
 
 Em seguida, você pode usar as variáveis no runbook e aplicar o NSG as Adaptador de Rede de máquina virtual em que foi feito o failover.
 
 ```
-     InlineScript { 
-         if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
+     InlineScript {
+        if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
             $NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
             Write-output $NSG.Id
             #Apply the NSG to a network interface
@@ -213,17 +214,17 @@ Considere um cenário em que você deseja que apenas um script ative um IP públ
 3. Use essa variável em seu runbook e aplique o NSG à máquina virtual se alguma das VMGUID especificadas for encontrada no contexto do plano de recuperação.
 
     ```
-        $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName 
+        $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
     ```
 
 4. Em seu runbook, execute um loop nas VMs do contexto do plano de recuperação e verifique se a VM também existe em **$VMDetailsObj**. Se existir, aplique o NSG ao acessar as propriedades da variável.
     ```
         $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
         $vmMap = $RecoveryPlanContext.VmMap
-           
+
         foreach($VMID in $VMinfo) {
             Write-output $VMDetailsObj.value.$VMID
-            
+
             if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable

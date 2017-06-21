@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/06/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: efb9e68256765873eb2776637d1a9469af6e46d6
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: f03181c727650eb0cfc8648cbe3d3838295cf6ad
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -29,7 +29,6 @@ ms.lasthandoff: 04/06/2017
 > * [SDK .NET](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
-> * [CLI do Azure](data-lake-store-get-started-cli.md)
 > * [CLI 2.0 do Azure](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -58,7 +57,7 @@ Veja os vídeos a seguir para começar a usar o Repositório Data Lake.
    
    * **Nome**. Insira um nome exclusivo para a conta do Data Lake Store.
    * **Assinatura**. Selecione a assinatura na qual você deseja criar uma nova conta do Data Lake Store.
-   * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo** para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo**  para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
    * **Local**: selecione um local no qual você deseja criar a conta do Data Lake.
    * **Configurações de Criptografia**. Você pode escolher se deseja criptografar sua conta do Data Lake Store. Se você optar por criptografar, também poderá especificar como gerenciar a chave de criptografia principal que deseja usar para criptografar os dados em sua conta.
      

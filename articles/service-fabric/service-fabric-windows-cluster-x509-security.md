@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 06/16/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
@@ -50,7 +50,7 @@ Para começar, [baixe o pacote de clusters autônomos](service-fabric-cluster-cr
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": false
-            }, 
+            },
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": true
@@ -59,17 +59,17 @@ Para começar, [baixe o pacote de clusters autônomos](service-fabric-cluster-cr
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint" : "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint]",
                 "IsAdmin": true
             }
-        ]
-        "ReverseProxyCertificate":{
+        ],
+        "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
         }
     }
-}
+},
 ```
 
 Esta seção descreve os certificados necessários para proteger o cluster do Windows autônomo. Se estiver especificando um certificado de cluster, defina o valor de **ClusterCredentialType** como _**X509**_. Se estiver especificando um certificado do servidor para conexões externas, defina **ServerCredentialType** como _**X509**_. Embora não seja obrigatório, recomendamos ter esses dois certificados para um cluster protegido adequadamente. Se você definir esses valores como *X509*, também deverá especificar os certificados correspondentes; caso contrário, o Service Fabric gerará uma exceção. Em alguns cenários, talvez você apenas deseje especificar _ClientCertificateThumbprints_ ou _ReverseProxyCertificate_. Nesses cenários, não é necessário definir _ClusterCredentialType_ nem _ServerCredentialType_ como _X509_.

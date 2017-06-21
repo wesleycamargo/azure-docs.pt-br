@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +52,7 @@ Prefere assistir do que ler? Examine o vídeo abaixo da sessão do Microsoft Ign
 [DSC de Automação do Azure](automation-dsc-overview.md) é uma solução baseada em nuvem para DSC do PowerShell que fornece os serviços necessários para ambientes corporativos.  Você pode gerenciar seus recursos de DSC na Automação do Azure e aplicar as configurações a máquinas virtuais ou físicas que as recuperam de um servidor de recepção DSC na nuvem do Azure.  Ele também fornece serviços de relatório que informam sobre eventos importantes, como nós que desviam de sua configuração atribuída e quando uma nova configuração foi aplicada. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Criando suas próprias configurações DSC com a Automação do Azure
-[Configurações DSC](automation-dsc-overview.md#azure-automation-dsc-terms) especifica o estado desejado de um nó.  Vários nós podem aplicar a mesma configuração para garantir que todos eles mantenham um estado idêntico.  Você pode criar uma configuração que usa qualquer editor de texto em seu computador local e importá-la para Automação do Azure, onde poderá compilá-la e aplicar nós.
+[Configurações DSC](automation-dsc-overview.md) especifica o estado desejado de um nó.  Vários nós podem aplicar a mesma configuração para garantir que todos eles mantenham um estado idêntico.  Você pode criar uma configuração que usa qualquer editor de texto em seu computador local e importá-la para Automação do Azure, onde poderá compilá-la e aplicar nós.
 
 ## <a name="getting-modules-and-configurations"></a>Obtendo módulos e configurações
 Você pode obter [módulos do PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) contendo cmdlets que você pode usar em seus runbooks e configurações de DSC da [Galeria do PowerShell](http://www.powershellgallery.com/). Você pode iniciar esta galeria no portal do Azure e importar módulos diretamente na Automação do Azure ou pode baixá-los e instalá-los manualmente. Não é possível instalar os módulos diretamente do portal do Azure, mas você pode baixá-los e instalá-los como o faria com qualquer módulo. 
@@ -83,10 +85,5 @@ Uma variedade de recursos está disponível para você aprender mais sobre a Aut
 
 ## <a name="can-i-provide-feedback"></a>Posso fornecer comentários?
 **Envie-nos comentários!** Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado! 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

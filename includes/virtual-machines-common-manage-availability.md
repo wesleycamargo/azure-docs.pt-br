@@ -25,9 +25,9 @@ Os domínios de falha definem o grupo de máquinas virtuais que compartilham uma
    ![Desenho conceitual da configuração do domínio de atualização e do domínio de falha](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Usar discos gerenciados para VMs no conjunto de disponibilidade
-Se você estiver usando atualmente MVs com discos não gerenciados, é altamente recomendável [converter as VMs no Conjunto de Disponibilidade para usar os Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
+Se você estiver usando atualmente MVs com discos não gerenciados, é altamente recomendável [converter as VMs no Conjunto de Disponibilidade para usar os Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-Os [Managed Disks](../articles/storage/storage-managed-disks-overview.md) fornecem melhor confiabilidade para os Conjuntos de Disponibilidade, assegurando que os discos das VMs em um Conjunto de Disponibilidade estejam suficientemente isolados entre si para evitar pontos únicos de falha. Ele faz isso colocando automaticamente os discos em unidades de clusters de armazenamentos diferentes. Se um cluster de armazenamento falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. 
+Os [Managed Disks](../articles/storage/storage-managed-disks-overview.md) fornecem melhor confiabilidade para os Conjuntos de Disponibilidade, assegurando que os discos das VMs em um Conjunto de Disponibilidade estejam suficientemente isolados entre si para evitar pontos únicos de falha. Ele faz isso colocando automaticamente os discos em unidades de clusters de armazenamentos diferentes. Se um cluster de armazenamento falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão.
 
 ![FDs de disco gerenciado](./media/virtual-machines-common-manage-availability/md-fd.png)
 
@@ -36,7 +36,7 @@ Os [Managed Disks](../articles/storage/storage-managed-disks-overview.md) fornec
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Se você planeja usar VMs com [discos não gerenciados](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), siga abaixo as práticas recomendadas para as Contas de armazenamento nas quais os discos rígidos virtuais (VHDs) das VMs são armazenados como [blobs de página](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs). 
+Se você planeja usar VMs com [discos não gerenciados](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), siga abaixo as práticas recomendadas para as Contas de armazenamento nas quais os discos rígidos virtuais (VHDs) das VMs são armazenados como [blobs de página](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Manter todos os discos (sistema operacional e dados) associados a uma VM na mesma conta de armazenamento**
 2. **Examine os [limites](../articles/storage/storage-scalability-targets.md) no número de discos não gerenciados em uma Conta de armazenamento** antes de adicionar mais VHDs a uma conta de armazenamento
@@ -62,4 +62,3 @@ Se o balanceador de carga não estiver configurado para balancear o tráfego ent
 [Combinar o balanceador de carga com os conjuntos de disponibilidade]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Como usar discos gerenciados para VMs em um conjunto de disponibilidade]: #use-managed-disks-for-vms-in-an-availability-set
-

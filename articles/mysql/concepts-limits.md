@@ -5,10 +5,8 @@ services: mysql
 author: jasonh
 ms.author: kamathsun
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
@@ -47,9 +45,9 @@ Quando um número excessivo de conexões for atingido, você receberá o seguint
 
 ## <a name="preview-functional-limitations"></a>Limitações funcionais de visualização:
 ### <a name="scale-operations"></a>Operações de dimensionamento:
-1.    Não há suporte para o dimensionamento dinâmico de servidores por meio de camadas de serviço. Ou seja, alternando entre as camadas de serviço Básico e Standard.
-2.    Não há suporte para o aumento sob demanda dinâmico de armazenamento no servidor criado previamente.
-3.    Não há suporte para diminuir o tamanho de armazenamento do servidor.
+1.  Não há suporte para o dimensionamento dinâmico de servidores por meio de camadas de serviço. Ou seja, alternando entre as camadas de serviço Básico e Standard.
+2.  Não há suporte para o aumento sob demanda dinâmico de armazenamento no servidor criado previamente.
+3.  Não há suporte para diminuir o tamanho de armazenamento do servidor.
 
 ### <a name="server-version-upgrades"></a>Atualizações da versão do servidor:
 - Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal.
@@ -58,8 +56,8 @@ Quando um número excessivo de conexões for atingido, você receberá o seguint
 - Não há suporte para mover dinamicamente servidores criados previamente entre a assinatura e o grupo de recursos.
 
 ### <a name="point-in-time-restore"></a>Recuperação pontual:
-1.    Não é permitido restaurar para a camada de serviço diferente e/ou Unidades de computação e Tamanho do armazenamento.
-2.    Não há suporte para restaurar um servidor eliminado.
+1.  Não é permitido restaurar para a camada de serviço diferente e/ou Unidades de computação e Tamanho do armazenamento.
+2.  Não há suporte para restaurar um servidor eliminado.
 
 ## <a name="next-steps"></a>Próximas etapas:
 [O que está disponível em cada camada de serviço](concepts-service-tiers.md)

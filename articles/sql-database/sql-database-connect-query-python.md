@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: develop apps
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: meetb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 5fae11119500fd3be3af3e573d45f6cc5880e037
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 99195b43a1577f978562864bac5fa12cdeb95d63
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-sql-database-use-python-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar o Python para conectar e consultar dados
@@ -36,7 +36,7 @@ Este início rápido usa como ponto de partida os recursos criados em um destes 
 
 ## <a name="install-the-python-and-database-communication-libraries"></a>Instalar o Python e as bibliotecas de comunicação do banco de dados
 
-As etapas desta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o Python e começou recentemente a trabalhar com o Banco de Dados SQL do Azure. Se você for novo no desenvolvimento com o Phyton, acesse [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) e selecione **Python** e, em seguida, selecione o sistema operacional.
+As etapas desta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o Python e começou recentemente a trabalhar com o Banco de Dados SQL do Azure. Se você for novo no desenvolvimento com o Phyton, acesse [Criar um aplicativo usando o SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) e selecione **Python** e, em seguida, selecione o sistema operacional.
 
 ### <a name="mac-os"></a>**Mac OS**
 Abra seu terminal e navegue até um diretório no qual você planeja criar o script python. Insira os comandos a seguir para instalar **brew**, **Driver ODBC da Microsoft para Mac** e **pyodbc**. pyodbc usa o Microsoft ODBC Driver no Linux para se conectar a Bancos de Dados SQL.
@@ -88,7 +88,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
    
 ## <a name="select-data"></a>Selecionar dados
 
-Use o seguinte código para consultar os principais 20 produtos por categoria do banco de dados SQL do Azure usando a função [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) com uma instrução [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) do Transact-SQL. A função [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) é usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essa função aceita uma consulta e retorna um conjunto de resultados que pode ser iterado com o uso de [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
+Use o seguinte código para consultar os principais 20 produtos por categoria do banco de dados SQL do Azure usando a função [pyodbc.connect](https://github.com/mkleehammer/pyodbc/wiki) com uma instrução [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) do Transact-SQL. A função [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) é usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essa função aceita uma consulta e retorna um conjunto de resultados que pode ser iterado com o uso de **cursor.fetchone()**. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -107,7 +107,7 @@ while row:
 ```
 
 ## <a name="insert-data"></a>Inserir dados
-Use o seguinte código para inserir um novo produto na tabela SalesLT.Product no banco de dados especificado, usando a função [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) e a instrução [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
+Use o seguinte código para inserir um novo produto na tabela SalesLT.Product no banco de dados especificado, usando a função [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) e a instrução [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -124,7 +124,7 @@ cnxn.commit()
 ```
 
 ## <a name="update-data"></a>Atualizar dados
-Use o código a seguir para atualizar o novo produto que você adicionou anteriormente usando a função [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) e a instrução [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
+Use o código a seguir para atualizar o novo produto que você adicionou anteriormente usando a função [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) e a instrução [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -143,7 +143,7 @@ cnxn.commit()
 ```
 
 ## <a name="delete-data"></a>Excluir dados
-Use o código a seguir para atualizar o novo produto que você adicionou anteriormente usando a função [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) e a instrução [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
+Use o código a seguir para atualizar o novo produto que você adicionou anteriormente usando a função [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) e a instrução [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) do Transact-SQL. Substitua os parâmetros de servidor, banco de dados, nome de usuário e senha pelos valores que você especificou ao criar o banco de dados com os dados de exemplo do AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -164,6 +164,6 @@ cnxn.commit()
 
 - [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
 - [Drivers Python da Microsoft para SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
-- [Centro de desenvolvedores do Python](/develop/python/)
+- [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/?v=17.23h)
 
 
