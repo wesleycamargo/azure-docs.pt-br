@@ -16,10 +16,10 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 079632f304112e1034abbd7385506292f10e128d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/15/2017
 
 A CLI 2.0 do Azure é a nova experiência de linha de comando do Azure para gerenciar recursos do Azure. Ela pode ser usada em Windows, Linux e macOS. A CLI do Azure 2.0 é otimizada para gerenciar e administrar os recursos do Azure na linha de comando. Você pode usar a CLI do Azure para gerenciar suas contas do Lote do Azure e para gerenciar recursos como grupos, trabalhos e tarefas. Com a CLI do Azure, você pode criar scripts para diversas tarefas que você executa com as APIs do Lote, com o Portal do Azure e com cmdlets de PowerShell do Lote.
 
-Este artigo fornece uma visão geral do uso da [CLI do Azure versão 2.0](https://docs.microsoft.com/cli/azure/overview) com o Lote. Consulte [Introdução ao Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) para uma visão geral de como usar a CLI com o Azure.
+Este artigo fornece uma visão geral do uso da [CLI do Azure versão 2.0](https://docs.microsoft.com/cli/azure/overview) com o Lote. Consulte [Introdução ao Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para uma visão geral de como usar a CLI com o Azure.
 
 A Microsoft recomenda usar a versão mais recente da CLI do Azure, versão 2.0. Para saber mais sobre a versão 2.0, consulte [CLI do Azure 2.0 agora disponível](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 

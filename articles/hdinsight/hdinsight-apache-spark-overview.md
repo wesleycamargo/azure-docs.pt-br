@@ -18,10 +18,10 @@ ms.topic: get-started-article
 ms.date: 05/12/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 4dc9729f036c0c497dfd53342aa92c983126e7d1
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: acb80aa98cc978a906ccd6e4b4132a439e505bc8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -102,7 +102,7 @@ Inicie com a criação de um cluster Spark no HDInsight. Confira [Início rápid
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

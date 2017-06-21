@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 25243603abd2f30adc11640f00b782c8d827796e
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 3e2dba1af69820382c67b368da5d6f6325b72c50
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -62,13 +62,6 @@ Para Visual Studio 2015, as ferramentas do Service Fabric são instaladas junto 
 ### <a name="sdk-installation-only"></a>Somente instalação do SDK
 Se só precisar do SDK, você poderá instalar este pacote:
 * [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
-
-> [!WARNING]
-> Os clientes relataram erros durante a instalação ao usar esses links de inicialização, ou quando esses links foram usados no navegador Chrome. Esses erros são problemas conhecidos no Web Platform Installer e estão sendo corrigidos.  Tente as seguintes soluções alternativas:
->- Inicie os links acima em navegadores Internet Explorer ou Edge, ou
->- Inicie o Web Platform Installer no menu Iniciar, procure "Service Fabric" e instale o SDK
-> 
-> Pedimos desculpas pelo transtorno. 
 
 As versões atuais são:
 * SDK do Service Fabric 2.6.210

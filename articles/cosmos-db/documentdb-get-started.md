@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/22/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5855b0542ca2ec58f3a24efcc2cf7a96fb92da0f
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 22244cbb85e3d0256b9f495f406942dd2b4b95fc
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -192,7 +192,7 @@ Parabéns! Você criou um banco de dados do Azure Cosmos DB com êxito.
 
 ## <a id="CreateColl"></a>Etapa 5: Criar uma coleção
 > [!WARNING]
-> **CreateDocumentCollectionIfNotExistsAsync** criará uma nova coleção com taxa de transferência reservada, com implicações de preço. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
+> **CreateDocumentCollectionIfNotExistsAsync** criará uma nova coleção com taxa de transferência reservada, com implicações de preço. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 

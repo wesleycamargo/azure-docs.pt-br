@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 0b82a0c4e140d2084d7570f8c7eab1f809f15d9d
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a05c878f876eadc5160ef9765f764595cade76a9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -28,10 +28,10 @@ ms.lasthandoff: 05/23/2017
 Este artigo mostra como criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. As etapas neste artigo se aplicam ao modelo de implantação do Resource Manager e usa a CLI do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager - CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Clássico - portal do Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Conectar modelos de implantação diferentes – portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Conectar modelos de implantação diferentes - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -146,7 +146,7 @@ Usamos os seguintes valores nos exemplos:
 7. Crie o gateway de rede virtual para TestVNet1. As configurações de rede virtual com rede virtual exigem um VpnType RouteBased. Se você executar esse comando usando o parâmetro '--no-wait', você não receberá nenhum feedback ou saída. O parâmetro '--no-wait' permite que o gateway seja criado em segundo plano. Isso não significa que a criação do gateway de VPN é concluída imediatamente. Criar um gateway pode levar 45 minutos ou mais, dependendo do SKU de gateway utilizado.
 
   ```azurecli
-  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="TestVNet4"></a>Etapa 3: criar e configurar TestVNet4
@@ -181,7 +181,7 @@ Usamos os seguintes valores nos exemplos:
 6. Crie o gateway de rede virtual TestVNet4.
 
   ```azurecli
-  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="step-4---create-the-connections"></a>Etapa 4: criar as conexões
@@ -318,10 +318,10 @@ Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta par
 6. Criar o gateway TestVNet5
 
   ```azurecli
-  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-6---create-the-connections"></a>Etapa 6: criar as conexões
+### <a name="step-8---create-the-connections"></a>Etapa 8: criar as conexões
 
 Dividimos esta etapa em duas sessões do CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre assinaturas, use 'az account list --all' a fim de listar as assinaturas disponíveis para sua conta e use 'az account set --subscription<subscriptionID>' a fim de alternar para a assinatura que você deseja usar.
 
@@ -371,3 +371,4 @@ Dividimos esta etapa em duas sessões do CLI marcadas como **[Assinatura 1]** e 
 
 * Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, confira a [Documentação sobre Máquinas Virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
+

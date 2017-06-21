@@ -9,7 +9,7 @@
 | Tamanho máximo de um blob de blocos |50.000 x 100 MB (aprox. 4,75 TB) |
 | Tamanho máximo de um bloco em um blob de acréscimo |4 MB |
 | Tamanho máximo de um blob de acréscimo |50.000 x 4 MB (aproximadamente 195 GB) |
-| Tamanho máximo de um blob de páginas |1 TB |
+| Tamanho máximo de um blob de páginas |8 TB |
 | Tamanho máximo de uma entidade de tabela |1 MB |
 | Número máximo de propriedades em uma entidade de tabela |252 |
 | Tamanho máximo de uma mensagem em uma fila |64 KB |

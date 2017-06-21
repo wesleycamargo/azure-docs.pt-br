@@ -16,23 +16,25 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0148c3900f2bb6b6a227da01d954e6f79bff4270
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 48fd6daf7bae4d658b1cecd89088e6d78638a20a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma conexão Site a Site usando o portal do Azure (clássico)
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 Este artigo mostra como usar o portal do Azure para criar uma conexão de gateway de VPN Site a Site de sua rede local para a rede virtual. As etapas deste artigo se aplicam ao modelo de implantação clássico. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Clássico - portal do Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Clássico - portal clássico](vpn-gateway-site-to-site-create.md)
+> * [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Portal do Azure (clássico)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Portal clássico (clássico)](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -183,22 +185,17 @@ Nesta etapa, defina a chave compartilhada e crie a conexão. A chave que você d
 1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
   ```powershell
-  Login-AzureRmAccount
+  Add-AzureAccount
   ```
 2. Verificar as assinaturas da conta.
 
   ```powershell
-  Get-AzureRmSubscription
+  Get-AzureSubscription
   ```
 3. Se você tiver mais de uma assinatura, selecione a assinatura que deseja usar.
 
   ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
-4. Adicione a versão de SM dos cmdlets do PowerShell.
-
-  ```powershell
-  Add-AzureAccount
+  Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
   ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Etapa 2. Definir a chave compartilhada e criar a conexão

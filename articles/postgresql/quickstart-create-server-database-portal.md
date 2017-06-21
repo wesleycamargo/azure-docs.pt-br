@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/19/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c67ada15c11b81021ff5e6f6e5edc5cb530ece98
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -80,7 +80,7 @@ O serviço do Banco de Dados do Azure para PostgreSQL cria um firewall no nível
   > O servidor PostgreSQL do Azure se comunica pela porta 5432. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 5432 talvez não seja permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá se conectar ao servidor de Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 5432.
   >
 
-## <a name="get-the-connection-information"></a>Obter as informações de conexão
+## <a name="get-the-connection-information"></a>Obter informações de conexão
 
 Quando criamos o nosso Banco de Dados do Azure para o servidor PostgreSQL, o banco de dados padrão **postgres** também foi criado. Para se conectar ao seu servidor de banco de dados, você precisa fornecer credenciais de acesso e informações de host.
 
@@ -169,6 +169,6 @@ Se você apenas deseja excluir o servidor recém-criado:
 3.  Confirme o nome do servidor que deseja excluir e exiba sob ele os bancos de dados que são afetados. Digite **mypgserver-20170401** na caixa de texto e, em seguida, clique em Excluir.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Migre seu banco de dados usando [Exportar e Importar](./howto-migrate-using-export-and-import.md) ou [Despejar e Restaurar](./howto-migrate-using-dump-and-restore.md).
-- Para criar o Banco de Dados do Azure para servidor PostgreSQL usando a CLI do Azure, consulte [Criar servidor PostgreSQL – CLI](./quickstart-create-server-database-azure-cli.md).
-- Para uma visão geral técnica, consulte [Sobre o serviço do Banco de Dados do Azure para PostgreSQL](./overview.md).
+> [!div class="nextstepaction"]
+> [Migre seu banco de dados usando Exportar e Importar](./howto-migrate-using-export-and-import.md)
+
