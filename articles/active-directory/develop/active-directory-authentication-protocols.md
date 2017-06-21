@@ -2,7 +2,7 @@
 title: "Protocolos de Autenticação do Azure Active Directory | Microsoft Docs"
 description: "Uma visão geral dos protocolos de autenticação suportados pelo Azure Active Directory (AD)"
 documentationcenter: dev-center-name
-author: bryanla
+author: priyamohanram
 services: active-directory
 manager: mbaldwin
 editor: 

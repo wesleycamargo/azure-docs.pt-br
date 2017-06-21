@@ -3,7 +3,7 @@ title: "Exemplos de código do Azure Active Directory | Microsoft Docs"
 description: "Um índice de exemplos de código do Active Directory do Azure, organizados por cenário."
 services: active-directory
 documentationcenter: dev-center-name
-author: priyamohanram
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433

@@ -3,7 +3,7 @@ title: Proteger uma API Web do Azure Active Directory v2.0 usando o Node.js | Mi
 description: Aprenda a compilar uma API Web Node.js que aceita tokens de contas da Microsoft pessoais e de contas corporativas ou de estudante.
 services: active-directory
 documentationcenter: nodejs
-author: brandwe
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
