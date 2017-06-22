@@ -3,6 +3,7 @@
 # Introdução
 ## [Criar um diretório do AD B2C do Azure](active-directory-b2c-get-started.md)
 ## [Registre seu aplicativo](active-directory-b2c-app-registration.md)
+## [Políticas internas](active-directory-b2c-reference-policies.md)
 ## Aplicativos móveis e de desktop
 ### [Visão geral](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -24,6 +25,7 @@
 ### [JavaScript usando Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## APIs da Web
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Chamar uma API Web do .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
@@ -63,6 +65,7 @@
 #### [Obter declarações adicionais](active-directory-b2c-rest-api-step-custom.md)
 ### Personalizar o logon
 #### [Configurar a entrada do usuário](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Atributos personalizados](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personalizar a interface do usuário](active-directory-b2c-ui-customization-custom.md)
 #### [Personalizar tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Solucionar problemas
@@ -74,7 +77,6 @@
 ## Glossário
 ### [Tipos de aplicativos](active-directory-b2c-apps.md)
 ### [Protocolos de autenticação](active-directory-b2c-reference-protocols.md)
-### [Políticas internas](active-directory-b2c-reference-policies.md)
 ### [Tokens](active-directory-b2c-reference-tokens.md)
 ## [Disponibilidade de região e residência dos dados](active-directory-b2c-reference-tenant-type.md)
 ## [Habilitar a cobrança](active-directory-b2c-how-to-enable-billing.md)

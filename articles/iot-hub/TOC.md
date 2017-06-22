@@ -12,10 +12,6 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Usar um gateway simulado
-#### [Simulação no Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Simulação no Windows](iot-hub-windows-iot-edge-get-started.md)
-
 ### Usar um dispositivo físico
 #### [Raspberry Pi com Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi com C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -31,6 +27,8 @@
 ##### [Configurar a NUC Intel como um gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Conectar o gateway ao Hub IoT](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Usar o gateway para conversão de dados](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Usar um simulador de dispositivo online](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Gerenciar mensagens do dispositivos de nuvem com o iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [Dar suporte a protocolos adicionais](iot-hub-protocol-gateway.md)
 ## [Desenvolver](iot-hub-how-to.md)
 ### [Guia do desenvolvedor](iot-hub-devguide.md)
-#### [Enviar e receber mensagens](iot-hub-devguide-messaging.md)
 #### [Guia de recursos do dispositivo para a nuvem](iot-hub-devguide-d2c-guidance.md)
 #### [Guia de recursos da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md)
+#### [Enviar e receber mensagens](iot-hub-devguide-messaging.md)
+##### [Enviar mensagens de dispositivo para a nuvem para o Hub IoT](iot-hub-devguide-messages-d2c.md)
+##### [Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno](iot-hub-devguide-messages-read-builtin.md)
+##### [Usar regras de roteamentos e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem](iot-hub-devguide-messages-read-custom.md)
+##### [Enviar mensagens da nuvem para o dispositivo do Hub IoT](iot-hub-devguide-messages-c2d.md)
+##### [Criar e ler mensagens do Hub IoT](iot-hub-devguide-messages-construct.md)
 #### [Carregar arquivos de um dispositivo](iot-hub-devguide-file-upload.md)
 #### [Gerenciar identidades do dispositivo](iot-hub-devguide-identity-registry.md)
 #### [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md)
 #### [Entender os dispositivos gêmeos](iot-hub-devguide-device-twins.md)
 #### [Invocar métodos diretos em um dispositivo](iot-hub-devguide-direct-methods.md)
 #### [Agendar trabalhos em vários dispositivos](iot-hub-devguide-jobs.md)
+#### [Escolha um protocolo de comunicação](iot-hub-devguide-protocols.md)
 #### [Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md)
 #### [Linguagem da consulta](iot-hub-devguide-query-language.md)
 #### [Cotas e limitação](iot-hub-devguide-quotas-throttling.md)
@@ -119,18 +123,22 @@
 ### [Arquitetura de segurança](iot-hub-security-architecture.md)
 ### [Proteger sua implantação de IoT](iot-hub-security-deployment.md)
 ## IoT Edge
+### Introdução
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Simular um dispositivo
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Usar um dispositivo real](iot-hub-iot-edge-physical-device.md)
 
 # Referência
-## [Visualização da CLI do Azure 2.0](/cli/azure/iot)
+## [CLI 2.0 do Azure](/cli/azure/iot)
 ## [.NET (Serviço)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Dispositivos)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Serviço)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Dispositivos)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [SDKs do Azure IoT](http://azure.github.io/azure-iot-sdks/)
+## [SDKs do Node.js](http://azure.github.io/azure-iot-sdk-node/)
+## [SDK do dispositivo C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Provedor de Recursos)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (Identidades do dispositivo)](https://docs.microsoft.com/rest/api/iothub/deviceapi)

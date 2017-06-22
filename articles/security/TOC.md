@@ -10,6 +10,7 @@
 ### [Detecção avançada de ameaças](azure-threat-detection.md)
 ### [Log e auditoria](azure-log-audit.md)
 ### [Isolamento na nuvem pública](azure-isolation.md)
+### [Recursos técnicos de segurança](azure-security-technical-capabilities.md)
 
 # Introdução
 ## [Introdução à segurança do Azure](azure-security-getting-started.md)
@@ -18,6 +19,7 @@
 
 ## Segurança de rede
 ### [Práticas recomendadas de segurança da rede](azure-security-network-security-best-practices.md)
+###[Segurança de rede do Azure](azure-network-security.md)
 ### [Segurança de fronteira](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Proteger arquitetura de rede híbrida](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 

@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: d7f6274b6c72827c0f73da816a524bc35a30bb27
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 02c0d1834ee5e4b6aeebccc0d25bba49f8e5afe2
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -145,7 +145,7 @@ Saiba como usar o Hub IoT para conectar, monitorar e controlar bilhões de ativo
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="/cli/azure/iot">CLI do Azure</a></p>
+                        <p><a href="/cli/azure/iot">CLI 2.0 do Azure</a></p>
                     </div>
                 </div>
             </div>
@@ -159,11 +159,10 @@ Saiba como usar o Hub IoT para conectar, monitorar e controlar bilhões de ativo
                         <h3>Linguagens</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Serviço)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Dispositivos)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">SDK do dispositivo C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Serviço)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Dispositivos)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">Nó (Serviço)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">Nó (Dispositivos)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">SDKs do Azure IoT</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">SDKs do Node.js</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
@@ -178,6 +177,7 @@ Saiba como usar o Hub IoT para conectar, monitorar e controlar bilhões de ativo
                         <h3>REST</h3>
                         <p><a href="/rest/api/iothub/iothubresource">REST (Provedor de Recursos)</a></p>
                         <p><a href="/rest/api/iothub/deviceapi">REST (Identidades do dispositivo)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST (Dispositivos Gêmeos)</a></p>
                         <p><a href="/rest/api/iothub/httpruntime">REST (Mensagens do Dispositivo)</a></p>
                         <p><a href="/rest/api/iothub/jobapi">REST (Trabalhos)</a></p>
                     </div>

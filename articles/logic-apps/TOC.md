@@ -7,8 +7,9 @@
 ## [Criar seu primeiro aplicativo lógico](logic-apps-create-a-logic-app.md)
 ## [Modelos para aplicativos lógicos](logic-apps-use-logic-app-templates.md)
 ## [Criar aplicativos lógicos a partir de modelos](logic-apps-arm-provision.md)
+## [Mover aplicativos MABS para aplicativos lógicos](logic-apps-move-from-mabs.md)
 
-# Como:
+# Como
 ## Compilação
 ### [Compilar e implantar aplicativos lógicos no Visual Studio](logic-apps-deploy-from-vs.md)
 ### [Adicionar condições e executar fluxos de trabalho](logic-apps-use-logic-app-features.md)
@@ -80,6 +81,7 @@
 ### [Preços](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Medição de uso](logic-apps-pricing.md)
 
+
 # Sem servidor
 ## Visão geral
 ### [Sem servidor no Azure](logic-apps-serverless-overview.md)
@@ -128,6 +130,8 @@
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
 ### [X12](logic-apps-enterprise-integration-x12.md)
 ### [Validação de XML](logic-apps-enterprise-integration-xml-validation.md)
+
+## [Conectores: detalhes completos](https://docs.microsoft.com/connectors/)
 ## Histórico de esquema
 ### [GA](logic-apps-schema-2016-04-01.md)
 ### [Visualização](logic-apps-schema-2015-08-01.md)
