@@ -1,5 +1,5 @@
 ---
-title: Compilar um aplicativo Web Java e MySQL no Azure | Microsoft Docs
+title: Compilar um aplicativo Web Java e MySQL no Azure
 description: "Saiba como fazer com que um aplicativo Java que se conecta ao serviço de banco de dados MySQL do Azure funcione no serviço de aplicativo do Azure."
 services: app-service\web
 documentationcenter: Java
@@ -12,58 +12,66 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 05/22/2017
 ms.author: bbenz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fab7759154b38b8043a17c933f896d7af9514c85
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e3a8bc6b11cccf7f6b277e800dbcedcd90e87006
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/03/2017
 
 ---
+
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Compilar um aplicativo Web Java e MySQL no Azure
-Este tutorial mostra como criar um aplicativo Web Java no Azure que se conecta a um banco de dados MySQL. A primeira etapa é clonar um aplicativo em seu computador local e fazê-lo funcionar com uma instância do MySQL local.
-A etapa seguinte é configurar serviços do Azure para o aplicativo Java e para o MySQL e, em seguida, implantar o aplicativo em um serviço de aplicativo do Azure.
-Quando tiver terminado, você terá um aplicativo de lista de tarefas pendentes em execução no Azure e conectado ao serviço de banco de dados MySQL do Azure.
+
+Este tutorial mostra como criar um aplicativo Web Java no Azure e conectá-lo a um banco de dados MySQL. Quando tiver terminado, você terá um aplicativo [Spring Boot](https://projects.spring.io/spring-boot/) armazenando dados no [Banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/overview) em execução em [Aplicativos Web do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
 
 ![Aplicativo Java em execução no serviço de aplicativo do Azure](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
-## <a name="before-you-begin"></a>Antes de começar
+Neste tutorial, você aprenderá como:
 
-Antes de executar este exemplo, instale localmente os seguintes pré-requisitos:
+> [!div class="checklist"]
+> * Criar um banco de dados MySQL no Azure
+> * Conectar um aplicativo de exemplo para o banco de dados
+> * Implantar o aplicativo no Azure
+> * Atualizar o aplicativo e reimplantar
+> * Transmitir logs de diagnóstico do Azure
+> * Monitorar o aplicativo no portal do Azure
 
-1. [Baixe e instale o git](https://git-scm.com/)
-1. [Baixe e instale o Java 7 ou superior](http://Java.net/downloads.Java)
-1. [Baixe e instale o Maven](https://maven.apache.org/download.cgi)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+1. [Baixe e instale o Git](https://git-scm.com/)
+1. [Baixe e instale o Java JDK 7 ou superior](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Baixe, instale e inicie o MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-1. [Baixe e instale o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+1. [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prepare-local-mysql-database"></a>Preparar o banco de dados MySQL local
+## <a name="prepare-local-mysql"></a>Preparar o MySQL local 
 
-Nesta etapa, você cria um banco de dados em seu servidor MySQL local para uso neste tutorial.
+Nesta etapa, você cria um banco de dados em seu servidor MySQL local para uso ao testar o aplicativo localmente em seu computador.
 
 ### <a name="connect-to-mysql-server"></a>Conectar ao servidor MySQL
+
 Conecte-se ao servidor MySQL local na linha de comando:
 
 ```bash
 mysql -u root -p
 ```
 
-Se o comando for executado com êxito, o servidor MySQL já estará sendo executado. Caso contrário, veja se o servidor MySQL local foi iniciado seguindo as [Etapas pós-instalação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
-
 Se for solicitada uma senha, insira a senha da conta `root`. Caso não se lembre da senha de sua conta raiz, consulte [MySQL: como redefinir a senha raiz](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
+Se o comando for executado com êxito, o servidor MySQL já estará sendo executado. Caso contrário, veja se o servidor MySQL local foi iniciado seguindo as [Etapas pós-instalação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
-### <a name="create-a-database-and-table"></a>Criar um banco de dados e uma tabela
+### <a name="create-a-database"></a>Criar um banco de dados 
 
 No prompt `mysql`, crie um banco de dados e uma tabela para os itens de tarefa.
 
 ```sql
-CREATE DATABASE todoItemDb;
-USE todoItemDb;
-CREATE TABLE ITEMS ( id varchar(255), name varchar(255), category varchar(255), complete bool);
+CREATE DATABASE tododb;
 ```
 
 Saia da conexão do servidor digitando `quit`.
@@ -72,148 +80,134 @@ Saia da conexão do servidor digitando `quit`.
 quit
 ```
 
-## <a name="create-local-java-application"></a>Criar um aplicativo Java local
-Nesta etapa, você clonar um repositório GitHub, configurar a conexão de banco de dados MySQL e executa o aplicativo localmente. 
+## <a name="create-and-run-the-sample-app"></a>Criar e executar o aplicativo de exemplo 
+
+Nesta etapa, você clona o aplicativo de inicialização de exemplo Primavera, configura-o para usar o banco de dados MySQL local e executa-o em seu computador. 
 
 ### <a name="clone-the-sample"></a>Clonar o exemplo
 
-No prompt de comando, navegue até um diretório de trabalho.  
-
-Execute os comandos a seguir para clonar o repositório de exemplo. 
+No prompt de comando, navegue até um diretório de trabalho e clone o repositório de exemplo. 
 
 ```bash
-git clone https://github.com/bbenz/azure-mysql-java-todo-app
+git clone https://github.com/azure-samples/mysql-spring-boot-todo
 ```
 
-Em seguida, configure lombok.jar seguindo as etapas no arquivo Leiame do repositório.
+### <a name="configure-the-app-to-use-the-mysql-database"></a>Configurar o aplicativo para usar o banco de dados MySQL
 
-
-### <a name="configure-mysql-connection"></a>Configurar a conexão do MySQL
-
-Esse aplicativo usa o plug-in Maven Jetty para executar o aplicativo localmente e conectar-se ao banco de dados MySQL.
-Para habilitar o acesso à instância do MySQL local, defina a ID e a senha de usuário do MySQL local em WebContent/WEB-INF/jetty-env.xml.
-
-Atualize os valores de usuário e senha com a senha e a ID de usuário da sua instância do MySQL local:
+Atualização de `spring.datasource.password` e o valor em *spring-boot-mysql-todo/src/main/resources/application.properties* com a mesma senha raiz usada para abrir o prompt de comando do MySQL:
 
 ```
-<Configure id='wac' class="org.eclipse.jetty.webapp.WebAppContext">
-  <New id="itemdb" class="org.eclipse.jetty.plus.jndi.Resource">
-     <Arg></Arg>
-     <Arg>jdbc/todoItemDb</Arg>
-     <Arg>
-        <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-           <Set name="Url">jdbc:mysql://localhost:3306/itemdb</Set>
-           <Set name="User">root</Set>
-           <Set name="Password"></Set>
-        </New>
-     </Arg>
-    </New>
-</Configure>
-
+spring.datasource.password=mysqlpass
 ```
 
-&gt; [!NOTE]
-&gt; Para obter informações sobre como o Jetty usa o arquivo `jetty-env.xml`, consulte a [Referência de XML do Jetty](http://www.eclipse.org/jetty/documentation/9.4.x/jetty-env-xml.html).
-&gt; &gt;
+### <a name="build-and-run-the-sample"></a>Criar e executar a amostra
 
-### <a name="run-the-sample"></a>Execute o exemplo
-
-Use um comando Maven para executar o exemplo: 
+Compilar e executar o exemplo usando o invólucro no repositório do Maven:
 
 ```bash
-mvn package jetty:run
+cd spring-boot-mysql-todo
+mvnw package spring-boot:run
 ```
 
-Em seguida, navegue até `http://localhost:8080` em um navegador. Adicione algumas tarefas à página.
+Abra seu navegador para http://localhost:8080 para ver o exemplo em ação. Conforme você adiciona tarefas à lista, use os comandos SQL a seguir no prompt de comando do MySQL para exibir os dados armazenados no MySQL.
 
-Para parar o aplicativo a qualquer momento, digite `Ctrl`+`C` no prompt de comando. 
+```SQL
+use testdb;
+select * from todo_item;
+```
 
-## <a name="create-a-mysql-database-in-azure"></a>Criar um banco de dados MySQL no Azure
+Interrompa o aplicativo pressionando `Ctrl`+`C` no prompt de comando. 
 
-Nesta etapa, você cria um banco de dados MySQL no [Banco de dados do Azure para MySQL (versão prévia)](/azure/mysql). Posteriormente, você configurará seu aplicativo Java para se conectar a esse banco de dados.
+## <a name="create-an-azure-mysql-database"></a>Criar um banco de dados MySQL do Azure
 
-### <a name="log-in-to-azure"></a>Fazer logon no Azure
+Nesta etapa, você criará uma instância [Banco de dados para MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Configure o aplicativo de exemplo para usar este banco de dados posteriormente no tutorial.
 
 Use a CLI do Azure 2.0 em uma janela de terminal para criar os recursos necessários para hospedar seu aplicativo Java no serviço de aplicativo do Azure. Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#login) e siga as instruções na tela. 
 
-```azurecli 
+```azurecli-interactive 
 az login 
-``` 
+```   
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual recursos do Azure, como aplicativos da Web, bancos de dados e contas de armazenamento são implantados e gerenciados. 
+Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual recursos relacionados do Azure, como aplicativos Web, bancos de dados e contas de armazenamento são implantados e gerenciados. 
 
 O exemplo a seguir cria um grupo de recursos na região da Europa Setentrional:
 
-```azurecli
-az group create --name myResourceGroup  --location "North Europe"
-```
+```azurecli-interactive
+az group create --name myResourceGroup --location "North Europe"
+```    
 
-Para ver os valores disponíveis para `--location`, use o comando [az appservice list-locations](/cli/azure/appservice#list-locations).
+Para ver os possíveis valores que podem ser usados para `--location`, use o comando [az appservice list-locations](/cli/azure/appservice#list-locations).
 
 ### <a name="create-a-mysql-server"></a>Criar um servidor MySQL
 
-Crie um servidor no Banco de Dados do Azure para MySQL (versão prévia) com o comando [az mysql server create](/cli/azure/mysql/server#create).
+Crie um servidor no Banco de Dados do Azure para MySQL (versão prévia) com o comando [az mysql server create](/cli/azure/mysql/server#create).    
+Substitua pelo nome do servidor MySQL exclusivo onde vir o espaço reservado `<mysql_server_name>`. Esse nome é parte do nome de host do servidor MySQL, `<mysql_server_name>.mysql.database.azure.com`, portanto, ele precisa ser globalmente exclusivo. Substitua também `<admin_user>` e `<admin_password>` por seus próprios valores.
 
-Substitua pelo nome do servidor MySQL exclusivo onde vir o espaço reservado `&lt;mysql_server_name&gt;`. Esse nome é parte do nome de host do servidor MySQL, `&lt;mysql_server_name&gt;.database.windows.net`, portanto, ele precisa ser globalmente exclusivo. Substitua também `&lt;admin_user&gt;` e `&lt;admin_password&gt;` por seus próprios valores.
-
-```azurecli
-az mysql server create --name &lt;mysql_server_name&gt; --resource-group myResourceGroup --location "North Europe" --user &lt;admin_user&gt; --password &lt;admin_password&gt;
+```azurecli-interactive
+az mysql server create --name <mysql_server_name> \ 
+    --resource-group myResourceGroup \ 
+    --location "North Europe" \
+    --admin-user <admin_user> \ 
+    --admin-password <admin_password>
 ```
 
 Quando o servidor MySQL for criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
 
 ```json
 {
-  "administratorLogin": "&lt;admin_user&gt;",
+  "administratorLogin": "admin_user",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "&lt;mysql_server_name&gt;.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql_server_name&gt;",
+  "fullyQualifiedDomainName": "mysql_server_name.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/mysql_server_name",
   "location": "northeurope",
-  "name": "&lt;mysql_server_name&gt;",
-  "resourceGroup": "myResourceGroup",
+  "name": "mysql_server_name",
+  "resourceGroup": "mysqlJavaResourceGroup",
   ...
+  < Output has been truncated for readability >
 }
 ```
 
-### <a name="configure-a-server-firewall"></a>Configurar um firewall de servidor
+### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
 Crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create). 
 
-```azurecli
-az mysql server firewall-rule create --name allIPs --server &lt;mysql_server_name&gt; --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+```azurecli-interactive
+az mysql server firewall-rule create \
+    --name allIPs \
+    --server <mysql_server_name>  \ 
+    --resource-group myResourceGroup \ 
+    --start-ip-address 0.0.0.0 \ 
+    --end-ip-address 255.255.255.255
 ```
 
-&gt; [!NOTE]
-&gt; O Banco de Dados do Azure para MySQL (versão prévia) ainda não permite conexões somente de serviços do Azure. Como os endereços IP no Azure são atribuídos dinamicamente, é melhor habilitar todos os endereços IP por enquanto. Como o serviço está na fase de versão prévia, melhores métodos para proteger seu banco de dados serão habilitados em breve.
-&gt; &gt;
+> [!NOTE]
+> Atualmente, o Banco de Dados do Azure para MySQL (Visualização) não habilita automaticamente conexões de serviços do Azure. Como os endereços IP no Azure são atribuídos dinamicamente, é melhor habilitar todos os endereços IP por enquanto. Como o serviço continua na fase de visualização, melhores métodos para proteger seu banco de dados serão habilitados.
 
-### <a name="connect-to-the-mysql-server"></a>Conectar ao servidor MySQL
+## <a name="configure-the-azure-mysql-database"></a>Configurar o banco de dados MySQL do Azure
 
-Na janela do terminal, conecte-se ao servidor MySQL no Azure. Use o valor especificado anteriormente para `&lt;admin_user&gt;` e `&lt;mysql_server_name&gt;`.
+Na janela do terminal em seu computador, conecte-se ao servidor MySQL no Azure. Use o valor especificado anteriormente para `<admin_user>` e `<mysql_server_name>`.
 
 ```bash
-mysql -u &lt;admin_user&gt;@&lt;mysql_server_name&gt; -h &lt;mysql_server_name&gt;.database.windows.net -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
 ```
 
-### <a name="create-a-database-and-table-in-the-azure-mysql-service"></a>Criar um banco de dados e uma tabela no Serviço MySQL do Azure
+### <a name="create-a-database"></a>Criar um banco de dados 
 
 No prompt `mysql`, crie um banco de dados e uma tabela para os itens de tarefa.
 
 ```sql
-CREATE DATABASE todoItemDb;
-USE todoItemDb;
-CREATE TABLE ITEMS ( id varchar(255), name varchar(255), category varchar(255), complete bool);
+CREATE DATABASE tododb;
 ```
 
 ### <a name="create-a-user-with-permissions"></a>Criar um usuário com permissões
 
-Crie um usuário do banco de dados e dê a ele todos os privilégios no banco de dados `todoItemDb`. Substitua os espaços reservados `&lt;Javaapp_user&gt;` e `&lt;Javaapp_password&gt;` por seu próprio nome exclusivo do aplicativo.
+Crie um usuário do banco de dados e dê a ele todos os privilégios no banco de dados `tododb`. Substitua os espaços reservados `<Javaapp_user>` e `<Javaapp_password>` por seu próprio nome exclusivo do aplicativo.
 
 ```sql
-CREATE USER '&lt;Javaapp_user&gt;' IDENTIFIED BY '&lt;Javaapp_password&gt;'; 
-GRANT ALL PRIVILEGES ON todoItemDb.* TO '&lt;Javaapp_user&gt;';
+CREATE USER '<Javaapp_user>' IDENTIFIED BY '<Javaapp_password>'; 
+GRANT ALL PRIVILEGES ON tododb.* TO '<Javaapp_user>';
 ```
 
 Saia da conexão do servidor digitando `quit`.
@@ -222,78 +216,20 @@ Saia da conexão do servidor digitando `quit`.
 quit
 ```
 
-### <a name="configure-the-local-mysql-connection-with-the-new-azure-mysql-service"></a>Configurar a conexão do MySQL local com o novo Serviço MySQL do Azure
+## <a name="deploy-the-sample-to-azure-app-service"></a>Implantar o exemplo no Serviço de Aplicativo do Azure
 
-Nesta etapa, você conecta seu aplicativo Java ao banco de dados MySQL que acabou de criar no Banco de Dados do Azure para MySQL (versão prévia). 
+Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando a CLI de comando [az appservice plan create](/cli/azure/appservice/plan#create). O plano do serviço de aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do serviço de aplicativo compartilham esses recursos, permitindo que você economize hospedando vários aplicativos. 
 
-Para habilitar o acesso do aplicativo local ao serviço MySQL do Azure, defina seu novo ponto de extremidade MySQL, ID de usuário e senha em WebContent/WEB-INF/jetty-env.xml:
-
-```
-<Configure id='wac' class="org.eclipse.jetty.webapp.WebAppContext">
-  <New id="itemdb" class="org.eclipse.jetty.plus.jndi.Resource">
-     <Arg></Arg>
-     <Arg>jdbc/todoItemDb</Arg>
-     <Arg>
-        <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-           <Set name="Url">jdbc:mysql:<paste the endpoint for the Azure MySQL Service>/itemdb</Set>
-           <Set name="User">Azure MySQL userID</Set>
-           <Set name="Password">Azure MySQL Password</Set>
-        </New>
-     </Arg>
-    </New>
-</Configure>
-
+```azurecli-interactive
+az appservice plan create \
+    --name myAppServicePlan \ 
+    --resource-group myResourceGroup \
+    --sku FREE
 ```
 
-Salve suas alterações.
+Quando o plano estiver pronto, a CLI do Azure mostra uma saída semelhante ao exemplo a seguir:
 
-## <a name="test-the-application"></a>Testar o aplicativo
-
-Use o mesmo comando Maven que antes para executar o exemplo localmente mais uma vez, mas desta vez se conectando ao serviço MySQL do Azure: 
-
-```bash
-mvn package jetty:run
-```
-
-Navegue até `http://localhost:8080` em um navegador. Se a página for carregada sem erros, seu aplicativo Java estará se conectando ao banco de dados MySQL no Azure. 
-
-Você não deve ver “Adicionar algumas tarefas” na página.
-
-Para parar o aplicativo a qualquer momento, digite `Ctrl`+`C` no terminal. 
-
-### <a name="secure-sensitive-data"></a>Proteger dados confidenciais
-
-Certifique-se de que os dados confidenciais em `WebContent/WEB-INF/jetty-env.xml` não sejam confirmados no Git.
-
-Para fazer isso, abra `.gitignore` da raiz do repositório e adicione `WebContent/WEB-INF/jetty-env.xml` em uma nova linha. Salve suas alterações.
-
-Confirme as alterações em `.gitignore`.
-
-```bash
-git add .gitignore
-git commit -m "keep sensitive data in WebContent/WEB-INF/jetty-env.xml out of git"
-```
-
-## <a name="deploy-the-java-application-to-azure"></a>Implantar o aplicativo Java no Azure
-Em seguida, implantamos o aplicativo Java em um serviço de aplicativo do Azure.
-
-### <a name="create-an-appservice-plan"></a>Criar um plano do serviço de aplicativo
-
-Crie um plano do serviço de aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan#create). 
-
-&gt; [!NOTE] 
-&gt; Um plano do serviço de aplicativo representa a coleção de recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do serviço de aplicativo compartilham os recursos definidos por ele, permitindo que você economize hospedando vários aplicativos. 
-&gt; &gt; Os planos do serviço de aplicativo definem: &gt; &gt; * Região (Europa Setentrional, Leste dos EUA, Sudeste Asiático) &gt; * Tamanho da instância (pequeno, médio, grande) &gt; * Contagem de escala (uma, duas ou três instâncias etc.) &gt; * SKU (Gratuito, Compartilhado, Básico, Standard e Premium) &gt; 
-
-O exemplo a seguir cria um plano do serviço de aplicativo denominado `myAppServicePlan` usando o tipo de preço **GRATUITO**:
-
-```azurecli
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
-```
-
-Quando o plano do serviço de aplicativo é criado, a CLI do Azure mostra informações semelhantes ao exemplo a seguir:
-
-```json 
+```json
 { 
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -304,24 +240,25 @@ Quando o plano do serviço de aplicativo é criado, a CLI do Azure mostra inform
   "location": "North Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  &lt; JSON data removed for brevity. &gt;
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
+  ...
+  < Output has been truncated for readability >
 } 
 ``` 
 
 ### <a name="create-an-azure-web-app"></a>Criar um aplicativo Web do Azure
 
-Agora que um plano do serviço de aplicativo foi criado, crie um aplicativo Web do Azure no plano do serviço de aplicativo `myAppServicePlan`. O aplicativo Web fornece um espaço de hospedagem para implantar seu código e fornecer uma URL para exibir o aplicativo implantado. Use o comando [az appservice web create](/cli/azure/appservice/web#create) para criar o aplicativo Web. 
+ Use a CLI de comando [az webapp create](/cli/azure/appservice/web#create) para criar uma definição de aplicativo Web no `myAppServicePlan` Plano do Serviço de Aplicativo. A definição de aplicativo Web fornece uma URL para acessar seu aplicativo e define várias opções para implantar seu código no Azure. 
 
-No seguinte comando, substitua o espaço reservado `&lt;app_name&gt;` por seu próprio nome de aplicativo exclusivo. O nome exclusivo será usado como a parte do nome de domínio padrão para o aplicativo Web, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. Posteriormente, você poderá mapear qualquer entrada DNS personalizada para o aplicativo Web antes de expor para seus usuários. 
-
-```azurecli
-az appservice web create --name &lt;app_name&gt; --resource-group myResourceGroup --plan myAppServicePlan
+```azurecli-interactive
+az webapp create \
+    --name <app_name> \ 
+    --resource-group myResourceGroup \
+    --plan myAppServicePlan
 ```
 
-Quando o aplicativo Web tiver sido criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir: 
+Substitua o espaço reservado `<app_name>` por seu próprio nome exclusivo do aplicativo. Esse nome exclusivo é parte do nome de domínio padrão para o aplicativo Web, portanto, o nome precisa ser exclusivo entre todos os aplicativos no Azure. Você poderá mapear uma entrada de nome de domínio personalizada para o aplicativo Web antes de expor para seus usuários.
+
+Quando a definição do aplicativo Web tiver pronta, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir: 
 
 ```json 
 {
@@ -331,108 +268,226 @@ Quando o aplicativo Web tiver sido criado, a CLI do Azure mostrará informaçõe
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "&lt;app_name&gt;.azurewebsites.net",
+  "defaultHostName": "<app_name>.azurewebsites.net",
   "enabled": true,
-  "enabledHostNames": [
-    "&lt;app_name&gt;.azurewebsites.net",
-    "&lt;app_name&gt;.scm.azurewebsites.net"
-  ],
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "&lt;app_name&gt;.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    }
-    &lt; JSON data removed for brevity. &gt;
+   ...
+  < Output has been truncated for readability >
 }
 ```
 
-### <a name="set-the-java-version-the-java-application-server-type-and-the-application-server-version"></a>Defina a versão do Java, o tipo do servidor de aplicativos Java e a versão do servidor de aplicativos
+### <a name="configure-java"></a>Configurar o Java 
 
-Defina a versão do Java, do Servidor de aplicativos Java (contêiner) e a versão do contêiner usando o comando [az appservice web config update](/cli/azure/appservice/web/config#update).
+Definir a configuração de tempo de execução Java que seu aplicativo precisa com o comando [az appservice web config update](/cli/azure/appservice/web/config#update).
 
-O comando a seguir define a versão do Java como 8, o Servidor de aplicativos Java como Jetty e a versão do Jetty como a mais recente, o Jetty 9.3.
+O comando a seguir configura o aplicativo Web para ser executado em um JDK 8 Java recente e [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
-```azurecli
-az appservice web config update --name &lt;app_name&gt; --resource-group myResourceGroup --java-version 1.8 --java-container Jetty --java-container-version 9.3
+```azurecli-interactive
+az webapp config set \ 
+    --name <app_name> \
+    --resource-group myResourceGroup \ 
+    --java-version 1.8 \ 
+    --java-container Tomcat \
+    --java-container-version 8.0
 ```
 
+### <a name="configure-the-app-to-use-the-azure-sql-database"></a>Configurar o aplicativo para usar o banco de dados SQL do Azure
 
-### <a name="get-credentials-for-deployment-to-the-web-app-using-ftp"></a>Obter credenciais para implantação no aplicativo Web usando FTP 
+Antes de executar o aplicativo de exemplo, defina as configurações do aplicativo no aplicativo Web para usar o banco de dados MySQL do Azure criado no Azure. Essas propriedades são expostas ao aplicativo Web como variáveis de ambiente e substituem os valores definidos em application.properties dentro do aplicativo Web empacotado. 
 
-É possível implantar seu aplicativo no serviço de aplicativo do Azure de várias maneiras, incluindo FTP, Git local, GitHub, Visual Studio Team Services e BitBucket. Para este exemplo, usamos o Maven para compilar um arquivo .WAR e o FTP para implantar o arquivo .WAR no aplicativo Web
+Definir configurações de aplicativo usando [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) na CLI:
 
-Para determinar as credenciais a serem passadas em um comando ftp para o aplicativo Web, use o comando [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) da seguinte forma: 
-
-```azurecli
-
-az appservice web deployment list-publishing-profiles --name &lt;app_name&gt; --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --o table
-
+```azurecli-interactive
+az webapp config appsettings set \
+    --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" \
+    --resource-group myResourceGroup \
+    --name <app_name>
 ```
-### <a name="compile-the-local-application-to-deply-to-the-web-app"></a>Compilar o aplicativo local para implantar no aplicativo Web 
 
-Para preparar o aplicativo Java local para ser executado no aplicativo Web do Azure, recompile todos os recursos no aplicativo Java em um único arquivo .WAR pronto para implantação. Navegue até o diretório em que o pom.xml do aplicativo está localizado e digite:
+```azurecli-interactive
+az webapp config appsettings set \
+    --settings SPRING_DATASOURCE_USERNAME=Javaapp_user@mysql_server_name  \
+    --resource-group myResourceGroup \ 
+    --name <app_name>
+```
 
-```bash 
-mvn clean package
-``` 
-No final do processo do pacote Maven, você verá a localização do arquivo .WAR.  A saída deve ser semelhante a esta:
+```azurecli-interactive
+az webapp config appsettings set \
+    --settings SPRING_DATASOURCE_URL=Javaapp_password \
+    --resource-group myResourceGroup \ 
+    --name <app_name>
+```
+
+### <a name="get-ftp-deployment-credentials"></a>Obter credenciais de implantação FTP 
+É possível implantar seu aplicativo no serviço de aplicativo do Azure de várias maneiras, incluindo FTP, Git local, GitHub, Visual Studio Team Services e BitBucket. Para este exemplo, o FTP para implantar o arquivo .WAR criado anteriormente no computador local para o Serviço de Aplicativo do Azure.
+
+Para determinar as credenciais a serem passadas em um comando ftp para o aplicativo Web, use o comando [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles): 
+
+```azurecli-interactive
+az webapp deployment list-publishing-profiles \ 
+    --name <app_name> \ 
+    --resource-group myResourceGroup \
+    --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" \ 
+    --output json
+```
+
+```JSON
+[
+  {
+    "Password": "aBcDeFgHiJkLmNoPqRsTuVwXyZ",
+    "URL": "ftp://waws-prod-blu-069.ftp.azurewebsites.windows.net/site/wwwroot",
+    "Username": "app_name\\$app_name"
+  }
+]
+```
+
+### <a name="upload-the-app-using-ftp"></a>Carregar o aplicativo usando FTP
+
+Use sua ferramenta favorita de FTP para implantar o arquivo .WAR para a pasta */site/wwwroot/webapps* no endereço de servidor obtido do campo `URL` no comando anterior. Remova o diretório de aplicativo padrão (RAIZ) existente e substitua o ROOT.war existente com o arquivo .WAR incorporado no tutorial anterior.
 
 ```bash
-
-[INFO] Processing war project
-[INFO] Copying webapp resources [local-location\GitHub\mysql-java-todo-app\WebContent]
-[INFO] Webapp assembled in [1519 msecs]
-[INFO] Building war: C:\Users\your\localGitHub\mysql-java-todo-app\target\azure-appservice-mysql-java-sample-0.0.1-SNAPSHOT.war
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-
+ftp waws-prod-blu-069.ftp.azurewebsites.windows.net
+Connected to waws-prod-blu-069.drip.azurewebsites.windows.net.
+220 Microsoft FTP Service
+Name (waws-prod-blu-069.ftp.azurewebsites.windows.net:raisa): app_name\$app_name
+331 Password required
+Password:
+cd /site/wwwroot/webapps
+mdelete -i ROOT/*
+rmdir ROOT/
+put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
 ```
 
-Tome nota da localização do arquivo .WAR e use seu método FTP favorito para implantar o arquivo .WAR na pasta WebApps do Jetty.  Observe que a pasta WebApps do Jetty está localizada em /site/wwwroot/webapps em um aplicativo Web do Azure. 
+### <a name="test-the-web-app"></a>Testar o aplicativo Web
 
-### <a name="browse-to-the-azure-web-app"></a>Navegar até o aplicativo Web do Azure
-
-Navegue até `http://&lt;app_name&gt;.azurewebsites.net/&lt;app_name&gt;` e adicione algumas tarefas à lista. 
+Navegue até `http://<app_name>.azurewebsites.net/` e adicione algumas tarefas à lista. 
 
 ![Aplicativo Java em execução no serviço de aplicativo do Azure](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
-
 **Parabéns!** Você está executando um aplicativo Java controlado por dados no Serviço de Aplicativo do Azure.
-Para atualizar o aplicativo, repita o comando de limpeza de pacote do Maven e reimplante o aplicativo via FTP.
+
+## <a name="update-the-app-and-redeploy"></a>Atualizar o aplicativo e reimplantar
+
+Atualize o aplicativo para incluir uma coluna adicional na lista de tarefas para o dia em que o item foi criado. O Spring Boot lida com atualizações do esquema de banco de dados para você, como as alterações do modelo de dados sem alterar os registros do banco de dados existente.
+
+1. Em seu sistema local, abra *src/main/java/com/example/fabrikam/TodoItem.java* e adicione as importações a seguir à classe:   
+
+    ```java
+    import java.text.SimpleDateFormat;
+    import java.util.Calendar;
+    ```
+
+2. Adicione uma propriedade `String` `timeCreated` para *src/main/java/com/example/fabrikam/TodoItem.java*, inicializando-a com um carimbo de data/hora na criação do objeto. Adicione getters/setters para a nova propriedade `timeCreated` enquanto você estiver editando este arquivo.
+
+    ```java
+    private String name;
+    private boolean complete;
+    private String timeCreated;
+    ...
+
+    public TodoItem(String category, String name) {
+       this.category = category;
+       this.name = name;
+       this.complete = false;
+       this.timeCreated = new SimpleDateFormat("MMMM dd, YYYY").format(Calendar.getInstance().getTime());
+    }
+    ...
+    public void setTimeCreated(String timeCreated) {
+       this.timeCreated = timeCreated;
+    }
+
+    public String getTimeCreated() {
+        return timeCreated;
+    }
+    ```
+
+3. Atualize *src/main/java/com/example/fabrikam/TodoDemoController.java* em uma linha no método `updateTodo` para definir o carimbo de data/hora:
+
+    ```java
+    item.setComplete(requestItem.isComplete());
+    item.setId(requestItem.getId());
+    item.setTimeCreated(requestItem.getTimeCreated());
+    repository.save(item);
+    ```
+
+4. Adicione suporte para o novo campo no modelo Thymeleaf. Atualize *src/main/resources/templates/index.html* com um novo cabeçalho de tabela para o carimbo de data/hora e um novo campo para exibir o valor do carimbo de data/hora em cada linha de dados de tabela.
+
+    ```html
+    <th>Name</th>
+    <th>Category</th>
+    <th>Time Created</th>
+    <th>Complete</th>
+    ...
+    <td th:text="${item.category}">item_category</td><input type="hidden" th:field="*{todoList[__${i.index}__].category}"/>
+    <td th:text="${item.timeCreated}">item_time_created</td><input type="hidden" th:field="*{todoList[__${i.index}__].timeCreated}"/>
+    <td><input type="checkbox" th:checked="${item.complete} == true" th:field="*{todoList[__${i.index}__].complete}"/></td>
+    ```
+
+5. Recompile o aplicativo:
+
+    ```bash
+    mvnw clean package 
+    ```
+
+6. Realize o FTP no .WAR atualizado como antes, removendo o diretório existente *site/wwwroot/webapps/ROOT* e *ROOT.war*, em seguida, carregando o arquivo .WAR atualizado como ROOT.war. 
+
+Quando você atualiza o aplicativo, uma coluna **Hora da Criação** fica visível. Quando você adiciona uma nova tarefa, o aplicativo preenche automaticamente o carimbo de data/hora. As tarefas existentes permanecem inalteradas e trabalham com o aplicativo, embora o modelo de dados subjacente tenha sido alterado. 
+
+![Aplicativo Java atualizado com uma nova coluna](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
+      
+## <a name="stream-diagnostic-logs"></a>Logs de diagnóstico de fluxo 
+
+Enquanto o aplicativo Java é executado no Serviço de Aplicativo do Azure, é possível fazer com que os logs do console sejam encaminhados diretamente para seu terminal. Dessa forma, é possível obter as mesmas mensagens de diagnóstico para ajudá-lo a depurar erros de aplicativo.
+
+Para iniciar o streaming de log, use o comando [az webapp log tail](/cli/azure/appservice/web/log#tail).
+
+```azurecli-interactive 
+az webapp log tail \
+    --name <app_name> \
+    --resource-group myResourceGroup 
+``` 
 
 ## <a name="manage-your-azure-web-app"></a>Gerenciar seu aplicativo Web do Azure
 
-Vá até o portal do Azure para ver o aplicativo Web criado entrando em [https://portal.azure.com](https://portal.azure.com).
+Vá para o portal do Azure para ver o aplicativo Web que você criou.
 
-No menu à esquerda, clique em **serviço de aplicativo** e, em seguida, clique no nome do seu aplicativo Web do Azure.
+Para fazer isso, entre em [https://portal.azure.com](https://portal.azure.com).
 
-Agora, você deve estar na _folha_ de seu aplicativo Web (uma página do portal que abre horizontalmente).
+No menu à esquerda, clique em **Serviço de Aplicativo**, em seguida, clique no nome do seu aplicativo Web do Azure.
 
-Por padrão, a folha de seu aplicativo Web mostra a página **Visão Geral**. Esta página fornece uma visão de como está seu aplicativo. Aqui, você também pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. As guias no lado esquerdo da folha mostram as páginas de configuração diferentes que você pode abrir.
+![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 
-Na página **Configurações do Aplicativo**, 
+Por padrão, a folha de seu aplicativo Web mostra a página **Visão Geral**. Esta página fornece uma visão de como está seu aplicativo. Aqui, você também pode executar tarefas de gerenciamento como parar, iniciar, reiniciar e excluir. As guias no lado esquerdo da folha mostram as páginas de configuração diferentes que você pode abrir.
 
-![Configurações do aplicativo Web do serviço de aplicativo do Azure](./media/app-service-web-tutorial-java-mysql/appservice-web-app-application-settings.png)
-
-
+![Folha Serviço de Aplicativo no portal do Azure](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
 Essas guias na folha mostram muitos recursos excelentes que você pode adicionar ao seu aplicativo Web. A lista a seguir fornece algumas possibilidades:
-
 * mapear um nome DNS personalizado
 * associar um certificado SSL personalizado
 * configurar uma implantação contínua
 * Escalar vertical e horizontalmente
 * adicionar a autenticação do usuário
 
-## <a name="more-resources"></a>Mais recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-- [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
-- [Associar um certificado SSL personalizado existente a aplicativos Web do Azure](app-service-web-tutorial-custom-ssl.md)
-- [Scripts da CLI de aplicativos Web](app-service-cli-samples.md)</PRE>
+Se não precisar desses recursos para outro tutorial (consulte [Próximas etapas](#next)), você poderá excluí-los executando o seguinte comando: 
+  
+```azurecli-interactive
+az group delete --name myResourceGroup 
+``` 
 
+<a name="next"></a>
+
+## <a name="next-steps"></a>Próximas etapas
+
+> [!div class="checklist"]
+> * Criar um banco de dados MySQL no Azure
+> * Conectar um aplicativo Java de exemplo para o MySQL
+> * Implantar o aplicativo no Azure
+> * Atualizar o aplicativo e reimplantar
+> * Transmitir logs de diagnóstico do Azure
+> * Gerenciar o aplicativo no portal do Azure
+
+Vá para o próximo tutorial para aprender a mapear um nome DNS personalizado para o aplicativo.
+
+> [!div class="nextstepaction"] 
+> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
