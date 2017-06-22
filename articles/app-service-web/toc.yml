@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Carregar aplicativo existente
         href: web-sites-java-add-app.md
-      - name: Depuração remota do Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Depuração remota do IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Aplicativo do Django com o MySQL
@@ -162,8 +158,6 @@
       items:
       - name: Comprar domínio
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Mapear domínio de terceiros
-        href: web-sites-custom-domain-name.md
       - name: Mapear domínios com o Gerenciador de Tráfego
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Mapear domínios GoDaddy
@@ -204,10 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: Aplicativo com um banco de dados multilocatário
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Atribuir SSL personalizado
-      items:
-      - name: Configurar certificado SSL de terceiros
-        href: web-sites-configure-ssl-certificate.md
     - name: Impor HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Configurar a autenticação mútua TLS
@@ -278,6 +268,16 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Solucionar problemas de desempenho
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: Perguntas frequentes
+      items:
+      - name: 'Disponibilidade, desempenho e perguntas frequentes sobre aplicativos'
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Perguntas frequentes sobre implantação
+        href: app-service-web-deployment-faq.md
+      - name: Perguntas frequentes sobre tecnologias de software livre
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Perguntas frequentes de configuração e gerenciamento
+        href: app-service-web-configuration-and-management-faq.md
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Informações de cota

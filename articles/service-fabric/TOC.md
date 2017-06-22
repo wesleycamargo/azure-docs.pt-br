@@ -200,13 +200,13 @@
 #### [Excluir](service-fabric-cluster-delete.md)
 
 ### Clusters independentes
-#### [Conteúdos do pacote autônomo](service-fabric-cluster-standalone-package-contents.md)
 #### [Planejar e preparar para a implantação do cluster](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Criação
 ##### [Criar localmente](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Criar em máquinas virtuais do Azure](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Proteger usando certificados](service-fabric-windows-cluster-x509-security.md)  
 ##### [Proteger usando a segurança do Windows](service-fabric-windows-cluster-windows-security.md)
+##### [Conteúdos do pacote autônomo](service-fabric-cluster-standalone-package-contents.md)
 #### [Escala](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Definir controle de acesso](service-fabric-cluster-security-roles.md)
 #### [Configurar](service-fabric-cluster-manifest.md)
@@ -233,34 +233,35 @@
 #### [Limitação](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Movimento de serviço](service-fabric-cluster-resource-manager-movement-cost.md)
 
-### [Conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md)
-
-## Inspecionar a integridade do aplicativo e do cluster
-### [Monitorar a integridade do Service Fabric](service-fabric-health-introduction.md)
-### [Relatar e verificar a integridade de serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [Adicionar relatórios de integridade personalizados](service-fabric-report-health.md)
-### [Solucionar problemas com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [Exibir relatórios de integridade](service-fabric-view-entities-aggregated-health.md)
-
 ## Monitorar e diagnosticar
 ### [Monitorar e diagnosticar aplicativos](service-fabric-diagnostics-overview.md)
-### Monitorar e diagnosticar serviços localmente
-#### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Logs de Diagnóstico do Azure
-#### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-#### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Coletar logs de um processo de serviço](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Monitorar contêineres do Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
-### [Diagnóstico em Reliable Services com estado](service-fabric-reliable-services-diagnostics.md)
-### [Diagnósticos em Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### Gerar eventos
+#### [Gerar eventos de nível de infra-estrutura](service-fabric-diagnostics-event-generation-infra.md)
+##### [Eventos de Reliable Services](service-fabric-reliable-services-diagnostics.md)
+##### [Eventos de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+#### [Gerar eventos de nível de aplicativo](service-fabric-diagnostics-event-generation-app.md)
+### Inspecionar a integridade do aplicativo e do cluster
+#### [Monitorar a integridade do Service Fabric](service-fabric-health-introduction.md)
+#### [Relatar e verificar a integridade de serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Adicionar relatórios de integridade personalizados](service-fabric-report-health.md)
+#### [Solucionar problemas com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Exibir relatórios de integridade](service-fabric-view-entities-aggregated-health.md)
+### Eventos de agregação
+#### [Eventos de agregação com EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Eventos de agregação com o Diagnóstico do Azure
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Analisar eventos
+#### [Analisar eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Analisar eventos com o OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Solucionar problemas do seu cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referência
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [API Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [CLI do Azure](/cli/azure/sf)
+## [API Java](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Recursos

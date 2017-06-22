@@ -7,6 +7,7 @@
 ## [Planejamento e design do Gateway de VPN](vpn-gateway-plan-design.md)
 ## [Sobre as configurações do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md)
 ## [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md)
+## [Sobre os requisitos de criptografia](vpn-gateway-about-compliance-crypto.md)
 ## [Sobre BGP e gateway de VPN](vpn-gateway-bgp-overview.md)
 ## [Sobre a conectividade altamente disponível](vpn-gateway-highlyavailable.md)
 
@@ -32,18 +33,25 @@
 ## Configurar uma conexão de rede virtual a rede virtual entre os modelo de implantação
 ### [Portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## [Configurar conexões coexistentes Site a Site e do ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-## Configurar o túnel forçado
-### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [PowerShell (clássico)](vpn-gateway-about-forced-tunneling.md)
+## Configurar conexões coexistentes Site a Site e do ExpressRoute
+### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Configurar múltiplas conexões Site a Site
 ### [Portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (clássico)](vpn-gateway-multi-site.md)
-## [Configurar o BGP para um gateway de VPN](vpn-gateway-bgp-resource-manager-ps.md)
-## [Configurar conexões de ativo-ativo altamente disponíveis](vpn-gateway-activeactive-rm-powershell.md)
+## Conectar vários dispositivos VPN baseados em políticas
+### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
+## Configurar políticas de IPsec/IKE nas conexões
+### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+## Configurar conexões de ativo-ativo altamente disponíveis
+### [PowerShell](vpn-gateway-activeactive-rm-powershell.md)
+## Configurar o BGP para um gateway de VPN
+### [PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+## Configurar o túnel forçado
+### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
+### [PowerShell (clássico)](vpn-gateway-about-forced-tunneling.md)
 ## Modificar configurações de gateway de rede locais
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+### [CLI do Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verificar uma conexão de gateway de VPN](vpn-gateway-verify-connection-resource-manager.md)
 ## [Redefinir um gateway de VPN](vpn-gateway-resetgw-classic.md)
 ## Excluir um gateway de VPN
@@ -55,11 +63,11 @@
 ### [Validar a taxa de transferência VPN em uma VNet](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Referência
-## [PowerShell](/powershell/module/azurerm.network)
-## [PowerShell (clássico)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
+## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
+## [PowerShell (clássico)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
+## [REST](/rest/api/network/virtualnetworkgateways)
 ## [REST (clássico)](https://msdn.microsoft.com/library/jj154113)
-## [CLI do Azure](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
+## [CLI do Azure](/cli/azure/network/vnet-gateway)
 
 # Relacionados
 ## [Rede Virtual](/azure/virtual-network/)

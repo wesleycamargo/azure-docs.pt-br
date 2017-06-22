@@ -47,7 +47,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
 3. Na página **Visão geral** do banco de dados, analise o nome totalmente qualificado do servidor, como mostrado na imagem abaixo. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**.
 
-   ![informações da conexão](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![informações da conexão](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha. 
 

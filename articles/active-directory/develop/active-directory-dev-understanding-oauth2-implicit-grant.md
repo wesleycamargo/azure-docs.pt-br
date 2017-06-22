@@ -3,7 +3,7 @@ title: "Noções básicas sobre o fluxo de concessão implícita OAuth2 no Azure
 description: "Saiba mais sobre a implementação do fluxo de concessão implícita OAuth2 pelo Azure Active Directory do OAuth2 e se ele é adequado para o aplicativo."
 services: active-directory
 documentationcenter: dev-center-name
-author: vibronet
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
-ms.author: vittorib;bryanla
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
