@@ -10,17 +10,18 @@ ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 06/05/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 491bbfe61cf387f18b903caa45529be206876d49
-ms.openlocfilehash: fe253f5d95b0b9351d6ffd382cbba0c490074f15
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: ef7a25de4536cfd54331e1bce7d22f351768585c
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/05/2017
 
 ---
 # <a name="site-recovery-documentation"></a>Documentação do Site Recovery
 
-Saiba mais sobre como usar a Recuperação de Site para continuidade de negócios e a estratégia de recuperação de desastre para nuvens privadas. Os tutoriais e outras documentações mostram como planejar, implantar e gerenciar a orquestração de replicação de servidores físicos locais e máquinas virtuais para a nuvem ou para um data center secundário.
+Saiba como usar o Site Recovery para contribuir com a continuidade dos negócios e a estratégia de recuperação de desastre para manter os aplicativos e as cargas de trabalho disponíveis durante o tempo de inatividade. Outros artigos e tutoriais mostram como planejar, implantar e gerenciar a replicação, o failover e a recuperação de computadores locais e VMs do Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -42,7 +43,7 @@ Saiba mais sobre como usar a Recuperação de Site para continuidade de negócio
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=site-recovery">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -145,6 +146,4 @@ Saiba mais sobre como usar a Recuperação de Site para continuidade de negócio
         </div>
     </li>
 </ul>
-
-
 

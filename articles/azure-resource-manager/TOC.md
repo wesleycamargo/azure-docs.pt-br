@@ -1,6 +1,6 @@
 # Visão geral
 ## [O que é o Resource Manager?](resource-group-overview.md)
-## [Serviços com suporte](resource-manager-supported-services.md)
+## [Provedores e tipos de recursos](resource-manager-supported-services.md)
 ## [Resource Manager e a implantação clássica](resource-manager-deployment-model.md)
 ## [Governança de assinatura](resource-manager-subscription-governance.md)
 ## [Aplicativos gerenciados](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## Definir políticas de recursos
 ### [O que são políticas de recursos?](resource-manager-policy.md)
-### [Atribuição de política do portal](resource-manager-policy-portal.md)
-### [Atribuição de política de script](resource-manager-policy-create-assign.md)
-### [Políticas de marca do recurso](resource-manager-policy-tags.md)
-### [Políticas de armazenamento](resource-manager-policy-storage.md)
-### [Políticas de VM do Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Políticas de VM do Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Usar o portal para atribuir a política](resource-manager-policy-portal.md)
+### [Usar scripts para atribuir a política](resource-manager-policy-create-assign.md)
+### Exemplos
+#### [Marcações de recursos](resource-manager-policy-tags.md)
+#### [Armazenamento](resource-manager-policy-storage.md)
+#### [VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Usar aplicativos gerenciados
 ### [Publicar o aplicativo gerenciado](managed-application-publishing.md)

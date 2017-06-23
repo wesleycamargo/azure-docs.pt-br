@@ -48,7 +48,7 @@
 #### [Preparar as máquinas virtuais implantadas pelo Resource Manager](backup-azure-arm-vms-prepare.md)
 ### Planejar seu ambiente
 #### [Planejar a infraestrutura de backup de VMs](backup-azure-vms-introduction.md)
-### Fazer backup de servidores e cargas de trabalho
+### Fazer backup de VMs
 #### [Fazer backup de máquinas virtuais do Azure no cofre de backup](backup-azure-vms.md)
 #### [Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação](backup-azure-arm-vms.md)
 #### [Fazer backup de máquinas virtuais criptografadas](backup-azure-vms-encryption.md)

@@ -22,7 +22,8 @@
 ## [Área restrita do Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Ferramentas do Data Lake com área restrita do Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Ferramentas para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [Opções de armazenamento do HDInsight](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight usando o Armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight usando o Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 # Como
 ## Usar o Hadoop para consultas em lote
@@ -105,14 +106,17 @@
 ### [Configurar políticas de Hive](hdinsight-domain-joined-run-hive.md)
 ## Usar Kafka (Visualização)
 ### [Replicar dados do Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Configurar o armazenamento e a escalabilidade do Kafka](hdinsight-apache-kafka-scalability.md)
 ### [Uso com Redes Virtuais](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [Usar com o Spark](hdinsight-apache-spark-with-kafka.md)
+### [Usar com Spark (Transmissão estruturada)](hdinsight-apache-kafka-spark-structured-streaming.md)
+### [Usar com Spark (DStream)](hdinsight-apache-spark-with-kafka.md)
 ### [Usar com o Storm](hdinsight-apache-storm-with-kafka.md)
 ## Desenvolver
 ### [Desenvolver programas de transmissão do MapReduce no C#](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Desenvolver programas Java MapReduce](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Desenvolver trabalhos Scalding MapReduce](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Usar Ferramentas do HDInsight para criar aplicativos Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Usar Ferramentas do HDInsight para depurar remotamente os aplicativos Spark](hdinsight-apache-spark-intellij-tool-debug-remotely.md)
 ### [Usar nós de borda vazios](hdinsight-apps-use-edge-node.md)
 ### [Desenvolver programas de streaming Python](hdinsight-hadoop-streaming-python.md)
 ### [Processar e analisar documentos JSON](hdinsight-using-json-in-hive.md)
@@ -141,7 +145,7 @@
 ### [Usar R](hdinsight-hadoop-r-scripts-linux.md)
 ### [Usar o Solr](hdinsight-hadoop-solr-install-linux.md)
 ### [Usar Rede Virtual](hdinsight-extend-hadoop-virtual-network.md)
-### [Usar Zeppelin](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Usar Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### Criar aplicativos HDInsight
 #### [Instalar aplicativos HDInsight](hdinsight-apps-install-applications.md)
 #### [Instalar aplicativos personalizados](hdinsight-apps-install-custom-applications.md)
@@ -222,6 +226,7 @@
 ### [Monitorar clusters usando a API do Ambari](hdinsight-monitor-use-ambari-api.md)
 
 # Recursos
-## [Ferramentas do Windows para o HDInsight](hdinsight-hadoop-windows-tools.md)
+## [Programa Microsoft Professional para Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
 ## [Obtenha ajuda no fórum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [Ferramentas do Windows para o HDInsight](hdinsight-hadoop-windows-tools.md)
