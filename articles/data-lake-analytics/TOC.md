@@ -3,43 +3,38 @@
 
 # Introdução
 ## [Portal do Azure](data-lake-analytics-get-started-portal.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [SDK .NET](data-lake-analytics-get-started-net-sdk.md)
-## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [CLI do Azure](data-lake-analytics-get-started-cli.md)
+## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [CLI 2.0 do Azure](data-lake-analytics-get-started-cli2.md)
-## [API REST](data-lake-analytics-get-started-rest-api.md)
-## [Python](data-lake-analytics-get-started-python.md)
 
 # Como
-## Desenvolver
+
+## Gerenciar contas do Data Lake Analytics
+### [Portal do Azure](data-lake-analytics-manage-use-portal.md)
+### [CLI do Azure](data-lake-analytics-manage-use-cli.md)
+### [PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [SDK .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [SDK do Python](data-lake-analytics-manage-use-python-sdk.md)
+### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
+### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Acessar logs de diagnóstico](data-lake-analytics-diagnostic-logs.md)
+
+## Desenvolver programas U-SQL
 ### [Noções básicas de U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Referência da linguagem U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ### [Catálogo do U-SQL](data-lake-analytics-u-sql-catalog.md)
 ### [Junções U-SQL](data-lake-analytics-u-sql-combine-data-with-joins.md)
-### [Parâmetros do U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Funções da janela U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Operadores U-SQL definidos pelo usuário](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Extensões do Python U-SQL](data-lake-analytics-u-sql-python-extensions.md)
 ### [Extensões de R U-SQL](data-lake-analytics-u-sql-r-extensions.md)
 ### [Extensões cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
-
-## Criar soluções
-### [Analisar logs de site](data-lake-analytics-analyze-weblogs.md)
-### [Tutorial interativo: analisar logs de sites](data-lake-analytics-use-interactive-tutorials.md)
-
-
-## Gerenciar
-### [Portal do Azure](data-lake-analytics-manage-use-portal.md)
-### [CLI do Azure](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [SDK .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Catálogo do U-SQL para dados e código de estrutura](data-lake-analytics-use-u-sql-catalog.md)
+### [Analisar logs de site](data-lake-analytics-analyze-weblogs.md)
+### [Usar o tutorial interativo U-SQL](data-lake-analytics-use-interactive-tutorials.md)
 
-## Solucionar problemas
+## Depurar programas U-SQL
 ### [Monitorar e solucionar problemas de trabalhos](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [Acessar logs de diagnóstico](data-lake-analytics-diagnostic-logs.md)
 ### [Depurar o código C# em U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Usar Navegador de Trabalho e a Exibição de Trabalho](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Usar Exibição de execução de vértice](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
@@ -49,7 +44,6 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 

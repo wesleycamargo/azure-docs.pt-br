@@ -11,6 +11,7 @@
 ### [Log e auditoria](azure-log-audit.md)
 ### [Isolamento na nuvem pública](azure-isolation.md)
 ### [Recursos técnicos de segurança](azure-security-technical-capabilities.md)
+### [Governança no Azure](governance-in-azure.md)
 
 # Introdução
 ## [Introdução à segurança do Azure](azure-security-getting-started.md)

@@ -4,6 +4,7 @@
 
 # Introdução
 ## [Criar um namespace](relay-create-namespace-portal.md)
+## [Criar um aplicativo híbrido local/na nuvem](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Conexões Híbridas
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)

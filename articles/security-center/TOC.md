@@ -5,11 +5,13 @@
 ## Cenários
 ### [Resposta a incidentes](security-center-incident-response.md)
 ### [Usar recomendações para aumentar a segurança](security-center-using-recommendations.md)
+## [Migração de plataforma](security-center-platform-migration.md)
 
 # Introdução
 ## [Início rápido](security-center-get-started.md)
 ## [Planejamento e operações](security-center-planning-and-operations-guide.md)
 ## [Permissões](security-center-permissions.md)
+## [Plataformas com suporte](security-center-os-coverage.md)
 ## [Integração com parceiros](security-center-partner-integration.md)
 ## [Perguntas frequentes](security-center-faq.md)
 

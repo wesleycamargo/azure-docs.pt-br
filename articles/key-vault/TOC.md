@@ -21,6 +21,9 @@
 ### [Alterar ID de locatário](key-vault-subscription-move-fix.md)
 ### [Disponibilidade e redundância](key-vault-disaster-recovery-guidance.md)
 ### [Proteger seu cofre de chaves](key-vault-secure-your-key-vault.md)
+### [Visão geral de mundos de segurança](key-vault-ovw-security-worlds.md)
+### [Visão geral de exclusão reversível](key-vault-ovw-soft-delete.md)
+### [Visão geral das chaves da conta de armazenamento](key-vault-ovw-storage-keys.md)
 
 ## Automatizar
 ### [Automação do Azure](automation-manage-key-vault.md)
@@ -43,7 +46,7 @@
 ## [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Recursos
-## [Sobre chaves e segredos](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Sobre chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Exemplos de código](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Preços](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)

@@ -19,13 +19,11 @@
 
 # Como
 ## Planejar e projetar
-### [🔧Cenários comuns de integração com serviços do Azure](event-hubs-common-integrations.md)
 ### [Hubs de Eventos Dedicados](event-hubs-dedicated-overview.md)
 ### [Visão geral do modelo de segurança e autenticação](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilidade e consistência](event-hubs-availability-and-consistency.md)
+### [Dimensionar automaticamente as unidades de taxa de transferência](event-hubs-auto-inflate.md)
 ## Desenvolver
-### [🔧 Tratamento de erros e repetição](event-hubs-handling-errors-retry.md)
-### [🔧 Gerenciamento de desempenho e escala](event-hubs-performance-scale.md)
 ### [APIs Disponíveis](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

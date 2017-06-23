@@ -1,4 +1,5 @@
 # [Visão geral](active-directory-developers-guide.md)
+## [Por que o Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Noções básicas de autenticação](active-directory-authentication-scenarios.md)
 ## [Tipos de aplicativos](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Introdução
@@ -70,7 +71,8 @@
 ### [Fluxo Em nome de](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Tipos de declaração e token com suporte](active-directory-token-and-claims.md)
 ### [Substituição de chave de assinatura](active-directory-signing-key-rollover.md)
-### [Metadados de Federação](active-directory-federation-metadata.md)
+### [Metadados de federação](active-directory-federation-metadata.md)
+### [Credenciais de certificado](active-directory-certificate-credentials.md)
 ## [Objetos do aplicativo](active-directory-application-objects.md)
 ### [Aplicativos e Azure AD](active-directory-how-applications-are-added.md)
 ## [Manifesto do aplicativo](active-directory-application-manifest.md)
@@ -101,4 +103,5 @@
 #### [Concessão de credenciais do cliente do OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Fluxo Em nome de do OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Referência do token](active-directory-v2-tokens.md)
+#### [Credenciais de certificado](active-directory-certificate-credentials.md)
 ### [Escopos](active-directory-v2-scopes.md)

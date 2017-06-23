@@ -22,6 +22,8 @@
 ### [VMs de baixa prioridade](batch-low-pri-vms.md)
 ### [Gerenciar contas do Lote com o Lote Management .NET](batch-management-dotnet.md)
 ### [Persistir saída de tarefa e de trabalho](batch-task-output.md)
+#### [Manter a saída com a API de Lote](batch-task-output-files.md)
+#### [Manter a saída com a biblioteca de Convenções de Arquivo](batch-task-output-file-conventions.md)
 ### [Executar trabalhos MPI em Lote](batch-mpi.md)
 ### [Dependências da tarefa](batch-task-dependencies.md)
 ### [Contas de usuário para a execução de tarefas](batch-user-accounts.md)

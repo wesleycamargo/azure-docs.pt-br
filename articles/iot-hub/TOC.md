@@ -6,13 +6,15 @@
 # [Introdução](iot-hub-get-started.md)
 
 ## Configurar seu dispositivo
-### Usar um dispositivo simulado
+### [Simular um dispositivo em seu PC](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Usar um dispositivo físico
+### [Usar um simulador online](iot-hub-raspberry-pi-web-simulator-get-started.md)
+
+### [Usar um dispositivo físico](iot-hub-get-started-physical.md)
 #### [Raspberry Pi com Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi com C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
@@ -28,15 +30,14 @@
 ##### [Conectar o gateway ao Hub IoT](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Usar o gateway para conversão de dados](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-### [Usar um simulador de dispositivo online](iot-hub-raspberry-pi-web-simulator-get-started.md)
-
-## [Gerenciar mensagens do dispositivos de nuvem com o iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-## [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
-## [Visualização de dados no Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-## [Visualização de dados com Aplicativos Web](iot-hub-live-data-visualization-in-web-apps.md)
-## [Previsão do tempo usando o Aprendizado de Máquina do Azure](iot-hub-weather-forecast-machine-learning.md)
-## [Gerenciamento de dispositivos com o iothub-explorer](iot-hub-device-management-iothub-explorer.md)
-## [Monitoramento remoto e notificações com Aplicativos Lógicos](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+## Cenários de IoT estendidos
+### [Gerenciar mensagens do dispositivos de nuvem com o iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+### [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
+### [Visualização de dados no Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+### [Visualização de dados com Aplicativos Web](iot-hub-live-data-visualization-in-web-apps.md)
+### [Previsão do tempo usando o Aprendizado de Máquina do Azure](iot-hub-weather-forecast-machine-learning.md)
+### [Gerenciamento de dispositivos com o iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Monitoramento remoto e notificações com Aplicativos Lógicos](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Como
 ## Plano
@@ -54,13 +55,13 @@
 ##### [Usar regras de roteamentos e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem](iot-hub-devguide-messages-read-custom.md)
 ##### [Enviar mensagens da nuvem para o dispositivo do Hub IoT](iot-hub-devguide-messages-c2d.md)
 ##### [Criar e ler mensagens do Hub IoT](iot-hub-devguide-messages-construct.md)
+##### [Escolha um protocolo de comunicação](iot-hub-devguide-protocols.md)
 #### [Carregar arquivos de um dispositivo](iot-hub-devguide-file-upload.md)
 #### [Gerenciar identidades do dispositivo](iot-hub-devguide-identity-registry.md)
 #### [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md)
 #### [Entender os dispositivos gêmeos](iot-hub-devguide-device-twins.md)
 #### [Invocar métodos diretos em um dispositivo](iot-hub-devguide-direct-methods.md)
 #### [Agendar trabalhos em vários dispositivos](iot-hub-devguide-jobs.md)
-#### [Escolha um protocolo de comunicação](iot-hub-devguide-protocols.md)
 #### [Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md)
 #### [Linguagem da consulta](iot-hub-devguide-query-language.md)
 #### [Cotas e limitação](iot-hub-devguide-quotas-throttling.md)
@@ -122,7 +123,8 @@
 ### [Práticas recomendadas de segurança](iot-hub-security-best-practices.md)
 ### [Arquitetura de segurança](iot-hub-security-architecture.md)
 ### [Proteger sua implantação de IoT](iot-hub-security-deployment.md)
-## IoT Edge
+## Azure IoT Edge
+### [Visão geral](iot-hub-iot-edge-overview.md)
 ### Introdução
 #### [Linux](iot-hub-linux-iot-edge-get-started.md)
 #### [Windows](iot-hub-windows-iot-edge-get-started.md)
@@ -130,9 +132,22 @@
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Usar um dispositivo real](iot-hub-iot-edge-physical-device.md)
+### Criar um módulo
+#### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
+#### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
+### Compilação
+#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
+#### [Módulo do .NET Core](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
+#### [Gateway gerenciado do .NET Core](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
+#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
+#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
+#### [Adicionar módulo dinamicamente](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
+#### [Módulo de proxy fora do processo](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
+#### [Host do módulo nativo](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Referência
-## [CLI 2.0 do Azure](/cli/azure/iot)
+## [CLI do Azure](/cli/azure/iot)
 ## [.NET (Serviço)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Dispositivos)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Serviço)](/java/api/com.microsoft.azure.sdk.iot.service)
@@ -164,4 +179,4 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centro de desenvolvedores do Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Catálogo de dispositivos Azure Certified para IoT](https://catalog.azureiotsuite.com/)
-## [Estudos de casos técnicos](https://microsoft.github.io/techcasestudies/#technology=IoT)
+## [Estudos de casos técnicos](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
