@@ -27,7 +27,7 @@ Para saber mais sobre como usar o armazenamento Standard com discos de VM, veja 
 
 ### <a name="premium-storage"></a>Armazenamento Premium 
 
-O Armazenamento Premium tem o suporte de SSDs e oferece suporte de disco de alto desempenho e baixa latência para VMs executando cargas de trabalho intensivas para entradas e saídas. Você pode usar o armazenamento Premium com DS, DSv2, GS ou FS as VMs do Azure da série. Para saber mais, veja [Armazenamento Premium](../articles/storage/storage-premium-storage.md).
+O Armazenamento Premium tem o suporte de SSDs e oferece suporte de disco de alto desempenho e baixa latência para VMs executando cargas de trabalho intensivas para entradas e saídas. Você pode usar o Armazenamento Premium com DS, DSv2, GS, Ls ou FS as VMs do Azure da série. Para saber mais, veja [Armazenamento Premium](../articles/storage/storage-premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Discos não gerenciados
 
@@ -50,6 +50,7 @@ A tabela a seguir fornece uma comparação do vs Premium padrão para discos ger
 | Tipo de disco | Unidades de Estado Sólido (SSD) | Unidades de Disco Rígido (HDD)  |
 | Visão geral  | Suporte a disco com base em SSD de alto desempenho e baixa latência, para máquinas virtuais executando cargas de trabalho com uso intensivo de E/S ou hospedando ambiente de produção de missão crítica | Suporte a disco econômico com base em HDD para cenários de VM de desenvolvimento/teste |
 | Cenário  | Cargas de trabalho confidenciais produção e desempenho | Desenvolvimento e teste, não-crítico, <br>Acesso infrequente |
-| Tamanho do disco | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Discos não gerenciados: 1 GB a 1 TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
-| Taxa de Transferência Máxima por Disco | 200 MB/s | 60 MB/s |
-| IOPS Máxima por Disco | 5000 IOPS | 500 IOPS |
+| Tamanho do disco | P4: 32 GB<br>P6: 64 GB<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: GB 4095 | Discos não Gerenciados: 1 GB a 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: GB 4095| 
+| Taxa de Transferência Máxima por Disco | 250 MB/s | 60 MB/s | 
+| IOPS Máxima por Disco | 7500 IOPS | 500 IOPS | 
+

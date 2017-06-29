@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/23/2017
+ms.date: 06/02/2017
 ms.author: garye
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: bb4d64f799027c9af74fd50ab724449bdede7804
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 0a1e23cd52ab5c10791a11d93753b54eb1c1b71a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -47,7 +47,7 @@ Para saber mais sobre o Estúdio do Aprendizado de Máquina, confira [O que é o
 
 O serviço de API do Machine Learning permite implantar modelos preditivos, como os internos do Machine Learning Studio, como serviços Web escalonáveis e tolerantes a falhas. Os serviços Web criados pelo serviço de API do Machine Learning são APIs REST, que fornecem uma interface para comunicação entre aplicativos externos e seu modelo de análise preditiva.
 
-Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Para saber mais, veja [Como consumir um serviço Web do Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **Onde estão listados os meus serviços Web clássicos? Onde estão listados os meus novos serviços da Web do Azure Resource Manager?**
 
@@ -221,7 +221,7 @@ Confira [Limites da assinatura do Azure](../azure-subscription-service-limits.md
 ### <a name="use"></a>Uso
 **Quando seria melhor executar meu modelo de previsão como um serviço de Execução em Lotes em vez de um serviço de Resposta da Solicitação?**
 
-O Serviço de Solicitação-Resposta (RRS) é um serviço Web de baixa latência e alta escala usado para fornecer uma interface para modelos sem monitoração de estado que são criados e implantados por meio do ambiente de testes. O BES (Serviço de Execução em Lote) é um serviço que classifica de forma assíncrona um lote de registros de dados. A entrada para BES é como os dados de entrada que RRS usa. A principal diferença é que o BES lê um bloco de registros de uma variedade de fontes, como o armazenamento de Blobs do Azure, o armazenamento de Tabelas do Azure, um banco de dados do SQL Azure, o HDInsight (consulta hive) e fontes HTTP. Para saber mais, consulte [Como consumir serviços Web do Aprendizado de Máquina](machine-learning-consume-web-services.md).
+O Serviço de Solicitação-Resposta (RRS) é um serviço Web de baixa latência e alta escala usado para fornecer uma interface para modelos sem monitoração de estado que são criados e implantados por meio do ambiente de testes. O BES (Serviço de Execução em Lote) é um serviço que classifica de forma assíncrona um lote de registros de dados. A entrada para BES é como os dados de entrada que RRS usa. A principal diferença é que o BES lê um bloco de registros de uma variedade de fontes, como o armazenamento de Blobs do Azure, o armazenamento de Tabelas do Azure, um banco de dados do SQL Azure, o HDInsight (consulta hive) e fontes HTTP. Para saber mais, veja [Como consumir um serviço Web do Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **Como posso atualizar o modelo para o serviço Web implantado?**
 
@@ -287,7 +287,7 @@ Não.
 ## <a name="security-and-availability"></a>Segurança e disponibilidade
 **Quem pode acessar o ponto de extremidade http para o serviço Web por padrão? Como faço para restringir o acesso ao ponto de extremidade?**
 
-Depois que um serviço Web for implantado, criaremos um ponto de extremidade padrão para esse serviço. O ponto de extremidade padrão pode ser chamado usando sua chave de API. Você pode adicionar mais pontos de extremidade com suas próprias chaves no portal clássico do Azure ou de forma programática, usando as APIs de Gerenciamento de Serviço Web. São necessárias chaves de acesso para fazer chamadas ao serviço Web. Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Depois que um serviço Web for implantado, criaremos um ponto de extremidade padrão para esse serviço. O ponto de extremidade padrão pode ser chamado usando sua chave de API. Você pode adicionar mais pontos de extremidade com suas próprias chaves no portal clássico do Azure ou de forma programática, usando as APIs de Gerenciamento de Serviço Web. São necessárias chaves de acesso para fazer chamadas ao serviço Web. Para saber mais, veja [Como consumir um serviço Web do Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **O que acontece se minha conta de armazenamento do Azure não puder ser encontrada?**
 

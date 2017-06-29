@@ -35,7 +35,7 @@
 1. Clique em **Gerenciador de Dispositivos**.
 1. No painel Gerenciador de Dispositivo, clique em **Adicionar** para adicionar um dispositivo ao Hub IoT.
 
-   **ID do Dispositivo**: a ID do novo dispositivo.
+   **ID do Dispositivo**: a ID do novo dispositivo. As IDs de Dispositivo diferenciam maiúsculas de minúsculas.
 
    **Tipo de Autenticação**: selecione a **Chave Simétrica**.
 

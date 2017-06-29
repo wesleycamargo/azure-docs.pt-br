@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 06/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: c2e78e0191be6ac7d828402859c04c486e8df594
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 391870380280d6783223849ce383113bf1dd6d31
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/21/2017
 O Log Analytics é um serviço no [Operations Management Suite\(OMS \)](../operations-management-suite/operations-management-suite-overview.md) que monitora seus ambientes na nuvem e locais a fim de manter a disponibilidade e o desempenho.  Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes.  Este artigo fornece uma breve discussão sobre o valor fornecido pelo Log Analytics, uma visão geral de como ele funciona e links para um conteúdo mais detalhado, para que você possa se aprofundar ainda mais.
 
 ## <a name="is-log-analytics-for-you"></a>O Log Analytics serve para você?
-Se no momento você não tiver nenhum monitoramento de seu ambiente do Azure em vigor, comece com o [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), que coleta e analisa dados de monitoramento de seus recursos do Azure.  O Log Analytics pode coletar dados do Azure Monitor para correlacioná-los com outros dados e fornecer mais análise.
+Se no momento você não tiver nenhum monitoramento de seu ambiente do Azure em vigor, comece com o [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), que coleta e analisa dados de monitoramento de seus recursos do Azure.  O Log Analytics pode [coletar dados do Azure Monitor](log-analytics-azure-storage.md) para correlacioná-los com outros dados e fornecer mais análise.
 
 Se você quiser monitorar seu ambiente local, ou se houver um monitoramento usando serviços como o Azure Monitor ou o System Center Operations Manager, o Log Anlalytics poderá agregar um valor considerável.  Ele pode coletar dados diretamente de seus agentes e também dessas outras ferramentas em um único repositório.  Ferramentas de análise no Log Analytics como pesquisas, exibições e soluções de log funcionam em todos os dados coletados, oferecendo análise centralizada de todo o ambiente.
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: c810f3e86ba582943e88f3085f6d9cff2496031c
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 2c22cc47e69b47371a96429d3ba7b8afc60e5ca7
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -26,8 +27,8 @@ ms.lasthandoff: 01/24/2017
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
+>
+>
 
 O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Core e Java. Neste tutorial, vamos ver como criar um aplicativo para Linux e compilar um serviço usando C# (.NET Core).
 
@@ -40,32 +41,32 @@ Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com um
 1. Em um terminal, digite o comando a seguir para começar a criar o scaffolding: `yo azuresfcsharp`
 2. Nome do seu aplicativo.
 3. Escolha o tipo de seu primeiro serviço e dê um nome para ele. Para os fins deste tutorial, escolheremos o Serviço Reliable Actor.
-   
+
    ![Gerador de Yeoman do Service Fabric para C#][sf-yeoman]
 
 > [!NOTE]
 > Para obter mais informações sobre as opções, confira [Visão geral do modelo de programação do Service Fabric](service-fabric-choose-framework.md).
-> 
-> 
+>
+>
 
 ## <a name="build-the-application"></a>Compilar o aplicativo
 Os modelos Yeoman do Service Fabric incluem um script de build para criar o aplicativo por meio do terminal (após navegar até a pasta do terminal).
 
   ```sh
- cd myapp 
- ./build.sh 
+ cd myapp
+ ./build.sh
   ```
 
 ## <a name="deploy-the-application"></a>Implantar o aplicativo
 Após a compilação do aplicativo, você pode implantá-lo no cluster local usando a CLI do Azure.
 
 1. Conectar-se ao cluster local do Service Fabric.
-   
+
     ```sh
     azure servicefabric cluster connect
     ```
 2. Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
-   
+
     ```bash
     ./install.sh
     ```
@@ -76,13 +77,13 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local usa
 Projetos de atores não fazem nada por conta própria. Eles exigem outro serviço ou cliente para enviar mensagens a eles. O modelo de ator inclui um script de teste simples que você pode usar para interagir com o serviço de ator.
 
 1. Execute o script usando o utilitário de inspeção para ver a saída do serviço de ator.
-   
+
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 2. No Service Fabric Explorer, localize o nó que hospeda a réplica primária para o serviço de ator. Na captura de tela abaixo, é o nó 3.
-   
+
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Esta ação reiniciará um nó no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
 
@@ -91,6 +92,11 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas: 
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
 2. Execute o `yo azuresfcsharp:AddService`
+
+## <a name="migrating-from-projectjson-to-csproj"></a>Migração do project.json para o .csproj
+1. Executar 'dotnet migrar' no diretório raiz do projeto migrará todos os project.json para o formato csproj.
+2. Atualize as referências de projeto de acordo com os arquivos csproj em arquivos de projeto.
+3. Atualize os nomes de arquivo de projeto para arquivos csproj em build.sh.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)

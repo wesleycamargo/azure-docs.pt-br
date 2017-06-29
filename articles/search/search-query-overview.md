@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -62,4 +62,10 @@ Você pode aprender mais sobre a paginação dos resultados da pesquisa no artig
 ## <a name="hit-highlighting"></a>Realce de ocorrência
 Na Pesquisa do Azure, enfatizar a parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é mais fácil usando os parâmetros `highlight`, `highlightPreTag` e `highlightPostTag`. Você pode especificar quais campos *pesquisáveis* devem ter o texto correspondido enfatizado, bem como especificar as marcas da cadeia de caracteres exatas para anexar ao início e ao término do texto correspondente que a Azure Search retorna.
 
+## <a name="try-out-query-syntax"></a>Experimente a sintaxe de consulta
 
+A melhor maneira de entender as diferenças de sintaxe é por meio do envio de consultas e do exame dos resultados.
+
++ Use o [Search Explorer](search-explorer.md) no portal do Azure. Ao implantar [o índice de exemplo](search-get-started-portal.md), você poderá consultar o índice em minutos usando as ferramentas no portal.
+
++ Use o [Fiddler](search-fiddler.md) ou o Chrome Postman para enviar consultas para um índice que você carregou no serviço de pesquisa. Ambas as ferramentas oferecem suporte a chamadas REST para um ponto de extremidade HTTP. 

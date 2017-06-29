@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 3d30024920295298ad2a8a6e22e11ef829934255
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -45,7 +45,7 @@ Você pode criar um perfil do Gerenciador de Tráfego usando o portal do Azure. 
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Desabilitar, habilitar ou excluir um perfil
 
-Você pode desabilitar um perfil existente para que o Gerenciador de Tráfego não referencie solicitações de usuários para os pontos de extremidade configurados. Quando você desabilita um perfil do Gerenciador de Tráfego, o próprio perfil e as informações contidas nele permanecem intactos e podem ser editados na interface do Gerenciador de Tráfego.  As referências retomam quando você reabilita o perfil. Quando você cria um perfil do Gerenciador de Tráfego no portal clássico do Azure, ele é automaticamente habilitado. Se você decidir que um perfil não é mais necessário, poderá excluí-lo.
+Você pode desabilitar um perfil existente para que o Gerenciador de Tráfego não referencie solicitações de usuários para os pontos de extremidade configurados. Quando você desabilita um perfil do Gerenciador de Tráfego, o próprio perfil e as informações contidas nele permanecem intactos e podem ser editados na interface do Gerenciador de Tráfego.  As referências retomam quando você reabilita o perfil. Quando você cria um perfil do Gerenciador de Tráfego no portal do Azure, ele é automaticamente habilitado. Se você decidir que um perfil não é mais necessário, poderá excluí-lo.
 
 ### <a name="to-disable-a-profile"></a>Para desabilitar um perfil
 

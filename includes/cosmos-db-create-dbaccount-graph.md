@@ -1,22 +1,22 @@
 1. Em uma nova janela, entre no [portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda, clique em **Novo**, clique em **Bancos de Dados** e, em seguida, clique em **BD Cosmos do Azure**.
+2. No painel esquerdo, clique em **Novo**, clique em **Bancos de Dados** e então clique em **Azure Cosmos DB**.
    
-   ![Captura de tela do Portal do Azure, realçando Mais Serviços e BD Cosmos do Azure](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
+   ![Painel Bancos de Dados do portal do Azure](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
 
 3. Na folha **Nova conta**, especifique a configuração desejada para a conta do BD Cosmos do Azure. 
 
     Com o BD Cosmos do Azure, você pode escolher um dos quatro modelos de programação: Gremlin (gráfico), MongoDB, SQL (DocumentDB) e Tabela (chave-valor).  
        
-    Neste início rápido, programaremos a API do Graph de modo que você escolherá **Gremlin (gráfico)** quando preencher o formulário. Mas se você tiver dados de documento de um aplicativo de catálogo, dados de chave/valor (tabela) ou dados migrados de um aplicativo do MongoDB, perceba que o BD Cosmos do Azure pode fornecer uma plataforma de serviço de banco de dados altamente disponível, distribuída globalmente para todos os aplicativos críticos.
+    Neste artigo de início rápido, programaremos a API do Graph de modo que você escolherá **Gremlin (gráfico)** quando preencher o formulário. Se você tiver dados de documento de um aplicativo de catálogo, dados de chave/valor (tabela) ou dados migrados de um aplicativo do MongoDB, perceba que o Azure Cosmos DB pode fornecer uma plataforma de serviço de banco de dados altamente disponível, distribuída globalmente para todos os aplicativos críticos.
 
-    Preencha a nova folha de conta usando as informações na captura de tela como guia. Você escolherá valores exclusivos quando configurar sua conta, de modo que seus valores não corresponderão exatamente à captura de tela. 
+    Na folha **Nova conta**, preencha os campos com as informações da seguinte captura de tela apenas como um guia. Como seus próprios valores não corresponderão a eles na captura de tela, escolha valores exclusivos ao configurar sua conta. 
  
-    ![Captura de tela da folha Novo BD Cosmos do Azure](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
+    ![A folha Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
     Configuração|Valor sugerido|Descrição
     ---|---|---
-    ID|*Valor exclusivo*|Um nome exclusivo que você escolhe para identificar a conta do BD Cosmos do Azure. *documents.Azure.com* é acrescentado à ID que você fornece para criar o URI, portanto, use uma ID exclusiva mas identificável. A ID pode conter somente letras minúsculas, números e o caractere '-', e deve ter entre 3 e 50 caracteres.
-    API|Gremlin (gráfico)|Programaremos para a [API do Graph](../articles/cosmos-db/graph-introduction.md) posteriormente neste artigo.|
+    ID|*Valor exclusivo*|Um nome exclusivo que você escolhe para identificar a conta do Azure Cosmos DB. Como *documents.Azure.com* é acrescentado à ID que você fornece para criar o URI, use uma ID exclusiva mas identificável. A ID deve conter apenas letras minúsculas, números e hifens (-), e deve conter de 3 a 50 caracteres.
+    API|Gremlin (gráfico)|Nós programaremos a [API do Graph](../articles/cosmos-db/graph-introduction.md) posteriormente neste artigo.|
     Assinatura|*Sua assinatura*|A assinatura do Azure que você deseja usar para a conta do BD Cosmos do Azure. 
     Grupo de recursos|*O mesmo valor que a ID*|O novo nome de grupo de recursos para sua conta. Para simplificar, você pode usar um nome igual à sua ID. 
     Local|*A região mais próxima de seus usuários*|A localização geográfica na qual hospedar a sua conta do BD Cosmos do Azure. Escolha o local mais próximo dos usuários para fornecer a eles acesso mais rápido aos dados.
@@ -26,6 +26,6 @@
 
     ![Notificação de implantação iniciada](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
 
-6.  Quando a implantação for concluída, abra a nova conta no bloco Todos os Recursos. 
+6.  Quando a implantação for concluída, abra a nova conta no bloco **Todos os Recursos**. 
 
     ![Conta do DocumentDB no bloco Todos os Recursos](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-all-resources.png)

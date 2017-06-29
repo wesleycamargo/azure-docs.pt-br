@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: dfa9f6e4bc95a1cd99f84e58167192d951960a7a
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -182,7 +183,7 @@ Como mostrado no diagrama, as VMs *Web1* e *Web2* estão conectados à sub-rede 
 1. Separação do tráfego entre os servidores WEB e banco de dados.
 2. As regras de balanceamento de carga que encaminham o tráfego do balanceador de carga a todos os servidores na porta 80.
 3. Regras NAT do balanceador de caraga encaminham o tráfego de entrada do balanceador de carga na porta 50001 para a porta 3389 na VM WEB1.
-4. Sem acesso às VMs de front-end ou back-end da Internet, exceto os requisitos 1 e 3.
+4. Sem acesso às VMs de front-end ou back-end da Internet, exceto os requisitos 2 e 3.
 5. Sem acesso à Internet de saída dos servidores WEB ou DB.
 6. O acesso da sub-rede de front-end é permitido para a porta 3389 de qualquer servidor Web.
 7. O acesso da sub-rede de front-end é permitido para a porta 3389 de qualquer servidor DB.

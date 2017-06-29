@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: b20adfa6c69488b848d4ca5bee2cb4baeca806b8
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: a613bbe84a3834ab4fb237779248c7ad8d75b563
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – tutorial da Adventure Works
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/05/2017
 
 Este tutorial fornece lições sobre como criar e implantar um modelo tabular no nível de compatibilidade 1.400 usando [SSDT (SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Se você estiver pouco familiarizado com o Analysis Services e a modelagem tabular, concluir este tutorial é a maneira mais rápida de aprender a criar um modelo tabular básico e implantá-lo em um servidor real do Analysis Services. Uma vez que todos o pré-requisitos tiverem sido satisfeitos, deverá levar cerca de duas ou três horas para concluí-lo.  
+Se você estiver pouco familiarizado com o Analysis Services e a modelagem tabular, concluir este tutorial é a maneira mais rápida de aprender a criar e a implantar um modelo tabular básico. Uma vez satisfeitos todos o pré-requisitos, ele deverá levar cerca de duas ou três horas para ser concluído.  
   
-## <a name="what-youll-learn"></a>O que você aprenderá   
+## <a name="what-you-learn"></a>O que você aprenderá   
   
 -   Como criar um novo projeto de modelo tabular no **nível de compatibilidade 1.400** no SSDT.
   
@@ -49,7 +49,7 @@ Se você estiver pouco familiarizado com o Analysis Services e a modelagem tabul
 -   Como implantar um modelo tabular para um servidor do **Azure Analysis Services** ou um servidor local do SQL Server 2017 Analysis Services.  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Para concluir este tutorial, você precisará do seguinte:  
+Para concluir este tutorial, você precisará:  
   
 -   Uma instância do Azure Analysis Services ou SQL Server 2017 Analysis Services na qual implantar seu modelo. Inscreva-se para uma [avaliação gratuita do Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) e [crie um servidor](../analysis-services-create-server.md). Ou então, inscreva-se e baixe o [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
 
@@ -64,13 +64,13 @@ Para concluir este tutorial, você precisará do seguinte:
 -   Um aplicativo cliente como [Power BI Desktop](https://powerbi.microsoft.com/desktop/) ou Excel. 
 
 ## <a name="scenario"></a>Cenário  
-Esse tutorial se baseia na Adventure Works Cycles, uma empresa fictícia. A Adventure Works é uma empresa multinacional de grande porte de manufatura, que produz e distribui bicicletas de metal e compostas para mercados comerciais na América do Norte, Europa e Ásia. Com sede em Bothell, Washington, a empresa emprega 500 funcionários. Além disso, a Adventure Works emprega várias equipes regionais de vendas em toda a sua base de mercado. Você fica encarregado de criar um modelo tabular para usuários de vendas e marketing analisarem dados de vendas pela Internet no banco de dados de exemplo AdventureWorksDW.  
+Esse tutorial se baseia na Adventure Works Cycles, uma empresa fictícia. A Adventure Works é uma empresa multinacional de grande porte de manufatura, que produz e distribui bicicletas de metal e compostas para mercados comerciais na América do Norte, Europa e Ásia. A empresa emprega 500 trabalhadores. Além disso, a Adventure Works emprega várias equipes regionais de vendas em toda a sua base de mercado. Seu projeto deve criar um modelo tabular para usuários de vendas e marketing analisarem dados de vendas pela Internet no banco de dados AdventureWorksDW.  
   
-Para concluir o tutorial, você deve concluir várias lições. Em cada lição há um número de tarefas; é necessário concluir todas as tarefas na ordem certa para concluir a lição. Embora em uma lição específica possam existir várias tarefas que geram um resultado semelhante, o modo como você conclui cada tarefa é ligeiramente diferente. Isso é para mostrar que geralmente há mais de uma maneira de concluir uma tarefa específica e lhe desafiar usando as habilidades que você aprendeu em tarefas e lições anteriores.  
+Para concluir o tutorial, você deverá concluir várias lições. Em cada lição, há tarefas. A conclusão de cada tarefa na ordem é necessária para concluir a lição. Embora em uma lição específica possam existir várias tarefas que geram um resultado semelhante, o modo como você conclui cada tarefa é ligeiramente diferente. Este método mostra que geralmente há mais de uma maneira de concluir uma tarefa e de desafiar você usando as habilidades aprendidas em tarefas e lições anteriores.  
   
-A finalidade das lições é para orientá-lo na criação de um modelo tabular básico executado usando muitos dos recursos incluídos no SSDT. Já que cada lição faz uso do conteúdo da lição anterior, você deve concluir as lições em ordem. Depois de concluir todas as lições, você terá criado e implantado o modelo tabular de exemplo de Vendas pela Internet da Adventure Works em um servidor do Analysis Services.  
+A finalidade das lições é para orientá-lo na criação de um modelo tabular básico executado usando muitos dos recursos incluídos no SSDT. Já que cada lição faz uso do conteúdo da lição anterior, você deve concluir as lições em ordem.
   
-Este tutorial não fornece lições ou informações sobre como gerenciar um servidor do Azure Analysis Services no Portal do Azure, gerenciar de um servidor ou implantar um banco de dados usando o SSMS (SQL Server Management Studio) ou usando um aplicativo cliente de relatório para se conectar a um modelo implantado para procurar dados de modelo.  
+Este tutorial não fornece lições sobre como gerenciar um servidor no portal do Azure, gerenciar um servidor ou banco de dados usando o SSMS ou usando um aplicativo cliente para procurar dados de modelo. 
 
 
 ## <a name="lessons"></a>Lições  

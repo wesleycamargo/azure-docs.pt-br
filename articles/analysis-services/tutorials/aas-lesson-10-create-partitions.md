@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 74a9577e2fb5cc83dd3f01d8ff87374240798700
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: df74d9cbdcf4916c24955e491767589e72389155
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-10-create-partitions"></a>Lição 10: criar partições
@@ -53,9 +53,9 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
-    Observe que no Editor de Consultas, em ETAPAS APLICADAS, você vê outra etapa chamada Linhas Filtradas; esse é o filtro que você aplicou para selecionar apenas as datas de ordem de 2010.
+    Observe que, no Editor de Consultas, em ETAPAS APLICADAS, você verá outra etapa chamada Linhas Filtradas. Esse filtro serve para selecionar apenas as datas de pedido de 2010.
 
-8.  Clique em **Importar** para executar a consulta.
+8.  Clique em **Importar**.
 
     No Gerenciador de Partições, observe que a expressão de consulta agora tem uma cláusula adicional de Linhas Filtradas.
 
@@ -113,7 +113,7 @@ No Gerenciador de partições, observe que a coluna **Último Processamento** pa
   
     Se for solicitado que você informe as credenciais de representação, insira o nome de usuário e senha do Windows que você especificou na Lição 2.  
   
-    A caixa de diálogo de **Processamento de Dados** aparece e exibe os detalhes do processo para cada partição. Observe que um número diferente de linhas é transferido para cada partição. Isso ocorre porque cada partição inclui somente as linhas para o ano especificado na cláusula WHERE na instrução SQL. Quando o processamento for concluído, vá em frente e feche a caixa de diálogo Processamento de Dados.  
+    A caixa de diálogo de **Processamento de Dados** aparece e exibe os detalhes do processo para cada partição. Observe que um número diferente de linhas é transferido para cada partição. Cada partição inclui somente as linhas para o ano especificado na cláusula WHERE na instrução SQL. Quando o processamento for concluído, vá em frente e feche a caixa de diálogo Processamento de Dados.  
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   

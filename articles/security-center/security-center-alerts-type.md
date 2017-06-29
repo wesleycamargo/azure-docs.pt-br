@@ -12,61 +12,36 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="security-alerts-by-type-in-azure-security-center"></a>Alertas de segurança por tipo na Central de Segurança do Azure
-Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
+# <a name="understanding-security-alerts-in-azure-security-center"></a>Noções básicas de alertas de segurança na Central de Segurança do Azure
+Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança e as informações relacionadas disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas e os incidentes, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
 
 > [!NOTE]
 > Para configurar as detecções avançadas, atualize para a Central de Segurança do Azure Standard. Há uma avaliação gratuita de 60 dias disponível. Para atualizar, selecione **Tipo de Preço** na [política de segurança](security-center-policies.md). Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 >
->
 
 ## <a name="what-type-of-alerts-are-available"></a>Que tipo de alerta está disponível?
-A Central de Segurança do Azure fornece vários alertas que se alinham com os estágios da cadeia cyber kill. A ilustração a seguir mostra vários alertas e como eles se relacionam a alguns desses estágios.
-
-![Eliminar cadeia](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
-
-**Alvo e ataque**
-
-* Ataques RDP/SSH de entrada
-* Ataques de DDoS e aplicativo (parceiros WAF)
-* Detecção de intrusão (parceiros NG Firewall)
-
-**Instalar e explorar**
-
-* Assinaturas de malware conhecidas (parceiros AM)
-* Tentativas de malware e exploração na memória
-* Execução de processo suspeita
-* Manobras evasivas para evitar a descoberta
-* Movimento lateral
-* Reconhecimento interno
-* Atividade suspeita do PowerShell
-
-**Violação de postagem**  
-
-* Comunicação com um IP mal-intencionado conhecido (extração de dados ou comando e controle)
-* Usando recursos comprometidos para montar ataques adicionais (ataques de força bruta RDP/SSH para verificar porta de saída e spam)
-
-Diferentes tipos de ataques são associados a cada estágio e eles se destinam a diferentes subsistemas. Para endereçar os ataques durante os estágios, a Central de Segurança tem três categorias de alertas:
+A Central de Segurança do Azure usa uma variedade de [recursos de detecção](security-center-detection-capabilities.md) para alertar os clientes de possíveis ataques direcionados a seus ambientes. Esses alertas contêm informações valiosas sobre o que disparou o alerta, os recursos de destino e a origem do ataque. As informações incluídas em um alerta variam de acordo com o tipo de análise usado para detectar a ameaça. Os Incidentes também podem conter informações contextuais adicionais que podem ser úteis ao investigar uma ameaça.  Este artigo fornece informações sobre os seguintes tipos de alerta:
 
 * Análise de Comportamento da Máquina Virtual (VMBA)
 * Análise de Rede
 * Análise de Recursos
+* Informações Contextuais
 
 ## <a name="virtual-machine-behavioral-analysis"></a>Análise de comportamento da máquina virtual
 A Central de Segurança do Azure pode usar a análise de comportamento para identificar os recursos comprometidos com base na análise dos logs de evento da máquina virtual. Por exemplo, Eventos de Criação do Processos e Eventos de Logon. Além disso, há uma correlação com outros sinais para verificar se há suporte a evidências de uma campanha generalizada.
 
 > [!NOTE]
 > Para saber mais sobre como funcionam os recursos de detecção da Central de Segurança, confira [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md).
->
 >
 
 ### <a name="crash-analysis"></a>Análise de falha
@@ -258,6 +233,18 @@ Este alerta é disparado quando um erro de aplicativo é detectado em um banco d
 Este alerta é disparado quando um evento de acesso de um endereço IP desconhecido foi detectado no servidor, que não foi visto no último período.
 
 ![Alerta de acesso incomum](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+
+## <a name="contextual-information"></a>Informações Contextuais
+Durante uma investigação, os analistas precisarão de contexto extra para atingirem um veredito sobre a natureza da ameaça e como resolvê-la.  Por exemplo, uma anomalia de rede foi detectada, mas sem compreender o que está acontecendo na rede ou em relação ao recurso de destino é cada difíceis de entender as ações a serem tomadas. Para ajudar com isso, um incidente de segurança pode incluir artefatos, eventos relacionados e informações que podem ajudar quem estiver investigando. A disponibilidade de informações adicionais irá variar com base no tipo de ameaça detectada e an configuração do seu ambiente e não estará disponível para todos os incidentes de segurança.
+
+Se houver informações adicionais disponíveis, elas serão mostradas no Incidente de Segurança abaixo da lista de alertas. Isso pode conter informações como:
+
+- Limpar eventos do log
+- Dispositivo PNP conectado de dispositivo desconhecido
+- Alertas que não são acionáveis 
+
+![Alerta de acesso incomum](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
+
 
 ## <a name="see-also"></a>Consulte também
 Neste artigo, você aprendeu sobre os diferentes tipos de alertas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:

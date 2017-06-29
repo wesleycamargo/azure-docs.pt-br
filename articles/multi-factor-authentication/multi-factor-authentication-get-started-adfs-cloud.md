@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 05/29/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
-ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
-ms.lasthandoff: 02/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -30,11 +31,11 @@ Para proteger seus recursos de nuvem, configure uma regra de declaração para q
 
 1. Abra o gerenciamento do AD FS.
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
-3. Clique com o botão direito do mouse na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Declaração...**
+3. Clique com o botão direito do mouse na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Declaração**.
 
    ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra.**
+4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.
 
    ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
 
@@ -89,8 +90,10 @@ Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 3. Em Diretório, selecione o diretório onde você deseja configurar IPs confiáveis.
 4. No Diretório que você selecionou, clique em **Configurar**.
 5. Na seção autenticação multifator, clique em **Gerenciar configurações de serviço**.
-6. Na página Configurações de Serviço, em IPs confiáveis, selecione **Ignorar autenticação multifator para solicitações de usuários federados na minha intranet.**
+6. Na página Configurações de Serviço, em IPs confiáveis, selecione **Ignorar autenticação multifator para solicitações de usuários federados na minha intranet**.  
+
    ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   
 7. Clique em **Salvar**.
 8. Depois que as atualizações forem aplicadas, clique em **fechar**.
 

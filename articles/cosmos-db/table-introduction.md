@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2017
+ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: d1e1f977c9023f4727d8c444b5e490e8f5ba8d9e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -28,7 +28,7 @@ O [BD Cosmos do Azure](introduction.md) é o serviço multimodelo de banco de da
 
 ![API de Armazenamento de Tabelas do Azure e BD Cosmos do Azure](./media/table-introduction/premium-tables.png) 
 
-O BD Cosmos do Azure fornece a API de tabela para aplicativos que precisam de um repositório de chave-valor com esquema flexível. Os SDKs e as APIs REST do [Armazenamento de Tabelas do Azure](../storage/storage-introduction.md) podem ser usados para trabalhar com o BD Cosmos do Azure. Você pode usar o Azure Cosmos DB para criar tabelas com requisitos de alta taxa de transferência. O Azure Cosmos DB dá suporte a tabelas com otimização de taxa de transferência (chamadas informalmente de "tabelas premium"), atualmente em visualização pública. 
+O Azure Cosmos DB fornece a API de Tabela (versão prévia) para aplicativos que precisam de um repositório de chave-valor com esquema flexível, desempenho previsível, distribuição global e alta taxa de transferência. A API de tabela fornece a mesma funcionalidade de armazenamento de tabelas do Azure, mas aproveita os benefícios do mecanismo do Azure Cosmos DB. 
 
 Você pode continuar usando o Armazenamento de Tabelas do Azure para tabelas com alto requisitos de armazenamento e menores taxa de transferência. O BD Cosmos do Azure apresentará o suporte para tabelas com otimização de armazenamento em uma atualização futura e contas de armazenamento de tabelas do Azure novas e existentes serão atualizadas para o BD Cosmos do Azure.
 
@@ -56,3 +56,4 @@ Aqui estão algumas dicas para começar:
 * Introdução à [API de Tabela do BD Cosmos do Azure](create-table-dotnet.md) usando o SDK de Tabela NET existente.
 * Saiba mais sobre [Distribuição global com o BD Cosmos do Azure](distribute-data-globally.md).
 * Saiba mais sobre [Taxa de transferência provisionada no BD Cosmos do Azure](request-units.md).
+
