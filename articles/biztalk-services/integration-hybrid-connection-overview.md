@@ -14,13 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 397a922bf3bf4c39c89f5f69015de4942bda0af9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 9367d6f57e694c8a438781004ef29a09de77aaa8
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="hybrid-connections-overview"></a>Visão geral de Conexões Híbridas
+
+> [!IMPORTANT]
+> As Conexões Híbridas do BizTalk foram desativadas e substituídas pelas Conexões Híbridas do Serviço de Aplicativo. Para saber mais, incluindo como gerenciar as Conexões Híbridas do BizTalk existentes, veja [Conexões Híbridas do Serviço de Aplicativo do Azure](../app-service/app-service-hybrid-connections.md).
+
 Introdução a Conexões Híbridas, lista as configurações com suporte e também as portas TCP necessárias.
 
 ## <a name="what-is-a-hybrid-connection"></a>O que é uma conexão híbrida
@@ -100,9 +106,4 @@ As portas TCP a seguir são usadas por Conexões Híbridas:
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

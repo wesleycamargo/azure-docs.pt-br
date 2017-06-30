@@ -10,20 +10,23 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: c4977758997c91f0191e0367fb57923f43080b56
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-6-create-measures"></a>Lição 6: criar medidas
-Nesta lição, você criará medidas a serem incluídas no modelo. Semelhante às colunas calculadas que você criou, uma medida é um cálculo criado usando uma fórmula DAX. No entanto, ao contrário de colunas calculadas, medidas são avaliadas com base em um *filtro* selecionado pelo usuário; por exemplo, uma coluna ou uma segmentação de dados adicionada ao campo Rótulos de Linha em uma Tabela Dinâmica. Um valor para cada célula no filtro é então calculado pela medida aplicada. As medidas são cálculos avançados e flexíveis que você desejará incluir em quase todos os modelos tabulares para executar cálculos dinâmicos em dados numéricos. Para saber mais, veja [Medidas](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+Nesta lição, você criará medidas a serem incluídas no modelo. Semelhante às colunas calculadas que você criou, uma medida é um cálculo criado usando uma fórmula DAX. No entanto, ao contrário de colunas calculadas, as medidas são avaliadas com base em um *filtro* selecionado pelo usuário. Por exemplo, uma coluna ou segmentação de dados específica adicionada ao campo Rótulos de Linha em uma Tabela Dinâmica. Um valor para cada célula no filtro é então calculado pela medida aplicada. As medidas são cálculos avançados e flexíveis que você desejará incluir em quase todos os modelos tabulares para executar cálculos dinâmicos em dados numéricos. Para saber mais, veja [Medidas](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
   
 Para criar medidas, você deve usar a *Grade de Medida*. Por padrão, cada tabela tem uma grade de medida vazia; no entanto, você normalmente não criará medidas para todas as tabelas. A grade de medida aparece abaixo de uma tabela no designer de modelo na Exibição de Dados. Para ocultar ou mostrar a grade de medida para uma tabela, clique no menu **tabela** e clique em **Mostrar Grade de Medida**.  
   
@@ -54,12 +57,12 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
-    Ao contrário do que ocorre com colunas calculadas, com as fórmulas de medida você pode digitar o nome da medida, seguido por uma vírgula, seguida pela expressão da fórmula.
+    Ao contrário do que ocorre com colunas calculadas, com as fórmulas de medida você pode digitar o nome da medida, seguido por um ponto-e-vírgula, seguido pela expressão da fórmula.
 
   
 #### <a name="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table"></a>Para criar uma medida DaysInCurrentQuarter na tabela DimDate  
   
-1.  Com a tabela **DimDate** ainda ativa no designer de modelo, na grade de medida, clique na célula vazia abaixo da medida que você acabou de criar.  
+1.  Com a tabela **DimDate** ainda ativa no designer de modelo, na grade de medida, clique na célula vazia abaixo da medida que você criou.  
   
 2.  Na barra de fórmulas, digite a seguinte fórmula:  
   
@@ -67,7 +70,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     DaysInCurrentQuarter:=COUNTROWS( DATESBETWEEN( 'DimDate'[Date], STARTOFQUARTER( LASTDATE('DimDate'[Date])), ENDOFQUARTER('DimDate'[Date])))
     ```
   
-    Ao criar uma taxa de comparação entre um período incompleto e o período anterior, a fórmula deve levar em conta a proporção do período decorrido e compará-la à mesma proporção no período anterior. Nesse caso, [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter] fornece a proporção decorrida no período atual.  
+    Ao criar uma taxa de comparação entre um período incompleto e o período anterior. A fórmula deve calcular a proporção do período decorrido e compará-la à mesma proporção do período anterior. Nesse caso, [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter] fornece a proporção decorrida no período atual.  
   
 #### <a name="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table"></a>Para criar uma medida InternetDistinctCountSalesOrder na tabela FactInternetSales  
   

@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 2058e74c1c2e719e879a3808d24790bfe86a9e1b
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: fde5cd9a9efc3a13e731a91962ced5c086a72355
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lição suplementar – Linhas de Detalhes
@@ -42,7 +42,7 @@ Examinaremos os detalhes de nossa medida InternetTotalSales antes de adicionarmo
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. Na tabela dinâmica, clique duas vezes em um valor agregado para um ano e um nome de região. Aqui, clicamos duas vezes no valor para Austrália e o ano de 2014. Uma nova planilha será aberta contendo muitos dados, mas que não são realmente úteis.
+3. Na tabela dinâmica, clique duas vezes em um valor agregado para um ano e um nome de região. Aqui, clicamos duas vezes no valor para Austrália e o ano de 2014. Uma nova planilha abre os dados contidos, mas não os dados úteis.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   

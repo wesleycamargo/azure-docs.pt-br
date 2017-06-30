@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 992b08a1e88062923d0775c59b8baf93fee5364b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -300,7 +301,7 @@ Para excluir todos os recursos criados neste artigo, conclua as seguintes etapas
 
 1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no grupo de recursos **contosorg** na folha Todos os recursos. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **contosorg** na caixa **Filtrar por nome...** para acessar o grupo de recursos facilmente.
 1. Na folha **contosorg**, clique no botão **Excluir**.
-1. O portal requer que você digite o nome do grupo de recursos para confirmar se deseja excluí-lo. Clique em **Excluir**, digite *contosorg* para o nome do grupo de recursos, em seguida, clique em **Excluir**. A exclusão de um grupo de recursos exclui todos os recursos contidos nele e, portanto, confirme sempre o conteúdo de um grupo de recursos antes de excluí-lo. O portal exclui todos os recursos contidos no grupo de recursos e o exclui em seguida. Esse processo leva vários minutos.
+1. O portal requer que você digite o nome do grupo de recursos para confirmar se deseja excluí-lo. Digite *contosorg* como o nome do grupo de recursos e então clique em **Excluir**. A exclusão de um grupo de recursos exclui todos os recursos contidos nele e, portanto, confirme sempre o conteúdo de um grupo de recursos antes de excluí-lo. O portal exclui todos os recursos contidos no grupo de recursos e o exclui em seguida. Esse processo leva vários minutos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

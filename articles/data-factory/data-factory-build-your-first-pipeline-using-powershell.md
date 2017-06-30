@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 6615fc7f23a8a53ae0b8d855f5b157c3787a1f06
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: d3908e2984889656a70b5295eab19164ad3bfa95
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -48,7 +48,7 @@ O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Es
 * (opcional) Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory](/powershell/module/azurerm.datafactories) para obter uma documentação abrangente sobre os cmdlets de Data Factory.
 
 ## <a name="create-data-factory"></a>Criar um data factory
-Nesta etapa, é possível usar o Azure PowerShell para criar um Azure Data Factory denominado **FirstDataFactoryPSH**. Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma Atividade de Cópia para copiar dados de um armazenamento de dados de origem para um de destino e uma atividade do Hive do HDInsight para executar o script do Hive para transformar dados de entrada. Vamos começar com a criação do data factory nesta etapa.
+Nesta etapa, é possível usar o Azure PowerShell para criar um Azure Data Factory denominado **FirstDataFactoryPSH**. Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma Atividade de Cópia para copiar dados de um armazenamento de dados de origem para um de destino e uma atividade do Hive do HDInsight para executar um script do Hive para transformar dados de entrada. Vamos começar com a criação do data factory nesta etapa.
 
 1. Inicie o Azure PowerShell e execute o comando a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechá-la e reabri-la, precisará executar esses comandos novamente.
    * Execute o comando a seguir e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
@@ -57,7 +57,7 @@ Nesta etapa, é possível usar o Azure PowerShell para criar um Azure Data Facto
     ```    
    * Execute o comando a seguir para exibir todas as assinaturas dessa conta.
     ```PowerShell
-    Get-AzureRmSubscription    
+    Get-AzureRmSubscription 
     ```
    * Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Esta assinatura deve ser igual à que você usou no portal do Azure.
     ```PowerShell
@@ -96,7 +96,7 @@ Observe os seguintes pontos:
 Antes de criar um pipeline, primeiro você precisará criar algumas entidades do Data Factory. Primeiro você cria serviços vinculados para vincular serviços de armazenamento/computação de dados ao seu armazenamento de dados, define conjuntos de dados de entrada/saída para representar os dados em armazenamentos de dados vinculados e, em seguida, cria o pipeline com uma atividade que utilize esses conjuntos de dados.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
-Nesta etapa, você vinculará sua conta do Armazenamento do Azure e um cluster do HDInsight do Azure sob demanda ao data factory. A conta do Armazenamento do Azure manterá os dados de entrada e de saída para o pipeline neste exemplo. O serviço vinculado do HDInsight é usado para executar o script do Hive especificado na atividade do pipeline neste exemplo. Identifique quais serviços de armazenamento/computação de dados serão usados em seu cenário e vincular esses serviços ao data factory criando serviços vinculados.
+Nesta etapa, você vinculará sua conta do Armazenamento do Azure e um cluster do HDInsight do Azure sob demanda ao data factory. A conta do Armazenamento do Azure manterá os dados de entrada e de saída para o pipeline neste exemplo. O serviço vinculado do HDInsight é usado para executar um script do Hive especificado na atividade do pipeline neste exemplo. Identifique quais serviços de armazenamento/computação de dados serão usados em seu cenário e vincular esses serviços ao data factory criando serviços vinculados.
 
 ### <a name="create-azure-storage-linked-service"></a>Criar o serviço vinculado do armazenamento do Azure
 Nesta etapa, você vincula a conta do Armazenamento do Azure ao data factory. Você usa a mesma conta do Armazenamento do Azure para armazenar dados de entrada/saída e o arquivo do script do HQL.

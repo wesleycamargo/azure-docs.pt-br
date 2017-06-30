@@ -10,27 +10,27 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: d61ad247d795c210350c6681087b811c1fa39a70
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 6f47de43ff8d94de22f8b7c12fa0707a8d7ffbbc
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-12-analyze-in-excel"></a>Lição 12: analisar no Excel
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Nesta lição, você usa o recurso Analisar no Excel no SSDT para abrir o Microsoft Excel, criar automaticamente uma conexão de fonte de dados ao espaço de trabalho de modelo e adicionar automaticamente uma tabela dinâmica à planilha. O recurso Analisar no Excel destina-se a fornecer uma maneira rápida e fácil de testar a eficácia do design de modelo antes de implantar seu modelo. Você não executará nenhuma análise de dados nesta lição. O objetivo desta lição é familiarizar você, o autor do modelo, com as ferramentas que você pode usar para testar seu design de modelo. Ao contrário de usar o recurso Analisar no Excel, que se destina aos autores de modelo, os usuários finais usarão aplicativos cliente de relatório como Excel ou Power BI para procurar e se conectar aos dados de modelo implantados.  
+Nesta lição, você usa o recurso Analisar no Excel para abrir o Microsoft Excel, criar automaticamente uma conexão ao espaço de trabalho de modelo e adicionar automaticamente uma tabela dinâmica à planilha. O recurso Analisar no Excel destina-se a fornecer uma maneira rápida e fácil de testar a eficácia do design de modelo antes de implantar seu modelo. Você não executará nenhuma análise de dados nesta lição. O objetivo desta lição é familiarizar você, o autor do modelo, com as ferramentas que você pode usar para testar seu design de modelo.   
   
-Para concluir esta lição, o Excel deve estar instalado no mesmo computador que o SSDT.
+Para concluir esta lição, o Excel deverá estar instalado no mesmo computador que o SSDT.
   
-Tempo estimado para conclusão desta lição: **5 minutos**  
+Tempo estimado para a conclusão desta lição: **Cinco minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 11: criar funções](../tutorials/aas-lesson-11-create-roles.md).  
@@ -44,9 +44,9 @@ Nestas primeiras tarefas, procure seu modelo usando tanto a perspectiva padrão,
   
 2.  Na caixa de diálogo **Analisar no Excel**, clique em **OK**.  
   
-    O Excel abrirá uma nova pasta de trabalho. Uma conexão de fonte de dados é criado usando a conta de usuário atual e a perspectiva Padrão é usada para definir campos visíveis. Uma tabela dinâmica é adicionada automaticamente à planilha.  
+    O Excel abre com uma nova pasta de trabalho. Uma conexão de fonte de dados é criado usando a conta de usuário atual e a perspectiva Padrão é usada para definir campos visíveis. Uma tabela dinâmica é adicionada automaticamente à planilha.  
   
-3.  No Excel, na **Lista de Campos da Tabela Dinâmica**, observe que os grupos de medidas **DimDate** e **FactInternetSales** aparecem, bem como as tabelas **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** e **FactInternetSales** com todas as suas respectivas colunas.  
+3.  No Excel, na **lista Campo da Tabela Dinâmica**, observe os grupos de medidas **DimDate** e **FactInternetSales** exibidos. As tabelas **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** e **FactInternetSales** com as respectivas colunas também aparecem.  
   
 4.  Feche o Excel sem salvar a pasta de trabalho.  
   
@@ -65,15 +65,15 @@ Nestas primeiras tarefas, procure seu modelo usando tanto a perspectiva padrão,
 4.  Feche o Excel sem salvar a pasta de trabalho.  
   
 ## <a name="browse-by-using-roles"></a>Navegar usando funções  
-Funções são parte integrante de qualquer modelo tabular. Sem pelo menos uma função à qual os usuários são adicionados como membros, os usuários não poderão acessar e analisar dados usando seu modelo. O recurso Analisar no Excel fornece uma maneira de testar as funções definidas por você.  
+As funções são parte importante de qualquer modelo tabular. Sem pelo menos uma função à qual os usuários são adicionados como membros, os usuários não poderão acessar e analisar dados usando seu modelo. O recurso Analisar no Excel fornece uma maneira de testar as funções definidas por você.  
   
 #### <a name="to-browse-by-using-the-sales-manager-user-role"></a>Para navegar usando a função de usuário do Gerente de Vendas  
   
 1.  No SSDT, clique no menu **Modelo** e depois em **Analisar no Excel**.  
   
-2.  Na caixa de diálogo **Analisar no Excel**, **especifique o nome de usuário ou função a ser usada para se conectar ao modelo**, selecione **Função** e, em seguida, na caixa de listagem suspensa, selecione **Gerente de Vendas** e clique em **OK**.  
+2.  Em **Especificar o nome de usuário ou função a ser usada para se conectar ao modelo**, selecione **Função** e, em seguida, na caixa de listagem suspensa, selecione **Gerente de Vendas** e clique em **OK**.  
   
-    O Excel abrirá uma nova pasta de trabalho. Uma tabela dinâmica é criada automaticamente. A lista de campos de tabela dinâmica inclui todos os campos de dados disponíveis no novo modelo.  
+    O Excel abre com uma nova pasta de trabalho. Uma tabela dinâmica é criada automaticamente. A lista de campos de tabela dinâmica inclui todos os campos de dados disponíveis no novo modelo.  
       
 3.  Feche o Excel sem salvar a pasta de trabalho.  
   

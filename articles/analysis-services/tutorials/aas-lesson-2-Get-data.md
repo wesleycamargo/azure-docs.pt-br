@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 492bfd19c2b364089e13f7ae53010cb5ce14123d
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -63,11 +63,11 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-Depois de clicar em OK, o Editor de Consultas será aberto e nele, na próxima seção, você filtrará os dados que deseja importar.
+Depois que você clicar em OK, o Editor de Consultas será aberto. Na próxima seção, você selecionará somente os dados que deseja importar.
 
   
 ## <a name="filter-the-table-data"></a>Filtrar os dados da tabela  
-As tabelas no banco de dados de exemplo AdventureWorksDW2014 têm dados que não precisam ser incluídos em seu modelo. Quando possível, é recomendável filtrar os dados que não serão usados para economizar espaço na memória usado pelo modelo. Você filtrará algumas das colunas de tabelas para que elas não sejam importadas para o banco de dados do espaço de trabalho ou então para o modelo de banco de dados após ele ter sido implantado. 
+As tabelas no banco de dados de exemplo AdventureWorksDW2014 têm dados que não precisam ser incluídos em seu modelo. Quando possível, é recomendável filtrar os dados desnecessários para economizar espaço na memória usado pelo modelo. Você filtrará algumas das colunas de tabelas para que elas não sejam importadas para o banco de dados do espaço de trabalho ou então para o modelo de banco de dados após ele ter sido implantado. 
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Para filtrar os dados da tabela antes de importar  
   
@@ -137,7 +137,7 @@ As tabelas no banco de dados de exemplo AdventureWorksDW2014 têm dados que não
       |**ShipDateKey**|   
   
 ## <a name="Import"></a>Importar os dados de colunas e tabelas selecionadas  
-Agora que você visualizou e filtrou os dados desnecessários, você pode importar o restante dos dados que você deseja. O assistente importa os dados da tabela juntamente com quaisquer relacionamentos entre tabelas. Novas tabelas e colunas são criadas no modelo e dados que você filtrou não serão importados.  
+Agora que você visualizou e filtrou os dados desnecessários, você pode importar o restante dos dados que você deseja. O assistente importa os dados da tabela juntamente com quaisquer relacionamentos entre tabelas. As novas tabelas e colunas são criadas no modelo e dados que você filtrou não serão importados.  
   
 #### <a name="to-import-the-selected-tables-and-column-data"></a>Para importar os dados de colunas e tabelas selecionadas  
   

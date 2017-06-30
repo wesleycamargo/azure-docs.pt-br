@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 0ba2158a45eb4ec9254ef829894152fe92276920
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -124,6 +124,12 @@ O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes do
 #### <a name="azure-monitor"></a>Azure Monitor
 
 Cada log de gateway de aplicativo é integrado ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Isso permite o controle das informações de diagnóstico, incluindo logs e alertas de WAF.  Esse recurso é fornecido Gateway de Aplicativo no portal na guia **Diagnóstico** ou diretamente no serviço Azure Monitor. Para saber mais sobre como habilitar logs de diagnóstico para o gateway de aplicativo, visite [Diagnóstico do Gateway de aplicativo](application-gateway-diagnostics.md)
+
+#### <a name="azure-security-center"></a>Central de Segurança do Azure
+
+A [Central de Segurança do Azure](../security-center/security-center-intro.md) ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Agora, o gateway de aplicativo [integra a Central de Segurança do Azure](application-gateway-integration-security-center.md). A Central de Segurança do Azure verifica seu ambiente para detectar aplicativos Web desprotegidos. Agora, ele pode recomendar o WAF de gateway de aplicativo para proteger esses recursos vulneráveis. Você pode criar o WAF de gateway de aplicativo na Central de Segurança do Azure.  Essas instâncias WAF são integradas à Central de Segurança do Azure e enviarão alertas e informações de integridade para a Central de Segurança do Azure para a geração de relatórios.
+
+![figura 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 
 #### <a name="logging"></a>Registro em log
 

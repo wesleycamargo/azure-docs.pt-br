@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 9d788bf8e41fe225a4c24a4f5b464e8664f3d677
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 7ea9988b02bc09626a11efb5e95c2349b378256a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -202,7 +202,7 @@ Agora, você cria o conjunto de dados de saída para representar os dados de sa�
     }
     ```
     O trecho JSON define um conjunto de dados chamado **AzureBlobOutput** que representa os dados de saída produzidos pela atividade de hive no pipeline. Você especifica que os dados de saída produzidos pela atividade de hive são colocados no contêiner de blobs `adfgetstarted` e na pasta `partitioneddata`. 
-     
+    
     A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente. O conjunto de dados de saída conduzem a agenda do pipeline. O pipeline é executado mensalmente entre suas horas de início e término. 
 
     Consulte a seção **Criar o conjunto de dados de entrada** para obter descrições dessas propriedades. Você não define a propriedade externa em um conjunto de dados de saída porque o conjunto de dados é produzido pelo pipeline.
@@ -320,7 +320,7 @@ Pontos importantes a serem considerados:
 
 - Se você receber o erro: **Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**, siga um desses procedimentos e tente publicar novamente:
     - No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory.
-        ```PowerShell    
+        ```PowerShell   
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado.
@@ -400,7 +400,7 @@ Você também pode usar o aplicativo Monitorar e Gerenciar para monitorar os pip
 > O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta `inputdata` do contêiner `adfgetstarted`.
 
 ### <a name="additional-notes"></a>Observações adicionais
-- Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma Atividade de Cópia para copiar dados de um armazenamento de dados de origem para um de destino e uma atividade do Hive do HDInsight para executar o script do Hive para transformar dados de entrada. Confira [repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todas as fontes e coletores com suporte da Atividade de Cópia. Confira os [serviços vinculados de computação](data-factory-compute-linked-services.md) para ver uma lista dos serviços de computação com suporte do Data Factory.
+- Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma Atividade de Cópia para copiar dados de um armazenamento de dados de origem para um de destino e uma atividade do Hive do HDInsight para executar um script do Hive para transformar dados de entrada. Confira [repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todas as fontes e coletores com suporte da Atividade de Cópia. Confira os [serviços vinculados de computação](data-factory-compute-linked-services.md) para ver uma lista dos serviços de computação com suporte do Data Factory.
 - Serviços vinculados vinculam armazenamentos de dados ou serviços de computação para uma data factory do Azure. Confira [repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todas as fontes e coletores com suporte da Atividade de Cópia. Confira os [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter a lista de serviços de computação com suporte pela Data Factory e as [Atividades de transformação](data-factory-data-transformation-activities.md) que podem ser executadas neles.
 - Confira [Como mover dados de/para Blobs do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) para obter detalhes sobre as propriedades JSON usadas no armazenamento do Azure vinculado à definição de serviço.
 - Você pode usar seu próprio cluster do HDInsight em vez de usar um cluster do HDInsight sob demanda. Veja [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.

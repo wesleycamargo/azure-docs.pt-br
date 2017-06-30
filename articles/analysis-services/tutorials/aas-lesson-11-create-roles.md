@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: eea9b247b42db81f30b7169f71ddf0d5068f6a5e
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 085a36edd2a0e80123ac8754b438bceadfa6c0e9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-11-create-roles"></a>Lição 11: criar funções
@@ -29,9 +29,9 @@ ms.lasthandoff: 05/05/2017
 Nesta lição, você cria funções. As funções fornecem segurança de dados e objetos de modelo de banco de dados, limitando o acesso aos usuários somente àqueles usuários que são membros da função. Cada função é definida com uma única permissão: Nenhum, Leitura, Leitura e Processo, Processo ou Administrador. Funções podem ser definidas durante a criação do modelo usando o Gerenciador de Funções. Depois que um modelo tiver sido implantado, você poderá gerenciar funções usando o SQL Server Management Studio (SSMS). Para saber mais, consulte [Funções](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
 > [!NOTE]  
-> Não é necessário criar funções para concluir este tutorial. Por padrão, a conta com a qual você está conectado terá privilégios de Administrador no modelo. No entanto, para permitir que outros usuários na sua organização procurem o modelo usando um cliente de relatório, você deve criar pelo menos uma função com permissões de Leitura e adicionar esses usuários como membros.  
+> Não é necessário criar funções para concluir este tutorial. Por padrão, a conta com a qual você está conectado terá privilégios de Administrador no modelo. No entanto, para permitir que outros usuários na sua organização procurem usando um cliente de relatório, você deve criar pelo menos uma função com permissões de Leitura e adicionar esses usuários como membros.  
   
-Você criará três funções:  
+Você cria três funções:  
   
 -   **Gerente de Vendas** – essa função pode incluir usuários em sua organização para os quais você deseja ter permissão de Leitura para todos os objetos de modelo e dados.  
   
@@ -39,7 +39,7 @@ Você criará três funções:
   
 -   **Administrador** – essa função pode incluir usuários para os quais você deseja ter permissão de Administrador, que fornece acesso ilimitado e permissões para executar tarefas administrativas no modelo de banco de dados.  
   
-Já que as contas de usuário e de grupo do Windows em sua organização são exclusivas, você pode adicionar contas da sua organização privada para membros. No entanto, para este tutorial, você também pode deixar os membros em branco. Você ainda poderá testar o efeito de cada função posteriormente na Lição 12: Analisar no Excel.  
+Já que as contas de usuário e de grupo do Windows em sua organização são exclusivas, você pode adicionar contas da sua organização privada para membros. No entanto, para este tutorial, você também pode deixar os membros em branco. Você testará o efeito de cada função posteriormente na Lição 12: Analisar no Excel.  
   
 Tempo estimado para conclusão desta lição: **15 minutos**  
   

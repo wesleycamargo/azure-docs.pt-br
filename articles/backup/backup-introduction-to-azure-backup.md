@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/8/2017
-ms.author: markgal;trinadhk; anuragm
+ms.date: 6/14/2017
+ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: a5f297ad0a60a595ce9a50bdde1eadf015c69b89
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 629b3c54a35f939845349e6f2ed7743885e41f3b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -224,7 +224,13 @@ Alguns exemplos comuns de instâncias protegidas são máquinas virtuais, servid
 ## <a name="what-is-a-recovery-services-vault"></a>O que é um cofre dos Serviços de Recuperação?
 Um cofre dos Serviços de Recuperação é uma entidade de armazenamento online no Azure usada para armazenar dados como cópias de backup, pontos de recuperação e políticas de backup. Você pode usar cofres dos Serviços de Recuperação para armazenar dados de backup de serviços do Azure, servidores e estações de trabalho locais. Os cofres dos Serviços de Recuperação facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento. Você pode criar quantos cofres dos Serviços de Recuperação desejar dentro de uma assinatura.
 
-Os cofres de backup, que são baseados no Gerenciador de Serviços do Azure, foram a primeira versão do cofre. Os cofres dos Serviços de Recuperação, que adicionam os recursos do Azure Resource Manager, são a segunda versão do cofre. Consulte o [artigo de visão geral do cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para obter uma descrição completa das diferenças entre os recursos. Você não pode mais criar cofres de Backup no portal do Azure, mas ainda há suporte para os cofres de Backup.  
+Os cofres de backup, que são baseados no Gerenciador de Serviços do Azure, foram a primeira versão do cofre. Os cofres dos Serviços de Recuperação, que adicionam os recursos do Azure Resource Manager, são a segunda versão do cofre. Consulte o [artigo de visão geral do cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para obter uma descrição completa das diferenças entre os recursos. Você não pode mais criar cofres de Backup no portal do Azure, mas ainda há suporte para os cofres de Backup.
+
+> [!IMPORTANT]
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
+>- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
+>
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Qual a diferença entre o Backup do Azure e o Azure Site Recovery?
 O Backup do Azure e o Azure Site Recovery são relacionados, pois ambos são serviços de backup de dados e podem restaurar esses dados. No entanto, esses serviços têm finalidades diferentes para permitir a continuidade dos negócios e a recuperação de desastres no seu negócio. Use o Backup do Azure para proteger e restaurar dados em um nível mais detalhado. Por exemplo, se uma apresentação em um laptop fosse corrompida, você usaria o Azure Backup para restaurar a apresentação. Se você quiser replicar a configuração e os dados de uma máquina virtual em outro datacenter, use o Azure Site Recovery.

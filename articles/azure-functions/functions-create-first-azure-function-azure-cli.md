@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3dc0e1b26c95ac6583dd3b1068b36deb54f7ac5a
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 2292b35819c5a98b690041e10f6e6d1a93fa7837
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -31,20 +31,14 @@ Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux.
 Antes de executar este exemplo, você deve ter o seguinte:
 
 + Uma conta do [GitHub](https://github.com) ativa. 
-+ A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) instalada. 
 + Uma assinatura ativa do Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
-Entre na sua assinatura do Azure usando o comando [az login](/cli/azure/#login) e siga as instruções na tela. 
-
-```azurecli
-az login
-```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

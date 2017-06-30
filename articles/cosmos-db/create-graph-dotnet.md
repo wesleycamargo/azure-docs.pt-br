@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 597b12b98edb07e453fc3cd5a0884c584a5bfd14
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -61,7 +61,7 @@ Agora, clonaremos um aplicativo de API do Graph do GitHub, definiremos a cadeia 
 
 Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arquivo Program.cs e você verá que essas linhas de código criam os recursos do BD Cosmos do Azure. 
 
-* O DocumentClient é inicializado. Na versão prévia, adicionamos uma API de extensão de gráfico ao cliente DocumentDB. Estamos trabalhando em um cliente gráfico autônomo dissociado do cliente DocumentDB e dos respectivos recursos.
+* O DocumentClient é inicializado. Na versão prévia, nós adicionamos uma API de extensão de gráfico no cliente Azure Cosmos DB. Estamos trabalhando em um cliente gráfico autônomo dissociado do cliente do Azure Cosmos DB e dos recursos.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(

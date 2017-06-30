@@ -12,13 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 16d9fa8a7b7593f222976897bddf615c28109540
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -89,7 +91,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 ## <a name="manage-your-storage-account"></a>Gerenciar sua conta de armazenamento
 ### <a name="change-your-account-configuration"></a>Alterar a configuração da conta
-Após criar a conta de armazenamento, você pode modificar sua configuração, por exemplo, alterando a opção de replicação usada para a conta ou a alterando a camada de acesso para uma conta de armazenamento de Blobs. No [Portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento, clique em **Todas as configurações** e clique em **Configuração** para exibir e/ou alterar a configuração da conta.
+Após criar a conta de armazenamento, você pode modificar sua configuração, por exemplo, alterando a opção de replicação usada para a conta ou a alterando a camada de acesso para uma conta de armazenamento de Blobs. No [portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento, encontre e clique em **Configuração** e clique em **CONFIGURAÇÕES** para exibir e/ou alterar a configuração da conta.
 
 > [!NOTE]
 > Dependendo do nível de desempenho que você escolheu durante a criação da conta de armazenamento, talvez algumas opções de replicação não estejam disponíveis.

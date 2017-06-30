@@ -13,9 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
-ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -31,7 +33,7 @@ ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
 
 Este artigo mostra como consultar um índice usando a [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
 
-Antes de começar este passo a passo, você já deve ter [criado um índice do Azure Search](search-what-is-an-index.md), e este já deve estar [preenchido com os dados](search-what-is-data-import.md).
+Antes de começar este passo a passo, você já deve ter [criado um índice do Azure Search](search-what-is-an-index.md), e este já deve estar [preenchido com os dados](search-what-is-data-import.md). Para obter informações de contexto, veja [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md).
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Identificar sua api-key de consulta do serviço de Pesquisa do Azure
 Um componente-chave de todas as operações de pesquisa na API REST da Pesquisa do Azure é a *api-key* que foi gerada para o serviço provisionado. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
@@ -163,9 +165,4 @@ Uma solicitação de consulta bem-sucedida resultará em um Código de Status `2
 ```
 
 Para saber mais, visite a seção "Resposta" de [Pesquisar Documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

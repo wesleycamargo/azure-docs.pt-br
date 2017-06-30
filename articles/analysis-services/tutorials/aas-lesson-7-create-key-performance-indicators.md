@@ -10,23 +10,23 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 1691ef4a3de8f17d61aeead05b7d9eaeadc2d58a
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Lição 7: criar indicadores chave de desempenho
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Nesta lição, você cria KPIs (indicadores chave de desempenho). KPIs são usados para medir o desempenho de um valor, definido por uma medida *Base* contra um valor de *Destino*, também definido por uma medida ou um valor absoluto. Em aplicativos cliente de relatório, KPIs podem fornecer aos profissionais de negócios uma maneira rápida e fácil de entender um resumo de sucesso nos negócios ou para identificar tendências. Para obter mais informações, consulte [KPIs](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
+Nesta lição, você cria KPIs (indicadores chave de desempenho). Os KPIs são usados para medir o desempenho de um valor, definido por uma medida *Base* contra um valor de *Destino*, também definido por uma medida ou um valor absoluto. Em aplicativos cliente de relatório, KPIs podem fornecer aos profissionais de negócios uma maneira rápida e fácil de entender um resumo de sucesso nos negócios ou para identificar tendências. Para obter mais informações, consulte [KPIs](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
   
 Tempo estimado para conclusão desta lição: **15 minutos**  
   
@@ -60,7 +60,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     ![aas-lesson7-kpi](../tutorials/media/aas-lesson7-kpi.png)
     
     > [!TIP]  
-    > Observe o rótulo expansível **Descrições** abaixo dos estilos de ícone disponíveis. Use isso para inserir as descrições para os vários elementos de KPI para torná-los mais identificáveis nos aplicativos cliente.  
+    > Observe o rótulo expansível **Descrições** abaixo dos estilos de ícone disponíveis. Use as descrições para os vários elementos de KPI para torná-los mais identificáveis nos aplicativos cliente.  
   
 9. Clique em **OK** para concluir o KPI.  
   
