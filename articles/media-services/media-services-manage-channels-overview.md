@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: e4bb75b0a45dd922479cbd40ad94190c30b4333f
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/13/2017
 
 
@@ -121,7 +122,7 @@ Você é responsável por parar seus canais quando terminar com o canal. A falha
 >
 >
 
-### <a name="a-idstatesachannel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança
+### <a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança
 O estado atual de um canal. Os valores possíveis incluem:
 
 * **Parado**. Esse é o estado inicial do Canal após sua criação (a menos que o início automático tenha sido selecionado no portal). Não há cobrança nesse estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
