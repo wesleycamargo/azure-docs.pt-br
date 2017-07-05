@@ -87,7 +87,7 @@ Adicione o **Microsoft JDBC Driver para SQL Server** às dependências em ***pom
 <dependency>
     <groupId>com.microsoft.sqlserver</groupId>
     <artifactId>mssql-jdbc</artifactId>
-    <version>6.1.0.jre8</version>
+    <version>6.2.0.jre8</version>
 </dependency>
 ```
 
