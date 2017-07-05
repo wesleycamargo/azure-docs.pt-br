@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 9934902811354ffa4047d70d995a6dd44be0229b
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/10/2017
 
 
@@ -51,19 +52,19 @@ Você também pode exibir e habilitar ou desabilitar dispositivos registrados us
 
 **Para habilitar o serviço de registro de dispositivos do Azure Active Directory**
 
-1.    Entre no Portal do Microsoft Azure como administrador.
+1.  Entre no Portal do Microsoft Azure como administrador.
 
-2.    No painel esquerdo, selecione **Active Directory**.
+2.  No painel esquerdo, selecione **Active Directory**.
 
-3.    Na guia Diretório, selecione o diretório.
+3.  Na guia Diretório, selecione o diretório.
 
-4.    Clique em **Configurar**.
+4.  Clique em **Configurar**.
 
-5.    Role até **Dispositivos**.
+5.  Role até **Dispositivos**.
 
-6.    Selecione TODOS para OS USUÁRIOS PODEM REGISTRAR SEUS DISPOSITIVOS COM O AZURE AD.
+6.  Selecione TODOS para OS USUÁRIOS PODEM REGISTRAR SEUS DISPOSITIVOS COM O AZURE AD.
 
-7.    Selecione o número máximo de dispositivos que deseja autorizar por usuário.
+7.  Selecione o número máximo de dispositivos que deseja autorizar por usuário.
 
 O registro com o Microsoft Intune ou o Gerenciamento de Dispositivos Móveis para o Office 365 exige registro do dispositivo. Se você tiver configurado qualquer um desses serviços, a opção **TODOS** estará selecionada e **NONE** estará desabilitado. Verifique se eles estão configurados corretamente e possuem o licenciamento apropriado.
 
@@ -79,19 +80,19 @@ No portal de administrador do Azure, você pode exibir, bloquear e desbloquear o
 
 **Para exibir e gerenciar objetos de dispositivo no Azure Active Directory**
  
-1.    Faça logon no Portal do Microsoft Azure como administrador.
+1.  Faça logon no Portal do Microsoft Azure como administrador.
 
-2.    No painel esquerdo, selecione **Active Directory**.
+2.  No painel esquerdo, selecione **Active Directory**.
 
-3.    Selecione seu diretório.
+3.  Selecione seu diretório.
 
-4.    Selecione **Usuários**. 
+4.  Selecione **Usuários**. 
 
 5.  Clique no usuário para o qual você deseja ver os dispositivos.
 
-6.    Selecione **Dispositivos**.
+6.  Selecione **Dispositivos**.
 
-7.    Selecione **Dispositivos Registrados**.
+7.  Selecione **Dispositivos Registrados**.
 
 Agora você pode ver, bloquear ou desbloquear os dispositivos registrados dos usuários.
 Dispositivos com Windows 10 ingressados em um domínio local e automaticamente registrados não aparecem na guia Usuários. Use o comando do PowerShell Get-MsolDevice para localizar todos os dispositivos da empresa. 

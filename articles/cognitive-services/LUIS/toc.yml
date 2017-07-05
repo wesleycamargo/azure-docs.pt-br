@@ -1,77 +1,77 @@
-- name: Documentação do LUIS
+- name: LUIS Documentation
   href: ../index.md
-- name: Visão geral
+- name: Overview
   items: 
-  - name: Saiba mais sobre o Serviço Inteligente de Reconhecimento Vocal
+  - name: Learn about Language Understanding Intelligent Service
     href: Home.md
-- name: Guia de início rápido
+- name: Quickstarts
   expanded: true
   items: 
-  - name: Criar um novo aplicativo
+  - name: Create a new app
     href: luis-get-started-create-app.md
-- name: Tutoriais
+- name: Tutorials
   items: 
-  - name: Integrar LUIS com um bot usando Node.js
+  - name: Integrate LUIS with a bot using Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
-- name: Conceitos
+- name: Concepts
   items: 
-  - name: Intenções
+  - name: Intents
     href: luis-concept-intent.md
-  - name: Entidades
+  - name: Entities
     href: luis-concept-entity-types.md
-  - name: Declarações
+  - name: Utterances
     href: luis-concept-utterance.md
-  - name: Recursos
+  - name: Features
     href: luis-concept-feature.md
-  - name: Suporte a vários idiomas
+  - name: Support for multiple languages
     href: luis-concept-language-support.md
-- name: Guias de instruções
+- name: How-to guides
   items: 
-  - name: Planejar seu aplicativo
+  - name: Plan your app
     href: Plan-your-app.md
-  - name: Criar um aplicativo LUIS
+  - name: Build a LUIS app
     items: 
-    - name: Iniciar um novo aplicativo
+    - name: Start a new app
       href: Create-new-app.md
-    - name: Adicionar tentativas
+    - name: Add intents
       href: Add-intents.md
-    - name: Adicionar declarações
+    - name: Add utterances
       href: Add-example-utterances.md
-    - name: Adicionar entidades
+    - name: Add entities
       href: Add-entities.md
-    - name: Melhorar o desempenho usando recursos
+    - name: Improve performance using features
       href: Add-Features.md
-    - name: Treinar e testar o aplicativo
+    - name: Train and test the app
       href: Train-Test.md
-    - name: Usar o aprendizado ativo
+    - name: Use active learning
       href: Label-Suggested-Utterances.md
-    - name: Publicar seu aplicativo
+    - name: Publish your app
       href: PublishApp.md
-  - name: Modelos predefinidos
+  - name: Prebuilt models
     items: 
-    - name: Usar as entidades predefinidas
+    - name: Use prebuilt entities
       href: Pre-builtEntities.md
-    - name: Usar os domínios predefinidos
+    - name: Use prebuilt domains
       href: luis-how-to-use-prebuilt-domains.md
-    - name: Usar o aplicativo predefinido Cortana
+    - name: Use the Cortana prebuilt app
       href: Cortana-Prebuilt-App.md
-  - name: Gerenciar seu aplicativo LUIS
+  - name: Manage your LUIS app
     items: 
-    - name: Monitorar seu aplicativo usando o painel
+    - name: Monitor your app using the dashboard
       href: App-Dashboard.md
-    - name: Gerenciar chaves
+    - name: Manage keys
       href: Manage-Keys.md
-    - name: Criar chaves de assinatura
+    - name: Create subscription keys
       href: AzureIbizaSubscription.md
-    - name: Gerenciar versões
+    - name: Manage versions
       href: luis-how-to-manage-versions.md
-    - name: Colaborar em um aplicativo LUIS
+    - name: Collaborate on a LUIS app
       href: luis-how-to-collaborate.md    
-- name: Referência
+- name: Reference
   items: 
-  - name: APIs de criação
+  - name: Authoring APIs
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: API do ponto de extremidade
+  - name: Endpoint API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
   - name: SDKs
     items:
@@ -83,7 +83,9 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
     - name: Windows
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
-- name: Recursos
+- name: Resources
   items: 
-  - name: Perguntas frequentes do LUIS
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: LUIS FAQ
     href: luis-resources-faq.md
