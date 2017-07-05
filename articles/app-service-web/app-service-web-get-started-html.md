@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo Web HTML estático no Azure em cinco minutos | Microsoft Docs"
-description: "Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo."
+title: "Criar um aplicativo Web HTML estático no Azure | Microsoft Docs"
+description: "Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure ao implantar um aplicativo de exemplo HTML estático."
 services: app-service\web
 documentationcenter: 
 author: rick-anderson
@@ -12,61 +12,112 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/08/2017
+ms.date: 05/26/2017
 ms.author: riande
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 895906e1ab4bc50093ed3b18f043c3dd515ca054
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: bfa54a90af057f3c799fd8265b3cd5e053f21e69
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="create-a-static-html-web-app-in-azure-in-five-minutes"></a>Criar um aplicativo Web HTML estático no Azure em cinco minutos
+# <a name="create-a-static-html-web-app-in-azure"></a>Criar um aplicativo Web HTML estático no Azure
 
-Este início rápido orienta você sobre como implantar um site básico de HTML e CSS no Azure. Você executará o aplicativo usando um [Plano do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) e criará um aplicativo Web nele usando a [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli). Agora, use o git para implantar o aplicativo no Azure. Demora cerca de cinco minutos para concluir o tutorial depois que os pré-requisitos forem instalados.
+Os [aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.  Este guia de início rápido mostra como implantar um site HTML+CSS básico para Aplicativos Web do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o conteúdo HTML de exemplo para o aplicativo Web.
 
-![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+![Home page do aplicativo de exemplo](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+
+Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux. A conclusão das etapas demora cerca de cinco minutos assim que os pré-requisitos são instalados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de criar essa amostra, baixe e instale os seguintes componentes:
+Para concluir este guia de início rápido:
 
-- [Git](https://git-scm.com/)
-- [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
-
+- [Instalar o Git](https://git-scm.com/)
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
-Em uma janela do terminal, clone o repositório de aplicativos de exemplo em seu computador local:
+Em uma janela de terminal, execute o comando a seguir para clonar o repositório de aplicativo de exemplo para o computador local.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
+Você pode usar essa janela de terminal para executar todos os comandos neste guia de início rápido.
+
 ## <a name="view-the-html"></a>Exibir o HTML
 
 Navegue para o diretório que contém o HTML de exemplo. Abra o arquivo *index.html* em seu navegador.
 
-![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
+![Home page do aplicativo de exemplo](media/app-service-web-get-started-html/hello-world-in-browser.png)
 
-[!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
-[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
 
-[!INCLUDE [app-service-web-quickstart1](../../includes/app-service-web-quickstart1.md)] 
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-Crie um [aplicativo Web](app-service-web-overview.md) no Plano do Serviço de Aplicativo `quickStartPlan`. O aplicativo Web fornece um espaço de hospedagem para seu código e fornece uma URL para exibir o aplicativo implantado.
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
-[!INCLUDE [app-service-web-quickstart2](../../includes/app-service-web-quickstart2.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-A página está sendo executada como um aplicativo Web do Serviço de Aplicativo do Azure:
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
-![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+![Página de aplicativo Web vazia](media/app-service-web-get-started-html/app-service-web-service-created.png)
+
+Você criou um novo aplicativo Web vazio no Azure.
+
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
+
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+
+```bash
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (13/13), 2.07 KiB | 0 bytes/s, done.
+Total 13 (delta 2), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'cc39b1e4cb'.
+remote: Generating deployment script.
+remote: Generating deployment script for Web Site
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling Basic Web Site deployment.
+remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
+remote: Deleting file: 'hostingstart.html'
+remote: Copying file: '.gitignore'
+remote: Copying file: 'LICENSE'
+remote: Copying file: 'README.md'
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
+
+## <a name="browse-to-the-app"></a>Navegar até o aplicativo
+
+Em um navegador, acesse a URL do aplicativo Web do Azure:
+
+```
+http://<app_name>.azurewebsites.net
+```
+
+A página está sendo executada como um aplicativo Web do Serviço de Aplicativo do Azure.
+
+![Home page do aplicativo de exemplo](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+
+**Parabéns!** Você implantou seu primeiro aplicativo HTML no Serviço de Aplicativo.
 
 ## <a name="update-and-redeploy-the-app"></a>Atualizar o aplicativo e reimplantar
 
-Abra o arquivo *index.html* . Faça uma alteração à marcação. Por exemplo, altere `Hello world!` para `Hello Azure!`
+Abra o arquivo *index.html* em um editor de texto e faça uma alteração na marcação. Por exemplo, altere o cabeçalho H1 de "Serviço de Aplicativo do Azure – Site HTML estático de exemplo" para simplesmente "Serviço de Aplicativo do Azure'.
 
 Confirme suas alterações no Git e, em seguida, envie as alterações de código por push para o Azure.
 
@@ -77,12 +128,26 @@ git push azure master
 
 Depois que a implantação for concluída, atualize seu navegador para ver as alterações.
 
-[!INCLUDE [manage-azure-web-app](../../includes/manage-azure-web-app.md)]
+![Home page do aplicativo de exemplo atualizada](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
+## <a name="manage-your-new-azure-web-app"></a>Gerenciar seu novo aplicativo Web do Azure
+
+Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou.
+
+No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no nome do seu aplicativo Web do Azure.
+
+![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-html/portal1.png)
+
+A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. 
+
+![Folha Serviço de Aplicativo no portal do Azure](./media/app-service-web-get-started-html/portal2.png)
+
+O menu à esquerda fornece páginas diferentes para configurar seu aplicativo. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Explore os [scripts da CLI dos aplicativos Web](app-service-cli-samples.md) de exemplo.
-- Saiba como [mapear um nome de domínio personalizado](app-service-web-tutorial-custom-domain.md), por exemplo, contoso.com, para um [aplicativo do Serviço de Aplicativo](app-service-web-tutorial-custom-domain.md).
+> [!div class="nextstepaction"]
+> [Mapear domínio personalizado](app-service-web-tutorial-custom-domain.md)
+
