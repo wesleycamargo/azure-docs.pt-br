@@ -6,19 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 05/25/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 6cc1589f2ebad9267334f70926be369b32c8e075
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5bd17fc68447b8387dfaad33fe2d0055596ec086
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -41,7 +43,7 @@ A maioria dos clientes segue as etapas a seguir para garantir uma distribuição
 
 ## <a name="email-based-rollout"></a>Distribuição baseada em email
 
-Muitos clientes acreditam que uma campanha de email com instruções simples de uso é a maneira mais fácil para que os usuários usem a SSPR. Você criou três emails simples que você pode usar como modelos para ajudá-lo a distribuição.
+Muitos clientes acreditam que uma campanha de email com instruções simples de uso é a maneira mais fácil para que os usuários usem a SSPR. [Você criou três e-mails simples que você pode usar como modelos para ajudá-lo em sua distribuição.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
 * **Em breve** o modelo de email a ser usado em semanas ou dias antes da distribuição para que os usuários saibam que eles precisam fazer algo.
 * **Disponível agora** modelo de email a ser usado no dia de início para orientar os usuários a se registrarem e confirmar seus dados de autenticação para que possam usar a SSPR quando necessário.
@@ -84,4 +86,4 @@ Os links a seguir fornecem informações adicionais sobre a redefinição de sen
 * [**Relatório** ](active-directory-passwords-reporting.md) - Descubra se, quando e onde os usuários estão acessando a funcionalidade da SSPR
 * [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
 * [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
-* [**Solucionar problemas**](active-directory-passwords-troubleshoot.md): saiba como resolver problemas comuns encontrados no SSPR
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - Saiba como resolver problemas comuns que vemos com a SSPR
