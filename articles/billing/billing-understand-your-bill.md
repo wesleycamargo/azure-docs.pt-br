@@ -4,7 +4,7 @@ description: Saiba como ler e entender o uso e a fatura da sua assinatura do Azu
 services: 
 documentationcenter: 
 author: genlin
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
