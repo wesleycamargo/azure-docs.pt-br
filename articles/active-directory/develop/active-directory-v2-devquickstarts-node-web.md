@@ -16,10 +16,10 @@ ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a77337b582f337723b9e4b1befb2c638870a1c4b
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -44,7 +44,7 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 Também obtenha o aplicativo concluído ao final deste tutorial.
 
-## <a name="1-register-an-app"></a>1: Registrar um aplicativo
+## <a name="1-register-an-app"></a>1: registrar um aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou siga [estas etapas detalhadas](active-directory-v2-app-registration.md) para registrar um aplicativo. Verifique se você:
 
 * Copie a **ID do Aplicativo** atribuída ao aplicativo. Ele é necessário para este tutorial.
@@ -133,7 +133,7 @@ Configure o middleware Express para usar o protocolo de autenticação OpenID Co
   ));
   ```
 
-O Passport usa um padrão semelhante para todas as suas estratégias (Twitter, Facebook e assim por diante). Todos os gravadores de estratégia seguem o padrão. Passe uma `function()` para a estratégia que usa um token e `done` como parâmetros. A estratégia é retornada depois de fazer todo seu trabalho. Armazene o usuário e guarde o token para que você não precise solicitá-lo novamente.
+O Passport usa um padrão semelhante para todas as suas estratégias (Twitter, Facebook e assim por diante). Todos os gravadores de estratégia seguem o padrão. Passe uma `function()` para a estratégia que usa um token e `done` como parâmetros. A estratégia é retornada depois de fazer todo o seu trabalho. Armazene o usuário e guarde o token para que você não precise solicitá-lo novamente.
 
   > [!IMPORTANT]
   > O código anterior usa qualquer usuário que pode se autenticar no servidor. Isso é conhecido como registro automático. Em um servidor de produção, você não desejará permitir que nenhuma pessoa entre sem primeiro passar por um processo de registro escolhido por você. Geralmente, esse é o padrão visto em aplicativos de consumidor. O aplicativo pode permitir que você se registre com o Facebook, mas, em seguida, solicita que você insira informações adicionais. Se você não estava usando um programa de linha de comando para este tutorial, você poderá extrair o email do objeto de token que é retornado. Em seguida, você poderá solicitar ao usuário que insira informações adicionais. Como esse é um servidor de teste, você adiciona o usuário diretamente ao banco de dados na memória.
@@ -408,7 +408,7 @@ Adicione as rotas e exibições que mostram informações ao usuário. As rotas 
 Agora você tem um aplicativo Web que é protegido com o uso de protocolos padrão do setor. Você pode autenticar os usuários em seu aplicativo usando as contas pessoais e corporativas ou de estudante deles.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para referência, a amostra concluída (sem seus valores de configuração) é fornecida como [um arquivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). Você também pode cloná-la no GitHub:
+Para referência, o exemplo completo (sem seus valores de configuração) é [fornecido como um arquivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). Você também pode cloná-la no GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 

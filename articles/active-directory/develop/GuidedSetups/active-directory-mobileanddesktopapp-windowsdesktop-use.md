@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4c0e6cd7ec4a91040af588a406fbad8b8c1607e9
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 826ba0a00b26993d4f37f0a8ce587d7bb77e7eb4
 ms.contentlocale: pt-br
 
 
@@ -27,7 +27,7 @@ ms.contentlocale: pt-br
 
 Esta seção mostra como usar a MSAL para obter um token da API do Microsoft Graph.
 
-1.    Em `MainWindow.xaml.cs`, adicione a referência para a biblioteca MSAL à classe:
+1.  Em `MainWindow.xaml.cs`, adicione a referência para a biblioteca MSAL à classe:
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -104,9 +104,9 @@ A chamada ao método `AcquireTokenAsync` resulta em uma janela que solicita a co
 `AcquireTokenSilentAsync` manipula as aquisições e a renovação de tokens sem nenhuma interação do usuário. Depois que `AcquireTokenAsync` é executado pela primeira vez, `AcquireTokenSilentAsync` é o método comum usado para obter tokens para acessar recursos protegidos nas próximas chamadas – já que as chamadas para solicitar ou renovar tokens são feitas no modo silencioso.
 Em certas ocasiões, `AcquireTokenSilentAsync` falhará – por exemplo, o usuário saiu do serviço ou alterou sua senha em outro dispositivo. Quando a MSAL detectar que o problema pode ser resolvido com a solicitação de uma ação interativa, ela disparará uma `MsalUiRequiredException`. O aplicativo pode tratar essa exceção de duas maneiras:
 
-1.    Fazer uma chamada a `AcquireTokenAsync` imediatamente, o que resultará na solicitação de conexão do usuário. Esse padrão geralmente é usado em aplicativos online em que não há nenhum conteúdo offline no aplicativo disponível para o usuário. A amostra gerada por esta instalação guiada usa esse padrão: você pode vê-lo em ação na primeira vez que executar a amostra: como nenhum usuário nunca usou o aplicativo, `PublicClientApp.Users.FirstOrDefault()` conterá um valor nulo e uma exceção `MsalUiRequiredException` será gerada. Em seguida, o código na amostra trata a exceção chamando `AcquireTokenAsync`, o que resulta na solicitação de conexão do usuário.
+1.  Fazer uma chamada a `AcquireTokenAsync` imediatamente, o que resultará na solicitação de conexão do usuário. Esse padrão geralmente é usado em aplicativos online em que não há nenhum conteúdo offline no aplicativo disponível para o usuário. A amostra gerada por esta instalação guiada usa esse padrão: você pode vê-lo em ação na primeira vez que executar a amostra: como nenhum usuário nunca usou o aplicativo, `PublicClientApp.Users.FirstOrDefault()` conterá um valor nulo e uma exceção `MsalUiRequiredException` será gerada. Em seguida, o código na amostra trata a exceção chamando `AcquireTokenAsync`, o que resulta na solicitação de conexão do usuário.
 
-2.    Os aplicativos também podem fazer uma indicação visual para o usuário de que uma conexão interativa é necessária e, portanto, o usuário pode escolher o momento certo para se conectar ou o aplicativo pode tentar `AcquireTokenSilentAsync` novamente mais tarde. Normalmente, isso é usado quando o usuário consegue usar outras funcionalidades do aplicativo sem ser interrompido – por exemplo, há conteúdo offline disponível no aplicativo. Nesse caso, o usuário pode decidir quando deseja se conectar para acessar o recurso protegido ou atualizar as informações desatualizadas ou o aplicativo pode decidir tentar `AcquireTokenSilentAsync` novamente quando a rede é restaurada depois de ficar temporariamente indisponível.
+2.  Os aplicativos também podem fazer uma indicação visual para o usuário de que uma conexão interativa é necessária e, portanto, o usuário pode escolher o momento certo para se conectar ou o aplicativo pode tentar `AcquireTokenSilentAsync` novamente mais tarde. Normalmente, isso é usado quando o usuário consegue usar outras funcionalidades do aplicativo sem ser interrompido – por exemplo, há conteúdo offline disponível no aplicativo. Nesse caso, o usuário pode decidir quando deseja se conectar para acessar o recurso protegido ou atualizar as informações desatualizadas ou o aplicativo pode decidir tentar `AcquireTokenSilentAsync` novamente quando a rede é restaurada depois de ficar temporariamente indisponível.
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Chamar a API do Microsoft Graph usando o token obtido recentemente
