@@ -17,7 +17,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -33,10 +33,10 @@ Embora o Data Factory esteja disponível somente nas regiões **Oeste dos EUA**,
 O Azure Data Factory em si não armazena nenhum dado, exceto as credenciais do serviço vinculado de armazenamentos de dados em nuvem, que são criptografadas com o uso de certificados. Ele permite criar fluxos de trabalho controlados por dados para orquestrar a movimentação de dados entre [armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) e o processamento de dados usando [serviços de computação](data-factory-compute-linked-services.md) em outras regiões ou em um ambiente local. Ele também permite [monitorar e gerenciar fluxos de trabalho](data-factory-monitor-manage-pipelines.md) usando mecanismos programáticos e de interface do usuário.
 
 A movimentação de dados com o uso do Azure Data Factory foi **certificada** na:
--    [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
--    [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--    [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--    [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
+-   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/default.aspx). 
 
@@ -120,7 +120,7 @@ Todas as transferências de dados são feitas por meio do canal seguro **HTTPS**
  
 Você também pode usar a [VPN IPsec](../vpn-gateway/vpn-gateway-about-vpn-devices.md) ou o [ExpressRoute](../expressroute/expressroute-introduction.md) para fornecer proteção adicional ao canal de comunicação entre a rede local e o Azure.
 
-Uma rede virtual é uma representação lógica de sua rede na nuvem. Você pode conectar uma rede local à VNet (rede virtual) do Azure ao configurar a VPN IPsec (site a site) ou o ExpressRoute (Emparelhamento Privado)        
+Uma rede virtual é uma representação lógica de sua rede na nuvem. Você pode conectar uma rede local à VNet (rede virtual) do Azure ao configurar a VPN IPsec (site a site) ou o ExpressRoute (Emparelhamento Privado)     
 
 A tabela a seguir resume as recomendações de configuração de rede e de gateway de acordo com diferentes combinações dos locais de origem e de destino para a movimentação de dados híbridos.
 
@@ -142,7 +142,7 @@ As imagens a seguir mostram o uso do Gateway de Gerenciamento de Dados para move
 
 ### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Configurações de firewall e lista de permissões do endereço IP do gateway
 
-#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>Requisitos de firewall para a rede local/privada    
+#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>Requisitos de firewall para a rede local/privada   
 Em uma empresa, um **firewall corporativo** é executado no roteador central da organização. E o **firewall do Windows** é executado como um daemon no computador local em que o gateway está instalado. 
 
 A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do **firewall corporativo**.
@@ -152,7 +152,7 @@ A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do 
 | `*.servicebus.windows.net` | 443, 80 | Necessárias para que o gateway se conecte aos serviços de movimentação de dados no Data Factory |
 | `*.core.windows.net` | 443 | Usada pelo gateway para se conectar à Conta de Armazenamento do Azure ao usar o recurso [cópia em etapas](data-factory-copy-activity-performance.md#staged-copy). | 
 | `*.frontend.clouddatahub.net` | 443 | Necessária para que o gateway se conecte ao serviço Azure Data Factory. | 
-| `*.database.windows.net` | 1433    | (OPCIONAL) Necessária quando o destino é o Banco de Dados SQL do Azure/SQL Data Warehouse do Azure. Use o recurso de cópia em etapas para copiar dados para o Banco de Dados SQL do Azure/SQL Data Warehouse do Azure sem abrir a porta 1433. | 
+| `*.database.windows.net` | 1433   | (OPCIONAL) Necessária quando o destino é o Banco de Dados SQL do Azure/SQL Data Warehouse do Azure. Use o recurso de cópia em etapas para copiar dados para o Banco de Dados SQL do Azure/SQL Data Warehouse do Azure sem abrir a porta 1433. | 
 | `*.azuredatalakestore.net` | 443 | (OPCIONAL) Necessária quando o destino é o Azure Data Lake Store | 
 
 > [!NOTE] 

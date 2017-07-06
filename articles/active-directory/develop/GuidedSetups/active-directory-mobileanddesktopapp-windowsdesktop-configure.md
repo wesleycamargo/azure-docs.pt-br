@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1530f64a38ac5e8a87f88fb97eb86aa2b67d0b12
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 12c89a6fcbb6d299b64e6b0ec9d1dba29bb41d16
 ms.contentlocale: pt-br
 
 
@@ -26,9 +26,9 @@ ms.contentlocale: pt-br
 ## <a name="create-an-application-express"></a>Criar um aplicativo (Expresso)
 Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
 1. Registre o aplicativo por meio do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)
-2.    Insira um nome para o aplicativo e seu email
-3.    Verifique se a opção Instalação Guiada está marcada
-4.    Siga as instruções para obter a ID do aplicativo e colá-lo no código
+2.  Insira um nome para o aplicativo e seu email
+3.  Verifique se a opção Instalação Guiada está marcada
+4.  Siga as instruções para obter a ID do aplicativo e colá-lo no código
 
 ### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Adicionar as informações de registro do aplicativo à sua solução (Avançado)
 Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
