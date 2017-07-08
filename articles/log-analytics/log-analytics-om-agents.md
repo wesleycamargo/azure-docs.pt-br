@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 06/21/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4fe2d97d14f89de264549be127810de81195bddb
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: bcfffe05dbce2824ea4933997865e8c7e86610b6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 
@@ -52,11 +52,11 @@ As informações abaixo listam as informações de configuração de proxy e fir
 |Recurso | Número da porta| Ignorar a Inspeção de HTTP|  
 |---------|------|-----------------------|  
 |**Agente**|||  
-|\*.ods.opinsights.azure.com| 443 ||  
-|\*.oms.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443||  
+|\*.ods.opinsights.azure.com| 443 |Sim|  
+|\*.oms.opinsights.azure.com| 443|Sim|  
+|\*.blob.core.windows.net| 443|Sim|  
+|\*.azure-automation.net| 443|Sim|  
 |**Servidor de gerenciamento**|||  
-|service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| Sim|  
 |\*.ods.opinsights.azure.com| 443| Sim|  
@@ -201,7 +201,7 @@ Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e 
 
 ```
     .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
-    .\OM2012_DeleteConnector.ps1 “Microsoft.SystemCenter.Advisor.DataConnector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 
 > [!NOTE]
@@ -210,7 +210,7 @@ Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e 
 > 
 
 ```
-    param(
+    `param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

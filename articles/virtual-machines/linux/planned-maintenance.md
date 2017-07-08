@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: zivr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 28c2fb5a67eca0c5ab2f0299bba7c11375e10558
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f5e52f4642b85a75f0c9f1892fbf0e565aa8b35b
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -36,4 +36,5 @@ No entanto, há casos em que as atualizações afetam as máquinas virtuais hosp
 
 -   A manutenção de reinicialização de VM que exige uma reinicialização ou reimplantação em máquinas virtuais hospedadas.
 
-Observe que esta página descreve como o Microsoft Azure realiza a manutenção planejada. Para obter mais informações sobre eventos não planejados (interrupções), consulte [Gerenciar a disponibilidade das máquinas virtuais](../windows/manage-availability.md).
+Observe que esta página descreve como o Microsoft Azure realiza a manutenção planejada. Para obter mais informações sobre eventos não planejados (interrupções), consulte [Gerenciar a disponibilidade das máquinas virtuais](../linux/manage-availability.md).
+

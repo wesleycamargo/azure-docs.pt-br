@@ -1,11 +1,14 @@
 # Visão geral
 ## [O que é o Azure Analysis Services?](analysis-services-overview.md)
 ## [Fontes de dados com suporte](analysis-services-datasource.md)
+## [Permissões de usuário e autenticação](analysis-services-manage-users.md)
 
 # Guia de início rápido
 ## [Criar um servidor - portal](analysis-services-create-server.md)
 ## [Implantar um modelo - SSDT](analysis-services-deploy.md)
 
+# Exemplos
+## [Exemplos do Analysis Services no GitHub](https://github.com/Microsoft/Analysis-Services)
 
 # Tutoriais
 ## Criar e implantar um modelo
@@ -29,9 +32,9 @@
 
 # Instruções 
 ## [Gerenciar um servidor](analysis-services-manage.md)
-## [Gerenciar usuários](analysis-services-manage-users.md)
+## [Gerenciar usuários de banco de dados](analysis-services-database-users.md)
+## [Gerenciar administradores de servidor](analysis-services-server-admins.md)
 ## [Integrar o gateway de dados local](analysis-services-gateway.md)
-## [Conectando a servidores](analysis-services-connect.md)
 ## [Conectar com o Excel](analysis-services-connect-excel.md)
 ## [Conectar com o Power BI](analysis-services-connect-pbi.md)
 ## [Obter bibliotecas de cliente](analysis-services-data-providers.md)
@@ -44,13 +47,15 @@
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
+## [Linguagem de Scripts do Modelo de Tabela (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Recursos
 ## [Blog da equipe de Serviços de Análise](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Fórum do Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Comentários](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-## [Preços](https://azure.microsoft.com/pricing/details/analysis-services/)
-## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Status do Azure](https://azure.microsoft.com/status/)
+## [Comentários](https://feedback.azure.com/forums/556165-azure-analysis-services)
+## [Preços](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

@@ -74,6 +74,8 @@
        href: functions-test-a-function.md
      - name: Desenvolver e depurar localmente
        href: functions-run-local.md
+     - name: Desenvolvimento do Visual Studio
+       href: functions-develop-vs.md
   - name: Implantar
     items:
     - name: Implantação contínua
@@ -100,7 +102,7 @@
       href: functions-bindings-storage-blob.md
     - name: Banco de Dados Cosmos
       href: functions-bindings-documentdb.md
-    - name: Hub de evento
+    - name: Hubs de Eventos
       href: functions-bindings-event-hubs.md
     - name: Arquivo externo
       href: functions-bindings-external-file.md
@@ -126,6 +128,8 @@
     href: functions-api-definition.md     
 - name: Recursos
   items:
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Disponibilidade regional

@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 842f6667d79d6a2cf3ab6fb7ccff575055585dca
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 9b23f34300248ff87ed4a6abbeb6cfdda6570581
 ms.contentlocale: pt-br
 
 
@@ -26,9 +26,9 @@ ms.contentlocale: pt-br
 ## <a name="create-an-application-express"></a>Criar um aplicativo (Expresso)
 Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
 1. Registre o aplicativo por meio do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)
-2.    Insira um nome para o aplicativo e seu email
-3.    Verifique se a opção Instalação Guiada está marcada
-4.    Siga as instruções para obter a ID do aplicativo e colá-lo no código
+2.  Insira um nome para o aplicativo e seu email
+3.  Verifique se a opção Instalação Guiada está marcada
+4.  Siga as instruções para obter a ID do aplicativo e colá-lo no código
 
 ### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Adicionar as informações de registro do aplicativo à sua solução (Avançado)
 Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
@@ -36,8 +36,8 @@ Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativ
 2. Insira um nome para o aplicativo e seu email 
 3. Verifique se a opção Instalação Guiada está desmarcada
 4. Clique em `Add Platforms` e, em seguida, selecione `Native Application` e clique em Salvar
-5.    Abra `MainActivity` (em `app` > `java` > *`{host}.{namespace}`*)
-6.    Substitua *[Inserir a ID do aplicativo aqui]* na linha que começa com `final static String CLIENT_ID` pela ID do aplicativo que você acabou de registrar:
+5.  Abra `MainActivity` (em `app` > `java` > *`{host}.{namespace}`*)
+6.  Substitua *[Inserir a ID do aplicativo aqui]* na linha que começa com `final static String CLIENT_ID` pela ID do aplicativo que você acabou de registrar:
 
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";

@@ -73,21 +73,22 @@
 ## [REST (Gerenciamento)](/rest/api/searchmanagement)
 
 # Recursos
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=search)
 ## [Versões de API](search-api-versions.md)
-## [Serviço REST (Visualização)](search-api-2015-02-28-preview.md)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Preços](https://azure.microsoft.com/pricing/details/search/)
+## [Serviço REST (Visualização)](search-api-2015-02-28-preview.md)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=search)
+## Curso e tutoriais
 ## Sites de demonstração
-### [Demonstração do analisador de pesquisa](http://alice.unearth.ai/)
+## Parceiro e comunidade
+### [GitHub do Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [GitHub do Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Fórum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Aplicativo de lista de trabalhos](http://aka.ms/azjobsdemo)
 ### [Aplicativos de demonstração ao vivo](https://searchsamples.azurewebsites.net/)
-## Curso e tutoriais
-### [Academia virtual](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
-### [Vídeos e tutoriais](search-video-demo-tutorial-list.md)
-### [GitHub do Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-## Parceiro e comunidade
 ### [Modelar dados relacionais](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Facetamento de vários níveis](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Fórum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Demonstração do analisador de pesquisa](http://alice.unearth.ai/)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
-### [GitHub do Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Vídeos e tutoriais](search-video-demo-tutorial-list.md)
+### [Academia virtual](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)

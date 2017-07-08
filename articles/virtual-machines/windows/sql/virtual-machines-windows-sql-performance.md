@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/28/2017
+ms.date: 06/27/2017
 ms.author: jroth
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: d09d2317fc7b94f7b63712e7309a49e16fd1aaa2
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 9704c6cc846df5a8e129f48ea6378140c8338279
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -165,8 +165,6 @@ Algumas implantações podem obter outros benefícios de desempenho usando técn
 * **Arquivos de dados do SQL Server no Azure**: este recurso novo, [Arquivos de dados do SQL Server no Azure](https://msdn.microsoft.com/library/dn385720.aspx), está disponível desde o SQL Server 2014. A execução do SQL Server com os arquivos de dados no Azure demonstra características de desempenho comparáveis as dos discos de dados do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-Se você estiver interessado em explorar com mais detalhes o SQL Server e o Armazenamento Premium, consulte o artigo [Usar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais](../classic/sql-server-premium-storage.md).
 
 Para conferir as práticas recomendadas de segurança, consulte [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-security.md).
 

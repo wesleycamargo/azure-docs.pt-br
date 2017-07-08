@@ -14,13 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ad6e548b5998d5ee0b66e3d33da9fa97efb7c97c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: fceb6b0671e0f77c1f8f92bbb49c986fda3660ea
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Criar e gerenciar Conexões Híbridas
+
+> [!IMPORTANT]
+> As Conexões Híbridas do BizTalk foram desativadas e substituídas pelas Conexões Híbridas do Serviço de Aplicativo. Para saber mais, incluindo como gerenciar as Conexões Híbridas do BizTalk existentes, veja [Conexões Híbridas do Serviço de Aplicativo do Azure](../app-service/app-service-hybrid-connections.md).
+
+
 ## <a name="overview-of-the-steps"></a>Visão geral das etapas
 1. Crie uma Conexão Híbrida inserindo o **host name** ou **FQDN** of the on-premises resource in your private netwouk.
 2. Conecte seus aplicativos Web do Azure ou aplicativos móveis do Azure à Conexão Híbrida.
@@ -42,7 +49,7 @@ Este tópico lista estas etapas.
 > 
 > 
 
-## <a name="a-namecreatehybridconnectionacreate-a-hybrid-connection"></a><a name="CreateHybridConnection"></a>Criar uma Conexão Híbrida
+## <a name="CreateHybridConnection"></a>Criar uma Conexão Híbrida
 É possível criar uma Conexão Híbrida no portal do Azure usando Aplicativos Web **ou** os Serviços BizTalk. 
 
 **Para criar Conexões Híbridas usando Aplicativos Web**, consulte [Conectar os Aplicativos Web do Azure a um recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md). Você também pode instalar o Gerenciador de Conexão Híbrida (HCM) de seu aplicativo Web, que é o método preferencial. 
@@ -68,10 +75,10 @@ Este tópico lista estas etapas.
 * Conexões Híbridas adicionais podem ser criadas. Consulte os [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) para obter o número de conexões permitidas. 
 * Cada Conexão Híbrida é criada com um par de cadeias de conexão: chaves de aplicativo que ENVIAM e chaves locais que ESCUTAM. Cada par possui uma chave primária e outra secundária. 
 
-## <a name="a-namelinkwebsitealink-your-azure-app-service-web-app-or-mobile-app"></a><a name="LinkWebSite"></a>Vincular seu Aplicativo Móvel ou aplicativo Web ou do Serviço de Aplicativo do Azure
+## <a name="LinkWebSite"></a>Vincular seu Aplicativo Móvel ou aplicativo Web ou do Serviço de Aplicativo do Azure
 Para conectar um aplicativo Web ou Aplicativo Móvel no Serviço de Aplicativo do Azure a uma Conexão Híbrida existente, selecione **usar uma Conexão Híbrida existente** na folha Conexões Híbridas. Confira [Acessar os recursos locais usando conexões híbridas no Serviço de Aplicativo do Azure](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-## <a name="a-nameinstallhcmainstall-the-hybrid-connection-manager-on-premises"></a><a name="InstallHCM"></a>Instalar o Gerenciador de Conexões Híbridas local
+## <a name="InstallHCM"></a>Instalar o Gerenciador de Conexões Híbridas local
 Após uma Conexão Híbrida ser criada, instale o Gerenciador de Conexões Híbridas no recurso local. É possível fazer o download por meio dos aplicativos Web do Azure ou por meio de seu Serviço BizTalk. Etapas dos Serviços BizTalk: 
 
 1. Entre no [portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -106,7 +113,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 * O Gerenciador de Conexões Híbridas precisa utilizar uma cadeia de conexão local válida para autorização. Os Aplicativos Web ou Aplicativos Móveis do Azure precisam utilizar uma cadeia de conexão ao aplicativo válida para autorização.
 * Você pode dimensionar conexões híbridas instalando outra instância do Gerenciador de conexões híbridas em outro servidor. Configure o ouvinte local para usar o mesmo endereço como o primeiro ouvinte local. Nessa situação, o tráfego é distribuído aleatoriamente (round robin) entre os ouvintes ativos locais. 
 
-## <a name="a-namemanagehybridconnectionamanage-hybrid-connections"></a><a name="ManageHybridConnection"></a>Gerenciar Conexões Híbridas
+## <a name="ManageHybridConnection"></a>Gerenciar Conexões Híbridas
 Para gerenciar suas Conexões Híbridas, você pode:
 
 * Utilizar o portal do Azure e ir até seu Serviço do BizTalk. 
@@ -151,9 +158,4 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

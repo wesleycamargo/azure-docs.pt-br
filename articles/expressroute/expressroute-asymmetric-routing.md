@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -71,10 +73,5 @@ Outra maneira de solucionar os problemas do roteamento assimétrico é usando a 
 
 ## <a name="asymmetric-routing-detection"></a>Detecção de roteamento assimétrico
 O rastreamento de rotas é a melhor maneira de garantir que o tráfego de rede está atravessando o caminho esperado. Se você espera que o tráfego do servidor SMTP local para a Microsoft tome o caminho da Internet, o rastreamento de rotas esperado é do servidor SMTP para o Office 365. O resultado valida que o tráfego realmente sai de sua rede para a Internet, não na direção do ExpressRoute.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

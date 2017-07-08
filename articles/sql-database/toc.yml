@@ -33,8 +33,10 @@
       href: sql-database-connect-query-ruby.md
 - name: Tutoriais
   items:
-  - name: 1 - Criar/projetar novo Banco de Dados SQL
+  - name: 1 - Criar banco de dados usando SSMS
     href: sql-database-design-first-database.md
+  - name: 1 - Criar banco de dados usando .NET
+    href: sql-database-design-first-database-csharp.md
   - name: 2 - Migrar bancos de dados do SQL Server
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Proteja o seu Banco de Dados SQL
@@ -55,10 +57,8 @@
   items:
   - name: Servidores e bancos de dados
     items:
-    - name: Bancos de dados
-      href: sql-database-overview.md
-    - name: Servidores
-      href: sql-database-server-overview.md
+    - name: Visão geral
+      href: sql-database-servers-databases.md
     - name: Camadas de serviço
       href: sql-database-service-tiers.md
     - name: Pools elásticos
@@ -75,8 +75,6 @@
       href: sql-database-paas-vs-sql-server-iaas.md  
     - name: Recursos
       href: sql-database-features.md
-    - name: Ferramentas
-      href: sql-database-manage-overview.md
   - name: Segurança
     items:
     - name: Visão geral
@@ -100,7 +98,7 @@
     - name: TDE com Banco de Dados SQL
       href: https://msdn.microsoft.com/library/dn948096
     - name: Always Encrypted
-      href: https://msdn.microsoft.com/library/mt163865.aspx
+      href: https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine
     - name: Mascaramento de dados
       href: sql-database-dynamic-data-masking-get-started.md
   - name: Continuidade dos negócios
@@ -139,6 +137,8 @@
       href: sql-database-import.md
     - name: Exportar um Banco de Dados
       href: sql-database-export.md
+    - name: Sincronizar dados
+      href: sql-database-sync-data.md
   - name: Monitorar e ajustar
     items:
     - name: Visão geral
@@ -391,6 +391,8 @@
       href: https://msdn.microsoft.com/library/mt654048.aspx
 - name: Recursos
   items:
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Perguntas frequentes
     href: sql-database-faq.md
   - name: Conjuntos de dados públicos

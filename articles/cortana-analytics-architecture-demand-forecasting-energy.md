@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2015
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -29,9 +31,4 @@ O diagrama abaixo fornece uma visão geral da arquitetura do [Modelo de Soluçã
 ![Diagrama da arquitetura do Modelo de Solução do Microsoft Cortana Intelligence para previsão de demanda de energia][image]
 
 [image]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

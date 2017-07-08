@@ -105,5 +105,6 @@
 
 
 # Recursos
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ##[Perguntas frequentes do Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Reprovação do DirSync](active-directory-aadconnect-dirsync-deprecated.md)
