@@ -104,7 +104,7 @@ O serviço do Banco de Dados SQL cria um firewall no nível do servidor impedind
    > Você precisará desse nome totalmente qualificado do servidor para conectar o servidor e seus bancos de dados nos inícios rápidos subsequentes.
    > 
 
-   ![nome do servidor](./media/sql-database-get-started-portal/server-name.png) 
+   ![nome do servidor](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem anterior. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta. 
 
