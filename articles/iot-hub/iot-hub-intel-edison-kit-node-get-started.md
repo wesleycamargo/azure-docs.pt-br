@@ -13,13 +13,14 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
+ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 231d9f2e4a501f20a47b1cec55c75fba4c2e57c8
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9e9198f827d0906f65f59322126ef27ba6428d3e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -193,6 +194,7 @@ Parabéns! Você configurou o Edison com êxito.
 3. Em seguida, navegue até a pasta do repositório para executar o comando a seguir para instalar todos os pacotes. Isso levará alguns minutos para ser concluído.
    
    ```bash
+   cd iot-hub-node-intel-edison-client-app
    npm install
    ```
 
@@ -207,9 +209,9 @@ Parabéns! Você configurou o Edison com êxito.
 
    ![Arquivo de configuração](media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
 
-   Há duas macros que você pode configurar nesse arquivo. A primeira é a `INTERVAL`, que define o intervalo de tempo entre duas mensagens que são enviadas para a nuvem. O segundo, o `SIMULATED_DATA`, é um valor booliano para definir se os dados simulados de sensor serão usados ou não.
+   Há duas macros que você pode configurar nesse arquivo. A primeira é a `INTERVAL`, que define o intervalo de tempo entre duas mensagens que são enviadas para a nuvem. O segundo, o `simulatedData`, é um valor booliano para definir se os dados simulados de sensor serão usados ou não.
 
-   Se você **não tiver o sensor**, defina o valor `SIMULATED_DATA` como `1` para fazer com que o aplicativo de exemplo crie e use dados simulados de sensor.
+   Se você **não tiver o sensor**, defina o valor `simulatedData` como `true` para fazer com que o aplicativo de exemplo crie e use dados simulados de sensor.
 
 1. Salve e saia pressionando CTRL+O > ENTER > CTRL+X.
 
@@ -232,3 +234,4 @@ Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens
 Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8c9d5482a83f92ac406c228b46df18d03dcf15d3
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: be00cb8f117fcbd2d137197f7dbe9713540cea61
 ms.contentlocale: pt-br
 
 
@@ -28,7 +29,7 @@ Esta seção fornece instruções passo a passo sobre como criar um novo projeto
 
 O aplicativo criado por este guia expõe um botão para o gráfico e mostra os resultados na tela e um botão de saída.
 
-> Prefere baixar este projeto do Visual Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) e vá para a etapa [Configuração](#create-an-application-express) para configurar o exemplo de código antes de executá-lo.
+> Prefere baixar este projeto do Visual Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) e vá para a etapa [Configuração](#create-an-application-express "Etapa de Configuração") para configurar o exemplo de código antes de executá-lo.
 
 
 ### <a name="create-your-application"></a>Criar o aplicativo
@@ -76,7 +77,7 @@ public partial class App : Application
 ## <a name="create-your-applications-ui"></a>Criar a interface do usuário do aplicativo
 A seção abaixo mostra como um aplicativo pode consultar um servidor de back-end protegido como o Microsoft Graph. Um arquivo MainWindow.xaml deve ser criado automaticamente como parte do modelo de projeto. Abra esse arquivo e, em seguida, siga as instruções abaixo:
 
-1.    Substitua o `<Grid>` do aplicativo pelo seguinte:
+1.  Substitua o `<Grid>` do aplicativo pelo seguinte:
 
 ```xml
 <Grid>

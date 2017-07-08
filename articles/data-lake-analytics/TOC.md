@@ -23,15 +23,11 @@
 ### [Noções básicas de U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [Referência da linguagem U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ### [Catálogo do U-SQL](data-lake-analytics-u-sql-catalog.md)
-### [Junções U-SQL](data-lake-analytics-u-sql-combine-data-with-joins.md)
-### [Funções da janela U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Operadores U-SQL definidos pelo usuário](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Extensões do Python U-SQL](data-lake-analytics-u-sql-python-extensions.md)
 ### [Extensões de R U-SQL](data-lake-analytics-u-sql-r-extensions.md)
 ### [Extensões cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
-### [Catálogo do U-SQL para dados e código de estrutura](data-lake-analytics-use-u-sql-catalog.md)
 ### [Analisar logs de site](data-lake-analytics-analyze-weblogs.md)
-### [Usar o tutorial interativo U-SQL](data-lake-analytics-use-interactive-tutorials.md)
 
 ## Depurar programas U-SQL
 ### [Monitorar e solucionar problemas de trabalhos](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
@@ -48,9 +44,10 @@
 ## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
 # Recursos
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [Preços](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
-## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Fornecer comentários sobre o UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog do Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Fornecer comentários sobre o UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Preços](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=data-lake-analytics)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)

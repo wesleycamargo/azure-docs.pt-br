@@ -18,7 +18,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
 ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -200,8 +200,8 @@ Para saber mais, confira [Extensões de diretório](active-directory-aadconnects
 ### <a name="enabling-single-sign-on-sso"></a>Habilitando o SSO (Logon Único)
 Configurar o logon único para uso com a autenticação de passagem ou sincronização de senha é um processo simples que você só precisa executar uma vez para cada floresta que está sendo sincronizada com o Azure AD. A configuração envolve duas etapas, da seguinte maneira:
 
-1.    Crie a conta de computador necessária no seu Active Directory local.
-2.    Configure a zona da intranet dos computadores cliente para dar suporte a logon único.
+1.  Crie a conta de computador necessária no seu Active Directory local.
+2.  Configure a zona da intranet dos computadores cliente para dar suporte a logon único.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Crie a conta de computador no Active Directory
 Para cada floresta que tenha sido adicionada por meio do AD Connect do Azure, você precisará fornecer credenciais de administrador de domínio para que a conta de computador possa ser criada em cada floresta. As credenciais só são usadas para criar a conta e não são armazenadas nem usadas para nenhuma outra operação. Basta adicionar as credenciais na página **Habilitar logon único** do assistente Azure AD Connect conforme mostrado:
@@ -215,20 +215,20 @@ Para cada floresta que tenha sido adicionada por meio do AD Connect do Azure, vo
 Para garantir que o cliente entre automaticamente na Área da Intranet, você precisa ter certeza de que as duas URLs fazem parte da Área da Intranet. Isso garante que o computador que ingressou no domínio envia automaticamente um tíquete Kerberos ao Azure AD quando ele estiver conectado à rede corporativa.
 Em um computador que tem as ferramentas de Gerenciamento de Política de Grupo.
 
-1.    Abrir as ferramentas de Gerenciamento de Política de Grupo
-2.    Edite a política de grupo que será aplicada a todos os usuários. Por exemplo, a política de domínio padrão.
-3.    Navegue até **Configuração do Usuário\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controle da Internet\Página de Segurança** e selecione **Lista de Atribuição de Site para Zona** conforme a imagem abaixo.
-4.    Habilite a política e insira dois itens a seguir na caixa de diálogo.
+1.  Abrir as ferramentas de Gerenciamento de Política de Grupo
+2.  Edite a política de grupo que será aplicada a todos os usuários. Por exemplo, a política de domínio padrão.
+3.  Navegue até **Configuração do Usuário\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controle da Internet\Página de Segurança** e selecione **Lista de Atribuição de Site para Zona** conforme a imagem abaixo.
+4.  Habilite a política e insira dois itens a seguir na caixa de diálogo.
 
-        Valor: `https://autologon.microsoftazuread-sso.com`  
+        Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Valor: `https://aadg.windows.net.nsatc.net`  
+        Value: `https://aadg.windows.net.nsatc.net`  
         Data: 1
 
-5.    O arquivo deve ser semelhante ao seguinte:  
+5.  O arquivo deve ser semelhante ao seguinte:  
 ![Zonas da Intranet](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.    Clique em **Ok** duas vezes.
+6.  Clique em **Ok** duas vezes.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Configurando a federação com o AD FS
 Configurar o AD FS com o Azure AD Connect é simples, com apenas alguns cliques. É necessário o seguinte antes da configuração.

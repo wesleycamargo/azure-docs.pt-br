@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
-ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
-ms.lasthandoff: 12/19/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 18edabe267ec06c08074d7a7a6d71435cedc8489
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -96,5 +97,5 @@ Você pode baixar um modelo do Excel que consome o serviço Web:
 * [Suplemento do Excel para Serviços Web do Azure Machine Learning](machine-learning-excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>Em um cliente baseado em REST
-Os Serviços Web do Azure Machine Learning são APIs RESTful. Você pode consumir essas APIs em várias plataformas, como .NET, Python, R, Java, etc. A página **Consumo** do serviço Web no [portal dos Serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net) traz um código de exemplo que pode ajudá-lo a se familiarizar. Para saber mais, confira [Como consumir um serviço Web do Azure Machine Learning implantado por meio de um teste do Machine Learning](machine-learning-consume-web-services.md).
+Os Serviços Web do Azure Machine Learning são APIs RESTful. Você pode consumir essas APIs em várias plataformas, como .NET, Python, R, Java, etc. A página **Consumo** do serviço Web no [portal dos Serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net) traz um código de exemplo que pode ajudá-lo a se familiarizar. Para saber mais, veja [Como consumir um serviço Web do Azure Machine Learning](machine-learning-consume-web-services.md).
 

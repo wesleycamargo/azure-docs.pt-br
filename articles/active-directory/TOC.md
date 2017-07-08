@@ -1,10 +1,9 @@
 # Visão geral
 ## [O que é o Azure Active Directory?](active-directory-whatis.md)
-## [Escolher edição](active-directory-editions.md)
+## [Escolher uma edição](active-directory-editions.md)
 ## [Sobre o gerenciamento de identidade do Azure](identity-fundamentals.md)
 ## [Entender as soluções de identidade do Azure](understand-azure-identity-solutions.md)
-## [Visualizar a experiência do Portal do Azure](active-directory-preview-explainer.md)
-
+## [Escolher uma solução de identidade híbrida](choose-hybrid-identity-solution.md)
 
 # Introdução
 ## [Obter um locatário do AD do Azure](active-directory-howto-tenant.md)
@@ -13,14 +12,16 @@
 ## Gerenciar o licenciamento do Azure AD
 ### [Portal do Azure](active-directory-licensing-get-started-azure-portal.md)
 ### [Portal clássico](active-directory-licensing-what-is.md)
-## [Obter o Azure para sua organização](sign-up-organization.md)
+### [Atribuir licenças usando os grupos](active-directory-licensing-whatis-azure-portal.md)
+#### [Atribuir licenças a um grupo](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identificar e resolver problemas de licença em um grupo](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
+#### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
+#### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
 ## [Perguntas frequentes](active-directory-faq.md)
 ## [Como obter suporte para o Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Tutoriais de integração de aplicativos SaaS](active-directory-saas-tutorial-list.md)
-## Controles do Azure AD
-### [Concluir a análise de acesso](active-directory-azure-ad-controls-complete-an-access-review.md)
-### [Criar a análise de acesso](active-directory-azure-ad-controls-create-an-access-review.md)
-### [Como executar uma análise de acesso](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 
 # Como
@@ -53,9 +54,7 @@
 ### Adicionar usuários
 #### [Portal do Azure](active-directory-users-create-azure-portal.md)
 #### [Portal clássico](active-directory-create-users.md)
-### Controles do Azure AD
-#### [Acesso de convidado com análises de acesso](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-#### [Gerenciando o acesso de usuário com análises](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
 
 ### [Atribuir licenças usando os grupos](active-directory-licensing-whatis-azure-portal.md)
 #### [Atribuir licenças a um grupo](active-directory-licensing-group-assignment-azure-portal.md)
@@ -106,11 +105,13 @@
 ### [Usuários em risco](active-directory-reporting-security-user-at-risk.md)
 ### [Entradas de risco](active-directory-reporting-security-risky-sign-ins.md)
 ### [Eventos de risco](active-directory-reporting-risk-events.md)
-### [Locais nomeados](active-directory-named-locations.md)
-### [Relatório de migração](active-directory-reporting-migration.md)
 ### [Retenção](active-directory-reporting-retention.md)
 ### [Latências](active-directory-reporting-latencies-azure-portal.md)
 ### [Perguntas frequentes](active-directory-reporting-faq.md)
+### Tarefas
+#### [Configurar localizações nomeadas](active-directory-named-locations.md)
+#### [Localizar relatórios de atividades](active-directory-reporting-migration.md)
+#### [Usar o Pacote de Conteúdo do Power BI do Active Directory do Azure](active-directory-reporting-power-bi-content-pack-how-to.md)  
 ### Solucionar problemas
 #### [Dados de auditoria ausentes](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Dados ausentes nos downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -188,8 +189,7 @@
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Atualizar configurações do Registro](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Compreender a segurança e a privacidade](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
-### Controles do Azure AD
-####[Gerenciar programas e seus controles](active-directory-azure-ad-controls-manage-programs-and-controls.md)
+
 
 ### [Acesse aplicativos remotamente com o Proxy de aplicativo](active-directory-application-proxy-get-started.md)
 #### Introdução
@@ -215,6 +215,7 @@
 ##### [Aplicativos cliente nativos](active-directory-application-proxy-native-client.md)
 ##### [Instalação silenciosa](active-directory-application-proxy-silent-installation.md)
 ##### [Home page personalizada](application-proxy-office365-app-launcher.md)
+##### [Converter links embutidos](application-proxy-link-translation.md)
 #### Orientações de publicação
 ##### [Área de Trabalho Remota](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -399,9 +400,10 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Fórum de comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Preços](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory)
-## [Fórum de comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory)

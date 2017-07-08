@@ -133,7 +133,7 @@ Clique em **Rotas** para gerenciar como o Hub IoT envia suas mensagens do dispos
 
 ![][14]
 
-Você pode adicionar rotas ao Hub IoT clicando em **Adicionar** na parte superior da folha **Rotas***, inserindo as informações necessárias e clicando em **OK**. A rota é listada na folha **Rotas** principal. Para editar uma rota, clique nela na lista de rotas. Para habilitar uma rota, clique nela na lista de rotas e defina o botão **Habilitar/Desabilitar** como **Desabilitar**. Clique em **OK** na parte inferior da folha para salvar a alteração.
+Você pode adicionar rotas ao Hub IoT clicando em **Adicionar** na parte superior da folha **Rotas*** inserindo as informações necessárias e clicando em **OK**. A rota é listada na folha **Rotas** principal. Para editar uma rota, clique nela na lista de rotas. Para habilitar uma rota, clique nela na lista de rotas e defina o botão **Habilitar/Desabilitar** como **Desabilitar**. Clique em **OK** na parte inferior da folha para salvar a alteração.
 
 ![][15]
 

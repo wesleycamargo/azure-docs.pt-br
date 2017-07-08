@@ -7,10 +7,10 @@
 ## [Software de terceiros compatível](active-directory-ds-compatible-software.md)
 
 # Introdução
-## [Criar um grupo administrativo](active-directory-ds-getting-started.md)
+## [Criar um grupo administrativo](active-directory-ds-getting-started-create-group.md)
 ## [Criar ou selecionar uma rede virtual](active-directory-ds-getting-started-vnet.md)
 ## [Habilitar o Azure AD DS](active-directory-ds-getting-started-enableaadds.md)
-## [Atualizar as configurações de DNS](active-directory-ds-getting-started-dns.md)
+## [Atualizar as configurações de DNS](active-directory-ds-getting-started-update-dns.md)
 ## Habilitar a sincronização de senha
 ### [Locatário somente de nuvem](active-directory-ds-getting-started-password-sync.md)
 ### [Locatário sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
@@ -41,12 +41,8 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [Fórum de comentários do AD do Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Fale conosco](active-directory-ds-contact-us.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+## [Preços](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory-ds)

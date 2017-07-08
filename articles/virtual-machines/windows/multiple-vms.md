@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 51de0e9aa1d29d0b3f3ffc4f126b8ca688be3504
 ms.openlocfilehash: 5e96805f8880a30a5fc8779d8f07addb6d068c09
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -46,10 +48,5 @@ Para aplicativos que necessitam dimensionar os recursos de computação, as oper
 Em vez de correlacionar vários recursos, como NICs e VMs, um conjunto de escala de VM tem propriedades de rede, armazenamento, máquina virtual e extensão que você pode configurar centralmente.
 
 Para obter uma introdução aos conjuntos de escala de VM, consulte a [página de produto de conjuntos de escala de máquina virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/). Para obter informações mais detalhadas, acesse a [documentação de conjuntos de escala de máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

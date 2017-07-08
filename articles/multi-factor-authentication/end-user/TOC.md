@@ -14,8 +14,5 @@
 ### [Conectar com seu telefone](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Perguntas frequentes](microsoft-authenticator-app-faq.md)
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+# Recursos
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)

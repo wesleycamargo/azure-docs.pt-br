@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 816113f7635a003e22a5172113e5039dbcc1ceac
 ms.openlocfilehash: 5dc546849bd02ccf4d02f3e6363a3e2fc3898259
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -72,9 +74,4 @@ Para cenários mais avançados de implantação, tente [implantação no Azure c
 
 * [Criar um aplicativo Web do PHP-MySQL e implantá-lo usando o FTP](web-sites-php-mysql-deploy-use-ftp.md).
 * [Credenciais de implantação do Serviço de Aplicativo do Azure](app-service-deploy-ftp.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
