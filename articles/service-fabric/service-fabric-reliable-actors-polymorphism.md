@@ -3,7 +3,7 @@ title: Polimorfismo na estrutura Reliable Actors | Microsoft Docs
 description: "Crie hierarquias de interfaces .NET e tipos na estrutura Reliable Actors para reutilizar a funcionalidade e as definições da API."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
