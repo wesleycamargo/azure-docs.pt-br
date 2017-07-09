@@ -15,26 +15,17 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6bfbb0b5eaae3fb3ce45d719ea1d3dec48ed0467
-ms.openlocfilehash: 359aaa1af6765270d9fe0f449007fcb4323b0ad4
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 74196c7d3989cc748a27026c04ea837b29a2785f
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/05/2017
 
 
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar seu dispositivo StorSimple série 8000
 ## <a name="overview"></a>Visão geral
 Desligar um dispositivo Microsoft Azure StorSimple não é necessário como parte da operação normal do sistema. No entanto, talvez seja necessário ativar um novo dispositivo ou um dispositivo que tenha sido desligado. Em geral, um desligamento é necessário em casos em que você deve substituir o hardware com falha, mover uma unidade fisicamente ou retirar um dispositivo de serviço. Este tutorial descreve o procedimento necessário para ligar e desligar o dispositivo StorSimple em cenários diferentes.
-
-A tabela a seguir lista vários cenários para ligar e desligar o dispositivo StorSimple e fornece links para os procedimentos apropriados.
-
-| Cenário | Tópicos de referência |
-|:--- |:--- |
-| Ativar um novo dispositivo |[Ativar um novo dispositivo](#turn-on-a-new-device)<ul><li>[Novo dispositivo com apenas o compartimento primário](#new-device-with-primary-enclosure-only)</li><li>[Novo dispositivo com o compartimento EBOD](#new-device-with-ebod-enclosure)</li></ul> |
-| Ativar um dispositivo após o desligamento |[Ativar um dispositivo após o desligamento](#turn-on-a-device-after-shutdown)<ul><li>[Dispositivo com apenas o compartimento primário](#device-with-primary-enclosure-only)</li><li>[Dispositivo com o compartimento EBOD](#device-with-ebod-enclosure)</li></ul> |
-| Ativar um dispositivo após uma queda de energia |[Ativar um dispositivo após uma queda de energia](#turn-on-a-device-after-a-power-loss)<ul><li>[Dispositivo com apenas o compartimento primário](#8100)</li><li>[Dispositivo com o compartimento EBOD](#8600)</li></ul> |
-| Ativar um dispositivo após a conexão do compartimento primário e EBOD ser perdida |[Ativar um dispositivo após a conexão do compartimento primário e EBOD ser perdida](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost) |
-| Desligar um dispositivo em execução |[Desativar um dispositivo em execução](#turn-off-a-running-device)<ul><li>[Dispositivo com apenas o compartimento primário](#8100a)</li><li>[Dispositivo com o compartimento EBOD](#8600a)</li></ul> |
 
 ## <a name="turn-on-a-new-device"></a>Ativar um novo dispositivo
 As etapas para ativar um dispositivo StorSimple pela primeira vez são diferentes, dependendo se o dispositivo é um modelo 8100 ou 8600. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD. As etapas detalhadas para os dois modelos são abordadas nas seções a seguir.

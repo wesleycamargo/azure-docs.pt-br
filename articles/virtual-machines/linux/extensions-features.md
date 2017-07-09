@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 2b25b4f4925962b1e4de681d268e78909a93eccd
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 77f50a830c38b3a90110845e58ee7cbb28742c10
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 06/28/2017
 
 ---
+
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
 Extensões da máquina virtual do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, proteção antivírus ou a configuração do Docker, uma extensão da VM poderá ser usada para concluir essas tarefas. As extensões da VM do Azure podem ser executadas usando a CLI do Azure, o PowerShell, modelos do Azure Resource Manager e o Portal do Azure. Extensões podem ser agrupadas com uma nova implantação de máquina virtual ou executar qualquer sistema existente.
@@ -40,7 +40,7 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite a execução de qualquer script Bash em uma máquina virtual. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, confira [Extensão de Script Personalizado de VM do Linux](extensions-customscript.md).
 
-Para trabalhar em um exemplo no qual uma extensão de VM é usada em uma implantação de aplicativos de ponta a ponta, confira [Automatizar implantações de aplicativos em máquinas virtuais do Azure](../windows/dotnet-core-1-landing.md).
+Para trabalhar em um exemplo no qual uma extensão de VM é usada em uma implantação de aplicativos de ponta a ponta, confira [Automatizar implantações de aplicativos em máquinas virtuais do Azure](../linux/dotnet-core-1-landing.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -131,7 +131,7 @@ Para saber mais, confira o [Modelo completo do Resource Manager](https://github.
 }
 ```
 
-Para saber mais, confira [Criação de modelos do Azure Resource Manager com extensões de VM do Linux](../windows/extensions-authoring-templates.md).
+Para saber mais, confira [Criação de modelos do Azure Resource Manager com extensões de VM do Linux](../linux/extensions-authoring-templates.md).
 
 ## <a name="secure-vm-extension-data"></a>Proteger dados de extensão da VM
 

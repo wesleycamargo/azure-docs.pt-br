@@ -13,12 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 06/15/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3650f628747f8a9e743711f5c7a175d2a2523565
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 0969e78a69c73c29ecfddcf0de0ebeeeed8acd60
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -57,14 +58,11 @@ Para concluir esta operação, você precisará das seguintes partes do seu Kit 
 
 Você também precisa destes itens para seu ambiente de desenvolvimento:
 
+* Uma assinatura ativa do Azure. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
 * Mac ou PC que esteja executando o Windows ou Ubuntu.
 * Rede sem fio à qual Feather HUZZAH ESP8266 deve se conectar.
 * Uma conexão com a Internet para baixar a ferramenta de configuração.
 * [IDE do Arduino](https://www.arduino.cc/en/main/software) versão 1.6.8 ou posterior. As versões anteriores não funcionam com a biblioteca do AzureIoT.
-
-
-
-
 
 Os itens a seguir são opcionais, caso você não tenha um sensor. Você também tem a opção de usar dados de sensor simulada.
 
@@ -72,99 +70,8 @@ Os itens a seguir são opcionais, caso você não tenha um sensor. Você também
 * Uma placa universal
 * Cabos de jumper de M/M
 
-## <a name="create-an-iot-hub-and-register-a-device-for-feather-huzzah-esp8266"></a>Criar um hub IoT e registrar um dispositivo para difusão HUZZAH ESP8266
 
-### <a name="to-create-your-iot-hub-in-the-azure-portal-follow-these-steps"></a>Para criar seu Hub IoT no portal do Azure, siga estas etapas:
-
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-1. Clique em **Novo** > **Internet das Coisas** > **Hub IoT**.
-
-   ![Criar um Hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/3_iot-hub-creation.png)
-
-1. No **hub IoT** painel, insira as informações necessárias para o hub IoT:
-
-   ![Informações básicas para criação do Hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/4_iot-hub-provide-basic-info.png)
-
-   * **Nome**: O nome para o hub IoT. Se o nome for válido, uma marca de seleção verde é exibida.
-   * **Tipo e escala de preço**: selecione a escala gratuita F1 para esta demonstração. Veja [camada de preços e de escala](https://azure.microsoft.com/pricing/details/iot-hub/).
-   * **Grupo de recursos**: crie um grupo de recursos para hospedar o Hub IoT ou use um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/resource-group-portal.md).
-   * **Local**: selecione o local mais próximo a você onde o hub IoT é criado.
-   * **Fixar no painel**: selecione essa opção para ter fácil acesso ao Hub IoT no painel.
-
-1. Clique em **Criar**. Pode levar alguns minutos para que o hub IoT seja criado. Você pode ver o progresso no **notificações** painel.
-
-   ![Monitorar o andamento da criação do Hub IoT no painel de notificação](media/iot-hub-arduino-huzzah-esp8266-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
-
-1. Depois de criar o Hub IoT, clique nele por meio do painel. Anote o valor de **Nome do host** que será usado mais adiante neste artigo e, em seguida, clique em **Políticas de acesso compartilhado**.
-
-   ![Obter o Nome de host do Hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/6_iot-hub-get-hostname.png)
-
-1. No painel **Políticas de acesso compartilhado**, clique na política **iothubowner** e, em seguida, copie e salve o valor de **Cadeia de conexão** do Hub IoT. Você usará esse valor posteriormente neste artigo. Para saber mais, veja [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md).
-
-   ![Obter a cadeia de conexão do Hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/7_iot-hub-get-connection-string.png)
-
-Agora você criou seu Hub IoT. Lembre-se de salvar os valores de **Nome do host** e **Cadeia de conexão**. Eles são usados posteriormente neste artigo.
-
-
-### <a name="register-a-device-for-feather-huzzah-esp8266-in-your-iot-hub"></a>Registrar um dispositivo para o Feather HUZZAH ESP8266 em seu hub IoT
-
-Cada Hub IoT tem um registro de identidade que armazena informações sobre os dispositivos com permissão para se conectar ao Hub IoT. Antes que um dispositivo possa se conectar a um Hub IoT, deve existir uma entrada para esse dispositivo no registro de identidade do Hub IoT.
-
-
-Nesta seção, você usa uma ferramenta da CLI chamada *iothub explorer*. Use essa ferramenta para registrar um dispositivo do Feather HUZZAH ESP8266 no registro de identidade do Hub IoT.
-
-
-
-> [!NOTE]
-> O iothub-explorer exige o Node.js 4.x ou posterior para funcionar corretamente.
-
-Para registrar um dispositivo para Feather HUZZAH ESP8266, siga estas etapas:
-
-1. [Baixe](https://nodejs.org/en/download/) e instalar a versão mais recente do LTS do Node.js, NPM incluído.
-1. Instale o iothub explorer usando o NPM.
-
-   * Windows 7 ou posterior:
-
-     Inicie um prompt de comando como administrador. Instale o explorer iothub executando o seguinte comando:
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-
-   * Ubuntu 16.04 ou posterior:
-
-     Abra um terminal usando o atalho de teclado Ctrl+Alt+T e execute o seguinte comando:
-
-     ```bash
-     sudo npm install -g iothub-explorer
-     ```
-
-   * MacOS 10.1 ou posterior:
-
-     Abra um terminal e execute o seguinte comando:
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-
-3. Faça logon no hub IoT executando o comando a seguir:
-
-   ```bash
-   iothub-explorer login [your IoT hub connection string]
-   ```
-
-4. Registre um novo dispositivo. No próximo exemplo, `deviceID` é `new-device`. Obtenha sua cadeia de conexão executando o seguinte comando.
-
-   ```bash
-   iothub-explorer create new-device --connection-string
-   ```
-
-Anote a cadeia de conexão do dispositivo registrado. Ele é usado mais tarde.
-
-
-> [!NOTE]
-> Para exibir a cadeia de conexão de dispositivos registrados, execute o comando `iothub-explorer list`.
-
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Difusão HUZZAH ESP8266 de conexão com o sensor e seu computador
 Nesta seção, você conecta os sensores à sua placa. Em seguida, você conecta o dispositivo ao computador para uso posterior.
@@ -185,8 +92,6 @@ Para os pinos do sensor, use a seguinte fiação:
 | GND (Pin 34F)            | GND (PIn 56I)          | Cabo preto   |
 
 Para obter mais informações, consulte [Instalação do sensor Adafruit DHT22](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) e [Pinagem do Adafruit Feather HUZZAH Esp8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts).
-
-
 
 
 
@@ -313,7 +218,7 @@ Depois que o upload for concluído com êxito, siga estas etapas para inserir su
    * Cadeia de conexão de dispositivo
 
 > [!Note]
-> As informações de credencial são armazenadas no EEPROM do Feather HUZZAH ESP8266. Se você clicar no botão Redefinir da placa Feather HUZZAH ESP8266, o aplicativo de exemplo perguntará se você deseja apagar as informações. Insira `Y` para apagar as informações. Você deverá fornecer as informações uma segunda vez.
+> As informações de credencial são armazenadas no EEPROM do Feather HUZZAH ESP8266. Se você clicar no botão Redefinir da placa Feather HUZZAH ESP8266, o aplicativo de exemplo perguntará se você deseja apagar as informações. Insira `Y` para apagar as informações. Você será solicitado a fornecer as informações uma segunda vez.
 
 ### <a name="verify-the-sample-application-is-running-successfully"></a>Verificar se o aplicativo de exemplo está sendo executado com êxito
 

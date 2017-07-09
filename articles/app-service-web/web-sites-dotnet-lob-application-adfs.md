@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 1895094b28d9596eec644078b6f9a877b526b89e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -287,10 +288,13 @@ Como incluiu associações de grupo como declarações de função em sua config
     }
    
     <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()  {      ViewBag.Message = "Your contact page.";
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Your contact page.";
    
         return View();
-    }  </pre>
+    }
+    </pre>
    
     Como adicionei **Usuário de Teste** ao **Grupo de Teste** em meu ambiente de laboratório do AD FS, usarei o Grupo de Teste para testar a autorização em `About`. Para `Contact`, testarei o caso negativo de **Admins. do domínio**, ao qual o **Usuário de Teste** não pertence.
 3. Inicie o depurador digitando `F5` , entre e, depois, clique em **Sobre**. Você deverá ver agora a página `~/About/Index` com êxito, se o usuário autenticado for autorizado para essa ação.
@@ -350,7 +354,6 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a b
 <a name="bkmk_resources"></a>
 
 ## <a name="further-resources"></a>Outros recursos
-* [Proteger o aplicativo com SSL e o atributo Authorize](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
 * [Autenticar com o Active Directory local em seu aplicativo do Azure](web-sites-authentication-authorization.md)
 * [Criar um aplicativo de linha de negócios do Azure com a autenticação do Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 * [Usar a opção de autenticação organizacional local (ADFS) com ASP.NET no Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)

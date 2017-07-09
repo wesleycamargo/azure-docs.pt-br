@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/062/2016
+ms.date: 03/06/2016
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c9376b95e4686f804d34f648e15cfcc0f2847718
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: db90fad2fe397f0c8466db6bdc1bd8c8d1cf8f15
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -28,11 +28,6 @@ ms.lasthandoff: 05/18/2017
 Este artigo mostra como configurar a replicação geográfica ativa para o Banco de Dados SQL no [portal do Azure](http://portal.azure.com) e para inicializar o failover.
 
 Para iniciar um failover com o portal do Azure, veja [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o portal do Azure](sql-database-geo-replication-portal.md).
-
-> [!NOTE]
-> A replicação geográfica ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017, o tipo de secundário não legível foi descontinuado, e os bancos de dados não legíveis existentes foram automaticamente atualizados para secundários legíveis.
-> 
-> 
 
 Para configurar a replicação geográfica ativa usando o Portal do Azure, você precisa do seguinte recurso:
 

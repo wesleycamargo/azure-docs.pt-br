@@ -1,22 +1,25 @@
-<properties
-   pageTitle="Sinônimos no Azure Search (versão prévia) | Microsoft Docs"
-   description="Documentação preliminar para o recurso de sinônimos (versão prévia), exposto na API REST do Azure Search."
-   services="search"
-   documentationCenter=""
-   authors="mhko"
-   manager="pablocas"
-   editor=""/>
+---
+pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
+description: "Documentação preliminar para o recurso de sinônimos (versão prévia), exposto na API REST do Azure Search."
+services: search
+documentationCenter: 
+authors: mhko
+manager: pablocas
+editor: 
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 07/07/2016
+ms.author: nateko
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/09/2017
 
-<tags
-   ms.service="search"
-   ms.devlang="rest-api"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/07/2016"
-   ms.author="nateko"/>
-
-
+---
 # <a name="synonyms-in-azure-search-preview"></a>Sinônimos no Azure Search (versão prévia)
 
 Sinônimos nos termos equivalentes associados do mecanismo de pesquisa que expandem implicitamente o escopo de uma consulta, sem que o usuário tenha de fornecer realmente o termo. Por exemplo, considerando o termo "cão" e as associações de sinônimo de "canino" e "filhote de cão", qualquer documento contendo "cão", "canino" ou "filhote de cão" cairá dentro do escopo da consulta.
@@ -35,9 +38,9 @@ Mapas de sinônimo e índices são mantidos de maneira independente. Depois de d
 
 A incorporação de sinônimos ao seu aplicativo de pesquisa é um processo de duas etapas:
 
-1.    Adicione um mapa de sinônimos ao serviço de pesquisa por meio das APIs a seguir.  
+1.  Adicione um mapa de sinônimos ao serviço de pesquisa por meio das APIs a seguir.  
 
-2.    Configure um campo de pesquisa para usar o mapa de sinônimos na definição do índice.
+2.  Configure um campo de pesquisa para usar o mapa de sinônimos na definição do índice.
 
 ### <a name="synonymmaps-resource-apis"></a>APIs do recurso SynonymMaps
 

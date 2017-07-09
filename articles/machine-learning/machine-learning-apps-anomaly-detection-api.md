@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 04/24/2017
+ms.date: 06/05/2017
 ms.author: alok;rotimpe
-translationtype: Human Translation
-ms.sourcegitcommit: a384756abaca45fc6863f8bc59dc3d6cb4fa974a
-ms.openlocfilehash: ae9a4f99d5b38944f38534021523e2153ce7f0d0
-ms.lasthandoff: 01/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 5ddc02905fbb7f9f7c5deb9b970101788d824642
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -61,17 +62,19 @@ O serviço Web fornece uma API baseada em REST por HTTPS que pode ser consumida 
 Para chamar a API, você precisará conhecer o local do ponto de extremidade e chave de API.  Ambos, além do código de amostra para chamar a API, estão disponíveis na página de [serviços Web do AzureML](https://services.azureml.net/webservices/).  Navegue até a API desejada e clique na guia "Consume" para encontrá-la.  Observe que é possível chamar a API como uma API Swagger (isto é, com o parâmetro de URL `format=swagger`) ou como um API não Swagger (isto é, sem o parâmetro de URL `format`).  O código de amostra usa o formato Swagger.  Veja abaixo um exemplo de solicitação e resposta em um formato não Swagger.  Esses exemplos são o ponto de extremidade de sazonalidade.  O ponto de extremidade de não sazonalidade é semelhante.
 
 ### <a name="sample-request-body"></a>Exemplo de corpo da solicitação
-A solicitação contém dois objetos: `input1` e `GlobalParameters`.  No exemplo de solicitação abaixo, alguns parâmetros são enviados explicitamente, enquanto outros, não (role para baixo para ver uma lista completa de parâmetros para cada ponto de extremidade).  Os parâmetros que não são enviados explicitamente na solicitação usarão os valores padrão fornecidos abaixo.
+A solicitação contém dois objetos: `Inputs` e `GlobalParameters`.  No exemplo de solicitação abaixo, alguns parâmetros são enviados explicitamente, enquanto outros, não (role para baixo para ver uma lista completa de parâmetros para cada ponto de extremidade).  Os parâmetros que não são enviados explicitamente na solicitação usarão os valores padrão fornecidos abaixo.
 
     {
-        "input1": {
-            "ColumnNames": ["Time", "Data"],
-            "Values": [
-                ["5/30/2010 18:07:00", "1"],
-                ["5/30/2010 18:08:00", "1.4"],
-                ["5/30/2010 18:09:00", "1.1"]
-            ]
-        },
+                "Inputs": {
+                        "input1": {
+                                "ColumnNames": ["Time", "Data"],
+                                "Values": [
+                                        ["5/30/2010 18:07:00", "1"],
+                                        ["5/30/2010 18:08:00", "1.4"],
+                                        ["5/30/2010 18:09:00", "1.1"]
+                                ]
+                        }
+                },
         "GlobalParameters": {
             "tspikedetector.sensitivity": "3",
             "zspikedetector.sensitivity": "3",
