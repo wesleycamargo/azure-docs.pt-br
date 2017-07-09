@@ -1,5 +1,3 @@
-## <a name="create-a-service-namespace"></a>Criar um namespace de serviço
-
 Para começar a usar as filas do Barramento de Serviço no Azure, primeiro é necessário criar um namespace. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo. 
 
 Para criar um namespace:
@@ -16,6 +14,7 @@ Para criar um namespace:
 8. Clique em **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
 ### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gerenciamento
+
 1. Na lista de namespaces, clique no nome do namespace recém-criado.
 2. Na folha namespace, clique em **Políticas de acesso compartilhado**.
 3. Na folha **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.

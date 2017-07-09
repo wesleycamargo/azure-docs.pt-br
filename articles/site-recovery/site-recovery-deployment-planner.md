@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/05/2017
+ms.date: 06/29/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 3c72026a7a6c6b348a77560c7f35d76d93c75e17
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -68,7 +68,7 @@ A ferramenta tem duas fases principais: criação de perfil e geração de relat
 
 | Requisito de servidor | Descrição|
 |---|---|
-|Medida de taxa de transferência e criação de perfil| <ul><li>Sistema operacional: Microsoft Windows Server 2012 R2<br>(a correspondência ideal são pelo menos as [recomendações de tamanho para o servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>As configurações no nível das estatísticas do VMware vCenter devem ser definidas para o nível 2 ou superior</li></ul>|
+|Medida de taxa de transferência e criação de perfil| <ul><li>Sistema operacional: Microsoft Windows Server 2012 R2<br>(a correspondência ideal são pelo menos as [recomendações de tamanho para o servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>As configurações no nível das estatísticas do VMware vCenter devem ser definidas para o nível 2 ou superior</li></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
 | Permissões de usuário | Permissão somente leitura para a conta de usuário que é usada para acessar o servidor vCenter VMware/host ESXi vSphere VMware durante a criação de perfil |
 
