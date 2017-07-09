@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4649bec5290e09b8a18e3e12719e63bf5e57c0b0
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 3499ff57e650c70679dfa018eec5dbe1a6173a33
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 
@@ -52,7 +52,7 @@ Você também poderá acessar a folha clicando em **Mais serviços** e então pe
 1. Clique em **+Adicionar** , na parte superior da folha.
 1. Insira um **Nome** para o aplicativo que descreva seu aplicativo para os consumidores. Por exemplo, você poderia digitar "Aplicativo B2C da Contoso".
 1. Ativar/desativar a opção **Incluir API da Web/aplicativo Web** como **Sim**.
-1. Insira um valor [adequado](#choosing-a-web-app/api-reply-url) para as **URLs de Resposta**, que são pontos de extremidade onde o Azure AD B2C retornará todos os tokens que seu aplicativo solicitar. Por exemplo, insira: `https://localhost:44316/`.
+1. Insira um valor [adequado](#limitations) para as **URLs de Resposta**, que são pontos de extremidade onde o Azure AD B2C retornará todos os tokens que seu aplicativo solicitar. Por exemplo, insira: `https://localhost:44316/`.
 1. Clique em **Criar** para registrar seu aplicativo.
 1. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código.
 1. Se seu aplicativo da web também for chamar uma API da web protegida pelo Azure AD B2C, você deve:
@@ -154,3 +154,4 @@ Para excluir o aplicativo, vá para o [Portal de Registro de Aplicativo](https:/
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode concluir um de nossos [tutoriais de início rápido](active-directory-b2c-overview.md#get-started) para começar a trabalhar.
+

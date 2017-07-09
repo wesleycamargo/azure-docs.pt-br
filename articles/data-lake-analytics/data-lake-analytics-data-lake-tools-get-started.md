@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
-ms.author: edmaca, yanacai
+ms.date: 06/28/2017
+ms.author: saveenr, yanacai
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b2fd62683f0272da271eebeb6eb3a71388ecb59e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -33,7 +33,7 @@ Saiba como usar o Visual Studio para criar contas do Azure Data Lake Analytics, 
 
 * **Visual Studio**: há suporte para todas as edições, exceto Express.
     * Visual Studio 2017
-    * Visual Studio 2015 Atualização 4
+    * Visual Studio 2015
     * Visual Studio 2013
 * **SDK do Microsoft Azure para .NET** versão 2.7.1 ou posterior.  Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * Uma conta do **Data Lake Analytics**. Para criar uma conta, confira [Introdução ao Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md).
@@ -89,10 +89,10 @@ OUTPUT @a
 
     ![Gráfico de desempenho de trabalho de Análise Data Lake do SQL-U do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   *  **Resumo do trabalho** mostra o resumo do trabalho.   
+   * **Resumo do trabalho** mostra o resumo do trabalho.   
    * **Detalhes do trabalho** mostra informações mais específicas sobre o trabalho, incluindo o script, os recursos e os vértices.
-   *  **Gráfico do trabalho** visualiza o andamento do trabalho.
-   *  **Operações de metadados** mostra todas as ações que foram executadas no catálogo de U-SQL.
+   * **Gráfico do trabalho** visualiza o andamento do trabalho.
+   * **Operações de metadados** mostra todas as ações que foram executadas no catálogo de U-SQL.
    * **Dados** mostra todas as entradas e saídas.
    * **Diagnósticos** fornece uma análise avançada para otimização de desempenho e a execução do trabalho.
 
