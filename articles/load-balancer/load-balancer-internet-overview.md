@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1a0f69e6530f1ab3734e1a44e5be056aacb0fff0
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c420b38fbe8054bc4b701f89ebc417677ca47a27
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -32,7 +32,7 @@ O arquivo *servicedefinition.csdef* contém a configuração do ponto de extremi
 
 A figura a seguir mostra um ponto de extremidade de balanceamento de carga para tráfego na Web compartilhado entre três máquinas virtuais para a porta TCP pública e privada de número 80. Essas três máquinas virtuais estão em um conjunto de balanceamento de carga.
 
-![exemplo de balanceador de carga público](./media/load-balancer-internet-overview/IC727496.png))
+![exemplo de balanceador de carga público](./media/load-balancer-internet-overview/IC727496.png)
 
 Figura 1 – Ponto de extremidade com balanceamento de carga para tráfego da Web
 

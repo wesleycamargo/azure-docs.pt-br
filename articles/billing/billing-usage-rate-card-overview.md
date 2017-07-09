@@ -4,7 +4,7 @@ description: "Aprenda sobre as APIs RateCard e de Uso de Cobrança do Azure, que
 services: 
 documentationcenter: 
 author: BryanLa
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77

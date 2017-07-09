@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: bf5bd20007c186bfd01b82aa06213ef9e7424a05
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -33,8 +33,8 @@ Nesse exemplo, o Diagnóstico Inteligente identificou um padrão de valores de p
 
 ## <a name="diagnose-data-changes"></a>Diagnosticar alterações de dados
 
-1.    Execute uma consulta no Analytics e renderize-o como um gráfico de tempo. 
-2.    Clique em qualquer ponto de pico destacado, se houver.
+1.  Execute uma consulta no Analytics e renderize-o como um gráfico de tempo. 
+2.  Clique em qualquer ponto de pico destacado, se houver.
  
     ![ponto de pico](./media/app-insights-analytics-diagnostics/peak.png)
 
@@ -48,11 +48,11 @@ Nesse exemplo, o Diagnóstico Inteligente identificou um padrão de valores de p
 
     Observe também os dois componentes do gráfico, com o filtro verdadeiro e falso. O componente falso mostra uma tendência inalterada. Em outras palavras, não há alteração nos resultados da telemetria se excluímos a combinação de dimensões problemática identificada pelo Diagnóstico. Em contrapartida, os resultados dentro dessa combinação apresenta uma alteração dramática dentro da área de investigação destacada. Isso mostra que o Diagnóstico encontrou uma combinação de propriedades que explica a alteração.
 
-4.    Se o padrão for complexo, será necessário passar o mouse sobre **Mostrar tudo** para visualizar as dimensões.
+4.  Se o padrão for complexo, será necessário passar o mouse sobre **Mostrar tudo** para visualizar as dimensões.
 
     ![mostrar tudo](./media/app-insights-analytics-diagnostics/show-all.png)
  
-5.    Caso o Diagnóstico não encontre nenhum padrão significativo a ser notificado, a página "nenhum resultado" será apresentada. Nesse momento, você pode alterar sua consulta. Por exemplo, você pode restringir o intervalo de tempo e o agrupamento na consulta do Analytics para uma análise mais detalhada e resultados potencialmente melhores.
+5.  Caso o Diagnóstico não encontre nenhum padrão significativo a ser notificado, a página "nenhum resultado" será apresentada. Nesse momento, você pode alterar sua consulta. Por exemplo, você pode restringir o intervalo de tempo e o agrupamento na consulta do Analytics para uma análise mais detalhada e resultados potencialmente melhores.
 
 Tendo o conhecimento de que uma página específica do seu site tem um problema em um navegador específico, você pode ir diretamente para a página do problema e investigar as alterações recentes.
 
@@ -62,7 +62,7 @@ Tendo o conhecimento de que uma página específica do seu site tem um problema 
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-O Diagnóstico Inteligente usa um algoritmo de aprendizado de máquina não supervisionado avançado com base na operação [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns). Ele procura padrões candidatos que podem explicar a alteração de dados. Ele analisa o impacto de cada candidato na métrica e mostra o padrão que melhor se correlaciona com a alteração.
+O Diagnóstico Inteligente usa um algoritmo de aprendizado de máquina não supervisionado avançado com base na operação [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns_v2). Ele procura padrões candidatos que podem explicar a alteração de dados. Ele analisa o impacto de cada candidato na métrica e mostra o padrão que melhor se correlaciona com a alteração.
 
 ## <a name="no-diagnostic-points"></a>Não há pontos de diagnóstico?
 

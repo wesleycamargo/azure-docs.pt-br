@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c30ffa9e392bb6411312b0789ae6e8218f770bc1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: b82bb1ab419831e803689edb2a2a7fe256dde5a2
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="enable-monitoring-and-diagnostics"></a>Habilitar monitoramento e diagnóstico
-No [Portal Azure](https://portal.azure.com), você pode configurar dados de monitoramento e diagnóstico avançados e frequentes sobre seus recursos. Você também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) ou [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para configurar diagnósticos programaticamente.
+No [Portal Azure](https://portal.azure.com), você pode configurar dados de monitoramento e diagnóstico avançados e frequentes sobre seus recursos. Você também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) ou [SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para configurar diagnósticos programaticamente.
 
 Dados de diagnóstico, monitoramento e métrica no Azure são salvos em uma conta de armazenamento de sua escolha. Isso permite que você use as ferramentas que quiser para ler os dados, desde um gerenciador de armazenamento, Power BI a ferramentas de terceiros.
 
@@ -65,10 +67,5 @@ Observe que, neste momento, determinadas distribuições do Linux não têm supo
 * [Monitore o desempenho do aplicativo](../application-insights/app-insights-azure-web-apps.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * [Exiba eventos e logs de atividade](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

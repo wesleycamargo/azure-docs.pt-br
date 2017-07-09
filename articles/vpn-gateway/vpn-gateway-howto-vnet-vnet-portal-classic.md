@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: de39e768697425b98fb615697e57918c8c5d3853
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f5db73d93276f8da223f03fa672af02a3bc9b54d
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 Este artigo mostra como criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. As etapas neste artigo se aplicam ao modelo de implantação clássico e o portal do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Clássico – portal do Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Conectar modelos de implantação diferentes – portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Conectar modelos de implantação diferentes – PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -39,7 +43,7 @@ Este artigo mostra como criar uma conexão de gateway de VPN entre redes virtuai
 
 ## <a name="about-vnet-to-vnet-connections"></a>Sobre conexões de rede virtual a rede virtual
 
-Conectar uma rede virtual a outra rede virtual (VNet a VNet) no modelo de implantação clássico usando um gateway de VPN é semelhante a conectar uma rede virtual a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE. 
+Conectar uma rede virtual a outra rede virtual (VNet a VNet) no modelo de implantação clássico usando um gateway de VPN é semelhante a conectar uma rede virtual a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE.
 
 As VNets que você conecta podem estar em regiões e assinaturas diferentes. Você pode combinar a comunicação de VNet a VNet usando configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual.
 
@@ -50,14 +54,14 @@ As VNets que você conecta podem estar em regiões e assinaturas diferentes. Voc
 Você talvez queira conectar redes virtuais pelos seguintes motivos:
 
 * **Redundância geográfica entre regiões e presença geográfica**
-  
+
   * Você pode configurar sua própria sincronização ou replicação geográfica com conectividade segura sem passar por pontos de extremidade voltados para a Internet.
   * Com o Azure Load Balancer e a tecnologia de clustering da Microsoft ou de terceiros, você pode configurar uma carga de trabalho altamente disponível com redundância geográfica entre várias regiões do Azure. Um exemplo importante é configurar o Always On do SQL com Grupos de Disponibilidade espalhados por várias regiões do Azure.
 * **Aplicativos multicamadas regionais com limite de isolamento forte**
-  
+
   * Na mesma região, você pode configurar aplicativos multicamadas com várias VNets conectadas com isolamento forte e comunicação entre camadas segura.
 * **Comunicação entre organizações e assinaturas no Azure**
-  
+
   * Se você tem várias assinaturas do Azure, agora é possível se conectar a cargas de trabalho de assinaturas diferentes com segurança entre redes virtuais.
   * Para empresas ou provedores de serviço, é possível habilitar a comunicação entre organizações usando a tecnologia VPN segura no Azure.
 
@@ -118,13 +122,13 @@ GatewaySubnet: 10.41.1.0/27
 
 * **Servidores DNS** – insira o nome do servidor DNS e o endereço IP. Essa configuração não cria um servidor DNS. Ela permite que você especifique os servidores DNS que deseja usar para a resolução de nomes dessa rede virtual.
 
-Nesta seção, você configura o tipo de conexão, o site local e cria o gateway. 
+Nesta seção, você configura o tipo de conexão, o site local e cria o gateway.
 
 ## <a name="localsite"></a>Etapa 3 – Configurar o site local
 
 O Azure usa as configurações especificadas em cada site de rede local para determinar como rotear o tráfego entre as VNets. Cada VNet deve apontar para a respectiva rede local à qual você deseja rotear o tráfego. Você determina o nome que deseja usar para se referir a cada site de rede local. É melhor usar algo descritivo.
 
-Por exemplo, a TestVNet1 conecta-se a um site de rede local que você criou chamado "VNet4Local". As configurações de VNet4Local contêm os prefixos de endereço para TestVNet4. 
+Por exemplo, a TestVNet1 conecta-se a um site de rede local que você criou chamado "VNet4Local". As configurações de VNet4Local contêm os prefixos de endereço para TestVNet4.
 
 O site local para cada VNet é a outra VNet. Os seguintes valores de exemplo são usados para nossa configuração:
 
@@ -134,12 +138,12 @@ O site local para cada VNet é a outra VNet. Os seguintes valores de exemplo sã
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste dos EUA |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 1. Localize TestVNet1 no portal do Azure. Na seção **Conexões VPN** da folha, clique em **Gateway**.
- 
+
     ![Sem gateway](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
 2. Na página **Nova Conexão VPN**, selecione **Site a Site**.
 3. Clique em **Site local** para abrir a página Site local e defina as configurações.
-4. Na página **Site local**, nomeie o site local. Em nosso exemplo, demos ao site local o nome de "VNet4Local". 
-5. Para **Endereço IP do gateway de VPN**, você pode usar qualquer endereço IP desejado, desde que ele esteja em um formato válido. Normalmente, você usaria o endereço IP externo real para um dispositivo VPN. Mas, para uma configuração clássica de VNet a VNet, você usa o endereço IP público que é atribuído ao gateway da sua VNet. Considerando que você ainda não criou o gateway de rede virtual, especifique qualquer endereço IP público válido como um espaço reservado.<br>Não deixe em branco. Não é opcional para essa configuração. Em uma etapa posterior, você voltará para essas configurações e as definirá com os endereços IP de gateway de rede virtual correspondentes assim que forem gerados pelo Azure. 
+4. Na página **Site local**, nomeie o site local. Em nosso exemplo, demos ao site local o nome de "VNet4Local".
+5. Para **Endereço IP do gateway de VPN**, você pode usar qualquer endereço IP desejado, desde que ele esteja em um formato válido. Normalmente, você usaria o endereço IP externo real para um dispositivo VPN. Mas, para uma configuração clássica de VNet a VNet, você usa o endereço IP público que é atribuído ao gateway da sua VNet. Considerando que você ainda não criou o gateway de rede virtual, especifique qualquer endereço IP público válido como um espaço reservado.<br>Não deixe em branco. Não é opcional para essa configuração. Em uma etapa posterior, você voltará para essas configurações e as definirá com os endereços IP de gateway de rede virtual correspondentes assim que forem gerados pelo Azure.
 6. Para **Espaço de Endereço do Cliente**, use o espaço de endereço da outra VNet. Consulte seu exemplo de planejamento. Clique em **OK** para salvar as configurações e retornar para a folha **Nova Conexão VPN**.
 
     ![site local](./media/vpn-gateway-howto-vnet-vnet-portal-classic/localsite.png)
@@ -151,9 +155,9 @@ Cada rede virtual deve ter um gateway de rede virtual. O gateway de rede virtual
 1. Na folha **Nova Conexão VPN**, marque a caixa de seleção **Criar gateway imediatamente**.
 2. Clique em **Sub-rede, tamanho e tipo de roteamento**. Na folha **Configuração de gateway**, clique em **Sub-rede**.
 3. O nome da sub-rede de gateway é preenchido automaticamente com o nome 'GatewaySubnet' exigido. O **Intervalo de endereços** contém os endereços IP que estão alocados para os serviços de gateway de VPN. Algumas configurações permitem uma sub-rede de gateway de /29, mas é melhor usar uma de /28 ou /27 para acomodar futuras configurações que possam exigir mais endereços IP para os serviços de gateway. Em nossas configurações de exemplo, usamos 10.11.1.0/27. Ajuste o espaço de endereço e clique em **OK**.
-4. Configure o **Tamanho do Gateway**. Essa configuração refere-se ao [SKU do Gateway](vpn-gateway-about-vpngateways.md#gateway-skus).
+4. Configure o **Tamanho do Gateway**. Essa configuração refere-se ao [SKU do Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 5. Configurar o **Tipo de Roteamento**. O tipo de roteamento para essa configuração deve ser **Dinâmico**. Não é possível alterar o tipo de roteamento, a menos que você destrua o gateway e crie um novo.
-6. Clique em **OK**. 
+6. Clique em **OK**.
 7. Na folha **Nova Conexão VPN**, clique em **OK** para começar a criar o gateway de rede virtual. Criar um gateway pode levar 45 minutos ou mais, dependendo do SKU de gateway selecionado.
 
 ## <a name="step-5---configure-testvnet4-settings"></a>Etapa 5 – Definir as configurações de TestVNet4
@@ -162,7 +166,7 @@ Repita as etapas para [Criar um site local](#localsite) e [Criar o gateway de re
 
 ## <a name="step-6---update-the-local-sites"></a>Etapa 6 – Atualizar os sites locais
 
-Depois que os gateways de rede virtual tiverem sido criados para ambas as VNets, você deverá ajustar os valores do **endereço IP do gateway de VPN** dos sites locais. 
+Depois que os gateways de rede virtual tiverem sido criados para ambas as VNets, você deverá ajustar os valores do **endereço IP do gateway de VPN** dos sites locais.
 
 |Nome da VNet|Site conectado|Endereço IP do gateway|
 |:--- |:--- |:--- |
@@ -198,7 +202,7 @@ Depois que os gateways de rede virtual tiverem sido criados para ambas as VNets,
 
 ## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a>Etapa 7 – Recuperar valores do arquivo de configuração de rede
 
-Quando você cria VNets clássicas no portal do Azure, o nome que você vê não é o nome completo usado para o PowerShell. Por exemplo, uma VNet que parece ter o nome **TestVNet1** no portal, pode ter um nome muito mais longo no arquivo de configuração de rede. O nome pode ser algo parecido com: **Grupo ClassicRG TestVNet1**. Ao criar suas conexões, é importante usar os valores que você vê no arquivo de configuração de rede. 
+Quando você cria VNets clássicas no portal do Azure, o nome que você vê não é o nome completo usado para o PowerShell. Por exemplo, uma VNet que parece ter o nome **TestVNet1** no portal, pode ter um nome muito mais longo no arquivo de configuração de rede. O nome pode ser algo parecido com: **Grupo ClassicRG TestVNet1**. Ao criar suas conexões, é importante usar os valores que você vê no arquivo de configuração de rede.
 
 Nas etapas a seguir, você vai se conectar à sua conta do Azure, bem como baixar e exibir o arquivo de configuração de rede para obter os valores que são necessários para as conexões.
 
@@ -257,9 +261,9 @@ Nos exemplos, observe que a chave compartilhada é exatamente a mesma. A chave c
   ```
   Error          :
   HttpStatusCode : OK
-  Id             : 
+  Id             :
   Status         : Successful
-  RequestId      : 
+  RequestId      :
   StatusCode     : OK
   ```
 

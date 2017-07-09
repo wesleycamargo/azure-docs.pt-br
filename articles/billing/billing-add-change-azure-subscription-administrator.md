@@ -4,7 +4,7 @@ description: "Descreve como adicionar ou alterar o Coadministrador, Administrado
 services: 
 documentationcenter: 
 author: genlin
-manager: vikdesai
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
-ms.sourcegitcommit: 6d438cde704323a07cc125eb75d08cb64b2432ec
-ms.openlocfilehash: 00b71701c4c114007e2d9a6d23f20b3df5fb2534
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 782489e7551fef3daed4de8212821e93f7777535
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -108,7 +109,7 @@ O RBAC (Controle de Acesso Baseado em Função) do Active Directory do Azure per
 ## <a name="limitations-and-restrictions-for-admin-accounts"></a>Limitações e restrições para contas de administrador
 * Cada assinatura é associada a um diretório do Azure AD (também conhecido como Diretório Padrão). Para localizar o Diretório Standard ao qual a assinatura está associada, acesse o [Portal clássico do Azure](https://manage.windowsazure.com/), selecione **Configurações** > **Assinaturas**. Verifique a ID da assinatura para localizar o Diretório Padrão.
 * Se estiver conectado com uma Conta da Microsoft, você poderá adicionar apenas outras Contas da Microsoft ou usuários no Diretório Padrão como Coadministrador.
-* Se você estiver conectado a uma conta organizacional, você poderá adicionar outras contas organizacionais em sua organização como Coadministrador. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços ou Coadministrador, mas não pode adicionar john@notcontoso.com, a menos que john@noncontoso.com esteja no Diretório Padrão. Usuários conectados usando contas organizacionais podem continuar adicionando usuários da Conta da Microsoft como Coadministradores ou Administradores de Serviços.
+* Se você estiver conectado a uma conta organizacional, você poderá adicionar outras contas organizacionais em sua organização como Coadministrador. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços ou Coadministrador, mas não pode adicionar john@notcontoso.com, a menos que john@notcontoso.com esteja no Diretório Padrão. Usuários conectados usando contas organizacionais podem continuar adicionando usuários da Conta da Microsoft como Coadministradores ou Administradores de Serviços.
 * Agora que é possível entrar no Azure com uma conta organizacional, estas são as alterações dos requisitos de conta de Administrador de Serviços e Coadministrador:
 
   | Método de entrada | Adicionar Conta da Microsoft ou usuários no Diretório Padrão como CA ou SA? | Adicionar conta organizacional na mesma organização como CA ou SA? | Adicionar conta organizacional em uma organização diferente como CA ou SA? |

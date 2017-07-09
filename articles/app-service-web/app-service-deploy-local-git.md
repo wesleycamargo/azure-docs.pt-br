@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e476e1dc550f246027c015dee75850236baa9a9
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: da848aec495a8248fd4791f350d439e937831d01
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -44,8 +44,10 @@ Execute as seguintes tarefas para criar um novo repositório do Git.
 1. Inicie uma ferramenta da linha de comando, como **GitBash** (Windows) ou **Bash** (Unix Shell). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal** .
 2. Navegue até o diretório em que o conteúdo para implantar estaria localizado.
 3. Use o seguinte comando para inicializar um novo repositório do Git:
-   
-        git init
+
+```bash  
+git init
+```
 
 ## <a name="Step2"></a>Etapa 2: Confirmar seu conteúdo
 O Serviço de Aplicativo dá suporte a aplicativos criados em uma variedade de linguagens de programação. 
@@ -55,11 +57,15 @@ O Serviço de Aplicativo dá suporte a aplicativos criados em uma variedade de l
    * Usando um editor de texto, crie um novo arquivo chamado **index.html** na raiz do repositório do Git
    * Adicione o seguinte como o conteúdo do arquivo index.html e salve-o: *Hello Git!*
 2. Na linha de comando, verifique se você está na raiz do seu repositório do Git. Em seguida, use os comandos a seguir para adicionar arquivos ao repositório:
-   
-        git add -A 
+
+```bash  
+git add -A
+```
 3. Em seguida, confirme as alterações no repositório usando o comando a seguir:
-   
-        git commit -m "Hello Azure App Service"
+
+```bash  
+git commit -m "Hello Azure App Service"
+```  
 
 ## <a name="Step3"></a>Etapa 3: Habilitar o repositório de aplicativos do Serviço de Aplicativo
 Execute as seguintes etapas para habilitar um repositório do Git para seu aplicativo do Serviço de Aplicativo.
@@ -89,10 +95,11 @@ Use as etapas a seguir para publicar seu aplicativo no Serviço de Aplicativo us
    > 
    > 
 4. Envie por push seu conteúdo para o Serviço de Aplicativo usando o novo remoto **azure** que você acabou de criar.
-   
-        git push azure master
-   
-    Será solicitada a senha que você criou anteriormente ao redefinir suas credenciais de implantação no Portal do Azure. Digite a senha (o Gitbash não ecoa asteriscos no console à medida que você digita a senha). 
+
+```bash  
+git push azure master
+```
+    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 5. Volte para seu aplicativo no Portal do Azure. Uma entrada de log do seu envio por push mais recente deve ser exibida na folha **Implantações** . 
    
     ![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -122,8 +129,9 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 **Solução**: execute a operação de envio novamente, especificando a ramificação mestre. Por exemplo:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Sintoma**: src refspec [branchname] não corresponde a nada.
 
@@ -131,8 +139,9 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 **Solução**: execute a operação de envio novamente, especificando a ramificação mestre. Por exemplo:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Sintoma**: falha de RPC; resultado = 22, código HTTP = 502.
 
@@ -140,8 +149,9 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 **Resolução**: altere a configuração do Git no computador local para aumentar o postBuffer
 
-    git config --global http.postBuffer 524288000
-
+```bash  
+git config --global http.postBuffer 524288000
+```
 - - -
 **Sintoma**: erro - alterações confirmadas no repositório remoto, mas o aplicativo Web não foi atualizado.
 

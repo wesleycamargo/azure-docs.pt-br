@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 2bcdff44f6c3169779c3dd018706eea8275825ca
 ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -29,15 +29,6 @@ Os contadores de desempenho aparecem na folha Servidores, que inclui uma tabela 
 ![Contadores de desempenho reportados no Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
 (Os contadores de desempenho não estão disponíveis para aplicativos Web do Azure. Mas você pode [enviar o Diagnóstico do Azure para o Application Insights](app-insights-azure-diagnostics.md).)
-
-## <a name="configure"></a>Configurar
-Se o Application Insights Status Monitor ainda não estiver instalado em suas máquinas de servidor, você precisará instalá-lo para ver os contadores de desempenho.
-
-Baixe e execute o [instalador do Monitor de Status](http://go.microsoft.com/fwlink/?LinkId=506648) em cada instância de servidor. Se já estiver instalado, não será necessário fazer nada.
-
-* *Eu [instalei o SDK do Application Insights em meu aplicativo](app-insights-asp-net.md) durante o desenvolvimento. Ainda preciso do Monitor de Status?*
-  
-    Sim, o Monitor de Status é necessário para coletar contadores de desempenho para aplicativos Web do ASP.NET. Como você já deve saber, o Monitor de Status também pode ser usado para [monitorar aplicativos Web que já estão ativos](app-insights-monitor-performance-live-website-now.md), sem instalar o SDK durante o desenvolvimento.
 
 ## <a name="view-counters"></a>Visualizar contadores
 A folha Servidores mostra um conjunto padrão de contadores de desempenho. 
