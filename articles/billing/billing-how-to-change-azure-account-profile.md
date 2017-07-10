@@ -4,7 +4,7 @@ description: "Descreve como alterar o perfil de sua conta do Azure e responde a 
 services: 
 documentationcenter: 
 author: genlin
-manager: narmstr
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
