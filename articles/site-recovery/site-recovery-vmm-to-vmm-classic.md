@@ -22,7 +22,8 @@ ms.lasthandoff: 02/23/2017
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>Replicar máquinas virtuais do Hyper-V em nuvens de VMM para um site de VMM secundário
+<a id="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site" class="xliff"></a>
+# Replicar máquinas virtuais do Hyper-V em nuvens de VMM para um site de VMM secundário
 > [!div class="op_single_selector"]
 > * [Portal do Azure](site-recovery-vmm-to-vmm.md)
 > * [Portal clássico](site-recovery-vmm-to-vmm-classic.md)
@@ -32,19 +33,22 @@ ms.lasthandoff: 02/23/2017
 
 O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para ter uma breve visão geral, leia [O que é Azure Site Recovery?](site-recovery-overview.md)
 
-## <a name="overview"></a>Visão geral
+<a id="overview" class="xliff"></a>
+## Visão geral
 Este artigo descreve como replicar máquinas virtuais de Hyper-V em servidores de host Hyper-V gerenciados em nuvens do VMM para site secundário do VMM usando o Azure Site Recovery.
 
 O artigo inclui os pré-requisitos, mostra como configurar um cofre do Site Recovery, instalar o Provedor do Azure Site Recovery nos servidores do VMM de origem e destino, registrar os servidores no cofre, definir as configurações de proteção para nuvens VMM e, em seguida, habilitar a proteção para VMs do Hyper-V. Conclua testando o failover para verificar se tudo está funcionando conforme o esperado.
 
 Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="architecture"></a>Arquitetura
+<a id="architecture" class="xliff"></a>
+## Arquitetura
 A figura abaixo mostra os canais de comunicação e as portas diferentes usados pelo Azure Site Recovery para coordenação e a replicação
 
 ![Topologia E2E](./media/site-recovery-vmm-to-vmm-classic/e2e-topology.png)
 
-## <a name="before-you-start"></a>Antes de começar
+<a id="before-you-start" class="xliff"></a>
+## Antes de começar
 Verifique se estes pré-requisitos estão em vigor:
 
 | **Pré-requisitos** | **Detalhes** |
@@ -55,7 +59,8 @@ Verifique se estes pré-requisitos estão em vigor:
 | **Mapeamento de rede** |Você pode definir o mapeamento de rede para assegurar que as máquinas virtuais de réplica sejam colocadas da melhor forma possível em servidores host Hyper-V secundários após o failover e que possam se conectar às redes VM apropriadas. Se você não configurar a réplica de mapeamento de rede, as VMs não serão conectadas a nenhuma rede após o failover.<br/><br/>Para configurar o mapeamento de rede durante a implantação, certifique-se de que as máquinas virtuais no servidor host Hyper-V de origem estejam conectadas a uma rede de VM do VMM. Essa rede deve estar vinculada a uma rede lógica associada à nuvem.<br/<br/>A nuvem de destino no servidor VMM secundário que você usar para recuperação deverá ter uma rede VM correspondente configurada, que, por sua vez, deverá estar vinculada a uma rede lógica correspondente associada à nuvem de destino. |
 | **Mapeamento de armazenamento** |Por padrão, quando você replica uma máquina virtual em um servidor host Hyper-V de origem para um servidor host Hyper-V de destino, os dados replicados são armazenados no local padrão indicado para o host Hyper-V de destino no Gerenciador Hyper-V. Para obter mais controle sobre onde os dados replicados são armazenados, você pode configurar o mapeamento do armazenamento<br/><br/> Para configurar o mapeamento do armazenamento, precisa configurar as classificações de armazenamento nos servidores do VMM de origem e de destino antes de começar a implantação. |
 
-## <a name="step-1-create-a-site-recovery-vault"></a>Etapa 1: criar um cofre de Recuperação de Site
+<a id="step-1-create-a-site-recovery-vault" class="xliff"></a>
+## Etapa 1: criar um cofre de Recuperação de Site
 1. Entre no [Portal de Gerenciamento](https://portal.azure.com) do servidor VMM que você deseja registrar.
 2. Expanda **Serviços de Dados** > **Serviços de Recuperação** e clique em **Cofre do Site Recovery**.
 3. Clique em **Criar Novo** > **Criação Rápida**.
@@ -67,7 +72,8 @@ Verifique se estes pré-requisitos estão em vigor:
 
 Na barra de status, verifique se o cofre foi criado. O cofre será listado como **Ativo** na página de Serviços de Recuperação.
 
-## <a name="step-2-generate-a-vault-registration-key"></a>Etapa 2: gerar uma chave de registro do cofre
+<a id="step-2-generate-a-vault-registration-key" class="xliff"></a>
+## Etapa 2: gerar uma chave de registro do cofre
 Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recovery e instalá-lo no servidor VMM, você usará essa chave para registrar o servidor VMM no cofre.
 
 1. Na página **Serviços de Recuperação** , clique no cofre para abrir na página de Início Rápido. O Início Rápido pode também ser aberto a qualquer tempo usando o ícone.
@@ -78,7 +84,8 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
     ![Chave de Registro](./media/site-recovery-vmm-to-vmm-classic/register-key.png)
 
-## <a name="step-3-install-the-azure-site-recovery-provider"></a>Etapa 3: instalar o Provedor do Azure Site Recovery
+<a id="step-3-install-the-azure-site-recovery-provider" class="xliff"></a>
+## Etapa 3: instalar o Provedor do Azure Site Recovery
 1. Na página **Início Rápido**, em **Preparar servidores VMM**, clique **Baixar o Provedor do Microsoft Azure Site Recovery para instalação nos servidores VMM** para obter a versão mais recente do arquivo de instalação do Provedor.
 2. Execute esse arquivo no servidor VMM de origem.
 
@@ -121,7 +128,8 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
     ![Servidores](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
-### <a name="command-line-installation"></a>Instalação de linha de comando
+<a id="command-line-installation" class="xliff"></a>
+### Instalação de linha de comando
 O Provedor do Azure Site Recovery também pode ser instalado da linha de comando. Esse método pode ser usado para instalar o provedor em um Server CORE para o Windows Server 2012 R2.
 
 1. Baixar o arquivo de instalação do provedor e a chave de registro em uma pasta. Por exemplo, C:\ASR.
@@ -148,7 +156,8 @@ Em que os parâmetros são:
 * **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
 * **/proxyPassword**: parâmetro opcional que especificará a senha para autenticação com o servidor proxy (se o proxy exigir autenticação).  
 
-## <a name="step-4-configure-cloud-protection-settings"></a>Etapa 4: definir as configurações da proteção de nuvem
+<a id="step-4-configure-cloud-protection-settings" class="xliff"></a>
+## Etapa 4: definir as configurações da proteção de nuvem
 Depois que os servidores VMM são registrados, você pode definir as configurações de proteção de nuvem. Se você tiver habilitado a opção **Sincronizar dados de nuvem com o cofre** ao instalar o Provedor, todas as nuvens no servidor VMM serão mostradas na guia **Itens Protegidos** no cofre. Se não a tiver habilitado, você poderá sincronizar uma nuvem específica com o Azure Site Recovery na guia **Geral** da página de propriedades de nuvem no console do VMM.
 
 ![Publicar uma nuvem](./media/site-recovery-vmm-to-vmm-classic/clouds-list.png)
@@ -179,7 +188,8 @@ Depois que os servidores VMM são registrados, você pode definir as configuraç
 
 Depois de salvar as configurações, um trabalho será criado e poderá ser monitorado pela guia **Trabalhos** . Todos os servidores do host Hyper-V na nuvem de origem do VMM serão configurados para replicação. As configurações de nuvem podem ser modificadas na guia **Configurar** . Se você deseja modificar a nuvem de destino local ou destino, você deve remover a configuração de nuvem e, em seguida, reconfigurar a nuvem.
 
-### <a name="prepare-for-offline-initial-replication"></a>Preparar a replicação inicial offline
+<a id="prepare-for-offline-initial-replication" class="xliff"></a>
+### Preparar a replicação inicial offline
 Você precisará executar as seguintes ações para preparar a replicação inicial offline:
 
 * No servidor de origem, você especificará um local do caminho do qual será realizada a exportação de dados. Atribua Controle Total para permissões de NTFS e de Compartilhamento ao serviço VMM no caminho de exportação. No servidor de destino, você especificará um local do caminho do qual será feita a importação de dados. Atribua as mesmas permissões nesse caminho de importação.
@@ -195,7 +205,8 @@ Você precisará executar as seguintes ações para preparar a replicação inic
   6. Clique em **Adicionar** > **Usuários e Computadores**.
   7. Digite o nome do computador que hospeda o caminho de exportação > **OK**. Na lista de serviços disponíveis, mantenha pressionada a tecla CTRL e clique em **cifs** > **OK**. Repita o procedimento para o nome do computador que hospeda o caminho de importação. Repita conforme necessário para servidores host Hyper-V adicionais.
 
-## <a name="step-5-configure-network-mapping"></a>Etapa 5: configurar o mapeamento de rede
+<a id="step-5-configure-network-mapping" class="xliff"></a>
+## Etapa 5: configurar o mapeamento de rede
 1. Na página Início Rápido, clique em **Mapear redes**.
 2. Selecione o servidor VMM de origem do qual você deseja mapear redes e o servidor VMM de destino para o qual as redes serão mapeadas. A lista de redes de origem e suas redes de destino associadas é exibida. Um valor vazio é mostrado para redes que não estão mapeadas no momento.
 3. Selecione uma rede em **Rede na origem** > **Mapear**. O serviço detecta as redes VM no servidor de destino e as exibe. Clique no ícone de informações ao lado dos nomes de rede de origem e de destino para exibir as sub-redes de cada rede.
@@ -207,7 +218,8 @@ Você precisará executar as seguintes ações para preparar a replicação inic
 5. Quando você seleciona uma rede de destino, as nuvens protegidas que usam a rede de origem são exibidas. As redes de destino disponíveis que estão associados às nuvens usadas para proteção também são exibidas. Recomendamos que você selecione uma rede de destino disponível para todas as nuvens que você está usando para proteção. Ou você também pode ir para o Servidor VMM e modificar as propriedades da nuvem para adicionar a rede lógica correspondente à rede da vm que deseja escolher.
 6. Clique na marca de seleção para concluir o processo de mapeamento. Um trabalho é iniciado para rastrear o progresso do mapeamento. Você pode exibi-lo na Guia **Trabalhos** .
 
-## <a name="step-6-configure-storage-mapping"></a>Etapa 6: configurar mapeamento de armazenamento
+<a id="step-6-configure-storage-mapping" class="xliff"></a>
+## Etapa 6: configurar mapeamento de armazenamento
 Por padrão, quando você replica uma máquina virtual em um servidor host Hyper-V de origem para um servidor host Hyper-V de destino, os dados replicados são armazenados no local padrão indicado para o host Hyper-V de destino no Gerenciador Hyper-V. Para obter mais controle sobre onde os dados replicados são armazenados, você pode configurar mapeamentos de armazenamento da seguinte maneira:
 
 1. Defina classificações de armazenamento nos servidores VMM de origem e de destino. [Saiba mais](https://technet.microsoft.com/library/gg610685.aspx). As classificações devem estar disponíveis para os servidores host Hyper-V nas nuvens de origem e de destino. As classificações não precisam ter o mesmo tipo de armazenamento. Por exemplo, você pode mapear uma classificação de origem que contenha compartilhamentos SMB para uma classificação de destino que contenha CSVs.
@@ -217,7 +229,8 @@ Por padrão, quando você replica uma máquina virtual em um servidor host Hyper
 
     ![Selecionar uma rede de destino](./media/site-recovery-vmm-to-vmm-classic/storage-mapping.png)
 
-## <a name="step-7-enable-virtual-machine-protection"></a>Etapa 7: habilitar proteção da máquina virtual
+<a id="step-7-enable-virtual-machine-protection" class="xliff"></a>
+## Etapa 7: habilitar proteção da máquina virtual
 Depois de redes, servidores e nuvens estarem configurados corretamente, você pode ativar a proteção para máquinas virtuais na nuvem.
 
 1. Na guia **Máquinas Virtuais**, na nuvem em que a máquina virtual está localizada, clique em **Habilitar proteção** > **Adicionar máquinas virtuais**.
@@ -233,16 +246,19 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 >
 >
 
-### <a name="on-board-existing-virtual-machines"></a>Integrar máquinas virtuais existentes
+<a id="on-board-existing-virtual-machines" class="xliff"></a>
+### Integrar máquinas virtuais existentes
 Se tiver máquinas virtuais existentes no VMM que são replicadas usando a Réplica do Hyper-V, você precisará integrá-las para a proteção do Azure Site Recovery, da seguinte maneira:
 
 1. Verifique se que você tem nuvens primárias e secundárias. Verifique se o servidor Hyper-V que hospeda a máquina virtual existente está localizado em nuvem primária e o servidor Hyper-V que hospeda a máquina virtual de réplica está localizado na nuvem secundária. Verifique se você definiu as configurações de proteção para as nuvens. As configurações devem corresponder àquelas atualmente definidas para a Réplica do Hyper-V. Caso contrário, a replicação de máquina virtual poderá não funcionar conforme o esperado.
 2. Em seguida, habilite a proteção para a máquina virtual primária. O Azure Site Recovery e o VMM garantirão que o mesmo host de réplica e a mesma máquina virtual sejam detectados, e o Azure Site Recovery reutilizará e restabelecerá a replicação usando as configurações definidas durante a configuração de nuvem.
 
-## <a name="test-your-deployment"></a>Testar a implantação
+<a id="test-your-deployment" class="xliff"></a>
+## Testar a implantação
 Para testar sua implantação, você pode executar um failover de teste para uma única máquina virtual, ou criar um plano de recuperação consistente de várias máquinas virtuais e executar um failover de teste para o plano.  O failover de teste simula o mecanismo de failover e recuperação em uma rede isolada.
 
-### <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
+<a id="create-a-recovery-plan" class="xliff"></a>
+### Criar um plano de recuperação
 1. Na guia **Planos de Recuperação**, clique em **Criar Plano de Recuperação**.
 2. Especifique um nome para o plano de recuperação e servidores do VMM de origem e destino. O servidor de origem deve ter máquinas virtuais que são habilitadas para failover e recuperação. Selecione **Hyper-V** para exibir somente as nuvens que estão configuradas para replicação do Hyper-V.
 
@@ -253,15 +269,18 @@ Para testar sua implantação, você pode executar um failover de teste para uma
 
 Depois que um plano de recuperação tiver sido criado, ele aparecerá na lista da guia **Planos de Recuperação** .
 
-### <a name="run-a-test-failover"></a>Execute um teste de failover
+<a id="run-a-test-failover" class="xliff"></a>
+### Execute um teste de failover
 1. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
 2. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Observe que com essa opção habilitada a falha em máquinas virtuais de réplica não será conectada a nenhuma rede. Isso irá testar se a máquina virtual falha conforme o esperado, mas não testa seu ambiente de rede de replicação. Veja como [executar um failover de teste](site-recovery-failover.md) para obter mais detalhes sobre como usar diferentes opções de rede.
 3. A máquina virtual de teste será criada no mesmo host como o host em que a máquina virtual de réplica existe. Ela não é adicionada à mesma nuvem na qual a máquina virtual de réplica está localizada.
 
-### <a name="run-a-recovery-plan"></a>Executar um plano de recuperação
+<a id="run-a-recovery-plan" class="xliff"></a>
+### Executar um plano de recuperação
 Depois da replicação, a máquina virtual de réplica não poderá ter um endereço IP que seja igual ao endereço IP da máquina virtual primária. As máquinas virtuais atualizarão o servidor DNS que estiverem usando depois que forem iniciadas. Você também pode adicionar um script para atualizar o servidor DNS a fim de garantir uma atualização em tempo hábil.
 
-#### <a name="script-to-retrieve-the-ip-address"></a>Script para recuperar o endereço IP
+<a id="script-to-retrieve-the-ip-address" class="xliff"></a>
+#### Script para recuperar o endereço IP
 Execute este script de exemplo para recuperar o endereço IP.
 
         $vm = Get-SCVirtualMachine -Name <VM_NAME>
@@ -269,7 +288,8 @@ Execute este script de exemplo para recuperar o endereço IP.
         $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
         $ip.address  
 
-#### <a name="script-to-update-dns"></a>Script para atualizar o DNS
+<a id="script-to-update-dns" class="xliff"></a>
+#### Script para atualizar o DNS
 Execute este script de exemplo para atualizar o DNS especificando o endereço IP recuperado usando o script de exemplo anterior.
 
         string]$Zone,
@@ -283,7 +303,8 @@ Execute este script de exemplo para atualizar o DNS especificando o endereço IP
 
 
 
-## <a name="privacy-information-for-site-recovery"></a>Informações de privacidade para Site Recovery
+<a id="privacy-information-for-site-recovery" class="xliff"></a>
+## Informações de privacidade para Site Recovery
 Esta seção fornece informações adicionais de privacidade para o serviço Microsoft Azure Site Recovery ("Serviço"). Para exibir a política de privacidade dos serviços do Microsoft Azure, confira a [Política de Privacidade do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=324899)
 
 **Recurso: Registro**
@@ -332,6 +353,7 @@ O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma a
   * Nomes de nuvem do servidor VMM: o nome de nuvem é necessário ao se usar o recurso de emparelhamento/desemparelhamento da nuvem do Serviço descrito abaixo. Quando você decide emparelhar sua nuvem de um data center primário com outra nuvem no data center de recuperação, os nomes de todas as nuvens do data center de recuperação são apresentados.
 * **Escolha**: essa é uma parte essencial do serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao Serviço, não use esse Serviço.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+## Próximas etapas
 Depois de executar um failover de teste para verificar se o seu ambiente está funcionando conforme o esperado, [saiba mais sobre](site-recovery-failover.md) os diferentes tipos de failover.
 
