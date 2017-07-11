@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
@@ -22,7 +22,8 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
+<a id="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics" class="xliff"></a>
+# Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Atividade de Hive](data-factory-hive-activity.md) 
 > * [Atividade Pig](data-factory-pig-activity.md)
@@ -43,7 +44,8 @@ Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de ar
 > Veja o tutorial [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para obter etapas detalhadas de como criar um Data Factory, serviços vinculados, conjuntos de dados e um pipeline. Use os trechos de código JSON com o Editor do Data Factory, Visual Studio ou Azure PowerShell para criar as entidades do Data Factory.
 
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Serviço Vinculado da Análise Azure Data Lake
+<a id="azure-data-lake-analytics-linked-service" class="xliff"></a>
+## Serviço Vinculado da Análise Azure Data Lake
 Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular um serviço de computação do Azure Data Lake Analytics a um Azure Data Factory. A atividade de U-SQL do Data Lake Analytics no pipeline se refere a esse serviço vinculado. 
 
 O exemplo a seguir fornece uma definição de JSON para um serviço vinculado da Análise Azure Data Lake. 
@@ -86,7 +88,8 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
 
 Para evitar/resolver este erro, reautorize usando o botão **Autorizar** quando o **token expirar** e reimplante o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir:
 
-### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Para gerar valores sessionId e authorization programaticamente
+<a id="to-programmatically-generate-sessionid-and-authorization-values" class="xliff"></a>
+### Para gerar valores sessionId e authorization programaticamente
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -115,7 +118,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Veja os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Adicione uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog. 
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Atividade do U-SQL da Análise Data Lake
+<a id="data-lake-analytics-u-sql-activity" class="xliff"></a>
+## Atividade do U-SQL da Análise Data Lake
 O seguinte trecho de código JSON define um pipeline com uma Atividade do U-SQL da Análise Data Lake. A definição de atividade tem uma referência para o serviço vinculado da Análise Azure Data Lake criado anteriormente.   
 
 ```JSON
@@ -185,8 +189,10 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 
 Consulte [Definição do Script SearchLogProcessing.txt](#sample-u-sql-script) para ver a definição do script. 
 
-## <a name="sample-input-and-output-datasets"></a>Conjuntos de dados de entrada e saída de exemplo
-### <a name="input-dataset"></a>Conjunto de dados de entrada
+<a id="sample-input-and-output-datasets" class="xliff"></a>
+## Conjuntos de dados de entrada e saída de exemplo
+<a id="input-dataset" class="xliff"></a>
+### Conjunto de dados de entrada
 Neste exemplo, os dados de entrada residem em um Repositório Azure Data Lake (arquivo SearchLog.tsv na pasta datalake/input). 
 
 ```JSON
@@ -212,7 +218,8 @@ Neste exemplo, os dados de entrada residem em um Repositório Azure Data Lake (a
 }    
 ```
 
-### <a name="output-dataset"></a>Conjunto de dados de saída
+<a id="output-dataset" class="xliff"></a>
+### Conjunto de dados de saída
 Neste exemplo, os dados de saída produzidos pelo script U-SQL são armazenados em um Repositório Azure Data Lake (pasta datalake/output). 
 
 ```JSON
@@ -232,7 +239,8 @@ Neste exemplo, os dados de saída produzidos pelo script U-SQL são armazenados 
 }
 ```
 
-### <a name="sample-data-lake-store-linked-service"></a>Exemplo de serviço vinculado do Data Lake Store
+<a id="sample-data-lake-store-linked-service" class="xliff"></a>
+### Exemplo de serviço vinculado do Data Lake Store
 Veja a definição de exemplo de serviço vinculado do Azure Data Lake Store usado pelos conjuntos de dados de entrada/saída. 
 
 ```JSON
@@ -251,7 +259,8 @@ Veja a definição de exemplo de serviço vinculado do Azure Data Lake Store usa
 
 Consulte o artigo [Mover dados de e para o Azure Data Lake Store](data-factory-azure-datalake-connector.md) para obter descrições das propriedades de JSON. 
 
-## <a name="sample-u-sql-script"></a>Exemplo de script U-SQL
+<a id="sample-u-sql-script" class="xliff"></a>
+## Exemplo de script U-SQL
 
 ```
 @searchlog =
@@ -284,7 +293,8 @@ Os valores dos parâmetros **@in** e **@out** no script U-SQL são passados dina
 
 Você pode especificar outras propriedades, por exemplo, degreeOfParallelism e prioridade, bem como em sua definição de pipeline para os trabalhos executados no serviço Data Lake Analytics.
 
-## <a name="dynamic-parameters"></a>Parâmetros dinâmicos
+<a id="dynamic-parameters" class="xliff"></a>
+## Parâmetros dinâmicos
 Na definição de pipeline de exemplo, os parâmetros in e out são atribuídos com valores embutidos em código. 
 
 ```JSON

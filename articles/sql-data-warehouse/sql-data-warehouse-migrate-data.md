@@ -23,12 +23,14 @@ ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="migrate-your-data"></a>Migrar seus dados
+<a id="migrate-your-data" class="xliff"></a>
+# Migrar seus dados
 Os dados podem ser movidos de diferentes origens no SQL Data Warehouse com uma variedade de ferramentas.  A cópia do ADF, o SSIS e o bcp podem ser usados para cumprir essa meta. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
 
 Em primeiro lugar, este artigo descreve os cenários de migração simples por Cópia do ADF, SSIS e bcp. Em seguida, o artigo se aprofunda um pouco em como a migração pode ser otimizada.
 
-## <a name="azure-data-factory-adf-copy"></a>Cópia do ADF (Azure Data Factory)
+<a id="azure-data-factory-adf-copy" class="xliff"></a>
+## Cópia do ADF (Azure Data Factory)
 A [Cópia do ADF][ADF Copy] faz parte do [Azure Data Factory][Azure Data Factory]. Você pode usar a Cópia do ADF para exportar dados para arquivos simples que residem no armazenamento local, arquivos simples remotos mantidos no armazenamento de blob do Azure ou diretamente no SQL Data Warehouse.
 
 Se seus dados começarem em arquivos simples, você precisará transferi-los para o Azure Storage Blob antes de carregá-los no SQL Data Warehouse. Depois que os dados forem transferidos para o armazenamento de blobs do Azure, você poderá optar por usar a [Cópia do ADF][ADF Copy] novamente para enviar os dados por push ao SQL Data Warehouse.
@@ -41,7 +43,8 @@ O PolyBase também fornece uma opção de desempenho alto para carregamento dos 
 
 Acesse o artigo a seguir para ver algumas ótimas [amostras de ADF][ADF samples].
 
-## <a name="integration-services"></a>Serviços de integração
+<a id="integration-services" class="xliff"></a>
+## Serviços de integração
 O SSIS (SQL Server Integration Services) é uma ferramenta de ETL (Extração, Transformação e Carregamento) avançada e flexível que oferece suporte a fluxos de trabalho complexos, transformação de dados e várias opções de carregamento de dados. Use o SSIS para simplificar a transferência de dados para o Azure ou como parte de uma migração mais ampla.
 
 > [!NOTE]
@@ -60,7 +63,8 @@ Além disso, sempre há a possibilidade de que um pacote possa falhar devido a p
 
 Para obter mais informações, consulte a [documentação do SSIS][SSIS documentation].
 
-## <a name="bcp"></a>bcp
+<a id="bcp" class="xliff"></a>
+## bcp
 O bcp é um utilitário de linha de comando desenvolvido para importação e exportação de dados de arquivo simples. Algumas transformações podem ocorrer durante a exportação de dados. Para executar transformações simples, use uma consulta para selecionar e transformar os dados. Depois de exportados, os arquivos simples podem ser carregados diretamente no banco de dados do SQL Data Warehouse de destino.
 
 > [!NOTE]
@@ -82,7 +86,8 @@ As limitações do bcp são:
 
 Para obter mais informações, consulte [Usar o bcp para carregar dados no SQL Data Warehouse][Use bcp to load data into SQL Data Warehouse].
 
-## <a name="optimizing-data-migration"></a>Otimizando a migração de dados
+<a id="optimizing-data-migration" class="xliff"></a>
+## Otimizando a migração de dados
 Um processo de migração de dados SQLDW pode ser dividido efetivamente em três etapas distintas:
 
 1. Exportação dos dados de origem
@@ -91,34 +96,40 @@ Um processo de migração de dados SQLDW pode ser dividido efetivamente em três
 
 Cada etapa pode ser otimizada individualmente para criar um processo de migração robusto, reinicializável e flexível que maximize o desempenho em cada etapa.
 
-## <a name="optimizing-data-load"></a>Otimizando o carregamento de dados
+<a id="optimizing-data-load" class="xliff"></a>
+## Otimizando o carregamento de dados
 Observando-as na ordem inversa por um momento, a maneira mais rápida de carregar dados é pelo PolyBase. A otimização de um processo de carregamento do PolyBase impõe pré-requisitos nas etapas anteriores, de modo que é melhor entendê-los de antemão. Eles são:
 
 1. Codificação dos arquivos de dados
 2. Formatação dos arquivos de dados
 3. Localização dos arquivos de dados
 
-### <a name="encoding"></a>Codificação
+<a id="encoding" class="xliff"></a>
+### Codificação
 O PolyBase exige que os arquivos de dados sejam codificados em UTF-8 ou UTF-16FE. 
 
 
 
-### <a name="format-of-data-files"></a>Formatação dos arquivos de dados
+<a id="format-of-data-files" class="xliff"></a>
+### Formatação dos arquivos de dados
 O PolyBase exige um terminador de linha fixo de \n ou uma nova linha. Os arquivos de dados devem estar de acordo com esse padrão. Não existem restrições quanto a terminadores de coluna ou de cadeia de caracteres.
 
 Você precisará definir todas as colunas no arquivo como parte de sua tabela externa no PolyBase. Certifique-se de que todas as colunas exportadas sejam necessárias e que os tipos estejam em conformidade com os padrões exigidos.
 
 Consulte novamente o artigo [migrar seu esquema] para obter detalhes sobre os tipos de dados com suporte.
 
-### <a name="location-of-data-files"></a>Localização dos arquivos de dados
+<a id="location-of-data-files" class="xliff"></a>
+### Localização dos arquivos de dados
 O SQL Data Warehouse usa o PolyBase para carregar dados com exclusividade do Armazenamento de Blob do Azure. Consequentemente, os dados devem ser sido transferidos primeiro para o armazenamento de blob.
 
-## <a name="optimizing-data-transfer"></a>Otimizando a transferência de dados
+<a id="optimizing-data-transfer" class="xliff"></a>
+## Otimizando a transferência de dados
 Uma das partes mais lentas da migração de dados é a transferência dos dados para o Azure. Não só a largura de banda da rede pode ser um problema; a confiabilidade também pode atrapalhar seriamente o progresso. Por padrão, a migração de dados para o Azure é pela Internet, de modo que as chances de erros de transferência são razoáveis. No entanto, esses erros podem exigir que os dados sejam reenviados no todo ou em parte.
 
 Felizmente, você tem várias opções para melhorar a velocidade e a resiliência desse processo:
 
-### <a name="expressrouteexpressroute"></a>[ExpressRoute][ExpressRoute]
+<a id="expressrouteexpressroute" class="xliff"></a>
+### [ExpressRoute][ExpressRoute]
 Talvez você deseje considerar o uso do [ExpressRoute][ExpressRoute] para acelerar a transferência. O [ExpressRoute][ExpressRoute] fornece uma conexão privada estabelecida com o Azure, para que a conexão não passe pela Internet pública. Essa não é uma etapa obrigatória. No entanto, ela melhora a taxa de transferência ao enviar dados para o Azure de uma instalação local ou colocalizada.
 
 Os benefícios de usar o [ExpressRoute][ExpressRoute] são:
@@ -132,7 +143,8 @@ O [ExpressRoute][ExpressRoute] é vantajoso em muitos cenários; não apenas na 
 
 Interessado? Para obter informações e os preço, acesse a [documentação do ExpressRoute][ExpressRoute documentation].
 
-### <a name="azure-import-and-export-service"></a>Serviço de Importação e Exportação do Azure
+<a id="azure-import-and-export-service" class="xliff"></a>
+### Serviço de Importação e Exportação do Azure
 O Serviço de Importação e Exportação do Azure é um processo de transferência de dados desenvolvido para transferências de volumes de dados grandes (GB++) e em massa (TB++) para o Azure. Ele envolve gravar os dados em discos e enviá-los a um data center do Azure. O conteúdo do disco é carregado nos Blobs de Armazenamento do Azure em seu nome.
 
 Exibição de alto nível do processo de importação/exportação:
@@ -145,7 +157,8 @@ Exibição de alto nível do processo de importação/exportação:
 6. Seus dados são transferidos para o contêiner de Armazenamento de Blob do Azure
 7. Carregar os dados no SQLDW usando o PolyBase
 
-### <a name="azcopyazcopy-utility"></a>Utilitário [AZCopy][AZCopy]
+<a id="azcopyazcopy-utility" class="xliff"></a>
+### Utilitário [AZCopy][AZCopy]
 O utilitário [AZCopy][AZCopy] é uma excelente ferramenta para transferir dados para os Blobs de Armazenamento do Azure. Ele foi desenvolvido para transferências de volumes de dados pequenos (MB++) a muito grandes (GB++). [AZCopy] também foi projetado para fornecer boa taxa de transferência resiliente ao transferir dados para o Azure e, portanto, é uma excelente opção para a etapa de transferência de dados. Depois de transferidos, você pode carregar os dados no SQL Data Warehouse usando o PolyBase. Também é possível incorporar o AZCopy aos seus pacotes do SSIS usando uma tarefa “Executar Processo”.
 
 Para usar o AZCopy, primeiramente é preciso baixá-lo e instalá-lo. Uma [versão de produção][production version] e uma [versão prévia][preview version] estão disponíveis.
@@ -165,22 +178,26 @@ Exemplo do resumo de um processo de alto nível:
 
 Documentação completa disponível: [AZCopy][AZCopy].
 
-## <a name="optimizing-data-export"></a>Otimizando a exportação de dados
+<a id="optimizing-data-export" class="xliff"></a>
+## Otimizando a exportação de dados
 Além de assegurar que a exportação está em conformidade com os requisitos apresentados pelo PolyBase, você também pode otimizar a exportação dos dados para melhorar ainda mais o processo.
 
 
 
-### <a name="data-compression"></a>Compactação de dados
+<a id="data-compression" class="xliff"></a>
+### Compactação de dados
 O PolyBase pode ler dados compactados em gzip. Se for possível compactar os dados em arquivos gzip, você minimizará o volume de dados que é enviado pela rede.
 
-### <a name="multiple-files"></a>Vários arquivos
+<a id="multiple-files" class="xliff"></a>
+### Vários arquivos
 Dividir tabelas grandes em vários arquivos ajuda a aumentar a velocidade da exportação, bem como ajuda na capacidade de reinicialização da transferência e na capacidade de gerenciamento geral dos dados quando eles estiverem no armazenamento de blob do Azure. Um dos muitos recursos interessantes do PolyBase é que ele lê todos os arquivos dentro de uma pasta e os trata como uma tabela. Desse modo, é uma boa ideia isolar os arquivos de cada tabela em sua própria pasta.
 
 O PolyBase também oferece suporte a um recurso conhecido como "passagem de pasta recursiva". Você pode usar esse recurso para aprimorar ainda mais a organização dos seus dados exportados, melhorando o gerenciamento de dados.
 
 Para saber mais sobre como carregar dados com o PolyBase, consulte [Usar o PolyBase para carregar dados no SQL Data Warehouse][Use PolyBase to load data into SQL Data Warehouse].
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+## Próximas etapas
 Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Data Warehouse][Migrate your solution to SQL Data Warehouse].
 Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento][development overview].
 
