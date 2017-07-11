@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
@@ -22,7 +22,8 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: usar a API REST para criar um pipeline do Azure Data Factory a fim de copiar dados 
+<a id="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data" class="xliff"></a>
+# Tutorial: usar a API REST para criar um pipeline do Azure Data Factory a fim de copiar dados 
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -46,7 +47,8 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 >  
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+<a id="prerequisites" class="xliff"></a>
+## Pré-requisitos
 * Percorra o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de **pré-requisito** .
 * Instale o [Curl](https://curl.haxx.se/dlwiz/) em seu computador. Você pode usar a ferramenta Curl com comandos REST para criar um data factory. 
 * Siga as instruções [deste artigo](../azure-resource-manager/resource-group-create-service-principal-portal.md) para: 
@@ -82,10 +84,12 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
      
       Algumas das etapas neste tutorial supõem que você utilize o grupo de recursos denominado ADFTutorialResourceGroup. Se você utilizar um grupo de recursos diferente, precisará usar o nome do seu grupo de recursos no lugar de ADFTutorialResourceGroup neste tutorial.
 
-## <a name="create-json-definitions"></a>Criar definições JSON
+<a id="create-json-definitions" class="xliff"></a>
+## Criar definições JSON
 Crie os arquivos JSON a seguir na pasta onde curl.exe está localizado. 
 
-### <a name="datafactoryjson"></a>datafactory.json
+<a id="datafactoryjson" class="xliff"></a>
+### datafactory.json
 > [!IMPORTANT]
 > O nome deve ser exclusivo e, portanto, convém colocar um prefixo/sufixo no ADFCopyTutorialDF para torná-lo um nome exclusivo. 
 > 
@@ -98,7 +102,8 @@ Crie os arquivos JSON a seguir na pasta onde curl.exe está localizado.
 }  
 ```
 
-### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
+<a id="azurestoragelinkedservicejson" class="xliff"></a>
+### azurestoragelinkedservice.json
 > [!IMPORTANT]
 > Substitua **nome da conta** e **chave da conta** pelo nome e pela chave da sua conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 
@@ -116,7 +121,8 @@ Crie os arquivos JSON a seguir na pasta onde curl.exe está localizado.
 
 Para obter detalhes sobre as propriedades JSON, confira [Serviço vinculado do Armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 
-### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
+<a id="azuersqllinkedservicejson" class="xliff"></a>
+### azuersqllinkedservice.json
 > [!IMPORTANT]
 > Substitua **servername**, **databasename**, **username** e **passwords** pelos nomes do servidor SQL do Azure e do banco de dados SQL, pela conta de usuário e pela senha da conta.  
 > 
@@ -137,7 +143,8 @@ Para obter detalhes sobre as propriedades JSON, confira [Serviço vinculado do A
 
 Para obter detalhes sobre as propriedades JSON, confira [Serviço vinculado do Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties).
 
-### <a name="inputdatasetjson"></a>inputdataset.json
+<a id="inputdatasetjson" class="xliff"></a>
+### inputdataset.json
 
 ```JSON
 {
@@ -187,7 +194,8 @@ A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho
 
 Para saber mais sobre essas propriedades JSON, confira o [artigo sobre o conector de blobs do Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
-### <a name="outputdatasetjson"></a>outputdataset.json
+<a id="outputdatasetjson" class="xliff"></a>
+### outputdataset.json
 
 ```JSON
 {
@@ -228,7 +236,8 @@ Há três colunas (**ID**, **FirstName** e **LastName**) na tabela emp no banco 
 
 Para saber mais sobre essas propriedades JSON, confira o [artigo sobre o conector do SQL](data-factory-azure-sql-connector.md#dataset-properties).
 
-### <a name="pipelinejson"></a>pipeline.json
+<a id="pipelinejson" class="xliff"></a>
+### pipeline.json
 
 ```JSON
 {
@@ -290,7 +299,8 @@ No exemplo anterior, há 24 fatias de dados, pois cada fatia de dados é produzi
 
 Para obter descrições das propriedades JSON em uma definição de pipeline, consulte o artigo [Criar pipelines](data-factory-create-pipelines.md). Para obter descrições das propriedades JSON em uma definição de atividade de cópia, consulte [Atividades de movimentação de dados](data-factory-data-movement-activities.md). Para obter descrições das propriedades JSON com suporte pelo BlobSource, consulte o [artigo sobre o conector de blobs do Azure](data-factory-azure-blob-connector.md). Para obter descrições das propriedades JSON com suporte pelo SqlSink, consulte o [artigo sobre o conector do Banco de Dados SQL](data-factory-azure-sql-connector.md).
 
-## <a name="set-global-variables"></a>Definir variáveis globais
+<a id="set-global-variables" class="xliff"></a>
+## Definir variáveis globais
 No Azure PowerShell, execute os comandos a seguir depois de substituir os valores pelos seus próprios:
 
 > [!IMPORTANT]
@@ -313,7 +323,8 @@ Execute o comando abaixo depois de atualizar o nome do data factory que você es
 $adf = "ADFCopyTutorialDF"
 ```
 
-## <a name="authenticate-with-aad"></a>Autenticar com o AAD
+<a id="authenticate-with-aad" class="xliff"></a>
+## Autenticar com o AAD
 Execute o comando a seguir para autenticar com o AAD (Azure Active Directory): 
 
 ```PowerShell
@@ -324,7 +335,8 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 (ConvertFrom-Json $responseToken) 
 ```
 
-## <a name="create-data-factory"></a>Criar um data factory
+<a id="create-data-factory" class="xliff"></a>
+## Criar um data factory
 Nesta etapa, você criará um Azure Data Factory chamado **ADFCopyTutorialDF**. Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma atividade de cópia para copiar dados de uma fonte para um armazenamento de dados de destino. Uma atividade do HDInsight Hive para executar um script Hive para transformar dados de entrada para produzir dados de saída. Execute os seguintes comandos para criar o data factory: 
 
 1. Atribua o comando à variável chamada **cmd**. 
@@ -373,14 +385,16 @@ Observe os seguintes pontos:
 
 Antes de criar um pipeline, primeiro você precisará criar algumas entidades do Data Factory. Primeiro, você cria serviços vinculados para vincular os repositórios de dados de origem e de destino a seu repositório de dados. Em seguida, defina conjuntos de dados de entrada e saída para representar dados em repositórios de dados vinculados. Finalmente, crie o pipeline com uma atividade que usa esses conjuntos de dados.
 
-## <a name="create-linked-services"></a>Criar serviços vinculados
+<a id="create-linked-services" class="xliff"></a>
+## Criar serviços vinculados
 Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste tutorial, você não usa serviços de computação, como o Azure HDInsight ou o Azure Data Lake Analytics. Você usa dois armazenamentos de dados do tipo Armazenamento do Azure (origem) e o banco de dados SQL (destino). Portanto, você pode criar dois serviços vinculados, chamados AzureStorageLinkedService e AzureSqlLinkedService, dos tipos: AzureStorage e AzureSqlDatabase.  
 
 O AzureStorageLinkedService vincula sua conta do armazenamento do Azure ao data factory. Essa conta de armazenamento é aquela na qual você criou um contêiner e carregou os dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
 O AzureSqlLinkedService vincula seu banco de dados SQL do Azure ao data factory. Os dados copiados do armazenamento de blobs são armazenados no banco de dados. Você criou a tabela emp no banco de dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
 
-### <a name="create-azure-storage-linked-service"></a>Criar o serviço vinculado do armazenamento do Azure
+<a id="create-azure-storage-linked-service" class="xliff"></a>
+### Criar o serviço vinculado do armazenamento do Azure
 Nesta etapa, você vincula a conta do Armazenamento do Azure ao data factory. Especifique o nome e a chave da sua conta de armazenamento do Azure nesta seção. Confira [Serviço vinculado de armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) para obter detalhes sobre os elementos JSON para definir um serviço vinculado de armazenamento do Azure.  
 
 1. Atribua o comando à variável chamada **cmd**. 
@@ -399,7 +413,8 @@ Nesta etapa, você vincula a conta do Armazenamento do Azure ao data factory. Es
     Write-Host $results
     ```
 
-### <a name="create-azure-sql-linked-service"></a>Criar serviço vinculado do Azure SQL
+<a id="create-azure-sql-linked-service" class="xliff"></a>
+### Criar serviço vinculado do Azure SQL
 Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory. Especifique o nome do SQL Server do Azure, nome do banco de dados, nome de usuário e senha de usuário nesta seção. Consulte [Serviço vinculado do SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre os propriedades JSON usadas para definir um serviço vinculado do SQL do Azure.
 
 1. Atribua o comando à variável chamada **cmd**. 
@@ -418,14 +433,16 @@ Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory. Especi
     Write-Host $results
     ```
 
-## <a name="create-datasets"></a>Criar conjuntos de dados
+<a id="create-datasets" class="xliff"></a>
+## Criar conjuntos de dados
 Na etapa anterior, você criou serviços vinculados para vincular a conta do Armazenamento do Azure e um banco de dados SQL do Azure ao data factory. Nesta etapa, você define dois conjuntos de dados, chamados AzureBlobInput e AzureSqlOutput, que representam os dados de entrada e saída armazenados nos repositórios de dados referidos por AzureStorageLinkedService e AzureSqlLinkedService, respectivamente.
 
 O serviço vinculado do Armazenamento do Azure especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar à sua conta do Armazenamento do Azure. E o conjunto de dados de blob de entrada (AzureBlobInput) especifica o contêiner e a pasta que contém os dados.  
 
 Da mesma forma, o serviço vinculado do Banco de Dados SQL especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar ao seu Banco de Dados SQL do Azure. Além disso, o conjunto de dados da tabela SQL de saída (OutputDataset) especifica a tabela no banco de dados na qual os dados do armazenamento de blobs são copiados. 
 
-### <a name="create-input-dataset"></a>Criar conjunto de dados de entrada
+<a id="create-input-dataset" class="xliff"></a>
+### Criar conjunto de dados de entrada
 Nesta etapa, você criará um conjunto de dados denominado AzureBlobInput que aponta para um arquivo de blob (emp.txt) na pasta raiz de um contêiner de blob (adftutorial) no Armazenamento do Azure representado pelo serviço vinculado AzureStorageLinkedService. Se você não especificar um valor para fileName (ou ignorá-lo), os dados de todos os blobs na pasta de entrada serão copiados no destino. Neste tutorial, você deve especificar um valor para o fileName. 
 
 1. Atribua o comando à variável chamada **cmd**. 
@@ -444,7 +461,8 @@ Nesta etapa, você criará um conjunto de dados denominado AzureBlobInput que ap
     Write-Host $results
     ```
 
-### <a name="create-output-dataset"></a>Criar conjunto de dados de saída
+<a id="create-output-dataset" class="xliff"></a>
+### Criar conjunto de dados de saída
 O serviço vinculado do Banco de Dados SQL especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar ao seu Banco de Dados SQL do Azure. O conjunto de dados da tabela SQL de saída (OutputDataset) criado nesta etapa especifica a tabela no banco de dados na qual os dados do armazenamento de blobs são copiados.
 
 1. Atribua o comando à variável chamada **cmd**.
@@ -463,7 +481,8 @@ O serviço vinculado do Banco de Dados SQL especifica a cadeia de conexão que o
     Write-Host $results
     ``` 
 
-## <a name="create-pipeline"></a>Criar um pipeline
+<a id="create-pipeline" class="xliff"></a>
+## Criar um pipeline
 Nesta etapa, você cria um pipeline com uma **atividade de cópia** que usa **AzureBlobInput** como uma entrada e **AzureSqlOutput** como uma saída.
 
 Atualmente, o conjunto de dados de saída é o que conduz o agendamento. Neste tutorial, o conjunto de dados de saída está configurado para produzir uma fatia uma vez a cada hora. O pipeline tem uma hora de início e uma hora de término com um dia de diferença, o que significa 24 horas. Portanto, 24 fatias de conjunto de dados de saída são produzidas pelo pipeline. 
@@ -486,7 +505,8 @@ Atualmente, o conjunto de dados de saída é o que conduz o agendamento. Neste t
 
 **Parabéns!** Você criou com êxito um data factory do Azure, com um pipeline que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure.
 
-## <a name="monitor-pipeline"></a>Monitorar o pipeline
+<a id="monitor-pipeline" class="xliff"></a>
+## Monitorar o pipeline
 Nesta etapa, você pode usar a API REST do Data Factory para monitorar fatias produzidas pelo pipeline.
 
 ```PowerShell
@@ -516,7 +536,8 @@ Execute Invoke-Command e o próximo até ver uma fatia no estado **Pronto** ou *
 
 Para cada fatia, duas linhas de dados do arquivo de origem são copiadas para a tabela emp no Banco de Dados SQL do Azure. Portanto, você verá 24 novos registros na tabela emp quando todas as fatias forem processadas com êxito (no estado Pronto). 
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+## Resumo
 Neste tutorial, você usou uma API REST para criar um data factory do Azure e copiar dados de um blob do Azure para um banco de dados SQL do Azure. Aqui estão as etapas de alto nível executadas nesse tutorial:  
 
 1. Foi criado um **data factory**do Azure.
@@ -526,7 +547,8 @@ Neste tutorial, você usou uma API REST para criar um data factory do Azure e co
 3. Foram criados **conjuntos de dados**que descrevem os dados de entrada e de saída para os pipelines.
 4. Foi criado um **pipeline** com uma Atividade de Cópia com BlobSource como origem e SqlSink como coletor. 
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+## Próximas etapas
 Neste tutorial, você usou o armazenamento de blobs do Azure como um armazenamento de dados de origem e um banco de dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
