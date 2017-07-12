@@ -10,7 +10,9 @@ ms.lasthandoff: 05/03/2017
 
 
 ---
-# <a name="deprecated-forecasting---autoregressive-integrated-moving-average-arima"></a>(preterido) Previsão - Média de Movimentação Integrada de Regressão Automática (ARIMA)
+<a id="deprecated-forecasting---autoregressive-integrated-moving-average-arima" class="xliff"></a>
+
+# (preterido) Previsão - Média de Movimentação Integrada de Regressão Automática (ARIMA)
 
 > [!NOTE]
 > O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
@@ -26,7 +28,9 @@ Este [serviço](https://datamarket.azure.com/dataset/aml_labs/arima) implementa 
 > 
 > 
 
-## <a name="consumption-of-web-service"></a>Consumo do serviço Web
+<a id="consumption-of-web-service" class="xliff"></a>
+
+## Consumo do serviço Web
 Este serviço aceita quatro argumentos e calcula as previsões ARIMA.
 Os argumentos de entrada são:
 
@@ -50,7 +54,9 @@ A amostrada de entrada poderia ser:
 
 Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/ArimaForecasting.aspx)).
 
-### <a name="starting-c-code-for-web-service-consumption"></a>Iniciando o código C# para consumo de serviço Web:
+<a id="starting-c-code-for-web-service-consumption" class="xliff"></a>
+
+### Iniciando o código C# para consumo de serviço Web:
     public class Input
     {
         public string frequency;
@@ -80,21 +86,29 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
           var scoreResult = result.ReadAsStringAsync().Result;
       }
 
-## <a name="creation-of-web-service"></a>Criação de serviço Web
+<a id="creation-of-web-service" class="xliff"></a>
+
+## Criação de serviço Web
 > Este serviço Web foi criado usando o Aprendizado de Máquina do Azure. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 > 
 > 
 
 De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado. Os dados de entrada de amostra foram carregados com um esquema de dados predefinido. Vinculado ao esquema de dados está um módulo de [Executar Script R][execute-r-script] que gera o modelo de previsão ARIMA usando as funções “auto.arima” e “forecast” de R. 
 
-### <a name="experiment-flow"></a>Fluxo de teste:
+<a id="experiment-flow" class="xliff"></a>
+
+### Fluxo de teste:
 ![Criar espaço de trabalho][2]
 
-#### <a name="module-1"></a>Módulo 1:
+<a id="module-1" class="xliff"></a>
+
+#### Módulo 1:
     # Add in the CSV file with the data in the format shown below 
 ![Criar espaço de trabalho][3]    
 
-#### <a name="module-2"></a>Módulo 2:
+<a id="module-2" class="xliff"></a>
+
+#### Módulo 2:
     # data input
     data <- maml.mapInputPort(1) # class: data.frame
     library(forecast)
@@ -122,10 +136,14 @@ De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criad
     maml.mapOutputPort("data.forecast");
 
 
-## <a name="limitations"></a>Limitações
+<a id="limitations" class="xliff"></a>
+
+## Limitações
 Este é um exemplo muito simples para a previsão ARIMA. Como se pode ver no código de exemplo acima, nenhuma captura de erro é implementada e o serviço presume que todas as variáveis são valores contínuos/positivos e a frequência deve ser um inteiro maior que 1. Os vetores de data e valor devem ter o mesmo tamanho. A variável de data deve seguir o formato 'mm/dd/aaaa'.
 
-## <a name="faq"></a>Perguntas frequentes
+<a id="faq" class="xliff"></a>
+
+## Perguntas frequentes
 Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-arima/arima-img1.png
