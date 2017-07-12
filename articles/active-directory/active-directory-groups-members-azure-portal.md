@@ -24,10 +24,14 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Gerenciar associação de grupo de usuários em seu locatário do Azure Active Directory
+<a id="manage-group-membership-for-users-in-your-azure-active-directory-tenant" class="xliff"></a>
+
+# Gerenciar associação de grupo de usuários em seu locatário do Azure Active Directory
 Este artigo explica como gerenciar os membros de um grupo no Azure AD (Azure Active Directory).
 
-## <a name="how-do-i-find-the-members-and-manage-them"></a>Como localizo os membros e os gerencio?
+<a id="how-do-i-find-the-members-and-manage-them" class="xliff"></a>
+
+## Como localizo os membros e os gerencio?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
 
@@ -36,7 +40,7 @@ Este artigo explica como gerenciar os membros de um grupo no Azure AD (Azure Act
 
    ![Abrir a folha de grupos](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
 4. Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.
-5. Na folha **Grupo – *nomedogrupo***, selecione **Membros**.
+5. Na folha **Grupo – *nomedogrupo*** , selecione **Membros**.
 
    ![Abrir a folha Membros](./media/active-directory-groups-members-azure-portal/view-group-members.png)
 6. Para adicionar membros ao grupo, na folha **Grupo - Membros**, selecione **Adicionar Membros**.
@@ -49,7 +53,9 @@ Este artigo explica como gerenciar os membros de um grupo no Azure AD (Azure Act
    ![Comando Remover Membros](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
 10. Quando terminar de alterar os membros do grupo, escolha **Salvar**.
 
-## <a name="additional-information"></a>Informações adicionais
+<a id="additional-information" class="xliff"></a>
+
+## Informações adicionais
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Ver grupos existentes](active-directory-groups-view-azure-portal.md)
