@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="a-nameintroa-integrate-a-cloud-service-with-azure-cdn"></a><a name="intro"></a> Integrar um serviço de nuvem à CDN do Azure
+# <a name="intro"></a> Integrar um serviço de nuvem à CDN do Azure
 Um serviço de nuvem pode ser integrado com o CDN do Azure, fornecendo qualquer conteúdo do local do serviço de nuvem. Esta abordagem lhe dá as seguintes vantagens:
 
 * Implantar e atualizar, de maneira fácil, imagens, scripts e folhas de estilo nos diretórios de projetos de seu serviço de nuvem
@@ -29,7 +31,9 @@ Um serviço de nuvem pode ser integrado com o CDN do Azure, fornecendo qualquer 
 * Fluxo de trabalho de implantação unificado para seu aplicativo Web e o conteúdo fornecido por CDN
 * Integrar agrupamento e minificação ASP.NET à CDN do Azure
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Neste tutorial, você aprenderá a:
 
 * [Integrar um ponto de extremidade da CDN do Azure a seu serviço de nuvem e fornecer conteúdo estático em suas páginas Web por meio da CDN do Azure](#deploy)
@@ -38,10 +42,14 @@ Neste tutorial, você aprenderá a:
 * [Fornecer conteúdo agrupado e minificado por meio da CDN do Azure enquanto preserva a experiência de depuração de script no Visual Studio](#bundling)
 * [Configurar o fallback de seus scripts e CSS quando a CDN do Azure estiver offline](#fallback)
 
-## <a name="what-you-will-build"></a>O que você compilará
+<a id="what-you-will-build" class="xliff"></a>
+
+## O que você compilará
 Você implantará uma função Web de serviço de nuvem usando o modelo ASP.NET MVC padrão, adicionará código para fornecer conteúdo de uma CDN do Azure integrada, como uma imagem, resultados de ação do controlador e os arquivos JavaScript e CSS padrão, e também escreverá código para configurar o mecanismo de fallback para grupos fornecidos caso o CDN esteja offline.
 
-## <a name="what-you-will-need"></a>O que será necessário
+<a id="what-you-will-need" class="xliff"></a>
+
+## O que será necessário
 Este tutorial tem os seguintes pré-requisitos:
 
 * Uma [conta do Microsoft Azure](/account/)
@@ -57,7 +65,9 @@ Este tutorial tem os seguintes pré-requisitos:
 
 <a name="deploy"></a>
 
-## <a name="deploy-a-cloud-service"></a>Implantar um serviço de nuvem
+<a id="deploy-a-cloud-service" class="xliff"></a>
+
+## Implantar um serviço de nuvem
 Nesta seção, você vai implantar o modelo de aplicativo MVC ASP.NET padrão no Visual Studio 2015 para uma função de Web do serviço de nuvem e, em seguida, integrá-la a um novo ponto de extremidade CDN. Siga as instruções abaixo:
 
 1. No Visual Studio 2015, crie um novo serviço de nuvem do Azure na barra de menu acessando **Arquivo > Novo > Projeto > Nuvem > Serviço de Nuvem do Azure**. Dê um nome a ele e clique em **OK**.
@@ -98,7 +108,9 @@ Nesta seção, você vai implantar o modelo de aplicativo MVC ASP.NET padrão no
    > 
    > 
 
-## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil CDN
+<a id="create-a-new-cdn-profile" class="xliff"></a>
+
+## Criar um novo perfil CDN
 Um perfil CDN é um conjunto de pontos de extremidade CDN.  Cada perfil contém um ou mais pontos de extremidade CDN.  Você pode usar vários perfis para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério.
 
 > [!TIP]
@@ -108,7 +120,9 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN.  Cada perfil contém 
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## <a name="create-a-new-cdn-endpoint"></a>Criar um novo ponto de extremidade CDN
+<a id="create-a-new-cdn-endpoint" class="xliff"></a>
+
+## Criar um novo ponto de extremidade CDN
 **Para criar um novo ponto de extremidade CDN para sua conta de armazenamento**
 
 1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN.  Você pode ter fixado ao painel na etapa anterior.  Se não, você poderá encontrá-lo clicando em **Procurar**, em **Perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
@@ -137,7 +151,9 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN.  Cada perfil contém 
    > 
    > 
 
-## <a name="test-the-cdn-endpoint"></a>Testar o ponto de extremidade CDN
+<a id="test-the-cdn-endpoint" class="xliff"></a>
+
+## Testar o ponto de extremidade CDN
 Quando o status da publicação for **Concluído**, abra uma janela do navegador e vá para **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
 
     http://camservice.azureedge.net/Content/bootstrap.css
@@ -171,7 +187,9 @@ A alternativa é determinar que conteúdo fornecer por meio da CDN do Azure caso
 
 <a name="caching"></a>
 
-## <a name="configure-caching-options-for-static-files-in-your-cloud-service"></a>Configurar opções de cache para arquivos estáticos em seu serviço de nuvem
+<a id="configure-caching-options-for-static-files-in-your-cloud-service" class="xliff"></a>
+
+## Configurar opções de cache para arquivos estáticos em seu serviço de nuvem
 Com a integração da CDN do Azure a seu serviço de nuvem, você pode especificar como quer que o conteúdo estático seja armazenado em cache no ponto de extremidade da CDN. Para fazer isso, abra *Web.config* em seu projeto de função Web (por exemplo, FunçãodaWeb1) e adicione um elemento `<staticContent>` a `<system.webServer>`. O XML configura o cache para expirar em 3 dias.  
 
     <system.webServer>
@@ -200,7 +218,9 @@ Em [Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azu
 
 <a name="controller"></a>
 
-## <a name="serve-content-from-controller-actions-through-azure-cdn"></a>Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure
+<a id="serve-content-from-controller-actions-through-azure-cdn" class="xliff"></a>
+
+## Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure
 Quando você integra uma função Web de um serviço de nuvem à CDN do Azure, é relativamente fácil fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure. Além de fornecer o serviço de nuvem diretamente da CDN do Azure (demonstrado acima), [Maarten Balliauw](https://twitter.com/maartenballiauw) mostra como fazer isso com um divertido controlador MemeGenerator em [Reduzindo a latência na Web com a CDN do Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Eu vou somente reproduzir isso aqui.
 
 Suponha que, em seu serviço de nuvem, você queira gerar memes com base em uma imagem de Chuck Norris jovem (foto de [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) como esta:
@@ -367,7 +387,9 @@ Na próxima seção, eu mostrarei como fornecer o CSS e scripts agrupados e mini
 
 <a name="bundling"></a>
 
-## <a name="integrate-aspnet-bundling-and-minification-with-azure-cdn"></a>Integrar agrupamento e minificação ASP.NET à CDN do Azure
+<a id="integrate-aspnet-bundling-and-minification-with-azure-cdn" class="xliff"></a>
+
+## Integrar agrupamento e minificação ASP.NET à CDN do Azure
 Scripts e folhas de estilo CSS são alterados com pouca frequência e são candidatos ideais para o cache da CDN do Azure. Fornecer toda a função Web por meio da CDN do Azure é a maneira mais fácil de integrar agrupamento e minificação à CDN do Azure. No entanto, como talvez você não queira fazer isso, eu vou mostrar como fazê-lo enquanto preserva a experiência do desenvolvedor desejada de agrupamento e minificação ASP.NET, como:
 
 * Ótima experiência no modo de depuração
@@ -486,7 +508,9 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 
 <a name="fallback"></a>
 
-## <a name="fallback-mechanism-for-cdn-urls"></a>Mecanismo de fallback para URLs da CDN
+<a id="fallback-mechanism-for-cdn-urls" class="xliff"></a>
+
+## Mecanismo de fallback para URLs da CDN
 Quando seu ponto de extremidade da CDN do Azure falhar por qualquer motivo, é melhor que sua página da Web seja inteligente o suficiente para acessar o servidor Web de origem como a opção de fallback para carregar JavaScript ou Bootstrap. Perder imagens do site devido à indisponibilidade da CDN já é grave, mas perder funcionalidades fundamentais da página fornecidas por seus scripts e folhas de estilo é ainda muito mais.
 
 A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contém uma propriedade chamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que permite que você configure o mecanismo de fallback para falha da CDN. Para usar essa propriedade, siga as etapas abaixo:
@@ -590,7 +614,9 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
     Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
 
-## <a name="more-information"></a>Mais informações
+<a id="more-information" class="xliff"></a>
+
+## Mais informações
 * [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 * [Usando o Azure CDN](cdn-create-new-endpoint.md)
 * [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
@@ -600,9 +626,4 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 [cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
