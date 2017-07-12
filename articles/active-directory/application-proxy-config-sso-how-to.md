@@ -11,28 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 96d05bd6bdbe0006aa1f8fff7b518f11cebc5d0a
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar o logon único para um aplicativo de Application Proxy
+<a id="how-to-configure-single-sign-on-to-an-application-proxy-application" class="xliff"></a>
+
+# Como configurar o logon único para um aplicativo de Application Proxy
 
 Logon único (SSO) permite que os usuários acessem um aplicativo sem autenticação, várias vezes. Ele permite que a autenticação única que ocorre na nuvem, no Azure Active Directory, e permite que o serviço ou o conector represente o usuário para concluir os desafios de autenticação adicional do aplicativo.
 
-## <a name="how-to-configure-single-sign-on"></a>Como configurar o logon único
+<a id="how-to-configure-single-sign-on" class="xliff"></a>
+
+## Como configurar o logon único
 Para configurar SSO, primeiro certifique-se de que seu aplicativo está configurado para pré-autenticação através do Azure Active Directory. Para fazer isso, vá para **Azure Active Directory** -&gt;**Aplicativos empresariais** -&gt;**Todos os aplicativos** -&gt; Seu aplicativo **-&gt; Application Proxy**. Nessa página, consulte o campo "Pré-autenticação" e certifique-se que é definido como "Azure Active Directory". 
 
 Para obter mais informações sobre os métodos de pré-autenticação, consulte a etapa quatro do [documento de publicação de aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
    ![O método de pré-autenticação no Portal do Azure](./media/application-proxy-config-sso-how-to/app-proxy.png)
 
-## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Configurando modos de logon único para aplicativos do Application Proxy
+<a id="configuring-single-sign-on-modes-for-application-proxy-applications" class="xliff"></a>
+
+## Configurando modos de logon único para aplicativos do Application Proxy
 Em seguida, configuramos o tipo específico de logon único. Os métodos de logon são classificados com base no tipo de autenticação do aplicativo que o back-end usa. Aplicativos de Application Proxy oferecem suporte a três tipos de logon:
 
 -   **Logon com base em senha**: logon com base em senha pode ser usado para qualquer aplicativo que usa campos de nome de usuário e senha para logon. Etapas de configuração podem ser encontradas no nosso [documentação de configuração de SSO com senha](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#bring-your-own-password-sso-applications).
@@ -47,6 +53,8 @@ Nessa página, você também visualiza uma opção de logon adicional: logon vin
 
 Essa opção permite que um administrador crie um link para um aplicativo que os usuários encontram ao acessar o aplicativo. Por exemplo, se houver um aplicativo que está configurado para autenticar usuários usando os Serviços de Federação do Active Directory 2.0, um administrador poderá usar a opção "Logon vinculado" para criar um link para ele no painel de acesso.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Fornecer logon único para seus aplicativos com Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
 

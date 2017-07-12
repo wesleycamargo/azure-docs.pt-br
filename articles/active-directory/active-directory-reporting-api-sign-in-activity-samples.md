@@ -20,9 +20,10 @@ ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
 ms.contentlocale: pt-br
 ms.lasthandoff: 12/29/2016
 
-
 ---
-# <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Exemplos de API de relatório de atividade de entrada do Azure Active Directory
+<a id="azure-active-directory-sign-in-activity-report-api-samples" class="xliff"></a>
+
+# Exemplos de API de relatório de atividade de entrada do Azure Active Directory
 Este tópico faz parte de uma coleção de tópicos sobre a API de relatório do Azure Active Directory.  
 Os relatórios do Azure AD fornecem uma API que permite a você acessar dados de atividade de entrada usando código ou ferramentas relacionadas.  
 O escopo deste tópico é fornecer código de exemplo para a **API de atividade de entrada**.
@@ -34,14 +35,18 @@ Consulte:
 
 Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="prerequisites"></a>Pré-requisitos
+<a id="prerequisites" class="xliff"></a>
+
+## Pré-requisitos
 Antes de usar os exemplos deste tópico, você precisará atender os [pré-requisitos para acessar a API de relatório do Azure AD](active-directory-reporting-api-prerequisites.md).  
 
-## <a name="powershell-script"></a>Script do PowerShell
+<a id="powershell-script" class="xliff"></a>
+
+## Script do PowerShell
     # This script will require the Web Application and permissions setup in Azure Active Directory
     $ClientID       = "<clientId>"             # Should be a ~35 character string insert your info here
     $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
-    $loginURL       = "https://login.windows.net/"
+    $loginURL       = "https://login.microsoftonline.com/"
     $tenantdomain   = "<tenantDomain>"
     $ daterange            # For example, contoso.onmicrosoft.com
 
@@ -80,12 +85,16 @@ Antes de usar os exemplos deste tópico, você precisará atender os [pré-requi
 
 
 
-## <a name="executing-the-script"></a>Executando o script
+<a id="executing-the-script" class="xliff"></a>
+
+## Executando o script
 Quando você terminar de editar o script, execute-o e verifique se os dados esperados do relatório Logs de auditoria são retornados.
 
 O script retorna a saída do relatório de entradas no formato JSON. Ele também cria um arquivo `SigninActivities.json` com a mesma saída. Você pode experimentar ao modificar o script para retornar dados de outros relatórios, além de comentar os formatos de saída de que você não precisa.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 * Você gostaria de personalizar os exemplos deste tópico? Confira a [referência da API de atividade de entrada do Azure Active Directory](active-directory-reporting-api-sign-in-activity-reference.md). 
 * Se você quiser uma visão geral de como usar a API de relatório do Azure Active Directory, confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Se você quiser saber mais sobre os relatórios do Azure Active Directory, confira o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).  

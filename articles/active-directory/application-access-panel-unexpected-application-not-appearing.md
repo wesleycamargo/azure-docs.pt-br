@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 605e68dd86e5188f8a872745164ac879c40a1278
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Um aplicativo atribuído não aparece no painel de acesso
+<a id="an-assigned-application-is-not-appearing-on-the-access-panel" class="xliff"></a>
+
+# Um aplicativo atribuído não aparece no painel de acesso
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O aplicativo deve ser configurado corretamente e atribuído ao usuário ou a um grupo no qual o usuário é membro para ver o aplicativo no Painel de Acesso.
 
@@ -35,13 +37,17 @@ Os tipos de aplicativos que um usuário pode ver se enquadram nas categorias a s
 
 -   Aplicativos com soluções de SSO existentes
 
-## <a name="general-issues-to-check-first"></a>Questões gerais que primeiro devem ser verificadas
+<a id="general-issues-to-check-first" class="xliff"></a>
+
+## Questões gerais que primeiro devem ser verificadas
 
 -   Se um aplicativo acabou de ser adicionado a um usuário, tente entrar e sair novamente no Painel de Acesso do usuário após alguns minutos para ver se o aplicativo foi adicionado.
 
 -   Se uma licença acabou de ser removida de um usuário ou grupo, um longo período tempo poderá demorar para que as alterações sejam concluídas ao usuário membro, dependendo do tamanho e da complexidade do grupo. permitir tempo extra antes de entrar no Painel de Acesso.
 
-## <a name="problems-related-to-application-configuration"></a>Problemas relacionados à configuração de aplicativo
+<a id="problems-related-to-application-configuration" class="xliff"></a>
+
+## Problemas relacionados à configuração de aplicativo
 
 Um aplicativo pode não aparecer no Painel de Acesso de um usuário porque não está configurado corretamente. Abaixo, são apresentadas algumas maneiras de solucionar problemas relacionados à configuração do aplicativo:
 
@@ -53,7 +59,9 @@ Um aplicativo pode não aparecer no Painel de Acesso de um usuário porque não 
 
 -   [Como configurar um aplicativo de logon único com senha para um aplicativo inexistente na galeria](#how-to-configure-password-single-sign-on-for-a-non-gallery-application)
 
-### <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único federado para um aplicativo na galeria do Azure AD
+<a id="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+### Como configurar o logon único federado para um aplicativo na galeria do Azure AD
 
 Todos os aplicativos na galeria do Azure AD habilitados com o recurso de Logon Único Corporativo possuem um tutorial passo a passo disponível. É possível acessar a [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação passo a passo detalhada.
 
@@ -69,7 +77,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
-#### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+#### Adicionar um aplicativo da galeria do Azure AD
 
 Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
@@ -93,7 +103,9 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-#### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Configurar o logon único para um aplicativo da galeria do Azure AD
+<a id="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+#### Configurar o logon único para um aplicativo da galeria do Azure AD
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -139,7 +151,9 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 15. Atribuir usuários a um aplicativo.
 
-#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
+<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
+
+#### Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
 
 Para selecionar o Identificador de Usuário ou adicionar os atributos de usuário, siga as etapas abaixo:
 
@@ -174,7 +188,9 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
    2. Clique em **Salvar.** Você verá o novo atributo na tabela.
 
-#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
+<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+
+#### Baixar o certificado ou metadados do Azure AD
 
 Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
 
@@ -198,7 +214,9 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
     O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-### <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único federado para um aplicativo inexistente na galeria
+<a id="how-to-configure-federated-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+### Como configurar o logon único federado para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure AD Premium e o aplicativo com suporte SAML 2.0. Para obter mais informações sobre as versões do Azure AD, visite [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -210,7 +228,9 @@ Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure
 
 -   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#configuring-single-sign-on)
 
-#### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
+<a id="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url" class="xliff"></a>
+
+#### Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
 
 Para configurar o logon único para um aplicativo que não está na galeria do Azure AD, siga as etapas abaixo:
 
@@ -252,7 +272,9 @@ Para configurar o logon único para um aplicativo que não está na galeria do A
 
 14. clique em **Configurar &lt;nome do aplicativo&gt;**  para acessar a documentação sobre como configurar o logon único no aplicativo. Além disso, você tem URLs do Azure AD e o certificado necessários para o aplicativo.
 
-#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
+<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
+
+#### Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
 
 Para selecionar o Identificador de Usuário ou adicionar os atributos de usuário, siga as etapas abaixo:
 
@@ -287,7 +309,9 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
    2. Clique em **Salvar.** Você verá o novo atributo na tabela.
 
-#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
+<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+
+#### Baixar o certificado ou metadados do Azure AD
 
 Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
 
@@ -311,7 +335,9 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
 O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-### <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o login único com senha para um aplicativo na galeria do Azure AD
+<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+### Como configurar o login único com senha para um aplicativo na galeria do Azure AD
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -319,7 +345,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
-#### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+#### Adicionar um aplicativo da galeria do Azure AD
 
 Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
@@ -343,7 +371,9 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+#### Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -369,7 +399,9 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 10. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-### <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
+<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+### Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -377,7 +409,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
-#### <a name="add-a-non-gallery-application"></a>Adicionar um aplicativo inexistente na galeria
+<a id="add-a-non-gallery-application" class="xliff"></a>
+
+#### Adicionar um aplicativo inexistente na galeria
 
 Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
@@ -397,7 +431,9 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+#### Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -425,7 +461,9 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-## <a name="problems-related-to-assigning-applications-to-users"></a>Problemas relacionados à atribuição de aplicativos para usuários
+<a id="problems-related-to-assigning-applications-to-users" class="xliff"></a>
+
+## Problemas relacionados à atribuição de aplicativos para usuários
 
 Um usuário pode não ver um aplicativo no seu Painel de Acesso porque o usuário não está atribuído ao aplicativo. Abaixo, são apresentadas algumas maneiras de verificação:
 
@@ -437,7 +475,9 @@ Um usuário pode não ver um aplicativo no seu Painel de Acesso porque o usuári
 
 -   [Como atribuir uma licença a um usuário](#how-to-assign-a-user-a-license)
 
-### <a name="check-if-a-user-is-assigned-to-the-application"></a>Verificar se um usuário está atribuído ao aplicativo
+<a id="check-if-a-user-is-assigned-to-the-application" class="xliff"></a>
+
+### Verificar se um usuário está atribuído ao aplicativo
 
 Para verificar se um usuário está atribuído ao aplicativo, siga as etapas abaixo:
 
@@ -459,7 +499,9 @@ Para verificar se um usuário está atribuído ao aplicativo, siga as etapas aba
 
    * Se não, siga as etapas em "Como atribuir um usuário diretamente a um aplicativo" para fazer isso.
 
-### <a name="how-to-assign-a-user-to-an-application-directly"></a>Como atribuir um usuário diretamente a um aplicativo
+<a id="how-to-assign-a-user-to-an-application-directly" class="xliff"></a>
+
+### Como atribuir um usuário diretamente a um aplicativo
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -497,7 +539,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
-### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Verificar se um usuário está sob uma licença relacionada ao aplicativo
+<a id="check-if-a-user-is-under-a-license-related-to-the-application" class="xliff"></a>
+
+### Verificar se um usuário está sob uma licença relacionada ao aplicativo
 
 Para verificar as licenças atribuídas de um usuário, siga as etapas abaixo:
 
@@ -517,7 +561,9 @@ Para verificar as licenças atribuídas de um usuário, siga as etapas abaixo:
 
   * Se o usuário for atribuído a uma licença do Office, isso permitirá que os aplicativos primários do Office apareçam no Painel de Acesso do usuário.
 
-### <a name="how-to-assign-a-user-a-license"></a>Como atribuir uma licença a um usuário 
+<a id="how-to-assign-a-user-a-license" class="xliff"></a>
+
+### Como atribuir uma licença a um usuário 
 
 Para atribuir uma licença a um usuário, siga as etapas abaixo:
 
@@ -543,7 +589,9 @@ Para atribuir uma licença a um usuário, siga as etapas abaixo:
 
 11. Clique no botão **Atribuir** para atribuir essas licenças para esse usuário.
 
-## <a name="problems-related-to-assigning-applications-to-groups"></a>Problemas relacionados à atribuição de aplicativos para usuários
+<a id="problems-related-to-assigning-applications-to-groups" class="xliff"></a>
+
+## Problemas relacionados à atribuição de aplicativos para usuários
 
 Um usuário pode ver um aplicativo no seu Painel de Acesso porque ele faz parte de um grupo que atribuiu o aplicativo. Abaixo, são apresentadas algumas maneiras de verificação:
 
@@ -555,7 +603,9 @@ Um usuário pode ver um aplicativo no seu Painel de Acesso porque ele faz parte 
 
 -   [Como atribuir uma licença a um grupo](#how-to-assign-a-license-to-a-group)
 
-### <a name="check-a-users-group-memberships"></a>Verificar as associações de grupo de um usuário
+<a id="check-a-users-group-memberships" class="xliff"></a>
+
+### Verificar as associações de grupo de um usuário
 
 Para verificar as associações de um grupo, siga as etapas abaixo:
 
@@ -577,7 +627,9 @@ Para verificar as associações de um grupo, siga as etapas abaixo:
 
   * Se você quiser remover o usuário do grupo, **clique na linha** do grupo e selecione excluir.
 
-### <a name="how-to-assign-an-application-to-a-group-directly"></a>Como atribuir um aplicativo diretamente a um grupo
+<a id="how-to-assign-an-application-to-a-group-directly" class="xliff"></a>
+
+### Como atribuir um aplicativo diretamente a um grupo
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -615,7 +667,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
-### <a name="check-if-a-user-is-part-of-group-assigned-to-a-license"></a>Verificar se um usuário faz parte do grupo atribuído a uma licença
+<a id="check-if-a-user-is-part-of-group-assigned-to-a-license" class="xliff"></a>
+
+### Verificar se um usuário faz parte do grupo atribuído a uma licença
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
@@ -637,7 +691,9 @@ Após um breve período, os usuários selecionados poderão iniciar esses aplica
 
    * Se o grupo for atribuído a uma licença do Office, isso poderá permitir que determinados aplicativos primários do Office apareçam no Painel de Acesso do usuário.
 
-### <a name="how-to-assign-a-license-to-a-group"></a>Como atribuir uma licença a um grupo
+<a id="how-to-assign-a-license-to-a-group" class="xliff"></a>
+
+### Como atribuir uma licença a um grupo
 
 Para atribuir uma licença a um grupo, siga as etapas abaixo:
 
@@ -668,7 +724,9 @@ Para atribuir uma licença a um grupo, siga as etapas abaixo:
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md)
 
 

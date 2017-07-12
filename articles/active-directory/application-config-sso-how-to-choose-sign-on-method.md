@@ -11,27 +11,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 6aba9206ab0634e9379d63520ad9e2d0256b7e94
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Como determinar o método de logon único a ser usado
+<a id="how-to-determine-what-single-sign-on-method-to-use" class="xliff"></a>
+
+# Como determinar o método de logon único a ser usado
 
 Este artigo o ajuda a compreender os modos de logon único com suporte do Azure AD e como escolher qual deles deve ser usado para o aplicativo em que você está interessado.
 
-## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Modos de logon único e provisionamento com suporte de tipos específicos de aplicativos
+<a id="single-sign-on-and-provisioning-modes-supported-by-specific-application-types" class="xliff"></a>
+
+## Modos de logon único e provisionamento com suporte de tipos específicos de aplicativos
 
 A tabela a seguir descreve os diferente modos de logon único e provisionamento com suporte de cada um dos tipos de aplicativos mencionados acima. Use essa tabela como um auxílio para entender qual aplicativo você precisa adicionar a fim de dar suporte a um objetivo específico.
 
   ![Tabela de tipos de aplicativo](./media/application-tables/table1.png)
 
-## <a name="how-to-choose-a-single-sign-on-mode"></a>Como escolher um modo de logon único
+<a id="how-to-choose-a-single-sign-on-mode" class="xliff"></a>
+
+## Como escolher um modo de logon único
 
 Os modos de **logon único** com suporte para aplicativos do Azure AD estão listados abaixo.
 
@@ -47,7 +53,9 @@ Os modos de **logon único** com suporte para aplicativos do Azure AD estão lis
 
 -   **Autenticação integrada do Windows** – escolha o modo de logon único [Autenticação integrada do Windows](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) ao expor um aplicativo WIA local no qual você deseja realizar o logon único *(**Observação:** esta opção fica disponível apenas quando o proxy de aplicativo está configurado para um aplicativo)*
 
-## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modos de logon único para aplicativos personalizados
+<a id="single-sign-on-modes-for-custom-developed-applications" class="xliff"></a>
+
+## Modos de logon único para aplicativos personalizados
 
 Aplicativos desenvolvidos de forma personalizada por meio da experiência [Aplicativo desenvolvido de forma personalizada](#_Custom-Developed_Applications) também dão suporte a modos de logon único adicionais não listados acima. Estão incluídos:
 
@@ -61,7 +69,9 @@ Aplicativos desenvolvidos de forma personalizada por meio da experiência [Aplic
 
 Leia o [Guia do Desenvolvedor do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) para saber mais sobre como criar um aplicativo desenvolvido de forma personalizada que dá suporte a esses modos de logon único.
 
-## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Como definir o modo de logon único de um aplicativo
+<a id="how-to-set-an-applications-single-sign-on-mode" class="xliff"></a>
+
+## Como definir o modo de logon único de um aplicativo
 
 Para definir o modo de **logon único** de um aplicativo, siga as instruções abaixo:
 
@@ -81,7 +91,9 @@ Para definir o modo de **logon único** de um aplicativo, siga as instruções a
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 
 

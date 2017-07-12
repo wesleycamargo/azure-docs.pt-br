@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 8d4f2cec35a8edfec9b8830a077b8aa65ca0c229
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um usuário a um aplicativo
+<a id="how-to-remove-a-users-access-to-an-application" class="xliff"></a>
+
+# Como remover o acesso de um usuário a um aplicativo
 
 Este artigo o ajudará a compreender como remover o acesso de um usuário a um aplicativo.
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Quero remover a atribuição de um usuário ou grupo específico a um aplicativo
+<a id="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application" class="xliff"></a>
+
+## Quero remover a atribuição de um usuário ou grupo específico a um aplicativo
 
 Para remover uma atribuição de um usuário ou grupo a um aplicativo, siga as etapas listadas no artigo [Remover uma atribuição de usuário ou grupo de um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal).
 
@@ -33,7 +37,9 @@ Para remover uma atribuição de um usuário ou grupo a um aplicativo, siga as e
 
 Para desabilitar todos os logons de usuário em um aplicativo, siga as etapas listadas no artigo [Desabilitar logons de usuário para um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Quero excluir um aplicativo completamente
+<a id="i-want-to-delete-an-application-entirely" class="xliff"></a>
+
+## Quero excluir um aplicativo completamente
 
 Para **excluir um aplicativo**, siga as instruções abaixo:
 
@@ -53,7 +59,9 @@ Para **excluir um aplicativo**, siga as instruções abaixo:
 
 7.  Após o aplicativo ser carregado, clique no ícone **Excluir** na folha **Visão Geral** superior do aplicativo.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desabilitar todas as futuras operações de consentimento do usuário para qualquer aplicativo
+<a id="i-want-to-disable-all-future-user-consent-operations-to-any-application" class="xliff"></a>
+
+## Quero desabilitar todas as futuras operações de consentimento do usuário para qualquer aplicativo
 
 Desabilitar o consentimento do usuário para todo o seu diretório impede que os usuários finais consintam com qualquer aplicativo. Os administradores ainda podem consentir em nome dos usuários. Para saber mais sobre o consentimento de aplicativos e por que você pode ou não querer fazer isso, leia [Entendendo o consentimento do usuário e do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
@@ -72,6 +80,8 @@ Para **desabilitar todas as futuras operações de consentimento do usuário no 
 6.  Desabilite todas as futuras operações de consentimento do usuário definindo o controle de alternância **Os usuários podem permitir que os aplicativos acessem seus dados** como **Não** e clique no botão **Salvar**.
 
 
-# <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+# Próximas etapas
 [Gerenciamento do acesso aos aplicativos](active-directory-managing-access-to-apps.md)
 

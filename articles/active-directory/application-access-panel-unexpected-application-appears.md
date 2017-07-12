@@ -11,27 +11,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 2429ebef69aaddf28d10cd77bf4ce9072ea71476
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-applications-appear-on-the-access-panel"></a>Como aplicativos aparecem no painel de acesso
+<a id="how-applications-appear-on-the-access-panel" class="xliff"></a>
+
+# Como aplicativos aparecem no painel de acesso
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure AD (Azure Active Directory) exibir e iniciar aplicativos baseados em nuvem aos quais o administrador do Azure AD concedeu acesso. Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O administrador pode provisionar o aplicativo diretamente para o usuário ou para um grupo de que o usuário faz parte, o que faz com que o aplicativo apareça no Painel de Acesso do usuário.
 
-## <a name="general-issues-to-check-first"></a>Problemas gerais a serem verificados primeiro
+<a id="general-issues-to-check-first" class="xliff"></a>
+
+## Problemas gerais a serem verificados primeiro
 
 -   Se um aplicativo tiver acabado de ser removido de um usuário ou de um grupo de que o usuário faz parte, tente entrar e sair novamente do Painel de Acesso do usuário após alguns minutos para ver se o aplicativo foi removido.
 
 -   Se uma licença tiver acabado de ser removida de um usuário ou de um grupo de que o usuário faz parte, isso poderá levar um longo período, dependendo do tamanho e da complexidade do grupo. Espere por mais algum tempo antes de entrar no Painel de Acesso.
 
-## <a name="problems-related-to-assigning-applications-to-users"></a>Problemas relacionados à atribuição de aplicativos para usuários
+<a id="problems-related-to-assigning-applications-to-users" class="xliff"></a>
+
+## Problemas relacionados à atribuição de aplicativos para usuários
 
 Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por ter sido atribuído a ele anteriormente. Abaixo, são descritas algumas formas de verificar:
 
@@ -40,7 +46,9 @@ Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por ter sido 
 -   [Verificar se um usuário está sob uma licença relacionada ao aplicativo](#check-if-a-user-is-under-a-license-related-to-the-application)
 
 
-### <a name="check-if-a-user-is-assigned-to-the-application"></a>Verificar se um usuário está atribuído ao aplicativo
+<a id="check-if-a-user-is-assigned-to-the-application" class="xliff"></a>
+
+### Verificar se um usuário está atribuído ao aplicativo
 
 Para verificar se um usuário está atribuído ao aplicativo, siga as etapas abaixo:
 
@@ -62,7 +70,9 @@ Para verificar se um usuário está atribuído ao aplicativo, siga as etapas aba
 
   * Se quiser remover o usuário do aplicativo, **clique na linha** do usuário e selecione **excluir**.
 
-### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Verificar se um usuário está sob uma licença relacionada ao aplicativo
+<a id="check-if-a-user-is-under-a-license-related-to-the-application" class="xliff"></a>
+
+### Verificar se um usuário está sob uma licença relacionada ao aplicativo
 
 Para verificar as licenças atribuídas a um usuário, siga as etapas abaixo:
 
@@ -82,7 +92,9 @@ Para verificar as licenças atribuídas a um usuário, siga as etapas abaixo:
 
    * Se o usuário estiver atribuído a uma licença do Office, isso permitirá que aplicativos internos do Office apareçam no Painel de Acesso do usuário.
 
-## <a name="problems-related-to-assigning-applications-to-groups"></a>Problemas relacionados à atribuição de aplicativos a grupos
+<a id="problems-related-to-assigning-applications-to-groups" class="xliff"></a>
+
+## Problemas relacionados à atribuição de aplicativos a grupos
 
 Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por fazer parte de um grupo ao qual o aplicativo foi atribuído. Abaixo, são descritas algumas formas de verificar:
 
@@ -90,7 +102,9 @@ Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por fazer par
 
 -   [Verificar se um usuário é membro de um grupo atribuído a uma licença](#check-if-a-user-is-a-member-of-a-group-assigned-to-a-license)
 
-### <a name="check-a-users-group-memberships"></a>Verificar as associações de grupo de um usuário
+<a id="check-a-users-group-memberships" class="xliff"></a>
+
+### Verificar as associações de grupo de um usuário
 
 Para verificar as associações de grupo, siga as etapas abaixo:
 
@@ -112,7 +126,9 @@ Para verificar as associações de grupo, siga as etapas abaixo:
 
    * Se quiser remover o usuário do grupo, **clique na linha** do grupo e selecione excluir.
 
-### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Verificar se um usuário é membro de um grupo atribuído a uma licença
+<a id="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license" class="xliff"></a>
+
+### Verificar se um usuário é membro de um grupo atribuído a uma licença
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
@@ -135,7 +151,9 @@ Para verificar as associações de grupo, siga as etapas abaixo:
   * Se o grupo for atribuído a uma licença do Office, isso poderá permitir que determinados aplicativos internos do Office apareçam no Painel de Acesso do usuário.
 
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema
+<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
+
+## Se essas etapas de solução de problemas não resolverem o problema
 
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
@@ -151,6 +169,8 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Rastreamentos do Fiddler
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
 

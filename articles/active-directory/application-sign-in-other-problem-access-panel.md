@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: b89569b818b0e2c79934a842fdc428011674c000
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas para entrar em um aplicativo a partir do Painel de Acesso
+<a id="problems-signing-in-to-an-application-from-the-access-panel" class="xliff"></a>
+
+# Problemas para entrar em um aplicativo a partir do Painel de Acesso
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. 
 
@@ -37,7 +39,9 @@ Os tipos de aplicativos que um usuário pode ver se enquadram nas categorias a s
 
 -   Aplicativos com soluções de SSO existentes
 
-## <a name="general-issues-to-check-first"></a>Questões gerais que primeiro devem ser verificadas
+<a id="general-issues-to-check-first" class="xliff"></a>
+
+## Questões gerais que primeiro devem ser verificadas
 
 -   Verifique se você está usando um **navegador** que atenda aos requisitos mínimos para o Painel de Acesso.
 
@@ -59,7 +63,9 @@ Os tipos de aplicativos que um usuário pode ver se enquadram nas categorias a s
 
 -   Tente também eliminar os cookies do navegador e tente entrar novamente.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Atender aos requisitos de navegador para o Painel de Acesso
+<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
+
+## Atender aos requisitos de navegador para o Painel de Acesso
 
 O Painel de Acesso exige um navegador com suporte para JavaScript e CSS habilitado. Para usar o SSO (logon único) baseado em senha no Painel de Acesso, a extensão do Painel de Acesso deve estar instalada no navegador do usuário. Essa extensão é baixada automaticamente quando um usuário seleciona um aplicativo configurado para SSO baseado em senha.
 
@@ -73,7 +79,9 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 
 **Observação**: a extensão de SSO baseada em senha será disponibilizada para o Edge no Windows 10 quando as extensões de navegador tiverem suporte no Edge.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Como instalar a extensão do Navegador do Painel de Acesso
 
 Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
 
@@ -97,7 +105,9 @@ Também é possível baixar a extensão para Chrome e Firefox diretamente pelos 
 
 -   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único federado para um aplicativo na galeria do Azure AD
+<a id="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+## Como configurar o logon único federado para um aplicativo na galeria do Azure AD
 
 Todos os aplicativos na galeria do Azure AD habilitados com o recurso de Logon Único Corporativo possuem um tutorial passo a passo disponível. É possível acessar a [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação passo a passo detalhada.
 
@@ -115,7 +125,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Atribuir usuários ao aplicativo](#assign-users-to-the-application)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Adicionar um aplicativo da galeria do Azure AD
 
 Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
@@ -139,7 +151,9 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Configurar o logon único para um aplicativo da galeria do Azure AD
+<a id="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Configurar o logon único para um aplicativo da galeria do Azure AD
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -185,7 +199,9 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 15. Atribuir usuários a um aplicativo.
 
-### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
+<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
+
+### Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
 
 Para selecionar o Identificador de Usuário ou adicionar os atributos de usuário, siga as etapas abaixo:
 
@@ -220,7 +236,9 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
    2. Clique em **Salvar.** Você verá o novo atributo na tabela.
 
-### <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
+<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+
+### Baixar o certificado ou metadados do Azure AD
 
 Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
 
@@ -244,7 +262,9 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
     O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-## <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único federado para um aplicativo inexistente na galeria
+<a id="how-to-configure-federated-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+## Como configurar o logon único federado para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure AD Premium e o aplicativo com suporte SAML 2.0. Para obter mais informações sobre as versões do Azure AD, visite [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -256,7 +276,9 @@ Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure
 
 -   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#configuring-single-sign-on)
 
-### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
+<a id="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url" class="xliff"></a>
+
+### Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
 
 Para configurar o logon único para um aplicativo que não está na galeria do Azure AD, siga as etapas abaixo:
 
@@ -298,7 +320,9 @@ Para configurar o logon único para um aplicativo que não está na galeria do A
 
 14. clique em **Configurar &lt;nome do aplicativo&gt;**  para acessar a documentação sobre como configurar o logon único no aplicativo. Além disso, você tem URLs do Azure AD e o certificado necessários para o aplicativo.
 
-### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
+<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
+
+### Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
 
 Para selecionar o Identificador de Usuário ou adicionar os atributos de usuário, siga as etapas abaixo:
 
@@ -333,7 +357,9 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
    2 Clique em **Salvar.** Você verá o novo atributo na tabela.
 
-### <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
+<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+
+### Baixar o certificado ou metadados do Azure AD
 
 Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
 
@@ -357,7 +383,9 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
     O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o login único com senha para um aplicativo na galeria do Azure AD
+<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+## Como configurar o login único com senha para um aplicativo na galeria do Azure AD
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -365,7 +393,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Adicionar um aplicativo da galeria do Azure AD
 
 Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
@@ -389,7 +419,9 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -415,7 +447,9 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 10. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
+<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+## Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -423,7 +457,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
-### <a name="add-a-non-gallery-application"></a>Adicionar um aplicativo inexistente na galeria
+<a id="add-a-non-gallery-application" class="xliff"></a>
+
+### Adicionar um aplicativo inexistente na galeria
 
 Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
@@ -443,7 +479,9 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -471,7 +509,9 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-## <a name="how-to-assign-a-user-to-an-application-directly"></a>Como atribuir um usuário diretamente a um aplicativo
+<a id="how-to-assign-a-user-to-an-application-directly" class="xliff"></a>
+
+## Como atribuir um usuário diretamente a um aplicativo
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -509,7 +549,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema
+<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
+
+## Se essas etapas de solução de problemas não resolverem o problema
 
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
@@ -525,7 +567,9 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Rastreamentos do Fiddler
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Fornecer logon único para seus aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 
 
