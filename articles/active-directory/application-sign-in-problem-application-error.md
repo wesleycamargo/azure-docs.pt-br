@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: c04cfea4c6c0a8211db2579eccc0c05a93cc0a35
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="error-on-an-applications-page-after-signing-in"></a>Erro em uma página de aplicativo após a entrada
+<a id="error-on-an-applications-page-after-signing-in" class="xliff"></a>
+
+# Erro em uma página de aplicativo após a entrada
 
 Nesse cenário, o Azure AD conectou o usuário mas o aplicativo está exibindo um erro que não permite ao usuário concluir o fluxo de entrada com êxito. Nesse cenário, o aplicativo não está aceitando a resposta emitida pelo AD do Azure.
 
@@ -33,7 +35,9 @@ Há alguns motivos possíveis por que o aplicativo não aceitou a resposta do Az
 
 -   Compartilhe a resposta SAML com o fornecedor do aplicativo para saber o que está faltando.
 
-## <a name="missing-attributes-in-the-saml-response"></a>Atributos ausentes na resposta SAML
+<a id="missing-attributes-in-the-saml-response" class="xliff"></a>
+
+## Atributos ausentes na resposta SAML
 
 Para adicionar um atributo na configuração do Azure AD para ser enviado na resposta do Azure AD, siga as etapas abaixo:
 
@@ -65,11 +69,15 @@ Para adicionar um atributo na configuração do Azure AD para ser enviado na res
 
 Na próxima vez em que o usuário entrar no aplicativo, o Azure AD enviará o novo atributo na resposta SAML.
 
-## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>O aplicativo espera um formato ou valor de Identificador de Usuário diferente
+<a id="the-application-expects-a-different-user-identifier-value-or-format" class="xliff"></a>
+
+## O aplicativo espera um formato ou valor de Identificador de Usuário diferente
 
 A entrada para o aplicativo está falhando porque na resposta SAML está faltando atributos como funções ou porque o aplicativo está esperando um formato diferente para o atributo EntityID.
 
-## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Adicione um atributo na configuração do aplicativo do Azure AD:
+<a id="add-an-attribute-in-the-azure-ad-application-configuration" class="xliff"></a>
+
+## Adicione um atributo na configuração do aplicativo do Azure AD:
 
 Para alterar o valor do Identificador de Usuário, siga as etapas abaixo:
 
@@ -91,13 +99,17 @@ Para alterar o valor do Identificador de Usuário, siga as etapas abaixo:
 
 8.  Nos **Atributos de usuário**, selecione o identificador exclusivo para os usuários na lista suspensa **Identificador de usuário**.
 
-## <a name="change-entityid-user-identifier-format"></a>Alterar o formato EntityID (Identificador de Usuário)
+<a id="change-entityid-user-identifier-format" class="xliff"></a>
+
+## Alterar o formato EntityID (Identificador de Usuário)
 
 Se o aplicativo espera outro formato para o atributo EntityID. Então, não será possível selecionar o formato EntityID (Identificador de Usuário) que o Azure AD envia para o aplicativo na resposta após a autenticação do usuário.
 
 O Azure AD seleciona o formato para o atributo NameID (Identificador de Usuário) com base no valor selecionado ou no formato solicitado pelo aplicativo no AuthRequest do SAML. Para obter mais informações, consulte o artigo [Protocolo SAML de Logon Único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na seção NameIDPolicy.
 
-## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>O aplicativo espera um método de assinatura diferente para a resposta SAML
+<a id="the-application-expects-a-different-signature-method-for-the-saml-response" class="xliff"></a>
+
+## O aplicativo espera um método de assinatura diferente para a resposta SAML
 
 Para alterar quais partes do token SAML são assinadas digitalmente pelo Active Directory do Azure. Siga as etapas abaixo:
 
@@ -129,7 +141,9 @@ Para alterar quais partes do token SAML são assinadas digitalmente pelo Active 
 
 Na próxima vez em que o usuário entrar no aplicativo, o Azure AD assinará a parte da resposta SAML selecionada.
 
-## <a name="the-application-expects-the-signing-algorithm-to-be-sha-1"></a>O aplicativo espera que o algoritmo de assinatura seja SHA-1
+<a id="the-application-expects-the-signing-algorithm-to-be-sha-1" class="xliff"></a>
+
+## O aplicativo espera que o algoritmo de assinatura seja SHA-1
 
 Por padrão, o Azure AD assina o token SAML usando o algoritmo de maior segurança. Não é recomendável alterar o algoritmo de assinatura SHA-1, exceto se exigido pelo aplicativo.
 
@@ -157,6 +171,8 @@ Para alterar o algoritmo de assinatura, siga as etapas abaixo:
 
 Na próxima vez em que o usuário entrar no aplicativo, o Azure AD assinará o token SAML usando o algoritmo SHA-1.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Como depurar o logon único baseado em SAML em aplicativos no Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
 

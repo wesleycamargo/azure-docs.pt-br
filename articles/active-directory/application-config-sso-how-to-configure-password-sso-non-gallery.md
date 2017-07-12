@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 03200aeb1b6ca6f01a78c95e9014f5290c114e6a
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
+<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+# Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
 Além das opções encontradas na Galeria de Aplicativos do Azure AD, você também tem a opção de adicionar um **aplicativo inexistente na galeria** quando o aplicativo desejado não estiver nela. Usando esse recurso, é possível adicionar qualquer aplicativo que já existe em sua organização ou qualquer aplicativo de terceiros que você usa e que é de um fornecedor que ainda não faz parte da [Galeria de Aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
 
@@ -53,7 +55,9 @@ Trata-se de uma ótima maneira de começar a integrar rapidamente qualquer tipo 
 
 A seguir, temos uma descrição de como você pode habilitar o [Logon único baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) para qualquer aplicativo que você adicionar usando a experiência de **adicionar um aplicativo inexistente na galeria**.
 
-## <a name="overview-of-steps-required"></a>Visão geral das etapas necessárias
+<a id="overview-of-steps-required" class="xliff"></a>
+
+## Visão geral das etapas necessárias
 
 Para configurar um aplicativo da galeria do Azure AD, será necessário:
 
@@ -67,7 +71,9 @@ Para configurar um aplicativo da galeria do Azure AD, será necessário:
 
     -   [Atribuir um aplicativo diretamente a um grupo](#assign-an-application-to-a-group-directly)
 
-## <a name="add-a-non-gallery-application"></a>Adicionar um aplicativo inexistente na galeria
+<a id="add-a-non-gallery-application" class="xliff"></a>
+
+## Adicionar um aplicativo inexistente na galeria
 
 Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
@@ -87,7 +93,9 @@ Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 Após um breve período, você verá a folha de configuração do aplicativo.
 
-## <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+## Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -115,7 +123,9 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-## <a name="assign-a-user-to-an-application-directly"></a>Atribuir um usuário diretamente a um aplicativo
+<a id="assign-a-user-to-an-application-directly" class="xliff"></a>
+
+## Atribuir um usuário diretamente a um aplicativo
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -151,7 +161,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 15. Clique no botão **Atribuir** para atribuir o aplicativo aos usuários selecionados.
 
-## <a name="assign-an-application-to-a-group-directly"></a>Atribuir um aplicativo diretamente a um grupo
+<a id="assign-an-application-to-a-group-directly" class="xliff"></a>
+
+## Atribuir um aplicativo diretamente a um grupo
 
 Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -189,6 +201,8 @@ Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abai
 
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Fornecer logon único para seus aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 

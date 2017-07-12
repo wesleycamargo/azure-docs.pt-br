@@ -11,23 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: f32de2a8868d853e7720cffa23df6b3c59ab4a49
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Um usuário vê uma solicitação de consentimento inesperada ao entrar em um aplicativo
+<a id="unexpected-consent-prompt-when-signing-in-to-an-application" class="xliff"></a>
+
+# Um usuário vê uma solicitação de consentimento inesperada ao entrar em um aplicativo
 
 Muitos aplicativos que se integram com o Azure Active Directory exigem permissões a vários recursos para serem executados. Quando esses recursos também são integrados com o Azure Active Directory, as permissões para acessá-los são solicitadas usando a estrutura de consentimento do Azure AD. 
 
 Isso resulta em uma solicitação de consentimento que é exibida na primeira vez em que um aplicativo é usado o que, frequentemente, é uma operação única. 
 
-## <a name="scenarios-in-which-users-see-consent-prompts"></a>Cenários nos quais os usuários visualizam solicitações de consentimento
+<a id="scenarios-in-which-users-see-consent-prompts" class="xliff"></a>
+
+## Cenários nos quais os usuários visualizam solicitações de consentimento
 
 Solicitações adicionais podem ser esperadas em vários cenários:
 
@@ -43,7 +47,9 @@ Solicitações adicionais podem ser esperadas em vários cenários:
 
 * O desenvolvedor configurou o aplicativo para solicitar uma solicitação de consentimento sempre que for usado (observação: essa não é a prática recomendada).
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 
 -   [Aplicativos, permissões e consentimento no Azure Active Directory (ponto de extremidade v1.0)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 

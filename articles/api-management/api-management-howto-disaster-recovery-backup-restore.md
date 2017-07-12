@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: c0413f9c83fd6dceb4a1d956c0f32712e29bdc58
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/31/2017
 
 ---
-# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
+<a id="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management" class="xliff"></a>
+
+# Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 Ao escolher publicar e gerenciar suas APIs através do Gerenciamento de API do Azure, você está tirando proveito de muitos recursos de tolerância e infraestrutura que você precisaria criar, implementar e gerenciar. A plataforma Azure atenua grande parte das falhas potenciais a uma fração do custo.
 
 Para se recuperar de problemas de disponibilidade que afetam a região onde o serviço de Gerenciamento de API está hospedado, você deverá estar pronto para reconstituir seu serviço em uma região diferente a qualquer momento. Dependendo de suas metas de disponibilidade e objetivo de tempo de recuperação, você pode querer reservar um serviço de backup em uma ou mais regiões e tentar manter suas configurações e conteúdos na sincronização com o serviço ativo. O backup do serviço e o recurso de restauração fornece o bloco de criação necessário para implementação de sua estratégia de recuperação de desastre.
@@ -34,7 +37,9 @@ Este guia mostra como autenticar solicitações do Gerenciador de Recursos do Az
 >
 >
 
-## <a name="authenticating-azure-resource-manager-requests"></a>Autenticação de solicitações do gerenciador de recursos do Azure
+<a id="authenticating-azure-resource-manager-requests" class="xliff"></a>
+
+## Autenticação de solicitações do gerenciador de recursos do Azure
 > [!IMPORTANT]
 > A API REST para backup e restauração usa o Gerenciador de Recursos do Azure e tem um mecanismo de autenticação diferentes das APIs REST para gerenciar suas entidades de Gerenciamento de API. As etapas desta seção descrevem como autenticar solicitações do Gerenciador de Recursos do Azure. Para mais informações, consulte [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 >
@@ -81,7 +86,7 @@ namespace GetTokenResourceManagerRequests
     {
         static void Main(string[] args)
         {
-            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
             var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
             if (result == null) {
@@ -188,7 +193,9 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 Confira os seguintes blogs da Microsoft para duas diferentes orientações passo a passo do processo de backup/restauração.
 
 * [Replicar contas de Gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)

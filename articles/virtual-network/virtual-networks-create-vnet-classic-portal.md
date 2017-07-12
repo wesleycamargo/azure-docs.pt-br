@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d365f7137527d60eb509b4f431295de2218ea706
 ms.openlocfilehash: 5ff91cccb711d61ed120e4a4e820d6a5dfc5e4a6
+ms.contentlocale: pt-br
+ms.lasthandoff: 01/31/2017
 
 
 ---
 
-# <a name="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal"></a>Criar uma rede virtual (clássica) com um arquivo netcfg usando o Portal Clássico do Azure
+<a id="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal" class="xliff"></a>
+
+# Criar uma rede virtual (clássica) com um arquivo netcfg usando o Portal Clássico do Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -33,7 +37,9 @@ Este artigo explica como criar uma rede virtual com um arquivo netcfg por meio d
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-## <a name="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal"></a>Como criar uma VNet com um arquivo de configuração de rede no Portal Clássico do Microsoft Azure
+<a id="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal" class="xliff"></a>
+
+## Como criar uma VNet com um arquivo de configuração de rede no Portal Clássico do Microsoft Azure
 O Azure usa um arquivo xml para definir todas as redes virtuais disponíveis para uma assinatura. Você pode baixar esse arquivo e editá-lo para criar VNets por meio do modelo de implantação clássica, ou para modificar ou excluir VNets existentes. Este artigo explica como baixar esse arquivo, conhecido como arquivo de configuração de rede (ou netcfg), adicionar uma VNet a ele e carregar o arquivo para criar a VNet. Para saber mais sobre o arquivo de configuração de rede, confira o [Esquema de configuração de rede virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 Para criar uma VNet usando um arquivo netcfg por meio do Portal Clássico do Azure, execute as etapas abaixo:
@@ -84,9 +90,4 @@ Para criar uma VNet usando um arquivo netcfg por meio do Portal Clássico do Azu
 10. Para criar a VNet, clique no botão de marca de seleção no canto inferior direito da caixa na figura anterior. Após alguns segundos, sua VNet aparecerá na lista de VNets disponíveis, conforme mostra a figura abaixo:
 
     ![Nova rede virtual](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure6.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

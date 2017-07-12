@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 972ed736e63089a69726de5d26236b930b390a10
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>Como atribuir usuários e grupos a um aplicativo
+<a id="how-to-assign-users-and-groups-to-an-application" class="xliff"></a>
+
+# Como atribuir usuários e grupos a um aplicativo
 
 Antes que os usuários possam executar qualquer uma das opções abaixo para um aplicativo específico, primeiro você precisa **atribuí-los ao aplicativo** para conceder acesso a eles:
 
@@ -33,7 +35,9 @@ Antes que os usuários possam executar qualquer uma das opções abaixo para um 
 
 -   Ver um aplicativo em seu [Inicializador de Aplicativos do Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Métodos de atribuição de aplicativos com o Azure Active Directory 
+<a id="methods-to-assign-applications-with-azure-active-directory" class="xliff"></a>
+
+## Métodos de atribuição de aplicativos com o Azure Active Directory 
 
 Há três formas de atribuir aplicativos com o Azure Active Directory:
 
@@ -43,7 +47,9 @@ Há três formas de atribuir aplicativos com o Azure Active Directory:
 
 -   [Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
 
-## <a name="assign-a-user-directly-as-an-administrator"></a>Atribuir um usuário diretamente como administrador
+<a id="assign-a-user-directly-as-an-administrator" class="xliff"></a>
+
+## Atribuir um usuário diretamente como administrador
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -81,7 +87,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários que você selecionou poderão iniciar esses aplicativos usando os métodos descritos na seção de descrição da solução.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Atribuir um grupo diretamente a um aplicativo como administrador
+<a id="assign-a-group-directly-to-an-application-as-an-administrator" class="xliff"></a>
+
+## Atribuir um grupo diretamente a um aplicativo como administrador
 
 Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -119,7 +127,9 @@ Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abai
 
 Após um breve período, os usuários nos grupos que você selecionou poderão iniciar esses aplicativos usando os métodos descritos na seção de descrição da solução. Se esses grupos forem dinâmicos, pode haver algum atraso de processamento adicional nessas atribuições que aparecem para os usuários nesses grupos atribuídos.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos
+<a id="enable-self-service-application-access-to-allow-users-to-find-their-own-applications" class="xliff"></a>
+
+## Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos
 
 O acesso de aplicativo de autoatendimento é uma ótima maneira de permitir que os usuários descubram aplicativos por conta própria e, ainda, permitir que o grupo de negócios aprove o acesso a esses aplicativos. Você pode permitir que o grupo de negócios gerencie as credenciais atribuídas a esses usuários para Aplicativos de logon único com senha, diretamente de seus painéis de acesso.
 
@@ -164,6 +174,8 @@ Após você concluir a configuração do aplicativo de autoatendimento, os usuá
 
 Essas aprovações dão suporte a fluxos de trabalho de aprovação únicos, o que significa que, se você especificar vários aprovadores, qualquer aprovador individual poderá aprovar o acesso ao aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 

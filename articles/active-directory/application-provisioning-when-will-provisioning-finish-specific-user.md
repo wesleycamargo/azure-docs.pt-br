@@ -11,20 +11,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: b1f16079ad13c4e45f93a7e5e3d29568738e03cf
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Descubra quando um usuário específico será capaz de acessar um aplicativo
+<a id="find-out-when-a-specific-user-will-be-able-to-access-an-application" class="xliff"></a>
+
+# Descubra quando um usuário específico será capaz de acessar um aplicativo
 Ao usar o provisionamento automático de usuário com um aplicativo, o Azure AD automaticamente provisionar e atualizar contas de usuário em um aplicativo com base em coisas como [atribuição de usuário e grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) em um intervalo de tempo agendado regularmente, normalmente a cada 10 minutos.
 
-## <a name="how-long-does-it-take"></a>Quanto tempo demora?
+<a id="how-long-does-it-take" class="xliff"></a>
+
+## Quanto tempo demora?
 
 O tempo necessário para que um determinado usuário seja provisionado depende principalmente se uma sincronização "completa" inicial já ocorreu.
 
@@ -32,7 +36,9 @@ A primeira sincronização entre o Azure AD e um aplicativo pode levar de 20 min
 
 Sincronizações subsequentes após a sincronização inicial ser mais rápido (por exemplo, em 10 minutos), como o serviço de provisionamento armazena as marcas d'água que representam o estado dos dois sistemas após a sincronização inicial, melhorando o desempenho de sincronizações subsequentes.
 
-## <a name="how-to-check-the-status-of-a-user"></a>Como verificar o status de um usuário
+<a id="how-to-check-the-status-of-a-user" class="xliff"></a>
+
+## Como verificar o status de um usuário
 
 Para ver o status de provisionamento para um usuário selecionado, consulte os logs de auditoria no Azure AD.
 
@@ -47,6 +53,8 @@ Os logs de auditoria de provisionamento registram todas as operações executada
 * Comparando objetos de usuário entre o sistema
 * Adicionar, atualizar ou desabilitar a conta de usuário no sistema de destino com base na comparação
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)''
 
