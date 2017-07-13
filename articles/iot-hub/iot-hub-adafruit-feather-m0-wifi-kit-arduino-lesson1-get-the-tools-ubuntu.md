@@ -4,7 +4,7 @@ description: "Baixe e instale as ferramentas e software necessários para o prim
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: ferramentas de desenvolvimento arduino, desenvolvimento de iot, software de iot, software de Internet das coisas, instalar o git no ubuntu, instalar node js no ubuntu
 ROBOTS: NOINDEX
@@ -17,21 +17,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: d33fc9b04f69b161e92a266cd3604488e35e74af
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="get-the-tools-ubuntu-1604"></a>Obter as ferramentas (Ubuntu 16.04)
+<a id="get-the-tools-ubuntu-1604" class="xliff"></a>
+
+# Obter as ferramentas (Ubuntu 16.04)
 
 > [!div class="op_single_selector"]
 > * [Windows 7 ou posterior][windows]
 > * [Ubuntu 16.04][ubuntu]
 > * [macOS 10.10][macos]
 
-## <a name="what-you-will-do"></a>O que você fará
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 
 Baixe as ferramentas de desenvolvimento e o software para o primeiro aplicativo de exemplo para a placa do Adafruit Feather M0 WiFi Arduino. 
 
@@ -40,7 +44,9 @@ Se você tiver problemas, procure por soluções na [página de solução de pro
 > [!NOTE]
 > Embora a linguagem de programação da lógica principal seja o Arduino, ferramentas Node.js são usadas nas lições para compilar e implantar aplicativos de exemplo.
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Neste artigo, você aprenderá:
 
 * Como instalar o Git e o Node.js
@@ -50,12 +56,16 @@ Neste artigo, você aprenderá:
   * A versão mínima necessária do Node.js é a 4.5 LTS.
   * O [NPM](https://www.npmjs.com) é um dos gerenciadores de pacote para o Node.js.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 Para concluir esta operação, você precisará de:
 * Uma conexão com a Internet para baixar as ferramentas de desenvolvimento e o software.
 * Um computador que esteja executando o Ubuntu 16.04 ou posterior.
 
-## <a name="install-git-nodejs-and-npm"></a>Instale o Git, Node.js e o NPM
+<a id="install-git-nodejs-and-npm" class="xliff"></a>
+
+## Instale o Git, Node.js e o NPM
 Use o atalho de teclado `Ctrl + Alt + T` para abrir um terminal e execute os seguintes comandos:
 
 ```bash
@@ -65,7 +75,9 @@ sudo apt-get install -y nodejs
 sudo apt-get install git
 ```
 
-## <a name="install-additional-nodejs-development-tools"></a>Instalar ferramentas adicionais de desenvolvimento do Node.js
+<a id="install-additional-nodejs-development-tools" class="xliff"></a>
+
+## Instalar ferramentas adicionais de desenvolvimento do Node.js
 Use [gulp.js](http://gulpjs.com) para automatizar a implantação do aplicativo de exemplo para sua placa Arduino.
 
 Instale `gulp`, `device-discovery-cli` executando o seguinte comando no terminal:
@@ -76,13 +88,19 @@ sudo npm install -g gulp device-discovery-cli
 
 Se você tiver problemas ao instalar o Node.js e essas ferramentas adicionais de desenvolvimento no Ubuntu, consulte o [guia de solução de problemas][troubleshooting] para soluções de problemas comuns.
 
-## <a name="install-visual-studio-code"></a>Instalar o Visual Studio Code
+<a id="install-visual-studio-code" class="xliff"></a>
+
+## Instalar o Visual Studio Code
 [Baixe](https://code.visualstudio.com/docs/setup/linux) e instale o Visual Studio Code. O Visual Studio Code é um editor de código-fonte leve mas poderoso para Windows, Linux e macOS. Use este editor posteriormente no tutorial para editar o código de exemplo.
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Você instalou as ferramentas de desenvolvimento e software necessários para o primeiro aplicativo de exemplo. A tarefa seguinte é criar, implantar e executar o aplicativo de exemplo na placa Arduino.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Criar e implantar o aplicativo de exemplo de piscar][create-and-deploy-the-blink-sample-application]
 
 <!-- Images and links -->

@@ -4,7 +4,7 @@ description: Salve mensagens da NUC da Intel para o hub IoT, grave-as no Armazen
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "recuperar dados da nuvem, serviço de nuvem de iot"
 ROBOTS: NOINDEX
@@ -17,28 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/25/2017
-
 
 ---
 
-# <a name="read-messages-persisted-in-azure-table-storage"></a>Ler mensagens mantidas no Armazenamento de Tabelas do Azure
+<a id="read-messages-persisted-in-azure-table-storage" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>O que você fará
+# Ler mensagens mantidas no Armazenamento de Tabelas do Azure
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 
 - Execute o aplicativo de exemplo de gateway no gateway que envia mensagens ao Hub IoT.
 - Em seguida, execute um código de exemplo no computador host para ler mensagens no seu Armazenamento de Tabelas do Azure. 
 
 Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 
 Como usar a ferramenta gulp para executar o código de exemplo para ler mensagens no Armazenamento de Tabelas do Azure.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 
 Você realizou as seguintes tarefas com êxito:
 
@@ -46,7 +54,9 @@ Você realizou as seguintes tarefas com êxito:
 - [Executar o aplicativo de exemplo do gateway](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md).
 - [Ler mensagens do Hub IoT](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md).
 
-## <a name="get-your-azure-storage-connection-strings"></a>Obtenha cadeias de conexão do armazenamento do Azure
+<a id="get-your-azure-storage-connection-strings" class="xliff"></a>
+
+## Obtenha cadeias de conexão do armazenamento do Azure
 
 No início desta lição, você criou com êxito uma conta de armazenamento do Azure. Para obter a cadeia de conexão da conta de armazenamento do Azure, execute os seguintes comandos:
 
@@ -64,7 +74,9 @@ az storage account show-connection-string -g iot-gateway -n {storage name}
 
 Use iot-gateway como o valor de `{resource group name}` se não tiver alterado o valor na Lição 2.
 
-## <a name="configure-the-device-connection"></a>Configurar a conexão do dispositivo
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configurar a conexão do dispositivo
 
 Atualize o arquivo `config-azure.json` para que o código de exemplo executado no computador host possa ler mensagens no Armazenamento de Tabelas do Azure. Para configurar a conexão do dispositivo, siga estas etapas:
 
@@ -83,7 +95,9 @@ Atualize o arquivo `config-azure.json` para que o código de exemplo executado n
 
    `[IoT hub connection string]` já deve ter sido substituído na seção [Ler mensagens do Hub IoT do Azure](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md), na Lição&3;.
 
-## <a name="read-messages-in-your-azure-table-storage"></a>Ler mensagens no Armazenamento de Tabelas do Azure
+<a id="read-messages-in-your-azure-table-storage" class="xliff"></a>
+
+## Ler mensagens no Armazenamento de Tabelas do Azure
 
 Execute o aplicativo de exemplo no gateway e leia as mensagens de armazenamento de tabelas do Azure executando o seguinte comando:
 
@@ -99,6 +113,8 @@ As mensagens que estão sendo enviadas e recebidas são todas exibidas instantan
    ![leitura de gulp](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table.png)
 
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 
 Você executou o código de exemplo para ler as mensagens no Armazenamento de Tabelas do Azure salvas pelo aplicativo de Funções do Azure.

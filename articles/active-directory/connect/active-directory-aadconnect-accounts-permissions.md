@@ -15,20 +15,24 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 366c2c43ec50b0b6c47a25ea9b0e9d7109827429
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 44859d5368a954aee6939f6a6060738aa97c9c05
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
+<a id="azure-ad-connect-accounts-and-permissions" class="xliff"></a>
+
+# Azure AD Connect: contas e permissões
 O assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
 
 * Em Configurações Expressas, o assistente requer mais privilégios para que possa definir sua configuração facilmente, sem que você precise criar usuários ou configurar permissões separadamente.
 * Em Configurações Personalizadas, o assistente oferece mais opções, mas há algumas situações em que você precisa ter as permissões corretas por conta própria.
 
-## <a name="related-documentation"></a>Documentação relacionada
+<a id="related-documentation" class="xliff"></a>
+
+## Documentação relacionada
 Se você não leu a documentação em [Integrando suas identidades locais com o Azure Active Directory](../active-directory-aadconnect.md), a tabela a seguir fornece links para tópicos relacionados.
 
 |Tópico |Link|  
@@ -39,7 +43,9 @@ Se você não leu a documentação em [Integrando suas identidades locais com o 
 |Atualização do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 |Após a instalação | [Verifique a instalação e atribua licenças ](active-directory-aadconnect-whats-next.md)|
 
-## <a name="express-settings-installation"></a>Instalação das configurações expressas
+<a id="express-settings-installation" class="xliff"></a>
+
+## Instalação das configurações expressas
 As configurações expressas do assistente de instalação solicita credenciais de administrador corporativo do AD DS para que o Active Directory local possa ser configurado com as permissões necessárias para o Azure AD Connect. Se você estiver atualizando o DirSync, as credenciais de administrador corporativo do AD DS serão usadas para redefinir a senha da conta usada pelo DirSync. Você também precisa de credenciais de Administrador Global do Azure AD.
 
 | Página do assistente | Credenciais coletadas | Permissões necessárias | Usadas para |
@@ -48,13 +54,19 @@ As configurações expressas do assistente de instalação solicita credenciais 
 | Conecte-se ao AD do Azure |Credenciais de diretório do AD do Azure |Função de administrador global no AD do Azure |<li>Habilite a sincronização no diretório do AD do Azure.</li>  <li>Criação da [conta do Azure AD](#azure-ad-service-account) que é usada para operações de sincronização em andamento no Azure AD.</li> |
 | Conectar-se ao AD DS |Credenciais do Active Directory local |Membro do grupo EA (Administradores de Empresa) no Active Directory |<li>Cria uma [conta](#active-directory-account) no Active Directory e concede permissões a ela. Essa conta criada é usada para ler e gravar informações de diretório durante a sincronização.</li> |
 
-### <a name="enterprise-admin-credentials"></a>Credenciais de administrador corporativo
+<a id="enterprise-admin-credentials" class="xliff"></a>
+
+### Credenciais de administrador corporativo
 Essas credenciais são usadas apenas durante a instalação e não são usadas após a conclusão da instalação. O Admin Corporativo e não Administrador de Domínio, deve garantir que as permissões no Active Directory possam ser definidas em todos os domínios.
 
-### <a name="global-admin-credentials"></a>Credenciais de administrador global
+<a id="global-admin-credentials" class="xliff"></a>
+
+### Credenciais de administrador global
 Essas credenciais são usadas apenas durante a instalação e não são usadas após a conclusão da instalação. São usadas para criar a [conta do AD do Azure](#azure-ad-service-account) usada para sincronizar alterações com o AD do Azure. A conta também habilita a sincronização como um recurso no Azure AD.
 
-### <a name="permissions-for-the-created-ad-ds-account-for-express-settings"></a>Permissões de configurações expressas para a conta do AD DS criada
+<a id="permissions-for-the-created-ad-ds-account-for-express-settings" class="xliff"></a>
+
+### Permissões de configurações expressas para a conta do AD DS criada
 A [conta](#active-directory-account) criada para leitura e gravação no AD DS tem as seguintes permissões se é criada pelas configurações expressas:
 
 | Permissão | Usado para |
@@ -66,7 +78,9 @@ A [conta](#active-directory-account) criada para leitura e gravação no AD DS t
 | Ler/Gravar todas as propriedades Contato |Importação e Exchange híbrido |
 | Redefinir senha |Preparação para habilitar write-back de senha |
 
-## <a name="custom-settings-installation"></a>Instalação de configurações personalizadas
+<a id="custom-settings-installation" class="xliff"></a>
+
+## Instalação de configurações personalizadas
 Anteriormente, ao usar configurações personalizadas, a conta utilizada para conectar-se ao Active Directory precisava ser criada antes da instalação. As permissões que você deve conceder a essa conta podem ser encontradas em [Criar a conta do AD DS](#create-the-ad-ds-account). Com o Azure AD Connect versão 1.1.524.0 e posteriores, você pode permitir que o assistente do Azure AD Connect crie a conta para você.
 
 | Página do assistente | Credenciais coletadas | Permissões necessárias | Usadas para |
@@ -80,7 +94,9 @@ Anteriormente, ao usar configurações personalizadas, a conta utilizada para co
 | Credenciais de confiança de proxy |As credenciais de confiança do serviço de federação (as credenciais que o proxy usa para se registrar para um certificado de confiança do FS |Conta de domínio que é administrador local do servidor do AD FS |Registro inicial de certificado de confiança FS-WAP. |
 | Página da conta de serviço do AD FS, "Usar uma opção de conta de usuário de domínio" |Credenciais de conta de usuário do AD |Usuário de domínio |A conta de usuário do AD cujas credenciais são fornecidas é usada como a conta de logon do serviço do AD FS. |
 
-### <a name="create-the-ad-ds-account"></a>Criar a conta do AD DS
+<a id="create-the-ad-ds-account" class="xliff"></a>
+
+### Criar a conta do AD DS
 Quando você instala o Azure AD Connect, a conta que especifica na página **Conectar seus diretórios** deve estar presente no Active Directory e ter as permissões necessárias concedidas. O Assistente de instalação não verifica as permissões, e os problemas são encontrados somente durante a sincronização.
 
 As permissões de que você precisa dependem dos recursos opcionais que habilitar. Se você tiver vários domínios, as permissões devem ser concedidas para todos os domínios na floresta. Se você não habilitar esses recursos, as permissões padrão **Usuário de domínio** serão suficientes.
@@ -91,11 +107,13 @@ As permissões de que você precisa dependem dos recursos opcionais que habilita
 | Sincronização de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
 | Implantação híbrida do Exchange |Permissões de gravação para os atributos documentados em [Write-back híbrido do Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
 | Pasta pública do Exchange Mail |Permissões de leitura para os atributos documentados na [Pasta pública do Exchange Mail](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| Write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../active-directory-passwords.md) para usuários. |
+| Write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../active-directory-passwords-writeback.md) para usuários. |
 | Write-back de dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [Write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md). |
 | Write-back de grupo |Ler, criar, atualizar e excluir objetos de grupo na UO em que os grupos de distribuição devem estar localizados. |
 
-## <a name="upgrade"></a>Atualizar
+<a id="upgrade" class="xliff"></a>
+
+## Atualizar
 Ao atualizar de uma versão do Azure AD Connect para uma nova versão, você precisa das seguintes permissões:
 
 | Principal | Permissões necessárias | Usadas para |
@@ -104,15 +122,21 @@ Ao atualizar de uma versão do Azure AD Connect para uma nova versão, você pre
 | Usuário que está executando o assistente de instalação |Membro do ADSyncAdmins |Fazer alterações em Regras de Sincronização e outras configurações. |
 | Usuário que está executando o assistente de instalação |Se você usa um SQL Server completo: DBO (ou semelhante) do banco de dados de mecanismo de sincronização |Fazer alterações no nível de banco de dados, como a atualização de tabelas com novas colunas. |
 
-## <a name="more-about-the-created-accounts"></a>Mais informações sobre as contas criadas
-### <a name="active-directory-account"></a>Conta do Active Directory
+<a id="more-about-the-created-accounts" class="xliff"></a>
+
+## Mais informações sobre as contas criadas
+<a id="active-directory-account" class="xliff"></a>
+
+### Conta do Active Directory
 Se você usar configurações expressas, uma conta será criada no Active Directory e será usada para sincronização. A conta criada está localizada no domínio raiz da floresta no contêiner Usuários e tem seu nome prefixado com **MSOL_**. A conta é criada com uma senha longa complexa que não expira. Se você tiver uma política de senha em seu domínio, verifique se senhas longas e complexas são permitidas para esta conta.
 
 ![Conta do AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 Se você usar configurações personalizadas, você será responsável por criar a conta antes de iniciar a instalação.
 
-### <a name="azure-ad-connect-sync-service-account"></a>Conta de serviço de sincronização do Azure AD Connect
+<a id="azure-ad-connect-sync-service-account" class="xliff"></a>
+
+### Conta de serviço de sincronização do Azure AD Connect
 O serviço de sincronização pode ser executado em contas diferentes. Ele pode ser executado em uma VSA (**conta de serviço virtual**), uma gMSA/sMSA (**conta de serviço gerenciado de grupo**) ou então uma conta de usuário regular. As opções com suporte foram alteradas com a versão de abril de 2017 do Connect ao fazer uma nova instalação. Se você atualizar de uma versão anterior do Azure AD Connect, essas opções adicionais não estarão disponíveis.
 
 | Tipo de conta | Opção de instalação | Descrição |
@@ -146,7 +170,9 @@ Legenda:
 | **computador associado ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA, gMSA | **gMSA**</br>Conta do domínio |
 | **Controlador de domínio** | **Conta do domínio** | *gMSA*</br>**Conta do domínio**</br>sMSA| *gMSA*</br>**Conta do domínio**|
 
-#### <a name="virtual-service-account"></a>Conta de serviço virtual
+<a id="virtual-service-account" class="xliff"></a>
+
+#### Conta de serviço virtual
 Uma conta de serviço virtual é um tipo especial de conta que não tem uma senha e é gerenciada pelo Windows.
 
 ![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
@@ -155,7 +181,9 @@ O VSA destina-se a ser usado em cenários em que o mecanismo de sincronização 
 
 Este recurso requer o Windows Server 2008 R2 ou posterior. Se você instalar o Azure AD Connect no Windows Server 2008, a instalação voltará a usar uma [conta de usuário](#user-account) em vez disso.
 
-#### <a name="group-managed-service-account"></a>Conta de serviço gerenciado de grupo
+<a id="group-managed-service-account" class="xliff"></a>
+
+#### Conta de serviço gerenciado de grupo
 Se você usa um SQL Server remoto, é recomendável usar uma **Conta de Serviço Gerenciado de Grupo**. Para obter mais informações sobre como preparar o Active Directory para a conta de serviço gerenciado de grupo, consulte [Visão geral de contas de serviço gerenciado de grupo](https://technet.microsoft.com/library/hh831782.aspx).
 
 Para usar essa opção, na página [Instalar componentes necessários](active-directory-aadconnect-get-started-custom.md#install-required-components), selecione **Usar uma conta de serviço existente** e selecione **Conta de serviço gerenciado**.  
@@ -164,7 +192,9 @@ Também há suporte para o uso de uma [conta de serviço gerenciado autônomo](h
 
 Este recurso requer o Windows Server 2012 ou posterior. Se você precisar usar um sistema operacional mais antigo e usar SQL remoto, você deverá usar uma [conta de usuário](#user-account).
 
-#### <a name="user-account"></a>Conta de usuário
+<a id="user-account" class="xliff"></a>
+
+#### Conta de usuário
 Uma conta de serviço local é criada pelo assistente de instalação (a menos que você especifique a conta a ser usada em configurações personalizadas). A conta prefixada com **AAD_** é usada com o serviço de sincronização real para ser executada como. Se você instalar o Azure AD Connect em um controlador de domínio, a conta é criada no domínio. Se você usar um servidor remoto que execute um servidor SQL ou se usar um proxy que exija autenticação, a conta do serviço **AAD_** deverá estar localizada no domínio.
 
 ![Conta de serviço de sincronização](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
@@ -177,7 +207,9 @@ Se você usar um SQL Server completo, a conta de serviço será o DBO do banco d
 
 A conta também recebe permissões para arquivos, chaves do registro e outros objetos relacionados ao mecanismo de sincronização.
 
-### <a name="azure-ad-service-account"></a>Conta de serviço do AD do Azure
+<a id="azure-ad-service-account" class="xliff"></a>
+
+### Conta de serviço do AD do Azure
 Uma conta no Azure AD é criada para uso do serviço de sincronização. Essa conta pode ser identificada com seu nome de exibição.
 
 ![Conta do AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
@@ -190,6 +222,8 @@ Há um limite de 20 contas de serviço de sincronização no Azure AD. Para obte
 
 Para remover contas de serviço do Azure AD não utilizadas, execute o seguinte cmdlet do PowerShell do Azure AD:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](../active-directory-aadconnect.md).
 

@@ -4,7 +4,7 @@ description: "Um aplicativo de exemplo é executado em seu Pi e monitora mensage
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: nuvem para o dispositivo, mensagem da nuvem
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
 ms.openlocfilehash: 3a6957ebbb239eacb4fce696b7fcfd02e690310b
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/28/2017
 
-
 ---
-# <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Executar um aplicativo de exemplo para receber mensagens da nuvem para o dispositivo
+<a id="run-a-sample-application-to-receive-cloud-to-device-messages" class="xliff"></a>
+
+# Executar um aplicativo de exemplo para receber mensagens da nuvem para o dispositivo
 Neste artigo, implante um aplicativo de exemplo no Raspberry Pi 3. O aplicativo de exemplo monitora mensagens recebidas do hub IoT. Você também executa uma tarefa gulp no computador para enviar mensagens para o Pi do hub IoT. Quando o aplicativo de exemplo recebe uma a mensagem, ele pisca o LED. Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-do"></a>O que você fará
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 * Conectar o aplicativo de exemplo ao hub IoT.
 * Implantar e executar o aplicativo de exemplo.
 * Enviar mensagens do hub IoT para o Pi para piscar o LED.
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Neste artigo, você aprenderá:
 * Como monitorar mensagens recebidas do hub IoT.
 * Como enviar mensagens de nuvem para dispositivo do hub IoT para o Pi.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 * Raspberry Pi 3, configuração para uso. Para saber como configurar o Pi, consulte [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md).
 * Um hub IoT criado em sua assinatura do Azure. Para saber como criar seu Hub IoT, consulte [Criar seu Hub IoT e registrar o Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md).
 
-## <a name="connect-the-sample-application-to-your-iot-hub"></a>Conectar o aplicativo de exemplo ao Hub IoT
+<a id="connect-the-sample-application-to-your-iot-hub" class="xliff"></a>
+
+## Conectar o aplicativo de exemplo ao Hub IoT
 1. Verifique se você está na pasta de repositório `iot-hub-c-raspberrypi-getting-started`. Abra o aplicativo de exemplo no Visual Studio Code, executando os seguintes comandos:
 
    ```bash
@@ -70,7 +80,9 @@ Neste artigo, você aprenderá:
 > [!NOTE]
 > Execute **gulp install-tools** e também, se você ainda não fez isso na Lição 1.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Implantar e executar o aplicativo de exemplo
 Implante e execute o aplicativo de exemplo no Pi executando os seguintes comandos:
 
 ```
@@ -85,9 +97,13 @@ Você deve ver o LED piscar a cada dois segundos, uma vez que a tarefa gulp est�
 
 ![Exemplo de aplicativo com o comando gulp e mensagens de piscar](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_blink_c.png)
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Você enviou com êxito mensagens do Hub IoT para o Pi para piscar o LED. A próxima tarefa é opcional: alterar o comportamento de liga e desliga do LED.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Alterar o comportamento de ligar e desligar do LED](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
 

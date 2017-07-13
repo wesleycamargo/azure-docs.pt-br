@@ -4,7 +4,7 @@ description: Instalar as ferramentas no computador Mac, criar um Hub IoT e regis
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "desenvolvimento de IoT, software de IoT, serviço de nuvem de IoT, software de Internet das Coisas, CLI do Azure, instalar o Python no Mac, instalar o git no Ubuntu, execução de Gulp, instalar Node.js em Mac"
 ROBOTS: NOINDEX
@@ -17,27 +17,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 8b105cebd5b3e6c5cae726abbf5f2c48c0cd7587
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="get-the-tools-macos"></a>Obter as ferramentas (MacOS)
+<a id="get-the-tools-macos" class="xliff"></a>
+
+# Obter as ferramentas (MacOS)
 > [!div class="op_single_selector"]
 > * [Windows 7 ou superior](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
 > * [Ubuntu 16.04](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
 > * [macOS 10.10](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
 
-## <a name="what-you-will-do"></a>O que você fará
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 
 - Instalar o Git, Node.js, o Gulp e o Python.
 - Instalar a interface de linha de comando do Azure (CLI do Azure). 
 
 Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 
 Nesta lição, você aprenderá a:
 
@@ -55,12 +61,16 @@ Nesta lição, você aprenderá a:
   - A CLI do Azure fornece uma experiência de linha de comando multiplataforma do Azure. Você trabalha diretamente de uma linha de comando para provisionar e gerenciar recursos.
 - Como usar a CLI do Azure para criar um Hub IoT.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 
 - Uma conexão com a Internet para baixar as ferramentas e o software.
 - Um computador Mac que esteja executando o OS X Yosemite (10.10) ou posterior.
 
-## <a name="install-git-and-nodejs"></a>Instalar o Git e o Node.js
+<a id="install-git-and-nodejs" class="xliff"></a>
+
+## Instalar o Git e o Node.js
 
 Para instalar o Git e o Node.js, use o utilitário de gerenciamento de pacote Homebrew seguindo estas etapas:
 
@@ -78,7 +88,9 @@ Para instalar o Git e o Node.js, use o utilitário de gerenciamento de pacote Ho
     brew install node git
     ```
 
-## <a name="install-nodejs-development-tools"></a>Instalar ferramentas de desenvolvimento do Node.js
+<a id="install-nodejs-development-tools" class="xliff"></a>
+
+## Instalar ferramentas de desenvolvimento do Node.js
 
 Você usa o [gulp.js](http://gulpjs.com/) para automatizar a implantação e execução de scripts.
 
@@ -93,7 +105,9 @@ Se você tiver problemas com a instalação, consulte o [guia de solução de pr
 > [!Note]
 > Nó, NPM e Gulp são necessários para executar os scripts de automação desenvolvidos no Node.js.
 
-## <a name="install-python"></a>Instalar o Python
+<a id="install-python" class="xliff"></a>
+
+## Instalar o Python
 
 Embora o Mac OS X venha com o Python 2.7, recomendamos que você instale o Python por meio do Homebrew. Veja [Instalando Python no Mac OS X](http://docs.python-guide.org/en/latest/starting/install/osx/).
 
@@ -103,7 +117,9 @@ Instale o Python e o pip executando o seguinte comando:
 brew install python
 ```
 
-## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
+<a id="install-the-azure-cli" class="xliff"></a>
+
+## Instalar a CLI do Azure
 
 Para instalar a CLI do Azure, siga estas etapas:
 
@@ -122,16 +138,22 @@ Para instalar a CLI do Azure, siga estas etapas:
 
    ![Verificar a instalação da CLI do Azure](media/iot-hub-gateway-kit-lessons/lesson2/az_iot_help_osx.png)
 
-## <a name="install-visual-studio-code"></a>Instalar o Visual Studio Code
+<a id="install-visual-studio-code" class="xliff"></a>
+
+## Instalar o Visual Studio Code
 
 Use o código do Visual Studio posteriormente no tutorial para editar arquivos de configuração.
 
 [Baixe](https://code.visualstudio.com/docs/setup/osx) e instale o Visual Studio Code.
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 
 Você instalou todos os softwares e as ferramentas necessárias no computador Mac. A próxima tarefa é usar a CLI do Azure para criar um hub IoT e registrar seu dispositivo no seu hub IoT.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Criar um Hub IoT e registrar o dispositivo](iot-hub-gateway-kit-c-lesson2-register-device.md)
 

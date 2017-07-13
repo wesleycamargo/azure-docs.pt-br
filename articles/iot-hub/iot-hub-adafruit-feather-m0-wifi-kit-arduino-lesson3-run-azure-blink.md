@@ -4,7 +4,7 @@ description: Implante e execute um aplicativo de exemplo no Adafruit Feather M0 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "serviço de nuvem iot, enviar dados para nuvem arduino"
 ROBOTS: NOINDEX
@@ -17,26 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 631a6677e4801b1c3475b9e8f2726219dd101132
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>Executar um aplicativo de exemplo para enviar mensagens do dispositivo para a nuvem
-## <a name="what-you-will-do"></a>O que você fará
+<a id="run-a-sample-application-to-send-device-to-cloud-messages" class="xliff"></a>
+
+# Executar um aplicativo de exemplo para enviar mensagens do dispositivo para a nuvem
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 Este artigo mostrará como implantar e executar um aplicativo de exemplo em sua plava Adafruit Feather M0 WiFi Arduino que envia mensagens ao Hub IoT.
 
 Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Você aprenderá a usar a ferramenta gulp para implantar e executar o aplicativo Arduino de exemplo em sua placa Arduino.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 * Antes de iniciar essa tarefa, você precisa ter concluído com sucesso [Criar um aplicativo de funções e uma conta de armazenamento do Azure para processar e armazenar mensagens do Hub IoT][process-and-store-iot-hub-messages].
 
-## <a name="get-your-iot-hub-and-device-connection-strings"></a>Obter as cadeias de conexão do dispositivo e do Hub IoT
+<a id="get-your-iot-hub-and-device-connection-strings" class="xliff"></a>
+
+## Obter as cadeias de conexão do dispositivo e do Hub IoT
 A cadeia de conexão do dispositivo é usada para conectar a placa Arduino ao Hub IoT. A cadeia de conexão do Hub IoT é usada para conectar o Hub IoT à identidade de dispositivo que representa a placa Arduino no Hub IoT.
 
 * Liste todos os Hubs IoT no seu grupo de recursos executando o seguinte comando da CLI do Azure:
@@ -62,7 +72,9 @@ az iot device show-connection-string --hub-name {my hub name} --device-id mym0wi
 ```
 
 Use `mym0wifi` como o valor de `{device id}` se não tiver alterado o valor.
-## <a name="configure-the-device-connection"></a>Configurar a conexão do dispositivo
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configurar a conexão do dispositivo
 Para configurar a conexão do dispositivo, siga estas etapas:
 
 1. Obter a porta serial do dispositivo com a CLI de descoberta de dispositivo:
@@ -117,7 +129,9 @@ Para configurar a conexão do dispositivo, siga estas etapas:
    > [!NOTE]
    > Você não precisa do `azure_storage_connection_string` neste artigo. Mantenha como está.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Implantar e executar o aplicativo de exemplo
 Implante e execute o aplicativo de exemplo na sua placa do Arduino executando o seguinte comando:
 
 ```bash
@@ -132,15 +146,21 @@ gulp run --listen
 > [!NOTE]
 > A tarefa de gulp padrão executa as tarefas `install-tools` e `run` em sequência. Quando [implantou o aplicativo de piscar][deployed-the-blink-app], você executou estas tarefas separadamente.
 
-## <a name="verify-that-the-sample-application-works"></a>Verificar se o aplicativo de exemplo funciona
+<a id="verify-that-the-sample-application-works" class="xliff"></a>
+
+## Verificar se o aplicativo de exemplo funciona
 Você deve ver o LED do GPIO núm. 0 na placa piscando a cada dois segundos. Sempre que o LED pisca, o aplicativo de exemplo envia uma mensagem ao hub IoT e verifica se a mensagem foi enviada com êxito para o hub IoT. Além disso, cada mensagem recebida pelo Hub IoT é impressa na janela do console. O aplicativo de exemplo é encerrado automaticamente após o envio de 20 mensagens.
 
 ![Exemplo de aplicativo com mensagens enviadas e recebidas][sample-application-with-sent-and-received-messages]
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Você implantou e executou o novo aplicativo de exemplo de piscar em sua placa Arduino para enviar mensagens do dispositivo para a nuvem para o hub IoT. Agora, você monitorara suas mensagens conforme elas são gravadas na conta de armazenamento.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Ler mensagens persistentes no Armazenamento do Azure][read-messages-persisted-in-azure-storage]
 <!-- Images and links -->
 

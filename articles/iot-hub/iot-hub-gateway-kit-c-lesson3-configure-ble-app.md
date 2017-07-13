@@ -4,7 +4,7 @@ description: Execute um aplicativo de exemplo BLE para receber dados do BLE Sens
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: aplicativo ble, aplicativo de monitor de sensor, coleta de dados do sensor, dados de sensores, dados de sensor para a nuvem
 ROBOTS: NOINDEX
@@ -17,16 +17,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: a9f689c0b231af3cdf9257e2179bf86ff7bc9a31
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="configure-and-run-a-ble-sample-application"></a>Configurar e executar um aplicativo de exemplo BLE
+<a id="configure-and-run-a-ble-sample-application" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>O que você fará
+# Configurar e executar um aplicativo de exemplo BLE
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 
 - Clone o repositório de exemplo. 
 - Configure a conectividade entre SensorTag e NUC da Intel. 
@@ -34,19 +38,25 @@ ms.lasthandoff: 01/25/2017
 
 Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 
 Neste artigo, você aprenderá:
 
 - Como configurar e executar o aplicativo de exemplo BLE.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 
 Você deve ter concluído com sucesso
 
 - [Criar um Hub IoT e registrar o SensorTag](iot-hub-gateway-kit-c-lesson2-register-device.md)
 
-## <a name="clone-the-sample-repository-to-the-host-computer"></a>Clonar o repositório de exemplo para o computador host
+<a id="clone-the-sample-repository-to-the-host-computer" class="xliff"></a>
+
+## Clonar o repositório de exemplo para o computador host
 
 Para clonar o repositório de exemplo, siga estas etapas no computador host:
 
@@ -58,7 +68,9 @@ Para clonar o repositório de exemplo, siga estas etapas no computador host:
    cd iot-hub-c-intel-nuc-gateway-getting-started
    ```
 
-## <a name="set-up-the-connectivity-between-sensortag-and-intel-nuc"></a>Configurar a conectividade entre SensorTag e NUC da Intel
+<a id="set-up-the-connectivity-between-sensortag-and-intel-nuc" class="xliff"></a>
+
+## Configurar a conectividade entre SensorTag e NUC da Intel
 
 Para configurar a conectividade, siga estas etapas no computador host:
 
@@ -106,7 +118,9 @@ Para configurar a conectividade, siga estas etapas no computador host:
 
    Substitua `{mac address}` pelo endereço MAC obtido na etapa anterior.
 
-## <a name="get-the-connection-string-of-sensortag"></a>Obter a cadeia de conexão da SensorTag
+<a id="get-the-connection-string-of-sensortag" class="xliff"></a>
+
+## Obter a cadeia de conexão da SensorTag
 
 Para obter a cadeia de conexão do Hub IoT do Azure da SensorTag, execute o seguinte comando no computador host:
 
@@ -116,7 +130,9 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
 
 `{IoT hub name}` é o nome do hub IoT usado. Use o gateway IoT como o valor de `{resource group name}` e use mydevice como o valor de `{device id}` se você não tiver alterado o valor na Lição 2.
 
-## <a name="configure-the-ble-sample-application"></a>Configurar o aplicativo de exemplo BLE
+<a id="configure-the-ble-sample-application" class="xliff"></a>
+
+## Configurar o aplicativo de exemplo BLE
 
 Para configurar e executar o aplicativo de exemplo BLE, siga estas etapas no computador host:
 
@@ -148,7 +164,9 @@ Para configurar e executar o aplicativo de exemplo BLE, siga estas etapas no com
       gulp run
       ```
 
-## <a name="verify-that-the-ble-sample-application-works"></a>Verificar se o aplicativo de exemplo BLE funciona
+<a id="verify-that-the-ble-sample-application-works" class="xliff"></a>
+
+## Verificar se o aplicativo de exemplo BLE funciona
 
 Você verá agora algo semelhante ao mostrado a seguir:
 
@@ -156,9 +174,13 @@ Você verá agora algo semelhante ao mostrado a seguir:
 
 O aplicativo de exemplo continua coletando dados de temperatura e enviando-os para o Hub IoT. O aplicativo de exemplo é encerrado automaticamente após 40 segundos.
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 
 Você configurou com êxito a conectividade entre a SensorTag e o NUC da Intel e executou um aplicativo de exemplo BLE que coleta e envia dados da SensorTag para o Hub IoT. Você está pronto para aprender a verificar se o seu Hub IoT recebeu os dados.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Ler mensagens de seu Hub IoT](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)

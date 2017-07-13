@@ -4,7 +4,7 @@ description: "Clone o aplicativo C de exemplo do GitHub e execute o gulp para im
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "projetos led arduino, piscar led arduino, código piscar led arduino, programa de piscar arduino, exemplo de piscar arduino"
 ROBOTS: NOINDEX
@@ -17,27 +17,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
 ms.openlocfilehash: c0589d488be5ec62686551b97d8949e5fed2f0a3
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Criar e implantar o aplicativo de piscar
-## <a name="what-you-will-do"></a>O que você fará
+<a id="create-and-deploy-the-blink-application" class="xliff"></a>
+
+# Criar e implantar o aplicativo de piscar
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 Clonar o aplicativo C de exemplo do GitHub e usar a ferramenta gulp para implantar o aplicativo de exemplo no Intel Edison. O aplicativo de exemplo pisca o LED conectado à placa a cada dois segundos. Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 * Como implantar e executar o aplicativo de exemplo no Edison.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 Você deve ter concluído com sucesso as seções a seguir:
 
 * [Configurar seu dispositivo][configure-your-device]
 * [Obter as ferramentas][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Abrir o aplicativo de exemplo
+<a id="open-the-sample-application" class="xliff"></a>
+
+## Abrir o aplicativo de exemplo
 Para abrir o aplicativo de exemplo, siga estas etapas:
 
 1. Clone o repositório de exemplo do GitHub executando o seguinte comando:
@@ -57,14 +67,18 @@ Para abrir o aplicativo de exemplo, siga estas etapas:
 
 O arquivo na subpasta `app` é o arquivo de origem principal que contém o código para controlar o LED.
 
-### <a name="install-application-dependencies"></a>Instalar dependências de aplicativos
+<a id="install-application-dependencies" class="xliff"></a>
+
+### Instalar dependências de aplicativos
 Instale as bibliotecas e outros módulos necessários para o aplicativo de exemplo executando o seguinte comando:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Configurar a conexão do dispositivo
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configurar a conexão do dispositivo
 Para configurar a conexão do dispositivo, siga estas etapas:
 
 1. Gere o arquivo de configuração do dispositivo executando o seguinte comando:
@@ -91,8 +105,12 @@ Para configurar a conexão do dispositivo, siga estas etapas:
 
 Parabéns! Você criou com êxito o primeiro aplicativo de exemplo para o Edison.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
-### <a name="install-the-azure-iot-hub-sdk-on-edison"></a>Instalar o SDK do Hub IoT do Azure no Edison
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Implantar e executar o aplicativo de exemplo
+<a id="install-the-azure-iot-hub-sdk-on-edison" class="xliff"></a>
+
+### Instalar o SDK do Hub IoT do Azure no Edison
 Instale o SDK do Hub IoT do Azure executando o seguinte comando:
 
 ```bash
@@ -101,22 +119,30 @@ gulp install-tools
 
 Essa tarefa pode levar muito tempo para ser concluída, dependendo da sua conexão de rede. Ela precisa ser executada apenas uma vez para um Edison.
 
-### <a name="deploy-and-run-the-sample-app"></a>Implantar e executar o aplicativo de exemplo
+<a id="deploy-and-run-the-sample-app" class="xliff"></a>
+
+### Implantar e executar o aplicativo de exemplo
 Implantar e executar o aplicativo de exemplo executando o seguinte comando:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-### <a name="verify-the-app-works"></a>Verificar se o aplicativo funciona
+<a id="verify-the-app-works" class="xliff"></a>
+
+### Verificar se o aplicativo funciona
 O aplicativo de exemplo é encerrado automaticamente após o LED piscar 20 vezes. Se você não vir o LED piscar, consulte o [guia de solução de problemas][troubleshooting] para ver soluções de problemas comuns.
 
 ![LED piscando][led-blinking]
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Você instalou as ferramentas necessárias para trabalhar com o Edison e implantou um aplicativo de exemplo no Edison para piscar o LED. Agora, você pode criar, implantar e executar outro aplicativo de exemplo que conecta o Edison ao Hub IoT do Azure para enviar e receber mensagens.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Obter as ferramentas do Azure][get-the-azure-tools]
 
 <!-- Images and links -->

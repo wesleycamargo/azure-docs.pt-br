@@ -12,15 +12,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 06/14/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7218366ec8455bc2d8747446319bac79e7b8abea
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Gerenciar servidores e cofres de Backup do Azure usando o modelo de implantação clássico
+<a id="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model" class="xliff"></a>
+
+# Gerenciar servidores e cofres de Backup do Azure usando o modelo de implantação clássico
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](backup-azure-manage-windows-server.md)
 > * [Clássico](backup-azure-manage-windows-server-classic.md)
@@ -32,7 +36,15 @@ Neste artigo, você encontra uma visão geral das tarefas de gerenciamento de ba
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
-## <a name="management-portal-tasks"></a>Tarefas do portal de gerenciamento
+> [!IMPORTANT]
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
+>- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
+>
+
+<a id="management-portal-tasks" class="xliff"></a>
+
+## Tarefas do portal de gerenciamento
 1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com).
 2. Clique em **Serviços de Recuperação**, em seguida, clique no nome do cofre de backup para exibir a página de Início Rápido.
 
@@ -42,7 +54,9 @@ Selecionando as opções na parte superior da página Início Rápido, você pod
 
 ![Gerenciar guias](./media/backup-azure-manage-windows-server-classic/qs-page.png)
 
-### <a name="dashboard"></a>Painel
+<a id="dashboard" class="xliff"></a>
+
+### Painel
 Clique em **Painel** para ver a visão geral do uso para o servidor. A **visão geral de uso** inclui:
 
 * O número de Windows Servers registrados na nuvem
@@ -57,7 +71,9 @@ Na parte inferior do Painel, você pode executar as seguintes tarefas:
 
 ![Tarefas do painel Backup](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
 
-## <a name="registered-items"></a>Itens registrados
+<a id="registered-items" class="xliff"></a>
+
+## Itens registrados
 Selecione **Itens registrados** para exibir os nomes dos servidores registrados para o cofre.
 
 ![Itens registrados](./media/backup-azure-manage-windows-server-classic/registered-items.png)
@@ -71,12 +87,16 @@ A partir daqui, você pode executar as seguintes tarefas:
 
     ![Tarefas de itens registrados](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
 
-## <a name="protected-items"></a>Itens protegidos
+<a id="protected-items" class="xliff"></a>
+
+## Itens protegidos
 Clique em **Itens Protegidos** para ver os itens que foram colocados no backup dos servidores.
 
 ![Itens protegidos](./media/backup-azure-manage-windows-server-classic/protected-items.png)
 
-## <a name="configure"></a>Configurar
+<a id="configure" class="xliff"></a>
+
+## Configurar
 Na guia **Configurar** , você pode selecionar a opção de redundância de armazenamento apropriada. O melhor momento para selecionar a opção de redundância de armazenamento é logo após a criação de um cofre e antes de qualquer computador ser registrado nele.
 
 > [!WARNING]
@@ -88,8 +108,12 @@ Na guia **Configurar** , você pode selecionar a opção de redundância de arma
 
 Confira este artigo para saber mais sobre a [redundância de armazenamento](../storage/storage-redundancy.md).
 
-## <a name="microsoft-azure-backup-agent-tasks"></a>Tarefas do agente de Backup do Microsoft Azure
-### <a name="console"></a>Console
+<a id="microsoft-azure-backup-agent-tasks" class="xliff"></a>
+
+## Tarefas do agente de Backup do Microsoft Azure
+<a id="console" class="xliff"></a>
+
+### Console
 Abra o **agente de Backup do Microsoft Azure** (você poderá localizá-lo procurando *Backup do Microsoft Azure*em seu computador).
 
 ![Agente de backup](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
@@ -108,7 +132,9 @@ Na guia **Ações** , disponibilizada à direita do console do agente de backup,
 >
 >
 
-### <a name="modify-an-existing-backup"></a>Modificar um backup existente
+<a id="modify-an-existing-backup" class="xliff"></a>
+
+### Modificar um backup existente
 1. No agente de Backup do Microsoft Azure, clique em **Agendar Backup**.
 
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
@@ -139,7 +165,9 @@ Na guia **Ações** , disponibilizada à direita do console do agente de backup,
 
     Depois de modificar a proteção, é possível confirmar se os backups estão sendo acionados corretamente acessando a guia **Trabalhos** e confirmando se as alterações são refletidas nos trabalhos de backup.
 
-### <a name="enable-network-throttling"></a>Habilitar a limitação de rede
+<a id="enable-network-throttling" class="xliff"></a>
+
+### Habilitar a limitação de rede
 O agente de Backup do Azure fornece uma guia Limitação, que permite controlar como a largura de banda é usada durante a transferência de dados. Esse controle pode ser útil se você precisa fazer backup de dados durante o horário de expediente, mas não quer que o processo de backup interfira no outro tráfego de Internet. A limitação da transferência de dados aplica-se a atividades de backup e restauração.  
 
 Para habilitar a limitação:
@@ -153,7 +181,9 @@ Para habilitar a limitação:
     Os valores de largura de banda começam em 512 quilobytes por segundo (Kbps) e podem ir até 1023 megabytes por segundo (Mbps). Você também pode indicar o início e o término das **Horas úteis**e quais dias da semana são considerados dias úteis. O tempo fora das Horas úteis indicadas é considerado como hora não útil.
 4. Clique em **OK**.
 
-## <a name="exclusion-settings"></a>Configurações de Exclusão
+<a id="exclusion-settings" class="xliff"></a>
+
+## Configurações de Exclusão
 1. Abra o **agente de Backup do Microsoft Azure** (você poderá localizá-lo procurando *Backup do Microsoft Azure*em seu computador).
 
     ![Abrir agente de backup](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
@@ -188,13 +218,10 @@ Para habilitar a limitação:
 
     ![Confirmação de exclusão](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 * Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

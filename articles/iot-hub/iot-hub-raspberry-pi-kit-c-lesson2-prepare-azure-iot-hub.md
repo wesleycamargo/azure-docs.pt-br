@@ -4,7 +4,7 @@ description: Crie um grupo de recursos, crie um Hub IoT do Azure e registre o Pi
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: nuvem raspberry pi, pi cloud connect
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: d7bc143b509e84d50f3ce0164d31ae51a26f75d4
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="create-your-iot-hub-and-register-raspberry-pi-3"></a>Criar seu Hub IoT e registrar o Raspberry Pi 3
-## <a name="what-you-will-do"></a>O que você fará
+<a id="create-your-iot-hub-and-register-raspberry-pi-3" class="xliff"></a>
+
+# Criar seu Hub IoT e registrar o Raspberry Pi 3
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 * Crie um grupos de recursos.
 * Criar seu hub IoT do Azure no grupo de recursos.
 * Adicione o Raspberry Pi 3 para o Hub IoT do Azure usando a interface de linha de comando do Azure (CLI do Azure).
 
 Quando você usa a CLI do Azure para adicionar o Pi ao Hub IoT, o serviço gera uma chave para autenticar o Pi com o serviço. Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Neste artigo, você aprenderá:
 * Como usar a CLI do Azure para criar um Hub IoT.
 * Como criar uma identidade de dispositivo para seu Pi no Hub IoT.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 * Uma conta do Azure
 * Um computador Mac ou Windows com a CLI do Azure instalada
 
-## <a name="create-your-iot-hub"></a>Criar seu Hub IoT
+<a id="create-your-iot-hub" class="xliff"></a>
+
+## Criar seu Hub IoT
 O Hub IoT do Azure ajuda a conectar, monitorar e gerenciar milhões de ativos IoT. Para criar seu Hub IoT, execute estas etapas:
 
 1. Faça logon em sua conta do Azure executando o comando a seguir:
@@ -84,7 +94,9 @@ O Hub IoT do Azure ajuda a conectar, monitorar e gerenciar milhões de ativos Io
 > [!NOTE]
 > O nome do hub IoT deve ser globalmente exclusivo. Você pode criar apenas uma edição F1 do Hub IoT do Azure em sua assinatura do Azure.
 
-## <a name="register-pi-in-your-iot-hub"></a>Registrar o Pi em seu Hub IoT
+<a id="register-pi-in-your-iot-hub" class="xliff"></a>
+
+## Registrar o Pi em seu Hub IoT
 Cada dispositivo que envia mensagens para/de seu Hub IoT deve ser registrado com uma ID exclusiva.
 
 Registre seu Pi no hub executando o seguinte comando:
@@ -93,10 +105,14 @@ Registre seu Pi no hub executando o seguinte comando:
 az iot device create --device-id myraspberrypi --hub {my hub name} --resource-group iot-sample
 ```
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Você criou um Hub IoT do Azure e registrou seu Pi com uma identidade de dispositivo em seu Hub IoT. Você está pronto para saber como enviar mensagens do Pi para o Hub IoT.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Criar um aplicativo de funções do Azure e uma conta de Armazenamento do Azure para processar e armazenar mensagens do Hub IoT](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md).
 
 

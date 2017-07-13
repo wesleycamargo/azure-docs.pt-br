@@ -4,7 +4,7 @@ description: Personalize as mensagens para alterar o comportamento liga e deslig
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: controlar led com arduino
 ROBOTS: NOINDEX
@@ -17,24 +17,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 3585dfbac8816140c0a62931920aff1a6bf7d540
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>Alterar o comportamento de ativar e desativar do LED
-## <a name="what-you-will-do"></a>O que você fará
+<a id="change-the-on-and-off-behavior-of-the-led" class="xliff"></a>
+
+# Alterar o comportamento de ativar e desativar do LED
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 Personalize as mensagens para alterar o comportamento liga e desliga do LED. Se tiver problemas, procure por soluções na [página de solução de problemas](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md) de sua placa Adafruit Feather M0 WiFi Arduino.
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Utilizar funções adicionais do Arduino para alterar o comportamento liga e desliga do LED.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 Você deve ter concluído com sucesso [Executar um aplicativo de exemplo em sua placa do Arduino para receber mensagens de nuvem para o dispositivo][receive-cloud-to-device-messages].
 
-## <a name="add-functions-to-mainc-and-gulpfilejs"></a>Adicionar funções ao main.c e ao gulpfile.js
+<a id="add-functions-to-mainc-and-gulpfilejs" class="xliff"></a>
+
+## Adicionar funções ao main.c e ao gulpfile.js
 1. Abra o aplicativo de exemplo no Visual Studio Code, executando os seguintes comandos:
 
    ```bash
@@ -92,7 +102,9 @@ Você deve ter concluído com sucesso [Executar um aplicativo de exemplo em sua 
    ```
 6. Salve todas as alterações.
 
-### <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+### Implantar e executar o aplicativo de exemplo
 Implante e execute o aplicativo de exemplo na sua placa do Arduino executando o seguinte comando:
 
 ```bash
@@ -110,7 +122,9 @@ Você deve ver o LED ativar por dois segundos e, em seguida, desativar por outro
 
 Parabéns! Você personalizou com sucesso as mensagens que são enviadas à sua placa do Arduino do Hub IoT.
 
-### <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+### Resumo
 Essa seção opcional demonstra como personalizar as mensagens para que o aplicativo de exemplo controle o comportamento liga e desliga do LED de maneira diferente.
 
 <!-- Images and links -->

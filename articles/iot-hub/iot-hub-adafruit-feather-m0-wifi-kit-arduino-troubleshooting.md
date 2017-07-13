@@ -4,7 +4,7 @@ description: "Página de solução de problemas para a experiência do Adafruit 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "solução de problemas do arduino"
 ROBOTS: NOINDEX
@@ -17,19 +17,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 448dc0370014ad295ed820d796f7af2eb5fe698e
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="troubleshooting"></a>Solucionar problemas
-## <a name="hardware-issues"></a>Problemas de hardware
+<a id="troubleshooting" class="xliff"></a>
+
+# Solucionar problemas
+<a id="hardware-issues" class="xliff"></a>
+
+## Problemas de hardware
 Para obter informações sobre como resolver problemas comuns na placa Adafruit Feather M0 WiFi Arduino, consulte a [página oficial de solução de problemas](https://learn.adafruit.com/adafruit-feather-m0-wifi-atwinc1500?view=all#faq).
 
-## <a name="nodejs-package-issues"></a>Problemas do pacote de Node.js
-### <a name="no-response-during-gulp-tasks"></a>Sem resposta durante as tarefas de gulp
+<a id="nodejs-package-issues" class="xliff"></a>
+
+## Problemas do pacote de Node.js
+<a id="no-response-during-gulp-tasks" class="xliff"></a>
+
+### Sem resposta durante as tarefas de gulp
 Se você encontrar problemas ao executar tarefas de gulp, será possível adicionar a opção `--verbose` para depuração. Tente finalizar as tarefas de gulp atuais usando `Ctrl + C` e, em seguida, execute o seguinte comando na janela do console para ver mensagens de depuração. Você pode ver mensagens de erro detalhadas em sua saída do console.
 
 ```bash
@@ -42,7 +50,9 @@ Ou você pode adicionar `--listen` para abrir a porta serial para gerar informa�
 gulp --listen
 ``` 
 
-### <a name="npm-issues"></a>Problemas de NPM
+<a id="npm-issues" class="xliff"></a>
+
+### Problemas de NPM
 Tente atualizar o pacote NPM com o comando a seguir:
 
 ```bash
@@ -51,7 +61,9 @@ npm install -g npm
 
 Se o problema persistir, deixe seus comentários no final deste artigo ou crie um problema do GitHub em nosso [repositório de exemplo][sample-repository].
 
-## <a name="azure-cli-issues"></a>Problemas da CLI do Azure
+<a id="azure-cli-issues" class="xliff"></a>
+
+## Problemas da CLI do Azure
 A interface de linha de comando do Azure (CLI do Azure) é uma compilação de visualização. Procure pela solução no [Guia de Instalação de Visualização](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md) para buscar soluções. Tente atualizar a CLI do Azure para a versão mais recente quando comandos não funcionarem conforme o esperado.
 
 Se você encontrar erros com a ferramenta, emita um [problema](https://github.com/Azure/azure-cli/issues) na seção **problemas** do repositório do GitHub.
@@ -64,8 +76,12 @@ Se você receber a mensagem “Não foi possível localizar uma versão que aten
 python -m pip install --upgrade pip
 ```
 
-## <a name="python-installation-issues"></a>Problemas de instalação do Python
-### <a name="legacy-installation-issues-macos"></a>Problemas de instalação herdada (macOS)
+<a id="python-installation-issues" class="xliff"></a>
+
+## Problemas de instalação do Python
+<a id="legacy-installation-issues-macos" class="xliff"></a>
+
+### Problemas de instalação herdada (macOS)
 Ao instalar o **pip**, um erro de permissão será lançado quando houver pacotes mais antigos instalados com permissões **su**. Essa situação ocorre porque a instalação anterior do Python usando brew (macOS) não está completamente desinstalada. Alguns pacotes do **pip** de uma instalação anterior foram criados pela raiz, o que causa o erro de permissão. A solução é remover os pacotes instalados pela raiz. Use as etapas a seguir para concluir esta tarefa:
 
 1. Acesse: /usr/local/lib/python2.7/site-packages
@@ -73,10 +89,14 @@ Ao instalar o **pip**, um erro de permissão será lançado quando houver pacote
 3. Desinstalar pacotes da etapa 2: `sudo rm -rf {package name}`
 4. Reinstale o Python.
 
-## <a name="azure-iot-hub-issues"></a>Problemas do Hub IoT do Azure
+<a id="azure-iot-hub-issues" class="xliff"></a>
+
+## Problemas do Hub IoT do Azure
 Se você tiver provisionado com êxito o Hub IoT do Azure com `azure-cli` e precisar de uma ferramenta para gerenciar os dispositivos conectados ao seu Hub IoT, experimente usar as seguintes ferramentas:
 
-### <a name="device-explorer"></a>Gerenciador de Dispositivos
+<a id="device-explorer" class="xliff"></a>
+
+### Gerenciador de Dispositivos
 O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) é executado no computador local do Windows e se conecta ao seu hub IoT no Azure. Ele se comunica com os seguintes [pontos de extremidade de Hub IoT](iot-hub-devguide.md):
 
 * *Gerenciamento de identidade do dispositivo* para provisionar e gerenciar dispositivos registrados com seu hub IoT.
@@ -85,7 +105,9 @@ O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tr
 
 Configure o `IoT hub connection string` dentro desta ferramenta para usar todos os seus recursos.
 
-### <a name="iot-hub-explorer"></a>Gerenciador do Hub IoT
+<a id="iot-hub-explorer" class="xliff"></a>
+
+### Gerenciador do Hub IoT
 O [Gerenciador do Hub IoT](https://github.com/Azure/iothub-explorer) é uma ferramenta de CLI de várias plataformas de exemplo para gerenciar clientes de dispositivo. Use a ferramenta para gerenciar os dispositivos no registro de identidade, monitorar mensagens de dispositivo para a nuvem e enviar comandos de nuvem para o dispositivo.
 
 
@@ -101,10 +123,14 @@ Você pode usar o comando a seguir para obter ajuda adicional sobre todos os com
 iothub-explorer help
 ```
 
-### <a name="azure-portal"></a>Portal do Azure
+<a id="azure-portal" class="xliff"></a>
+
+### Portal do Azure
 Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recursos do Azure. Você também poderá usar o [portal do Azure](../azure-portal-overview.md) para ajudar a provisionar, gerenciar e depurar seus recursos do Azure.
 
-## <a name="azure-storage-issues"></a>Problemas de Armazenamento do Azure
+<a id="azure-storage-issues" class="xliff"></a>
+
+## Problemas de Armazenamento do Azure
 [O Gerenciador de Armazenamento do Microsoft Azure (Preview)](http://storageexplorer.com) é um aplicativo autônomo da Microsoft que pode ser usado para trabalhar com dados do Armazenamento do Azure no Windows, macOS e Linux. Com essa ferramenta você pode se conectar à sua tabela e ver os dados contidos nela. Você pode usar essa ferramenta para solucionar seus problemas de Armazenamento do Azure.
 
 <!-- Images and links -->

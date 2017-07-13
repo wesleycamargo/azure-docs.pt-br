@@ -4,7 +4,7 @@ description: Clone o aplicativo Arduino de exemplo do GitHub e execute o gulp pa
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "projetos led arduino, piscar led arduino, código piscar led arduino, programa de piscar arduino, exemplo de piscar arduino"
 ROBOTS: NOINDEX
@@ -17,29 +17,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: a2058611cecb33eab04de9249ad73b1c4ec6c2a5
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Criar e implantar o aplicativo de piscar
-## <a name="what-you-will-do"></a>O que você fará
+<a id="create-and-deploy-the-blink-application" class="xliff"></a>
+
+# Criar e implantar o aplicativo de piscar
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 Clonar o aplicativo Arduino de exemplo do GitHub e usar a ferramenta gulp para implantar esse aplicativo de exemplo na placa Adafruit Feather M0 WiFi Arduino. O aplicativo de exemplo pisca o LED conectado à placa no GPIO núm. 13 a cada dois segundos.
 
 Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting-page].
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 * Como implantar e executar o aplicativo de exemplo em sua placa Arduino.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 Você deve ter concluído com sucesso as seções a seguir:
 
 * [Configurar seu dispositivo][configure-your-device]
 * [Obter as ferramentas][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Abrir o aplicativo de exemplo
+<a id="open-the-sample-application" class="xliff"></a>
+
+## Abrir o aplicativo de exemplo
 Para abrir o aplicativo de exemplo, siga estas etapas:
 
 1. Clone o repositório de exemplo do GitHub executando o seguinte comando:
@@ -59,14 +69,18 @@ Para abrir o aplicativo de exemplo, siga estas etapas:
 
 O arquivo `app.ino` na subpasta `app` é o arquivo de origem principal que contém o código para controlar o LED.
 
-### <a name="install-application-dependencies"></a>Instalar dependências de aplicativos
+<a id="install-application-dependencies" class="xliff"></a>
+
+### Instalar dependências de aplicativos
 Instale as bibliotecas e outros módulos necessários para o aplicativo de exemplo executando o seguinte comando:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Configurar a conexão do dispositivo
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configurar a conexão do dispositivo
 Para configurar a conexão do dispositivo, siga estas etapas:
 
 1. Obter a porta serial do dispositivo com a CLI de descoberta de dispositivo:
@@ -88,8 +102,12 @@ Para configurar a conexão do dispositivo, siga estas etapas:
    > [!NOTE]
    > Para a porta COM, na plataforma Windows, ele tem o formato de `COM1, COM2, ...`. No macOS ou Ubuntu, começa com `/dev/`.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
-### <a name="install-the-required-tools-for-your-arduino-board"></a>Instalar as ferramentas necessárias para sua placa Arduino
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Implantar e executar o aplicativo de exemplo
+<a id="install-the-required-tools-for-your-arduino-board" class="xliff"></a>
+
+### Instalar as ferramentas necessárias para sua placa Arduino
 
 Instale o SDK do Hub IoT do Azure na placa Arduino executando o seguinte comando:
 
@@ -102,7 +120,9 @@ Essa tarefa pode levar muito tempo para ser concluída, dependendo da sua conex�
 > [!NOTE]
 > Saia da instância em execução do IDE do Arduino ao executar tarefas gulp: `install-tools`, `run`.
 
-### <a name="deploy-and-run-the-sample-app"></a>Implantar e executar o aplicativo de exemplo
+<a id="deploy-and-run-the-sample-app" class="xliff"></a>
+
+### Implantar e executar o aplicativo de exemplo
 Implantar e executar o aplicativo de exemplo executando o seguinte comando:
 
 ```bash
@@ -115,15 +135,21 @@ gulp listen
 gulp run --listen
 ```
 
-### <a name="verify-the-app-works"></a>Verificar se o aplicativo funciona
+<a id="verify-the-app-works" class="xliff"></a>
+
+### Verificar se o aplicativo funciona
 Se você não vir o LED piscar, consulte o [guia de solução de problemas][troubleshooting-page] para ver soluções de problemas comuns.
 
 ![LED piscando][led-blinking]
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Você instalou as ferramentas necessárias para trabalhar com a placa Arduino e implantou um aplicativo de exemplo para a placa Arduino para piscar o LED. Agora, você pode criar, implantar e executar outro aplicativo de exemplo que conecta sua placa Arduino ao Hub IoT do Azure para enviar e receber mensagens.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Obter as ferramentas do Azure][get-the-azure-tools]
 
 <!-- Images and links -->

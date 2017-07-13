@@ -4,7 +4,7 @@ description: Crie um grupo de recursos, crie um Hub IoT do Azure e registre o Ed
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
 ms.openlocfilehash: 384724ccf78dc08b215ef602ff4366dd54801ab5
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="create-your-iot-hub-and-register-intel-edison"></a>Criar seu Hub IoT e registrar o Intel Edison
-## <a name="what-you-will-do"></a>O que você fará
+<a id="create-your-iot-hub-and-register-intel-edison" class="xliff"></a>
+
+# Criar seu Hub IoT e registrar o Intel Edison
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 * Crie um grupos de recursos.
 * Criar seu hub IoT do Azure no grupo de recursos.
 * Adicionar o Intel Edison ao Hub IoT do Azure usando a interface de linha de comando do Azure (CLI do Azure).
 
 Quando você usa a CLI do Azure para adicionar o Edison ao Hub IoT, o serviço gera uma chave para a autenticação do Edison com o serviço. Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Neste artigo, você aprenderá:
 * Como usar a CLI do Azure para criar um Hub IoT.
 * Como criar uma identidade de dispositivo para o Edison em seu Hub IoT.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 * Uma conta do Azure. Se não tiver uma conta do Azure, crie uma [conta gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 * Você deve ter a CLI do Azure instalada.
 
-## <a name="create-your-iot-hub"></a>Criar seu Hub IoT
+<a id="create-your-iot-hub" class="xliff"></a>
+
+## Criar seu Hub IoT
 O Hub IoT do Azure ajuda a conectar, monitorar e gerenciar milhões de ativos IoT. Para criar seu Hub IoT, execute estas etapas:
 
 1. Faça logon em sua conta do Azure executando o comando a seguir:
@@ -86,7 +96,9 @@ Por padrão, a ferramenta cria um Hub IoT no tipo de preços gratuito. Para sabe
 > Você pode criar apenas uma edição F1 do Hub IoT do Azure em sua assinatura do Azure.
 
 
-## <a name="register-edison-in-your-iot-hub"></a>Registrar o Edison em seu Hub IoT
+<a id="register-edison-in-your-iot-hub" class="xliff"></a>
+
+## Registrar o Edison em seu Hub IoT
 Cada dispositivo que envia mensagens para/de seu Hub IoT deve ser registrado com uma ID exclusiva.
 
 Registre o Edison em seu Hub IoT executando o seguinte comando:
@@ -95,10 +107,14 @@ Registre o Edison em seu Hub IoT executando o seguinte comando:
 az iot device create --device-id myinteledison --hub-name {my hub name}
 ```
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Você criou um Hub IoT e registrou o Edison com uma identidade de dispositivo em seu Hub IoT. Você está pronto para saber como enviar mensagens do Edison para seu Hub IoT.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Criar um aplicativo de funções do Azure e uma conta de Armazenamento do Azure para processar e armazenar mensagens do Hub IoT][process-and-store-iot-hub-messages].
 
 

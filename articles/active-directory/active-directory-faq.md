@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/24/2017
+ms.date: 07/12/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
@@ -20,15 +20,18 @@ ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/04/2017
 
-
 ---
-# <a name="azure-active-directory-faq"></a>Perguntas frequentes sobre o Azure Active Directory
+<a id="azure-active-directory-faq" class="xliff"></a>
+
+# Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
 
 Para obter mais informações, confira [O que é Azure Active Directory?](active-directory-whatis.md).
 
 
-## <a name="access-azure-and-azure-active-directory"></a>Acessar o Azure e o Azure Active Directory
+<a id="access-azure-and-azure-active-directory" class="xliff"></a>
+
+## Acessar o Azure e o Azure Active Directory
 **P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no Portal Clássico do Azure (https://manage.windowsazure.com)?**
 
 **R:** para acessar o portal clássico do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se tiver uma assinatura paga do Office 365 ou Azure AD, acesse [http://aka.ms/accessAAD](http://aka.ms/accessAAD) para obter uma etapa de ativação única. Caso contrário, você precisará ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) grátis ou uma assinatura paga.
@@ -69,7 +72,9 @@ Além disso, os serviços pagos do Azure AD, como Enterprise Mobility + Security
 
 - - -
 
-## <a name="get-started-with-hybrid-azure-ad"></a>Introdução ao Azure AD Híbrido
+<a id="get-started-with-hybrid-azure-ad" class="xliff"></a>
+
+## Introdução ao Azure AD Híbrido
 
 
 **P: como sair de um locatário quando eu for adicionado como colaborador?**
@@ -106,7 +111,9 @@ Para saber mais, confira [Introdução ao Painel de Acesso](active-directory-saa
 Para saber mais, confira [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](active-directory-aadconnect-health.md).  
 
 - - -
-## <a name="password-management"></a>Gerenciamento de senhas
+<a id="password-management" class="xliff"></a>
+
+## Gerenciamento de senhas
 **P: posso usar o write-back de senha do Azure AD sem sincronização de senhas? (Nesse cenário, é possível usar a SSPR (redefinição de senha de autoatendimento do Azure AD) com write-back de senha e não armazenar senhas na nuvem?)**
 
 **R:** não é necessário sincronizar suas senhas do Active Directory para que o Azure AD habilite o write-back. Em um ambiente federado, o SSO (logon único) do Azure AD utiliza o diretório local para autenticar o usuário. Esse cenário não requer que a senha local seja acompanhada no Azure AD.
@@ -139,7 +146,9 @@ Para contas do Azure AD, os administradores podem redefinir senhas usando uma da
 
 
 - - -
-## <a name="security"></a>Segurança
+<a id="security" class="xliff"></a>
+
+## Segurança
 **P: As contas são bloqueadas após uma quantidade específica de tentativas com falha, ou uma estratégia mais sofisticada é usada?**</br>
 Usamos uma estratégia mais sofisticada para bloquear contas.  Ela se baseia no IP da solicitação e nas senhas inseridas. A duração do bloqueio também aumenta com base na probabilidade de ser um ataque.  
 
@@ -149,7 +158,9 @@ Isso se refere a senhas comuns no mundo todo, como qualquer variante de "Senha" 
 **P: Uma solicitação de entrada de fontes questionáveis (botnets, ponto de extremidade tor) será bloqueada em um locatário B2C, ou isso exige um locatário de edição Basic ou Premium?**</br>
 Temos um gateway que filtra solicitações e fornece alguma proteção contra botnets, e ele é aplicado a todos os locatários B2C.
 
-## <a name="application-access"></a>Acesso a aplicativos
+<a id="application-access" class="xliff"></a>
+
+## Acesso a aplicativos
 **P: onde obter uma lista de aplicativos que estão pré-integrados ao Azure AD e seus recursos?**
 
 **R:** o Azure AD tem mais de 2.600 aplicativos pré-integrados da Microsoft, provedores de serviços de aplicativos e parceiros. Todos os aplicativos pré-integrados dão suporte ao SSO (logon único). O SSO permite que você use suas credenciais organizacionais para acessar os aplicativos. Alguns dos aplicativos também dão suporte ao provisionamento e ao desprovisionamento automatizados.

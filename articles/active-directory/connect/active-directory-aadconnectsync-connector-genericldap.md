@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/14/2017
 
-
 ---
-# <a name="generic-ldap-connector-technical-reference"></a>Referência técnica do Conector LDAP genérico
+<a id="generic-ldap-connector-technical-reference" class="xliff"></a>
+
+# Referência técnica do Conector LDAP genérico
 Este artigo descreve o Conector LDAP genérico. O artigo se aplica aos seguintes produtos:
 
 * Microsoft Identity Manager 2016 (MIM2016)
@@ -33,7 +35,9 @@ Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro d
 Ao fazer referência ao IETF RFCs, este documento usa o formato (RFC [Número de RFC]/[seção no documento RFC]), por exemplo, (RFC 4512/4.3).
 Saiba mais em http://tools.ietf.org/html/rfc4500 (substitua 4500 pelo número RFC correto).
 
-## <a name="overview-of-the-generic-ldap-connector"></a>Visão geral do Conector LDAP genérico
+<a id="overview-of-the-generic-ldap-connector" class="xliff"></a>
+
+## Visão geral do Conector LDAP genérico
 O Conector LDAP genérico o habilita a integrar o serviço de sincronização ao servidor LDAP v3.
 
 Determinados elementos de operações e esquema, como aqueles necessários para executar a importação delta, não são especificados noas IETF RFCs. Para essas operações, apenas os diretórios LDAP especificados explicitamente recebem suporte.
@@ -47,7 +51,9 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 | Operações |As seguintes operações têm suporte em todos os diretórios LDAP:  <li>Importação completa</li><li>Exportação</li>As seguintes operações só têm suporte em diretórios especificados: <li>Importação delta</li><li>Definir senha, alterar senha</li> |
 | Esquema |<li>O esquema é detectado no esquema LDAP (RFC3673 e RFC4512/4.2)</li><li>Oferece suporte a classes estruturais, classes auxiliares e à classe de objeto extensibleObject (RFC4512/4.3)</li> |
 
-### <a name="delta-import-and-password-management-support"></a>Suporte de gerenciamento de importação delta e de senha
+<a id="delta-import-and-password-management-support" class="xliff"></a>
+
+### Suporte de gerenciamento de importação delta e de senha
 Diretórios com suporte para gerenciamento de importação delta e de senha:
 
 * Microsoft Active Directory Lightweight Directory Services (AD LDS)
@@ -93,23 +99,33 @@ Diretórios com suporte para gerenciamento de importação delta e de senha:
   * Oferece suporte para todas as operações de importação delta
   * Oferece suporte para definição e alteração de senha
 
-### <a name="prerequisites"></a>Pré-requisitos
+<a id="prerequisites" class="xliff"></a>
+
+### Pré-requisitos
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
 
-### <a name="detecting-the-ldap-server"></a>Como detectar o servidor LDAP
+<a id="detecting-the-ldap-server" class="xliff"></a>
+
+### Como detectar o servidor LDAP
 O Conector depende de diversas técnicas para detectar e identificar o servidor LDAP. O Conector usa Root DSE, o nome e a versão do fornecedor e inspeciona o esquema para localizar objetos exclusivos e atributos presentes em determinados servidores LDAP. Esses dados, se forem encontrados, serão usados para preencher previamente as opções de configuração no Conector.
 
-### <a name="connected-data-source-permissions"></a>Permissões da fonte de dados conectada
+<a id="connected-data-source-permissions" class="xliff"></a>
+
+### Permissões da fonte de dados conectada
 Para executar operações de importação e exportação nos objetos no diretório conectado, a conta do conector deve ter permissões suficientes. O conector precisa de permissões de gravação para conseguir exportar e de permissões de leitura para importar. Configuração das permissões é executada dentro das experiências de gerenciamento da própria pasta de destino.
 
-### <a name="ports-and-protocols"></a>Portas e protocolos
+<a id="ports-and-protocols" class="xliff"></a>
+
+### Portas e protocolos
 O conector usa o número de porta especificado na configuração, que, por padrão, é 389 para LDAP e 636 para LDAP.
 
 Para LDAPS, você deve usar SSL 3.0 ou TLS. Não há suporte para SSL 2.0 e não é possível ativá-lo.
 
-### <a name="required-controls-and-features"></a>Recursos e controles necessários
+<a id="required-controls-and-features" class="xliff"></a>
+
+### Recursos e controles necessários
 Os seguintes controles/recursos de LDAP devem estar disponíveis no servidor LDAP para que o conector funcione corretamente: filtros   
 `1.3.6.1.4.1.4203.1.5.3` Verdadeiro/Falso
 
@@ -135,7 +151,9 @@ ShowDeletedControl só é usado com o método de importação delta USNChanged p
 
 O conector tenta detectar as opções presentes no servidor. Se não for possível detectar as opções, um aviso será apresentado na página Global das propriedades do conector. Nem todos os servidores LDAP apresentam todos os controles/recursos para os quais dão suporte e, mesmo que esse aviso esteja presente, o conector poderá funcionar sem problemas.
 
-### <a name="delta-import"></a>Importação delta
+<a id="delta-import" class="xliff"></a>
+
+### Importação delta
 A importação delta só estará disponível quando um diretório de suporte tiver sido detectado. Os métodos a seguir são usados no momento:
 
 * LDAP Accesslog. Confira [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
@@ -143,17 +161,23 @@ A importação delta só estará disponível quando um diretório de suporte tiv
 * TimeStamp. Para Novell/NetIQ eDirectory, o Conector usa a última data/hora para obter objetos criados e atualizados. Novell/NetIQ eDirectory não fornece um meio equivalente de recuperar objetos excluídos. Essa opção também pode ser usada se nenhum outro método de importação delta estiver ativo no servidor LDAP. Essa opção não pode importar objetos excluídos.
 * USNChanged. Confira: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
-### <a name="not-supported"></a>Sem suporte
+<a id="not-supported" class="xliff"></a>
+
+### Sem suporte
 Não há suporte para os seguintes recursos LDAP:
 
 * Referências de LDAP entre servidores (RFC 4511/4.1.10)
 
-## <a name="create-a-new-connector"></a>Criar um novo conector
+<a id="create-a-new-connector" class="xliff"></a>
+
+## Criar um novo conector
 Para criar um conector LDAP genérico, em **Serviço de Sincronização** selecione **Agente de Gerenciamento** e **Criar**. Escolha o Conector **LDAP Genérico (Microsoft)** .
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericldap/createconnector.png)
 
-### <a name="connectivity"></a>Conectividade
+<a id="connectivity" class="xliff"></a>
+
+### Conectividade
 Na página Conectividade, especifique as informações de Host, Porta e Associação. Dependendo da Associação selecionada, outras informações poderão ser fornecidas nas seções a seguir.
 
 ![Conectividade](./media/active-directory-aadconnectsync-connector-genericldap/connectivity.png)
@@ -175,7 +199,9 @@ Marque a caixa de seleção **incluir atributos operacionais no esquema** para i
 
 Escolha **incluir atributos extensíveis no esquema** se forem usados objetos extensíveis (RFC4512/4.3). Além disso, habilitar essa opção permite que cada atributo seja usado em todos os objetos. A seleção dessa opção torna o esquema muito grande. Portanto, a menos que o diretório conectado esteja usando esse recurso, a recomendação é manter a opção desmarcada.
 
-### <a name="global-parameters"></a>Parâmetros Globais
+<a id="global-parameters" class="xliff"></a>
+
+### Parâmetros Globais
 Na página Parâmetros Globais, configure o DN para o log de alterações delta e os recursos de LDAP adicionais. A página é preenchida previamente com as informações fornecidas pelo servidor LDAP.
 
 ![Conectividade](./media/active-directory-aadconnectsync-connector-genericldap/globalparameters.png)
@@ -213,14 +239,18 @@ Esse valor está definido por padrão como **userPassword** , mas pode ser alter
 
 Na lista de partições adicionais, é possível adicionar outros namespaces não detectados automaticamente. Por exemplo, essa configuração poderá ser usada se vários servidores formarem um cluster lógico para importação simultânea. Assim como o Active Directory pode ter vários domínios em uma floresta, mas todos compartilharem um esquema, o mesmo pode ser simulado inserindo os namespaces adicionais nessa caixa. Cada namespace pode importar de servidores diferentes e ainda ser configurada na página Configurar Partições e Hierarquias. Use Ctrl + Enter para obter uma nova linha.
 
-### <a name="configure-provisioning-hierarchy"></a>Configurar a hierarquia de provisionamento
+<a id="configure-provisioning-hierarchy" class="xliff"></a>
+
+### Configurar a hierarquia de provisionamento
 Essa página é usada para mapear o componente DN, por exemplo, OU, para o tipo de objeto que deve ser provisionado, por exemplo, organizationalUnit.
 
 ![Hierarquia de Provisionamento](./media/active-directory-aadconnectsync-connector-genericldap/provisioninghierarchy.png)
 
 Ao configurar a hierarquia de provisionamento, você pode configurar o Conector para criar automaticamente uma estrutura quando for necessário. Por exemplo, se houver um namespace dc=contoso,dc=com e um novo objeto cn=Joe, ou=Seattle, c=US, dc=contoso, dc=com será provisionado e o Conector poderá criar um objeto do tipo país para EUA e um organizationalUnit para Seattle, caso ainda não estejam presentes no diretório.
 
-### <a name="configure-partitions-and-hierarchies"></a>Configurar partições e hierarquias
+<a id="configure-partitions-and-hierarchies" class="xliff"></a>
+
+### Configurar partições e hierarquias
 Na página de partições e hierarquias, escolha todos os namespaces com objetos que você planeja importar e exportar.
 
 ![Partições](./media/active-directory-aadconnectsync-connector-genericldap/partitions.png)
@@ -236,7 +266,9 @@ A partir da atualização de março de 2017 ao LDAP Genérico as pesquisas do co
 
 ![Pesquisar apenas os contêineres selecionados](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
 
-### <a name="configure-anchors"></a>Configurar Âncoras
+<a id="configure-anchors" class="xliff"></a>
+
+### Configurar Âncoras
 Essa página sempre têm um valor pré-configurado e não pode ser alterada. Se o fornecedor do servidor tiver sido identificado, a âncora poderá ser populada com um atributo imutável, por exemplo, o GUID de um objeto. Se não tiver sido detectado ou não tiver um atributo imutável conhecido, o conector usará o dn (nome distinto) como a âncora.
 
 ![âncoras](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
@@ -258,16 +290,22 @@ Veja a seguir uma lista de servidores LDAP e a âncora usada:
 | RadiantOne VDS |dn |
 | Sun One Directory Server |dn |
 
-## <a name="other-notes"></a>Outras observações
+<a id="other-notes" class="xliff"></a>
+
+## Outras observações
 Esta seção fornece informações sobre aspectos específicos a esse Conector, ou que por outros motivos sejam importante conhecer.
 
-### <a name="delta-import"></a>Importação delta
+<a id="delta-import" class="xliff"></a>
+
+### Importação delta
 A marca d'água delta em Open LDAP é data/hora UTC. Por esse motivo, os relógios entre o Serviço de Sincronização FIM e o Open LDAP devem ser sincronizados. Caso contrário, algumas entradas no log de alteração delta podem ser omitidas.
 
 Para Novell eDirectory, a importação de delta não está detectando exclusões de objeto. Por esse motivo, é necessário executar periodicamente uma importação completa para localizar todos os objetos excluídos.
 
 Para diretórios com um log de alterações de delta com base na data/hora, é altamente recomendável executar uma importação completa em horários periódicos. Esse processo permite que o mecanismo de sincronização localize diferenças entre o servidor LDAP e o que está atualmente no espaço do conector.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+<a id="troubleshooting" class="xliff"></a>
+
+## Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 

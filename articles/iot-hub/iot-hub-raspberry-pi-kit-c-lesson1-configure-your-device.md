@@ -4,7 +4,7 @@ description: Configure seu Raspberry Pi 3 para o primeiro uso e instale o SO Ras
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "instalação raspbian, download raspbian, como instalar raspbian, configuração raspbian, instalação raspbian raspberry pi, raspberry pi instalar so, instalação de placa sd raspberry pi, conexão raspberry pi, conectar-se ao raspberry pi, conectividade raspberry pi"
 ROBOTS: NOINDEX
@@ -17,18 +17,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5b80d471c78973f8c2f6b1ad4e1240c66f0505ef
 ms.openlocfilehash: 3e34b8202794bc969bf41765ce519d083037ab46
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/21/2017
 
-
 ---
-# <a name="configure-your-device"></a>Configurar seu dispositivo
-## <a name="what-you-will-do"></a>O que você fará
+<a id="configure-your-device" class="xliff"></a>
+
+# Configurar seu dispositivo
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 Configurar o Pi para uso pela primeira vez e instalar o sistema operacional Raspbian. Raspbian é um sistema operacional gratuito e otimizado para o hardware Raspberry Pi. Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Neste artigo, você aprenderá:
 
 * Como instalar o Raspbian no Pi.
@@ -36,7 +42,9 @@ Neste artigo, você aprenderá:
 * Como conectar o Pi à rede usando um cabo Ethernet ou rede sem fio.
 * Como adicionar um LED à placa universal e conectá-lo ao Pi.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 Para concluir esta operação, você precisará das seguintes partes do seu Kit de Início do Raspberry Pi 3:
 
 * A placa do Raspberry Pi 3
@@ -57,7 +65,9 @@ Você também precisará de:
 * Um computador executando o Windows, Mac ou Linux. O computador é usado para instalar o Raspbian no cartão microSD.
 * Uma conexão com a Internet para baixar as ferramentas e o software necessários.
 
-## <a name="install-raspbian-on-the-microsd-card"></a>Instalar o Raspbian no cartão MicroSD
+<a id="install-raspbian-on-the-microsd-card" class="xliff"></a>
+
+## Instalar o Raspbian no cartão MicroSD
 Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 1. Baixe o Raspbian.
@@ -75,7 +85,9 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 ![Insira o cartão SD](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
 
-## <a name="turn-on-pi"></a>Ativar o Pi
+<a id="turn-on-pi" class="xliff"></a>
+
+## Ativar o Pi
 Ligue o Pi usando o cabo micro USB e a fonte de alimentação.
 
 ![Ligar](media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
@@ -83,21 +95,31 @@ Ligue o Pi usando o cabo micro USB e a fonte de alimentação.
 > [!NOTE]
 > É importante usar uma fonte de alimentação do kit que tenha pelo menos 2A para confirmar que o Raspberry será alimentado com capacidade suficiente para funcionar corretamente.
 
-## <a name="enable-ssh"></a>Habilitar SSH
+<a id="enable-ssh" class="xliff"></a>
+
+## Habilitar SSH
 Da versão de novembro de 2016 em diante, o Raspbian tem o servidor SSH desabilitado por padrão. Você precisa habilitá-lo manualmente. Você pode consultar as [instruções oficiais](https://www.raspberrypi.org/documentation/remote-access/ssh/) ou conectar um monitor e ir para **Preferências-> Configuração do Raspberry Pi** para habilitar o SSH.
 
-## <a name="connect-raspberry-pi-3-to-the-network"></a>Conectar o Raspberry Pi 3 à rede
+<a id="connect-raspberry-pi-3-to-the-network" class="xliff"></a>
+
+## Conectar o Raspberry Pi 3 à rede
 Você pode conectar o Pi a uma rede com ou sem fio. Verifique se o Pi está conectado à mesma rede que o computador. Por exemplo, você pode conectar o Pi no mesmo comutador que o computador está conectado.
 
-### <a name="connect-to-a-wired-network"></a>Conectar a uma rede com fio
+<a id="connect-to-a-wired-network" class="xliff"></a>
+
+### Conectar a uma rede com fio
 Use o cabo Ethernet para conectar o Pi à sua rede com fio. Os dois LEDs no Pi serão ligados se a conexão for estabelecida.
 
 ![Conectar-se usando um cabo Ethernet](media/iot-hub-raspberry-pi-lessons/lesson1/connect_ethernet.jpg)
 
-### <a name="connect-to-a-wireless-network"></a>Conectar a uma rede sem fio
+<a id="connect-to-a-wireless-network" class="xliff"></a>
+
+### Conectar a uma rede sem fio
 Siga as [instruções](https://www.raspberrypi.org/learning/software-guide/wifi/) do Raspberry Pi Foundation para conectar o Pi à sua rede sem fio. Essas instruções exigem que você primeiro conecte um monitor e um teclado ao Pi.
 
-## <a name="connect-the-led-to-pi"></a>Conectar o LED ao Pi
+<a id="connect-the-led-to-pi" class="xliff"></a>
+
+## Conectar o LED ao Pi
 Para concluir essa tarefa, use a [placa universal](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), os cabos do conector, o LED e o resistor. Conecte-os às portas [GPIO](https://www.raspberrypi.org/documentation/usage/gpio/) (entrada/saída de uso geral) do seu Pi.
 
 ![Placa universal, LED e Resistor](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
@@ -112,12 +134,16 @@ Observe que a polaridade do LED é importante. Essa configuração de polaridade
 
 Parabéns! Você configurou seu Pi com êxito.
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Neste artigo, você aprendeu como configurar o Pi ao instalar o Raspbian, a conectar o Pi a uma rede e a conectar um LED ao Pi. Observe que o LED ainda não está aceso. Na próxima tarefa, você instalará as ferramentas e o software necessários para preparar a execução de um aplicativo de exemplo no Pi.
 
 ![O hardware está pronto](media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Obter as ferramentas](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
 
 

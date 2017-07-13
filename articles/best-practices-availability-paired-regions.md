@@ -14,16 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
-ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 32bff438c2e56b1c21aa907b6bff6c1d1e879de3
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/14/2017
 
 ---
 
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
+<a id="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions" class="xliff"></a>
 
-## <a name="what-are-paired-regions"></a>O que são regiões emparelhadas?
+# Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
+
+<a id="what-are-paired-regions" class="xliff"></a>
+
+## O que são regiões emparelhadas?
 
 O Azure opera em várias regiões geográficas em todo o mundo. Uma geografia do Azure é uma área definida do mundo que contém, pelo menos, uma Região do Azure. Uma região do Azure é uma área dentro de uma região geográfica que contém um ou mais data centers.
 
@@ -35,12 +40,22 @@ Figura 1 – Diagrama do par da região do Azure
 
 | painel Geografia do app&#39;s selecionado | Regiões emparelhadas |  |
 |:--- |:--- |:--- |
+| Ásia |Ásia Oriental |Sudeste Asiático |
+| Austrália |Leste da Austrália |Sudeste da Austrália |
+| Brasil |Sul do Brasil (1) |Centro-Sul dos Estados Unidos |
+| Canadá |Canadá Central |Leste do Canadá |
+| China |Norte da China |Leste da China|
+| Europa |Norte da Europa |Europa Ocidental |
+| Alemanha |Alemanha Central |Nordeste da Alemanha |
+| Índia |Índia Central |Sul da Índia |
+| Japão |Leste do Japão |Oeste do Japão |
+| Coreia |Coreia Central |Sul da Coreia |
 | América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
 | América do Norte |Leste dos EUA 2 |Centro dos EUA |
 | América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA |
 | Europa |Norte da Europa |Europa Ocidental |
-| Ásia |Sudeste da Ásia |Ásia Oriental |
+| Ásia |Sudeste Asiático |Ásia Oriental |
 | China |China Oriental |Norte da China |
 | Japão |Leste do Japão |Oeste do Japão |
 | Brasil |Sul do Brasil (1) |Centro-Sul dos Estados Unidos |
@@ -49,6 +64,8 @@ Figura 1 – Diagrama do par da região do Azure
 | Índia |Índia Central |Sul da Índia |
 | Canadá |Canadá Central |Leste do Canadá |
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
+| Coreia |Coreia Central |Sul da Coreia |
+| Alemanha |Alemanha Central |Nordeste da Alemanha |
 
 Tabela 1 - Mapeamento de pares regionais do Azure
 
@@ -57,14 +74,18 @@ Tabela 1 - Mapeamento de pares regionais do Azure
 
 É recomendável que você replique as cargas de trabalho entre os pares regionais para se beneficiar das políticas de isolamento e a disponibilidade do Azure. Por exemplo, as atualizações do sistema Azure planejadas são implantadas em sequência (não ao mesmo tempo) em regiões emparelhadas. Isso significa que, mesmo no caso de uma atualização falhar, ambas as regiões não serão afetadas simultaneamente. Além disso, no caso improvável de uma interrupção ampla, a recuperação de pelo menos uma região de cada par é priorizada.
 
-## <a name="an-example-of-paired-regions"></a>Um exemplo de regiões emparelhadas
+<a id="an-example-of-paired-regions" class="xliff"></a>
+
+## Um exemplo de regiões emparelhadas
 A Figura 2 a seguir mostra um aplicativo hipotético, que usa o par regional para recuperação de desastre. Os números verdes realçam as atividades entre regiões dos três serviços do Azure (computação, armazenamento e banco de dados do Azure) e como eles são configurados para serem replicados entre as regiões. As vantagens exclusivas de implantação entre regiões emparelhadas são realçadas pelos números laranja.
 
 ![Visão geral dos benefícios das regiões emparelhadas](./media/best-practices-availability-paired-regions/PairedRegionsOverview2.png)
 
 Figura 2 – par da região do Azure hipotético
 
-## <a name="cross-region-activities"></a>Atividades entre regiões
+<a id="cross-region-activities" class="xliff"></a>
+
+## Atividades entre regiões
 Como mencionado na Figura 2.
 
 ![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Computação do Azure (PaaS)** – Você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para saber mais, confira as [Orientação técnica de resiliência do Azure](resiliency/resiliency-technical-guidance.md).
@@ -75,7 +96,9 @@ Como mencionado na Figura 2.
 
 ![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** – O Resource Manager fornece de maneira inerente isolamento lógico dos componentes do gerenciamento de serviço entre as regiões. Isso significa que falhas lógicas em uma região são apresentam menor probabilidade de afetar as outras.
 
-## <a name="benefits-of-paired-regions"></a>Benefícios de uma região emparelhada
+<a id="benefits-of-paired-regions" class="xliff"></a>
+
+## Benefícios de uma região emparelhada
 Como mencionado na Figura 2.  
 
 ![Isolamento](./media/best-practices-availability-paired-regions/5Orange.png)

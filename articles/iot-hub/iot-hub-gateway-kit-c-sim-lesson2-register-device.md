@@ -4,7 +4,7 @@ description:
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: Hub iot do Azure, nuvem de Internet das coisas, criar dispositivo de Hub IoT do Azure, SensorTag de TI, bli de TI
 ROBOTS: NOINDEX
@@ -17,17 +17,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 759085dcb4993d38f79cb19efe58e1a968ddb682
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/25/2017
-
 
 ---
 
-# <a name="create-your-azure-iot-hub-and-register-your-device"></a>Criar seu Hub IoT do Azure e registrar seu dispositivo
+<a id="create-your-azure-iot-hub-and-register-your-device" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>O que você fará
+# Criar seu Hub IoT do Azure e registrar seu dispositivo
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 
 - Criar um grupos de recursos
 - Criar seu primeiro Hub IoT
@@ -37,19 +41,25 @@ Quando você registra seu dispositivo no Hub IoT, o serviço do Hub IoT do Azure
 
 Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 
 Nesta lição, você aprenderá a:
 
 - Como usar a CLI do Azure para criar um Hub IoT.
 - Como registrar um dispositivo em um Hub IoT.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 
 - Uma assinatura ativa do Azure. Se não tiver uma conta do Azure, você pode [criar uma conta gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 - Você deve ter a CLI do Azure instalada.
 
-## <a name="create-an-iot-hub"></a>Crie um hub IoT
+<a id="create-an-iot-hub" class="xliff"></a>
+
+## Crie um hub IoT
 
 Para criar um Hub IoT, execute estas etapas:
 
@@ -94,7 +104,9 @@ Por padrão, a ferramenta cria um Hub IoT no tipo de preços gratuito. Para sabe
 > [!NOTE]
 > O nome do hub IoT deve ser globalmente exclusivo. Você pode criar apenas uma edição F1 do Hub IoT do Azure em sua assinatura do Azure.
 
-## <a name="register-your-device-in-your-iot-hub"></a>Registrar seu dispositivo em seu Hub IoT
+<a id="register-your-device-in-your-iot-hub" class="xliff"></a>
+
+## Registrar seu dispositivo em seu Hub IoT
 
 Cada dispositivo que envia mensagens para/de seu Hub IoT deve ser registrado com uma ID exclusiva.
 Registre seu dispositivo no Hub IoT do Azure executando o seguinte comando:
@@ -103,9 +115,13 @@ Registre seu dispositivo no Hub IoT do Azure executando o seguinte comando:
 az iot device create --device-id mydevice --hub-name {my hub name} --resource-group iot-gateway
 ```
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 
 Você criou um Hub IoT do Azure e registrou seu dispositivo lógico com uma identidade de dispositivo em seu Hub IoT. Você está pronto para aprender a configurar e executar um aplicativo de exemplo do gateway para enviar dados de seu dispositivo físico para o Hub IoT na nuvem.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Configurar e executar um aplicativo de exemplo de upload de nuvem de dispositivo simulado](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)

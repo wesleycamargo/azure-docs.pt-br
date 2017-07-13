@@ -4,7 +4,7 @@ description: "Clone o aplicativo C de exemplo do GitHub e use gulp para implanta
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: piscar led raspberry pi, piscar led com raspberry pi
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 5b16230178fa82c7f227e3e3f8742fa16b00c719
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Criar e implantar o aplicativo de piscar
-## <a name="what-you-will-do"></a>O que você fará
+<a id="create-and-deploy-the-blink-application" class="xliff"></a>
+
+# Criar e implantar o aplicativo de piscar
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 Clone o aplicativo C de exemplo do GitHub e use a ferramenta gulp para implantar o aplicativo de exemplo no Raspberry Pi 3. O aplicativo de exemplo pisca o LED conectado à placa a cada dois segundos. Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Neste artigo, você aprenderá:
 
 * Como usar a ferramenta `device-discover-cli` para recuperar informações de rede sobre seu Pi.
 * Como implantar e executar o aplicativo de exemplo no Pi.
 * Como implantar e depurar aplicativos executados remotamente no Pi.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 Você deve ter concluído com sucesso as seções a seguir:
 
 * [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 * [Obter as ferramentas](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
 
-## <a name="obtain-the-ip-address-and-host-name-of-pi"></a>Obter o nome de host e o endereço IP do Pi
+<a id="obtain-the-ip-address-and-host-name-of-pi" class="xliff"></a>
+
+## Obter o nome de host e o endereço IP do Pi
 Abra um prompt de comando no Windows ou em um terminal no macOS ou Ubuntu e, em seguida, execute o seguinte comando:
 
 ```bash
@@ -57,7 +67,9 @@ Anote `IP address` e `hostname` do Pi. Você precisará dessas informações mai
 > [!NOTE]
 > Verifique se o Pi está conectado à mesma rede que o computador. Por exemplo, se o computador estiver conectado a uma rede sem fio enquanto o Pi estiver conectado a uma rede com fio, talvez você não veja o endereço IP na saída devdisco.
 
-## <a name="open-the-sample-application"></a>Abrir o aplicativo de exemplo
+<a id="open-the-sample-application" class="xliff"></a>
+
+## Abrir o aplicativo de exemplo
 Para abrir o aplicativo de exemplo, siga estas etapas:
 
 1. Clone o repositório de exemplo do GitHub executando o seguinte comando:
@@ -77,14 +89,18 @@ Para abrir o aplicativo de exemplo, siga estas etapas:
 
 O arquivo `main.c` na subpasta `app` é o arquivo de origem principal que contém o código para controlar o LED.
 
-### <a name="install-application-dependencies"></a>Instalar dependências de aplicativos
+<a id="install-application-dependencies" class="xliff"></a>
+
+### Instalar dependências de aplicativos
 Instale as bibliotecas e outros módulos necessários para o aplicativo de exemplo executando o seguinte comando:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Configurar a conexão do dispositivo
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configurar a conexão do dispositivo
 Para configurar a conexão do dispositivo, siga estas etapas:
 
 1. Gere o arquivo de configuração do dispositivo executando o seguinte comando:
@@ -126,8 +142,12 @@ Para configurar a conexão do dispositivo, siga estas etapas:
 
 Parabéns! Você criou com êxito o primeiro aplicativo de exemplo para o Pi.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
-### <a name="install-the-azure-iot-hub-sdk-on-pi"></a>Instalar o SDK do Hub IoT do Azure no Pi
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Implantar e executar o aplicativo de exemplo
+<a id="install-the-azure-iot-hub-sdk-on-pi" class="xliff"></a>
+
+### Instalar o SDK do Hub IoT do Azure no Pi
 Instale o SDK do Hub IoT do Azure no Pi executando o seguinte comando:
 
 ```bash
@@ -136,21 +156,29 @@ gulp install-tools
 
 A conclusão da execução inicial desta tarefa pode levar alguns minutos.
 
-### <a name="deploy-and-run-the-sample-app"></a>Implantar e executar o aplicativo de exemplo
+<a id="deploy-and-run-the-sample-app" class="xliff"></a>
+
+### Implantar e executar o aplicativo de exemplo
 Implantar e executar o aplicativo de exemplo executando o seguinte comando:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-### <a name="verify-the-app-works"></a>Verificar se o aplicativo funciona
+<a id="verify-the-app-works" class="xliff"></a>
+
+### Verificar se o aplicativo funciona
 O aplicativo de exemplo é encerrado automaticamente após o LED piscar 20 vezes. Se você não vir o LED piscar, consulte o [guia de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md) para problemas comuns.
 ![LED piscando](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Você instalou as ferramentas necessárias para trabalhar com o Pi e implantou um aplicativo de exemplo para o Pi para piscar o LED. Agora você pode criar, implantar e executar outro aplicativo de exemplo que conecta seu Pi ao Hub IoT do Azure para enviar e receber mensagens.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Obter ferramentas do Azure](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
 
 

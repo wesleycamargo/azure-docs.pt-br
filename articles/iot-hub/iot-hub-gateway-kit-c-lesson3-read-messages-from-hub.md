@@ -4,7 +4,7 @@ description: "Execute um código de exemplo no computador host para ler as mensa
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "dados na nuvem, coleta de dados de nuvem, serviço de nuvem iot, dados iot"
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 0a5dd7e010ba46b724bb6a2526dc2a2730acc10f
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/25/2017
-
 
 ---
 
-# <a name="read-messages-from-your-iot-hub"></a>Ler mensagens de seu Hub IoT
+<a id="read-messages-from-your-iot-hub" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>O que você fará
+# Ler mensagens de seu Hub IoT
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 
 - Execute um código de exemplo no computador host para ler mensagens de seu Hub IoT.
 
 Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 
 Como usar a ferramenta gulp para ler mensagens de seu Hub IoT.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 
 - O aplicativo de exemplo BLE que você executou com êxito na Lição 3.
 
-## <a name="get-your-iot-hub-and-device-connection-strings"></a>Obter as cadeias de conexão do dispositivo e do Hub IoT
+<a id="get-your-iot-hub-and-device-connection-strings" class="xliff"></a>
+
+## Obter as cadeias de conexão do dispositivo e do Hub IoT
 
 Essa cadeia de conexão é usada pelo seu dispositivo (SensorTag de TI ou dispositivo simulado) para se conectar ao seu Hub IoT como um dispositivo. A cadeia de conexão do Hub IoT é usada para se conectar ao Registro de identidade em seu Hub IoT para gerenciar os dispositivos que têm permissão para se conectar ao seu Hub IoT.
 
@@ -60,7 +70,9 @@ Essa cadeia de conexão é usada pelo seu dispositivo (SensorTag de TI ou dispos
 
    `{my hub name}` é o nome que você especificou na Lição 2.
 
-## <a name="configure-the-device-connection-for-the-sample-code"></a>Configurar a conexão do dispositivo para o código de exemplo
+<a id="configure-the-device-connection-for-the-sample-code" class="xliff"></a>
+
+## Configurar a conexão do dispositivo para o código de exemplo
 
 Atualize o arquivo de configuração do dispositivo `config-azure.json` para que você possa ler mensagens de seu Hub IoT no computador host. Para fazer isso, siga estas etapas:
 
@@ -79,7 +91,9 @@ Atualize o arquivo de configuração do dispositivo `config-azure.json` para que
 
    Substitua `[IoT hub connection string]` pela cadeia de conexão do Hub IoT obtida.
 
-## <a name="read-messages-from-your-iot-hub"></a>Ler mensagens de seu Hub IoT
+<a id="read-messages-from-your-iot-hub" class="xliff"></a>
+
+## Ler mensagens de seu Hub IoT
 
 Se você tiver uma SensorTag de TI, certifique-se de já ter ligado a SensorTag. Execute o aplicativo de exemplo no gateway e leia as mensagens do Hub IoT por meio do seguinte comando:
 
@@ -93,11 +107,15 @@ As mensagens que estão sendo enviadas e recebidas são todas exibidas instantan
 
 ![Aplicativo de exemplo BLE com mensagens enviadas e recebidas](media/iot-hub-gateway-kit-lessons/lesson3/gulp_run_read_hub.png)
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 
 Você executou um código de exemplo para ler mensagens de seu Hub IoT. Você está pronto para ler as mensagens que estão armazenadas no seu Armazenamento de Tabelas do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Criar um aplicativo de funções do Azure e uma conta de armazenamento do Azure](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 
 

@@ -4,7 +4,7 @@ description: Personalize as mensagens para alterar o comportamento liga e deslig
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: led de controle com raspberry pi, controle de led de raspberry pi, led de controle de raspberry pi
 ROBOTS: NOINDEX
@@ -17,24 +17,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: c1c999e40ecc92a1018067822be66f14b61a8c36
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>Alterar o comportamento de ativar e desativar do LED
-## <a name="what-you-will-do"></a>O que você fará
+<a id="change-the-on-and-off-behavior-of-the-led" class="xliff"></a>
+
+# Alterar o comportamento de ativar e desativar do LED
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 Personalize as mensagens para alterar o comportamento liga e desliga do LED. Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Utilizar funções adicionais do Node.js para alterar o comportamento liga e desliga do LED.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 Você deve ter concluído com sucesso [Executar um aplicativo de exemplo no Raspberry Pi para receber mensagens da nuvem para o dispositivo](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md).
 
-## <a name="add-functions-to-mainc-and-gulpfilejs"></a>Adicionar funções ao main.c e ao gulpfile.js
+<a id="add-functions-to-mainc-and-gulpfilejs" class="xliff"></a>
+
+## Adicionar funções ao main.c e ao gulpfile.js
 1. Abra o aplicativo de exemplo no Visual Studio Code, executando os seguintes comandos:
 
    ```bash
@@ -92,7 +102,9 @@ Você deve ter concluído com sucesso [Executar um aplicativo de exemplo no Rasp
    ```
 6. Salve todas as alterações.
 
-### <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+### Implantar e executar o aplicativo de exemplo
 Implante e execute o aplicativo de exemplo no Pi executando o seguinte comando:
 
 ```bash
@@ -105,6 +117,8 @@ Você deve ver o LED ativar por dois segundos e, em seguida, desativar por outro
 
 Parabéns! Você personalizou com sucesso as mensagens que são enviadas do Hub IoT para o Pi.
 
-### <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+### Resumo
 Essa seção opcional demonstra como personalizar as mensagens para que o aplicativo de exemplo controle o comportamento liga e desliga do LED de maneira diferente.
 

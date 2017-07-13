@@ -4,7 +4,7 @@ description: Configurar o Intel Edison para o primeiro uso.
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "configuração do arduino, conectar arduino ao computador, configurar arduino, placa arduino"
 ROBOTS: NOINDEX
@@ -17,24 +17,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
 ms.openlocfilehash: 203d3976b9ba0960f5a3dbff4e2b1fcdf4c0dc33
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="configure-your-intel-edison"></a>Configurar seu Intel Edison
-## <a name="what-you-will-do"></a>O que você fará
+<a id="configure-your-intel-edison" class="xliff"></a>
+
+# Configurar seu Intel Edison
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 Configure o Intel Edison para o primeiro uso montando a placa, ligando-a e instalando a ferramenta de configuração no sistema operacional da área de trabalho para atualizar o firmware do Edison, definir sua senha e conectá-lo ao Wi-Fi. Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Neste artigo, você aprenderá:
 
 * Como montar a placa do Edison e ligá-la.
 * Como atualizar o firmware do Edison, definir a senha e conectar ao Wi-Fi.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 Para concluir esta operação, você precisará das seguintes partes do seu Kit de início do Intel Edison:
 
 * Módulo do Intel® Edison
@@ -54,7 +62,9 @@ Você também precisará de:
 * Uma conexão sem fio com que o Edison se conectará.
 * Uma conexão com a Internet para baixar a ferramenta de configuração.
 
-## <a name="assemble-your-board"></a>Montar sua placa
+<a id="assemble-your-board" class="xliff"></a>
+
+## Montar sua placa
 
 Esta seção contém etapas para anexar o módulo Intel® Edison à sua placa de expansão.
 
@@ -80,7 +90,9 @@ Agora, sua placa está montada.
 
    ![montar a placa](media/iot-hub-intel-edison-lessons/lesson1/assembled_board.jpg)
 
-## <a name="power-up-edison"></a>Ligar o Edison
+<a id="power-up-edison" class="xliff"></a>
+
+## Ligar o Edison
 
 1. Conecte à fonte de alimentação.
 
@@ -93,7 +105,9 @@ Agora, sua placa está montada.
    > [!NOTE]
    > Se não tiver uma fonte de alimentação CC, você ainda poderá ligar a placa usando uma porta USB. Confira a seção `Connect Edison to your computer` para obter detalhes. Ligar sua placa dessa maneira pode resultar em um comportamento imprevisível da placa, especialmente ao usar Wi-Fi ou motores de acionamento.
 
-## <a name="connect-edison-to-your-computer"></a>Conectar o Edison ao computador
+<a id="connect-edison-to-your-computer" class="xliff"></a>
+
+## Conectar o Edison ao computador
 
 1. Mude a posição do microcomutador para baixo, na direção das duas portas micro USB, para que o Edison fique no modo de dispositivo. Veja [aqui](https://software.intel.com/en-us/node/628233#usb-device-mode-vs-usb-host-mode) as diferenças entre o modo de dispositivo e o modo de host.
 
@@ -109,23 +123,31 @@ Agora, sua placa está montada.
 
 4. Você saberá que a placa foi inicializada completamente quando o computador montar uma nova unidade (muito semelhante a inserir um cartão SD no computador).
 
-## <a name="download-and-run-the-configuration-tool"></a>Baixe e execute a ferramenta de configuração
+<a id="download-and-run-the-configuration-tool" class="xliff"></a>
+
+## Baixe e execute a ferramenta de configuração
 Obtenha a ferramenta de configuração mais recente [deste link](https://software.intel.com/en-us/iot/hardware/edison/downloads), listada sob o título `Installers`. Execute a ferramenta e siga as instruções na tela, clicando em Avançar quando necessário
 
-### <a name="flash-firmware"></a>Atualizar o firmware
+<a id="flash-firmware" class="xliff"></a>
+
+### Atualizar o firmware
 1. Na página `Set up options`, clique em `Flash Firmware`.
 2. Selecione a imagem para atualizar sua placa seguindo um destes procedimentos:
    - Para baixar e atualizar sua placa com a imagem de firmware mais recente disponível da Intel, selecione `Download the latest image version xxxx`.
    - Para atualizar sua placa com uma imagem que você já salvou no computador, selecione `Select the local image`. Navegue e selecione a imagem com que você quer atualizar a placa.
 3. A ferramenta de configuração tentará atualizar a placa. Todo o processo de atualização pode levar até 10 minutos.
 
-### <a name="set-password"></a>Definir senha
+<a id="set-password" class="xliff"></a>
+
+### Definir senha
 1. Na página `Set up options`, clique em `Enable Security`.
 2. É possível definir um nome personalizado para sua placa Intel® Edison. Isso é opcional.
 3. Digite uma senha para a placa e clique em `Set password`.
 4. Marque a senha, que será usada mais tarde.
 
-### <a name="connect-wi-fi"></a>Conectar ao Wi-Fi
+<a id="connect-wi-fi" class="xliff"></a>
+
+### Conectar ao Wi-Fi
 1. Na página `Set up options`, clique em `Connect Wi-Fi`. Aguarde até um minuto para que seu computador identifique as redes Wi-Fi disponíveis.
 2. Na lista suspensa `Detected Networks`, selecione a rede.
 3. Na lista suspensa `Security`, selecione o tipo de segurança da rede.
@@ -137,10 +159,14 @@ Obtenha a ferramenta de configuração mais recente [deste link](https://softwar
 
 Parabéns! Você configurou o Edison com êxito.
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Neste artigo, você aprendeu como montar a placa Edison, atualizar o firmware, definir a senha e conectá-la ao Wi-Fi usando a ferramenta de configuração. Observe que o LED ainda não está aceso. A tarefa seguinte é instalar as ferramentas e o software necessários para preparar a execução de um aplicativo de exemplo no Edison.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Obter as ferramentas][get-the-tools]
 <!-- Images and links -->
 
