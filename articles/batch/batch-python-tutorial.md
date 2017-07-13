@@ -16,14 +16,15 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: bdb36e6397951d2d3298dbfe9e80a0b678ecfdaf
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 8de3df11a59178b782d50b7662aa5d8cab11a260
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="get-started-with-the-batch-sdk-for-python"></a>Introdução ao SDK do Lote para Python
+# Introdução ao SDK do Lote para Python
+<a id="get-started-with-the-batch-sdk-for-python" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -36,24 +37,29 @@ Conheça os fundamentos do [Lote do Azure][azure_batch] e o cliente [Python do L
 
 ![Fluxo de trabalho da solução do Lote (básico)][11]<br/>
 
-## <a name="prerequisites"></a>Pré-requisitos
+## Pré-requisitos
+<a id="prerequisites" class="xliff"></a>
 Este artigo pressupõe que você tenha um conhecimento prático do Python e que esteja familiarizado com o Linux. Ele também pressupõe que você é capaz de satisfazer os requisitos de criação de conta especificados abaixo para o Azure e os serviços Lote e Armazenamento.
 
-### <a name="accounts"></a>Contas
+### Contas
+<a id="accounts" class="xliff"></a>
 * **Conta do Azure**: se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita do Azure][azure_free_account].
 * **Conta do Lote**: quando você tiver uma assinatura do Azure, [crie uma conta do Lote do Azure](batch-account-create-portal.md).
 * **Conta de armazenamento**: veja [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
 
-### <a name="code-sample"></a>Exemplo de código
+### Exemplo de código
+<a id="code-sample" class="xliff"></a>
 O [exemplo de código][github_article_samples] do tutorial do Python é um dos vários exemplos de código do Lote encontrados no repositório [azure-batch-samples][github_samples] no GitHub. Você pode baixar todos os exemplos clicando no botão **Clonar ou baixar > Baixar ZIP** na home page do repositório ou clicando no link de download direto de [azure-batch-samples-master.zip][github_samples_zip]. Depois de extrair o conteúdo do arquivo ZIP, encontre os dois scripts deste tutorial no diretório `article_samples` :
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
-### <a name="python-environment"></a>Ambiente do Python
+### Ambiente do Python
+<a id="python-environment" class="xliff"></a>
 Para executar o script de exemplo *python_tutorial_client.py* em sua estação de trabalho local, você precisa de um **interpretador Python** compatível com a versão **2.7** ou **3.3+**. O script foi testado no Linux e no Windows.
 
-### <a name="cryptography-dependencies"></a>dependências de criptografia
+### dependências de criptografia
+<a id="cryptography-dependencies" class="xliff"></a>
 Você deve instalar as dependências para a biblioteca de [criptografia][crypto], necessária aos pacotes Python `azure-batch` e `azure-storage`. Execute uma das seguintes operações apropriadas para sua plataforma ou consulte os detalhes da [instalação de criptografia][crypto_install] para obter mais informações:
 
 * Ubuntu
@@ -61,7 +67,7 @@ Você deve instalar as dependências para a biblioteca de [criptografia][crypto]
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
 
-    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+    `yum update && yum install -y gcc openssl-devel libffi-devel python-devel`
 * SLES/OpenSUSE
 
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
@@ -74,7 +80,8 @@ Você deve instalar as dependências para a biblioteca de [criptografia][crypto]
 >
 >
 
-### <a name="azure-packages"></a>Pacotes do Azure
+### Pacotes do Azure
+<a id="azure-packages" class="xliff"></a>
 Em seguida, instale os pacotes Python do **Lote do Azure** e do **Armazenamento do Azure**. Você pode instalar os dois pacotes usando o **pip** e o *requirements.txt* encontrado aqui:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
@@ -93,7 +100,8 @@ Ou você pode instalar os pacotes Python do [azure-batch][pypi_batch] e [azure-s
 >
 >
 
-## <a name="batch-python-tutorial-code-sample"></a>Exemplo de código do tutorial do Python do Lote
+## Exemplo de código do tutorial do Python do Lote
+<a id="batch-python-tutorial-code-sample" class="xliff"></a>
 O exemplo de código do tutorial do Python do Lote consiste em dois scripts Python e em alguns arquivos de dados.
 
 * **python_tutorial_client.py**: interage com os serviços Lote e Armazenamento para executar uma carga de trabalho paralela em nós de computação (máquinas virtuais). O script *python_tutorial_client.py* é executado em sua estação de trabalho local.
@@ -109,7 +117,7 @@ O diagrama a seguir ilustra as operações principais executadas pelos scripts d
 [**Etapa 3.**](#step-3-create-batch-pool) Criar um **pool** do Lote.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** O pool **StartTask** baixa o script de tarefa (python_tutorial_task.py) para os nós quando eles ingressam no pool.<br/>
 [**Etapa 4.**](#step-4-create-batch-job) Crie um **trabalho** do Lote.<br/>
-[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **Tarefas** ao trabalho.<br/>
+[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **tarefas** ao trabalho.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** As tarefas serão agendadas para a execução em nós.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarefa baixa seus dados de entrada do Armazenamento do Azure e então inicia a execução.<br/>
 [**Etapa 6.**](#step-6-monitor-tasks) Monitore as tarefas.<br/>
@@ -118,7 +126,8 @@ O diagrama a seguir ilustra as operações principais executadas pelos scripts d
 
 Como mencionado, nem todas as soluções do Lote executam essas etapas exatas, e elas podem incluir muitas outras, mas este exemplo demonstra os processos comuns encontrados em uma solução do Lote.
 
-## <a name="prepare-client-script"></a>Preparar o script de cliente
+## Preparar o script de cliente
+<a id="prepare-client-script" class="xliff"></a>
 Antes de executar o exemplo, adicione suas credenciais de conta do Lote e do Armazenamento a *python_tutorial_client.py*. Se você não tiver feito isso, abra o arquivo em seu editor favorito e atualize as linhas a seguir com suas credenciais.
 
 ```python
@@ -149,7 +158,8 @@ Navegue até a linha a seguir em **python_tutorial_client.py** para começar pel
 if __name__ == '__main__':
 ```
 
-## <a name="step-1-create-storage-containers"></a>Etapa 1: Criar contêineres do Armazenamento
+## Etapa 1: Criar contêineres do Armazenamento
+<a id="step-1-create-storage-containers" class="xliff"></a>
 ![Criar contêineres no Armazenamento do Azure][1]
 <br/>
 
@@ -187,7 +197,8 @@ Depois que os contêineres tiverem sido criados, o aplicativo poderá carregar o
 >
 >
 
-## <a name="step-2-upload-task-script-and-data-files"></a>Etapa 2: Carregar o script de tarefa e os arquivos de dados
+## Etapa 2: Carregar o script de tarefa e os arquivos de dados
+<a id="step-2-upload-task-script-and-data-files" class="xliff"></a>
 ![Carregar arquivos de aplicativo e de entrada (dados) da tarefa nos contêineres][2]
 <br/>
 
@@ -260,7 +271,8 @@ def upload_file_to_container(block_blob_client, container_name, path):
                                     blob_source=sas_url)
 ```
 
-### <a name="resourcefiles"></a>ResourceFiles
+### ResourceFiles
+<a id="resourcefiles" class="xliff"></a>
 O [ResourceFile][py_resource_file] fornece tarefas no Lote com a URL para um arquivo no Armazenamento do Azure que é baixado para um nó de computação antes da execução da tarefa. A propriedade [ResourceFile][py_resource_file].**blob_source** especifica a URL completa do arquivo como ela existe no Armazenamento do Azure. A URL também pode incluir uma assinatura de acesso compartilhado (SAS) que fornece acesso seguro ao arquivo. A maioria dos tipos de tarefas do Lote tem uma propriedade *ResourceFiles* , incluindo:
 
 * [CloudTask][py_task]
@@ -270,7 +282,8 @@ O [ResourceFile][py_resource_file] fornece tarefas no Lote com a URL para um arq
 
 Este exemplo não usa os tipos de tarefa JobPreparationTask ou a JobReleaseTask, mas você pode ler mais sobre isso em [Executar tarefas de preparação e de conclusão de trabalhos em nós de computação do Lote do Azure](batch-job-prep-release.md).
 
-### <a name="shared-access-signature-sas"></a>Assinatura de acesso compartilhado (SAS)
+### Assinatura de acesso compartilhado (SAS)
+<a id="shared-access-signature-sas" class="xliff"></a>
 As assinaturas de acesso compartilhado são cadeias de caracteres que oferecem acesso seguro a contêineres e a blobs no Armazenamento do Azure. O script *python_tutorial_client.py* usa assinaturas de acesso compartilhado de blob e de contêiner e demonstra como obter essas cadeias de caracteres de assinatura de acesso compartilhado do serviço de Armazenamento.
 
 * **Assinaturas de acesso compartilhado do Blob**: a StartTask do pool usa assinaturas de acesso compartilhado de blob ao baixar o script de tarefa e os arquivos de dados de entrada de arquivos de Armazenamento (confira a [Etapa 3](#step-3-create-batch-pool) abaixo). A função `upload_file_to_container` em *python_tutorial_client.py* contém o código que obtém a assinatura de acesso compartilhado de cada blob. Isso é feito chamando [BlockBlobService.make_blob_url][py_make_blob_url] no módulo do Armazenamento.
@@ -281,7 +294,8 @@ As assinaturas de acesso compartilhado são cadeias de caracteres que oferecem a
 >
 >
 
-## <a name="step-3-create-batch-pool"></a>Etapa 3: Criar pool do Lote
+## Etapa 3: Criar pool do Lote
+<a id="step-3-create-batch-pool" class="xliff"></a>
 ![Criar um pool do Lote][3]
 <br/>
 
@@ -386,7 +400,8 @@ Também podemos notar no trecho de código acima o uso de duas variáveis de amb
 >
 >
 
-## <a name="step-4-create-batch-job"></a>Etapa 4: Criar o trabalho do Lote
+## Etapa 4: Criar o trabalho do Lote
+<a id="step-4-create-batch-job" class="xliff"></a>
 ![Criar trabalho do Lote][4]<br/>
 
 Um **trabalho** do Lote é uma coleção de tarefas associadas a um pool de nós de computação. As tarefas em um trabalho são executadas nos nós de computação do pool associado.
@@ -420,7 +435,8 @@ def create_job(batch_service_client, job_id, pool_id):
 
 Agora que um trabalho foi criado, as tarefas serão adicionadas para a execução do trabalho.
 
-## <a name="step-5-add-tasks-to-job"></a>Etapa 5: Adicionar tarefas ao trabalho
+## Etapa 5: Adicionar tarefas ao trabalho
+<a id="step-5-add-tasks-to-job" class="xliff"></a>
 ![Adicionar tarefas ao trabalho][5]<br/>
 *(1) As tarefas são adicionadas ao trabalho, (2) as tarefas são agendadas para execução em nós e (3) as tarefas baixam os arquivos de dados para processamento*
 
@@ -493,7 +509,8 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
                                          sas_token=args.sastoken)
 ```
 
-## <a name="step-6-monitor-tasks"></a>Etapa 6: Monitorar tarefas
+## Etapa 6: Monitorar tarefas
+<a id="step-6-monitor-tasks" class="xliff"></a>
 ![Monitorar tarefas][6]<br/>
 *O script (1) monitora as tarefas para o status de conclusão e (2) as tarefas carregam os dados resultantes no Armazenamento do Azure*
 
@@ -536,7 +553,8 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
                        "timeout period of " + str(timeout))
 ```
 
-## <a name="step-7-download-task-output"></a>Etapa 7: Baixar a saída da tarefa
+## Etapa 7: Baixar a saída da tarefa
+<a id="step-7-download-task-output" class="xliff"></a>
 ![Baixar a saída da tarefa do Armazenamento][7]<br/>
 
 Agora que o trabalho foi concluído, a saída das tarefas pode ser baixada do Armazenamento do Azure. Isso é feito com uma chamada a `download_blobs_from_container` em *python_tutorial_client.py*:
@@ -578,7 +596,8 @@ def download_blobs_from_container(block_blob_client,
 >
 >
 
-## <a name="step-8-delete-containers"></a>Etapa 8: Excluir contêineres
+## Etapa 8: Excluir contêineres
+<a id="step-8-delete-containers" class="xliff"></a>
 Como você é cobrado pelos dados que residem no Armazenamento do Azure, sempre será uma boa ideia remover todos os blobs que não sejam mais necessários para seus trabalhos do Lotes. Em *python_tutorial_client.py*, isso é feito com três chamadas a [BlockBlobService.delete_container][py_delete_container]:
 
 ```python
@@ -589,7 +608,8 @@ blob_client.delete_container(input_container_name)
 blob_client.delete_container(output_container_name)
 ```
 
-## <a name="step-9-delete-the-job-and-the-pool"></a>Etapa 9: excluir o trabalho e o pool
+## Etapa 9: excluir o trabalho e o pool
+<a id="step-9-delete-the-job-and-the-pool" class="xliff"></a>
 Na etapa final, você é solicitado a excluir o trabalho e o pool criados pelo script *python_tutorial_client.py*. Embora você não seja cobrado pelos trabalhos e pelas tarefas, *será* cobrado pelos nós de computação. Portanto, recomendamos que você aloque os nós conforme necessário. A exclusão de pools não utilizados pode fazer parte de seu processo de manutenção.
 
 As [JobOperations][py_job] e [PoolOperations][py_pool] do BatchServiceClient têm métodos de exclusão correspondentes, chamados se você confirmar a exclusão:
@@ -608,7 +628,8 @@ if query_yes_no('Delete pool?') == 'yes':
 >
 >
 
-## <a name="run-the-sample-script"></a>Executar o script de exemplo
+## Executar o script de exemplo
+<a id="run-the-sample-script" class="xliff"></a>
 Quando você executa o script *python_tutorial_client.py* do [exemplo de código][github_article_samples] do tutorial, a saída do console é semelhante ao que é mostrado a seguir. Há uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` enquanto os nós de computação do pool são criados, iniciados e os comandos na tarefa de inicialização do pool são executados. Use o [Portal do Azure][azure_portal] para monitorar o pool, os nós de computação, o trabalho e as tarefas durante e após a execução. Use o [Portal do Azure][azure_portal] ou o [Gerenciador de Armazenamento do Microsoft Azure][storage_explorer] para exibir os recursos do Armazenamento (contêineres e blobs) criados pelo aplicativo.
 
 > [!TIP]
@@ -646,7 +667,8 @@ Delete pool? [Y/n]
 Press ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 Fique à vontade para fazer alterações em *python_tutorial_client.py* e *python_tutorial_task.py* para fazer experiências com cenários de computação diferentes. Por exemplo, tente adicionar um atraso de execução a *python_tutorial_task.py* para simular tarefas demoradas e para monitorá-las no portal. Tente adicionar mais tarefas ou ajustar o número de nós de computação. Adicione lógica para verificar e permitir o uso de um pool existente para acelerar o tempo de execução.
 
 Agora que você está familiarizado com o fluxo de trabalho básico de uma solução do Lote, é hora de se aprofundar nos recursos adicionais do serviço Lote.
