@@ -12,21 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3d3ba2d11d66ecc253a34e7c4da422bf9fdbd1bd
 ms.openlocfilehash: da69c6f8d0d831349e50548c8883db249b4ee60f
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/06/2017
 
 ---
-# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização do Azure AD Connect: noções básicas sobre a arquitetura
+# Sincronização do Azure AD Connect: noções básicas sobre a arquitetura
+<a id="azure-ad-connect-sync-understanding-the-architecture" class="xliff"></a>
 Este tópico aborda a arquitetura básica para a sincronização do Azure AD Connect. Em muitos aspectos, ela é semelhante à de seus predecessores MIIS 2003, ILM 2007 e FIM 2010. A sincronização do Azure AD Connect é a evolução dessas tecnologias. Se você estiver familiarizado com qualquer uma dessas tecnologias mais antigas, o conteúdo deste tópico também será familiar. Se você ainda não estiver familiarizado com a sincronização, este tópico é para você. No entanto, não é um requisito saber os detalhes deste tópico para conseguir fazer as personalizações na sincronização do Azure AD Connect (chamada de mecanismo de sincronização neste tópico).
 
-## <a name="architecture"></a>Arquitetura
+## Arquitetura
+<a id="architecture" class="xliff"></a>
 O mecanismo de sincronização cria uma exibição integrada dos objetos armazenados em várias fontes de dados conectadas e gerencia as informações de identidade nessas fontes de dados. Essa exibição integrada é determinada pelas informações de identidade recuperadas de fontes de dados conectadas e por um conjunto de regras que determinam como processar essas informações.
 
-### <a name="connected-data-sources-and-connectors"></a>Fontes de Dados Conectadas e Conectores
+### Fontes de Dados Conectadas e Conectores
+<a id="connected-data-sources-and-connectors" class="xliff"></a>
 O mecanismo de sincronização processa informações de identidade de diferentes repositórios de dados, como o Active Directory ou um banco de dados SQL Server. Cada repositório de dados que organiza seus dados em um formato de banco de dados e que fornece métodos de acesso a dados padrão é um potencial candidato a fonte de dados para o mecanismo de sincronização. Os repositórios de dados sincronizados pelo mecanismo de sincronização são chamados de **fontes de dados conectadas** ou **diretórios conectados**.
 
 O mecanismo de sincronização encapsula a interação com uma fonte de dados conectada em um módulo chamado **Conector**. Cada tipo de fonte de dados conectada tem um Conector específico. O Conector converte uma operação necessária para o formato que a fonte de dados conectada compreende.
@@ -43,7 +47,8 @@ Para exportar objetos para uma fonte de dados conectada, a lista de inclusão de
 
 Se a fonte de dados conectada usar componentes estruturais, como partições ou contêineres, para organizar objetos, você poderá limitar as áreas na fonte de dados conectada usadas para uma determinada solução.
 
-### <a name="internal-structure-of-the-sync-engine-namespace"></a>Estrutura interna do namespace do mecanismo de sincronização
+### Estrutura interna do namespace do mecanismo de sincronização
+<a id="internal-structure-of-the-sync-engine-namespace" class="xliff"></a>
 O namespace do mecanismo de sincronização completo consiste em dois namespaces que armazenam as informações de identidade. Os dois namespaces são:
 
 * O espaço do conector
@@ -61,10 +66,12 @@ A ilustração a seguir mostra o namespace de espaço do conector e o namespace 
 
 ![Arco2](./media/active-directory-aadconnectsync-understanding-architecture/arch2.png)
 
-## <a name="sync-engine-identity-objects"></a>Objetos de identidade do mecanismo de sincronização
+## Objetos de identidade do mecanismo de sincronização
+<a id="sync-engine-identity-objects" class="xliff"></a>
 Os objetos no mecanismo de sincronização são representações de qualquer um dos objetos na fonte de dados conectada ou na exibição integrada que o mecanismo de sincronização tem desses objetos. Todos os objetos do mecanismo de sincronização devem ter um identificador global exclusivo (GUID). Os GUIDs fornecem a integridade dos dados e expressam relacionamentos entre objetos.
 
-### <a name="connector-space-objects"></a>Objetos de espaço do conector
+### Objetos de espaço do conector
+<a id="connector-space-objects" class="xliff"></a>
 Quando o mecanismo de sincronização se comunica com uma fonte de dados conectada, ele lê as informações de identidade na fonte de dados conectada e usa essas informações para criar uma representação do objeto de identidade no espaço do conector. Você não pode criar ou excluir esses objetos individualmente. No entanto, você pode excluir manualmente todos os objetos em um espaço de conector.
 
 Todos os objetos no espaço do conector têm dois atributos:
@@ -83,7 +90,8 @@ Podem ser objetos de espaço do conector:
 * Um objeto de preparação
 * Um espaço reservado
 
-### <a name="staging-objects"></a>Objetos de preparação
+### Objetos de preparação
+<a id="staging-objects" class="xliff"></a>
 Um objeto de preparação representa uma instância dos tipos de objeto designado da fonte de dados conectada. Além do GUID e do nome distinto, um objeto de preparação sempre tem um valor que indica o tipo de objeto.
 
 Os objetos de preparação que foram importados sempre terão um valor para o atributo de âncora. Os objetos de preparação que foram recém-provisionados pelo mecanismo de sincronização e que estiverem em processo de criação na fonte de dados conectada não terão um valor para o atributo de âncora.
@@ -104,21 +112,24 @@ A ilustração a seguir mostra como um objeto de exportação é criado usando a
 
 O mecanismo de sincronização confirma a exportação do objeto ao importar novamente o objeto de fonte de dados conectada. Os objetos de exportação se tornam objetos de importação quando o mecanismo de sincronização os recebe durante a próxima importação da fonte de dados conectada.
 
-### <a name="placeholders"></a>Espaços reservados
+### Espaços reservados
+<a id="placeholders" class="xliff"></a>
 O mecanismo de sincronização usa um namespace simples para armazenar objetos. No entanto, algumas fontes de dados conectadas, como o Active Directory, usam um namespace hierárquico. Para transformar informações de um namespace hierárquico em um namespace simples, o mecanismo de sincronização usa espaços reservados para preservar a hierarquia.
 
 Cada espaço reservado representa um componente (por exemplo, uma unidade organizacional) de um nome hierárquico do objeto que não foi importado para o mecanismo de sincronização, mas é necessário para construir o nome hierárquico. Eles preenchem lacunas criadas pelas referências da fonte de dados conectada para os objetos que não são objetos de preparação no espaço do conector.
 
 O mecanismo de sincronização também usa os espaços reservados para armazenar os objetos referenciados que ainda não foram importados. Por exemplo, se a sincronização estiver configurada para incluir o atributo gerente para o objeto *Clara Barbosa* e o valor recebido for um objeto que ainda não foi importado, como *CN=Pedro Gonçalves,CN=Usuários,DC=fabrikam,DC=com*, as informações de gerente serão armazenadas como espaços reservados no espaço do conector. Se o objeto gerente for importado mais tarde, o objeto do espaço reservado será  substituído pelo objeto de preparação que representa o gerente.
 
-### <a name="metaverse-objects"></a>Objetos do metaverso
+### Objetos do metaverso
+<a id="metaverse-objects" class="xliff"></a>
 Um objeto do metaverso contém a exibição agregada que o mecanismo de sincronização tem dos objetos de preparação no espaço do conector. O mecanismo de sincronização cria os objetos de metaverso usando as informações dos objetos de importação. Diversos objetos de espaço do conector podem ser vinculados a um único objeto do metaverso, mas um objeto de espaço do conector não pode ser vinculado a mais de um objeto do metaverso.
 
 Os objetos de metaverso não podem ser criados ou excluídos manualmente. O mecanismo de sincronização excluirá automaticamente os objetos de metaverso que não tiverem um link para qualquer objeto de espaço do conector no espaço do conector.
 
 Para mapear objetos dentro de uma fonte de dados conectada para um tipo de objeto correspondente no metaverso, o mecanismo de sincronização fornece um esquema extensível com um conjunto predefinido de tipos de objetos e atributos associados. Você pode criar novos tipos de objeto e de atributos para os objetos de metaverso. Os atributos podem ter valor único ou diversos valores, e os tipos de atributo podem ser cadeias de caracteres, referências, números e valores boolianos.
 
-### <a name="relationships-between-staging-objects-and-metaverse-objects"></a>Relacionamentos entre objetos de preparação e objetos de metaverso
+### Relacionamentos entre objetos de preparação e objetos de metaverso
+<a id="relationships-between-staging-objects-and-metaverse-objects" class="xliff"></a>
 Dentro do namespace do mecanismo de sincronização, o fluxo de dados é habilitado pela relação de vínculo entre objetos de preparo e objetos de metaverso. Um objeto de preparação vinculado a um objeto de metaverso é chamado de **objeto unido** (ou **objeto conector**). Um objeto de preparação vinculado a um objeto de metaverso é chamado de **objeto separado** (ou **objeto desconector**). Os termos unido e separado são preferíveis para não confundir com os Conectores responsáveis pela importação e pela exportação de dados de um diretório conectado.
 
 Os espaços reservados nunca são vinculados a um objeto de metaverso
@@ -139,7 +150,8 @@ Ao usar os objetos separados, você pode armazenar informações de identidade n
 
 Um objeto de importação é criado como um objeto separado. Um objeto de exportação deve ser um objeto unido. A lógica do sistema impõe essa regra e exclui todos os objetos de exportação que não sejam objetos unidos.
 
-## <a name="sync-engine-identity-management-process"></a>Processo de gerenciamento de identidades do mecanismo de sincronização
+## Processo de gerenciamento de identidades do mecanismo de sincronização
+<a id="sync-engine-identity-management-process" class="xliff"></a>
 O processo de gerenciamento de identidades controla como as informações de identidade são atualizadas entre as diferentes fontes de dados conectadas. O gerenciamento de identidades ocorre em três processos:
 
 * Importar
@@ -156,7 +168,8 @@ A ilustração a seguir mostra onde cada um dos processos ocorre à medida que a
 
 ![Arco6](./media/active-directory-aadconnectsync-understanding-architecture/arch6.png)
 
-### <a name="import-process"></a>Processo de importação
+### Processo de importação
+<a id="import-process" class="xliff"></a>
 Durante o processo de importação, o mecanismo de sincronização avalia as atualizações de informações de identidade. O mecanismo de sincronização compara as informações de identidade recebidas da fonte de dados conectada com as informações de identidade sobre um objeto de preparação e determina se o objeto de preparação precisa de atualizações. Se for necessário atualizar o objeto de preparação com novos dados, o objeto de preparação será sinalizado como importação pendente.
 
 Ao preparar objetos no espaço do conector antes da sincronização, o mecanismo de sincronização só poderá processar as informações de identidade alteradas. Esse processo oferece os seguintes benefícios:
@@ -184,7 +197,8 @@ Os objetos de preparação com dados atualizados são marcados como importação
 
 Ao definir o status de um objeto de preparação como importação pendente, você pode reduzir significativamente a quantidade de dados processados durante a sincronização, já que isso permite que o sistema processe somente os objetos com dados atualizados.
 
-### <a name="synchronization-process"></a>Processo de sincronização
+### Processo de sincronização
+<a id="synchronization-process" class="xliff"></a>
 A sincronização consiste em dois processos relacionados:
 
 * A sincronização de entrada, quando o conteúdo do metaverso é atualizado com os dados no espaço do conector.
@@ -240,7 +254,8 @@ Durante o desprovisionamento, a exclusão de um objeto de exportação não excl
 
 A exportação do fluxo de atributos também ocorre durante o processo de sincronização de saída, semelhante à forma como a importação de fluxo de atributos ocorre durante a sincronização de entrada. O fluxo de atributos de exportação ocorre apenas entre os objetos de metaverso e os objetos de exportação unidos.
 
-### <a name="export-process"></a>Processo de exportação
+### Processo de exportação
+<a id="export-process" class="xliff"></a>
 Durante o processo de exportação, o mecanismo de sincronização examina todos os objetos de exportação que serão sinalizados como pendentes de exportação no espaço do conector e, em seguida, envia atualizações para a fonte de dados conectada.
 
 O mecanismo de sincronização pode determinar o êxito de uma exportação, mas não consegue determinar de forma suficiente que o processo de gerenciamento de identidades foi concluído. Os objetos na fonte de dados conectada sempre podem ser alterados por outros processos. Como o mecanismo de sincronização não tem uma conexão persistente com a fonte de dados conectada, não é suficiente fazer suposições sobre as propriedades de um objeto na fonte de dados conectada com base somente em uma notificação de exportação com êxito.
@@ -253,14 +268,10 @@ O mecanismo de sincronização armazena as informações sobre o status de expor
 
 Por exemplo, se o mecanismo de sincronização exportar o atributo C, com um valor 5, para uma fonte de dados conectada, ele armazenará C=5 em sua memória de status de exportação. Cada exportação adicional nesse objeto resultará em uma nova tentativa de exportar C=5 para a fonte de dados conectada, já que o mecanismo de sincronização supõe que esse valor não foi persistentemente aplicado ao objeto (ou seja, a menos que um valor diferente tenha sido importado recentemente da fonte de dados conectada). A memória de exportação é desmarcada quando C=5 é recebido durante uma operação de importação no objeto.
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

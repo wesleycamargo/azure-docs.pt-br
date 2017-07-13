@@ -1,6 +1,5 @@
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
-
 #### Para interromper e iniciar um dispositivo de nuvem
+<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
 
 1. Para interromper um dispositivo de nuvem, acesse a VM de seu dispositivo de nuvem.
     ![Máquina virtual do Dispositivo de nuvem StorSimple](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -27,9 +26,8 @@ Use estes cmdlets para interromper e iniciar um dispositivo de nuvem.
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
-
 #### Para reiniciar um dispositivo de nuvem
+<a id="to-restart-a-cloud-appliance" class="xliff"></a>
 
 Para reiniciar um dispositivo de nuvem, acesse a VM de seu dispositivo de nuvem. Na barra de comandos, clique em **Reiniciar**. Quando receber a solicitação, confirme a reinicialização. Quando o dispositivo de nuvem estiver pronto para uso, seu status mudará para **Em execução**.
 

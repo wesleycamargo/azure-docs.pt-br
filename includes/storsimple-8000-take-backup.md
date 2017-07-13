@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-take-a-backup" class="xliff"></a>
-
 ### Para fazer um backup
+<a id="to-take-a-backup" class="xliff"></a>
 
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Da listagem de tabela de dispositivos, selecione e clique em seu dispositivo e, em seguida, clique em **Todas as configurações**. Na folha **Configurações**, vá para **Configurações > Gerenciar > Política de backup**.
 

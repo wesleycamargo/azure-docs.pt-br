@@ -1,18 +1,31 @@
 ---
-
-ROBOTS: NOINDEX, NOFOLLOW
+title: "(preterido) Previsão: ARIMA (média de movimentação integrada de regressão automática) – Azure | Microsoft Docs"
+description: "(preterido) Previsão - Média de Movimentação Integrada de Regressão Automática (ARIMA)"
+services: machine-learning
+documentationcenter: 
+author: yijichen
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 1e0d525f-8a9e-4b42-87e0-c9423f059f8c
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+ms.author: yijichen
+ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: be75a60762674ab347ab7adaddfb17c4208a2b9e
+redirect_document_id: true
+ms.translationtype: HT
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 6be76618c8ce5917f8fdfdea851c3ca65f9fddd4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-<a id="deprecated-forecasting---autoregressive-integrated-moving-average-arima" class="xliff"></a>
-
 # (preterido) Previsão - Média de Movimentação Integrada de Regressão Automática (ARIMA)
+<a id="deprecated-forecasting---autoregressive-integrated-moving-average-arima" class="xliff"></a>
 
 > [!NOTE]
 > O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
@@ -28,9 +41,8 @@ Este [serviço](https://datamarket.azure.com/dataset/aml_labs/arima) implementa 
 > 
 > 
 
-<a id="consumption-of-web-service" class="xliff"></a>
-
 ## Consumo do serviço Web
+<a id="consumption-of-web-service" class="xliff"></a>
 Este serviço aceita quatro argumentos e calcula as previsões ARIMA.
 Os argumentos de entrada são:
 
@@ -54,9 +66,8 @@ A amostrada de entrada poderia ser:
 
 Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/ArimaForecasting.aspx)).
 
-<a id="starting-c-code-for-web-service-consumption" class="xliff"></a>
-
 ### Iniciando o código C# para consumo de serviço Web:
+<a id="starting-c-code-for-web-service-consumption" class="xliff"></a>
     public class Input
     {
         public string frequency;
@@ -86,29 +97,25 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
           var scoreResult = result.ReadAsStringAsync().Result;
       }
 
-<a id="creation-of-web-service" class="xliff"></a>
-
 ## Criação de serviço Web
+<a id="creation-of-web-service" class="xliff"></a>
 > Este serviço Web foi criado usando o Aprendizado de Máquina do Azure. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 > 
 > 
 
 De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado. Os dados de entrada de amostra foram carregados com um esquema de dados predefinido. Vinculado ao esquema de dados está um módulo de [Executar Script R][execute-r-script] que gera o modelo de previsão ARIMA usando as funções “auto.arima” e “forecast” de R. 
 
-<a id="experiment-flow" class="xliff"></a>
-
 ### Fluxo de teste:
+<a id="experiment-flow" class="xliff"></a>
 ![Criar espaço de trabalho][2]
 
-<a id="module-1" class="xliff"></a>
-
 #### Módulo 1:
+<a id="module-1" class="xliff"></a>
     # Add in the CSV file with the data in the format shown below 
 ![Criar espaço de trabalho][3]    
 
-<a id="module-2" class="xliff"></a>
-
 #### Módulo 2:
+<a id="module-2" class="xliff"></a>
     # data input
     data <- maml.mapInputPort(1) # class: data.frame
     library(forecast)
@@ -136,14 +143,12 @@ De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criad
     maml.mapOutputPort("data.forecast");
 
 
-<a id="limitations" class="xliff"></a>
-
 ## Limitações
+<a id="limitations" class="xliff"></a>
 Este é um exemplo muito simples para a previsão ARIMA. Como se pode ver no código de exemplo acima, nenhuma captura de erro é implementada e o serviço presume que todas as variáveis são valores contínuos/positivos e a frequência deve ser um inteiro maior que 1. Os vetores de data e valor devem ter o mesmo tamanho. A variável de data deve seguir o formato 'mm/dd/aaaa'.
 
-<a id="faq" class="xliff"></a>
-
 ## Perguntas frequentes
+<a id="faq" class="xliff"></a>
 Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-arima/arima-img1.png

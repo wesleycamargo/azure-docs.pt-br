@@ -1,6 +1,5 @@
-<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
-
 #### Para configurar e registrar o dispositivo de nuvem
+<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
 
 1. Selecione e clique em Dispositivo de Nuvem StorSimple criado na folha **Dispositivos**.
 

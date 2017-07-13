@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
-
 #### Para adicionar uma política de backup do StorSimple
+<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
 
 1. Acesse seu dispositivo StorSimple e clique em **Política de backup**.
 

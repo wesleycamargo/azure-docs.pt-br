@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/09/2017
 ms.author: anandy; billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
 ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/10/2017
 
 ---
 
-#<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
+#Federar várias instâncias do Azure AD com uma instância única do AD FS
+<a id="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs" class="xliff"></a>
 
 Um único farm do AD FS de alta disponibilidade pode federar várias florestas se tiverem uma relação de confiança bidirecional. Essas várias florestas podem ou não corresponder ao mesmo Azure Active Directory. Este artigo fornece instruções sobre como configurar a federação entre uma única implantação do AD FS e mais de uma floresta que sincronizam com Azure AD diferentes.
 
@@ -34,15 +36,18 @@ Um único farm do AD FS de alta disponibilidade pode federar várias florestas s
 > [!NOTE]
 > O Azure AD Connect não pode ser usado para configurar a federação neste cenário como o Azure AD Connect pode configurar a federação de domínios em um único Azure AD.
 
-##<a name="steps-for-federating-ad-fs-with-multiple-azure-ad"></a>Etapas para federar o AD FS com vários Azure AD
+##Etapas para federar o AD FS com vários Azure AD
+<a id="steps-for-federating-ad-fs-with-multiple-azure-ad" class="xliff"></a>
 
 Imagine um domínio contoso.com no contoso.onmicrosoft.com do Azure Active Directory já é federado com o AD FS local instalado no ambiente de Active Directory local contoso.com. Fabrikam.com é um domínio no Azure Active Directory fabrikam.onmicrosoft.com.
 
-##<a name="step-1-establish-a-two-way-trust"></a>Etapa 1: estabelecer uma confiança mútua
+##Etapa 1: estabelecer uma confiança mútua
+<a id="step-1-establish-a-two-way-trust" class="xliff"></a>
  
 Para que o AD FS em contoso.com seja capaz de autenticar usuários no fabrikam.com, uma relação de confiança bidirecional é necessária entre contoso.com e fabrikam.com. Siga as diretrizes neste [artigo](https://technet.microsoft.com/library/cc816590.aspx) para criar a relação de confiança bidirecional.
  
-##<a name="step-2-modify-contosocom-federation-settings"></a>Etapa 2: modificar configurações de federação de contoso.com 
+##Etapa 2: modificar configurações de federação de contoso.com
+<a id="step-2-modify-contosocom-federation-settings" class="xliff"></a> 
  
 O emissor padrão definido para um único domínio federado ao AD FS é "http://ADFSServiceFQDN/adfs/services/trust", por exemplo, "http://fs.contoso.com/adfs/services/trust". O Azure Active Directory requer um emissor exclusivo para cada domínio. Já que o mesmo AD FS vai federar dois domínios, o valor do emissor deve ser modificado para ser exclusivo para cada domínio federado pelo AD FS com o Azure Active Directory. 
  
@@ -52,7 +57,8 @@ Conecte-se ao Azure Active Directory que contém o domínio contoso.com Connect-
  
 O emissor na configuração da federação de domínio será alterado para "http://contoso.com/adfs/services/trust" e uma regra de declaração de emissão será adicionada para que a confiança da terceira parte confiável emita o valor de issuerId correto com base no sufixo UPN.
  
-##<a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Etapa 3: federar fabrikam.com com o AD FS
+##Etapa 3: federar fabrikam.com com o AD FS
+<a id="step-3-federate-fabrikamcom-with-ad-fs" class="xliff"></a>
  
 Na sessão do Azure AD PowerShell, execute as seguintes etapas: conecte-se ao Azure Active Directory que contém o domínio fabrikam.com
 
@@ -63,5 +69,7 @@ Converta o domínio gerenciado fabrikam.com em federado:
  
 A operação acima vai federar o domínio fabrikam.com com o mesmo AD FS. Você pode verificar as configurações de domínio usando Get-MsolDomainFederationSettings para os dois domínios.
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 [Conectar o Active Directory com o Azure Active Directory](active-directory-aadconnect.md)
+
