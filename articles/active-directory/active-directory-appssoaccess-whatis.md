@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: asmalser
+ms.date: 07/13/2017
+ms.author: curyand
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
 ms.openlocfilehash: cb41fbd7ca931df52ba8e5304459bb04298a108c
 ms.contentlocale: pt-br
 ms.lasthandoff: 02/16/2017
 
-
 ---
-# <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicativos e logon único com o Azure Active Directory?
+# O que é o acesso a aplicativos e logon único com o Azure Active Directory?
+<a id="what-is-application-access-and-single-sign-on-with-azure-active-directory" class="xliff"></a>
 Sign-on único significa poder acessar todos os aplicativos e recursos que você precisa para fazer negócios, inscrevendo-se apenas uma vez usando uma conta de usuário único. Depois de conectado, você pode acessar todos os aplicativos sem a exigência de autenticação (por exemplo, digite uma senha) uma segunda vez.
 
 Muitas organizações contam com o software como um aplicativo de serviço (SaaS) como o Office 365, Box e Salesforce para produtividade do usuário final. Historicamente, a equipe de TI precisa criar individualmente e atualizar contas de usuário em cada aplicativo SaaS, e os usuários precisam lembrar uma senha para cada aplicativo SaaS.
@@ -40,7 +40,8 @@ A arquitetura da integração consiste nos seguintes quatro principais blocos de
 * O gerenciamento de acesso de aplicativos centralizado no Portal de gerenciamento do Azure permite acesso a aplicativos ponto único de SaaS e gerenciamento, com a capacidade de delegar a tomada de decisões de acesso do aplicativo e aprovações para qualquer pessoa da organização
 * Relatório unificado e monitoramento de atividade de usuário no AD do Azure
 
-## <a name="how-does-single-sign-on-with-azure-active-directory-work"></a>Como funciona o logon único com o Active Directory do Azure?
+## Como funciona o logon único com o Active Directory do Azure?
+<a id="how-does-single-sign-on-with-azure-active-directory-work" class="xliff"></a>
 Quando um usuário "entra" para um aplicativo, ele passa por um processo de autenticação em que é necessário que ele prove que é quem diz ser. Sem logon único, isso normalmente é feito inserindo uma senha que é armazenada no aplicativo e o usuário é obrigado a conhecer essa senha.
 
 O AD do Azure oferece suporte a três maneiras diferentes de entrar em aplicativos:
@@ -53,7 +54,8 @@ Depois que um usuário tenha sido autenticado com um aplicativo, eles também pr
 
  Mais detalhes sobre esses modos de logon único e provisionamento abaixo.
 
-### <a name="federated-single-sign-on"></a>Logon único federado
+### Logon único federado
+<a id="federated-single-sign-on" class="xliff"></a>
 O logon único permite que logon federado dos usuários em sua organização entrem automaticamente em um aplicativo de SaaS de terceiros pelo AD do Azure usando as informações de conta de usuário do AD do Azure.
 
 Nesse cenário, quando você já fez no AD do Azure e para acessar recursos que são controlados por um aplicativo de SaaS de terceiros, a federação elimina a necessidade de um usuário precisar ser autenticado novamente.
@@ -62,7 +64,8 @@ AD do Azure pode oferecer suporte ao logon único federado com aplicativos que o
 
 Consulte também: [Gerenciar certificados para federados Single Sign-On](active-directory-sso-certs.md)
 
-### <a name="password-based-single-sign-on"></a>Logon único baseado em senha
+### Logon único baseado em senha
+<a id="password-based-single-sign-on" class="xliff"></a>
 O logon único com base em senha permite aos usuários em sua organização entrar automaticamente em um aplicativo de SaaS de terceiros pelo AD do Azure usando as informações de conta de usuário do aplicativo SaaS de terceiros. Quando você habilita esse recurso, o Azure AD coleta e armazena com segurança as informações de conta de usuário e a senha relacionada.
 
 O AD do Azure pode dar suporte a logon único baseado em senha em qualquer aplicativo baseado em nuvem que tem uma página de entrada baseada em HTML. Usando um plug-in de navegador personalizado, AAD automatiza o processo por meio de recuperar com segurança com as credenciais do aplicativo, como o nome de usuário e a senha do diretório de entrada do usuário e insere essas credenciais na página em nome do usuário de entrada do aplicativo. Há dois casos de uso:
@@ -82,22 +85,26 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 
 **Observação:** a extensão SSO baseada em senha será disponibilizada para borda no Windows 10 quando extensões do navegador se tornarem compatíveis para borda.
 
-### <a name="existing-single-sign-on"></a>Logon único existente
+### Logon único existente
+<a id="existing-single-sign-on" class="xliff"></a>
 Ao configurar o logon único para um aplicativo, o portal de gerenciamento do Azure fornece uma terceira opção de "Logon único existente". Simplesmente, essa opção permite ao administrador criar um link para um aplicativo e colocá-lo no painel de acesso para os usuários selecionados.
 
 Por exemplo, se houver um aplicativo que está configurado para autenticar usuários usando o Active Directory Federation Services 2.0, um administrador pode usar a opção "Logon único existente" para criar um link para ele no painel de acesso. Quando os usuários acessam o link, eles são autenticados usando o Active Directory Federation Services 2.0 ou qualquer que seja a solução de logon único existente fornecida pelo aplicativo.
 
-### <a name="user-provisioning"></a>Provisionamento do usuário
+### Provisionamento do usuário
+<a id="user-provisioning" class="xliff"></a>
 Para selecionar aplicativos, o AD do Azure permite provisionamento automatizado de usuários e desprovisionamento de contas em aplicativos SaaS de terceiros de dentro do Portal de gerenciamento do Azure, usando suas informações de identidade do Active Directory do Windows Server ou AD do Azure. Quando um usuário recebe permissões no AD do Azure para um desses aplicativos, uma conta pode ser automaticamente criada (provisionada) no aplicativo SaaS de destino.
 
 Quando um usuário é excluído ou suas informações mudam no AD do Azure, essas alterações também são refletidas no aplicativo SaaS. Isso significa que a configuração do gerenciamento de ciclo de vida de identidade automatizado permite aos administradores controlar e fornecer provisionamento e desprovisionamento de aplicativos SaaS automatizado. No AD do Azure, essa automação do ciclo de vida do gerenciamento de identidades é habilitada pelo provisionamento do usuário.
 
 Para obter mais informações, consulte [Desprovisionamento para aplicativos SaaS e provisionamento automatizado do usuário](active-directory-saas-app-provisioning.md)
 
-## <a name="get-started-with-the-azure-ad-application-gallery"></a>Introdução à Galeria de aplicativos do AD do Azure
+## Introdução à Galeria de aplicativos do AD do Azure
+<a id="get-started-with-the-azure-ad-application-gallery" class="xliff"></a>
 Pronto para começar? Para implantar o logon único entre o AD do Azure e aplicativos SaaS que sua organização usa, siga estas diretrizes.
 
-### <a name="using-the-azure-ad-application-gallery"></a>Usando a galeria de aplicativos do AD do Azure
+### Usando a galeria de aplicativos do AD do Azure
+<a id="using-the-azure-ad-application-gallery" class="xliff"></a>
 A [Galeria de aplicativos do Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/) fornece uma lista de aplicativos que são conhecidos para dar suporte a um formulário de logon único com o Active Directory do Azure.
 
 ![][1]
@@ -109,7 +116,8 @@ Aqui estão algumas dicas para localizar aplicativos segundo os recursos com os 
 
 Depois de localizar seu aplicativo, você pode começar seguindo as instruções apresentadas na Galeria de aplicativos e no portal de gerenciamento do Azure para habilitar o logon único.
 
-### <a name="application-not-in-the-gallery"></a>Aplicativo não está na Galeria?
+### Aplicativo não está na Galeria?
+<a id="application-not-in-the-gallery" class="xliff"></a>
 Se seu aplicativo não for encontrado na Galeria de aplicativos do AD do Azure, você tem estas opções:
 
 * **Adicionar um aplicativo não listado que você está usando** - Use a categoria Personalizada na galeria de aplicativos no Portal de Gerenciamento do Azure para se conectar a um aplicativo não listado que sua organização está usando. Você pode adicionar qualquer aplicativo que ofereça suporte ao SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma página de entrada baseada em HTML como um aplicativo do SSO de senha. Para obter mais detalhes, veja este artigo sobre [como adicionar seu próprio aplicativo](active-directory-saas-custom-apps.md).
@@ -121,7 +129,8 @@ Se seu aplicativo não for encontrado na Galeria de aplicativos do AD do Azure, 
   * [https://GitHub.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 * **Solicitar uma integração de aplicativo** -Solicite suporte para o aplicativo que você precisa usando o [Fórum de comentários do AD do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-### <a name="using-the-azure-management-portal"></a>Usando o Portal de Gerenciamento do Azure
+### Usando o Portal de Gerenciamento do Azure
+<a id="using-the-azure-management-portal" class="xliff"></a>
 Você pode usar a extensão do Active Directory no Portal de gerenciamento do Azure para configurar o aplicativo de logon único. Como uma primeira etapa, você precisa selecionar um diretório da seção do Active Directory no portal:
 
 ![][2]
@@ -142,7 +151,8 @@ Para aplicativos da Galeria que oferecem suporte um logon único federado, geral
 
 Para aplicativos da Galeria que oferecem suporte ao provisionamento automático de usuário, é necessário que você conceda permissões do AD do Azure para gerenciar suas contas no aplicativo SaaS. No mínimo, você precisa fornecer credenciais do AD do Azure deve usar quando autenticar no aplicativo de destino. Se houver a necessidade de fornecimento de parâmetros de configuração adicionais, isso dependerá dos requisitos do aplicativo.
 
-## <a name="deploying-azure-ad-integrated-applications-to-users"></a>Implantação de aplicativos do AD do Azure integrado para usuários
+## Implantação de aplicativos do AD do Azure integrado para usuários
+<a id="deploying-azure-ad-integrated-applications-to-users" class="xliff"></a>
 O AD do Azure fornece várias maneiras personalizáveis para implantar aplicativos para os usuários finais em sua organização:
 
 * Painel de acesso do AD do Azure
@@ -152,7 +162,8 @@ O AD do Azure fornece várias maneiras personalizáveis para implantar aplicativ
 
 A escolha dos métodos para implantação de sua organização fica seu critério.
 
-### <a name="azure-ad-access-panel"></a>Painel de acesso do AD do Azure
+### Painel de acesso do AD do Azure
+<a id="azure-ad-access-panel" class="xliff"></a>
 O painel de acesso em https://myapps.microsoft.com é um portal baseado na web que permite que um usuário final, com uma conta organizacional no Azure Active Directory exiba e inicialize aplicativos baseados em nuvem para os quais tenham sido concedido acesso pelo administrador do AD do Azure. Se você for um usuário final com [Active Directory Premium do Azure](https://azure.microsoft.com/pricing/details/active-directory/), você também pode utilizar os recursos de gerenciamento de grupo de autoatendimento por meio do Painel de acesso.
 
 ![][3]
@@ -161,19 +172,22 @@ O painel de acesso é separado do Portal de gerenciamento do Azure e não requer
 
 Para obter mais informações sobre o painel de acesso do AD do Azure, consulte a [Introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
 
-### <a name="office-365-application-launcher"></a>Iniciador de aplicativos do Office 365
+### Iniciador de aplicativos do Office 365
+<a id="office-365-application-launcher" class="xliff"></a>
 Para organizações que implantaram o Office 365, os aplicativos atribuídos aos usuários por meio do AD do Azure também serão exibido no portal do Office 365 em https://portal.office.com/myapps. Isso torna simples e fácil para os usuários em uma organização para iniciar seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização do aplicativo recomendada para organizações que usam o Office 365.
 
 ![][4]
 
 Para obter mais informações sobre o iniciador do aplicativo Office 365, consulte [Faça o seu aplicativo ser exibido no iniciador do aplicativo do Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
-### <a name="direct-sign-on-to-federated-apps"></a>Logon direto a aplicativos federados
+### Logon direto a aplicativos federados
+<a id="direct-sign-on-to-federated-apps" class="xliff"></a>
 A maioria dos aplicativos federados que oferecem suporte à conexão SAML 2.0, WS-Federation ou OpenID também oferecem suporte à capacidade dos usuários de iniciar o aplicativo e, em seguida, obter conexão por meio do AD do Azure pelo redirecionamento automático ou clicando em um link para entrar. Isso é conhecido como serviço de logon iniciado pelo provedor e a maioria dos aplicativos federados na Galeria de aplicativos do AD do Azure oferece suporte a eles (consulte a documentação vinculada do Assistente de configuração de logon único do aplicativo no portal de gerenciamento do Azure para obter detalhes).
 
 ![][5]
 
-### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Links diretos logon para aplicativos federados, baseados em senha ou existentes
+### Links diretos logon para aplicativos federados, baseados em senha ou existentes
+<a id="direct-sign-on-links-for-federated-password-based-or-existing-apps" class="xliff"></a>
 O AD do Azure também oferece suporte a links de logon únicos diretos para aplicativos individuais que oferecem suporte baseado em senha de logon único, logon único existente e qualquer forma de logon único federado.
 
 Esses links são URLs criadas especificamente que enviam um usuário por meio do sinal do AD do Azure no processo de um aplicativo específico sem exigir que o usuário as inicie do painel de acesso do AD do Azure ou Office 365. Essas URLs de logon único podem ser encontradas na guia Painel de qualquer aplicativo previamente integrado na seção Active Directory do portal de gerenciamento do Azure, conforme mostrado na captura de tela abaixo.
@@ -192,7 +206,8 @@ Quando um usuário autorizado clica em um desses links específicos do aplicativ
 
 Esses links usam os mesmos mecanismos de controle de acesso que o painel de acesso e o Office 365, e apenas esses usuários ou grupos que foram atribuídos ao aplicativo no portal de gerenciamento do Azure serão capazes de autenticar com êxito. No entanto, todos os usuários não autorizados receberão uma mensagem explicando que não foi concedido acesso e receberão um link para carregar o painel de acesso para exibir os aplicativos disponíveis para os quais têm acesso.
 
-## <a name="related-articles"></a>Artigos relacionados
+## Artigos relacionados
+<a id="related-articles" class="xliff"></a>
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [Encontrando aplicativos em nuvem não autorizados com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
