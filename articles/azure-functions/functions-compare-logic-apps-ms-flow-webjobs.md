@@ -36,7 +36,7 @@ Todos esses serviços são úteis para "unir" sistemas diferentes. Todos eles de
 <a name="flow"></a>
 
 ## <a name="flow-vs-logic-apps"></a>Flow vs. Aplicativos Lógicos
-Podemos discutir o Microsoft Flow e os Aplicativos Lógicos do Azure porque são ambos integrações de *configuração prioritária* , o que facilita a criação de processos e fluxos de trabalho e se integram a diversos aplicativos SaaS e corporativos. 
+Podemos discutir o Microsoft Flow e os Aplicativos Lógicos do Azure porque são ambos integrações de *configuration-first* , o que facilita a criação de processos e fluxos de trabalho e se integram a diversos aplicativos SaaS e corporativos. 
 
 * O Flow é criado em cima de Aplicativos Lógicos
 * Eles têm o mesmo designer de fluxo de trabalho
@@ -58,7 +58,7 @@ A tabela a seguir ajuda a determinar o que é melhor para determinada integraç�
 <a name="function"></a>
 
 ## <a name="functions-vs-webjobs"></a>Functions vs. Trabalhos Web
-Podemos discutir o Azure Functions e os WebJobs do Serviço de Aplicativo do Azure juntos porque eles são serviços de integração de *código prioritário* e projetados para desenvolvedores. Eles permitem que você execute um script ou um trecho de código em resposta a vários eventos, como [novos blobs de armazenamento](functions-bindings-storage.md) ou [uma solicitação WebHook](functions-bindings-http-webhook.md). Eis as semelhanças: 
+Podemos discutir o Azure Functions e os WebJobs do Serviço de Aplicativo do Azure juntos porque eles são serviços de integração de *code-first* e projetados para desenvolvedores. Eles permitem que você execute um script ou um trecho de código em resposta a vários eventos, como [novos blobs de armazenamento](functions-bindings-storage.md) ou [uma solicitação WebHook](functions-bindings-http-webhook.md). Eis as semelhanças: 
 
 * Ambos são criados no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) e têm recursos como [controle do código-fonte](../app-service-web/app-service-continuous-deployment.md), [autenticação](../app-service/app-service-authentication-overview.md) e [monitoramento](../app-service-web/web-sites-monitor.md).
 * Ambos são serviços voltados para desenvolvedores.
