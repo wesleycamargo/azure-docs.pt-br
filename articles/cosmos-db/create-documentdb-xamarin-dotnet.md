@@ -1,6 +1,6 @@
 ---
-title: "BD Cosmos do Azure: compilar um aplicativo Web com autenticação do Xamarin e do Facebook | Microsoft Docs"
-description: "Apresenta um exemplo de código .NET que pode ser usado para conectar e consultar o BD Cosmos do Azure"
+title: "Azure Cosmos DB: compilar um aplicativo Web com autenticação do Xamarin e do Facebook | Microsoft Docs"
+description: "Apresenta um exemplo de código .NET que pode ser usado para conectar e consultar o Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -23,11 +23,11 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>BD Cosmos do Azure: compilar um aplicativo Web com autenticação do Xamarin, do Facebook e do .NET
+# <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: compilar um aplicativo Web com autenticação do Xamarin, do Facebook e do .NET
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
+O Azure Cosmos DB é o serviço de banco de dados multimodelo, globalmente distribuído da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você criará e implantará um aplicativo Web de lista de tarefas pendentes com base na [API do .NET do DocumentDB](documentdb-sdk-dotnet.md), no [Xamarin](https://www.xamarin.com/)e no mecanismo de autorização do BD Cosmos do Azure. O aplicativo Web da lista de tarefas pendentes implementa um padrão de dados por usuário que permite que usuários façam o logon usando a Autenticação do Facebook e gerenciem seus próprios itens pendentes.
+Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você criará e implantará um aplicativo Web de lista de tarefas pendentes com base na [API do .NET do DocumentDB](documentdb-sdk-dotnet.md), no [Xamarin](https://www.xamarin.com/)e no mecanismo de autorização do Azure Cosmos DB. O aplicativo Web da lista de tarefas pendentes implementa um padrão de dados por usuário que permite que usuários façam o logon usando a Autenticação do Facebook e gerenciem seus próprios itens pendentes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,14 +62,14 @@ Agora, vamos clonar um aplicativo de API do DocumentDB do GitHub, defina a cadei
 O código na pasta Xamarin contém:
 
 * aplicativo Xamarin. O aplicativo armazena itens pendentes do usuário em uma coleção particionada chamada UserItems.
-* API do agente de token de recurso. Uma API Web ASP.NET simples para tokens de recurso do BD Cosmos do Azure do agente para os usuários conectados do aplicativo. Os tokens de recurso são tokens de acesso de curta duração que fornecem o aplicativo com acesso aos dados do usuário conectado.
+* API do agente de token de recurso. Uma API Web ASP.NET simples para tokens de recurso do Azure Cosmos DB do agente para os usuários conectados do aplicativo. Os tokens de recurso são tokens de acesso de curta duração que fornecem o aplicativo com acesso aos dados do usuário conectado.
 
 O fluxo de dados e de autenticação está ilustrado no diagrama abaixo.
 
-* A coleção UserItems foi criada com a chave de partição '/userid'. Especificar uma chave de partição para uma coleção permite que o BD Cosmos do Azure dimensione infinitamente conforme o número de usuários e itens aumenta.
+* A coleção UserItems foi criada com a chave de partição '/userid'. Especificar uma chave de partição para uma coleção permite que o Azure Cosmos DB dimensione infinitamente conforme o número de usuários e itens aumenta.
 * O aplicativo Xamarin permite que os usuários façam logon com as credenciais do Facebook.
 * O aplicativo Xamarin usa o token de acesso do Facebook para autenticar com a API do ResourceTokenBroker
-* A API do agente de token de recurso autentica a solicitação, usando o recurso de Autenticação do Serviço de Aplicativo e solicita um token de recurso do BD Cosmos do Azure com acesso de leitura/gravação para todos os documentos que compartilham a chave de partição do usuário autenticado.
+* A API do agente de token de recurso autentica a solicitação, usando o recurso de Autenticação do Serviço de Aplicativo e solicita um token de recurso do Azure Cosmos DB com acesso de leitura/gravação para todos os documentos que compartilham a chave de partição do usuário autenticado.
 * O agente de token de recurso retorna o token de recurso ao aplicativo cliente.
 * O aplicativo acessa os itens pendentes do usuário por meio do token de recurso.
 
@@ -79,7 +79,7 @@ O fluxo de dados e de autenticação está ilustrado no diagrama abaixo.
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo Web.config na próxima etapa.
+1. No [Portal do Azure](http://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo Web.config na próxima etapa.
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-documentdb-xamarin-dotnet/keys.png)
 
@@ -93,15 +93,15 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     `<add key="accountKey" value="{Azure Cosmos DB secret}"/>`
 
-Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o BD Cosmos do Azure. 
+Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
 ## <a name="build-and-deploy-the-web-app"></a>Compilar e implantar o aplicativo Web
 
 1. No Portal do Azure, crie um site do Serviço de Aplicativo para hospedar a API do agente de token de recurso.
 2. No Portal do Azure, abra a folha de Configurações do Aplicativo do site da API do agente de token de recurso. Preencha as seguintes configurações de aplicativo:
 
-    * accountUrl – A URL da conta do BD Cosmos do Azure da guia Chaves da sua conta do BD Cosmos do Azure.
-    * accountKey – A chave mestra da conta do BD Cosmos do Azure da guia Chaves da sua conta do BD Cosmos do Azure.
+    * accountUrl – A URL da conta do Azure Cosmos DB da guia Chaves da sua conta do Azure Cosmos DB.
+    * accountKey – A chave mestra da conta do Azure Cosmos DB da guia Chaves da sua conta do Azure Cosmos DB.
     * databaseId e collectionId do seu banco de dados e coleção criados
 
 3. Publique a solução ResourceTokenBroker no site criado.
@@ -125,8 +125,8 @@ Se você não continuar usando este aplicativo, exclua todos os recursos criados
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu a criar uma conta do BD Cosmos do Azure, criar uma coleção usando o Data Explorer e compilar e implantar um aplicativo Xamarin. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
+Neste início rápido, você aprendeu a criar uma conta do Azure Cosmos DB, criar uma coleção usando o Data Explorer e compilar e implantar um aplicativo Xamarin. Agora, é possível importar outros dados para sua conta do Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importar dados no BD Cosmos do Azure](import-data.md)
+> [Importar dados no Azure Cosmos DB](import-data.md)
 

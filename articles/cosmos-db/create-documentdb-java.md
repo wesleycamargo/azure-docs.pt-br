@@ -1,6 +1,6 @@
----
-title: 'BD Cosmos do Azure: compilar um aplicativo com Java e com a API do DocumentDB | Microsoft Docs'
-description: "Apresenta um exemplo de código Java que pode ser usado para se conectar à API do DocumentDB do BD Cosmos do Azure e consultá-la"
+﻿---
+title: 'Azure Cosmos DB: compilar um aplicativo com Java e com a API do DocumentDB | Microsoft Docs'
+description: "Apresenta um exemplo de código Java que pode ser usado para se conectar à API do DocumentDB do Azure Cosmos DB e consultá-la"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -27,9 +27,9 @@ ms.lasthandoff: 06/28/2017
 
 # BD Cosmos do Azure: compilar um aplicativo de API do DocumentDB com Java e com o Portal do Azure
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
+O Azure Cosmos DB é um serviço de banco de dados  multimodelo, globalmente distribuído da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você compilará e executará um aplicativo de console compilado na [API do Java do DocumentDB](documentdb-sdk-java.md).
+Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você compilará e executará um aplicativo de console compilado na [API do Java do DocumentDB](documentdb-sdk-java.md).
 
 <a id="prerequisites" class="xliff"></a>
 
@@ -144,7 +144,7 @@ Façamos uma rápida revisão do que está acontecendo no aplicativo. Abra o arq
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `Program.java` na próxima etapa.
+1. No [Portal do Azure](http://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `Program.java` na próxima etapa.
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-documentdb-dotnet/keys.png)
 
@@ -154,7 +154,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     `"https://FILLME.documents.azure.com"`
 
-4. Em seguida, copie o valor de CHAVE PRIMÁRIA no portal e substitua o segundo parâmetro "FILL ME" com a chave no construtor do DocumentClient em 'Program.java'. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o BD Cosmos do Azure. 
+4. Em seguida, copie o valor de CHAVE PRIMÁRIA no portal e substitua o segundo parâmetro "FILL ME" com a chave no construtor do DocumentClient em 'Program.java'. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
     
 <a id="run-the-app" class="xliff"></a>
 
@@ -185,7 +185,7 @@ Se você não continuar usando este aplicativo, exclua todos os recursos criados
 
 ## Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
+Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importar dados no BD Cosmos do Azure](import-data.md)

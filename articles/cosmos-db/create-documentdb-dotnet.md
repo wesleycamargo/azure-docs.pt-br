@@ -1,4 +1,4 @@
----
+﻿---
 title: 'BD Cosmos do Azure: compilar um aplicativo Web com o .NET e com a API do DocumentDB | Microsoft Docs'
 description: "Apresenta um exemplo de código .NET que pode ser usado para se conectar à API do DocumentDB do BD Cosmos do Azure e consultá-la"
 services: cosmos-db
@@ -185,7 +185,7 @@ Se você não continuar usando este aplicativo, exclua todos os recursos criados
 
 ## Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure, como criar uma coleção usando o Data Explorer e como executar um aplicativo Web. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
+Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo Web. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importar dados no BD Cosmos do Azure](import-data.md)
