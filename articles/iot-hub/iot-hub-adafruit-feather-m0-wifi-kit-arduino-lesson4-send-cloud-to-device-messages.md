@@ -4,7 +4,7 @@ description: "Um aplicativo de exemplo é executado no Adafruit Feather M0 WiFi 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: controlar led pela web com arduino, controlar led via web com arduino
 ROBOTS: NOINDEX
@@ -17,33 +17,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
 ms.openlocfilehash: 63113841ca836681232e0aa43b15b444f8bb92e2
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/28/2017
 
-
 ---
-# <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Executar um aplicativo de exemplo para receber mensagens da nuvem para o dispositivo
+<a id="run-a-sample-application-to-receive-cloud-to-device-messages" class="xliff"></a>
+
+# Executar um aplicativo de exemplo para receber mensagens da nuvem para o dispositivo
 Neste artigo, você implanta um aplicativo de exemplo na placa Adafruit difusão M0 WiFi Arduino.
 
 O aplicativo de exemplo monitora mensagens recebidas do hub IoT. Você também executa uma tarefa gulp no computador para enviar mensagens para a placa Arduino de seu hub IoT. Quando o aplicativo de exemplo recebe uma a mensagem, ele pisca o LED. Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].
 
-## <a name="what-you-will-do"></a>O que você fará
+<a id="what-you-will-do" class="xliff"></a>
+
+## O que você fará
 * Conectar o aplicativo de exemplo ao hub IoT.
 * Implantar e executar o aplicativo de exemplo.
 * Envie mensagens do hub IoT para a placa Arduino para piscar o LED.
 
-## <a name="what-you-will-learn"></a>O que você aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## O que você aprenderá
 Neste artigo, você aprenderá:
 * Como monitorar mensagens recebidas do hub IoT.
 * Agora, você pode enviar mensagens da nuvem para o dispositivo de seu Hub IoT para a placa Arduino.
 
-## <a name="what-you-need"></a>O que você precisa
+<a id="what-you-need" class="xliff"></a>
+
+## O que você precisa
 * Sua placa Arduino, configurada para uso. Para saber como configurar a placa Arduino Pi, consulte [Configurar seu dispositivo][configure-your-device].
 * Um hub IoT criado em sua assinatura do Azure. Para aprender a criar seu Hub IoT, consulte [Criar seu Hub IoT do Azure][create-your-azure-iot-hub].
 
-## <a name="connect-the-sample-application-to-your-iot-hub"></a>Conectar o aplicativo de exemplo ao Hub IoT
+<a id="connect-the-sample-application-to-your-iot-hub" class="xliff"></a>
+
+## Conectar o aplicativo de exemplo ao Hub IoT
 
 1. Verifique se você está na pasta de repositório `iot-hub-c-feather-m0-getting-started`.
 
@@ -101,7 +111,9 @@ Neste artigo, você aprenderá:
    * Substitua **[cadeia de conexão do dispositivo IoT]** pela cadeia de conexão do dispositivo que você obtém executando o comando `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}`.
    * Substitua **[cadeia de conexão do hub IoT]** pela cadeia de conexão do hub IoT que você obtém executando o comando `az iot hub show-connection-string --name {my hub name}`.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Implantar e executar o aplicativo de exemplo
 Implante e execute o aplicativo de exemplo na sua placa do Arduino executando os seguintes comandos:
 
 ```bash
@@ -121,10 +133,14 @@ Você deve ver o LED piscar a cada dois segundos, uma vez que a tarefa gulp est�
 
 ![Exemplo de aplicativo com o comando gulp e mensagens de piscar][sample-application]
 
-## <a name="summary"></a>Resumo
+<a id="summary" class="xliff"></a>
+
+## Resumo
 Você enviou com êxito mensagens do hub IoT para sua placa Arduino para piscar o LED. A próxima tarefa é opcional: alterar o comportamento de liga e desliga do LED.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Alterar o comportamento de ligar e desligar do LED][change-the-on-and-off-led-behavior]
 
 

@@ -9,7 +9,7 @@
        
     Neste início rápido, programaremos a API do MongoDB de modo que você escolherá **MongoDB** quando preencher o formulário. Mas se você tiver dados gráficos de um aplicativo de mídia social, dados de documento de um aplicativo de catálogo ou dados de chave/valor (tabela), perceba que o BD Cosmos do Azure poderá fornecer uma plataforma de serviço de banco de dados altamente disponível, distribuída globalmente para todos os aplicativos críticos.
 
-    Preencha a nova folha de conta usando as informações na captura de tela como guia. Você escolherá valores exclusivos quando configurar sua conta, de modo que seus valores não corresponderão exatamente à captura de tela
+    Preencha a folha **Nova conta** usando as informações na captura de tela como guia.
  
     ![Captura de tela da folha Novo BD Cosmos do Azure](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
    

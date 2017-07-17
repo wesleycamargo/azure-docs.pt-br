@@ -14,29 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8670da0e22dac101817e970b6dc8e2032ee5de62
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 9071ab19844898abf7feb7fc0d84120298bb5eaf
 ms.contentlocale: pt-br
 
 
 ---
 
-## <a name="set-up-your-project"></a>Configurar o seu projeto
+<a id="set-up-your-project" class="xliff"></a>
 
-> Prefere baixar este projeto do Android Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) e vá para a etapa [Configuração](#create-an-application-express) para configurar o exemplo de código antes de executá-lo.
+## Configurar o seu projeto
 
-
-### <a name="create-a-new-project"></a>Criar um novo projeto 
-1.    Abra o Android Studio e acesse: `File` > `New` > `New Project`
-2.    Nomeie o aplicativo e clique em `Next`
-3.    Lembre-se de selecionar *API 21 ou mais nova (Android 5.0)* e clique em `Next`
-4.    Mantenha `Empty Activity`, clique em `Next` e, em seguida, em `Finish`
+> Prefere baixar este projeto do Android Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) e vá para a etapa [Configuração](#create-an-application-express "Etapa de Configuração") para configurar o exemplo de código antes de executá-lo.
 
 
-### <a name="add-the-microsoft-authentication-library-msal-to-your-project"></a>Adicionar a MSAL (Biblioteca de Autenticação da Microsoft) ao projeto
-1.    No Android Studio, acesse: `Gradle Scripts` > `build.gradle (Module: app)`
-2.    Copie e cole o seguinte código em `Dependencies`:
+<a id="create-a-new-project" class="xliff"></a>
+
+### Criar um novo projeto 
+1.  Abra o Android Studio e acesse: `File` > `New` > `New Project`
+2.  Nomeie o aplicativo e clique em `Next`
+3.  Lembre-se de selecionar *API 21 ou mais nova (Android 5.0)* e clique em `Next`
+4.  Mantenha `Empty Activity`, clique em `Next` e, em seguida, em `Finish`
+
+
+<a id="add-the-microsoft-authentication-library-msal-to-your-project" class="xliff"></a>
+
+### Adicionar a MSAL (Biblioteca de Autenticação da Microsoft) ao projeto
+1.  No Android Studio, acesse: `Gradle Scripts` > `build.gradle (Module: app)`
+2.  Copie e cole o seguinte código em `Dependencies`:
 
 ```ruby  
 compile ('com.microsoft.identity.client:msal:0.1.+') {
@@ -46,67 +53,24 @@ compile 'com.android.volley:volley:1.0.0'
 ```
 
 <!--start-collapse-->
-### <a name="about-this-package"></a>Sobre este pacote
+<a id="about-this-package" class="xliff"></a>
+
+### Sobre este pacote
 
 O pacote acima instala a MSAL (Biblioteca de Autenticação da Microsoft). A MSAL manipula a aquisição, o armazenamento em cache e a atualização de tokens de usuário usados para acessar APIs protegidas pelo ponto de extremidade do Azure Active Directory v2.
 <!--end-collapse-->
 
-## <a name="create-your-applications-ui"></a>Criar a interface do usuário do aplicativo
+<a id="create-your-applications-ui" class="xliff"></a>
 
-1.    Abra `activity_main.xml` em `res` > `layout`
-2.    Altere o layout de atividade de `android.support.constraint.ConstraintLayout` ou outro para `LinearLayout`
-3.    Adicione a propriedade `android:orientation="vertical"` ao nó `LinearLayout`
-4.    Copie e cole o seguinte código no nó `LinearLayout`, substituindo o conteúdo atual:
+## Criar a interface do usuário do aplicativo
+
+1.  Abra `activity_main.xml` em `res` > `layout`
+2.  Altere o layout de atividade de `android.support.constraint.ConstraintLayout` ou outro para `LinearLayout`
+3.  Adicione a propriedade `android:orientation="vertical"` ao nó `LinearLayout`
+4.  Copie e cole o seguinte código no nó `LinearLayout`, substituindo o conteúdo atual:
 
 ```xml
 <TextView
-    android:text="Welcome, "
-    android:textColor="#3f3f3f"
-    android:textSize="50px"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="15dp"
-    android:id="@+id/welcome"
-    android:visibility="invisible"/>
-
-<Button
-    android:id="@+id/callGraph"
-    android:text="Call Microsoft Graph"
-    android:textColor="#FFFFFF"
-    android:background="#00a1f1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="200dp"
-    android:textAllCaps="false" />
-
-<TextView
-    android:text="Getting Graph Data..."
-    android:textColor="#3f3f3f"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
-    android:id="@+id/graphData"
-    android:visibility="invisible"/>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dip"
-    android:layout_weight="1"
-    android:gravity="center|bottom"
-    android:orientation="vertical" >
-
-    <Button
-        android:text="Sign Out"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:textColor="#FFFFFF"
-        android:background="#00a1f1"
-        android:textAllCaps="false"
-        android:id="@+id/clearCache"
-        android:visibility="invisible" />
-</LinearLayout>    <TextView
     android:text="Welcome, "
     android:textColor="#3f3f3f"
     android:textSize="50px"

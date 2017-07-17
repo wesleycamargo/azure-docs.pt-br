@@ -22,7 +22,8 @@ ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="get-started-with-azure-active-directory-device-registration"></a>Introdução ao registro de dispositivos do Azure Active Directory
+# Introdução ao registro de dispositivos do Azure Active Directory
+<a id="get-started-with-azure-active-directory-device-registration" class="xliff"></a>
 
 O registro de dispositivo do Azure Active Directory é a base para cenários de acesso condicional com base no dispositivo. Quando um dispositivo é registrado, o registro de dispositivo do Azure Active Directory fornece o dispositivo com uma identidade que é usada para autenticar o dispositivo quando o usuário faz logon. O dispositivo autenticado e os atributos desse dispositivo podem, em seguida, ser usados para impor políticas de acesso condicional para aplicativos locais e hospedados em nuvem.
 
@@ -33,9 +34,10 @@ Esses cenários são os seguintes:
 
 - **Acesso condicional para aplicativos do Office 365 com o Microsoft Intune:** os administradores de TI podem provisionar políticas de dispositivo de acesso condicional para proteger recursos corporativos e, simultaneamente, permitir que os trabalhadores de informações em dispositivos compatíveis acessem os serviços. Para saber mais, veja Políticas de dispositivo de acesso condicional para serviços do Office 365.
 
-- ** Acesso Condicional a aplicativos que são hospedados localmente:** é possível usar dispositivos registrados com políticas de acesso para aplicativos configurados para usar o AD FS com o Windows Server 2012 R2. Para obter mais informações sobre como configurar o acesso condicional para local, consulte [Configurando o acesso condicional local usando o registro do dispositivo do Azure Active Directory](active-directory-device-registration-on-premises-setup.md).
+- **Acesso Condicional a aplicativos que são hospedados localmente:** é possível usar dispositivos registrados com políticas de acesso para aplicativos configurados para usar o AD FS com o Windows Server 2012 R2. Para obter mais informações sobre como configurar o acesso condicional para local, consulte [Configurando o acesso condicional local usando o registro do dispositivo do Azure Active Directory](active-directory-device-registration-on-premises-setup.md).
 
-## <a name="setting-up-azure-active-directory-device-registration"></a>Configuração do registro de dispositivos Active Directory do Azure
+## Configuração do registro de dispositivos Active Directory do Azure
+<a id="setting-up-azure-active-directory-device-registration" class="xliff"></a>
 
 Para configurar o registro de dispositivo, há várias opções:
 
@@ -48,7 +50,8 @@ Para configurar o registro de dispositivo, há várias opções:
 Para obter as instruções mais recentes, confira [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).  
 Você também pode exibir e habilitar ou desabilitar dispositivos registrados usando o Portal de administrador no Azure Active Directory.
 
-## <a name="enable-the-azure-active-directory-device-registration-service"></a>Habilitar o serviço de registro de dispositivos do Azure Active Directory
+## Habilitar o serviço de registro de dispositivos do Azure Active Directory
+<a id="enable-the-azure-active-directory-device-registration-service" class="xliff"></a>
 
 **Para habilitar o serviço de registro de dispositivos do Azure Active Directory**
 
@@ -74,7 +77,8 @@ Por padrão, a autenticação de dois fatores não está habilitada para o servi
 
 - Se estiver usando o AD FS com o Windows Server 2012 R2, configure um módulo de autenticação de dois fatores no AD FS. Confira Usar a Autenticação Multifator com os Serviços de Federação do Active Directory.
 
-## <a name="view-and-manage-device-objects-in-azure-active-directory"></a>Exibir e gerenciar objetos de dispositivo no Active Directory do Azure
+## Exibir e gerenciar objetos de dispositivo no Active Directory do Azure
+<a id="view-and-manage-device-objects-in-azure-active-directory" class="xliff"></a>
 
 No portal de administrador do Azure, você pode exibir, bloquear e desbloquear os dispositivos. Um dispositivo bloqueado não terá acesso aos aplicativos que estão configurados para permitir apenas os dispositivos registrados.
 
@@ -98,7 +102,8 @@ Agora você pode ver, bloquear ou desbloquear os dispositivos registrados dos us
 Dispositivos com Windows 10 ingressados em um domínio local e automaticamente registrados não aparecem na guia Usuários. Use o comando do PowerShell Get-MsolDevice para localizar todos os dispositivos da empresa. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 
 Para configurar o registro automatizado do dispositivo, confira [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 

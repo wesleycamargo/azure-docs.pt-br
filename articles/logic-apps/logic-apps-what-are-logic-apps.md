@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-translationtype: Human Translation
-ms.sourcegitcommit: 11aa3f74d112244cd96278c2b2e3d701e031aee8
-ms.openlocfilehash: 6415b0e1c7feb744c6c13a0ae19ed434b6e9befc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="what-are-logic-apps"></a>O que são Aplicativos Lógicos?
+<a id="what-are-logic-apps" class="xliff"></a>
+
+# O que são Aplicativos Lógicos?
 Os Aplicativos Lógicos fornecem uma maneira de simplificar e implementar integrações escalonáveis e fluxos de trabalho na nuvem. Eles fornecem um designer visual para modelar e automatizar o processo como uma série de etapas conhecidas como fluxo de trabalho.  Há [muitos conectores](../connectors/apis-list.md) locais e na nuvem para integrar rapidamente serviços e protocolos.  Um aplicativo lógico começa com um gatilho (como 'Quando uma conta é adicionada ao Dynamics CRM') e, após ser disparado, pode iniciar muitas ações de combinações, conversões e lógica de condição.
 
 As vantagens de usar Aplicativos Lógicos incluem o seguinte:  
@@ -44,7 +48,9 @@ Conforme mencionado, com Aplicativos Lógicos, você pode automatizar processos 
 
 Cenários como esses podem ser configurados inteiramente por meio do designer visual e sem escrever uma única linha de código sequer. Comece a [criar seu aplicativo lógico agora][create].  Uma vez gravado, um aplicativo lógico pode ser [rapidamente implantado e reconfigurado](../logic-apps/logic-apps-create-deploy-template.md) em vários ambientes e regiões.
 
-## <a name="why-logic-apps"></a>Por que Aplicativos Lógicos?
+<a id="why-logic-apps" class="xliff"></a>
+
+## Por que Aplicativos Lógicos?
 Os Aplicativos Lógicos proporcionam velocidade e escalabilidade ao espaço de integração empresarial.  A facilidade de uso do designer, a variedade de disparadores e ações disponíveis e as ferramentas de gerenciamento poderosas simplificam mais do que nunca a centralização das APIs.  À medida que as empresas adotam a digitalização, os Aplicativos Lógicos permitem a conexão entre sistemas herdados e inovadores.
 
 Além disso, com a [Conta do Enterprise Integration][biztalk], você pode dimensionar para cenários de integração desenvolvidos com a capacidade de [mensagens XML][xml], [gerenciamento de parceiros comerciais][tpm] e muito mais.
@@ -55,7 +61,9 @@ Além disso, com a [Conta do Enterprise Integration][biztalk], você pode dimens
 * **Extensibilidade embutida** – não encontra o conector de que precisa? Os Aplicativos Lógicos são projetados para funcionar com suas próprias APIs e código. Você pode facilmente criar seu próprio aplicativo de API para usar como um conector personalizado ou chamar uma [Função do Azure](https://functions.azure.com) para executar trechos de código sob demanda. 
 * **Potência real de integração** – inicie com facilidade e cresça conforme necessário. Aplicativos lógicos podem facilmente aproveitar o poder do BizTalk, a solução de integração da Microsoft líder do setor para habilitar os profissionais de integração a compilar as soluções de que precisam. Saiba mais sobre o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
 
-## <a name="logic-app-concepts"></a>Conceitos de Aplicativo Lógico
+<a id="logic-app-concepts" class="xliff"></a>
+
+## Conceitos de Aplicativo Lógico
 A seguir estão algumas das principais partes que compõem a experiência de Aplicativos Lógicos. 
 
 * **Fluxo de trabalho** – os Aplicativos Lógicos proporcionam uma maneira gráfica de modelar seus processos de negócios como uma série de etapas ou um fluxo de trabalho.
@@ -64,7 +72,9 @@ A seguir estão algumas das principais partes que compõem a experiência de Apl
 * **Ações** – cada etapa após o gatilho em um fluxo de trabalho é chamada de uma ação. Cada ação normalmente é mapeada para uma operação em seu conector gerenciado ou aplicativos de API personalizados.
 * **Enterprise Integration Pack** – para cenários de integração mais avançados, os Aplicativos Lógicos incluem recursos do BizTalk. O BizTalk é a plataforma de integração da Microsoft líder do setor. Os conectores do Enterprise Integration Pack permitem que você inclua facilmente validação, transformação e muito mais em seus fluxos de trabalho de Aplicativo Lógico.
 
-## <a name="getting-started"></a>Introdução
+<a id="getting-started" class="xliff"></a>
+
+## Introdução
 * Para começar com Aplicativos Lógicos, siga o tutorial [criar um aplicativo lógico][create].  
 * [Veja exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Você pode automatizar processos de negócios com Aplicativos Lógicos](http://channel9.msdn.com/Events/Build/2016/T694) 
@@ -77,9 +87,4 @@ A seguir estão algumas das principais partes que compõem a experiência de Apl
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

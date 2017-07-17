@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: f4f5f231536bc381d17898ff2c592be821168a65
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="continuous-delivery-to-azure-using-visual-studio-team-services-and-git"></a>Entrega contínua no Azure usando Visual Studio Team Services e Git
+<a id="continuous-delivery-to-azure-using-visual-studio-team-services-and-git" class="xliff"></a>
+
+# Entrega contínua no Azure usando Visual Studio Team Services e Git
 Você pode usar os projetos de equipe do Visual Studio Team Services para hospedar um repositório Git para seu código-fonte, e compilar e implantá-lo automaticamente em aplicativos Web ou serviços de nuvem do Azure sempre que enviar por push uma confirmação ao repositório.
 
 Você precisará do Visual Studio 2013 e do SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita (a página pode estar em inglês)** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
@@ -33,14 +36,18 @@ Você precisará do Visual Studio 2013 e do SDK do Azure instalados. Se você ai
 
 Para configurar um serviço de nuvem para compilação e implantação automática no Azure usando o Visual Studio Team Services, siga essas etapas.
 
-## <a name="1-create-a-git-repository"></a>1: Criar um repositório Git
+<a id="1-create-a-git-repository" class="xliff"></a>
+
+## 1: Criar um repositório Git
 1. Se você ainda não tiver uma conta do Visual Studio Team Services, pode obter uma [aqui](http://go.microsoft.com/fwlink/?LinkId=397665). Quando criar seu projeto da equipe, escolha o Git como seu sistema de controle do código-fonte. Siga as instruções para conectar o Visual Studio ao projeto da equipe.
 2. No **Team Explorer**, escolha o link **Clonar este repositório**.
    
     ![][3]
 3. Especifique o local da cópia local e selecione o botão **Clonar** .
 
-## <a name="2-create-a-project-and-commit-it-to-the-repository"></a>2: Criar um projeto e confirmá-lo no repositório
+<a id="2-create-a-project-and-commit-it-to-the-repository" class="xliff"></a>
+
+## 2: Criar um projeto e confirmá-lo no repositório
 1. No **Team Explorer**, na seção **Soluções**, selecione o link **Novo** para criar um novo projeto no repositório local.
    
     ![][4]
@@ -55,7 +62,9 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
 5. Observe as opções para incluir ou excluir alterações específicas ao fazer check-in. Se as alterações desejadas tiverem sido excluídas, escolha **Incluir Tudo**.
 6. Você confirmou as alterações em sua cópia local do repositório. Em seguida, sincronize as alterações com o servidor escolhendo o link **Sincronizar** .
 
-## <a name="3-connect-the-project-to-azure"></a>3: Conectar o projeto ao Azure
+<a id="3-connect-the-project-to-azure" class="xliff"></a>
+
+## 3: Conectar o projeto ao Azure
 1. Agora que possui um repositório Git no Visual Studio Team Services com algum código-fonte nele, você está pronto para conectar seu repositório Git ao Azure.  No [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), selecione o serviço de nuvem ou aplicativo Web ou crie um novo; para isso, selecione o ícone + na parte inferior esquerda e escolha **Serviço de Nuvem** ou **Aplicativo Web**, depois selecione **Criação Rápida**.
    
     ![][9]
@@ -74,7 +83,9 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
    
     Na próxima vez em que você enviar uma confirmação por push ao repositório, o Visual Studio Team Services vai compilar e implantar seu projeto no Azure.
 
-## <a name="4-trigger-a-rebuild-and-redeploy-your-project"></a>4: Disparar uma recompilação e reimplantar seu projeto
+<a id="4-trigger-a-rebuild-and-redeploy-your-project" class="xliff"></a>
+
+## 4: Disparar uma recompilação e reimplantar seu projeto
 1. No Visual Studio, abra um arquivo e altere-o. Por exemplo, altere o arquivo `_Layout.cshtml` na pasta Modos de Exibição\\Compartilhado em uma função web do MVC.
    
     ![][17]
@@ -145,17 +156,23 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
     
     ![][33]
 
-## <a name="5-redeploy-an-earlier-build"></a>5: Reimplantar um build anterior
+<a id="5-redeploy-an-earlier-build" class="xliff"></a>
+
+## 5: Reimplantar um build anterior
 Esta etapa é opcional. No portal clássico do Azure, selecione uma implantação anterior e escolha **Reimplantar** para que seu site retroceda até um check-in anterior. Observe que isso vai disparar uma nova compilação no TFS e criará uma nova entrada em seu histórico de implantação.
 
 ![][34]
 
-## <a name="6-change-the-production-deployment"></a>6: Alterar a implantação de Produção
+<a id="6-change-the-production-deployment" class="xliff"></a>
+
+## 6: Alterar a implantação de Produção
 Quando estiver pronto, você pode promover o ambiente de preparo para o ambiente de produção escolhendo **Trocar** no portal clássico do Azure. O ambiente de preparo recém-implantado é promovido para a produção e o ambiente de produção anterior, se houver, torna-se um ambiente de preparo. A implantação Ativa pode ser diferente dos ambientes de preparo e de produção, mas o histórico de implantação de compilações recentes é o mesmo, independentemente do ambiente.
 
 ![][35]
 
-## <a name="7-deploy-from-a-working-branch"></a>7: Implantar por meio de uma ramificação em funcionamento.
+<a id="7-deploy-from-a-working-branch" class="xliff"></a>
+
+## 7: Implantar por meio de uma ramificação em funcionamento.
 Quando usa o Git, normalmente você faz alterações em uma ramificação em andamento e a integra à ramificação mestre quando seu desenvolvimento estiver concluído. Durante a fase de desenvolvimento de um projeto, você compilará e implantará a ramificação em andamento no Azure.
 
 1. No **Team Explorer**, escolha o botão **Início** e depois escolha o botão **Ramificações**.
@@ -185,8 +202,10 @@ Quando usa o Git, normalmente você faz alterações em uma ramificação em and
    ![][45]
 10. Navegue até a exibição **Compilações** e encontre a compilação que foi acionada para a ramificação em andamento.
 
-## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas sobre como usar o Git com o Visual Studio Team Services, consulte [Desenvolver e compartilhar seu código no Git usando o Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e para obter informações sobre como usar um repositório Git que não é gerenciado pelo Visual Studio Team Services para publicar no Azure, consulte [Implantação Contínua para o Serviço de Aplicativo do Azure](../app-service-web/app-service-continuous-deployment.md). Para obter mais informações sobre o Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
+Para obter mais dicas sobre como usar o Git com o Visual Studio Team Services, consulte [Desenvolver e compartilhar seu código no Git usando o Visual Studio](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017) e para obter informações sobre como usar um repositório Git que não é gerenciado pelo Visual Studio Team Services para publicar no Azure, consulte [Implantação Contínua para o Serviço de Aplicativo do Azure](../app-service-web/app-service-continuous-deployment.md). Para obter mais informações sobre o Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG

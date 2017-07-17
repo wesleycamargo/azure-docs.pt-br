@@ -16,21 +16,24 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7bed1e96cec49e8b62d671952976025453da6787
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: daff6ab4c0eaf17d1cb488f1c16aa111b6ed9a88
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 06/22/2017
 
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implantar uma Máquina Virtual do Azure usando C# e um modelo do Resource Manager
+<a id="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template" class="xliff"></a>
+
+# Implantar uma Máquina Virtual do Azure usando C# e um modelo do Resource Manager
 Este artigo mostra como implantar um modelo do Azure Resource Manager usando o C#. O [modelo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) implanta uma única máquina virtual que executa o Windows Server em uma nova rede virtual com uma única sub-rede.
 
 Para obter uma descrição detalhada do recurso de máquina virtual, confira [Virtual machines in an Azure Resource Manager template](template-description.md) (Máquinas virtuais em um modelo do Azure Resource Manager). Para saber mais sobre todos os recursos em um modelo, confira [Passo a passo do modelo do Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 São necessários cerca de 10 minutos para a conclusão destas etapas.
 
-## <a name="step-1-create-a-visual-studio-project"></a>Etapa 1: Criar um projeto do Visual Studio
+<a id="step-1-create-a-visual-studio-project" class="xliff"></a>
+
+## Etapa 1: Criar um projeto do Visual Studio
 
 Nesta etapa, você verifica se o Visual Studio está instalado e cria um aplicativo de console usado para implantar o modelo.
 
@@ -38,7 +41,9 @@ Nesta etapa, você verifica se o Visual Studio está instalado e cria um aplicat
 2. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
 3. Em **Modelos** > **Visual C#**, selecione **Aplicativo de Console (.NET Framework)**, digite o nome e a localização do projeto e, em seguida, clique em **OK**.
 
-## <a name="step-2-install-libraries"></a>Etapa 2: Instalar bibliotecas
+<a id="step-2-install-libraries" class="xliff"></a>
+
+## Etapa 2: Instalar bibliotecas
 
 Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas de que você precisa para concluir estas etapas. Você precisa instalar a Biblioteca do Azure Resource Manager e a Biblioteca de Autenticação do Active Directory para criar os recursos. Para obter essas bibliotecas no Visual Studio, siga estas etapas:
 
@@ -48,7 +53,9 @@ Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas de que vo
 
 Agora você está pronto para começar a usar as bibliotecas para criar seu aplicativo.
 
-## <a name="step-3-create-credentials-used-to-authenticate-requests"></a>Etapa 3: Criar as credenciais usadas para autenticar solicitações
+<a id="step-3-create-credentials-used-to-authenticate-requests" class="xliff"></a>
+
+## Etapa 3: Criar as credenciais usadas para autenticar solicitações
 
 Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../resource-group-authenticate-service-principal.md). Na entidade de serviço, você adquire um token para autenticar as solicitações para o Azure Resource Manager.
 
@@ -69,7 +76,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
       var cc = new ClientCredential("client-id", "client-secret");
-      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
+      var context = new AuthenticationContext("https://login.microsoftonline.com/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -94,7 +101,9 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 4. Salve o arquivo Program.cs.
 
-## <a name="step-4-create-a-resource-group"></a>Etapa 4: Criar um grupo de recursos
+<a id="step-4-create-a-resource-group" class="xliff"></a>
+
+## Etapa 4: Criar um grupo de recursos
 
 Embora seja possível criar um grupo de recursos com base em um modelo, o modelo usado da galeria não cria um. Nesta etapa, você adiciona o código para criar um grupo de recursos.
 
@@ -146,7 +155,9 @@ Embora seja possível criar um grupo de recursos com base em um modelo, o modelo
     Console.ReadLine();
     ```
 
-## <a name="step-5-create-a-parameters-file"></a>Etapa 5: Criar o arquivo de parâmetros
+<a id="step-5-create-a-parameters-file" class="xliff"></a>
+
+## Etapa 5: Criar o arquivo de parâmetros
 
 Para especificar valores para os parâmetros de recursos definidos no modelo, você cria um arquivo de parâmetros que contém os valores. O arquivo de parâmetros é usado quando o modelo é implantado. O modelo que você está usando da galeria espera valores para os parâmetros *adminUserName*, *adminPassword* e *dnsLabelPrefix*.
 
@@ -172,7 +183,9 @@ No Visual Studio, siga estas etapas:
 
 4. Salve o arquivo Parameters.json.
 
-## <a name="step-6-deploy-a-template"></a>Etapa 6: Implantar um modelo
+<a id="step-6-deploy-a-template" class="xliff"></a>
+
+## Etapa 6: Implantar um modelo
 
 Neste exemplo, você implanta um modelo da galeria de modelos do Azure e fornece valores de parâmetro a ele com base no arquivo local criado. 
 
@@ -220,7 +233,9 @@ Neste exemplo, você implanta um modelo da galeria de modelos do Azure e fornece
     Console.ReadLine();
     ```
 
-## <a name="step-7-delete-the-resources"></a>Etapa 7: Excluir os recursos
+<a id="step-7-delete-the-resources" class="xliff"></a>
+
+## Etapa 7: Excluir os recursos
 
 Como você é cobrado pelos recursos utilizados no Azure, sempre é uma boa prática excluir os recursos que não são mais necessários. Você não precisa excluir cada recurso separadamente de um grupo de recursos. Exclua o grupo de recursos e todos os seus recursos serão excluídos automaticamente.
 
@@ -249,7 +264,9 @@ Como você é cobrado pelos recursos utilizados no Azure, sempre é uma boa prá
    Console.ReadLine();
    ```
 
-## <a name="step-8-run-the-console-application"></a>Etapa 8: Executar o aplicativo de console
+<a id="step-8-run-the-console-application" class="xliff"></a>
+
+## Etapa 8: Executar o aplicativo de console
 
 Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. 
 
@@ -261,8 +278,9 @@ Devem ser necessários cerca de cinco minutos para o aplicativo de console execu
 
 3. Antes de pressionar **Enter** para iniciar a exclusão de recursos, reserve alguns minutos para verificar a criação dos recursos no portal do Azure. Clique no status de implantação para ver informações sobre a implantação.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 * Se houver problemas com a implantação, a próxima etapa será examinar [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md) (Solucionar erros comuns de implantação do Azure com o Azure Resource Manager).
 * Saiba como implantar uma máquina virtual e seus recursos de suporte examinando [Implantar uma máquina virtual do Azure usando o C#](csharp.md).
-* Saiba como gerenciar a máquina virtual que você criou examinando [Gerenciar Máquinas Virtuais do Azure usando o Azure Resource Manager e o C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -12,17 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/01/2017
+ms.date: 06/29/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 431049c714a58f85ebb73165fe338d927d27039a
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 09ddca83fc0f39d7911813e488317f9434fdcfc8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
-# <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação de conta de Automação com contas Executar como 
+<a id="update-your-automation-account-authentication-with-run-as-accounts" class="xliff"></a>
+
+# Atualizar a autenticação de conta de Automação com contas Executar como 
 Você pode atualizar sua conta de Automação existente no portal ou usando o PowerShell se:
 
 * Você criar uma conta de Automação, mas se recusar a criar a conta Executar como.
@@ -30,7 +32,9 @@ Você pode atualizar sua conta de Automação existente no portal ou usando o Po
 * Você já usar uma conta de Automação para gerenciar os recursos clássicos e quiser atualizá-la para usar a conta Executar como Clássica em vez de criar uma nova conta e migrar seus runbooks e ativos para ela.   
 * Você quiser criar uma conta Executar como e uma conta Clássica Executar como usando um certificado emitido por sua CA (Autoridade de Certificação).
 
-## <a name="prerequisites"></a>Pré-requisitos
+<a id="prerequisites" class="xliff"></a>
+
+## Pré-requisitos
 
 * O script só pode ser executado no Windows 10 e no Windows Server 2016 com módulos do Azure Resource Manager 3.0.0 e posterior. Não há suporte nas versões anteriores do Windows.
 * Azure PowerShell 1.0 e posterior. Para obter informações sobre a versão 1.0 do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
@@ -42,7 +46,19 @@ Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccoun
 2. Na folha **Todas as configurações**, em **Configurações de Conta**, selecione **Propriedades**. 
 3. Observe os valores na folha **Propriedades**.<br><br> ![A folha "Propriedades" da conta de Automação](media/automation-create-runas-account/automation-account-properties.png)  
 
-## <a name="create-run-as-account-from-the-portal"></a>Criar a conta Executar como no portal
+<a id="required-permissions-to-update-your-automation-account" class="xliff"></a>
+
+### Permissões necessárias para atualizar sua conta da Automação
+Para atualizar uma conta da Automação, você deve ter os seguintes privilégios e permissões específicas necessárias para concluir este tópico.   
+ 
+* Sua conta de usuário do AD precisa ser adicionada a uma função com permissões equivalentes à função de Colaborador para recursos Microsoft.Automation conforme descrito no artigo [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md#contributor-role-permissions).  
+* Usuários não administrativos em seu locatário do Azure AD podem [registrar aplicativos AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se os registros do aplicativo configuração estão definidos como **Sim**.  Se a configuração de registros do aplicativo estiver definido como **Não**, o usuário que executa esta ação deverá ser um administrador global no Azure AD. 
+
+Caso não seja membro da instância do Active Directory da assinatura antes de ser adicionados à função de administrador global/coadministrador da assinatura, você será adicionado ao Active Directory como convidado. Nesse caso, você receberá um aviso "Você não tem permissões para criar..." na folha **Adicionar Conta de Automação**. Os usuários adicionados à função de administrador global/coadministrador primeiro podem ser removidos das assinaturas da instância do Active Directory e adicionados novamente para torná-los Usuários completos no Active Directory. Para verificar essa situação, no painel **Azure Active Directory** no portal do Azure, selecione **Usuários e grupos**, selecione **Todos os usuários** e, depois de selecionar o usuário específico, selecione **Perfil**. O valor do atributo **Tipo de usuário** sob o perfil de usuários não deve ser igual a **Convidado**.
+
+<a id="create-run-as-account-from-the-portal" class="xliff"></a>
+
+## Criar a conta Executar como no portal
 Nesta seção, execute as seguintes etapas para atualizar sua conta de automação do Azure no portal do Azure.  Você cria as contas Executar como e Executar como Clássica individualmente, e se não precisar gerenciar recursos no portal clássico do Azure, poderá criar apenas a conta Executar como do Azure.  
 
 O processo cria os seguintes itens na sua conta de Automação.
@@ -58,13 +74,14 @@ O processo cria os seguintes itens na sua conta de Automação.
 * Cria um ativo de certificado de Automação chamado *AzureClassicRunAsCertificate* na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado usada pelo certificado de gerenciamento.
 * Cria um ativo de conexão de Automação chamado *AzureClassicRunAsConnection* na conta de Automação especificada. O ativo de conexão contém o nome da assinatura, subscriptionId e o nome do ativo de certificado.
 
-
 1. Conecte-se no Portal do Azure com uma conta que seja membro da função Administradores da Assinatura e coadministradora da assinatura.
 2. Na folha da conta de Automação, selecione **Contas Executar como** na seção **Configurações de Conta**.  
 3. Dependendo da conta de que você precisa, selecione **Conta Executar como do Azure** ou **Conta Executar como Clássica do Azure**.  Após a seleção, a folha **Adicionar Executar como do Azure** ou a folha **Adicionar Conta Executar como Clássica do Azure** aparecerá e após a revisão das informações de visão geral, clique em **Criar** para prosseguir com a criação da conta Executar como.  
 4. Enquanto o Azure cria a conta Executar como, você pode acompanhar o progresso em **Notificações** no menu e uma faixa é exibida informando que a conta está sendo criada.  A conclusão desse processo pode levar alguns minutos.  
 
-## <a name="create-run-as-account-using-powershell-script"></a>Criar conta Executar como usando um script do PowerShell
+<a id="create-run-as-account-using-powershell-script" class="xliff"></a>
+
+## Criar conta Executar como usando um script do PowerShell
 Este script do PowerShell inclui suporte para as seguintes configurações:
 
 * Crie uma conta Executar como usando um certificado autoassinado.
@@ -290,6 +307,8 @@ Depois que o script for executado com êxito, observe o seguinte:
 * Se tiver criado uma conta Executar como Clássica com um certificado público corporativo (arquivo .cer), use este certificado. Siga as instruções para [carregar um certificado de API de gerenciamento no portal clássico do Azure](../azure-api-management-certs.md) e, então, valide a configuração de credencial com recursos de implantação clássicos usando o [código de exemplo para se autenticar com os Recursos de implantação clássica do Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Se *não* criou uma conta Executar como Clássica, autentique-se com os recursos do Resource Manager e valide a configuração de credenciais usando o [código de exemplo para autenticação com recursos de Gerenciamento de Serviços](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 * Para saber mais sobre Entidades de Serviço, veja [Objetos de aplicativo e objetos de entidade de serviço](../active-directory/active-directory-application-objects.md).
 * Para saber mais sobre certificados e serviços do Azure, confira [Visão geral dos certificados de serviços de nuvem do Azure](../cloud-services/cloud-services-certs-create.md).

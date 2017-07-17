@@ -13,17 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2017
+ms.date: 06/27/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 6d5572a2fa7a89d51ec62e3ae05bdc9939ca3a24
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7abc3f238d08694c9f7359479cdce07bfb3d87bd
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>Configurar uma conexão Ponto a Site com uma rede virtual usando PowerShell
+<a id="configure-a-point-to-site-connection-to-a-vnet-using-powershell" class="xliff"></a>
+
+# Configurar uma conexão Ponto a Site com uma rede virtual usando PowerShell
 
 
 Este artigo mostra como criar uma rede virtual com uma conexão Ponto a Site no modelo de implantação do Resource Manager usando o portal o PowerShell. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
@@ -49,7 +51,9 @@ Conexões P2S exigem o seguinte:
 * Um pacote de configuração de cliente VPN deve ser gerado e instalado em cada computador cliente que se conecta. O pacote de configuração do cliente configura o cliente VPN nativo que já está no sistema operacional com as informações necessárias para se conectar à VNet.
 
 
-## <a name="before-beginning"></a>Antes de começar
+<a id="before-beginning" class="xliff"></a>
+
+## Antes de começar
 
 * Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 * Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para saber mais sobre como instalar cmdlets do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
@@ -151,7 +155,9 @@ Nesta seção, faça logon e declare os valores usados para esta configuração.
 
 ## <a name="Certificates"></a>3 - Gerar certificados
 
-Os certificados são usados pelo Azure para autenticar clientes de VPN para as VPNs Ponto a Site. Você pode carregar as informações da chave públicas do certificado raiz no Azure. A chave pública é considerada “trusted” (confiável). Os certificados de cliente devem ser gerados a partir do certificado raiz confiável e, em seguida, em cada computador cliente no repositório de certificados de usuário/pessoal de certificados atual. O certificado é usado para autenticar o cliente quando ele inicia uma conexão de rede virtual. Para obter mais informações sobre como gerar e instalar certificados, consulte [Certificados para Ponto a Site](vpn-gateway-certificates-point-to-site.md).
+Os certificados são usados pelo Azure para autenticar clientes de VPN para as VPNs Ponto a Site. Você pode carregar as informações da chave públicas do certificado raiz no Azure. A chave pública é considerada “trusted” (confiável). Os certificados de cliente devem ser gerados a partir do certificado raiz confiável e, em seguida, em cada computador cliente no repositório de certificados de usuário/pessoal de certificados atual. O certificado é usado para autenticar o cliente quando ele inicia uma conexão de rede virtual. 
+
+Se você usa certificados autoassinados, eles devem ser criados usando parâmetros específicos. Você pode criar um certificado autoassinado usando as instruções para [PowerShell e Windows 10](vpn-gateway-certificates-point-to-site.md) ou, se não tiver o Windows 10, com o [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). É importante que você siga as etapas nas instruções ao gerar os certificados raiz autoassinados e os certificados de cliente. Caso contrário, os certificados gerados não serão compatíveis com conexões P2S e você receberá um erro de conexão.
 
 ### <a name="cer"></a>Etapa 1 - Obter o arquivo .cer do certificado raiz
 
@@ -258,7 +264,9 @@ Se estiver tendo problemas para se conectar, verifique os seguintes itens:
 
 Você pode adicionar e remover um certificado raiz do Azure. Quando você remove um certificado raiz, os clientes que possuem um certificado gerado a partir dessa raiz não serão capazes de fazer a autenticação e, portanto, não serão capazes de se conectar. Se você deseja que um clientes faça autenticação e se conecte, você precisa instalar um novo certificado de cliente gerado a partir de um certificado confiável (carregado) no Azure.
 
-### <a name="to-add-a-trusted-root-certificate"></a>Para adicionar um certificado raiz confiável
+<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
+
+### Para adicionar um certificado raiz confiável
 
 Você pode adicionar até 20 arquivos .cer de certificado raiz ao Azure. As seguintes etapas o ajudarão a adicionar um certificado raiz:
 
@@ -289,7 +297,9 @@ Você pode adicionar até 20 arquivos .cer de certificado raiz ao Azure. As segu
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-### <a name="to-remove-a-root-certificate"></a>Adicionar ou remover um certificado raiz
+<a id="to-remove-a-root-certificate" class="xliff"></a>
+
+### Adicionar ou remover um certificado raiz
 
 1. Declare as variáveis.
 
@@ -317,7 +327,9 @@ Você pode adicionar até 20 arquivos .cer de certificado raiz ao Azure. As segu
 
 A prática comum é usar o certificado raiz para gerenciar o acesso em níveis de equipe ou organização, enquanto estiver usando certificados de cliente revogados para controle de acesso refinado em usuários individuais.
 
-### <a name="to-revoke-a-client-certificate"></a>Para revogar um certificado de cliente
+<a id="to-revoke-a-client-certificate" class="xliff"></a>
+
+### Para revogar um certificado de cliente
 
 1. Recupere a impressão digital do certificado de cliente. Para saber mais, confira [Como recuperar a impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copie as informações para um editor de texto e remova todos os espaços para que seja uma cadeia de caracteres contínua. Isso é declarado como uma variável na próxima etapa.
@@ -343,7 +355,9 @@ A prática comum é usar o certificado raiz para gerenciar o acesso em níveis d
   ```
 6. Após a adição da impressão digital, o certificado não poderá mais ser usado para se conectar. Os clientes que tentam se conectar usando este certificado recebem uma mensagem informando que o certificado não é mais válido.
 
-### <a name="to-reinstate-a-client-certificate"></a>Para restabelecer um certificado de cliente
+<a id="to-reinstate-a-client-certificate" class="xliff"></a>
+
+### Para restabelecer um certificado de cliente
 
 Você pode restabelecer um certificado de cliente removendo a impressão digital da lista de certificados de cliente revogados.
 
@@ -371,5 +385,8 @@ Você pode restabelecer um certificado de cliente removendo a impressão digital
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para saber mais sobre redes e máquinas virtuais, consulte [Visão geral de rede do Azure e VM Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+

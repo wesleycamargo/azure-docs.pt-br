@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 07/12/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e81ef1d182108114305291273227ce2ac4dacf3f
+ms.contentlocale: pt-br
 ms.lasthandoff: 12/29/2016
 
-
 ---
-# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiências de entrada com a proteção de identidade do Azure AD
+<a id="sign-in-experiences-with-azure-ad-identity-protection" class="xliff"></a>
+
+# Experiências de entrada com a proteção de identidade do Azure AD
 Com o Azure Active Directory Identity Protection, é possível:
 
 * exigir o registro de usuários na autenticação multifator
@@ -46,7 +48,9 @@ Este tópico fornece uma visão geral da experiência de entrada de um usuário 
 * Recuperação de conta comprometida
 * Conta comprometida bloqueada
 
-## <a name="multi-factor-authentication-registration"></a>Registro de autenticação multifator
+<a id="multi-factor-authentication-registration" class="xliff"></a>
+
+## Registro de autenticação multifator
 A melhor experiência do usuário para ambos, o fluxo de recuperação de conta comprometida e o fluxo de entrada arriscado, é quando o usuário pode recuperar-se automaticamente. Caso os usuários estejam registrados na autenticação multifator, eles já terão um número de telefone associado às suas contas, que pode ser usado para resolver os desafios de segurança. Não é necessário qualquer envolvimento do suporte técnico ou do administrador para recuperar-se do comprometimento da conta. Por isso, é altamente recomendado registra seus usuários para autenticação multifator. 
 
 Os administradores podem:
@@ -66,7 +70,9 @@ Os administradores podem:
    
     ![Correção](./media/active-directory-identityprotection-flows/142.png "Correção")
 
-## <a name="risky-sign-in-recovery"></a>Recuperação de entrada arriscada
+<a id="risky-sign-in-recovery" class="xliff"></a>
+
+## Recuperação de entrada arriscada
 Após um administrador configurar uma política para riscos de entrada, os usuários afetados são notificados ao tentarem entrar. 
 
 **O fluxo de entrada arriscada tem duas etapas:** 
@@ -78,12 +84,16 @@ Após um administrador configurar uma política para riscos de entrada, os usuá
    
     ![Correção](./media/active-directory-identityprotection-flows/121.png "Correção")
 
-## <a name="risky-sign-in-blocked"></a>Entrada arriscada bloqueada
+<a id="risky-sign-in-blocked" class="xliff"></a>
+
+## Entrada arriscada bloqueada
 Os administradores podem optar por definir uma política de Entrada Arriscada para bloquear os usuários ao entrar dependendo do nível de risco. Para ser desbloqueado, os usuários finais devem contatar um administrador ou o suporte técnico, ou então pode tentar entrar de um dispositivo ou local familiar. Não é possível recuperar-se sozinho com uma solução de autenticação multifator neste caso.
 
 ![Correção](./media/active-directory-identityprotection-flows/200.png "Correção")
 
-## <a name="compromised-account-recovery"></a>Recuperação de conta comprometida
+<a id="compromised-account-recovery" class="xliff"></a>
+
+## Recuperação de conta comprometida
 Após configurar uma política de segurança de risco do usuário, os usuários que atendem o usuário nível de risco especificado na política (sendo, portanto, considerados comprometidos) devem passar pelo fluxo de recuperação de comprometimento de usuário antes de poderem entrar. 
 
 **O fluxo de recuperação de comprometimento do usuário tem três etapas:**
@@ -99,17 +109,23 @@ Após configurar uma política de segurança de risco do usuário, os usuários 
    
    ![Correção](./media/active-directory-identityprotection-flows/111.png "Correção")
 
-## <a name="compromised-account-blocked"></a>Conta comprometida bloqueada
+<a id="compromised-account-blocked" class="xliff"></a>
+
+## Conta comprometida bloqueada
 Para desbloquear um usuário que foi bloqueado por uma política de segurança de risco do usuário, este deve contatar um administrador ou o suporte técnico. Não é possível recuperar-se sozinho com uma solução de autenticação multifator neste caso.
 
 ![Correção](./media/active-directory-identityprotection-flows/104.png "Correção")
 
-## <a name="reset-password"></a>Redefinir senha
+<a id="reset-password" class="xliff"></a>
+
+## Redefinir senha
 Caso os usuários comprometidos sejam impedidos de entrar, um administrador poderá gerar uma senha temporária para eles. Os usuários terão de alterar suas senhas durante a próxima entrada.
 
 ![Correção](./media/active-directory-identityprotection-flows/160.png "Correção")
 
-## <a name="see-also"></a>Consulte também
+<a id="see-also" class="xliff"></a>
+
+## Consulte também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
 

@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 08/31/2016
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
-ms.openlocfilehash: d00235d788dbe1674eac219a7c708a8ecd53ccc5
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 4abc72962f5a67851aee9d64d7c8125e72d0ec09
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Gerenciar trabalhos comuns do Backup do Azure e disparar alertas no portal clássico
+<a id="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal" class="xliff"></a>
+
+# Gerenciar trabalhos comuns do Backup do Azure e disparar alertas no portal clássico
 > [!div class="op_single_selector"]
 > * [Gerenciar backups da VM do Azure](backup-azure-manage-vms.md)
 > * [Gerenciar backups de VMs clássicas](backup-azure-manage-vms-classic.md)
@@ -32,11 +35,18 @@ ms.lasthandoff: 03/02/2017
 Este artigo fornece informações sobre tarefas comuns de gerenciamento e monitoramento para máquinas virtuais do modelo Clássico protegidas no Azure.  
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Confira [Preparar o seu ambiente para o backup das máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com VMs do modelo de implantação Clássico.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Consulte [Preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com VMs do modelo de implantação Clássico.
 >
+> [!IMPORTANT]
+>A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
 >
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
+>- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 
-## <a name="manage-protected-virtual-machines"></a>Gerenciar máquinas virtuais protegidas
+<a id="manage-protected-virtual-machines" class="xliff"></a>
+
+## Gerenciar máquinas virtuais protegidas
 Para gerenciar máquinas virtuais protegidas:
 
 1. Para exibir e gerenciar as configurações de backup de uma máquina virtual, clique na guia **Itens Protegidos** .
@@ -54,7 +64,9 @@ Para gerenciar máquinas virtuais protegidas:
 
     ![Trabalhos](./media/backup-azure-manage-vms/backup-job.png)
 
-## <a name="on-demand-backup-of-a-virtual-machine"></a>Backup sob demanda de uma máquina virtual
+<a id="on-demand-backup-of-a-virtual-machine" class="xliff"></a>
+
+## Backup sob demanda de uma máquina virtual
 Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup inicial estiver pendente para a máquina virtual, o backup sob demanda criará uma cópia completa da máquina virtual no cofre de backup do Azure. Se o primeiro backup for concluído, o backup sob demanda enviará apenas as alterações de backup anterior para o cofre de backup do Azure, ou seja, sempre é incremental.
 
 > [!NOTE]
@@ -84,7 +96,9 @@ Para fazer backup sob demanda de uma máquina virtual:
     ![Trabalho de backup criado](./media/backup-azure-manage-vms/created-job.png)
 4. Depois da conclusão bem-sucedida do trabalho, um ponto de recuperação será criado, o qual você poderá usar para restaurar a máquina virtual. Isso também incrementará o valor da coluna do ponto de recuperação em 1 na página **Itens protegidos** .
 
-## <a name="stop-protecting-virtual-machines"></a>Interromper a proteção de máquinas virtuais
+<a id="stop-protecting-virtual-machines" class="xliff"></a>
+
+## Interromper a proteção de máquinas virtuais
 Você pode optar por parar os futuros backups de uma máquina virtual com as seguintes opções:
 
 * Reter dados de backup associados à máquina virtual no cofre de Backup do Azure
@@ -119,7 +133,9 @@ Para interromper a proteção para uma máquina virtual:
 
     Se você tiver selecionado a opção **Excluir dados de backup associados**, a máquina virtual não fará parte da página **Itens Protegidos**.
 
-## <a name="re-protect-virtual-machine"></a>Proteger novamente a Máquina virtual
+<a id="re-protect-virtual-machine" class="xliff"></a>
+
+## Proteger novamente a Máquina virtual
 Se você não selecionou a opção **Excluir dados de backup associados** em **Parar proteção**, pode proteger novamente a máquina virtual seguindo as etapas semelhantes para fazer backup de máquinas virtuais registradas. Depois de protegida, essa máquina virtual terá os dados de backup retidos antes da interrupção da proteção e os pontos de recuperação serão criados após a nova proteção.
 
 Após proteger novamente, o status de proteção da máquina virtual será alterado para **Protegido** se houver pontos de recuperação anteriores a **Parar proteção**.
@@ -131,7 +147,9 @@ Após proteger novamente, o status de proteção da máquina virtual será alter
 >
 >
 
-## <a name="unregister-virtual-machines"></a>Cancelar o registro das máquinas virtuais
+<a id="unregister-virtual-machines" class="xliff"></a>
+
+## Cancelar o registro das máquinas virtuais
 Se você quiser remover a máquina virtual do cofre de backup:
 
 1. Clique no botão **CANCELAR REGISTRO** , na parte inferior da página.
@@ -142,7 +160,9 @@ Se você quiser remover a máquina virtual do cofre de backup:
 
     ![Desabilitar a proteção](./media/backup-azure-manage-vms/confirm-unregister.png)
 
-## <a name="delete-backup-data"></a>Excluir dados de backup
+<a id="delete-backup-data" class="xliff"></a>
+
+## Excluir dados de backup
 Você pode excluir os dados de backup associados a uma máquina virtual, ou:
 
 * Durante a interrupção do trabalho da proteção
@@ -168,7 +188,9 @@ Para excluir dados de backup em uma máquina virtual, que está no estado *Prote
 
     Depois que o trabalho for concluído, a entrada correspondente à máquina virtual será removida da página **Itens protegidos** .
 
-## <a name="dashboard"></a>Painel
+<a id="dashboard" class="xliff"></a>
+
+## Painel
 Na página **Painel** , você pode examinar informações sobre máquinas virtuais do Azure, seu armazenamento e os trabalhos associados a elas nas últimas 24 horas. Você pode exibir o status de backup e quaisquer erros de backup associados.
 
 ![Painel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
@@ -178,7 +200,9 @@ Na página **Painel** , você pode examinar informações sobre máquinas virtua
 >
 >
 
-## <a name="auditing-operations"></a>Operações de auditoria
+<a id="auditing-operations" class="xliff"></a>
+
+## Operações de auditoria
 O backup do Azure oferece análise dos “logs de operação” das operações de backup disparadas pelo cliente que facilita ver exatamente quais operações de gerenciamento foram realizadas no cofre de backup. Os logs de operações permitem um ótimo suporte a auditoria e análise posterior das operações de backup.
 
 As seguintes operações são registradas nos logs de operação:
@@ -211,7 +235,9 @@ Para exibir logs de operação correspondentes a um cofre de backup:
 
     ![Detalhes da Operação](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
-## <a name="alert-notifications"></a>Notificações de alerta
+<a id="alert-notifications" class="xliff"></a>
+
+## Notificações de alerta
 Você pode obter notificações de alerta personalizadas para os trabalhos no portal. Isso é possível ao definir regras de alerta do PowerShell baseadas em eventos de logs operacionais. É recomendável usar o *PowerShell versão 1.3.0 ou superior*.
 
 Para definir uma notificação personalizada para o alerta de falhas de backup, um comando de exemplo terá a seguinte aparência:
@@ -235,13 +261,17 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **SendToServiceOwners**: essa opção envia a notificação de alerta para todos os administradores e coadministradores da assinatura. Pode ser usado no cmdlet **New-AzureRmAlertRuleEmail**
 
-### <a name="limitations-on-alerts"></a>Limitações sobre alertas
+<a id="limitations-on-alerts" class="xliff"></a>
+
+### Limitações sobre alertas
 Os alertas baseados em eventos estão sujeitos às seguintes limitações:
 
 1. Os alertas são disparados em todas as máquinas virtuais no cofre de backup. Você não pode personalizá-lo para obter alertas de um conjunto específico de máquinas virtuais em um cofre de backup.
 2. Esse recurso está em Preview. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
 3. Você receberá alertas de “alerts-noreply@mail.windowsazure.com”. No momento, você não pode modificar o remetente do email.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 * [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)
 

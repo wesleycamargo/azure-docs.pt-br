@@ -12,22 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 6d893efd775ff6b55524ba3a621d8248adbdd432
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
+# Usando conectores com o Azure AD Connect Sync Service Manager
+<a id="using-connectors-with-the-azure-ad-connect-sync-service-manager" class="xliff"></a>
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanismo de sincronização está conectado.
 
-## <a name="connector-actions"></a>Ações do Conector
+## Ações do Conector
+<a id="connector-actions" class="xliff"></a>
 | Ação | Comentário |
 | --- | --- |
 | Criação |Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
@@ -42,7 +45,8 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 | Atualizar Esquema |Atualiza o esquema em cache. É preferível usar a opção no assistente de instalação, já que ela também atualiza as regras de sincronização. |
 | [Pesquisar Espaço do Conector](#search-connector-space) |Usado para encontrar objetos e [Seguir um objeto e seus dados por meio do sistema](#follow-an-object-and-its-data-through-the-system). |
 
-### <a name="delete"></a>Excluir
+### Excluir
+<a id="delete" class="xliff"></a>
 A ação de exclusão é usada com duas finalidades diferentes.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
@@ -52,12 +56,14 @@ A opção **Excluir Conector e Espaço** remove os dados e a configuração. Ess
 
 Ambas as opções sincronizam todos os objetos e atualizam os objetos do metaverso. Essa ação é uma operação demorada.
 
-### <a name="configure-run-profiles"></a>Configurar perfis de execução
+### Configurar perfis de execução
+<a id="configure-run-profiles" class="xliff"></a>
 Esta opção permite que você veja os perfis de execução configurados para um Conector.
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
 
-### <a name="search-connector-space"></a>Pesquisar Espaço do Conector
+### Pesquisar Espaço do Conector
+<a id="search-connector-space" class="xliff"></a>
 A ação de espaço do conector de pesquisa é útil para encontrar objetos e solucionar problemas de dados.
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
@@ -68,7 +74,8 @@ Por exemplo, se fizer uma pesquisa em Subárvore, você obterá todos os objetos
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
 Nessa grade, é possível selecionar um objeto, selecionar **propriedades** e [segui-lo](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) do espaço conector de origem, passando pelo metaverso, até o espaço conector de destino.
 
-### <a name="changing-the-ad-ds-account-password"></a>Alterando a senha da conta do AD DS
+### Alterando a senha da conta do AD DS
+<a id="changing-the-ad-ds-account-password" class="xliff"></a>
 Se você alterar a senha da conta, o Serviço de Sincronização não poderá mais importar/exportar alterações para o AD local.   Você poderá ver o seguinte:
 
 - A etapa de importação/exportação do conector do AD falha com o erro “no-start-credentials”.
@@ -90,7 +97,8 @@ Para resolver o problema, atualize a conta de usuário do AD DS usando o seguint
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

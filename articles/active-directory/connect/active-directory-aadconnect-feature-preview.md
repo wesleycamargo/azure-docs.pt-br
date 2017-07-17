@@ -12,18 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b110b2e3041cf7839d1bf1c4d384b28b243efbd8
 ms.openlocfilehash: c1653c769a6b42d18ffb0da71220ce06c6556587
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/07/2017
 
 ---
-# <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre os recursos no modo de visualização
+# Mais detalhes sobre os recursos no modo de visualização
+<a id="more-details-about-features-in-preview" class="xliff"></a>
 Este tópico descreve como usar recursos presentes atualmente na visualização.
 
-## <a name="group-writeback"></a>Write-back de grupo
+## Write-back de grupo
+<a id="group-writeback" class="xliff"></a>
 A opção para write-back do grupo nos recursos opcionais permite que você faça write-back de **Grupos do Office 365** para uma floresta com o Exchange instalado. Esse é um grupo que é sempre controlado na nuvem. Se tiver o Exchange local, você pode gravar novamente esses grupos localmente, assim os usuários com uma caixa de correio do Exchange local podem enviar e receber emails destes grupos.
 
 Mais informações sobre Grupos do Office 365 e como usá-los podem ser encontradas [aqui](http://aka.ms/O365g).
@@ -42,19 +45,16 @@ Um grupo do Office 365 é representado como um grupo de distribuição no AD DS 
 > 
 >
 
-## <a name="user-writeback"></a>Write-back de usuário
+## Write-back de usuário
+<a id="user-writeback" class="xliff"></a>
 > [!IMPORTANT]
 > O recurso de visualização de write-back do usuário foi removido na atualização de agosto de 2015 do Azure AD Connect. Se você tiver habilitado, você deve desabilitar esse recurso.
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 Continuar a [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

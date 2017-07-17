@@ -1,4 +1,5 @@
-### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Criar um ponto de extremidade TCP para a máquina virtual
+### Criar um ponto de extremidade TCP para a máquina virtual
+<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
 Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de extremidade para escutar comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona o tráfego da porta TCP de entrada para uma porta TCP que está acessível para a máquina virtual.
 
 > [!NOTE]

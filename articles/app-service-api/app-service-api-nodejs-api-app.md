@@ -15,19 +15,23 @@ ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 19d6d0e1df185746a8ea289db9ac18e5614c09c7
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Criar uma API RESTful do Node. js e implantá-la em um aplicativo de API no Azure
+<a id="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure" class="xliff"></a>
+
+# Criar uma API RESTful do Node. js e implantá-la em um aplicativo de API no Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 Este guia de início rápido mostra como criar uma API REST do Node.js de estrutura [Express](http://expressjs.com/) usando uma definição [Swagger](http://swagger.io/) e implantá-lo como um [aplicativo de API](app-service-api-apps-why-best-platform.md) no Azure. Crie o aplicativo usando as ferramentas de linha de comando, configure os recursos com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e implante o aplicativo usando o Git.  No fim, você tem uma API REST funcional de exemplo em execução no Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+<a id="prerequisites" class="xliff"></a>
+
+## Pré-requisitos
 
 * [Git](https://git-scm.com/)
 * [Node.js e NPM](https://nodejs.org/)
@@ -38,7 +42,9 @@ Este guia de início rápido mostra como criar uma API REST do Node.js de estrut
 
 Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
-## <a name="prepare-your-environment"></a>Prepare o seu ambiente
+<a id="prepare-your-environment" class="xliff"></a>
+
+## Prepare o seu ambiente
 
 1. Em uma janela de terminal, execute o seguinte comando para clonar o exemplo em seu computador local.
 
@@ -59,7 +65,9 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
     npm install -g generator-swaggerize
     ```
 
-## <a name="generate-nodejs-code"></a>Como gerar código Node.js 
+<a id="generate-nodejs-code" class="xliff"></a>
+
+## Como gerar código Node.js 
 
 Esta seção do tutorial modela um fluxo de trabalho de desenvolvimento de API em que você cria primeiro os metadados do Swagger e os utiliza para gerar automaticamente o código de servidor para a API. 
 
@@ -81,7 +89,9 @@ Altere o diretório para a pasta *iniciar* e, em seguida, execute `yo swaggerize
    ? Your email: frank@fabrikam.net
    ```
    
-## <a name="customize-the-project-code"></a>Personalize o código do projeto
+<a id="customize-the-project-code" class="xliff"></a>
+
+## Personalize o código do projeto
 
 1. Copie a pasta *lib* na pasta *ContactList* criada pelo `yo swaggerize` e, em seguida, altere o diretório para *ContactList*.
 
@@ -163,7 +173,9 @@ Altere o diretório para a pasta *iniciar* e, em seguida, execute `yo swaggerize
 
     Este código faz pequenas alterações para viabilizar o trabalho com o Serviço de Aplicativo do Azure e expõe uma interface Web interativa para sua API.
 
-### <a name="test-the-api-locally"></a>Como testar a API localmente
+<a id="test-the-api-locally" class="xliff"></a>
+
+### Como testar a API localmente
 
 1. Inicie o aplicativo Node.js
     ```bash
@@ -214,18 +226,26 @@ Nesta seção, você pode usar a CLI 2.0 do Azure para criar os recursos para ho
     az login
     ```
 
-2. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+2. Se você tiver várias assinaturas do Azure, altere a assinatura padrão para a desejada.
 
-3. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+    ````azurecli-interactive
+    az account set --subscription <name or id>
+    ````
 
-4. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
+3. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+
+4. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+
+5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-## <a name="deploy-the-api-with-git"></a>Como implantar a API com o Git
+<a id="deploy-the-api-with-git" class="xliff"></a>
+
+## Como implantar a API com o Git
 
 Implante seu código para o aplicativo de API enviando confirmações de seu repositório Git local para o serviço de aplicativo do Azure.
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/app-service-api-configure-local-git.md)] 
+1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
 
 2. Inicialize um novo repositório no diretório *ContactList*. 
 
@@ -248,7 +268,9 @@ Implante seu código para o aplicativo de API enviando confirmações de seu rep
 
 5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-## <a name="test-the-api--in-azure"></a>Como testar a API no Azure
+<a id="test-the-api--in-azure" class="xliff"></a>
+
+## Como testar a API no Azure
 
 1. Abra um navegador para http://app_name.azurewebsites.net/contacts. Você verá o mesmo JSON retornado como quando fez a solicitação localmente anteriormente no tutorial.
 
@@ -276,7 +298,9 @@ Implante seu código para o aplicativo de API enviando confirmações de seu rep
 
     Agora, você pode implantar atualizações para a API de exemplo para o Azure enviando confirmações para o repositório Git do Azure.
 
-## <a name="clean-up"></a>Limpar
+<a id="clean-up" class="xliff"></a>
+
+## Limpar
 
 Para limpar os recursos criados neste guia de início rápido, execute o seguinte comando da CLI do Azure:
 
@@ -284,7 +308,9 @@ Para limpar os recursos criados neste guia de início rápido, execute o seguint
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-step"></a>Próxima etapa 
+<a id="next-step" class="xliff"></a>
+
+## Próxima etapa 
 > [!div class="nextstepaction"]
 > [Consumo de aplicativos de API de clientes de JavaScript com CORS](app-service-api-cors-consume-javascript.md)
 

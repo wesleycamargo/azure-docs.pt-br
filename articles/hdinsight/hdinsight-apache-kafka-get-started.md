@@ -13,16 +13,18 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 06/23/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: f92d71542a2aa797b84f8742f74a02fea895e25a
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 80d4aced5e4f4b053b3b5f30a6fc383f1c4d6d27
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/04/2017
 
 ---
-# <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Introdução ao Apache Kafka (versão prévia) no HDInsight
+<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
+
+# Introdução ao Apache Kafka (versão prévia) no HDInsight
 
 Saiba como criar e usar um cluster do [Apache Kafka](https://kafka.apache.org) no Azure HDInsight. O Kafka é uma plataforma de streaming distribuída de software livre que está disponível com o HDInsight. Ela é geralmente usada como um agente de mensagens, pois fornece funcionalidade semelhante a uma fila de mensagens para publicação e assinatura.
 
@@ -31,13 +33,17 @@ Saiba como criar e usar um cluster do [Apache Kafka](https://kafka.apache.org) n
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+<a id="prerequisites" class="xliff"></a>
+
+## Pré-requisitos
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ou equivalente, como OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
 
-## <a name="create-a-kafka-cluster"></a>Criar um cluster Kafka
+<a id="create-a-kafka-cluster" class="xliff"></a>
+
+## Criar um cluster Kafka
 
 Use as seguintes etapas para criar um cluster Kafka no HDInsight:
 
@@ -68,25 +74,36 @@ Use as seguintes etapas para criar um cluster Kafka no HDInsight:
      
     ![Selecione o tipo de cluster](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
-    > [!NOTE]
-    > Se sua assinatura do Azure não tiver acesso à visualização do Kafka, as instruções sobre como obter acesso à visualização serão exibidas. As instruções exibidas são semelhantes à seguinte imagem:
-    >
-    > ![mensagem de visualização: se deseja implantar um cluster gerenciado do Apache Kafka no HDInsight, envie-nos um email para solicitar acesso à visualização](./media/hdinsight-apache-kafka-get-started/no-kafka-preview.png)
-
 4. Depois de selecionar o tipo de cluster, use o botão __Selecionar__ para definir o tipo de cluster. Em seguida, use o botão __Avançar__ para concluir a configuração básica.
 
 5. Na folha **Armazenamento**, selecione ou crie uma Conta de armazenamento. Para as etapas neste documento, deixe os outros campos nessa folha com os valores padrão. Use o botão __Avançar__ para salvar a configuração de armazenamento.
 
     ![Definir as configurações de conta de armazenamento do HDInsight](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. Na folha **Resumo**, examine a configuração do cluster. Use os links __Editar__ para alterar as configurações que estão incorretas. Por fim, use o botão __Criar__ para criar o cluster.
+6. Na folha __Aplicativos (opcionais)__, selecione __Avançar__ para continuar. Nenhum aplicativo é necessário neste exemplo.
+
+7. Na folha __Tamanho do cluster__, selecione __Avançar__ para continuar.
+
+    > [!WARNING]
+    > Para garantir a disponibilidade do Kafka no HDInsight, o cluster deve conter pelo menos três nós de trabalho.
+
+    ![Definir o tamanho do cluster Kafka](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
+
+    > [!NOTE]
+    > Os discos por entrada de nó do operador controlam a escalabilidade do Kafka no HDInsight. Para saber mais, veja [Configurar o armazenamento e a escalabilidade do Kafka no HDInsight](hdinsight-apache-kafka-scalability.md).
+
+8. Na folha __Configurações avançadas__, selecione __Avançar__ para continuar.
+
+9. Na folha **Resumo**, examine a configuração do cluster. Use os links __Editar__ para alterar as configurações que estão incorretas. Por fim, use o botão __Criar__ para criar o cluster.
    
     ![Resumo da configuração do cluster](./media/hdinsight-apache-kafka-get-started/hdinsight-configuration-summary.png)
    
     > [!NOTE]
     > Pode levar até 20 minutos para criar o cluster.
 
-## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
+<a id="connect-to-the-cluster" class="xliff"></a>
+
+## Conectar-se ao cluster
 
 No cliente, use o SSH para se conectar ao cluster:
 
@@ -113,9 +130,9 @@ Use as etapas a seguir para criar variáveis de ambiente que contêm as informa�
 2. use os seguintes comandos para definir as variáveis de ambiente com informações recuperadas do Ambari. Substitua __CLUSTERNAME__ pelo nome do cluster do Kafka. Substitua __PASSWORD__ pela senha de logon (admin) que você usou ao criar o cluster.
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
@@ -134,12 +151,14 @@ Use as etapas a seguir para criar variáveis de ambiente que contêm as informa�
     >
     > Você deve recuperar as informações de hosts Zookeeper e de agente logo antes de usá-los para garantir que tenha informações válidas.
 
-## <a name="create-a-topic"></a>Criar um tópico
+<a id="create-a-topic" class="xliff"></a>
+
+## Criar um tópico
 
 O Kafka armazena fluxos de dados em categorias chamadas *tópicos*. Em uma conexão SSH a um nó principal de cluster, use um script fornecido com o Kafka para criar um tópico:
 
 ```bash
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 ```
 
 Esse comando conecta ao Zookeeper usando as informações de host armazenadas em `$KAFKAZKHOSTS` e cria um tópico do Kafka chamado **teste**. Você pode verificar se o tópico foi criado usando o seguinte script para listar tópicos:
@@ -150,7 +169,9 @@ Esse comando conecta ao Zookeeper usando as informações de host armazenadas em
 
 A saída desse comando lista os tópicos do Kafka, que contém o tópico **teste**.
 
-## <a name="produce-and-consume-records"></a>Produzir e consumir registros
+<a id="produce-and-consume-records" class="xliff"></a>
+
+## Produzir e consumir registros
 
 O Kafka armazena *registros* nos tópicos. Os registros são produzidos por *produtores* e consumidos por *consumidores*. Os produtores recuperam registros de *agentes* do Kafka. Cada nó de trabalho no cluster HDInsight é um agente do Kafka.
 
@@ -167,14 +188,16 @@ Use as seguintes etapas para armazenar registros no tópico teste criado anterio
 2. Use um script fornecido com o Kafka para ler registros do tópico:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
     ```
    
     Esse comando recupera os registros do tópico e os exibe. O uso de `--from-beginning` instrui o consumidor a começar do início do fluxo, para que todos os registros sejam recuperados.
 
 3. Use __Ctrl + C__ para interromper o consumidor.
 
-## <a name="producer-and-consumer-api"></a>API de produtor e consumidor
+<a id="producer-and-consumer-api" class="xliff"></a>
+
+## API de produtor e consumidor
 
 Você pode também produzir e consumir registros de forma programática usando as [APIs Kafka](http://kafka.apache.org/documentation#api). Use as seguintes etapas para baixar e criar um produtor e um consumidor baseados em Java:
 
@@ -223,7 +246,9 @@ Você pode também produzir e consumir registros de forma programática usando a
 
 6. Use __Ctrl + C__ para sair do consumidor.
 
-### <a name="multiple-consumers"></a>Vários consumidores
+<a id="multiple-consumers" class="xliff"></a>
+
+### Vários consumidores
 
 Um conceito importante com o Kafka é que os consumidores usam um grupo de consumidores (definido por uma id de grupo) ao ler registros. Usar o mesmo grupo com vários consumidores resulta em leituras de balanceamento de carga de um tópico. Cada consumidor no grupo recebe uma parte dos registros. Para ver esse processo em ação, use as seguintes etapas:
 
@@ -245,7 +270,9 @@ O consumo por clientes no mesmo grupo é manipulado por meio das partições do 
 
 Os registros armazenados no Kafka são armazenados na ordem em que são recebidos em uma partição. Para garantir a entrega ordenada em registros *em uma partição*, crie um grupo de consumidores em que o número de instâncias de consumidor corresponda ao número de partições. Para garantir a entrega ordenada em registros *no tópico*, crie um grupo de consumidores com apenas uma instância de consumidor.
 
-## <a name="streaming-api"></a>API de streaming
+<a id="streaming-api" class="xliff"></a>
+
+## API de streaming
 
 A API de streaming foi adicionada ao Kafka na versão 0.10.0. Versões anteriores usam o Apache Spark ou o Storm para processamento de fluxo.
 
@@ -272,7 +299,7 @@ A API de streaming foi adicionada ao Kafka na versão 0.10.0. Versões anteriore
 4. Quando o comando `scp` terminar de copiar o arquivo, conecte-se ao cluster usando SSH e use o seguinte comando para criar o tópico `wordcounts`:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
     ```
 
 5. Em seguida, inicie o processo de streaming usando o seguinte comando:
@@ -320,20 +347,29 @@ A API de streaming foi adicionada ao Kafka na versão 0.10.0. Versões anteriore
 
 7. Use __Ctrl + C__ para sair do consumidor e use o comando `fg` para colocar a tarefa de streaming em segundo plano novamente em primeiro plano. Use __Ctrl + C__ para sair dela também.
 
-## <a name="delete-the-cluster"></a>Excluir o cluster
+<a id="delete-the-cluster" class="xliff"></a>
+
+## Excluir o cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Solucionar problemas
+<a id="troubleshoot" class="xliff"></a>
+
+## Solucionar problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 
 Neste documento, você aprendeu os fundamentos do trabalho com o Apache Kafka no HDInsight. Confira o seguinte para obter mais informações sobre como trabalhar com o Kafka:
 
+* [Garantir a alta disponibilidade de seus dados com o Kafka no HDInsight](hdinsight-apache-kafka-high-availability.md)
+* [Aumentar a escalabilidade, configurando discos gerenciados com o Kafka no HDInsight](hdinsight-apache-kafka-scalability.md)
 * [Documentação do Apache Kafka](http://kafka.apache.org/documentation.html) em kafka.apache.org.
 * [Usar MirrorMaker para criar uma réplica de Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Usar Apache Storm com Kafka no HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Usar o Apache Spark com o Kafka no HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Conectar-se ao Kafka no HDInsight (preview) por meio de uma Rede Virtual do Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
+

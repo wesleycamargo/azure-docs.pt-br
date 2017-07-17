@@ -16,14 +16,16 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8e0516585e2191caaef70bc973f027925df91bf6
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d04d1240fb353a973953b2a90eadc65705219edb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
+<a id="working-with-the-change-feed-support-in-azure-cosmos-db" class="xliff"></a>
+
+# Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 O [Azure Cosmos DB](../cosmos-db/introduction.md) é um serviço de banco de dados rápido, flexível e replicado globalmente, usado para armazenar grandes volumes de dados transacionais e operacionais com latência previsível de milissegundos de dígito único para leituras e gravações. Isso o torna adequado para IoT, jogos, varejo e aplicativos de log operacional. Um padrão de design comum nesses aplicativos é controlar as alterações feitas nos dados do Azure Cosmos DB e atualizar exibições materializadas, executar análise em tempo real, arquivar dados em armazenamento frio e disparar notificações em determinados eventos de acordo com essas alterações. O **suporte ao feed de alterações** do Azure Cosmos DB permite que você crie soluções eficientes e escalonáveis para cada um desses padrões.
 
 Com suporte ao feed de alterações, o Azure Cosmos DB fornece uma lista classificada de documentos em uma coleção do Azure Cosmos DB na ordem em que eles foram modificados. Este feed pode ser usado para ouvir as modificações de dados dentro da coleção e executar ações como:
@@ -36,7 +38,9 @@ As alterações no Azure Cosmos DB são persistentes e podem ser processadas de 
 
 ![Usando o feed de alterações do Azure Cosmos DB para capacitar a análise em tempo real e cenários de computação orientada a eventos](./media/change-feed/changefeed.png)
 
-## <a name="use-cases-and-scenarios"></a>Cenários e casos de uso
+<a id="use-cases-and-scenarios" class="xliff"></a>
+
+## Cenários e casos de uso
 O feed de alterações permite o processamento eficiente de grandes conjuntos de dados com um alto volume de gravações e oferece uma alternativa à consulta de conjuntos de dados inteiros para identificar o que foi alterado. Por exemplo, você pode executar as seguintes etapas de forma eficiente:
 
 * Atualize um cache, índice de pesquisa ou data warehouse com os dados armazenados no Azure Cosmos DB.
@@ -53,7 +57,9 @@ Use o Azure Cosmos DB para receber e armazenar dados de evento de dispositivos, 
 
 Em aplicativos Web e móveis, você pode acompanhar eventos como alterações no perfil, nas preferências ou no local do cliente para disparar determinadas ações, como enviar notificações para seus dispositivos usando [Azure Functions](../azure-functions/functions-bindings-documentdb.md) ou os [Serviços de Aplicativos](https://azure.microsoft.com/services/app-service/). Se você estiver usando o Azure Cosmos DB para criar um jogo, poderá, por exemplo, usar o feed de alterações para implementar placares em tempo real de acordo com as pontuações dos jogos concluídos.
 
-## <a name="how-change-feed-works-in-azure-cosmos-db"></a>Como funciona o feed de alterações no Azure Cosmos DB
+<a id="how-change-feed-works-in-azure-cosmos-db" class="xliff"></a>
+
+## Como funciona o feed de alterações no Azure Cosmos DB
 O Azure Cosmos DB fornece a capacidade de ler de forma incremental as atualizações feitas em uma coleção do Azure Cosmos DB. Este feed de alteração tem as seguintes propriedades:
 
 * As alterações são persistentes no Azure Cosmos DB e podem ser processadas de forma assíncrona.
@@ -73,7 +79,9 @@ Na próxima seção, descrevemos como acessar o feed de alterações usando a AP
 ## <a id="rest-apis"></a>Trabalhando com a API REST e o SDK
 O Azure Cosmos DB fornece contêineres elásticos de armazenamento e produtividade chamados **coleções**. Os dados em coleções são logicamente agrupados usando [chaves de partição](partition-data.md) para obtenção de escalabilidade e desempenho. O Azure Cosmos DB fornece várias APIs para acessar esses dados, incluindo pesquisa por ID (Read/Get), consulta e feeds de leitura (verificações). O feed de alterações pode ser obtido populando dois novos cabeçalhos de solicitação na API `ReadDocumentFeed` do DocumentDB e pode ser processado em paralelo em intervalos de chaves de partição.
 
-### <a name="readdocumentfeed-api"></a>API do ReadDocumentFeed
+<a id="readdocumentfeed-api" class="xliff"></a>
+
+### API do ReadDocumentFeed
 Vamos examinar o funcionamento do ReadDocumentFeed. O Azure Cosmos DB dá suporte à leitura de um feed de documentos em uma coleção por meio da API `ReadDocumentFeed`. Por exemplo, a solicitação a seguir retorna uma página de documentos na coleção `serverlogs`. 
 
     GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/serverlogs HTTP/1.1
@@ -99,7 +107,9 @@ Também recupere o feed de documentos usando um dos [SDKs do Azure Cosmos DB](do
     }
     while (feedResponse.ResponseContinuation != null);
 
-### <a name="distributed-execution-of-readdocumentfeed"></a>Execução distribuída do ReadDocumentFeed
+<a id="distributed-execution-of-readdocumentfeed" class="xliff"></a>
+
+### Execução distribuída do ReadDocumentFeed
 Para coleções que contêm terabytes de dados ou mais, ou um grande volume de atualizações de ingestão, a execução serial de feed de leitura de um único computador cliente pode não ser prática. Para dar suporte a esses cenários de Big Data, o Azure Cosmos DB fornece APIs para distribuir chamadas `ReadDocumentFeed` de forma transparente entre vários leitores/consumidores cliente. 
 
 **Feed de Documento de Leitura Distribuída**
@@ -109,7 +119,9 @@ Para fornecer o processamento escalonável das alterações incrementais, o Azur
 * Você pode obter uma lista de intervalos de chaves de partição para uma coleção que esteja executando uma chamada `ReadPartitionKeyRanges`. 
 * Para cada intervalo de chaves de partição, você pode realizar uma `ReadDocumentFeed` para ler documentos com chaves de partição dentro do intervalo.
 
-### <a name="retrieving-partition-key-ranges-for-a-collection"></a>Recuperação de intervalos de chaves de partição para uma coleção
+<a id="retrieving-partition-key-ranges-for-a-collection" class="xliff"></a>
+
+### Recuperação de intervalos de chaves de partição para uma coleção
 Você pode recuperar os Intervalos de Chaves de Partição solicitando o recurso `pkranges` em uma coleção. Por exemplo, a solicitação a seguir recupera a lista de intervalos de chaves de partição para a coleção `serverlogs`:
 
     GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
@@ -167,7 +179,7 @@ Essa solicitação retorna a seguinte resposta com metadados sobre os intervalos
     <tr>
         <td>minInclusive</td>
         <td>O valor de hash da chave de partição mínimo para o intervalo de chaves de partição. Para uso interno.</td>
-    </tr>        
+    </tr>       
 </table>
 
 Faça isso usando um dos [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md) com suporte. Por exemplo, o trecho a seguir mostra como recuperar intervalos de chaves de partição no .NET.
@@ -188,7 +200,9 @@ Faça isso usando um dos [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md) com
 
 O Azure Cosmos DB dá suporte à recuperação de documentos por intervalo de chaves de partição definindo o cabeçalho `x-ms-documentdb-partitionkeyrangeid` opcional. 
 
-### <a name="performing-an-incremental-readdocumentfeed"></a>Execução de um ReadDocumentFeed incremental
+<a id="performing-an-incremental-readdocumentfeed" class="xliff"></a>
+
+### Execução de um ReadDocumentFeed incremental
 O ReadDocumentFeed dá suporte aos seguintes cenários/tarefas de processamento incremental de alterações em coleções do Azure Cosmos DB:
 
 * Leia todas as alterações para documentos desde o início, ou seja, desde a criação da coleção.
@@ -400,7 +414,9 @@ O trecho de código a seguir mostra como registrar um novo host para escutar as 
 
 Neste artigo, fornecemos um passo a passo do suporte ao feed de alterações do Azure Cosmos DB e como controlar as alterações feitas nos dados do Azure Cosmos DB usando a API REST e/ou os SDKs. 
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 * Experimente as [amostras de código do Feed de alterações do Azure Cosmos DB no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
-* Introdução à codificação com os [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
+* Introdução à codificação com os [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md) ou a [API REST](/rest/api/documentdb/)
 

@@ -12,21 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 07/12/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
 ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/27/2017
 
-
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure
+# Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure
+<a id="get-started-with-delivering-content-on-demand-using-the-azure-portal" class="xliff"></a>
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 Este tutorial o orienta ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de VoD (Vídeo sob Demanda) com o aplicativo AMS (Serviços de Mídia do Azure) usando o Portal do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## Pré-requisitos
+<a id="prerequisites" class="xliff"></a>
 Os itens a seguir são necessários para concluir o tutorial:
 
 * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -40,7 +42,8 @@ Este tutorial inclui as seguintes tarefas:
 4. Publicar o ativo e obter URLs de download progressivo e streaming.  
 5. Reproduzir o conteúdo.
 
-## <a name="start-streaming-endpoints"></a>Iniciar pontos de extremidade de streaming 
+## Iniciar pontos de extremidade de streaming
+<a id="start-streaming-endpoints" class="xliff"></a> 
 
 Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns o fornecimento de vídeo via streaming de taxa de bits adaptável. Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão suportados pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
 
@@ -58,7 +61,8 @@ Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 4. Clique no ícone Iniciar.
 5. Clique no botão Salvar para salvar as alterações.
 
-## <a name="upload-files"></a>Carregar arquivos
+## Carregar arquivos
+<a id="upload-files" class="xliff"></a>
 Para transmitir vídeos usando os Serviços de Mídia do Azure, você precisa carregar os vídeos de origem, codificá-los em várias taxas de bits e publicar o resultado. A primeira etapa é abordada nesta seção. 
 
 1. Na janela **Configuração**, clique em **Ativos**.
@@ -78,14 +82,16 @@ Para transmitir vídeos usando os Serviços de Mídia do Azure, você precisa ca
 
 Quando o carregamento for concluído, você verá o novo ativo listado na janela **Ativos** . 
 
-## <a name="encode-assets"></a>Codificar ativos
+## Codificar ativos
+<a id="encode-assets" class="xliff"></a>
 Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os Serviços de Mídia permitem as seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH. Para preparar os vídeos para a transmissão da taxa de bits adaptável, você precisa codificar o vídeo de origem em arquivos de múltiplas taxas de bits. Você deve usar o codificador **Media Encoder Standard** para codificar seus vídeos.  
 
 Os Serviços de Mídia também fornecem um empacotamento dinâmico que permite enviar seus MP4s de múltiplas taxas de bits nos seguintes formatos de transmissão: MPEG DASH, HLS, Smooth Streaming, sem a necessidade de recolocar nesses formatos de transmissão. Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia compilam e fornecem a resposta adequada com base nas solicitações de um cliente.
 
 Para tirar proveito do empacotamento dinâmico, você precisa codificar seu arquivo de origem em um conjunto de arquivos MP4 com múltiplas taxas de bits (as etapas da codificação são demonstradas mais tarde nesta seção).
 
-### <a name="to-use-the-portal-to-encode"></a>Para usar o portal para codificar
+### Para usar o portal para codificar
+<a id="to-use-the-portal-to-encode" class="xliff"></a>
 Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Media Encoder Standard.
 
 1. Na janela **Configurações**, selecione **Ativos**.  
@@ -98,12 +104,14 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
    ![Codificar ativos](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Pressione **Criar**.
 
-### <a name="monitor-encoding-job-progress"></a>Monitorar o andamento do trabalho de codificação
+### Monitorar o andamento do trabalho de codificação
+<a id="monitor-encoding-job-progress" class="xliff"></a>
 Para monitorar o andamento do trabalho de codificação, clique em **Configurações** (na parte superior da página), em seguida, selecione **Trabalhos**.
 
 ![Trabalhos](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-## <a name="publish-content"></a>Publicar conteúdo
+## Publicar conteúdo
+<a id="publish-content" class="xliff"></a>
 Para fornecer a seus usuários uma URL que pode ser usada para transmitir ou baixar seu conteúdo, primeiro você precisa "publicar" o ativo criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizadores: 
 
 * Localizadores de transmissão (OnDemandOrigin), usados para a transmissão adaptável (por exemplo, para transmitir MPEG DASH, HLS ou Smooth Streaming). Para criar um localizador de transmissão, seu ativo deve conter um arquivo .ism. 
@@ -133,7 +141,8 @@ Uma URL SAS tem o seguinte formato.
 
 Para atualizar uma data de validade em um localizador, use as APIs [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
 
-### <a name="to-use-the-portal-to-publish-an-asset"></a>Para usar o portal para publicar um ativo
+### Para usar o portal para publicar um ativo
+<a id="to-use-the-portal-to-publish-an-asset" class="xliff"></a>
 Para usar o portal para publicar um ativo, faça o seguinte:
 
 1. Selecione **Configurações** > **Ativos**.
@@ -146,7 +155,8 @@ Para usar o portal para publicar um ativo, faça o seguinte:
 
 A URL é adicionada à lista de **URLs publicadas**.
 
-## <a name="play-content-from-the-portal"></a>Reproduzir conteúdo do portal
+## Reproduzir conteúdo do portal
+<a id="play-content-from-the-portal" class="xliff"></a>
 O portal do Azure fornece um player de conteúdo que você pode usar para testar o vídeo.
 
 Clique no vídeo desejado e clique no botão **Reproduzir** .
@@ -158,12 +168,14 @@ Algumas considerações se aplicam:
 * Verifique se que o vídeo foi publicado.
 * Esse **Media player** reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir a partir de um ponto de extremidade da transmissão não padrão, clique para copiar a URL e use outra reprodução. Por exemplo, o [Player dos Serviços de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## Fornecer comentários
+<a id="provide-feedback" class="xliff"></a>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 

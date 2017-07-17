@@ -16,14 +16,16 @@ ms.date: 05/24/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 60c73f6ffb887337e6e52d20c42f316c355a8836
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 423f841b82ced16b3bd338f1f38db9ec0250fa66
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="documentdb-java-sdk-release-notes-and-resources"></a>SDK do Java no DocumentDB: notas de versão e recursos
+<a id="documentdb-java-sdk-release-notes-and-resources" class="xliff"></a>
+
+# SDK do Java no DocumentDB: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -40,7 +42,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Baixe o SDK**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
 <tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
@@ -51,22 +53,32 @@ ms.lasthandoff: 05/31/2017
 <tr><td>**Tempo de execução atual com suporte**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
-## <a name="release-notes"></a>Notas de versão
+<a id="release-notes" class="xliff"></a>
 
-### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
+## Notas de versão
+
+<a id="a-name11101110" class="xliff"></a>
+
+### <a name="1.11.0"/>1.11.0
 * Adição de suporte ao recurso Unidade de Solicitação por Minuto (RU/m).
 * Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
 * Corrigido um bug na leitura da coleção no modo de sessão.
 
-### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
+<a id="a-name11001100" class="xliff"></a>
+
+### <a name="1.10.0"/>1.10.0
 * Suporte habilitado para coleção particionada com 2.500 RU/s e escala em incrementos de 100 RU/s.
 * Correção de um bug no assembly nativo que pode causar exceção NullRef em algumas consultas.
 
-### <a name="a-name196196"></a><a name="1.9.6"/>1.9.6
+<a id="a-name196196" class="xliff"></a>
+
+### <a name="1.9.6"/>1.9.6
 * Corrigido um erro na configuração do mecanismo de consulta que pode causar exceções para consultas no modo de gateway.
 * Corrigidos alguns bugs no contêiner de sessão que podem causar uma exceção "Recurso proprietário não encontrado" para solicitações imediatamente após a criação da coleção.
 
-### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
+<a id="a-name195195" class="xliff"></a>
+
+### <a name="1.9.5"/>1.9.5
 * Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG). Veja [Suporte de agregação](documentdb-sql-query.md#Aggregates).
 * Adicionado suporte para alteração de feed.
 * Adicionado suporte para informações de cota de coleção por meio de RequestOptions.setPopulateQuotaInfo.
@@ -76,7 +88,9 @@ ms.lasthandoff: 05/31/2017
 * Corrigido um erro que pode causar a NullReferenceException no HttpContext quando a taxa de solicitação é alta.
 * Desempenho aprimorado de modo DirectHttps.
 
-### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
+<a id="a-name194194" class="xliff"></a>
+
+### <a name="1.9.4"/>1.9.4
 * Acréscimo de suporte a proxy com base em instância simples do cliente com API ConnectionPolicy.setProxy().
 * Acréscimo da API DocumentClient.close() para desligar apropriadamente a instância DocumentClient.
 * Melhor desempenho de consulta no modo de conectividade direta, derivando o plano de consulta do assembly nativo em vez do Gateway.
@@ -84,22 +98,30 @@ ms.lasthandoff: 05/31/2017
 * Registro em log refatorado para usar SLF4J.
 * Alguns outros bugs corrigidos no leitor de consistência.
 
-### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
+<a id="a-name193193" class="xliff"></a>
+
+### <a name="1.9.3"/>1.9.3
 * Correção de um erro no gerenciamento de conexão para evitar perdas de conexão no modo de conectividade direta.
 * Correção de um erro na consulta TOP, na qual pode lançar exceções NullReferenece.
 * Desempenho aprimorado por meio da redução do número de chamadas de rede para os caches internos.
 * Acréscimo do código de status, ActivityID e URI de Solicitação em DocumentClientException para melhor solução de problemas.
 
-### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
+<a id="a-name192192" class="xliff"></a>
+
+### <a name="1.9.2"/>1.9.2
 * Correção de um problema no gerenciamento de conexão para estabilidade.
 
-### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
+<a id="a-name191191" class="xliff"></a>
+
+### <a name="1.9.1"/>1.9.1
 * Adicionado suporte para o nível de consistência BoundedStaleness.
 * Adicionado suporte para conectividade direta para operações CRUD para coleções particionadas.
 * Corrigido um erro na consulta de um banco de dados com SQL.
 * Corrigido um erro no cache da sessão em que o token de sessão pode ser definido incorretamente.
 
-### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
+<a id="a-name190190" class="xliff"></a>
+
+### <a name="1.9.0"/>1.9.0
 * Adicionado suporte para várias consultas paralelas de partição.
 * Adição de suporte a consultas TOP/ORDER BY de coleções particionadas.
 * Adicionado suporte para consistência forte.
@@ -109,49 +131,75 @@ ms.lasthandoff: 05/31/2017
 * Adicionado Polygon e LineString DataTypes ao especificar a política de indexação de coleção para consultas espaciais de isolamento geográfico.
 * Problemas corrigidos com Java Doc para Java 1.8.
 
-### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
+<a id="a-name181181" class="xliff"></a>
+
+### <a name="1.8.1"/>1.8.1
 * Um bug foi corrigido em PartitionKeyDefinitionMap para armazenar as coleções de partição única em cache e para não fazer solicitações extras de chave de partição de busca.
 * Um bug foi corrigido para não tentar novamente quando um valor de chave de partição incorreto for fornecido.
 
-### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
+<a id="a-name180180" class="xliff"></a>
+
+### <a name="1.8.0"/>1.8.0
 * Suporte adicionado para contas de banco de dados de várias regiões.
 * Suporte adicionado para repetição automática em solicitações limitadas, com opções para personalizar o número máximo de repetições e o tempo de espera máximo de repetição.  Consulte RetryOptions e ConnectionPolicy.getRetryOptions().
 * IPartitionResolver preterido com base no código de particionamento personalizado. Use coleções particionadas para uma taxa de transferência e armazenamento superiores.
 
-### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
+<a id="a-name171171" class="xliff"></a>
+
+### <a name="1.7.1"/>1.7.1
 * Adicionado suporte à política de repetição para limitação.  
 
-### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+<a id="a-name170170" class="xliff"></a>
+
+### <a name="1.7.0"/>1.7.0
 * Adicionado suporte a TTL (vida útil) para documentos.
 
-### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+<a id="a-name160160" class="xliff"></a>
+
+### <a name="1.6.0"/>1.6.0
 * Implementação de [coleções particionadas](partition-data.md) e [níveis de desempenho definidos pelo usuário](performance-levels.md).
 
-### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
+<a id="a-name151151" class="xliff"></a>
+
+### <a name="1.5.1"/>1.5.1
 * Foi corrigido um bug no HashPartitionResolver para gerar valores de hash em little-endian para ser consistente com outros SDKs.
 
-### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+<a id="a-name150150" class="xliff"></a>
+
+### <a name="1.5.0"/>1.5.0
 * Adicionar resolvedores de hash e intervalo para ajudar com a fragmentação de arquivos em várias partições.
 
-### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+<a id="a-name140140" class="xliff"></a>
+
+### <a name="1.4.0"/>1.4.0
 * Implementar o Upsert. Novos métodos upsertXXX adicionados para dar suporte ao recurso Upsert.
 * Implementar o roteamento com base em ID. Nenhuma alteração pública de API, todas as alterações são internas.
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+<a id="a-name130130" class="xliff"></a>
+
+### <a name="1.3.0"/>1.3.0
 * Versão ignorada para alinhar os números de versão com outros SDKs
 
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+<a id="a-name120120" class="xliff"></a>
+
+### <a name="1.2.0"/>1.2.0
 * Oferece suporte ao Índice Geoespacial.
 * Valida a propriedade de ID de todos os recursos. As IDs de recursos não podem conter caracteres ?, /, #, \, ou terminar com um espaço.
 * Adiciona o novo cabeçalho "andamento de transformação do índice" ao ResourceResponse.
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+<a id="a-name110110" class="xliff"></a>
+
+### <a name="1.1.0"/>1.1.0
 * Implementa a política de indexação V2
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+<a id="a-name100100" class="xliff"></a>
+
+### <a name="1.0.0"/>1.0.0
 * SDK DO GA
 
-## <a name="release--retirement-dates"></a>Datas de lançamento e desativação
+<a id="release--retirement-dates" class="xliff"></a>
+
+## Datas de lançamento e desativação
 A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
 
 Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
@@ -196,10 +244,14 @@ Qualquer solicitação feita ao Cosmos DB usando um SDK desativado será rejeita
 | 0.9.1-prelease |19 de dezembro de 2014 |29 de fevereiro de 2016 |
 | 0.9.0-prelease |10 de dezembro de 2014 |29 de fevereiro de 2016 |
 
-## <a name="faq"></a>Perguntas frequentes
+<a id="faq" class="xliff"></a>
+
+## Perguntas frequentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+<a id="see-also" class="xliff"></a>
+
+## Consulte também
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 

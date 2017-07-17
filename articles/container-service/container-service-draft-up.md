@@ -16,23 +16,27 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: rasquill
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 20619fd21f376afee95facb688e35534f5979b90
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: dc3ae52b1ec6717c7e19a160e3e7ea5d211f1f5f
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 06/28/2017
 
 
 
 ---
 
-# <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Use o Rascunho com o Serviço de Contêiner do Azure e o Registro de Contêiner do Azure para criar e implantar um aplicativo no Kubernetes
+<a id="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes" class="xliff"></a>
+
+# Use o Rascunho com o Serviço de Contêiner do Azure e o Registro de Contêiner do Azure para criar e implantar um aplicativo no Kubernetes
 
 [Rascunho](https://aka.ms/draft) é uma nova ferramenta de software livre que facilita o desenvolvimento de aplicativos baseados em contêiner e a implantação em clusters Kubernetes sem saber muito sobre Docker e Kubernetes, ou até mesmo sem instalá-los. O uso de ferramentas como o Rascunho permite que você e sua equipe se concentrem na criação do aplicativo com Kubernetes sem prestar muita atenção à infraestrutura.
 
 Você pode usar o Rascunho com qualquer registro de imagem do Docker e qualquer cluster Kubernetes, incluindo os locais. Este tutorial mostra como usar o ACS com Kubernetes, ACR e DNS do Azure para criar um pipeline de desenvolvedor CI/CD ativo usando o Rascunho.
 
 
-## <a name="create-an-azure-container-registry"></a>Criar um Registro de Contêiner do Azure
+<a id="create-an-azure-container-registry" class="xliff"></a>
+
+## Criar um Registro de Contêiner do Azure
 Você pode [criar um novo Registro de Contêiner do Azure](../container-registry/container-registry-get-started-azure-cli.md) facilmente, mas as etapas são as seguintes:
 
 1. Crie um grupo de recursos do Azure para gerenciar o registro ACR e o cluster Kubernetes no ACS.
@@ -46,7 +50,9 @@ Você pode [criar um novo Registro de Contêiner do Azure](../container-registry
       ```
 
 
-## <a name="create-an-azure-container-service-with-kubernetes"></a>Criar um Serviço de Contêiner do Azure com Kubernetes
+<a id="create-an-azure-container-service-with-kubernetes" class="xliff"></a>
+
+## Criar um Serviço de Contêiner do Azure com Kubernetes
 
 Agora você está pronto para usar [az acs create](/cli/azure/acs#create) a fim de criar um cluster ACS usando Kubernetes como o valor `--orchestrator-type`.
 ```azurecli
@@ -104,15 +110,17 @@ waiting for AAD role to propagate.done
 
 Agora que você tem um cluster, pode importar as credenciais usando o comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). Agora você tem um arquivo de configuração local para seu cluster, que é que o Helm e o Rascunho precisam para concluir o trabalho.
 
-## <a name="install-and-configure-draft"></a>Instalar e configurar o Rascunho
+<a id="install-and-configure-draft" class="xliff"></a>
+
+## Instalar e configurar o Rascunho
 As instruções de instalação do Rascunho estão no [repositório do Rascunho](https://github.com/Azure/draft/blob/master/docs/install.md). Elas são relativamente simples, mas exigem alguma configuração, pois ela depende do [Helm](https://aka.ms/helm) para criar e implantar um gráfico Helm no cluster Kubernetes.
 
 1. [Baixe e instale o Helm](https://aka.ms/helm#install).
 2. Use o Helm para procurar e instalar `stable/traefik` e o controlador de entrada para permitir solicitações de entrada para as builds.
     ```bash
     $ helm search traefik
-    NAME              VERSION    DESCRIPTION
-    stable/traefik    1.2.1-a    A Traefik based Kubernetes ingress controller w...
+    NAME            VERSION DESCRIPTION
+    stable/traefik  1.3.0   A Traefik based Kubernetes ingress controller w...
 
     $ helm install stable/traefik --name ingress
     ```
@@ -127,7 +135,9 @@ As instruções de instalação do Rascunho estão no [repositório do Rascunho]
 
     Neste caso, o IP externo para o domínio de implantação é `13.64.108.240`. Agora, você pode mapear seu domínio para esse IP.
 
-## <a name="wire-up-deployment-domain"></a>Configurar domínio de implantação
+<a id="wire-up-deployment-domain" class="xliff"></a>
+
+## Configurar domínio de implantação
 
 O Rascunho cria uma versão para cada gráfico do Helm criado, ou seja, cada aplicativo em que você está trabalhando. Cada um obtém um nome gerado que é usado pelo Rascunho como um _subdomínio_ acima do _domínio de implantação_ raiz que você controla. (Neste exemplo, usamos `squillace.io` como o domínio de implantação.) Para habilitar esse comportamento de subdomínio, você deve criar um registro a para `'*'` nas entradas DNS do seu domínio de implantação, para que cada subdomínio gerado seja roteado para o controlador de entrada do cluster Kubernetes.
 
@@ -194,29 +204,40 @@ A saída se parece com:
     ```
 
 5. Configure o Rascunho para usar seu registro e crie subdomínios para cada gráfico do Helm criado. Para configurar o Rascunho, você precisará:
-  - do nome do Registro de Contêiner do Azure (neste exemplo, `draftacs`)
-  - da chave do registro, ou senha, de `az acr credential show -n $acrname --output tsv --query "passwords[0].value"`.
-  - do domínio raiz da implantação que você configurou para mapear para o endereço IP externo de entrada do Kubernetes (aqui, `13.64.108.240`)
+  - do nome do Registro de Contêiner do Azure (neste exemplo, `draft`)
+  - da chave do registro, ou senha, de `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
+  - do domínio raiz da implantação que você configurou para mapear para o endereço IP externo de entrada do Kubernetes (aqui, `squillace.io`)
 
-  Com esses valores, você pode criar o valor codificado em base 64 da configuração de cadeia de caracteres JSON, `{"username":"<user>","password":"<secret>","email":"email@example.com"}`. Uma maneira para codificar o valor é a que vemos abaixo (mas substituam os valores neste exemplo pelos seus próprios).
-      ```bash
-      acrname="draftacs"
-      password=$(az acr credential show -n $acrname --output tsv --query "passwords[0].value")
-      authtoken=$(echo \{\"username\":\"$acrname\",\"password\":\"$password\",\"email\":\"rasquill@microsoft.com\"\} | base64)
-      ```
+  Chame `draft init` e o processo de configuração solicitará os valores acima. O processo ficará mais ou menos assim na primeira vez que você executá-lo.
+    ```
+    draft init
+    Creating pack ruby...
+    Creating pack node...
+    Creating pack gradle...
+    Creating pack maven...
+    Creating pack php...
+    Creating pack python...
+    Creating pack dotnetcore...
+    Creating pack golang...
+    $DRAFT_HOME has been configured at /Users/ralphsquillace/.draft.
 
-  Você pode confirmar se a cadeia de caracteres JSON está correta digitando `echo $authtoken | base64 -D` para exibir o resultado sem codificação.
-  Agora, inicialize o Rascunho com esse comando e o argumento de configuração para a opção `-set`:
-      ```bash
-      draft init --set registry.url=$acrname.azurecr.io,registry.org=$acrname,registry.authtoken=$authtoken,basedomain=squillace.io
-      ```
-      > [!NOTE]
-      > É fácil esquecer que o valor `basedomain` é o domínio de implantação base que você controla e foi configurado para apontar para o IP de entrada externo.
+    In order to install Draft, we need a bit more information...
+
+    1. Enter your Docker registry URL (e.g. docker.io, quay.io, myregistry.azurecr.io): draft.azurecr.io
+    2. Enter your username: draft
+    3. Enter your password:
+    4. Enter your org where Draft will push images [draft]: draft
+    5. Enter your top-level domain for ingress (e.g. draft.example.com): squillace.io
+    Draft has been installed into your Kubernetes Cluster.
+    Happy Sailing!
+    ```
 
 Agora você está pronto para implantar um aplicativo.
 
 
-## <a name="build-and-deploy-an-application"></a>Criar e implantar um aplicativo
+<a id="build-and-deploy-an-application" class="xliff"></a>
+
+## Criar e implantar um aplicativo
 
 No repositório do Rascunho, existem [seis aplicativos de exemplo simples](https://github.com/Azure/draft/tree/master/examples). Clone o repositório e vamos usar o [exemplo do Python](https://github.com/Azure/draft/tree/master/examples/python). Mude para o diretório de exemplos/Python e digite `draft create` para compilar o aplicativo. Ele deve ficar parecido com o exemplo a seguir.
 ```bash
@@ -254,7 +275,9 @@ Watching local files for changes...
 
 Seja qual for o nome do gráfico, agora você pode `curl http://gangly-bronco.squillace.io` para receber a resposta `Hello World!`.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 
 Agora que você tem um cluster ACS Kubernetes, pode investigar o uso do [Registro de Contêiner do Azure](../container-registry/container-registry-intro.md) para criar outras implantações diferentes deste cenário. Por exemplo, você pode criar um conjunto de registro DNS de domínio de rascunho _basedomain.toplevel_ que controla coisas de um subdomínio mais profundo para implantações específicas do ACS.
 

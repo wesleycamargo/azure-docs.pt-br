@@ -12,21 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
 ms.openlocfilehash: 48531d69fcefed27785e0e1ae667274fa48ea1d2
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/24/2017
 
-
 ---
-# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir exclusões acidentais
+<a id="azure-ad-connect-sync-prevent-accidental-deletes" class="xliff"></a>
+
+# Sincronização do Azure AD Connect: impedir exclusões acidentais
 Este tópico descreve o recurso de prevenção contra exclusões acidentais (que impede exclusões acidentais) no Azure AD Connect.
 
 Ao instalar o Azure AD Connect, o recurso para impedir exclusões acidentais é habilitado por padrão e configurado para não permitir uma exportação com mais de 500 exclusões. Esse recurso destina-se a protegê-lo contra alterações acidentais de configuração e alterações no diretório local que possam afetar muitos usuários e outros objetos.
 
-## <a name="what-is-prevent-accidental-deletes"></a>O que é impedir exclusões acidentais
+<a id="what-is-prevent-accidental-deletes" class="xliff"></a>
+
+## O que é impedir exclusões acidentais
 Os cenários comuns quando você vê muitas exclusões incluem:
 
 * Alterações de [filtragem](active-directory-aadconnectsync-configure-filtering.md) em que todo uma [UO](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) ou [domínio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) é desmarcado.
@@ -64,7 +68,9 @@ Se todas as exclusões forem desejadas, siga este procedimento:
 3. Com o Conector do Azure Active Directory ainda selecionado, selecione a ação **Executar** e **Exportar**.
 4. Para reabilitar a proteção, execute o cmdlet do PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Substitua 500 pelo valor que você observou ao recuperar o limite atual de exclusão. Forneça uma conta e senha de Administrador Global do Azure AD.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 **Tópicos de visão geral**
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
