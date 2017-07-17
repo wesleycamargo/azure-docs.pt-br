@@ -1,5 +1,4 @@
 ---
-
 title: "Como usar o pacote de conteúdo do Power BI do Azure Active Directory | Microsoft Docs"
 description: "Aprenda a usar o Pacote de Conteúdo do Power BI do Azure Active Directory"
 services: active-directory
@@ -11,27 +10,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: ab95f61e2d88f82bf2b24aea786c7dbadfb9c0fe
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/22/2017
 
-
 ---
-<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
-
 # Como usar o Pacote de Conteúdo do Power BI do Azure Active Directory
+<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
 
 Entender como os usuários adotam e usam os recursos do Azure Active Directory é essencial para você como administrador de TI. Ele permite que você a planeje sua infraestrutura de TI e comunicação para aumentar o uso e obter o máximo proveito de recursos do AAD. O Pacote de conteúdo do Power BI para o Azure Active Directory oferece a capacidade de analisar dados para entender como é possível usar esses dados para coletar informações mais sofisticadas sobre o que está acontecendo com seu Azure Active Directory em relação aos diversos recursos de que você mais depende.  Com a integração das APIs do Azure Active Directory ao Power BI, você pode facilmente baixar os pacotes de conteúdo predefinidos e obter ideias para todas as atividades no Azure Active Directory usando a experiência de visualização avançada oferecida pelo Power BI. Você pode criar seu próprio painel e compartilhá-lo facilmente com qualquer pessoa em sua organização. 
 
 Este tópico fornece instruções passo a passo sobre como instalar e usar o pacote de conteúdo em seu ambiente.
 
-<a id="installation" class="xliff"></a>
-
-## Instalação  
+## Instalação
+<a id="installation" class="xliff"></a>  
 
 **Para instalar o pacote de conteúdo do Power BI:**
 
@@ -72,15 +69,13 @@ Este tópico fornece instruções passo a passo sobre como instalar e usar o pac
  
     ![Pacote de Conteúdo do Power BI do Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/08.png) 
 
-<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
-
 ## O que posso fazer com esse pacote de conteúdo?
+<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
 
 Antes de falarmos sobre o que você pode fazer com o pacote de conteúdo, veja rapidamente os vários relatórios que existem no pacote de conteúdo. Os dados do relatório abrangem até os **últimos 30 dias**.
 
-<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
-
 ### Relatórios incluídos nesta versão do pacote de conteúdo de logs do Azure Active Directory
+<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
 
 **Relatório de uso do aplicativo e tendência**: obtenha informações sobre os aplicativos usados em sua organização e quais estão sendo usados com maior frequência e quando. Você pode usar esse relatório para coletar informações sobre como um aplicativo distribuído recentemente em sua organização está sendo usado ou para descobrir quais aplicativos são populares. Ao fazer isso, você poderá melhorar o uso se vir que o aplicativo não está sendo usado.
 
@@ -105,9 +100,8 @@ Com esse relatório, você pode entender os vários perfis de dispositivo usados
 
 **Funil SSPR**: entenda como redefinições de senha estão sendo feitas em sua organização. Veja quantas redefinições foram tentadas por meio da ferramenta SSPR e quantas delas foram bem-sucedidas. Aprofunde-se nas falhas de redefinição de senha usando o SSPR e entenda por que determinadas falhas ocorreram. Esse relatório fornece uma compreensão mais profunda de como a ferramenta SSPR é usada dentro de sua organização para que você possa tomar as decisões corretas.
 
-<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
-
 ## Personalizando o pacote de conteúdo da Atividade do Azure AD
+<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
 
 **Alterar a visualização**: você pode alterar uma visualização de relatório clicando em **Editar Relatório** e selecionando a visualização desejada.
  
@@ -135,17 +129,15 @@ Com esse relatório, você pode entender os vários perfis de dispositivo usados
 
 
 
-<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
-
 ## Agendar uma atualização diária de seu relatório do Power BI
+<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
 
 Para agendar uma atualização diária de seu relatório do Power BI, vá para **Conjuntos de Dados > Configurações > Agendar Atualização** e defina-o conforme mostrado abaixo.
  
 ![Pacote de Conteúdo do Power BI do Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
 
-<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
-
 ## Atualizar para a versão mais recente do pacote de conteúdo
+<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
 
 Se você quiser atualizar seu pacote de conteúdo para obter uma versão mais recente:
 
@@ -157,9 +149,8 @@ Se você quiser atualizar seu pacote de conteúdo para obter uma versão mais re
 
 Assim que a nova versão do pacote de conteúdo estiver funcionando, você poderá remover a versão antiga, se necessário, excluindo os relatórios subjacentes e os conjuntos de dados associados a esse pacote de conteúdo.
 
-<a id="still-having-issues" class="xliff"></a>
-
-## Ainda está com problemas? 
+## Ainda está com problemas?
+<a id="still-having-issues" class="xliff"></a> 
 
 Confira nosso [guia de solução de problemas](active-directory-reporting-troubleshoot-content-pack.md). Para obter ajuda geral com o Power BI, confira esses [artigos de ajuda](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  

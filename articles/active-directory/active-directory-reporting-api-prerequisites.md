@@ -3,7 +3,7 @@ title: "Pré-requisitos para acessar a API de relatório do Azure AD. | Microsof
 description: "Aprenda sobre os pré-requisitos para acessar a API de relatório do Azure AD"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
+ms.custom: oldportal
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b0f23cc578fb946247d492b9dee92cf7a9daafa1
 ms.contentlocale: pt-br
 ms.lasthandoff: 12/29/2016
 
-
 ---
-# <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure AD
+# Pré-requisitos para acessar a API de relatório do Azure AD
+<a id="prerequisites-to-access-the-azure-ad-reporting-api" class="xliff"></a>
 As [APIs de relatório do Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) fornecem acesso programático aos dados através de um conjunto de APIs baseadas em REST. Você pode chamar essas APIs de várias ferramentas e linguagens de programação.
 
 A API de relatório usa [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar o acesso às APIs da Web. 
@@ -35,7 +36,8 @@ Para preparar seu acesso à API de relatório, faça o seguinte:
 
 Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="create-an-azure-ad-application"></a>Criar um aplicativo Azure AD
+## Criar um aplicativo Azure AD
+<a id="create-an-azure-ad-application" class="xliff"></a>
 Para configurar seu diretório a fim de acessar a API de relatório do Azure AD, você deve entrar Portal Clássico do Azure com uma conta de administrador de assinatura do Azure que também é membro da função de diretório de Administrador Global em seu locatário do Azure AD.
 
 > [!IMPORTANT]
@@ -75,7 +77,8 @@ Para configurar seu diretório a fim de acessar a API de relatório do Azure AD,
    
     c. Clique em **Concluído**.
 
-## <a name="grant-your-application-permission-to-use-the-api"></a>Conceda permissão ao aplicativo para usar a API
+## Conceda permissão ao aplicativo para usar a API
+<a id="grant-your-application-permission-to-use-the-api" class="xliff"></a>
 1. No [portal clássico do Azure](https://manage.windowsazure.com/), no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/01.png) 
@@ -96,7 +99,8 @@ Para configurar seu diretório a fim de acessar a API de relatório do Azure AD,
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/10.png)
 
-## <a name="gather-configuration-settings-from-your-directory"></a>Reúna as definições de configuração de seu diretório
+## Reúna as definições de configuração de seu diretório
+<a id="gather-configuration-settings-from-your-directory" class="xliff"></a>
 Esta seção mostra como obter as seguintes configurações de seu diretório:
 
 * Nome de domínio
@@ -105,7 +109,8 @@ Esta seção mostra como obter as seguintes configurações de seu diretório:
 
 Você precisa desses valores ao configurar chamadas para a API de relatórios. 
 
-### <a name="get-your-domain-name"></a>Obter seu nome de domínio
+### Obter seu nome de domínio
+<a id="get-your-domain-name" class="xliff"></a>
 1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/01.png) 
@@ -117,7 +122,8 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/12.png) 
 
-### <a name="get-the-applications-client-id"></a>Obter a ID do cliente do aplicativo
+### Obter a ID do cliente do aplicativo
+<a id="get-the-applications-client-id" class="xliff"></a>
 1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/01.png) 
@@ -135,7 +141,8 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/13.png)
 
-### <a name="get-the-applications-client-secret"></a>Obter o segredo do cliente do aplicativo
+### Obter o segredo do cliente do aplicativo
+<a id="get-the-applications-client-secret" class="xliff"></a>
 Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chave e salvar seu valor ao salvar a nova chave, pois não é possível recuperar este valor posteriormente.
 
 1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
@@ -163,7 +170,8 @@ Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chav
    
     c. Copie o valor da chave.
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 * Você gostaria de acessar os dados da API de relatório do Azure AD de uma maneira programática? Confira [Introdução à API de Relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Se você quiser saber mais sobre os relatórios do Azure Active Directory, confira o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).  
 

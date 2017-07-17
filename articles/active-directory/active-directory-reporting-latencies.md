@@ -3,7 +3,7 @@ title: "Latências do relatório do Azure Active Directory | Microsoft Docs"
 description: Quantidade de tempo que leva para relatar eventos aparecendo no seu Active Directory do Azure
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 346b14f8-d16d-4b07-8211-e6c5eec07062
@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
+ms.custom: oldportal
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 9443a00232420d58dea52ed01f31a4ef964a1620
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/09/2017
 
-
 ---
-# <a name="azure-active-directory-report-latencies"></a>Latências de relatório do Active Directory do Azure
+# Latências de relatório do Active Directory do Azure
+<a id="azure-active-directory-report-latencies" class="xliff"></a>
 *Esta documentação é parte do [Guia de Relatórios do Azure Active Directory](active-directory-reporting-guide.md).*
 
 | Relatório | Mínimo | Média | Máximo |
