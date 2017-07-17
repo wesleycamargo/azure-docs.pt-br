@@ -1,5 +1,4 @@
 ---
-
 title: "Auditoria de relatórios de atividade no portal do Azure Active Directory | Microsoft Docs"
 description: "Introdução à auditoria de relatórios de atividade no portal do Azure Active Directory"
 services: active-directory
@@ -15,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/26/2017
 
-
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
+# Relatórios de atividades de auditoria no portal do Azure Active Directory
+<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a> 
 
 Com os relatórios no Azure Active Directory (Azure AD) você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando.
 
@@ -38,13 +38,15 @@ A arquitetura de relatório no Azure AD consiste nos seguintes componentes:
 
 Este tópico fornece uma visão geral das atividades de auditoria.
  
-## <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
+## Quem pode acessar os dados?
+<a id="who-can-access-the-data" class="xliff"></a>
 * Usuários na função de Administrador de segurança ou Leitor de segurança
 * Administradores globais
 * Os usuários individuais (não administradores) podem ver suas próprias atividades
 
 
-## <a name="audit-logs"></a>Logs de auditoria
+## Logs de auditoria
+<a id="audit-logs" class="xliff"></a>
 
 Os logs de auditoria no Azure Active Directory fornecem registros de atividades do sistema para fins de conformidade.  
 O primeiro ponto de entrada para todos os dados de auditoria é **Logs de auditoria**, na seção **Atividade** do **Azure Active Directory**.
@@ -74,7 +76,8 @@ Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre e
 ![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/22.png "Logs de auditoria")
 
 
-## <a name="filtering-audit-logs"></a>Filtragem de logs de auditoria
+## Filtragem de logs de auditoria
+<a id="filtering-audit-logs" class="xliff"></a>
 
 Para restringir os dados relatados a um nível que funciona para você, filtre os dados de auditoria usando os seguintes campos:
 
@@ -134,14 +137,16 @@ O filtro **atividade** se baseia na categoria e na seleção do tipo de recurso 
 Você pode obter a lista de todas as Atividades de Auditoria usando a API do Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, onde $tenantdomain = seu nome de domínio ou consulte o artigo [eventos do relatório de auditoria](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
-## <a name="audit-logs-shortcuts"></a>Atalhos de logs de auditoria
+## Atalhos de logs de auditoria
+<a id="audit-logs-shortcuts" class="xliff"></a>
 
 Além do **Azure Active Directory**, o portal do Azure fornece dois pontos de entrada adicionais para dados de auditoria:
 
 - Usuários e grupos
 - Aplicativos empresariais
 
-### <a name="users-and-groups-audit-logs"></a>Logs de auditoria de usuários e grupos
+### Logs de auditoria de usuários e grupos
+<a id="users-and-groups-audit-logs" class="xliff"></a>
 
 Com relatórios de auditoria baseados em grupos e usuários, você pode obter respostas a perguntas como:
 
@@ -165,7 +170,8 @@ Se quiser examinar os dados de auditoria relacionados aos usuários e aos grupos
 
 ![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/93.png "Logs de auditoria")
 
-### <a name="enterprise-applications-audit-logs"></a>Logs de auditoria de aplicativos empresariais
+### Logs de auditoria de aplicativos empresariais
+<a id="enterprise-applications-audit-logs" class="xliff"></a>
 
 Com relatórios de auditoria baseados em aplicativos, você pode obter respostas a perguntas como:
 
@@ -184,7 +190,8 @@ Você pode filtrar essa exibição para apenas **grupos** ou apenas **usuários*
 ![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/25.png "Logs de auditoria")
 
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 Veja o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).
 
 

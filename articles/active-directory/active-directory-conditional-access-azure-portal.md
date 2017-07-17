@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 05/11/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.sourcegitcommit: d4b38f1f90301c971cb6000f46d831047acb220e
 ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
-# <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
+# Acesso condicional no Azure Active Directory
+<a id="conditional-access-in-azure-active-directory" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-conditional-access-azure-portal.md)
@@ -60,13 +60,15 @@ A combinação de uma instrução de condição com seus controles representa um
 ![Controle](./media/active-directory-conditional-access-azure-portal/12.png)
 
 
-## <a name="controls"></a>Controles
+## Controles
+<a id="controls" class="xliff"></a>
 
 Em uma política de acesso condicional, os controles definem o que é que deverá acontecer quando uma instrução de condição tiver sido atendida.  
 Com controles, você pode bloquear o acesso ou permitir acesso com requisitos adicionais.
 Quando você configura uma política que permita o acesso, precisa selecionar pelo menos um requisito.   
 
-### <a name="grant-controls"></a>Controles de concessão
+### Controles de concessão
+<a id="grant-controls" class="xliff"></a>
 A implementação atual do Azure Active Directory permite que você configure os seguintes requisitos de controles de concessão:
 
 ![Controle](./media/active-directory-conditional-access-azure-portal/05.png)
@@ -81,16 +83,19 @@ Se você tiver mais de um requisito selecionado na política de acesso condicion
 
 ![Controle](./media/active-directory-conditional-access-azure-portal/06.png)
 
-### <a name="session-controls"></a>Controles de sessão
+### Controles de sessão
+<a id="session-controls" class="xliff"></a>
 Controles de sessão permitem a limitação da experiência dentro de um aplicativo na nuvem. Os controles de sessão são impostos por aplicativos de nuvem e contam com informações adicionais sobre a sessão fornecidas pelo Azure AD para o aplicativo.
 
 ![Controle](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
 
-#### <a name="use-app-enforced-restrictions"></a>Usar restrições de aplicativo impostas
+#### Usar restrições de aplicativo impostas
+<a id="use-app-enforced-restrictions" class="xliff"></a>
 Você pode usar esse controle para exigir que o Azure AD passe as informações de dispositivo para o aplicativo na nuvem. Isso ajuda o aplicativo de nuvem a saber se o usuário vem de um dispositivo em conformidade ou um dispositivo ingressado no domínio. Esse controle atualmente só tem suporte com o SharePoint como o aplicativo na nuvem. O SharePoint usa as informações do dispositivo para fornecer uma experiência completa ou limitada aos usuários, dependendo do estado do dispositivo.
 Para saber mais sobre como exigir acesso limitado com o SharePoint, acesse [aqui](https://aka.ms/spolimitedaccessdocs).
 
-## <a name="condition-statement"></a>Instrução de condição
+## Instrução de condição
+<a id="condition-statement" class="xliff"></a>
 
 A seção anterior apresentou opções com suporte para bloquear ou restringir o acesso aos recursos na forma de controles. Em uma política de acesso condicional, você define os critérios que devem ser atendidos para que os controles sejam aplicados em forma de uma instrução de condição.  
 
@@ -117,7 +122,8 @@ Selecionando aplicativos na nuvem, você define o escopo de aplicativos de nuvem
     ![Condições](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
-## <a name="conditions"></a>Condições
+## Condições
+<a id="conditions" class="xliff"></a>
 
 Na implementação atual do Azure Active Directory, você pode definir condições para as seguintes áreas:
 
@@ -143,16 +149,19 @@ A autenticação herdada refere-se aos clientes usando a autenticação básica,
     ![Condições](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
-## <a name="common-scenarios"></a>Cenários comuns
+## Cenários comuns
+<a id="common-scenarios" class="xliff"></a>
 
-### <a name="requiring-multi-factor-authentication-for-apps"></a>Exibir a autenticação multifator para aplicativos
+### Exibir a autenticação multifator para aplicativos
+<a id="requiring-multi-factor-authentication-for-apps" class="xliff"></a>
 
 Muitos ambientes têm aplicativos que exigem um nível mais alto de proteção do que outros.
 Isso é, por exemplo, o caso para aplicativos que têm acesso a dados confidenciais.
 Se você quiser adicionar outra camada de proteção para esses aplicativos, poderá configurar uma política de acesso condicional que exija a autenticação multifator quando os usuários acessarem esses aplicativos.
 
 
-### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>Exigir autenticação multifator para acesso de redes que não são confiáveis
+### Exigir autenticação multifator para acesso de redes que não são confiáveis
+<a id="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted" class="xliff"></a>
 
 Esse cenário é semelhante ao cenário anterior porque adiciona um requisito para a autenticação multifator.
 No entanto, a principal diferença é a condição para esse requisito.  
@@ -160,13 +169,15 @@ Embora o foco do cenário anterior fosse aplicativos com acesso a dados confiden
 Em outras palavras, você pode ter um requisito para autenticação multifator se um aplicativo for acessado por um usuário de uma rede em que você não confia.
 
 
-### <a name="only-trusted-devices-can-access-office-365-services"></a>Somente os dispositivos confiáveis podem acessar os serviços do Office 365
+### Somente os dispositivos confiáveis podem acessar os serviços do Office 365
+<a id="only-trusted-devices-can-access-office-365-services" class="xliff"></a>
 
 Se você estiver usando o Intune em seu ambiente, poderá começar imediatamente usando a interface de política de acesso condicional no console do Azure.
 
 Muitos clientes do Intune estão usando o acesso condicional para garantir que somente os dispositivos confiáveis possam acessar os serviços do Office 365. Isso significa que os dispositivos móveis estão registrados no Intune e atendem aos requisitos da política de conformidade e que os computadores com Windows fazem parte de um domínio local. Uma melhoria-chave é que você não precisa definir a mesma política para cada um dos serviços do Office 365.  Quando você criar uma nova política, configure os aplicativos de nuvem para incluir cada um dos aplicativos do O365 que você deseja proteger com o acesso condicional.
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 
 Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
