@@ -199,10 +199,6 @@
 
 ### [Eventos de risco](active-directory-reporting-risk-events.md)
 
-### [Retenção](active-directory-reporting-retention.md)
-
-### [Latências](active-directory-reporting-latencies-azure-portal.md)
-
 ### [Perguntas frequentes](active-directory-reporting-faq.md)
 
 ### Tarefas
@@ -212,7 +208,15 @@
 #### [Localizar relatórios de atividades](active-directory-reporting-migration.md)
 
 #### [Usar o Pacote de Conteúdo do Power BI do Active Directory do Azure](active-directory-reporting-power-bi-content-pack-how-to.md)
-  
+
+### Referência
+
+#### [Retenção](active-directory-reporting-retention.md)
+
+#### [Latências](active-directory-reporting-latencies-azure-portal.md)
+
+#### [Códigos de erro da atividade de entrada](active-directory-reporting-activity-sign-ins-errors.md)
+
 ### Solucionar problemas
 
 #### [Dados de auditoria ausentes](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -416,6 +420,8 @@
 ##### [Área de Trabalho Remota](application-proxy-publish-remote-desktop.md)
 
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
+##### [Equipes da Microsoft](application-proxy-teams.md)
 
 #### [Solucionar problemas](active-directory-application-proxy-troubleshoot.md)
 
