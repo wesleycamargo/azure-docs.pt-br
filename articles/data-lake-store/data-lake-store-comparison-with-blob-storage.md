@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
 ms.openlocfilehash: 10926263ee2657dc96fb1873733d349cf0956e92
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/05/2017
 
 
 ---
-# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparar o Azure Data Lake Store e o Armazenamento de Blobs do Azure
+# Comparar o Azure Data Lake Store e o Armazenamento de Blobs do Azure
+<a id="comparing-azure-data-lake-store-and-azure-blob-storage" class="xliff"></a>
 A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Armazenamento de Blobs do Azure em alguns aspectos fundamentais do processamento de big data. O Armazenamento de Blobs do Azure é um repositório de objetos escalonável de finalidade geral que foi criado para uma ampla variedade de cenários de armazenamento. O Azure Data Lake Store é um repositório de grande escala otimizado para cargas de trabalho de análise de big data.
 
 |  | Repositório Azure Data Lake | Armazenamento do Blobs do Azure |
@@ -47,7 +49,8 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Ar
 | Disponibilidade regional |Veja [aqui](https://azure.microsoft.com/regions/#services) |Veja [aqui](https://azure.microsoft.com/regions/#services) |
 | Preço |Veja [preços](https://azure.microsoft.com/pricing/details/data-lake-store/) |Veja [preços](https://azure.microsoft.com/pricing/details/storage/) |
 
-### <a name="next-steps"></a>Próximas etapas
+### Próximas etapas
+<a id="next-steps" class="xliff"></a>
 * [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 * [Introdução ao Repositório Data Lake](data-lake-store-get-started-portal.md)
 
