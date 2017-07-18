@@ -18,7 +18,7 @@ As tentativas de conexão com o serviço do Banco de Dados de Documentos com uma
 
 Os novos recursos e funcionalidades serão adicionadas apenas para as novas versões. Se estiver usando uma versão anterior mas não-obsoleta do SDK, suas solicitações para o Banco de Dados de Documentos continuarão funcionando como antes, mas você não terá acesso aos novos recursos.  
 
-**6. O que devo fazer, caso eu não consiga atualizar o aplicativo antes de uma data de fechamento**
+**6. O que devo fazer, caso eu não consiga atualizar o aplicativo antes de uma data de fechamento?**
 
 Recomendamos atualizar o mais rápido possível para o SDK mais recente. Quando um SDK é marcado para desativação, você tem 12 meses para atualizar o aplicativo. Caso você não possa concluir a atualização do aplicativo nesse prazo por algum motivo, contate a [Equipe do BD Cosmos](mailto:askcosmosdb@microsoft.com) e solicite ajuda antes da data de fechamento.
 

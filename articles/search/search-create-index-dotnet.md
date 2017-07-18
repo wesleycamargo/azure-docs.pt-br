@@ -1,5 +1,5 @@
 ---
-title: "Criar seu índice do Azure Search usando o SDK do .NET | Microsoft Docs"
+title: "Criar um índice (API .NET - Azure Search) | Microsoft Docs"
 description: "Criar um índice no código usando o SDK .NET do Azure Search."
 services: search
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 0531b5c3b63a3fa54bb331f3d8d09c8119e789ea
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 2f2160f9b4383f9220c81a7233612a767e296109
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>Criar um índice do Azure Search usando o SDK do .NET
