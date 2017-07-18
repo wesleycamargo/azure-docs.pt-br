@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: fef61e6155471a0459957ea0c510698cfa787fdc
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: f40ceb542a0ee51e17ee539db4dbc91c11e056f2
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -31,8 +32,10 @@ Uma compreensão completa de assinaturas do Azure, regiões e recursos de rede �
 Antes de responder as perguntas planejadas abaixo, considere o seguinte:
 
 * Tudo que você cria no Azure é composto de um ou mais recursos. Uma máquina virtual (VM) é um recurso, a interface de adaptador de rede (NIC) usada por uma máquina virtual é um recurso, o endereço IP público usado por uma NIC é um recurso, a NIC que está conectada à rede virtual é um recurso.
-* Criar recursos dentro de uma [Região do Azure](https://azure.microsoft.com/regions/#services) e assinatura. E recursos só poderão ser conectados a uma rede virtual que existir na mesma região e assinatura em que estiverem.
-* Você pode conectar redes virtuais entre si usando um [Gateway de VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)do Azure. Você também pode se conectar a redes virtuais em assinaturas e regiões dessa maneira.
+* Criar recursos dentro de uma [Região do Azure](https://azure.microsoft.com/regions/#services) e assinatura. Os recursos só poderão ser conectados a uma rede virtual que existir na mesma região e assinatura em que o recurso está.
+* Você pode conectar redes virtuais entre si usando:
+    * **[Emparelhamento de rede virtual](virtual-network-peering-overview.md)**: as redes virtuais emparelhadas devem existir na mesma região do Azure. A largura de banda entre os recursos em redes virtuais emparelhadas é igual a como se os recursos estivessem conectados à mesma rede virtual.
+    * **Um [Gateway de VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) do Azure**: as redes virtuais podem estar na mesma região ou em regiões diferentes do Azure. A largura de banda entre os recursos em redes virtuais conectadas por meio de um Gateway de VPN é limitada pela largura de banda do Gateway de VPN.
 * Você pode conectar redes virtuais à sua rede local usando uma das [opções de conectividade](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) disponíveis no Azure.
 * Recursos diferentes podem ser agrupados em [grupos de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), facilitando o gerenciamento de recursos como uma unidade. Um grupo de recursos pode conter recursos de várias regiões, desde que os recursos pertençam à mesma assinatura.
 
@@ -174,7 +177,7 @@ Você deve iniciar seu planejamento de design respondendo à pergunta na seção
     Sim. Pois os usuários conectados aos datacenters locais devem ser capazes de acessar os aplicativos por meio de um túnel criptografado.
 4. Quantas VMs de IaaS você precisa para sua solução?
 
-    200 VMs de IaaS. App1 e App2 de App3 exigem 5 servidores web cada, 2 servidores de aplicativos cada e 2 servidores de banco de dados cada. Isso é um total de 9 VMs de IaaS por aplicativos ou 36 VMs de IaaS. App5 e App6 exigem 5 servidores web e 2 servidores de banco de dados cada. Isso é um total de 7 VMs de IaaS por aplicativos ou 14 VMs de IaaS. Portanto, você precisa de 50 VMs de IaaS para todos os aplicativos em cada região do Azure. Como precisamos usar 4 regiões, haverá 200 VMs de IaaS.
+    200 VMs de IaaS. App1, App2, App3 e App4 exigem 5 servidores Web cada, 2 servidores de aplicativos cada e 2 servidores de banco de dados cada. Isso é um total de 9 VMs de IaaS por aplicativos ou 36 VMs de IaaS. App5 e App6 exigem 5 servidores web e 2 servidores de banco de dados cada. Isso é um total de 7 VMs de IaaS por aplicativos ou 14 VMs de IaaS. Portanto, você precisa de 50 VMs de IaaS para todos os aplicativos em cada região do Azure. Como precisamos usar 4 regiões, haverá 200 VMs de IaaS.
 
     Você também precisa fornecer os servidores DNS em cada rede virtual ou em seus datacenters locais para resolver o nome entre suas VMs de IaaS do Azure e sua rede local.
 5. Você precisa isolar o tráfego com base em grupos de VMs (ou seja, servidores de web de front-end e servidores de banco de dados de back-end)?

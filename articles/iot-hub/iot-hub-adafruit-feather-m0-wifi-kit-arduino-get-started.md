@@ -13,12 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
+ms.date: 6/17/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e2d44f821635ce9d91b67ecdc0653e2ba9c99b01
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2f770a8f088754e63aec40d3f670f6ae0543d6e0
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -54,6 +55,7 @@ Para concluir esta operação, você precisará das seguintes partes do seu Kit 
 
 Você também precisa destes itens para seu ambiente de desenvolvimento:
 
+* Uma assinatura ativa do Azure. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
 * Mac ou PC que esteja executando o Windows ou Ubuntu.
 * Rede sem fio à qual o Feather M0 WiFi deve se conectar.
 * Uma conexão com a Internet para baixar a ferramenta de configuração.
@@ -77,7 +79,7 @@ Use os cabos da placa universal e jumper para fazer a conexão da seguinte manei
 ![Referência de conexões](media/iot-hub-adafruit-feather-m0-wifi-get-started/3_connections_on_breadboard.png)
 
 
-Use a seguinte fiação para os pinos do sensor:
+Para os pinos do sensor, use a seguinte fiação:
 
 
 | Início (Sensor)           | End (quadro)            | Cor de cabo   |
@@ -120,7 +122,7 @@ Se você usa o Ubuntu, verifique se tem as permissões para operar na porta USB 
    * crw-rw---- 1 root uucp xxxxxxxx
    * crw-rw---- 1 root dialout xxxxxxxx
 
-   Na saída, observe que `uucp` ou `dialout` é o nome do proprietário do grupo da porta USB.
+   Na saída, observe se `uucp` ou `dialout` é o nome do proprietário do grupo da porta USB.
 
 1. Adicione o usuário ao grupo, executando o seguinte comando:
 
@@ -130,7 +132,7 @@ Se você usa o Ubuntu, verifique se tem as permissões para operar na porta USB 
 
    `<group-owner-name>` é o nome de proprietário de grupo que você obteve na etapa anterior. `<username>` é o nome de usuário do Ubuntu.
 
-1. Saia do Ubuntu e entre novamente para que a alteração apareça.
+1. Saia do Ubuntu e entre novamente para que a alteração seja exibida.
 
 ## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Coletar dados de sensor e enviá-los para o hub IoT
 
@@ -155,9 +157,9 @@ Instale o pacote para o Feather M0 WiFi no IDE do Arduino:
 
    ![Abrir o aplicativo de exemplo no IDE do Arduino](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
-1. Clique em **Ferramentas** > **Placa** > **Gerenciador de Placas** e, em seguida, instale o `Arduino SAMD Boards` versão `1.6.2` ou posterior 
+1. Clique em **Ferramentas** > **Placa** > **Gerenciador de Placas** e, em seguida, instale o `Arduino SAMD Boards` versão `1.6.2` ou posterior. Em seguida, instale o pacote `Adafruit SAMD` para adicionar as definições do arquivo de placa.
 
-   O Gerenciador de Placas indica que o `Arduino SAMD Boards` com uma versão `1.6.2` ou posterior está instalado.
+   O Gerenciador de Placas indica que o `Arduino SAMD Boards` com uma versão `1.6.2` ou posterior está instalado. 
 
    ![O pacote esp8266 está instalado](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
 
@@ -170,7 +172,6 @@ Instale o pacote para o Feather M0 WiFi no IDE do Arduino:
 
 1. No IDE Arduino, clique em **esboço** > **biblioteca incluem** > **gerenciar bibliotecas**.
 1. Procure a seguinte biblioteca nomes individualmente. Para cada biblioteca que você localizar, clique em **Instalar**.
-   * `Adafruit_WINC1500`
    * `RTCZero`
    * `NTPClient`
    * `AzureIoTHub`
@@ -179,6 +180,7 @@ Instale o pacote para o Feather M0 WiFi no IDE do Arduino:
    * `ArduinoJson`
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
+1. Instale o `Adafruit_WINC1500` manualmente. Visite [este link](https://github.com/adafruit/Adafruit_WINC1500) e clique no botão **Clonar ou baixar** e, depois, em **Baixar ZIP**. Em seguida, no IDE do Arduino, acesse **Esboço** -> **Incluir Biblioteca** -> **Adicionar Biblioteca .zip** e adicione o arquivo zip que você acabou de baixar.
 
 ### <a name="dont-have-a-real-bme280-sensor"></a>Você não tem um sensor BME280?
 
@@ -203,7 +205,7 @@ O aplicativo de exemplo pode simular os dados de temperatura e a umidade, caso v
 Depois que o upload for concluído com êxito, siga estas etapas para inserir suas credenciais:
 
 1. No IDE Arduino, clique em **ferramentas** > **Serial Monitor**.
-1. Na janela monitor serial, observe as duas listas suspensas no canto inferior direito.
+1. Na janela do monitor serial, observe as duas listas suspensas no canto inferior direito.
 1. Selecione **nenhuma final de linha** para obter a lista suspensa à esquerda.
 1. Selecione **115200 baud** para obter a lista suspensa à direita.
 1. Na caixa de entrada localizada na parte superior da janela do monitor serial, insira as seguintes informações se você for solicitado a fornecê-las e clique em **Enviar**.
