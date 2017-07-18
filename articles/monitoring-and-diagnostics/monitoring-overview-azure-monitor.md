@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 726a33b5cad8b44c520d6c59d418fec1bbfc6fa5
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 72b0c11f8bea24fc8777e3e0d7712577fab8ef97
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,7 +31,7 @@ Os aplicativos em nuvem são complexos com muitas partes móveis. O monitorament
 
 
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure Monitor e outros produtos de monitoramento da Microsoft
-O Azure Monitor fornece logs e métricas de infraestrutura de nível básico para a maioria dos serviços do Microsoft Azure. Serviços do Azure que ainda não colocam seus dados no Azure Monitor o farão no futuro. 
+O Azure Monitor fornece logs e métricas de infraestrutura de nível básico para a maioria dos serviços do Microsoft Azure. Os serviços do Azure que ainda não colocam seus dados no Azure Monitor o farão no futuro.
 
 A Microsoft fornece produtos e serviços adicionais que oferecem mais recursos de monitoramento para desenvolvedores, DevOps ou operações de TI que também têm instalações locais. Para ter uma compreensão e visão geral de como esses diferentes produtos e serviços funcionam juntos, consulte [Monitoramento no Microsoft Azure](monitoring-overview.md).
 
@@ -138,7 +138,7 @@ Em geral, você pode manipular o controle, roteamento e recuperação dos dados 
 * [PowerShell](insights-powershell-samples.md)  
 * [CLI (Interface de linha de comando) de plataforma cruzada](insights-cli-samples.md)
 * [API REST](https://docs.microsoft.com/rest/api/monitor/)
-* [SDK .NET](https://msdn.microsoft.com/library/dn802153.aspx)
+* [SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre

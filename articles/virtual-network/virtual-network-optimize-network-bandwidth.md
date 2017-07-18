@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 06/30/2017
 ms.author: steveesp
-translationtype: Human Translation
-ms.sourcegitcommit: 50be31e179bf52e009596fbc68339dfb5a1aa1e4
-ms.openlocfilehash: d53b1cae9845be32bd053ef196203ea83df06b10
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 1340048d5d518caff3397f671d0c75caaab4b5ac
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ Uma VM usando RSS Receive Side Scaling () pode alcançar maior taxa de transfer�
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : False
+    Enabled              : False
     ```
 2. Digite o comando a seguir para habilitar o RSS:
 
@@ -48,7 +49,7 @@ Uma VM usando RSS Receive Side Scaling () pode alcançar maior taxa de transfer�
     ```powershell
     Name                    :Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : True
+    Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>VM Linux
@@ -57,7 +58,7 @@ RSS está sempre habilitado por padrão em uma VM do Linux do Azure. Kernels do 
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de janeiro de 2017, que é:
+Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de junho de 2017, que é:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -80,7 +81,7 @@ Comando opcional:
 
 ### <a name="centos"></a>CentOS
 
-Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de janeiro de 2017, que é:
+Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de maio de 2017, que é:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -88,7 +89,7 @@ Para obter a otimização, primeiro atualize para a versão mais recente com sup
 "Version": "latest"
 ```
 Depois que a atualização for concluída, instale o LIS (Linux Integration Services) mais recente.
-A otimização de taxa de transferência é feita no LIS, a partir da versão 4.1.3. Digite os seguintes comandos para instalar o LIS:
+A otimização de taxa de transferência é feita no LIS, a partir da versão 4.2. Digite os seguintes comandos para instalar o LIS:
 
 ```bash
 sudo yum update
@@ -99,20 +100,27 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de janeiro de 2017, que é:
-
-"Publisher": "RedHat" "Oferta": "RHEL" "Sku": "7.3" "versão": "7.3.20161104"
-
+```json
+"Publisher": "RedHat"
+"Offer": "RHEL"
+"Sku": "7.3"
+"Version": "7.3.2017062722"
+```
 Depois que a atualização for concluída, instale o LIS (Linux Integration Services) mais recente.
-A otimização de taxa de transferência é feita no LIS, a partir da versão 4.1.3. Digite os comandos a seguir para baixar e instalá-los:
+A otimização de taxa de transferência é feita no LIS, a partir da versão 4.2. Digite os comandos a seguir para baixar e instalá-los:
 
 ```bash
-mkdir lis4.1.3
-cd lis4.1.3
-wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
-tar xvzf lis-rpms-4.1.3.tar.gz
+mkdir lis4.2.1
+cd lis4.2.1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+tar xvzf lis-rpms-4.2.1-1.tar.gz
 cd LISISO
-install.sh #or upgrade.sh if previous LIS was previously installed
+install.sh #or upgrade.sh if prior LIS was previously installed
 ```
- 
-Saiba mais sobre o Linux Integration Services versão 4.1 para o Hyper-V exibindo o [página de download](https://www.microsoft.com/download/details.aspx?id=51612).
+
+Saiba mais sobre o Linux Integration Services versão 4.2 para o Hyper-V exibindo a [página de download](https://www.microsoft.com/download/details.aspx?id=55106).
+
+## <a name="next-steps"></a>Próximas etapas
+* Agora que a VM está otimizada, veja o resultado com [Teste de Largura de Banda/Taxa de Transferência da VM do Azure](virtual-network-bandwidth-testing.md) para seu cenário.
+* Saiba mais com as [Perguntas frequentes sobre a rede virtual do Azure](virtual-networks-faq.md)
 

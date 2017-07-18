@@ -2,7 +2,7 @@
 title: "Unidades de solicitação e estimativa de produtividade – Azure Cosmos DB | Microsoft Docs"
 description: "Saiba mais sobre como entender, especificar e estimar os requisitos de unidades de solicitação no Azure Cosmos DB."
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: syamk
+ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f263aaad1ba2a902401d8210727f146cb92f4ea8
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -28,11 +28,11 @@ Agora disponível: [calculadora de unidades de solicitação](https://www.docume
 ![Calculadora de produtividade][5]
 
 ## <a name="introduction"></a>Introdução
-O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é o multimodelo de banco de dados distribuído globalmente da Microsoft. Com o Azure Cosmos DB, você não precisa alugar máquinas virtuais, implantar softwares ou monitorar bancos de dados. O Azure Cosmos DB é operado e continuamente monitorado pelos melhores engenheiros da Microsoft para fornecer disponibilidade, desempenho e proteção de dados da mais alta qualidade. Você pode acessar seus dados usando as APIs de sua preferência, como [SQL do DocumentDB](documentdb-sql-query.md) (documento), MongoDB (documento), [Armazenamento de Tabelas do Azure](https://azure.microsoft.com/services/storage/tables/) (chave-valor) e [Gremlin](https://tinkerpop.apache.org/gremlin.html) (gráfico), todas com suporte nativo. A moeda do Azure Cosmos DB é a RU (Unidade de Solicitação). Com a RU, você não precisa reservar capacidades de leitura e gravação nem provisionar CPU, Memória e IOPS.
+O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é o multimodelo de banco de dados distribuído globalmente da Microsoft. Com o Azure Cosmos DB, você não precisa alugar máquinas virtuais, implantar softwares ou monitorar bancos de dados. O Azure Cosmos DB é operado e continuamente monitorado pelos melhores engenheiros da Microsoft para fornecer disponibilidade, desempenho e proteção de dados da mais alta qualidade. Você pode acessar seus dados usando as APIs de sua preferência, como [SQL do DocumentDB](documentdb-sql-query.md) (documento), MongoDB (documento), [Armazenamento de Tabelas do Azure](https://azure.microsoft.com/services/storage/tables/) (chave-valor) e [Gremlin](https://tinkerpop.apache.org/gremlin.html) (gráfico), todas com suporte nativo. A moeda do Azure Cosmos DB é a RU (Unidade de Solicitação). Com RUs, você não precisa reservar capacidades de leitura/gravação nem provisionar CPU, Memória e IOPS.
 
-O Azure Cosmos DB dá suporte a uma série de APIs com operações diferentes que variam de leituras e gravações a consultas de gráfico complexas. Como nem todas as solicitações são iguais, eles recebem um valor normalizado de **unidades de solicitação** com base na quantidade de computação necessária para atender à solicitação. O número de unidades de solicitação de uma operação é determinístico e você pode acompanhar o número de unidades de solicitação consumidas por uma operação no Azure Cosmos DB por meio de um cabeçalho de resposta. 
+O Azure Cosmos DB dá suporte a uma série de APIs com operações diferentes que variam de leituras e gravações simples a consultas de gráfico complexas. Como nem todas as solicitações são iguais, elas são atribuídas a uma quantidade normalizada de **unidades de solicitação** com base na quantidade de computação necessária para atender à solicitação. O número de unidades de solicitação de uma operação é determinístico e você pode acompanhar o número de unidades de solicitação consumidas por uma operação no Azure Cosmos DB por meio de um cabeçalho de resposta. 
 
-Para fornecer um desempenho previsível, você precisa reservar a produtividade por unidade de 100 RU/segundo. Para cada bloco de 100 RU/segundo, é possível anexar um bloco de 1.000 RU/minuto. Combinar o provisionamento por segundo e por minuto é extremamente eficiente, pois não é necessário provisionar por pico e pode oferecer uma economia de até 75% em custos em relação a qualquer serviço que funciona apenas com o provisionamento por segundo.
+Para fornecer um desempenho previsível, você precisa reservar a produtividade em unidades de 100 RUs/segundo. Para cada bloco de 100 RU/segundo, é possível anexar um bloco de 1.000 RU/minuto. Combinar o provisionamento por segundo e por minuto é extremamente eficiente, pois não é necessário provisionar por cargas de pico e pode oferecer uma economia de até 75% em custos em relação a qualquer serviço que funciona apenas com o provisionamento por segundo.
 
 Após ler este artigo, você poderá responder as perguntas a seguir:  
 
