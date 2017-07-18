@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: e22fa4ed45ffaed1a05292e9b86d5cebc0079117
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 1063807ac83d2f63229f397da7ecc01f4072efd5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -32,9 +33,12 @@ Máquinas virtuais do Azure fornecem um ambiente de computação totalmente conf
 > * Selecionar e usar imagens de VM
 > * Exibir e usar tamanhos específicos de VM
 > * Redimensionar uma VM
-> * Ver e compreender o estado da VM
+> * Exibir e compreender o estado da VM
 
-Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). Você também pode usar o [Cloud Shell](/azure/cloud-shell/quickstart) no seu navegador.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
@@ -42,7 +46,7 @@ Crie um grupo de recursos com o comando [az group create](https://docs.microsoft
 
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. Neste exemplo, criaremos um grupo de recursos chamado *myResourceGroupVM* na região *eastus*. 
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
 ```
 
@@ -54,13 +58,13 @@ Crie uma máquina virtual com o comando [az vm create](https://docs.microsoft.co
 
 Há várias opções disponíveis ao criar uma máquina virtual, como a imagem do sistema operacional, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, criaremos uma máquina virtual chamada *myVM* no Ubuntu. 
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
 Depois que a VM tiver sido criada, a CLI do Azure envia informações sobre a VM. Anote o `publicIpAddress`, esse endereço pode ser usado para acessar a máquina virtual... 
 
-```azurecli
+```azurecli-interactive 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -93,7 +97,7 @@ O Azure marketplace inclui muitas imagens que podem ser usadas para criar VMs. N
 
 Para ver uma lista dos mais usados imagens, use o comando [lista de imagens de vm az](/cli/azure/vm/image#list).
 
-```azurecli
+```azurecli-interactive 
 az vm image list --output table
 ```
 
@@ -117,13 +121,13 @@ CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:
 
 Uma lista completa pode ser vista, adicionando o `--all` argumento. A lista de imagens também pode ser filtrada por `--publisher` ou `–-offer`. Neste exemplo, a lista está filtrada para todas as imagens com uma oferta que corresponde a *CentOS*. 
 
-```azurecli
+```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
 ```
 
 Resultado parcial:
 
-```azurecli
+```azurecli-interactive 
 Offer             Publisher         Sku   Urn                                     Version
 ----------------  ----------------  ----  --------------------------------------  -----------
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
@@ -136,7 +140,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207     
 
 Para implantar uma máquina virtual usando uma imagem específica, anote o valor de *Urn* coluna. Ao especificar a imagem, o número de versão da imagem pode ser substituído por "mais recente", que seleciona a versão mais recente da distribuição. Neste exemplo, o `--image` argumento é usado para especificar a versão mais recente de uma imagem do CentOS 6.5.  
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
@@ -162,13 +166,13 @@ A tabela a seguir categoriza tamanhos em casos de uso.
 
 Para ver uma lista de tamanhos de VM disponíveis em uma região específica, use o comando [lista-tamanhos de vm az](/cli/azure/vm#list-sizes). 
 
-```azurecli
+```azurecli-interactive 
 az vm list-sizes --location eastus --output table
 ```
 
 Resultado parcial:
 
-```azurecli
+```azurecli-interactive 
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  2          3584  Standard_DS1                          1           1047552                    7168
@@ -193,7 +197,7 @@ Resultado parcial:
 
 No exemplo de criação de VM anterior, um tamanho não foi fornecido, que resulta em um tamanho padrão. Um tamanho de VM pode ser selecionado no momento da criação usando [criar vm az](/cli/azure/vm#create) e `--size` argumento. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM3 \
@@ -208,30 +212,30 @@ Após a implantação de uma VM, ela pode ser redimensionada para aumentar ou di
 
 Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [az vm lista-vm--opções de redimensionamento](/cli/azure/vm#list-vm-resize-options) retorna a lista de tamanhos. 
 
-```azurecli
+```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
 Se o tamanho desejado estiver disponível, a VM poderá ser redimensionada a partir de um estado ligado. No entanto, ela é reinicializada durante a operação. Use o [az vm redimensionar]( /cli/azure/vm#resize) comando para executar o redimensionamento.
 
-```azurecli
+```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
 Se o tamanho desejado não estiver no cluster atual, a VM precisará ser desalocada antes que a operação de redimensionamento ocorra. Utilize o comando [az vm deallocate]( /cli/azure/vm#deallocate) para parar e desalocar a máquina virtual. Observe que quando a VM é ligada novamente, todos os dados no disco temporário podem ser removidos. O endereço IP público também altera a menos que um endereço IP estático está sendo usado. 
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
 Quando desalocados, o redimensionamento pode ocorrer. 
 
-```azurecli
+```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
 Após o redimensionamento, a VM pode ser iniciada.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -255,7 +259,7 @@ Uma VM do Azure pode ter um dentre vários estados de energia. Esse estado repre
 
 Para recuperar o estado de uma determinada VM, use o [az vm ver da instância](/cli/azure/vm#get-instance-view) comando. Especifique um nome válido para uma máquina virtual e grupo de recursos. 
 
-```azurecli
+```azurecli-interactive 
 az vm get-instance-view \
     --name myVM \
     --resource-group myResourceGroupVM \
@@ -264,7 +268,7 @@ az vm get-instance-view \
 
 Saída:
 
-```azurecli
+```azurecli-interactive 
 ode                DisplayStatus    Level
 ------------------  ---------------  -------
 PowerState/running  VM running       Info
@@ -278,19 +282,19 @@ Durante o ciclo de vida de uma máquina virtual, você talvez queira executar ta
 
 Esse comando retorna os endereços IP públicos e privados de uma máquina virtual.  
 
-```azurecli
+```azurecli-interactive 
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
 ### <a name="stop-virtual-machine"></a>Como interromper uma máquina virtual
 
-```azurecli
+```azurecli-interactive 
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="start-virtual-machine"></a>Como iniciar uma máquina virtual
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -298,7 +302,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 Excluir um grupo de recursos exclui todos os recursos contidos nele.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes
 ```
 
@@ -311,7 +315,7 @@ Neste tutorial, você aprendeu sobre a criação e o gerenciamento básico de VM
 > * Selecionar e usar imagens de VM
 > * Exibir e usar tamanhos específicos de VM
 > * Redimensionar uma VM
-> * Ver e compreender o estado da VM
+> * Exibir e compreender o estado da VM
 
 Avança para o próximo tutorial para saber mais sobre os discos de VM.  
 

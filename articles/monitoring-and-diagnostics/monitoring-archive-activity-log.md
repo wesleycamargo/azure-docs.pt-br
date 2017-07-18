@@ -2,7 +2,7 @@
 title: Arquivar o Log de Atividades do Azure | Microsoft Docs
 description: "Saiba como arquivar o Log de Atividades do Azure para retenção de longo prazo em uma conta de armazenamento."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
 ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o Log de Atividades do Azure
@@ -167,10 +168,5 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 * [Baixar blobs para análise](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Transmitir o Log de Atividades para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
 * [Leia mais sobre o Log de Atividades](monitoring-overview-activity-logs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

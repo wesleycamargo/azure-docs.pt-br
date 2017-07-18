@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ffae86cb963f0df7f879effbace073d7e830cd94
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: b45dbdf7aaca9fa7db06e5312b6918c24814c30e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorar o status da replicação do Active Directory com o Log Analytics
+
+![Símbolo do Status de Replicação do AD](./media/log-analytics-ad-replication-status/ad-replication-status-symbol.png)
 
 O Active Directory é um componente-chave de um ambiente de TI corporativo. Para garantir a alta disponibilidade e alto desempenho, cada controlador de domínio tem sua própria cópia do banco de dados do Active Directory. Controladores de domínio replicam entre si para propagar alterações em toda a empresa. Falhas nesse processo de replicação podem causar vários problemas em toda a empresa.
 
@@ -92,7 +95,7 @@ A folha Tempo de Vida da Marca de Exclusão ajuda a identificar locais nos quais
 
 Nessa situação, simplesmente corrigir o erro de replicação não será suficiente. No mínimo, você precisará investigar manualmente para identificar e limpar objetos remanescentes antes de reiniciar a replicação. Talvez ainda seja necessário encerrar um controlador de domínio.
 
-Além de identificar os erros de replicação que persistiram após o tempo de vida da marca para exclusão, também é desejável prestar atenção nos erros que se enquadram nas categorias **50% a&75;% TSL** ou **75% a&100;% TSL**.
+Além de identificar os erros de replicação que persistiram após o tempo de vida da marca para exclusão, também é desejável prestar atenção nos erros que se enquadram nas categorias **50% a 75% TSL** ou **75% a 100% TSL**.
 
 Esses são erros claramente remanescentes, não transitórios, e que provavelmente precisarão da sua intervenção para serem resolvidos. A boa notícia é que eles ainda não atingiram o tempo de vida da marca de exclusão. Se você corrigir estes problemas imediatamente e *antes* de atingirem o tempo de vida da marca de exclusão, a replicação poderá ser reiniciada com intervenção manual mínima.
 

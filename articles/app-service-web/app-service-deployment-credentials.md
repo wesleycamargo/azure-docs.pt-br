@@ -13,15 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
-ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
-ms.lasthandoff: 01/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/23/2017
 
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
-O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](app-service-deploy-local-git.md) e a [implantação de FTP/S](app-service-deploy-ftp.md).
+O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](app-service-deploy-local-git.md) e a [implantação de FTP/S](app-service-deploy-ftp.md). Elas não são as mesmas credenciais do Azure Active Directory.
 
 * **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser usado para implantar no Serviço de Aplicativo para qualquer aplicativo e em qualquer assinatura que a conta do Azure tem permissão para acessar. Esses são os conjuntos de credenciais padrão que você configura nos **Serviços de Aplicativos** > **&lt;nome_do_aplicativo>** > **Credenciais de implantação**. Esse também é o conjunto padrão exibido no portal da interface gráfica do usuário (como **Visão geral** e **Propriedades** da [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) do seu aplicativo).
 
@@ -32,7 +33,12 @@ O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=52971
 
 * **Credenciais de nível de aplicativo**: um conjunto de credenciais para cada aplicativo. Podem ser usadas para implantar nesse aplicativo somente. As credenciais para cada aplicativo são geradas automaticamente na criação do aplicativo e são encontradas no aplicativo de publicação do perfil. Não é possível configurar manualmente as credenciais, mas é possível redefini-las para um aplicativo a qualquer momento.
 
-## <a name="a-nameuserscopeaset-and-reset-user-level-credentials"></a><a name="userscope"></a>Definir e redefinir credenciais de usuário
+    > [!NOTE]
+    > Para conceder a alguém o acesso a essas credenciais por meio do RBAC (Controle de Acesso Baseado em Função), você precisa torná-lo colaborador ou conceder a ele uma função superior no Aplicativo Web. Os leitores não têm permissão para publicar e, portanto, não podem acessar essas credenciais.
+    >
+    >
+
+## <a name="userscope"></a>Definir e redefinir credenciais de usuário
 
 Você pode configurar as credenciais de usuário na [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de qualquer aplicativo. Independentemente de para qual aplicativo você configura essas credenciais, elas se aplicam a todos os aplicativos e a todas as assinaturas na conta do Azure. 
 
@@ -60,7 +66,7 @@ e o nome de usuário de implantação de *FTP* nas **Propriedades** de seu aplic
 >
 >  
 
-## <a name="a-nameappscopeaget-and-reset-app-level-credentials"></a><a name="appscope"></a>Definir e redefinir credenciais de aplicativo
+## <a name="appscope"></a>Definir e redefinir credenciais de aplicativo
 Para cada aplicativo no Serviço de Aplicativo, suas credenciais de aplicativo são armazenadas no perfil de publicação XML.
 
 Para definir e redefinir credenciais de aplicativo:
@@ -89,3 +95,4 @@ Para redefinir as credenciais de aplicativo:
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como usar essas credenciais para implantar seu aplicativo do [Git local](app-service-deploy-local-git.md) ou usando [FTP/S](app-service-deploy-ftp.md).
+

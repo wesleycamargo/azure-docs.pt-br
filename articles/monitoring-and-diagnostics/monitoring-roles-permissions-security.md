@@ -2,7 +2,7 @@
 title: "Introdução às funções, permissões e segurança com o Azure Monitor | Microsoft Docs"
 description: "Saiba como usar funções e permissões internas do Azure Monitor para restringir o acesso aos recursos de monitoramento."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
@@ -169,10 +170,5 @@ Um padrão semelhante pode ser seguido com hubs de eventos, mas primeiro você p
 ## <a name="next-steps"></a>Próximas etapas
 * [Leia sobre RBAC e permissões no Gerenciador de Recursos](../active-directory/role-based-access-control-what-is.md)
 * [Leia a visão geral do monitoramento no Azure](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

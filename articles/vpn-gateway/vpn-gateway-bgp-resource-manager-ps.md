@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: d1f1852d720ebf51df9ec3207b070510b08a6483
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 5a6cc2db67bb60c84c9d9c08346074e9e05345f8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -42,7 +42,7 @@ Cada parte das instruções constitui um bloco de construção básico para habi
 
 ![Topologia BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crosspremv2v.png)
 
-Você pode combiná-los para criar uma rede de trânsito mais complexa, com diversas opções e que atenda às suas necessidades.
+Você pode combiná-los para criar uma rede de trânsito mais complexa, com saltos múltiplos e que atenda às suas necessidades.
 
 ## <a name ="enablebgp"></a>Parte 1 - Configurar o BGP no Gateway de VPN do Azure
 As etapas de configuração a seguir configurarão os parâmetros de BGP do gateway de VPN do Azure, conforme mostrado no diagrama a seguir:

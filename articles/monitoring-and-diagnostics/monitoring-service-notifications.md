@@ -2,7 +2,7 @@
 title: "O que são notificações de integridade do serviço | Microsoft Docs"
 description: "As notificações de integridade do serviço permitem exibir mensagens de integridade do serviço publicadas pelo Microsoft Azure."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: c7ea129346c5fddcff9f824dc69478cf6fb1c67a
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="service-health-notifications"></a>Notificações de integridade do serviço
@@ -50,7 +50,7 @@ resourceProviderName | Nome do provedor de recursos do recurso afetado
 resourceType| O tipo de recurso do recurso afetado
 subStatus | Geralmente, o código de status HTTP da chamada REST correspondente, mas também pode incluir outras cadeias de caracteres que descrevam um substatus, como estes valores comuns: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro de Servidor Interno (Código de Status HTTP: 500), Serviço Indisponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504).
 eventTimestamp | Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento.
-submissionTimestamp |     Carimbo de hora quando o evento tornou-se disponível para consulta.
+submissionTimestamp |   Carimbo de hora quando o evento tornou-se disponível para consulta.
 subscriptionId | A assinatura do Azure na qual esse evento foi registrado
 status | Cadeia de caracteres que descreve o status da operação. Alguns valores comuns são: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido.
 operationName | Nome da operação.
@@ -68,15 +68,15 @@ Properties.communicationId | A comunicação à qual esse evento está associado
 
 
 ## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>Exibindo as notificações de integridade do serviço no portal do Azure
-1.    No [portal](https://portal.azure.com), navegue até o serviço **Monitor**
+1.  No [portal](https://portal.azure.com), navegue até o serviço **Monitor**
 
     ![Monitoramento](./media/monitoring-service-notifications/home-monitor.png)
-2.    Clique na opção **Monitor** para abrir a folha Monitor. Esta folha reúne todas as suas configurações e dados de monitoramento em uma exibição consolidada. Ela abre primeiro na seção **Log de atividades** .
+2.  Clique na opção **Monitor** para abrir a folha Monitor. Esta folha reúne todas as suas configurações e dados de monitoramento em uma exibição consolidada. Ela abre primeiro na seção **Log de atividades** .
 
-3.    Agora clique na seção **Notificações de Serviço**
+3.  Agora clique na seção **Notificações de Serviço**
 
     ![Monitoramento](./media/monitoring-service-notifications/service-health-summary.png)
-4.    Clique em um dos itens de linha para exibir mais detalhes
+4.  Clique em um dos itens de linha para exibir mais detalhes
 
 5. Clique na operação **+ Adicionar Alerta do Log de Atividades** para receber notificações, a fim de garantir que você receberá notificações de serviço futuras desse tipo. Para saber mais sobre como configurar alertas nas notificações de serviço, [clique aqui](monitoring-activity-log-alerts-on-service-notifications.md)
 

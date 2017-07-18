@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/19/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: eeaab56b376ffd3123efb95a1223b7344dd6d187
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 65709ef9f6cdd50fb8650a1a11c9321defb9cf5b
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -111,16 +112,16 @@ Crie um **pool de Lote do Azure** com pelo menos dois nós de computação.
 
    ![](./media/data-factory-data-processing-using-batch/image3.png)
 
-   **Inputfolder** e **outputfolder** são pastas de nível superior em **mycontainer** e **inputfolder** tem subpastas com carimbos de data e hora (AAAA-MM-DD-HH).
+   `Inputfolder` e `outputfolder` são pastas de nível superior no `mycontainer`. A `inputfolder` contém subpastas com carimbos de data/hora (AAAA-MM-DD-HH).
 
-   Se você estiver usando o **Azure Storage Explorer**, na próxima etapa, precisará carregar arquivos com os nomes: inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt e assim por diante. Essa etapa cria as pastas automaticamente.
+   Se você estiver usando o **Gerenciador de Armazenamento do Azure**, na próxima etapa, precisará carregar arquivos com os nomes `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt` e assim por diante. Essa etapa cria as pastas automaticamente.
 3. Crie um arquivo de texto **file.txt** no computador com o conteúdo com a palavra-chave **Microsoft**. Por exemplo: "testar a atividade personalizada Microsoft testar atividade personalizada Microsoft".
 4. Carregue o arquivo para as seguintes pastas de entrada no armazenamento de blobs do Azure.
 
    ![](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Se você estiver usando o **Azure Storage Explorer**, carregue o arquivo **file.txt** para **mycontainer**. Clique em **Copiar** na barra de ferramentas para criar uma cópia do blob. Na caixa de diálogo **Copiar Blob**, altere o **nome do blob de destino** para **inputfolder/2015-11-16-00/file.txt.** Repita esta etapa para criar inputfolder/2015-11-16-01/file.txt, inputfolder/2015-11-16-02/file.txt, inputfolder/2015-11-16-03/file.txt, inputfolder/2015-11-16-04/file.txt e assim por diante. Essa ação cria as pastas automaticamente.
-5. Crie outro contêiner chamado: **customactivitycontainer**. Você carrega o arquivo zip da atividade personalizada para esse contêiner.
+   Se você estiver usando o **Azure Storage Explorer**, carregue o arquivo **file.txt** para **mycontainer**. Clique em **Copiar** na barra de ferramentas para criar uma cópia do blob. Na caixa de diálogo **Copiar Blob**, altere o **nome do blob de destino** para `inputfolder/2015-11-16-00/file.txt`. Repita essa etapa para criar `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` e assim por diante. Essa ação cria as pastas automaticamente.
+5. Crie outro contêiner chamado `customactivitycontainer`. Você carrega o arquivo zip da atividade personalizada para esse contêiner.
 
 #### <a name="visual-studio"></a>Visual Studio
 Microsoft Visual Studio 2012 ou posterior para criar a atividade personalizada do Lote a ser usada na solução de Data Factory.
@@ -368,7 +369,7 @@ O método tem alguns componentes principais que você precisa entender.
 3. Crie um arquivo zip **MyDotNetActivity.zip** que contém todos os binários na pasta **\\bin\\Debug**. Inclua o arquivo MyDotNetActivity.**pdb** para obter detalhes adicionais, como número de linha no código fonte que causou o problema quando ocorrer uma falha.
 
    ![](./media/data-factory-data-processing-using-batch/image5.png)
-4. Carregue **MyDotNetActivity.zip** como um blob no contêiner de blobs: **customactivitycontainer** no armazenamento de blobs do Azure que o serviço vinculado **StorageLinkedService** em **ADFTutorialDataFactory** utiliza. Crie o contêiner de blob **customactivitycontainer** se ele ainda não existir.
+4. Carregue **MyDotNetActivity.zip** como um blob no contêiner de blobs `customactivitycontainer`, no armazenamento de blobs do Azure utilizado pelo serviço vinculado **StorageLinkedService** no **ADFTutorialDataFactory**. Crie o contêiner de blobs `customactivitycontainer` se ele ainda não existir.
 
 #### <a name="execute-method"></a>Método Execute
 Esta seção fornece mais detalhes e observações sobre o código no método Execute.
@@ -447,7 +448,7 @@ Esta seção fornece mais detalhes e observações sobre o código no método Ex
 ### <a name="create-the-data-factory"></a>Criar o data factory
 Na seção [Criar atividade personalizada](#create-the-custom-activity) , você criou uma atividade personalizada e carregou o arquivo zip com binários e o arquivo PDB em um contêiner de blob do Azure. Nesta seção, você cria um Azure **data factory** com um **pipeline** que usa **atividade personalizada**.
 
-O conjunto de dados de entrada da atividade personalizada representa os blobs (arquivos) na pasta de entrada (mycontainer\\inputfolder) no armazenamento de blobs. O conjunto de dados de saída da atividade representa os blobs de saída na pasta de saída (mycontainer\\outputfolder) no armazenamento de blobs.
+O conjunto de dados de entrada da atividade personalizada representa os blobs (arquivos) na pasta de entrada (`mycontainer\\inputfolder`) no armazenamento de blobs. O conjunto de dados de saída da atividade representa os blobs de saída na pasta de saída (`mycontainer\\outputfolder`) no armazenamento de blobs.
 
 Solte um ou mais arquivos nas pastas de entrada:
 
@@ -668,7 +669,7 @@ Nesta etapa, você cria outro conjunto de dados do tipo AzureBlob para represent
     }
     ```
 
-    Um blob/arquivo de saída é gerado para cada fatia de entrada. Aqui está como um arquivo de saída é chamado para cada fatia. Todos os arquivos de saída são gerados em uma pasta de saída: **mycontainer\\outputfolder**.
+    Um blob/arquivo de saída é gerado para cada fatia de entrada. Aqui está como um arquivo de saída é chamado para cada fatia. Todos os arquivos de saída são gerados em uma pasta de saída: `mycontainer\\outputfolder`.
 
     | **Fatia** | **Hora de início**          | **Arquivo de saída**       |
     |-----------|-------------------------|-----------------------|
@@ -771,7 +772,7 @@ Nesta etapa, você testa o pipeline soltando arquivos nas pastas de entrada. Vam
 
    ![](./media/data-factory-data-processing-using-batch/image13.png)
 6. Use o Portal do Azure para exibir as **tarefas** associadas às **fatias** e veja em qual VM cada fatia foi executada. Confira a seção [Integração de Data Factory e Lote](#data-factory-and-batch-integration) para obter detalhes.
-7. Você deve ver os arquivos de saída em **outputfolder** de **mycontainer** no seu Armazenamento de Blobs do Azure.
+7. Você deverá ver os arquivos de saída na `outputfolder` do `mycontainer` no armazenamento de blobs do Azure.
 
    ![](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -788,7 +789,7 @@ Nesta etapa, você testa o pipeline soltando arquivos nas pastas de entrada. Vam
 10. Agora, na folha **OutputDataset**, clique com o botão direito do mouse na fatia com **HORA DE INÍCIO DA FATIA** definida como **11/16/2015 01:00:00 AM (16/11/2015 01:00:00)** e clique em **Executar** para executar/processar novamente a fatia. Agora, a fatia tem cinco arquivos em vez de um.
 
     ![](./media/data-factory-data-processing-using-batch/image17.png)
-11. Depois que a fatia for executada e seu status for **Pronto**, verifique o conteúdo do arquivo de saída para essa fatia (**2015-11-16-01.txt**) em **outputfolder** de **mycontainer** em seu armazenamento de blobs. Deve haver uma linha para cada arquivo da fatia.
+11. Depois que a fatia for executada e seu status for **Pronto**, verifique se no conteúdo do arquivo de saída existe esta fatia (**2015-11-16-01.txt**) na `outputfolder` do `mycontainer` no armazenamento de blobs. Deve haver uma linha para cada arquivo da fatia.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -804,7 +805,7 @@ Nesta etapa, você testa o pipeline soltando arquivos nas pastas de entrada. Vam
 >
 
 #### <a name="data-factory-and-batch-integration"></a>Integração de Data Factory e Lote
-O serviço Data Factory cria um trabalho no Lote do Azure com o nome: **adf-poolname:job-xxx**.
+O serviço Data Factory cria um trabalho no Lote do Azure com o nome `adf-poolname:job-xxx`.
 
 ![Trabalhos de Azure Data Factory - Lote](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
@@ -855,7 +856,7 @@ A depuração consiste em algumas técnicas básicas:
    ![](./media/data-factory-data-processing-using-batch/image21.png)
 
    > [!NOTE]
-   > Você verá um **contêiner** no seu Armazenamento de Blobs do Azure chamado: **adfjobs**. Esse contêiner não é automaticamente excluído, mas você pode excluí-lo com segurança depois de concluir o teste da solução. Da mesma forma, a solução de Data Factory cria um **trabalho** do Azure Batch chamado: **adf-\<pool ID/name\>:job-0000000001**. Você pode excluir esse trabalho depois de testar a solução, se desejar.
+   > Você verá um **contêiner** no Armazenamento de blobs do Azure chamado `adfjobs`. Esse contêiner não é automaticamente excluído, mas você pode excluí-lo com segurança depois de concluir o teste da solução. Da mesma forma, a solução Data Factory cria um **trabalho** do Lote do Azure chamado `adf-\<pool ID/name\>:job-0000000001`. Você pode excluir esse trabalho depois de testar a solução, se desejar.
    >
    >
 7. A atividade personalizada não usa o arquivo **app.config** do seu pacote. Portanto, se seu código lê as cadeias de conexão do arquivo de configuração, ele não funciona no tempo de execução. A prática recomendada ao usar o Azure Batch é armazenar os segredos em um **Azure KeyVault**, usar uma entidade de serviço com base em certificados para proteger o keyvault e distribuir o certificado para o pool do Azure Batch. A atividade personalizada do .NET pode então acessar segredos no KeyVault no tempo de execução. Essa é uma solução genérica e pode ser dimensionada para qualquer tipo de segredo, não apenas a cadeia de conexão.
@@ -865,7 +866,7 @@ A depuração consiste em algumas técnicas básicas:
 #### <a name="extend-the-sample"></a>Estender o exemplo
 Você pode estender este exemplo para saber mais sobre os recursos de Data Factory do Azure e Lote do Azure. Por exemplo, para processar fatias em um intervalo de tempo diferente, realize as seguintes etapas:
 
-1. Adicione as seguintes subpastas na **inputfolder**: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09 e coloque arquivos de entrada nessas pastas. Altere a hora de término do pipeline de `2015-11-16T05:00:00Z` para `2015-11-16T10:00:00Z`. Na **Exibição de Diagrama**, clique duas vezes em **InputDataset** e confirme se as fatias de entrada estão prontas. Clique duas vezes em **OuptutDataset** para ver o estado das fatias de saída. Se estiverem no estado Pronto, verifique a pasta de saída para os arquivos de saída.
+1. Adicione as seguintes subpastas a `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09. Depois, coloque os arquivos de entrada nessas pastas. Altere a hora de término do pipeline de `2015-11-16T05:00:00Z` para `2015-11-16T10:00:00Z`. Na **Exibição de Diagrama**, clique duas vezes em **InputDataset** e confirme se as fatias de entrada estão prontas. Clique duas vezes em **OuptutDataset** para ver o estado das fatias de saída. Se estiverem no estado Pronto, verifique se os arquivos de saída estão na pasta de saída.
 2. Aumente ou diminua a configuração de **simultaneidade** para entender como ela afeta o desempenho da sua solução, especialmente o processamento que ocorre no Lote do Azure. (Consulte a etapa 4: criar e executar o pipeline para obter mais informações sobre a configuração **simultaneidade** .)
 3. Crie um pool com **Máximo de tarefas por VM**maior/menor. Para usar o novo pool criado, atualize o serviço vinculado do Azure Batch na solução do Data Factory. (Consulte a etapa 4: criar e executar o pipeline para obter mais informações sobre a configuração **Máximo de tarefas por VM** .)
 4. Crie um pool do Lote do Azure com o recurso **dimensionar automaticamente** . O dimensionamento automático de nós de computação em um pool do Lote do Azure é o ajuste dinâmico da potência de processamento usada pelo seu aplicativo. 

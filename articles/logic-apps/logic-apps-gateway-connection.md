@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8446790af6af160c4b2d463191405faaed68bf0e
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -56,9 +56,9 @@ Para obter mais informações sobre gateways de dados para outros serviços da M
 
 * É necessário já ter [instalado o gateway de dados em um computador local](logic-apps-gateway-install.md).
 
-* Você precisa da conta do Azure que tenha o endereço de email do trabalho ou da escola usado para [instalar o gateway de dados local](logic-apps-gateway-install.md#requirements).
+* Quando você entrar no Portal do Azure, deverá usar a mesma conta corporativa ou de estudante que foi usada para [instalar o gateway de dados local](logic-apps-gateway-install.md#requirements). Sua conta de logon também deve ter uma assinatura do Azure para usar ao criar um recurso de gateway no Portal do Azure para sua instalação do gateway.
 
-* A instalação do gateway não pode já ter sido reivindicada por outro recurso de gateway do Azure. Você pode associar sua instalação do gateway a apenas um recurso de gateway. A declaração acontece quando você cria o recurso de gateway de modo que a instalação fique indisponível a outros recursos.
+* Sua instalação do gateway não pode já ter sido reivindicada por um recurso de gateway do Azure. Você pode associar sua instalação do gateway a apenas um recurso de gateway do Azure. A declaração acontece quando você cria o recurso de gateway de modo que a instalação fique indisponível a outros recursos.
 
 ## <a name="set-up-the-data-gateway-connection"></a>Configurar a conexão do gateway de dados
 

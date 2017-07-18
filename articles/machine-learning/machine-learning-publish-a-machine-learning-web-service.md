@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5bcdb2cd11ffa633bce4e0faee4f49d9053a662b
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 39761f94efc530452a41ef9f2130976803cff711
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -118,7 +118,7 @@ Depois de implantar o serviço Web por meio do Estúdio de Aprendizado de Máqui
 
 A página **Consumo** fornece todas as informações necessárias para acessar o serviço Web. Por exemplo, a chave de API é fornecida para permitir acesso autorizado ao serviço.
 
-Para obter mais informações sobre como acessar um serviço Web do Aprendizado de Máquina, veja [Como consumir um serviço Web implantado do Aprendizado de Máquina do Azure](machine-learning-consume-web-services.md).
+Para obter mais informações sobre como acessar um serviço Web do Machine Learning, consulte [Como consumir um serviço Web do Azure Machine Learning](machine-learning-consume-web-services.md).
 
 #### <a name="manage-your-new-web-service"></a>Gerenciar seu Novo serviço Web
 É possível gerenciar o Novo serviço Web no portal dos Serviços Web do Machine Learning. Na [página principal do portal](https://services.azureml-test.net/) clique em **serviços Web**. Na página de serviços Web, você pode excluir ou copiar um serviço. Para monitorar um serviço específico, clique no serviço e, em seguida, clique em **Painel**. Para monitorar trabalhos em lotes associados ao serviço Web, clique em **Log de solicitações em lote**.
@@ -158,7 +158,7 @@ Depois de implantar o serviço Web por meio do Estúdio de Aprendizado de Máqui
 
 O painel fornece todas as informações necessárias para acessar o serviço Web. Por exemplo, a chave de API é fornecida para permitir acesso autorizado ao serviço e as páginas de ajuda de API são fornecidas para ajudar você a começar a escrever seu código.
 
-Para obter mais informações sobre como acessar um serviço Web do Aprendizado de Máquina, veja [Como consumir um serviço Web implantado do Aprendizado de Máquina do Azure](machine-learning-consume-web-services.md).
+Para obter mais informações sobre como acessar um serviço Web do Machine Learning, consulte [Como consumir um serviço Web do Azure Machine Learning](machine-learning-consume-web-services.md).
 
 #### <a name="manage-your-classic-web-service"></a>Gerenciar seu serviço Web Clássico
 Há várias ações que podem ser executadas para monitorar um serviço Web. Você pode atualizá-lo e excluí-lo. Você também pode adicionar pontos de extremidade adicionais a um serviço Web clássico além do ponto de extremidade padrão que é criado durante sua implantação.

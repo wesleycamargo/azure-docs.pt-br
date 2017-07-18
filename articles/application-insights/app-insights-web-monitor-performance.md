@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/25/2015
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cbdef43381deac957c0e48b7043273c43b032935
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 4fbf4fcfba4452111f406fe0f2303731877eba71
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -29,6 +29,9 @@ Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamen
 O Application Insights pode monitorar serviços e aplicativos Web Java e ASP.NET e serviços WCF. Eles podem ser hospedados no local, em máquinas virtuais ou como sites do Microsoft Azure. 
 
 No lado do cliente, o Application Insights pode realizar a telemetria de páginas da Web e de uma grande variedade de dispositivos, incluindo iOS, Android e aplicativos da Windows Store.
+
+>[!Note]
+> Disponibilizamos uma nova experiência para encontrar páginas de desempenho lento em seu aplicativo Web. Caso você não tenha acesso a ela, habilite-a configurando as opções de versão prévia na [folha Versão Prévia](app-insights-previews.md). Leia mais sobre essa nova experiência em [Encontrar e corrigir afunilamentos de desempenho com a investigação de Desempenho interativo](#Find-and-fix-performance-bottlenecks-with-an-interactive-Performance-investigation).
 
 ## <a name="setup"></a>Configurar o monitoramento de desempenho
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
@@ -52,16 +55,14 @@ Clique em um gráfico para selecionar outras medidas que são exibidas, ou adici
 
 > [!NOTE]
 > **Desmarque todas as métricas** para ver a seleção completa que está disponível. As métricas se enquadram em grupos; quando qualquer membro de um grupo é selecionado, somente os outros membros do grupo aparecem.
-> 
-> 
 
 ## <a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
-Existe uma variedade de métricas de desempenho que você pode obter. Vamos começar com estas que aparecem por padrão na folha do aplicativo.
+Há várias métricas de desempenho que você pode obter. Vamos começar com estas que aparecem por padrão na folha do aplicativo.
 
 ### <a name="requests"></a>Solicitações
 O número de solicitações de HTTP receberam em um período especifico. Compare isso com os resultados em outros reatórios para ver como seu aplicativo se comporta conforme a carga varia.
 
-As solicitações HTTP incuem todas as solicitações GET ou POST para páginas, dados e imagens.
+As solicitações HTTP incluem todas as solicitações GET ou POST para páginas, dados e imagens.
 
 Clique no mosaico para obter contagens para URLs específicas.
 
@@ -95,7 +96,7 @@ Para ver o que outras métricas que você pode exibir, clique em um gráfico e, 
 
 ![Desmarque a seleção de todas as métricas para ver o conjunto completo](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
-Ao selecionar qualquer métrica, desabilitará as outras que não podem aparecer no mesmo gráfico.
+Selecionar uma métrica desabilitará as outras que não podem ser exibidas no mesmo gráfico.
 
 ## <a name="set-alerts"></a>Definir alertas
 Para ser notificado por email sobre valores incomuns de qualquer métrica, adicione um alerta. Você pode escolher para enviar o email para os administradores de conta ou para endereços de email específicos.
@@ -114,6 +115,37 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 * Configure os [testes da Web][availability] para serem alertados se seu site cair ou responder de forma incorreta ou lenta. 
 * Compare a contagem de Solicitação com outras métricas para ver se falhas ou resposta lenta são relatadas ao carregar.
 * [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar a detectar problemas.
+* Monitore seu aplicativo Web em operação com o [Live Metrics Stream][livestream].
+* Capture o estado do aplicativo .Net com o [Depurador de Instantâneo][snapshot].
+
+## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-performance-investigation"></a>Encontrar e corrigir afunilamentos de desempenho com uma investigação de desempenho interativo
+
+Use a nova investigação de desempenho interativo do Application Insights para localizar áreas de seu aplicativo Web que estão causando lentidão no desempenho geral. Encontre rapidamente páginas específicas que estão causando lentidão e, em seguida, use a [ferramenta de Criação de Perfil](app-insights-profiler.md) para ver se há uma correlação entre essas páginas.
+
+### <a name="create-a-list-of-slow-performing-pages"></a>Criar uma lista de páginas de desempenho lento 
+
+A primeira etapa para encontrar problemas de desempenho é obter uma lista das páginas de resposta lenta. A captura de tela abaixo demonstra como usar a folha Desempenho para obter uma lista de possíveis páginas para investigação adicional. Você pode ver rapidamente nesta página que houve uma lentidão no tempo de resposta do aplicativo por volta das 18h e novamente por volta das 22h. Você também pode ver que a operação GET de cliente/detalhes teve algumas operações de execução longa, com um tempo de resposta mediano de 507,05 milissegundos. 
+
+![Desempenho interativo do Application Insights](./media/app-insights-web-monitor-performance/performance1.png)
+
+### <a name="drill-down-on-specific-pages"></a>Fazer uma busca detalhada em páginas específicas
+
+Depois de obter um instantâneo do desempenho do aplicativo, você pode obter mais detalhes sobre operações específicas de desempenho lento. Clique em uma operação da lista para ver os detalhes, conforme mostrado abaixo. No gráfico, você pode ver se o desempenho se baseava em uma dependência. Veja também quantos usuários observaram os vários tempos de resposta. 
+
+![Folha Operações do Application Insights](./media/app-insights-web-monitor-performance/performance5.png)
+
+### <a name="drill-down-on-a-specific-time-period"></a>Fazer uma busca detalhada em um período específico
+
+Depois de identificar um ponto no tempo para investigar, faça uma busca detalhada para examinar as operações específicas que podem ter causado a lentidão do desempenho. Ao clicar em um ponto no tempo específico, você obtém os detalhes da página, conforme mostrado abaixo. No exemplo abaixo, você pode ver as operações listadas para determinado período, junto com os códigos de resposta do servidor e a duração da operação. Você também tem a URL para abrir um item de trabalho do TFS, caso precise enviar essas informações para sua equipe de desenvolvimento.
+
+![Fração de tempo do Application Insights](./media/app-insights-web-monitor-performance/performance2.png)
+
+### <a name="drill-down-on-a-specific-operation"></a>Fazer uma busca detalhada em uma operação específica
+
+Depois de identificar um ponto no tempo para investigar, faça uma busca detalhada para examinar as operações específicas que podem ter causado a lentidão do desempenho. Clique em uma operação da lista para ver os detalhes da operação, conforme mostrado abaixo. Neste exemplo, você pode ver que a operação falhou e que o Application Insights forneceu os detalhes da exceção gerada pelo aplicativo. Novamente, é possível criar um item de trabalho do TFS com facilidade nesta folha.
+
+![Folha Operação do Application Insights](./media/app-insights-web-monitor-performance/performance3.png)
+
 
 ## <a name="next"></a>Próximas etapas
 [Testes da Web][availability] – faça com que solicitações da Web sejam enviadas ao seu aplicativo em intervalos regulares de todo o mundo.
@@ -135,6 +167,9 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
+[livestream]: app-insights-live-stream.md
+[snapshot]: app-insights-snapshot-debugger.md
+
 
 
 

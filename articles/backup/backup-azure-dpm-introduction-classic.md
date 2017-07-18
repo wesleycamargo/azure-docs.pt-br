@@ -13,12 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/14/2017
 ms.author: nkolli;giridham;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 9d1e68b0e73c60542de566c32c92caf0b3c4630c
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 95ec0e6cabfeadb68fd11cf27dc571b4c86621df
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -62,10 +63,14 @@ Depois que o instantâneo é criado, os dados são transferidos pelo serviço do
 ## <a name="prerequisites"></a>Pré-requisitos
 Prepare o Backup do Azure para fazer backup dos dados do DPM da seguinte maneira:
 
-1. **Criar um cofre de backup**
+1. **Criar um Cofre de backup**. Se você ainda não criou um Cofre de backup em sua assinatura, consulte a versão do portal do Azure deste artigo – [Preparar-se para fazer backup de cargas de trabalho no Azure com o DPM](backup-azure-dpm-introduction.md).
 
   > [!IMPORTANT]
-  > A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup. Ainda há suporte para os cofres de Backup existentes, e é possível [usar o Azure PowerShell para criar os Cofres de Backup](./backup-client-automation-classic.md#create-a-backup-vault). No entanto, a Microsoft recomenda a criação de cofres dos Serviços de Recuperação para todas as implantações, pois aperfeiçoamentos futuros só se aplicam aos cofres dos Serviços de Recuperação.
+  > A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
+  > Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
+  >- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+  >- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
+  >
 
 2. **Baixe credenciais do cofre** — No Backup do Azure, carregue o certificado de gerenciamento que você criou para o cofre.
 3. **Instale o agente de Backup do Azure e registre o servidor** — No Backup do Azure, instale o agente em cada servidor DPM e registre o servidor DPM no cofre de backup.

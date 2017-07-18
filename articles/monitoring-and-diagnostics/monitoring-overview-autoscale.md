@@ -2,7 +2,7 @@
 title: "Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Microsoft Azure | Microsoft Docs"
 description: "Visão Geral do dimensionamento automático no Microsoft Azure. Aplica-se a Máquinas Virtuais, Serviços de Nuvem e Aplicativos Web."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: ed9bfe928699d040aa4283da5a8690318932738c
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Microsoft Azure

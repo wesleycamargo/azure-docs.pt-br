@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -49,7 +50,7 @@ Ao decidir-se sobre qual modelo de implantação usar para seus recursos, há tr
 2. O serviço oferece suporte ao Resource Manager, mas fornece dois tipos - um para o Resource Manager e outro para o clássico. Esse cenário aplica-se somente a máquinas virtuais, contas de armazenamento e redes virtuais.
 3. O serviço não oferece suporte ao Resource Manager.
 
-Para descobrir se um serviço oferece ou não suporte ao Gerenciador de Recursos, consulte [Provedores com suporte do Gerenciador de Recursos](resource-manager-supported-services.md).
+Para descobrir se um serviço dá ou não suporte ao Resource Manager, consulte [Provedores e tipos de recursos](resource-manager-supported-services.md).
 
 Se o serviço que você quer usar não der suporte ao Resource Manager, continue usando a implantação clássica.
 
