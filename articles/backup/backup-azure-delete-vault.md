@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/14/2017
+ms.date: 06/14/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 28f8ed91cd2305fdad5105428e50d1d9b3370dd9
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d8be07fe4cd3fd50827fb7021a75eb05b6f075e0
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -32,12 +33,17 @@ O serviço de Backup do Azure tem dois tipos de cofres – o cofre de Backup e o
 > [!NOTE]
 > Cofres de backup não podem ser usados para proteger soluções implantadas pelo Resource Manager. No entanto, você pode usar um cofre de Serviços de Recuperação para proteger VMs e servidores implantados de modo clássico.  
 >
+
+> [!IMPORTANT]
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
+>- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >
 
 Neste artigo, usamos o termo cofre para nos referirmos à forma genérica do cofre de Backup ou ao cofre dos Serviços de Recuperação. Usamos o nome formal, cofre de Backup ou Cofre dos Serviços de Recuperação, quando for necessário fazer a distinção entre os cofres.
 
 ## <a name="deleting-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
-A exclusão de um cofre dos Serviços de Recuperação é um processo de uma etapa - *desde que o cofre não contenha recursos*. Antes de excluir um cofre dos Serviços de Recuperação, você deverá remover ou excluir todos os recursos do cofre. Se você tentar excluir um cofre que contém recursos, obterá um erro como o da seguinte imagem:
+A exclusão de um cofre dos Serviços de Recuperação é um processo de uma etapa - *desde que o cofre não contenha recursos*. Antes de excluir um cofre dos Serviços de Recuperação, você deverá remover ou excluir todos os recursos do cofre. Se você tentar excluir um cofre que contém recursos, receberá um erro como o da seguinte imagem:
 
 ![Erro de exclusão de cofre](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
 

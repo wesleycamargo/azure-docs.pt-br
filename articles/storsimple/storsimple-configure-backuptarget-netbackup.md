@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 06/15/2017
 ms.author: hkanna
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: cbc33fa15d069b55844cc6e4356ca5a01b40c199
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 613fd0c1164ac34d36d5f21d07dfdf00c8aad614
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 
@@ -229,7 +229,7 @@ Configure sua solução de acordo com as diretrizes indicadas nas próximas seç
 
 -   O banco de dados do NetBackup deve ser local para o servidor e não residir em um volume do StorSimple.
 -   Para recuperação de desastre, faça backup do banco de dados NetBackup em um volume StorSimple.
--   Oferecemos suporte a backups completos e incrementais do NetBackup para esta solução. É recomendável que você não use backups diferenciais e sintéticos.
+-   Damos suporte a backups completos e incrementais do NetBackup (também chamados de backups incrementais diferenciais no NetBackup) nesta solução. Recomendamos que você não use backups incrementais sintéticos e cumulativos.
 -   Arquivos de dados de backup devem conter apenas os dados de um trabalho específico. Por exemplo, não são permitidos acréscimos de mídia em vários trabalhos diferentes.
 
 Para obter as definições mais recentes do NetBackup e as práticas recomendadas sobre como implementar esses requisitos, consulte a documentação do NetBackup em [www.veritas.com](https://www.veritas.com).

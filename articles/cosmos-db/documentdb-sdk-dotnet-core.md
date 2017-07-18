@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/12/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c851e01fb8884b2f601986207d730efb338422a8
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: c1f0bbfd1bea292eedaaf8904a2f60e9415dcbcf
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Baixe o SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de API .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência de API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Exemplos**</td><td>[Exemplos de código .NET](documentdb-dotnet-samples.md)</td></tr>
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Tutorial do aplicativo Web**</td><td>[Desenvolvimento de aplicativo Web com DocumentDB](documentdb-dotnet-application.md)</td></tr>
 
-<tr><td>**Framework atualmente com suporte**</td><td>[.NET Standard 1.6](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
+<tr><td>**Framework atualmente com suporte**</td><td>[.NET Standard 1.6 e .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
@@ -56,16 +56,24 @@ ms.lasthandoff: 05/31/2017
 O SDK do .NET Core para DocumentDB tem paridade de recursos com a versão mais recente do [SDK do .NET para DocumentDB](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> O SDK do .NET Core do DocumentDB ainda não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+> O SDK do .NET Core do DocumentDB ainda não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+
+*   Suporte ao .NET Standard 1.5 como uma das estruturas de destino.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+
+*   Correção de um problema que afetava computadores x64 que não dão suporte à instrução SSE4 e que geram SEHException ao executar consultas do DocumentDB.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*    Adição de suporte ao recurso Unidade de Solicitação por Minuto (RU/m).
-*    Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
-*    Adição de suporte a métricas de consulta em partições individuais.
-*    Adição de suporte para limitar o tamanho do token de continuação em consultas.
-*    Adição de suporte para um rastreamento mais detalhado das solicitações com falha.
-*    Melhorias de desempenho no SDK.
+*   Adição de suporte ao recurso Unidade de Solicitação por Minuto (RU/m).
+*   Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
+*   Adição de suporte a métricas de consulta em partições individuais.
+*   Adição de suporte para limitar o tamanho do token de continuação em consultas.
+*   Adição de suporte para um rastreamento mais detalhado das solicitações com falha.
+*   Melhorias de desempenho no SDK.
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
@@ -117,6 +125,8 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |12 de junho de 2017 |--- |
+| [1.3.1](#1.3.1) |23 de maio de 2017 |--- |
 | [1.3.0](#1.3.0) |10 de maio de 2017 |--- |
 | [1.2.2](#1.2.2) |19 de abril de 2017 |--- |
 | [1.2.1](#1.2.1) |29 de março de 2017 |--- |

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/09/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 25fca1ac29817fc6d72dd5ec5033a2962f3f0be4
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 9cd2077d897631457925cda5ef5e6df3c0c33177
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -99,7 +99,7 @@ Criptografe as credenciais usando o cmdlet **New-AzureRmDataFactoryEncryptValue*
 ```
 **JSON para usar Autenticação Windows**
 
-Se o nome de usuário e a senha forem especificados, o gateway os usará para representar a conta de usuário especificada para se conectar ao banco de dados SQL Server local. Caso contrário, o gateway se conectará ao SQL Server diretamente com o contexto de segurança do Gateway (a sua conta de inicialização).
+O Gateway de Gerenciamento de Dados representará a conta de usuário especificada para se conectar ao banco de dados local do SQL Server. 
 
 ```json
 {
@@ -163,8 +163,8 @@ Se você não especificar sqlReaderQuery nem sqlReaderStoredProcedureName, as co
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| sqlWriterCleanupScript |Especifique a consulta para a Atividade de Cópia a ser executada para que os dados de uma fatia especifica sejam removidos. Para saber mais, confira a seção de [repetição](#repeatability-during-copy) . |Uma instrução de consulta. |Não |
-| sliceIdentifierColumnName |Especifique o nome de coluna para a Atividade de Cópia a ser preenchido com o identificador de fatia gerado automaticamente, que é usado para limpar dados de uma fatia específica quando executado novamente. Para saber mais, confira a seção de [repetição](#repeatability-during-copy) . |Nome de uma coluna com tipo de dados de binário (32). |Não |
+| sqlWriterCleanupScript |Especifique a consulta para a Atividade de Cópia a ser executada para que os dados de uma fatia especifica sejam removidos. Para obter mais informações, consulte a seção [Cópia repetida](#repeatable-copy). |Uma instrução de consulta. |Não |
+| sliceIdentifierColumnName |Especifique o nome de coluna para a Atividade de Cópia a ser preenchido com o identificador de fatia gerado automaticamente, que é usado para limpar dados de uma fatia específica quando executado novamente. Para obter mais informações, consulte a seção [Cópia repetida](#repeatable-copy). |Nome de uma coluna com tipo de dados de binário (32). |Não |
 | sqlWriterStoredProcedureName |Nome do procedimento armazenado que upserts (atualiza/insere) na tabela de destino. |Nome do procedimento armazenado. |Não |
 | storedProcedureParameters |Parâmetros para o procedimento armazenado. |Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
 | sqlWriterTableType |Especifique o nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados sendo copiados com dados existentes. |Um nome de tipo de tabela. |Não |
@@ -633,24 +633,16 @@ Observe que a tabela de destino tem uma coluna de identidade.
 
 Observe que sua tabela de origem e de destino têm um esquema diferente (a de destino tem uma coluna adicional com identidade). Nesse cenário, você precisa especificar a propriedade **structure** na definição de conjunto de dados de destino, que não inclui a coluna de identidade.
 
-## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
-Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
-
-## <a name="repeatable-copy"></a>Cópia repetida
-Ao copiar dados para o Banco de Dados do SQL Server, a atividade de cópia acrescenta dados à tabela de coletor por padrão. Para substituir isso pela execução de UPSERT, confira o artigo [Repeatable write to SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) (Gravação repetida no SqlSink). 
-
-Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
 ## <a name="invoke-stored-procedure-from-sql-sink"></a>Invocar o procedimento armazenado do coletor SQL
 Para obter um exemplo de como invocar um procedimento armazenado do coletor SQL em uma atividade de cópia de um pipeline, confira o artigo [Invoke stored procedure for SQL sink in copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md) (Invocar procedimento armazenado para coletor SQL na atividade de cópia).
 
-## <a name="type-mapping-for-sql-server--azure-sql"></a>Mapeamento de tipo para SQL Server e Azure SQL
+## <a name="type-mapping-for-sql-server"></a>Mapeamento de tipo para o SQL Server
 Conforme mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md) , a Atividade de Cópia executa conversões automáticas de tipos de fonte em tipos de coletor com a abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
 
-Ao mover dados entre o SQL Azure, SQL Server e Sybase, os mapeamentos a seguir são usados do tipo SQL para o tipo .NET, e vice-versa.
+Ao mover dados bidirecionalmente no SQL Server, os mapeamentos a seguir são usados do tipo SQL para o tipo .NET e vice-versa.
 
 O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o ADO.NET.
 
@@ -691,6 +683,11 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 
 ## <a name="mapping-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+
+## <a name="repeatable-copy"></a>Cópia repetida
+Ao copiar dados para o Banco de Dados do SQL Server, a atividade de cópia acrescenta dados à tabela de coletor por padrão. Para substituir isso pela execução de UPSERT, confira o artigo [Repeatable write to SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) (Gravação repetida no SqlSink). 
+
+Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

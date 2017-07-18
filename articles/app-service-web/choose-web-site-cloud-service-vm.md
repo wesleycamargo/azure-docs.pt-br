@@ -16,10 +16,10 @@ ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 17289f6401b36ff6e6a201564aa387f42c712699
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 2d6e1ba60d1f81aa1a9d3afde4ac9b621b01f04d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação de Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure
@@ -33,7 +33,7 @@ O Service Fabric será uma boa opção se você estiver criando um novo aplicati
 Caso tenha um aplicativo que precise de modificações substanciais para ser executado no Serviço de Aplicativo ou no Service Fabric, você pode escolher as Máquinas Virtuais para simplificar a migração para a nuvem. No entanto, configurar, proteger e manter corretamente as VMs requer muito mais tempo e conhecimento em TI em comparação com o Serviço de Aplicativo do Azure e o Service Fabric. Se estiver considerando as Máquinas Virtuais do Azure, assegure-se de levar em conta o contínuo esforço de manutenção necessário para corrigir, atualizar e gerenciar seu ambiente de máquinas virtuais. Máquinas Virtuais do Azure são IaaS (Infraestrutura como serviço), enquanto o Serviço de Aplicativo e o Service Fabric são Paas (plataforma como serviço). 
 
 ## <a name="features"></a>Comparação de Recursos
-A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nuvem, Máquinas Virtuais e Service Fabric para ajudar você a fazer a melhor escolha. Para obter as informações mais recentes sobre SLA para cada opção, consulte os [Acordos de Nível de Serviço do Azure](/support/legal/sla/).
+A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nuvem, Máquinas Virtuais e Service Fabric para ajudar você a fazer a melhor escolha. Para obter as informações mais recentes sobre SLA para cada opção, consulte os [Acordos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
 
 | Recurso | Serviço de Aplicativo (aplicativos Web) | Serviços de nuvem (funções Web) | Máquinas Virtuais | Service Fabric | Observações |
 | --- | --- | --- | --- | --- | --- |
@@ -56,8 +56,8 @@ A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nu
 | Integração do Visual Studio |X |X |X |X | |
 | Depuração Remota |X |X |X | | |
 | Implantar código com TFS |X |X |X |X | |
-| Isolamento de rede com a [Rede Virtual do Azure](/services/virtual-network/) |X |X |X |X |Consulte também [Integração de Rede Virtual dos Websites do Azure](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
-| Suporte a [Gerenciador de Tráfego do Azure](/services/traffic-manager/) |X |X |X |X | |
+| Isolamento de rede com a [Rede Virtual do Azure](/azure/virtual-network/) |X |X |X |X |Consulte também [Integração de Rede Virtual dos Websites do Azure](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
+| Suporte a [Gerenciador de Tráfego do Azure](/azure/traffic-manager/) |X |X |X |X | |
 | Monitoramento do ponto de extremidade integrado |X |X |X | | |
 | Acesso remoto a área de trabalho para servidores | |X |X |X | |
 | Instalação de qualquer MSI personalizado | |X |X |X |O Service Fabric permite hospedar qualquer arquivo executável como um [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md) , ou você pode instalar qualquer aplicativo nas VMs. |
@@ -144,7 +144,7 @@ Se sua estrutura de software livre tiver suporte no Serviço de Aplicativo, as l
 Se sua estrutura de software livre não tiver suporte no Serviço de Aplicativo, você pode executá-la em uma das outras opções de hospedagem na Web do Azure. Com as Máquinas Virtuais, você instala e configura o software na imagem da máquina, que pode ser baseada em Windows ou Linux.
 
 ### <a id="lob"></a>Eu tenho um aplicativo de linha de negócios que precisa se conectar à rede corporativa
-Se você deseja criar um aplicativo de linha de negócios, seu site pode exigir acesso direto a serviços ou dados da rede corporativa. Isso é possível no Serviço de Aplicativo, no Service Fabric e nas Máquinas Virtuais usando o [serviço de Rede Virtual do Azure](/services/virtual-network/). No Serviço de Aplicativo, você pode usar o [recurso de integração do VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que seus aplicativos Azure sejam executados como se estivessem em sua rede corporativa.
+Se você deseja criar um aplicativo de linha de negócios, seu site pode exigir acesso direto a serviços ou dados da rede corporativa. Isso é possível no Serviço de Aplicativo, no Service Fabric e nas Máquinas Virtuais usando o [serviço de Rede Virtual do Azure](/azure/virtual-network/). No Serviço de Aplicativo, você pode usar o [recurso de integração do VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que seus aplicativos Azure sejam executados como se estivessem em sua rede corporativa.
 
 ### <a id="mobile"></a>Desejo hospedar uma API REST ou um serviço Web para clientes móveis
 Serviços da Web baseados em HTTP permitem que você ofereça suporte a uma ampla variedade de clientes, inclusive clientes móveis. Estruturas como a API da Web do ASP.NET são integradas com o Visual Studio para fazer com que seja mais fácil criar e consumir serviços REST.  Esses serviços são expostos a partir de um ponto de extremidade da Web, portanto, é possível usar qualquer técnica de hospedagem na Web no Azure para dar suporte a esse cenário. No entanto, o Serviço de Aplicativo é uma ótima opção para hospedar APIs REST. Com o Serviço de Aplicativo, você pode:
@@ -162,31 +162,31 @@ Serviços da Web baseados em HTTP permitem que você ofereça suporte a uma ampl
 ## <a id="nextsteps"></a> Próximas etapas
 Para saber mais sobre as três opções de hospedagem da Web, confira [Introdução ao Azure](../fundamentals-introduction-to-azure.md).
 
-Para começar a usar as opções escolhidas para seu aplicativo, consulte os seguintes recursos:
+Para se familiarizar com as opções escolhidas para seu aplicativo, consulte os seguintes recursos:
 
-* [Serviço de aplicativo do Azure](/documentation/services/app-service/)
-* [Serviços de nuvem do Azure](/documentation/services/cloud-services/)
-* [Máquinas Virtuais do Azure](/documentation/services/virtual-machines/)
-* [Service Fabric](/documentation/services/service-fabric)
+* [Serviço de Aplicativo do Azure](/azure/app-service/)
+* [Serviços de nuvem do Azure](/azure/cloud-services/)
+* [Máquinas Virtuais do Azure](/azure/virtual-machines/)
+* [Service Fabric](/azure/service-fabric/)
 
 <!-- URL List -->
 
-[Azure App Service]: /services/app-service/
-[Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
-[Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
-[Service Fabric]: /services/service-fabric
+[Azure App Service]: /azure/app-service/
+[Cloud Services]: /azure/cloud-services/
+[Virtual Machines]: /azure/virtual-machines/
+[Service Fabric]: /azure/service-fabric/
 [ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-[azurestore]: http://www.windowsazure.com/gallery/store/
-[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-[dotnet]: http://www.windowsazure.com/develop/net/
-[nodejs]: http://www.windowsazure.com/develop/nodejs/
-[PHP]: http://www.windowsazure.com/develop/php/
-[Python]: http://www.windowsazure.com/develop/python/
-[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-[sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-[Storage]: http://www.windowsazure.com/documentation/services/storage/
+[Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
+[azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps
+[scripting]: https://azure.microsoft.com/documentation/scripts/?services=web-sites
+[dotnet]: https://azure.microsoft.com/develop/net/
+[nodejs]: https://azure.microsoft.com/develop/nodejs/
+[PHP]: https://azure.microsoft.com/develop/php/
+[Python]: https://azure.microsoft.com/develop/python/
+[servicebus]: /azure/service-bus/
+[sqldatabase]: /azure/sql-database/
+[Storage]: /azure/storage/
 
 <!-- IMG List -->
 

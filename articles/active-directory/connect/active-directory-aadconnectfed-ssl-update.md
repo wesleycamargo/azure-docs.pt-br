@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+ms.date: 07/17/2017
 ms.author: anandy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/21/2017
-
 
 ---    
 
@@ -65,10 +65,10 @@ Depois de confirmar as informações sobre os servidores do farm do AD FS, o Azu
 
 Depois de fornecer o certificado, o Azure AD Connect passará por uma série de pré-requisitos. Verifique o certificado para garantir que esteja correto para o farm do AD FS:
 
--    O nome da entidade/nome alternativo da entidade do certificado é o mesmo que o nome do serviço de federação, ou é um certificado curinga.
--    O certificado é válido por mais de 30 dias.
--    A cadeia confiável de certificado é válida.
--    O certificado é protegido por senha.
+-   O nome da entidade/nome alternativo da entidade do certificado é o mesmo que o nome do serviço de federação, ou é um certificado curinga.
+-   O certificado é válido por mais de 30 dias.
+-   A cadeia confiável de certificado é válida.
+-   O certificado é protegido por senha.
 
 ## <a name="step-3-select-servers-for-the-update"></a>Etapa 3: Selecionar servidores para atualização
 

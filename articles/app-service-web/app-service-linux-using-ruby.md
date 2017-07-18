@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5aeef6f31dacb1b27c605d39a35a81bd0211e06a
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: ad724b99426c1873c173da905c89b471ee64ffa6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -45,11 +45,14 @@ A folha **Criar** é aberta, conforme mostrado na seguinte imagem:
 
 Depois que seu aplicativo Web Ruby é criado, você pode implantar para ele usando Git ou FTP.
 
+Para saber mais sobre como criar um aplicativo Ruby, confira o [guia de introdução](app-service-linux-ruby-get-started.md)
+
 ## <a name="next-steps"></a>Próximas etapas
 * [O que é o Aplicativo Web no Linux?](app-service-linux-intro.md)
 * [Criando Aplicativos Web no Aplicativo Web no Linux](app-service-linux-how-to-create-web-app.md)
 * [Implantação do Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md)
 * [Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
+* [Criar um aplicativo Ruby com o Aplicativo Web do Azure no Linux](app-service-linux-ruby-get-started.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

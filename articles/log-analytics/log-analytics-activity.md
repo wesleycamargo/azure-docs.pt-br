@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: cfdc507d5e45fc716940bd4607631ba500bf4c59
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="view-azure-activity-logs"></a>Exibir logs de atividade do Azure
 
- ![Símbolo dos logs de atividade do Azure](./media/log-analytics-activity/activity-log-analytics.png) A solução Log Analytics de Atividade o ajuda a analisar e pesquisar o [Log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) em todas as suas assinaturas do Azure. O Log de Atividades do Azure é um log que fornece análise das operações executadas nos recursos em sua assinatura. O Log de atividades era conhecido como *Logs de Auditoria* ou *Logs Operacionais*, pois relata eventos de suas assinaturas.
+![Símbolo dos logs de atividades do Azure](./media/log-analytics-activity/activity-log-analytics.png)
+
+A solução Análise do Log de Atividades o ajuda a analisar e pesquisar o [Log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) em todas as suas assinaturas do Azure. O Log de Atividades do Azure é um log que fornece análise das operações executadas nos recursos em sua assinatura. O Log de atividades era conhecido como *Logs de Auditoria* ou *Logs Operacionais*, pois relata eventos de suas assinaturas.
 
 Usando o Log de atividades, você pode determinar o *quê*, *quem* e *quando* para qualquer operação de gravação (PUT, POST, DELETE) feitas para os recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo de implantação Clássico.
 

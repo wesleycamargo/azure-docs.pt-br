@@ -2,7 +2,7 @@
 title: "Introdução ao Azure Monitor | Microsoft Docs"
 description: "Começar a usar o Azure Monitor para obter informações sobre a operação de seus recursos e tomada de ação com base nos dados."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 6e1a1f522b9632c7d162d36ad5baa23d6130f8b6
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="get-started-with-azure-monitor"></a>Introdução ao Azure Monitor

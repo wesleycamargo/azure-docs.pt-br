@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;raymondl
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 5d587618dd885ec30e35b13c5fd543c1a8853200
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 95aa1fa23d83ec0dcd00870179167e803bafbd16
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -122,7 +123,7 @@ Para saber mais sobre...
 
 * como criar uma experiência de aprendizado de máquina com o Estúdio de Aprendizado de Máquina, veja [Criar seu primeiro teste no Estúdio de Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
 * como implantar sua experiência de aprendizado de máquina como um serviço Web, veja [Implantar um serviço Web de Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md)
-* outras maneiras de acessar o serviço Web, veja [Como consumir um serviço Web de Aprendizado de Máquina do Azure](machine-learning-consume-web-services.md)
+* outras maneiras de acessar o serviço Web, veja [Como consumir um serviço Web do Azure Machine Learning](machine-learning-consume-web-services.md)
 
 [image1]: media/machine-learning-consume-web-service-with-web-app-template/rrs-web-template-flow.png
 [image2]: media/machine-learning-consume-web-service-with-web-app-template/bes-web-template-flow.png

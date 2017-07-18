@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 371976a35ae285942decaf8e22651e98f6217a95
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: b78d8d257ea31e7cb6b4e1abfb32c81fcea67b6d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -57,7 +57,7 @@ Confira no [GitHub](https://github.com/jcormont/documentdb-typescript) e no [npm
 ### <a name="swagger-rest-api-for-documentdb"></a>API REST do Swagger para Banco de Dados de Documentos
 *por Howard Edidin*
 
-Um arquivo Swagger da API REST do DocumentDB no Azure Cosmos DB que pode ser facilmente implantado como um Aplicativo de API.
+Um arquivo do Swagger da API REST do Azure Cosmos DB para a API do DocumentDB que pode ser facilmente implantado como um Aplicativo de API.
 
 Confira no [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 

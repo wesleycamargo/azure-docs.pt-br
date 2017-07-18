@@ -2,7 +2,7 @@
 title: "Criar uma métrica de alerta com um modelo do Resource Manager | Microsoft Docs"
 description: "Saiba como usar um modelo do Resource Manager para criar um alerta de métrica para receber notificações por email ou webhook."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
 ms.contentlocale: pt-br
 ms.lasthandoff: 12/22/2016
-
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager

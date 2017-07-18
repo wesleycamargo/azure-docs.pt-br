@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: 9f792f6ea082461f3304516fc9b4c3273e2f50b8
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 5b0808afdadcf4d86a9a2d07ee6fc63b80b22993
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -44,9 +45,9 @@ Um projeto habilitado para Trabalhos Web tem os seguintes itens adicionados:
 ![Diagrama que mostra o projeto de Trabalho Web sendo vinculado ao projeto Web](./media/websites-dotnet-deploy-webjobs/link.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Os recursos de implantação do WebJobs estão disponíveis no Visual Studio 2015 quando você instala o SDK do Azure para .NET:
+Os recursos de implantação do WebJobs estão disponíveis no Visual Studio quando você instala o SDK do Azure para .NET:
 
-* [SDK do Azure para .NET (Visual Studio 2015)](http://go.microsoft.com/fwlink/?linkid=518003).
+* [SDK do Azure para .NET (Visual Studio)](https://azure.microsoft.com/downloads/).
 
 ## <a id="convert"></a>Habilitar a implantação de Trabalhos Web para um projeto do Aplicativo de Console existente
 Você tem duas opções:
@@ -70,14 +71,14 @@ Você tem duas opções:
 3. Complete a caixa de diálogo [Adicionar Trabalho Web do Azure](#configure) e clique em **OK**. 
 
 ### <a id="convertnolink"></a> Habilitar a implantação de Trabalhos Web sem um projeto Web
-1. Clique com o botão direito do mouse no projeto do Aplicativo de Console no **Gerenciador de Soluções** e clique em **Publicar como Trabalho Web do Azure**. 
+1. Clique com o botão direito do mouse no projeto do Aplicativo de Console no **Gerenciador de Soluções** e, depois, clique em **Publicar como Azure WebJob...**. 
    
     ![Publicar como Trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
    
     A caixa de diálogo [Adicionar Trabalho Web do Azure](#configure) é exibida, com o projeto selecionado na caixa **Nome do projeto** .
 2. Complete a caixa de diálogo [Adicionar Trabalho Web do Azure](#configure) e clique em **OK**.
    
-   O assistente **Publicar Web** é exibido.  Se você não quiser publicar imediatamente, feche o assistente. As configurações inseridas por você são salvas para quando quiser [implantar o projeto](#deploy).
+   O assistente **Publicar Web** é exibido.  Se você não desejar publicar imediatamente, feche o assistente. As configurações inseridas por você são salvas para quando quiser [implantar o projeto](#deploy).
 
 ## <a id="create"></a>Criar um novo projeto habilitado para Trabalhos Web
 Para criar um projeto habilitado para Trabalhos Web, é possível usar o modelo de projeto do Aplicativo de Console e habilitar a implantação de Trabalhos Web conforme explicado na [seção anterior](#convert). Também é possível usar o modelo do novo projeto de Trabalhos Web:
@@ -90,12 +91,12 @@ Para criar um projeto habilitado para Trabalhos Web, é possível usar o modelo 
     Crie um projeto que seja configurado para ser implantado automaticamente como um Trabalho Web quando um projeto Web na mesma solução for implantado. Use esta opção quando quiser executar o Trabalho Web no mesmo aplicativo Web em que você executa o aplicativo Web relacionado.
 
 > [!NOTE]
-> O modelo new-project do WebJobs instala automaticamente pacotes NuGet e inclui o código em *Program.cs* para o [SDK do WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se você não quiser usar o SDK do WebJobs ou quiser usar um WebJob agendado em vez de contínuo, remova ou altere a instrução `host.RunAndBlock` em *Program.cs*.
+> O modelo new-project do WebJobs instala automaticamente pacotes NuGet e inclui o código em *Program.cs* para o [SDK do WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se você não desejar usar o SDK do WebJobs, remova ou altere a instrução `host.RunAndBlock` em *Program.cs*.
 > 
 > 
 
 ### <a id="createnolink"></a> Usar o novo modelo de projeto de Trabalhos Web para um Trabalho Web independente
-1. Clique em **Arquivo** > **Novo Projeto** e, na caixa de diálogo **Novo Projeto**, clique em **Nuvem** > **Trabalho Web do Microsoft Azure**.
+1. Clique em **Arquivo** > **Novo Projeto** e, depois, na caixa de diálogo **Novo Projeto**, clique em **Nuvem** > **Azure WebJob (.NET Framework)**.
    
     ![Caixa de diálogo Novo Projeto mostrando o modelo de Trabalho Web](./media/websites-dotnet-deploy-webjobs/np.png)
 2. Siga as direções mostradas anteriormente para [tornar o projeto do Aplicativo de Console um projeto de Trabalhos Web independente](#convertnolink).
@@ -109,20 +110,14 @@ Para criar um projeto habilitado para Trabalhos Web, é possível usar o modelo 
 2. Complete a caixa de diálogo [Adicionar Trabalho Web do Azure](#configure) e clique em **OK**.
 
 ## <a id="configure"></a>A caixa de diálogo Adicionar Trabalho Web do Azure
-A caixa de diálogo **Adicionar Trabalho Web do Azure** permite inserir as configurações de nome e agendamento do Trabalho Web. 
+A caixa de diálogo **Adicionar Azure WebJob** permite inserir o nome do WebJob e executar a configuração de modo do WebJob. 
 
 ![Caixa de diálogo Adicionar Trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
 Os campos nessa caixa de diálogo correspondem aos campos na caixa de diálogo **Novo Trabalho** do Portal do Azure. Para obter mais informações, consulte [Executar tarefas em segundo plano com o Trabalhos Web](web-sites-create-web-jobs.md).
 
-Para um Trabalho Web agendado (e não para Trabalhos Web contínuos), o Visual Studio cria uma coleção de trabalhos do [Agendador do Azure](/services/scheduler/) caso ainda não exista uma e cria um trabalho na coleção:
-
-* A coleção de trabalhos do agendador é denominada *WebJobs-{regionname}*, em que *{regionname}* refere-se à região em que o aplicativo Web está hospedado. Por exemplo: WebJobs-OesteEUA.
-* O trabalho do agendador se chama *{nomedoaplicativoweb}-{nomedotrabalhoweb}*. Por exemplo: MeuAplicativoWeb-MeuTrabalhoWeb. 
-
 > [!NOTE]
 > * Para obter informações sobre a implantação de linha de comando, consulte [Habilitando a entrega de linha de comando ou contínua de Trabalhos Web do Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
-> * Se você configurar um **Trabalho Recorrente** e definir a frequência de recorrência como um número de minutos, o serviço Agendador do Azure não estará livre. Outra frequências (horas, dias etc.) estão livres.
 > * Se você implantar um Trabalho Web e, em seguida, decidir que deseja alterar o tipo de Trabalho Web e implantá-lo novamente, você precisará excluir o arquivo webjobs-publish-settings.json. Isso fará com que o Visual Studio exiba novamente as opções de publicação para que você possa alterar o tipo de Trabalho Web.
 > * Se você implantar um Trabalho Web e depois alterar o modo de execução de contínuo para não contínuo ou vice-versa, o Visual Studio criará um novo Trabalho Web no Azure quando você o reimplantar. Se você alterar outras configurações de agendamento, mas deixar o modo de execução igual ou alternar Agendado e Sob Demanda, o Visual Studio atualizará o trabalho existente, em vez de criar um novo.
 > 
@@ -134,22 +129,17 @@ Quando você configura um Aplicativo de Console para implantação de Trabalhos 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
           "webJobName": "WebJob1",
-          "startTime": "2014-06-23T00:00:00-08:00",
-          "endTime": "2014-06-27T00:00:00-08:00",
-          "jobRecurrenceFrequency": "Minute",
-          "interval": 5,
-          "runMode": "Scheduled"
+          "startTime": "null",
+          "endTime": "null",
+          "jobRecurrenceFrequency": "null",
+          "interval": null,
+          "runMode": "Continuous"
         }
 
 É possível editar esse arquivo diretamente, e o Visual Studio fornece o IntelliSense. O esquema de arquivo é armazenado em [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) e pode ser exibido aqui.  
 
-> [!NOTE]
-> * Se você configurar um **Trabalho Recorrente** e definir a frequência de recorrência como um número de minutos, o serviço Agendador do Azure não estará livre. Outra frequências (horas, dias etc.) estão livres.
-> 
-> 
-
 ## <a id="webjobslist"></a>webjobs-list.json
-Quando você vincula um projeto habilitado para Trabalhos Web a um projeto Web, o Visual Studio armazena o nome do projeto de Trabalhos Web em um arquivo *webjobs-list.json* na pasta *Propriedades* do projeto Web. A lista pode conter vários projetos de Trabalhos Web, conforme mostrado no seguinte exemplo:
+Quando você vincula um projeto habilitado para Trabalhos Web a um projeto Web, o Visual Studio armazena o nome do projeto de Trabalhos Web em um arquivo *webjobs-list.json* na pasta *Propriedades* do projeto Web. A lista pode conter vários projetos do WebJobs, conforme mostrado no seguinte exemplo:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
@@ -168,7 +158,7 @@ Quando você vincula um projeto habilitado para Trabalhos Web a um projeto Web, 
 ## <a id="deploy"></a>Implantar um projeto de Trabalhos Web
 Um projeto de Trabalhos Web vinculado a um projeto Web é implantado automaticamente com o projeto Web. Para obter informações sobre a implantação de projetos Web, consulte [Como implantar Aplicativos Web](web-sites-deploy.md).
 
-Para implantar um projeto de Trabalhos Web propriamente dito, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clique em **Publicar como Trabalho Web do Azure**. 
+Para implantar um projeto do WebJobs sozinho, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clique em **Publicar como Azure WebJob...**. 
 
 ![Publicar como Trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
 

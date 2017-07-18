@@ -2,7 +2,7 @@
 title: "Transmissão do Log de Atividades do Azure para os Hubs de Eventos | Microsoft Docs"
 description: Saiba como transmitir o Log de Atividades do Azure para os Hubs de Eventos.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
 ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 ms.contentlocale: pt-br
 ms.lasthandoff: 12/10/2016
-
 
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmissão do Log de Atividades do Azure para os Hubs de Eventos

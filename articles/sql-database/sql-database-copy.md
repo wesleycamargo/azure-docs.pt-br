@@ -3,23 +3,23 @@ title: Copiar um banco de dados SQL do Azure | Microsoft Docs
 description: "Criar uma cópia de um Banco de Dados SQL do Azure"
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 04/05/2017
-ms.author: sashan;carlrab
+ms.date: 06/15/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: af953e16103951fe2fd283898b3c466a1ebe91fd
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 67c42b8df2f1d12ceecd127ab24d359a6de8ef43
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -39,7 +39,7 @@ Quando você copia um banco de dados para um servidor lógico diferente, a entid
 
 Se você usar o [Azure Active Directory](../active-directory/active-directory-whatis.md), será possível acabar completamente com a necessidade de gerenciar credenciais na cópia. No entanto, quando você copia o banco de dados para um novo servidor, o acesso baseado em logon geralmente não funciona, porque os logons não existirão no novo servidor. Para saber como gerenciar logins quando você copia um banco de dados para um servidor lógico diferente, consulte [How to manage Azure SQL database security after disaster recovery (Como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre)](sql-database-geo-replication-security-config.md). 
 
-Depois que a cópia for bem-sucedida e antes que outros usuários sejam remapeados, somente o logon que tiver iniciado a cópia, o proprietário do banco de dados, poderá fazer logon no novo banco de dados. Para resolver logons após a conclusão da operação de cópia, confira [Resolver logons](sql-database-copy.md#resolve-logins.md).
+Depois que a cópia for bem-sucedida e antes que outros usuários sejam remapeados, somente o logon que tiver iniciado a cópia, o proprietário do banco de dados, poderá fazer logon no novo banco de dados. Para resolver logons após a conclusão da operação de cópia, confira [Resolver logons](#resolve-logins).
 
 ## <a name="copy-a-database-by-using-the-azure-portal"></a>Cópia do banco de dados usando o Portal do Azure
 
@@ -49,7 +49,7 @@ Para copiar um banco de dados usando o Portal do Azure, abra a página do banco 
 
 ## <a name="copy-a-database-by-using-powershell"></a>Cópia de banco de dados usando o PowerShell
 
-Para copiar um banco de dados usando o PowerShell, use o [ `New-AzureRmSqlDatabaseCopy` ](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+Para copiar um banco de dados usando o PowerShell, use o cmdlet [New-AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy). 
 
 ```PowerShell
 New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `

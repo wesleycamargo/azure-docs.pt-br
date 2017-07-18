@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 424889a00a20c8daf770098a43576783b813340c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implantar o Azure Cosmos DB e Aplicativos Web do Serviço de Aplicativo do Azure usando um modelo do Azure Resource Manager
-Este tutorial mostra como usar um modelo do Azure Resource Manager para implantar e integrar o [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), um aplicativo Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e um aplicativo Web de exemplo.
+Este tutorial mostra como usar um modelo do Azure Resource Manager para implantar e integrar o [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), um aplicativo Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e um aplicativo Web de exemplo.
 
 Usando modelos do Azure Resource Manager, é possível automatizar com facilidade a implantação e a configuração de seus recursos do Azure.  Este tutorial mostra como implantar um aplicativo Web e configurar automaticamente as informações de conexão da conta do Azure Cosmos DB.
 
@@ -85,7 +85,7 @@ Agora, vamos implantar nosso primeiro modelo.
    
    ![Aplicativo Todo de exemplo](./media/create-website/image2.png)
 9. Vá em frente e crie algumas tarefas no aplicativo Web. Clique no recurso de conta do Azure Cosmos DB na lista de Recursos e, em seguida, clique em **Gerenciador de Consultas**.
-    ![Captura de tela da lente de Resumo com o aplicativo Web myotherdocumentdbwebapp realçado](./media/create-website/TemplateDeployment8.png)  
+    ![Captura de tela da lente Resumo com o aplicativo Web realçado](./media/create-website/TemplateDeployment8.png)  
 10. Execute a consulta padrão, “SELECT * FROM c” e inspecione os resultados.  Observe que a consulta recuperou a representação JSON dos itens de tarefas que você criou na etapa 7 acima.  Fique à vontade para experimentar as consultas. Por exemplo, tente executar SELECT * FROM c WHERE c.isComplete = true para retornar todos os itens de tarefas pendentes que foram marcados como concluídos.
     
     ![Captura de tela das lâminas Gerenciador de Consultas e Resultados mostrando os resultados da consulta](./media/create-website/image5.png)

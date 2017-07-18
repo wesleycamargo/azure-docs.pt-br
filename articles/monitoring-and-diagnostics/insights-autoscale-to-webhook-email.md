@@ -1,8 +1,8 @@
 ---
 title: "Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook. | Microsoft Docs"
 description: "Consulte como usar ações de escala automática para chamar URLs da web ou enviar notificações por email no Azure Monitor. "
-author: kamathashwin
-manager: carolz
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
-ms.author: ashwink
+ms.author: ancav
 ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
 ms.contentlocale: pt-br
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
