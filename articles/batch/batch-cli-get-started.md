@@ -16,10 +16,10 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -180,13 +180,14 @@ As dicas abaixo poderão ajudar você quando estiver solucionando problemas da C
 * Use `-h` para obter um **texto de ajuda** para qualquer comando da CLI
 * Use `-v` e `-vv` para exibir saídas de comando **detalhadas**. Quando o sinalizador `-vv` é incluído, a CLI do Azure exibe as respostas e solicitações REST reais. Essas opções são úteis para exibir a saída completa do erro.
 * Você pode exibir a **saída do comando como JSON** com a opção `--json`. Por exemplo, o `az batch pool show pool001 --json` exibe propriedades do pool001 no formato JSON. Você pode copiar e modificar essa saída a fim de usá-la em um `--json-file` (consulte [Arquivos JSON](#json-files) anteriormente neste artigo).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * O [Fórum do Lote][batch_forum] é monitorado por membros da equipe do Lote. Você pode publicar suas perguntas nesse local caso tenha problemas ou queira obter ajuda com uma operação específica.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 * Para saber mais sobre recursos do Lote, consulte [Visão geral do Lote do Azure para desenvolvedores](batch-api-basics.md).
-* Consulte [Implantação de aplicativos com os pacotes de aplicativos do Lote do Azure](batch-application-packages.md) para descobrir como usar esse recurso para gerenciar e implantar os aplicativos executados em nós de computação do Lote.
+* Veja [Implantar aplicativos em nós de computação com os pacotes de aplicativos do Lote](batch-application-packages.md) para descobrir como usar esse recurso para gerenciar e implantar os aplicativos executados em nós de computação do Lote.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

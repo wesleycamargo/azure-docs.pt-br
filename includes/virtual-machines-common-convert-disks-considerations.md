@@ -1,4 +1,4 @@
-* Se o disco não gerenciado está em uma conta de armazenamento criptografada anteriormente usando a Criptografia do Serviço de Armazenamento do Azure, você não pode convertê-lo em um disco gerenciado. Para obter as etapas que mostram como copiar e usar esses VHDs em discos gerenciados, confira [mais adiante neste artigo](#managed-disks-and-azure-storage-service-encryption).
+* Se o disco não gerenciado estiver em uma conta de armazenamento criptografada anteriormente por meio da Criptografia do Serviço do Armazenamento do Azure, você não poderá convertê-lo em um disco gerenciado. Para obter as etapas para copiar e usar esses discos rígidos virtuais (VHDs) em discos gerenciados, veja a seção [Discos gerenciados e Criptografia do Serviço de Armazenamento do Azure](#managed-disks-and-azure-storage-service-encryption) mais adiante neste artigo.
 
 * A conversão requer uma reinicialização da VM, programe então a migração de suas VMs durante uma janela de manutenção já existente. 
 

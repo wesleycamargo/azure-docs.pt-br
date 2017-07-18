@@ -65,8 +65,3 @@ Finalmente, você criará um novo logon do SQL Server com permissões restritas.
 3. No script anterior, substitua a cadeia de caracteres `<**secure_password**>` por uma senha segura para o novo *HybridConnectionsLogin*.
 4. **Execute** a consulta para criar o novo logon e conceder as permissões necessárias no banco de dados local.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

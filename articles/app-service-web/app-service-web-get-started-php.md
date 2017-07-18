@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 05/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 3c7bbb1342d381b2940a9e1ceb56d905fbc33a74
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 9a53216e326e63bd4fe36c0e5d5d5e85b2098d8c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/10/2017
 
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar um aplicativo Web do PHP no Azure
@@ -69,7 +69,7 @@ php -S localhost:8080
 
 Abra um navegador da Web e navegue até o aplicativo de exemplo no http://localhost:8080.
 
-Você vê a mensagem **Olá, Mundo** no aplicativo de exemplo exibido na página.
+Você verá o **Olá, Mundo!** mensagem do aplicativo de exemplo exibida na página.
 
 ![Aplicativo de exemplo em execução local](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 

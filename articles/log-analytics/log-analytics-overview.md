@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 391870380280d6783223849ce383113bf1dd6d31
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -28,7 +28,7 @@ O Log Analytics é um serviço no [Operations Management Suite\(OMS \)](../opera
 ## <a name="is-log-analytics-for-you"></a>O Log Analytics serve para você?
 Se no momento você não tiver nenhum monitoramento de seu ambiente do Azure em vigor, comece com o [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), que coleta e analisa dados de monitoramento de seus recursos do Azure.  O Log Analytics pode [coletar dados do Azure Monitor](log-analytics-azure-storage.md) para correlacioná-los com outros dados e fornecer mais análise.
 
-Se você quiser monitorar seu ambiente local, ou se houver um monitoramento usando serviços como o Azure Monitor ou o System Center Operations Manager, o Log Anlalytics poderá agregar um valor considerável.  Ele pode coletar dados diretamente de seus agentes e também dessas outras ferramentas em um único repositório.  Ferramentas de análise no Log Analytics como pesquisas, exibições e soluções de log funcionam em todos os dados coletados, oferecendo análise centralizada de todo o ambiente.
+Se você quiser monitorar seu ambiente local, ou se houver um monitoramento usando serviços como o Azure Monitor ou o System Center Operations Manager, o Log Analytics poderá agregar um valor considerável.  Ele pode coletar dados diretamente de seus agentes e também dessas outras ferramentas em um único repositório.  Ferramentas de análise no Log Analytics como pesquisas, exibições e soluções de log funcionam em todos os dados coletados, oferecendo análise centralizada de todo o ambiente.
 
 
 ## <a name="using-log-analytics"></a>Como usar o Log Analytics
