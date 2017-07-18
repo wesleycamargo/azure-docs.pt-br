@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -22,16 +22,17 @@ ms.openlocfilehash: 3ed13c819f8e32cab44013cdcbf1b3a921ba98b8
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/03/2017
 
-
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD
+# Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD
+<a id="licensing-requirements-for-azure-ad-self-service-password-reset" class="xliff"></a>
 
 Para a redefinição de senhas do AD do Azure funcionar, você **deverá ter pelo menos uma licença atribuída na sua organização**. Não impomos licenciamento por usuário na experiência de redefinição da senha. Para manter a conformidade com o contrato de licenciamento da Microsoft, você precisa atribuir licenças a todos os usuários que usam recursos premium.
 
 * **Somente usuários de nuvem** – Qualquer SKU pago do Office 365 (O365) ou Azure AD Basic
 * Usuários na **nuvem** e/ou **locais** – Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Secure Productive Enterprise (SPE)
 
-## <a name="licenses-required-for-password-writeback"></a>Licenças necessárias para write-back de senha
+## Licenças necessárias para write-back de senha
+<a id="licenses-required-for-password-writeback" class="xliff"></a>
 
 Para usar o write-back de senha, você deve ter uma das licenças a seguir atribuídas no locatário.
 
@@ -51,13 +52,15 @@ As informações de licenciamento adicionais, inclusive custos, podem ser encont
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
 
-## <a name="enable-group-or-user-based-licensing"></a>Habilitar licenciamento com base em grupo ou usuário
+## Habilitar licenciamento com base em grupo ou usuário
+<a id="enable-group-or-user-based-licensing" class="xliff"></a>
 
 O Azure AD já dá suporte ao licenciamento com base em grupo, permitindo que os administradores atribuam licenças em massa a um grupo de usuários, em vez de atribuí-los um por vez. [Atribuir, verificar e resolver problemas com licenças](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)
 
 Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para que uma licença possa ser atribuída a um usuário, o administrador precisa especificar a propriedade “Local de uso” para o usuário. A atribuição de licenças pode ser feita em Usuário > Perfil > seção Configurações no portal do Azure. **Ao usar a atribuição de grupo de licenças, qualquer usuário sem um local de uso especificado herda o local do diretório.**
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 
 Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 

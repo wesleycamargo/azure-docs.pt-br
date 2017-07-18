@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -22,9 +22,9 @@ ms.openlocfilehash: 5bd17fc68447b8387dfaad33fe2d0055596ec086
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/26/2017
 
-
 ---
-# <a name="roll-out-password-reset-for-users"></a>Implementação da redefinição de senha para usuários
+# Implementação da redefinição de senha para usuários
+<a id="roll-out-password-reset-for-users" class="xliff"></a>
 
 A maioria dos clientes segue as etapas a seguir para garantir uma distribuição tranquila da funcionalidade da SSPR.
 
@@ -41,7 +41,8 @@ A maioria dos clientes segue as etapas a seguir para garantir uma distribuição
 8. Você pode optar por impor o registro a qualquer momento e exigir que os usuários confirmem novamente as informações de autenticação após um período determinado. Se não quiser que os usuários se registrem, você pode [implantar a redefinição de senha sem a necessidade de registro do usuário final](active-directory-passwords-data.md).
 9. Ao longo do tempo, revise os [relatórios fornecidos pelo Azure AD](active-directory-passwords-reporting.md) para examinar os usuários que usam e se registram.
 
-## <a name="email-based-rollout"></a>Distribuição baseada em email
+## Distribuição baseada em email
+<a id="email-based-rollout" class="xliff"></a>
 
 Muitos clientes acreditam que uma campanha de email com instruções simples de uso é a maneira mais fácil para que os usuários usem a SSPR. [Você criou três e-mails simples que você pode usar como modelos para ajudá-lo em sua distribuição.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
@@ -49,7 +50,8 @@ Muitos clientes acreditam que uma campanha de email com instruções simples de 
 * **Disponível agora** modelo de email a ser usado no dia de início para orientar os usuários a se registrarem e confirmar seus dados de autenticação para que possam usar a SSPR quando necessário.
 * **Lembrete de inscrição** modelo de email por alguns dias ou semanas após a implantação para lembrar aos usuários de se registrarem e confirmarem seus dados de autenticação.
 
-## <a name="creating-your-own-password-portal"></a>Criando seu próprio portal de senha
+## Criando seu próprio portal de senha
+<a id="creating-your-own-password-portal" class="xliff"></a>
 
 Muitos de nossos clientes grandes preferem hospedar uma página e criar uma entrada DNS raiz, como https://passwords.contoso.com. Eles populam esta página com links para a redefinição da senha do Azure AD, registro da redefinição de senha, portais de alteração de senha e outras informações específicas da organização. Em comunicações de email ou folhetos enviados, você pode incluir um URL personalizada que seja fácil de lembrar para que os usuários possam acessar quando precisarem usar os serviços.
 
@@ -57,7 +59,8 @@ Muitos de nossos clientes grandes preferem hospedar uma página e criar uma entr
 * Portal de registro de redefinição de senha - http://aka.ms/ssprsetup
 * Portal de alteração de senha - https://account.activedirectory.windowsazure.com/ChangePassword.aspx
 
-## <a name="using-enforced-registration"></a>Usando o registro imposto
+## Usando o registro imposto
+<a id="using-enforced-registration" class="xliff"></a>
 
 Se desejar que os usuários se registrem para a redefinição de senha, você pode forçá-los a se registrar quando entrarem usando o Azure AD. Você pode habilitar essa opção na folha de **redefinição de senha** do seu diretório ativando a opção **Exigir que os Usuários se Registrem ao Entrar** na guia **Registro**.
 
@@ -65,15 +68,18 @@ Os administradores podem exigir que os usuários se registrem novamente após um
 
 Depois de habilitar essa opção, os usuários entrando verão uma mensagem informando-os que seu administrador solicitou que verifiquem suas informações de autenticação.
 
-## <a name="populate-authentication-data"></a>Popular os dados de autenticação
+## Popular os dados de autenticação
+<a id="populate-authentication-data" class="xliff"></a>
 
 Se você [popular os dados de autenticação para seus usuários](active-directory-passwords-data.md), os usuários não precisam se registrar para redefinição de senha antes de poderem usar a SSPR. Desde que os usuários tenham dados de autenticação definidos que atendam à política de redefinição de senha que você definiu, os usuários serão capazes de redefinir suas senhas.
 
-## <a name="disabling-self-service-password-reset"></a>Desabilitação da redefinição da senha de autoatendimento
+## Desabilitação da redefinição da senha de autoatendimento
+<a id="disabling-self-service-password-reset" class="xliff"></a>
 
 Desabilitar a redefinição de senha de autoatendimento é tão simples quanto abrir seu locatário do Azure AD e acessar **Redefinição de Senha**, **Propriedades** e escolher **Ninguém** em **Redefinição da Senha de Autoatendimento Habilitada**
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 
 Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
