@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -22,9 +22,9 @@ ms.openlocfilehash: 4d7f05d626e6f718ca3597dff00715af4055f046
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/03/2017
 
-
 ---
-# <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
+# Opções de relatórios para o gerenciamento de senhas do Azure AD
+<a id="reporting-options-for-azure-ad-password-management" class="xliff"></a>
 
 Após a implantação, muitas organizações desejam saber como ou se o SSPR realmente está sendo usado. O Azure AD fornece recursos de relatórios que ajudam você a responder perguntas usando relatórios definidos e, caso você esteja licenciado de forma adequada, permitem que você crie consultas personalizadas.
 
@@ -42,7 +42,8 @@ As perguntas a seguir podem ser respondidas pelos relatórios existentes no [por
 * Quais administradores estão redefinindo suas próprias senhas com frequência?
 * Há qualquer atividade suspeita acontecendo na redefinição de senhas?
 
-## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Como exibir relatórios de gerenciamento de senhas no portal do Azure
+## Como exibir relatórios de gerenciamento de senhas no portal do Azure
+<a id="how-to-view-password-management-reports-in-the-azure-portal" class="xliff"></a>
 
 Na experiência do portal do Azure, temos uma maneira melhor de exibir a redefinição de senha e a atividade de registro de redefinição de senha.  Siga as etapas abaixo para encontrar os eventos de redefinição de senha e registro de redefinição de senha:
 
@@ -55,11 +56,13 @@ Na experiência do portal do Azure, temos uma maneira melhor de exibir a redefin
 7. No menu **Filtro**, selecione a lista suspensa **Categoria** e altere-a para o tipo de categoria **Gerenciamento de Senha de Autoatendimento**.
 8. Opcionalmente, filtre mais a lista escolhendo a **Atividade** específica em que você está interessado
 
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Como recuperar eventos de gerenciamento de senhas da API de Relatórios e Eventos do Azure AD
+## Como recuperar eventos de gerenciamento de senhas da API de Relatórios e Eventos do Azure AD
+<a id="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api" class="xliff"></a>
 
 A API de Relatórios e Eventos do Azure AD dá suporte à recuperação de todas as informações incluídas nos relatórios de redefinição de senha e registro de redefinição de senha. Com essa API, você pode baixar eventos individuais de redefinição de senha e registro de redefinição de senha para a integração à tecnologia de relatórios de sua escolha.
 
-### <a name="how-to-get-started-with-the-reporting-api"></a>Como começar a usar a API de relatórios
+### Como começar a usar a API de relatórios
+<a id="how-to-get-started-with-the-reporting-api" class="xliff"></a>
 
 Para acessar esses dados, você precisa escrever um aplicativo ou script pequeno para recuperá-los de nossos servidores. [Saiba como começar com a API de Relatório do AD do Azure](active-directory-reporting-api-getting-started.md).
 
@@ -68,19 +71,22 @@ Quando você tiver um script de trabalho, em seguida desejará examinar os event
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): lista as colunas disponíveis para os eventos de redefinição de senhas
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): lista as colunas disponíveis para os eventos do registro de redefinição de senhas
 
-### <a name="reporting-api-data-retrieval-limitations"></a>Relatando limitações de recuperação de dados de API
+### Relatando limitações de recuperação de dados de API
+<a id="reporting-api-data-retrieval-limitations" class="xliff"></a>
 
 Atualmente, os Relatórios do Azure AD e a API de Eventos recuperam até **75.000 eventos individuais** dos tipos [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), abrangendo os **últimos 30 dias**.
 
 Se precisar recuperar ou armazenar dados além desta janela, sugerimos persisti-los em um banco de dados externo e usar a API para consultar os deltas resultantes. Nossa recomendação é começar a recuperar esses dados quando iniciar o uso do SSPR em sua organização, persisti-los externamente e continuar acompanhando os deltas desse ponto em diante.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Como baixar eventos de registro de redefinição de senha rapidamente com o PowerShell
+## Como baixar eventos de registro de redefinição de senha rapidamente com o PowerShell
+<a id="how-to-download-password-reset-registration-events-quickly-with-powershell" class="xliff"></a>
 
 Além de usar os Relatórios do Azure AD e a API de Eventos diretamente, você também pode usar o script do PowerShell abaixo para eventos de registro recentes no diretório. Isso é útil caso você deseje ver quem foi registrado recentemente ou garantir que a distribuição de redefinição de senha ocorra conforme o esperado.
 
 * [Script do PowerShell de Atividade de Registro do Azure AD SSPR](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
 
-### <a name="description-of-report-columns-in-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
+### Descrição das colunas do relatório no portal do Azure
+<a id="description-of-report-columns-in-azure-portal" class="xliff"></a>
 
 A lista a seguir explica cada uma das colunas do relatório em detalhes:
 
@@ -89,7 +95,8 @@ A lista a seguir explica cada uma das colunas do relatório em detalhes:
 * **Data e hora** – a data e a hora da tentativa.
 * **Dados Registrados** – os dados de autenticação fornecidos pelo usuário durante o registro de redefinição de senha.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Descrição dos valores do relatório no portal do Azure
+### Descrição dos valores do relatório no portal do Azure
+<a id="description-of-report-values-in-azure-portal" class="xliff"></a>
 
 A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
@@ -97,7 +104,8 @@ A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 | --- | --- |
 | Dados Registrados |**Email Alternativo** – email alternativo ou email de autenticação usado pelo usuário para se autenticar<p><p>**Telefone Comercial**– telefone comercial usado pelo usuário para se autenticar<p>**Celular** - celular ou telefone de autenticação usado pelo usuário para se autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para se autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Telefone Celular)** – ocorre quando uma política de 2 portas é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar sua solicitação de redefinição de senha. |
 
-## <a name="view-password-reset-activity-in-the-classic-portal"></a>Exibir atividade de redefinição de senha no portal clássico
+## Exibir atividade de redefinição de senha no portal clássico
+<a id="view-password-reset-activity-in-the-classic-portal" class="xliff"></a>
 
 Esse relatório mostra todas as tentativas de redefinição de senha que ocorreram na sua organização.
 
@@ -105,7 +113,8 @@ Esse relatório mostra todas as tentativas de redefinição de senha que ocorrer
 * **Número máximo de linhas**: 75.000
 * **Baixável**: sim, por meio de arquivo CSV
 
-### <a name="description-of-report-columns-in-azure-classic-portal"></a>Descrição das colunas do relatório no portal clássico do Azure
+### Descrição das colunas do relatório no portal clássico do Azure
+<a id="description-of-report-columns-in-azure-classic-portal" class="xliff"></a>
 
 A lista a seguir explica cada uma das colunas do relatório em detalhes:
 
@@ -116,7 +125,8 @@ A lista a seguir explica cada uma das colunas do relatório em detalhes:
 5. **Resultado** – o resultado da operação de redefinição de senha.
 6. **Detalhes** – os detalhes do motivo pelo qual a redefinição de senha resultou no valor obtido.  Também inclui as etapas de atenuação que você pode tomar para resolver um erro inesperado.
 
-### <a name="description-of-report-values-in-azure-classic-portal"></a>Descrição dos valores do relatório no portal clássico do Azure
+### Descrição dos valores do relatório no portal clássico do Azure
+<a id="description-of-report-values-in-azure-classic-portal" class="xliff"></a>
 
 A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
@@ -126,7 +136,8 @@ A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 | Result |**Abandonado** – redefinição de senha iniciada pelo usuário mas, em seguida, interrompida pela metade sem ser concluída<p>**Bloqueado** – a conta do usuário foi impedida de usar a redefinição de senha devido à tentativa de usar a página de redefinição de senha ou uma porta única de redefinição de senha muitas vezes em um período de 24 horas<p>**Cancelado** – redefinição de senha iniciada pelo usuário, mas com um clique no botão Cancelar para cancelar a sessão pela metade <p>**Administrador Contatado** – o usuário teve um problema durante a sessão que ele não pôde resolver, assim, o usuário clicou no link "Entre em contato com seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Com Falha** – o usuário não pôde redefinir uma senha, provavelmente porque ele não foi configurado para usar o recurso (por exemplo, sem licença, informações de autenticação ausentes, local gerenciado por senha, mas com write-back desativado).<p>**Bem-sucedida** – a redefinição de senha foi bem-sucedida. |
 | Detalhes |Consulte a tabela abaixo. |
 
-### <a name="allowed-values-for-details-column"></a>Valores permitidos para a coluna de detalhes
+### Valores permitidos para a coluna de detalhes
+<a id="allowed-values-for-details-column" class="xliff"></a>
 
 Abaixo está a lista de tipos de resultado que você pode esperar ao usar o relatório de atividade de redefinição de senha:
 
@@ -168,7 +179,8 @@ Abaixo está a lista de tipos de resultado que você pode esperar ao usar o rela
 | A redefinição de senha foi desabilitada inteiramente para este locatário. Confira [aqui](http://aka.ms/ssprtroubleshoot) para resolver isto. |Falha |
 | O usuário redefiniu a senha com êxito |Bem-sucedido |
 
-## <a name="self-service-password-management-activity-types"></a>Tipos de atividades de Gerenciamento de Senha de autoatendimento
+## Tipos de atividades de Gerenciamento de Senha de autoatendimento
+<a id="self-service-password-management-activity-types" class="xliff"></a>
 
 Os tipos de atividade a seguir aparecem na categoria de evento de auditoria **Gerenciamento de Senhas de Autoatendimento**.  A seguir há uma descrição de cada um deles.
 
@@ -180,7 +192,8 @@ Os tipos de atividade a seguir aparecem na categoria de evento de auditoria **Ge
 * [**Desbloquear conta de usuário (autoatendimento)**](#activity-type-unlock-user-account-self-service) – indica que um usuário desbloqueou sua conta do Active Directory com êxito sem redefinir a senha no [Portal de Redefinição de Senha do Azure AD](https://passwordreset.microsoftonline.com) usando o recurso de desbloqueio de conta do AD sem redefinição.
 * [**Usuário registrado para autoatendimento de redefinição de senha**](#activity-type-user-registered-for-self-service-password-reset) – indica que um usuário registrou todas as informações necessárias para redefinir sua senha de acordo com a política de redefinição de senha do locatário especificada no momento.
 
-### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo de atividade: redefinição de senha de autoatendimento bloqueada
+### Tipo de atividade: redefinição de senha de autoatendimento bloqueada
+<a id="activity-type-blocked-from-self-service-password-reset" class="xliff"></a>
 
 A seguinte lista explica essa atividade em detalhes:
 
@@ -191,7 +204,8 @@ A seguinte lista explica essa atividade em detalhes:
   * _Sucesso_ - indica que um usuário foi restringido ao executar qualquer redefinição adicional, tentar qualquer método de autenticação adicional ou validar quaisquer números de telefone adicionais nas próximas 24 horas.
 * **Razão da Falha do Status de Atividade** - não aplicável
 
-### <a name="activity-type-change-password-self-service"></a>Tipo de atividade: alterar senha (autoatendimento)
+### Tipo de atividade: alterar senha (autoatendimento)
+<a id="activity-type-change-password-self-service" class="xliff"></a>
 
 A seguinte lista explica essa atividade em detalhes:
 
@@ -204,7 +218,8 @@ A seguinte lista explica essa atividade em detalhes:
 * **Razão da Falha do Status de Atividade** - 
   * _FuzzyPolicyViolationInvalidPassword_ – o usuário selecionou uma senha que foi banida automaticamente porque as funcionalidades de Detecção de Senha Banida da Microsoft a consideraram muito comum ou particularmente fraca.
 
-### <a name="activity-type-reset-password-by-admin"></a>Tipo de atividade: redefinir senha (pelo administrador)
+### Tipo de atividade: redefinir senha (pelo administrador)
+<a id="activity-type-reset-password-by-admin" class="xliff"></a>
 
 A seguinte lista explica essa atividade em detalhes:
 
@@ -215,7 +230,8 @@ A seguinte lista explica essa atividade em detalhes:
   * _Sucesso_ - indica que um administrador redefine a senha de um usuário com êxito
   * _Falha_ - indica que um administrador falhou ao alterar a senha do usuário. Clicar na linha permite ver a categoria **Motivo do Status de Atividade** para saber mais sobre o motivo da falha.
 
-### <a name="activity-type-reset-password-self-service"></a>Tipo de atividade: redefinir senha (autoatendimento)
+### Tipo de atividade: redefinir senha (autoatendimento)
+<a id="activity-type-reset-password-self-service" class="xliff"></a>
 
 A seguinte lista explica essa atividade em detalhes:
 
@@ -228,7 +244,8 @@ A seguinte lista explica essa atividade em detalhes:
 * **Razão da Falha do Status de Atividade** -
   * _FuzzyPolicyViolationInvalidPassword_ – o administrador selecionou uma senha que foi banida automaticamente porque as funcionalidades de Detecção de Senha Banida da Microsoft a consideraram muito comum ou particularmente fraca.
 
-### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Tipo de atividade: progresso de atividade de fluxo de redefinição de senha de autoatendimento
+### Tipo de atividade: progresso de atividade de fluxo de redefinição de senha de autoatendimento
+<a id="activity-type-self-serve-password-reset-flow-activity-progress" class="xliff"></a>
 
 A seguinte lista explica essa atividade em detalhes:
 
@@ -241,7 +258,8 @@ A seguinte lista explica essa atividade em detalhes:
 * **Razões de Status de Atividade Permitida**
   * Confira a tabela abaixo para ver [todas as razões de status de atividade de redefinição permitida](#allowed-values-for-details-column)
 
-### <a name="activity-type-unlock-user-account-self-service"></a>Tipo de atividade: desbloquear conta de usuário (autoatendimento)
+### Tipo de atividade: desbloquear conta de usuário (autoatendimento)
+<a id="activity-type-unlock-user-account-self-service" class="xliff"></a>
 
 A seguinte lista explica essa atividade em detalhes:
 
@@ -252,7 +270,8 @@ A seguinte lista explica essa atividade em detalhes:
   * _Sucesso_ – indica que um usuário desbloqueou sua própria conta com êxito
   * _Falha_ – indica que um usuário não conseguiu desbloquear sua conta. Clicar na linha permite ver a categoria **Motivo do Status de Atividade** para saber mais sobre o motivo da falha.
 
-### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Tipo de atividade: usuário registrado para redefinição de senha de autoatendimento
+### Tipo de atividade: usuário registrado para redefinição de senha de autoatendimento
+<a id="activity-type-user-registered-for-self-service-password-reset" class="xliff"></a>
 
 A seguinte lista explica essa atividade em detalhes:
 
@@ -263,7 +282,8 @@ A seguinte lista explica essa atividade em detalhes:
   * _Sucesso_ – indica que um usuário se registrou com êxito para a redefinição de senha de acordo com a política atual. 
   * _Falha_ - indica que um usuário falhou ao se registrar para a redefinição de senha. Clicar na linha permite ver a categoria **Motivo do Status de Atividade** para saber mais sobre o motivo da falha. Observação – isso não significa que um usuário não possa redefinir sua própria senha, apenas que ele não concluiu o processo de registro. Se houver dados não verificados na conta que estejam corretos (como um número de telefone que não foi validado), mesmo que eles não tenham verificado esse número de telefone, ainda poderão usá-lo para redefinir a senha. Para obter mais informações, confira [O que acontece quando um usuário é registrado?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 
 Os links a seguir fornecem mais informações sobre a redefinição de senha com o Azure AD
 
