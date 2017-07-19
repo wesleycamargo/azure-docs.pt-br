@@ -20,36 +20,31 @@ ms.openlocfilehash: 7a68a2764d17b53164ded5096ddee68ab8c723ed
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/16/2017
 
-
 ---
-<a id="create-an-iot-hub-using-the-azure-portal" class="xliff"></a>
-# Criar um Hub IoT usando o portal do Azure
+# <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um Hub IoT usando o portal do Azure
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-<a id="introduction" class="xliff"></a>
-## Introdução
+## <a name="introduction"></a>Introdução
 Este artigo descreve como localizar o serviço de Hub IoT no portal do Azure e como criar e gerenciar hubs IoT.
 
-<a id="where-to-find-iot-hubs" class="xliff"></a>
-## Onde encontrar Hubs IoT:
+## <a name="where-to-find-iot-hubs"></a>Onde encontrar Hubs IoT:
 Existem vários lugares onde você pode encontrar hubs IoT.
 
 1. **+ Novo**: o **Hub IoT do Azure** é um serviço IoT e pode ser encontrado na categoria **Internet das Coisas** em **+ Novo**, semelhante a outros serviços.
 2. Os Hubs IoT também podem ser acessados por meio do Marketplace como o serviço hero em **Internet das Coisas**.
 
-<a id="create-an-iot-hub" class="xliff"></a>
-## Crie um hub IoT
+## <a name="create-an-iot-hub"></a>Crie um hub IoT
 Você pode criar um Hub IoT usando os métodos a seguir:
 
 * A criação de um Hub IoT por meio da opção **+ Novo** leva à folha mostrada na captura de tela a seguir. As etapas para a criação do Hub IoT usando este método e pelo marketplace são idênticas.
 * Criação de um Hub IoT por meio do Marketplace: clicar em **Criar** abre uma folha idêntica à folha anterior da experiência de **+Novo**. As próximas seções listam as várias etapas envolvidas na criação de um Hub IoT.
 
-<a id="choose-the-name-of-the-iot-hub" class="xliff"></a>
-### Escolher o nome do Hub IoT
+### <a name="choose-the-name-of-the-iot-hub"></a>Escolher o nome do Hub IoT
 Para criar um Hub IoT, você deve dar um nome a ele. Esse nome deve ser exclusivo entre os Hubs IoT. Não é permitida a duplicação de hubs no back-end da solução, portanto é recomendável que esse hub tenha o nome mais exclusivo possível.
 
-<a id="choose-the-pricing-tier" class="xliff"></a>
-### Escolher a camada de preços
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
+### <a name="choose-the-pricing-tier"></a>Escolher a camada de preços
 Você pode escolher entre quatro camadas: **Gratuita**, **Padrão 1**, **Padrão 2** e **Padrão S3**. O tipo gratuito só permite a conexão de 500 dispositivos ao Hub IoT e até 8000 mensagens por dia.
 
 **Padrão S1**: a edição S1 de Hubs IoT foi projetada para soluções IoT com um grande número de dispositivos gerando quantidades relativamente pequenas de dados por dispositivo. Cada unidade da edição S1 permite até 400.000 mensagens por dia entre todos os dispositivos conectados.
@@ -65,42 +60,35 @@ Você pode escolher entre quatro camadas: **Gratuita**, **Padrão 1**, **Padrão
 > 
 > 
 
-<a id="iot-hub-units" class="xliff"></a>
-### Unidades do Hub IoT
+### <a name="iot-hub-units"></a>Unidades do Hub IoT
 O número de mensagens permitidas por unidade ao dia depende do tipo de preço do seu hub. Por exemplo, se você quiser que o Hub IoT dê suporte à entrada de 700.000 mensagens, escolha duas unidades da camada S1.
 
-<a id="device-to-cloud-partitions-and-resource-group" class="xliff"></a>
-### Dispositivo para partições de nuvem e grupo de recursos
+### <a name="device-to-cloud-partitions-and-resource-group"></a>Dispositivo para partições de nuvem e grupo de recursos
 Você pode alterar o número de partições para um Hub IoT. As partições padrão são definidas como 4; no entanto, você pode escolher um número diferente de partições em uma lista suspensa.
 
 Para grupos de recursos, não será necessário criar explicitamente um grupo de recursos vazio. Ao criar um recurso, você pode optar por criar um novo grupo de recursos ou usar um grupo de recursos existente.
 
 ![][5]
 
-<a id="choose-subscriptions" class="xliff"></a>
-### Escolher assinaturas
+### <a name="choose-subscriptions"></a>Escolher assinaturas
 O Hub IoT do Azure mostra automaticamente a lista de assinaturas do Azure à qual a conta do usuário está vinculada. Você pode escolher uma dessas opções para associar o Hub IoT à assinatura do Azure.
 
-<a id="choose-the-location" class="xliff"></a>
-### Escolher o local
+### <a name="choose-the-location"></a>Escolher o local
 A opção de local oferece uma lista das regiões em que o Hub IoT é oferecido. O Hub IoT está disponível para implantação nos seguintes locais: Leste da Austrália, Sudeste da Austrália, Leste da Ásia, Sudeste da Ásia, Norte da Europa, Oeste da Europa, Leste do Japão, Oeste do Japão, Leste dos EUA, Oeste dos EUA.
 
-<a id="create-the-iot-hub" class="xliff"></a>
-### Criar o Hub IoT
+### <a name="create-the-iot-hub"></a>Criar o Hub IoT
 Quando todas as etapas anteriores forem concluídas, o Hub IoT estará pronto para ser criado. Clique em **Criar** para iniciar o processo de back-end de criação desse Hub IoT com as opções específicas e o implantar no local especificado.
 
 Pode levar alguns minutos para que o Hub IoT seja criado, já que a implantação de back-end é demorada nos servidores do local apropriado.
 
-<a id="change-the-settings-of-the-iot-hub" class="xliff"></a>
-## Alterar as configurações do Hub IoT
+## <a name="change-the-settings-of-the-iot-hub"></a>Alterar as configurações do Hub IoT
 Você poderá alterar as configurações de um Hub IoT existente depois que ele for criado na folha Hub IoT.
 
 ![][8]
 
 **Políticas de acesso compartilhado**: essas políticas definem as permissões para que dispositivos e serviços se conectem ao Hub IoT. Você pode acessar essas políticas clicando em **Políticas de acesso compartilhado** em **Geral**. Nessa folha, você pode modificar as políticas existentes ou adicionar uma nova política.
 
-<a id="create-a-policy" class="xliff"></a>
-### Criar uma política
+### <a name="create-a-policy"></a>Criar uma política
 * Clique em **Adicionar** para abrir uma folha. Aqui, você poderá inserir o nome da nova política e as permissões que quer associar a essa política, como mostrado na seguinte figura:
   
     Há várias permissões que podem ser associadas a essas políticas compartilhadas. As duas primeiras políticas, **Leitura do Registro** e **Gravação do Registro**, concedem direitos de acesso de leitura e gravação ao repositório de identidade do dispositivo ou ao registro de identidade. A escolha da opção de gravação escolhe automaticamente a opção de leitura.
@@ -110,14 +98,12 @@ Você poderá alterar as configurações de um Hub IoT existente depois que ele 
 
 ![][10]
 
-<a id="endpoints" class="xliff"></a>
-## Pontos de extremidade
+## <a name="endpoints"></a>Pontos de extremidade
 Clique em **Pontos de extremidade** para exibir uma lista de pontos de extremidade do Hub IoT que está sendo alterado. Há dois tipos principais de ponto de extremidade: aqueles que são criados no Hub IoT e aqueles que você adicionou ao Hub IoT depois de sua criação.
 
 ![][11]
 
-<a id="built-in-endpoints" class="xliff"></a>
-### Pontos de extremidade internos
+### <a name="built-in-endpoints"></a>Pontos de extremidade internos
 Há dois pontos de extremidade internos principais: **Comentários da nuvem para dispositivo** e **Eventos**.
 
 * Configurações de **Comentários da nuvem para dispositivo**: essa configuração tem duas subconfigurações: **TTL (vida útil) da Nuvem para Dispositivo** e **Período de retenção** (em horas) para as mensagens. Ao criar um Hub IoT, ambas essas configurações têm o valor padrão de uma hora. Para ajustar essas configurações, use os controles deslizantes ou digite os valores.
@@ -136,16 +122,14 @@ Há dois pontos de extremidade internos principais: **Comentários da nuvem para
     > 
     > 
 
-<a id="custom-endpoints" class="xliff"></a>
-### Pontos de extremidade personalizados
+### <a name="custom-endpoints"></a>Pontos de extremidade personalizados
 Você pode adicionar pontos de extremidade personalizados ao Hub IoT usando o portal. Na folha **Pontos de extremidade**, clique em **Adicionar** na parte superior para abrir a folha **Adicionar ponto de extremidade**. Insira as informações necessárias e clique em **OK**. O ponto de extremidade personalizado é exibido na folha **Pontos de extremidade** principal.
 
 ![][13]
 
 Você pode ler mais sobre pontos de extremidade personalizados em [Referência — Pontos de extremidade do Hub IoT][lnk-devguide-endpoints].
 
-<a id="routes" class="xliff"></a>
-## Rotas
+## <a name="routes"></a>Rotas
 Clique em **Rotas** para gerenciar como o Hub IoT envia suas mensagens do dispositivo para a nuvem.
 
 ![][14]
@@ -154,8 +138,7 @@ Você pode adicionar rotas ao Hub IoT clicando em **Adicionar** na parte superio
 
 ![][15]
 
-<a id="pricing-and-scale" class="xliff"></a>
-## Preços e dimensionamento
+## <a name="pricing-and-scale"></a>Preços e dimensionamento
 O preço de um Hub IoT existente pode ser alterado por meio das configurações de **Preço** , com as seguintes exceções:
 
 * Na implementação atual, um Hub IoT com um SKU gratuito não pode trocar camadas com um dos SKUs pagos ou vice-versa.
@@ -165,12 +148,10 @@ O preço de um Hub IoT existente pode ser alterado por meio das configurações 
 
 Mudar de uma camada alta (S2 ou S3) para uma camada baixa (S1 ou S2) só é permitido quando o número de mensagens enviadas naquele dia não está em conflito. Por exemplo, se o número de mensagens por dia exceder 400.000, a camada do Hub IoT poderá ser alterada. No entanto, se você alterar para a camada S1, o Hub IoT estará limitado para esse dia.
 
-<a id="delete-the-iot-hub" class="xliff"></a>
-## Excluir o Hub IoT
+## <a name="delete-the-iot-hub"></a>Excluir o Hub IoT
 Você pode navegar até o Hub IoT que deseja excluir clicando em **Procurar**e escolhendo o hub apropriado para excluir. Clique no botão **Excluir** abaixo do nome do Hub IoT para excluí-lo.
 
-<a id="next-steps" class="xliff"></a>
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Gerenciamento em massa de dispositivos IoT][lnk-bulk]

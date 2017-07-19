@@ -94,6 +94,8 @@ Nesta seção, você cria um aplicativo de console do Node.js que cria uma ident
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. Salve e feche o arquivo **CreateDeviceIdentity.js** .
 8. Para executar o aplicativo **createdeviceidentity** , execute o comando a seguir no prompt de comando na pasta createdeviceidentity:
    

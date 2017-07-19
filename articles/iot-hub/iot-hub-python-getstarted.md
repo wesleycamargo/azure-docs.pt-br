@@ -77,6 +77,8 @@ Esta seção lista as etapas para criar um aplicativo do console do Python que c
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Adicione a seguinte função para imprimir algumas das informações do dispositivo.
 
     ```python

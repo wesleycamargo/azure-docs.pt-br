@@ -34,6 +34,8 @@ Nesta seção, você cria um aplicativo do console do .NET que cria uma identida
         }
    
     Esse método cria uma identidade do dispositivo com a ID **myFirstDevice**. (se essa ID do dispositivo já existir no registro de identidade, o código simplesmente irá recuperar as informações do dispositivo existentes.) Em seguida, o aplicativo exibe a chave primária dessa identidade. Você usa essa chave no aplicativo de dispositivo simulado para se conectar ao Hub IoT.
+[!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
+
 7. Por fim, adicione as seguintes linhas ao método **Main** :
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);

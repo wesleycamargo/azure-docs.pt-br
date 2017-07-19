@@ -20,7 +20,6 @@ ms.openlocfilehash: 5281f6af0e93da7aa1c72891c179afea99c6a26c
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Criar um Hub IoT usando um modelo do Azure Resource Manager (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -121,6 +120,7 @@ Use um modelo JSON e um arquivo de parâmetros para criar um Hub IoT em seu grup
       }
     }
     ```
+  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 5. No **Gerenciador de Servidores**, conecte-se à sua assinatura do Azure e, em sua conta de armazenamento, crie um contêiner chamado **modelos**. No painel **Propriedades**, defina as permissões **Acesso de Leitura Público** para o contêiner **modelos** como **Blob**.
 6. No **Gerenciador de Servidores**, clique com o botão direito do mouse no contêiner **modelos** e em **Exibir Contêiner de Blobs**. Clique no botão **Carregar Blob**, escolha os dois arquivos, **parameters.json** e **templates.json**, e clique em **Abrir** para carregar os arquivos JSON no contêiner **modelos**. As URLs dos blobs com os dados JSON são:
    

@@ -15,7 +15,9 @@
 
      **Fixar no painel**: selecione essa opção para ter fácil acesso ao Hub IoT no painel.
 
-    ![Inserir informações para criar o hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
+   ![Inserir informações para criar o hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
+
+   [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
 3. Clique em **Criar**. A criação do seu hub IoT pode levar alguns minutos. Você pode ver o progresso no **notificações** painel.
 
@@ -45,6 +47,8 @@
    **Conectar o dispositivo ao Hub IoT**: clique em **Habilitar**.
 
    ![Adicionar um dispositivo no Device Explorer de seu hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Clique em **Salvar**.
 5. Depois do dispositivo ser criado, abra-o no painel **Gerenciador de Dispositivos**.
