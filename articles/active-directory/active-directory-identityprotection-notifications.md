@@ -15,27 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
 ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
 ms.contentlocale: pt-br
 ms.lasthandoff: 12/22/2016
 
-
 ---
-<a id="azure-active-directory-identity-protection-notifications" class="xliff"></a>
-# Notificações do Azure Active Directory Identity Protection
+# <a name="azure-active-directory-identity-protection-notifications"></a>Notificações do Azure Active Directory Identity Protection
 O Azure AD Identity Protection envia dois tipos de emails de notificação automatizados para ajudar você a gerenciar o risco do usuário e eventos de risco:
 
 * Email de alerta de usuário comprometido
 * Email de resumo semanal
 
-<a id="user-compromised-alert-email" class="xliff"></a>
-## Email de alerta de usuário comprometido
+## <a name="user-compromised-alert-email"></a>Email de alerta de usuário comprometido
 Um email de alerta de usuário comprometido é gerado quando o Azure AD Identity Protection identifica uma conta como comprometida. O email inclui um link para os Usuários sinalizados para o relatório de risco no painel do Identity Protection. É recomendável investigar imediatamente as notificações das contas comprometidas.
 
-<a id="weekly-digest-email" class="xliff"></a>
-## Email de resumo semanal
+## <a name="weekly-digest-email"></a>Email de resumo semanal
 O email de resumo semanal contém um resumo dos novos eventos de risco.<br>
 Ele inclui:
 
@@ -64,7 +61,6 @@ Ele inclui:
    ![Política de risco do usuário](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
    <br>
 
-<a id="see-also" class="xliff"></a>
-## Consulte também
+## <a name="see-also"></a>Consulte também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
