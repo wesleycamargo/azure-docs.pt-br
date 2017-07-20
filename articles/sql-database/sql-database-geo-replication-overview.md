@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 07/05/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 867cc69e18e5b31f707c1942e7aa1b691403e3e0
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 7166c4428398015c0570b048dff0005b5061eadb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -88,8 +88,8 @@ O recurso grupos de failover automático fornece uma abstração eficaz de repli
 * **Ouvinte de leitura/gravação do grupo de failover**: Um registro CNAME de DNS que aponta para a URL do servidor primário atual. Ele permite que os aplicativos de SQL de leitura/gravação se reconectem de forma transparente ao banco de dados primário quando o banco de dados primário for alterado após o failover. 
 * **Ouvinte de somente leitura do grupo de failover**: Um registro CNAME de DNS que aponta para a URL do servidor secundário. Ele permite que os aplicativos SQL de somente leitura se conectem de forma transparente ao banco de dados secundário usando as regras de balanceamento de carga especificadas. Opcionalmente, você pode especificar se deseja que o tráfego de somente leitura seja redirecionado automaticamente para o servidor primário quando o servidor secundário não está disponível.
 * **Política de failover automático**: O grupo de failover está configurado, por padrão, com uma política de failover automático. O sistema dispara o failover assim que a falha é detectada. Se você deseja controlar o fluxo de trabalho de failover do aplicativo, pode desligar o failover automático. 
-* **Failover manual**: Você pode iniciar o failover manualmente a qualquer momento, independentemente da configuração de failover automático. Se a política de failover automático não for configurado o failover manual será necessário para recuperar os bancos de dados no grupo de failover. Você pode iniciar um failover forçado ou amigável (com sincronização total de dados). O failover amigável pode ser usado para realocar o servidor ativo para a região primária. Quando o failover estiver concluído os registros DNS são atualizados automaticamente para garantir a conectividade com o servidor correto.
-* **Período de carência de perda de dados**: Como os bancos de dados primários e secundários são sincronizados usando a replicação assíncrona, o failover pode resultar em perda de dados. Você pode personalizar a política de failover automático para refletir a tolerância do seu aplicativo à perda de dados. Ao configurar **GracePeriodWithDataLossHours**, você poderá controlar quanto tempo o sistema aguarda antes de iniciar o failover que provavelmente resultará em perda de dados. 
+* **Failover manual**: Você pode iniciar o failover manualmente a qualquer momento, independentemente da configuração de failover automático. Se a política de failover automático não for configurada, será necessário fazer o failover manual para recuperar os bancos de dados no grupo de failover. Você pode iniciar um failover forçado ou amigável (com sincronização total de dados). O failover amigável pode ser usado para realocar o servidor ativo para a região primária. Quando o failover estiver concluído os registros DNS são atualizados automaticamente para garantir a conectividade com o servidor correto.
+* **Período de carência para a perda de dados**: como os bancos de dados primários e secundários são sincronizados usando a replicação assíncrona, o failover pode resultar em perda de dados. Você pode personalizar a política de failover automático para refletir a tolerância do seu aplicativo à perda de dados. Ao configurar **GracePeriodWithDataLossHours**, você poderá controlar quanto tempo o sistema aguarda antes de iniciar o failover que provavelmente resultará em perda de dados. 
 
    > [!NOTE]
    > Quando o sistema detecta que os bancos de dados no grupo ainda estão online (por exemplo, a interrupção só afetou o plano de controle de serviço), ele ativa imediatamente o failover com a sincronização total de dados (failover amigável), independentemente do valor definido por **GracePeriodWithDataLossHours**. Esse comportamento faz com que não haja nenhuma perda de dados durante a recuperação. O período de carência tem efeito somente quando não é possível fazer um failover amigável. Se a interrupção for reduzida antes do período de carência expirar, o failover não está ativado.
@@ -109,7 +109,7 @@ Para criar um serviço altamente disponível que usa o Banco de Dados SQL do Azu
 
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade de um banco de dados primário
-Você pode atualizar ou fazer downgrade de um banco de dados primário para um nível de desempenho diferente (dentro da mesma camada de serviço) sem desconectar nenhum banco de dados secundário. Ao atualizar, recomendamos que você atualize primeiro o banco de dados secundário e, depois, atualize o primário. Ao fazer downgrade, inverta a ordem: faça primeiro o downgrade do banco de dados primário e, depois, faça do secundário. Quando você atualiza ou faz downgrade do banco de dados para uma camada de serviço diferentes essa recomendação é imposta. 
+Você pode atualizar ou fazer downgrade de um banco de dados primário para um nível de desempenho diferente (dentro da mesma camada de serviço) sem desconectar nenhum banco de dados secundário. Ao atualizar, recomendamos que você atualize primeiro o banco de dados secundário e, depois, atualize o primário. Ao fazer downgrade, inverta a ordem: faça primeiro o downgrade do banco de dados primário e, depois, faça do secundário. Quando você atualiza ou faz downgrade do banco de dados para uma camada de serviço diferente essa recomendação é imposta. 
 
 > [!NOTE]
 > Se você tiver criado um banco de dados secundário como parte da configuração do grupo de failover não é recomendável fazer o downgrade do banco de dados secundário. Isso é para garantir que sua camada de dados tenha capacidade suficiente para processar sua carga de trabalho normal após o failover ser ativado. 
@@ -125,11 +125,10 @@ Devido à alta latência das redes de longa distância, a cópia contínua usa u
 ## <a name="programmatically-managing-active-geo-replication"></a>Gerenciando a replicação geográfica ativa programaticamente
 Conforme discutido anteriormente, os grupos de failover automático (em versão prévia) e a replicação geográfica ativa também podem ser gerenciadas programaticamente usando o Azure PowerShell e a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis.
 
-**API do Azure Resource Manager e segurança baseada em funções**: a replicação geográfica ativa inclui um conjunto de [APIs do Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) para gerenciamento, incluindo [cmdlets do PowerShell baseados no Azure Resource Manager](scripts/sql-database-setup-geodr-and-failover-database-powershell.md). Essas APIs exigem o uso de grupos de recursos e dão suporte a RBAC (segurança baseada em funções). Para obter mais informações sobre como implementar funções de acesso, confira [Controle de Acesso Baseado em Funções do Azure](../active-directory/role-based-access-control-configure.md).
+**API do Azure Resource Manager e segurança baseada em funções**: a replicação geográfica ativa inclui um conjunto de APIs do Azure Resource Manager para gerenciamento, incluindo a [API REST do banco de dados SQL](https://docs.microsoft.com/rest/api/sql/) e os [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Essas APIs exigem o uso de grupos de recursos e dão suporte a RBAC (segurança baseada em funções). Para obter mais informações sobre como implementar funções de acesso, confira [Controle de Acesso Baseado em Funções do Azure](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
 > Muitos dos novos recursos de replicação geográfica ativa só têm suporte usando a [API REST do Azure SQL](../azure-resource-manager/resource-group-overview.md) e [cmdlets do PowerShell do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) baseados no [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). Há suporte para compatibilidade com versões anteriores na [API REST (clássico)](https://msdn.microsoft.com/library/azure/dn505719.aspx) e nos [cmdlets do Banco de Dados SQL do Azure (clássico)](https://msdn.microsoft.com/library/azure/dn546723.aspx). Portanto, é recomendável usar as APIs baseadas no Azure Resource Manager. 
-> 
 > 
 
 ### <a name="transact-sql"></a>Transact-SQL
@@ -147,39 +146,49 @@ Conforme discutido anteriormente, os grupos de failover automático (em versão 
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | Descrição |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase?view=azurermps-3.7.0) |Obtém um ou mais bancos de dados. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Alterna um banco de dados secundário para primário a fim de iniciar o failover. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Encerra uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink?view=azurermps-3.7.0) |Obtém os links de replicação geográfica entre um Banco de Dados SQL do Azure e um grupo de recursos ou do SQL Server. |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |    Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Remove o grupo de failover do servidor e exclui todos os bancos de dados secundários incluídos no grupo |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Recupera a configuração do grupo de failover |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |    Modifica a configuração do grupo de failover |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Dispara o failover do grupo de failover para o servidor secundário |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém um ou mais bancos de dados. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Alterna um banco de dados secundário para primário a fim de iniciar o failover. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Encerra uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Obtém os links de replicação geográfica entre um Banco de Dados SQL do Azure e um grupo de recursos ou do SQL Server. |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Remove o grupo de failover do servidor e exclui todos os bancos de dados secundários incluídos no grupo |
+| [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Recupera a configuração do grupo de failover |
+| [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Modifica a configuração do grupo de failover |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Dispara o failover do grupo de failover para o servidor secundário |
 |  | |
+
+> [!IMPORTANT]
+> Para scripts de exemplo, consulte [Configurar e realizar o failover de um banco de dados individual usando a replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configurar e realizar o failover de um banco de dados em pool usando a replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md) e [Configurar e realizar o failover de um grupo de failover para um banco de dados individual (versão prévia)] (scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md.
+>
 
 ### <a name="rest-api"></a>API REST
 | API | Descrição |
 | --- | --- |
 | [Criar ou atualizar banco de dados (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
-| [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://docs.microsoft.com/rest/api/sql/databases#Databases) |Retorna o status durante uma operação de criação. |
-| [Definir o banco de dados secundário como primário (Failover planejado)](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLink) |Promova um banco de dados secundário em uma parceria de replicação geográfica como o novo banco de dados primário. |
-| [Definir o banco de dados secundário como primário r (Failover não planejado)](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Para forçar um failover para o banco de dados secundário e definir o secundário como primário. |
-| [Obter Links de replicação](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_ListReplicationLinks) |Obtém todos os links de replicação para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
-| [Obter link de replicação](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_GetReplicationLink) |Obtém um link de replicação específico para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
-| [Criar grupo de failover](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) | Cria um novo grupo de failover e registra-o nos servidores primário e secundário |
-| [Remover grupo de failover](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) | Remove o grupo de failover do servidor |
-| [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/databases#Databases) | Recupera a configuração do grupo de failover |
-| [Definir grupo de failover](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) | Modifica a configuração do grupo de failover |
-| [Failover](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) | Dispara o failover do grupo de failover para o servidor secundário |
+| [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Retorna o status durante uma operação de criação. |
+| [Definir o banco de dados secundário como primário (Failover planejado)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLink) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. |
+| [Definir o banco de dados secundário como primário r (Failover não planejado)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. Esta operação pode resultar em perda de dados. |
+| [Obter link de replicação](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Obtém um link de replicação específico para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
+| [Listar links de replicação](https://docs.microsoft.com/en-us/rest/api/sql/databases%20-%20replicationlinks#Databases_GetReplicationLink) | Obtém todos os links de replicação para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
+| [Excluir links de replicação](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_DeleteReplicationLink) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
+| [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_CreateOrUpdate) | Criar ou atualizar grupo de failover |
+| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Delete) | Remove o grupo de failover do servidor |
+| [Failover (planejado)](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Failover) | Failover do servidor principal atual para este servidor. |
+| [O Failover forçado permite a perda de dados](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ForceFailoverAllowDataLoss) |Failover do servidor principal atual para este servidor. Esta operação pode resultar em perda de dados. |
+| [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Get) | Obtém um grupo de failover. |
+| [Listar grupos de failover pelo servidor](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ListByServer) | Lista grupos de failover em um servidor. |
+| [Atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Update) | Atualiza um grupo de failover. |
 |  | |
 
 ## <a name="next-steps"></a>Próximas etapas
+* Para exemplos de scripts, consulte:
+   - [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+   - [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+   - [Configurar e realizar o failover de um grupo de failover para um banco de dados individual (versão prévia)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 * Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
 * Para saber mais sobre como usar backups automatizados de recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
-* Para saber mais sobre como usar backups automatizados para arquivamento, confira [Cópia de banco de dados](sql-database-copy.md).
 * Para saber mais sobre requisitos de autenticação para um novo servidor primário e banco de dados, consulte [Segurança do Banco de Dados SQL após a recuperação de desastres](sql-database-geo-replication-security-config.md).
 
 

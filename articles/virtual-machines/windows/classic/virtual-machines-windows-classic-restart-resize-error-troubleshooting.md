@@ -12,13 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-ms.date: 01/10/2017
+ms.date: 06/13/2017
 ms.devlang: na
 ms.author: delhan
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 95b12674f3e7d3d63421be6098c72d87cab562b6
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 7fe0636366c60d4679cfc69bd96cd532695b080e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -55,7 +56,7 @@ Deve-se tentar fazer a solicitação de início da VM parada no cluster original
 * Recrie a VM no novo serviço de nuvem usando os discos.
 * Inicie a VM recriada.
 
-Se você receber um erro ao tentar criar um novo serviço de nuvem, tente novamente mais tarde ou altere a região do serviço de nuvem.
+Se você obtiver um erro ao tentar criar um novo serviço de nuvem, tente novamente ou altere a região para o serviço de nuvem.
 
 > [!IMPORTANT]
 > O novo serviço de nuvem terá um novo nome e VIP e, portanto, será necessário alterar essas informações em todas as dependências que usam essas informações para o serviço de nuvem existente.
@@ -83,6 +84,6 @@ Se não for possível reduzir o tamanho da VM, siga estas etapas:
 Se o serviço de nuvem existente não estiver associado a uma rede virtual baseada em região, será necessário excluir as VMs no serviço de nuvem existente e recriá-las no novo serviço de nuvem por meio de seus discos. No entanto, é importante lembrar-se de que o novo serviço de nuvem terá um novo nome e VIP e, portanto, será necessário atualizá-los em todas as dependências que atualmente usam essas informações para o serviço de nuvem existente.
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você encontrar problemas ao criar uma nova VM do Windows no Azure, veja [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Windows no Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se você encontrar problemas ao criar uma nova VM do Windows no Azure, veja [Solucionar problemas de implantação com a criação de uma máquina virtual do Windows no Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

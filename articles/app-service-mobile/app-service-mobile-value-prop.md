@@ -3,7 +3,7 @@ title: "O que são os Aplicativos Móveis"
 description: "Saiba quais são as vantagens que o Serviço de Aplicativo traz para seus aplicativos móveis corporativos."
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
+author: dhei
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/29/2017
-
 
 ---
 # <a name="getting-started"> </a>O que são os Aplicativos Móveis?
@@ -38,14 +38,14 @@ Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plata
 Os recursos a seguir são importantes para o desenvolvimento móvel habilitado para nuvem:
 
 * **Autenticação e Autorização** – selecione em uma lista crescente de provedores de identidade, incluindo o Azure Active Directory para autenticação corporativa, além de provedores sociais, como o Facebook, o Google, o Twitter e a Conta da Microsoft.  Os Aplicativos Móveis do Azure fornecem um serviço OAuth 2.0 para cada provedor.  Você também pode integrar o SDK do provedor de identidade à funcionalidade específica do provedor.
-  
+
   Descubra mais sobre os nossos [recursos de autenticação].
 * **Acesso a Dados** – os Aplicativos Móveis do Azure fornecem uma fonte de dados OData v3 compatível com dispositivos móveis vinculada ao SQL Azure ou a um SQL Server local.  Esse serviço pode ser baseado no Entity Framework, permitindo que você integre facilmente com outros provedores de dados NoSQL e SQL, incluindo o [Armazenamento de Tabelas do Azure], o MongoDB, o [DocumentDB] e os provedores de API SaaS, como o Office 365 e o Salesforce.com.
 * **Sincronização Offline** – nossos SDKs de Cliente facilitam a criação de aplicativos móveis robustos e responsivos que operem com um conjunto de dados offline que possam ser sincronizados automaticamente com os dados de back-end, incluindo o suporte à resolução de conflitos.
-  
+
   Descubra mais sobre nossos [recursos de dados].
 * **Notificações por Push** – nossos SDKs de Cliente se integram perfeitamente aos recursos de registro de Hubs de Notificação do Azure, permitindo que você envie notificações por push para milhões de usuários simultaneamente.
-  
+
   Descubra mais sobre os nossos [recursos de notificação por push].
 * **SDKs de Cliente** – fornecemos um conjunto completo de SDKs de Cliente que abrangem o desenvolvimento nativo ([iOS], [Android] e [Windows]), desenvolvimento de plataforma cruzada ([Xamarin para iOS e Android], [Formulários do Xamarin]) e o desenvolvimento de aplicativos híbridos ([Apache Cordova]).  Cada SDK de cliente está disponível com uma licença MIT e é software livre.
 
@@ -53,19 +53,19 @@ Os recursos a seguir são importantes para o desenvolvimento móvel habilitado p
 Os seguintes recursos de plataforma são geralmente úteis para sites de produção móvel.
 
 * **Dimensionamento automático** - o Serviço de Aplicativo permite que você redimensione rapidamente aumentando ou reduzindo para lidar com qualquer carga de cliente em entrada. Selecionar o número e o tamanho das VMs manualmente ou configurar o dimensionamento automático para dimensionar seu back-end de aplicativo móvel com base na carga ou a agenda.
-  
+
   Descubra mais sobre o [dimensionamento automático].
 * **Ambientes de Preparo** – o Serviço de Aplicativo pode executar várias versões do seu site, permitindo que você execute um teste A/B, um teste em produção como parte de um plano de DevOps maior e o preparo de um novo back-end.
-  
+
   Descubra mais sobre [ambientes de preparo].
 * **Implantação Contínua** – o Serviço de Aplicativo pode integrar sistemas SCM comuns, permitindo que você implante automaticamente uma nova versão do seu back-end por push para uma ramificação de seu sistema SCM.
-  
+
   Descubra mais sobre [opções de implantação].
 * **Rede Virtual** – o Serviço de Aplicativo pode se conectar a recursos locais usando a rede virtual, o ExpressRoute ou conexões híbridas.
-  
+
   Descubra mais sobre as [conexões híbridas], as [redes virtuais] e o [ExpressRoute].
 * **Ambientes Isolados/Dedicados** – o Serviço de Aplicativo pode ser executado em um ambiente totalmente isolado e dedicado para executar com segurança aplicativos do Serviço de Aplicativo do Azure em alta escala.  Isso é ideal para cargas de trabalho de aplicativos que exijam uma escala muito alta, isolamento ou acesso seguro à rede.
-  
+
   Descubra mais sobre os [Ambientes do Serviço de Aplicativo].
 
 ## <a name="getting-started"></a>Introdução
@@ -76,8 +76,8 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 
 > [!NOTE]
 > Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/mobile/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-> 
-> 
+>
+>
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

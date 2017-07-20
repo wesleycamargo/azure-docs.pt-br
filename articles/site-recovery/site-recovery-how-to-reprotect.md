@@ -11,18 +11,20 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 02/13/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d77f9c4e6365c95b0ea1bf4d00b9f2e9c35eefde
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Proteja Novamente do Azure para um site local
+
+
 
 ## <a name="overview"></a>Visão geral
 Este artigo descreve como proteger novamente as máquinas virtuais do Azure para o site local. Quando achar que está pronto, siga as instruções neste artigo, para fazer o failback de suas máquinas virtuais VMware ou de servidores físicos Windows/Linux após a realização do failover do site local para o Azure usando [Replicar máquinas virtuais VMware e servidores físicos para o Azure com o Azure Site Recovery](site-recovery-failover.md).
@@ -44,7 +46,7 @@ A seguir estão as etapas de pré-requisito que você deve levar em conta ou rea
 
 * Se as máquinas virtuais para as quais você deseja realizar o failback forem gerenciadas por um servidor vCenter, você precisará das permissões necessárias para a descoberta das máquinas virtuais nos servidores vCenter. [Leia mais](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 
-> [!WARNING] 
+> [!WARNING]
 > Se houver instantâneos na máquina virtual local ou na máquina virtual, a nova proteção falhará. Você pode excluir os instantâneos no destino mestre antes de prosseguir para uma nova proteção. Os instantâneos na máquina virtual serão mesclados automaticamente durante o trabalho de nova proteção.
 
 * Antes do failback, será necessário criar dois componentes adicionais:
@@ -103,6 +105,10 @@ Clique nos links a seguir para ler sobre como instalar um servidor de destino me
 * [Como instalar o servidor de destino mestre do Linux](site-recovery-how-to-install-linux-master-target.md)
 
 
+### <a name="what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback"></a>Quais tipos de armazenamento têm suporte no host ESXi local durante o failback?
+
+Atualmente, o ASR suporta apenas failing back para um armazenamento VMFS. Não há suporte para uma armazenamento vSAN ou NFS. Observe que você pode proteger as máquinas virtuais em execução em um armazenamento vSAN ou NFS. Devido a essa limitação, a entrada de seleção do armazenamento na tela de nova proteção estará vazia no caso de armazenamentos NFS ou mostrar o armazenamento vSAN, mas falha durante o trabalho. Se você pretende realizar failback, é possível criar um armazenamento VMFS no local e realizar failback para ele. Este failback causará o download completo do VMDK. Estamos adicionando suporte aos armazenamentos NFS e vSAN nas versões futuras.
+
 #### <a name="common-things-to-check-after-completing-installation-of-the-master-target-server"></a>Coisas comuns a verificar após a conclusão da instalação do destino mestre
 
 * Se a máquina virtual está presente no local no servidor vCenter, o servidor de destino mestre precisa acessar o VMDK da máquina virtual local. O acesso é necessário para gravar os dados replicados nos discos da máquina virtual. Verifique se o armazenamento de dados da máquina virtual local está montado no host de destino mestre com acesso de leitura/gravação.
@@ -129,7 +135,7 @@ Clique nos links a seguir para ler sobre como instalar um servidor de destino me
    * O volume de retenção padrão para o Windows é o volume R.
 
    * O volume de retenção padrão para o Linux é /mnt/retention.
-   
+
    > [!IMPORTANT]
    > Você precisa adicionar uma nova unidade caso esteja usando uma máquina CS+PS existente ou uma escala ou máquina PS+MT. A nova unidade deve atender aos requisitos acima. Se a unidade de retenção não estiver presente, nenhuma será listada no menu suspenso no portal. Depois de adicionar uma unidade ao destino mestre local, levará no máximo 15 minutos para a unidade se refletir na seleção no portal. Você também poderá atualizar o servidor de configuração se a unidade não aparecer depois de quinze minutos.
 

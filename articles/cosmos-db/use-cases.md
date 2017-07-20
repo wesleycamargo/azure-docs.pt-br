@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5b0fcc28637e95484d33ce99c7d7a379c4513948
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 6dfa8307162c377ef57412233a81f2769e0f891d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -44,7 +44,7 @@ Veja a seguir alguns atributos do Cosmos DB que o tornam adequado para aplicativ
 
 * O Cosmos DB particiona os dados nativamente para alta disponibilidade e escalabilidade. O Cosmos DB oferece garantias de 99,99% para disponibilidade, produtividade, baixa latência e consistência.
 * O Cosmos DB tem armazenamento com suporte de SSD com tempos de resposta de baixa latência na ordem de milissegundos.
-* O suporte do Cosmos DB para níveis de consistência como eventual, prefixo consistente, sessão e desatualização limitada permite flexibilidade total e um índice baixo custo/desempenho. Nenhum serviço de banco de dados oferece tanta flexibilidade como o Cosmos DB na consistência de níveis. 
+* O suporte do Banco de Dados do Cosmos para níveis de consistência (como deterioração restrita, de sessão, de prefixo consistente e eventual) proporciona flexibilidade total e taxas baixas em relação ao custo-desempenho. Nenhum serviço de banco de dados oferece tanta flexibilidade como o Cosmos DB na consistência de níveis. 
 * O Cosmos DB tem um modelo de preços flexível e amigável aos dados que mede o armazenamento e a produtividade de modo independente.
 * O modelo de produtividade reservada do Cosmos DB permite que você pense em termos de número de leituras/gravações em vez de CPU/memória/IOPs do hardware subjacente.
 * O design do Cosmos DB permite dimensionar para grandes volumes de solicitações, na ordem de trilhões de solicitações por dia.

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 7599ea9fef4b2e8368ffdc18f357fe8938cc024f
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0899a8f3c87b6b25e52313ff271364f862d0a893
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
-
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>Como monitorar uma máquina virtual do Linux no Azure
 
 Para garantir que suas VMs (máquinas virtuais) no Azure estejam sendo executadas corretamente, examine o diagnóstico de inicialização e as métricas de desempenho. Neste tutorial, você aprenderá como:
@@ -36,19 +36,22 @@ Para garantir que suas VMs (máquinas virtuais) no Azure estejam sendo executada
 > * Criar alertas com base nas métricas de diagnóstico
 > * Configurar monitoramento avançado
 
-Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). Você também pode usar o [Cloud Shell](/azure/cloud-shell/quickstart) no seu navegador.
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-vm"></a>Criar VM
+
 Para ver os diagnósticos e as métricas em ação, você precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/gropu#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupMonitor* no local *eastus*.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
 Agora, crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada *myVM*:
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroupMonitor \
   --name myVM \
@@ -57,14 +60,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
-
 ## <a name="enable-boot-diagnostics"></a>Habilitar o diagnóstico de inicialização
 
 Durante a inicialização das VMs do Linux, a extensão de diagnóstico de inicialização captura a saída de inicialização e a armazena no Armazenamento do Azure. Esses dados podem ser usados para solucionar problemas de inicialização da VM. Os diagnósticos de inicialização não são habilitados automaticamente quando você cria uma VM do Linux usando a CLI do Azure.
 
 Antes de habilitar o diagnóstico de inicialização, é necessário criar uma conta de armazenamento para armazenar os logs de inicialização. As contas de armazenamento devem ter um nome exclusivo globalmente, com três a 24 caracteres e conter apenas números e letras minúsculas. Crie uma conta de armazenamento com o comando [az storage account create](/cli/azure/storage/account#create). Neste exemplo, uma cadeia de caracteres aleatória é usada para criar um nome de conta de armazenamento exclusivo. 
 
-```azurecli
+```azurecli-interactive 
 storageacct=mydiagdata$RANDOM
 
 az storage account create \
@@ -76,13 +78,13 @@ az storage account create \
 
 Ao habilitar o diagnóstico de inicialização, o URI do contêiner de armazenamento de blobs é exigido. O comando a seguir consulta a conta de armazenamento para retornar esse URI. O valor do URI é armazenado em uma variável chamada *bloburi*, que é usada na próxima etapa.
 
-```azurecli
+```azurecli-interactive 
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
 Agora, habilite o diagnóstico de inicialização com [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable). O valor `--storage` é o URI do blob coletado na etapa anterior.
 
-```azurecli
+```azurecli-interactive 
 az vm boot-diagnostics enable \
   --resource-group myResourceGroupMonitor \
   --name myVM \
@@ -94,19 +96,19 @@ az vm boot-diagnostics enable \
 
 Quando o diagnóstico de inicialização for habilitado, sempre que você parar e iniciar a VM, as informações sobre o processo de inicialização serão gravadas em um arquivo de log. Para este exemplo, primeiro desaloque a VM com o comando [az vm deallocate](/cli/azure/vm#deallocate) da seguinte maneira:
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
 Agora, inicie a VM com o comando [az vm start]( /cli/azure/vm#stop) da seguinte maneira:
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
 Você pode obter os dados de diagnóstico de inicialização para *myVM* com o comando [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) da seguinte maneira:
 
-```azurecli
+```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
 
@@ -116,19 +118,24 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 Uma VM do Linux tem um host dedicado no Azure com o qual ela interage. As métricas são coletadas automaticamente para o host e podem ser exibidas no Portal do Azure da seguinte maneira:
 
 1. No Portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
-2. Para ver como está o desempenho da VM do host, clique em **Métricas** na folha da VM e, em seguida, selecione qualquer uma das métricas de *Host* em **Métricas disponíveis**.
+1. Para ver como está o desempenho da VM do host, clique em **Métricas** na folha da VM e, em seguida, selecione qualquer uma das métricas de *Host* em **Métricas disponíveis**.
 
     ![Exibir métricas de host](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 
 ## <a name="install-diagnostics-extension"></a>Instalar extensão de diagnóstico
 
+> [!IMPORTANT]
+> Este documento descreve a versão 2.3 da Extensão de Diagnóstico do Linux, a qual está preterida. A versão 2.3 será suportada até 30 de junho de 2018.
+>
+> A versão 3.0 da Extensão de Diagnóstico do Linux pode ser ativada em vez disso. Para obter mais informações, consulte a [documentação](./diagnostic-extension.md).
+
 As métricas de host básicas estão disponíveis, mas para ver métricas mais granulares e específicas de VM, você precisa instalar a extensão de Diagnóstico do Azure na VM. A extensão de Diagnóstico do Azure permite que dados de monitoramento e diagnóstico adicionais sejam recuperados da VM. Você pode exibir essas métricas de desempenho e criar alertas com base no desempenho de uma máquina virtual. A extensão de diagnóstico é instalada por meio do Portal do Azure, da seguinte maneira:
 
 1. No Portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
-2. Clique em **Configurações de diagnóstico**. A lista mostra que o *Diagnóstico de inicialização* já está habilitado na seção anterior. Clique na caixa de seleção para as *Métricas básicas*.
-3. Na seção *Conta de armazenamento*, navegue até a conta *mydiagdata[1234]* criada na seção anterior e selecione-a.
-4. Clique no botão **Salvar** .
+1. Clique em **Configurações de diagnóstico**. A lista mostra que o *Diagnóstico de inicialização* já está habilitado na seção anterior. Clique na caixa de seleção para as *Métricas básicas*.
+1. Na seção *Conta de armazenamento*, navegue até a conta *mydiagdata[1234]* criada na seção anterior e selecione-a.
+1. Clique no botão **Salvar** .
 
     ![Exibir métricas de diagnóstico](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -138,7 +145,7 @@ As métricas de host básicas estão disponíveis, mas para ver métricas mais g
 Você pode exibir as métricas da VM da mesma maneira que você exibiu as métricas da VM host:
 
 1. No Portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
-2. Para ver como está o desempenho da VM do Host, clique em **Métricas** na folha da VM e, em seguida, selecione qualquer uma das métricas de diagnóstico em **Métricas disponíveis**.
+1. Para ver como está o desempenho da VM do Host, clique em **Métricas** na folha da VM e, em seguida, selecione qualquer uma das métricas de diagnóstico em **Métricas disponíveis**.
 
     ![Exibir métricas de VM](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
@@ -163,7 +170,7 @@ Você pode fazer um monitoramento mais avançado da sua VM usando o [Operations 
 
 Quando você tem acesso ao portal do OMS, você pode encontrar a chave e o identificador de espaço de trabalho na folha Configurações. Substitua <workspace-key> e <workspace-id> pelos valores de seu espaço de trabalho OMS e, em seguida, use **az vm extension set** para adicionar a extensão do OMS à VM:
 
-```azurecli
+```azurecli-interactive 
 az vm extension set \
   --resource-group myResourceGroupMonitor \
   --vm-name myVM \

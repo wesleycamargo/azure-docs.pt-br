@@ -32,7 +32,7 @@ O Azure Machine Learning Studio fornece uma tela interativa que permite a você 
 * Avaliar os resultados
 * Exibir os valores finais
 
-Quando estiver satisfeito com seu teste, você poderá implantá-lo como um ***serviço Web clássico do Azure Machine Learning*** ou ***Novo serviço Web do Azure Machine Learning ***para que os usuários possam enviar novos dados e receber resultados.
+Quando estiver satisfeito com seu teste, você poderá implantá-lo como um ***serviço Web clássico do Azure Machine Learning*** ou ***Novo serviço Web do Azure Machine Learning*** para que os usuários possam enviar novos dados e receber resultados.
 
 Neste artigo, ofereceremos uma visão geral sobre a mecânica de como seu modelo de Machine Learning evolui de um experimento de desenvolvimento para um serviço Web operacional.
 

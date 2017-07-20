@@ -9,22 +9,22 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 8567061a98ec5a0619a8e10cb44501dd88d8166c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="restore-a-single-tenant-database"></a>Restaurar um banco de dados de locatário único
+# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Restaurar um banco de dados SQL de locatários de Wingtip SaaS
 
 O aplicativo Wingtip Tickets SaaS é criado usando um modelo de banco de dados por locatário, onde cada locatário possui o seu próprio banco de dados. Uma das vantagens deste modelo é que com ele é fácil restaurar dados de um único locatário isoladamente sem afetar outros locatários.
 
@@ -44,7 +44,7 @@ Neste tutorial, você aprenderá dois padrões de recuperação de dados:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo WTP foi implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo WTP SaaS](sql-database-saas-tutorial.md)
+* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, confira [Implantar e explorar o aplicativo de SaaS do Wingtip](sql-database-saas-tutorial.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-saas-tenant-restore-pattern"></a>Introdução ao padrão de restauração de locatário de SaaS
@@ -57,11 +57,11 @@ No segundo padrão, que assume que o locatário sofreu uma perda ou corrupção 
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
 
-Os scripts do Wingtip Tickets e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Os arquivos de script estão localizados na [pasta de Módulos de Aprendizado](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Baixe a pasta **Módulos de Aprendizado** em seu computador local, mantendo a estrutura de pastas.
+Os scripts de SaaS do Wingtip e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Etapas para baixar os scripts do SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simular um locatário excluindo acidentalmente os dados
 
-Para demonstrar esses cenários de recuperação, precisamos *acidentalmente* excluir alguns dados em um dos bancos de dados de locatário. Apesar de você pode excluir qualquer registro, a próxima etapa configura a demonstração para não ser bloqueada por violações de integridade referencial! Ela também adiciona alguns dados de compra de ingresso que você pode usar posteriormente nos *tutoriais de análise de WTP*.
+Para demonstrar esses cenários de recuperação, precisamos *acidentalmente* excluir alguns dados em um dos bancos de dados de locatário. Apesar de você pode excluir qualquer registro, a próxima etapa configura a demonstração para não ser bloqueada por violações de integridade referencial! Ela também adiciona alguns dados de compra de ingresso que você pode usar posteriormente nos *tutoriais de análise de Wingtip SaaS*.
 
 Execute o script gerador de ingresso e crie dados adicionais. O gerador de ingresso intencionalmente não compra ingressos para o último evento de cada locatário.
 
@@ -148,6 +148,7 @@ Neste tutorial, você aprendeu como:
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam a implantação inicial do aplicativo WTP (Wingtip Tickets Platform)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure](sql-database-business-continuity.md)
 * [Saiba mais sobre o Banco de Dados SQL](sql-database-automated-backups.md)
+

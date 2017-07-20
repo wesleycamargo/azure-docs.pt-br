@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 06/02/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 90b67cf3d136882d59ed7fe4210f93fb694e96a6
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 6098216f7dd901ea48fb3ab969c7934cc288b247
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -257,7 +257,8 @@ az storage blob upload \
 
  Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Blocos, Anexos e Páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
-### <a name="download-blobs-from-a-container"></a>Baixar blobs de um contêiner
+
+### <a name="download-a-blob-from-a-container"></a>Baixar um blob de um contêiner
 Este exemplo demonstra como baixar blobs de um contêiner:
 
 ```azurecli
@@ -267,35 +268,47 @@ az storage blob download \
     --file ~/mydownloadedblob.png
 ```
 
+### <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
+
+Liste os blobs em um contêiner com o comando [az storage blob list](/cli/azure/storage/blob#list).
+
+```azurecli
+az storage blob list \
+    --container-name mycontainer \
+    --output table
+```
+
 ### <a name="copy-blobs"></a>Copiar blobs
 É possível copiar blobs em ou entre regiões e contas de armazenamento de modo assíncrono.
 
-O exemplo a seguir demonstra como copiar blobs de uma conta de armazenamento para outra. Primeiro criamos um contêiner em outra conta, especificando que seus blobs podem ser acessados publicamente e anonimamente. Em seguida, podemos carregar um arquivo para o contêiner e, por fim, copiar o blob do contêiner para o contêiner **mycontainer** na conta atual.
+O exemplo a seguir demonstra como copiar blobs de uma conta de armazenamento para outra. Primeiro, criamos um contêiner na conta de armazenamento de origem, especificando o acesso de leitura público para seus blobs. Em seguida, carregue um arquivo para o contêiner e, finalmente, copie o blob desse contêiner para um contêiner na conta de armazenamento de destino.
 
 ```azurecli
-# Create container in second account
+# Create container in source account
 az storage container create \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --name mycontainer2 \
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --name sourcecontainer \
     --public-access blob
 
-# Upload blob to container in second account
+# Upload blob to container in source account
 az storage blob upload \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --file ~/Images/HelloWorld.png \
-    --container-name mycontainer2 \
-    --name myBlockBlob2
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --container-name sourcecontainer \
+    --file ~/Pictures/sourcefile.png \
+    --name sourcefile.png
 
-# Copy blob from second account to current account
+# Copy blob from source account to destination account (destcontainer must exist)
 az storage blob copy start \
-    --source-uri https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 \
-    --destination-blob myBlobBlob \
-    --destination-container mycontainer
+    --account-name destaccountname \
+    --account-key destaccountkey \
+    --destination-blob destfile.png \
+    --destination-container destcontainer \
+    --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-A URL do blob de origem (especificada por `--source-uri`) deve ser acessível publicamente ou incluir um token SAS (Assinatura de Acesso Compartilhado).
+No exemplo acima, o contêiner de destino já deve existir na conta de armazenamento de destino para que a operação de cópia seja bem-sucedida. Além disso, o blob de origem especificado no argumento `--source-uri` deve incluir um token SAS (Assinatura de Acesso Compartilhado) ou ser acessível ao público, como neste exemplo.
 
 ### <a name="delete-a-blob"></a>Excluir um blob
 Para excluir um blob, use o comando `blob delete`:

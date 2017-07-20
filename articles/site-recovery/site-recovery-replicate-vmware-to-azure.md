@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/17/2017
+ms.date: 06/05/2017
 ms.author: asgang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: f78a857a795031f6188635091c76431cd5440d1c
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 9b22bcffeb1c79179511cd56aa1e79ee292eb992
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
 
 
-# <a name="replicate-applications"></a>Replicar aplicativos
+# <a name="replicate-applications-running-on-vmware-vms-to-azure"></a>Replicar aplicativos em execução no VMware VMs da Azure
+
 
 
 Este artigo descreve como configurar a replicação de máquinas virtuais que são executadas no VMware dentro do Azure.
@@ -59,13 +60,10 @@ Ao replicar máquinas virtuais VMware, observe o seguinte:
     ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/enable-replication2.png)
 
 6. Em **Destino**, selecione a assinatura e o grupo de recursos no qual você deseja criar as máquinas virtuais do failover. Escolha o modelo de implantação que você deseja usar no Azure (clássico ou gerenciamento de recursos) para as máquinas virtuais do failover.
-
-
 7. Selecione a conta de armazenamento do Azure que você deseja usar para replicar os dados. Observe que:
 
    * Você pode selecionar uma conta de armazenamento padrão ou premium. Se você selecionar uma conta premium, precisará especificar uma conta de armazenamento standard adicional para logs de replicação contínuos. As contas devem estar na mesma região que o cofre dos Serviços de Recuperação.
    * Se você deseja usar uma conta de armazenamento diferente daquela que você tem, você pode criar um*link de espaço reservado para criar uma conta de armazenamento usando o Resource Manager, o que será abordado na introdução*. Para criar uma conta de armazenamento usando o Resource Manager, clique em **Criar nova**. Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso no [portal do Azure](../storage/storage-create-storage-account-classic-portal.md).
-
 
 8. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem iniciadas após o failover. A rede deve estar na mesma região do que o cofre de Recuperação de Site. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por computador. Se você não tiver uma rede, precisará [criar uma](#set-up-an-azure-network). Para criar uma rede usando o Resource Manager, clique em **Criar nova**. Se você quiser criar uma rede usando o modelo clássico, terá de fazer isso [no portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecione uma sub-rede, se aplicável. Em seguida, clique em **OK**.
 
@@ -73,25 +71,19 @@ Ao replicar máquinas virtuais VMware, observe o seguinte:
 9. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, clique e selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
 
     ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/enable-replication5.png)
-10. Em **Propriedades** > **Configurar propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de Mobilidade no computador. Por padrão, todos os discos são replicados. Clique em **Todos os Discos** e desmarque os discos que você não deseja replicar. Em seguida, clique em **OK**. Você pode definir propriedades adicionais posteriormente.
+10. Em **Propriedades** > **Configurar propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de Mobilidade no computador.  
+11. Por padrão, todos os discos são replicados. Para excluir discos da replicação, clique em **Todos os Discos** e desmarque quaisquer discos que você não deseje replicar.  Em seguida, clique em **OK**. Você pode definir propriedades adicionais posteriormente. [Saiba mais](site-recovery-exclude-disk.md) sobre a exclusão de discos.
 
     ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-
-> [!NOTE]
-> Por padrão, todos os discos em um computador são replicados. É possível [excluir discos da replicação](site-recovery-exclude-disk.md). Por exemplo, talvez você não queira replicar discos com dados temporários ou dados atualizados cada vez que um computador ou um aplicativo é reiniciado (por exemplo, pagefile.sys ou SQL Server tempdb).
->
-
-
-
-11. Em **Configurações de replicação** > **Definir configurações de replicação**, verifique se a política de replicação correta está selecionada. Você pode modificar as configurações da política de replicação em **Configurações** > **Políticas de replicação** > nome da política > **Editar Configurações**. Alterações aplicadas a uma política serão aplicadas a computadores novos e de replicação.
-12. Habilite **Consistência de várias VMs** se você quiser reunir computadores em um grupo de replicação e especifique um nome para o grupo. Em seguida, clique em **OK**. Observe que:
+12. Em **Configurações de replicação** > **Definir configurações de replicação**, verifique se a política de replicação correta está selecionada. Você pode modificar as configurações da política de replicação em **Configurações** > **Políticas de replicação** > nome da política > **Editar Configurações**. Alterações aplicadas a uma política serão aplicadas a computadores novos e de replicação.
+13. Habilite **Consistência de várias VMs** se você quiser reunir computadores em um grupo de replicação e especifique um nome para o grupo. Em seguida, clique em **OK**. Observe que:
 
     * Os computadores no grupo de replicação são replicados em conjunto e têm pontos de recuperação consistentes compartilhados com o aplicativo e com falhas quando executam failover.
     * É recomendável que você colete VMs e servidores físicos para que espelhem suas cargas de trabalho. Habilitar a consistência de várias VMs pode afetar o desempenho da carga de trabalho e só deve ser usada se os computadores estão executando a mesma carga de trabalho e precisam de consistência.
 
     ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-13. Clique em **Habilitar a Replicação**. Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
+14. Clique em **Habilitar a Replicação**. Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
 
 > [!NOTE]
 > Se o computador estiver preparado para a instalação por push, o componente de serviço de Mobilidade será instalado quando a proteção estiver habilitada. Depois do componente estiver instalado no computador, um trabalho de proteção é iniciado e falha. Apos a falha, você precisa reiniciar manualmente cada computador. Após a reinicialização, o trabalho de proteção começa novamente e a replicação inicial ocorrerá.
@@ -99,43 +91,34 @@ Ao replicar máquinas virtuais VMware, observe o seguinte:
 >
 
 ## <a name="view-and-manage-vm-properties"></a>Exibir e gerenciar as propriedades da VM
+
 É recomendável que você verifique as propriedades do computador de origem. Lembre-se de que o nome da VM do Azure deve estar em conformidade com os [Requisitos de máquina virtual do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. Clique em **Configurações** > **Itens replicados** > e selecione o computador. A folha **Conceitos básicos** mostra as informações sobre as configurações e o status dos computadores.
 2. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
 3. Em **Computação e Rede** > **Propriedades de computação**, você pode especificar o nome da VM do Azure e o tamanho de destino. Modifique o nome para que ele fique em conformidade com os requisitos do Azure, se for necessário.
-![Habilitar a replicação](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
+    ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
+ 
+4.  É possível selecionar um [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) do qual o computador fará parte do pós-failover. Você pode alterar essa configuração a qualquer momento antes do failover. Após o failover, se você migrar o computador para outro grupo de recursos, as configurações de proteção de um computador serão interrompidas.
+5. É possível selecionar um [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se o computador precisar fazer parte de um pós-failover. Durante a seleção do conjunto de disponibilidade, tenha em mente que:
 
-*Grupo de recursos*
+    * Apenas os conjuntos de disponibilidade que pertencem ao grupo de recursos especificado serão listados  
+    * Computadores com redes virtuais diferentes não podem fazer parte do mesmo conjunto de disponibilidade
+    * Somente as máquinas virtuais do mesmo tamanho podem fazer parte do mesmo conjunto de disponibilidade
+5. Você também pode exibir e adicionar as informações sobre a rede de destino, a sub-rede e o endereço IP que será atribuído à VM do Azure.
+6. Em **Discos**, é possível ver o sistema operacional e os discos de dados na VM que serão replicados.
 
-  * É possível selecionar um [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) do qual o computador fará parte do pós-failover. Você pode alterar essa configuração a qualquer momento antes do failover.
+### <a name="network-adapters-and-ip-addressing"></a>Adaptadores de rede e endereçamento IP 
 
-> [!NOTE]
-> Após o failover, se você migrar o computador para outro grupo de recursos, as configurações de proteção de um computador serão interrompidas.
+- Você pode definir o endereço IP de destino. Se você não fornecer um endereço, o computador com failover usará o DHCP. Se você definir um endereço que não esteja disponível no failover, o failover não funcionará. O mesmo endereço IP de destino poderá ser usado para failover de teste caso o endereço esteja disponível na rede de failover de teste.
+- O número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino, como a seguir:
+    - Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
+    - Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
+    - Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
+    - Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede.
+    - Se a máquina virtual tiver vários adaptadores de rede, o primeiro deles mostrado na lista se tornará o adaptador de rede *Padrão* na máquina virtual do Azure.
+   
 
-*Conjuntos de Disponibilidade*
-
-É possível selecionar um [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se o computador precisar fazer parte de um pós-failover.
-Durante a seleção do conjunto de disponibilidade, tenha em mente que:
-
-* Apenas os conjuntos de disponibilidade que pertencem ao grupo de recursos especificado serão listados  
-* Computadores com redes virtuais diferentes não podem fazer parte do mesmo conjunto de disponibilidade
-* Somente as máquinas virtuais do mesmo tamanho podem fazer parte do mesmo conjunto de disponibilidade
-
-*Propriedades de rede*
-
-Você também pode exibir e adicionar as informações sobre a rede de destino, a sub-rede e o endereço IP que será atribuído à VM do Azure. Observe o seguinte:
-
-   * Você pode definir o endereço IP de destino. Se você não fornecer um endereço, o computador com failover usará o DHCP. Se você definir um endereço que não esteja disponível no failover, o failover não funcionará. O mesmo endereço IP de destino poderá ser usado para failover de teste caso o endereço esteja disponível na rede de failover de teste.
-   * O número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino, como a seguir:
-
-     * Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
-     * Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
-     * Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.     
-   * Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede.
-   * Se a máquina virtual tiver vários adaptadores de rede, o primeiro deles mostrado na lista se tornará o adaptador de rede *Padrão* na máquina virtual do Azure.
-
-4. Em **Discos**, é possível ver o sistema operacional e os discos de dados na VM que serão replicados.
 
 
 ## <a name="common-issues"></a>Problemas comuns

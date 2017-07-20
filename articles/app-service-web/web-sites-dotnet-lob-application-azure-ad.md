@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: a00e3c5ed41aff48a6845c2f07ea3e43580045ee
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 2576b658eaf1df95aa9700e06559edf6066cc534
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -66,7 +67,7 @@ Se você precisar de controle de acesso baseado em função (RBAC) para seu apli
     ![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)
 7. Em **Configurar Banco de Dados SQL**, clique em **Novo** para criar uma instância do SQL Server.
 8. Em **Configurar SQL Server**, configure sua instância do SQL Server. Em seguida, clique em **OK**, **OK** e em **Criar** para iniciar a criação do aplicativo no Azure.
-9. Em **Atividade do Serviço de Aplicativo do Azure**, você pode ver quando a criação do aplicativo terminar. Clique em **Publicar &lt;*nome_do_aplicativo*> para este Aplicativo Web agora** e depois clique em **Publicar**. 
+9. Em **Atividade do Serviço de Aplicativo do Azure**, você pode ver quando a criação do aplicativo terminar. Clique em **Publicar&lt;*nome_do_aplicativo*>para esse Aplicativo Web agora** e, em seguida, clique em **Publicar**. 
    
     Após a conclusão do Visual Studio, ele abrirá o aplicativo de publicação no navegador. 
    
@@ -76,7 +77,7 @@ Se você precisar de controle de acesso baseado em função (RBAC) para seu apli
 
 ## <a name="configure-authentication-and-directory-access"></a>Configurar a autenticação e acesso ao diretório
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, clique em **Serviços de Aplicativos** > **&lt;*nome_do_aplicativo*>** > **Autenticação/Autorização**.
+2. No meu à esquerda, clique em **Serviços de Aplicativos** > **&lt;*nome_do_aplicativo*>** > **Autenticação/Autorização**.
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)
 3. Ative a autenticação do Azure Active Directory clicando em **Ativar** > **Azure Active Directory** > **Expresso** > **OK**.
@@ -175,18 +176,26 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
    <pre class="prettyprint">
    @model WebApplication1.Models.WorkItem
    
-   @{  ViewBag.Title = &quot;Create&quot;; }
+   @{
+    ViewBag.Title = &quot;Create&quot;;
+   }
    
    &lt;h2&gt;Create&lt;/h2&gt;
    
-   @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>)) {  @Html.AntiForgeryToken()
+   @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>)) 
+   {
+    @Html.AntiForgeryToken()
    
     &lt;div class=&quot;form-horizontal&quot;&gt;
         &lt;h4&gt;WorkItem&lt;/h4&gt;
         &lt;hr /&gt;
-        @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })      &lt;div class=&quot;form-group&quot;&gt;
-            @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })          &lt;div class=&quot;col-md-10&quot;&gt;
-                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })              @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })          &lt;/div&gt;
+        @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })
+                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
         &lt;/div&gt;
    
         &lt;div class=&quot;form-group&quot;&gt;
@@ -222,10 +231,15 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
    }
    
    &lt;div&gt;
-    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;) &lt;/div&gt;
+    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+   &lt;/div&gt;
    
-   @section Scripts {  @Scripts.Render(&quot;~/bundles/jqueryval&quot;)  <mark>&lt;script&gt;
-        // People/Group Picker Code      var maxResultsPerPage = 14;      var input = document.getElementById(&quot;AssignedToName&quot;);
+   @section Scripts {
+    @Scripts.Render(&quot;~/bundles/jqueryval&quot;)
+    <mark>&lt;script&gt;
+        // People/Group Picker Code
+        var maxResultsPerPage = 14;
+        var input = document.getElementById(&quot;AssignedToName&quot;);
    
         // Access token from request header, and tenantID from claims identity
         var token = &quot;@Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]&quot;;
@@ -241,7 +255,8 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
                 return;
             $(&quot;#main-form&quot;).get()[0].elements[&quot;AssignedToID&quot;].value = picker.Selected().objectId;
         });
-    &lt;/script&gt;</mark> }
+    &lt;/script&gt;</mark>
+   }
    </pre>
    
    Observe que `token` e `tenant` são usados pelo objeto `AadPicker` para fazer chamadas da API do Graph do Azure Active Directory. Você adicionará `AadPicker` mais tarde.     
@@ -265,7 +280,12 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
 13. Abra ~\App_Start\BundleConfig.cs e faça as seguintes alterações realçadas:  
     
     <pre class="prettyprint">
-    public static void RegisterBundles(BundleCollection bundles) { bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;).Include( &quot;~/Scripts/jquery-{version}.js&quot;<mark>, &quot;~/Scripts/jquery-ui-{version}.js&quot;, &quot;~/Scripts/AadPickerLibrary.js&quot;</mark>));
+    public static void RegisterBundles(BundleCollection bundles)
+    {
+        bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;).Include(
+                    &quot;~/Scripts/jquery-{version}.js&quot;<mark>,
+                    &quot;~/Scripts/jquery-ui-{version}.js&quot;,
+                    &quot;~/Scripts/AadPickerLibrary.js&quot;</mark>));
     
         bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;).Include(
                     &quot;~/Scripts/jquery.validate*&quot;));
@@ -328,6 +348,4 @@ Se o seu aplicativo de linha de negócios precisar acessar dados locais, confira
 * [Autenticação do Serviço de Aplicativo e a API do Graph do Azure AD](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Exemplos e documentação do Active Directory do Microsoft Azure](https://github.com/AzureADSamples)
 * [Tipos de declaração e token com suporte no Active Directory do Azure](http://msdn.microsoft.com/library/azure/dn195587.aspx)
-
-[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 

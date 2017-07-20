@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f8cb0030290d200ab79e340b9b0fe8f5765d49f0
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -119,6 +120,11 @@ Para os procedimentos a seguir, o ponto de partida é o painel de itens do cofre
      Para obter instruções sobre como criar uma política de backup, consulte [Definindo uma política de backup](backup-azure-manage-vms.md#defining-a-backup-policy).
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
+
+> [!NOTE]
+> Ao gerenciar políticas de backup, certifique-se de seguir as [práticas recomendadas](backup-azure-vms-introduction.md#best-practices) para um desempenho de backup ideal
+>
+>
 
 ## <a name="on-demand-backup-of-a-virtual-machine"></a>Backup sob demanda de uma máquina virtual
 Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup inicial está pendente, o backup sob demanda cria uma cópia completa da máquina virtual no cofre dos Serviços de Recuperação. Se o backup inicial for concluído, um backup sob demanda enviará apenas as alterações do instantâneo anterior para o cofre dos Serviços de Recuperação. Ou seja, os backups subsequentes serão sempre incrementais.

@@ -2,7 +2,7 @@
 title: "Sincronização de dados offline em aplicativos móveis do Azure | Microsoft Docs"
 description: "Visão geral e referência conceitual do recurso de sincronização de dados offline para aplicativos móveis do Azure"
 documentationcenter: windows
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 services: app-service\mobile
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
 ms.openlocfilehash: dc179f6186d501bc7c8e4ca72b2bf23e89a9443e
+ms.contentlocale: pt-br
 ms.lasthandoff: 12/01/2016
-
 
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de dados offline em Aplicativos Móveis do Azure

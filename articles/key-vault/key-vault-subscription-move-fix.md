@@ -20,7 +20,6 @@ ms.openlocfilehash: 4317cf84760289ca29d8d5a78e2adef99c4cedf2
 ms.contentlocale: pt-br
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Alterar a ID de locatário do cofre de chaves depois de mover uma assinatura
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>P: minha assinatura foi movida do locatário A para o locatário B. Como posso alterar a ID do locatário para o cofre de chaves existente e definir ACLs corretas para as entidades no locatário B?
@@ -36,7 +35,7 @@ Por exemplo, se você tiver o cofre de chaves 'myvault' em uma assinatura que fo
 $Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
 $vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
 $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.Id
+$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
 $vault.Properties.AccessPolicies = @()
 Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>

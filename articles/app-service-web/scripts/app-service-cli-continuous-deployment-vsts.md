@@ -13,14 +13,14 @@ ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 03/20/2017
+ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: e5259bf40819aa799651e09ea5de7138e2a8ac7d
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 2b983616757ca3c4226c12876f5fd4c285067318
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Criar um aplicativo Web com a implantação contínua do Visual Studio Team Services
@@ -30,9 +30,14 @@ Esse script de exemplo cria um aplicativo Web no Serviço de Aplicativo com recu
 * Um repositório do Visual Studio Team Services com um código do aplicativo para o qual você tem permissões administrativas.
 * Um [PAT (Token de Acesso Pessoal)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) para sua conta do Visual Studio Team Services.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-app-sample"></a>Criar aplicativo de exemplo
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+
+## <a name="sample-script"></a>Script de exemplo
 
 [!code-azurecli-interactive[principal](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "criar um aplicativo Web com a implantação contínua do Visual Studio Team Services")]
 
@@ -46,9 +51,9 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Cria um Plano do Serviço de Aplicativo. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Cria um aplicativo Web do Azure. |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Associa a um aplicativo Web do Azure com um repositório Git ou Mercurial. |
-| [az appservice web browse](https://docs.microsoft.com/cli/azure/appservice/web#browse) | Abra um aplicativo Web do Azure em um navegador. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Cria um aplicativo Web do Azure. |
+| [az webapp deployment source config](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config) | Associa a um aplicativo Web do Azure com um repositório Git ou Mercurial. |
+| [az webapp browse](https://docs.microsoft.com/cli/azure/webapp#browse) | Abra um aplicativo Web do Azure em um navegador. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

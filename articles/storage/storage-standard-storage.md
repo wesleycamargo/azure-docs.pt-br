@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 06/13/2017
 ms.author: yuemlu
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 01597767a03a5959c4c0cde994b6a7b8a34bfb7e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -31,7 +32,7 @@ Este artigo se concentra no uso de armazenamento padrão para discos de VM. Para
 
 Há duas maneiras de criar discos padrão para VMs do Azure:
 
-**Discos não gerenciados**: esse é o método original onde você gerencia as contas de armazenamento usadas para armazenar os arquivos VHD que correspondem aos discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Discos não gerenciados podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que usam principalmente o armazenamento Premium, como a série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo que até 64 TB de armazenamento por VM.
+**Discos não gerenciados**: esse é o método original onde você gerencia as contas de armazenamento usadas para armazenar os arquivos VHD que correspondem aos discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Discos não gerenciados podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que usam principalmente o armazenamento Premium, como a série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo que até 256 TB de armazenamento por VM.
 
 [**Azure Managed Disks**](storage-managed-disks-overview.md): esse recurso gerencia as contas de armazenamento usadas para os discos de VM para você. Você só precisa especificar o tipo (Premium ou Standard) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. Você não precisa se preocupar com o local em que colocará os discos em várias contas de armazenamento para garantir que fique dentro dos limites de escalabilidade das contas de armazenamento – o Azure cuida disso para você.
 
@@ -85,7 +86,7 @@ Ao contrário dos discos Premium, as operações de entrada/saída por segundo (
 
 | **Camada de VM**            | **VM de camada básica** | **VM de camada Standard** |
 |------------------------|-------------------|----------------------|
-| Tamanho máximo do disco          | 1023 GB           | 1023 GB              |
+| Tamanho máximo do disco          | 4095 GB           | 4095 GB              |
 | Máx. de 8 KB de IOPS por disco | Até 300         | Até 500            |
 | Largura de banda máxima por disco | Até 60 MB/s     | Até 60 MB/s        |
 
@@ -121,7 +122,7 @@ Ao usar o Armazenamento Standard, as seguintes considerações de cobrança se a
 * Transferências de dados de saída
 * Transações
 
-**Tamanho de discos e dados de armazenamento não gerenciados:** para discos e outros dados não gerenciados (blobs, tabelas, filas e arquivos), você é cobrado apenas pela quantidade de espaço que estiver usando. Por exemplo, se você tiver uma VM cujo blob de páginas é provisionado como 127 GB, mas a VM usa apenas 10 GB de espaço, você será cobrado por 10 GB de espaço. 
+**Tamanho de discos e dados de armazenamento não gerenciados:** para discos e outros dados não gerenciados (blobs, tabelas, filas e arquivos), você é cobrado apenas pela quantidade de espaço que estiver usando. Por exemplo, se você tiver uma VM cujo blob de páginas é provisionado como 127 GB, mas a VM usa apenas 10 GB de espaço, você será cobrado por 10 GB de espaço. Há suporte para armazenamento padrão até 8191 GB e discos padrão não gerenciados até 4095 GB. 
 
 **Discos gerenciados:** discos gerenciados serão cobrados no tamanho provisionado. Se o seu disco for provisionado como um disco de 10 GB e você estiver usando apenas 5 GB, você ainda será cobrado pelo tamanho de provisão de 10 GB.
 
@@ -154,3 +155,4 @@ Você também pode usar o serviço de Backup do Azure com o Managed Disks para c
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
 * [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
+

@@ -10,10 +10,10 @@ ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e14712b8fd68d6364f44c116448a9a8f33622a91
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5197a3f44a085d25d964f355154d92b08e65560b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Banco de Dados do Azure para servidores PostgreSQL
@@ -42,7 +42,7 @@ Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados.
 
 |||
 | :-- | :-- |
-| **Autenticação e autorização** | O Banco de Dados do Azure para servidor PostgreSQL oferece suporte à autenticação de PostgreSQL nativa. Você pode se conectar e autenticar no servidor com logon de administrador do servidor.<br />Para saber mais, confira [Gerenciar usuários e funções no Banco de Dados do Azure para PostgreSQL](/azure/sql-database/sql-database-manage-logins). |
+| **Autenticação e autorização** | O Banco de Dados do Azure para servidor PostgreSQL oferece suporte à autenticação de PostgreSQL nativa. Você pode se conectar e autenticar no servidor com logon de administrador do servidor. |
 | **Protocolo** | O serviço oferece suporte a um protocolo baseado em mensagem usado pelo PostgreSQL. |
 | **TCP/IP** | O protocolo tem suporte em TCP/IP e em soquetes de domínio do Unix. |
 | **Firewall** | Para ajudar a proteger seus dados, uma regra de firewall impede todo acesso ao servidor de banco de dados, ou aos seus bancos de dados, até que você especifique quais computadores têm permissão. Confira [Regras de firewall do Banco de Dados do Azure para servidor PostgreSQL](concepts-firewall-rules.md). |
@@ -50,7 +50,7 @@ Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados.
 
 ## <a name="how-do-i-manage-a-server"></a>Como posso gerenciar um servidor?
 
-Você pode gerenciar o Banco de Dados do Azure para servidores PostgreSQL usando o Portal do Azure ou a CLI do Azure.
+Você pode gerenciar o Banco de Dados do Azure para servidores PostgreSQL usando o Portal do Azure ou a [CLI do Azure](/cli/azure/postgres).
 
 ## <a name="next-steps"></a>Próximas etapas
 
