@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: hanuk;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1cc14b99a4c0dfeb9eec0afaf72200e93cd22e12
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7dc61a4ea5f7ce9749a3280562e42223dfdbde17
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -86,7 +87,7 @@ A replicação de reconhecimento e o modelo de consistência de data center de C
 
 **Implantação com base em proximidade:** aplicativos multilocatário, com mapeamento claro de usuários locatários para região, podem ser beneficiados pelas baixas latências do cluster de várias regiões. Por exemplo, sistemas de gerenciamento de aprendizado para instituições de ensino podem implantar um cluster distribuído nas regiões leste e oeste dos EUA para atender aos respectivos campus para transacional, bem como análise. Os dados podem ser localmente consistentes no momento das leituras e gravações e podem ser eventualmente consistentes em ambas as regiões da. Existem outros exemplos, como distribuição de mídia, comércio eletrônico e qualquer coisa que sirva à base de usuários concentrada geograficamente é um bom caso de uso esse modelo de implantação.
 
-**Alta disponibilidade:** a redundância é um fator importante na obtenção de alta disponibilidade de software e hardware; confira Criando sistemas de nuvem confiáveis no Microsoft Azure para obter detalhes. No Microsoft Azure, o único modo confiável de conseguir redundância real é implantando um cluster de várias regiões. Os aplicativos podem ser implantados em um modo ativo-ativo ou ativo-passivo e se uma das regiões estiver inativa, o Gerenciador de Tráfego do Azure pode redirecionar o tráfego para a região ativa.  Com a implantação de região única, se a disponibilidade for 99,9, uma implantação de duas regiões poderá atingir uma disponibilidade de 99,9999 calculada pela fórmula: (1-(1-0,999) *(1-0,999))*100); confira o artigo anterior para obter detalhes.
+**Alta disponibilidade:** a redundância é um fator importante na obtenção de alta disponibilidade de software e hardware; confira Criando sistemas de nuvem confiáveis no Microsoft Azure para obter detalhes. No Microsoft Azure, o único modo confiável de conseguir redundância real é implantando um cluster de várias regiões. Os aplicativos podem ser implantados em um modo ativo-ativo ou ativo-passivo e se uma das regiões estiver inativa, o Gerenciador de Tráfego do Azure pode redirecionar o tráfego para a região ativa.  Com a implantação de região única, se a disponibilidade for 99,9, uma implantação de duas regiões poderá atingir uma disponibilidade de 99,9999 calculada pela fórmula: (1-(1-0.999) * (1-0.999))*100); confira o artigo anterior para obter detalhes.
 
 **Recuperação de desastres:** o cluster Cassandra de várias regiões, se projetado adequadamente, pode resistir a interrupções catastróficas do data center. Se uma região estiver inativa, o aplicativo implantado em outras regiões pode começar a servir os usuários finais. Como as outras implementações de continuidade de negócios, o aplicativo precisa ser tolerante a falhas para alguma perda de dados resultante dos dados no pipeline assíncrono. No entanto, o Cassandra torna a recuperação muito mais rápida que os processos de recuperação de banco de dados tradicionais. A Figura 2 mostra o modelo de implantação de várias regiões típico com oito nós em cada região. Ambas as regiões são imagens espelhadas uma da outra para a mesma simetria; designs reais dependem do tipo de carga de trabalho (por exemplo, transacional ou analítica), RPO, RTO, consistência de dados e requisitos de disponibilidade.
 
@@ -303,15 +304,13 @@ Certifique-se de que a máquina virtual esteja realçada e clique no link CAPTUR
 Isto levará alguns segundos e a imagem deverá estar disponível na seção MINHAS IMAGENS da galeria de imagens. A VM de origem será automaticamente excluída depois que a imagem for capturada com êxito. 
 
 ## <a name="single-region-deployment-process"></a>Processo de implantação de região única
-**Etapa 1: Criar a Rede Virtual** Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal clássico do Azure](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) para obter as etapas detalhadas do processo.      
+**Etapa 1: Criar a Rede Virtual** Faça logon no portal do Azure e crie uma Rede Virtual (clássica) com os atributos mostrados na tabela a seguir. Confira [Criar uma rede virtual (clássica) usando o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para obter as etapas detalhadas do processo.      
 
 <table>
 <tr><th>Nome do atributo da VM</th><th>Valor</th><th>Comentários</th></tr>
 <tr><td>Nome</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Região</td><td>Oeste dos EUA</td><td></td></tr>
-<tr><td>Servidores DNS    </td><td>Nenhum</td><td>Ignore isso, pois não estamos usando um servidor DNS</td></tr>
-<tr><td>Configurar uma VPN ponto a site</td><td>Nenhum</td><td> Ignore isso</td></tr>
-<tr><td>Configurar uma VPN site a site</td><td>Nenhum</td><td> Ignore isso</td></tr>
+<tr><td>Servidores DNS</td><td>Nenhum</td><td>Ignore isso, pois não estamos usando um servidor DNS</td></tr>
 <tr><td>Espaço de endereço</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>IP Inicial</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>

@@ -1,6 +1,6 @@
 ---
-title: Mover dados para dentro e fora do Oracle usando o Data Factory | Microsoft Docs
-description: "Aprenda a mover dados de/para o banco de dados da Oracle que está no local usando o Azure Data Factory."
+title: Copiar dados para dentro e fora do Oracle usando o Data Factory | Microsoft Docs
+description: "Aprenda a copiar dados de/para o banco de dados da Oracle que está no local usando o Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 18fffb6cae9107b9301ff702d483b598836ac180
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: bb6af719fe6f1a30c5933ce4342a4c0c072f3ff4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Mover dados para dentro e fora do Oracle local usando o Azure Data Factory
+# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copiar dados para dentro e fora do Oracle local usando o Azure Data Factory
 Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados para/de um banco de dados do Oracle local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
@@ -570,15 +570,15 @@ Ao mover dados do Oracle, os seguintes mapeamentos são usados do tipo de dados 
 | CHAR |Cadeia de caracteres |
 | CLOB |Cadeia de caracteres |
 | DATE |DateTime |
-| FLOAT |Decimal |
-| INTEGER |Decimal |
+| FLOAT |Decimal, cadeia de caracteres (se precisão > 28) |
+| INTEGER |Decimal, cadeia de caracteres (se precisão > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |timespan |
 | LONG |Cadeia de caracteres |
 | LONG RAW |Byte[] |
 | NCHAR |Cadeia de caracteres |
 | NCLOB |Cadeia de caracteres |
-| NUMBER |Decimal |
+| NUMBER |Decimal, cadeia de caracteres (se precisão > 28) |
 | NVARCHAR2 |Cadeia de caracteres |
 | RAW |Byte[] |
 | ROWID |Cadeia de caracteres |

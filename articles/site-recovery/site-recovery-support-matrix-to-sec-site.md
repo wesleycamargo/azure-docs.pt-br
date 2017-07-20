@@ -4,7 +4,7 @@ description: Resume os sistemas operacionais e componentes com suporte para o Az
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,26 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/08/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: d53d4cfdc7b673d2816fa9372dedbed540380cce
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/15/2017
 
 
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Suporte a matriz para replicação em um site secundário com o Azure Site Recovery
 
-> [!div class="op_single_selector"]
-> * [Replicar para o Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicar para um lugar local](site-recovery-support-matrix-to-sec-site.md)
-
 Este artigo resume o que tem suporte quando você usa o Azure Site Recovery para replicar em um site local secundário.
 
 ## <a name="deployment-options"></a>Opções de implantação
 
-**Implantação** | **Servidor VMware/físico** | **Hyper-V (com e sem o SCVMM)
+**Implantação** | **Servidor VMware/físico** | **Hyper-V (com/sem o SCVMM)**
 --- | --- | --- | ---
 **Portal do Azure** | VMs do VMware locais para o site secundário do VMware.<br/><br/> Baixe o [guia do usuário do InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (não disponível no Portal do Azure). | VMs do Hyper-V locais em nuvens de VMM para uma nuvem de VMM secundária.<br></br> Sem suporte sem o SCVMM  <br/><br/> Somente Replicação do Hyper-V padrão. Sem suporte para SAN.
 **Portal clássico** | Somente modo de manutenção. Não é possível criar novos cofres. | Somente no modo de manutenção<br></br> Sem suporte sem o SCVMM
@@ -140,5 +137,6 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [pré-requisitos de implantação](site-recovery-prereq.md).
+- [Replicar as VMs do Hyper-V em nuvens de VMM para um site secundário](site-recovery-vmm-to-vmm.md)
+- [Replicar VMs VMware e servidores físicos para um site secundário](site-recovery-vmware-to-vmware.md)
 

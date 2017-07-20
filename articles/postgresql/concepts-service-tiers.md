@@ -1,92 +1,75 @@
 ---
-title: "Camadas de serviço no Banco de Dados do Azure para PostgreSQL | Microsoft Docs"
-description: "Camadas de serviço no Banco de Dados do Azure para PostgreSQL"
+title: "Tipo de preço no Banco de Dados do Azure para PostgreSQL"
+description: "Tipo de preço no Banco de Dados do Azure para PostgreSQL"
 services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
+ms.custom: mvc
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 05/31/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: a946c114824597cc55e435a455cd888816789dbf
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 2bd54b85f4c9f9ff13b8975eee15649f607a9194
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/16/2017
 
 ---
-# <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opções e desempenho do Banco de Dados do Azure para PostgreSQL: compreender o que está disponível em cada camada de serviço
+# <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opções e desempenho do Banco de Dados do Azure para PostgreSQL: Compreenda o que está disponível em cada tipo de serviço
+Quando você cria um banco de dados do Azure para o servidor PostgreSQL, você decide três principais opções para configurar os recursos alocados para o servidor. Essas opções afetam o desempenho e dimensionamento do servidor.
+- Camada de preços
+- Unidades de computação
+- Armazenamento (GB)
 
-Enquanto estiver no modo de visualização, o Banco de Dados do Azure para PostgreSQL oferece apenas as camadas de serviço Básico e Standard. A camada Premium ainda não está disponível.
-
-Cada camada de serviço tem vários níveis de desempenho para lidar com tipos diferentes de requisitos de cargas de trabalho. Os níveis de desempenho mais elevados fornecem recursos adicionais, projetados para oferecer uma taxa de transferência crescente. Você pode alterar dinamicamente os níveis de desempenho dentro de uma camada de serviço sem qualquer tempo de inatividade do aplicativo.
-
-No futuro, será possível atualizar ou fazer downgrade de uma camada de serviço para outra.
+Cada camada de preços tem um intervalo de níveis de desempenho (Unidades de Computação) à sua escolha, dependendo dos requisitos de cargas de trabalho. Os níveis de desempenho mais elevados fornecem recursos adicionais, projetados para oferecer uma taxa de transferência crescente. Você pode alterar o nível de desempenho do servidor dentro de uma camada de preços praticamente sem tempo de inatividade do aplicativo.
 
 > [!IMPORTANT]
-> No momento, o serviço está em visualização pública e, portanto, não ainda fornece um SLA (Contrato de Nível de Serviço).
+> Enquanto o serviço estiver em visualização pública, não há um contrato de nível de serviço (SLA) garantido.
 
-Você pode criar um único servidor PostgreSQL com recursos dedicados dentro de uma camada de serviço em um nível de desempenho específico. Depois, você pode criar de um a vários bancos de dados no servidor no qual os recursos são compartilhados entre vários bancos de dados. Os recursos disponíveis para um único servidor PostgreSQL são expressos em termos de Unidades de Computação e Unidades de Armazenamento. Para saber mais sobre Unidades de Computação e Unidades de Armazenamento, confira [Explicar a Unidade de Computação e a Unidade de Armazenamento](concepts-compute-unit-and-storage.md)
+Dentro de um banco de dados do Azure para o servidor MySQL, você pode ter um ou mais bancos de dados. Você pode optar por criar um banco de dados por servidor para utilizar todos os recursos ou criar vários bancos de dados para compartilhar os recursos. 
 
-## <a name="choosing-a-service-tier"></a>Como escolher uma camada de serviço
+## <a name="choose-a-pricing-tier"></a>Escolher um tipo de preço
+Enquanto estiver no modo visualização, o Banco de Dados do Azure para PostgreSQL oferece apenas as faixas de preço Básico e Padrão. Faixa Premium não está disponível, mas estará disponível em breve. 
 
-A tabela a seguir fornece exemplos das camadas mais adequadas para cargas de trabalho de aplicativos diferentes.
+A tabela a seguir fornece exemplos das faixas de preço mais adequadas para cargas de trabalho de aplicativos diferentes.
 
-| Camada de serviço | Cargas de trabalho de destino |
+| Camada de preços | Cargas de trabalho de destino |
 | :----------- | :----------------|
 | Basic | Mais adequada para cargas de trabalho pequenas que exigem computação e armazenamento escalonáveis sem garantia de IOPS. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
-| Standard | A opção certa para aplicativos de nuvem que precisam de garantia de IOPS com uma capacidade de escalar de forma independente para níveis de computação e armazenamento superiores para obtenção de uma taxa de transferência maior. Entre os exemplos incluem aplicativos analíticos ou da Web. |
-| Premium | Ideal para cargas de trabalho que precisam de latências muito breves para transações e E/S, juntamente com alta taxa de transferência de carga de trabalho de E/S. Fornece o melhor suporte para muitos usuários simultâneos. Aplicável a bancos de dados que oferece suporte a aplicativos de missão crítica.<br />A camada de serviço Premium não está disponível no modo visualização. |
-| &nbsp; | &nbsp; |
+| Standard | A opção para aplicativos de nuvem que precisam de IOPS com alta taxa de transferência. Entre os exemplos incluem aplicativos analíticos ou da Web. |
+| Premium | Ideal para cargas de trabalho que precisam de baixa latência para transações e IO. Fornece o melhor suporte para muitos usuários simultâneos. Aplicável a bancos de dados que oferecem suporte a aplicativos de missão crítica.<br />A faixa de preço Premium não está disponível no modo visualização. |
 
-Para decidir sobre uma camada de serviço, comece determinando se sua carga de trabalho precisa de garantia de IOPS. Depois, determine os recursos mínimos necessários:
+Para decidir sobre uma faixa de preço, comece determinando se sua carga de trabalho precisa de garantia de IOPS. Nesse caso, use a faixa de preços Padrão.
 
-| **Recursos de camada de serviço** | **Básico** | **Standard** | **Premium** * |
-| :------------------------ | :-------- | :----------- | :------------ |
-| Unidades de computação máxima | 100 | 2.000 | Não disponível no modo visualização |
-| Armazenamento total máximo | 1.050 GB | 10.000 GB | Não disponível no modo visualização |
-| Garantia IOPS de armazenamento | N/D  | Sim | Não disponível no modo visualização |
-| IOPS de armazenamento máximo | N/D  | 3.000 | Não disponível no modo visualização |
-| Período de retenção do backup de banco de dados | 7 dias | 35 dias | 35 dias |
+| **Recursos das faixas de preços** | **Básico** | **Standard** |
+| :------------------------ | :-------- | :----------- |
+| Unidades de computação máxima | 100 | 800 | 
+| Armazenamento total máximo | 1 TB | 1 TB | 
+| Garantia IOPS de armazenamento | N/D  | Sim | 
+| IOPS de armazenamento máximo | N/D  | 3.000 | 
+| Período de retenção do backup de banco de dados | 7 dias | 35 dias | 
 
+Durante o período de visualização, você não pode alterar o tipo de preço depois que o servidor for criado. No futuro, será possível atualizar ou fazer downgrade de um tipo de preço para outro.
 
-> [!NOTE]
-> A camada de serviço Standard, atualmente na versão prévia, dá suporte a até 800 Unidades de computação e, no máximo, 1.000 GB de armazenamento.
+## <a name="choose-a-performance-level-compute-units"></a>Escolher um nível de desempenho (Unidades de Computação)
+Depois de determinar a faixa de preços para seu banco de dados do Azure para o servidor PostgreSQL, você está pronto para determinar o nível de desempenho, selecionando o número de unidades de computação necessário. As Unidades de Computação 200 e 400 costumam ser um bom ponto de partida para aplicativos que exigem maior simultaneidade de usuários para suas cargas de trabalho de análise ou da Web e podem ser ajustadas incrementalmente conforme a necessidade. 
 
-Depois de determinar a camada de serviço mínima, você está pronto para determinar o nível de desempenho do servidor PostgreSQL (as Unidades de Computação). As Unidades de Computação 200 e 400 padrão costumam ser um bom ponto de partida para aplicativos que exigem maior simultaneidade de usuários para suas cargas de trabalho de análise ou da Web. 
+Unidades de computação são uma medida de taxa de transferência de processamento da CPU que possuem disponibilidade garantida para um único Banco de Dados do Azure para o servidor PostgreSQL. Uma unidade de computação é uma medida combinada de recursos de CPU e memória.  Para obter mais informações, consulte [Explicando Unidades de Computação](concepts-compute-unit-and-storage.md)
 
-No entanto, você pode expandir ou reduzir as Unidades de Computação de forma independente às Unidades de Armazenamento, com base nos requisitos da carga de trabalho. Se a carga de trabalho precisar de um ajuste com relação aos recursos de computação, aumente ou diminua dinamicamente as Unidades de Computação. Se sua carga de trabalho precisar de mais IOPS ou armazenamento, você também poderá dimensionar o Armazenamento.
-
-> [!NOTE]
-> No momento, no modo visualização, as camadas Básico e Standard não dão suporte ao dimensionamento dinâmico do armazenamento. Planejamos adicionar esse recurso no futuro.
-
-> [!NOTE]
-> Na camada de serviço Standard, o IOPS é dimensionado proporcionalmente ao tamanho do armazenamento provisionado em uma taxa fixa de 3:1. O armazenamento incluído de 125 GB garante 375 IOPS provisionados, cada um com um tamanho de E/S de 256 KB. Se você provisionar 1.000 GB, obterá 3.000 IOPS provisionados. Você deve monitorar o consumo das unidades de computação do servidor e escalar verticalmente a fim de utilizar totalmente o IOPS provisionado disponível.
-
-## <a name="service-tiers-and-performance-levels"></a>Camadas de serviço e níveis de desempenho
-
-O Banco de Dados do Azure para PostgreSQL oferece vários níveis de desempenho dentro de cada camada de serviço. Você tem a flexibilidade de escolher o nível que melhor atenda às suas demandas de carga de trabalho usando uma das opções a seguir:
-
-- [Portal do Azure](quickstart-create-server-database-portal.md), localizado em [http://portal.azure.com](http://portal.azure.com)
-- [CLI do Azure](quickstart-create-server-database-azure-cli.md)
-
-Independentemente do número de bancos de dados hospedados em cada servidor PostgreSQL, o banco de dados ainda obterá um conjunto garantido de recursos e as características de desempenho esperadas de seu servidor não são afetadas.
-
-### <a name="basic-service-tier"></a>Camada de serviço Básico:
+### <a name="basic-pricing-tier-performance-levels"></a>Níveis de desempenho da faixa de preço Básico:
 
 | **Nível de desempenho** | **50** | **100** |
-| --------------------: | :----- | :------ |
+| :-------------------- | :----- | :------ |
 | Unidades de computação máxima | 50 | 100 |
 | Tamanho do armazenamento incluído | 50 GB | 50 GB |
-| Tamanho máximo de armazenamento do servidor\* | 1.050 GB | 1.050 GB |
+| Tamanho máximo de armazenamento do servidor\* | 1 TB | 1 TB |
 
-### <a name="standard-service-tier"></a>Camada de serviço Standard:
+### <a name="standard-pricing-tier-performance-levels"></a>Níveis de desempenho da faixa de preço Padrão:
 
 | **Nível de desempenho** | **100** | **200** | **400** | **800** |
-| --------------------: | :------ | :------ | :------ | :------ |
+| :-------------------- | :------ | :------ | :------ | :------ |
 | Unidades de computação máxima | 100 | 200 | 400 | 800 |
 | Tamanho de armazenamento incluído e IOPS provisionado | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
 | Tamanho máximo de armazenamento do servidor\* | 1 TB | 1 TB | 1 TB | 1 TB |
@@ -95,19 +78,28 @@ Independentemente do número de bancos de dados hospedados em cada servidor Post
 
 \* Tamanho máximo de armazenamento do servidor refere-se ao tamanho máximo de armazenamento provisionado para o servidor.
 
-## <a name="scaling-up-or-down-a-server"></a>Aumentar ou diminuir um único servidor
+## <a name="storage"></a>Armazenamento 
+A configuração de armazenamento define a quantidade de capacidade de armazenamento disponível para um banco de dados do Azure para o servidor PostgreSQL. O armazenamento usado pelo serviço inclui os arquivos de banco de dados, logs de transação e os logs do servidor PostgreSQL. Considere o tamanho de armazenamento necessário para hospedar os bancos de dados e os requisitos de desempenho (IOPS) ao selecionar a configuração de armazenamento.
 
-Depois de escolher inicialmente uma camada de serviço e um nível de desempenho, você pode escalar verticalmente e de forma dinâmica o servidor com base em seus requisitos de carga de trabalho. Se precisar escalar verticalmente, altere facilmente a camada de seu banco de dados usando o Portal do Azure ou a CLI do Azure.
+Algumas capacidades de armazenamento estão incluídas no mínimo com cada tipo de preço, indicadas na tabela anterior como "Tamanho dos armazenamentos incluídos." Capacidade de armazenamento adicional pode ser adicionada quando o servidor é criado, em incrementos de 125 GB até o máximo permitido de armazenamento. A capacidade de armazenamento adicional pode ser configurada independentemente da configuração de Unidades de Computação. O preço altera com base na quantidade de armazenamento selecionado.
 
-A alteração da camada de serviço e/ou nível de desempenho de um banco de dados cria uma réplica do banco de dados original com o novo nível de desempenho e então faz a transição das conexões para réplica. Nenhum dado é perdido durante esse processo, mas durante o breve momento em que realizamos a transição para a réplica, conexões com o banco de dados são desabilitadas, então algumas transações em andamento podem ser revertidas. Essa janela varia, mas é em média inferior a quatro segundos e, em mais de 99% dos casos, de menos de 30 segundos. Se houver grandes números de transações em andamento no momento em que as conexões estiverem desabilitadas, esta janela poderá ser maior.
+A configuração de IOPS em cada nível de desempenho está relacionada à faixa de preços e o tamanho de armazenamento escolhido. A faixa Básico não oferece garantia de IOPS. Na faixa de preços Padrão, o IOPS dimensiona proporcionalmente ao tamanho máximo de armazenamento em uma taxa fixa de 3:1. O armazenamento incluído de 125 GB garante 375 IOPS provisionados, cada um com um tamanho de E/S de 256 KB. Você pode escolher armazenamento adicional máximo de 1 TB, para garantir 3.000 IOPS provisionados.
 
-A duração de todo o processo de expansão depende a camada tamanho e de serviço do servidor antes e após a alteração. Por exemplo, um servidor que está mudando as Unidades de Computação, de, para ou dentro de uma camada de serviço Standard, deverá concluir dentro de seis horas. As novas propriedades do servidor não serão aplicadas até que as alterações sejam concluídas.
+Monitorar o gráfico de métricas no portal do Azure ou gravar comandos de CLI do Azure para medir o consumo de armazenamento e IOPS. Métricas relevantes para monitorar são o Limite de armazenamento, Porcentagem de armazenamento, Armazenamento usado e porcentagem de IO.
 
-Você pode usar o portal do Azure para escalar verticalmente, ou usar a CLI do Azure para monitorar e escalar seu servidor. Consulte: [Monitorar e escalar um único servidor PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md)
+>[!IMPORTANT]
+> Enquanto estiver no modo de visualização, escolha a quantidade de armazenamento no momento em que o servidor é criado. Ainda não há suporte para a alteração do tamanho de armazenamento em um servidor existente. 
 
-### <a name="details-about-scaling-up-or-down"></a>Detalhes sobre como escalar verticalmente
+## <a name="scaling-a-server-up-or-down"></a>Aumentar ou diminuir um único servidor
+Inicialmente, você escolher o nível de desempenho e a faixa de preços quando você cria o banco de dados do Azure para PostgreSQL. Posteriormente, você pode dimensionar as Unidades de Computação para cima ou para baixo dinamicamente, dentro do intervalo da mesma faixa de preços. No portal do Azure, deslize as Unidades de Computação na folha de faixa de preços do servidor ou script, como no exemplo a seguir: [Monitorar e escalar um único servidor PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md)
 
-- Para fazer o downgrade de um servidor, as Unidades de Armazenamento dele devem ter um tamanho inferior ao máximo permitido para a camada de serviço de destino.
-- As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se estiver fazendo downgrade, talvez você perca a capacidade de fazer uma restauração pontual ou tenha um período menor de retenção do backup. Para saber mais, confira [Como fazer backup e restaurar um Banco de Dados do Azure para servidor PostgreSQL usando o Portal do Azure](howto-restore-server-portal.md)
-- As novas propriedades do servidor não serão aplicadas até que as alterações sejam concluídas.
+Dimensionamento das Unidades de Computação é feito independentemente do tamanho máximo de armazenamento que você escolheu.
+
+A alteração da faixa de serviço e/ou nível de desempenho de um banco de dados cria uma réplica do banco de dados original com o novo nível de desempenho e então faz a transição das conexões para réplica. Nenhum dado será perdido durante esse processo. Nenhum dado é perdido durante esse processo, mas durante o breve momento em que realizamos a transição para a réplica, conexões com o banco de dados são desabilitadas, então algumas transações em andamento podem ser revertidas. Essa janela varia, mas é em média inferior a quatro segundos e, em mais de 99% dos casos, de menos de 30 segundos. Se houver grandes números de transações em andamento no momento em que as conexões estiverem desabilitadas, esta janela poderá ser maior.
+
+A duração de todo o processo de expansão depende da faixa de preço e tamanho do servidor antes e após a alteração. Por exemplo, um servidor que está mudando as Unidades de Computação, de, para ou dentro de uma camada de serviço Padrão, deverá concluir dentro de alguns minutos. As novas propriedades do servidor não serão aplicadas até que as alterações sejam concluídas.
+
+## <a name="next-steps"></a>Próximas etapas
+- Para obter mais informações, consulte [Explicando Unidades de Computação](concepts-compute-unit-and-storage.md)
+- Aprenda a [Monitorar e escalar um único servidor PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md)
 

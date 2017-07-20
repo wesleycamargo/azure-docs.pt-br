@@ -13,11 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 06/14/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 0871f061da668360ff5749f5097353645ee26c82
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -28,9 +30,15 @@ ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
 >
 >
 
-Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no Windows Server ou no cliente Windows, e como gerenciar backups e recuperações.
+Este artigo explica como usar o PowerShell para fazer backup dos dados do Windows Server ou da estação de trabalho do Windows em um cofre de backup. A Microsoft recomenda usar cofres dos Serviços de Recuperação para todas as novas implantações. Se você for um novo usuário do Backup do Azure e não tiver criado um cofre de backup na sua assinatura, use o artigo [Implantar e gerenciar dados do Data Protection Manager para o Azure usando o PowerShell](backup-client-automation.md), de modo que você armazene seus dados em um cofre dos Serviços de Recuperação. 
 
-## <a name="install-azure-powershell"></a>Instale o Azure PowerShell
+> [!IMPORTANT]
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
+>- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
+>
+
+## <a name="install-azure-powershell"></a>Instalar o Azure Powershell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Em outubro de 2015, o Azure PowerShell 1.0 foi lançado. Essa versão veio logo após a 0.9.8 e trouxe algumas alterações importantes, especialmente no padrão de nomenclatura dos cmdlets. Os cmdlets da versão 1.0 seguem o padrão de nomenclatura {verbo}-AzureRm{substantivo}; por outro lado, os nomes da versão 0.9.8 não incluem **Rm** (por exemplo, New-AzureRmResourceGroup em vez de New-AzureResourceGroup). Ao usar o Azure PowerShell 0.9.8, você deve primeiro habilitar o modo do Gerenciador de Recursos executando o comando **Switch-AzureMode AzureResourceManager** . Este comando não é necessário na 1.0 ou posterior.
@@ -605,9 +613,4 @@ Para obter mais informações sobre o Backup do Azure para Windows Server/Client
 
 * [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
 * [Fazer backup de servidores Windows](backup-configure-vault.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

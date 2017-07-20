@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0a66567d7381f38787f9aa7652c944e4bb3aef82
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 311cee724fc77256748153b5167d2a38ccba9775
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -41,19 +41,21 @@ Consulte a [página de preços do Application Insights][pricing] para preços at
 O plano Básico é o padrão quando um novo recurso do Application Insights é criado e será suficiente para a maioria dos clientes.
 
 * No plano Básico, você é cobrado pelo volume de dados: o número de bytes de telemetria recebidos pelo Application Insights. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado recebido pelo Application Insights do seu aplicativo.
+Para [dados tabulares importados para análise](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descompactado de arquivos enviados ao Application Insights.  
 * O primeiro GB para cada aplicativo é gratuito, portanto, se você estiver apenas testando ou desenvolvendo, é pouco provável que precise pagar.
 * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contatos para fins de preços.
-* [Exportação contínua](app-insights-export-telemetry.md) está disponível para um encargo de GB de extra no plano básico, embora ele é gratuito até de 2017 início de março.
+* A [exportação contínua](app-insights-export-telemetry.md) está disponível para uma cobrança adicional por GB no plano Básico.
 
 ### <a name="enterprise-plan"></a>Plano Enterprise
 
-* No plano Enterprise, seu aplicativo pode usar todos os recursos do Application Insights. A [Exportação Contínua](app-insights-export-telemetry.md) e o [Conector do Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) estão disponíveis sem nenhuma cobrança adicional no plano Enterprise.
+* No plano Enterprise, seu aplicativo pode usar todos os recursos do Application Insights. [Exportação Contínua](app-insights-export-telemetry.md) e 
+
+O [Conector do Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) está disponível sem nenhuma cobrança adicional no plano Enterprise.
 * Você paga por nó que está enviando telemetria para quaisquer aplicativos no plano Enterprise. 
  * Um *nó* é um computador de servidor físico ou virtual ou então uma instância de função de Plataforma como Serviço que hospeda seu aplicativo.
  * Computadores de desenvolvimento, navegadores do cliente e dispositivos móveis não são contados como nós.
  * Se seu aplicativo tem vários componentes que enviam telemetria, assim como um serviço Web e um trabalho de back-end, eles são contadas separadamente.
- * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contatos para fins de preços.
-* Em uma assinatura, as cobranças são por nó, não por aplicativo. Se você tiver cinco nós enviando telemetria para 12 aplicativos, a cobrança será para cinco nós.
+ * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contados para fins de preço.* Em uma assinatura, as cobranças são por nó, não por aplicativo. Se você tiver cinco nós enviando telemetria para 12 aplicativos, a cobrança será para cinco nós.
 * Embora as cobrança sejam cotadas por mês, você é cobrado apenas por aquelas horas em que um nó envia telemetria de um aplicativo. A cobrança por hora é a cobrança mensal cotada / 744 (o número de horas em um mês de 31 dias).
 * Uma alocação de volume de dados de 200 MB por dia é fornecida para cada nó detectado (com granularidade por hora). A alocação de dados não utilizados não é transferida de um dia para o seguinte.
  * Se você escolher a opção de preço Enterprise, cada assinatura receberá uma provisão diária de dados com base no número de nós enviando telemetria para os recursos do Application Insights nessa assinatura. Então, se você tiver 5 nós enviando dados todos os dias, uma provisão em pool de 1 GB será aplicada a todos os recursos do Application Insights nessa assinatura. Não importa se determinados nós estão enviando mais dados que outros, porque os dados incluídos são compartilhados entre todos os nós. Se em um determinado dia os recursos do Application Insights recebem mais dados do que está incluído na alocação de dados diária para esta assinatura, as cobranças por dados excedentes por GB se aplicam. 
@@ -79,9 +81,18 @@ O plano Básico é o padrão quando um novo recurso do Application Insights é c
 Há uma cobrança adicional para [testes na Web de várias etapas](app-insights-monitor-web-app-availability.md#multi-step-web-tests). Isso se refere a testes na Web que executam uma sequência de ações. 
 
 Não há nenhuma cobrança separada para 'testes de ping' de uma única página. A telemetria de testes de ping e de testes de várias etapas é cobrada juntamente com outras telemetrias do seu aplicativo.
+ 
+## <a name="operations-management-suite-subscription-entitlement"></a>Qualificação de assinatura do Operations Management Suite
 
-## <a name="review-pricing-plan-and-estimate-costs-for-your-application-insights-resource"></a>Examinar o plano de preços e estimar custos para seu recurso do Application Insights
-Abra a folha Recursos + Preço no recurso do Application Insights para seu aplicativo.
+Como [recentemente anunciado](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), os clientes que compram Microsoft Operations Management Suite E1 e E2 são capazes de obter Application Insights Enterprise como um componente adicional sem custo adicional. Especificamente, cada unidade adquirida do Operations Management Suite E1 e E2 incluem uma autorização para o nó 1 do plano Enterprise de Application Insights. Conforme observado acima, cada nó do Application Insights inclui até 200 MB de dados incluídos por dia (separado de ingestão de dados de análise de Log), com a retenção de dados de 90 dias sem nenhum custo adicional. 
+
+> [!NOTE]
+> Para garantir que você obtenha este direito, você deve ter os recursos do Application Insights no plano de preços Enterprise. Esse direito se aplica apenas somente aos nós, portanto os recursos do Application Insights no plano Básico não terão nenhum benefício. Observe que esse direito não ficará visível nos custos estimados mostrados na folha Recursos + preços. 
+>
+ 
+## <a name="review-pricing-plans-and-estimate-costs"></a>Examine os planos de preços e estime os custos
+
+Application Insights torna fácil de entender os planos de preços disponíveis e que os custos podem ser baseados em padrões de uso recentes. Comece abrindo a folha **Recursos + Preço** no recurso do Application Insights no portal do Azure:
 
 ![Escolha Preço.](./media/app-insights-pricing/01-pricing.png)
 

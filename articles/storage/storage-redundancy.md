@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 6a5ba89d8b17e0646cd8a6185da6d1094fd64d12
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 0237d10ccd9424da0ec10bc2773b978ffc11a294
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/23/2017
 
 ---
 # <a name="azure-storage-replication"></a>Replicação de Armazenamento do Azure
@@ -111,7 +111,9 @@ Quando você cria uma conta de armazenamento, pode selecionar a região primári
 | Centro da Índia |Sul da Índia |
 | Oeste da Índia |Sul da Índia |
 | Gov do Iowa nos EUA |Gov. dos EUA – Virgínia |
-| Gov. dos EUA – Virgínia |Gov. dos EUA – Iowa |
+| Gov. dos EUA – Virgínia |Governo dos EUA do Texas |
+| Governo dos EUA do Texas |Governo dos EUA do Arizona |
+| Governo dos EUA do Arizona |Governo dos EUA do Texas |
 | Canadá Central |Leste do Canadá |
 | Leste do Canadá |Canadá Central |
 | Oeste do Reino Unido |Sul do Reino Unido |
@@ -122,6 +124,11 @@ Quando você cria uma conta de armazenamento, pode selecionar a região primári
 | Centro-Oeste dos EUA |Oeste dos EUA 2 |
 
 Para obter informações atualizadas sobre regiões com suporte do Azure, confira [Regiões do Azure](https://azure.microsoft.com/regions/).
+
+>[!NOTE]  
+> A região secundária do US Gov - Virgínia é US Gov - Texas. Anteriormente, o US Gov - Virgínia utilizada o US Gov - Iowa como uma região secundária. As contas de armazenamento que ainda utilizam US Gov - Iowa como uma região secundária estão sendo migradas para US Gov - Texas como uma segunda região. 
+> 
+> 
 
 ## <a name="read-access-geo-redundant-storage"></a>Armazenamento com redundância geográfica com acesso de leitura
 O RA-GRS (armazenamento com redundância geográfica de acesso de leitura) maximiza a disponibilidade da sua conta de armazenamento, fornecendo acesso somente leitura aos dados no local secundário, além de replicação em duas regiões fornecido por GRS.
@@ -135,6 +142,49 @@ Considerações:
 * Se a Microsoft iniciar um failover para a região secundária, você terá acesso de leitura e gravação aos dados após o failover ter sido concluído. Para obter mais informações, confira [Guia de Recuperação de Desastres](storage-disaster-recovery-guidance.md). 
 * O RA-GRS é para fins de alta disponibilidade. Para obter as diretrizes de escalabilidade, examine a [lista de verificação de desempenho](storage-performance-checklist.md).
 
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+<a id="howtochange"></a>
+#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. Como alterar o tipo de replicação geográfica da minha conta de armazenamento?
+
+   É possível alterar o tipo de replicação geográfica de sua conta de armazenamento entre LRS, GRS e RA-GRS utilizando o [Portal do Azure](https://portal.azure.com/), o [Azure Powershell](storage-powershell-guide-full.md) ou, programaticamente, utilizando uma das muitas Bibliotecas de Clientes de Armazenamento. Observe que as contas ZRS não podem ser convertidas em LRS ou GRS. Da mesma forma, uma conta do LRS ou GRS existente não pode ser convertida em uma conta do ZRS.
+
+<a id="changedowntime"></a>
+#### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. Haverá algum tempo inoperante se eu alterar o tipo de replicação da minha conta de armazenamento?
+
+   Não, não haverá tempo inoperante.
+
+<a id="changecost"></a>
+#### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3. Haverá algum custo adicional se eu alterar o tipo de replicação da minha conta de armazenamento?
+
+   Sim. Se você alterar de LRS para GRS (ou RA-GRS) para sua conta de armazenamento isso implicará em um encargo adicional por saída associado com a cópia de dados existentes do local primário para o local secundário. Depois que os dados iniciais forem copiados não haverá mais nenhuma taxa de saída adicional para a replicação geográfica dos dados do local primário para o secundário. Os detalhes das taxas de largura de banda podem ser encontrados na página [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Se você alterar de GRS para LRS não haverá custo adicional, mas seus dados serão excluídos do local secundário.
+
+<a id="ragrsbenefits"></a>
+#### <a name="4-how-can-ra-grs-help-me"></a>4. Como RA-GRS pode me ajudar?
+   
+   O armazenamento GRS fornece replicação de seus dados de uma região primária para uma região secundária que está a centenas de quilômetros de distância da região primária. Nesse caso, seus dados serão duráveis mesmo no caso de uma interrupção regional completa ou um desastre no qual a região primária não possa ser recuperada. O armazenamento RA-GRS inclui isso e adiciona a capacidade de ler os dados do local secundário. Para algumas ideias sobre como aproveitar essa habilidade, consulte [Criar aplicativos altamente disponíveis utilizando o armazenamento RA-GRS ](storage-designing-ha-apps-with-ragrs.md). 
+
+<a id="lastsynctime"></a>
+#### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Há uma maneira de descobrir o tempo necessário para replicar meus dados da região primária para a secundária?
+   
+   Se você estiver utilizando o armazenamento RA-GRS, você poderá verificar a Hora da Última Sincronização de sua conta de armazenamento. A Hora da Última Sincronização é um valor de data/hora GMT; todas as gravações primárias antes da hora da última sincronização foram gravadas com êxito para o local secundário, significando que estão disponíveis para serem lidas a partir do local secundária. As gravações primárias após a hora da última sincronização podem ou não estarem disponíveis para leituras. Você pode consultar esse valor utilizando o [Portal do Azure](https://portal.azure.com/), o [Azure PowerShell](storage-powershell-guide-full.md), ou programaticamente, utilizando a API REST ou uma das Bibliotecas de Clientes de Armazenamento. 
+
+<a id="outage"></a>
+#### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. Como posso mudar para a região secundária se houver uma interrupção na região principal?
+   
+   Consulte o artigo [O que fazer se ocorrer uma interrupção de armazenamento do Azure ](storage-disaster-recovery-guidance.md) para obter mais informações.
+
+<a id="rpo-rto"></a>
+#### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. O que é RPO e RTO com GRS?
+   
+   RPO (Objetivo de Ponto de Recuperação): no GRS e no RA-GRS, o serviço de armazenamento sincroniza de maneira assíncrona os dados do local primário para o secundário. Se houver um grande desastre regional e for necessário realizar um failover, as recentes alterações delta que não foram replicadas geograficamente poderão ser perdidas. O número de minutos de dados potencialmente perdidos é referido como o RPO (o que significa o momento em que os dados podem ser recuperados). Normalmente, temos um RPO inferior a 15 minutos, embora atualmente não exista SLA em quanto tempo demora a replicação geográfica.
+
+   RTO (Objetivo de Tempo de Recuperação): essa é uma medida de quanto tempo demora para fazer o failover e recuperar a conta de armazenamento online, caso seja necessário realizar um failover. O tempo para realizar o failover inclui o seguinte:
+    * O tempo que demora para investigar e determinar se será possível recuperar os dados no local principal ou, se haverá a necessidade de realizar um failover.
+    * Realizar failover da conta alterando as entradas DNS primárias para apontar para o local secundário.
+
+   Nós assumimos a responsabilidade de preservar seus dados com muita seriedade, portanto, se houver alguma chance de recuperar os dados, adiaremos o failover e nos concentraremos na recuperação dos dados no local primário. No futuro, planejamos fornecer uma API para permitir que você acione um failover em um nível de conta, permitindo que você próprio controle o RTO, mas isso ainda não está disponível.
+   
 ## <a name="next-steps"></a>Próximas etapas
 * [Criando aplicativos altamente disponíveis usando o armazenamento de RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)

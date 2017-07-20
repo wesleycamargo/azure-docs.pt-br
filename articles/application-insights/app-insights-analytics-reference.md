@@ -3,7 +3,7 @@ title: "Referência do Analytics no Azure Application Insights | Microsoft Docs"
 description: "Referência de instruções na Análise, a ferramenta de pesquisa avançada do Application Insights. "
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/05/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3fb2464e3757d316367487506f0aca9f1c2e35cc
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: dd3478966e4e5ccc9f108940401c7ee9454087dd
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -35,7 +35,7 @@ Fontes de informações adicionais:
 ## <a name="index"></a>Índice
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Consultas e operadores** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Consultas e operadores** [as](#as-operator) | [autocluster](#evaluate-autocluster_v2) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns_v2) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Agregações** [qualquer](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [contagem](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentil](#percentile) | [percentuais](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [soma](#sum) | [variação](#variance)
 
@@ -44,7 +44,7 @@ Fontes de informações adicionais:
 **Números** [operadores aritméticos](#arithmetic-operators) | [Literais numéricos](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gama](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Série numérica** 
-[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) | [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) |[series_outliers](#seriesoutliers)| [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
 
 **Data e hora** [Data e tempo expressões](#date-and-time-expressions) | [Data e hora literais](#date-and-time-literals) | [atrás](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [agora](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -318,14 +318,16 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` deve ser o último operador no pipeline de consulta (exceto para uma possível `render`). Ele não pode aparecer no corpo da função.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster_v2) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns_v2) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
-#### <a name="evaluate-autocluster"></a>evaluate autocluster
+#### <a name="evaluate-autocluster-deprecated"></a>evaluate autocluster (Preterido)
      T | evaluate autocluster()
 
 Autocluster é uma maneira rápida de localizar os agrupamentos naturais em um conjunto de dados. Por exemplo, em uma massa de dados de solicitação, seria possível identificar rapidamente que 80% das falhas 404 eram solicitações para uma URL específica, feitas por um cliente em uma cidade específica.
 
 O AutoCluster encontra padrões comuns de atributos discretos (dimensões) nos dados e reduzirá os resultados da consulta original (se ela tiver 100 ou 100 mil linhas) para um número pequeno de padrões. O AutoCluster foi desenvolvido para ajudar a analisar falhas (por exemplo, exceções, panes) mas potencialmente pode funcionar em qualquer conjunto de dados filtrado. 
+
+**Esta versão de `autocluster` foi preterida. Use [autocluster_v2](#evaluate-autocluster_v2).**
 
 **Sintaxe**
 
@@ -374,6 +376,92 @@ Observe que os padrões não são separados: eles podem ser sobrepostos e geralm
   
     Exemplo: `T | evaluate autocluster("weight_column=sample_Count")` 
 
+<a name="evaluate-autocluster_v2"></a>
+
+#### <a name="evaluate-autoclusterv2"></a>evaluate autocluster_v2
+
+    T | evaluate autocluster_v2()
+
+O AutoCluster encontra padrões comuns de atributos discretos (dimensões) nos dados e reduzirá os resultados da consulta original (se ela tiver 100 ou 100 mil linhas) para um número pequeno de padrões. O AutoCluster foi desenvolvido para ajudar a analisar falhas (por exemplo, exceções, panes) mas potencialmente pode funcionar em qualquer conjunto de dados filtrado. O algoritmo AutoCluster foi desenvolvido pela equipe de pesquisa da análise do desenvolvedor (KustoML@microsoft.com).
+
+Este plug-in substitui a sintaxe de plug-in autocluster preterido.     
+
+**Sintaxe**
+`T | evaluate autocluster_v2( arguments )`
+
+**Retorna** O AutoCluster retorna um conjunto de padrões (geralmente pequeno) que capturam as partes dos dados com valores comuns compartilhados entre vários atributos discretos. Cada padrão é representado por uma linha nos resultados. A primeira coluna é o segmento Id. As duas colunas seguintes são a contagem e o percentual de linhas da consulta original capturadas pelo padrão. As colunas restantes são da consulta original e seu valor é um valor específico da coluna ou um valor de caractere curinga (que são por padrão nulo), que significa valores de variáveis. Observe que os padrões não são diferentes: eles podem ser sobrepostos e geralmente não abrangem todas as linhas originais. Nem todas as linhas podem ficar em qualquer padrão.
+
+**Dicas**Use `where` e `project` no pipe de entrada para reduzir os dados apenas aos em que você está interessado.
+Quando você encontrar uma linha interessante, talvez queira se aprofundar ainda mais adicionando seus valores específicos ao filtro `where` .
+
+**Argumentos (todos opcionais)** T' | avaliar autocluster_V2 ([*SizeWight*,*WeightColumn*,*NumSeeds*,*CustomWildcard*,...])
+
+Todos os argumentos são opcionais, mas eles devem ser classificados como acima. Para indicar que o valor padrão deve ser usado, use o caractere til "~" (consulte os exemplos abaixo).
+
+**Argumentos disponíveis**
+
+- SizeWeight - 0<*double* <1 [default 0.5] Oferece algum controle sobre o equilíbrio entre genéricos (alta cobertura) e informativos (muitos valores compartilhados). O aumento do valor normalmente reduz o número de padrões, e cada padrão tende a cobrir um percentual maior. A redução do valor geralmente produz padrões mais específicos com mais valores compartilhados e uma cobertura de percentual menor. A fórmula por trás disso é uma média geométrica ponderada entre a pontuação genérica normalizada e a pontuação informativa com *SizeWeight* e *1-SizeWeight* como os pesos. 
+
+**Exemplo**
+`T | evaluate autocluster_v2(0.8)`
+
+- WeightColumn - *column_name*
+
+Considera cada linha na entrada de acordo com o peso especificado (por padrão, cada linha tem um peso '1'). O argumento deve ser um nome de uma coluna numérica (por exemplo, int, long, real). Um uso comum de uma coluna de peso é para amostragem de conta ou agregação/segmentação de dados já incorporados a cada linha.
+
+**Exemplo**
+`T | evaluate autocluster_v2('~', sample_Count)`
+
+' - NumSeeds - *int* [padrão 25]
+
+O número de sementes determina o número de pontos de pesquisa local inicial do algoritmo. Em alguns casos, dependendo da estrutura dos dados, o aumento do número de sementes aumenta o número (ou a qualidade) dos resultados por meio de um espaço de pesquisa maior em uma consulta mais lenta. O valor tem menos resultados em ambas as direções e,portanto, reduzi-lo para menos de cinco atingirá melhorias de desempenho imperceptíveis e aumentá-lo para mais de 50 raramente gerará padrões adicionais.
+
+**Exemplo**
+`T | evaluate autocluster_v2('~','~',15)`
+
+- CustomWildcard - *any_value_per_type*
+
+Define o valor do curinga como um tipo específico na tabela de resultados, que indicará que o padrão atual não tem uma restrição para essa coluna. O padrão é nulo, pois o padrão para a cadeia de caracteres é uma cadeia de caracteres vazia. Se o padrão for um valor viável nos dados, um valor de curinga diferente deverá ser usado (por exemplo, *).
+
+**Exemplo**
+
+`T | evaluate autocluster_v2('~','~','~',int (-1), double(-1), long(0), datetime(1900-1-1))`
+
+**Exemplo**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage
+| evaluate autocluster_v2(0.6)
+```
+**Resultados**
+|SegmentId|Contagem|Porcentagem|Estado|EventType|Danos|
+----------|-----|-------|-----|---------|------|
+0|2278|38.7||Granizo|NÃO
+1|512|8.7||Thunderstorm Wind|SIM
+2|898|15.3|TEXAS|||
+
+**Exemplo com curingas personalizados**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage 
+| evaluate autocluster_v2(0.2, '~', '~', '*')
+```
+**Resultados**
+|SegmentId|Contagem|Porcentagem|Estado|EventType|Danos|
+----------|-----|-------|-----|---------|------|
+0|2278|38.7|\*|Granizo|NÃO
+1|512|8.7|\*|Thunderstorm Wind|SIM
+2|898|15.3|TEXAS|\*|\*|
+
+**Informações adicionais**
+
+-  AutoCluster em grande parte é baseado no algoritmo Seed-Expand do seguinte documento: [Algoritmos para Mineração de Dados Telemétricos usando Atributos Discretos](http://www.scitepress.org/DigitalLibrary/PublicationsDetail.aspx?ID=d5kcrO+cpEU=&t=1), link de texto completo: [pdf](https://kusto.azurewebsites.net/docs/queryLanguage/images/queries/ICPRAM17telemetry.pdf). 
+
+
 #### <a name="evaluate-basket-deprecated"></a>evaluate basket (preterido)
 
      T | evaluate basket()
@@ -417,9 +505,13 @@ Substitui a sintaxe `evaluate basket` preterida.
 
 **Retorna**
 
-Todos os padrões que aparecem em mais do que uma fração especificada (padrão de 0,05) dos eventos. Para cada padrão, as colunas que não forem definidas segundo o padrão (ou seja, sem restrição para um valor específico) conterão valores curinga que serão, por padrão, valores nulos (consulte na seção Argumentos a seguir como eles podem ser alterados manualmente).
+Carrinho retorna todos os padrões frequentes que aparecem acima do limite de taxa (padrão: 0,05) das linhas de cada padrão é representado por uma linha nos resultados.
+
+A primeira coluna é o segmento Id. As duas colunas seguintes são a contagem e o percentual de linhas da consulta original capturadas pelo padrão. As colunas restantes são da consulta original e seu valor é um valor específico da coluna ou um valor de caractere curinga (que são por padrão nulo), que significa valores de variáveis.
 
 **Argumentos (todos opcionais)**
+
+Exemplo: `T | evaluate basket_v2([Threshold, WeightColumn, MaxDimensions, CustomWildcard, CustomWildcard, ...])`
 
 Todos os argumentos são opcionais, mas devem estar na seguinte ordem. Para indicar que um valor padrão deve ser usado, use o caractere til "~" (consulte os exemplos abaixo).
 
@@ -427,32 +519,69 @@ Todos os argumentos são opcionais, mas devem estar na seguinte ordem. Para indi
   
     Define a proporção mínima de linhas a ser considerado como frequente (os padrões com uma proporção menor não serão retornados).
   
-    Exemplo: `T | evaluate basket(0.02)`
-* *itemCount* da coluna de peso
+    Exemplo: `T | evaluate basket_v2(0.02)`
+* Weight column *-column_name*
   
-    Use para levar em consideração a pré-agregação de métricas e a amostragem. A cada linha é atribuído o peso especificado nesta coluna. Por padrão, cada linha tem o peso igual a "1". Isso leva em conta o particionamento ou a agregação dos dados que já estão incorporados a cada linha.
+    Considera cada linha na entrada de acordo com o peso especificado (por padrão, cada linha tem um peso '1'). O argumento deve ser um nome de uma coluna numérica (por exemplo, int, long, real). Um uso comum de uma coluna de peso é para amostragem de conta ou agregação/segmentação de dados já incorporados a cada linha.
   
-    Exemplo: `T | evaluate basket('~', itemCount)`
+    Exemplo: `T | evaluate basket_v2('~', sample_Count)`
 * Dimensões máximas: 1 < *int* (padrão: 5)
   
     Define o número máximo de dimensões não correlacionadas por cesta, limitado por padrão para diminuir o tempo de execução de consulta.
 
-    Exemplo: `T | evaluate basket('~', '~', 3)`
+    Exemplo: `T | evaluate basket_v2('~', '~', 3)`
 * Tipos de curinga personalizados: *qualquer valor por tipo*
   
     Define o valor do curinga como um tipo específico na tabela de resultados, que indicará que o padrão atual não tem uma restrição para essa coluna. O padrão é nulo, pois o padrão para a cadeia de caracteres é uma cadeia de caracteres vazia. Se o padrão for um valor viável nos dados, um valor de curinga diferente deverá ser usado (por exemplo, *).
 
     Exemplo: `T | evaluate basket_v2('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
 
-**Exemplo**
+**Exemplos**
 
-``` AIQL
-requests 
-| evaluate basket_v2(0.7, itemCount)
+``` 
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2)
 ```
+Resultados
 
-#### <a name="evaluate-diffpatterns"></a>evaluate diffpatterns
-     requests | evaluate diffpatterns("split=success")
+|SegmentId|Contagem|Porcentagem|Estado|EventType|Danos|DamageCrops
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77.7|||NÃO|0
+1|2278|38.7||Granizo|NÃO|0
+2|5675|96.4||||0
+3|2371|40.3||Granizo||0
+4|1279|21.7||Thunderstorm Wind||0
+5|2468|41.9||Granizo|||
+6|1310|22.3|||SIM||
+7|1291|21.9||Thunderstorm Wind||
+
+Exemplo com curingas personalizados
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2, '~', '~', '*', int(-1))
+```
+Resultados
+
+|SegmentId|Contagem|Porcentagem|Estado|EventType|Danos|DamageCrops
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77.7|\*|\*|NÃO|0
+1|2278|38.7|\*|Granizo|NÃO|0
+2|5675|96.4|\*|\*|\*|0
+3|2371|40.3|\*|Granizo|\*|0
+4|1279|21.7|\*|Thunderstorm Wind|\*|0
+5|2468|41.9|\*|Granizo|\*|-1|
+6|1310|22.3|\*|\*|SIM|-1|
+7|1291|21.9|\*|Thunderstorm Wind|\*|-1|
+
+#### <a name="evaluate-diffpatterns-deprecated"></a>evaluate diffpatterns (Preteridos)
+**Esta versão do plug-in do diffpatterns foi preterida. Use a nova sintaxe de plug-in [diffpatterns](#evaluate-diffpatterns_v2).**
+solicitações | avaliar diffpatterns("split=success")
 
 Diffpatterns identifica as diferenças entre dois conjuntos de dados da mesma estrutura – por exemplo, o log de solicitações no momento de um incidente e logs de solicitações normais. Diffpatterns foi desenvolvido para ajudar a analisar falhas (por exemplo, ao comparar falhas a não falhas em um determinado período de tempo), mas pode encontrar diferenças entre quaisquer dois conjuntos de dados da mesma estrutura. 
 
@@ -502,6 +631,110 @@ Observe que os padrões não são diferentes: eles podem ser sobrepostos e geral
     Considera cada linha na entrada de acordo com o peso especificado (por padrão, cada linha tem um peso '1'). Um uso comum de uma coluna de peso é para amostragem de conta ou agregação/segmentação de dados já incorporados a cada linha.
   
     `requests | evaluate autocluster("weight_column=itemCount")`
+
+<a name="evaluate-diffpatterns_v2"></a>
+#### <a name="evaluate-diffpatternsv2"></a>evaluate diffpatterns_v2
+'T | avaliar diffpatterns_v2(splitColumn)'
+
+Diffpatterns compara dois conjuntos de dados da mesma estrutura e localiza os padrões de atributos discretos (dimensões) que caracterizam as diferenças entre os dois conjuntos de dados. Diffpatterns foi desenvolvido para ajudar a analisar falhas (por exemplo, ao comparar falhas a não falhas em um determinado período de tempo), mas pode encontrar diferenças entre quaisquer dois conjuntos de dados da mesma estrutura. O algoritmo Diffpatterns foi desenvolvido pela equipe de pesquisa da análise do desenvolvedor (KustoML@microsoft.com).
+
+Este plug-in substitui a sintaxe de plug-in diffpatterns preterido.
+
+**Sintaxe**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, arguments] )`
+
+**Retorna**
+
+Diffpatterns retorna um conjunto de padrões (geralmente pequeno) que capturam diferentes partes dos dados em conjuntos de dois (ou seja, um padrão que captura um percentual alto das linhas no primeiro conjunto de dados e um percentual baixo das linhas do segundo conjunto). Cada padrão é representado por uma linha nos resultados.
+A primeira coluna é o segmento Id. As quatro colunas seguintes são a contagem e o percentual de linhas da consulta original capturadas pelo padrão em cada conjunto, a sexta coluna é a diferença (em pontos absolutos de percentual) entre os dois conjuntos. As colunas restantes são da consulta original.
+Para cada padrão, as colunas que não forem definidas segundo o padrão (ou seja, sem restrição para um valor específico) conterão um valor curinga que será nulo por padrão (consulte na seção Argumentos a seguir como valores curingas podem ser alterados manualmente).
+Observe que os padrões não são diferentes: eles podem ser sobrepostos e geralmente não abrangem todas as linhas originais. Nem todas as linhas podem ficar em qualquer padrão.
+
+**Dicas**
+
+Use where e project no pipe de entrada para reduzir os dados apenas aos em que você está interessado.
+Quando você encontrar uma linha interessante, talvez queira se aprofundar ainda mais adicionando seus valores específicos ao filtro `where` .
+
+**Argumentos necessários**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
+
+- SplitColumn - *column_name* 
+
+Informa o algoritmo como dividir a consulta em conjuntos de dados. Conforme os valores especificados para os argumentos SplitValueA e SplitValueB (veja abaixo), o algoritmo divide a consulta em dois conjuntos de dados, "A" e "B" e analisa as diferenças entre eles. Como tal, a coluna de divisão deve ter pelo menos dois valores distintos.
+
+- SplitValueA - *cadeia de caracteres*
+
+Uma representação de cadeia de caracteres de um dos valores na SplitColumn que foi especificado. Todas as linhas que têm esse valor em seu SplitColumn considerado como "A" do conjunto de dados.
+
+- SplitValueB - *cadeia de caracteres*
+
+Uma representação de cadeia de caracteres de um dos valores na SplitColumn que foi especificado. Todas as linhas que têm esse valor em seu SplitColumn considerado como "B" do conjunto de dados.
+
+**Exemplo**
+
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure")
+```
+**Argumentos Opcionais**
+
+Todos os outros argumentos são opcionais, mas eles devem ser classificados como abaixo. Para indicar que o valor padrão deve ser usado, use o caractere til "~" (consulte os exemplos abaixo).
+
+- WeightColumn - *column_name*
+
+Considera cada linha na entrada de acordo com o peso especificado (por padrão, cada linha tem um peso '1'). O argumento deve ser um nome de uma coluna numérica (por exemplo, int, long, real). Um uso comum de uma coluna de peso é para amostragem de conta ou agregação/segmentação de dados já incorporados a cada linha.
+
+**Exemplo**
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", sample_Count)
+```
+- Limite - 0,015 < double < 1 [padrão: 0,05]
+
+Define a diferença mínima padrão (proporção) entre os dois conjuntos.
+
+**Exemplo**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", 0.04)
+```
+- MaxDimensions - 0 < int [padrão: ilimitado]
+
+Define o número máximo de dimensões não correlacionadas por padrão de resultados, especificando que um limitado diminui o tempo de execução de consulta.
+
+**Exemplo**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", 3)
+```
+- CustomWildcard - *any_value_per_type*
+
+Define o valor do curinga como um tipo específico na tabela de resultados, que indicará que o padrão atual não tem uma restrição para essa coluna. O padrão é nulo, pois o padrão para a cadeia de caracteres é uma cadeia de caracteres vazia. Se o padrão for um valor viável nos dados, um valor de curinga diferente deverá ser usado (por exemplo, *). Veja um exemplo abaixo.
+
+**Exemplo**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))
+```
+
+**Exemplo**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , 1 , 0)
+| project State , EventType , Source , Damage, DamageCrops
+| evaluate diffpatterns_v2(Damage, "0", "1" )
+```
+**Resultados**
+
+|SegmentId|CountA|CountB|PercentA|PercentB|DiffAB|Estado|EventType|Fonte|DamageCrops
+----------|------|------|--------|--------|------|-----|---------|------|-----------
+0|2278|93|49.8|7.1|42.7||Granizo||0
+1|779|512|17.03|39.08|22.05||Thunderstorm Wind|||
+2|1098|118|24.01|9.01|15|||Spotter Treinado|0|
+3|136|158|2.97|12.06|9.09|||Jornal||
+4|359|214|7.85|16.34|8.49||Saturação de Flash|||
+5|50|122|1.09|9.31|8.22|IOWA||||
+6|655|279|14.32|21.3|6.98|||Aplicação da lei||
+7|150|117|3.28|8.93|5.65||Saturação|||
+8|362|176|7.91|13.44|5.52|||Gerenciador de emergência||
 
 #### <a name="evaluate-extractcolumns"></a>evaluate extractcolumns
      exceptions | take 1000 | evaluate extractcolumns("details=json") 
@@ -2347,7 +2580,41 @@ range t from 1 to 1 step 1
 |2,0|3.0|
 |3.0|6,0|
 |4,0|10.0|
+### <a name="seriesoutliers"></a>series_outliers 
 
+A função series_outliers() considera uma coluna que contém uma matriz dinâmica como entrada e gera uma matriz numérica dinâmica do mesmo comprimento de entrada. Cada valor da matriz indica uma pontuação que indica uma possível anomalia usando o teste do Tukey. Um valor maior que 1,5 ou menor que-1.5 indica uma anomalia de aumento ou diminuição respectivamente no mesmo elemento de entrada.  
+
+**Sintaxe**  
+
+```
+series_outliers(x,kind,ignore_val,min_percentile,max_percentile)  
+```
+**Argumentos** 
+* *x:* célula de matriz dinâmica, que é uma matriz de valores numéricos. Os valores são considerados equidistante, caso contrário, ele pode produzir resultados inesperados.  
+* *tipo:* Algoritmo de detecção de exceções. Atualmente suporta para "tukey" e "ctukey". O padrão é "ctukey".  
+* *ignore_val:* valor numérico que indica valores ausentes na série, o padrão é double(null).
+* *min_percentile:* para cálculo do intervalo interquantil normal, o padrão é 10 (ctukey).
+* *max_percentile:* para cálculo do intervalo interquantil normal, o padrão é 90 (ctukey).
+
+A tabela a seguir descreve as diferenças entre "tukey" e "ctukey":
+
+|Algoritmo|Intervalo de quantil padrão|Dá suporte ao intervalo de quantil personalizado|
+|---------|----------------------|------------------------------|
+|"tukey"|25% / 75%|Não|
+|"ctukey"|10% / 90%|Sim|
+
+**Observação importante**A maneira mais conveniente de usar essa função é aplicá-la aos resultados do `make-series`operador.
+
+**Exemplos** 
+
+Para a seguinte entrada   
+```
+[30,28,5,27,31,38,29,80,25,37,30]
+``` 
+series_outliers() retorna  
+[0.0,0.0,-3.206896551724138,-0.1724137931034483,0.0,2.6666666666666667,0.0,16.666666666666669,-0.4482758620689655,2.3333333333333337,0.0]
+
+ou seja, 5 é uma anomalia em recusar e 80 é uma anomalia no aumento comparado com o restante da série. 
 
 ### <a name="seriesperiods"></a>series_periods
 
@@ -3095,7 +3362,8 @@ Para criar um literal dinâmico, use `parsejson` (alias `todynamic`) com um argu
 * `parsejson('21')` - um único valor de tipo dinâmico que contém um número
 * `parsejson('"21"')` - um único valor de tipo dinâmico que contém uma cadeia de caracteres
 
-> ![OBSERVAÇÃO] Aspas duplas (`"`) devem ser usadas entre rótulos e valores de cadeia de caracteres em JSON. Portanto, é geralmente mais fácil citar literais de uma cadeia de caracteres codificada em JSON usando aspas simples (`'`).
+> [!NOTE]
+> Aspas duplas (`"`) devem ser usadas entre rótulos e valores de cadeia de caracteres em JSON. Portanto, é geralmente mais fácil citar literais de uma cadeia de caracteres codificada em JSON usando aspas simples (`'`).
 > 
 
 Este exemplo cria um valor dinâmico e então usa seus campos:
@@ -3279,7 +3547,7 @@ No exemplo a seguir, `customDimensions.person` é um `string` que se parece com 
 "\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
-então, o fragmento a seguir recupera o valor do slot `duration` no objeto e, por meio disso, recupera dois slots, `duration.value` e  `duration.min` (`118.0` e `110.0`, respectivamente).
+então, o fragmento a seguir recupera o valor do slot `duration` no objeto e, por meio disso, recupera dois slots, `duration.value` e `duration.min` (`118.0` e `110.0`, respectivamente).
 
 ```AIQL
 customEvents
@@ -3288,7 +3556,8 @@ customEvents
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
-> ![OBSERVAÇÃO] Caracteres de aspas duplas devem ser usados entre rótulos e valores de cadeia de caracteres em JSON. 
+> [!NOTE]
+> Caracteres de aspas duplas devem ser usados entre rótulos e valores de cadeia de caracteres em JSON. 
 >
 
 

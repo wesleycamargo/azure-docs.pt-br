@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5cce2dec867478707457a5e1390980129421ae75
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 771e3d1e728f6c85d9f63111b2483d08396ef530
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -34,7 +35,7 @@ Decisões:
 
 * Você pretende usar o Azure Managed Disks ou discos não gerenciados?
 * Você precisa usar o armazenamento Standard ou Premium para sua carga de trabalho?
-* Você precisa da distribuição de discos para criar discos com mais de 1.023 GB?
+* Você precisa de distribuição de disco para criar discos maiores que 4TB?
 * Você precisa da distribuição de discos para obter o desempenho de E/S ideal para sua carga de trabalho?
 * De que conjunto de contas de armazenamento você precisa para hospedar a infraestrutura ou a carga de trabalho de TI?
 
@@ -63,7 +64,7 @@ Durabilidade e alta disponibilidade são fornecidas pelo ambiente de Armazenamen
 
 Você pode ler [mais sobre as opções de replicação para alta disponibilidade](../../storage/storage-introduction.md#replication-for-durability-and-high-availability).
 
-Discos do sistema operacional e discos de dados têm um tamanho máximo de 1023 GB (gigabytes). O tamanho máximo de um blob é de 1024 GB e deve conter os metadados (rodapé) do arquivo VHD (um GB tem 1024<sup>3</sup> bytes). É possível usar o LVM (Gerenciador de Volume Lógico) para ultrapassar esse limite com o pool de discos de dados para apresentar volumes lógicos maiores que 1.023 GB à sua VM.
+Discos do sistema operacional e discos de dados possuem um tamanho máximo de 4TB. É possível usar o LVM (Gerenciador de Volume Lógico) para ultrapassar esse limite com o pool de discos de dados para apresentar volumes lógicos maiores que 1.023 GB à sua VM.
 
 Há alguns limites de escalabilidade ao projetar suas implantações do Armazenamento do Azure. Para obter mais informações, consulte [Assinatura do Microsoft Azure e limite de serviços, cotas e restrições](../../azure-subscription-service-limits.md#storage-limits). Consulte também [Metas de desempenho e escalabilidade do armazenamento do Azure](../../storage/storage-scalability-targets.md).
 
@@ -72,16 +73,15 @@ Para armazenamento de aplicativos, é possível armazenar dados de objeto não e
 ## <a name="striped-disks"></a>Discos distribuídos
 Além de permitir que você crie discos com mais de 1023 GB, em muitos casos, o uso da distribuição para discos de dados pode melhorar o desempenho, permitindo que vários blobs façam o armazenamento de um único volume. Com a distribuição, a E/S necessária para gravar e ler dados de um único disco lógico continua em paralelo.
 
-O Azure impõe limites no número de discos de dados e na quantidade de largura de banda disponíveis, dependendo do tamanho da VM. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+O Azure impõe limites no número de discos de dados e na quantidade de largura de banda disponíveis, dependendo do tamanho da VM. Para detalhes, consulte [Tamanhos para máquinas virtuais] (sizes.md
 
 Se você estiver usando a distribuição de disco para os discos de dados do Azure, considere as seguintes diretrizes:
 
-* Os discos de dados devem ter sempre o tamanho máximo (1023 GB).
 * Anexar o número máximo de discos de dados permitidos para o tamanho da VM.
 * Use o LVM.
 * Evite usar opções de cache de disco de dados do Azure (política de cache = Nenhuma).
 
-Para obter mais informações, veja [Configuração de LVM em uma VM do Linux](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais informações, veja [Configuração de LVM em uma VM do Linux](configure-lvm.md).
 
 ## <a name="multiple-storage-accounts"></a>Várias contas de armazenamento
 Esta seção não se aplica ao [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), pois você não cria contas de armazenamento separadas. 

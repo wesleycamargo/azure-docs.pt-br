@@ -3,7 +3,7 @@ title: "Eu uso os serviços móveis, como o serviço de aplicativo ajuda?"
 description: "Saiba quais são as vantagens que o Serviço de Aplicativo traz para os projetos de serviços móveis existentes."
 services: app-service\mobile
 documentationcenter: ios
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
@@ -19,7 +19,6 @@ ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
 ms.contentlocale: pt-br
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="getting-started"> </a>Eu uso os serviços móveis, como o serviço de aplicativo ajuda?
@@ -65,5 +64,4 @@ Faça backup automático de seu back-end e banco de dados. O seu código e dados
 Com o *Serviço de Aplicativo do Azure* , agora você pode criar vários ambientes particulares de teste e preparo para seus aplicativos móveis. Use-os para executar testes antes de implantar. Alterne para a produção sem tempo de inatividade. Aplicativos Web são pré-carregados, garantindo a melhor experiência do cliente.
 
 Você pode começar aproveitando o *Serviço de Aplicativo* de seu Serviço Móvel existente seguindo este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
-
 

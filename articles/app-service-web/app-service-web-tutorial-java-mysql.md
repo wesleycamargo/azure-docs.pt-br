@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3a8bc6b11cccf7f6b277e800dbcedcd90e87006
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 5a6e4431ef25c66e1863a679f0db1363a83f4769
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -44,11 +44,12 @@ Neste tutorial, você aprenderá como:
 1. [Baixe e instale o Git](https://git-scm.com/)
 1. [Baixe e instale o Java JDK 7 ou superior](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Baixe, instale e inicie o MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-1. [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-local-mysql"></a>Preparar o MySQL local 
 
@@ -56,7 +57,7 @@ Nesta etapa, você cria um banco de dados em seu servidor MySQL local para uso a
 
 ### <a name="connect-to-mysql-server"></a>Conectar ao servidor MySQL
 
-Conecte-se ao servidor MySQL local na linha de comando:
+Em uma janela de terminal, conecte-se ao servidor MySQL local. Você pode usar essa janela do terminal para executar todos os comandos deste tutorial.
 
 ```bash
 mysql -u root -p
@@ -86,7 +87,7 @@ Nesta etapa, você clona o aplicativo de inicialização de exemplo Primavera, c
 
 ### <a name="clone-the-sample"></a>Clonar o exemplo
 
-No prompt de comando, navegue até um diretório de trabalho e clone o repositório de exemplo. 
+Na janela do terminal, navegue até um diretório de trabalho e clone o repositório de exemplo. 
 
 ```bash
 git clone https://github.com/azure-samples/mysql-spring-boot-todo
@@ -94,7 +95,7 @@ git clone https://github.com/azure-samples/mysql-spring-boot-todo
 
 ### <a name="configure-the-app-to-use-the-mysql-database"></a>Configurar o aplicativo para usar o banco de dados MySQL
 
-Atualização de `spring.datasource.password` e o valor em *spring-boot-mysql-todo/src/main/resources/application.properties* com a mesma senha raiz usada para abrir o prompt de comando do MySQL:
+Atualização de `spring.datasource.password` e o valor em *spring-boot-mysql-todo/src/main/resources/application.properties* com a mesma senha raiz usada para abrir o prompt do MySQL:
 
 ```
 spring.datasource.password=mysqlpass
@@ -109,14 +110,14 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Abra seu navegador para http://localhost:8080 para ver o exemplo em ação. Conforme você adiciona tarefas à lista, use os comandos SQL a seguir no prompt de comando do MySQL para exibir os dados armazenados no MySQL.
+Abra seu navegador para http://localhost:8080 para ver o exemplo em ação. Conforme você adiciona tarefas à lista, use os comandos SQL a seguir no prompt do MySQL para exibir os dados armazenados no MySQL.
 
 ```SQL
 use testdb;
 select * from todo_item;
 ```
 
-Interrompa o aplicativo pressionando `Ctrl`+`C` no prompt de comando. 
+Interrompa o aplicativo pressionando `Ctrl`+`C` no terminal. 
 
 ## <a name="create-an-azure-mysql-database"></a>Criar um banco de dados MySQL do Azure
 

@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/14/2017
+ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 0494e684d1996fe6208589b6dd806ecdcc2b7822
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: e19c09558285497f29eb78b4f4ae5b15d7f1a191
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -39,7 +39,7 @@ Crie um grupo de recursos com [az group create](/cli/azure/group#create). O exem
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma VM com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada *myVM* com um usuário chamado *azureuser* usando autenticação de chave pública SSH e uma entrada DNS pública do *mypublicdns*:
+Crie uma VM com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM nomeada *myVM* com um usuário nomeado *azureuser* utilizando autenticação de chave pública SSH
 
 ```azurecli
 az vm create \
@@ -47,20 +47,13 @@ az vm create \
     --name myVM \
     --image CentOS \
     --admin-username azureuser \
-    --generate-ssh-keys \
-    --public-ip-address-dns-name mypublicdns
+    --generate-ssh-keys
 ```
 
-Faça logon na VM usando o endereço DNS público de sua VM. Você pode exibir o endereço DNS público com [az vm show](/cli/azure/vm#show):
-
-```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
-```
-
-SSH para sua VM usando seu próprio nome de usuário e endereço DNS público:
+SSH para a VM utilizando seu próprio nome de usuário e `publicIpAddress` listado na saída da etapa anterior:
 
 ```bash
-ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+ssh azureuser@<publicIpAddress>
 ```
 
 Para adicionar fontes de instalação para o MongoDB, crie um arquivo de repositório **yum** da seguinte maneira:
@@ -228,6 +221,8 @@ az group deployment show \
 
 ## <a name="next-steps"></a>Próximas etapas
 Nesses exemplos, você se conecta à instância do MongoDB localmente da VM. Se você desejar conectar-se à instância do MongoDB de outra VM ou de rede, certifique-se de que as devidas [regras de Grupo de Segurança de Rede tenham sido criadas](nsg-quickstart.md).
+
+Esses exemplos implantam o ambiente do MongoDB principal para fins de desenvolvimento. Aplique as opções de configuração de segurança necessárias para o seu ambiente. Para obter mais informações, consulte os [documentos de segurança do MongoDB](https://docs.mongodb.com/manual/security/).
 
 Para obter mais informações sobre a criação de modelos, veja a [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 

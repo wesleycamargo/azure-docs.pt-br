@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 3ad4e68b90979fd7f9d3ddf5278e65e19cb07152
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 03/21/2017
 > [!div class="op_single_selector"]
 > * [Portal](resource-group-portal.md) 
 > * [CLI do Azure](xplat-cli-azure-resource-manager.md)
-> * [PowerShell do Azure](powershell-azure-resource-manager.md)
+> * [Azure PowerShell](powershell-azure-resource-manager.md)
 > * [API REST](resource-manager-rest-api.md)
 > 
 > 
@@ -45,18 +46,18 @@ Para obter uma lista de todos os grupos de recursos em sua assinatura e suas loc
 
 
 ### <a name="resources"></a>Recursos
- Para listar todos os recursos em um grupo, como um de nome *testRG*, por exemplo, use o comando a seguir.
+ Para listar todos os recursos em um grupo, como um de nome *testRG*, por exemplo, use o comando a seguir:
 
     azure resource list testRG
 
-Para exibir um recurso individual dentro do grupo, como uma VM denominada *MyUbuntuVM*, use um comando semelhante ao seguinte.
+Para exibir um recurso individual dentro do grupo, como uma VM denominada *MyUbuntuVM*, use um comando semelhante ao seguinte:
 
     azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
 Observe o parâmetro **Microsoft.Compute/virtualMachines**. Esse parâmetro indica o tipo do recurso sobre o qual você está solicitando informações.
 
 > [!NOTE]
-> Ao usar os comandos **azure resource** que não sejam o comando **list**, você deve especificar a versão da API do recurso com o parâmetro **-o**. Se você não tiver certeza sobre a versão da API a ser usada, consulte o arquivo de modelo e localize o campo apiVersion do recurso. Para saber mais sobre as versões da API no Resource Manager, consulte [Provedores do Resource Manager, regiões, versões de API e esquemas](resource-manager-supported-services.md).
+> Ao usar os comandos **azure resource** que não sejam o comando **list**, você deve especificar a versão da API do recurso com o parâmetro **-o**. Se você não tiver certeza sobre a versão da API a ser usada, consulte o arquivo de modelo e localize o campo apiVersion do recurso. Para obter mais informações sobre as versões da API no Resource Manager, consulte [Provedores de recursos e tipos](resource-manager-supported-services.md).
 > 
 > 
 
@@ -81,7 +82,7 @@ Para adicionar um recurso como uma conta de armazenamento a um grupo de recursos
 
 Além de especificar a versão da API do recurso com o parâmetro **-o**, use o parâmetro **-p** para passar uma cadeia de caracteres formatada em JSON com quaisquer propriedades necessárias ou adicionais.
 
-Para excluir um recurso existente, como um recurso de máquina virtual, use um comando como o seguinte.
+Para excluir um recurso existente, como um recurso de máquina virtual, use um comando como o seguinte:
 
     azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
@@ -110,7 +111,7 @@ Em seguida, execute o comando **policy definition create**:
 
     azure policy definition create MyPolicy -p c:\temp\policy.json
 
-Esse comando exibe uma saída semelhante à seguinte.
+Esse comando exibe uma saída semelhante à seguinte:
 
     + Creating policy definition MyPolicy data:    PolicyName:             MyPolicy data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
 
